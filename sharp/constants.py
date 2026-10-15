@@ -13,6 +13,11 @@ THREAD = "Matt Downs thread, upside.tools, 10/13/2026 (pooled NFL/NBA/MLB, hand-
 # ---------------------------------------------------------------- rules (spec) ----
 EXCHANGE_SPREAD_MAX = dict(value=0.04, status="rule", source=f"{SPEC} §5; revisit at 10k events",
                            note="exchange mid enters the ruler only when ask-bid <= this; wider is logged, flagged wide, excluded")
+EXCHANGE_MIN_DEPTH_USD = dict(value=500, status="rule", source="Sean 10/15 (Chuba Hubbard CAR@PHI, Novig -2400 bid with $2.4k vs $61 on the other side): an exchange quote enters the "
+                                                              "ruler only with at least this many resting dollars within 3c of best ON EACH SIDE; otherwise flagged thin")
+EXCHANGE_OUTLIER_PTS = dict(value=0.05, status="rule", source="Sean 10/15: a passing exchange quote more than this far (probability points) from the median of the books on the same "
+                                                              "line is flagged outlier and excluded unless 2+ other venues sit within 3 pts of it; one big make order is not a price")
+EXCHANGE_OUTLIER_CONFIRM = dict(value=2, status="rule", source="companion to exchange_outlier_pts: venues within 3 pts needed to keep an outlying exchange quote")
 DISAGREEMENT_THRESHOLD_ML = dict(value=0.02, status="rule", source=f"{SPEC} §6 Test B/C (thread definition); revisit after first run")
 DISAGREEMENT_THRESHOLD_LINE = dict(value=0.5, status="rule", source=f"{SPEC} §6 Test B")
 MIN_EVENTS_GAME_LINES = dict(value=1500, status="rule", source=f"{SPEC} §6 publication gate")
@@ -82,7 +87,8 @@ RULER_ELIGIBLE = {v for v, c in VENUE_CLASS.items() if c in ("exchange", "sharp_
 def dump():
     """Flat listing for the constants panel on the dashboard."""
     out = []
-    for name, c in [("exchange_spread_max", EXCHANGE_SPREAD_MAX), ("disagreement_threshold_ml", DISAGREEMENT_THRESHOLD_ML),
+    for name, c in [("exchange_spread_max", EXCHANGE_SPREAD_MAX), ("exchange_min_depth_usd", EXCHANGE_MIN_DEPTH_USD),
+                    ("exchange_outlier_pts", EXCHANGE_OUTLIER_PTS), ("exchange_outlier_confirm", EXCHANGE_OUTLIER_CONFIRM), ("disagreement_threshold_ml", DISAGREEMENT_THRESHOLD_ML),
                     ("disagreement_threshold_line", DISAGREEMENT_THRESHOLD_LINE), ("min_events_game_lines", MIN_EVENTS_GAME_LINES),
                     ("min_prop_rows", MIN_PROP_ROWS), ("min_pairs_props", MIN_PAIRS_PROPS), ("min_events_devig_fit", MIN_EVENTS_DEVIG_FIT),
                     ("weight_cap", WEIGHT_CAP), ("new_venue_days", NEW_VENUE_DAYS), ("close_window_min", CLOSE_WINDOW_MIN), ("horizon_tolerance_min", HORIZON_TOLERANCE_MIN),

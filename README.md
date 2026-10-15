@@ -41,6 +41,12 @@ Every tick stores both sides as rows. Exchanges store bid/ask/mid; `implied` is 
 
 ## The ruler
 
+An exchange quote is a price only when it is two-sided, inside 4¢, has at least $500 resting within 3¢ of best **on each side**, and is not alone:
+a quote more than 5 pts from the book median needs two other venues within 3 pts or it is flagged `outlier` and left out (Sean 10/15: one big make
+order on Novig is not a fair — Chuba Hubbard over 67.5 at -2400 with $2.4k vs $61 on the other side; the market was -112 to -125). Excluded quotes
+stay in the log and show on the ladder with the reason (`wide 41c`, `thin $61`, `outlier +31pts`); their weight goes to the venues that passed.
+`tests/test_ruler_rules.py` pins those cases.
+
 `fair.py`: per venue, devig (power by default; proportional and Shin implemented, chosen by calibration at 2,000 events) or the exchange mid when the
 spread is ≤ 4¢; weighted average with the prior vector from `constants.py` (the thread's hand-set weights, renormalised, every venue capped at 60%).
 Books older than 45 min and exchange quotes older than 45 min do not enter. A fair is shown on the board only with ≥3 ruler venues.

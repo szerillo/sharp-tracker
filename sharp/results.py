@@ -65,7 +65,7 @@ def main():
     now = dt.datetime.now(dt.timezone.utc)
     for pk, start in conn.execute("SELECT event_id, start_utc FROM events").fetchall():
         if pk in have and have[pk]['status'] in ('final', 'postponed'): continue
-        if N.parse_ts(start) > now - dt.timedelta(hours=2) or OFFLINE: continue
+        if N.parse_ts(start) > now - dt.timedelta(hours=2) or OFFLINE: continue   # OFFLINE: still reload results.jsonl into the table below
         r = pull(pk)
         if r:
             have[pk] = r; new += 1

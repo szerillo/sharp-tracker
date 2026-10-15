@@ -192,11 +192,13 @@ def add_exchange_pair(ts, ev, market, side_yes, side_no, venue, feed, src, bid, 
     flags = []
     if bid is not None and ask is not None and ask - bid > 0.04: flags.append('wide')
     if (bid or 0) <= 0 or (ask or 1) >= 1: flags.append('oneside')
+    ex_yes = dict(extra or {}); ex_no = dict(extra or {})
+    if extra and 'yes_depth3' in extra: ex_yes['depth3'] = extra.get('yes_depth3'); ex_no['depth3'] = extra.get('no_depth3')
     T.add(ts, ev, None, market, side_yes, venue, feed, src, participant=part_yes, player_name=player_name, line=line, bid=bid, ask=ask, last=last,
-          volume=vol, flags=flags, extra=extra)
+          volume=vol, flags=flags, extra=ex_yes or None)
     nb = (1 - ask) if ask is not None else None; na = (1 - bid) if bid is not None else None
     T.add(ts, ev, None, market, side_no, venue, feed, src, participant=part_no, player_name=player_name, line=line if line_no is None else line_no,
-          bid=nb, ask=na, last=(1 - last) if last else None, volume=vol, flags=flags, extra=extra)
+          bid=nb, ask=na, last=(1 - last) if last else None, volume=vol, flags=flags, extra=ex_no or None)
 
 
 def load_kalshi_games():
@@ -343,7 +345,7 @@ def load_novig():
                 elif 1 - sum(bids) > 0.04: flags.append('wide')
                 for s, (bid, ask, o) in ss.items():
                     if bid is None and ask is None: continue
-                    extra = {'qty_best': o.get('qty_best'), 'qty_3c': o.get('qty_3c')} if o else None
+                    extra = {'qty_best': o.get('qty_best'), 'qty_3c': o.get('qty_3c'), 'depth3': round(float(o.get('qty_3c') or 0) * float(bid or 0), 2)} if o else None
                     p = part.get(s) if isinstance(part, dict) else part
                     T.add(ts, ev, None, market, s, 'Novig', 'novig_api', src, participant=p, player_name=player, line=line, bid=bid, ask=ask, flags=flags, extra=extra)
                 n += 1

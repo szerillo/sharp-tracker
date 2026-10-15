@@ -37,12 +37,20 @@ def capped_weights(w):
     return n
 
 
+def depth_usd(r):
+    """Resting dollars within 3c of best on this side (build_db writes `depth3` per row: Novig contracts x price, Kalshi oblog dollars). None if unknown."""
+    try: x = json.loads(r[14]) if r[14] else None
+    except Exception: return None
+    if not x or x.get('depth3') is None: return None
+    return float(x['depth3'])
+
+
 class EventQuotes:
     """All ticks of one event in memory, indexed by (venue, market, line, side) and sorted by time."""
     def __init__(self, conn, event_id):
         self.idx = collections.defaultdict(list)
         self.event = conn.execute("SELECT event_id, et_date, start_utc, away, home FROM events WHERE event_id=?", (event_id,)).fetchone()
-        for r in conn.execute("""SELECT ts_utc, venue, market, line, side, implied, bid, ask, mid, flags, price_american, "limit", participant, player_name FROM ticks
+        for r in conn.execute("""SELECT ts_utc, venue, market, line, side, implied, bid, ask, mid, flags, price_american, "limit", participant, player_name, extra FROM ticks
                                  WHERE event_id=? ORDER BY ts_utc""", (event_id,)):
             self.idx[(r[1], r[2], r[3], r[4], r[12])].append(r)
         self.keys = collections.defaultdict(set)      # (market, line, participant) -> venues
@@ -74,7 +82,10 @@ class EventQuotes:
         flags = set((r[9] or '').split(','))
         if is_x:
             if r[6] is None or r[7] is None: return None, 'oneside'
-            if 'wide' in flags or (r[7] - r[6]) > C.EXCHANGE_SPREAD_MAX['value']: return None, 'wide'
+            if 'wide' in flags or (r[7] - r[6]) > C.EXCHANGE_SPREAD_MAX['value']: return None, f'wide {round(100 * (r[7] - r[6]))}c'
+            d_this, d_other = depth_usd(r), depth_usd(o) if o else None
+            if d_this is not None and d_other is not None and min(d_this, d_other) < C.EXCHANGE_MIN_DEPTH_USD['value']:
+                return None, f'thin ${int(min(d_this, d_other))}'
             p = r[8]
             if market == 'f5_ml' and venue == 'Kalshi':     # three-way (tie is its own ticker): condition on no tie
                 if not o or o[8] is None: return None, 'no_other'
@@ -93,6 +104,16 @@ class EventQuotes:
             p, why = self.venue_prob(v, market, line, side, ts_iso, method, participant)
             detail[v] = {'p': p, 'why': why}
             if p is not None and w.get(v, 0) > 0: probs[v] = p
+        # one big make order is not a price: an exchange quote far from the books on the same line needs company
+        books = [p for v, p in probs.items() if v not in EXCHANGES]
+        if books:
+            med = sorted(books)[len(books) // 2]
+            for v in [v for v in probs if v in EXCHANGES]:
+                gap = probs[v] - med
+                if abs(gap) > C.EXCHANGE_OUTLIER_PTS['value']:
+                    near = sum(1 for u, p in probs.items() if u != v and abs(p - probs[v]) <= 0.03)
+                    if near < C.EXCHANGE_OUTLIER_CONFIRM['value']:
+                        detail[v] = {'p': None, 'why': f'outlier {gap * 100:+.0f}pts', 'p_raw': probs[v]}; del probs[v]
         if not probs: return dict(fair=None, status=status, n=0, detail=detail, weights={})
         cw = capped_weights({v: w[v] for v in probs})
         fair = sum(cw[v] * probs[v] for v in probs)
