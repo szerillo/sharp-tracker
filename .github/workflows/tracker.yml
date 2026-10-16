@@ -18,6 +18,8 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with: {python-version: '3.12'}
+      - name: Novig public tape (new days only; publishes after midnight ET)
+        run: python3 loggers/novig_tape.py --days 2 || true
       - run: python3 sharp/build_db.py
       - run: python3 sharp/results.py
       - run: python3 sharp/grade.py
@@ -27,7 +29,7 @@ jobs:
       - name: commit
         run: |
           git config user.name "tracker-bot"; git config user.email "actions@users.noreply.github.com"
-          git add data/state && git commit -m "tracker $(date -u +%Y-%m-%dT%H:%M)" || exit 0
+          git add data/state data/novig/daily && git commit -m "tracker $(date -u +%Y-%m-%dT%H:%M)" || exit 0
           for i in 1 2 3 4 5; do
             if git pull --rebase -X theirs && git push; then exit 0; fi
             git rebase --abort 2>/dev/null || true

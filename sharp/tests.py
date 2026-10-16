@@ -179,7 +179,8 @@ def run_all(preview=False):
                opener={m: test_opener(conn, m, preview) for m in ('game', 'prop')},
                steam=dict(test='steam', published=False, note='not implemented yet: needs a tick-level pass (3+ point hourly moves, continuation to close and to result)'),
                E={'novig_prop': test_e(conn, 'Novig', 60, 'prop', preview), 'novig_game': test_e(conn, 'Novig', 60, 'game', preview),
-                  'kalshi_prop': test_e(conn, 'Kalshi', 60, 'prop', preview), 'pinnacle_prop': test_e(conn, 'Pinnacle', 60, 'prop', preview)})
+                  'kalshi_prop': test_e(conn, 'Kalshi', 60, 'prop', preview), 'pinnacle_prop': test_e(conn, 'Pinnacle', 60, 'prop', preview)},
+               F=test_f(preview))
     conn.close(); return out
 
 
@@ -226,3 +227,28 @@ def test_e(conn, ruler='Novig', horizon_min=60, mclass='prop', preview=False):
     out = dict(test='E', name=f'EV vs {ruler} at T-{horizon_min}m ({mclass}), graded at the book price', ruler=ruler, horizon_min=horizon_min,
                table=table, by_side_ev2=by_side, note_t='t treats bets as independent; both sides and same-game props are correlated, so it overstates')
     return publish(out, C.MIN_PROP_ROWS['value'] if mclass == 'prop' else C.MIN_EVENTS_GAME_LINES['value'], len(bets), preview)
+
+
+# ------------------------------------------------------------------ F: the exchange tape ----
+def test_f(preview=False, big_usd=1000.0, league=None):
+    """Sean 10/15: is sharp money visible on the Novig tape? From data/novig/daily (loggers/novig_tape.py): for every market-outcome-day with
+    at least one taker fill of >= big_usd notional, compare the big-money vwap to (a) the market's own pregame close on the tape and
+    (b) the result, where the market is decoded and settled. Published per league once 1,500 settled big-print markets are in.
+    Also reports the lopsided-liquidity question from the Hubbard case: markets where the big prints were all one side."""
+    import gzip, glob
+    D = os.path.join(SD, '..', 'novig', 'daily')
+    rows = []
+    for f in sorted(glob.glob(os.path.join(D, '*.jsonl.gz'))):
+        with gzip.open(f, 'rt') as fh:
+            for l in fh:
+                r = json.loads(l)
+                if r.get('big_n') and r.get('desc') and (league is None or r['league'] == league): rows.append(r)
+    out = {}
+    for lg, L in _group(rows, 'league').items():
+        w = [r for r in L if r.get('pregame_close') is not None and r.get('big_vwap') is not None and r['first_ts'] < r['last_ts']]
+        beat = [1 if r['pregame_close'] > r['big_vwap'] else 0 for r in w]       # the side they took got more expensive by close
+        out[lg] = dict(n_markets=len(L), n_with_close=len(w), big_beats_close_pct=(round(100 * statistics.mean(beat), 1) if beat else None),
+                       avg_move_pts=(round(100 * statistics.mean(r['pregame_close'] - r['big_vwap'] for r in w), 2) if w else None),
+                       note='result-graded version needs settled outcomes (catalog + results per league); not wired yet')
+    return publish(dict(test='F', name=f'big taker prints (>= ${big_usd:,.0f}) on the Novig tape vs the tape close', table=out, threshold_usd=big_usd),
+                   C.MIN_EVENTS_GAME_LINES['value'], len(rows), preview)

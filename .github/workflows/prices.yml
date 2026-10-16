@@ -22,10 +22,12 @@ jobs:
       - run: python3 loggers/mlb/novig.py || true
       - run: python3 loggers/mlb/an_props.py || true
       - run: python3 loggers/mlb/pinnacle_props.py || true
+      - name: Novig catalog snapshot (every league; makes the public tape decodable)
+        run: python3 loggers/novig_catalog.py || true
       - name: commit
         run: |
           git config user.name "prices-bot"; git config user.email "actions@users.noreply.github.com"
-          git add data/mlb && git commit -m "prices $(date -u +%Y-%m-%dT%H:%M)" || exit 0
+          git add data/mlb data/novig/catalog && git commit -m "prices $(date -u +%Y-%m-%dT%H:%M)" || exit 0
           for i in 1 2 3 4 5; do
             if git pull --rebase -X theirs && git push; then exit 0; fi
             git rebase --abort 2>/dev/null || true
