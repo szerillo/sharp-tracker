@@ -34,6 +34,7 @@ then open `index.html` from a local server (`python3 -m http.server`) or the Pag
 | `data/mlb/novig_log/*.jsonl` | Novig (best resting bid per outcome; ask = 1 − other side's bid) | game + prop |
 | `data/mlb/an_props_log/*.jsonl` | DK, FD, Caesars, BetRivers, Fanatics, theScore, BetMGM | prop |
 | `data/mlb/pinnacle_props/pinnacle_props.jsonl` | Pinnacle props (with limits); matched to a game via the exchanges' player→game map | prop |
+| `data/polymarket/*.jsonl` | Polymarket (CLOB best bid/ask, depth within 3¢, public trades) | game |
 
 Canonical event id = statsapi gamePk, matched by participants + ET date (+ nearest start for doubleheaders), never by name string.
 Every tick stores both sides as rows. Exchanges store bid/ask/mid; `implied` is the ask (cost to take). Flags: `open` (first row per venue×market×line×side),
@@ -48,6 +49,13 @@ description, strike, outcome names) and `novig_tape.py` turns each day's tape in
 fills, volume, vwap, OHLC, big-print (≥$1k) vwap, and the T-24h/6h/1h window vwaps where the market is decoded. Raw tape and market census
 files are re-downloadable and not committed. Markets that settled before the catalog log began decode only through `/v3/history/markets`,
 which needs a (free) Novig API key.
+
+## Polymarket (`loggers/polymarket.py`)
+
+Gamma catalog + CLOB order books + public trade tape, no key. Every sport tag, markets starting inside 36 h: best bid/ask, resting dollars within
+3¢ on each side, last trade, and taker trades since the last run. MLB lists moneyline and NRFI only; NFL/NBA carry spreads, totals and player
+props. Folded into the ruler as an exchange (`Polymarket`), prior weight 1.0 on game lines per the thread; Downs' 10/16 update ranks it second
+on gap closure (44% vs Novig 52%, Kalshi 33%). `data/polymarket/_markets.json` keeps conditionId → market so the trade tape stays decodable.
 
 ## The ruler
 

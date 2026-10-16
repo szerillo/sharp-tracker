@@ -60,7 +60,7 @@ const am = p => p == null ? '—' : (p > 0 ? '+' : '') + p;
 const pct = (p, d = 1) => p == null ? '—' : (100 * p).toFixed(d);
 const MKT = {ml:'Moneyline', rl:'Run line', total:'Total', tt_away:'Team total (away)', tt_home:'Team total (home)', f5_ml:'F5 moneyline', f5_rl:'F5 run line',
              f5_total:'F5 total', f5_tt_away:'F5 team total (away)', f5_tt_home:'F5 team total (home)', rfi:'1st inning (YRFI/NRFI)'};
-const XV = new Set(['Kalshi', 'Novig']), SHARP = new Set(['Pinnacle', 'Circa']);
+const XV = new Set(['Kalshi', 'Novig', 'Polymarket']), SHARP = new Set(['Pinnacle', 'Circa']);
 const ET = iso => new Date(iso).toLocaleString('en-US', {timeZone: 'America/New_York', month: 'short', day: 'numeric', hour: 'numeric', minute: '2-digit'});
 let D = null, tab = 'board';
 const TABS = [['board', 'Board'], ['props', 'Props'], ['venues', 'Venue tests'], ['ledger', 'Ledger'], ['health', 'Log health'], ['constants', 'Constants']];

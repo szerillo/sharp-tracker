@@ -386,6 +386,46 @@ def load_novig():
     return n
 
 
+# ----------------------------------------------------------------- Polymarket ----
+POLY_TYPES = {'moneyline': 'ml', 'nrfi': 'rfi', 'spreads': 'rl', 'totals': 'total'}
+
+
+def load_polymarket():
+    n = 0
+    for f in sorted(glob.glob(os.path.join(ROOT, 'data', 'polymarket', '*.jsonl'))):
+        src = 'polymarket/' + os.path.basename(f)
+        for r in jl(f):
+            if r.get('league') != 'MLB' or r.get('type') not in POLY_TYPES or not r.get('sides'): continue
+            parts = (r.get('event') or '').split('-')              # mlb-cle-tb-2026-10-19 : away, home, date
+            if len(parts) < 6: continue
+            a, h = N.team(parts[1].upper()), N.team(parts[2].upper())
+            try: st = N.parse_ts(r['start'].replace(' ', 'T').replace('+00', '+00:00'))
+            except Exception: continue
+            ev = EV.match(N.et_date(st), a, h, st, 'polymarket', r.get('event')) or EV.match(N.et_date(st), h, a, st, 'polymarket', r.get('event'))
+            if not ev: continue
+            e = EV.ev[ev]; a, h = e['away'], e['home']
+            ts = N.iso(N.parse_ts(r['ts'])); m = POLY_TYPES[r['type']]
+            for name, q in r['sides'].items():
+                if q.get('bid') is None and q.get('ask') is None: continue
+                if m == 'ml':
+                    t = N.team(name); side = 'home' if t == h else ('away' if t == a else None); part = t; line = None
+                elif m == 'rfi':
+                    side = 'over' if name == 'Yes' else 'under'; part = None; line = 0.5
+                elif m == 'total':
+                    side = name.lower(); part = None; line = r.get('line')
+                else:
+                    t = N.team(name.split(' ')[0]) or N.team(name); side = 'home' if t == h else ('away' if t == a else None); part = t
+                    line = r.get('line') if side == 'home' else (-r.get('line') if r.get('line') is not None else None)
+                if not side: continue
+                flags = []
+                if q.get('bid') is not None and q.get('ask') is not None and q['ask'] - q['bid'] > 0.04: flags.append('wide')
+                if q.get('bid') is None or q.get('ask') is None: flags.append('oneside')
+                T.add(ts, ev, None, m, side, 'Polymarket', 'polymarket_api', src, participant=part, line=line, bid=q.get('bid'), ask=q.get('ask'), last=q.get('last'),
+                      volume=r.get('vol'), flags=flags, extra={'depth3': q.get('bid_depth3'), 'ask_depth3': q.get('ask_depth3'), 'bid_qty': q.get('bid_qty')})
+            n += 1
+    return n
+
+
 # ----------------------------------------------------------------- Action Network props ----
 AN_PROP_BOOK = {'DK': 'DK', 'FD': 'FD', 'CZR': 'Caesars', 'BetRivers': 'BetRivers', 'Fanatics': 'Fanatics', 'theScore': 'theScore', 'MGM': 'BetMGM'}
 
@@ -474,6 +514,7 @@ def main():
     counts['kalshi_games'] = load_kalshi_games(); EV.save()
     counts['kalshi_props'] = load_kalshi_props()
     counts['novig'] = load_novig()
+    counts['polymarket'] = load_polymarket()
     counts['an_props'] = load_an_props()
     # player -> event map from exchange prop rows (for Pinnacle props, which carry no game id)
     pe = {}

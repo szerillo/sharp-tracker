@@ -54,9 +54,12 @@ DEVIG_METHOD = {
 # fit_weights() has MIN_EVENTS_GAME_LINES settled events; every number the dashboard derives from these is tagged 'unfitted'.
 WEIGHTS = {
     ("mlb", "game"): dict(
-        value={"Novig": 7.5, "FD": 1.1, "Kalshi": 1.1, "DK": 1.0, "Pinnacle": 1.0, "Caesars": 0.3, "BetMGM": 0.1, "Fanatics": 0.1,
+        value={"Novig": 7.5, "FD": 1.1, "Kalshi": 1.1, "DK": 1.0, "Pinnacle": 1.0, "Polymarket": 1.0, "Caesars": 0.3, "BetMGM": 0.1, "Fanatics": 0.1,
                "BetRivers": 0.0, "theScore": 0.0, "Circa": 1.0},
-        status="prior", fit_date=None, sample=0, heldout_brier=None, source=f"{THREAD}; BetRivers/theScore not weighted in the thread (below coin flip) -> 0"),
+        status="prior", fit_date=None, sample=0, heldout_brier=None,
+        source=f"{THREAD}; BetRivers/theScore not weighted in the thread (below coin flip) -> 0. Reference for the fit, not a weight: Downs' 10/16 update "
+               "(6,087 games, 24h/6h/1h pooled) gap closure Novig 52, Polymarket 44, ProphetX 33, Kalshi 33, FD 25, Fanatics 12, Caesars 1, BetMGM -1, DK -2, "
+               "BetRivers -4, bet365 -6, Hard Rock -9; Novig fell from 68 to 52 as the sample grew"),
     ("mlb", "prop"): dict(
         value={"Novig": 7.0, "Kalshi": 7.0, "DK": 1.4, "Pinnacle": 1.4, "FD": 1.0, "Caesars": 0.5, "BetMGM": 0.1, "Fanatics": 0.5,
                "BetRivers": 0.0, "theScore": 0.0},
@@ -68,6 +71,7 @@ WEIGHTS = {
 FEED_LAG_S = {
     "Pinnacle": dict(value=None, status="rule", source="guest.api.arcadia.pinnacle.com direct; lag vs site unmeasured"),
     "Kalshi": dict(value=0, status="rule", source="Kalshi's own REST API; the venue is the feed"),
+    "Polymarket": dict(value=0, status="rule", source="Polymarket Gamma + CLOB public APIs; the venue is the feed"),
     "Novig": dict(value=0, status="rule", source="Novig public API; the venue is the feed"),
     "DK": dict(value=None, status="rule", source="Action Network scoreboard (book id 1548); lag vs DK site unmeasured"),
     "FD": dict(value=None, status="rule", source="Action Network (book id 69 game lines / 1006 props); unmeasured"),
@@ -78,7 +82,7 @@ FEED_LAG_S = {
     "BetMGM": dict(value=None, status="rule", source="Action Network (939), props only; unmeasured; not bettable"),
 }
 
-VENUE_CLASS = {"Kalshi": "exchange", "Novig": "exchange", "Pinnacle": "sharp_book", "Circa": "sharp_book",
+VENUE_CLASS = {"Kalshi": "exchange", "Novig": "exchange", "Polymarket": "exchange", "Pinnacle": "sharp_book", "Circa": "sharp_book",
                "DK": "book", "FD": "book", "Caesars": "book", "BetRivers": "book", "Fanatics": "book", "theScore": "book", "BetMGM": "book",
                "AN_Consensus": "reference", "AN_Open": "reference"}
 RULER_ELIGIBLE = {v for v, c in VENUE_CLASS.items() if c in ("exchange", "sharp_book", "book")}
