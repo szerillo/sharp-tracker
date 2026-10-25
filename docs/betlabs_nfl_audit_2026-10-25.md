@@ -128,6 +128,30 @@ Six full scans (Fav/Dog × all/home/visitor) plus situational families on both s
 - Betting-% fields exist only from ~2005/06 and come from SI's own book panel, so the "sharp money" lean rests on one data
   vendor's definition of money %.
 
+## 5d. Do the dog leans stack? (A = awful team, season margin ≤ −13; B = bounce, prev ATS margin ≤ −15)
+Full-game spread, dogs (train / holdout cover %):
+| Cell | Train | Holdout |
+|---|---|---|
+| A | 203-133 (60.4) | 51-31 (62.2) |
+| B | 324-276 (54.0) | 112-80 (58.3) |
+| A ∧ B | 80-47 (63.0) | 22-13 (62.9) |
+| A only | 123-86 (58.9) | 29-18 (61.7) |
+| B only | 244-229 (**51.6**) | 90-67 (57.3) |
+First-half spread, dogs: A 185-133 (58.2) / **42-42 (50.0)**; B 312-258 (54.7) / 117-80 (59.4); A∧B 74-44 (62.7) / 20-16;
+B only 238-214 (52.7) / 97-64 (60.2).
+- About a quarter of awful-team games are also bounce games. On full-game spreads the bounce's training edge is mostly those
+  overlap games (B-only 51.6 %); on 1H spreads the bounce stands alone in holdout (60.2 %) while awful-team dies (50.0 %).
+- The A∧B cell is 35 holdout games — not enough to justify a bigger stake when both fire. Rule for the tracker: **when both
+  trigger, it is one bet, not two** (full-game spread for A, 1H spread for B; if the same game fires both, take the 1H spread
+  and skip the FG, since A's 1H record is flat).
+- Sharp-money (C, money % − ticket % ≥ 10) could only be tested on the ~30 % of games with betting-% data; A∧C 18-7 / 18-8 and
+  B∧C 28-26 / 44-28 are too small to say anything.
+
+## 5e. Referees (Official field, Under side)
+18 referees with ≥ 30 games since 2021. Their 2015–20 under rate does not predict 2021+: Vinovich 61 → 52 %, Rogers 26 → 50,
+Boger 36 → 56, Hussey 56 → 51, Allen 55 → 50. Only Hochuli (54 → 60) and Hill (63 → 57) are above 50 % in both windows —
+roughly the 4–5 of 18 chance predicts. No referee system; the Official field is not a usable totals input.
+
 ## 6. Bet Labs systems created 10/25 (all prefixed "Tested:" = built here, not a Bet Labs/SI system)
 | Screen | Name | Filters | Record (all years) |
 |---|---|---|---|
