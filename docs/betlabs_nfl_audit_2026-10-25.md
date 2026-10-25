@@ -107,6 +107,27 @@ Six full scans (Fav/Dog × all/home/visitor) plus situational families on both s
 - 1H situational (rest, bye, day, week, time zone, divisional, streaks) on both sides: nothing.
 - The "3-game skid" and "Week 10" cells that pop on 1H dogs are isolated spikes (adjacent bins flat) — noise.
 
+## 5c. Market-flow families: steam, RLM, public/sharp money, line moves (scratch screens, deleted afterwards)
+- **Steam chasing: cannot be tested in Bet Labs.** The Steam Moves field is populated for ~340 training games and only **14
+  games since 2021** — the feed is dead. Training alone: dog with 1 steam move 157-130 (54.7 %), dog when the *favourite*
+  steamed 152-135 (53 %) — both sides "positive", which is what a stale, inconsistently-tagged field looks like. Steam /
+  move-chasing goes to the forward tracker (Pinnacle limit growth, Novig/Kalshi/Polymarket tape, Test E/F), not to history.
+- **Sharp-vs-square money on spreads: small, stable.** Dog when spread money % − ticket % ≥ +10: all years **394-340 (53.7 %)**,
+  train 155-134 (53.6 %), holdout 239-206 (53.7 %). Mirror image on favourites (money ≥ 10 below tickets): 46.3 % / 46.3 %.
+  ≈ +2.5 % ROI at −110: real, consistent, thin. Stricter cut (≥ +15) is weaker (51–52 %), so it is not a "bigger divergence,
+  bigger edge" effect. Use as a confirmation input, not a stand-alone system.
+- **Reverse line movement on dogs**: unpopular dog (≤ 35 % tickets) with the line moving toward it: 48–56 % train, 44–50 %
+  holdout. Nothing. Line moving *against* the unpopular dog: 54 % / 49–55 %. Nothing.
+- **Fade heavy public favourites** (≥ 65 % tickets): favourite covers 48–51 % both halves overall; by line move, no bin is
+  consistent. The "fade 76 %+" cell is 53.3 % for the dog — inside noise (reported earlier).
+- Ticket % alone, dollars % alone, bets z-score (how heavily bet the game is), juice: all 49–53 % in every bin on both halves,
+  both sides.
+- **Totals money flow**: Over/Under ticket %, under dollars %, O/U money-vs-ticket diff, open→close total move, juice — no bin
+  agrees across halves. Under dollars ≥ 70 % is 94-53 (64 %) in holdout but 26-29 in training (noted before, not promoted).
+  Totals steam: same dead field.
+- Betting-% fields exist only from ~2005/06 and come from SI's own book panel, so the "sharp money" lean rests on one data
+  vendor's definition of money %.
+
 ## 6. Bet Labs systems created 10/25 (all prefixed "Tested:" = built here, not a Bet Labs/SI system)
 | Screen | Name | Filters | Record (all years) |
 |---|---|---|---|
