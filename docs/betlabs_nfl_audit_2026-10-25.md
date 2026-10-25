@@ -28,6 +28,10 @@ screens. Bet Labs grades every system at the **closing line** at -110 (breakeven
 | Spread Dog (all, home, visitor) | 138 × 3 + situational | "awful team" family | lean |
 | ML Favorite | 137 | none (max z 1.9; 32/40 flip) | dead |
 | ML Dog | 137 | none robust (22/40 flip; survivors are stat slivers) | dead |
+| 1H Spread Fav | 111 + situational | none (max z 2.9; 26/40 flip) | dead |
+| 1H Spread Dog | 111 + situational | blowout bounce (prev ATS margin ≤ −20) | **lean, best version** |
+| 1H ML Fav | 110 | none (max z 2.4; 25/40 flip) | dead |
+| 1H ML Dog | 110 | awful-team / blowout family again, mixed | lean (same family) |
 | SI systems (Pythag, Team ATS, Bad-vs-Good ATS, Fade Covering) | as built | all negative since 2021 | dead |
 
 ## 1. The SI systems he was sent
@@ -89,6 +93,20 @@ Six full scans (Fav/Dog × all/home/visitor) plus situational families on both s
 - Dogs: 22/40 flip; the "both-positive" list is narrow stat slivers (opp sack % 2.9–3.0, defensive yards 355–366…). Dog after a
   blowout ATS loss is flat in training by margin bin. By game number, no pattern. Dead.
 
+## 5b. First-half sides (screens 1772929 spread, 1772928 ML — opened 10/25 04:20)
+- **1H spread favorites**: nothing. Max in-sample z 2.9, 26/40 flip; no situational cell clears 55 % on both halves.
+- **1H spread dogs — blowout bounce (the cleanest version of the family)**: dog whose previous game ATS margin was −20 or worse
+  → 1H cover. By 5-point bin, train / holdout cover %: −30: 61/–, −25: 57/61, −20: 53/62, −15: 52/42, −10: 49/50, −5: 49/45,
+  0: 51/48. Aggregate ≤ −20: train 254-203 (55.6 %), holdout **94-58 (61.8 %)**. Gradient in training, consistent in holdout,
+  same direction as the full-game spread (dog after a 22+ loss 83-63) and 1H ML dog (prev ATS margin −22..−15: +18 % / +12 %
+  ROI). Favorites after a blowout show nothing (50/51 %) — the bounce is a dog phenomenon, i.e. the market over-shades the
+  team that just got embarrassed. Still a lean: ~450 training games, 150 holdout.
+- Season ATS margin avg ≤ −8 on 1H spread dogs: 59.4 % / 58.5 % — the same "awful team" family as §4.
+- **1H ML**: favorites dead (25/40 flip). Dogs 28/40 flip; survivors are the blowout/awful-team family (season ATS margin ≤ −8:
+  +24.8 % / +11.6 % ROI) but season-margin itself flips negative (−2.2 %) — treat as the same lean, express it on the 1H spread.
+- 1H situational (rest, bye, day, week, time zone, divisional, streaks) on both sides: nothing.
+- The "3-game skid" and "Week 10" cells that pop on 1H dogs are isolated spikes (adjacent bins flat) — noise.
+
 ## 6. Screens touched (user's own screens; state as left)
 - Totals 1772775: Under + date filter (reset to full range) + wind filter (set to 0–99 = no restriction; delete when done).
 - Spread 1772776: Favorite/Dog filter (left on **Favorite**) + date filter (full range). Season-margin and Home/Visitor filters
@@ -96,6 +114,8 @@ Six full scans (Fav/Dog × all/home/visitor) plus situational families on both s
 - ML 1457234: Season filter removed earlier; Favorite/Dog (left on Favorite); Game Month filter present but inactive; date
   filter added (left on holdout dates — reset or delete).
 - 1H totals 769171: Corrente filter removed; date filter added (full range).
+- 1H ML 1772928 and 1H Spread 1772929 (new): date filter (full range) + Favorite/Dog filter added to each (both left on
+  Favorite for 1H ML, Favorite for 1H spread after the situational pass).
 
 ## 7. Pre-registered forward tests in sharp-tracker (graded on real fills, not Bet Labs history)
 | rule_tag | Trigger | Bet | Stake |
@@ -105,4 +125,5 @@ Six full scans (Fav/Dog × all/home/visitor) plus situational families on both s
 | `vrest8_1h` | visitor off ≥ 8 days | 1H Under | 0.5u |
 | `mnf_1h` | Monday night | 1H Under | 0.5u |
 | `awfuldog` | dog, season margin avg ≤ −13 or Pythag < 20 %, after ≥ 2 games | Spread | 0.5u |
+| `bounce20_1h` | dog whose previous game ATS margin was ≤ −20 | 1H spread (FG spread secondary) | 0.5u |
 Publication gate per tag: 100 graded fills AND positive CLV vs the exchange ruler. Until then each is a hypothesis.
