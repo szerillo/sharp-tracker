@@ -107,7 +107,20 @@ Six full scans (Fav/Dog × all/home/visitor) plus situational families on both s
 - 1H situational (rest, bye, day, week, time zone, divisional, streaks) on both sides: nothing.
 - The "3-game skid" and "Week 10" cells that pop on 1H dogs are isolated spikes (adjacent bins flat) — noise.
 
-## 6. Screens touched (user's own screens; state as left)
+## 6. Bet Labs systems created 10/25 (all prefixed "Tested:" = built here, not a Bet Labs/SI system)
+| Screen | Name | Filters | Record (all years) |
+|---|---|---|---|
+| 1772775 | Tested: NFL Wind 10-14 Under | Under; avg wind 10–14 | 533-376 (58.6 %), ROI +13.3 % |
+| 769171 | Tested: NFL 1H Wind 10-13 Under | 1H Under; avg wind 10–13; dome closed N | 403-300 (57.3 %), +10.4 % |
+| 1772962 | Tested: NFL 1H Visitor Off 8 to 30 Days Under | 1H Under; visitor days between games 8–30; dome closed N | 454-357 (56.0 %), +7.7 % |
+| 1772963 | Tested: NFL 1H Monday Night Under | 1H Under; day of week Monday; dome closed N | 168-118 (58.7 %), +12.3 % |
+| 1772776 | Tested: NFL Awful-Team Dog ATS | Dog; season margin avg −40 to −13 | 254-164 (60.8 %), +17.2 %; train 203-133 / holdout 51-31 |
+| 1772929 | Tested: NFL 1H Blowout Bounce Dog ATS | 1H Dog; previous game ATS margin −60 to −15 | 429-338 (55.9 %), +7.5 %; train 312-258 / holdout 117-80 |
+Correction to §5b: the bounce cutoff is **≤ −15**, not ≤ −20 (a binning slip: 5-point floor bins labelled "−20" ran −20 to −16).
+Screen-level split for ≤ −15: train 312-258 (54.7 %), holdout 117-80 (59.4 %). No system was created on the ML screens
+(1457234, 1772928): nothing on either moneyline side cleared the bar.
+
+## 6b. Screens touched (state as left)
 - Totals 1772775: Under + date filter (reset to full range) + wind filter (set to 0–99 = no restriction; delete when done).
 - Spread 1772776: Favorite/Dog filter (left on **Favorite**) + date filter (full range). Season-margin and Home/Visitor filters
   were added and deleted.
