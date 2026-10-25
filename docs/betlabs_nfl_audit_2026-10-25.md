@@ -1,0 +1,108 @@
+# Bet Labs NFL audit — 2026-10-25 (final)
+
+Source: Sports Insights Bet Labs (NFL regular season, 2003–present), queried through the screen data service on the user's own
+screens. Bet Labs grades every system at the **closing line** at -110 (breakeven 52.38 %); moneylines at the closing price.
+
+## Method
+- Split at 03/01/2021: **train** 08/01/2003–02/28/2021 (~4,600 games), **holdout** 03/01/2021–10/24/2026 (~1,450 games).
+- For every numeric filter on a screen (137–197 per bet side), scan every contiguous window of filter values with n ≥ 300 in
+  train, keep the window with the best in-sample z (win % vs 52.38 % for spreads/totals; ROI for moneylines), then grade that
+  exact window on the untouched holdout.
+- For every list filter (day, week, time zone, divisional, streaks, prev-game fav/dog, playoff-last-year…) and the rest-day
+  ranges, read every value's record on both halves.
+- A rule is reported "alive" only if it is positive on both halves with n ≥ 100 in the holdout, has a plausible mechanism, and
+  passes a monotonicity look (adjacent bins move the same way; an isolated spike is noise).
+- Reference for what noise looks like: with ~150–200 filters scanned per side, the best in-sample z lands at 2.2–3.7 **every
+  time**, and 19–36 of the top-40 training windows go negative on the holdout. Anything that only clears the train half is
+  nothing.
+
+## Verdict table
+
+| Market | Scanned | Survivors | Call |
+|---|---|---|---|
+| FG Under | 139 numeric + situational | wind 10–14 mph | **alive** |
+| FG Over | full scan + situational | none (29/40 flip) | dead |
+| 1H Under | full scan + situational | wind 10–13; visitor ≥8 days rest; Monday night | alive / lean / lean |
+| 1H Over | full scan | none (36/40 flip) | dead |
+| Spread Fav (all, home, visitor) | 138 × 3 + situational | none (max z 2.4; 27–29/40 flip) | dead |
+| Spread Dog (all, home, visitor) | 138 × 3 + situational | "awful team" family | lean |
+| ML Favorite | 137 | none (max z 1.9; 32/40 flip) | dead |
+| ML Dog | 137 | none robust (22/40 flip; survivors are stat slivers) | dead |
+| SI systems (Pythag, Team ATS, Bad-vs-Good ATS, Fade Covering) | as built | all negative since 2021 | dead |
+
+## 1. The SI systems he was sent
+| System | Since 2021 | Verdict |
+|---|---|---|
+| Pythagorean | **75-92** | dead |
+| Team ATS Records | 27-33 (last 3 yrs) | dead |
+| Bad ATS vs Good ATS | 20-24 (subset of the above) | dead |
+| Fade Covering Teams | 53-32 in 2021–23, **38-50** since | dead |
+| NFL Wind (unders) | positive | alive — §2 |
+Four of five are the classic Bet Labs failure: tuned on 2003–2020, flat-to-negative out of sample.
+
+## 2. Full-game totals
+### Under — wind 10–14 mph (outdoor)
+- All years **533-376 (58.6 %)**, 19 of 24 seasons positive; train 384-293 (56.7 %), holdout **149-83 (64.2 %)**.
+- By mph, train / holdout under %: 0–9 mph sits at 46–51 / 42–57 (noise around 50); **10: 55/72, 11: 61/61, 12: 50/54, 13:
+  59/59, 14: 60/75**; 15–19 mph back to ~50 with small n. A step at 10 mph, not a gradient — books move totals for extreme
+  wind and ignore moderate wind.
+- Robust to the total's move (works up or down; best when the total moved up 1–2: 112-62). Temperature 46–60 °F best
+  (160-82); freezing games 41-42 (cold alone is priced).
+- Caveat: Bet Labs wind is **observed** game-time wind. We can only bet on a **forecast**, which is weaker by construction.
+### Under — everything else: nothing
+139 numeric filters: top-40 train windows 19/40 negative on holdout. Rest, bye, travel, week, primetime, divisional, previous
+margin, streaks, public-money and line-move bands all 47–54 % on both halves.
+### Over: nothing
+Full scan 29/40 flip negative; no weather, dome, pace, public, line-move or situational family produces an over edge at the close.
+Overs are efficiently priced in this data set — tested, not assumed.
+
+## 3. First-half totals
+### Under
+- **Wind 10–13 mph → 1H Under**: train 291-212 (57.9 %), holdout 112-88 (56.0 %); 10–14 all years 448-342, holdout 132-94
+  (58.4 %). Same mechanism, thinner market, second outlet when the full-game number is already bet.
+- **Visitor off ≥ 8 days (bye / long week) → 1H Under**: train 319-271 (54.1 %), holdout **135-86 (61.1 %)**; 8–10 days all
+  years 286-219 (56.6 %). Home off ≥ 8 days: train 273-240, holdout 127-92 (58.0 %). Home on 4–6 days rest is the opposite
+  (train 45.0 %) — don't play under on short-rest home teams. Lean: the train half is only 54 %.
+- **Monday night → 1H Under**: train 122-87 (58.4 %), holdout 46-31 (59.7 %); Thursday 51/50 %, Sunday 51/51 %. One
+  standalone game with public over money and slow starts is a plausible story; n = 286. Lean.
+- 1H Under overall since 2021: 532-485 (52.3 %) — no market-wide drift. Under dollars ≥ 70 %: 55.9 % holdout but 38-38
+  pre-2021 — not promoted. Closing-total bins alternate above/below 50 — noise.
+### Over: nothing (36/40 flip).
+
+## 4. Spreads
+Six full scans (Fav/Dog × all/home/visitor) plus situational families on both sides.
+- **Favorites**: nothing anywhere. Max in-sample z 2.0–3.1, 27–29/40 flip negative. Rest days 46–57 % scattered with no
+  pattern; no streak, week, day, time-zone or divisional cell clears 55 % on both halves.
+- **Dogs — the "awful team" family (lean)**: dogs whose season numbers are terrible cover more than the market expects.
+  Season margin avg ≤ −13: train 236-166 (58.7 %), holdout 57-33 (63 %); Pythagorean win % < 20: 244-165 (59.7 %) / 42-32
+  (57 %); win % ≤ 12: 54 % / 61 %; season ATS margin ≤ −7 (visitor dogs): 63 % / 58 %. Caveat: season averages are extreme
+  early, so most of the sample is weeks 2–4 (a team blown out in its first games). Training stays positive from game 5 on
+  (124-73), holdout from game 5 on is 11-12. Mechanism (overreaction to blowouts) is real but the bettable sample is small —
+  track as a lean, half stake.
+- **Dog buy-low downgraded to noise**: dog on a 3-game losing streak is 58 %/58 %, but −2 games is 48 %/45 % and −4 is 45 %/52 %
+  — an isolated spike. Dog after a 22+ point loss (83-63) is flat across adjacent margin bins in training.
+- Big home dogs (+7 to +14.5): 54 % train / 62 % holdout (n 100) — old lean, weak train half, not promoted.
+- Public money / ticket % / line move at close: nothing. Fading 76 %+ ticket favourites → dog 53.3 %, inside noise.
+
+## 5. Moneylines (ranked by ROI, not win %)
+- Favorites: every band negative; best in-sample window z 1.9; 32/40 flip. Dead.
+- Dogs: 22/40 flip; the "both-positive" list is narrow stat slivers (opp sack % 2.9–3.0, defensive yards 355–366…). Dog after a
+  blowout ATS loss is flat in training by margin bin. By game number, no pattern. Dead.
+
+## 6. Screens touched (user's own screens; state as left)
+- Totals 1772775: Under + date filter (reset to full range) + wind filter (set to 0–99 = no restriction; delete when done).
+- Spread 1772776: Favorite/Dog filter (left on **Favorite**) + date filter (full range). Season-margin and Home/Visitor filters
+  were added and deleted.
+- ML 1457234: Season filter removed earlier; Favorite/Dog (left on Favorite); Game Month filter present but inactive; date
+  filter added (left on holdout dates — reset or delete).
+- 1H totals 769171: Corrente filter removed; date filter added (full range).
+
+## 7. Pre-registered forward tests in sharp-tracker (graded on real fills, not Bet Labs history)
+| rule_tag | Trigger | Bet | Stake |
+|---|---|---|---|
+| `wind1014` | outdoor NFL, Open-Meteo forecast at T-24h sustained 10–14 mph (loggers/nfl/weather.py) | FG Under, best price | 1u |
+| `wind1014_1h` | same | 1H Under | 0.5u |
+| `vrest8_1h` | visitor off ≥ 8 days | 1H Under | 0.5u |
+| `mnf_1h` | Monday night | 1H Under | 0.5u |
+| `awfuldog` | dog, season margin avg ≤ −13 or Pythag < 20 %, after ≥ 2 games | Spread | 0.5u |
+Publication gate per tag: 100 graded fills AND positive CLV vs the exchange ruler. Until then each is a hypothesis.
