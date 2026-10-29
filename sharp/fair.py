@@ -77,7 +77,7 @@ class EventQuotes:
         if max_age is None: max_age = C.STALE_EXCHANGE_MIN['value'] if is_x else C.STALE_BOOK_MIN['value']
         r = self.latest(venue, market, line, side, ts_iso, max_age, participant)
         if not r: return None, 'no_quote'
-        base = market.split('_')[-1] if market.startswith(('1h_', '1q_')) else market
+        base = market.split('_')[-1] if market.startswith(('1h_', '1q_', '1p_')) else market
         two_sided_team = base in ('ml', 'rl', 'spread') or market in ('f5_ml', 'f5_rl')
         other_line = line if base not in ('rl', 'spread') or line is None else -line
         other_part = participant
@@ -100,6 +100,7 @@ class EventQuotes:
 
     def fair(self, market, line, side, ts_iso, participant=None, sport=None):
         sport = sport or self.sport
+        if market == '1p_ml': return dict(fair=None, status='threeway', n=0, detail={}, weights={})   # NHL first-period ML is three-way at every venue (tie ~20%); two-way devig would be wrong. Not priced until draw quotes are logged.
         mclass = N.MARKET_CLASS(market) if sport == 'mlb' else SP.market_class(market)
         w, status, meta = weights_for(sport, mclass)
         method = C.DEVIG_METHOD[(sport, mclass)]['value']

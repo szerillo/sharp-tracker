@@ -42,7 +42,7 @@ def main():
                     clv=(round(100 * (r['fair_at_close'] - r['implied']), 2) if r.get('fair_at_close') is not None and not r.get('late') else None), note=r.get('note'))
     # event names from the per-sport dashboards + sqlite-free lookup via schedule files
     names = {}
-    for sp in ('nfl', 'nba', 'cfb'):
+    for sp in ('nfl', 'nba', 'nhl', 'cfb'):
         p = os.path.join(ROOT, 'data', sp, 'schedule.json')
         if os.path.exists(p):
             for eid, e in json.load(open(p)).items(): names[eid] = f"{e.get('away')}@{e.get('home')} ({sp.upper()})"

@@ -65,7 +65,7 @@ const am = p => p == null ? '—' : (p > 0 ? '+' : '') + p;
 const pct = (p, d = 1) => p == null ? '—' : (100 * p).toFixed(d);
 const MKT0 = {ml:'Moneyline', rl:'Run line', spread:'Spread', total:'Total', tt_away:'Team total (away)', tt_home:'Team total (home)', f5_ml:'F5 moneyline', f5_rl:'F5 run line',
              f5_total:'F5 total', f5_tt_away:'F5 team total (away)', f5_tt_home:'F5 team total (home)', rfi:'1st inning (YRFI/NRFI)'};
-const MKT = new Proxy(MKT0, {get(t, k) { if (k in t) return t[k]; const m = /^(1h|1q)_(.*)$/.exec(k); return m ? (m[1] === '1h' ? '1H ' : '1Q ') + (t[m[2]] || m[2]) : undefined; }});
+const MKT = new Proxy(MKT0, {get(t, k) { if (k in t) return t[k]; const m = /^(1h|1q|1p)_(.*)$/.exec(k); return m ? ({'1h': '1H ', '1q': '1Q ', '1p': '1st period '}[m[1]]) + (t[m[2]] || m[2]) : undefined; }});
 let SPORT = new URLSearchParams(location.search).get('sport') || null;
 const XV = new Set(['Kalshi', 'Novig', 'Polymarket']), SHARP = new Set(['Pinnacle', 'Circa']);
 const ET = iso => new Date(iso).toLocaleString('en-US', {timeZone: 'America/New_York', month: 'short', day: 'numeric', hour: 'numeric', minute: '2-digit'});
@@ -180,7 +180,7 @@ function renderVenues() {
   return h;
 }
 
-const SPORT_LABEL = {nfl: 'NFL', nba: 'NBA', cfb: 'CFB', mlb: 'MLB'};
+const SPORT_LABEL = {nfl: 'NFL', nba: 'NBA', nhl: 'NHL', cfb: 'CFB', mlb: 'MLB'};
 function renderEdges() {
   if (!E) return '<div class="banner">edges.json not loaded yet</div>';
   const st = window._ef || (window._ef = {sport: '', cls: '', market: '', venue: '', minv: 3, mine: 0, hours: 0, q: '', sort: 'edge', dir: -1, open: {}});

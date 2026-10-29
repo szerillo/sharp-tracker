@@ -30,7 +30,7 @@ jobs:
       - run: python3 sharp/results.py
       - run: python3 sharp/grade.py
       - name: season logs (ESPN scores + DK close) for the systems engine
-        run: python3 -m sharp.season nfl || true
+        run: python3 -m sharp.season nfl nhl nba || true
       - name: systems engine (pre-registered rules -> paper fills)
         run: python3 sharp/systems.py || true
       - name: import real fills from the exchanges (Novig / Kalshi keys; skips without them)
@@ -49,7 +49,7 @@ jobs:
       - name: commit
         run: |
           git config user.name "tracker-bot"; git config user.email "actions@users.noreply.github.com"
-          git add -A data/state data/novig/daily data/novig/catalog data/novig/_history_state.json data/nfl/season.json data/nfl/ticks data/nba/ticks data/cfb/ticks data/polymarket && git commit -m "tracker $(date -u +%Y-%m-%dT%H:%M)" || exit 0
+          git add -A data/state data/novig/daily data/novig/catalog data/novig/_history_state.json data/nfl/season.json data/nfl/ticks data/nba/ticks data/cfb/ticks data/nhl/ticks data/nhl/season.json data/nba/season.json data/cfb/season.json data/polymarket && git commit -m "tracker $(date -u +%Y-%m-%dT%H:%M)" || exit 0
           for i in 1 2 3 4 5; do
             if git pull --rebase -X theirs && git push; then exit 0; fi
             git rebase --abort 2>/dev/null || true

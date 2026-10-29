@@ -21,46 +21,54 @@ NBA = {
 # vendor code -> canonical, applied before equality checks (both leagues; a code that is valid canonical in one league is left alone there)
 CODE_FIX = {'nfl': {'JAC': 'JAX', 'LA': 'LAR', 'WAS': 'WSH', 'LVR': 'LV', 'ARZ': 'ARI', 'TAM': 'TB', 'GNB': 'GB', 'KAN': 'KC', 'NWE': 'NE', 'NOR': 'NO', 'SFO': 'SF'},
             'nba': {'GSW': 'GS', 'NOP': 'NO', 'NYK': 'NY', 'SAS': 'SA', 'UTA': 'UTAH', 'WAS': 'WSH', 'PHO': 'PHX', 'BRK': 'BKN', 'CHO': 'CHA', 'LA': 'LAL'},
-            'cfb': {}}
+            'cfb': {}, 'nhl': {'WAS': 'WSH', 'LAK': 'LA', 'SJS': 'SJ', 'TBL': 'TB', 'NJD': 'NJ', 'VGS': 'VGK', 'VEG': 'VGK', 'MON': 'MTL', 'CLB': 'CBJ', 'UTAH': 'UTA', 'NAS': 'NSH', 'ANH': 'ANA'}}
 
-PERIODS = {'full': '', '1h': '1h_', '1q': '1q_'}
+PERIODS = {'full': '', '1h': '1h_', '1q': '1q_', '1p': '1p_'}
 # Kalshi series -> (market, period prefix); same pattern per league prefix
 KALSHI_GAME = {'GAME': ('ml', ''), 'SPREAD': ('spread', ''), 'TOTAL': ('total', ''), 'TEAMTOTAL': ('tt', ''),
                '1H': ('ml', '1h_'), '1HSPREAD': ('spread', '1h_'), '1HTOTAL': ('total', '1h_'), '1HTEAMTOTAL': ('tt', '1h_'),
-               '1Q': ('ml', '1q_'), '1QSPREAD': ('spread', '1q_'), '1QTOTAL': ('total', '1q_'), '1QTEAMTOTAL': ('tt', '1q_')}
+               '1Q': ('ml', '1q_'), '1QSPREAD': ('spread', '1q_'), '1QTOTAL': ('total', '1q_'), '1QTEAMTOTAL': ('tt', '1q_'),
+               '1P': ('ml', '1p_'), '1PSPREAD': ('spread', '1p_'), '1PTOTAL': ('total', '1p_')}
 KALSHI_PROPS = {'nfl': {'PASSYDS': 'PASSYDS', 'RSHYDS': 'RUSHYDS', 'RECYDS': 'RECYDS', 'REC': 'REC', 'PASSTDS': 'PASSTD', 'TD': 'ANYTD', 'ANYTD': 'ANYTD',
                         'RSHATT': 'RUSHATT', 'PASSATT': 'PASSATT', 'PASSCOMP': 'PASSCOMP', 'PASSINT': 'INT', 'RRYDS': 'RUSHRECYDS'},
                 'nba': {'PTS': 'PTS', 'REB': 'REB', 'AST': 'AST', 'PRA': 'PRA', 'PR': 'PR', 'PA': 'PA', 'RA': 'RA', '3PT': '3PM', 'STL': 'STL', 'BLK': 'BLK', 'FTM': 'FTM'},
-                'cfb': {}}
+                'cfb': {},
+                'nhl': {'GOAL': 'GOALS', 'PTS': 'PTS', 'AST': 'AST', 'SAVES': 'SAVES', 'SOG': 'SOG', 'SHOTS': 'SOG'}}
 NOVIG_PROPS = {'nfl': {'PASSING_YARDS': 'PASSYDS', 'RUSHING_YARDS': 'RUSHYDS', 'RECEIVING_YARDS': 'RECYDS', 'RECEPTIONS': 'REC', 'PASSING_TOUCHDOWNS': 'PASSTD',
                        'TOUCHDOWNS': 'ANYTD', 'RUSHING_ATTEMPTS': 'RUSHATT', 'PASSING_ATTEMPTS': 'PASSATT', 'PASSING_COMPLETIONS': 'PASSCOMP',
                        'INTERCEPTIONS': 'INT', 'RUSHING_AND_RECEIVING_YARDS': 'RUSHRECYDS', 'PASSING_AND_RUSHING_YARDS': 'PASSRUSHYDS'},
                'nba': {'POINTS': 'PTS', 'REBOUNDS': 'REB', 'ASSISTS': 'AST', 'POINTS_REBOUNDS_ASSISTS': 'PRA', 'POINTS_REBOUNDS': 'PR', 'POINTS_ASSISTS': 'PA',
                        'REBOUNDS_ASSISTS': 'RA', 'THREE_POINTERS': '3PM', 'STEALS': 'STL', 'BLOCKS': 'BLK'},
-               'cfb': {}}
+               'cfb': {},
+               'nhl': {'GOALS': 'GOALS', 'ANYTIME_GOAL': 'GOALS', 'POINTS': 'PTS', 'ASSISTS': 'AST', 'SAVES': 'SAVES', 'SHOTS_ON_GOAL': 'SOG', 'SHOTS': 'SOG'}}
 NOVIG_GAME = {'MONEY': ('ml', ''), 'SPREAD': ('spread', ''), 'TOTAL': ('total', ''), 'TEAM_TOTAL': ('tt', ''),
               'MONEY_1H': ('ml', '1h_'), 'SPREAD_1H': ('spread', '1h_'), 'TOTAL_1H': ('total', '1h_'), 'TEAM_TOTAL_1H': ('tt', '1h_'),
-              'MONEY_1Q': ('ml', '1q_'), 'SPREAD_1Q': ('spread', '1q_'), 'TOTAL_1Q': ('total', '1q_')}
+              'MONEY_1Q': ('ml', '1q_'), 'SPREAD_1Q': ('spread', '1q_'), 'TOTAL_1Q': ('total', '1q_'),
+              'MONEY_1P': ('ml', '1p_'), 'SPREAD_1P': ('spread', '1p_'), 'TOTAL_1P': ('total', '1p_'), 'MONEY_P1': ('ml', '1p_'), 'TOTAL_P1': ('total', '1p_')}
 POLY_GAME = {'moneyline': ('ml', ''), 'spreads': ('spread', ''), 'totals': ('total', ''), 'team_totals': ('tt', ''),
              'first_half_spreads': ('spread', '1h_'), 'first_half_totals': ('total', '1h_'), 'first_half_moneyline': ('ml', '1h_')}
 POLY_PROPS = {'nfl': {'passing_yards': 'PASSYDS', 'rushing_yards': 'RUSHYDS', 'receiving_yards': 'RECYDS', 'receptions': 'REC', 'passing_touchdowns': 'PASSTD',
                       'anytime_touchdowns': 'ANYTD'},
-              'nba': {'points': 'PTS', 'rebounds': 'REB', 'assists': 'AST', 'threes': '3PM', 'pra': 'PRA'}, 'cfb': {}}
-AN_PROPS = {'nfl': {}, 'nba': {}, 'cfb': {}}   # filled when the AN prop endpoints are wired for these sports
+              'nba': {'points': 'PTS', 'rebounds': 'REB', 'assists': 'AST', 'threes': '3PM', 'pra': 'PRA'}, 'cfb': {},
+              'nhl': {'goals': 'GOALS', 'points': 'PTS', 'assists': 'AST', 'saves': 'SAVES', 'shots_on_goal': 'SOG'}}
+AN_PROPS = {'nfl': {}, 'nba': {}, 'cfb': {}, 'nhl': {}}   # filled when the AN prop endpoints are wired for these sports
 PIN_PROPS = {'nfl': {'Passing Yards': 'PASSYDS', 'Rushing Yards': 'RUSHYDS', 'Receiving Yards': 'RECYDS', 'Receptions': 'REC', 'Passing TDs': 'PASSTD',
                      'Touchdowns': 'ANYTD', 'Rush Attempts': 'RUSHATT', 'Pass Attempts': 'PASSATT', 'Pass Completions': 'PASSCOMP', 'Interceptions': 'INT'},
              'nba': {'Points': 'PTS', 'Rebounds': 'REB', 'Assists': 'AST', 'Pts+Rebs+Asts': 'PRA', '3 Point FG': '3PM', 'Steals': 'STL', 'Blocks': 'BLK'},
-             'cfb': {}}
+             'cfb': {},
+             'nhl': {'Goals': 'GOALS', 'Points': 'PTS', 'Assists': 'AST', 'Saves': 'SAVES', 'Shots On Goal': 'SOG', 'Shots': 'SOG'}}
 
 SPORTS = {
     'nfl': dict(label='NFL', espn='football/nfl', pinnacle=889, kalshi='KXNFL', an='nfl', poly='NFL', novig='NFL', teams=NFL, weather=True,
                 horizon_days=8, periods=('full', '1h', '1q'), pin_period={0: '', 1: '1h_', 3: '1q_'}, an_period={'event': '', 'firsthalf': '1h_', 'firstquarter': '1q_'}),
     'nba': dict(label='NBA', espn='basketball/nba', pinnacle=487, kalshi='KXNBA', an='nba', poly='NBA', novig='NBA', teams=NBA, weather=False,
                 horizon_days=2, periods=('full', '1h', '1q'), pin_period={0: '', 1: '1h_', 3: '1q_'}, an_period={'event': '', 'firsthalf': '1h_', 'firstquarter': '1q_'}),
+    'nhl': dict(label='NHL', espn='hockey/nhl', pinnacle=1456, kalshi='KXNHL', an='nhl', poly='NHL', novig='NHL', teams={}, weather=False,
+                horizon_days=2, periods=('full', '1p'), pin_period={0: '', 1: '1p_'}, an_period={'event': '', 'firstperiod': '1p_'}),
     'cfb': dict(label='CFB', espn='football/college-football', pinnacle=880, kalshi='KXNCAAF', an='ncaaf', poly='CFB', novig='NCAAF', teams={}, weather=True,
                 horizon_days=8, periods=('full', '1h'), pin_period={0: '', 1: '1h_'}, an_period={'event': '', 'firsthalf': '1h_'}),
 }
-GAME_MARKET_RE = re.compile(r'^(1h_|1q_)?(ml|spread|total|tt_home|tt_away)$')
+GAME_MARKET_RE = re.compile(r'^(1h_|1q_|1p_)?(ml|spread|total|tt_home|tt_away)$')
 
 
 def market_class(m):

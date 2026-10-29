@@ -21,10 +21,11 @@ def outcome(market, line, side, participant, res, venue=None, event=None):
         try: players_j = json.loads(players_j)
         except Exception: players_j = {}
     periods = players_j.get('_periods') or {}
-    if market.startswith(('1h_', '1q_')):
+    if market.startswith(('1h_', '1q_', '1p_')):
         pre, base = market[:3], market[3:]
         if pre == '1h_': ph, pa = f5h, f5a
-        else: ph, pa = periods.get('1q_home'), periods.get('1q_away')
+        else: ph, pa = periods.get(pre + 'home'), periods.get(pre + 'away')
+        if pre == '1p_' and base == 'ml' and ph is not None and ph == pa: return 0   # three-way period ML everywhere: a tie loses
         if ph is None or pa is None: return 'void'
         if base == 'ml':
             if ph == pa: return 0 if venue == 'Kalshi' else None

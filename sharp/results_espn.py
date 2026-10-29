@@ -40,6 +40,11 @@ def parse_players(sport, box):
                         row.update(RUSHYDS=_num(st.get('rushingYards')), RUSHATT=_num(st.get('rushingAttempts')), RUSHTD=_num(st.get('rushingTouchdowns')))
                     elif cat['name'] == 'receiving':
                         row.update(RECYDS=_num(st.get('receivingYards')), REC=_num(st.get('receptions')), RECTD=_num(st.get('receivingTouchdowns')), TGTS=_num(st.get('receivingTargets')))
+                elif sport == 'nhl':
+                    if cat['name'] in ('forwards', 'defenses', 'defensemen', 'skaters'):
+                        row.update(GOALS=_num(st.get('goals')), AST=_num(st.get('assists')), PTS=_num(st.get('points')), SOG=_num(st.get('shotsTotal')) if st.get('shotsTotal') is not None else _num(st.get('shots')), played=1)
+                    elif cat['name'] in ('goalies', 'goalie'):
+                        row.update(SAVES=_num(st.get('saves')), GA=_num(st.get('goalsAgainst')), played=1 if (_num(st.get('saves')) or 0) > 0 or (_num(st.get('goalsAgainst')) or 0) > 0 else 0)
                 elif sport == 'nba':
                     row.update(PTS=_num(st.get('points')), REB=_num(st.get('rebounds')), AST=_num(st.get('assists')), STL=_num(st.get('steals')), BLK=_num(st.get('blocks')),
                                TOV=_num(st.get('turnovers')), MIN=_num(st.get('minutes')),
@@ -76,7 +81,7 @@ def pull(sport, event_id):
     for side, d in (('home', h), ('away', a)):
         q = d.get('q') or []
         if len(q) >= 2: per[f'1h_{side}'] = q[0] + q[1]
-        if len(q) >= 1: per[f'1q_{side}'] = q[0]
+        if len(q) >= 1: per[f'1q_{side}'] = q[0]; per[f'1p_{side}'] = q[0]
     players = parse_players(sport, s.get('boxscore') or {}); players['_periods'] = per
     return dict(event_id=str(event_id), status='final', actual_start=comp.get('date'), home_score=int(h['score']), away_score=int(a['score']),
                 f5_home=per.get('1h_home'), f5_away=per.get('1h_away'), rfi=None, players=players, sport=sport)

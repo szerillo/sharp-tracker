@@ -7,7 +7,7 @@ from sharp import sports as SP
 from sharp.norm import parse_ts, et_date
 
 ROOT = os.path.abspath(os.path.join(HERE, '..'))
-SEASON_START = {'nfl': dt.date(2026, 9, 1), 'nba': dt.date(2026, 10, 15), 'cfb': dt.date(2026, 8, 20)}
+SEASON_START = {'nfl': dt.date(2026, 9, 1), 'nba': dt.date(2026, 10, 15), 'cfb': dt.date(2026, 8, 20), 'nhl': dt.date(2026, 10, 5)}
 
 
 def g(u, tries=3):
