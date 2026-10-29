@@ -15,13 +15,17 @@ TAGS = ['mlb', 'nfl', 'nba', 'nhl', 'cfb', 'cbb', 'epl', 'ucl', 'mls', 'ufc', 'a
 HORIZON_H = 36; STATE = os.path.join(OUT, '_last_trade.json'); META = os.path.join(OUT, '_markets.json')
 
 
+T0 = time.time(); BUDGET_S = float(os.environ.get('POLY_BUDGET_S', 360))
+
+
 def g(u):
-    for i in range(5):
-        try: return json.load(urllib.request.urlopen(urllib.request.Request(u, headers={'User-Agent': 'sharp-tracker'}), timeout=40))
+    for i in range(3):
+        if time.time() - T0 > BUDGET_S: return None          # run budget: a throttling endpoint cannot stall the job
+        try: return json.load(urllib.request.urlopen(urllib.request.Request(u, headers={'User-Agent': 'sharp-tracker'}), timeout=20))
         except urllib.error.HTTPError as e:
             if e.code == 429: time.sleep(2 * (i + 1)); continue
             return None
-        except Exception: time.sleep(1.5 * (i + 1))
+        except Exception: time.sleep(1.0 * (i + 1))
     return None
 
 
@@ -84,7 +88,7 @@ def main():
     last.update({r['cond']: r['last_ts'] for r in rows}); json.dump(last, open(STATE, 'w'))
     json.dump(meta, open(META, 'w'), separators=(',', ':'))
     import collections
-    print(f"[polymarket] {len(rows)} markets, {sum(len(r['new_trades']) for r in rows)} new trades; " + str(dict(collections.Counter(r['league'] for r in rows))))
+    print(f"[polymarket] {len(rows)} of {len(todo)} markets in {round(time.time() - T0)}s, {sum(len(r['new_trades']) for r in rows)} new trades; " + str(dict(collections.Counter(r['league'] for r in rows))))
 
 
 if __name__ == '__main__':
