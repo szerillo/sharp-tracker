@@ -156,6 +156,7 @@ def main():
     tests = T.run_all(preview=False)
     wf = json.load(open(F.WEIGHTS_FILE)) if os.path.exists(F.WEIGHTS_FILE) else {}
     ledg = ledger(conn); hlth = health(conn); consts = C.dump()
+    sysv = json.load(open(os.path.join(SD, 'system_fires.json'))) if os.path.exists(os.path.join(SD, 'system_fires.json')) else None
     sports = [r[0] for r in conn.execute("SELECT DISTINCT sport FROM events")] or ['mlb']
     index = dict(built=NOW_S, sports=[], spec='SHARP_TRACKER_BUILD_SPEC_2026-10-14.md')
     for sp in sorted(sports, key=lambda s: ['nfl', 'nba', 'cfb', 'mlb'].index(s) if s in ('nfl', 'nba', 'cfb', 'mlb') else 9):
@@ -167,7 +168,8 @@ def main():
                                prop_rows_settled=conn.execute("SELECT COUNT(*) FROM closes c JOIN events e ON e.event_id=c.event_id WHERE c.mclass='prop' AND c.outcome IS NOT NULL AND e.sport=?", (sp,)).fetchone()[0]),
                    weights=dict(game=F.weights_for(sp, 'game')[0], game_status=F.weights_for(sp, 'game')[1],
                                 prop=F.weights_for(sp, 'prop')[0], prop_status=F.weights_for(sp, 'prop')[1], fit_file=wf),
-                   board=board(conn, sp), venues=tests, ledger=ledg, health=hlth, constants=consts, spec='SHARP_TRACKER_BUILD_SPEC_2026-10-14.md')
+                   board=board(conn, sp), venues=tests, ledger=ledg, health=hlth, constants=consts, systems=(sysv if sp == 'nfl' else None),
+                   spec='SHARP_TRACKER_BUILD_SPEC_2026-10-14.md')
         fn = os.path.join(SD, f'dashboard_{sp}.json'); json.dump(strip(out), open(fn, 'w'), default=str, separators=(',', ':'))
         index['sports'].append(dict(sport=sp, label=out['label'], file=f'data/state/dashboard_{sp}.json', games=len(out['board']), ticks=nt, events=nev, settled=nset))
         print(f"[export] {fn.split('/')[-1]}: {len(out['board'])} games on the board, {sum(len(g['props']) for g in out['board'])} prop cells, {os.path.getsize(fn) // 1024} KB")
