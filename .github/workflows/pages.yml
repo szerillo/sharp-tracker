@@ -1,0 +1,37 @@
+name: pages (publish dashboard)
+# Publishes the dashboard to GitHub Pages after every tracker run and on demand. Uses the Actions deployment path so Pages
+# turns itself on (enablement: true) without touching repo settings by hand. Only index.html + data/state are published.
+on:
+  workflow_run:
+    workflows: ["tracker (fold, grade, export)"]
+    types: [completed]
+  workflow_dispatch: {}
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+concurrency:
+  group: pages
+  cancel-in-progress: true
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/configure-pages@v5
+        with:
+          enablement: true
+      - name: assemble site
+        run: |
+          mkdir -p _site/data/state
+          cp index.html _site/
+          cp -r data/state/*.json _site/data/state/ 2>/dev/null || true
+          cp -r docs _site/docs
+          ls -la _site _site/data/state
+      - uses: actions/upload-pages-artifact@v3
+        with: {path: _site}
+      - id: deployment
+        uses: actions/deploy-pages@v4
