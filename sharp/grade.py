@@ -5,7 +5,8 @@ Writes table `closes` into the SQLite view and data/sharp/closes.jsonl (so the d
 """
 import os, sys, json, sqlite3, datetime as dt, collections
 HERE = os.path.dirname(os.path.abspath(__file__)); sys.path.insert(0, os.path.dirname(HERE))
-from sharp import constants as C, norm as N, fair as F, settle as S
+from sharp import constants as C, norm as N, fair as F, settle as S, sports as SP
+import gzip
 
 ROOT = os.path.abspath(os.path.join(HERE, '..')); SD = os.path.join(ROOT, 'data', 'state'); DB = os.path.join(SD, 'sharp.sqlite')
 DDL = """
@@ -19,16 +20,39 @@ CREATE TABLE IF NOT EXISTS closes (
 );"""
 
 
+COLS = ['event_id', 'et_date', 'start_utc', 'venue', 'vclass', 'market', 'mclass', 'line', 'side', 'participant', 'open_ts', 'open_implied', 'p_open',
+        'close_ts', 'close_implied', 'p_close', 'close_age_min', 'close_limit', 'close_flags', 'p_24h', 'p_6h', 'p_1h', 'outcome', 'push', 'void', 'n_ticks']
+CLOSES = os.path.join(SD, 'closes.jsonl.gz')     # persistent, committed: graded events survive the raw-tick roll-off
+
+
+def load_closes():
+    out = collections.defaultdict(list)
+    if os.path.exists(CLOSES):
+        with gzip.open(CLOSES, 'rt') as f:
+            for l in f:
+                try: r = json.loads(l); out[r['event_id']].append(tuple(r[c] for c in COLS))
+                except Exception: pass
+    legacy = os.path.join(SD, 'closes.jsonl')     # one-time import of the old uncompressed file
+    if not out and os.path.exists(legacy):
+        for l in open(legacy):
+            try: r = json.loads(l); out[r['event_id']].append(tuple(r.get(c) for c in COLS))
+            except Exception: pass
+    return out
+
+
 def build():
     conn = sqlite3.connect(DB); conn.execute("DROP TABLE IF EXISTS closes"); conn.executescript(DDL)
     res = {r[0]: dict(status=r[1], home_score=r[3], away_score=r[4], f5_home=r[5], f5_away=r[6], rfi=r[7], players=json.loads(r[8] or '{}'))
            for r in conn.execute("SELECT * FROM results")}
-    rows = []
-    for ev, et_date, start, away, home in conn.execute("SELECT event_id, et_date, start_utc, away, home FROM events").fetchall():
+    have = load_closes(); rows = []; n_new_ev = 0
+    for ev, et_date, start, away, home, sport in conn.execute("SELECT event_id, et_date, start_utc, away, home, sport FROM events").fetchall():
         r = res.get(ev)
         if not r or r['status'] != 'final': continue
+        if ev in have: rows.extend(have[ev]); continue          # graded on an earlier run; raw ticks may since have rolled off
+        n_new_ev += 1
         eq = F.EventQuotes(conn, ev); st = N.parse_ts(start); start_iso = N.iso(st)
-        method_for = lambda m: C.DEVIG_METHOD[('mlb', N.MARKET_CLASS(m))]['value']
+        mclass_of = (lambda m: N.MARKET_CLASS(m)) if sport == 'mlb' else SP.market_class
+        method_for = lambda m: C.DEVIG_METHOD[(sport, mclass_of(m))]['value']
         for (v, m, l, s, p), L in eq.idx.items():
             if C.VENUE_CLASS.get(v) == 'reference': continue
             pre = [t for t in L if t[0] <= start_iso]
@@ -42,17 +66,19 @@ def build():
             for name, mins in (('24h', 1440), ('6h', 360), ('1h', 60)):
                 hz[name] = eq.venue_prob(v, m, l, s, N.iso(st - dt.timedelta(minutes=mins)), meth, p, max_age=C.HORIZON_TOLERANCE_MIN['value'])[0]
             out = S.outcome(m, l, s, p, r, v, (away, home))
-            rows.append((ev, et_date, start, v, C.VENUE_CLASS.get(v), m, N.MARKET_CLASS(m), l, s, p,
+            rows.append((ev, et_date, start, v, C.VENUE_CLASS.get(v), m, mclass_of(m), l, s, p,
                          o[0], o[5], p_open, c[0], c[5], p_close, round(age, 1), c[11], c[9], hz['24h'], hz['6h'], hz['1h'],
                          out if out in (0, 1) else None, 1 if out is None else 0, 1 if out == 'void' else 0, len(pre)))
     conn.executemany("INSERT OR REPLACE INTO closes VALUES (" + ','.join('?' * 26) + ")", rows)
     conn.commit()
-    cols = ['event_id', 'et_date', 'start_utc', 'venue', 'vclass', 'market', 'mclass', 'line', 'side', 'participant', 'open_ts', 'open_implied', 'p_open',
-            'close_ts', 'close_implied', 'p_close', 'close_age_min', 'close_limit', 'close_flags', 'p_24h', 'p_6h', 'p_1h', 'outcome', 'push', 'void', 'n_ticks']
-    with open(os.path.join(SD, 'closes.jsonl'), 'w') as f:
-        for r in rows: f.write(json.dumps(dict(zip(cols, r))) + '\n')
+    # also events settled on earlier runs whose raw ticks have rolled off (not in the events table any more)
+    for ev, L in have.items():
+        if ev not in {r[0] for r in rows}: rows.extend(L)
+    conn.executemany("INSERT OR REPLACE INTO closes VALUES (" + ','.join('?' * 26) + ")", rows); conn.commit()
+    with gzip.open(CLOSES, 'wt') as f:
+        for r in rows: f.write(json.dumps(dict(zip(COLS, r)), separators=(',', ':')) + '\n')
     n_ev = len({r[0] for r in rows})
-    print(f"[grade] closes: {len(rows)} rows over {n_ev} settled events; graded {sum(1 for r in rows if r[22] is not None)}, push {sum(r[23] for r in rows)}, void {sum(r[24] for r in rows)}")
+    print(f"[grade] closes: {len(rows)} rows over {n_ev} settled events ({n_new_ev} newly graded); graded {sum(1 for r in rows if r[22] is not None)}, push {sum(r[23] for r in rows)}, void {sum(r[24] for r in rows)}")
     conn.close()
 
 

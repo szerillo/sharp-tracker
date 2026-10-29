@@ -43,10 +43,13 @@ jobs:
       - run: python3 -m sharp.fills grade
       - run: python3 sharp/weights_fit.py
       - run: python3 sharp/export.py
+      - name: roll off raw ticks older than 10 days to the raw-archive release
+        env: {GITHUB_TOKEN: '${{ secrets.GITHUB_TOKEN }}', GH_TOKEN: '${{ secrets.GITHUB_TOKEN }}'}
+        run: python3 sharp/rolloff.py || true
       - name: commit
         run: |
           git config user.name "tracker-bot"; git config user.email "actions@users.noreply.github.com"
-          git add data/state data/novig/daily data/novig/catalog data/novig/_history_state.json data/nfl/season.json && git commit -m "tracker $(date -u +%Y-%m-%dT%H:%M)" || exit 0
+          git add -A data/state data/novig/daily data/novig/catalog data/novig/_history_state.json data/nfl/season.json data/nfl/ticks data/nba/ticks data/cfb/ticks data/polymarket && git commit -m "tracker $(date -u +%Y-%m-%dT%H:%M)" || exit 0
           for i in 1 2 3 4 5; do
             if git pull --rebase -X theirs && git push; then exit 0; fi
             git rebase --abort 2>/dev/null || true
