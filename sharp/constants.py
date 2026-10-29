@@ -48,7 +48,7 @@ DEVIG_METHOD = {
     ("mlb", "prop"): dict(value="power", status="prior", fit_date=None, sample=0, calibration_error=None, alternative="shin",
                           source="same battery; props are two-way"),
 }
-for _sp in ("nfl", "nba", "cfb", "nhl", "soccer"):
+for _sp in ("nfl", "nba", "cfb", "nhl", "soccer", "mma"):
     for _mc in ("game", "prop"):
         DEVIG_METHOD[(_sp, _mc)] = dict(DEVIG_METHOD[("mlb", _mc)], source="MLB battery result carried over (Fable 10/29); two-way markets")
 
@@ -70,7 +70,7 @@ WEIGHTS = {
 }
 # Registry sports start from the MLB priors (same venues, same mechanism: exchange-anchored, books by closure); each is replaced by its own
 # ridge fit once the sport's gate opens (Fable 10/29, placeholder prior — not a fitted weight).
-for _sp in ("nfl", "nba", "cfb", "nhl", "soccer"):
+for _sp in ("nfl", "nba", "cfb", "nhl", "soccer", "mma"):
     for _mc in ("game", "prop"):
         WEIGHTS[(_sp, _mc)] = dict(WEIGHTS[("mlb", _mc)], status="prior", source="MLB prior carried over as placeholder (Fable 10/29); refit per sport when gated")
 

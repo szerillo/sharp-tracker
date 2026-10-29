@@ -43,6 +43,14 @@ def outcome(market, line, side, participant, res, venue=None, event=None):
         if base == 'tt_away': return ou(pa)
         return 'void'
     if market == 'spread': market = 'rl'
+    if sport == 'mma':
+        if market == 'ml': return int((hs > as_) == (side == 'home'))
+        if market == 'total':
+            r = (res.get('players') or {}).get('_rounds')
+            if r is None or line is None: return 'void'
+            if abs(r - line) < 1e-9: return None
+            return int((r > line) == (side == 'over'))
+        return 'void'
     if market == 'ml':
         if side == 'draw': return int(hs == as_)
         if hs == as_: return 0 if sport == 'soccer' else None     # soccer ML is three-way: the draw beats both sides

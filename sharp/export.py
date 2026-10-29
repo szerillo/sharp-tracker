@@ -15,8 +15,8 @@ GAME_ORDER = ['ml', 'rl', 'total', 'tt_away', 'tt_home', 'f5_ml', 'f5_rl', 'f5_t
 ORDER_SPORT = {'mlb': GAME_ORDER}
 for _sp, _cfg in SP.SPORTS.items():
     ORDER_SPORT[_sp] = [pre + m for pre in [''] + [SP.PERIODS[p] for p in _cfg['periods'] if p != 'full'] for m in ('ml', 'spread', 'total', 'tt_away', 'tt_home')]
-BOARD_HOURS = {'mlb': 40, 'nba': 40, 'nhl': 40, 'soccer': 72, 'nfl': 8 * 24, 'cfb': 8 * 24}   # how far ahead the board shows games (NFL/CFB lines are up all week)
-KEY_SPREAD = {'mlb': 1.5, 'nfl': 3, 'cfb': 3, 'nba': 3, 'nhl': 1.5, 'soccer': 0.5}
+BOARD_HOURS = {'mlb': 40, 'nba': 40, 'nhl': 40, 'soccer': 72, 'nfl': 8 * 24, 'cfb': 8 * 24, 'mma': 9 * 24}   # how far ahead the board shows games (NFL/CFB lines are up all week)
+KEY_SPREAD = {'mlb': 1.5, 'nfl': 3, 'cfb': 3, 'nba': 3, 'nhl': 1.5, 'soccer': 0.5, 'mma': 0.5}
 MIN_VENUES_FOR_EDGE = {'game': 3, 'prop': 2}   # fair shown only when at least this many ruler venues quote the cell (Fable 10/14; props 2 on 10/29: Kalshi+Novig+Pinnacle are the prop venues)
 
 
@@ -159,7 +159,7 @@ def main():
     sysv = json.load(open(os.path.join(SD, 'system_fires.json'))) if os.path.exists(os.path.join(SD, 'system_fires.json')) else None
     sports = [r[0] for r in conn.execute("SELECT DISTINCT sport FROM events")] or ['mlb']
     index = dict(built=NOW_S, sports=[], spec='SHARP_TRACKER_BUILD_SPEC_2026-10-14.md')
-    for sp in sorted(sports, key=lambda s: ['nfl', 'nba', 'nhl', 'cfb', 'soccer', 'mlb'].index(s) if s in ('nfl', 'nba', 'nhl', 'cfb', 'soccer', 'mlb') else 9):
+    for sp in sorted(sports, key=lambda s: ['nfl', 'nba', 'nhl', 'cfb', 'soccer', 'mma', 'mlb'].index(s) if s in ('nfl', 'nba', 'nhl', 'cfb', 'soccer', 'mma', 'mlb') else 9):
         nev = conn.execute("SELECT COUNT(*) FROM events WHERE sport=?", (sp,)).fetchone()[0]
         nset = conn.execute("SELECT COUNT(*) FROM results r JOIN events e ON e.event_id=r.event_id WHERE r.status='final' AND e.sport=?", (sp,)).fetchone()[0]
         nt = conn.execute("SELECT COUNT(*) FROM ticks WHERE sport=?", (sp,)).fetchone()[0]

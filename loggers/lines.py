@@ -50,6 +50,20 @@ def espn_schedule():
         day = (et_date(NOW) + dt.timedelta(days=d)).strftime('%Y%m%d')
         extra = '&groups=80&limit=400' if SPORT == 'cfb' else ''
         x = g(f"https://site.api.espn.com/apis/site/v2/sports/{CFG['espn']}/scoreboard?dates={day}{extra}")
+        if CFG.get('fights'):
+            for card in x.get('events', []):
+                for c in card.get('competitions', []):
+                    teams = {}
+                    for t in c['competitors']:
+                        ath = t.get('athlete') or {}; nm = ath.get('displayName') or ''; parts = nm.split()
+                        teams['home' if t.get('order') == 1 else 'away'] = dict(abbr=S.fighter_code(nm), displayName=nm, shortDisplayName=ath.get('shortName'), name=parts[-1] if parts else nm,
+                                                                                 location=' '.join(parts[:-1]), score=None, id=ath.get('id'), winner=t.get('winner'))
+                    if len(teams) != 2: continue
+                    st = c.get('status', {}).get('type', {})
+                    sched[c['id']] = dict(event_id=c['id'], start=c.get('date') or card['date'], away=teams['away']['abbr'], home=teams['home']['abbr'], away_team=teams['away'], home_team=teams['home'],
+                                          venue=(c.get('venue') or {}).get('fullName'), card=card.get('name'), card_id=card['id'], weight=(c.get('type') or {}).get('abbreviation'),
+                                          status=st.get('name'), completed=st.get('completed'), fetched=TS)
+            continue
         for ev in x.get('events', []):
             c = ev['competitions'][0]; teams = {}
             for t in c['competitors']:
@@ -80,9 +94,16 @@ class Matcher:
 
     def match(self, date, away, home, start=None):
         c = self.by.get((date, away, home)) or []
+        if not c and CFG.get('fights'): c = self.by.get((date, home, away)) or []     # fight feeds disagree on who is listed first; orient() fixes the sides
         if not c: self.unmatched[f"{date} {away}@{home}"] += 1; return None
         if start is not None and len(c) > 1: c = sorted(c, key=lambda e: abs((parse_ts(e['start']) - start).total_seconds()))
         return c[0]['event_id']
+
+
+    def orient(self, ev, a, h):
+        """(away, home) in the ESPN event's own order, whatever order the feed used."""
+        e = self.sched.get(ev)
+        return (e['away'], e['home']) if e and {e['away'], e['home']} == {a, h} else (a, h)
 
 
 # ----------------------------------------------------------------- ticks ----
@@ -123,6 +144,7 @@ def pinnacle(M):
         if not (a and h): continue
         st = parse_ts(m['startTime']); ev = M.match(et_date(st), a, h, st)
         if not ev: continue
+        pin_home, pin_away = h, a; a, h = M.orient(ev, a, h)
         games[m['id']] = (ev, a, h)
         for k in km[m['id']]:
             per = CFG['pin_period'].get(k.get('period'))
@@ -131,8 +153,9 @@ def pinnacle(M):
             P = {x['designation']: x for x in k['prices']}; typ = k.get('type')
             if typ == 'moneyline' and 'home' in P and 'away' in P:
                 fl = ['threeway'] if 'draw' in P else None
-                tick(ev, per + 'ml', 'away', 'Pinnacle', 'pinnacle_guest', participant=a, american=P['away']['price'], limit=lim, flags=fl)
-                tick(ev, per + 'ml', 'home', 'Pinnacle', 'pinnacle_guest', participant=h, american=P['home']['price'], limit=lim, flags=fl)
+                s_home = 'home' if pin_home == h else 'away'; s_away = 'away' if s_home == 'home' else 'home'   # Pinnacle's alignment vs the ESPN event's
+                tick(ev, per + 'ml', s_away, 'Pinnacle', 'pinnacle_guest', participant=pin_away, american=P['away']['price'], limit=lim, flags=fl)
+                tick(ev, per + 'ml', s_home, 'Pinnacle', 'pinnacle_guest', participant=pin_home, american=P['home']['price'], limit=lim, flags=fl)
                 if 'draw' in P: tick(ev, per + 'ml', 'draw', 'Pinnacle', 'pinnacle_guest', american=P['draw']['price'], limit=lim, flags=fl)
             elif typ == 'spread' and 'home' in P:
                 lh = P['home'].get('points')
@@ -181,10 +204,12 @@ def kalshi(M):
         date, blob = p; sp = S.split_codes(blob, codes, fix)
         if not sp: return None
         a, h = sp
-        if CFG.get('threeway'): a, h = h, a          # soccer tickers list the home side first (European convention)
+        if CFG.get('kalshi_home_first'): a, h = h, a          # soccer and UFC tickers list the home side first
         ev = M.match(date, a, h)
-        return (ev, a, h) if ev else None
-    for suf, (mkt, per) in S.KALSHI_GAME.items():
+        if not ev: return None
+        a, h = M.orient(ev, a, h)
+        return ev, a, h
+    for suf, (mkt, per) in (CFG.get('kalshi_game') or S.KALSHI_GAME).items():
         if per and per.strip('_') not in CFG['periods']: continue
         for m in walk(pre + suf):
             evt = m['event_ticker'].split('-', 1)[1]; r = resolve(evt)
@@ -286,6 +311,7 @@ def novig(M):
         aw, hm = [s_.strip() for s_ in e['description'].split('@', 1)]; a, h = M.teams.code(aw), M.teams.code(hm)
         st = parse_ts(e['startsTs']); ev = M.match(et_date(st), a, h, st)
         if not ev: continue
+        a, h = M.orient(ev, a, h)
         for m in (nv('/v3/catalog/markets', f"event={e['eventId']}&limit=2000") or {}).get('items', []):
             if m.get('marketType') in types and m.get('status') == 'OPEN': todo.append((ev, a, h, m))
     def best_from_listing(m):

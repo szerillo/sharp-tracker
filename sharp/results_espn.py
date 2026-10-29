@@ -68,7 +68,34 @@ def parse_players(sport, box):
     return players
 
 
+def pull_fight(event_id):
+    """UFC: the fight is an ESPN competition inside a card; the scoreboard for the card's date carries winner, final round and clock.
+    home_score 1/0 = the ESPN order-1 fighter won; players['_rounds'] = rounds elapsed (period - 1 + clock/300) for round totals."""
+    import os, json
+    sched_p = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'data', 'mma', 'schedule.json')
+    sched = json.load(open(sched_p)) if os.path.exists(sched_p) else {}
+    e = sched.get(str(event_id))
+    if not e: return None
+    day = e['start'][:10].replace('-', '')
+    x = g(f"https://site.api.espn.com/apis/site/v2/sports/mma/ufc/scoreboard?dates={day}")
+    for card in x.get('events', []):
+        for c in card.get('competitions', []):
+            if str(c['id']) != str(event_id): continue
+            st = (c.get('status') or {}); typ = st.get('type') or {}
+            if typ.get('name') in ('STATUS_POSTPONED', 'STATUS_CANCELED'): return dict(event_id=str(event_id), status='postponed', detail=typ.get('name'))
+            if not typ.get('completed'): return None
+            w = {('home' if p.get('order') == 1 else 'away'): p.get('winner') for p in c['competitors']}
+            if not any(w.values()): return dict(event_id=str(event_id), status='postponed', detail='no_winner')   # draw / no contest: not graded
+            per = st.get('period'); clk = st.get('clock')
+            rounds = (per - 1) + (float(clk) / 300.0 if clk is not None else 1.0) if per else None
+            players = {'_periods': {}, '_sport': 'mma', '_rounds': rounds, '_method': typ.get('detail')}
+            return dict(event_id=str(event_id), status='final', actual_start=c.get('date'), home_score=1 if w.get('home') else 0, away_score=1 if w.get('away') else 0,
+                        f5_home=None, f5_away=None, rfi=None, players=players, sport='mma')
+    return None
+
+
 def pull(sport, event_id):
+    if sport == 'mma': return pull_fight(event_id)
     s = g(f"https://site.api.espn.com/apis/site/v2/sports/{SP.SPORTS[sport]['espn']}/summary?event={event_id}")
     comp = ((s.get('header') or {}).get('competitions') or [{}])[0]; st = (comp.get('status') or {}).get('type') or {}
     if not st: return None
