@@ -28,8 +28,8 @@ def paged(path, query, max_pages, state=None, key=None):
         s, r = N.request('GET', path, q, timeout=60)
         if s == 429:
             retries += 1
-            if retries > 6: break
-            time.sleep(20); continue
+            if retries > 60: break
+            time.sleep(30); continue
         if s == 400 and cur: cur = None; continue
         if s != 200: print(f'[novig history] {path} -> {s} {str(r)[:120]}'); break
         pages += 1

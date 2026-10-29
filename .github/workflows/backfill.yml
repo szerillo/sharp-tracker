@@ -23,7 +23,12 @@ jobs:
         env:
           NOVIG_KEY_ID: ${{ secrets.NOVIG_KEY_ID }}
           NOVIG_PRIVATE_KEY: ${{ secrets.NOVIG_PRIVATE_KEY }}
-        run: python3 loggers/novig_history.py --all --max-pages ${{ github.event.inputs.pages }}
+        run: |
+          for i in $(seq 1 60); do
+            python3 loggers/novig_history.py --all --max-pages ${{ github.event.inputs.pages }}
+            grep -q '"backfill_done": true' data/novig/_history_state.json && break
+            sleep 60
+          done
       - name: commit
         run: |
           git config user.name "tracker-bot"; git config user.email "actions@users.noreply.github.com"
