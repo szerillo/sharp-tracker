@@ -11,10 +11,11 @@ weaker signal by construction, which is the point of running it forward before t
 Open-Meteo is free, no key, archive + forecast; wind_speed_unit=mph requested explicitly. Venue coordinates come from the
 Open-Meteo geocoder on the venue city/state and are cached in data/nfl/weather/_venues.json (indoor venues are logged once and skipped).
 """
-import json, os, time, datetime as dt, urllib.request, urllib.parse
+import json, os, sys, time, datetime as dt, urllib.request, urllib.parse
 
-HERE = os.path.dirname(os.path.abspath(__file__)); OUT = os.path.join(HERE, '..', '..', 'data', 'nfl', 'weather'); os.makedirs(OUT, exist_ok=True)
-ESPN = "https://site.api.espn.com/apis/site/v2/sports/football/nfl/scoreboard"
+ARGS = sys.argv[1:]; SPORT = ARGS[ARGS.index('--sport') + 1] if '--sport' in ARGS else 'nfl'      # nfl | cfb (outdoor football only)
+HERE = os.path.dirname(os.path.abspath(__file__)); OUT = os.path.join(HERE, '..', '..', 'data', SPORT, 'weather'); os.makedirs(OUT, exist_ok=True)
+ESPN = "https://site.api.espn.com/apis/site/v2/sports/football/nfl/scoreboard" if SPORT == 'nfl' else "https://site.api.espn.com/apis/site/v2/sports/football/college-football/scoreboard?groups=80&limit=400"
 OM = "https://api.open-meteo.com/v1/forecast"; GEO = "https://geocoding-api.open-meteo.com/v1/search"
 VEN = os.path.join(OUT, '_venues.json'); HORIZON_H = 7 * 24
 # Home stadium coordinates by ESPN team abbreviation (2026 season). Used first; the geocoder is the fallback for neutral sites
@@ -28,8 +29,12 @@ STADIUM = {'ARI': (33.5276, -112.2626), 'ATL': (33.7554, -84.4010), 'BAL': (39.2
            'TEN': (36.1665, -86.7713), 'WSH': (38.9076, -76.8645), 'WAS': (38.9076, -76.8645)}
 
 
+T0 = time.time(); BUDGET_S = float(os.environ.get('WX_BUDGET_S', 300))
+
+
 def g(u, timeout=15):
     for i in range(2):
+        if time.time() - T0 > BUDGET_S: return {}
         try: return json.load(urllib.request.urlopen(urllib.request.Request(u, headers={'User-Agent': 'sharp-tracker'}), timeout=timeout))
         except Exception: time.sleep(2 * (i + 1))
     return {}
@@ -40,8 +45,8 @@ def venue_coords(cache, v, home):
     key = str(v.get('id') or v.get('fullName'))
     if key in cache: return cache[key]
     addr = v.get('address') or {}; q = ', '.join(x for x in (addr.get('city'), addr.get('state')) if x)
-    lat, lon = STADIUM.get(home, (None, None))
-    is_home_park = home in STADIUM and (addr.get('country') in (None, 'USA', 'US') and (addr.get('state') or '') != '')
+    lat, lon = STADIUM.get(home, (None, None)) if SPORT == 'nfl' else (None, None)
+    is_home_park = SPORT == 'nfl' and home in STADIUM and (addr.get('country') in (None, 'USA', 'US') and (addr.get('state') or '') != '')
     if not is_home_park or lat is None:
         r = (g(f"{GEO}?name={urllib.parse.quote(addr.get('city') or '')}&count=10&language=en&format=json") or {}).get('results') or []
         hit = next((x for x in r if (x.get('admin1') or '').lower().startswith((addr.get('state') or '').lower()[:4])), r[0] if r else None)
@@ -54,7 +59,12 @@ def main():
     now = dt.datetime.now(dt.timezone.utc); ts = now.strftime('%Y-%m-%dT%H:%M:%SZ')
     cache = json.load(open(VEN)) if os.path.exists(VEN) else {}
     rows = []
-    for ev in (g(ESPN) or {}).get('events', []):
+    events = []
+    if SPORT == 'nfl': events = (g(ESPN) or {}).get('events', [])
+    else:
+        for d in range(0, 8):
+            day = (now + dt.timedelta(days=d)).strftime('%Y%m%d'); events += (g(ESPN + f"&dates={day}") or {}).get('events', [])
+    for ev in events:
         try: ko = dt.datetime.fromisoformat(ev['date'].replace('Z', '+00:00'))
         except Exception: continue
         h = (ko - now).total_seconds() / 3600
@@ -80,7 +90,7 @@ def main():
         for r in rows: f.write(json.dumps(r) + '\n')
     json.dump(cache, open(VEN, 'w'), indent=0)
     trig = [r for r in rows if r.get('wind_mph') is not None and 10 <= r['wind_mph'] <= 14 and 18 <= r['hours_to_kickoff'] <= 30]
-    print(f"[nfl weather] {len(rows)} games, {sum(1 for r in rows if r.get('wind_mph') is not None)} forecast; T-24h wind 10-14 triggers: "
+    print(f"[{SPORT} weather] {len(rows)} games, {sum(1 for r in rows if r.get('wind_mph') is not None)} forecast; T-24h wind 10-14 triggers: "
           + ', '.join(f"{r['away']}@{r['home']} {r['wind_mph']}mph" for r in trig))
 
 

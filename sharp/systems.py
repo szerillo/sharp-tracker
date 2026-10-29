@@ -20,18 +20,20 @@ from sharp import norm as N, fair as F, constants as C, season as SEA, fills as 
 
 ROOT = os.path.abspath(os.path.join(HERE, '..')); SD = os.path.join(ROOT, 'data', 'state'); DB = os.path.join(SD, 'sharp.sqlite')
 FIRED = os.path.join(SD, 'system_fired.json'); VIEW = os.path.join(SD, 'system_fires.json'); WX = os.path.join(ROOT, 'data', 'nfl', 'weather', 'weather.jsonl')
+WX_CFB = os.path.join(ROOT, 'data', 'cfb', 'weather', 'weather.jsonl')
 NOW = dt.datetime.now(dt.timezone.utc); NOW_S = N.iso(NOW)
 RULES = {'wind1014': dict(market='total', side='under', stake=1.0), 'wind1014_1h': dict(market='1h_total', side='under', stake=0.5),
+         'cfb_wind14': dict(market='total', side='under', stake=1.0, sport='cfb'),
          'vrest8_1h': dict(market='1h_total', side='under', stake=0.5), 'mnf_1h': dict(market='1h_total', side='under', stake=0.5),
          'awfuldog': dict(market='spread', side='dog', stake=0.5), 'bounce15_1h': dict(market='1h_spread', side='dog', stake=0.5)}
 WINDOW_H = tuple(float(x) for x in os.environ.get('SYSTEMS_WINDOW', '2,30').split(','))
 
 
-def weather_t24(event_id):
+def weather_t24(event_id, path=None):
     """The forecast row for this game nearest 24h before kickoff (18-30h tolerance), else the latest row."""
-    rows = []
-    if os.path.exists(WX):
-        for l in open(WX):
+    rows = []; path = path or WX
+    if os.path.exists(path):
+        for l in open(path):
             try: r = json.loads(l)
             except Exception: continue
             if r.get('espn_id') == event_id and r.get('wind_mph') is not None: rows.append(r)
@@ -130,6 +132,26 @@ def main():
                        fair=row['fair_at_fill'], edge_pts=(round(100 * (row['fair_at_fill'] - row['implied']), 2) if row['fair_at_fill'] is not None else None), why=why)
             fired[key] = rec; game['fills'].append(rec); fires_now.append(dict(game=f"{away}@{home}", **rec))
         if trig: view_games.append(game)
+    # CFB: wind >= 14 mph -> under (docs/betlabs_cfb_audit_2026-10-29.md). Only rule audited for CFB.
+    for ev, start, away, home in conn.execute("SELECT event_id, start_utc, away, home FROM events WHERE sport='cfb' ORDER BY start_utc").fetchall():
+        st = N.parse_ts(start); ttk = (st - NOW).total_seconds() / 3600
+        if not (WINDOW_H[0] <= ttk <= WINDOW_H[1]): continue
+        wx = weather_t24(ev, WX_CFB)
+        if not wx or wx.get('indoor') or wx.get('wind_mph') is None or wx['wind_mph'] < 14: continue
+        eq = F.EventQuotes(conn, ev); why = f"forecast {wx['wind_mph']} mph (gust {wx.get('gust_mph')}) at T-{wx['hours_to_kickoff']:.0f}h, {wx.get('temp_f')}F"
+        game = dict(event_id=ev, away=away, home=home, start_utc=start, hours_to_kickoff=round(ttk, 1), spread_home=None, dog=None, triggers={'cfb_wind14': why},
+                    wind=dict(mph=wx['wind_mph'], gust=wx.get('gust_mph'), temp_f=wx.get('temp_f'), at_h=wx['hours_to_kickoff']), fills=[], sport='cfb')
+        key = f"{ev}:cfb_wind14"
+        if key in fired: game['fills'].append(fired[key])
+        else:
+            line, n = main_line(eq, 'total', home)
+            if line is not None:
+                row = paper_fill(conn, eq, ev, start, 'total', line, 'under', None, 'cfb_wind14', 1.0, why)
+                if row:
+                    rec_ = dict(tag='cfb_wind14', fill_id=row['fill_id'], ts=NOW_S, market='total', side='under', line=line, venue=row['venue'], price=row['price_american'],
+                                fair=row['fair_at_fill'], edge_pts=(round(100 * (row['fair_at_fill'] - row['implied']), 2) if row['fair_at_fill'] is not None else None), why=why)
+                    fired[key] = rec_; game['fills'].append(rec_); fires_now.append(dict(game=f"{away}@{home}", **rec_))
+        view_games.append(game)
     json.dump(fired, open(FIRED, 'w'), indent=0)
     # per-tag forward record from the ledger
     rec = collections.defaultdict(lambda: dict(n=0, graded=0, w=0, l=0, p=0, pnl=0.0, clv=[], gate=100))
