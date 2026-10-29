@@ -1,4 +1,9 @@
-# sharp-tracker roadmap — written 2026-10-29
+# sharp-tracker roadmap — written 2026-10-29, status 2026-10-29 evening
+
+DONE 10/29: repo + Pages live (szerillo.github.io/sharp-tracker); Novig signed client + settled-market history decoder (secrets in);
+sport registry; normalised NFL/NBA/CFB logger every 20 min; ESPN results with 1H/1Q + box stats; per-sport dashboards with a sport
+switcher; systems engine (NFL) writing paper fills; Systems tab. OPEN: Kalshi key (optional), real-fills input, NBA audit, CFB names,
+weekly write-up, storage roll-off.
 
 Goal: a stand-alone site (GitHub Pages) that logs prices across venues, prices every market against an exchange-anchored
 ruler, fires the pre-registered systems automatically, grades everything, and needs nothing typed by hand except real
