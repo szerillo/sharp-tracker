@@ -66,7 +66,7 @@ def board(conn, sport='mlb'):
         if st < NOW - dt.timedelta(hours=1) or st > NOW + dt.timedelta(hours=BOARD_HOURS[sport]): continue
         eq = F.EventQuotes(conn, ev); ts = NOW_S
         last_tick = max((L[-1][0] for L in eq.idx.values()), default=None)
-        if last_tick and (NOW - N.parse_ts(last_tick)).total_seconds() > 90 * 60:
+        if last_tick and (NOW - N.parse_ts(last_tick)).total_seconds() > C.STALE_BOOK_MIN['value'] * 60:
             ts = last_tick   # the log is stale (job not running): price the board at the last observation and say so
         g = dict(event_id=ev, et_date=et_date, start_utc=start, away=away, home=home, status=status, priced_at=ts,
                  stale_min=round((NOW - N.parse_ts(ts)).total_seconds() / 60), minutes_to_start=round((st - N.parse_ts(ts)).total_seconds() / 60), markets=[])
@@ -173,6 +173,25 @@ def main():
         fn = os.path.join(SD, f'dashboard_{sp}.json'); json.dump(strip(out), open(fn, 'w'), default=str, separators=(',', ':'))
         index['sports'].append(dict(sport=sp, label=out['label'], file=f'data/state/dashboard_{sp}.json', games=len(out['board']), ticks=nt, events=nev, settled=nset))
         print(f"[export] {fn.split('/')[-1]}: {len(out['board'])} games on the board, {sum(len(g['props']) for g in out['board'])} prop cells, {os.path.getsize(fn) // 1024} KB")
+    # cross-sport edge list: every priced cell (game + prop) in one small file, best-first, for the Edges screen
+    edges = []
+    for spx in index['sports']:
+        d = json.load(open(os.path.join(SD, f"dashboard_{spx['sport']}.json")))
+        for gm in d['board']:
+            for c in gm['markets'] + gm.get('props', []):
+                if c.get('fair') is None or not c.get('best'): continue
+                b = c['best'][0]; b2 = c['best'][1] if len(c['best']) > 1 else None
+                lad = {l['venue']: l.get('p') for l in c.get('ladder', []) if l.get('p') is not None}
+                edges.append(dict(sport=spx['sport'], event_id=gm['event_id'], game=f"{gm['away']}@{gm['home']}", start_utc=gm['start_utc'], ttk_h=round(gm['minutes_to_start'] / 60, 1),
+                                  stale_min=gm['stale_min'], market=c['market'], mclass='prop' if c['market'].startswith('prop_') else 'game', side=c['side'], line=c.get('line'),
+                                  participant=c.get('participant'), player=c.get('player'), stat=c.get('stat'), fair=c['fair'], fair_n=c['fair_n'], fair_status=c.get('fair_status'),
+                                  venue=b['venue'], price=b.get('cost_american') or b.get('american'), cost=b['cost'], limit=b.get('limit'), flags=b.get('flags'),
+                                  venue2=b2 and b2['venue'], price2=b2 and (b2.get('cost_american') or b2.get('american')), edge_pts=c['edge_pts'], ladder=lad,
+                                  public=c.get('public'), open_american=c.get('open_american')))
+    edges.sort(key=lambda e: -(e['edge_pts'] if e['edge_pts'] is not None else -99))
+    json.dump(strip(dict(built=NOW_S, n=len(edges), edges=edges)), open(os.path.join(SD, 'edges.json'), 'w'), default=str, separators=(',', ':'))
+    print(f"[export] edges.json: {len(edges)} priced cells across {len(index['sports'])} sports, {os.path.getsize(os.path.join(SD, 'edges.json')) // 1024} KB; top: "
+          + ', '.join(f"{e['sport']} {e['game']} {e['market']} {e['side']} {e['edge_pts']:+.1f}" for e in edges[:3]))
     # dashboard.json stays the first sport's full file (back-compat for the page) with the index attached
     first = json.load(open(os.path.join(SD, f"dashboard_{index['sports'][0]['sport']}.json"))); first['index'] = index
     json.dump(first, open(os.path.join(SD, 'dashboard.json'), 'w'), default=str, separators=(',', ':'))

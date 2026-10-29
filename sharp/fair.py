@@ -128,8 +128,10 @@ class EventQuotes:
 def best_price(eq, market, line, side, ts_iso, participant=None, exclude=()):
     """Best bettable price (highest decimal / lowest implied) across venues at ts, excluding unbettable venues. Returns list sorted best-first."""
     rows = []
+    three_way = market in ('f5_ml', '1h_ml', '1q_ml') or (market == 'ml' and getattr(eq, 'sport', 'mlb') in ('nfl', 'cfb'))   # tie is a loss on the exchange, a push at the book
     for (v, m, l, s, p), L in eq.idx.items():
         if m != market or l != line or s != side or p != participant or v in C.UNBETTABLE_VENUES['value'] or v in exclude: continue
+        if three_way and v == 'Kalshi' and market != 'ml': continue      # not the same bet as the book price; the period ML tie rate is far too high to ignore
         if C.VENUE_CLASS.get(v) == 'reference': continue
         r = eq.latest(v, m, l, s, ts_iso, 90, p)
         if not r or r[5] is None: continue

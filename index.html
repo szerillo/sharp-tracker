@@ -41,6 +41,10 @@
   .side-over{color:var(--over)} .side-under{color:var(--under)}
   details>summary{cursor:pointer;color:var(--muted);font-size:12px;padding:6px 14px;list-style:none} details>summary::-webkit-details-marker{display:none}
   .small{font-size:12px;color:var(--muted)}
+  details.game>summary{list-style:none;cursor:pointer} details.game>summary::-webkit-details-marker{display:none} details.game>summary .name::before{content:'▸ ';color:var(--muted)} details.game[open]>summary .name::before{content:'▾ '}
+  .tabs.inline{display:inline-flex;border:0;margin:0 8px 0 0} .tabs.inline button{padding:4px 8px;font-size:12px}
+  .b-sport{background:#1e3a5f;color:#bfdbfe} .erow:hover td{background:rgba(255,255,255,.04)}
+  .lad{display:inline-block;margin:2px 6px 2px 0;padding:1px 6px;border:1px solid var(--border);border-radius:6px;font-size:12px} .lad.x{border-color:#4c6ef5} .lad .p{font-family:ui-monospace,monospace}
   @media (max-width:760px){.hide-m{display:none}}
 </style>
 </head>
@@ -65,8 +69,8 @@ const MKT = new Proxy(MKT0, {get(t, k) { if (k in t) return t[k]; const m = /^(1
 let SPORT = new URLSearchParams(location.search).get('sport') || null;
 const XV = new Set(['Kalshi', 'Novig', 'Polymarket']), SHARP = new Set(['Pinnacle', 'Circa']);
 const ET = iso => new Date(iso).toLocaleString('en-US', {timeZone: 'America/New_York', month: 'short', day: 'numeric', hour: 'numeric', minute: '2-digit'});
-let D = null, tab = 'board';
-const TABS = [['board', 'Board'], ['systems', 'Systems'], ['props', 'Props'], ['venues', 'Venue tests'], ['ledger', 'Ledger'], ['health', 'Log health'], ['constants', 'Constants']];
+let D = null, E = null, tab = new URLSearchParams(location.search).get('tab') || 'edges';
+const TABS = [['edges', 'Edges'], ['board', 'Board'], ['systems', 'Systems'], ['props', 'Props'], ['venues', 'Venue tests'], ['ledger', 'Ledger'], ['health', 'Log health'], ['constants', 'Constants']];
 
 function sideLabel(c, g) {
   if (c.side === 'home' || c.side === 'away') return (c.participant || c.side) + (c.line != null ? ' ' + (c.line > 0 ? '+' : '') + c.line : '');
@@ -100,7 +104,8 @@ function ladder(c) {
 
 function renderBoard() {
   if (!D.board.length) return '<div class="sec"><div class="sec-h"><span class="name">No upcoming games in the log</span></div></div>';
-  return D.board.map(g => {
+  const ctl = `<div class="controls"><button onclick="window._openAll=true;draw()">expand all</button> <button onclick="window._openAll=false;window._open={};draw()">collapse all</button> <span>${D.board.length} games · click a game to expand</span></div>`;
+  return ctl + D.board.map(g => {
     const stale = g.stale_min > 60 ? `<span class="badge b-stale">priced ${g.stale_min} min ago (log stale)</span>` : '';
     const lim = Object.entries(g.pinnacle_limits || {}).filter(([m, x]) => x.first !== x.now).map(([m, x]) => `${MKT[m] || m}: $${x.first}→$${x.now}`).join(' · ');
     const rows = g.markets.map(c => `<tr>
@@ -108,10 +113,15 @@ function renderBoard() {
       <td>${fairCell(c)}</td><td>${bestCell(c)}</td><td class="num">${edgeCell(c)}</td>
       <td class="hide-m small">${c.open_american != null ? `<span class="mono">${am(c.open_american)}</span> open` : '<span class="dim">—</span>'}${c.public && c.public.tickets_pct != null ? `<br><span class="dim">tix ${c.public.tickets_pct}% · $ ${c.public.money_pct}%</span>` : ''}</td>
       <td>${ladder(c)}</td></tr>`).join('');
-    return `<div class="sec"><div class="sec-h"><span class="name">${g.away} @ ${g.home}</span><span class="meta">${ET(g.start_utc)} ET · T-${Math.round(g.minutes_to_start / 60 * 10) / 10}h</span>${stale}
-      <span class="right">${lim ? 'Pinnacle limits ' + lim : ''}</span></div>
+    const priced = g.markets.filter(c => c.fair != null); const top = priced.slice().sort((a, b) => (b.edge_pts ?? -99) - (a.edge_pts ?? -99))[0];
+    const pt = g.props.filter(c => c.fair != null).sort((a, b) => (b.edge_pts ?? -99) - (a.edge_pts ?? -99));
+    const propRows = pt.slice(0, 12).map(c => `<tr><td>${esc(c.player)} <span class="dim small">${c.stat}</span><br>${sideLabel(c)}</td><td>${fairCell(c)}</td><td>${bestCell(c)}</td><td class="num">${edgeCell(c)}</td><td class="hide-m"></td><td>${ladder(c)}</td></tr>`).join('');
+    const open = window._openAll || (window._open && window._open[g.event_id]);
+    return `<details class="sec game" ${open ? 'open' : ''} ontoggle="(_open=window._open||{})['${g.event_id}']=this.open"><summary class="sec-h"><span class="name">${g.away} @ ${g.home}</span><span class="meta">${ET(g.start_utc)} ET · T-${Math.round(g.minutes_to_start / 60 * 10) / 10}h</span>${stale}
+      <span class="meta">${priced.length} priced markets · ${pt.length} priced props</span>${top ? `<span class="meta">best: ${MKT[top.market] || top.market} ${sideLabel(top, g)} <b class="${top.edge_pts > 0 ? 'pos' : 'neg'}">${top.edge_pts > 0 ? '+' : ''}${top.edge_pts}</b> @ ${top.best[0].venue}</span>` : ''}
+      <span class="right">${lim ? 'Pinnacle limits ' + lim : ''}</span></summary>
       <table><thead><tr><th>Market</th><th>Fair (ruler)</th><th>Best bettable</th><th class="num">Edge pts</th><th class="hide-m">Open · public</th><th>Venue ladder (devigged %, hover for raw)</th></tr></thead><tbody>${rows}</tbody></table>
-      <details><summary>${g.props.length} prop cells for this game — see the Props tab for the ranked list</summary></details></div>`;
+      ${propRows ? `<div class="sec-h"><span class="meta">top props for this game (${pt.length} priced; full list on the Props tab)</span></div><table><tbody>${propRows}</tbody></table>` : ''}</details>`;
   }).join('');
 }
 
@@ -170,6 +180,44 @@ function renderVenues() {
   return h;
 }
 
+const SPORT_LABEL = {nfl: 'NFL', nba: 'NBA', cfb: 'CFB', mlb: 'MLB'};
+function renderEdges() {
+  if (!E) return '<div class="banner">edges.json not loaded yet</div>';
+  const st = window._ef || (window._ef = {sport: '', cls: '', market: '', venue: '', minv: 3, mine: 0, hours: 0, q: '', sort: 'edge', dir: -1, open: {}});
+  const all = E.edges;
+  const markets = [...new Set(all.map(e => e.market))].sort(), venues = [...new Set(all.map(e => e.venue))].sort(), sports = [...new Set(all.map(e => e.sport))];
+  let rows = all.filter(e => (!st.sport || e.sport === st.sport) && (!st.cls || e.mclass === st.cls) && (!st.market || e.market === st.market) && (!st.venue || e.venue === st.venue)
+    && e.fair_n >= (st.minv || 0) && (e.edge_pts ?? -99) >= st.mine && (!st.hours || e.ttk_h <= st.hours)
+    && (!st.q || `${e.game} ${e.player || ''} ${e.participant || ''}`.toLowerCase().includes(st.q.toLowerCase())));
+  const key = {edge: e => e.edge_pts ?? -99, fair: e => e.fair, price: e => e.cost, kick: e => -e.ttk_h, venues: e => e.fair_n, sport: e => e.sport}[st.sort];
+  rows.sort((a, b) => (key(a) > key(b) ? 1 : key(a) < key(b) ? -1 : 0) * st.dir);
+  const th = (k, l, cls = '') => `<th class="${cls}" style="cursor:pointer" onclick="_ef.dir=_ef.sort==='${k}'?-_ef.dir:-1;_ef.sort='${k}';draw()">${l}${st.sort === k ? (st.dir < 0 ? ' ▼' : ' ▲') : ''}</th>`;
+  const chip = (cur, val, label, field) => `<button class="${cur === val ? 'on' : ''}" onclick="_ef.${field}='${val}';draw()">${label}</button>`;
+  const tr = rows.slice(0, 400).map((e, i) => {
+    const id = `${e.event_id}|${e.market}|${e.side}|${e.line}|${e.participant}`; const open = st.open[id];
+    const what = e.mclass === 'prop' ? `${esc(e.player)} <span class="dim small">${e.stat}</span><br><span class="side-${e.side}">${e.side === 'over' ? 'Over' : 'Under'} ${e.line}</span>`
+      : `<span class="dim small">${MKT[e.market] || e.market}</span><br>${sideLabel(e)}`;
+    const lad = Object.entries(e.ladder || {}).sort((a, b) => b[1] - a[1]).map(([v, p]) => `<span class="lad ${XV.has(v) ? 'x' : ''}">${v} <span class="p">${pct(p)}</span></span>`).join('');
+    return `<tr class="erow" onclick="_ef.open['${id}']=!_ef.open['${id}'];draw()" style="cursor:pointer">
+      <td><span class="badge b-sport">${SPORT_LABEL[e.sport] || e.sport}</span></td><td class="small"><b>${e.game}</b><br><span class="dim">${ET(e.start_utc)} · T-${e.ttk_h}h</span></td><td>${what}</td>
+      <td class="num mono">${pct(e.fair)}% <span class="dim small">(${e.fair_n})</span></td>
+      <td class="mono">${e.venue} <b>${am(e.price)}</b>${e.limit ? `<span class="dim small"> $${e.limit}</span>` : ''}${e.venue2 ? `<br><span class="dim small">then ${e.venue2} ${am(e.price2)}</span>` : ''}</td>
+      <td class="num"><b class="${e.edge_pts > 0 ? 'pos' : 'neg'}">${e.edge_pts > 0 ? '+' : ''}${e.edge_pts}</b></td>
+      <td class="hide-m small">${e.public && e.public.tickets_pct != null ? `tix ${e.public.tickets_pct}% · $ ${e.public.money_pct}%` : ''}${e.open_american != null ? `<br><span class="dim">open ${am(e.open_american)}</span>` : ''}</td></tr>
+      ${open ? `<tr><td colspan="7" class="small">${lad}${e.flags ? ` <span class="dim">best-price flags: ${e.flags}</span>` : ''} · fair weights ${e.fair_status}</td></tr>` : ''}`; }).join('');
+  return `<div class="banner">Edge = ruler fair − cost of the best bettable price (Kalshi fee included, BetMGM excluded), in probability points. The ruler uses <b>prior</b> weights until a sport's fit gate opens, so this is a gap under those weights, not a validated edge. Built ${ET(E.built)} ET · ${E.n} priced cells.</div>
+    <div class="controls">
+      <span class="tabs inline">${chip(st.sport, '', 'all sports', 'sport')}${sports.map(sp => chip(st.sport, sp, SPORT_LABEL[sp] || sp, 'sport')).join('')}</span>
+      <span class="tabs inline">${chip(st.cls, '', 'all', 'cls')}${chip(st.cls, 'game', 'sides/totals', 'cls')}${chip(st.cls, 'prop', 'props', 'cls')}</span>
+      Market <select onchange="_ef.market=this.value;draw()"><option value="">any</option>${markets.map(m => `<option value="${m}" ${st.market === m ? 'selected' : ''}>${MKT[m] || m}</option>`).join('')}</select>
+      Venue <select onchange="_ef.venue=this.value;draw()"><option value="">any</option>${venues.map(v => `<option ${st.venue === v ? 'selected' : ''}>${v}</option>`).join('')}</select>
+      Min venues <input type="number" min="1" max="9" value="${st.minv}" style="width:48px" onchange="_ef.minv=+this.value;draw()">
+      Min edge <input type="number" step="0.5" value="${st.mine}" style="width:56px" onchange="_ef.mine=+this.value;draw()">
+      Kickoff within <input type="number" min="0" value="${st.hours}" style="width:56px" onchange="_ef.hours=+this.value;draw()">h
+      <input value="${esc(st.q)}" placeholder="team / player" oninput="_ef.q=this.value;draw()">
+      <span>${rows.length} rows · click a row for the venue ladder</span></div>
+    <div class="sec"><table><thead><tr>${th('sport', 'Sport')}${th('kick', 'Game')}<th>Bet</th>${th('fair', 'Fair', 'num')}${th('price', 'Best price')}${th('edge', 'Edge', 'num')}<th class="hide-m">Public · open</th></tr></thead><tbody>${tr}</tbody></table></div>`;
+}
 function renderSystems() {
   const S = D.systems;
   if (!S) return `<div class="banner">No systems engine output for ${D.label || D.sport} yet. Systems exist only for sports that have had their own train/holdout audit (NFL: docs/betlabs_nfl_audit_2026-10-25.md); nothing is carried over between sports.</div>`;
@@ -214,13 +262,14 @@ function renderConstants() {
 }
 
 function draw() {
-  $('#tabs').innerHTML = TABS.map(([k, l]) => `<button class="${tab === k ? 'on' : ''}" onclick="tab='${k}';draw()">${l}</button>`).join('');
-  $('#view').innerHTML = {board: renderBoard, systems: renderSystems, props: renderProps, venues: renderVenues, ledger: renderLedger, health: renderHealth, constants: renderConstants}[tab]();
+  $('#tabs').innerHTML = TABS.map(([k, l]) => `<button class="${tab === k ? 'on' : ''}" onclick="tab='${k}';history.replaceState(null,'','?sport='+(SPORT||'')+'&tab='+'${k}');draw()">${l}</button>`).join('');
+  $('#view').innerHTML = {edges: renderEdges, board: renderBoard, systems: renderSystems, props: renderProps, venues: renderVenues, ledger: renderLedger, health: renderHealth, constants: renderConstants}[tab]();
 }
 async function load() {
   let u = new URLSearchParams(location.search).get('data') || 'data/state/dashboard.json';
   try {
     D = await (await fetch(u, {cache: 'no-store'})).json();
+    try { E = await (await fetch('data/state/edges.json', {cache: 'no-store'})).json(); } catch (e) { E = null; }
     const idx = D.index;
     if (idx && idx.sports && idx.sports.length) {
       if (!SPORT) SPORT = idx.sports[0].sport;
