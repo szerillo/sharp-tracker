@@ -49,7 +49,7 @@ jobs:
       - name: commit
         run: |
           git config user.name "tracker-bot"; git config user.email "actions@users.noreply.github.com"
-          git add -A data/state data/novig/daily data/novig/catalog data/novig/_history_state.json data/nfl/season.json data/nfl/ticks data/nba/ticks data/cfb/ticks data/nhl/ticks data/soccer/ticks data/mma/ticks data/nhl/season.json data/nba/season.json data/cfb/season.json data/polymarket && git commit -m "tracker $(date -u +%Y-%m-%dT%H:%M)" || exit 0
+          git add -A data/state data/novig/daily data/novig/catalog data/novig/_history_state.json data/nfl/season.json data/nfl/ticks data/nba/ticks data/cfb/ticks data/nhl/ticks data/soccer/ticks data/mma/ticks data/nhl/season.json data/nba/season.json data/polymarket && git commit -m "tracker $(date -u +%Y-%m-%dT%H:%M)" || exit 0
           for i in 1 2 3 4 5; do
             if git pull --rebase -X theirs && git push; then exit 0; fi
             git rebase --abort 2>/dev/null || true
