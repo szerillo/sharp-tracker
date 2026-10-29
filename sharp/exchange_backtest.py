@@ -261,20 +261,22 @@ def report():
     P("\n## 1. How good is the exchange price, and when? (calibration)\n")
     P("Brier score and log loss of the last trade before T-24h, T-6h, T-1h and the final pre-kickoff trade, against the result. Lower is better; 0.25 Brier = coin flip. "
       "If the close is sharper than T-6h the market learns something in the last hours; the size of that gap is the ceiling for any timing edge.\n")
+    dm = df[df['main']]
+    P("Main lines only (one market per game x type), so the games are the sample, not the alt strikes.\n")
     P("| venue | sport | n(close) | Brier 24h | Brier 6h | Brier 1h | Brier close | logloss close | n(24h) |\n|---|---|---|---|---|---|---|---|---|")
-    for (v, sp), g in df.groupby(['venue', 'sport']):
-        if len(g) < 50: continue
+    for (v, sp), g in dm.groupby(['venue', 'sport']):
+        if len(g) < 40: continue
         row = [v, sp, len(g)]
         for c in ('p_24h', 'p_6h', 'p_1h', 'close'):
             gg = g[g[c].notna()]; row.append(f"{brier(gg[c].values, gg['won'].values):.4f} (n={len(gg)})" if len(gg) >= 30 else 'n/a')
         gg = g[g['close'].notna()]; row.append(f"{logloss(gg['close'].values, gg['won'].values):.4f}"); row.append(int(g['p_24h'].notna().sum()))
         P('| ' + ' | '.join(str(x) for x in row) + ' |')
-    P("\nReliability of the close (all sports, by venue): bucket = implied probability, hit = how often yes won.\n")
+    P("\nReliability of the close (all sports, main lines, by venue): bucket = implied probability, hit = how often yes won.\n")
     P("| venue | bucket | n | implied avg | hit rate | gap |\n|---|---|---|---|---|---|")
-    for v, g in df.groupby('venue'):
+    for v, g in dm.groupby('venue'):
         g = g[g['close'].notna()]; b = (g['close'] * 10).clip(0, 9).astype(int)
         for k, gg in g.groupby(b):
-            if len(gg) < 40: continue
+            if len(gg) < 25: continue
             P(f"| {v} | {k / 10:.1f}-{(k + 1) / 10:.1f} | {len(gg)} | {gg['close'].mean():.3f} | {gg['won'].mean():.3f} | {gg['won'].mean() - gg['close'].mean():+.3f} |")
 
     # T7 drift / structural
@@ -284,8 +286,8 @@ def report():
     P("| venue | sport | group | at T-24h: n / ROI / win% | at close: n / ROI / win% | holdout close ROI (n) |\n|---|---|---|---|---|---|")
     df['grp'] = np.where(df['mtype'].str.endswith('total'), np.where(df['side'] == 'over', 'over', 'under'),
                          np.where(df['p_24h'].fillna(df['close']) >= 0.5, 'favorite (p>=.5)', 'underdog (p<.5)'))
-    for (v, sp, grp), g in df.groupby(['venue', 'sport', 'grp']):
-        if len(g) < 60: continue
+    for (v, sp, grp), g in df[df['main']].groupby(['venue', 'sport', 'grp']):
+        if len(g) < 40: continue
         a = g[g['p_24h'].notna()]; r24 = roi_yes(a['p_24h'].values, a['won'].values) if len(a) else np.array([])
         rc = roi_yes(g['close'].values, g['won'].values); h = g[g['hold']]; rh = roi_yes(h['close'].values, h['won'].values) if len(h) else np.array([])
         P(f"| {v} | {sp} | {grp} | {len(a)} / {fmt_roi(r24.mean()) if len(a) else 'n/a'} / {a['won'].mean():.3f} | {len(g)} / {fmt_roi(rc.mean())} / {g['won'].mean():.3f} | {fmt_roi(rh.mean()) if len(h) else 'n/a'} ({len(h)}) |")
@@ -295,9 +297,9 @@ def report():
     P("Move = close - p(T-6h), in cents. Strategy 'continuation': buy yes at the close when the move was >= +3c, buy no when <= -3c. 'Reversion' is the opposite. "
       "The logistic test adds the move to logit(close) and asks whether its coefficient is positive (continuation) or negative (reversion) out of sample.\n")
     P("| venue | sport | n moves >=3c | continuation ROI train / hold (n) | reversion = negative of that | logit coef on move (se) train | holdout logloss: close only vs close+move |\n|---|---|---|---|---|---|---|")
-    for (v, sp), g in df.groupby(['venue', 'sport']):
+    for (v, sp), g in df[df['main']].groupby(['venue', 'sport']):
         g = g[g['p_6h'].notna() & g['close'].notna()].copy()
-        if len(g) < 80: continue
+        if len(g) < 60: continue
         g['mv'] = g['close'] - g['p_6h']
         def cont(gg):
             up = gg[gg['mv'] >= 0.03]; dn = gg[gg['mv'] <= -0.03]
@@ -316,11 +318,12 @@ def report():
     P("\n## 4. Late taker flow: follow the money in the last 6h / 2h?\n")
     P("Signed taker dollars (yes buys minus no buys) in the window, as a share of window volume. Strategy: when |flow share| >= 0.3 and window volume >= $500, buy the side the takers bought, at the close. "
       "This is the exchange version of 'sharp money', with the advantage that every dollar is real and timestamped.\n")
-    P("| venue | sport | window | n | train ROI / win% | holdout ROI / win% (n) | z vs break-even (holdout) |\n|---|---|---|---|---|---|---|")
-    for (v, sp), g in df.groupby(['venue', 'sport']):
+    P("| venue | sport | lines | window | n | train ROI / win% | holdout ROI / win% (n) | z vs break-even (holdout) |\n|---|---|---|---|---|---|---|---|")
+    for (v, sp), g0 in df.groupby(['venue', 'sport']):
+      for lines_lab, g in (('main', g0[g0['main']]), ('all', g0)):
         for w in ('6h', '2h'):
             gg = g[(g[f'usd_{w}'] >= 500) & g[f'flow_{w}_pct'].notna() & (g[f'flow_{w}_pct'].abs() >= 0.3) & g['close'].notna()]
-            if len(gg) < 60: continue
+            if len(gg) < 40: continue
             def strat(x):
                 buy_yes = x[f'flow_{w}_pct'] > 0
                 p = np.where(buy_yes, x['close'], 1 - x['close']); won = np.where(buy_yes, x['won'], 1 - x['won'])
@@ -328,7 +331,7 @@ def report():
             rt, wt, _ = strat(gg[~gg['hold']]); rh, wh, ph = strat(gg[gg['hold']])
             # z: compare realised wins to implied (sum p) on holdout
             zz = (wh.sum() - ph.sum()) / math.sqrt((ph * (1 - ph)).sum()) if len(ph) else 0
-            P(f"| {v} | {sp} | {w} | {len(gg)} | {fmt_roi(rt.mean()) if len(rt) else 'n/a'} / {wt.mean():.3f} | {fmt_roi(rh.mean()) if len(rh) else 'n/a'} / {wh.mean() if len(wh) else float('nan'):.3f} ({len(rh)}) | {zz:+.2f} |")
+            P(f"| {v} | {sp} | {lines_lab} | {w} | {len(gg)} | {fmt_roi(rt.mean()) if len(rt) else 'n/a'} / {wt.mean():.3f} | {fmt_roi(rh.mean()) if len(rh) else 'n/a'} / {wh.mean() if len(wh) else float('nan'):.3f} ({len(rh)}) | {zz:+.2f} |")
 
     # T4 big trades
     P("\n## 5. Big trades: is the largest pre-kickoff trade informed?\n")
@@ -408,8 +411,8 @@ def report():
     # T8 volume conditioning
     P("\n## 8. Does volume make the close sharper?\n")
     P("| venue | sport | volume tercile | n | Brier close | ROI buying favorite at close |\n|---|---|---|---|---|---|")
-    for (v, sp), g in df.groupby(['venue', 'sport']):
-        if len(g) < 150: continue
+    for (v, sp), g in df[df['main']].groupby(['venue', 'sport']):
+        if len(g) < 90: continue
         q = pd.qcut(g['usd'].rank(method='first'), 3, labels=['low', 'mid', 'high'])
         for k, gg in g.groupby(q, observed=True):
             fav = gg['close'] >= 0.5; p = np.where(fav, gg['close'], 1 - gg['close']); won = np.where(fav, gg['won'], 1 - gg['won'])
