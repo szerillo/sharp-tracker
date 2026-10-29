@@ -1,0 +1,32 @@
+name: kalshi backfill (settled sports markets + trade tape)
+on:
+  workflow_dispatch: {}
+permissions:
+  contents: write
+jobs:
+  pull:
+    runs-on: ubuntu-latest
+    timeout-minutes: 170
+    strategy:
+      fail-fast: false
+      max-parallel: 30
+      matrix:
+        series: [KXNFLGAME, KXNFLSPREAD, KXNFLTOTAL, KXNFL1H, KXNFL1HSPREAD, KXNFL1HTOTAL,
+                 KXNBAGAME, KXNBASPREAD, KXNBATOTAL, KXNBA1H, KXNBA1HSPREAD, KXNBA1HTOTAL,
+                 KXNHLGAME, KXNHLSPREAD, KXNHLTOTAL, KXNCAAFGAME, KXNCAAFSPREAD, KXNCAAFTOTAL,
+                 KXMLBGAME, KXMLBTOTAL, KXMLBSPREAD,
+                 KXEPLGAME, KXLALIGAGAME, KXBUNDESLIGAGAME, KXSERIEAGAME, KXLIGUE1GAME, KXMLSGAME, KXUCLGAME, KXUFCFIGHT]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.12'}
+      - run: pip install -q numpy pandas
+      - name: pull ${{ matrix.series }}
+        run: python3 loggers/kalshi_history.py --series ${{ matrix.series }} --max-pages 8
+      - name: upload to the kalshi-history release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release view kalshi-history >/dev/null 2>&1 || gh release create kalshi-history --title "Kalshi history pulls" --notes "settled sports markets and trade tapes, one asset per series" || true
+          cp data/kalshi/history/markets.jsonl markets-${{ matrix.series }}.jsonl
+          gh release upload kalshi-history data/kalshi/history/trades/${{ matrix.series }}.jsonl.gz markets-${{ matrix.series }}.jsonl --clobber

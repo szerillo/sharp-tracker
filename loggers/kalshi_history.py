@@ -26,11 +26,11 @@ done = set(st['done']); T_LAST = [0.0]
 def g(u, tries=8):
     for i in range(tries):
         dtm = time.time() - T_LAST[0]
-        if dtm < 0.34: time.sleep(0.34 - dtm)
+        if dtm < 0.5: time.sleep(0.5 - dtm)
         T_LAST[0] = time.time()
         try: return json.load(urllib.request.urlopen(urllib.request.Request(u, headers={'User-Agent': 'sharp-tracker backtest'}), timeout=60))
         except urllib.error.HTTPError as e:
-            if e.code == 429: time.sleep(5 * (i + 1)); continue
+            if e.code == 429: time.sleep(1.0 * (i + 1)); continue
             if e.code == 404: return {}
             time.sleep(2 * (i + 1))
         except Exception: time.sleep(2 * (i + 1))
@@ -46,16 +46,32 @@ def settled(series):
         if not cur or not x.get('markets'): break
 
 
-def trades(ticker):
+def trades(ticker, max_ts=None):
     cur = ''; pages = 0
     while pages < MAX_PAGES:
-        x = g(f"{API}/markets/trades?ticker={ticker}&limit=1000" + (f"&cursor={cur}" if cur else ''))
+        x = g(f"{API}/markets/trades?ticker={ticker}&limit=1000" + (f"&max_ts={int(max_ts)}" if max_ts else '') + (f"&cursor={cur}" if cur else ''))
         for t in x.get('trades', []): yield t
         cur = x.get('cursor'); pages += 1
         if not cur or not x.get('trades'): break
 
 
+def kickoffs():
+    """event_ticker date+codes -> kickoff epoch from data/state/hist_schedule.json (pre-kickoff trades only; trading continues in-game on Kalshi)."""
+    sys.path.insert(0, os.path.join(HERE, '..'))
+    from sharp import sports as SP, exchange_backtest as XB
+    sched = XB.Sched(); cache = {}
+    def lookup(series, event_ticker):
+        if event_ticker in cache: return cache[event_ticker]
+        pre = next((k for k in XB.KSERIES_SPORT if series.startswith(k)), None); sport = XB.KSERIES_SPORT.get(pre)
+        pe = SP.kalshi_event(event_ticker.split('-', 1)[1]) if sport else None
+        g_ = sched.kalshi(sport, pe[0], pe[1], home_first=sport in ('epl', 'laliga', 'bundesliga', 'seriea', 'ligue1', 'mls', 'ucl', 'mma')) if pe else None
+        cache[event_ticker] = XB.ts(g_['start']) if g_ else None
+        return cache[event_ticker]
+    return lookup
+
+
 def main():
+    ko = kickoffs()
     mk_path = os.path.join(OUT, 'markets.jsonl'); seen_m = set()
     if os.path.exists(mk_path):
         for l in open(mk_path): seen_m.add(json.loads(l)['ticker'])
@@ -70,7 +86,7 @@ def main():
                                              volume=m.get('volume_fp') or m.get('volume'), title=m.get('title'), sub=m.get('yes_sub_title'), status=m.get('status'))) + '\n')
                     seen_m.add(tk); n_m += 1
                 if tk in done or float(m.get('volume_fp') or m.get('volume') or 0) <= 0: continue
-                for t in trades(tk):
+                for t in trades(tk, ko(series, m.get('event_ticker') or '')):
                     ft.write(json.dumps(dict(ticker=tk, ts=t['created_time'], yes=float(t['yes_price_dollars']), n=float(t['count_fp']), taker=t.get('taker_side'), block=t.get('is_block_trade'))) + '\n'); n_t += 1
                 done.add(tk); st['done'] = sorted(done); json.dump(st, open(STATE, 'w'))
         print(f"[kalshi history] {series}: {n_m} new settled markets, {n_t} trades in {round(time.time() - t0)}s", flush=True)

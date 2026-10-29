@@ -20,8 +20,8 @@ def main(d0, d1):
     for sp, path in PATHS.items():
         out.setdefault(sp, {}); day = d0
         while day <= d1:
-            end = min(day + dt.timedelta(days=6), d1)
-            x = g(f"https://site.api.espn.com/apis/site/v2/sports/{path}/scoreboard?dates={day:%Y%m%d}-{end:%Y%m%d}&limit=1000" + ('&groups=80' if sp == 'cfb' else ''))
+            end = day
+            x = g(f"https://site.api.espn.com/apis/site/v2/sports/{path}/scoreboard?dates={day:%Y%m%d}" + ('&groups=80&limit=400' if sp == 'cfb' else ''))
             for ev in x.get('events', []):
                 c = ev['competitions'][0]; t = {k['homeAway']: k for k in c['competitors']}
                 if 'home' not in t or 'away' not in t: continue
