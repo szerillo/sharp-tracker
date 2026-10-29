@@ -30,6 +30,8 @@ jobs:
         run: |
           python3 loggers/nfl/weather.py || true
           python3 loggers/nfl/weather.py --sport cfb || true
+          python3 loggers/msw_weather.py --sport nfl || true
+          python3 loggers/msw_weather.py --sport cfb || true
       - name: commit
         run: |
           git config user.name "prices-bot"; git config user.email "actions@users.noreply.github.com"

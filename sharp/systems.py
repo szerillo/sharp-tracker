@@ -29,6 +29,17 @@ RULES = {'wind1014': dict(market='total', side='under', stake=1.0), 'wind1014_1h
 WINDOW_H = tuple(float(x) for x in os.environ.get('SYSTEMS_WINDOW', '2,30').split(','))
 
 
+def msw_latest(sport, event_id):
+    """Latest MySportsWeather reading for the game (cross-check source; NWS/NBM data)."""
+    p = os.path.join(ROOT, 'data', sport, 'weather', 'msw.jsonl'); last = None
+    if os.path.exists(p):
+        for l in open(p):
+            try: r = json.loads(l)
+            except Exception: continue
+            if r.get('event_id') == event_id and r.get('wind_mph') is not None: last = r
+    return last
+
+
 def weather_t24(event_id, path=None):
     """The forecast row for this game nearest 24h before kickoff (18-30h tolerance), else the latest row."""
     rows = []; path = path or WX
@@ -87,9 +98,12 @@ def main():
         if sp_line is not None and sp_line != 0: dog = 'home' if sp_line > 0 else 'away'
         et_dow = (st + dt.timedelta(hours=-5 if st >= dt.datetime(2026, 11, 1, 6, tzinfo=dt.timezone.utc) else -4)).strftime('%A')
         # --- rules
+        msw = msw_latest('nfl', ev)
         if wx and not wx.get('indoor') and 10 <= wx['wind_mph'] <= 14:
-            trig['wind1014'] = f"forecast {wx['wind_mph']} mph (gust {wx.get('gust_mph')}) at T-{wx['hours_to_kickoff']:.0f}h, {wx.get('temp_f')}F"
+            trig['wind1014'] = f"forecast {wx['wind_mph']} mph (gust {wx.get('gust_mph')}) at T-{wx['hours_to_kickoff']:.0f}h, {wx.get('temp_f')}F" + (f"; MSW {msw['wind_mph']} mph {msw.get('wind_dir') or ''} gust {msw.get('gust_mph')}" if msw else '; MSW n/a')
             trig['wind1014_1h'] = trig['wind1014']
+        elif msw and not (wx or {}).get('indoor') and 10 <= msw['wind_mph'] <= 14 and wx and wx.get('wind_mph') is not None:
+            trig['wind_msw_only'] = f"MSW {msw['wind_mph']} mph in band but Open-Meteo {wx['wind_mph']} mph is not (flag only; the rule fires on Open-Meteo)"
         if pv.get('games') and pv.get('days_since_last') is not None and pv['days_since_last'] >= 8:
             trig['vrest8_1h'] = f"{away} off {pv['days_since_last']:.0f} days"
         if et_dow == 'Monday': trig['mnf_1h'] = 'Monday night'
@@ -105,7 +119,8 @@ def main():
         if 'awfuldog' in trig and 'bounce15_1h' in trig: trig['awfuldog'] += ' (skipped: bounce15_1h takes the game)'; skip_awful = True
         else: skip_awful = False
         game = dict(event_id=ev, away=away, home=home, start_utc=start, hours_to_kickoff=round(ttk, 1), spread_home=sp_line, dog=dog, triggers=trig,
-                    wind=wx and dict(mph=wx['wind_mph'], gust=wx.get('gust_mph'), temp_f=wx.get('temp_f'), at_h=wx['hours_to_kickoff']), fills=[])
+                    wind=wx and dict(mph=wx['wind_mph'], gust=wx.get('gust_mph'), temp_f=wx.get('temp_f'), at_h=wx['hours_to_kickoff'],
+                                     msw=msw and dict(mph=msw['wind_mph'], gust=msw.get('gust_mph'), dir=msw.get('wind_dir'), rain=msw.get('rain_pct'))), fills=[])
         taken = {(f['market'], f['side']) for k, f in fired.items() if k.startswith(ev + ':') and f.get('fill_id')}   # one bet per game per market x side
         for tag in [t for t in ('wind1014', 'wind1014_1h', 'vrest8_1h', 'mnf_1h', 'awfuldog', 'bounce15_1h') if t in trig]:   # priority order
             why = trig[tag]
@@ -136,9 +151,9 @@ def main():
     for ev, start, away, home in conn.execute("SELECT event_id, start_utc, away, home FROM events WHERE sport='cfb' ORDER BY start_utc").fetchall():
         st = N.parse_ts(start); ttk = (st - NOW).total_seconds() / 3600
         if not (WINDOW_H[0] <= ttk <= WINDOW_H[1]): continue
-        wx = weather_t24(ev, WX_CFB)
+        wx = weather_t24(ev, WX_CFB); msw = msw_latest('cfb', ev)
         if not wx or wx.get('indoor') or wx.get('wind_mph') is None or wx['wind_mph'] < 14: continue
-        eq = F.EventQuotes(conn, ev); why = f"forecast {wx['wind_mph']} mph (gust {wx.get('gust_mph')}) at T-{wx['hours_to_kickoff']:.0f}h, {wx.get('temp_f')}F"
+        eq = F.EventQuotes(conn, ev); why = f"forecast {wx['wind_mph']} mph (gust {wx.get('gust_mph')}) at T-{wx['hours_to_kickoff']:.0f}h, {wx.get('temp_f')}F" + (f"; MSW {msw['wind_mph']} mph {msw.get('wind_dir') or ''}" if msw else '; MSW n/a')
         game = dict(event_id=ev, away=away, home=home, start_utc=start, hours_to_kickoff=round(ttk, 1), spread_home=None, dog=None, triggers={'cfb_wind14': why},
                     wind=dict(mph=wx['wind_mph'], gust=wx.get('gust_mph'), temp_f=wx.get('temp_f'), at_h=wx['hours_to_kickoff']), fills=[], sport='cfb')
         key = f"{ev}:cfb_wind14"
