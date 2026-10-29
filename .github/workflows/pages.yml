@@ -28,7 +28,7 @@ jobs:
         run: |
           mkdir -p _site/data/state
           cp index.html _site/
-          cp -r data/state/*.json _site/data/state/ 2>/dev/null || true
+          cp data/state/*.json _site/data/state/ 2>/dev/null || true
           cp -r docs _site/docs
           ls -la _site _site/data/state
       - uses: actions/upload-pages-artifact@v3

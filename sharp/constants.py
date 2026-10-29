@@ -48,6 +48,9 @@ DEVIG_METHOD = {
     ("mlb", "prop"): dict(value="power", status="prior", fit_date=None, sample=0, calibration_error=None, alternative="shin",
                           source="same battery; props are two-way"),
 }
+for _sp in ("nfl", "nba", "cfb"):
+    for _mc in ("game", "prop"):
+        DEVIG_METHOD[(_sp, _mc)] = dict(DEVIG_METHOD[("mlb", _mc)], source="MLB battery result carried over (Fable 10/29); two-way markets")
 
 # ---------------------------------------------------------------- weights --------
 # PRIOR weights, NOT fitted. Thread values, renormalised per venue name as we log it. They are the ridge target until
@@ -65,6 +68,11 @@ WEIGHTS = {
                "BetRivers": 0.0, "theScore": 0.0},
         status="prior", fit_date=None, sample=0, heldout_brier=None, source=f"{THREAD}; BetRivers 0.3 in the thread for props, Hard Rock 0.1; neither logged by us yet"),
 }
+# Registry sports start from the MLB priors (same venues, same mechanism: exchange-anchored, books by closure); each is replaced by its own
+# ridge fit once the sport's gate opens (Fable 10/29, placeholder prior — not a fitted weight).
+for _sp in ("nfl", "nba", "cfb"):
+    for _mc in ("game", "prop"):
+        WEIGHTS[(_sp, _mc)] = dict(WEIGHTS[("mlb", _mc)], status="prior", source="MLB prior carried over as placeholder (Fable 10/29); refit per sport when gated")
 
 # ---------------------------------------------------------------- feeds ----------
 # Measured weekly: seconds between the venue's own site and the feed we log it from (spec §2). None = not measured yet.

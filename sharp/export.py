@@ -7,11 +7,17 @@ props (same, per player x stat x line), venues (Tests A-D, gated), ledger (fills
 import os, sys, json, sqlite3, datetime as dt, collections
 HERE = os.path.dirname(os.path.abspath(__file__)); sys.path.insert(0, os.path.dirname(HERE))
 from sharp import constants as C, norm as N, fair as F, tests as T
+from sharp import sports as SP
 
 ROOT = os.path.abspath(os.path.join(HERE, '..')); SD = os.path.join(ROOT, 'data', 'state'); DB = os.path.join(SD, 'sharp.sqlite')
 NOW = dt.datetime.now(dt.timezone.utc); NOW_S = N.iso(NOW)
 GAME_ORDER = ['ml', 'rl', 'total', 'tt_away', 'tt_home', 'f5_ml', 'f5_rl', 'f5_total', 'f5_tt_away', 'f5_tt_home', 'rfi']
-MIN_VENUES_FOR_EDGE = 3   # fair shown only when at least this many ruler venues quote the cell (Fable 10/14; rule, revisit)
+ORDER_SPORT = {'mlb': GAME_ORDER}
+for _sp, _cfg in SP.SPORTS.items():
+    ORDER_SPORT[_sp] = [pre + m for pre in [''] + [SP.PERIODS[p] for p in _cfg['periods'] if p != 'full'] for m in ('ml', 'spread', 'total', 'tt_away', 'tt_home')]
+BOARD_HOURS = {'mlb': 40, 'nba': 40, 'nfl': 8 * 24, 'cfb': 8 * 24}   # how far ahead the board shows games (NFL/CFB lines are up all week)
+KEY_SPREAD = {'mlb': 1.5, 'nfl': 3, 'cfb': 3, 'nba': 3}
+MIN_VENUES_FOR_EDGE = {'game': 3, 'prop': 2}   # fair shown only when at least this many ruler venues quote the cell (Fable 10/14; props 2 on 10/29: Kalshi+Novig+Pinnacle are the prop venues)
 
 
 def r4(x): return None if x is None else round(x, 4)
@@ -29,7 +35,7 @@ def cell(eq, market, line, side, part, ts):
     best = F.best_price(eq, market, line, side, ts, part)
     for b in best:
         for k in ('implied', 'cost', 'bid', 'ask'): b[k] = r4(b[k])
-    fair = fr['fair'] if fr['n'] >= MIN_VENUES_FOR_EDGE else None
+    fair = fr['fair'] if fr['n'] >= MIN_VENUES_FOR_EDGE['prop' if market.startswith('prop_') else 'game'] else None
     edge = (fair - best[0]['cost']) if (fair is not None and best) else None
     # reference quotes: AN consensus public %, AN open
     cons = eq.latest('AN_Consensus', market, line, side, ts, 10 ** 6, part); opn = eq.latest('AN_Open', market, line, side, ts, 10 ** 6, part)
@@ -53,24 +59,26 @@ def main_line(eq, market, part=None):
     return sorted({l for l, n in cands if n == mx})
 
 
-def board(conn):
-    out = []
-    for ev, et_date, start, away, home, status in conn.execute("SELECT event_id, et_date, start_utc, away, home, status FROM events ORDER BY start_utc").fetchall():
+def board(conn, sport='mlb'):
+    out = []; order = ORDER_SPORT[sport]; mclass = N.MARKET_CLASS if sport == 'mlb' else SP.market_class
+    for ev, et_date, start, away, home, status in conn.execute("SELECT event_id, et_date, start_utc, away, home, status FROM events WHERE sport=? ORDER BY start_utc", (sport,)).fetchall():
         st = N.parse_ts(start)
-        if st < NOW - dt.timedelta(hours=1) or st > NOW + dt.timedelta(hours=40): continue
+        if st < NOW - dt.timedelta(hours=1) or st > NOW + dt.timedelta(hours=BOARD_HOURS[sport]): continue
         eq = F.EventQuotes(conn, ev); ts = NOW_S
         last_tick = max((L[-1][0] for L in eq.idx.values()), default=None)
         if last_tick and (NOW - N.parse_ts(last_tick)).total_seconds() > 90 * 60:
             ts = last_tick   # the log is stale (job not running): price the board at the last observation and say so
         g = dict(event_id=ev, et_date=et_date, start_utc=start, away=away, home=home, status=status, priced_at=ts,
                  stale_min=round((NOW - N.parse_ts(ts)).total_seconds() / 60), minutes_to_start=round((st - N.parse_ts(ts)).total_seconds() / 60), markets=[])
-        for m in GAME_ORDER:
-            if m in ('ml', 'f5_ml'):
+        for m in order:
+            if m.endswith('ml'):
                 for side, part in (('away', away), ('home', home)):
                     c = cell(eq, m, None, side, part, ts)
                     if c['ladder']: c['public'] = public_pct(conn, ev, m, side); g['markets'].append(c)
-            elif m in ('rl', 'f5_rl'):
-                lines = sorted({k[1] for k in eq.keys if k[0] == m and k[1] is not None}, key=lambda l: abs(abs(l) - (1.5 if m == 'rl' else 0.5)))
+            elif m.endswith('rl') or m.endswith('spread'):
+                keyline = (1.5 if m == 'rl' else 0.5) if sport == 'mlb' else KEY_SPREAD[sport]
+                nv = {k[1]: len(v) for k, v in eq.keys.items() if k[0] == m and k[1] is not None and k[2] == home}   # home-side lines -> venues quoting
+                lines = sorted(nv, key=lambda l: (-nv[l], abs(abs(l) - keyline)))   # the most-quoted line first (the market's main number), then nearest the key
                 for line in lines[:2]:
                     for side, part in (('away', away), ('home', home)):
                         c = cell(eq, m, line if side == 'home' else -line, side, part, ts)
@@ -84,7 +92,7 @@ def board(conn):
         # Pinnacle limit growth (first post vs now) per market
         g['pinnacle_limits'] = {}
         for (v, m, l, s, p), L in eq.idx.items():
-            if v == 'Pinnacle' and N.MARKET_CLASS(m) == 'game' and L[0][11]:
+            if v == 'Pinnacle' and mclass(m) == 'game' and L[0][11]:
                 g['pinnacle_limits'][m] = dict(first=L[0][11], now=L[-1][11], first_ts=L[0][0])
         # props: every player x stat x line with 2+ venues; keep the main line per player-stat (most venues)
         props = []
@@ -137,25 +145,35 @@ def ledger(conn):
     return dict(fills=rows, summary=dict(summ))
 
 
+def strip(x):   # drop null fields to keep the committed files small
+    if isinstance(x, dict): return {k: strip(v) for k, v in x.items() if v is not None}
+    if isinstance(x, list): return [strip(v) for v in x]
+    return x
+
+
 def main():
     conn = sqlite3.connect(DB)
     tests = T.run_all(preview=False)
     wf = json.load(open(F.WEIGHTS_FILE)) if os.path.exists(F.WEIGHTS_FILE) else {}
-    nev = conn.execute("SELECT COUNT(*) FROM events").fetchone()[0]; nset = conn.execute("SELECT COUNT(*) FROM results WHERE status='final'").fetchone()[0]
-    nt = conn.execute("SELECT COUNT(*) FROM ticks").fetchone()[0]
-    out = dict(built=NOW_S, sport='mlb', counts=dict(events=nev, settled=nset, ticks=nt,
-                                                    prop_rows_settled=conn.execute("SELECT COUNT(*) FROM closes WHERE mclass='prop' AND outcome IS NOT NULL").fetchone()[0]),
-               weights=dict(game=F.weights_for('mlb', 'game')[0], game_status=F.weights_for('mlb', 'game')[1],
-                            prop=F.weights_for('mlb', 'prop')[0], prop_status=F.weights_for('mlb', 'prop')[1], fit_file=wf),
-               board=board(conn), venues=tests, ledger=ledger(conn), health=health(conn), constants=C.dump(),
-               spec='SHARP_TRACKER_BUILD_SPEC_2026-10-14.md')
-    def strip(x):   # drop null fields to keep the committed file small
-        if isinstance(x, dict): return {k: strip(v) for k, v in x.items() if v is not None}
-        if isinstance(x, list): return [strip(v) for v in x]
-        return x
-    json.dump(strip(out), open(os.path.join(SD, 'dashboard.json'), 'w'), default=str, separators=(',', ':'))
-    print(f"[export] dashboard.json: {len(out['board'])} games on the board, {sum(len(g['props']) for g in out['board'])} prop cells, {len(out['ledger']['fills'])} fills, "
-          f"{os.path.getsize(os.path.join(SD, 'dashboard.json')) // 1024} KB")
+    ledg = ledger(conn); hlth = health(conn); consts = C.dump()
+    sports = [r[0] for r in conn.execute("SELECT DISTINCT sport FROM events")] or ['mlb']
+    index = dict(built=NOW_S, sports=[], spec='SHARP_TRACKER_BUILD_SPEC_2026-10-14.md')
+    for sp in sorted(sports, key=lambda s: ['nfl', 'nba', 'cfb', 'mlb'].index(s) if s in ('nfl', 'nba', 'cfb', 'mlb') else 9):
+        nev = conn.execute("SELECT COUNT(*) FROM events WHERE sport=?", (sp,)).fetchone()[0]
+        nset = conn.execute("SELECT COUNT(*) FROM results r JOIN events e ON e.event_id=r.event_id WHERE r.status='final' AND e.sport=?", (sp,)).fetchone()[0]
+        nt = conn.execute("SELECT COUNT(*) FROM ticks WHERE sport=?", (sp,)).fetchone()[0]
+        out = dict(built=NOW_S, sport=sp, label=SP.SPORTS[sp]['label'] if sp in SP.SPORTS else 'MLB',
+                   counts=dict(events=nev, settled=nset, ticks=nt,
+                               prop_rows_settled=conn.execute("SELECT COUNT(*) FROM closes c JOIN events e ON e.event_id=c.event_id WHERE c.mclass='prop' AND c.outcome IS NOT NULL AND e.sport=?", (sp,)).fetchone()[0]),
+                   weights=dict(game=F.weights_for(sp, 'game')[0], game_status=F.weights_for(sp, 'game')[1],
+                                prop=F.weights_for(sp, 'prop')[0], prop_status=F.weights_for(sp, 'prop')[1], fit_file=wf),
+                   board=board(conn, sp), venues=tests, ledger=ledg, health=hlth, constants=consts, spec='SHARP_TRACKER_BUILD_SPEC_2026-10-14.md')
+        fn = os.path.join(SD, f'dashboard_{sp}.json'); json.dump(strip(out), open(fn, 'w'), default=str, separators=(',', ':'))
+        index['sports'].append(dict(sport=sp, label=out['label'], file=f'data/state/dashboard_{sp}.json', games=len(out['board']), ticks=nt, events=nev, settled=nset))
+        print(f"[export] {fn.split('/')[-1]}: {len(out['board'])} games on the board, {sum(len(g['props']) for g in out['board'])} prop cells, {os.path.getsize(fn) // 1024} KB")
+    # dashboard.json stays the first sport's full file (back-compat for the page) with the index attached
+    first = json.load(open(os.path.join(SD, f"dashboard_{index['sports'][0]['sport']}.json"))); first['index'] = index
+    json.dump(first, open(os.path.join(SD, 'dashboard.json'), 'w'), default=str, separators=(',', ':'))
     conn.close()
 
 

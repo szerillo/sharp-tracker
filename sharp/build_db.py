@@ -17,6 +17,8 @@ Output: data/sharp/sharp.sqlite (gitignored; derived).
 import json, os, sys, glob, time, sqlite3, datetime as dt, urllib.request, collections, re
 HERE = os.path.dirname(os.path.abspath(__file__)); sys.path.insert(0, os.path.dirname(HERE))
 from sharp import norm as N
+from sharp import sports as SP
+import gzip
 
 ROOT = os.path.abspath(os.path.join(HERE, '..'))
 D = os.path.join(ROOT, 'data', 'mlb'); SD = os.path.join(ROOT, 'data', 'state'); os.makedirs(SD, exist_ok=True)
@@ -112,7 +114,7 @@ class Ticks:
         self.rows = []; self.seen = set()
 
     def add(self, ts, event_id, start, market, side, venue, feed, src, participant=None, player_name=None, line=None,
-            american=None, bid=None, ask=None, last=None, volume=None, limit=None, flags=None, extra=None, vendor_ts=None):
+            american=None, bid=None, ask=None, last=None, volume=None, limit=None, flags=None, extra=None, vendor_ts=None, sport='mlb', mclass=None):
         if event_id is None: return
         key = (ts, event_id, market, line, side, venue, participant)
         if key in self.seen: return          # same observation logged twice (e.g. an extra snapshot in the same second)
@@ -124,7 +126,8 @@ class Ticks:
             if bid is not None and ask is not None: mid = (bid + ask) / 2
             imp = ask                      # cost to take the side now
             if ask: dec = 1 / ask; american = N.prob_to_american(ask)
-        self.rows.append((ts, vendor_ts, 'mlb', 'MLB', event_id, start, market, N.MARKET_CLASS(market), participant, player_name, line, side, venue,
+        self.rows.append((ts, vendor_ts, sport, SP.SPORTS[sport]['label'] if sport in SP.SPORTS else 'MLB', event_id, start, market,
+                          mclass or N.MARKET_CLASS(market), participant, player_name, line, side, venue,
                           american, dec, imp, bid, ask, mid, last, volume, limit, feed, ','.join(flags) if flags else None,
                           json.dumps(extra) if extra else None, src))
 
@@ -345,7 +348,7 @@ def load_novig():
                 elif 1 - sum(bids) > 0.04: flags.append('wide')
                 for s, (bid, ask, o) in ss.items():
                     if bid is None and ask is None: continue
-                    extra = {'qty_best': o.get('qty_best'), 'qty_3c': o.get('qty_3c'), 'depth3': round(float(o.get('qty_3c') or 0) * float(bid or 0), 2)} if o else None
+                    extra = {'qty_best': o.get('qty_best'), 'qty_3c': o.get('qty_3c'), 'depth3': round(float(o.get('qty_3c') or 0) * float(bid or 0) / 100, 2)} if o else None   # Novig live qty = 1c contracts (Fable 10/29 fix: was 100x)
                     p = part.get(s) if isinstance(part, dict) else part
                     T.add(ts, ev, None, market, s, 'Novig', 'novig_api', src, participant=p, player_name=player, line=line, bid=bid, ask=ask, flags=flags, extra=extra)
                 n += 1
@@ -489,6 +492,33 @@ def load_pinnacle_props(player_event):
     return n
 
 
+# ----------------------------------------------------------------- registry sports (NFL / NBA / CFB): normalised ticks ----
+def load_sport(sport):
+    """data/<sport>/ticks/*.jsonl.gz written by loggers/lines.py are already keyed to ESPN event ids; events come from schedule.json."""
+    sd = os.path.join(ROOT, 'data', sport); sched_p = os.path.join(sd, 'schedule.json')
+    if not os.path.exists(sched_p): return 0
+    sched = json.load(open(sched_p)); n = 0; used = set()
+    for f in sorted(glob.glob(os.path.join(sd, 'ticks', '*.jsonl.gz')) + glob.glob(os.path.join(sd, 'ticks', '*.jsonl'))):
+        src = f"{sport}/ticks/{os.path.basename(f)}"
+        opener = gzip.open if f.endswith('.gz') else open
+        with opener(f, 'rt') as fh:
+            for l in fh:
+                try: r = json.loads(l)
+                except Exception: continue
+                e = sched.get(r['event_id'])
+                if not e: continue
+                used.add(r['event_id'])
+                T.add(r['ts'], r['event_id'], None, r['market'], r['side'], r['venue'], r['feed'], src, participant=r.get('participant'), player_name=r.get('player'),
+                      line=r.get('line'), american=r.get('american'), bid=r.get('bid'), ask=r.get('ask'), last=r.get('last'), volume=r.get('vol'), limit=r.get('limit'),
+                      flags=r.get('flags'), extra=r.get('extra'), sport=sport, mclass=SP.market_class(r['market']))
+                n += 1
+    for eid in used:
+        e = sched[eid]; st = N.parse_ts(e['start'])
+        EV.ev[eid] = dict(event_id=eid, sport=sport, league=SP.SPORTS[sport]['label'], et_date=N.et_date(st).isoformat(), start_utc=N.iso(st), away=e['away'], home=e['home'],
+                          status=e.get('status'))
+    return n
+
+
 # ----------------------------------------------------------------- open / pulled flags ----
 def flag_opens_and_pulls(conn):
     """'open' = first observed row per venue x market x line x side x event. 'pulled' = a venue's last row for a market is more than
@@ -522,6 +552,7 @@ def main():
         if r[7] == 'prop' and r[8]:
             e = EV.ev.get(r[4]); pe.setdefault((e['et_date'], r[8]), r[4]) if e else None
     counts['pinnacle_props'] = load_pinnacle_props(pe)
+    for sp in SP.SPORTS: counts[sp] = load_sport(sp)
     for pk, e in EV.ev.items():
         e['venue_ids'] = json.dumps({k: sorted(v) for k, v in EV.vids.get(pk, {}).items()})
     conn.executemany("INSERT OR REPLACE INTO events VALUES (:event_id,:sport,:league,:et_date,:start_utc,:away,:home,:status,:venue_ids)", list(EV.ev.values()))

@@ -5,6 +5,7 @@ Appends to data/sharp/results.jsonl (one row per event, written once) and loads 
 import json, os, sys, sqlite3, time, urllib.request, datetime as dt
 HERE = os.path.dirname(os.path.abspath(__file__)); sys.path.insert(0, os.path.dirname(HERE))
 from sharp import norm as N
+from sharp import results_espn as RE
 
 ROOT = os.path.abspath(os.path.join(HERE, '..')); SD = os.path.join(ROOT, 'data', 'state')
 DB = os.path.join(SD, 'sharp.sqlite'); RES = os.path.join(SD, 'results.jsonl')
@@ -63,10 +64,10 @@ def load_existing():
 def main():
     conn = sqlite3.connect(DB); have = load_existing(); new = 0
     now = dt.datetime.now(dt.timezone.utc)
-    for pk, start in conn.execute("SELECT event_id, start_utc FROM events").fetchall():
+    for pk, start, sport in conn.execute("SELECT event_id, start_utc, sport FROM events").fetchall():
         if pk in have and have[pk]['status'] in ('final', 'postponed'): continue
         if N.parse_ts(start) > now - dt.timedelta(hours=2) or OFFLINE: continue   # OFFLINE: still reload results.jsonl into the table below
-        r = pull(pk)
+        r = pull(pk) if sport == 'mlb' else RE.pull(sport, pk)
         if r:
             have[pk] = r; new += 1
             with open(RES, 'a') as f: f.write(json.dumps(r) + '\n')

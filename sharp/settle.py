@@ -15,6 +15,30 @@ def outcome(market, line, side, participant, res, venue=None, event=None):
         if value == line: return None
         return int((value > line) == (side == 'over'))
 
+    # registry sports: 1h_ / 1q_ prefixes map onto the period scores; 'spread' behaves like 'rl'
+    players_j = res.get('players') or {}
+    if isinstance(players_j, str):
+        try: players_j = json.loads(players_j)
+        except Exception: players_j = {}
+    periods = players_j.get('_periods') or {}
+    if market.startswith(('1h_', '1q_')):
+        pre, base = market[:3], market[3:]
+        if pre == '1h_': ph, pa = f5h, f5a
+        else: ph, pa = periods.get('1q_home'), periods.get('1q_away')
+        if ph is None or pa is None: return 'void'
+        if base == 'ml':
+            if ph == pa: return 0 if venue == 'Kalshi' else None
+            return int((ph > pa) == (side == 'home'))
+        if base == 'spread':
+            if line is None: return 'void'
+            margin = (ph - pa) if side == 'home' else (pa - ph)
+            if margin + line == 0: return None
+            return int(margin + line > 0)
+        if base == 'total': return ou(ph + pa)
+        if base == 'tt_home': return ou(ph)
+        if base == 'tt_away': return ou(pa)
+        return 'void'
+    if market == 'spread': market = 'rl'
     if market == 'ml':
         if hs == as_: return None
         return int((hs > as_) == (side == 'home'))
@@ -41,7 +65,7 @@ def outcome(market, line, side, participant, res, venue=None, event=None):
         players = res.get('players') or {}
         if isinstance(players, str): players = json.loads(players)
         p = players.get(participant)
-        if not p: return 'void'                       # did not appear (DNP void, matches book rules)
+        if not p or p.get('played') == 0: return 'void'   # did not appear (DNP void, matches book rules)
         v = p.get(stat)
         if v is None: return 'void'
         if stat in ('K', 'OUTS', 'HA', 'BBA', 'ER') and not p.get('started'): return 'void'   # pitcher props void if not the starter

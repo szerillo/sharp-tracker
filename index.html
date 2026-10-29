@@ -46,7 +46,8 @@
 </head>
 <body>
 <div class="wrap">
-  <h1>SHARP TRACKER · MLB</h1>
+  <h1>SHARP TRACKER · <span id="sportname">…</span></h1>
+  <div class="tabs" id="sports"></div>
   <div class="sub" id="sub">loading data/state/dashboard.json…</div>
   <div id="banners"></div>
   <div class="strip" id="strip"></div>
@@ -58,8 +59,10 @@ const $ = s => document.querySelector(s);
 const esc = s => String(s ?? '').replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 const am = p => p == null ? '—' : (p > 0 ? '+' : '') + p;
 const pct = (p, d = 1) => p == null ? '—' : (100 * p).toFixed(d);
-const MKT = {ml:'Moneyline', rl:'Run line', total:'Total', tt_away:'Team total (away)', tt_home:'Team total (home)', f5_ml:'F5 moneyline', f5_rl:'F5 run line',
+const MKT0 = {ml:'Moneyline', rl:'Run line', spread:'Spread', total:'Total', tt_away:'Team total (away)', tt_home:'Team total (home)', f5_ml:'F5 moneyline', f5_rl:'F5 run line',
              f5_total:'F5 total', f5_tt_away:'F5 team total (away)', f5_tt_home:'F5 team total (home)', rfi:'1st inning (YRFI/NRFI)'};
+const MKT = new Proxy(MKT0, {get(t, k) { if (k in t) return t[k]; const m = /^(1h|1q)_(.*)$/.exec(k); return m ? (m[1] === '1h' ? '1H ' : '1Q ') + (t[m[2]] || m[2]) : undefined; }});
+let SPORT = new URLSearchParams(location.search).get('sport') || null;
 const XV = new Set(['Kalshi', 'Novig', 'Polymarket']), SHARP = new Set(['Pinnacle', 'Circa']);
 const ET = iso => new Date(iso).toLocaleString('en-US', {timeZone: 'America/New_York', month: 'short', day: 'numeric', hour: 'numeric', minute: '2-digit'});
 let D = null, tab = 'board';
@@ -201,9 +204,18 @@ function draw() {
   $('#view').innerHTML = {board: renderBoard, props: renderProps, venues: renderVenues, ledger: renderLedger, health: renderHealth, constants: renderConstants}[tab]();
 }
 async function load() {
-  const u = new URLSearchParams(location.search).get('data') || 'data/state/dashboard.json';
+  let u = new URLSearchParams(location.search).get('data') || 'data/state/dashboard.json';
   try {
     D = await (await fetch(u, {cache: 'no-store'})).json();
+    const idx = D.index;
+    if (idx && idx.sports && idx.sports.length) {
+      if (!SPORT) SPORT = idx.sports[0].sport;
+      const pick = idx.sports.find(s => s.sport === SPORT) || idx.sports[0]; SPORT = pick.sport;
+      if (D.sport !== SPORT) D = await (await fetch(pick.file, {cache: 'no-store'})).json();
+      D.index = idx;
+      $('#sports').innerHTML = idx.sports.map(s => `<button class="${s.sport === SPORT ? 'on' : ''}" onclick="SPORT='${s.sport}';history.replaceState(null,'','?sport=${s.sport}');load()">${s.label} <span class="small">${s.games} games</span></button>`).join('');
+    }
+    $('#sportname').textContent = D.label || (D.sport || 'mlb').toUpperCase();
   } catch (e) { $('#sub').textContent = 'could not load ' + u + ' (' + e + ')'; return; }
   const built = new Date(D.built); const ageMin = Math.round((Date.now() - built) / 60000);
   $('#sub').innerHTML = `built ${ET(D.built)} ET (${ageMin} min ago) · ${D.counts.events} events · ${D.counts.settled} settled · ${D.counts.ticks.toLocaleString()} ticks · spec ${D.spec}`;

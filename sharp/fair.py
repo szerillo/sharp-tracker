@@ -6,6 +6,7 @@ No projection enters here. Weights are the PRIOR vector from constants.py until 
 import os, sys, json, bisect, datetime as dt, collections
 HERE = os.path.dirname(os.path.abspath(__file__)); sys.path.insert(0, os.path.dirname(HERE))
 from sharp import constants as C, norm as N, devig as DV
+from sharp import sports as SP
 
 OTHER = {'home': 'away', 'away': 'home', 'over': 'under', 'under': 'over'}
 EXCHANGES = {v for v, c in C.VENUE_CLASS.items() if c == 'exchange'}
@@ -38,7 +39,7 @@ def capped_weights(w):
 
 
 def depth_usd(r):
-    """Resting dollars within 3c of best on this side (build_db writes `depth3` per row: Novig contracts x price, Kalshi oblog dollars). None if unknown."""
+    """Resting dollars within 3c of best on this side (build_db writes `depth3` per row in DOLLARS: Novig 1c-contracts x price / 100, Kalshi oblog dollars, Polymarket shares x price). None if unknown."""
     try: x = json.loads(r[14]) if r[14] else None
     except Exception: return None
     if not x or x.get('depth3') is None: return None
@@ -50,6 +51,7 @@ class EventQuotes:
     def __init__(self, conn, event_id):
         self.idx = collections.defaultdict(list)
         self.event = conn.execute("SELECT event_id, et_date, start_utc, away, home FROM events WHERE event_id=?", (event_id,)).fetchone()
+        row = conn.execute("SELECT sport FROM events WHERE event_id=?", (event_id,)).fetchone(); self.sport = row[0] if row else 'mlb'
         for r in conn.execute("""SELECT ts_utc, venue, market, line, side, implied, bid, ask, mid, flags, price_american, "limit", participant, player_name, extra FROM ticks
                                  WHERE event_id=? ORDER BY ts_utc""", (event_id,)):
             self.idx[(r[1], r[2], r[3], r[4], r[12])].append(r)
@@ -75,9 +77,11 @@ class EventQuotes:
         if max_age is None: max_age = C.STALE_EXCHANGE_MIN['value'] if is_x else C.STALE_BOOK_MIN['value']
         r = self.latest(venue, market, line, side, ts_iso, max_age, participant)
         if not r: return None, 'no_quote'
-        other_line = line if market not in ('rl', 'f5_rl') or line is None else -line
+        base = market.split('_')[-1] if market.startswith(('1h_', '1q_')) else market
+        two_sided_team = base in ('ml', 'rl', 'spread') or market in ('f5_ml', 'f5_rl')
+        other_line = line if base not in ('rl', 'spread') or line is None else -line
         other_part = participant
-        if market in ('ml', 'rl', 'f5_ml', 'f5_rl') and self.event: other_part = self.event[4] if side == 'away' else self.event[3]
+        if two_sided_team and self.event: other_part = self.event[4] if side == 'away' else self.event[3]
         o = self.latest(venue, market, other_line, OTHER.get(side), ts_iso, max_age, other_part)
         flags = set((r[9] or '').split(','))
         if is_x:
@@ -87,15 +91,16 @@ class EventQuotes:
             if d_this is not None and d_other is not None and min(d_this, d_other) < C.EXCHANGE_MIN_DEPTH_USD['value']:
                 return None, f'thin ${int(min(d_this, d_other))}'
             p = r[8]
-            if market == 'f5_ml' and venue == 'Kalshi':     # three-way (tie is its own ticker): condition on no tie
+            if (market == 'f5_ml' or market.endswith('_ml') and market != 'ml' or market == 'ml' and self.sport in ('nfl', 'cfb')) and venue == 'Kalshi':   # three-way (tie is its own ticker): condition on no tie
                 if not o or o[8] is None: return None, 'no_other'
                 p = p / (p + o[8])
             return p, 'ok'
         if not o: return None, 'no_other'
         return DV.devig_pair(r[5], o[5], method), 'ok'
 
-    def fair(self, market, line, side, ts_iso, participant=None, sport='mlb'):
-        mclass = N.MARKET_CLASS(market)
+    def fair(self, market, line, side, ts_iso, participant=None, sport=None):
+        sport = sport or self.sport
+        mclass = N.MARKET_CLASS(market) if sport == 'mlb' else SP.market_class(market)
         w, status, meta = weights_for(sport, mclass)
         method = C.DEVIG_METHOD[(sport, mclass)]['value']
         detail = {}; probs = {}
