@@ -19,19 +19,25 @@ OUT = os.path.join(HERE, '..', 'data', 'novig'); STATE = os.path.join(OUT, '_his
 TAPE_START = int(dt.datetime(2026, 8, 3, tzinfo=dt.timezone.utc).timestamp() * 1000)
 
 
-def paged(path, query, max_pages):
-    cur = None; pages = 0
+def paged(path, query, max_pages, state=None, key=None):
+    """Walk pages; with state+key the cursor is persisted so a run cut off at max_pages resumes where it stopped.
+    An expired cursor (400) restarts from the top."""
+    cur = (state or {}).get(key); pages = 0; retries = 0
     while pages < max_pages:
         q = query + (f'&after={cur}' if cur else '')
         s, r = N.request('GET', path, q, timeout=60)
         if s == 429:
+            retries += 1
+            if retries > 6: break
             time.sleep(20); continue
-        if s != 200: print(f'[novig history] {path} -> {s} {str(r)[:120]}'); return
+        if s == 400 and cur: cur = None; continue
+        if s != 200: print(f'[novig history] {path} -> {s} {str(r)[:120]}'); break
         pages += 1
         yield r.get('items', [])
         cur = r.get('next')
-        if not cur: return
+        if not cur: break
         time.sleep(2)
+    if state is not None and key: state[key] = cur     # None once the walk reached the end
 
 
 def main():
@@ -39,12 +45,14 @@ def main():
     args = sys.argv[1:]; max_pages = int(args[args.index('--max-pages') + 1]) if '--max-pages' in args else 6
     st = json.load(open(STATE)) if os.path.exists(STATE) else {}
     cat = load_catalog(); now = dt.datetime.now(dt.timezone.utc).strftime('%Y-%m-%dT%H:%M:%SZ')
-    since = TAPE_START if '--all' in args else st.get('settled_after', TAPE_START)
+    # Phase 1 (backfill): walk the whole tape window newest-first across runs, resuming from the saved cursor.
+    # Phase 2 (once the backfill cursor is exhausted): only markets settled after the watermark.
+    backfilling = st.get('backfill_done') is not True
+    since = TAPE_START if backfilling else st.get('settled_after', TAPE_START)
     events = {}; fresh = []; n_seen = 0; newest = since
-    # events first (league / start time), only the pages we need; the market walk fills the rest lazily
-    for items in paged('/v3/history/events', 'limit=5000', 2):
+    for items in paged('/v3/history/events', 'limit=5000', 2, st, 'events_cursor'):
         for e in items: events[e['eventId']] = e
-    for items in paged('/v3/history/markets', f'settledAfter={since}&limit=5000', max_pages):
+    for items in paged('/v3/history/markets', f'settledAfter={since}&limit=5000', max_pages, st, 'markets_cursor' if backfilling else None):
         for m in items:
             n_seen += 1; newest = max(newest, m.get('settledTs') or 0)
             if m['marketId'] in cat: continue
@@ -58,10 +66,11 @@ def main():
     if fresh:
         with gzip.open(os.path.join(CDIR, f'history-{now[:10]}.jsonl.gz'), 'at') as f:
             for r in fresh: f.write(json.dumps(r, separators=(',', ':')) + '\n')
-    # watermark: only advance when the walk finished (fewer than max_pages full pages) so a cut-off run resumes
-    if n_seen < max_pages * 5000: st['settled_after'] = newest
+    if backfilling and not st.get('markets_cursor'): st['backfill_done'] = True
+    if not backfilling or st.get('backfill_done'): st['settled_after'] = max(newest, st.get('settled_after', 0))
     st['last_run'] = now; st['events_cached'] = len(events); json.dump(st, open(STATE, 'w'))
-    print(f'[novig history] {n_seen} settled markets scanned, {len(fresh)} new to catalog ({len(cat)} total); watermark {st.get("settled_after")}')
+    print(f'[novig history] {n_seen} settled markets scanned, {len(fresh)} new to catalog ({len(cat)} total); '
+          f'{"backfill done" if st.get("backfill_done") else "backfill resumes from cursor"}; watermark {st.get("settled_after")}')
 
 
 if __name__ == '__main__':
