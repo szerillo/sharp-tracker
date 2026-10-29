@@ -258,18 +258,39 @@ def action_network(M):
 
 # ----------------------------------------------------------------- Novig ----
 def novig(M):
-    evs = [e for e in (g(f"{NOV}/catalog/events?league={CFG['novig']}&status=OPEN_PREGAME&limit=500") or {}).get('items', [])
+    """Signed when NOVIG_* secrets exist (per-key throttle; the public API 429s shared CI addresses), public otherwise.
+    Best bid + size for every outcome comes from the markets listing (one call per event); full books (depth within 3c) only for the
+    game markets, which is where the depth rule matters."""
+    try:
+        from sharp import novig_auth as NA; signed = NA.available()
+    except Exception: signed = False
+    def nv(path, query=''):
+        if signed:
+            st, r = NA.request('GET', path, query, timeout=30); STATS['novig_signed'] += 1
+            if st == 429: time.sleep(2); st, r = NA.request('GET', path, query, timeout=30)
+            return r if st == 200 else {}
+        return g(f"{NOV}{path}" + (('?' + query) if query else ''))
+    evs = [e for e in (nv('/v3/catalog/events', f"league={CFG['novig']}&status=OPEN_PREGAME&limit=500") or {}).get('items', [])
            if '@' in e.get('description', '') and 0 < e['startsTs'] / 1000 - NOW.timestamp() < CFG['horizon_days'] * 86400]
     types = set(S.NOVIG_GAME) | set(S.NOVIG_PROPS[SPORT]); todo = []
     for e in evs:
-        aw, hm = [s.strip() for s in e['description'].split('@', 1)]; a, h = M.teams.code(aw), M.teams.code(hm)
+        if over_budget(): break
+        aw, hm = [s_.strip() for s_ in e['description'].split('@', 1)]; a, h = M.teams.code(aw), M.teams.code(hm)
         st = parse_ts(e['startsTs']); ev = M.match(et_date(st), a, h, st)
         if not ev: continue
-        for m in (g(f"{NOV}/catalog/markets?event={e['eventId']}&limit=2000") or {}).get('items', []):
+        for m in (nv('/v3/catalog/markets', f"event={e['eventId']}&limit=2000") or {}).get('items', []):
             if m.get('marketType') in types and m.get('status') == 'OPEN': todo.append((ev, a, h, m))
+    def best_from_listing(m):
+        out = {}
+        for o in m.get('outcomes', []):
+            b = o.get('bid')
+            if b and b.get('price') is not None: out[o['name']] = dict(best=float(b['price']), qty_best=int(b.get('qty') or 0), qty_3c=None)
+        return out
     def snap(x):
         ev, a, h, m = x
-        b = (g(f"{NOV}/catalog/markets/{m['marketId']}/book?depth=10") or {}).get('orders', {})
+        if m['marketType'] not in S.NOVIG_GAME or over_budget(): return ev, a, h, m, best_from_listing(m)
+        b = (nv(f"/v3/catalog/markets/{m['marketId']}/book", 'depth=10') or {}).get('orders', {})
+        if not b: return ev, a, h, m, best_from_listing(m)
         oc = {o['outcomeId']: o['name'] for o in m['outcomes']}; best = {}
         for oid, L in b.items():
             ps = [(float(o['price']), o['qty']) for o in L]
@@ -277,8 +298,7 @@ def novig(M):
             bp = max(p for p, _ in ps)
             best[oc.get(oid, oid)] = dict(best=bp, qty_best=sum(q for p, q in ps if p == bp), qty_3c=sum(q for p, q in ps if p >= bp - 0.03))
         return ev, a, h, m, best
-    out = []
-    with cf.ThreadPoolExecutor(6) as ex: out = list(ex.map(snap, todo))
+    with cf.ThreadPoolExecutor(4 if signed else 6) as ex: out = list(ex.map(snap, todo))
     n = 0
     for ev, a, h, m, best in out:
         if not best: continue
@@ -289,40 +309,41 @@ def novig(M):
             nonlocal n
             sides = {side_of(nm): nm for nm in names if side_of(nm)}
             if len(sides) != 2: return
-            bids = {s: best[nm]['best'] for s, nm in sides.items()}; flags = ['wide'] if 1 - sum(bids.values()) > 0.04 else None
-            for s, nm in sides.items():
-                other = [t for t in sides if t != s][0]; o = best[nm]
-                ex_ = dict(qty_best=o['qty_best'], qty_3c=o['qty_3c'], depth3=round(o['qty_3c'] * o['best'] / 100, 2))   # live API qty = 1c contracts: dollars = qty x price / 100 (docs.novig.com/api/concepts/money)
-                yield s, bids[s], 1 - bids[other], flags, ex_
+            bids = {s_: best[nm]['best'] for s_, nm in sides.items()}; flags = ['wide'] if 1 - sum(bids.values()) > 0.04 else None
+            for s_, nm in sides.items():
+                other = [t for t in sides if t != s_][0]; o = best[nm]
+                q3 = o['qty_3c'] if o['qty_3c'] is not None else o['qty_best']
+                ex_ = dict(qty_best=o['qty_best'], qty_3c=o['qty_3c'], depth3=round(q3 * o['best'] / 100, 2), depth_src='book' if o['qty_3c'] is not None else 'best')   # 1c contracts -> dollars
+                yield s_, bids[s_], 1 - bids[other], flags, ex_
             n += 1
         if typ in S.NOVIG_GAME:
             mkt, per = S.NOVIG_GAME[typ]
             if mkt == 'ml':
-                for s, bid, ask, flags, ex_ in two(lambda nm: 'home' if M.teams.code(nm) == h else ('away' if M.teams.code(nm) == a else None)):
-                    tick(ev, per + 'ml', s, 'Novig', 'novig_api', participant=h if s == 'home' else a, bid=bid, ask=ask, flags=flags, extra=ex_)
+                for s_, bid, ask, flags, ex_ in two(lambda nm: 'home' if M.teams.code(nm) == h else ('away' if M.teams.code(nm) == a else None)):
+                    tick(ev, per + 'ml', s_, 'Novig', 'novig_api', participant=h if s_ == 'home' else a, bid=bid, ask=ask, flags=flags, extra=ex_)
             elif mkt == 'spread':
                 lines = {}
                 def sd(nm):
                     mm = re.match(r'^(.*?)\s+([+-]?\d+\.?\d*)$', nm)
                     if not mm: return None
-                    t = M.teams.code(mm.group(1)); s = 'home' if t == h else ('away' if t == a else None)
-                    if s: lines[s] = float(mm.group(2))
-                    return s
-                for s, bid, ask, flags, ex_ in two(sd):
-                    tick(ev, per + 'spread', s, 'Novig', 'novig_api', line=lines.get(s), participant=h if s == 'home' else a, bid=bid, ask=ask, flags=flags, extra=ex_)
+                    t = M.teams.code(mm.group(1)); s_ = 'home' if t == h else ('away' if t == a else None)
+                    if s_: lines[s_] = float(mm.group(2))
+                    return s_
+                for s_, bid, ask, flags, ex_ in two(sd):
+                    tick(ev, per + 'spread', s_, 'Novig', 'novig_api', line=lines.get(s_), participant=h if s_ == 'home' else a, bid=bid, ask=ask, flags=flags, extra=ex_)
             elif mkt in ('total', 'tt'):
                 mk = per + 'total'; part = None
                 if mkt == 'tt':
                     t = M.teams.code(re.sub(r'\s+t?\d+\.?\d*$', '', m.get('description', '')).split('@')[-1].strip()) or M.teams.code(m.get('description', '').split()[0])
                     if t not in (a, h): continue
                     mk = per + ('tt_home' if t == h else 'tt_away'); part = t
-                for s, bid, ask, flags, ex_ in two(lambda nm: 'over' if nm.lower().startswith('over') else ('under' if nm.lower().startswith('under') else None)):
-                    tick(ev, mk, s, 'Novig', 'novig_api', line=strike, participant=part, bid=bid, ask=ask, flags=flags, extra=ex_)
+                for s_, bid, ask, flags, ex_ in two(lambda nm: 'over' if nm.lower().startswith('over') else ('under' if nm.lower().startswith('under') else None)):
+                    tick(ev, mk, s_, 'Novig', 'novig_api', line=strike, participant=part, bid=bid, ask=ask, flags=flags, extra=ex_)
         else:
             stat = S.NOVIG_PROPS[SPORT][typ]; desc = m.get('description', '')
             mm = re.match(r'^(.*?)\s+[ou]?\d+\.?\d*(\s+[A-Z_]+)?$', desc); name = (mm.group(1) if mm else desc).strip()   # 'Bo Melton 14.5 RECEIVING_YARDS'
-            for s, bid, ask, flags, ex_ in two(lambda nm: 'over' if nm.lower().startswith('over') else ('under' if nm.lower().startswith('under') else None)):
-                tick(ev, f'prop_{stat}', s, 'Novig', 'novig_api', line=strike, participant=player_key(name), player=name, bid=bid, ask=ask, flags=flags, extra=ex_)
+            for s_, bid, ask, flags, ex_ in two(lambda nm: 'over' if nm.lower().startswith('over') else ('under' if nm.lower().startswith('under') else None)):
+                tick(ev, f'prop_{stat}', s_, 'Novig', 'novig_api', line=strike, participant=player_key(name), player=name, bid=bid, ask=ask, flags=flags, extra=ex_)
     return len(evs), n
 
 

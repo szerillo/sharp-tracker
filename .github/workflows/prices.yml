@@ -51,8 +51,11 @@ jobs:
         with: {python-version: '3.12'}
       - name: ${{ matrix.sport }} game lines + props (Pinnacle, Kalshi, Action Network, Novig) -> normalised ticks
         timeout-minutes: 9
-        env: {LINES_BUDGET_S: '420'}
-        run: python3 loggers/lines.py --sport ${{ matrix.sport }} || true
+        env:
+          LINES_BUDGET_S: '420'
+          NOVIG_KEY_ID: ${{ secrets.NOVIG_KEY_ID }}
+          NOVIG_PRIVATE_KEY: ${{ secrets.NOVIG_PRIVATE_KEY }}
+        run: pip install -q cryptography && python3 loggers/lines.py --sport ${{ matrix.sport }} || true
       - name: commit
         run: |
           git config user.name "prices-bot"; git config user.email "actions@users.noreply.github.com"
