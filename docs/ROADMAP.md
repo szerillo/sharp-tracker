@@ -7,7 +7,7 @@ weekly write-up, storage roll-off.
 
 Goal: a stand-alone site (GitHub Pages) that logs prices across venues, prices every market against an exchange-anchored
 ruler, fires the pre-registered systems automatically, grades everything, and needs nothing typed by hand except real
-fills. Sports in order: NFL (running), NBA, CFB; later soccer, tennis. MMA excluded (separate model).
+fills. Sports in order: NFL, NBA, CFB, NHL, soccer (8 competitions), UFC — all logging as of 10/29; tennis next if wanted.
 
 ## 0. Manual steps — the only ones (≈ 5 minutes, one time)
 1. GitHub → New repository → owner `szerillo`, name `sharp-tracker`, **empty** (no README), public (Pages is free on public).
@@ -32,6 +32,15 @@ team codes. The MLB-specific loggers become `loggers/<venue>.py --sport X`.
 | NFL | 889 | KXNFL* | nfl | nfl | yes (outdoor) |
 | NBA | 487 | KXNBA* | nba | nba | no |
 | CFB | 880 | KXNCAAF* | cfb (futures only today) | ncaaf | yes |
+| NHL (live 10/29) | 1456 | KXNHL* incl. 1P, GOAL/PTS/AST/SAVES/SOG props | NHL | nhl (firstperiod) | no |
+| Soccer (live 10/29): EPL 1980, La Liga 2196, Bundesliga 1842, Serie A 2436, Ligue 1 2036, MLS 2663, UCL 2627, UEL 2630 | per league | KX{EPL,LALIGA,BUNDESLIGA,SERIEA,LIGUE1,MLS,UCL,UEL}{GAME,SPREAD,TOTAL,1H*} (home-first tickers) | Soccer | epl, laliga, bundesliga, seriea, ligue1, mls (no AN for UCL/UEL) | no |
+| MMA / UFC (live 10/29) | 1624 | KXUFCFIGHT (home-first) | UFC | ESPN mma/ufc only | no |
+
+Three-way rules (10/29): soccer ML is logged as home / away / draw sides of one market at every venue and devigged by normalising
+the three implied probabilities; the draw is a bettable side on the board. NHL first-period ML is three-way at every venue too but
+no draw quotes are logged yet, so it is shown unpriced. Asian quarter-goal lines are void (stake splits); whole-goal lines push.
+MMA: each fight is an event (ESPN competition id); ESPN's order-1 fighter is 'home'; totals are rounds, settled on rounds elapsed
+(period - 1 + clock/300), draw / no contest not graded. AN's Fanatics soccer feed has home and away swapped and is not logged.
 Markets: ML, spread, total, team totals, 1H/1Q (where quoted), player props (NBA first — Kalshi/Novig/Pinnacle all quote them).
 Results: ESPN scoreboard (final scores, half scores for 1H grading) — no key.
 
