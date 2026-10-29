@@ -33,6 +33,13 @@ jobs:
         run: python3 -m sharp.season nfl || true
       - name: systems engine (pre-registered rules -> paper fills)
         run: python3 sharp/systems.py || true
+      - name: import real fills from the exchanges (Novig / Kalshi keys; skips without them)
+        env:
+          NOVIG_KEY_ID: ${{ secrets.NOVIG_KEY_ID }}
+          NOVIG_PRIVATE_KEY: ${{ secrets.NOVIG_PRIVATE_KEY }}
+          KALSHI_KEY_ID: ${{ secrets.KALSHI_KEY_ID }}
+          KALSHI_PRIVATE_KEY: ${{ secrets.KALSHI_PRIVATE_KEY }}
+        run: python3 sharp/exchange_fills.py || true
       - run: python3 -m sharp.fills grade
       - run: python3 sharp/weights_fit.py
       - run: python3 sharp/export.py
