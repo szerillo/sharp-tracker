@@ -6,7 +6,7 @@ Needs `gh` and GITHUB_TOKEN (Actions provides both); without them it only report
 import os, sys, glob, subprocess, datetime as dt
 ROOT = os.path.abspath(os.path.join(os.path.dirname(os.path.abspath(__file__)), '..'))
 KEEP_DAYS = int(os.environ.get('ROLLOFF_KEEP_DAYS', 10)); REL = 'raw-archive'; DRY = '--dry' in sys.argv
-PATTERNS = ['data/nfl/ticks/*.jsonl.gz', 'data/nba/ticks/*.jsonl.gz', 'data/cfb/ticks/*.jsonl.gz', 'data/nhl/ticks/*.jsonl.gz', 'data/polymarket/*.jsonl']
+PATTERNS = ['data/nfl/ticks/*.jsonl.gz', 'data/nba/ticks/*.jsonl.gz', 'data/cfb/ticks/*.jsonl.gz', 'data/nhl/ticks/*.jsonl.gz', 'data/soccer/ticks/*.jsonl.gz', 'data/polymarket/*.jsonl']
 
 
 def main():

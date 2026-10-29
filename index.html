@@ -180,7 +180,7 @@ function renderVenues() {
   return h;
 }
 
-const SPORT_LABEL = {nfl: 'NFL', nba: 'NBA', nhl: 'NHL', cfb: 'CFB', mlb: 'MLB'};
+const SPORT_LABEL = {nfl: 'NFL', nba: 'NBA', nhl: 'NHL', cfb: 'CFB', soccer: 'Soccer', mlb: 'MLB'};
 function renderEdges() {
   if (!E) return '<div class="banner">edges.json not loaded yet</div>';
   const st = window._ef || (window._ef = {sport: '', cls: '', market: '', venue: '', minv: 3, mine: 0, hours: 0, q: '', sort: 'edge', dir: -1, open: {}});

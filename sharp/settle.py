@@ -8,7 +8,7 @@ def outcome(market, line, side, participant, res, venue=None, event=None):
     hs, as_ = res.get('home_score'), res.get('away_score')
     if hs is None or as_ is None: return 'void'
     f5h, f5a = res.get('f5_home'), res.get('f5_away')
-    away, home = (event or (None, None))
+    away, home = (event or (None, None)); sport = res.get('sport') or ((res.get('players') or {}).get('_sport'))
 
     def ou(value):
         if value is None or line is None: return 'void'
@@ -26,6 +26,9 @@ def outcome(market, line, side, participant, res, venue=None, event=None):
         if pre == '1h_': ph, pa = f5h, f5a
         else: ph, pa = periods.get(pre + 'home'), periods.get(pre + 'away')
         if pre == '1p_' and base == 'ml' and ph is not None and ph == pa: return 0   # three-way period ML everywhere: a tie loses
+        if sport == 'soccer' and base == 'ml' and ph is not None:
+            if side == 'draw': return int(ph == pa)
+            if ph == pa: return 0
         if ph is None or pa is None: return 'void'
         if base == 'ml':
             if ph == pa: return 0 if venue == 'Kalshi' else None
@@ -41,7 +44,8 @@ def outcome(market, line, side, participant, res, venue=None, event=None):
         return 'void'
     if market == 'spread': market = 'rl'
     if market == 'ml':
-        if hs == as_: return None
+        if side == 'draw': return int(hs == as_)
+        if hs == as_: return 0 if sport == 'soccer' else None     # soccer ML is three-way: the draw beats both sides
         return int((hs > as_) == (side == 'home'))
     if market == 'f5_ml':
         if f5h is None: return 'void'
@@ -52,6 +56,7 @@ def outcome(market, line, side, participant, res, venue=None, event=None):
         h, a = (hs, as_) if market == 'rl' else (f5h, f5a)
         if h is None: return 'void'
         margin = (h - a) if side == 'home' else (a - h)
+        if abs(line * 4 - round(line * 4)) < 1e-6 and abs(line * 2 - round(line * 2)) > 1e-6: return 'void'   # quarter-goal Asian lines split the stake; not graded
         if margin + line == 0: return None
         return int(margin + line > 0)
     if market == 'total': return ou(hs + as_)

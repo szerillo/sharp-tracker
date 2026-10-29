@@ -9,7 +9,7 @@ Schedule: data/<sport>/schedule.json (ESPN scoreboard, cumulative; carries statu
 Venues: Pinnacle guest API (limits), Kalshi public (game + 1H/1Q + player props), Action Network (open, consensus with ticket/money %,
 NY books; BetMGM excluded), Novig public (book depth, best-bid per outcome). Polymarket is logged by loggers/polymarket.py.
 Read-only. Places nothing."""
-import sys, os, json, time, re, datetime as dt, urllib.request, collections, concurrent.futures as cf
+import urllib.parse, sys, os, json, time, re, datetime as dt, urllib.request, collections, concurrent.futures as cf
 HERE = os.path.dirname(os.path.abspath(__file__)); sys.path.insert(0, os.path.join(HERE, '..'))
 from sharp import sports as S
 from sharp.norm import player_key, et_date, iso, parse_ts
@@ -59,7 +59,7 @@ def espn_schedule():
             rec = dict(event_id=ev['id'], start=ev['date'], away=teams.get('away', {}).get('abbr'), home=teams.get('home', {}).get('abbr'),
                        away_team=teams.get('away'), home_team=teams.get('home'), venue=v.get('fullName'), indoor=v.get('indoor'),
                        city=(v.get('address') or {}).get('city'), state=(v.get('address') or {}).get('state'), status=st.get('name'), completed=st.get('completed'),
-                       week=(ev.get('week') or {}).get('number'), neutral=c.get('neutralSite'), fetched=TS)
+                       week=(ev.get('week') or {}).get('number'), neutral=c.get('neutralSite'), fetched=TS, league=CFG.get('league_key'))
             # linescores (for 1H / 1Q grading) when present
             ls = {t['homeAway']: [float(q.get('value') or 0) for q in (t.get('linescores') or [])] for t in c['competitors']}
             if any(ls.values()): rec['linescores'] = ls
@@ -86,7 +86,7 @@ class Matcher:
 
 
 # ----------------------------------------------------------------- ticks ----
-ROWS = []
+ROWS = []; UNMATCHED = collections.Counter()
 
 
 def tick(event_id, market, side, venue, feed, line=None, participant=None, player=None, american=None, bid=None, ask=None, last=None, vol=None,
@@ -130,8 +130,10 @@ def pinnacle(M):
             lim = next((l['amount'] for l in k.get('limits') or [] if l['type'] == 'maxRiskStake'), None)
             P = {x['designation']: x for x in k['prices']}; typ = k.get('type')
             if typ == 'moneyline' and 'home' in P and 'away' in P:
-                tick(ev, per + 'ml', 'away', 'Pinnacle', 'pinnacle_guest', participant=a, american=P['away']['price'], limit=lim)
-                tick(ev, per + 'ml', 'home', 'Pinnacle', 'pinnacle_guest', participant=h, american=P['home']['price'], limit=lim)
+                fl = ['threeway'] if 'draw' in P else None
+                tick(ev, per + 'ml', 'away', 'Pinnacle', 'pinnacle_guest', participant=a, american=P['away']['price'], limit=lim, flags=fl)
+                tick(ev, per + 'ml', 'home', 'Pinnacle', 'pinnacle_guest', participant=h, american=P['home']['price'], limit=lim, flags=fl)
+                if 'draw' in P: tick(ev, per + 'ml', 'draw', 'Pinnacle', 'pinnacle_guest', american=P['draw']['price'], limit=lim, flags=fl)
             elif typ == 'spread' and 'home' in P:
                 lh = P['home'].get('points')
                 tick(ev, per + 'spread', 'home', 'Pinnacle', 'pinnacle_guest', line=lh, participant=h, american=P['home']['price'], limit=lim)
@@ -165,7 +167,7 @@ def pinnacle(M):
 
 # ----------------------------------------------------------------- Kalshi ----
 def kalshi(M):
-    pre = CFG['kalshi']; n = 0; npr = 0; codes = M.teams.codes; fix = S.CODE_FIX[SPORT]
+    pre = CFG['kalshi']; n = 0; npr = 0; codes = M.teams.codes; fix = {**S.CODE_FIX[SPORT], **(CFG.get('code_fix') or {})}
     def walk(series):
         cur = ''
         while True:
@@ -178,7 +180,9 @@ def kalshi(M):
         if not p: return None
         date, blob = p; sp = S.split_codes(blob, codes, fix)
         if not sp: return None
-        a, h = sp; ev = M.match(date, a, h)
+        a, h = sp
+        if CFG.get('threeway'): a, h = h, a          # soccer tickers list the home side first (European convention)
+        ev = M.match(date, a, h)
         return (ev, a, h) if ev else None
     for suf, (mkt, per) in S.KALSHI_GAME.items():
         if per and per.strip('_') not in CFG['periods']: continue
@@ -237,6 +241,7 @@ def action_network(M):
             for bid_, per_m in (gm.get('markets') or {}).items():
                 venue = AN_BOOKS.get(bid_)
                 if not venue: continue
+                if venue == 'Fanatics' and CFG.get('threeway'): continue   # AN's Fanatics soccer feed has home and away swapped (verified 10/29: BAR +1800 at home); not logged rather than guessed
                 for per, mk in per_m.items():
                     pfx = CFG['an_period'].get(per)
                     if pfx is None: continue
@@ -247,7 +252,10 @@ def action_network(M):
                             bi = o.get('bet_info') or {}
                             extra = {'tickets_pct': (bi.get('tickets') or {}).get('percent'), 'money_pct': (bi.get('money') or {}).get('percent')} if venue == 'AN_Consensus' else None
                             if extra and all(v is None for v in extra.values()): extra = None
-                            if typ == 'moneyline': tick(ev, pfx + 'ml', side, venue, 'action_network', participant=h if side == 'home' else a, american=o['odds'], extra=extra)
+                            if typ == 'moneyline':
+                                if side not in ('home', 'away', 'draw'): continue
+                                tick(ev, pfx + 'ml', side, venue, 'action_network', participant=None if side == 'draw' else (h if side == 'home' else a), american=o['odds'], extra=extra,
+                                     flags=['threeway'] if CFG.get('threeway') else None)
                             elif typ == 'total': tick(ev, pfx + 'total', o['side'], venue, 'action_network', line=o.get('value'), american=o['odds'], extra=extra)
                             elif typ == 'spread': tick(ev, pfx + 'spread', side, venue, 'action_network', line=o.get('value'), participant=h if side == 'home' else a, american=o['odds'], extra=extra)
                             elif typ == 'core_bet_type_6_team_score' and side in ('home', 'away'):
@@ -270,7 +278,7 @@ def novig(M):
             if st == 429: time.sleep(2); st, r = NA.request('GET', path, query, timeout=30)
             return r if st == 200 else {}
         return g(f"{NOV}{path}" + (('?' + query) if query else ''))
-    evs = [e for e in (nv('/v3/catalog/events', f"league={CFG['novig']}&status=OPEN_PREGAME&limit=500") or {}).get('items', [])
+    evs = [e for e in (nv('/v3/catalog/events', f"league={urllib.parse.quote(CFG['novig'])}&status=OPEN_PREGAME&limit=500") or {}).get('items', [])
            if '@' in e.get('description', '') and 0 < e['startsTs'] / 1000 - NOW.timestamp() < CFG['horizon_days'] * 86400]
     types = set(S.NOVIG_GAME) | set(S.NOVIG_PROPS[SPORT]); todo = []
     for e in evs:
@@ -318,7 +326,19 @@ def novig(M):
             n += 1
         if typ in S.NOVIG_GAME:
             mkt, per = S.NOVIG_GAME[typ]
-            if mkt == 'ml':
+            if mkt in ('ml3', 'draw'):      # soccer: Yes/No market per outcome; Yes bid = price of the outcome, ask = 1 - No bid
+                if mkt == 'draw': side = 'draw'; part = None
+                else:
+                    t = M.teams.code(re.sub(r'\s+MONEYLINE_3_WAY_WIN$', '', m.get('description', '')).strip())
+                    if t not in (a, h): continue
+                    side = 'home' if t == h else 'away'; part = t
+                yes, no = best.get('Yes'), best.get('No')
+                if not yes: continue
+                q3 = yes['qty_3c'] if yes['qty_3c'] is not None else yes['qty_best']
+                tick(ev, per + 'ml', side, 'Novig', 'novig_api', participant=part, bid=yes['best'], ask=(1 - no['best']) if no else None, flags=['threeway'],
+                     extra=dict(qty_best=yes['qty_best'], qty_3c=yes['qty_3c'], depth3=round(q3 * yes['best'] / 100, 2), depth_src='book' if yes['qty_3c'] is not None else 'best'))
+                n += 1
+            elif mkt == 'ml':
                 for s_, bid, ask, flags, ex_ in two(lambda nm: 'home' if M.teams.code(nm) == h else ('away' if M.teams.code(nm) == a else None)):
                     tick(ev, per + 'ml', s_, 'Novig', 'novig_api', participant=h if s_ == 'home' else a, bid=bid, ask=ask, flags=flags, extra=ex_)
             elif mkt == 'spread':
@@ -370,13 +390,21 @@ def trim(rows):
 
 def main():
     import gzip
-    sched = espn_schedule(); M = Matcher(sched)
-    counts = {}
-    for name, fn in (('pinnacle', pinnacle), ('kalshi', kalshi), ('action_network', action_network), ('novig', novig)):
-        t = time.time()
-        try: counts[name] = fn(M)
-        except Exception as e: counts[name] = f'ERR {type(e).__name__}: {e}'
-        counts[name + '_s'] = round(time.time() - t)
+    counts = collections.Counter(); errs = {}
+    leagues = CFG.get('leagues') or {'_': {}}
+    for lk, lg in leagues.items():
+        if over_budget(): break
+        CFG.update(lg); CFG['league_key'] = None if lk == '_' else lk
+        sched = espn_schedule(); M = Matcher(sched)
+        for name, fn in (('pinnacle', pinnacle), ('kalshi', kalshi), ('action_network', action_network), ('novig', novig)):
+            if CFG.get({'pinnacle': 'pinnacle', 'kalshi': 'kalshi', 'action_network': 'an', 'novig': 'novig'}[name]) is None: continue
+            t = time.time()
+            try:
+                c = fn(M); counts[name] += (c if isinstance(c, int) else sum(x for x in c if isinstance(x, int)))
+            except Exception as e: errs[f'{name}:{lk}'] = f'{type(e).__name__}: {e}'
+            counts[name + '_s'] += round(time.time() - t)
+        if M.unmatched: UNMATCHED.update(M.unmatched)
+    counts = dict(counts); counts.update(errs); M = type('M', (), {'unmatched': UNMATCHED})()
     rows = trim(ROWS)
     with gzip.open(os.path.join(TD, f"{et_date(NOW).isoformat()}.jsonl.gz"), 'at') as f:
         for r in rows: f.write(json.dumps(r, separators=(',', ':')) + '\n')

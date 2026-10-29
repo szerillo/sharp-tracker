@@ -77,6 +77,8 @@ class EventQuotes:
         if max_age is None: max_age = C.STALE_EXCHANGE_MIN['value'] if is_x else C.STALE_BOOK_MIN['value']
         r = self.latest(venue, market, line, side, ts_iso, max_age, participant)
         if not r: return None, 'no_quote'
+        if self.sport == 'soccer' and market.endswith('ml'):
+            return self.three_way_prob(venue, market, ts_iso, max_age, side)
         base = market.split('_')[-1] if market.startswith(('1h_', '1q_', '1p_')) else market
         two_sided_team = base in ('ml', 'rl', 'spread') or market in ('f5_ml', 'f5_rl')
         other_line = line if base not in ('rl', 'spread') or line is None else -line
@@ -97,6 +99,24 @@ class EventQuotes:
             return p, 'ok'
         if not o: return None, 'no_other'
         return DV.devig_pair(r[5], o[5], method), 'ok'
+
+    def three_way_prob(self, venue, market, ts_iso, max_age, side):
+        """Soccer moneyline: home / away / draw are three sides of one market at every venue; devig by normalising the three implied probabilities."""
+        imp = {}
+        for s_ in ('home', 'away', 'draw'):
+            part = None if s_ == 'draw' else (self.event[4] if s_ == 'home' else self.event[3]) if self.event else None
+            q = self.latest(venue, market, None, s_, ts_iso, max_age, part)
+            if not q: return None, f'no_{s_}'
+            if venue in EXCHANGES:
+                if q[6] is None or q[7] is None: return None, 'oneside'
+                if (q[7] - q[6]) > C.EXCHANGE_SPREAD_MAX['value']: return None, f'wide {round(100 * (q[7] - q[6]))}c'
+                imp[s_] = q[8] if q[8] is not None else (q[6] + q[7]) / 2
+            else:
+                if q[5] is None: return None, 'no_price'
+                imp[s_] = q[5]
+        tot = sum(imp.values())
+        if not 0.95 < tot < 1.25: return None, f'overround {round(tot, 3)}'
+        return imp[side] / tot, 'ok'
 
     def fair(self, market, line, side, ts_iso, participant=None, sport=None):
         sport = sport or self.sport
@@ -129,7 +149,8 @@ class EventQuotes:
 def best_price(eq, market, line, side, ts_iso, participant=None, exclude=()):
     """Best bettable price (highest decimal / lowest implied) across venues at ts, excluding unbettable venues. Returns list sorted best-first."""
     rows = []
-    three_way = market in ('f5_ml', '1h_ml', '1q_ml') or (market == 'ml' and getattr(eq, 'sport', 'mlb') in ('nfl', 'cfb'))   # tie is a loss on the exchange, a push at the book
+    three_way = market in ('f5_ml', '1h_ml', '1q_ml') or (market == 'ml' and getattr(eq, 'sport', 'mlb') in ('nfl', 'cfb'))
+    if getattr(eq, 'sport', None) == 'soccer': three_way = False   # draw is its own side at every venue: the same bet everywhere   # tie is a loss on the exchange, a push at the book
     for (v, m, l, s, p), L in eq.idx.items():
         if m != market or l != line or s != side or p != participant or v in C.UNBETTABLE_VENUES['value'] or v in exclude: continue
         if three_way and v == 'Kalshi' and market != 'ml': continue      # not the same bet as the book price; the period ML tie rate is far too high to ignore

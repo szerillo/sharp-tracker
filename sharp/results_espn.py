@@ -45,6 +45,9 @@ def parse_players(sport, box):
                         row.update(GOALS=_num(st.get('goals')), AST=_num(st.get('assists')), PTS=_num(st.get('points')), SOG=_num(st.get('shotsTotal')) if st.get('shotsTotal') is not None else _num(st.get('shots')), played=1)
                     elif cat['name'] in ('goalies', 'goalie'):
                         row.update(SAVES=_num(st.get('saves')), GA=_num(st.get('goalsAgainst')), played=1 if (_num(st.get('saves')) or 0) > 0 or (_num(st.get('goalsAgainst')) or 0) > 0 else 0)
+                elif sport == 'soccer':
+                    row.update(GOALS=_num(st.get('totalGoals') if st.get('totalGoals') is not None else st.get('goals')), AST=_num(st.get('goalAssists') if st.get('goalAssists') is not None else st.get('assists')),
+                               SOT=_num(st.get('shotsOnTarget')), SAVES=_num(st.get('saves')), played=1)
                 elif sport == 'nba':
                     row.update(PTS=_num(st.get('points')), REB=_num(st.get('rebounds')), AST=_num(st.get('assists')), STL=_num(st.get('steals')), BLK=_num(st.get('blocks')),
                                TOV=_num(st.get('turnovers')), MIN=_num(st.get('minutes')),
@@ -82,6 +85,6 @@ def pull(sport, event_id):
         q = d.get('q') or []
         if len(q) >= 2: per[f'1h_{side}'] = q[0] + q[1]
         if len(q) >= 1: per[f'1q_{side}'] = q[0]; per[f'1p_{side}'] = q[0]
-    players = parse_players(sport, s.get('boxscore') or {}); players['_periods'] = per
+    players = parse_players(sport, s.get('boxscore') or {}); players['_periods'] = per; players['_sport'] = sport
     return dict(event_id=str(event_id), status='final', actual_start=comp.get('date'), home_score=int(h['score']), away_score=int(a['score']),
                 f5_home=per.get('1h_home'), f5_away=per.get('1h_away'), rfi=None, players=players, sport=sport)
