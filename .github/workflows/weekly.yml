@@ -1,0 +1,30 @@
+name: weekly (Monday scoreboard)
+# Monday 08:45 ET (13:45 UTC in EDT / 13:45 EST = 08:45): systems forward record, paper + real fills, triggers, top edges, health.
+on:
+  schedule:
+    - cron: '45 13 * * 1'
+  workflow_dispatch: {}
+permissions:
+  contents: write
+concurrency:
+  group: tracker
+  cancel-in-progress: false
+jobs:
+  report:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.12'}
+      - run: python3 sharp/weekly.py
+      - name: commit
+        run: |
+          git config user.name "tracker-bot"; git config user.email "actions@users.noreply.github.com"
+          git add data/state/weekly.json docs/weekly && git commit -m "weekly $(date -u +%Y-%m-%d)" || exit 0
+          for i in 1 2 3 4 5; do
+            if git pull --rebase -X theirs && git push; then exit 0; fi
+            git rebase --abort 2>/dev/null || true
+            sleep $((RANDOM % 15 + 5))
+          done
+          exit 1
