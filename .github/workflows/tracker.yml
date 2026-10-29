@@ -41,6 +41,8 @@ jobs:
           KALSHI_PRIVATE_KEY: ${{ secrets.KALSHI_PRIVATE_KEY }}
         run: python3 sharp/exchange_fills.py || true
       - run: python3 -m sharp.fills grade
+      - name: move-based sharp signals (Pinnacle steam, exchange lead, juice, timing, limits) on the tick log
+        run: python3 sharp/move_signals.py || true
       - run: python3 sharp/weights_fit.py
       - run: python3 sharp/export.py
       - name: roll off raw ticks older than 10 days to the raw-archive release
