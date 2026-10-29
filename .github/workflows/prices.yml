@@ -22,11 +22,6 @@ jobs:
       - run: python3 loggers/mlb/novig.py || true
       - run: python3 loggers/mlb/an_props.py || true
       - run: python3 loggers/mlb/pinnacle_props.py || true
-      - name: NFL / NBA / CFB game lines + props (Pinnacle, Kalshi, Action Network, Novig) -> normalised ticks
-        run: |
-          python3 loggers/lines.py --sport nfl || true
-          python3 loggers/lines.py --sport nba || true
-          python3 loggers/lines.py --sport cfb || true
       - name: Polymarket (Gamma + CLOB books + public trades; every sport tag, games inside 36h)
         run: python3 loggers/polymarket.py || true
       - name: Novig catalog snapshot (every league; makes the public tape decodable)
@@ -36,10 +31,35 @@ jobs:
       - name: commit
         run: |
           git config user.name "prices-bot"; git config user.email "actions@users.noreply.github.com"
-          git add data/mlb data/novig/catalog data/polymarket data/nfl data/nba data/cfb && git commit -m "prices $(date -u +%Y-%m-%dT%H:%M)" || exit 0
+          git add data/mlb data/novig/catalog data/polymarket data/nfl/weather && git commit -m "prices $(date -u +%Y-%m-%dT%H:%M)" || exit 0
           for i in 1 2 3 4 5; do
             if git pull --rebase -X theirs && git push; then exit 0; fi
             git rebase --abort 2>/dev/null || true
             sleep $((RANDOM % 15 + 5))
+          done
+          exit 1
+  lines:
+    runs-on: ubuntu-latest
+    timeout-minutes: 14
+    strategy:
+      fail-fast: false
+      matrix:
+        sport: [nfl, nba, cfb]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.12'}
+      - name: ${{ matrix.sport }} game lines + props (Pinnacle, Kalshi, Action Network, Novig) -> normalised ticks
+        timeout-minutes: 9
+        env: {LINES_BUDGET_S: '420'}
+        run: python3 loggers/lines.py --sport ${{ matrix.sport }} || true
+      - name: commit
+        run: |
+          git config user.name "prices-bot"; git config user.email "actions@users.noreply.github.com"
+          git add data/${{ matrix.sport }} && git commit -m "lines ${{ matrix.sport }} $(date -u +%Y-%m-%dT%H:%M)" || exit 0
+          for i in 1 2 3 4 5 6; do
+            if git pull --rebase -X theirs && git push; then exit 0; fi
+            git rebase --abort 2>/dev/null || true
+            sleep $((RANDOM % 20 + 5))
           done
           exit 1

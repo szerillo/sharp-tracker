@@ -22,13 +22,24 @@ KAPI = "https://api.elections.kalshi.com/trade-api/v2"; PIN = "https://guest.api
 AN_BOOKS = {'15': 'AN_Consensus', '30': 'AN_Open', '1548': 'DK', '69': 'FD', '1005': 'Caesars', '972': 'BetRivers', '2789': 'Fanatics', '4621': 'theScore'}
 
 
-def g(u, tries=4, timeout=40):
+T0 = time.time(); BUDGET_S = float(os.environ.get('LINES_BUDGET_S', 420)); STATS = collections.Counter()
+
+
+def over_budget(): return time.time() - T0 > BUDGET_S
+
+
+def g(u, tries=2, timeout=20):
+    """One GET with short retries; gives up fast when the whole run is over budget so a throttling venue cannot stall the job."""
     for i in range(tries):
-        try: return json.load(urllib.request.urlopen(urllib.request.Request(u, headers={'User-Agent': 'Mozilla/5.0'}), timeout=timeout))
+        if over_budget(): STATS['skipped_budget'] += 1; return {}
+        try:
+            r = json.load(urllib.request.urlopen(urllib.request.Request(u, headers={'User-Agent': 'Mozilla/5.0'}), timeout=timeout)); STATS['ok'] += 1; return r
         except urllib.error.HTTPError as e:
+            STATS[f'http{e.code}'] += 1
             if e.code == 404: return {}
-            time.sleep(1.5 * (i + 1))
-        except Exception: time.sleep(1.5 * (i + 1))
+            if e.code == 429: time.sleep(3 * (i + 1)); continue
+            time.sleep(1.0 * (i + 1))
+        except Exception as e: STATS[type(e).__name__] += 1; time.sleep(1.0 * (i + 1))
     return {}
 
 
@@ -341,13 +352,16 @@ def main():
     sched = espn_schedule(); M = Matcher(sched)
     counts = {}
     for name, fn in (('pinnacle', pinnacle), ('kalshi', kalshi), ('action_network', action_network), ('novig', novig)):
+        t = time.time()
         try: counts[name] = fn(M)
         except Exception as e: counts[name] = f'ERR {type(e).__name__}: {e}'
+        counts[name + '_s'] = round(time.time() - t)
     rows = trim(ROWS)
     with gzip.open(os.path.join(TD, f"{et_date(NOW).isoformat()}.jsonl.gz"), 'at') as f:
         for r in rows: f.write(json.dumps(r, separators=(',', ':')) + '\n')
     byv = collections.Counter(r['venue'] for r in rows); nev = len({r['event_id'] for r in rows})
-    print(f"[lines {SPORT}] {len(rows)} ticks ({len(ROWS)} raw) on {nev} events; {dict(byv)}; sources {counts}" + (f"; unmatched {dict(M.unmatched.most_common(5))}" if M.unmatched else ''))
+    print(f"[lines {SPORT}] {len(rows)} ticks ({len(ROWS)} raw) on {nev} events in {round(time.time() - T0)}s; {dict(byv)}; sources {counts}; http {dict(STATS)}"
+          + (f"; unmatched {dict(M.unmatched.most_common(5))}" if M.unmatched else ''))
 
 
 if __name__ == '__main__':
