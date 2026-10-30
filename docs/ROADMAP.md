@@ -109,6 +109,10 @@ Pinned for later, in order:
   holdout; watch items: NHL early-season home ML vs quality opponent (766996), NBA under on good home over teams (766963), NCAA
   Tourney Ball totals (1463317) before March.
 
+- Line-move audit (10/30): docs/betlabs_line_move_audit_2026-10-30.md. Wind: market moves with us ~2 pts and the under still
+  wins. Awful dog / CFB road dog low total: market moves against them and they cover anyway (CLV-negative winners). CLV is a
+  diagnostic, not a gate, from here on. Candidate: NFL 1H unders conditioned on the 1H total having dropped from open.
+
 ## 10. Sharp framework v2 (started 2026-10-30)
 Scope: docs/sharp_framework_v2_scope.md. Pre-registration: docs/move_tape_prereg_2026-10-30.md.
 - DONE 10/30: loggers/fast.py + prices_fast.yml (5-minute Pinnacle/Novig/Kalshi game lines, three parallel groups, Kalshi trades

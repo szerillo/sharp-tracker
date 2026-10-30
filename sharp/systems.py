@@ -27,6 +27,26 @@ RULES = {'wind1014': dict(market='total', side='under', stake=1.0), 'wind1014_1h
          # Bet Labs round 3 watch tier (docs/betlabs_account_systems_audit_2026-10-30.md), paper only
          'nhl_early_home_fav_qual': dict(market='ml', side='home', stake=0.5, sport='nhl'), 'nba_under_good_home_over': dict(market='total', side='under', stake=0.5, sport='nba'),
          'cfb_road_dog_low_total': dict(market='spread', side='away', stake=0.5, sport='cfb')}
+# Evidence per tag: Bet Labs train / holdout record (regular season, closing lines; holdout = 03/2021 on), positive holdout seasons, and a tier:
+#   A = holdout z >= 2 with a mechanism (wind family); B = positive both halves, most seasons positive, z 1-2; C = lean (thin or z < 1).
+# These are what the screen shows next to a fire. The forward record (W-L, ROI, CLV) is a diagnostic, not a gate: a rule the market does
+# not price can keep winning with zero CLV, so nothing here waits for CLV before it is shown as a bet.
+EVIDENCE = {'wind1014': dict(tier='A', train='533-376 all-time (2003-), +13.3%', hold='positive on both halves', seasons='5 of 6', src='docs/betlabs_nfl_audit_2026-10-25.md'),
+            'wind1014_1h': dict(tier='A', train='403-300 all-time, +10.4%', hold='positive on both halves', seasons='4 of 6', src='docs/betlabs_nfl_audit_2026-10-25.md'),
+            'cfb_wind14': dict(tier='A', train='555-402 all-time, +12%', hold='positive on both halves', seasons='5 of 6', src='docs/betlabs_cfb_audit_2026-10-29.md'),
+            'vrest8_1h': dict(tier='B', train='454-357 all-time, +7.7%', hold='positive on both halves', seasons='5 of 6', src='docs/betlabs_nfl_audit_2026-10-25.md'),
+            'mnf_1h': dict(tier='B', train='168-118 all-time, +12.3%', hold='positive on both halves', seasons='4 of 6', src='docs/betlabs_nfl_audit_2026-10-25.md'),
+            'awfuldog': dict(tier='B', train='203-133', hold='51-31 (+17.2% all-time)', seasons='6 of 6 (n ~15 a season)', src='docs/betlabs_nfl_audit_2026-10-25.md'),
+            'bounce15_1h': dict(tier='B', train='312-258', hold='117-80 (+7.5% all-time)', seasons='4 of 6', src='docs/betlabs_nfl_audit_2026-10-25.md'),
+            'xch_homedog_fade': dict(tier='C', train='exchange audit, sparse tape', hold='+12% at the close, n 300', seasons='two months', src='docs/exchange_signals_audit_2026-10-29.md'),
+            'nba_momentum': dict(tier='C', train='exchange audit, sparse tape', hold='continuation +4 to +6 pts', seasons='two months', src='docs/exchange_signals_audit_2026-10-29.md'),
+            'nhl_pl_fav_gap': dict(tier='B', train='502, +17.4%', hold='196, +14.6%', seasons='5 of 7', src='docs/betlabs_segments_audit_2026-10-30.md'),
+            'nhl_pl_fav_strong_opp': dict(tier='B', train='992, +11.9%', hold='405, +12.8%', seasons='5 of 7', src='docs/betlabs_segments_audit_2026-10-30.md'),
+            'nhl_pl_dog_bigml': dict(tier='C', train='810, +6.0%', hold='310, +7.4%', seasons='4 of 7', src='docs/betlabs_segments_audit_2026-10-30.md'),
+            'nba_1h_under_hot_over': dict(tier='C', train='508, +8.4%', hold='257, +6.1%', seasons='see audit', src='docs/betlabs_segments_audit_2026-10-30.md'),
+            'nhl_early_home_fav_qual': dict(tier='B', train='1,459, +3.0%', hold='463, +7.2%', seasons='5 of 7', src='docs/betlabs_account_systems_audit_2026-10-30.md'),
+            'nba_under_good_home_over': dict(tier='B', train='978, +10.9%', hold='344, +6.4%', seasons='5 of 6', src='docs/betlabs_account_systems_audit_2026-10-30.md'),
+            'cfb_road_dog_low_total': dict(tier='B', train='645, +14.9%', hold='238, +7.3%', seasons='5 of 6', src='docs/betlabs_account_systems_audit_2026-10-30.md')}
 # nhl_over_busy_goalie retired 10/30: positive in 2 of 7 seasons and the goalie-saves field thins to a handful of games after 2023.
 DESC = {'wind1014': 'NFL outdoor, Open-Meteo sustained wind 10-14 mph at T-24h: full-game under', 'wind1014_1h': 'same wind band: first-half under',
         'cfb_wind14': 'CFB outdoor, wind 14+ mph at T-24h: full-game under', 'vrest8_1h': 'NFL visitor off 8-30 days: first-half under', 'mnf_1h': 'Monday night: first-half under',
