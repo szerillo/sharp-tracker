@@ -301,3 +301,15 @@ Official=Marat Kogut T 600/46.7/14.7%/z3.27 H 279/38.4/-3.3%
 Defensive Points [114.4..126] T 848/43.3/12.3%/z3.26 H 2953/37.6/-8.6% 40/40
 ALIVE: Off Efficiency sliver; Opp Def Assist 21.6-22.2 +6.8% -> +0.1%; Opponent ATS % 42-45 +6.1% -> ~+4% on 740 (37-40 flips in family)
 VERDICT: dead. 2H dog ML windows are longshot variance plus era drift; every top window flips 40/40.
+
+=== Audit: CFB ML 2H (1784153) side Dog n=208 alive=17 (ROI-ranked) ===
+TOP:
+Opp Season Margin Avg [-32.5..-11.1] T 515/46.0/19.7%/z4.07 H 258/39.1/-5.3% 40/40
+Opp Prev Game Margin [-22..-13] T 786/41.7/12.1%/z3.08 H 231/42.0/17.5% 0/40 ALIVE  <- only lean-shaped result; fails n>=300 holdout bar; 2H ML not logged live, cannot paper-track yet
+Offensive Points [23.82..25.09] T 546/39.0/14.3%/z3.05 H 173/35.3/-10.4% 40/40
+Opp Offense Pass Yards [241.71..250.1] T 500/39.4/14.7%/z2.99 H 142/36.6/-2.2% 40/40
+Opp Offensive 3rd Down Efficiency [38.6..40.6] T 529/39.1/14.2%/z2.97 H 280/36.1/2.7% 12/40 ALIVE
+Opp Off Yards Per Rush [2.63..2.93] T 540/38.5/13.9%/z2.93 H 123/50.4/27.9% 0/40 ALIVE (sliver)
+Spread Juice Range [-113..-111] T 546/37.4/13.0%/z2.76 H 246/30.5/-11.8% 40/40
+Opp Off Yards Per Play [4.55..4.8] T 723/40.2/11.1%/z2.72 H 239/38.1/-1.9% 40/40
+VERDICT: dead. One watch item: 2H dog ML when the favorite lost its previous game by 13-22 (+12.1% train on 786, +17.5% holdout on 231, 0/40 flips). Pinned as a lean to re-check when 2H prices are logged.
