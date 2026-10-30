@@ -147,3 +147,14 @@ Verdict: dead; max in-sample z 2.0 on a 5k-game sample. NFL 2H totals: nothing e
 Stadium=Oracle Arena / Home=Golden State T 608/61.0/17.0%/z4.27 H 215/52.6/0.0% (Warriors-era 2H overs: gone with the arena)
 Visitor Team=Utah Jazz T 619/59.5/14.0%/z3.52 H 207/57.0/8.6% ALIVE (team-specific, not a system)
 Verdict: dead. NBA 2H totals: nothing either side.
+=== Audit: NFL Spread 2H side Favorite n=202 alive=24 ===
+Offensive Rush Yards [105.4..111.9] T 379/60.4/17.2%/z3.13 H 146/50.0/-3.9% 39/40
+First Half Margin [17..29] T 455/57.6/10.0%/z2.22 H 137/46.7/-10.8% 40/40 (favorite up big at half -> 2H fav: now negative)
+Full Game Moneyline [-189..-170] T 369/57.7/11.3%/z2.06 H 135/44.4/-14.5% 40/40
+Verdict: dead; NFL 2H spreads: nothing either side (holdout n never reaches 200).
+=== Audit: NCAAB Spread Game side Dog n=489 alive=28 ===
+Season ATS Margin Avg [-5.94..-4.15] T 3301/54.7/6.3%/z2.61 H 1311/51.0/-2.5% 40/40
+Moneyline Range [601..622] T 572/57.3/11.6%/z2.38 H 59/45.8/-12.4% 40/40
+Number of Bets Z-Score [0.124..0.323] T 500/57.4/10.9%/z2.25 H 1279/51.1/-2.4% 40/40
+Under Dollars % [56..59] T 836/56.0/8.4%/z2.08 H 824/49.4/-5.5% 40/40
+Verdict: dead. With 78k games the best in-sample z is only 2.6 and it flips: NCAAB dogs are priced.
