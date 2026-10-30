@@ -57,3 +57,10 @@ Visitor Team Rebounds [47..49] T 753/56.7/10.0%/z2.38 H 482/46.1/-12.2% 40/40
 Home Off Points [109.1..110.6] T 600/56.7/9.3%/z2.10 H 596/48.8/-7.2% 40/40
 Visitor Previous Game Margin [-28..-23] T 519/55.7/7.8%/z1.51 H 236/56.8/8.3% 24/40 ALIVE (sliver of the blowout-bounce family)
 Verdict: dead (40/40 flips on the top three). NBA 1H totals: nothing either side.
+=== Audit: CFB OU 1H side Under n=133 alive=17 (1H data starts later; train n smaller) ===
+Number of Bets vs Daily Avg [1.81..4.13] T 1433/55.8/7.3%/z2.56 H 471/53.1/0.7% 0/40 ALIVE (heavily bet games -> 1H under; holdout flat)
+Avg Wind Speed [15..25] T 522/57.9/10.8%/z2.50 H 155/53.5/1.0% 9/40 ALIVE (the FG wind under does not transfer to 1H in CFB the way it does in NFL; holdout +1.0 on 155)
+Home Off Redzone Eff [77..80] T 511/56.9/10.1%/z2.07 H 366/50.0/-5.2% 40/40
+O/U Juice Range [-135..-122] T 512/56.8/1.8%/z2.02 H 314/57.6/3.8% 0/40 ALIVE (juice already priced: ROI +1.8/+3.8 only)
+Visitor Over Win % [71..83] T 805/54.7/5.1%/z1.29 H 295/55.6/5.3% 5/40 ALIVE (same "hot over team -> 1H under" regression lean seen in NBA 1H)
+Verdict: dead. CFB 1H under has nothing above +4% holdout with n >= 300.
