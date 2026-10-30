@@ -313,3 +313,14 @@ Opp Off Yards Per Rush [2.63..2.93] T 540/38.5/13.9%/z2.93 H 123/50.4/27.9% 0/40
 Spread Juice Range [-113..-111] T 546/37.4/13.0%/z2.76 H 246/30.5/-11.8% 40/40
 Opp Off Yards Per Play [4.55..4.8] T 723/40.2/11.1%/z2.72 H 239/38.1/-1.9% 40/40
 VERDICT: dead. One watch item: 2H dog ML when the favorite lost its previous game by 13-22 (+12.1% train on 786, +17.5% holdout on 231, 0/40 flips). Pinned as a lean to re-check when 2H prices are logged.
+
+=== Audit: NBA ML 2H (1784120) side Favorite n=357 alive=22 ===
+TOP:
+Moneyline Range [-100..0] T 652/60.0/19.9%/z4.63 H 14/64.3/28.6% 10/40  (artifact: pick-em 2H "favorites" at even money, pre-2010 only; 14 holdout games)
+Opp Pace Avg [92.8..93] T 508/66.9/12.9%/z2.65 H 0 (era drift: no team paces 93 any more)
+Season=2006-07 T 1175/58.5/7.8%/z2.44
+Opp Prev Game Margin [17..20] T 518/64.9/8.9%/z1.85 H 209/59.3/-4.4% 40/40
+Opp Def FG % [46.1..46.2] T 692/67.3/7.3%/z1.75 H 242/56.2/-8.2% 10/40
+Opp Previous Game ATS Margin [16.5..34] T 1226/64.5/5.5%/z1.75 H 599/59.3/-4.6% 40/40
+ALIVE: Opponent Win % 62-66 +6.6% -> +1.0% (19/40); bets-vs-daily-avg sliver; rebounds slivers. Nothing.
+VERDICT: dead. Beyond the even-money artifact nothing reaches z 2.7 in-sample. NBA 2H ML: nothing either side. NBA complete: FG/1H/2H x spread/ML/total all dead.
