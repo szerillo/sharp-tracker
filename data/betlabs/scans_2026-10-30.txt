@@ -190,3 +190,21 @@ Verdict: dead.
 Def 3P % [38.3..39.9] T 520/57.1/10.0%/z2.16 H 239/44.4/-15.8% 40/40
 Moneyline Range [-258..-238] T 532/55.6/7.4%/z1.51 H 242/52.5/0.0% 38/40 ALIVE
 Verdict: dead. NBA 2H spreads: nothing either side.
+=== Audit: EPL OU Game (5,004 matches, 2013+; train n >= 300; ROI-ranked, soccer totals push often) ===
+Under: Home ML [-107..123] T 386/58.8/15.1%/z2.70 H 233/50.2/-5.8% 40/40 | Away Goals Allowed [1.9..5] T 390/56.1/9.8%/z1.76 H 340/52.6/2.9% ALIVE (weak)
+Over: Home ML [371..644] T 302/59.4/16.3%/z2.58 H 179/48.7/-10.4% 40/40 | Visitor Win % [40..50] T 469/54.1/5.9%/z1.16 H 409/54.1/3.7% ALIVE (weak)
+Verdict: dead both sides; max z 2.7 flips.
+=== Audit: EPL ML Game side Favorite n=66 alive=13 (three-way ML; ROI-ranked) ===
+Game Number [27..31] T 404/64.4/17.1%/z3.13 H 292/57.5/3.7% 8/40 ALIVE (late-season favorites, matchweeks 27-31; holdout +3.7 only)
+Opponent Game Number [27..30] T 308/64.0/19.0%/z3.03 H 234/58.1/5.1% 6/40 ALIVE (same games)
+Moneyline Change Open to Close [17..26] T 330/57.6/11.9%/z1.97 H 187/47.1/-12.5% 40/40
+Verdict: dead; the matchweek-27-31 favorite window is the only shape, +17 then +4/+5 on ~290, same family both filters. Watch, not a system.
+=== Audit: EPL ML Game side Dog n=67 alive=1 (big-dog ROI noise: a +900 dog window wins 17% in train and 11% in holdout) ===
+Open ML [495..919] T 604/17.1/28.0%/z6.27 H 372/11.3/-17.5% 40/40
+Moneyline Range [650..980] T 344/15.1/35.2%/z5.94 H 202/9.9/-15.4% 40/40
+Opp Days Between games [5..6] T 520/24.0/21.9%/z4.54 H 385/20.3/-22.4% 39/40
+Verdict: dead; the long-shot dog windows (z 6 in sample) all collapse on the holdout. Classic longshot variance.
+=== Audit: EPL Spread Game (Asian handicap) Dog n=59 alive=14 / Favorite n=59 alive=4 ===
+Dog: Previous Game Margin [2..3] T 367/57.0/12.4%/z2.16 H 249/57.1/4.9% 38/40 ALIVE (sliver) | Win % Difference [41..78] T 300/57.8/12.3%/z1.94 H 159/54.9/2.0% 0/40 | ML [999..2839] T 313/55.2/8.8% H 149/60.6/23.0% (huge dogs on the handicap: n 149, variance)
+Fav: Win % Difference [-25..-13] T 483/58.1/11.6%/z2.32 H 266/49.6/-1.6% 35/40 | Open ML [-183..-139] T 322/57.8/11.5% H 254/46.5/-10.0% 40/40
+Verdict: dead both sides. EPL overall: nothing on totals, ML or handicap; 5k matches is thin and nothing is consistent.
