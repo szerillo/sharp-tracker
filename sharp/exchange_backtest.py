@@ -456,7 +456,7 @@ def report():
 (bigger flow / bigger move / bigger trade = bigger edge). Verdicts on this run (first full pull, 2026-10-29; re-run weekly as the tape grows):
 
 **Passes now**
-- Longshot bias on Novig, 20-35c band (section 9): yes outcomes priced 0.30 won 22% (n=196, z -2.5); the other side of those markets returned +12% at the close. On Novig the yes side is the home side, so this is specifically home dogs priced 20-35c being too expensive, with away favourites at 65-80c too cheap. Kalshi shows the same shape, weaker (35-50c band -3 pts, z -1.8; sub-20c -3.9 pts). Goes forward as a paper system: buy the away favourite on Novig when the home side is two-sided at 20-35c inside T-1h.
+- Nothing. The longshot-bias result in section 9 (Novig 20-35c band, 22% hit on 29.6% implied, n=196, z -2.5) was the best cell of 11 tested (Bonferroni p 0.13), and it does not survive a robustness check run after the report: widening to every main line closing in the band (n=428, including rows whose side label did not parse) gives 28.5% hit on 29.6% implied, i.e. nothing, and the effect decays by month (fade ROI Aug +15.5%, Sep +3.5%, Oct -4.9%). It stays on as a free paper system (xch_homedog_fade) and nothing more.
 
 **Promising, below the bar**
 - Late taker flow, Kalshi NHL main lines (section 4): follow the 6h flow, train +8.3% / holdout +10.7% (n=550, holdout z 1.3), consistent across windows and across all-lines (+7.6% holdout). Novig MLB mains agree (+4.8% / +9.5%, n=638). Needs a live trade feed to run forward; the Kalshi trades endpoint can be polled per market.
