@@ -40,6 +40,10 @@ def refresh(sport):
             ls = {k: [float(q.get('value') or 0) for q in (v.get('linescores') or [])] for k, v in t.items()}
             if ls.get('home') and len(ls['home']) >= 2: rec['h1_home'] = ls['home'][0] + ls['home'][1]; rec['h1_away'] = ls['away'][0] + ls['away'][1]
             s = g(f"https://site.api.espn.com/apis/site/v2/sports/{cfg['espn']}/summary?event={ev['id']}")
+            if sport == 'nhl':      # shots for/against (the busy-goalie lean uses season shots against)
+                for bt in ((s.get('boxscore') or {}).get('teams') or []):
+                    sh = next((x.get('displayValue') for x in bt.get('statistics', []) if x.get('name') == 'shotsTotal'), None)
+                    if sh is not None: rec['home_shots' if bt['team'].get('abbreviation') == rec['home'] else 'away_shots'] = float(sh)
             pc = (s.get('pickcenter') or [{}])[0]
             if pc.get('spread') is not None:
                 # ESPN spread is the favourite's number; details 'PIT -3' says who. Store as the HOME line.
@@ -63,7 +67,9 @@ def team_logs(sport):
             pf = gm['home_score'] if side == 'home' else gm['away_score']; pa = gm['away_score'] if side == 'home' else gm['home_score']
             hs = gm.get('home_spread'); spread = None if hs is None else (hs if side == 'home' else -hs)
             margin = pf - pa; ats = None if spread is None else margin + spread
-            logs[team].append(dict(event_id=gm['event_id'], start=gm['start'], opp=opp, side=side, pf=pf, pa=pa, margin=margin, spread=spread, ats_margin=ats, week=gm.get('week')))
+            sa = gm.get('away_shots') if side == 'home' else gm.get('home_shots')
+            tot = gm.get('total'); over = None if tot is None else (1 if pf + pa > tot else 0 if pf + pa < tot else None)
+            logs[team].append(dict(event_id=gm['event_id'], start=gm['start'], opp=opp, side=side, pf=pf, pa=pa, margin=margin, spread=spread, ats_margin=ats, week=gm.get('week'), shots_against=sa, over=over))
     for team, L in logs.items():
         for i, gm in enumerate(L):
             gm['rest_days'] = None if i == 0 else round((parse_ts(gm['start']) - parse_ts(L[i - 1]['start'])).total_seconds() / 86400)
@@ -77,7 +83,10 @@ def profile(sport, team, before_utc):
     last = L[-1]
     return dict(games=len(L), margin_avg=sum(gm['margin'] for gm in L) / len(L), last_ats_margin=last.get('ats_margin'), last_margin=last['margin'],
                 last_start=last['start'], days_since_last=(before_utc - parse_ts(last['start'])).total_seconds() / 86400,
-                wins=sum(1 for gm in L if gm['margin'] > 0), losses=sum(1 for gm in L if gm['margin'] < 0))
+                wins=sum(1 for gm in L if gm['margin'] > 0), losses=sum(1 for gm in L if gm['margin'] < 0),
+                win_pct=sum(1 for gm in L if gm['margin'] > 0) / len(L),
+                shots_against_avg=(sum(gm['shots_against'] for gm in L if gm.get('shots_against') is not None) / max(1, sum(1 for gm in L if gm.get('shots_against') is not None))) if any(gm.get('shots_against') is not None for gm in L) else None,
+                over_pct=(sum(1 for gm in L if gm.get('over') == 1) / max(1, sum(1 for gm in L if gm.get('over') is not None))) if any(gm.get('over') is not None for gm in L) else None)
 
 
 if __name__ == '__main__':

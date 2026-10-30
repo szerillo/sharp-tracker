@@ -175,3 +175,18 @@ Verdict: dead.
 === Audit: CFB Spread Game situational LISTS side Favorite n=107 alive=0 ===
 Best cell: Opponent ATS Streak=2 T 1128/52.8/2.9%/z0.31 H 390/52.3/0.0%. Nothing.
 Verdict: dead. CFB situational lists are flat on both sides (max z 1.2); the CFB audit's numeric-only scan missed nothing.
+=== Audit: NCAAB Spread Game side Favorite n=495 alive=19 ===
+Opp Def 3P % [27.9..28.3] T 602/59.6/15.7%/z3.56 H 189/51.3/-2.1% 31/40
+Moneyline Range [-279..-271] T 534/58.8/14.2%/z2.97 H 343/52.2/-0.3% 39/40
+Closing Total Range [155..155.5] T 601/57.9/12.5%/z2.71 H 389/46.3/-11.6% 39/40
+Opp Season ATS Margin Avg [5.31..6.03] T 621/57.6/11.9%/z2.63 H 222/54.5/4.0% 1/40 ALIVE (0.7-pt sliver)
+Verdict: dead. NCAAB spreads: nothing either side.
+=== Audit: NFL ML 2H side Favorite n=195 alive=12 (ROI-ranked) ===
+Offensive Rush Yards [105.4..110.9] T 311/74.3/22.6%/z3.63 H 111/64.9/6.6% 10/40 ALIVE (stat window, thin)
+Offensive Points [24.63..26.58] T 490/70.8/16.7%/z3.36 H 169/62.7/-0.8% 35/40
+Full Game Moneyline [-189..-170] T 366/65.8/17.6%/z3.06 H 125/51.2/-12.1% 40/40
+Verdict: dead.
+=== Audit: NBA Spread 2H side Favorite n=403 alive=10 ===
+Def 3P % [38.3..39.9] T 520/57.1/10.0%/z2.16 H 239/44.4/-15.8% 40/40
+Moneyline Range [-258..-238] T 532/55.6/7.4%/z1.51 H 242/52.5/0.0% 38/40 ALIVE
+Verdict: dead. NBA 2H spreads: nothing either side.

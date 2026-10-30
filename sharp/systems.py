@@ -28,7 +28,11 @@ RULES = {'wind1014': dict(market='total', side='under', stake=1.0), 'wind1014_1h
          'awfuldog': dict(market='spread', side='dog', stake=0.5), 'bounce15_1h': dict(market='1h_spread', side='dog', stake=0.5),
          # exchange signals (docs/exchange_signals_audit_2026-10-29.md): fired inside T-1.5h, at the exchange that shows the signal
          'xch_homedog_fade': dict(market='ml|spread', side='away', stake=0.5, sport='nfl,nba,cfb,nhl,mlb', venue='Novig'),
-         'nba_momentum': dict(market='ml|spread|total', side='continuation', stake=0.5, sport='nba', venue='Novig|Kalshi')}
+         'nba_momentum': dict(market='ml|spread|total', side='continuation', stake=0.5, sport='nba', venue='Novig|Kalshi'),
+         # Bet Labs round 2 leans (docs/betlabs_segments_audit_2026-10-30.md), paper only
+         'nhl_pl_fav_gap': dict(market='spread', side='fav', stake=0.5, sport='nhl'), 'nhl_pl_fav_strong_opp': dict(market='spread', side='fav', stake=0.5, sport='nhl'),
+         'nhl_pl_dog_bigml': dict(market='spread', side='dog', stake=0.5, sport='nhl'), 'nhl_over_busy_goalie': dict(market='total', side='over', stake=0.5, sport='nhl'),
+         'nba_1h_under_hot_over': dict(market='1h_total', side='under', stake=0.5, sport='nba')}
 LATE_H = (0.1, 1.5)   # exchange rules fire in the last 90 minutes (the audit priced them at the close)
 WINDOW_H = tuple(float(x) for x in os.environ.get('SYSTEMS_WINDOW', '2,30').split(','))
 
@@ -171,6 +175,43 @@ def main():
                     rec_ = dict(tag='cfb_wind14', fill_id=row['fill_id'], ts=NOW_S, market='total', side='under', line=line, venue=row['venue'], price=row['price_american'],
                                 fair=row['fair_at_fill'], edge_pts=(round(100 * (row['fair_at_fill'] - row['implied']), 2) if row['fair_at_fill'] is not None else None), why=why)
                     fired[key] = rec_; game['fills'].append(rec_); fires_now.append(dict(game=f"{away}@{home}", **rec_))
+        view_games.append(game)
+    # NHL and NBA leans from the segment audit: one fill per game per tag, inside the normal window.
+    for ev, sport, start, away, home in conn.execute("SELECT event_id, sport, start_utc, away, home FROM events WHERE sport IN ('nhl','nba') ORDER BY start_utc").fetchall():
+        st = N.parse_ts(start); ttk = (st - NOW).total_seconds() / 3600
+        if not (WINDOW_H[0] <= ttk <= WINDOW_H[1]): continue
+        ph, pa = SEA.profile(sport, home, st), SEA.profile(sport, away, st)
+        if ph.get('games', 0) < 8 or pa.get('games', 0) < 8: continue
+        eq = F.EventQuotes(conn, ev); ml_h = eq.fair('ml', None, 'home', NOW_S, home); ml_a = eq.fair('ml', None, 'away', NOW_S, away)
+        p_home = ml_h.get('fair') if ml_h else None
+        if p_home is None: continue
+        fav, dog = (home, away) if p_home >= 0.5 else (away, home); pf, pd = (ph, pa) if fav == home else (pa, ph); fav_side = 'home' if fav == home else 'away'
+        trig = {}
+        if sport == 'nhl':
+            gap = 100 * (pf['win_pct'] - pd['win_pct'])
+            if gap >= 22: trig['nhl_pl_fav_gap'] = ('spread', fav_side, f"win% gap {gap:.0f} pts ({fav} {100 * pf['win_pct']:.0f}% vs {dog} {100 * pd['win_pct']:.0f}%)")
+            if pd['win_pct'] >= 0.66: trig['nhl_pl_fav_strong_opp'] = ('spread', fav_side, f"opponent {dog} win% {100 * pd['win_pct']:.0f}% (favorite -1.5 vs a strong team)")
+            p_dog = 1 - max(p_home, 1 - p_home); am = N.prob_to_american(p_dog) if p_dog else None
+            if am is not None and 181 <= am <= 196: trig['nhl_pl_dog_bigml'] = ('spread', 'away' if fav_side == 'home' else 'home', f"dog ML about +{am:.0f}: +1.5 on a big dog")
+            if (ph.get('shots_against_avg') or 0) >= 34: trig['nhl_over_busy_goalie'] = ('total', 'over', f"home shots against {ph['shots_against_avg']:.1f}/game (busy goalie, season saves 31+)")
+        else:
+            if (pa.get('over_pct') or 0) >= 0.71 and pa.get('games', 0) >= 8: trig['nba_1h_under_hot_over'] = ('1h_total', 'under', f"visitor {away} over rate {100 * pa['over_pct']:.0f}% this season; 1H under (regression lean)")
+        if not trig: continue
+        game = dict(event_id=ev, away=away, home=home, start_utc=start, hours_to_kickoff=round(ttk, 1), spread_home=None, dog=dog, triggers={k: v[2] for k, v in trig.items()}, fills=[], sport=sport)
+        for tag, (market, side, why) in trig.items():
+            key = f"{ev}:{tag}"
+            if key in fired: game['fills'].append(fired[key]); continue
+            line = None; part = None
+            if market == 'spread':
+                line = -1.5 if side == fav_side else 1.5; part = home if side == 'home' else away
+            else:
+                line, _n = main_line(eq, market, None)
+                if line is None: continue
+            row = paper_fill(conn, eq, ev, start, market, line, side, part, tag, 0.5, why)
+            if not row: continue
+            rec_ = dict(tag=tag, fill_id=row['fill_id'], ts=NOW_S, market=market, side=side, line=line, venue=row['venue'], price=row['price_american'], fair=row['fair_at_fill'],
+                        edge_pts=(round(100 * (row['fair_at_fill'] - row['implied']), 2) if row['fair_at_fill'] is not None else None), why=why)
+            fired[key] = rec_; game['fills'].append(rec_); fires_now.append(dict(game=f"{away}@{home}", **rec_))
         view_games.append(game)
     # Exchange rules, inside T-1.5h. One fill per game per rule; stacking across rules allowed only on different market x side.
     def xmid(eq, venue, market, line, side, part, ts):
