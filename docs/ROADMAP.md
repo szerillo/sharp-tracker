@@ -88,3 +88,19 @@ Log health (cadence per venue). Mobile layout. Data published as gzipped JSON pe
 ## 8. Storage
 data/ is 384 MB locally. Rule going in: raw ticks partitioned by sport/day and gzipped on write; sqlite and derived files
 gitignored; a monthly job moves raw months older than 90 days into a GitHub Release asset so the working tree stays small.
+
+## 9. Research queue, pinned 2026-10-30 (Bet Labs)
+Done: NFL (FG, 1H, 2H, market-flow families, refs), NBA (FG, 1H, 2H), CFB (FG numeric + situational lists, 1H, 2H), NHL (FG), NCAAB (FG), EPL (FG).
+Pinned for later, in order:
+- MLB (Bet Labs sport 3): FG, F5; run in February before the season. The MLB tracker already has its own systems; this is the Bet Labs cross-check.
+- WNBA (sport 8) and CFL (sport 9): FG only, both short seasons; run in April.
+- Playoffs: every audit so far is regular season only. Rerun the surviving NFL rules with Season Type = Playoffs (small n, but
+  the wind under in January is the obvious one).
+- Interactions on the survivors: wind x divisional, wind x primetime, wind x total range; bounce dog x home/away; busy-goalie over x
+  total range. Two-filter scans only on rules that already stand alone, never as a search.
+- Bet-at-open variants: Bet Labs grades at the close; check whether the alive NFL rules (wind 10-14, 1H wind, MNF 1H) hold at the
+  opener, since the tracker fires 2-30h out, not at the close.
+- Steam chasing: Bet Labs' Steam Moves field only has 14 NFL games since 2021 and nothing before, so it cannot be backtested there.
+  The tracker's own 20-minute log (sharp/move_signals.py, M1/M2) is the instrument; the first readout comes at 150 settled events
+  per sport. Reverse line movement and public-money fades were already tested on NFL (dead) and are in every full scan for NBA,
+  CFB, NHL, NCAAB as the Money%-vs-Bet%, Spread%/ML%/OU% and Number-of-Bets fields; none survived.
