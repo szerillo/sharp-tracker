@@ -43,7 +43,7 @@ def outcome(market, line, side, participant, res, venue=None, event=None):
         if base == 'tt_away': return ou(pa)
         return 'void'
     if market == 'spread': market = 'rl'
-    if sport == 'mma':
+    if sport == 'mma' and not market.startswith('prop_'):
         if market == 'ml': return int((hs > as_) == (side == 'home'))
         if market == 'total':
             r = (res.get('players') or {}).get('_rounds')

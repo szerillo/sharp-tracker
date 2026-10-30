@@ -84,6 +84,15 @@ def espn_schedule():
 
 
 class Matcher:
+    def fighter_key(self, ev, name):
+        """Vendor fighter name -> the ESPN fighter's player_key for this fight (surname match; vendors spell first names differently)."""
+        e = self.sched.get(ev) or {}
+        code = S.fighter_code(name)
+        for side in ('away_team', 'home_team'):
+            dn = (e.get(side) or {}).get('displayName')
+            if dn and S.fighter_code(dn) == code: return player_key(dn)
+        return player_key(name)
+
     def __init__(self, sched):
         self.sched = sched; self.by = collections.defaultdict(list); self.unmatched = collections.Counter()
         for e in sched.values():
@@ -168,8 +177,28 @@ def pinnacle(M):
                 tick(ev, mk, 'over', 'Pinnacle', 'pinnacle_guest', line=P['over'].get('points'), participant=part, american=P['over']['price'], limit=lim)
                 tick(ev, mk, 'under', 'Pinnacle', 'pinnacle_guest', line=P['under'].get('points'), participant=part, american=P['under']['price'], limit=lim)
             n += 1
+    # fight props (UFC): yes/no specials -> prop_<STAT> with line 0.5, over = yes. Method of victory per fighter, inside the distance,
+    # goes the distance, fight starts round N. Graded from the ESPN finish (results_espn.pull_fight).
+    npr = 0
+    if CFG.get('fights') and not FAST:
+        for m in pm:
+            if m.get('type') != 'special' or (m.get('special') or {}).get('category') != 'Fight Props': continue
+            par = games.get((m.get('parent') or {}).get('id'))
+            if not par: continue
+            d = m['special']['description']; key = S.fight_prop(d)
+            if not key: continue
+            stat, name = key; side_of = {p['id']: p['name'].lower() for p in m['participants']}
+            for k in km[m['id']]:
+                pr = {side_of.get(x['participantId']): x for x in k['prices']}
+                if 'yes' in pr and 'no' in pr:
+                    lim = next((l['amount'] for l in k.get('limits') or [] if l['type'] == 'maxRiskStake'), None)
+                    pk = M.fighter_key(par[0], name) if name else '_fight'
+                    tick(par[0], f'prop_{stat}', 'over', 'Pinnacle', 'pinnacle_guest', line=0.5, participant=pk, player=name or 'Fight', american=pr['yes']['price'], limit=lim)
+                    tick(par[0], f'prop_{stat}', 'under', 'Pinnacle', 'pinnacle_guest', line=0.5, participant=pk, player=name or 'Fight', american=pr['no']['price'], limit=lim)
+                    npr += 1
+        return n, npr
     # player props (specials) hang off the parent matchup
-    pmap = S.PIN_PROPS[SPORT]; npr = 0
+    pmap = S.PIN_PROPS[SPORT]
     for m in ([] if FAST else pm):
         if m.get('type') != 'special' or (m.get('special') or {}).get('category') != 'Player Props': continue
         par = games.get((m.get('parent') or {}).get('id'))
@@ -242,6 +271,26 @@ def kalshi(M):
                 if t not in (a, h): continue
                 pair(ev, per + ('tt_home' if t == h else 'tt_away'), 'over', 'under', 'Kalshi', 'kalshi_api', bid, ask, last, vol, line=float(strike), p_yes=t, p_no=t, extra=kx)
             n += 1
+    if CFG.get('fights') and not FAST:
+        for suf, kind in (('MOV', 'mov'), ('DISTANCE', 'dist'), ('ROUNDS', 'rounds')):
+            for m in walk(pre + suf):
+                evt = m['event_ticker'].split('-', 1)[1]; r = resolve(evt)
+                if not r: continue
+                bid, ask, last, vol = float(m.get('yes_bid_dollars') or 0) or None, float(m.get('yes_ask_dollars') or 0) or None, float(m.get('last_price_dollars') or 0) or None, float(m.get('volume_fp') or 0)
+                if bid is None and ask is None: continue
+                kx = {'ticker': m['ticker']}; tail = m['ticker'].rsplit('-', 1)[1]
+                if kind == 'mov':
+                    sub = m.get('yes_sub_title') or ''; mm_ = re.match(r'^(.*?)\s+by\s+(Submission|KO/TKO/DQ|Decision)$', sub)
+                    if not mm_: continue
+                    name = mm_.group(1).strip(); stat = {'Submission': 'MOV_SUB', 'KO/TKO/DQ': 'MOV_KO', 'Decision': 'MOV_DEC'}[mm_.group(2)]
+                    pk = M.fighter_key(r[0], name)
+                    pair(r[0], f'prop_{stat}', 'over', 'under', 'Kalshi', 'kalshi_api', bid, ask, last, vol, line=0.5, p_yes=pk, p_no=pk, player=name, extra=kx)
+                elif kind == 'dist':
+                    pair(r[0], 'prop_DIST', 'over', 'under', 'Kalshi', 'kalshi_api', bid, ask, last, vol, line=0.5, p_yes='_fight', p_no='_fight', player='Fight', extra=kx)
+                else:   # 'fight ends before round N' = no to 'fight starts round N'
+                    if not tail.isdigit(): continue
+                    pair(r[0], f'prop_STARTR{tail}', 'under', 'over', 'Kalshi', 'kalshi_api', bid, ask, last, vol, line=0.5, p_yes='_fight', p_no='_fight', player='Fight', extra=kx)
+                npr += 1
     for suf, stat in ({} if FAST else S.KALSHI_PROPS[SPORT]).items():
         for m in walk(pre + suf):
             evt = m['event_ticker'].split('-', 1)[1]; r = resolve(evt)

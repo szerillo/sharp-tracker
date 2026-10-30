@@ -128,6 +128,23 @@ class Teams:
 MON = ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC']
 
 
+FIGHT_PROP_RE = [(re.compile(r'^(.*?) To Win By Decision$'), 'MOV_DEC'), (re.compile(r'^(.*?) To Win By TKO/KO$'), 'MOV_KO'), (re.compile(r'^(.*?) To Win By Submission$'), 'MOV_SUB'),
+                 (re.compile(r'^(.*?) To Win Inside Distance$'), 'ITD'), (re.compile(r'^Fight Goes To Decision$'), 'DIST'), (re.compile(r'^Fight Starts Round (\d)$'), 'STARTR')]
+FIGHT_PROP_LABEL = {'MOV_DEC': 'wins by decision', 'MOV_KO': 'wins by KO/TKO', 'MOV_SUB': 'wins by submission', 'ITD': 'wins inside the distance', 'DIST': 'fight goes the distance',
+                    'STARTR2': 'fight reaches round 2', 'STARTR3': 'fight reaches round 3', 'STARTR4': 'fight reaches round 4', 'STARTR5': 'fight reaches round 5'}
+
+
+def fight_prop(desc):
+    """Pinnacle 'Fight Props' description -> (stat, fighter name or None for fight-level), else None."""
+    for rx, stat in FIGHT_PROP_RE:
+        m = rx.match(desc.strip())
+        if not m: continue
+        if stat == 'STARTR': return 'STARTR' + m.group(1), None
+        if stat == 'DIST': return 'DIST', None
+        return stat, m.group(1).strip()
+    return None
+
+
 def fighter_code(name):
     """'Randy Brown' -> 'BRO' (Kalshi's fight-ticker convention: first three letters of the surname, ASCII upper)."""
     import unicodedata

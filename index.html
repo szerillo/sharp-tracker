@@ -72,7 +72,11 @@ const ET = iso => new Date(iso).toLocaleString('en-US', {timeZone: 'America/New_
 let D = null, E = null, MV = null, SY = null, tab = new URLSearchParams(location.search).get('tab') || 'moves';
 const TABS = [['moves', 'Moves'], ['edges', 'Stale prices'], ['board', 'Board'], ['systems', 'Systems'], ['weekly', 'Weekly'], ['props', 'Props'], ['venues', 'Venue tests'], ['ledger', 'Ledger'], ['health', 'Log health'], ['constants', 'Constants']];
 
+const STATL = {MOV_DEC: 'wins by decision', MOV_KO: 'wins by KO/TKO', MOV_SUB: 'wins by submission', ITD: 'wins inside the distance', DIST: 'goes the distance', STARTR2: 'reaches round 2', STARTR3: 'reaches round 3', STARTR4: 'reaches round 4', STARTR5: 'reaches round 5'};
+const statLabel = s => STATL[s] || s;
+const yesNo = c => c.stat in STATL;
 function sideLabel(c, g) {
+  if (yesNo(c)) return `<span class="side-${c.side}">${c.side === 'over' ? 'Yes' : 'No'}</span>`;
   if (c.side === 'home' || c.side === 'away') return (c.participant || c.side) + (c.line != null ? ' ' + (c.line > 0 ? '+' : '') + c.line : '');
   const who = c.participant && c.market.includes('tt') ? c.participant + ' ' : (c.player ? c.player + ' ' : '');
   return `${who}<span class="side-${c.side}">${c.side === 'over' ? 'Over' : 'Under'} ${c.line}</span>`;
@@ -117,7 +121,7 @@ function renderBoard() {
       <td>${ladder(c)}</td></tr>`).join('');
     const priced = g.markets.filter(c => c.fair != null); const top = priced.slice().sort((a, b) => (b.edge_pts ?? -99) - (a.edge_pts ?? -99))[0];
     const pt = g.props.filter(c => c.fair != null).sort((a, b) => (b.edge_pts ?? -99) - (a.edge_pts ?? -99));
-    const propRows = pt.slice(0, 12).map(c => `<tr><td>${esc(c.player)} <span class="dim small">${c.stat}</span><br>${sideLabel(c)}</td><td>${fairCell(c)}</td><td>${bestCell(c)}</td><td class="num">${edgeCell(c)}</td><td class="hide-m"></td><td>${ladder(c)}</td></tr>`).join('');
+    const propRows = pt.slice(0, 12).map(c => `<tr><td>${esc(c.player)} <span class="dim small">${statLabel(c.stat)}</span><br>${sideLabel(c)}</td><td>${fairCell(c)}</td><td>${bestCell(c)}</td><td class="num">${edgeCell(c)}</td><td class="hide-m"></td><td>${ladder(c)}</td></tr>`).join('');
     const open = window._openAll || (window._open && window._open[g.event_id]);
     return `<details class="sec game" ${open ? 'open' : ''} ontoggle="(_open=window._open||{})['${g.event_id}']=this.open"><summary class="sec-h"><span class="name">${gname(g)}</span><span class="meta">${ET(g.start_utc)} ET · T-${Math.round(g.minutes_to_start / 60 * 10) / 10}h</span>${stale}
       <span class="meta">${priced.length} priced markets · ${pt.length} priced props</span>${top ? `<span class="meta">best: ${MKT[top.market] || top.market} ${sideLabel(top, g)} <b class="${top.edge_pts > 0 ? 'pos' : 'neg'}">${top.edge_pts > 0 ? '+' : ''}${top.edge_pts}</b> @ ${top.best[0].venue}</span>` : ''}
@@ -133,9 +137,9 @@ function renderProps() {
   const st = window._pf || (window._pf = {stat: '', side: '', minv: 3, q: ''});
   let rows = all.filter(c => (!st.stat || c.stat === st.stat) && (!st.side || c.side === st.side) && c.fair_n >= st.minv && (!st.q || (c.player || '').toLowerCase().includes(st.q.toLowerCase())));
   rows.sort((a, b) => (b.edge_pts ?? -99) - (a.edge_pts ?? -99));
-  const tr = rows.slice(0, 300).map(c => `<tr><td class="small dim">${c.game}</td><td>${esc(c.player)} <span class="dim small">${c.stat}</span><br>${sideLabel(c)}</td>
+  const tr = rows.slice(0, 300).map(c => `<tr><td class="small dim">${c.game}</td><td>${esc(c.player)} <span class="dim small">${statLabel(c.stat)}</span><br>${sideLabel(c)}</td>
     <td>${fairCell(c)}</td><td>${bestCell(c)}</td><td class="num">${edgeCell(c)}</td><td>${ladder(c)}</td></tr>`).join('');
-  return `<div class="controls">Stat <select onchange="_pf.stat=this.value;draw()"><option value="">all</option>${stats.map(s => `<option ${st.stat === s ? 'selected' : ''}>${s}</option>`).join('')}</select>
+  return `<div class="controls">Stat <select onchange="_pf.stat=this.value;draw()"><option value="">all</option>${stats.map(s => `<option value="${s}" ${st.stat === s ? 'selected' : ''}>${statLabel(s)}</option>`).join('')}</select>
     Side <select onchange="_pf.side=this.value;draw()"><option value="">both</option><option value="over" ${st.side === 'over' ? 'selected' : ''}>over</option><option value="under" ${st.side === 'under' ? 'selected' : ''}>under</option></select>
     Min venues in fair <input type="number" min="1" max="9" value="${st.minv}" style="width:52px" onchange="_pf.minv=+this.value;draw()">
     Player <input value="${esc(st.q)}" placeholder="search" oninput="_pf.q=this.value;draw()">
@@ -250,7 +254,7 @@ function renderEdges() {
   const chip = (cur, val, label, field) => `<button class="${cur === val ? 'on' : ''}" onclick="_ef.${field}='${val}';draw()">${label}</button>`;
   const tr = rows.slice(0, 400).map((e, i) => {
     const id = `${e.event_id}|${e.market}|${e.side}|${e.line}|${e.participant}`; const open = st.open[id];
-    const what = e.mclass === 'prop' ? `${esc(e.player)} <span class="dim small">${e.stat}</span><br><span class="side-${e.side}">${e.side === 'over' ? 'Over' : 'Under'} ${e.line}</span>`
+    const what = e.mclass === 'prop' ? `${esc(e.player)} <span class="dim small">${statLabel(e.stat)}</span><br><span class="side-${e.side}">${yesNo(e) ? (e.side === 'over' ? 'Yes' : 'No') : (e.side === 'over' ? 'Over' : 'Under') + ' ' + e.line}</span>`
       : `<span class="dim small">${MKT[e.market] || e.market}</span><br>${sideLabel(e)}`;
     const lad = Object.entries(e.ladder || {}).sort((a, b) => b[1] - a[1]).map(([v, p]) => `<span class="lad ${XV.has(v) ? 'x' : ''}">${v} <span class="p">${pct(p)}</span></span>`).join('');
     return `<tr class="erow" onclick="_ef.open['${id}']=!_ef.open['${id}'];draw()" style="cursor:pointer">

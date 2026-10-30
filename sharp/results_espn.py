@@ -88,7 +88,21 @@ def pull_fight(event_id):
             if not any(w.values()): return dict(event_id=str(event_id), status='postponed', detail='no_winner')   # draw / no contest: not graded
             per = st.get('period'); clk = st.get('clock')
             rounds = (per - 1) + (float(clk) / 300.0 if clk is not None else 1.0) if per else None
-            players = {'_periods': {}, '_sport': 'mma', '_rounds': rounds, '_method': typ.get('detail')}
+            method = None
+            for d in c.get('details') or []:
+                t = ((d.get('type') or {}).get('text') or '')
+                if t.startswith('Unofficial Winner'):
+                    w_ = t.replace('Unofficial Winner', '').strip().lower()
+                    method = 'DEC' if 'decision' in w_ else ('SUB' if 'submission' in w_ else ('KO' if ('ko' in w_ or 'tko' in w_) else None)); break
+            players = {'_periods': {}, '_sport': 'mma', '_rounds': rounds, '_method': method, '_finish_round': per}
+            from sharp.norm import player_key
+            for p_ in c['competitors']:
+                nm = (p_.get('athlete') or {}).get('displayName') or ''
+                if not nm: continue
+                won = bool(p_.get('winner'))
+                k_ = (lambda cond: int(won and cond)) if method else (lambda cond: None)
+                players[player_key(nm)] = {'MOV_DEC': k_(method == 'DEC'), 'MOV_KO': k_(method == 'KO'), 'MOV_SUB': k_(method == 'SUB'), 'ITD': k_(method in ('KO', 'SUB'))}
+            players['_fight'] = {'DIST': int(method == 'DEC') if method else None, **{f'STARTR{n}': int((per or 0) >= n) for n in (2, 3, 4, 5)}}
             return dict(event_id=str(event_id), status='final', actual_start=c.get('date'), home_score=1 if w.get('home') else 0, away_score=1 if w.get('away') else 0,
                         f5_home=None, f5_away=None, rfi=None, players=players, sport='mma')
     return None
