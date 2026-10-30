@@ -133,3 +133,17 @@ Visitor Off Efficiency [90.7..91.2] T 832/57.0/9.4%/z2.65 H 154/55.8/6.4% 17/40 
 Open Total Range [109.5..116.5] T 798/56.1/8.8%/z2.13 H 23/60.9/16.0% 0/40 (totals that low no longer exist)
 Home Conference=Big Sky T 1876/54.2/4.1%/z1.54 H 685/54.3/3.6% ALIVE (one conference, +4/+4; a lean at best)
 Verdict: dead. NCAAB totals: nothing either side with 76k games to look at.
+=== Audit: NFL Spread 2H side Dog n=202 alive=22 (train n >= 300; holdout thin, ~1,400 2H games) ===
+Yards Per Point Allowed [20.14..23.72] T 442/59.7/15.6%/z3.09 H 118/50.0/-5.1% 40/40
+Offensive Yards [231.3..291.6] T 383/59.5/16.3%/z2.80 H 310/51.3/-2.5% 40/40
+Halftime OU Margin [-18..-11] T 350/59.1/14.2%/z2.53 H 111/55.0/3.9% 7/40 ALIVE (low-scoring half -> 2H dog; +14 then +4 on 111)
+Spread Juice Range [-184..-124] T 498/57.2/1.2%/z2.17 H 111/59.5/5.6% 0/40 ALIVE (juice priced)
+Verdict: dead; top 3 flip 40/40, survivors have holdout n ~110-150.
+=== Audit: NFL OU 2H side Over n=126 alive=8 ===
+Home Defensive 3rd Down Eff [32.4..34.5] T 319/58.0/12.4%/z2.01 H 128/50.0/-4.4% 36/40
+Half-time Total Points [17..18] T 333/57.7/11.7%/z1.93 H 113/47.8/-8.4% 37/40
+Verdict: dead; max in-sample z 2.0 on a 5k-game sample. NFL 2H totals: nothing either side.
+=== Audit: NBA OU 2H side Over n=398 alive=11 ===
+Stadium=Oracle Arena / Home=Golden State T 608/61.0/17.0%/z4.27 H 215/52.6/0.0% (Warriors-era 2H overs: gone with the arena)
+Visitor Team=Utah Jazz T 619/59.5/14.0%/z3.52 H 207/57.0/8.6% ALIVE (team-specific, not a system)
+Verdict: dead. NBA 2H totals: nothing either side.
