@@ -111,3 +111,20 @@ Visitor Off Efficiency [108.4..121.1] T 3739/54.9/5.2%/z3.13 H 4682/50.7/-3.2% 4
 Closing Total Range [155..163.5] T 3140/54.9/5.6%/z2.80 H 2020/48.7/-6.8% 40/40 (the classic "high totals go under" is gone)
 Home Off FG % [51.4..55.4] T 737/57.9/11.7%/z3.02 H 337/53.7/2.7% 12/40 ALIVE (stat window, thin holdout)
 Verdict: dead. With 76k games the in-sample z's reach 4.7 and still flip; strong reference for what noise looks like.
+=== Audit: CFB OU 2H side Over n=150 alive=18 ===
+O/U Juice Range [-138..-122] T 865/56.0/-0.2%/z2.10 H 343/52.2/-6.8% 40/40
+Home Previous Game OU Margin [-18..-14] T 726/55.2/7.3%/z1.54 H 246/52.8/0.3% 15/40 ALIVE
+Full Game O/U Change Open to Close [4..16.5] T 620/54.4/5.0%/z0.98 H 256/54.7/3.8% 0/40 ALIVE (FG total steamed up 4+ -> 2H over; weak both halves)
+Verdict: dead; max in-sample z 2.1 and nothing with holdout n >= 300 positive. CFB 2H totals: nothing either side.
+=== Audit: NBA OU 2H side Under n=398 alive=16 ===
+Home Off Points [115.4..124.1] T 563/59.3/13.4%/z3.30 H 2012/52.4/-0.1% 40/40 (era drift: 115+ ppg was rare pre-2021)
+Visitor Def Pts Above Lg Avg [6.12..15.09] T 1319/56.8/9.2%/z3.20 H 577/53.0/1.1% 14/40 ALIVE
+Halftime OU Margin [-14.5..-11.5] T 1171/56.0/8.1%/z2.49 H 424/52.6/0.3% 30/40 ALIVE (game well under pace at half -> 2H under: +8 then 0)
+Full Game O/U Range [231..250.5] T 544/57.5/9.9%/z2.41 H 2178/51.0/-2.8% 40/40
+Verdict: dead. Both halftime-state unders (CFB and NBA) were real pre-2021 and are gone.
+=== Audit: NFL OU 2H side Under n=126 alive=14 (train n >= 300; 2H NFL sample ~5.4k games total) ===
+Home Off Redzone Eff [59.6..64.4] T 483/59.6/16.2%/z3.19 H 218/53.2/1.4% 2/40 ALIVE
+Full Game OU % [46..50] T 354/59.0/14.1%/z2.51 H 161/52.8/0.4% 36/40 ALIVE
+Visitor Over Win % [22..35] T 488/58.0/13.0%/z2.48 H 242/49.2/-6.0% 40/40
+Home Def Points [26.85..28.88] T 325/59.1/14.9%/z2.42 H 107/59.8/14.3% 0/40 ALIVE (stat window, thin)
+Verdict: dead; the survivors are season team-stat windows with holdout n ~100-200 (same lookahead caveat as CFB).
