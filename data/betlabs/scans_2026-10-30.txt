@@ -213,3 +213,18 @@ Offensive Points [69..69.1] T 649/31.0/19.2%/z4.46 H 296/26.0/-21.7% 40/40
 Number of Bets vs Daily Avg [3.59..4.78] T 528/37.5/18.6%/z3.88 H 296/32.1/-10.1% 40/40 (heavily bet dogs: no)
 Opp Team ATS at Home (NEW) [82..83] T 501/29.5/12.4% H 187/28.9/37.7% ALIVE ((NEW) field, 1-pt sliver; ignore)
 Verdict: dead. Every real filter flips 40/40.
+=== Audit: CFB ML 1H side Dog n=206 alive=17 (ROI-ranked) ===
+Opp Team ATS at Home (NEW) [71..85] T 814/33.4/12.4%/z3.22 H 264/34.8/3.1% 27/40 ((NEW) field)
+Opp Offense Pass Yards [243.7..252.5] T 508/35.2/13.4%/z2.74 H 187/32.1/-9.9% 40/40
+Offensive 3rd Down Eff [45..49.4] T 572/35.5/12.5%/z2.71 H 306/31.0/-19.2% 40/40
+Verdict: dead.
+=== Audit: CFB Spread 2H side Dog n=222 alive=32 ===
+Spread Juice Range [-182..-118] T 2016/56.1/1.3%/z3.35 H 604/53.6/-3.4% 40/40
+Opp Season Margin Avg [-32..-10.3] T 722/58.6/13.3%/z3.34 H 351/50.4/-4.7% 40/40 (2H dog vs a bad team: no)
+Defensive Rush Yards [146..153.3] T 503/59.2/15.5%/z3.08 H 223/52.9/0.5% 0/40 (stat window, flat)
+First Half Spread Margin [6..8] T 939/56.9/9.2%/z2.75 H 296/51.0/... 
+Verdict: dead.
+=== Audit: NCAAB ML Game side Favorite n=489 alive=29 (ROI-ranked; favorites, max in-sample z 2.3 on 78k games) ===
+Opp Def 3P % [25.8..28.2] T 1969/76.7/5.7%/z2.32 H 709/72.9/0.5% 6/40 ALIVE (flat)
+Pythagorean Win % [4.4..6.6] T 680/72.1/9.1%/z2.16 H 202/61.4/-8.5% 40/40
+Verdict: dead. NCAAB ML: nothing either side. NCAAB complete: totals, spread, ML all dead.
