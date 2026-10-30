@@ -104,3 +104,11 @@ Pinned for later, in order:
   The tracker's own 20-minute log (sharp/move_signals.py, M1/M2) is the instrument; the first readout comes at 150 settled events
   per sport. Reverse line movement and public-money fades were already tested on NFL (dead) and are in every full scan for NBA,
   CFB, NHL, NCAAB as the Money%-vs-Bet%, Spread%/ML%/OU% and Number-of-Bets fields; none survived.
+
+## 10. Sharp framework v2 (started 2026-10-30)
+Scope: docs/sharp_framework_v2_scope.md. Pre-registration: docs/move_tape_prereg_2026-10-30.md.
+- DONE 10/30: loggers/fast.py + prices_fast.yml (5-minute Pinnacle/Novig/Kalshi game lines, three parallel groups, Kalshi trades
+  from the global feed); sharp/moves.py in the tracker job (origin, followers, stuck books, Kalshi/Novig flow, CLV, result;
+  settled moves persist across roll-off); Moves tab is the landing view; Edges tab renamed Stale prices; AN public columns gone.
+- OPEN: gate at 150 settled events per sport; Novig flow direction (needs outcome names from the catalog); line-change moves;
+  systems.py tags for whichever of T1-T3 pass.
