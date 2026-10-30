@@ -25,6 +25,23 @@ GAME_TYPES_NOVIG = {'MONEY': 'ml', 'SPREAD': 'spread', 'TOTAL': 'total', 'MONEYL
 def ts(s): return dt.datetime.fromisoformat(s.replace('Z', '+00:00')).timestamp()
 
 
+MLB_NAMES = {'Arizona Diamondbacks': 'ARI', 'Atlanta Braves': 'ATL', 'Baltimore Orioles': 'BAL', 'Boston Red Sox': 'BOS', 'Chicago Cubs': 'CHC', 'Chicago White Sox': 'CWS',
+             'Cincinnati Reds': 'CIN', 'Cleveland Guardians': 'CLE', 'Colorado Rockies': 'COL', 'Detroit Tigers': 'DET', 'Houston Astros': 'HOU', 'Kansas City Royals': 'KC',
+             'Los Angeles Angels': 'LAA', 'Los Angeles Dodgers': 'LAD', 'Miami Marlins': 'MIA', 'Milwaukee Brewers': 'MIL', 'Minnesota Twins': 'MIN', 'New York Mets': 'NYM',
+             'New York Yankees': 'NYY', 'Athletics': 'ATH', 'Oakland Athletics': 'ATH', 'Philadelphia Phillies': 'PHI', 'Pittsburgh Pirates': 'PIT', 'San Diego Padres': 'SD',
+             'San Francisco Giants': 'SF', 'Seattle Mariners': 'SEA', 'St. Louis Cardinals': 'STL', 'Tampa Bay Rays': 'TB', 'Texas Rangers': 'TEX', 'Toronto Blue Jays': 'TOR', 'Washington Nationals': 'WSH'}
+
+
+class _MLBTeams:
+    nick = {k.split()[-1].lower(): v for k, v in MLB_NAMES.items()}
+    def code(self, x):
+        if not x: return None
+        s = str(x).strip()
+        if s in MLB_NAMES: return MLB_NAMES[s]
+        if s.upper() in MLB_NAMES.values(): return s.upper()
+        return self.nick.get(s.lower().split()[-1]) if s.split() else None
+
+
 # ----------------------------------------------------------------- schedule lookup -----
 class Sched:
     def __init__(self):
@@ -38,6 +55,7 @@ class Sched:
                 d[('name', g['away'], g['home'])].append(g)
             self.by[sp] = d
         self.teams = {sp: SP.Teams(sp) for sp in ('nfl', 'nba', 'nhl')}
+        self.teams['mlb'] = _MLBTeams()
 
     def kalshi(self, sport, date, blob, home_first=False):
         fix = {**SP.CODE_FIX.get(sport, {}), **(MLB_FIX if sport == 'mlb' else {})}
@@ -92,8 +110,12 @@ def features(trades, start, result):
     f['big_usd'] = round(sum(x[2] for x in big), 2); f['big_flow'] = round(sum(x[2] * x[3] for x in big), 2)
     f['big_last_dir'] = big[0][3] if big else 0; f['big_last_p'] = big[0][1]; f['big_last_t'] = big[0][0]
     f['big_last_after'] = round((close or big[0][1]) - big[0][1], 4)
-    hp = {}
-    for t, p, u, s in pre: hp[int((t - start) // 3600)] = p                              # hourly last print (lead/lag, timing)
+    hp = {}; ly = {}; ln = {}
+    for t, p, u, s in pre:
+        h = int((t - start) // 3600)
+        (ly if s > 0 else ln)[h] = p
+    for h in set(ly) | set(ln):                                                           # hourly two-sided mid (yes-buy and no-buy both printed that hour); one-sided hours dropped
+        if h in ly and h in ln: hp[h] = (round((ly[h] + ln[h]) / 2, 4), round(ly[h] - ln[h], 4))   # (mid, taker spread = yes ask - yes bid)
     f['hourly'] = hp
     return f
 
@@ -132,11 +154,11 @@ def novig_rows(sched, cat, days):
                 side = 'home' if tm and hm.startswith(tm.split()[0]) else 'away'
         else:
             mm = re.search(r'([+-]\d+\.?\d*)$', yname); side = ('home' if g and sched.teams.get(sport) and sched.teams[sport].code(re.sub(r'\s*[+-]\d+\.?\d*$', '', yname)) == g['home'] else 'unk') if mm else 'unk'
-        hp = f.pop('hourly')
-        key = f"{sport}|{g['start'][:10] if g else dt.datetime.fromtimestamp(start, dt.timezone.utc).date()}|{g['away'] if g else '?'}@{g['home'] if g else '?'}|{mtype}|{side}|{m.get('strike')}"
+        hp = f.pop('hourly'); strike = None if mtype.endswith('ml') or m.get('strike') in (None, '') else float(m['strike'])
+        key = f"{sport}|{g['start'][:10] if g else dt.datetime.fromtimestamp(start, dt.timezone.utc).date()}|{g['away'] if g else '?'}@{g['home'] if g else '?'}|{mtype}|{side}|{strike}"
         out.append(dict(venue='Novig', sport=sport, mtype=mtype, side=side, line=m.get('strike'), market=mid, event=m.get('event'), key=key, start=start,
                         date=dt.datetime.fromtimestamp(start, dt.timezone.utc).date().isoformat(), **f))
-        for h, p in hp.items(): hourly.append(dict(venue='Novig', key=key, h=h, p=p))
+        for h, (p, spd) in hp.items(): hourly.append(dict(venue='Novig', key=key, market=mid, h=h, p=p, sp=spd))
     print(f"[exchange_backtest] Novig: {len(out)} markets ({n_unres} tape markets without catalog result/start)")
     return out, hourly
 
@@ -176,11 +198,11 @@ def kalshi_rows(sched):
             elif mtype.endswith('ml'): side = 'home' if fix.get(tail, tail) == g['home'] else ('away' if fix.get(tail, tail) == g['away'] else 'draw' if tail == 'TIE' else 'unk')
             else:
                 tcode = re.sub(r'\d+$', '', tail); side = 'home' if fix.get(tcode, tcode) == g['home'] else 'away'
-            hp = fx.pop('hourly')
-            key = f"{sport}|{g['start'][:10]}|{g['away']}@{g['home']}|{mtype}|{side}|{m.get('strike')}"
+            hp = fx.pop('hourly'); strike = None if mtype.endswith('ml') or m.get('strike') in (None, '') else float(m['strike'])
+            key = f"{sport}|{g['start'][:10]}|{g['away']}@{g['home']}|{mtype}|{side}|{strike}"
             out.append(dict(venue='Kalshi', sport=sport, mtype=mtype, side=side, line=m.get('strike'), market=tk, event=f"{g['away']} @ {g['home']}", key=key, start=start,
                             date=g['start'][:10], **fx))
-            for h, p in hp.items(): hourly.append(dict(venue='Kalshi', key=key, h=h, p=p))
+            for h, (p, spd) in hp.items(): hourly.append(dict(venue='Kalshi', key=key, market=tk, h=h, p=p, sp=spd))
     print(f"[exchange_backtest] Kalshi: {len(out)} markets")
     return out, hourly
 
@@ -237,12 +259,13 @@ def fmt_roi(r): return f"{100 * r:+.1f}%"
 
 
 def report():
-    df = pd.read_csv(FEAT); hh = pd.read_csv(HOURLY)
+    df = pd.read_csv(FEAT); hh = pd.read_csv(HOURLY); hh = hh[hh['sp'].abs() <= 0.04]     # hourly mids only where the taker spread was within 4c (a price, not a guess)
     df = df[df['side'] != 'unk'].copy(); df['date'] = df['date'].astype(str)
     df['main'] = df.groupby(['venue', 'sport', 'event', 'date', 'mtype'])['usd'].transform('max') == df['usd']     # the most-traded strike per game x market
     n_all = len(df)
     df = df[(df['usd'] >= 2000) & (df['n_trades'] >= 10) & df['close'].notna()].copy()                              # liquidity floor: thin alt lines print at the ask, not at a price
     df = split(df); df['won'] = df['result'].astype(int)
+    hh = hh.merge(df.loc[df['main'], ['venue', 'market']].drop_duplicates(), on=['venue', 'market'])      # hourly paths: liquid main lines only (one market per series)
     today = dt.date.today().isoformat(); L = []
     P = L.append
     P(f"# Exchange signal audit, {today}\n")
@@ -349,7 +372,7 @@ def report():
 
     # T5 lead/lag
     P("\n## 6. Who moves first: Kalshi vs Novig on the same market\n")
-    P("Hourly last-trade prices on markets both exchanges list (same game, market, side, line). Corr(dK_t, dN_t-1) > Corr(dN_t, dK_t-1) means Novig leads. "
+    P("Hourly two-sided mids (taker spread <= 4c) on markets both exchanges list (same game, market, side, line). Corr(dK_t, dN_t-1) > Corr(dN_t, dK_t-1) means Novig leads. "
       "Strategy 'follow the leader': when one venue moved >= 3c in hour t and the other moved < 1c, buy the laggard toward the leader's direction at the laggard's price; "
       "graded against the laggard's own close (CLV, in cents) and against the result.\n")
     both = hh.groupby('key')['venue'].nunique(); keys = both[both == 2].index
@@ -386,17 +409,18 @@ def report():
 
     # T6 timing
     P("\n## 7. Timing: which hours' moves stick?\n")
-    P("For every hourly move of >= 2c, did the close end up on the same side of the post-move price (the move 'stuck') or come back? Grouped by ET hour of day and by hours-to-kickoff. "
+    P("For every hourly move of >= 2c in the two-sided mid, did the close end up on the same side of the post-move price (the move 'stuck') or come back? "
+      "By ET hour of day (moves at least 6h before kickoff only, so the clock is not just distance to kickoff) and by hours-to-kickoff. "
       "Sharp moves should stick; public moves should mean-revert. Share > 50% with n in the hundreds is a real timing signal.\n")
-    hh2 = hh.merge(df[['venue', 'key', 'start', 'close', 'sport']], on=['venue', 'key'], how='inner').sort_values(['venue', 'key', 'h'])
-    hh2['dp'] = hh2.groupby(['venue', 'key'])['p'].diff()
+    hh2 = hh.merge(df[['venue', 'market', 'start', 'close', 'sport']], on=['venue', 'market'], how='inner').sort_values(['venue', 'market', 'h'])
+    hh2['dp'] = hh2.groupby(['venue', 'market'])['p'].diff()
     hh2 = hh2[hh2['dp'].abs() >= 0.02].copy()
     hh2['stuck'] = (hh2['close'] - hh2['p']) * np.sign(hh2['dp']) >= 0
     hh2['t'] = hh2['start'] + (hh2['h'] + 1) * 3600
     hh2['et_hour'] = ((hh2['t'] - 4 * 3600) % 86400 // 3600).astype(int)
     hh2['ttk'] = (-hh2['h'] - 1)
     P("| venue | ET hour bucket | n moves | stuck share | avg |move| c |\n|---|---|---|---|---|")
-    for v, g in hh2.groupby('venue'):
+    for v, g in hh2[hh2['ttk'] >= 6].groupby('venue'):
         b = pd.cut(g['et_hour'], [-1, 5, 9, 13, 17, 21, 24], labels=['0-5am', '6-9am', '10am-1pm', '2-5pm', '6-9pm', '10pm-12'])
         for k, gg in g.groupby(b, observed=True):
             if len(gg) < 80: continue
@@ -418,10 +442,36 @@ def report():
             fav = gg['close'] >= 0.5; p = np.where(fav, gg['close'], 1 - gg['close']); won = np.where(fav, gg['won'], 1 - gg['won'])
             P(f"| {v} | {sp} | {k} (median ${gg['usd'].median():,.0f}) | {len(gg)} | {brier(gg['close'].values, gg['won'].values):.4f} | {fmt_roi(roi_yes(p, won).mean())} |")
 
-    P("\n## 9. Reading it\n")
-    P("A signal survives only if (a) the holdout ROI is positive and the holdout z is above about 2, (b) train and holdout agree in sign, and (c) the effect is monotone where it should be "
-      "(bigger flow / bigger move / bigger trade = bigger edge). Anything that passes goes into sharp/systems.py as a forward paper test with its own tag, same as the Bet Labs systems. "
-      "Nothing in this document is a bet recommendation on its own.\n")
+    P("\n## 9. Longshot bias on the exchanges (the one structural effect that is everywhere)\n")
+    P("Main lines, close price. z = (wins - sum of implied) / sqrt(sum p(1-p)). Negative gap = yes won less often than its price said.\n")
+    P("| venue | price band | n | implied avg | hit rate | gap | z | ROI buying yes at close | ROI buying the other side |\n|---|---|---|---|---|---|---|---|---|")
+    for v, g in dm.groupby('venue'):
+        for lo, hi in ((0.0, 0.2), (0.2, 0.35), (0.35, 0.5), (0.5, 0.65), (0.65, 0.8), (0.8, 1.0)):
+            gg = g[(g['close'] >= lo) & (g['close'] < hi)]
+            if len(gg) < 40: continue
+            p = gg['close'].values; y = gg['won'].values; zz = (y.sum() - p.sum()) / math.sqrt((p * (1 - p)).sum())
+            P(f"| {v} | {lo:.2f}-{hi:.2f} | {len(gg)} | {p.mean():.3f} | {y.mean():.3f} | {y.mean() - p.mean():+.3f} | {zz:+.2f} | {fmt_roi(roi_yes(p, y).mean())} | {fmt_roi(roi_yes(1 - p, 1 - y).mean())} |")
+    P("\n## 10. Reading it\n")
+    P("""A signal survives only if (a) the holdout ROI is positive and the holdout z is above about 2, (b) train and holdout agree in sign, and (c) the effect is monotone where it should be
+(bigger flow / bigger move / bigger trade = bigger edge). Verdicts on this run (first full pull, 2026-10-29; re-run weekly as the tape grows):
+
+**Passes now**
+- Longshot bias on Novig, 20-35c band (section 9): yes outcomes priced 0.30 won 22% (n=196, z -2.5); the other side of those markets returned +12% at the close. On Novig the yes side is the home side, so this is specifically home dogs priced 20-35c being too expensive, with away favourites at 65-80c too cheap. Kalshi shows the same shape, weaker (35-50c band -3 pts, z -1.8; sub-20c -3.9 pts). Goes forward as a paper system: buy the away favourite on Novig when the home side is two-sided at 20-35c inside T-1h.
+
+**Promising, below the bar**
+- Late taker flow, Kalshi NHL main lines (section 4): follow the 6h flow, train +8.3% / holdout +10.7% (n=550, holdout z 1.3), consistent across windows and across all-lines (+7.6% holdout). Novig MLB mains agree (+4.8% / +9.5%, n=638). Needs a live trade feed to run forward; the Kalshi trades endpoint can be polled per market.
+- Momentum continuation, NBA (section 3): the T-6h to close move is continued, not reverted, on both exchanges (Kalshi +19.7% / +22.9%, Novig +23.0% / +24.7%, n 170 and 105; logit coefficient +0.36 and +0.39 per 10c, each about 1.3 se). Same sign, two venues, small n. NFL is the opposite in holdout (-39% Kalshi, -17% Novig), so this is sport-specific if it is anything. Forward paper test on NBA only.
+- Largest trade follow, Kalshi NBA (section 5): buy the side of the biggest pre-kickoff trade at its price: train +0.1%, holdout +7.9% (n=467, 61% win). Novig NBA +7.5% holdout but -2.7% train. Not consistent enough yet.
+- Novig leads Kalshi in NBA (section 6): corr(dKalshi_t, dNovig_t-1) = +0.15 vs +0.06 the other way; NFL is a wash. Too few clean laggard setups at hourly resolution to grade a strategy; the 20-minute tick log is the right instrument and move_signals.py (M2) is already wired for it.
+
+**Fails**
+- Timing of day (section 7): moves 6h+ before kickoff stick 52-63% of the time on both exchanges, with no hour-of-day bucket separating from the rest beyond noise (n in the low hundreds per bucket). Moves inside 3h stick more, which is mostly distance to the close.
+- Volume as a quality signal (section 8): higher-volume markets are not better calibrated in any sport; the ROI differences across terciles are noise.
+- Structural over/under or favourite/dog drift at T-24h (section 2): nothing consistent across venues or between train and holdout except the longshot effect above. Novig NFL yes (home) sides are -12% to -16% at the close on 450 markets, which is a home bias worth watching (home sides covering 46-49% this season on Novig prices) but is one season of one sport.
+- Kalshi fees: every Kalshi number above is before the taker fee (about 1.75c at 50/50). Only the NHL flow result would survive that haircut as written.
+
+Nothing in this document is a bet recommendation on its own; the survivors go into sharp/systems.py as tagged paper tests and are graded forward on the ledger.
+""")
     out = os.path.join(ROOT, 'docs', f'exchange_signals_audit_{today}.md')
     open(out, 'w').write('\n'.join(L)); print(f"[exchange_backtest] wrote {out}")
     return out

@@ -25,7 +25,11 @@ NOW = dt.datetime.now(dt.timezone.utc); NOW_S = N.iso(NOW)
 RULES = {'wind1014': dict(market='total', side='under', stake=1.0), 'wind1014_1h': dict(market='1h_total', side='under', stake=0.5),
          'cfb_wind14': dict(market='total', side='under', stake=1.0, sport='cfb'),
          'vrest8_1h': dict(market='1h_total', side='under', stake=0.5), 'mnf_1h': dict(market='1h_total', side='under', stake=0.5),
-         'awfuldog': dict(market='spread', side='dog', stake=0.5), 'bounce15_1h': dict(market='1h_spread', side='dog', stake=0.5)}
+         'awfuldog': dict(market='spread', side='dog', stake=0.5), 'bounce15_1h': dict(market='1h_spread', side='dog', stake=0.5),
+         # exchange signals (docs/exchange_signals_audit_2026-10-29.md): fired inside T-1.5h, at the exchange that shows the signal
+         'xch_homedog_fade': dict(market='ml|spread', side='away', stake=0.5, sport='nfl,nba,cfb,nhl,mlb', venue='Novig'),
+         'nba_momentum': dict(market='ml|spread|total', side='continuation', stake=0.5, sport='nba', venue='Novig|Kalshi')}
+LATE_H = (0.1, 1.5)   # exchange rules fire in the last 90 minutes (the audit priced them at the close)
 WINDOW_H = tuple(float(x) for x in os.environ.get('SYSTEMS_WINDOW', '2,30').split(','))
 
 
@@ -69,8 +73,9 @@ def public(conn, ev, market, side):
     return json.loads(r[0]) if r else {}
 
 
-def paper_fill(conn, eq, ev, start, market, line, side, part, tag, stake, note):
+def paper_fill(conn, eq, ev, start, market, line, side, part, tag, stake, note, venue=None):
     best = F.best_price(eq, market, line, side, NOW_S, part)
+    if venue: best = [b for b in best if b['venue'] == venue]
     if not best: return None
     b = best[0]; fr = eq.fair(market, line, side, NOW_S, part)
     imp = b['cost']; price = N.prob_to_american(imp)
@@ -167,6 +172,54 @@ def main():
                                 fair=row['fair_at_fill'], edge_pts=(round(100 * (row['fair_at_fill'] - row['implied']), 2) if row['fair_at_fill'] is not None else None), why=why)
                     fired[key] = rec_; game['fills'].append(rec_); fires_now.append(dict(game=f"{away}@{home}", **rec_))
         view_games.append(game)
+    # Exchange rules, inside T-1.5h. One fill per game per rule; stacking across rules allowed only on different market x side.
+    def xmid(eq, venue, market, line, side, part, ts):
+        q = eq.latest(venue, market, line, side, ts, 90, part)
+        if not q or q[6] is None or q[7] is None or (q[7] - q[6]) > 0.04: return None
+        return (q[6] + q[7]) / 2
+    for ev, sport, start, away, home in conn.execute("SELECT event_id, sport, start_utc, away, home FROM events WHERE sport IN ('nfl','nba','cfb','nhl','mlb') ORDER BY start_utc").fetchall():
+        st = N.parse_ts(start); ttk = (st - NOW).total_seconds() / 3600
+        if not (LATE_H[0] <= ttk <= LATE_H[1]): continue
+        eq = F.EventQuotes(conn, ev); game = None
+        def fire(tag, market, line, side, part, venue, why, stake=0.5):
+            nonlocal game
+            key = f"{ev}:{tag}:{market}"
+            if key in fired: return
+            row = paper_fill(conn, eq, ev, start, market, line, side, part, tag, stake, why, venue=venue)
+            if not row: return
+            rec_ = dict(tag=tag, fill_id=row['fill_id'], ts=NOW_S, market=market, side=side, line=line, venue=row['venue'], price=row['price_american'], fair=row['fair_at_fill'],
+                        edge_pts=(round(100 * (row['fair_at_fill'] - row['implied']), 2) if row['fair_at_fill'] is not None else None), why=why)
+            fired[key] = rec_; fires_now.append(dict(game=f"{away}@{home}", **rec_))
+            if game is None:
+                game = dict(event_id=ev, away=away, home=home, start_utc=start, hours_to_kickoff=round(ttk, 1), spread_home=None, dog=None, triggers={}, fills=[], sport=sport); view_games.append(game)
+            game['triggers'][tag] = why; game['fills'].append(rec_)
+        # xch_homedog_fade: Novig home side two-sided at 20-35c -> buy the away side on Novig (section 9 of the audit: +12% at the close, z -2.5 on the home side)
+        for market in ('ml', 'spread'):
+            line = None
+            if market == 'spread':
+                line, _n = main_line(eq, 'spread', home)
+                if line is None: continue
+            ph = xmid(eq, 'Novig', market, line, 'home', home, NOW_S)
+            if ph is not None and 0.20 <= ph <= 0.35:
+                fire('xch_homedog_fade', market, (-line if line is not None else None), 'away', away, 'Novig', f"Novig home side mid {ph:.3f} inside T-{ttk:.1f}h; audit band 20-35c")
+                break
+        # nba_momentum: exchange two-sided mid moved >= 3c since T-6h -> continuation at that exchange
+        if sport == 'nba':
+            t6 = N.iso(st - dt.timedelta(hours=6))
+            for market in ('ml', 'spread', 'total'):
+                line = None; part_h, part_a = home, away
+                if market == 'spread': line, _n = main_line(eq, 'spread', home)
+                elif market == 'total': line, _n = main_line(eq, 'total', None); part_h = part_a = None
+                if market != 'ml' and line is None: continue
+                side_h = 'home' if market != 'total' else 'over'
+                for venue in ('Novig', 'Kalshi'):
+                    p_now = xmid(eq, venue, market, line, side_h, part_h, NOW_S); p_6 = xmid(eq, venue, market, line, side_h, part_h, t6)
+                    if p_now is None or p_6 is None or abs(p_now - p_6) < 0.03: continue
+                    up = p_now > p_6
+                    side = side_h if up else ('away' if market != 'total' else 'under'); part = (part_h if up else part_a) if market != 'total' else None
+                    fire('nba_momentum', market, (line if (up or market == 'total') else -line) if line is not None else None, side, part, venue,
+                         f"{venue} {market} mid {p_6:.3f} at T-6h -> {p_now:.3f} now ({100 * (p_now - p_6):+.1f}c); continuation (audit section 3, NBA only)")
+                    break
     json.dump(fired, open(FIRED, 'w'), indent=0)
     # per-tag forward record from the ledger
     rec = collections.defaultdict(lambda: dict(n=0, graded=0, w=0, l=0, p=0, pnl=0.0, clv=[], gate=100))
