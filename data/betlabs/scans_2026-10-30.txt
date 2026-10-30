@@ -289,3 +289,15 @@ Closing Total Compared to League Avg (NEW) [9.69..12] T 543/69.4/5.5%/z1.18 H 15
 Opp Off Efficiency [104.9..105.6] T 824/66.0/4.4%/z1.15 H 243/65.4/-5.5% 40/40
 ALIVE: 6 entries, all z<1.2 in-sample and ~0% holdout.
 VERDICT: dead. 1H moneyline favorites in NBA have no in-sample signal to begin with (best z 2.18), and it flips 40/40.
+
+=== Audit: NBA ML 2H (1784120) side Dog n=359 alive=6 ===
+TOP:
+Moneyline Range [277..311] T 632/30.4/19.7%/z4.50 H 195/23.6/-7.6% 40/40
+Opp Off Efficiency [113.7..125.4] T 642/40.7/18.1%/z4.18 H 2318/37.6/-6.3% 40/40 (era drift: window is now league-average)
+Off Efficiency [107.2..107.6] T 548/48.7/18.8%/z4.01 H 313/40.3/5.5% 25/40 ALIVE (0.4-pt sliver)
+Opp Off FG % [46.9..47] T 564/46.6/17.2%/z3.71 H 273/41.0/-2.8% 40/40
+Def 3P % [39.1..47] T 728/44.5/14.7%/z3.61 H 349/38.1/-3.5% 40/40
+Official=Marat Kogut T 600/46.7/14.7%/z3.27 H 279/38.4/-3.3%
+Defensive Points [114.4..126] T 848/43.3/12.3%/z3.26 H 2953/37.6/-8.6% 40/40
+ALIVE: Off Efficiency sliver; Opp Def Assist 21.6-22.2 +6.8% -> +0.1%; Opponent ATS % 42-45 +6.1% -> ~+4% on 740 (37-40 flips in family)
+VERDICT: dead. 2H dog ML windows are longshot variance plus era drift; every top window flips 40/40.
