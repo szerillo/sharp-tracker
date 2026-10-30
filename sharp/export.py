@@ -71,12 +71,14 @@ def board(conn, sport='mlb'):
     for ev, et_date, start, away, home, status in conn.execute("SELECT event_id, et_date, start_utc, away, home, status FROM events WHERE sport=? ORDER BY start_utc", (sport,)).fetchall():
         st = N.parse_ts(start)
         if st < NOW - dt.timedelta(hours=1) or st > NOW + dt.timedelta(hours=BOARD_HOURS[sport]): continue
-        eq = F.EventQuotes(conn, ev); ts = NOW_S
-        last_tick = max((L[-1][0] for L in eq.idx.values()), default=None)
-        if last_tick and (NOW - N.parse_ts(last_tick)).total_seconds() > C.STALE_BOOK_MIN['value'] * 60:
+        eq = F.EventQuotes(conn, ev); ts = NOW_S; started = st <= NOW
+        last_tick = max((t[0] for L in eq.idx.values() for t in L if t[0] < start), default=None)   # last PREGAME observation
+        if started:
+            ts = last_tick or start   # closed: frozen at the final pregame line; live quotes are never priced against the pregame ruler
+        elif last_tick and (NOW - N.parse_ts(last_tick)).total_seconds() > C.STALE_BOOK_MIN['value'] * 60:
             ts = last_tick   # the log is stale (job not running): price the board at the last observation and say so
         nm = names.get(ev) or (None, None)
-        g = dict(event_id=ev, et_date=et_date, start_utc=start, away=away, home=home, away_name=nm[0], home_name=nm[1], status=status, priced_at=ts,
+        g = dict(event_id=ev, et_date=et_date, start_utc=start, away=away, home=home, away_name=nm[0], home_name=nm[1], status=status, priced_at=ts, closed=started,
                  stale_min=round((NOW - N.parse_ts(ts)).total_seconds() / 60), minutes_to_start=round((st - N.parse_ts(ts)).total_seconds() / 60), markets=[])
         for m in order:
             if m.endswith('ml'):
@@ -186,6 +188,7 @@ def main():
     for spx in index['sports']:
         d = json.load(open(os.path.join(SD, f"dashboard_{spx['sport']}.json")))
         for gm in d['board']:
+            if gm.get('closed'): continue      # started: frozen at the final pregame line, not an actionable edge
             for c in gm['markets'] + gm.get('props', []):
                 if c.get('fair') is None or not c.get('best'): continue
                 b = c['best'][0]; b2 = c['best'][1] if len(c['best']) > 1 else None

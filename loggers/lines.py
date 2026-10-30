@@ -97,7 +97,7 @@ class Matcher:
         self.sched = sched; self.by = collections.defaultdict(list); self.unmatched = collections.Counter()
         for e in sched.values():
             if not (e.get('away') and e.get('home')): continue
-            st = parse_ts(e['start'])
+            st = parse_ts(e['start']); STARTS[e['event_id']] = st
             if st < NOW - dt.timedelta(days=2) or st > NOW + dt.timedelta(days=CFG['horizon_days'] + 1): continue
             for d in (-1, 0, 1): self.by[(et_date(st) + dt.timedelta(days=d), e['away'], e['home'])].append(e)
         self.teams = S.Teams(SPORT, [e for e in sched.values()])
@@ -117,12 +117,14 @@ class Matcher:
 
 
 # ----------------------------------------------------------------- ticks ----
-ROWS = []; UNMATCHED = collections.Counter()
+ROWS = []; UNMATCHED = collections.Counter(); STARTS = {}   # event_id -> kickoff (UTC); filled by Matcher from the schedule
 
 
 def tick(event_id, market, side, venue, feed, line=None, participant=None, player=None, american=None, bid=None, ask=None, last=None, vol=None,
          limit=None, flags=None, extra=None):
     if not event_id: return
+    st = STARTS.get(event_id)
+    if st is not None and st <= NOW: STATS['live_dropped'] += 1; return     # pregame only: a started game is closed at its last pregame quote
     r = dict(ts=TS, event_id=event_id, market=market, side=side, venue=venue, feed=feed)
     for k, v in (('line', line), ('participant', participant), ('player', player), ('american', american), ('bid', bid), ('ask', ask), ('last', last),
                  ('vol', vol), ('limit', limit), ('flags', flags), ('extra', extra)):

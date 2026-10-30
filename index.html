@@ -112,7 +112,7 @@ function renderBoard() {
   if (!D.board.length) return '<div class="sec"><div class="sec-h"><span class="name">No upcoming games in the log</span></div></div>';
   const ctl = `<div class="controls"><button onclick="window._openAll=true;draw()">expand all</button> <button onclick="window._openAll=false;window._open={};draw()">collapse all</button> <span>${D.board.length} games · click a game to expand</span></div>`;
   return ctl + D.board.map(g => {
-    const stale = g.stale_min > 60 ? `<span class="badge b-stale">priced ${g.stale_min} min ago (log stale)</span>` : '';
+    const stale = g.closed ? `<span class="badge b-gate">started · closed at the final pregame line (${ET(g.priced_at)} ET)</span>` : (g.stale_min > 60 ? `<span class="badge b-stale">priced ${g.stale_min} min ago (log stale)</span>` : '');
     const lim = Object.entries(g.pinnacle_limits || {}).filter(([m, x]) => x.first !== x.now).map(([m, x]) => `${MKT[m] || m}: $${x.first}→$${x.now}`).join(' · ');
     const rows = g.markets.map(c => `<tr>
       <td><span class="dim small">${MKT[c.market] || c.market}</span><br>${sideLabel(c, g)}</td>
@@ -385,7 +385,7 @@ async function load() {
   const built = new Date(D.built); const ageMin = Math.round((Date.now() - built) / 60000);
   $('#sub').innerHTML = `built ${ET(D.built)} ET (${ageMin} min ago) · ${D.counts.events} events · ${D.counts.settled} settled · ${D.counts.ticks.toLocaleString()} ticks · spec ${D.spec}`;
   $('#strip').innerHTML = `<span class="pill">Ruler weights: <b>${D.weights.game_status}</b> (game) · <b>${D.weights.prop_status}</b> (props)</span>
-    <span class="pill ${D.board.some(g => g.stale_min > 60) ? 'bad' : 'ok'}">board priced ${D.board.length ? D.board[0].stale_min + ' min ago' : '—'}</span>
+    <span class="pill ${D.board.some(g => !g.closed && g.stale_min > 60) ? 'bad' : 'ok'}">board priced ${(D.board.find(g => !g.closed) || {}).stale_min ?? '—'} min ago</span>
     <span class="pill">Test gates: A/B ${D.venues.A.game.n}/${D.venues.A.game.gate} games · C ${D.venues.C.n}/${D.venues.C.gate} pairs · D ${D.venues.D.n}/${D.venues.D.gate} prop rows</span>
     <span class="pill">BetMGM logged, never shown as bettable</span>`;
   const b = [];
