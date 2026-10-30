@@ -57,7 +57,9 @@ def frame(rows, venues):
     if not rows: return pd.DataFrame()
     df = pd.DataFrame(rows); df = df[df['venue'].isin(venues) & df['market'].isin(MARKETS)]
     if df.empty: return df
-    if 'flags' in df: df = df[~df['flags'].astype(str).str.contains('threeway')]
+    if 'flags' in df:
+        fl = df['flags'].astype(str); exch = df['venue'].isin(['Novig', 'Kalshi', 'Polymarket'])
+        df = df[~fl.str.contains('threeway') & ~(exch & fl.str.contains('wide|oneside'))]   # an exchange mid only counts when the book is two-sided and inside 4 cents
     df['p_raw'] = [prob(r) for r in df.to_dict('records')]; df = df[df['p_raw'].notna()]
     df['line'] = pd.to_numeric(df.get('line'), errors='coerce').fillna(0.0)
     df['home_line'] = np.where((df['market'] == 'spread') & (df['side'] == 'away'), -df['line'], df['line'])

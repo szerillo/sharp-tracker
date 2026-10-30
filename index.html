@@ -69,8 +69,8 @@ const MKT = new Proxy(MKT0, {get(t, k) { if (k in t) return t[k]; const m = /^(1
 let SPORT = new URLSearchParams(location.search).get('sport') || null;
 const XV = new Set(['Kalshi', 'Novig', 'Polymarket']), SHARP = new Set(['Pinnacle', 'Circa']);
 const ET = iso => new Date(iso).toLocaleString('en-US', {timeZone: 'America/New_York', month: 'short', day: 'numeric', hour: 'numeric', minute: '2-digit'});
-let D = null, E = null, tab = new URLSearchParams(location.search).get('tab') || 'edges';
-const TABS = [['edges', 'Edges'], ['board', 'Board'], ['systems', 'Systems'], ['weekly', 'Weekly'], ['props', 'Props'], ['venues', 'Venue tests'], ['ledger', 'Ledger'], ['health', 'Log health'], ['constants', 'Constants']];
+let D = null, E = null, MV = null, tab = new URLSearchParams(location.search).get('tab') || 'moves';
+const TABS = [['moves', 'Moves'], ['edges', 'Stale prices'], ['board', 'Board'], ['systems', 'Systems'], ['weekly', 'Weekly'], ['props', 'Props'], ['venues', 'Venue tests'], ['ledger', 'Ledger'], ['health', 'Log health'], ['constants', 'Constants']];
 
 function sideLabel(c, g) {
   if (c.side === 'home' || c.side === 'away') return (c.participant || c.side) + (c.line != null ? ' ' + (c.line > 0 ? '+' : '') + c.line : '');
@@ -111,7 +111,7 @@ function renderBoard() {
     const rows = g.markets.map(c => `<tr>
       <td><span class="dim small">${MKT[c.market] || c.market}</span><br>${sideLabel(c, g)}</td>
       <td>${fairCell(c)}</td><td>${bestCell(c)}</td><td class="num">${edgeCell(c)}</td>
-      <td class="hide-m small">${c.open_american != null ? `<span class="mono">${am(c.open_american)}</span> open` : '<span class="dim">—</span>'}${c.public && c.public.tickets_pct != null ? `<br><span class="dim">tix ${c.public.tickets_pct}% · $ ${c.public.money_pct}%</span>` : ''}</td>
+      <td class="hide-m small">${c.open_american != null ? `<span class="mono">${am(c.open_american)}</span> open` : '<span class="dim">—</span>'}</td>
       <td>${ladder(c)}</td></tr>`).join('');
     const priced = g.markets.filter(c => c.fair != null); const top = priced.slice().sort((a, b) => (b.edge_pts ?? -99) - (a.edge_pts ?? -99))[0];
     const pt = g.props.filter(c => c.fair != null).sort((a, b) => (b.edge_pts ?? -99) - (a.edge_pts ?? -99));
@@ -181,6 +181,59 @@ function renderVenues() {
 }
 
 const SPORT_LABEL = {nfl: 'NFL', nba: 'NBA', nhl: 'NHL', cfb: 'CFB', soccer: 'Soccer', mma: 'MMA', mlb: 'MLB'};
+function renderMoves() {
+  if (!MV) return '<div class="banner">moves.json not loaded yet. The 5-minute fast tape (Pinnacle, Novig, Kalshi + Kalshi trades) started 2026-10-30; the move table is rebuilt every 20 minutes by the tracker job.</div>';
+  const st = window._mf || (window._mf = {sport: SPORT || '', origin: '', market: '', live: 0, q: ''});
+  const sports = Object.keys(MV.sports).filter(k => (MV.sports[k].moves || 0) > 0 || MV.sports[k].events);
+  const chip = (cur, val, label, field) => `<button class="${cur === val ? 'on' : ''}" onclick="_mf.${field}='${val}';draw()">${label}</button>`;
+  const pick = st.sport && MV.sports[st.sport] ? [st.sport] : sports;
+  let rows = pick.flatMap(sp => (MV.sports[sp].tape || []).map(m => ({...m, sport: sp})));
+  rows = rows.filter(m => (!st.origin || m.origin === st.origin) && (!st.market || m.market === st.market) && (!st.live || !m.started)
+    && (!st.q || `${m.away} ${m.home}`.toLowerCase().includes(st.q.toLowerCase())));
+  rows.sort((a, b) => a.ts < b.ts ? 1 : -1);
+  const S = st.sport && MV.sports[st.sport] ? MV.sports[st.sport] : null;
+  const agg = (label, t) => !t ? '' : `<tr><td>${esc(label)}</td><td class="num mono">${t.n}</td><td class="num mono ${t.clv_pts > 0 ? 'pos' : 'neg'}">${t.clv_pts > 0 ? '+' : ''}${t.clv_pts}</td><td class="num mono">${pct(t.persist, 0)}%</td><td class="num mono">${t.soft_follow == null ? '—' : pct(t.soft_follow, 0) + '%'}</td><td class="num mono">${t.stuck_clv_pts == null ? '—' : (t.stuck_clv_pts > 0 ? '+' : '') + t.stuck_clv_pts}</td><td class="num mono">${t.win == null ? '—' : pct(t.win, 0) + '%'}</td></tr>`;
+  const block = (title, obj) => !obj || !Object.values(obj).some(v => v) ? '' : `<div class="sec"><div class="sec-h"><span class="name">${title}</span></div><table><thead><tr><th></th><th class="num">moves</th><th class="num">CLV pts</th><th class="num">kept going</th><th class="num">soft books followed</th><th class="num">stuck-book CLV</th><th class="num">won</th></tr></thead><tbody>${Object.entries(obj).map(([k, v]) => agg(k, v)).join('')}</tbody></table></div>`;
+  let tiles = '';
+  if (S) {
+    const g = `<div class="tiles"><div class="tile"><div class="k">${S.events || 0}</div><div class="l">games on the fast tape</div></div><div class="tile"><div class="k">${S.moves || 0}</div><div class="l">moves (${S.live || 0} on upcoming games)</div></div><div class="tile"><div class="k">${S.settled || 0}<span class="dim small">/${MV.gate}</span></div><div class="l">settled games · publication gate</div></div></div>`;
+    const T = S.tiles || {};
+    tiles = g + (S.published ? '' : `<div class="banner">Below the gate (${S.settled || 0} of ${MV.gate} settled games): the tables are a preview and nothing here is a result yet. Pre-registered tests and gates: docs/move_tape_prereg_2026-10-30.md.</div>`)
+      + block('By origin venue (who moved first)', T.by_origin) + block('Pinnacle moves by limit tier', T.by_limit_tier) + block('By Kalshi flow around the move (taker dollars, signed with the move)', T.by_kalshi_flow)
+      + block('By time to kickoff', T.by_time_to_kickoff) + block('By market', T.by_market)
+      + (T.exchange_lead_no_pinnacle || T.exchange_lead_pinnacle_followed ? block('Exchange-origin moves', {'Pinnacle did not follow': T.exchange_lead_no_pinnacle, 'Pinnacle followed': T.exchange_lead_pinnacle_followed}) : '');
+  }
+  const fmtp = p => p == null ? '—' : (100 * p).toFixed(1);
+  const tr = rows.slice(0, 300).map(m => {
+    const bet = m.market === 'total' ? `<span class="side-${m.side}">${m.side === 'over' ? 'Over' : 'Under'} ${m.line}</span>` : `${m.side === 'home' ? m.home : m.away}${m.market === 'spread' ? ' ' + ((m.side === 'home' ? m.line : -m.line) > 0 ? '+' : '') + (m.side === 'home' ? m.line : -m.line) : ''}`;
+    const fol = Object.entries(m.followed || {}).filter(([v, x]) => x != null).sort((a, b) => a[1] - b[1]).map(([v, x]) => `<span class="lad">${v} <span class="p">${x}m</span></span>`).join('');
+    const nof = Object.entries(m.followed || {}).filter(([v, x]) => x == null).map(([v]) => v);
+    const stuck = Object.entries(m.stuck || {}).map(([v, p]) => `<span class="lad x">${v} <span class="p">${fmtp(p)}</span></span>`).join('');
+    const withv = Object.keys(m.with_ || {}).length ? `<br><span class="dim small">with ${Object.entries(m.with_).map(([v, x]) => `${v} +${x}m`).join(', ')}</span>` : '';
+    const k = m.kalshi ? `<span class="mono ${m.kalshi.net > 0 ? 'pos' : (m.kalshi.net < 0 ? 'neg' : '')}">${m.kalshi.net > 0 ? '+' : ''}$${m.kalshi.net.toLocaleString()}</span> <span class="dim small">of $${m.kalshi.usd.toLocaleString()} · ${m.kalshi.n} fills · max $${m.kalshi.big.toLocaleString()}</span>` : '<span class="dim">—</span>';
+    const nv = m.novig ? `<br><span class="dim small">Novig $${m.novig.usd.toLocaleString()} · ${m.novig.n} fills</span>` : '';
+    const clv = m.clv_pts == null ? (m.started ? '<span class="dim small">grading</span>' : '<span class="dim small">open</span>') : `<b class="${m.clv_pts > 0 ? 'pos' : 'neg'}">${m.clv_pts > 0 ? '+' : ''}${m.clv_pts}</b>${m.stuck_clv_pts != null ? `<br><span class="dim small">stuck books ${m.stuck_clv_pts > 0 ? '+' : ''}${m.stuck_clv_pts}</span>` : ''}`;
+    const res = m.outcome == null ? '' : (m.push ? 'push' : (m.outcome ? '<span class="pos">W</span>' : '<span class="neg">L</span>'));
+    return `<tr><td class="small"><span class="badge b-sport">${SPORT_LABEL[m.sport] || m.sport}</span><br>${ET(m.ts)}<br><span class="dim">T-${m.ttk_h}h</span></td>
+      <td class="small"><b>${esc(m.away)} @ ${esc(m.home)}</b><br><span class="dim">${MKT[m.market] || m.market}</span> · ${bet}</td>
+      <td><b class="${SHARP.has(m.origin) ? '' : (XV.has(m.origin) ? '' : '')}">${m.origin}</b>${m.limit ? `<br><span class="dim small">limit $${m.limit.toLocaleString()}</span>` : ''}${withv}</td>
+      <td class="mono">${fmtp(m.p0)} → ${fmtp(m.p1)}<br><span class="${m.dir > 0 ? 'pos' : 'neg'}">${m.size_pts} pts toward ${bet}</span></td>
+      <td class="small">${fol || '<span class="dim">none yet</span>'}${nof.length ? `<br><span class="dim">not: ${nof.join(', ')}</span>` : ''}</td>
+      <td class="small">${stuck || '<span class="dim">—</span>'}</td>
+      <td class="small">${k}${nv}</td>
+      <td class="num mono">${m.close == null ? '—' : fmtp(m.close)}</td><td class="num">${clv}</td><td class="num">${res}</td></tr>`;
+  }).join('');
+  const origins = ['Pinnacle', 'Novig', 'Kalshi'];
+  return `<div class="banner">The move tape: every ${MV.move_pts}-point move on a main-line moneyline, spread or total at Pinnacle, Novig or Kalshi (5-minute snapshots), who moved first, who followed within how many minutes, which soft books are still at the old number, the Kalshi taker dollars around the move, and once the game settles the distance to Pinnacle's close (CLV) and the result. Moves within ${MV.cluster_min} minutes in the same direction are one move. Built ${ET(MV.built)} ET.</div>
+    ${tiles}
+    <div class="controls">
+      <span class="tabs inline">${chip(st.sport, '', 'all sports', 'sport')}${sports.map(sp => chip(st.sport, sp, SPORT_LABEL[sp] || sp, 'sport')).join('')}</span>
+      <span class="tabs inline">${chip(st.origin, '', 'any origin', 'origin')}${origins.map(v => chip(st.origin, v, v, 'origin')).join('')}</span>
+      <span class="tabs inline">${chip(st.market, '', 'all markets', 'market')}${['ml', 'spread', 'total'].map(v => chip(st.market, v, MKT[v], 'market')).join('')}</span>
+      <span class="tabs inline">${chip(st.live, 0, 'all', 'live')}${chip(st.live, 1, 'upcoming only', 'live')}</span>
+      <input value="${esc(st.q)}" placeholder="team" oninput="_mf.q=this.value;draw()"> <span>${rows.length} moves</span></div>
+    <div class="sec"><table><thead><tr><th>When</th><th>Market</th><th>Origin</th><th>Move</th><th>Followed (min after)</th><th>Still stuck</th><th>Kalshi flow</th><th class="num">Close</th><th class="num">CLV</th><th class="num">Res</th></tr></thead><tbody>${tr}</tbody></table></div>`;
+}
 function renderEdges() {
   if (!E) return '<div class="banner">edges.json not loaded yet</div>';
   const st = window._ef || (window._ef = {sport: '', cls: '', market: '', venue: '', minv: 3, mine: 0, hours: 0, q: '', sort: 'edge', dir: -1, open: {}});
@@ -203,9 +256,9 @@ function renderEdges() {
       <td class="num mono">${pct(e.fair)}% <span class="dim small">(${e.fair_n})</span></td>
       <td class="mono">${e.venue} <b>${am(e.price)}</b>${e.limit ? `<span class="dim small"> $${e.limit}</span>` : ''}${e.venue2 ? `<br><span class="dim small">then ${e.venue2} ${am(e.price2)}</span>` : ''}</td>
       <td class="num"><b class="${e.edge_pts > 0 ? 'pos' : 'neg'}">${e.edge_pts > 0 ? '+' : ''}${e.edge_pts}</b></td>
-      <td class="hide-m small">${e.public && e.public.tickets_pct != null ? `tix ${e.public.tickets_pct}% · $ ${e.public.money_pct}%` : ''}${e.open_american != null ? `<br><span class="dim">open ${am(e.open_american)}</span>` : ''}</td></tr>
+      <td class="hide-m small">${e.open_american != null ? `<span class="dim">open ${am(e.open_american)}</span>` : ''}</td></tr>
       ${open ? `<tr><td colspan="7" class="small">${lad}${e.flags ? ` <span class="dim">best-price flags: ${e.flags}</span>` : ''} · fair weights ${e.fair_status}</td></tr>` : ''}`; }).join('');
-  return `<div class="banner">Edge = ruler fair − cost of the best bettable price (Kalshi fee included, BetMGM excluded), in probability points. The ruler uses <b>prior</b> weights until a sport's fit gate opens, so this is a gap under those weights, not a validated edge. Built ${ET(E.built)} ET · ${E.n} priced cells.</div>
+  return `<div class="banner">Stale prices: ruler fair − cost of the best bettable price (Kalshi fee included, BetMGM excluded), in probability points. This is the outlet for acting on a move from the Moves tab, not a sharp signal in itself: an off-market number is a slow book, and every positive-EV screen shows the same list. The ruler uses <b>prior</b> weights until a sport's fit gate opens. Built ${ET(E.built)} ET · ${E.n} priced cells.</div>
     <div class="controls">
       <span class="tabs inline">${chip(st.sport, '', 'all sports', 'sport')}${sports.map(sp => chip(st.sport, sp, SPORT_LABEL[sp] || sp, 'sport')).join('')}</span>
       <span class="tabs inline">${chip(st.cls, '', 'all', 'cls')}${chip(st.cls, 'game', 'sides/totals', 'cls')}${chip(st.cls, 'prop', 'props', 'cls')}</span>
@@ -216,7 +269,7 @@ function renderEdges() {
       Kickoff within <input type="number" min="0" value="${st.hours}" style="width:56px" onchange="_ef.hours=+this.value;draw()">h
       <input value="${esc(st.q)}" placeholder="team / player" oninput="_ef.q=this.value;draw()">
       <span>${rows.length} rows · click a row for the venue ladder</span></div>
-    <div class="sec"><table><thead><tr>${th('sport', 'Sport')}${th('kick', 'Game')}<th>Bet</th>${th('fair', 'Fair', 'num')}${th('price', 'Best price')}${th('edge', 'Edge', 'num')}<th class="hide-m">Public · open</th></tr></thead><tbody>${tr}</tbody></table></div>`;
+    <div class="sec"><table><thead><tr>${th('sport', 'Sport')}${th('kick', 'Game')}<th>Bet</th>${th('fair', 'Fair', 'num')}${th('price', 'Best price')}${th('edge', 'Edge', 'num')}<th class="hide-m">Open</th></tr></thead><tbody>${tr}</tbody></table></div>`;
 }
 function renderWeekly() {
   if (!window._weeklyMd) { fetch('docs/weekly/latest.md', {cache: 'no-store'}).then(r => r.ok ? r.text() : 'No weekly report yet (runs Monday 08:45 ET).').then(t => { window._weeklyMd = t; if (tab === 'weekly') draw(); }); return '<div class="small dim">loading…</div>'; }
@@ -281,13 +334,14 @@ function renderConstants() {
 
 function draw() {
   $('#tabs').innerHTML = TABS.map(([k, l]) => `<button class="${tab === k ? 'on' : ''}" onclick="tab='${k}';history.replaceState(null,'','?sport='+(SPORT||'')+'&tab='+'${k}');draw()">${l}</button>`).join('');
-  $('#view').innerHTML = {edges: renderEdges, board: renderBoard, systems: renderSystems, weekly: renderWeekly, props: renderProps, venues: renderVenues, ledger: renderLedger, health: renderHealth, constants: renderConstants}[tab]();
+  $('#view').innerHTML = {moves: renderMoves, edges: renderEdges, board: renderBoard, systems: renderSystems, weekly: renderWeekly, props: renderProps, venues: renderVenues, ledger: renderLedger, health: renderHealth, constants: renderConstants}[tab]();
 }
 async function load() {
   let u = new URLSearchParams(location.search).get('data') || 'data/state/dashboard.json';
   try {
     D = await (await fetch(u, {cache: 'no-store'})).json();
     try { E = await (await fetch('data/state/edges.json', {cache: 'no-store'})).json(); } catch (e) { E = null; }
+    try { MV = await (await fetch('data/state/moves.json', {cache: 'no-store'})).json(); } catch (e) { MV = null; }
     const idx = D.index;
     if (idx && idx.sports && idx.sports.length) {
       if (!SPORT) SPORT = idx.sports[0].sport;
