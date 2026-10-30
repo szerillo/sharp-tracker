@@ -86,3 +86,14 @@ Opp Defensive Yards [95.3..219] T 525/56.4/9.9%/z1.84 H 104/54.8/5.0% 0/40 ALIVE
 Offensive Pass Yards [112..140.3] T 515/56.3/8.9%/z1.79 H 202/55.9/6.6% 0/40 ALIVE
 Opp Defensive Turnovers [2.7..3.75] T 736/55.4/7.5%/z1.66 H 136/57.4/10.1% 0/40 ALIVE
 Verdict: dead on the odds/situational filters (top-3 flip 40/40). The survivors are all season team-stat windows (rush yards, fumble %, def yards) with 0/40 flips, which is the signature of stats that are not point-in-time (season averages that include games after the bet). Same caveat the NFL audit applied; not usable as a system unless the stat is confirmed season-to-date.
+=== Audit: NBA Spread 1H side Favorite n=387 alive=13 ===
+Pythagorean Win % [62.4..64.3] T 778/57.5/10.9%/z2.83 H 308/50.0/-4.8% 40/40
+Moneyline Range [-112..115] T 501/56.7/10.8%/z1.93 H 154/50.0/-2.9% 40/40
+Previous Game ATS Margin [14..15.5] T 581/56.3/8.8%/z1.88 H 216/53.2/1.6% 10/40 ALIVE
+Verdict: dead. NBA 1H spreads: nothing on either side (max in-sample z 3.1 and 2.8, both flip).
+=== Audit: CFB OU 2H side Under n=150 alive=5 (2H screens carry halftime-state filters: 1H margin, halftime points) ===
+Home First Half Margin [31..62] T 546/60.6/14.6%/z3.86 H 116/52.6/-0.5% 26/40 (blowout at half -> 2H under: train +14.6, holdout flat; the market now prices garbage time)
+O/U Juice Range [-630..-115] T 3586/55.4/1.2%/z3.60 H 1047/52.1/-5.1% 40/40
+Home Previous Game Margin [-7..-6] T 527/59.2/13.7%/z3.14 H 200/45.5/-14.3% 40/40
+Half-time Total Points [51..91] T 528/57.6/12.2%/z2.39 H 109/45.0/-14.4% 40/40
+Verdict: dead. The one interesting halftime-state rule (home up 31+ at half -> 2H under) was +14.6% through 2020 and 0% since: priced out.
