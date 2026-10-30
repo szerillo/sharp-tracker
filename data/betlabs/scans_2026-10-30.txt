@@ -64,3 +64,16 @@ Home Off Redzone Eff [77..80] T 511/56.9/10.1%/z2.07 H 366/50.0/-5.2% 40/40
 O/U Juice Range [-135..-122] T 512/56.8/1.8%/z2.02 H 314/57.6/3.8% 0/40 ALIVE (juice already priced: ROI +1.8/+3.8 only)
 Visitor Over Win % [71..83] T 805/54.7/5.1%/z1.29 H 295/55.6/5.3% 5/40 ALIVE (same "hot over team -> 1H under" regression lean seen in NBA 1H)
 Verdict: dead. CFB 1H under has nothing above +4% holdout with n >= 300.
+=== Audit: NBA Spread 1H side Dog n=388 alive=14 ===
+Pythagorean Win % [31.9..33.4] T 544/59.0/14.8%/z3.10 H 128/43.8/-16.3% 40/40
+Opp Team Rebounds [38.8..39.8] T 757/56.8/10.3%/z2.44 H 81/53.1/1.3% 18/40
+Opp Season Margin Avg [-4.15..-3.21] T 612/57.0/11.1%/z2.30 H 149/52.3/0.1% 16/40 ALIVE
+Opponent ATS % [63..65] T 554/57.2/11.4%/z2.28 H 235/47.7/-9.0% 38/40
+Full Game Moneyline [110..116] T 782/56.1/8.9%/z2.10 H 349/52.1/-0.7% 26/40
+Over Win % [24..33] T 817/53.7/4.4%/z0.77 H 226/58.8/11.6% 11/40 ALIVE (holdout only)
+Verdict: dead. Nothing with holdout n >= 300 and positive ROI; survivors are venue/team slivers.
+=== Audit: CFB OU 1H side Over n=133 alive=0 ===
+Home Off Points [0..16.13] T 777/56.8/9.9%/z2.44 H 479/46.8/-10.9% 40/40
+Full Game Spread [18..52] T 515/56.9/9.3%/z2.05 H 168/48.2/-8.7% 40/40
+Avg Humidity [13..35] T 1513/54.7/5.7%/z1.78 H 386/48.2/-9.0% 40/40
+Verdict: dead, zero survivors; 1H overs in CFB are a clean no.
