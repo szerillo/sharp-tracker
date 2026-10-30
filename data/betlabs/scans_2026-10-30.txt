@@ -1,0 +1,29 @@
+=== Audit: NHL ML Game side Dog n=337 alive=10 (train n>=500, ROI-ranked) ===
+Moneyline Range [198..227] T 800/36.3/12.5%/z3.23 H 462/28.8/-11.0% 40/40
+Opponent Win % [67..69] T 542/44.1/14.2%/z3.00 H 254/39.4/2.6% 24/40 ALIVE
+Goalie Saves [26.7..26.8] T 549/46.8/13.2%/z2.81 H 198/42.9/-0.4% 30/40
+Opp Days Between games [5..18] T 686/47.2/10.7%/z2.56 H 220/40.5/-5.7% 40/40
+Open Moneyline Range [186..199] T 538/38.1/11.8%/z2.48 H 266/32.7/-4.5% 33/40
+Pythagorean +/- [8..17] T 1322/44.2/7.4%/z2.45 H 596/39.8/-2.8% 40/40
+Win % Difference [33..38] T 502/41.8/11.8%/z2.40 H 315/36.8/2.4% 20/40 ALIVE
+Opp Def Penalties [2.6..3.5] T 1604/45.0/6.1%/z2.23 H 2114/40.9/-2.8% 40/40
+Home/Away Streak [-4..-4] T 1017/44.4/6.9%/z1.99 H 414/36.2/-9.7% 40/40
+ALIVE (all slivers / sub-z2): Opponent Win % 67-69; Win % Difference 33-38; Opp Game Number 57-59; OU Under% 41-42; Penalty Minutes 11.3-11.9; Season Margin Avg -1.05..-0.92; Under Dollars % 29-36 (T 677 +6.3 / H 363 +8.0, 15/40); Shooting % 0-6.8; Moneyline % 19-20; Opp Prev Game Margin -2
+Verdict: dead. Best in-sample (ML 198-227) flips to -11% holdout; 40/40 top windows flip on most filters.
+=== Audit: NHL Puck Line Game side Dog (+1.5) n=353 alive=11, ROI-ranked (puck line juice is not -110) ===
+Pythagorean Win % [32.8..39.7] T 2554/66.2/4.2%/z1.94 H 1309/57.7/-3.7% 40/40
+Opp Goals Allowed [3.3..3.3] T 635/71.0/7.3%/z1.68 H 416/61.3/-4.0% 40/40
+Def Shooting % [10.6..10.7] T 742/68.3/6.8%/z1.68 H 452/59.5/-3.8% 38/40
+Open Moneyline Range [181..196] T 810/64.0/6.0%/z1.55 H 310/61.0/7.4% 11/40 ALIVE  <- lean: big dogs taking +1.5
+Spread Juice Range [-144..-134] T 520/61.7/6.1%/z1.26 H 416/60.6/4.1% 25/40 ALIVE
+Moneyline Change Open to Close [-20..-18] T 565/70.6/5.7%/z1.23 H 198/68.2/6.4% 1/40 ALIVE (sliver)
+Verdict: dead; max in-sample ROI z 1.9 and it flips. One lean: dog ML open 181-196 on the puck line, both halves +6/+7, needs the forward log.
+=== Audit: NBA OU 1H side Under n=399 alive=16 ===
+Visitor Def Reb [38.9..39.9] T 1191/56.1/8.4%/z2.56 H 102/48.0/-8.6% 40/40
+Visitor Off Efficiency [108..108.3] T 536/57.8/12.3%/z2.53 H 193/50.8/-3.2% 36/40
+Home Defensive Pts Above Lg Avg [4.4..5.15] T 555/57.7/12.2%/z2.49 H 196/51.0/-2.8% 40/40
+Home Pace Avg [103.2..105.3] T 756/56.7/10.1%/z2.40 H 1140/53.1/1.4% 3/40 ALIVE (pace band; holdout +1.4 only)
+Visitor Off 3P % [37..37.2] T 539/57.1/10.9%/z2.21 H 328/54.3/3.9% 29/40 ALIVE (sliver)
+Visitor Team=Utah Jazz T 609/56.7/9.8%/z2.11 H 222/45.9/-12.1%
+Visitor Over Win % [71..100] T 508/55.7/8.4%/z1.50 H 257/55.6/6.1% 6/40 ALIVE (visitor team that has gone over 71%+ -> 1H under; regression-to-mean lean)
+Verdict: dead (max z 2.6, flips). Watch: visitor over% >= 71 -> 1H under, both halves +8/+6, low flip count.
