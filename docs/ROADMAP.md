@@ -105,6 +105,10 @@ Pinned for later, in order:
   per sport. Reverse line movement and public-money fades were already tested on NFL (dead) and are in every full scan for NBA,
   CFB, NHL, NCAAB as the Money%-vs-Bet%, Spread%/ML%/OU% and Number-of-Bets fields; none survived.
 
+- Round 3 (account systems, 10/30): docs/betlabs_account_systems_audit_2026-10-30.md. Only the two wind parents clear z 2 on the
+  holdout; watch items: NHL early-season home ML vs quality opponent (766996), NBA under on good home over teams (766963), NCAA
+  Tourney Ball totals (1463317) before March.
+
 ## 10. Sharp framework v2 (started 2026-10-30)
 Scope: docs/sharp_framework_v2_scope.md. Pre-registration: docs/move_tape_prereg_2026-10-30.md.
 - DONE 10/30: loggers/fast.py + prices_fast.yml (5-minute Pinnacle/Novig/Kalshi game lines, three parallel groups, Kalshi trades
