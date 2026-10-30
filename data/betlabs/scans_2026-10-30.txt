@@ -158,3 +158,17 @@ Moneyline Range [601..622] T 572/57.3/11.6%/z2.38 H 59/45.8/-12.4% 40/40
 Number of Bets Z-Score [0.124..0.323] T 500/57.4/10.9%/z2.25 H 1279/51.1/-2.4% 40/40
 Under Dollars % [56..59] T 836/56.0/8.4%/z2.08 H 824/49.4/-5.5% 40/40
 Verdict: dead. With 78k games the best in-sample z is only 2.6 and it flips: NCAAB dogs are priced.
+=== Audit: CFB Spread Game situational LISTS only (day, week, conference, streaks, prev fav/dog, time zones...) side Dog n=108 alive=0 ===
+Best cell: ATS Streak=-2 T 1388/54.0/5.1%/z1.18 H 482/52.9/1.1%. Nothing else above z 0.5.
+Verdict: dead; CFB situational dog angles do not exist at the closing line.
+=== Audit: NFL ML 2H side Dog n=195 alive=28 (ROI-ranked; holdout very thin) ===
+Yards Per Point Allowed [20.14..23.72] T 411/47.9/13.1%/z2.42 H 106/40.6/-2.7% 40/40
+Full Game Spread % [53..59] T 328/51.2/14.3%/z2.35 H 162/45.1/4.6% 24/40 ALIVE
+Opp Season ATS Margin Avg [-2.1..-0.8] T 333/48.3/13.6%/z2.26 H 139/48.9/15.5% 0/40 ALIVE (stat window)
+Verdict: dead; nothing with holdout n >= 200. 2H ML is too small a market to carry a system anyway.
+=== Audit: NBA Spread 2H side Dog n=403 alive=17 ===
+Off Efficiency [96.7..98.4] T 541/59.9/15.8%/z3.50 H 31/45.2/-8.5% 38/40 (era drift)
+Def FG % [48.4..56] T 573/57.9/11.3%/z2.67 H 1211/49.0/-6.4% 40/40
+Full Game O/U Range [227..230] T 515/57.9/10.4%/z2.49 H 871/49.5/-5.5% 40/40
+Season Margin Avg [-11.67..-9.83] T 533/57.4/10.6%/z2.33 H 304/49.7/-4.3% 40/40 (awful-team 2H dog: no)
+Verdict: dead.
