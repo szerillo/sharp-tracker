@@ -23,6 +23,7 @@ AN_BOOKS = {'15': 'AN_Consensus', '30': 'AN_Open', '1548': 'DK', '69': 'FD', '10
 
 
 T0 = time.time(); BUDGET_S = float(os.environ.get('LINES_BUDGET_S', 420)); STATS = collections.Counter()
+FAST = bool(os.environ.get('LINES_FAST'))   # 5-minute logger: game markets only, no props, Novig best-bid from the listing (no book calls)
 
 
 def over_budget(): return time.time() - T0 > BUDGET_S
@@ -123,6 +124,7 @@ def tick(event_id, market, side, venue, feed, line=None, participant=None, playe
 def pair(event_id, market, yes_side, no_side, venue, feed, bid, ask, last=None, vol=None, line=None, line_no=None, p_yes=None, p_no=None, player=None, extra=None):
     """Exchange yes/no as two rows (the complement side is the mirror of the book)."""
     flags = []
+    if extra and 'ticker' in extra: extra = {**extra, 'yes': yes_side}     # Kalshi: which side the yes contract is, for the trade tape
     if bid is not None and ask is not None and ask - bid > 0.04: flags.append('wide')
     if (bid or 0) <= 0 or (ask or 1) >= 1: flags.append('oneside')
     tick(event_id, market, yes_side, venue, feed, line=line, participant=p_yes, player=player, bid=bid, ask=ask, last=last, vol=vol, flags=flags or None, extra=extra)
@@ -168,7 +170,7 @@ def pinnacle(M):
             n += 1
     # player props (specials) hang off the parent matchup
     pmap = S.PIN_PROPS[SPORT]; npr = 0
-    for m in pm:
+    for m in ([] if FAST else pm):
         if m.get('type') != 'special' or (m.get('special') or {}).get('category') != 'Player Props': continue
         par = games.get((m.get('parent') or {}).get('id'))
         if not par: continue
@@ -218,28 +220,29 @@ def kalshi(M):
             bid, ask, last, vol = float(m.get('yes_bid_dollars') or 0) or None, float(m.get('yes_ask_dollars') or 0) or None, float(m.get('last_price_dollars') or 0) or None, float(m.get('volume_fp') or 0)
             if bid is not None and ask is not None and ask < bid: continue
             strike = m.get('floor_strike')
+            kx = {'ticker': m['ticker']}
             if mkt == 'ml':
-                if tail == 'TIE': tick(ev, per + 'ml', 'draw', 'Kalshi', 'kalshi_api', bid=bid, ask=ask, last=last, vol=vol, flags=['threeway']); continue
+                if tail == 'TIE': tick(ev, per + 'ml', 'draw', 'Kalshi', 'kalshi_api', bid=bid, ask=ask, last=last, vol=vol, flags=['threeway'], extra={**kx, 'yes': 'draw'}); continue
                 t = fix.get(tail, tail)
                 if t not in (a, h): continue
                 tick(ev, per + 'ml', 'home' if t == h else 'away', 'Kalshi', 'kalshi_api', participant=t, bid=bid, ask=ask, last=last, vol=vol,
-                     flags=(['wide'] if bid and ask and ask - bid > 0.04 else None))
+                     flags=(['wide'] if bid and ask and ask - bid > 0.04 else None), extra={**kx, 'yes': 'home' if t == h else 'away'})
             elif mkt == 'total':
                 if strike is None: continue
-                pair(ev, per + 'total', 'over', 'under', 'Kalshi', 'kalshi_api', bid, ask, last, vol, line=float(strike))
+                pair(ev, per + 'total', 'over', 'under', 'Kalshi', 'kalshi_api', bid, ask, last, vol, line=float(strike), extra=kx)
             elif mkt == 'spread':
                 if strike is None: continue
                 t = fix.get(re.sub(r'\d+$', '', tail), re.sub(r'\d+$', '', tail))
                 if t not in (a, h): continue
                 yes = 'home' if t == h else 'away'; other = a if yes == 'home' else h
-                pair(ev, per + 'spread', yes, 'away' if yes == 'home' else 'home', 'Kalshi', 'kalshi_api', bid, ask, last, vol, line=-float(strike), line_no=float(strike), p_yes=t, p_no=other)
+                pair(ev, per + 'spread', yes, 'away' if yes == 'home' else 'home', 'Kalshi', 'kalshi_api', bid, ask, last, vol, line=-float(strike), line_no=float(strike), p_yes=t, p_no=other, extra=kx)
             elif mkt == 'tt':
                 if strike is None: continue
                 t = fix.get(re.sub(r'\d+$', '', tail), re.sub(r'\d+$', '', tail))
                 if t not in (a, h): continue
-                pair(ev, per + ('tt_home' if t == h else 'tt_away'), 'over', 'under', 'Kalshi', 'kalshi_api', bid, ask, last, vol, line=float(strike), p_yes=t, p_no=t)
+                pair(ev, per + ('tt_home' if t == h else 'tt_away'), 'over', 'under', 'Kalshi', 'kalshi_api', bid, ask, last, vol, line=float(strike), p_yes=t, p_no=t, extra=kx)
             n += 1
-    for suf, stat in S.KALSHI_PROPS[SPORT].items():
+    for suf, stat in ({} if FAST else S.KALSHI_PROPS[SPORT]).items():
         for m in walk(pre + suf):
             evt = m['event_ticker'].split('-', 1)[1]; r = resolve(evt)
             if not r or m.get('floor_strike') is None: continue
@@ -305,7 +308,7 @@ def novig(M):
         return g(f"{NOV}{path}" + (('?' + query) if query else ''))
     evs = [e for e in (nv('/v3/catalog/events', f"league={urllib.parse.quote(CFG['novig'])}&status=OPEN_PREGAME&limit=500") or {}).get('items', [])
            if '@' in e.get('description', '') and 0 < e['startsTs'] / 1000 - NOW.timestamp() < CFG['horizon_days'] * 86400]
-    types = set(S.NOVIG_GAME) | set(S.NOVIG_PROPS[SPORT]); todo = []
+    types = set(S.NOVIG_GAME) | (set() if FAST else set(S.NOVIG_PROPS[SPORT])); todo = []
     for e in evs:
         if over_budget(): break
         aw, hm = [s_.strip() for s_ in e['description'].split('@', 1)]; a, h = M.teams.code(aw), M.teams.code(hm)
@@ -322,7 +325,7 @@ def novig(M):
         return out
     def snap(x):
         ev, a, h, m = x
-        if m['marketType'] not in S.NOVIG_GAME or over_budget(): return ev, a, h, m, best_from_listing(m)
+        if FAST or m['marketType'] not in S.NOVIG_GAME or over_budget(): return ev, a, h, m, best_from_listing(m)
         b = (nv(f"/v3/catalog/markets/{m['marketId']}/book", 'depth=10') or {}).get('orders', {})
         if not b: return ev, a, h, m, best_from_listing(m)
         oc = {o['outcomeId']: o['name'] for o in m['outcomes']}; best = {}
@@ -347,7 +350,7 @@ def novig(M):
             for s_, nm in sides.items():
                 other = [t for t in sides if t != s_][0]; o = best[nm]
                 q3 = o['qty_3c'] if o['qty_3c'] is not None else o['qty_best']
-                ex_ = dict(qty_best=o['qty_best'], qty_3c=o['qty_3c'], depth3=round(q3 * o['best'] / 100, 2), depth_src='book' if o['qty_3c'] is not None else 'best')   # 1c contracts -> dollars
+                ex_ = dict(qty_best=o['qty_best'], qty_3c=o['qty_3c'], depth3=round(q3 * o['best'] / 100, 2), depth_src='book' if o['qty_3c'] is not None else 'best', market_id=m['marketId'])   # 1c contracts -> dollars
                 yield s_, bids[s_], 1 - bids[other], flags, ex_
             n += 1
         if typ in S.NOVIG_GAME:
@@ -362,7 +365,7 @@ def novig(M):
                 if not yes: continue
                 q3 = yes['qty_3c'] if yes['qty_3c'] is not None else yes['qty_best']
                 tick(ev, per + 'ml', side, 'Novig', 'novig_api', participant=part, bid=yes['best'], ask=(1 - no['best']) if no else None, flags=['threeway'],
-                     extra=dict(qty_best=yes['qty_best'], qty_3c=yes['qty_3c'], depth3=round(q3 * yes['best'] / 100, 2), depth_src='book' if yes['qty_3c'] is not None else 'best'))
+                     extra=dict(qty_best=yes['qty_best'], qty_3c=yes['qty_3c'], depth3=round(q3 * yes['best'] / 100, 2), depth_src='book' if yes['qty_3c'] is not None else 'best', market_id=m['marketId']))
                 n += 1
             elif mkt == 'ml':
                 for s_, bid, ask, flags, ex_ in two(lambda nm: 'home' if M.teams.code(nm) == h else ('away' if M.teams.code(nm) == a else None)):

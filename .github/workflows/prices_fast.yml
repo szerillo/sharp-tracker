@@ -1,0 +1,37 @@
+name: prices fast (5-minute move tape)
+# Pinnacle + Novig + Kalshi game markets and Kalshi trades every 5 minutes, 10 AM to 1:59 AM ET (cron is UTC, EDT = UTC-4), for
+# the move framework (docs/sharp_framework_v2_scope.md). Actions cron jitter is 1 to 4 minutes; rows carry their true timestamps.
+on:
+  schedule:
+    - cron: '*/5 14-23,0-5 * * *'
+  workflow_dispatch: {}
+permissions:
+  contents: write
+concurrency:
+  group: prices-fast
+  cancel-in-progress: false
+jobs:
+  fast:
+    runs-on: ubuntu-latest
+    timeout-minutes: 9
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.12'}
+      - name: fast tape (all sports, one run)
+        timeout-minutes: 7
+        env:
+          LINES_BUDGET_S: '50'
+          NOVIG_KEY_ID: ${{ secrets.NOVIG_KEY_ID }}
+          NOVIG_PRIVATE_KEY: ${{ secrets.NOVIG_PRIVATE_KEY }}
+        run: pip install -q cryptography && python3 loggers/fast.py || true
+      - name: commit
+        run: |
+          git config user.name "prices-bot"; git config user.email "actions@users.noreply.github.com"
+          git add data/*/ticks5 data/kalshi/trades5 data/kalshi/fast_state.json 2>/dev/null; git commit -m "fast $(date -u +%Y-%m-%dT%H:%M)" || exit 0
+          for i in 1 2 3 4 5 6; do
+            if git pull --rebase -X theirs && git push; then exit 0; fi
+            git rebase --abort 2>/dev/null || true
+            sleep $((RANDOM % 20 + 5))
+          done
+          exit 1
