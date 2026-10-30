@@ -31,8 +31,17 @@ Raw per-screen output is in data/betlabs/scans_2026-10-30.txt. Screens were buil
 | NFL 2H moneyline | Dog / Fav | 195 | z 2.5 / rush-yards z 3.6 | thin (n 106-170) / -0.8% | dead |
 | NCAAB totals | Under / Over | 391 | visitor FT 81.5-87, +20.7%, z 4.7 / z 2.7 | -2.4% on 305 / sliver | dead |
 | NCAAB spread | Dog / Fav | 489 / 495 | season ATS margin, z 2.6 / opp def 3P%, z 3.6 | -2.5% on 1,311 / -2.1% | dead |
+| NCAAB moneyline | Dog / Fav | 482 / 489 | off points 69-69.1 sliver, +19.2%, z 4.5 / opp def 3P% z 2.3 | -21.7% on 296, 40/40 / +0.5% flat | dead |
+| EPL totals (5k matches, 2013+) | Under / Over | ~60 | home ML -107 to +123, +15.1%, z 2.7 / home ML 371-644, z 2.6 | -5.8% / -10.4%, 40/40 both | dead |
+| EPL moneyline (three-way) | Fav / Dog | 66 / 67 | matchweek 27-31 favorites, +17.1%, z 3.1 / dogs +495 to +919, +28%, z 6.3 | +3.7% on 292 (watch only) / -17.5%, 40/40 | dead |
+| EPL goal line | Dog / Fav | 59 | prev-game margin 2-3, z 2.2 / win% diff -25 to -13, z 2.3 | +4.9% sliver, 38/40 / -1.6%, 35/40 | dead |
+| CFB 1H moneyline | Dog / Fav | 206 / 207 | opp pass yards window z 2.7 / off yards window z 2.5 | -9.9%, 40/40 / -1.3%, 40/40 | dead |
+| CFB 2H spread | Dog / Fav | 222 | opp season margin -32 to -10, +13.3%, z 3.3 / ATS% diff -18 to -15, z 2.6 | -4.7% on 351, 40/40 / -14.3% on 172, 40/40 | dead |
+| CFB 2H moneyline | Dog / Fav | 183 | see scans log | see scans log | dead |
+| NBA 1H moneyline | Dog / Fav | 205 | Pythag +/- -20 to -7, +14.3%, z 4.7 / ML range z 2.2 | -3.9% on 749, 38/40 / -2.8%, 40/40 | dead |
+| NBA 2H moneyline | Dog / Fav | 205 | see scans log | see scans log | dead |
 
-Thirty-six screen-sides, zero systems. The noise reference held everywhere: with 150 to 500 filters per side the best in-sample
+Fifty-four screen-sides across nine sports and three segments, zero systems. The noise reference held everywhere: with 150 to 500 filters per side the best in-sample
 z lands between 2.1 and 5.7 every time, and 30 to 40 of the top-40 windows go negative on the holdout.
 
 ## What the segments taught
@@ -69,4 +78,17 @@ The two puck-line favorite rules overlap little (strong vs weak, strong vs stron
 ## Screens
 
 All "Audit: ..." screens created for this round were deleted after the scan; the "Tested:" systems from the first round are
-unchanged. No new "Tested:" screens were created, because nothing met the bar. The leans live in sharp/systems.py as paper tags.
+unchanged. Nothing met the system bar, but each lean that runs in the tracker now has a matching Bet Labs screen so its live
+record can be checked against the tracker's paper grades. Full-history records as saved (regular season, 2003 to present):
+
+| Bet Labs screen | Id | Filters | Record |
+|---|---|---|---|
+| Tested: NHL Puck Line Fav Win Pct Gap 22 Plus | 1784154 | NHL spread, Favorite, Win % Difference 22 to 100 | 342-495, +121.8u (+14.5%) |
+| Tested: NHL Puck Line Fav vs Opp Win Pct 66 Plus | 1784155 | NHL spread, Favorite, Opponent Win % 66 to 100 | 551-846, +170.0u (+12.2%) |
+| Tested: NHL Puck Line Dog Open ML 181 to 196 | 1784156 | NHL spread, Dog, Open Moneyline Range 181 to 196 | 707-413, +71.3u (+6.4%) |
+| Tested: NHL Over Home Goalie Saves 31 Plus | 1784157 | NHL O/U, Over, Home Goalie Saves 31.1 to 99 | 741-644-72, +61.1u (+4.4%) |
+| Tested: NBA 1H Under Visitor Over Pct 71 Plus | 1784158 | NBA O/U 1H, Under, Visitor Over Win % 71 to 100 | 426-339-8, +58.4u (+7.6%) |
+
+Naming rule for the account: everything this project keeps starts with "Tested:". Anything starting with "Audit:" is a scan
+scaffold and should not exist once a scan is logged. Older systems in the account without either prefix predate this project
+and were left alone.
