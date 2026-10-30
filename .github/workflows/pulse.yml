@@ -31,6 +31,7 @@ jobs:
               case $(( m % 20 )) in
                 0|1|2|3|4) fire prices.yml ;;
                 10|11|12|13|14) fire tracker.yml ;;
+                15|16|17|18|19) fire pages.yml ;;     # workflow_run does not fire for runs started with GITHUB_TOKEN, so publish from here
               esac
             else
               echo "$(date -u +%H:%M) outside the window (ET $h)"
