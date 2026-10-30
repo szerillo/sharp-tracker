@@ -69,7 +69,7 @@ const MKT = new Proxy(MKT0, {get(t, k) { if (k in t) return t[k]; const m = /^(1
 let SPORT = new URLSearchParams(location.search).get('sport') || null;
 const XV = new Set(['Kalshi', 'Novig', 'Polymarket']), SHARP = new Set(['Pinnacle', 'Circa']);
 const ET = iso => new Date(iso).toLocaleString('en-US', {timeZone: 'America/New_York', month: 'short', day: 'numeric', hour: 'numeric', minute: '2-digit'});
-let D = null, E = null, MV = null, tab = new URLSearchParams(location.search).get('tab') || 'moves';
+let D = null, E = null, MV = null, SY = null, tab = new URLSearchParams(location.search).get('tab') || 'moves';
 const TABS = [['moves', 'Moves'], ['edges', 'Stale prices'], ['board', 'Board'], ['systems', 'Systems'], ['weekly', 'Weekly'], ['props', 'Props'], ['venues', 'Venue tests'], ['ledger', 'Ledger'], ['health', 'Log health'], ['constants', 'Constants']];
 
 function sideLabel(c, g) {
@@ -102,6 +102,8 @@ function ladder(c) {
   }).join('');
 }
 
+const FULLNAME = new Set(['mma', 'cfb', 'soccer', 'ncaab']);
+function gname(g) { return FULLNAME.has(SPORT) && (g.away_name || g.home_name) ? `${esc(g.away_name || g.away)} @ ${esc(g.home_name || g.home)}` : `${esc(g.away)} @ ${esc(g.home)}`; }
 function renderBoard() {
   if (!D.board.length) return '<div class="sec"><div class="sec-h"><span class="name">No upcoming games in the log</span></div></div>';
   const ctl = `<div class="controls"><button onclick="window._openAll=true;draw()">expand all</button> <button onclick="window._openAll=false;window._open={};draw()">collapse all</button> <span>${D.board.length} games · click a game to expand</span></div>`;
@@ -117,7 +119,7 @@ function renderBoard() {
     const pt = g.props.filter(c => c.fair != null).sort((a, b) => (b.edge_pts ?? -99) - (a.edge_pts ?? -99));
     const propRows = pt.slice(0, 12).map(c => `<tr><td>${esc(c.player)} <span class="dim small">${c.stat}</span><br>${sideLabel(c)}</td><td>${fairCell(c)}</td><td>${bestCell(c)}</td><td class="num">${edgeCell(c)}</td><td class="hide-m"></td><td>${ladder(c)}</td></tr>`).join('');
     const open = window._openAll || (window._open && window._open[g.event_id]);
-    return `<details class="sec game" ${open ? 'open' : ''} ontoggle="(_open=window._open||{})['${g.event_id}']=this.open"><summary class="sec-h"><span class="name">${g.away} @ ${g.home}</span><span class="meta">${ET(g.start_utc)} ET · T-${Math.round(g.minutes_to_start / 60 * 10) / 10}h</span>${stale}
+    return `<details class="sec game" ${open ? 'open' : ''} ontoggle="(_open=window._open||{})['${g.event_id}']=this.open"><summary class="sec-h"><span class="name">${gname(g)}</span><span class="meta">${ET(g.start_utc)} ET · T-${Math.round(g.minutes_to_start / 60 * 10) / 10}h</span>${stale}
       <span class="meta">${priced.length} priced markets · ${pt.length} priced props</span>${top ? `<span class="meta">best: ${MKT[top.market] || top.market} ${sideLabel(top, g)} <b class="${top.edge_pts > 0 ? 'pos' : 'neg'}">${top.edge_pts > 0 ? '+' : ''}${top.edge_pts}</b> @ ${top.best[0].venue}</span>` : ''}
       <span class="right">${lim ? 'Pinnacle limits ' + lim : ''}</span></summary>
       <table><thead><tr><th>Market</th><th>Fair (ruler)</th><th>Best bettable</th><th class="num">Edge pts</th><th class="hide-m">Open · public</th><th>Venue ladder (devigged %, hover for raw)</th></tr></thead><tbody>${rows}</tbody></table>
@@ -126,7 +128,7 @@ function renderBoard() {
 }
 
 function renderProps() {
-  const all = []; D.board.forEach(g => g.props.forEach(c => all.push({...c, game: `${g.away}@${g.home}`, start: g.start_utc})));
+  const all = []; D.board.forEach(g => g.props.forEach(c => all.push({...c, game: gname(g), start: g.start_utc})));
   const stats = [...new Set(all.map(c => c.stat))].sort();
   const st = window._pf || (window._pf = {stat: '', side: '', minv: 3, q: ''});
   let rows = all.filter(c => (!st.stat || c.stat === st.stat) && (!st.side || c.side === st.side) && c.fair_n >= st.minv && (!st.q || (c.player || '').toLowerCase().includes(st.q.toLowerCase())));
@@ -215,7 +217,7 @@ function renderMoves() {
     const clv = m.clv_pts == null ? (m.started ? '<span class="dim small">grading</span>' : '<span class="dim small">open</span>') : `<b class="${m.clv_pts > 0 ? 'pos' : 'neg'}">${m.clv_pts > 0 ? '+' : ''}${m.clv_pts}</b>${m.stuck_clv_pts != null ? `<br><span class="dim small">stuck books ${m.stuck_clv_pts > 0 ? '+' : ''}${m.stuck_clv_pts}</span>` : ''}`;
     const res = m.outcome == null ? '' : (m.push ? 'push' : (m.outcome ? '<span class="pos">W</span>' : '<span class="neg">L</span>'));
     return `<tr><td class="small"><span class="badge b-sport">${SPORT_LABEL[m.sport] || m.sport}</span><br>${ET(m.ts)}<br><span class="dim">T-${m.ttk_h}h</span></td>
-      <td class="small"><b>${esc(m.away)} @ ${esc(m.home)}</b><br><span class="dim">${MKT[m.market] || m.market}</span> · ${bet}</td>
+      <td class="small"><b>${esc(m.away_name || m.away)} @ ${esc(m.home_name || m.home)}</b><br><span class="dim">game ${ET(m.start)} ET</span><br><span class="dim">${MKT[m.market] || m.market}</span> · ${bet}</td>
       <td><b class="${SHARP.has(m.origin) ? '' : (XV.has(m.origin) ? '' : '')}">${m.origin}</b>${m.limit ? `<br><span class="dim small">limit $${m.limit.toLocaleString()}</span>` : ''}${withv}</td>
       <td class="mono">${fmtp(m.p0)} → ${fmtp(m.p1)}<br><span class="${m.dir > 0 ? 'pos' : 'neg'}">${m.size_pts} pts toward ${bet}</span></td>
       <td class="small">${fol || '<span class="dim">none yet</span>'}${nof.length ? `<br><span class="dim">not: ${nof.join(', ')}</span>` : ''}</td>
@@ -232,7 +234,7 @@ function renderMoves() {
       <span class="tabs inline">${chip(st.market, '', 'all markets', 'market')}${['ml', 'spread', 'total'].map(v => chip(st.market, v, MKT[v], 'market')).join('')}</span>
       <span class="tabs inline">${chip(st.live, 0, 'all', 'live')}${chip(st.live, 1, 'upcoming only', 'live')}</span>
       <input value="${esc(st.q)}" placeholder="team" oninput="_mf.q=this.value;draw()"> <span>${rows.length} moves</span></div>
-    <div class="sec"><table><thead><tr><th>When</th><th>Market</th><th>Origin</th><th>Move</th><th>Followed (min after)</th><th>Still stuck</th><th>Kalshi flow</th><th class="num">Close</th><th class="num">CLV</th><th class="num">Res</th></tr></thead><tbody>${tr}</tbody></table></div>`;
+    <div class="sec"><table><thead><tr><th>Moved at</th><th>Game · market</th><th>Origin</th><th>Move</th><th>Followed (min after)</th><th>Still stuck</th><th>Kalshi flow</th><th class="num">Close</th><th class="num">CLV</th><th class="num">Res</th></tr></thead><tbody>${tr}</tbody></table></div>`;
 }
 function renderEdges() {
   if (!E) return '<div class="banner">edges.json not loaded yet</div>';
@@ -290,19 +292,39 @@ function renderWeekly() {
   return `<div class="banner">Monday scoreboard, regenerated by the weekly job (also under docs/weekly/ in the repo).</div>` + out.join('');
 }
 function renderSystems() {
-  const S = D.systems;
-  if (!S) return `<div class="banner">No systems engine output for ${D.label || D.sport} yet. Systems exist only for sports that have had their own train/holdout audit (NFL: docs/betlabs_nfl_audit_2026-10-25.md); nothing is carried over between sports.</div>`;
-  const rec = S.record || {};
-  const rules = Object.values(S.rules).map(r => { const x = rec[r.tag] || {n: 0, graded: 0, w: 0, l: 0, p: 0, pnl: 0, clv_avg: null, n_clv: 0, gate: 100, published: false};
-    return `<tr><td class="mono">${r.tag}</td><td>${MKT[r.market] || r.market} ${r.side}</td><td class="num">${r.stake}u</td><td class="num">${x.n}</td><td class="num">${x.w}-${x.l}${x.p ? '-' + x.p : ''}</td><td class="num mono">${x.pnl >= 0 ? '+' : ''}${(x.pnl || 0).toFixed(2)}u</td><td class="num mono">${x.clv_avg == null ? '—' : (x.clv_avg >= 0 ? '+' : '') + x.clv_avg + ' pts'} <span class="small dim">(${x.n_clv})</span></td><td>${x.published ? '<span class="badge b-fit">published</span>' : `<span class="badge b-gate">${x.graded}/${x.gate} graded</span>`}</td></tr>`; }).join('');
-  const games = (S.games || []).map(g => `<div class="sec"><div class="sec-h"><span class="name">${g.away} @ ${g.home}</span> <span class="meta">${ET(g.start_utc)} ET · T-${g.hours_to_kickoff}h · home ${g.spread_home == null ? '—' : (g.spread_home > 0 ? '+' : '') + g.spread_home}${g.wind ? ` · Open-Meteo ${g.wind.mph} mph (gust ${g.wind.gust}) ${g.wind.temp_f}°F at T-${Math.round(g.wind.at_h)}h` : ''}${g.wind && g.wind.msw ? ` · MSW ${g.wind.msw.mph} mph ${g.wind.msw.dir || ''} gust ${g.wind.msw.gust} rain ${g.wind.msw.rain}%` : ''}</span></div>
-    <table><thead><tr><th>rule</th><th>why</th><th>paper fill</th><th class="num">price</th><th class="num">fair</th><th class="num">edge</th></tr></thead><tbody>
-    ${Object.entries(g.triggers).map(([tag, why]) => { const f = (g.fills || []).find(x => x.tag === tag);
-      return `<tr><td class="mono">${tag}</td><td class="small">${esc(why)}</td><td>${f ? (f.stacked ? '<span class="dim">stacked — not a second bet</span>' : `${MKT[f.market] || f.market} ${f.side} ${f.line ?? ''} @ ${f.venue}`) : '<span class="dim">flag only</span>'}</td><td class="num mono">${f && !f.stacked ? am(f.price) : '—'}</td><td class="num mono">${f && f.fair != null ? pct(f.fair) : '—'}</td><td class="num mono">${f && f.edge_pts != null ? (f.edge_pts >= 0 ? '+' : '') + f.edge_pts : '—'}</td></tr>`; }).join('')}</tbody></table></div>`).join('');
-  return `<div class="banner">Pre-registered rules from the Bet Labs audit, run forward as <b>paper fills at the best bettable price at trigger time</b>, graded with CLV against the exchange ruler. A tag is "published" only after ${100} graded fills with positive CLV; until then it is a hypothesis. Fire window: ${S.window_h[0]}–${S.window_h[1]}h before kickoff. Built ${ET(S.built)} ET.</div>
-    <div class="sec"><div class="sec-h"><span class="name">Forward record by rule</span></div><table><thead><tr><th>tag</th><th>bet</th><th class="num">stake</th><th class="num">fills</th><th class="num">W-L</th><th class="num">P&L</th><th class="num">CLV avg</th><th>gate</th></tr></thead><tbody>${rules}</tbody></table></div>
-    <div class="sec-h"><b>Triggers in the window</b></div>${games || '<div class="small dim">no game in the fire window has a trigger right now</div>'}`;
+  if (!SY) return '<div class="banner">system_fires.json not loaded yet.</div>';
+  const st = window._sf || (window._sf = {sport: ''});
+  const chip = (cur, val, label) => `<button class="${cur === val ? 'on' : ''}" onclick="_sf.sport='${val}';draw()">${label}</button>`;
+  const rec = SY.record || {}; const rules = SY.rules || {};
+  const games = (SY.games || []).filter(g => !st.sport || (g.sport || 'nfl') === st.sport).sort((a, b) => a.start_utc < b.start_utc ? -1 : 1);
+  const sports = [...new Set((SY.games || []).map(g => g.sport || 'nfl'))];
+  const name = g => `${esc(g.away_name || g.away)} @ ${esc(g.home_name || g.home)}`;
+  const betLine = f => { const who = f.market.endsWith('total') ? '' : (f.side === 'home' ? 'home' : 'away'); const ln = f.line == null ? '' : (f.market.endsWith('spread') ? ' ' + (f.line > 0 ? '+' : '') + f.line : ' ' + f.line);
+    return `<b>${MKT[f.market] || f.market}</b> · <span class="side-${f.side}">${f.market.endsWith('total') ? (f.side === 'over' ? 'Over' : 'Under') : (f.side === 'home' ? 'HOME' : 'AWAY')}${ln}</span>`; };
+  const bets = []; const flags = [];
+  for (const g of games) for (const [tag, why] of Object.entries(g.triggers || {})) {
+    const f = (g.fills || []).find(x => x.tag === tag);
+    if (f && !f.stacked) bets.push({g, tag, why, f}); else flags.push({g, tag, why, f});
+  }
+  const recCell = tag => { const x = rec[tag]; if (!x || !x.n) return '<span class="dim small">no fills yet</span>';
+    return `<span class="small">${x.w}-${x.l}${x.p ? '-' + x.p : ''} · <span class="${x.pnl >= 0 ? 'pos' : 'neg'}">${x.pnl >= 0 ? '+' : ''}${(x.pnl || 0).toFixed(1)}u</span> · CLV ${x.clv_avg == null ? '—' : (x.clv_avg >= 0 ? '+' : '') + x.clv_avg}</span>`; };
+  const betRows = bets.map(({g, tag, why, f}) => `<tr>
+      <td class="small"><span class="badge b-sport">${SPORT_LABEL[g.sport || 'nfl'] || g.sport}</span><br><b>${ET(g.start_utc)}</b><br><span class="dim">T-${g.hours_to_kickoff}h</span></td>
+      <td><b>${name(g)}</b><br><span class="small dim">${esc(f.why || why)}</span></td>
+      <td>${betLine(f)}<br><span class="small dim">${f.side === 'home' ? esc(g.home_name || g.home) : (f.side === 'away' ? esc(g.away_name || g.away) : '')}</span></td>
+      <td class="mono">${f.venue} <b>${am(f.price)}</b><br><span class="small dim">${rules[tag] ? rules[tag].stake + 'u' : ''} · fair ${pct(f.fair)}% · edge ${f.edge_pts == null ? '—' : (f.edge_pts >= 0 ? '+' : '') + f.edge_pts}</span></td>
+      <td class="small"><span class="mono">${tag}</span><br>${recCell(tag)}${rec[tag] && rec[tag].published ? ' <span class="badge b-fit">published</span>' : ''}</td></tr>`).join('');
+  const flagRows = flags.map(({g, tag, why, f}) => `<tr><td class="small"><span class="badge b-sport">${SPORT_LABEL[g.sport || 'nfl'] || g.sport}</span> ${ET(g.start_utc)}</td><td>${name(g)}</td><td class="mono small">${tag}</td><td class="small dim">${esc(why)}${f && f.stacked ? ' · same bet already taken by a higher-priority rule' : (f ? '' : ' · no bettable price at trigger time (no fill)')}</td></tr>`).join('');
+  const ruleRows = Object.values(rules).map(r => { const x = rec[r.tag] || {n: 0, graded: 0, w: 0, l: 0, p: 0, pnl: 0, clv_avg: null, n_clv: 0, gate: 100, published: false};
+    return `<tr><td class="mono small">${r.tag}</td><td class="small">${esc(r.desc || '')}</td><td class="num">${r.stake}u</td><td class="num">${x.n}</td><td class="num">${x.w}-${x.l}${x.p ? '-' + x.p : ''}</td><td class="num mono ${x.pnl >= 0 ? 'pos' : 'neg'}">${x.pnl >= 0 ? '+' : ''}${(x.pnl || 0).toFixed(2)}u</td><td class="num mono">${x.clv_avg == null ? '—' : (x.clv_avg >= 0 ? '+' : '') + x.clv_avg} <span class="small dim">(${x.n_clv})</span></td><td>${x.published ? '<span class="badge b-fit">published</span>' : `<span class="badge b-gate">${x.graded}/${x.gate}</span>`}</td></tr>`; }).join('');
+  return `<div class="banner">Every rule is pre-registered from a Bet Labs or exchange audit and runs forward as a <b>paper fill at the best bettable price at trigger time</b> (BetMGM excluded, Kalshi fee included), graded with CLV against the exchange ruler. Nothing is a real-money bet until a tag has 100 graded fills with positive CLV. Fire window ${SY.window_h[0]}–${SY.window_h[1]}h before kickoff. Built ${ET(SY.built)} ET.</div>
+    <div class="controls"><span class="tabs inline">${chip(st.sport, '', 'all sports')}${sports.map(sp => chip(st.sport, sp, SPORT_LABEL[sp] || sp)).join('')}</span><span>${bets.length} bets flagged · ${flags.length} flags without a bet</span></div>
+    <div class="sec"><div class="sec-h"><span class="name">Bets flagged (paper fills open now)</span><span class="meta">game time is ET; the bet is the market, side and number shown, at the venue and price taken</span></div>
+      ${bets.length ? `<table><thead><tr><th>Game time</th><th>Game · why</th><th>Bet</th><th>Taken at</th><th>Rule · forward record</th></tr></thead><tbody>${betRows}</tbody></table>` : '<div class="small dim" style="padding:8px 12px">no open paper fills in the window</div>'}</div>
+    ${flags.length ? `<div class="sec"><div class="sec-h"><span class="name">Flags without a bet</span></div><table><thead><tr><th>Game time</th><th>Game</th><th>Rule</th><th>Why</th></tr></thead><tbody>${flagRows}</tbody></table></div>` : ''}
+    <div class="sec"><div class="sec-h"><span class="name">Rules and forward record</span></div><table><thead><tr><th>tag</th><th>rule</th><th class="num">stake</th><th class="num">fills</th><th class="num">W-L</th><th class="num">P&L</th><th class="num">CLV avg</th><th>gate</th></tr></thead><tbody>${ruleRows}</tbody></table></div>`;
 }
+
 function renderLedger() {
   const L = D.ledger; const S = L.summary; const a = S['all:all'] || {n: 0, pnl: 0, units: 0};
   const tiles = `<div class="tiles"><div class="tile"><div class="k">${L.fills.length}</div><div class="l">fills logged</div></div><div class="tile"><div class="k">${a.n}</div><div class="l">graded</div></div>
@@ -342,6 +364,7 @@ async function load() {
     D = await (await fetch(u, {cache: 'no-store'})).json();
     try { E = await (await fetch('data/state/edges.json', {cache: 'no-store'})).json(); } catch (e) { E = null; }
     try { MV = await (await fetch('data/state/moves.json', {cache: 'no-store'})).json(); } catch (e) { MV = null; }
+    try { SY = await (await fetch('data/state/system_fires.json', {cache: 'no-store'})).json(); } catch (e) { SY = null; }
     const idx = D.index;
     if (idx && idx.sports && idx.sports.length) {
       if (!SPORT) SPORT = idx.sports[0].sport;

@@ -1,19 +1,10 @@
 #!/usr/bin/env python3
-"""Pre-registered systems engine (docs/betlabs_nfl_audit_2026-10-25.md §7). Every tracker run: for each NFL game inside the fire window
-(6h-30h before kickoff) evaluate the rules; the first time a rule triggers write ONE paper fill at the best bettable price at that
-moment (BetMGM excluded, Kalshi fee included) with rule_tag 'paper:<tag>', so it is graded like any fill with CLV vs the ruler.
-State: data/state/system_fired.json (game x tag, never fires twice). View: data/state/system_fires.json (fires today + per-tag record).
-
-Rules (NFL only until another sport has had its own audit):
-  wind1014      outdoor, Open-Meteo forecast 10-14 mph sustained at kickoff (the row nearest T-24h)   -> FG under   1.0u
-  wind1014_1h   same                                                                                    -> 1H under   0.5u
-  vrest8_1h     visitor off >= 8 days                                                                   -> 1H under   0.5u
-  mnf_1h        Monday night (ET)                                                                       -> 1H under   0.5u
-  awfuldog      dog (consensus spread), season margin avg <= -13 after >= 2 games                        -> FG spread  0.5u
-  bounce15_1h   dog, previous game ATS margin <= -15 (DK close via ESPN)                                 -> 1H spread  0.5u
-  sharp10       dog, AN consensus money% - ticket% >= 10 (flag only, no fill)
-Stacking: one bet per game per outlet market; awfuldog + bounce15_1h on the same game -> the 1H spread only.
-Publication gate per tag: 100 graded fills AND positive CLV."""
+"""Pre-registered systems engine: every tracker run, for each game inside the fire window, evaluate the rules for its sport and the
+first time a rule triggers write ONE paper fill at the best bettable price at that moment (BetMGM excluded, Kalshi fee included) with
+rule_tag 'paper:<tag>', graded like any fill with CLV vs the ruler. State: data/state/system_fired.json (game x tag, never fires
+twice). View: data/state/system_fires.json (games with triggers, fills, per-tag record, rule descriptions in DESC).
+Rules and their sources: RULES / DESC below; audits in docs/betlabs_*.md and docs/exchange_signals_audit_2026-10-29.md.
+Stacking: one bet per game per market x side. Publication gate per tag: 100 graded fills AND positive CLV."""
 import os, sys, json, uuid, sqlite3, datetime as dt, collections, math
 HERE = os.path.dirname(os.path.abspath(__file__)); sys.path.insert(0, os.path.dirname(HERE))
 from sharp import norm as N, fair as F, constants as C, season as SEA, fills as FI
@@ -31,8 +22,20 @@ RULES = {'wind1014': dict(market='total', side='under', stake=1.0), 'wind1014_1h
          'nba_momentum': dict(market='ml|spread|total', side='continuation', stake=0.5, sport='nba', venue='Novig|Kalshi'),
          # Bet Labs round 2 leans (docs/betlabs_segments_audit_2026-10-30.md), paper only
          'nhl_pl_fav_gap': dict(market='spread', side='fav', stake=0.5, sport='nhl'), 'nhl_pl_fav_strong_opp': dict(market='spread', side='fav', stake=0.5, sport='nhl'),
-         'nhl_pl_dog_bigml': dict(market='spread', side='dog', stake=0.5, sport='nhl'), 'nhl_over_busy_goalie': dict(market='total', side='over', stake=0.5, sport='nhl'),
-         'nba_1h_under_hot_over': dict(market='1h_total', side='under', stake=0.5, sport='nba')}
+         'nhl_pl_dog_bigml': dict(market='spread', side='dog', stake=0.5, sport='nhl'),
+         'nba_1h_under_hot_over': dict(market='1h_total', side='under', stake=0.5, sport='nba'),
+         # Bet Labs round 3 watch tier (docs/betlabs_account_systems_audit_2026-10-30.md), paper only
+         'nhl_early_home_fav_qual': dict(market='ml', side='home', stake=0.5, sport='nhl'), 'nba_under_good_home_over': dict(market='total', side='under', stake=0.5, sport='nba'),
+         'cfb_road_dog_low_total': dict(market='spread', side='away', stake=0.5, sport='cfb')}
+# nhl_over_busy_goalie retired 10/30: positive in 2 of 7 seasons and the goalie-saves field thins to a handful of games after 2023.
+DESC = {'wind1014': 'NFL outdoor, Open-Meteo sustained wind 10-14 mph at T-24h: full-game under', 'wind1014_1h': 'same wind band: first-half under',
+        'cfb_wind14': 'CFB outdoor, wind 14+ mph at T-24h: full-game under', 'vrest8_1h': 'NFL visitor off 8-30 days: first-half under', 'mnf_1h': 'Monday night: first-half under',
+        'awfuldog': 'NFL dog with season margin -13 or worse (2+ games): full-game spread', 'bounce15_1h': 'NFL dog whose last game lost ATS by 15+: first-half spread',
+        'xch_homedog_fade': 'Novig home side two-sided at 20-35c inside T-90m: take the road side on Novig', 'nba_momentum': 'NBA exchange mid moved 3c+ since T-6h: continuation at that exchange',
+        'nhl_pl_fav_gap': 'NHL favorite -1.5 when the win% gap is 22+ points', 'nhl_pl_fav_strong_opp': 'NHL favorite -1.5 when the opponent wins 66%+',
+        'nhl_pl_dog_bigml': 'NHL dog +1.5 when the dog ML is +181 to +196', 'nba_1h_under_hot_over': 'NBA 1H under when the visitor has gone over 71%+ of the time',
+        'nhl_early_home_fav_qual': 'NHL home favorite, game 24 or earlier, vs an opponent winning 51%+: moneyline', 'nba_under_good_home_over': 'NBA under: home team over 58%+, home 1-2 days off, visitor 1-3, total down 0.5+ from open',
+        'cfb_road_dog_low_total': 'CFB conference game, road dog of 7+ with a total of 48 or less: road spread'}
 LATE_H = (0.1, 1.5)   # exchange rules fire in the last 90 minutes (the audit priced them at the close)
 WINDOW_H = tuple(float(x) for x in os.environ.get('SYSTEMS_WINDOW', '2,30').split(','))
 
@@ -70,6 +73,22 @@ def main_line(eq, market, home):
         nv[l] += len(vs)
     if not nv: return None, 0
     l = max(nv, key=lambda k: (nv[k], -abs(k))); return l, nv[l]
+
+
+def open_line(conn, ev, market):
+    """The opening number for a total: AN_Open's first line, else the earliest line any book quoted."""
+    r = conn.execute("SELECT line FROM ticks WHERE event_id=? AND market=? AND venue='AN_Open' AND line IS NOT NULL ORDER BY ts_utc LIMIT 1", (ev, market)).fetchone()
+    if not r: r = conn.execute("SELECT line FROM ticks WHERE event_id=? AND market=? AND line IS NOT NULL AND venue NOT IN ('Kalshi','Novig','Polymarket') ORDER BY ts_utc LIMIT 1", (ev, market)).fetchone()
+    return r[0] if r else None
+
+
+def sched_rec(sport, ev):
+    p = os.path.join(ROOT, 'data', sport, 'schedule.json'); s = SCHED_CACHE.get(sport)
+    if s is None: s = SCHED_CACHE[sport] = json.load(open(p)) if os.path.exists(p) else {}
+    return s.get(ev) or {}
+
+
+SCHED_CACHE = {}
 
 
 def public(conn, ev, market, side):
@@ -122,9 +141,6 @@ def main():
                 trig['awfuldog'] = f"{dteam} season margin {dp['margin_avg']:+.1f} over {dp['games']} games, dog {('+' if sp_line > 0 else '')}{sp_line if dog == 'home' else -sp_line}"
             if dp.get('last_ats_margin') is not None and dp['last_ats_margin'] <= -15:
                 trig['bounce15_1h'] = f"{dteam} previous game ATS margin {dp['last_ats_margin']:+.1f}"
-            pub = public(conn, ev, 'spread', dog)
-            if pub.get('money_pct') is not None and pub.get('tickets_pct') is not None and pub['money_pct'] - pub['tickets_pct'] >= 10:
-                trig['sharp10'] = f"{dteam} money {pub['money_pct']}% vs tickets {pub['tickets_pct']}%"
         if 'awfuldog' in trig and 'bounce15_1h' in trig: trig['awfuldog'] += ' (skipped: bounce15_1h takes the game)'; skip_awful = True
         else: skip_awful = False
         game = dict(event_id=ev, away=away, home=home, start_utc=start, hours_to_kickoff=round(ttk, 1), spread_home=sp_line, dog=dog, triggers=trig,
@@ -161,10 +177,25 @@ def main():
         st = N.parse_ts(start); ttk = (st - NOW).total_seconds() / 3600
         if not (WINDOW_H[0] <= ttk <= WINDOW_H[1]): continue
         wx = weather_t24(ev, WX_CFB); msw = msw_latest('cfb', ev)
-        if not wx or wx.get('indoor') or wx.get('wind_mph') is None or wx['wind_mph'] < 14: continue
-        eq = F.EventQuotes(conn, ev); why = f"forecast {wx['wind_mph']} mph (gust {wx.get('gust_mph')}) at T-{wx['hours_to_kickoff']:.0f}h, {wx.get('temp_f')}F" + (f"; MSW {msw['wind_mph']} mph {msw.get('wind_dir') or ''}" if msw else '; MSW n/a')
-        game = dict(event_id=ev, away=away, home=home, start_utc=start, hours_to_kickoff=round(ttk, 1), spread_home=None, dog=None, triggers={'cfb_wind14': why},
-                    wind=dict(mph=wx['wind_mph'], gust=wx.get('gust_mph'), temp_f=wx.get('temp_f'), at_h=wx['hours_to_kickoff']), fills=[], sport='cfb')
+        windy = wx and not wx.get('indoor') and wx.get('wind_mph') is not None and wx['wind_mph'] >= 14
+        eq = F.EventQuotes(conn, ev)
+        sp_line, _n = main_line(eq, 'spread', home); tl, _n2 = main_line(eq, 'total', None); rec_s = sched_rec('cfb', ev)
+        rdlt = sp_line is not None and sp_line <= -7 and tl is not None and tl <= 48 and rec_s.get('conf')
+        if not windy and not rdlt: continue
+        game = dict(event_id=ev, away=away, home=home, start_utc=start, hours_to_kickoff=round(ttk, 1), spread_home=sp_line, dog=('away' if sp_line and sp_line < 0 else None), triggers={},
+                    wind=(dict(mph=wx['wind_mph'], gust=wx.get('gust_mph'), temp_f=wx.get('temp_f'), at_h=wx['hours_to_kickoff']) if wx else None), fills=[], sport='cfb')
+        if rdlt:
+            why2 = f"conference game, {away} +{-sp_line} on the road, total {tl}"; game['triggers']['cfb_road_dog_low_total'] = why2; key2 = f"{ev}:cfb_road_dog_low_total"
+            if key2 in fired: game['fills'].append(fired[key2])
+            else:
+                row = paper_fill(conn, eq, ev, start, 'spread', -sp_line, 'away', away, 'cfb_road_dog_low_total', 0.5, why2)
+                if row:
+                    rec_ = dict(tag='cfb_road_dog_low_total', fill_id=row['fill_id'], ts=NOW_S, market='spread', side='away', line=-sp_line, venue=row['venue'], price=row['price_american'],
+                                fair=row['fair_at_fill'], edge_pts=(round(100 * (row['fair_at_fill'] - row['implied']), 2) if row['fair_at_fill'] is not None else None), why=why2)
+                    fired[key2] = rec_; game['fills'].append(rec_); fires_now.append(dict(game=f"{away}@{home}", **rec_))
+        if not windy: view_games.append(game); continue
+        why = f"forecast {wx['wind_mph']} mph (gust {wx.get('gust_mph')}) at T-{wx['hours_to_kickoff']:.0f}h, {wx.get('temp_f')}F" + (f"; MSW {msw['wind_mph']} mph {msw.get('wind_dir') or ''}" if msw else '; MSW n/a')
+        game['triggers']['cfb_wind14'] = why
         key = f"{ev}:cfb_wind14"
         if key in fired: game['fills'].append(fired[key])
         else:
@@ -193,9 +224,15 @@ def main():
             if pd['win_pct'] >= 0.66: trig['nhl_pl_fav_strong_opp'] = ('spread', fav_side, f"opponent {dog} win% {100 * pd['win_pct']:.0f}% (favorite -1.5 vs a strong team)")
             p_dog = 1 - max(p_home, 1 - p_home); am = N.prob_to_american(p_dog) if p_dog else None
             if am is not None and 181 <= am <= 196: trig['nhl_pl_dog_bigml'] = ('spread', 'away' if fav_side == 'home' else 'home', f"dog ML about +{am:.0f}: +1.5 on a big dog")
-            if (ph.get('shots_against_avg') or 0) >= 34: trig['nhl_over_busy_goalie'] = ('total', 'over', f"home shots against {ph['shots_against_avg']:.1f}/game (busy goalie, season saves 31+)")
+            if fav == home and ph['games'] + 1 <= 24 and pd['win_pct'] >= 0.51:
+                trig['nhl_early_home_fav_qual'] = ('ml', 'home', f"home favorite, game {ph['games'] + 1} of the season, opponent {away} wins {100 * pd['win_pct']:.0f}%")
         else:
             if (pa.get('over_pct') or 0) >= 0.71 and pa.get('games', 0) >= 8: trig['nba_1h_under_hot_over'] = ('1h_total', 'under', f"visitor {away} over rate {100 * pa['over_pct']:.0f}% this season; 1H under (regression lean)")
+            h_off = (ph.get('days_since_last') or 0) - 1; a_off = (pa.get('days_since_last') or 0) - 1
+            if (ph.get('over_pct') or 0) >= 0.58 and 1 <= h_off < 3 and 1 <= a_off < 4:
+                tl, _n = main_line(eq, 'total', None); op = open_line(conn, ev, 'total')
+                if tl is not None and op is not None and op - tl >= 0.5:
+                    trig['nba_under_good_home_over'] = ('total', 'under', f"home {home} over rate {100 * ph['over_pct']:.0f}%, home {h_off:.0f} days off, visitor {a_off:.0f}; total {op} -> {tl}")
         if not trig: continue
         game = dict(event_id=ev, away=away, home=home, start_utc=start, hours_to_kickoff=round(ttk, 1), spread_home=None, dog=dog, triggers={k: v[2] for k, v in trig.items()}, fills=[], sport=sport)
         for tag, (market, side, why) in trig.items():
@@ -274,7 +311,10 @@ def main():
     for s in rec.values():
         s['clv_avg'] = round(sum(s['clv']) / len(s['clv']), 2) if s['clv'] else None; s['n_clv'] = len(s['clv']); del s['clv']; s['pnl'] = round(s['pnl'], 3)
         s['published'] = bool(s['graded'] >= s['gate'] and (s['clv_avg'] or 0) > 0)
-    json.dump(dict(built=NOW_S, window_h=WINDOW_H, rules={k: dict(v, tag=k) for k, v in RULES.items()}, games=view_games, fired_now=fires_now, record=dict(rec)),
+    for g in view_games:
+        r_ = sched_rec(g.get('sport', 'nfl'), g['event_id']); g['away_name'] = (r_.get('away_team') or {}).get('displayName') or g['away']; g['home_name'] = (r_.get('home_team') or {}).get('displayName') or g['home']
+        g.setdefault('sport', 'nfl')
+    json.dump(dict(built=NOW_S, window_h=WINDOW_H, rules={k: dict(v, tag=k, desc=DESC.get(k, '')) for k, v in RULES.items()}, games=view_games, fired_now=fires_now, record=dict(rec)),
               open(VIEW, 'w'), default=str, separators=(',', ':'))
     print(f"[systems] {len(view_games)} games with triggers in the {WINDOW_H[0]}-{WINDOW_H[1]}h window; {len(fires_now)} new paper fills; tags on file {dict((k, v['n']) for k, v in rec.items())}")
     conn.close()

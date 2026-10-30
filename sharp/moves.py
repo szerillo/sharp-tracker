@@ -188,7 +188,7 @@ def detect(fast, soft, sched, closes, ktr, ntape, ncache, sport):
             side = ('home' if d > 0 else 'away') if mkt != 'total' else ('over' if d > 0 else 'under')
             line = (hl if side in ('home', 'over') else -hl) if mkt == 'spread' else hl
             oc = closes.get((ev, mkt, float(line), side)) if settled else None
-            moves.append(dict(id=mid, sport=sport, event_id=ev, away=e.get('away'), home=e.get('home'), start=start.strftime('%Y-%m-%dT%H:%MZ'), market=mkt, line=float(hl) if mkt != 'ml' else None,
+            moves.append(dict(id=mid, sport=sport, event_id=ev, away=e.get('away'), home=e.get('home'), away_name=(e.get('away_team') or {}).get('displayName'), home_name=(e.get('home_team') or {}).get('displayName'), start=start.strftime('%Y-%m-%dT%H:%MZ'), market=mkt, line=float(hl) if mkt != 'ml' else None,
                               ts=t0.strftime('%Y-%m-%dT%H:%MZ'), ttk_h=round((start - t0).total_seconds() / 3600, 2), origin=c['venue'], dir=d, side=side,
                               p0=round(c['p0'], 4), p1=round(c['p1'], 4), size_pts=round(100 * (c['p1'] - c['p0']) * d, 1), limit=lim, with_=c['members'],
                               followed=fol, soft_follow_rate=(round(len(soft_fol) / len(soft_seen), 2) if soft_seen else None), stuck=stuck,

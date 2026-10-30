@@ -74,7 +74,7 @@ def espn_schedule():
             rec = dict(event_id=ev['id'], start=ev['date'], away=teams.get('away', {}).get('abbr'), home=teams.get('home', {}).get('abbr'),
                        away_team=teams.get('away'), home_team=teams.get('home'), venue=v.get('fullName'), indoor=v.get('indoor'),
                        city=(v.get('address') or {}).get('city'), state=(v.get('address') or {}).get('state'), status=st.get('name'), completed=st.get('completed'),
-                       week=(ev.get('week') or {}).get('number'), neutral=c.get('neutralSite'), fetched=TS, league=CFG.get('league_key'))
+                       week=(ev.get('week') or {}).get('number'), neutral=c.get('neutralSite'), conf=c.get('conferenceCompetition'), fetched=TS, league=CFG.get('league_key'))
             # linescores (for 1H / 1Q grading) when present
             ls = {t['homeAway']: [float(q.get('value') or 0) for q in (t.get('linescores') or [])] for t in c['competitors']}
             if any(ls.values()): rec['linescores'] = ls

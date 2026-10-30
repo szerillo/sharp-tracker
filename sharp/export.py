@@ -59,8 +59,15 @@ def main_line(eq, market, part=None):
     return sorted({l for l, n in cands if n == mx})
 
 
+def team_names(sport):
+    """event_id -> (away display name, home display name) from the sport's ESPN schedule (full fighter / school names for the page)."""
+    p = os.path.join(ROOT, 'data', sport, 'schedule.json')
+    if not os.path.exists(p): return {}
+    return {k: ((v.get('away_team') or {}).get('displayName'), (v.get('home_team') or {}).get('displayName')) for k, v in json.load(open(p)).items()}
+
+
 def board(conn, sport='mlb'):
-    out = []; order = ORDER_SPORT[sport]; mclass = N.MARKET_CLASS if sport == 'mlb' else SP.market_class
+    out = []; order = ORDER_SPORT[sport]; mclass = N.MARKET_CLASS if sport == 'mlb' else SP.market_class; names = team_names(sport)
     for ev, et_date, start, away, home, status in conn.execute("SELECT event_id, et_date, start_utc, away, home, status FROM events WHERE sport=? ORDER BY start_utc", (sport,)).fetchall():
         st = N.parse_ts(start)
         if st < NOW - dt.timedelta(hours=1) or st > NOW + dt.timedelta(hours=BOARD_HOURS[sport]): continue
@@ -68,7 +75,8 @@ def board(conn, sport='mlb'):
         last_tick = max((L[-1][0] for L in eq.idx.values()), default=None)
         if last_tick and (NOW - N.parse_ts(last_tick)).total_seconds() > C.STALE_BOOK_MIN['value'] * 60:
             ts = last_tick   # the log is stale (job not running): price the board at the last observation and say so
-        g = dict(event_id=ev, et_date=et_date, start_utc=start, away=away, home=home, status=status, priced_at=ts,
+        nm = names.get(ev) or (None, None)
+        g = dict(event_id=ev, et_date=et_date, start_utc=start, away=away, home=home, away_name=nm[0], home_name=nm[1], status=status, priced_at=ts,
                  stale_min=round((NOW - N.parse_ts(ts)).total_seconds() / 60), minutes_to_start=round((st - N.parse_ts(ts)).total_seconds() / 60), markets=[])
         for m in order:
             if m.endswith('ml'):
@@ -182,7 +190,7 @@ def main():
                 if c.get('fair') is None or not c.get('best'): continue
                 b = c['best'][0]; b2 = c['best'][1] if len(c['best']) > 1 else None
                 lad = {l['venue']: l.get('p') for l in c.get('ladder', []) if l.get('p') is not None}
-                edges.append(dict(sport=spx['sport'], event_id=gm['event_id'], game=f"{gm['away']}@{gm['home']}", start_utc=gm['start_utc'], ttk_h=round(gm['minutes_to_start'] / 60, 1),
+                edges.append(dict(sport=spx['sport'], event_id=gm['event_id'], game=(f"{gm['away_name']} @ {gm['home_name']}" if spx['sport'] in ('mma', 'cfb', 'soccer', 'ncaab') and gm.get('away_name') else f"{gm['away']}@{gm['home']}"), start_utc=gm['start_utc'], ttk_h=round(gm['minutes_to_start'] / 60, 1),
                                   stale_min=gm['stale_min'], market=c['market'], mclass='prop' if c['market'].startswith('prop_') else 'game', side=c['side'], line=c.get('line'),
                                   participant=c.get('participant'), player=c.get('player'), stat=c.get('stat'), fair=c['fair'], fair_n=c['fair_n'], fair_status=c.get('fair_status'),
                                   venue=b['venue'], price=b.get('cost_american') or b.get('american'), cost=b['cost'], limit=b.get('limit'), flags=b.get('flags'),
