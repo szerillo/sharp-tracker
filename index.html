@@ -81,12 +81,15 @@ let SPORT = new URLSearchParams(location.search).get('sport') || null;
 const XV = new Set(['Kalshi', 'Novig', 'Polymarket']), SHARP = new Set(['Pinnacle', 'Circa']);
 const ET = iso => new Date(iso).toLocaleString('en-US', {timeZone: 'America/New_York', month: 'short', day: 'numeric', hour: 'numeric', minute: '2-digit'});
 let D = null, E = null, MV = null, SY = null, tab = new URLSearchParams(location.search).get('tab') || 'today';
-const TABS = [['today', 'Today'], ['systems', 'Systems'], ['moves', 'Market moves'], ['board', 'Odds board'], ['research', 'Research']];
-const RTABS = [['edges', 'Stale prices'], ['props', 'Props'], ['venues', 'Venue tests'], ['weekly', 'Weekly'], ['ledger', 'Ledger'], ['health', 'Log health'], ['constants', 'Constants']];
+const TABS = [['today', 'Today'], ['games', 'Games'], ['systems', 'Systems'], ['moves', 'Market moves'], ['more', 'More']];
+const RTABS = [['edges', 'Off-market prices'], ['ledger', 'Bet ledger'], ['weekly', 'Weekly report'], ['venues', 'Which books lead'], ['board', 'Full odds board'], ['props', 'Prop list'], ['health', 'Data health'], ['constants', 'Settings']];
 let rtab = new URLSearchParams(location.search).get('r') || 'edges';
 
 const STATL = {MOV_DEC: 'wins by decision', MOV_KO: 'wins by KO/TKO', MOV_SUB: 'wins by submission', ITD: 'wins inside the distance', DIST: 'goes the distance', STARTR2: 'reaches round 2', STARTR3: 'reaches round 3', STARTR4: 'reaches round 4', STARTR5: 'reaches round 5'};
-const statLabel = s => STATL[s] || s;
+const PROPL = {PTS: 'points', REB: 'rebounds', AST: 'assists', PRA: 'pts + reb + ast', PR: 'pts + reb', PA: 'pts + ast', RA: 'reb + ast', STL: 'steals', BLK: 'blocks', '3PM': '3-pointers made', TO: 'turnovers',
+  SOG: 'shots on goal', GOALS: 'goals', SAVES: 'saves', SOT: 'shots on target', PASSYDS: 'passing yards', PASSTD: 'passing TDs', PASSATT: 'pass attempts', PASSCMP: 'completions', INT: 'interceptions',
+  RUSHYDS: 'rushing yards', RUSHATT: 'rush attempts', RECYDS: 'receiving yards', REC: 'receptions', ANYTD: 'anytime TD', K: 'strikeouts', HRR: 'hits + runs + RBIs', TB: 'total bases', H: 'hits', HR: 'home runs', ER: 'earned runs'};
+const statLabel = s => STATL[s] || PROPL[s] || s;
 const yesNo = c => c.stat in STATL;
 function sideLabel(c, g) {
   if (yesNo(c)) return `<span class="side-${c.side}">${c.side === 'over' ? 'Yes' : 'No'}</span>`;
@@ -212,6 +215,7 @@ function betText(f, g) {
   return `${pre}${MKT[f.market] || f.market} ${f.side} ${f.line ?? ''}`;
 }
 function priceChip(f) {
+  if (f.now === undefined) return '';
   if (!f.now) return '<span class="gone-chip">no bettable price right now</span>';
   const was = prob(f.price), now = prob(f.now.price);
   if (now <= was + 0.002) return `<span class="ok-chip">still there: ${esc(f.now.venue)} ${am(f.now.price)}</span>`;
@@ -223,7 +227,7 @@ function sysCards(list) {
     return `<div class="card"><div class="when"><span class="badge b-sport">${SPORT_LABEL[g.sport] || g.sport}</span><br><b>${ET(g.start_utc)}</b><br><span class="dim">${until(g.start_utc)}</span></div>
       <div><div class="small">${esc(g.away_name || g.away)} @ ${esc(g.home_name || g.home)}</div><div class="bet">${esc(betText(f, g))}</div>
         <div class="why">${esc((rules[tag] || {}).desc || tag)}. This game: ${esc(f.why || '')}</div>
-        <div class="why">Backtest: ${esc(e.train || '—')}; since 2021 ${esc(e.hold || '—')}; ${esc(e.seasons || '—')} seasons positive.</div></div>
+        ${e.train ? `<div class="why">Backtest: ${esc(e.train)}; since 2021 ${esc(e.hold || '—')}; ${esc(e.seasons || '—')} seasons positive.</div>` : ''}</div>
       <div class="price"><span class="badge ${tierCls}">tier ${e.tier || '?'}</span> <span class="small dim">${(rules[tag] || {}).stake || ''}u</span><br>flagged at ${esc(f.venue)} <b>${am(f.price)}</b><br>${priceChip(f)}</div></div>`; }).join('');
 }
 function renderToday() {
@@ -232,7 +236,7 @@ function renderToday() {
   for (const g of SY.games || []) { if (new Date(g.start_utc) <= Date.now()) continue;
     for (const f of g.fills || []) if (f.fill_id && !f.stacked) items.push({g, f, tag: f.tag}); }
   items.sort((a, b) => a.g.start_utc < b.g.start_utc ? -1 : 1);
-  const tierOf = it => (((SY.rules || {})[it.tag] || {}).evidence || {}).tier || 'C';
+  const tierOf = it => (((SY.rules || {})[it.tag] || {}).evidence || {}).tier || '?';   // unknown tier stays in Vet; only an explicit C is demoted
   const vet = items.filter(it => tierOf(it) !== 'C'), lean = items.filter(it => tierOf(it) === 'C');
   // notable market moves on upcoming games: Pinnacle-origin, or $1k+ Kalshi fills with the move; last 6 hours
   const moves = [];
@@ -261,6 +265,89 @@ function renderToday() {
     <p class="explain">A Pinnacle move, or a move backed by $1,000+ Kalshi fills, on an upcoming game. <b>This is not a bet signal yet.</b> The move tape started on 10/30 and has no settled record; until a sport reaches ${MV ? MV.gate : 150} settled games we do not know whether following these makes money. Use it to sanity-check a system bet (is the market moving with you or against you?) and to spot soft books that have not caught up.</p>
     ${mvRows ? `<div class="sec"><table><thead><tr><th>Game time</th><th>Game · direction</th><th>What moved</th><th>Soft books</th></tr></thead><tbody>${mvRows}</tbody></table></div>` : '<div class="small dim">No notable moves in the last 6 hours.</div>'}
     <p class="explain" style="margin-top:14px">Built ${SY ? ET(SY.built) : '—'} ET. Everything else (each rule's record, the full move tape, the odds board, the research pages) is in the tabs above.</p>`;
+}
+// ---------------------------------------------------------------- Games: one simple row per game, details on click
+function bestOf(c) { return c && c.best && c.best[0] ? c.best[0] : null; }
+function mainPair(g, mkt) {
+  const L = g.markets.filter(c => c.market === mkt); if (!L.length) return null;
+  if (mkt === 'ml') return {a: L.find(c => c.side === 'away'), b: L.find(c => c.side === 'home'), la: 'away', lb: 'home'};
+  const key = c => mkt === 'total' ? c.line : (c.side === 'home' ? c.line : -c.line);
+  const lines = {}; for (const c of L) { const k = key(c); lines[k] = Math.max(lines[k] || 0, c.fair_n || 0) + (c.best ? c.best.length / 10 : 0); }
+  const k = Object.keys(lines).sort((x, y) => lines[y] - lines[x])[0];
+  const pick = L.filter(c => String(key(c)) === k);
+  return mkt === 'total' ? {a: pick.find(c => c.side === 'over'), b: pick.find(c => c.side === 'under')} : {a: pick.find(c => c.side === 'away'), b: pick.find(c => c.side === 'home')};
+}
+function priceCell(c, label) {
+  if (!c) return '<span class="dim">—</span>';
+  const b = bestOf(c); const edge = c.edge_pts != null && c.edge_pts >= 1.5 ? ` <span class="pos small">+${c.edge_pts}</span>` : '';
+  return `<span class="small">${label}</span> <b class="mono">${b ? am(b.cost_american ?? b.american) : '—'}</b> <span class="dim small">${b ? esc(b.venue) : ''}</span>${edge}`;
+}
+function gameFlags(g) {
+  const out = [];
+  if (SY) for (const sg of SY.games || []) if (sg.event_id === g.event_id) for (const f of sg.fills || []) if (f.fill_id && !f.stacked) out.push(`<span class="badge b-fit" title="${esc(f.why || '')}">system bet: ${esc(betText(f, sg))}</span>`);
+  if (MV) { const ms = (MV.sports[SPORT] || {}).tape || []; const m = ms.filter(m => m.event_id === g.event_id && !m.started && (m.origin === 'Pinnacle' || (m.kalshi && m.kalshi.big_n > 0)));
+    if (m.length) out.push(`<span class="badge b-prior" title="see Market moves">${m.length} notable move${m.length > 1 ? 's' : ''}</span>`); }
+  return out.join(' ');
+}
+function renderGames() {
+  if (!D || !D.board) return '<div class="banner">loading…</div>';
+  const st = window._gf || (window._gf = {view: 'lines', open: {}});
+  const games = D.board.filter(g => !g.closed && new Date(g.start_utc) > Date.now());
+  const toggle = `<div class="controls"><span class="tabs inline"><button class="${st.view === 'lines' ? 'on' : ''}" onclick="_gf.view='lines';draw()">Game lines</button><button class="${st.view === 'props' ? 'on' : ''}" onclick="_gf.view='props';draw()">Player props</button></span>
+    <span>${games.length} upcoming games. Prices are the best available across the books we track (BetMGM excluded, Kalshi fee included); a green +number means that price beats our fair line by that many percentage points.</span></div>`;
+  if (st.view === 'props') return toggle + renderPropsSimple(games);
+  const rows = games.map(g => {
+    const sp = mainPair(g, 'spread'), to = mainPair(g, 'total'), ml = mainPair(g, 'ml'); const open = st.open[g.event_id];
+    const an = g.away_name || g.away, hn = g.home_name || g.home;
+    const spl = (c, team) => c ? `${esc(team)} ${c.line > 0 ? '+' : ''}${c.line}` : esc(team);
+    const head = `<tr class="erow" style="cursor:pointer" onclick="_gf.open['${g.event_id}']=!_gf.open['${g.event_id}'];draw()">
+      <td class="small"><b>${ET(g.start_utc)}</b><br><span class="dim">${until(g.start_utc)}</span></td>
+      <td><b>${esc(an)}</b><br><b>${esc(hn)}</b></td>
+      <td>${priceCell(sp && sp.a, spl(sp && sp.a, '').trim() || 'away')}<br>${priceCell(sp && sp.b, spl(sp && sp.b, '').trim() || 'home')}</td>
+      <td>${priceCell(to && to.a, to && to.a ? 'O ' + to.a.line : 'O')}<br>${priceCell(to && to.b, to && to.b ? 'U ' + to.b.line : 'U')}</td>
+      <td>${priceCell(ml && ml.a, 'ML')}<br>${priceCell(ml && ml.b, 'ML')}</td>
+      <td class="small">${gameFlags(g)}</td></tr>`;
+    if (!open) return head;
+    const mk = g.markets.filter(c => c.fair != null || (c.best && c.best.length));
+    const detail = mk.map(c => `<tr><td class="small dim">${MKT[c.market] || c.market}</td><td>${sideLabel(c, g)}</td><td class="mono small">${c.fair_american != null ? am(c.fair_american) : '—'} <span class="dim">(${c.fair_n} books)</span></td><td>${(c.best || []).slice(0, 3).map(b => `<span class="lad">${esc(b.venue)} <span class="p">${am(b.cost_american ?? b.american)}</span></span>`).join('')}</td><td class="num">${edgeCell(c)}</td></tr>`).join('');
+    return head + `<tr><td colspan="6" style="padding:0 8px 12px"><table><thead><tr><th>Market</th><th>Side</th><th>Fair</th><th>Best 3 prices</th><th class="num">Edge pts</th></tr></thead><tbody>${detail}</tbody></table>
+      ${g.props.length ? `<div class="small dim" style="margin-top:6px">${g.props.length} player props on this game: switch to Player props above.</div>` : ''}</td></tr>`;
+  }).join('');
+  return toggle + `<div class="sec"><table><thead><tr><th>Time (ET)</th><th>Game</th><th>Spread</th><th>Total</th><th>Moneyline</th><th>Flags</th></tr></thead><tbody>${rows || '<tr><td colspan="6" class="dim">No upcoming games logged for this sport.</td></tr>'}</tbody></table></div>
+    <p class="explain">Click a game for every market (halves, quarters, team totals) with the three best prices. Top line in each cell is the road team (or the over), bottom is the home team (or the under).</p>`;
+}
+function renderPropsSimple(games) {
+  const st = window._pp || (window._pp = {stat: '', q: '', minb: 1});
+  const rows = []; for (const g of games) for (const c of g.props) rows.push({...c, g});
+  const stats = [...new Set(rows.map(c => c.stat))].sort();
+  // pair over/under into one row per player x stat x line
+  const by = {}; for (const c of rows) { const k = `${c.g.event_id}|${c.player}|${c.stat}|${c.line}`; (by[k] = by[k] || {g: c.g, player: c.player, stat: c.stat, line: c.line})[c.side] = c; }
+  let L = Object.values(by).filter(r => (!st.stat || r.stat === st.stat) && (!st.q || (r.player || '').toLowerCase().includes(st.q.toLowerCase())));
+  const nb = r => Math.max((r.over && r.over.best || []).length, (r.under && r.under.best || []).length);
+  L = L.filter(r => nb(r) >= st.minb).sort((a, b) => a.g.start_utc < b.g.start_utc ? -1 : (a.g.start_utc > b.g.start_utc ? 1 : (a.player < b.player ? -1 : 1)));
+  const cell = (c, lab) => { if (!c) return '<span class="dim">—</span>'; const b = bestOf(c); const e = c.edge_pts != null && c.edge_pts >= 1.5 && (c.fair_n || 0) >= 2 ? ` <span class="pos small">+${c.edge_pts}</span>` : '';
+    return `<span class="small">${lab}</span> <b class="mono">${b ? am(b.cost_american ?? b.american) : '—'}</b> <span class="dim small">${b ? esc(b.venue) : ''}</span>${e}`; };
+  const yn = r => (r.over || r.under) && yesNo(r.over || r.under);
+  const tr = L.slice(0, 400).map(r => `<tr><td class="small"><b>${ET(r.g.start_utc)}</b><br><span class="dim">${esc(r.g.away_name || r.g.away)} @ ${esc(r.g.home_name || r.g.home)}</span></td>
+    <td><b>${esc(r.player)}</b><br><span class="small dim">${statLabel(r.stat)}${yn(r) ? '' : ' ' + r.line}</span></td>
+    <td>${cell(r.over, yn(r) ? 'Yes' : 'Over')}</td><td>${cell(r.under, yn(r) ? 'No' : 'Under')}</td><td class="small dim">${nb(r)}</td></tr>`).join('');
+  return `<p class="explain">Player props as a price comparison. Coverage is thin: for NBA, NHL and NFL props we log Kalshi, Novig and Pinnacle (not DK/FD yet), so most props have one or two books and the "fair" price is only as good as those books. A green +number appears only when at least two books are behind the fair price. MMA shows method of victory, inside the distance, goes the distance and rounds.</p>
+    <div class="controls">Prop <select onchange="_pp.stat=this.value;draw()"><option value="">all</option>${stats.map(x => `<option value="${x}" ${st.stat === x ? 'selected' : ''}>${statLabel(x)}</option>`).join('')}</select>
+      Books quoting at least <select onchange="_pp.minb=+this.value;draw()">${[1, 2, 3].map(n => `<option ${st.minb === n ? 'selected' : ''}>${n}</option>`).join('')}</select>
+      <input value="${esc(st.q)}" placeholder="player" oninput="_pp.q=this.value;draw()"> <span>${L.length} props</span></div>
+    <div class="sec"><table><thead><tr><th>Game</th><th>Player · prop</th><th>Best over / yes</th><th>Best under / no</th><th>Books</th></tr></thead><tbody>${tr || '<tr><td colspan="5" class="dim">No props logged for this sport.</td></tr>'}</tbody></table></div>`;
+}
+function renderMore() {
+  const items = [
+    ['ledger', 'Bet ledger', 'Every system bet the tracker has flagged, with the price taken, the result once graded, profit and loss in units, and CLV (how the price compared with the closing line). This is where you see how the rules are actually doing.'],
+    ['edges', 'Off-market prices', 'Any price at any tracked book that is better than our fair line, across all sports, best first. It is a list of slow or generous books, not a sharp signal on its own. Useful when you already like a bet and want the best number.'],
+    ['weekly', 'Weekly report', 'Monday write-up: what fired, what won, how CLV looked, and anything that changed.'],
+    ['venues', 'Which books lead', 'Research on which books and exchanges move first and which ones the closing line ends up agreeing with. It decides how much weight each book gets in our fair price. Nothing to act on day to day.'],
+    ['board', 'Full odds board', 'The old detailed board: every market with the price at every book (the "venue ladder"). Same data as Games, much busier.'],
+    ['props', 'Prop list (detailed)', 'The old prop table with the per-book ladder and filters.'],
+    ['health', 'Data health', 'Whether the price loggers are running and how many quotes each book returned today. Check it if something looks stale.'],
+    ['constants', 'Settings', 'The fixed numbers the tracker uses (thresholds, gates, devig method). Reference only.']];
+  return `<div class="hdr2"><h2>More</h2><span class="meta">everything else, with what it is for</span></div>` + items.map(([k, t, d]) => `<div class="card" style="grid-template-columns:1fr 140px;cursor:pointer" onclick="tab='research';rtab='${k}';draw()"><div><div class="bet" style="font-size:16px">${t}</div><div class="why" style="font-size:13px">${d}</div></div><div style="align-self:center;text-align:right"><button>Open →</button></div></div>`).join('');
 }
 function renderMoves() {
   if (!MV) return '<div class="banner">moves.json not loaded yet. The 5-minute fast tape (Pinnacle, Novig, Kalshi + Kalshi trades) started 2026-10-30; the move table is rebuilt every 20 minutes by the tracker job.</div>';
@@ -444,11 +531,14 @@ function draw() {
   if (!TABS.some(([k]) => k === tab)) { if (RTABS.some(([k]) => k === tab)) { rtab = tab; } tab = TABS.some(([k]) => k === tab) ? tab : (RTABS.some(([k]) => k === rtab) && tab !== 'today' ? 'research' : 'today'); }
   const url = () => '?sport=' + (SPORT || '') + '&tab=' + tab + (tab === 'research' ? '&r=' + rtab : '');
   $('#tabs').innerHTML = TABS.map(([k, l]) => `<button class="${tab === k ? 'on' : ''}" onclick="tab='${k}';history.replaceState(null,'',(${url.toString()})());draw()">${l}</button>`).join('');
-  $('#subtabs').innerHTML = tab === 'research' ? RTABS.map(([k, l]) => `<button class="${rtab === k ? 'on' : ''}" onclick="rtab='${k}';history.replaceState(null,'',(${url.toString()})());draw()">${l}</button>`).join('') : '';
-  const perSport = tab === 'board' || (tab === 'research' && !['edges', 'weekly'].includes(rtab));   // pages that show one sport at a time
+  $('#subtabs').innerHTML = tab === 'research' ? `<button onclick="tab='more';draw()">← More</button>` + RTABS.map(([k, l]) => `<button class="${rtab === k ? 'on' : ''}" onclick="rtab='${k}';history.replaceState(null,'',(${url.toString()})());draw()">${l}</button>`).join('') : '';
+  if (tab === 'today' && SY) { const n = (SY.games || []).filter(g => new Date(g.start_utc) > Date.now()).reduce((a, g) => a + (g.fills || []).filter(f => f.fill_id && !f.stacked).length, 0); $('#tabs').querySelector('button').textContent = `Today (${n})`; }
+  const perSport = tab === 'games' || (tab === 'research' && !['edges', 'weekly'].includes(rtab));   // pages that show one sport at a time
   $('#sportctx').style.display = perSport ? '' : 'none'; $('#sporthdr').style.display = perSport ? '' : 'none';
+  for (const id of ['#sub', '#banners', '#strip']) $(id).style.display = tab === 'research' ? '' : 'none';   // build details and model caveats only on the research pages
   const R = {edges: renderEdges, props: renderProps, venues: renderVenues, weekly: renderWeekly, ledger: renderLedger, health: renderHealth, constants: renderConstants};
-  $('#view').innerHTML = {today: renderToday, systems: renderSystems, moves: renderMoves, board: renderBoard, research: () => R[rtab]()}[tab]();
+  const R2 = {...R, board: renderBoard};
+  $('#view').innerHTML = {today: renderToday, games: renderGames, systems: renderSystems, moves: renderMoves, more: renderMore, research: () => R2[rtab]()}[tab]();
 }
 async function load() {
   let u = new URLSearchParams(location.search).get('data') || 'data/state/dashboard.json';
