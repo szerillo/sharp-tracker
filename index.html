@@ -228,7 +228,7 @@ function sysCards(list) {
   return list.map(({g, f, tag}) => { const e = (rules[tag] || {}).evidence || {}; const tierCls = e.tier === 'A' ? 'b-fit' : (e.tier === 'B' ? 'b-prior' : 'b-gate');
     return `<div class="card"><div class="when"><span class="badge b-sport">${SPORT_LABEL[g.sport] || g.sport}</span><br><b>${ET(g.start_utc)}</b><br><span class="dim">${until(g.start_utc)}</span></div>
       <div><div class="small">${esc(g.away_name || g.away)} @ ${esc(g.home_name || g.home)}</div><div class="bet">${esc(betText(f, g))}</div>
-        <div class="why">${esc((rules[tag] || {}).desc || tag)}. This game: ${esc(f.why || '')}</div>
+        <div class="why">${esc((rules[tag] || {}).desc || tag)}. This game: ${esc((g.triggers || {})[tag] || f.why || '')}</div>
         ${e.train ? `<div class="why">Backtest: ${esc(e.train)}; since 2021 ${esc(e.hold || '—')}; ${esc(e.seasons || '—')} seasons positive.</div>` : ''}</div>
       <div class="price"><span class="badge ${tierCls}">tier ${e.tier || '?'}</span> <span class="small dim">${(rules[tag] || {}).stake || ''}u</span><br>flagged at ${esc(f.venue)} <b>${am(f.price)}</b><br>${priceChip(f)}</div></div>`; }).join('');
 }

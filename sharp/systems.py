@@ -116,6 +116,21 @@ def public(conn, ev, market, side):
     return json.loads(r[0]) if r else {}
 
 
+LEAN_TAGS = {'nhl_pl_fav_gap', 'nhl_pl_fav_strong_opp', 'nhl_pl_dog_bigml', 'nba_1h_under_hot_over', 'nhl_early_home_fav_qual', 'nba_under_good_home_over'}
+
+
+def void_fill(fired, key, why):
+    """Mark a flagged bet void (not graded, no P&L) and keep the record of why."""
+    rec = fired[key]; rec['void'] = True; rec['void_why'] = why
+    if rec.get('fill_id'):
+        rows = FI.load()
+        for r in rows:
+            if r['fill_id'] == rec['fill_id'] and r.get('result') is None:
+                r['result'] = 'void'; r['pnl_units'] = 0.0; r['note'] = (r.get('note') or '') + f' | VOID: {why}'
+        FI.save(rows)
+    print(f"[systems] voided {key}: {why}")
+
+
 def paper_fill(conn, eq, ev, start, market, line, side, part, tag, stake, note, venue=None, min_h=None):
     ttk = (N.parse_ts(start) - NOW).total_seconds() / 3600
     if ttk < (WINDOW_H[0] if min_h is None else min_h): return None      # inside the last hours a new trigger is shown, not filled
@@ -255,11 +270,14 @@ def main():
                 tl, _n = main_line(eq, 'total', None); op = open_line(conn, ev, 'total')
                 if tl is not None and op is not None and op - tl >= 0.5:
                     trig['nba_under_good_home_over'] = ('total', 'under', f"home {home} over rate {100 * ph['over_pct']:.0f}%, home {h_off:.0f} days off, visitor {a_off:.0f}; total {op} -> {tl}")
+        # A fired bet whose trigger no longer holds on corrected inputs (e.g. a late-arriving result changed a record) is voided before kickoff.
+        for key_ in [k for k in fired if k.startswith(ev + ':') and k.split(':')[1] in LEAN_TAGS and k.split(':')[1] not in trig and not fired[k].get('void')]:
+            void_fill(fired, key_, f"trigger no longer holds on current season records ({NOW_S})")
         if not trig: continue
         game = dict(event_id=ev, away=away, home=home, start_utc=start, hours_to_kickoff=round(ttk, 1), spread_home=None, dog=dog, triggers={k: v[2] for k, v in trig.items()}, fills=[], sport=sport)
         for tag, (market, side, why) in trig.items():
             key = f"{ev}:{tag}"
-            if key in fired: game['fills'].append(fired[key]); continue
+            if key in fired and not fired[key].get('void'): game['fills'].append(fired[key]); continue
             line = None; part = None
             if market == 'spread':
                 line = -1.5 if side == fav_side else 1.5; part = home if side == 'home' else away
@@ -342,6 +360,7 @@ def main():
         fired_tags = {f['tag'] for f in g.get('fills', [])}
         if g['hours_to_kickoff'] < WINDOW_H[0]:      # triggers that first appeared inside the last hours never became bets; do not show them as such
             g['triggers'] = {t: w for t, w in g['triggers'].items() if t in fired_tags or t.startswith(('xch_', 'nba_momentum'))}
+        g['fills'] = [f for f in g.get('fills', []) if not f.get('void')]
         live = [f for f in g.get('fills', []) if f.get('fill_id') and not f.get('stacked')]
         if live:
             eq = F.EventQuotes(conn, g['event_id'])

@@ -7,7 +7,9 @@ from sharp import sports as SP
 from sharp.norm import parse_ts, et_date
 
 ROOT = os.path.abspath(os.path.join(HERE, '..'))
-SEASON_START = {'nfl': dt.date(2026, 9, 1), 'nba': dt.date(2026, 10, 15), 'cfb': dt.date(2026, 8, 20), 'nhl': dt.date(2026, 10, 5), 'soccer': dt.date(2026, 8, 1)}
+# Scan from these dates; only regular-season and postseason games are kept (ESPN season.type 2 or 3), so preseason never counts.
+# 10/31 fix: NHL opened 2026-09-30 (the old 10/05 start missed 3-4 games per team); NBA preseason games from 10/15 were being counted.
+SEASON_START = {'nfl': dt.date(2026, 9, 1), 'nba': dt.date(2026, 10, 1), 'cfb': dt.date(2026, 8, 20), 'nhl': dt.date(2026, 9, 20), 'soccer': dt.date(2026, 8, 1)}
 
 
 def g(u, tries=3):
@@ -34,8 +36,9 @@ def refresh(sport):
             if ev['id'] in games and games[ev['id']].get('final'): continue
             c = ev['competitions'][0]; stt = (c.get('status') or {}).get('type') or {}
             if not stt.get('completed'): continue
+            if (ev.get('season') or {}).get('type') not in (2, 3): games.pop(ev['id'], None); continue     # preseason / exhibition
             t = {x_['homeAway']: x_ for x_ in c['competitors']}
-            rec = dict(event_id=ev['id'], start=ev['date'], week=(ev.get('week') or {}).get('number'), away=t['away']['team'].get('abbreviation'), home=t['home']['team'].get('abbreviation'),
+            rec = dict(event_id=ev['id'], start=ev['date'], season_type=(ev.get('season') or {}).get('type'), week=(ev.get('week') or {}).get('number'), away=t['away']['team'].get('abbreviation'), home=t['home']['team'].get('abbreviation'),
                        away_score=float(t['away'].get('score') or 0), home_score=float(t['home'].get('score') or 0), final=True, neutral=c.get('neutralSite'))
             ls = {k: [float(q.get('value') or 0) for q in (v.get('linescores') or [])] for k, v in t.items()}
             if ls.get('home') and len(ls['home']) >= 2: rec['h1_home'] = ls['home'][0] + ls['home'][1]; rec['h1_away'] = ls['away'][0] + ls['away'][1]
@@ -59,9 +62,10 @@ def refresh(sport):
 
 
 def team_logs(sport):
-    """team -> list of games (chronological) with margin, spread (team perspective), ats margin, rest days."""
+    """team -> list of games (chronological) with margin, spread (team perspective), ats margin, rest days. Regular season + postseason only."""
     st = load(sport); logs = collections.defaultdict(list)
     for gm in sorted(st['games'].values(), key=lambda r: r['start']):
+        if gm.get('season_type') not in (2, 3): continue
         for side in ('home', 'away'):
             team = gm[side]; opp = gm['away' if side == 'home' else 'home']
             pf = gm['home_score'] if side == 'home' else gm['away_score']; pa = gm['away_score'] if side == 'home' else gm['home_score']
