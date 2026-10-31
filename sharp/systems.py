@@ -102,6 +102,13 @@ def open_line(conn, ev, market):
     return r[0] if r else None
 
 
+def open_ml(conn, ev, side):
+    """Opening American moneyline for a side: AN_Open first, else the earliest book quote."""
+    r = conn.execute("SELECT price_american FROM ticks WHERE event_id=? AND market='ml' AND side=? AND venue='AN_Open' AND price_american IS NOT NULL ORDER BY ts_utc LIMIT 1", (ev, side)).fetchone()
+    if not r: r = conn.execute("SELECT price_american FROM ticks WHERE event_id=? AND market='ml' AND side=? AND price_american IS NOT NULL AND venue NOT IN ('Kalshi','Novig','Polymarket') ORDER BY ts_utc LIMIT 1", (ev, side)).fetchone()
+    return r[0] if r else None
+
+
 def sched_rec(sport, ev):
     p = os.path.join(ROOT, 'data', sport, 'schedule.json'); s = SCHED_CACHE.get(sport)
     if s is None: s = SCHED_CACHE[sport] = json.load(open(p)) if os.path.exists(p) else {}
@@ -164,17 +171,19 @@ def main():
         et_dow = (st + dt.timedelta(hours=-5 if st >= dt.datetime(2026, 11, 1, 6, tzinfo=dt.timezone.utc) else -4)).strftime('%A')
         # --- rules
         msw = msw_latest('nfl', ev)
-        if wx and not wx.get('indoor') and 10 <= wx['wind_mph'] <= 14:
+        wr = round(wx['wind_mph']) if wx and wx.get('wind_mph') is not None else None     # Bet Labs' wind is whole mph (checked on its 2026 picks 10/31)
+        if wx and not wx.get('indoor') and 10 <= wr <= 14:
             trig['wind1014'] = f"forecast {wx['wind_mph']} mph (gust {wx.get('gust_mph')}) at T-{wx['hours_to_kickoff']:.0f}h, {wx.get('temp_f')}F" + (f"; MSW {msw['wind_mph']} mph {msw.get('wind_dir') or ''} gust {msw.get('gust_mph')}" if msw else '; MSW n/a')
-            trig['wind1014_1h'] = trig['wind1014']
-        elif msw and not (wx or {}).get('indoor') and 10 <= msw['wind_mph'] <= 14 and wx and wx.get('wind_mph') is not None:
+            if wr <= 13: trig['wind1014_1h'] = trig['wind1014']      # the tested first-half screen is 10-13 mph, not 10-14
+        elif msw and not (wx or {}).get('indoor') and 10 <= round(msw['wind_mph']) <= 14 and wx and wx.get('wind_mph') is not None:
             trig['wind_msw_only'] = f"MSW {msw['wind_mph']} mph in band but Open-Meteo {wx['wind_mph']} mph is not (flag only; the rule fires on Open-Meteo)"
-        if pv.get('games') and pv.get('days_since_last') is not None and pv['days_since_last'] >= 8:
-            trig['vrest8_1h'] = f"{away} off {pv['days_since_last']:.0f} days"
+        vdays = (N.et_date(st) - N.et_date(N.parse_ts(pv['last_start']))).days if pv.get('games') and pv.get('last_start') else None   # calendar days, as Bet Labs counts
+        if vdays is not None and 8 <= vdays <= 30:
+            trig['vrest8_1h'] = f"{away} off {vdays} days"
         if et_dow == 'Monday': trig['mnf_1h'] = 'Monday night'
         if dog:
             dp = pv if dog == 'away' else ph; dteam = away if dog == 'away' else home
-            if dp.get('games', 0) >= 2 and dp.get('margin_avg') is not None and dp['margin_avg'] <= -13:
+            if dp.get('games', 0) >= 1 and dp.get('margin_avg') is not None and dp['margin_avg'] <= -13:     # Bet Labs: no minimum (4 of its 8 2026 picks were week 2)
                 trig['awfuldog'] = f"{dteam} season margin {dp['margin_avg']:+.1f} over {dp['games']} games, dog {('+' if sp_line > 0 else '')}{sp_line if dog == 'home' else -sp_line}"
             if dp.get('last_ats_margin') is not None and dp['last_ats_margin'] <= -15:
                 trig['bounce15_1h'] = f"{dteam} previous game ATS margin {dp['last_ats_margin']:+.1f}"
@@ -249,7 +258,7 @@ def main():
         st = N.parse_ts(start); ttk = (st - NOW).total_seconds() / 3600
         if not (0 < ttk <= WINDOW_H[1]): continue      # visible until kickoff; new fills only inside the window (paper_fill checks)
         ph, pa = SEA.profile(sport, home, st), SEA.profile(sport, away, st)
-        if ph.get('games', 0) < 8 or pa.get('games', 0) < 8: continue
+        if ph.get('games', 0) < 1 or pa.get('games', 0) < 1: continue      # Bet Labs applies no minimum (its picks start in a team's 2nd game); 8 was ours
         eq = F.EventQuotes(conn, ev); ml_h = eq.fair('ml', None, 'home', NOW_S, home); ml_a = eq.fair('ml', None, 'away', NOW_S, away)
         p_home = ml_h.get('fair') if ml_h else None
         if p_home is None: continue
@@ -262,17 +271,19 @@ def main():
             wf, wd = int(100 * pf['win_pct']), int(100 * pd['win_pct']); rec_ = lambda p_: f"{p_['wins']}-{p_['games'] - p_['wins']}"
             if wd - wf >= 22: trig['nhl_pl_fav_gap'] = ('spread', fav_side, f"favorite {fav} is {wf}% ({rec_(pf)}) but opponent {dog} is {wd}% ({rec_(pd)}): opponent's win% higher by {wd - wf} pts")
             if wd >= 66: trig['nhl_pl_fav_strong_opp'] = ('spread', fav_side, f"opponent {dog} wins {wd}% ({rec_(pd)}); favorite {fav} -1.5 against a strong team")
-            p_dog = 1 - max(p_home, 1 - p_home); am = N.prob_to_american(p_dog) if p_dog else None
-            if am is not None and 181 <= am <= 196: trig['nhl_pl_dog_bigml'] = ('spread', 'away' if fav_side == 'home' else 'home', f"dog ML about +{am:.0f}: +1.5 on a big dog")
+            dog_side = 'away' if fav_side == 'home' else 'home'; am = open_ml(conn, ev, dog_side)     # Bet Labs filters on the OPENING moneyline
+            if am is not None and 181 <= am <= 196: trig['nhl_pl_dog_bigml'] = ('spread', dog_side, f"{dog} opened +{am:.0f} on the moneyline: +1.5 on a big dog")
             if fav == home and ph['games'] + 1 <= 24 and int(100 * pd['win_pct']) >= 51:
                 trig['nhl_early_home_fav_qual'] = ('ml', 'home', f"home favorite, game {ph['games'] + 1} of the season, opponent {away} wins {int(100 * pd['win_pct'])}% ({pd['wins']}-{pd['games'] - pd['wins']})")
         else:
-            if (pa.get('over_pct') or 0) >= 0.71 and pa.get('games', 0) >= 8: trig['nba_1h_under_hot_over'] = ('1h_total', 'under', f"visitor {away} over rate {100 * pa['over_pct']:.0f}% this season; 1H under (regression lean)")
-            h_off = (ph.get('days_since_last') or 0) - 1; a_off = (pa.get('days_since_last') or 0) - 1
-            if (ph.get('over_pct') or 0) >= 0.58 and 1 <= h_off < 3 and 1 <= a_off < 4:
+            if int(100 * (pa.get('over_pct') or 0)) >= 71: trig['nba_1h_under_hot_over'] = ('1h_total', 'under', f"visitor {away} over rate {100 * pa['over_pct']:.0f}% this season; 1H under (regression lean)")
+            # Bet Labs "days between games" = calendar-day gap (back-to-back = 1); checked on its 2026 picks 10/31
+            h_off = (N.et_date(st) - N.et_date(N.parse_ts(ph['last_start']))).days if ph.get('last_start') else None
+            a_off = (N.et_date(st) - N.et_date(N.parse_ts(pa['last_start']))).days if pa.get('last_start') else None
+            if int(100 * (ph.get('over_pct') or 0)) >= 58 and h_off is not None and a_off is not None and 1 <= h_off <= 2 and 1 <= a_off <= 3:
                 tl, _n = main_line(eq, 'total', None); op = open_line(conn, ev, 'total')
                 if tl is not None and op is not None and op - tl >= 0.5:
-                    trig['nba_under_good_home_over'] = ('total', 'under', f"home {home} over rate {100 * ph['over_pct']:.0f}%, home {h_off:.0f} days off, visitor {a_off:.0f}; total {op} -> {tl}")
+                    trig['nba_under_good_home_over'] = ('total', 'under', f"home {home} over rate {int(100 * ph['over_pct'])}%, days since last game: home {h_off}, visitor {a_off}; total {op} -> {tl}")
         # A fired bet whose trigger no longer holds on corrected inputs (e.g. a late-arriving result changed a record) is voided before kickoff.
         for key_ in [k for k in fired if k.startswith(ev + ':') and k.split(':')[1] in LEAN_TAGS and k.split(':')[1] not in trig and not fired[k].get('void')]:
             void_fill(fired, key_, f"trigger no longer holds on current season records ({NOW_S})")

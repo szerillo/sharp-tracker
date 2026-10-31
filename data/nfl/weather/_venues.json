@@ -3,9 +3,10 @@
 "name": "Stade de France",
 "city": "Saint-Denis",
 "indoor": false,
-"lat": -20.88231,
-"lon": 55.4504,
-"source": "geocoder"
+"lat": 48.9245,
+"lon": 2.3602,
+"source": "fixed 10/31 (stadium coordinates)",
+"verified": true
 },
 "5348": {
 "name": "Mercedes-Benz Stadium",
@@ -13,7 +14,8 @@
 "indoor": true,
 "lat": 33.7554,
 "lon": -84.401,
-"source": "table"
+"source": "table",
+"verified": true
 },
 "3810": {
 "name": "Nissan Stadium",
@@ -21,7 +23,8 @@
 "indoor": false,
 "lat": 36.1665,
 "lon": -86.7713,
-"source": "table"
+"source": "table",
+"verified": true
 },
 "5239": {
 "name": "U.S. Bank Stadium",
@@ -29,7 +32,8 @@
 "indoor": true,
 "lat": 44.9736,
 "lon": -93.2575,
-"source": "table"
+"source": "table",
+"verified": true
 },
 "3839": {
 "name": "MetLife Stadium",
@@ -37,7 +41,8 @@
 "indoor": false,
 "lat": 40.8135,
 "lon": -74.0745,
-"source": "table"
+"source": "table",
+"verified": true
 },
 "3628": {
 "name": "Bank of America Stadium",
@@ -45,7 +50,8 @@
 "indoor": false,
 "lat": 35.2258,
 "lon": -80.8528,
-"source": "table"
+"source": "table",
+"verified": true
 },
 "3814": {
 "name": "M&T Bank Stadium",
@@ -53,7 +59,8 @@
 "indoor": false,
 "lat": 39.278,
 "lon": -76.6227,
-"source": "table"
+"source": "table",
+"verified": true
 },
 "3891": {
 "name": "Reliant Stadium",
@@ -61,7 +68,8 @@
 "indoor": true,
 "lat": 29.6847,
 "lon": -95.4107,
-"source": "table"
+"source": "table",
+"verified": true
 },
 "3970": {
 "name": "State Farm Stadium",
@@ -69,7 +77,8 @@
 "indoor": true,
 "lat": 33.5276,
 "lon": -112.2626,
-"source": "table"
+"source": "table",
+"verified": true
 },
 "3727": {
 "name": "Ford Field",
@@ -77,7 +86,8 @@
 "indoor": true,
 "lat": 42.34,
 "lon": -83.0456,
-"source": "table"
+"source": "table",
+"verified": true
 },
 "6501": {
 "name": "Allegiant Stadium",
@@ -85,7 +95,8 @@
 "indoor": true,
 "lat": 36.0909,
 "lon": -115.1833,
-"source": "table"
+"source": "table",
+"verified": true
 },
 "3673": {
 "name": "Lumen Field",
@@ -93,7 +104,8 @@
 "indoor": false,
 "lat": 47.5952,
 "lon": -122.3316,
-"source": "table"
+"source": "table",
+"verified": true
 },
 "3806": {
 "name": "Lincoln Financial Field",
@@ -101,7 +113,8 @@
 "indoor": false,
 "lat": 39.9008,
 "lon": -75.1675,
-"source": "table"
+"source": "table",
+"verified": true
 },
 "3798": {
 "name": "Lambeau Field",
@@ -109,7 +122,8 @@
 "indoor": false,
 "lat": 44.5013,
 "lon": -88.0622,
-"source": "table"
+"source": "table",
+"verified": true
 },
 "11938": {
 "name": "Highmark Stadium",
@@ -117,7 +131,8 @@
 "indoor": false,
 "lat": 42.7738,
 "lon": -78.787,
-"source": "table"
+"source": "table",
+"verified": true
 },
 "3874": {
 "name": "Paycor Stadium",
@@ -125,7 +140,8 @@
 "indoor": false,
 "lat": 39.0954,
 "lon": -84.516,
-"source": "table"
+"source": "table",
+"verified": true
 },
 "3687": {
 "name": "AT&T Stadium",
@@ -133,7 +149,8 @@
 "indoor": true,
 "lat": 32.7473,
 "lon": -97.0945,
-"source": "table"
+"source": "table",
+"verified": true
 },
 "3752": {
 "name": "Acrisure Stadium",
@@ -141,7 +158,8 @@
 "indoor": false,
 "lat": 40.4468,
 "lon": -80.0158,
-"source": "table"
+"source": "table",
+"verified": true
 },
 "3886": {
 "name": "Raymond James Stadium",
@@ -149,7 +167,8 @@
 "indoor": false,
 "lat": 27.9759,
 "lon": -82.5033,
-"source": "table"
+"source": "table",
+"verified": true
 },
 "3712": {
 "name": "EverBank Stadium",
@@ -157,7 +176,8 @@
 "indoor": false,
 "lat": 30.3239,
 "lon": -81.6373,
-"source": "table"
+"source": "table",
+"verified": true
 },
 "7065": {
 "name": "SoFi Stadium",
@@ -165,7 +185,8 @@
 "indoor": false,
 "lat": 33.9535,
 "lon": -118.3392,
-"source": "table"
+"source": "table",
+"verified": true
 },
 "3937": {
 "name": "Empower Field at Mile High",
@@ -173,7 +194,8 @@
 "indoor": false,
 "lat": 39.7439,
 "lon": -105.0201,
-"source": "table"
+"source": "table",
+"verified": true
 },
 "3948": {
 "name": "Hard Rock Stadium",
@@ -181,7 +203,8 @@
 "indoor": false,
 "lat": 25.958,
 "lon": -80.2389,
-"source": "table"
+"source": "table",
+"verified": true
 },
 "3719": {
 "name": "Northwest Stadium",
@@ -189,6 +212,7 @@
 "indoor": false,
 "lat": 38.9076,
 "lon": -76.8645,
-"source": "table"
+"source": "table",
+"verified": true
 }
 }

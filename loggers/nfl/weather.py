@@ -40,18 +40,39 @@ def g(u, timeout=15):
     return {}
 
 
+US_STATE = {'AL': 'Alabama', 'AK': 'Alaska', 'AZ': 'Arizona', 'AR': 'Arkansas', 'CA': 'California', 'CO': 'Colorado', 'CT': 'Connecticut', 'DE': 'Delaware',
+            'FL': 'Florida', 'GA': 'Georgia', 'HI': 'Hawaii', 'ID': 'Idaho', 'IL': 'Illinois', 'IN': 'Indiana', 'IA': 'Iowa', 'KS': 'Kansas', 'KY': 'Kentucky',
+            'LA': 'Louisiana', 'ME': 'Maine', 'MD': 'Maryland', 'MA': 'Massachusetts', 'MI': 'Michigan', 'MN': 'Minnesota', 'MS': 'Mississippi', 'MO': 'Missouri',
+            'MT': 'Montana', 'NE': 'Nebraska', 'NV': 'Nevada', 'NH': 'New Hampshire', 'NJ': 'New Jersey', 'NM': 'New Mexico', 'NY': 'New York',
+            'NC': 'North Carolina', 'ND': 'North Dakota', 'OH': 'Ohio', 'OK': 'Oklahoma', 'OR': 'Oregon', 'PA': 'Pennsylvania', 'RI': 'Rhode Island',
+            'SC': 'South Carolina', 'SD': 'South Dakota', 'TN': 'Tennessee', 'TX': 'Texas', 'UT': 'Utah', 'VT': 'Vermont', 'VA': 'Virginia', 'WA': 'Washington',
+            'WV': 'West Virginia', 'WI': 'Wisconsin', 'WY': 'Wyoming', 'DC': 'District of Columbia'}
+COUNTRY = {'England': 'GB', 'United Kingdom': 'GB', 'UK': 'GB', 'Germany': 'DE', 'Mexico': 'MX', 'Spain': 'ES', 'France': 'FR', 'Brazil': 'BR', 'Ireland': 'IE',
+           'Australia': 'AU', 'Canada': 'CA', 'Italy': 'IT', 'USA': 'US', 'US': 'US', 'United States': 'US'}
+
+
 def venue_coords(cache, v, home):
-    """ESPN gives venue name + city/state, not coordinates: use the home stadium table, else geocode once per venue and cache."""
+    """ESPN gives venue name + city/state, not coordinates: the NFL home stadium table first, else geocode once per venue and cache.
+    The geocode match is strict: same country, and for US venues the same state. ESPN sometimes puts the state inside the city
+    ('Oxford, MS') and the old fallback to the first result put Ole Miss in Oxford, England, Penn State in University Park, Iowa,
+    Kansas State in Manhattan, New York and the Stade de France on Reunion island (fixed 10/31). No strict match -> no coordinates,
+    and the game is skipped rather than forecast for the wrong city."""
     key = str(v.get('id') or v.get('fullName'))
-    if key in cache: return cache[key]
-    addr = v.get('address') or {}; q = ', '.join(x for x in (addr.get('city'), addr.get('state')) if x)
+    if key in cache and cache[key].get('verified'): return cache[key]
+    addr = v.get('address') or {}; city = (addr.get('city') or '').strip(); state = (addr.get('state') or '').strip(); country = (addr.get('country') or '').strip()
+    if ',' in city and not state: city, state = [x.strip() for x in city.rsplit(',', 1)]
+    q = ', '.join(x for x in (city, state) if x)
     lat, lon = STADIUM.get(home, (None, None)) if SPORT == 'nfl' else (None, None)
-    is_home_park = SPORT == 'nfl' and home in STADIUM and (addr.get('country') in (None, 'USA', 'US') and (addr.get('state') or '') != '')
-    if not is_home_park or lat is None:
-        r = (g(f"{GEO}?name={urllib.parse.quote(addr.get('city') or '')}&count=10&language=en&format=json") or {}).get('results') or []
-        hit = next((x for x in r if (x.get('admin1') or '').lower().startswith((addr.get('state') or '').lower()[:4])), r[0] if r else None)
-        if hit: lat, lon = hit.get('latitude'), hit.get('longitude')
-    cache[key] = dict(name=v.get('fullName'), city=q, indoor=bool(v.get('indoor')), lat=lat, lon=lon, source='table' if is_home_park else 'geocoder')
+    is_home_park = SPORT == 'nfl' and home in STADIUM and country in ('', 'USA', 'US') and state != ''
+    src = 'table' if is_home_park and lat is not None else None
+    if not src:
+        lat = lon = None
+        cc = 'US' if (state.upper() in US_STATE or state in US_STATE.values()) else COUNTRY.get(country, '')
+        full = US_STATE.get(state.upper(), state) if cc == 'US' else None
+        r = (g(f"{GEO}?name={urllib.parse.quote(city)}&count=20&language=en&format=json" + (f"&countryCode={cc}" if cc else '')) or {}).get('results') or []
+        hit = next((x for x in r if (full is None or (x.get('admin1') or '') == full) and (not cc or x.get('country_code') == cc)), None)
+        if hit: lat, lon, src = hit.get('latitude'), hit.get('longitude'), 'geocoder'
+    cache[key] = dict(name=v.get('fullName'), city=q, indoor=bool(v.get('indoor')), lat=lat, lon=lon, source=src or 'unresolved', verified=lat is not None)   # unresolved: retried next run
     return cache[key]
 
 
