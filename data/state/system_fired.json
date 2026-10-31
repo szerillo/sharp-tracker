@@ -494,5 +494,31 @@
 "fair": 0.71477,
 "edge_pts": -0.52,
 "why": "Novig home side mid 0.285 inside T-0.3h; audit band 20-35c"
+},
+"401892627:nhl_pl_fav_strong_opp": {
+"tag": "nhl_pl_fav_strong_opp",
+"fill_id": "2ae529c197a8",
+"ts": "2026-10-31T17:20:10Z",
+"market": "spread",
+"side": "home",
+"line": -1.5,
+"venue": "DK",
+"price": 190,
+"fair": 0.3186,
+"edge_pts": -2.62,
+"why": "opponent EDM wins 69% (9-4); favorite NYR -1.5 against a strong team"
+},
+"401892627:nhl_early_home_fav_qual": {
+"tag": "nhl_early_home_fav_qual",
+"fill_id": "0071558efdfe",
+"ts": "2026-10-31T17:20:10Z",
+"market": "ml",
+"side": "home",
+"line": null,
+"venue": "Caesars",
+"price": -122,
+"fair": 0.53009,
+"edge_pts": -1.95,
+"why": "home favorite, game 15 of the season, opponent EDM wins 69% (9-4)"
 }
 }
