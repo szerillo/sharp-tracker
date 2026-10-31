@@ -46,6 +46,9 @@ def depth_usd(r):
     return float(x['depth3'])
 
 
+NOT_A_BOOK = {'AN_Open', 'Kalshi', 'Novig', 'Polymarket'}      # never vote on which line is the main one
+
+
 class EventQuotes:
     """All ticks of one event in memory, indexed by (venue, market, line, side) and sorted by time."""
     def __init__(self, conn, event_id):
@@ -57,9 +60,19 @@ class EventQuotes:
             self.idx[(r[1], r[2], r[3], r[4], r[12])].append(r)
         self.keys = collections.defaultdict(set)      # (market, line, participant) -> venues
         self.names = {}
+        last_ts = {}                                   # (venue, market, participant) -> (latest ts, lines quoted at it)
         for (v, m, l, s, p) in self.idx:
             self.keys[(m, l, p)].add(v)
             if p and self.idx[(v, m, l, s, p)][0][13]: self.names[p] = self.idx[(v, m, l, s, p)][0][13]
+            if v in NOT_A_BOOK or l is None: continue
+            t = self.idx[(v, m, l, s, p)][-1][0]; cur = last_ts.get((v, m, p))
+            if cur is None or t > cur[0]: last_ts[(v, m, p)] = (t, {l})
+            elif t == cur[0]: cur[1].add(l)
+        # (market, line, participant) -> books whose LATEST quote is this line. Main lines come from this, not from every line a book has
+        # ever hung (a total that moved 49.5 -> 47.5 used to lose to its own history) and never from the opener or the exchanges' strike ladders.
+        self.current = collections.defaultdict(set)
+        for (v, m, p), (t, ls) in last_ts.items():
+            for l in ls: self.current[(m, l, p)].add(v)
 
     def latest(self, venue, market, line, side, ts_iso, max_age_min, participant=None):
         L = self.idx.get((venue, market, line, side, participant))

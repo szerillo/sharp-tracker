@@ -53,7 +53,8 @@ def public_pct(conn, ev, market, side):
 
 def main_line(eq, market, part=None):
     """The 'main' line for a totals-type market: the line with the most venues, ties to the one nearest 50%."""
-    cands = [(k[1], len(v)) for k, v in eq.keys.items() if k[0] == market and k[2] == part and k[1] is not None]
+    cands = [(k[1], len(v)) for k, v in eq.current.items() if k[0] == market and k[2] == part and k[1] is not None] \
+        or [(k[1], len(v)) for k, v in eq.keys.items() if k[0] == market and k[2] == part and k[1] is not None]      # books' latest lines first
     if not cands: return []
     mx = max(n for _, n in cands)
     return sorted({l for l, n in cands if n == mx})

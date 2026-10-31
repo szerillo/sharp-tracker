@@ -85,12 +85,15 @@ def weather_t24(event_id, path=None):
 
 
 def main_line(eq, market, home):
-    """(line_home, n_venues) of the most-quoted home-side line for a spread market; for totals the most-quoted line."""
+    """(line_home, n_books) of the line the most sportsbooks are hanging right now (each book's latest quote; opener and exchanges
+    excluded). Spreads: home-side line; totals: the line."""
     nv = collections.Counter()
-    for (m, l, p), vs in eq.keys.items():
-        if m != market or l is None: continue
-        if market.endswith('spread') and p != home: continue
-        nv[l] += len(vs)
+    for src in (eq.current, eq.keys):              # books' latest lines first; every line ever quoted only if no book has one
+        for (m, l, p), vs in src.items():
+            if m != market or l is None: continue
+            if market.endswith('spread') and p != home: continue
+            nv[l] += len(vs)
+        if nv: break
     if not nv: return None, 0
     l = max(nv, key=lambda k: (nv[k], -abs(k))); return l, nv[l]
 
