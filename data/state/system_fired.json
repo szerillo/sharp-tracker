@@ -481,5 +481,18 @@
 "market": "1h_total",
 "side": "under",
 "why": "NE off 10 days (same bet already taken by a higher-priority rule)"
+},
+"401892615:xch_homedog_fade:spread": {
+"tag": "xch_homedog_fade",
+"fill_id": "771dcd8586c9",
+"ts": "2026-10-31T16:39:07Z",
+"market": "spread",
+"side": "away",
+"line": 1.5,
+"venue": "Novig",
+"price": -257,
+"fair": 0.71477,
+"edge_pts": -0.52,
+"why": "Novig home side mid 0.285 inside T-0.3h; audit band 20-35c"
 }
 }
