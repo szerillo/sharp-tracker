@@ -386,7 +386,9 @@
 "price": 194,
 "fair": 0.305,
 "edge_pts": -3.5,
-"why": "opponent WSH wins 66% (8-4); favorite MIN -1.5 against a strong team"
+"why": "opponent WSH wins 66% (8-4); favorite MIN -1.5 against a strong team",
+"void": true,
+"void_why": "trigger no longer holds on current season records (2026-10-31T15:16:23Z)"
 },
 "401858278:xch_homedog_fade:ml": {
 "tag": "xch_homedog_fade",
@@ -400,5 +402,51 @@
 "fair": 0.75897,
 "edge_pts": -0.1,
 "why": "Novig home side mid 0.245 inside T-1.3h; audit band 20-35c"
+},
+"401873032:wind1014": {
+"tag": "wind1014",
+"fill_id": "d8602db666ee",
+"ts": "2026-10-31T15:16:23Z",
+"market": "total",
+"side": "under",
+"line": 45.0,
+"venue": "Caesars",
+"price": -109,
+"fair": 0.49824,
+"edge_pts": -2.33,
+"why": "forecast 12.7 mph (gust 23.7) at T-30h, 65.9F; MSW 10.0 mph W gust 15.0"
+},
+"401873032:wind1014_1h": {
+"tag": "wind1014_1h",
+"fill_id": "19362baa1545",
+"ts": "2026-10-31T15:16:23Z",
+"market": "1h_total",
+"side": "under",
+"line": 22.5,
+"venue": "Caesars",
+"price": -100,
+"fair": 0.49256,
+"edge_pts": -0.74,
+"why": "forecast 12.7 mph (gust 23.7) at T-30h, 65.9F; MSW 10.0 mph W gust 15.0"
+},
+"401873032:vrest8_1h": {
+"tag": "vrest8_1h",
+"stacked": true,
+"market": "1h_total",
+"side": "under",
+"why": "LAC off 14 days (same bet already taken by a higher-priority rule)"
+},
+"401892625:nhl_early_home_fav_qual": {
+"tag": "nhl_early_home_fav_qual",
+"fill_id": "edb8c450ef0c",
+"ts": "2026-10-31T15:16:23Z",
+"market": "ml",
+"side": "home",
+"line": null,
+"venue": "FD",
+"price": -110,
+"fair": 0.5007,
+"edge_pts": -2.31,
+"why": "home favorite, game 13 of the season, opponent MIN wins 60% (9-6)"
 }
 }
