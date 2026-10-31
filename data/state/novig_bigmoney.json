@@ -1,0 +1,902 @@
+{
+ "UFC": {
+  "fills": 83735,
+  "dollars": 10085556,
+  "markets": 414,
+  "moneyline": [
+   {
+    "bucket": "$0-$100",
+    "fills": 60073,
+    "markets": 174,
+    "dollars": 1189009,
+    "roi_dollar": 1.25,
+    "roi_flat": 3.22,
+    "z_market": 1.26,
+    "avg_price": 0.456
+   },
+   {
+    "bucket": "$100-$500",
+    "fills": 9058,
+    "markets": 174,
+    "dollars": 2099775,
+    "roi_dollar": 5.27,
+    "roi_flat": 6.43,
+    "z_market": 1.68,
+    "avg_price": 0.543
+   },
+   {
+    "bucket": "$500-$1,000",
+    "fills": 1875,
+    "markets": 170,
+    "dollars": 1373270,
+    "roi_dollar": -3.64,
+    "roi_flat": -3.09,
+    "z_market": -1.24,
+    "avg_price": 0.578
+   },
+   {
+    "bucket": "$1,000-$5,000",
+    "fills": 1445,
+    "markets": 159,
+    "dollars": 2904104,
+    "roi_dollar": -1.61,
+    "roi_flat": -0.96,
+    "z_market": 0.72,
+    "avg_price": 0.615
+   },
+   {
+    "bucket": "$5,000+",
+    "fills": 133,
+    "markets": 65,
+    "dollars": 1194335,
+    "roi_dollar": 18.18,
+    "roi_flat": 17.13,
+    "z_market": 1.25,
+    "avg_price": 0.659
+   }
+  ],
+  "all game markets": [
+   {
+    "bucket": "$0-$100",
+    "fills": 69409,
+    "markets": 412,
+    "dollars": 1373870,
+    "roi_dollar": 0.93,
+    "roi_flat": 2.18,
+    "z_market": 1.04,
+    "avg_price": 0.46
+   },
+   {
+    "bucket": "$100-$500",
+    "fills": 10351,
+    "markets": 350,
+    "dollars": 2391524,
+    "roi_dollar": 4.85,
+    "roi_flat": 5.85,
+    "z_market": 1.74,
+    "avg_price": 0.54
+   },
+   {
+    "bucket": "$500-$1,000",
+    "fills": 2131,
+    "markets": 267,
+    "dollars": 1556508,
+    "roi_dollar": -3.97,
+    "roi_flat": -3.55,
+    "z_market": -0.03,
+    "avg_price": 0.572
+   },
+   {
+    "bucket": "$1,000-$5,000",
+    "fills": 1681,
+    "markets": 243,
+    "dollars": 3364835,
+    "roi_dollar": -2.07,
+    "roi_flat": -1.34,
+    "z_market": 0.88,
+    "avg_price": 0.599
+   },
+   {
+    "bucket": "$5,000+",
+    "fills": 163,
+    "markets": 83,
+    "dollars": 1398819,
+    "roi_dollar": 7.12,
+    "roi_flat": 4.1,
+    "z_market": 0.25,
+    "avg_price": 0.631
+   }
+  ],
+  "follow_big_money": {
+   "markets": 150,
+   "win": 0.687,
+   "implied": 0.676,
+   "roi_flat": 5.2,
+   "z": 0.79,
+   "by_size": {
+    "$1k-5k": {
+     "n": 32,
+     "roi": 19.7,
+     "win": 0.719
+    },
+    "$5k-20k": {
+     "n": 69,
+     "roi": -4.2,
+     "win": 0.652
+    },
+    "$20k+": {
+     "n": 49,
+     "roi": 9.0,
+     "win": 0.714
+    }
+   }
+  },
+  "big_fills_by_timing": {
+   "more than 24h out": {
+    "fills": 250,
+    "dollars": 635735,
+    "roi_dollar": -0.84
+   },
+   "2-24h": {
+    "fills": 613,
+    "dollars": 1649890,
+    "roi_dollar": 5.59
+   },
+   "last 2h": {
+    "fills": 715,
+    "dollars": 1812813,
+    "roi_dollar": 4.61
+   }
+  }
+ },
+ "NFL": {
+  "fills": 566928,
+  "dollars": 121081958,
+  "markets": 5180,
+  "moneyline": [
+   {
+    "bucket": "$0-$100",
+    "fills": 177232,
+    "markets": 126,
+    "dollars": 3266474,
+    "roi_dollar": 5.93,
+    "roi_flat": 13.43,
+    "z_market": 0.91,
+    "avg_price": 0.483
+   },
+   {
+    "bucket": "$100-$500",
+    "fills": 24121,
+    "markets": 126,
+    "dollars": 5833321,
+    "roi_dollar": -4.66,
+    "roi_flat": -4.4,
+    "z_market": -0.36,
+    "avg_price": 0.545
+   },
+   {
+    "bucket": "$500-$1,000",
+    "fills": 5104,
+    "markets": 126,
+    "dollars": 3759621,
+    "roi_dollar": -2.42,
+    "roi_flat": -2.72,
+    "z_market": -0.49,
+    "avg_price": 0.559
+   },
+   {
+    "bucket": "$1,000-$5,000",
+    "fills": 5388,
+    "markets": 126,
+    "dollars": 12096588,
+    "roi_dollar": -0.57,
+    "roi_flat": -0.81,
+    "z_market": 0.56,
+    "avg_price": 0.561
+   },
+   {
+    "bucket": "$5,000+",
+    "fills": 1217,
+    "markets": 95,
+    "dollars": 17846515,
+    "roi_dollar": -16.74,
+    "roi_flat": -10.64,
+    "z_market": -1.52,
+    "avg_price": 0.598
+   }
+  ],
+  "all game markets": [
+   {
+    "bucket": "$0-$100",
+    "fills": 450376,
+    "markets": 4957,
+    "dollars": 9451815,
+    "roi_dollar": -0.54,
+    "roi_flat": 1.61,
+    "z_market": -1.62,
+    "avg_price": 0.491
+   },
+   {
+    "bucket": "$100-$500",
+    "fills": 80004,
+    "markets": 3229,
+    "dollars": 19177090,
+    "roi_dollar": -1.74,
+    "roi_flat": -2.0,
+    "z_market": 0.37,
+    "avg_price": 0.525
+   },
+   {
+    "bucket": "$500-$1,000",
+    "fills": 16541,
+    "markets": 1913,
+    "dollars": 11976866,
+    "roi_dollar": -2.58,
+    "roi_flat": -2.17,
+    "z_market": -0.82,
+    "avg_price": 0.542
+   },
+   {
+    "bucket": "$1,000-$5,000",
+    "fills": 16239,
+    "markets": 1611,
+    "dollars": 37156918,
+    "roi_dollar": -2.36,
+    "roi_flat": -1.22,
+    "z_market": 0.68,
+    "avg_price": 0.534
+   },
+   {
+    "bucket": "$5,000+",
+    "fills": 3768,
+    "markets": 767,
+    "dollars": 43319269,
+    "roi_dollar": -11.18,
+    "roi_flat": -6.65,
+    "z_market": -1.13,
+    "avg_price": 0.548
+   }
+  ],
+  "follow_big_money": {
+   "markets": 119,
+   "win": 0.58,
+   "implied": 0.613,
+   "roi_flat": -2.95,
+   "z": -0.37,
+   "by_size": {
+    "$1k-5k": {
+     "n": 6,
+     "roi": -30.4,
+     "win": 0.333
+    },
+    "$5k-20k": {
+     "n": 17,
+     "roi": 42.3,
+     "win": 0.706
+    },
+    "$20k+": {
+     "n": 96,
+     "roi": -9.2,
+     "win": 0.573
+    }
+   }
+  },
+  "big_fills_by_timing": {
+   "more than 24h out": {
+    "fills": 1537,
+    "dollars": 4878825,
+    "roi_dollar": 3.15
+   },
+   "2-24h": {
+    "fills": 2037,
+    "dollars": 8086978,
+    "roi_dollar": -8.1
+   },
+   "last 2h": {
+    "fills": 3031,
+    "dollars": 16977300,
+    "roi_dollar": -15.05
+   }
+  }
+ },
+ "NBA": {
+  "fills": 431963,
+  "dollars": 29914607,
+  "markets": 3591,
+  "moneyline": [
+   {
+    "bucket": "$0-$100",
+    "fills": 111157,
+    "markets": 109,
+    "dollars": 932533,
+    "roi_dollar": -1.51,
+    "roi_flat": -2.99,
+    "z_market": -0.43,
+    "avg_price": 0.521
+   },
+   {
+    "bucket": "$100-$500",
+    "fills": 8736,
+    "markets": 109,
+    "dollars": 2068044,
+    "roi_dollar": 0.35,
+    "roi_flat": -0.65,
+    "z_market": -1.1,
+    "avg_price": 0.543
+   },
+   {
+    "bucket": "$500-$1,000",
+    "fills": 2002,
+    "markets": 107,
+    "dollars": 1465282,
+    "roi_dollar": 4.61,
+    "roi_flat": 3.43,
+    "z_market": -0.48,
+    "avg_price": 0.556
+   },
+   {
+    "bucket": "$1,000-$5,000",
+    "fills": 1944,
+    "markets": 101,
+    "dollars": 3986896,
+    "roi_dollar": 6.67,
+    "roi_flat": 6.06,
+    "z_market": 0.71,
+    "avg_price": 0.556
+   },
+   {
+    "bucket": "$5,000+",
+    "fills": 322,
+    "markets": 62,
+    "dollars": 3278651,
+    "roi_dollar": 9.32,
+    "roi_flat": 4.66,
+    "z_market": 0.42,
+    "avg_price": 0.603
+   }
+  ],
+  "all game markets": [
+   {
+    "bucket": "$0-$100",
+    "fills": 393400,
+    "markets": 3396,
+    "dollars": 2706615,
+    "roi_dollar": -1.92,
+    "roi_flat": -4.66,
+    "z_market": -0.81,
+    "avg_price": 0.505
+   },
+   {
+    "bucket": "$100-$500",
+    "fills": 26696,
+    "markets": 2120,
+    "dollars": 6148728,
+    "roi_dollar": 0.29,
+    "roi_flat": -0.4,
+    "z_market": -0.18,
+    "avg_price": 0.523
+   },
+   {
+    "bucket": "$500-$1,000",
+    "fills": 5999,
+    "markets": 1174,
+    "dollars": 4323092,
+    "roi_dollar": 1.45,
+    "roi_flat": 1.35,
+    "z_market": -0.91,
+    "avg_price": 0.527
+   },
+   {
+    "bucket": "$1,000-$5,000",
+    "fills": 5149,
+    "markets": 913,
+    "dollars": 10466725,
+    "roi_dollar": 5.43,
+    "roi_flat": 6.35,
+    "z_market": 2.02,
+    "avg_price": 0.534
+   },
+   {
+    "bucket": "$5,000+",
+    "fills": 719,
+    "markets": 278,
+    "dollars": 6269447,
+    "roi_dollar": 7.93,
+    "roi_flat": 5.09,
+    "z_market": 0.18,
+    "avg_price": 0.557
+   }
+  ],
+  "follow_big_money": {
+   "markets": 97,
+   "win": 0.691,
+   "implied": 0.615,
+   "roi_flat": 14.37,
+   "z": 1.64,
+   "by_size": {
+    "$1k-5k": {
+     "n": 11,
+     "roi": -5.0,
+     "win": 0.455
+    },
+    "$5k-20k": {
+     "n": 24,
+     "roi": 7.1,
+     "win": 0.583
+    },
+    "$20k+": {
+     "n": 62,
+     "roi": 20.6,
+     "win": 0.774
+    }
+   }
+  },
+  "big_fills_by_timing": {
+   "more than 24h out": {
+    "fills": 64,
+    "dollars": 161666,
+    "roi_dollar": -12.87
+   },
+   "2-24h": {
+    "fills": 1177,
+    "dollars": 3219378,
+    "roi_dollar": 5.64
+   },
+   "last 2h": {
+    "fills": 1025,
+    "dollars": 3884503,
+    "roi_dollar": 10.57
+   }
+  }
+ },
+ "NCAAF": {
+  "fills": 1065058,
+  "dollars": 153749303,
+  "markets": 20277,
+  "moneyline": [
+   {
+    "bucket": "$0-$100",
+    "fills": 179470,
+    "markets": 799,
+    "dollars": 3263766,
+    "roi_dollar": -0.95,
+    "roi_flat": -2.56,
+    "z_market": -0.03,
+    "avg_price": 0.484
+   },
+   {
+    "bucket": "$100-$500",
+    "fills": 25874,
+    "markets": 758,
+    "dollars": 6189160,
+    "roi_dollar": -0.57,
+    "roi_flat": -1.1,
+    "z_market": 1.51,
+    "avg_price": 0.589
+   },
+   {
+    "bucket": "$500-$1,000",
+    "fills": 5770,
+    "markets": 633,
+    "dollars": 4244566,
+    "roi_dollar": -1.69,
+    "roi_flat": -1.45,
+    "z_market": -1.18,
+    "avg_price": 0.602
+   },
+   {
+    "bucket": "$1,000-$5,000",
+    "fills": 6084,
+    "markets": 587,
+    "dollars": 13436945,
+    "roi_dollar": 1.0,
+    "roi_flat": 1.32,
+    "z_market": 0.62,
+    "avg_price": 0.604
+   },
+   {
+    "bucket": "$5,000+",
+    "fills": 1026,
+    "markets": 302,
+    "dollars": 10057425,
+    "roi_dollar": -3.19,
+    "roi_flat": 1.46,
+    "z_market": 0.4,
+    "avg_price": 0.623
+   }
+  ],
+  "all game markets": [
+   {
+    "bucket": "$0-$100",
+    "fills": 876441,
+    "markets": 18678,
+    "dollars": 14850735,
+    "roi_dollar": -0.21,
+    "roi_flat": 4.45,
+    "z_market": -2.04,
+    "avg_price": 0.497
+   },
+   {
+    "bucket": "$100-$500",
+    "fills": 132156,
+    "markets": 11687,
+    "dollars": 31017854,
+    "roi_dollar": -1.02,
+    "roi_flat": -1.14,
+    "z_market": -0.81,
+    "avg_price": 0.523
+   },
+   {
+    "bucket": "$500-$1,000",
+    "fills": 26783,
+    "markets": 6074,
+    "dollars": 19227373,
+    "roi_dollar": -1.4,
+    "roi_flat": -1.41,
+    "z_market": -1.38,
+    "avg_price": 0.53
+   },
+   {
+    "bucket": "$1,000-$5,000",
+    "fills": 26344,
+    "markets": 5065,
+    "dollars": 58391351,
+    "roi_dollar": -0.24,
+    "roi_flat": 0.0,
+    "z_market": 0.01,
+    "avg_price": 0.531
+   },
+   {
+    "bucket": "$5,000+",
+    "fills": 3334,
+    "markets": 1336,
+    "dollars": 30261990,
+    "roi_dollar": -3.79,
+    "roi_flat": -1.81,
+    "z_market": -2.14,
+    "avg_price": 0.544
+   }
+  ],
+  "follow_big_money": {
+   "markets": 571,
+   "win": 0.73,
+   "implied": 0.729,
+   "roi_flat": 3.07,
+   "z": 0.9,
+   "by_size": {
+    "$1k-5k": {
+     "n": 156,
+     "roi": 6.7,
+     "win": 0.788
+    },
+    "$5k-20k": {
+     "n": 172,
+     "roi": 0.4,
+     "win": 0.715
+    },
+    "$20k+": {
+     "n": 243,
+     "roi": 2.6,
+     "win": 0.704
+    }
+   }
+  },
+  "big_fills_by_timing": {
+   "more than 24h out": {
+    "fills": 1269,
+    "dollars": 3051261,
+    "roi_dollar": 2.47
+   },
+   "2-24h": {
+    "fills": 2734,
+    "dollars": 8361010,
+    "roi_dollar": 3.42
+   },
+   "last 2h": {
+    "fills": 3107,
+    "dollars": 12082100,
+    "roi_dollar": -4.53
+   }
+  }
+ },
+ "NHL": {
+  "fills": 237116,
+  "dollars": 22571841,
+  "markets": 2091,
+  "moneyline": [
+   {
+    "bucket": "$0-$100",
+    "fills": 123438,
+    "markets": 208,
+    "dollars": 1988184,
+    "roi_dollar": -1.22,
+    "roi_flat": 12.92,
+    "z_market": -0.48,
+    "avg_price": 0.503
+   },
+   {
+    "bucket": "$100-$500",
+    "fills": 13047,
+    "markets": 200,
+    "dollars": 3045731,
+    "roi_dollar": 0.89,
+    "roi_flat": -0.03,
+    "z_market": -0.3,
+    "avg_price": 0.516
+   },
+   {
+    "bucket": "$500-$1,000",
+    "fills": 2316,
+    "markets": 199,
+    "dollars": 1693200,
+    "roi_dollar": -3.18,
+    "roi_flat": -3.16,
+    "z_market": -1.25,
+    "avg_price": 0.521
+   },
+   {
+    "bucket": "$1,000-$5,000",
+    "fills": 2388,
+    "markets": 198,
+    "dollars": 5187086,
+    "roi_dollar": 0.49,
+    "roi_flat": -0.14,
+    "z_market": -0.36,
+    "avg_price": 0.524
+   },
+   {
+    "bucket": "$5,000+",
+    "fills": 288,
+    "markets": 125,
+    "dollars": 2575323,
+    "roi_dollar": -8.84,
+    "roi_flat": -7.51,
+    "z_market": 0.34,
+    "avg_price": 0.566
+   }
+  ],
+  "all game markets": [
+   {
+    "bucket": "$0-$100",
+    "fills": 206084,
+    "markets": 2048,
+    "dollars": 3236204,
+    "roi_dollar": -1.05,
+    "roi_flat": 2.68,
+    "z_market": -3.14,
+    "avg_price": 0.493
+   },
+   {
+    "bucket": "$100-$500",
+    "fills": 23008,
+    "markets": 1294,
+    "dollars": 5288712,
+    "roi_dollar": 0.81,
+    "roi_flat": 0.12,
+    "z_market": -0.15,
+    "avg_price": 0.521
+   },
+   {
+    "bucket": "$500-$1,000",
+    "fills": 3976,
+    "markets": 792,
+    "dollars": 2874700,
+    "roi_dollar": -3.08,
+    "roi_flat": -2.81,
+    "z_market": 0.23,
+    "avg_price": 0.529
+   },
+   {
+    "bucket": "$1,000-$5,000",
+    "fills": 3651,
+    "markets": 689,
+    "dollars": 7641725,
+    "roi_dollar": 1.13,
+    "roi_flat": 1.16,
+    "z_market": 0.7,
+    "avg_price": 0.535
+   },
+   {
+    "bucket": "$5,000+",
+    "fills": 397,
+    "markets": 203,
+    "dollars": 3530500,
+    "roi_dollar": -11.72,
+    "roi_flat": -10.48,
+    "z_market": -0.32,
+    "avg_price": 0.567
+   }
+  ],
+  "follow_big_money": {
+   "markets": 188,
+   "win": 0.612,
+   "implied": 0.567,
+   "roi_flat": 7.26,
+   "z": 1.13,
+   "by_size": {
+    "$1k-5k": {
+     "n": 4,
+     "roi": -19.2,
+     "win": 0.5
+    },
+    "$5k-20k": {
+     "n": 75,
+     "roi": 15.6,
+     "win": 0.64
+    },
+    "$20k+": {
+     "n": 109,
+     "roi": 2.5,
+     "win": 0.596
+    }
+   }
+  },
+  "big_fills_by_timing": {
+   "more than 24h out": {
+    "fills": 7,
+    "dollars": 9792,
+    "roi_dollar": -10.29
+   },
+   "2-24h": {
+    "fills": 1331,
+    "dollars": 3667341,
+    "roi_dollar": -3.24
+   },
+   "last 2h": {
+    "fills": 1338,
+    "dollars": 4085276,
+    "roi_dollar": -2.02
+   }
+  }
+ },
+ "MLB": {
+  "fills": 992718,
+  "dollars": 151938599,
+  "markets": 10462,
+  "moneyline": [
+   {
+    "bucket": "$0-$100",
+    "fills": 472195,
+    "markets": 780,
+    "dollars": 9545192,
+    "roi_dollar": -2.66,
+    "roi_flat": -2.2,
+    "z_market": -2.53,
+    "avg_price": 0.512
+   },
+   {
+    "bucket": "$100-$500",
+    "fills": 78564,
+    "markets": 780,
+    "dollars": 18150264,
+    "roi_dollar": -1.58,
+    "roi_flat": -1.41,
+    "z_market": -0.77,
+    "avg_price": 0.524
+   },
+   {
+    "bucket": "$500-$1,000",
+    "fills": 14472,
+    "markets": 778,
+    "dollars": 10566529,
+    "roi_dollar": -2.26,
+    "roi_flat": -2.28,
+    "z_market": -0.71,
+    "avg_price": 0.527
+   },
+   {
+    "bucket": "$1,000-$5,000",
+    "fills": 14388,
+    "markets": 778,
+    "dollars": 31700856,
+    "roi_dollar": -2.93,
+    "roi_flat": -2.36,
+    "z_market": -1.7,
+    "avg_price": 0.531
+   },
+   {
+    "bucket": "$5,000+",
+    "fills": 2406,
+    "markets": 614,
+    "dollars": 25979080,
+    "roi_dollar": -4.73,
+    "roi_flat": 0.07,
+    "z_market": -1.21,
+    "avg_price": 0.543
+   }
+  ],
+  "all game markets": [
+   {
+    "bucket": "$0-$100",
+    "fills": 805065,
+    "markets": 10100,
+    "dollars": 16770853,
+    "roi_dollar": -2.19,
+    "roi_flat": -2.76,
+    "z_market": -2.93,
+    "avg_price": 0.507
+   },
+   {
+    "bucket": "$100-$500",
+    "fills": 135792,
+    "markets": 6555,
+    "dollars": 31125887,
+    "roi_dollar": -1.03,
+    "roi_flat": -0.98,
+    "z_market": -1.69,
+    "avg_price": 0.525
+   },
+   {
+    "bucket": "$500-$1,000",
+    "fills": 24269,
+    "markets": 3574,
+    "dollars": 17713912,
+    "roi_dollar": -1.51,
+    "roi_flat": -1.29,
+    "z_market": -0.29,
+    "avg_price": 0.526
+   },
+   {
+    "bucket": "$1,000-$5,000",
+    "fills": 24223,
+    "markets": 3371,
+    "dollars": 52436925,
+    "roi_dollar": -2.24,
+    "roi_flat": -1.59,
+    "z_market": -0.32,
+    "avg_price": 0.527
+   },
+   {
+    "bucket": "$5,000+",
+    "fills": 3369,
+    "markets": 1082,
+    "dollars": 33891023,
+    "roi_dollar": -3.13,
+    "roi_flat": 0.66,
+    "z_market": -0.27,
+    "avg_price": 0.541
+   }
+  ],
+  "follow_big_money": {
+   "markets": 758,
+   "win": 0.553,
+   "implied": 0.562,
+   "roi_flat": -2.45,
+   "z": -0.75,
+   "by_size": {
+    "$1k-5k": {
+     "n": 7,
+     "roi": -22.4,
+     "win": 0.429
+    },
+    "$5k-20k": {
+     "n": 187,
+     "roi": 6.6,
+     "win": 0.578
+    },
+    "$20k+": {
+     "n": 564,
+     "roi": -5.2,
+     "win": 0.546
+    }
+   }
+  },
+  "big_fills_by_timing": {
+   "more than 24h out": {
+    "fills": 175,
+    "dollars": 396055,
+    "roi_dollar": 2.71
+   },
+   "2-24h": {
+    "fills": 8244,
+    "dollars": 24392546,
+    "roi_dollar": -1.59
+   },
+   "last 2h": {
+    "fills": 8375,
+    "dollars": 32891335,
+    "roi_dollar": -5.41
+   }
+  }
+ }
+}
