@@ -448,5 +448,38 @@
 "fair": 0.5007,
 "edge_pts": -2.31,
 "why": "home favorite, game 13 of the season, opponent MIN wins 60% (9-6)"
+},
+"401873034:wind1014": {
+"tag": "wind1014",
+"fill_id": "5d168819fadc",
+"ts": "2026-10-31T15:37:06Z",
+"market": "total",
+"side": "under",
+"line": 43.5,
+"venue": "Novig",
+"price": -111,
+"fair": 0.51787,
+"edge_pts": -0.71,
+"why": "forecast 10.2 mph (gust 29.8) at T-30h, 74.0F; MSW 15.0 mph E gust 28.0"
+},
+"401873034:wind1014_1h": {
+"tag": "wind1014_1h",
+"fill_id": "1dba73e9f046",
+"ts": "2026-10-31T15:37:06Z",
+"market": "1h_total",
+"side": "under",
+"line": 21.5,
+"venue": "Novig",
+"price": -111,
+"fair": 0.5164,
+"edge_pts": -0.86,
+"why": "forecast 10.2 mph (gust 29.8) at T-30h, 74.0F; MSW 15.0 mph E gust 28.0"
+},
+"401873034:vrest8_1h": {
+"tag": "vrest8_1h",
+"stacked": true,
+"market": "1h_total",
+"side": "under",
+"why": "NE off 10 days (same bet already taken by a higher-priority rule)"
 }
 }
