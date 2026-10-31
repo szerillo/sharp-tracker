@@ -20,6 +20,7 @@ import os, sys, json, gzip, glob, math, datetime as dt, collections
 import numpy as np, pandas as pd
 HERE = os.path.dirname(os.path.abspath(__file__)); ROOT = os.path.abspath(os.path.join(HERE, '..')); sys.path.insert(0, ROOT)
 from sharp import sports as SP
+from sharp import constants as C
 SD = os.path.join(ROOT, 'data', 'state'); OUT = os.path.join(SD, 'moves.json'); FULL = os.path.join(SD, 'moves.jsonl.gz'); NCACHE = os.path.join(SD, 'moves_novig_flow.json')
 FAST = ['Pinnacle', 'Novig', 'Kalshi']; SOFT = ['DK', 'FD', 'Caesars', 'BetRivers', 'Fanatics', 'theScore']
 BIG_USD = 1000.0   # a Kalshi fill counts as flow only at $1,000+ at risk (10/30: top 1% of fills on our markets, 44% of dollars; median fill $9)
@@ -182,7 +183,7 @@ def detect(fast, soft, sched, closes, ktr, ntape, ncache, sport):
                     fol[v] = None
                     last = post if len(post) else pre; last_ts = last['ts'].iloc[-1]; age = (NOW - last_ts).total_seconds() / 60
                     if v in SOFT:
-                        if not started and age <= STUCK_MAX_AGE_MIN: stuck[v] = round(float(last['p'].values[-1]), 4)
+                        if not started and age <= STUCK_MAX_AGE_MIN and v in C.BETTABLE_VENUES['value']: stuck[v] = round(float(last['p'].values[-1]), 4)   # only books Sean can bet at size
                         if close is not None and settled: stuck_clv.append(100 * (close - p0) * d)
             followed = [v for v in fol if fol[v] is not None]
             soft_seen = [v for v in fol if v in SOFT]; soft_fol = [v for v in soft_seen if fol[v] is not None]

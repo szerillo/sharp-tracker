@@ -160,12 +160,12 @@ class EventQuotes:
 
 
 def best_price(eq, market, line, side, ts_iso, participant=None, exclude=()):
-    """Best bettable price (highest decimal / lowest implied) across venues at ts, excluding unbettable venues. Returns list sorted best-first."""
+    """Best bettable price (highest decimal / lowest implied) across the venues Sean can bet (C.BETTABLE_VENUES) at ts. Returns list sorted best-first."""
     rows = []
     three_way = market in ('f5_ml', '1h_ml', '1q_ml') or (market == 'ml' and getattr(eq, 'sport', 'mlb') in ('nfl', 'cfb'))
     if getattr(eq, 'sport', None) == 'soccer': three_way = False   # draw is its own side at every venue: the same bet everywhere   # tie is a loss on the exchange, a push at the book
     for (v, m, l, s, p), L in eq.idx.items():
-        if m != market or l != line or s != side or p != participant or v in C.UNBETTABLE_VENUES['value'] or v in exclude: continue
+        if m != market or l != line or s != side or p != participant or v not in C.BETTABLE_VENUES['value'] or v in exclude: continue
         if three_way and v == 'Kalshi' and market != 'ml': continue      # not the same bet as the book price; the period ML tie rate is far too high to ignore
         if C.VENUE_CLASS.get(v) == 'reference': continue
         r = eq.latest(v, m, l, s, ts_iso, 90, p)
@@ -174,5 +174,5 @@ def best_price(eq, market, line, side, ts_iso, participant=None, exclude=()):
         if v == 'Kalshi' and r[7] is not None:
             import math
             cost = r[7] + math.ceil(C.KALSHI_TAKER_FEE['value'] * r[7] * (1 - r[7]) * 100) / 100
-        rows.append(dict(venue=v, implied=r[5], cost=cost, american=r[10], cost_american=N.prob_to_american(cost), ts=r[0], limit=r[11], bid=r[6], ask=r[7], flags=r[9]))
+        rows.append(dict(venue=v, implied=r[5], cost=cost, american=r[10], cost_american=N.prob_to_american(cost), ts=r[0], limit=r[11], bid=r[6], ask=r[7], flags=r[9], low_limit=v in C.LOW_LIMIT_VENUES['value']))
     return sorted(rows, key=lambda x: x['cost'])

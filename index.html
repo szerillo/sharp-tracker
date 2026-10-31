@@ -104,8 +104,8 @@ function fairCell(c) {
 function bestCell(c) {
   if (!c.best || !c.best.length) return '<span class="dim">—</span>';
   const b = c.best[0]; const fee = b.cost_american !== b.american ? ` <span class="dim small">(${am(b.cost_american)} after fee)</span>` : '';
-  const more = c.best.slice(1, 3).map(x => `<span class="dim small">${esc(x.venue)} ${am(x.american)}</span>`).join(' · ');
-  return `<b>${esc(b.venue)}</b> <span class="mono">${am(b.american)}</span>${fee}${b.limit ? ` <span class="dim small">lim $${b.limit}</span>` : ''}<br>${more}`;
+  const more = c.best.slice(1, 3).map(x => `<span class="dim small">${VEN(x.venue)} ${am(x.american)}</span>`).join(' · ');
+  return `<b>${VEN(b.venue)}</b> <span class="mono">${am(b.american)}</span>${fee}${b.limit ? ` <span class="dim small">lim $${b.limit}</span>` : ''}<br>${more}`;
 }
 function edgeCell(c) {
   if (c.edge_pts == null) return '<span class="dim">—</span>';
@@ -224,12 +224,14 @@ function betText(f, g) {
   if (base === 'ml') return `${pre}${team} moneyline`;
   return `${pre}${MKT[f.market] || f.market} ${f.side} ${f.line ?? ''}`;
 }
+// where Sean can bet: DraftKings counts but at low limits (Fanatics, theScore, BetRivers, BetMGM are archive-only and never priced)
+const VEN = v => v === 'DK' ? 'DK <span class="dim small">(low limits)</span>' : esc(v);
 function priceChip(f) {
   if (f.now === undefined) return '';
   if (!f.now) return '<span class="gone-chip">no bettable price right now</span>';
   const was = prob(f.price), now = prob(f.now.price);
-  if (now <= was + 0.002) return `<span class="ok-chip">still there: ${esc(f.now.venue)} ${am(f.now.price)}</span>`;
-  return `<span class="moved-chip">worse now: best ${esc(f.now.venue)} ${am(f.now.price)} (was ${am(f.price)})</span>`;
+  if (now <= was + 0.002) return `<span class="ok-chip">still there: ${VEN(f.now.venue)} ${am(f.now.price)}</span>`;
+  return `<span class="moved-chip">worse now: best ${VEN(f.now.venue)} ${am(f.now.price)} (was ${am(f.price)})</span>`;
 }
 function sysCards(list) {
   const rules = (SY && SY.rules) || {};
@@ -238,7 +240,7 @@ function sysCards(list) {
       <div><div class="small">${esc(g.away_name || g.away)} @ ${esc(g.home_name || g.home)}</div><div class="bet">${esc(betText(f, g))}</div>
         <div class="why">${esc((rules[tag] || {}).desc || tag)}. This game: ${esc((g.triggers || {})[tag] || f.why || '')}</div>
         ${e.train ? `<div class="why">Backtest: ${esc(e.train)}; since 2021 ${esc(e.hold || '—')}; ${esc(e.seasons || '—')} seasons positive.</div>` : ''}</div>
-      <div class="price"><span class="badge ${tierCls}">tier ${e.tier || '?'}</span> <span class="small dim">${(rules[tag] || {}).stake || ''}u</span><br>flagged at ${esc(f.venue)} <b>${am(f.price)}</b><br>${priceChip(f)}</div></div>`; }).join('');
+      <div class="price"><span class="badge ${tierCls}">tier ${e.tier || '?'}</span> <span class="small dim">${(rules[tag] || {}).stake || ''}u</span><br>flagged at ${VEN(f.venue)} <b>${am(f.price)}</b><br>${priceChip(f)}</div></div>`; }).join('');
 }
 function renderToday() {
   if (!SY) return '<div class="banner">Loading…</div>';
@@ -322,7 +324,7 @@ function mainPair(g, mkt) {
 function priceCell(c, label) {
   if (!c) return '<span class="dim">—</span>';
   const b = bestOf(c); const edge = c.edge_pts != null && c.edge_pts >= 1.5 ? ` <span class="pos small">+${c.edge_pts}</span>` : '';
-  return `<span class="small">${label}</span> <b class="mono">${b ? am(b.cost_american ?? b.american) : '—'}</b> <span class="dim small">${b ? esc(b.venue) : ''}</span>${edge}`;
+  return `<span class="small">${label}</span> <b class="mono">${b ? am(b.cost_american ?? b.american) : '—'}</b> <span class="dim small">${b ? VEN(b.venue) : ''}</span>${edge}`;
 }
 function gameFlags(g) {
   const out = [];
@@ -336,7 +338,7 @@ function renderGames() {
   const st = window._gf || (window._gf = {view: 'lines', open: {}});
   const games = D.board.filter(g => !g.closed && new Date(g.start_utc) > Date.now());
   const toggle = `<div class="controls"><span class="tabs inline"><button class="${st.view === 'lines' ? 'on' : ''}" onclick="_gf.view='lines';draw()">Game lines</button><button class="${st.view === 'props' ? 'on' : ''}" onclick="_gf.view='props';draw()">Player props</button></span>
-    <span>${games.length} upcoming games. Prices are the best available across the books we track (BetMGM excluded, Kalshi fee included); a green +number means that price beats our fair line by that many percentage points.</span></div>`;
+    <span>${games.length} upcoming games. Prices are the best available where you can bet (Novig, Kalshi, Polymarket, FanDuel, Caesars, DraftKings; Kalshi fee included); a green +number means that price beats our fair line by that many percentage points.</span></div>`;
   if (st.view === 'props') return toggle + renderPropsSimple(games);
   const rows = games.map(g => {
     const sp = mainPair(g, 'spread'), to = mainPair(g, 'total'), ml = mainPair(g, 'ml'); const open = st.open[g.event_id];
@@ -351,7 +353,7 @@ function renderGames() {
       <td class="small">${gameFlags(g)}</td></tr>`;
     if (!open) return head;
     const mk = g.markets.filter(c => c.fair != null || (c.best && c.best.length));
-    const detail = mk.map(c => `<tr><td class="small dim">${MKT[c.market] || c.market}</td><td>${sideLabel(c, g)}</td><td class="mono small">${c.fair_american != null ? am(c.fair_american) : '—'} <span class="dim">(${c.fair_n} books)</span></td><td>${(c.best || []).slice(0, 3).map(b => `<span class="lad">${esc(b.venue)} <span class="p">${am(b.cost_american ?? b.american)}</span></span>`).join('')}</td><td class="num">${edgeCell(c)}</td></tr>`).join('');
+    const detail = mk.map(c => `<tr><td class="small dim">${MKT[c.market] || c.market}</td><td>${sideLabel(c, g)}</td><td class="mono small">${c.fair_american != null ? am(c.fair_american) : '—'} <span class="dim">(${c.fair_n} books)</span></td><td>${(c.best || []).slice(0, 3).map(b => `<span class="lad">${VEN(b.venue)} <span class="p">${am(b.cost_american ?? b.american)}</span></span>`).join('')}</td><td class="num">${edgeCell(c)}</td></tr>`).join('');
     return head + `<tr><td colspan="6" style="padding:0 8px 12px"><table><thead><tr><th>Market</th><th>Side</th><th>Fair</th><th>Best 3 prices</th><th class="num">Edge pts</th></tr></thead><tbody>${detail}</tbody></table>
       ${g.props.length ? `<div class="small dim" style="margin-top:6px">${g.props.length} player props on this game: switch to Player props above.</div>` : ''}</td></tr>`;
   }).join('');
@@ -368,7 +370,7 @@ function renderPropsSimple(games) {
   const nb = r => Math.max((r.over && r.over.best || []).length, (r.under && r.under.best || []).length);
   L = L.filter(r => nb(r) >= st.minb).sort((a, b) => a.g.start_utc < b.g.start_utc ? -1 : (a.g.start_utc > b.g.start_utc ? 1 : (a.player < b.player ? -1 : 1)));
   const cell = (c, lab) => { if (!c) return '<span class="dim">—</span>'; const b = bestOf(c); const e = c.edge_pts != null && c.edge_pts >= 1.5 && (c.fair_n || 0) >= 2 ? ` <span class="pos small">+${c.edge_pts}</span>` : '';
-    return `<span class="small">${lab}</span> <b class="mono">${b ? am(b.cost_american ?? b.american) : '—'}</b> <span class="dim small">${b ? esc(b.venue) : ''}</span>${e}`; };
+    return `<span class="small">${lab}</span> <b class="mono">${b ? am(b.cost_american ?? b.american) : '—'}</b> <span class="dim small">${b ? VEN(b.venue) : ''}</span>${e}`; };
   const yn = r => (r.over || r.under) && yesNo(r.over || r.under);
   const tr = L.slice(0, 400).map(r => `<tr><td class="small"><b>${ET(r.g.start_utc)}</b><br><span class="dim">${esc(r.g.away_name || r.g.away)} @ ${esc(r.g.home_name || r.g.home)}</span></td>
     <td><b>${esc(r.player)}</b><br><span class="small dim">${statLabel(r.stat)}${yn(r) ? '' : ' ' + r.line}</span></td>
@@ -473,7 +475,7 @@ function renderEdges() {
       <td class="num"><b class="${e.edge_pts > 0 ? 'pos' : 'neg'}">${e.edge_pts > 0 ? '+' : ''}${e.edge_pts}</b></td>
       <td class="hide-m small">${e.open_american != null ? `<span class="dim">open ${am(e.open_american)}</span>` : ''}</td></tr>
       ${open ? `<tr><td colspan="7" class="small">${lad}${e.flags ? ` <span class="dim">best-price flags: ${e.flags}</span>` : ''} · fair weights ${e.fair_status}</td></tr>` : ''}`; }).join('');
-  return `<div class="banner">Stale prices: ruler fair − cost of the best bettable price (Kalshi fee included, BetMGM excluded), in probability points. This is the outlet for acting on a move from the Moves tab, not a sharp signal in itself: an off-market number is a slow book, and every positive-EV screen shows the same list. The ruler uses <b>prior</b> weights until a sport's fit gate opens. Built ${ET(E.built)} ET · ${E.n} priced cells.</div>
+  return `<div class="banner">Stale prices: ruler fair − cost of the best bettable price (Novig, Kalshi, Polymarket, FanDuel, Caesars, DraftKings only; Kalshi fee included), in probability points. This is the outlet for acting on a move from the Moves tab, not a sharp signal in itself: an off-market number is a slow book, and every positive-EV screen shows the same list. The ruler uses <b>prior</b> weights until a sport's fit gate opens. Built ${ET(E.built)} ET · ${E.n} priced cells.</div>
     <div class="controls">
       <span class="tabs inline">${chip(st.sport, '', 'all sports', 'sport')}${sports.map(sp => chip(st.sport, sp, SPORT_LABEL[sp] || sp, 'sport')).join('')}</span>
       <span class="tabs inline">${chip(st.cls, '', 'all', 'cls')}${chip(st.cls, 'game', 'sides/totals', 'cls')}${chip(st.cls, 'prop', 'props', 'cls')}</span>
@@ -533,7 +535,7 @@ function renderSystems() {
   const flagRows = flags.map(({g, tag, why, f}) => `<tr><td class="small"><span class="badge b-sport">${SPORT_LABEL[g.sport || 'nfl'] || g.sport}</span> ${ET(g.start_utc)}</td><td>${name(g)}</td><td class="mono small">${tag}</td><td class="small dim">${esc(why)}${f && f.stacked ? ' · same bet already taken by a higher-priority rule' : (f ? '' : ' · no bettable price at trigger time (no fill)')}</td></tr>`).join('');
   const ruleRows = Object.values(rules).map(r => { const x = rec[r.tag] || {n: 0, graded: 0, w: 0, l: 0, p: 0, pnl: 0, clv_avg: null, n_clv: 0, gate: 100, published: false};
     return `<tr><td class="mono small">${r.tag} ${tierBadge(r.tag)}</td><td class="small">${esc(r.desc || '')}<br>${evCell(r.tag)}</td><td class="num">${r.stake}u</td><td class="num">${x.n}</td><td class="num">${x.w}-${x.l}${x.p ? '-' + x.p : ''}</td><td class="num mono ${x.pnl >= 0 ? 'pos' : 'neg'}">${x.pnl >= 0 ? '+' : ''}${(x.pnl || 0).toFixed(2)}u</td><td class="num mono">${x.clv_avg == null ? '—' : (x.clv_avg >= 0 ? '+' : '') + x.clv_avg} <span class="small dim">(${x.n_clv})</span></td><td class="small dim">${x.graded}</td></tr>`; }).join('');
-  return `<div class="banner">Every rule is pre-registered from a Bet Labs or exchange audit. A fire is a <b>flagged bet</b> at the best bettable price at trigger time (BetMGM excluded, Kalshi fee included), with the evidence behind the rule next to it: <b>tier A</b> = holdout z ≥ 2 with a mechanism the market does not price (wind), <b>B</b> = positive on both halves and most seasons, <b>C</b> = lean. The forward record and CLV are diagnostics, not a gate: a rule the market ignores can keep winning with zero CLV. Fire window ${SY.window_h[0]}–${SY.window_h[1]}h before kickoff. Built ${ET(SY.built)} ET.</div>
+  return `<div class="banner">Every rule is pre-registered from a Bet Labs or exchange audit. A fire is a <b>flagged bet</b> at the best bettable price at trigger time (Novig, Kalshi, Polymarket, FanDuel, Caesars, DraftKings; Kalshi fee included), with the evidence behind the rule next to it: <b>tier A</b> = holdout z ≥ 2 with a mechanism the market does not price (wind), <b>B</b> = positive on both halves and most seasons, <b>C</b> = lean. The forward record and CLV are diagnostics, not a gate: a rule the market ignores can keep winning with zero CLV. Fire window ${SY.window_h[0]}–${SY.window_h[1]}h before kickoff. Built ${ET(SY.built)} ET.</div>
     <div class="controls"><span class="tabs inline">${chip(st.sport, '', 'all sports')}${sports.map(sp => chip(st.sport, sp, SPORT_LABEL[sp] || sp)).join('')}</span><span>${bets.length} bets flagged · ${flags.length} flags without a bet</span></div>
     <div class="sec"><div class="sec-h"><span class="name">Bets flagged</span><span class="meta">game time is ET; the bet is the market, side and number shown, at the venue and price taken</span></div>
       ${bets.length ? `<table><thead><tr><th>Game time</th><th>Game · why</th><th>Bet</th><th>Taken at</th><th>Rule · forward record</th></tr></thead><tbody>${betRows}</tbody></table>` : '<div class="small dim" style="padding:8px 12px">no open paper fills in the window</div>'}</div>
@@ -606,7 +608,7 @@ async function load() {
   $('#strip').innerHTML = `<span class="pill">Ruler weights: <b>${D.weights.game_status}</b> (game) · <b>${D.weights.prop_status}</b> (props)</span>
     <span class="pill ${D.board.some(g => !g.closed && g.stale_min > 60) ? 'bad' : 'ok'}">board priced ${(D.board.find(g => !g.closed) || {}).stale_min ?? '—'} min ago</span>
     <span class="pill">Test gates: A/B ${D.venues.A.game.n}/${D.venues.A.game.gate} games · C ${D.venues.C.n}/${D.venues.C.gate} pairs · D ${D.venues.D.n}/${D.venues.D.gate} prop rows</span>
-    <span class="pill">BetMGM logged, never shown as bettable</span>`;
+    <span class="pill">Fanatics, theScore, BetRivers, BetMGM: archived only, never shown as a price</span>`;
   const b = [];
   if (ageMin > 90) b.push(`<div class="banner red">The export is ${ageMin} minutes old — the workflow has not run. Prices on the board are not current.</div>`);
   if (D.weights.game_status !== 'fitted') b.push(`<div class="banner">Fair prices use the <b>prior</b> weight vector (unfitted). Edges are a ruler-vs-price gap under those weights, not a validated result; nothing in the first month produces a bet on its own. Weights fit automatically once the game-line gate (${D.venues.A.game.gate} settled games) is reached.</div>`);

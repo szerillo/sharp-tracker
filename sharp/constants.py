@@ -37,6 +37,11 @@ STALE_EXCHANGE_MIN = dict(value=45, status="rule", source="Fable 10/14: same for
 STEAM_MOVE_PTS = dict(value=0.03, status="rule", source=f"{SPEC} §6 steam-chasing test: 3+ point hourly move")
 OPENER_MOVE_PTS = dict(value=0.03, status="rule", source=f"{SPEC} §6 opener test: side moved toward by 3+ points")
 UNBETTABLE_VENUES = dict(value=["BetMGM"], status="rule", source="Sean: BetMGM is not bettable for him; logged, never shown as best price")
+BETTABLE_VENUES = dict(value=["Novig", "Kalshi", "Polymarket", "FD", "Caesars", "DK"], status="rule",
+                       source="Sean 10/31: bets at Novig, Kalshi, Polymarket, FanDuel, Caesars; DraftKings low limits but flag it. Fanatics, theScore, "
+                              "BetRivers, BetMGM are slow and not bettable at size: logged for the archive and the fair line, never a price, a fill or an edge. "
+                              "Pinnacle is the sharp reference, not a place he bets.")
+LOW_LIMIT_VENUES = dict(value=["DK"], status="rule", source="Sean 10/31: DraftKings is bettable but at low limits; shown with a 'low limits' tag")
 KALSHI_TAKER_FEE = dict(value=0.07, status="rule", source="Kalshi fee schedule: taker fee = 0.07 x contracts x p x (1-p), rounded up to the cent; applied to the ask when ranking bettable prices; Novig charges no pregame fee")
 
 # ---------------------------------------------------------------- devig ----------
@@ -105,7 +110,7 @@ def dump():
                     ("min_prop_rows", MIN_PROP_ROWS), ("min_pairs_props", MIN_PAIRS_PROPS), ("min_events_devig_fit", MIN_EVENTS_DEVIG_FIT),
                     ("weight_cap", WEIGHT_CAP), ("new_venue_days", NEW_VENUE_DAYS), ("close_window_min", CLOSE_WINDOW_MIN), ("horizon_tolerance_min", HORIZON_TOLERANCE_MIN),
                     ("stale_book_min", STALE_BOOK_MIN), ("stale_exchange_min", STALE_EXCHANGE_MIN), ("steam_move_pts", STEAM_MOVE_PTS),
-                    ("opener_move_pts", OPENER_MOVE_PTS), ("unbettable_venues", UNBETTABLE_VENUES), ("kalshi_taker_fee", KALSHI_TAKER_FEE)]:
+                    ("opener_move_pts", OPENER_MOVE_PTS), ("unbettable_venues", UNBETTABLE_VENUES), ("bettable_venues", BETTABLE_VENUES), ("low_limit_venues", LOW_LIMIT_VENUES), ("kalshi_taker_fee", KALSHI_TAKER_FEE)]:
         out.append(dict(name=name, **c))
     for (s, m), c in DEVIG_METHOD.items(): out.append(dict(name=f"devig_method[{s}][{m}]", **c))
     for (s, m), c in WEIGHTS.items(): out.append(dict(name=f"weights[{s}][{m}]", **c))
