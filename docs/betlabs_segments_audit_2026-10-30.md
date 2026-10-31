@@ -66,13 +66,16 @@ the tracker as paper tags, graded on real closes, and nothing else.
 
 | Tag | Rule | Train | Holdout | Flips | Why it might be real |
 |---|---|---|---|---|---|
-| nhl_pl_fav_gap | NHL favorite -1.5 (plus money) when favorite win% minus opponent win% is 22+ pts | 502, +17.4% | 196, +14.6% | 0/40 | Puck-line favorites at plus money are a longshot-bias product; strong-vs-weak is where blowouts live |
+| nhl_pl_fav_gap | NHL favorite -1.5 (plus money) when the OPPONENT's win% is 22+ pts higher than the favorite's (corrected 10/31: Bet Labs' Win % Difference is opponent minus team) | 502, +17.4% | 196, +14.6% | 0/40 | Puck-line favorites at plus money are a longshot-bias product; strong-vs-weak is where blowouts live |
 | nhl_pl_fav_strong_opp | NHL favorite -1.5 when the opponent's win% is 66%+ | 992, +11.9% | 405, +12.8% | 3/40 | Same family; two strong teams, the favorite's -1.5 is priced off the ML not the margin distribution |
 | nhl_pl_dog_bigml | NHL dog +1.5 when the opening ML is +181 to +196 | 810, +6.0% | 310, +7.4% | 11/40 | Big dogs keep games close; the +1.5 price does not fully credit it |
 | nhl_over_busy_goalie | NHL over when the home goalie's season saves/game is 31.1+ (tracker proxy: home shots against 34+/game) | 934, +7.0% | 322, +6.0% | 0/40 | A goalie facing 31+ shots a night sits behind a defense that leaks; total is set on goals, not shots |
 | nba_1h_under_hot_over | NBA 1H under when the visitor's games have gone over 71%+ of the time | 508, +8.4% | 257, +6.1% | 6/40 | Regression to the mean on a team's over rate; the same shape appears in CFB 1H (+5.1 / +5.3) |
 
-The two puck-line favorite rules overlap little (strong vs weak, strong vs strong) and should be tracked as one family:
+Correction 10/31: Bet Labs' "Win % Difference" is the opponent's win% minus the team's (verified on the saved screen's past picks,
+e.g. St. Louis 5-6-1 favored over Boston 9-3-1 = 28), and Win % is wins / games played with OT losses as losses, truncated. So
+nhl_pl_fav_gap backs a favorite with the clearly WORSE record: the market rates it well above its record and the -1.5 still pays.
+The tracker had it backwards from 10/30 until 10/31 and those fires were voided. The two puck-line favorite rules overlap little and should be tracked as one family:
 "NHL puck-line favorites are underpriced when the moneyline is short". Combined they fire roughly 2 to 4 times a night.
 
 ## Screens

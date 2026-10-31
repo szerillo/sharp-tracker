@@ -52,7 +52,7 @@ DESC = {'wind1014': 'NFL outdoor, Open-Meteo sustained wind 10-14 mph at T-24h: 
         'cfb_wind14': 'CFB outdoor, wind 14+ mph at T-24h: full-game under', 'vrest8_1h': 'NFL visitor off 8-30 days: first-half under', 'mnf_1h': 'Monday night: first-half under',
         'awfuldog': 'NFL dog with season margin -13 or worse (2+ games): full-game spread', 'bounce15_1h': 'NFL dog whose last game lost ATS by 15+: first-half spread',
         'xch_homedog_fade': 'Novig home side two-sided at 20-35c inside T-90m: take the road side on Novig', 'nba_momentum': 'NBA exchange mid moved 3c+ since T-6h: continuation at that exchange',
-        'nhl_pl_fav_gap': 'NHL favorite -1.5 when the win% gap is 22+ points', 'nhl_pl_fav_strong_opp': 'NHL favorite -1.5 when the opponent wins 66%+',
+        'nhl_pl_fav_gap': "NHL favorite -1.5 when the OPPONENT's win% is 22+ points higher than the favorite's (market rates the favorite above its record)", 'nhl_pl_fav_strong_opp': 'NHL favorite -1.5 when the opponent wins 66%+',
         'nhl_pl_dog_bigml': 'NHL dog +1.5 when the dog ML is +181 to +196', 'nba_1h_under_hot_over': 'NBA 1H under when the visitor has gone over 71%+ of the time',
         'nhl_early_home_fav_qual': 'NHL home favorite, game 24 or earlier, vs an opponent winning 51%+: moneyline', 'nba_under_good_home_over': 'NBA under: home team over 58%+, home 1-2 days off, visitor 1-3, total down 0.5+ from open',
         'cfb_road_dog_low_total': 'CFB conference game, road dog of 7+ with a total of 48 or less: road spread'}
@@ -256,13 +256,16 @@ def main():
         fav, dog = (home, away) if p_home >= 0.5 else (away, home); pf, pd = (ph, pa) if fav == home else (pa, ph); fav_side = 'home' if fav == home else 'away'
         trig = {}
         if sport == 'nhl':
-            gap = 100 * (pf['win_pct'] - pd['win_pct'])
-            if gap >= 22: trig['nhl_pl_fav_gap'] = ('spread', fav_side, f"win% gap {gap:.0f} pts ({fav} {100 * pf['win_pct']:.0f}% vs {dog} {100 * pd['win_pct']:.0f}%)")
-            if pd['win_pct'] >= 0.66: trig['nhl_pl_fav_strong_opp'] = ('spread', fav_side, f"opponent {dog} win% {100 * pd['win_pct']:.0f}% (favorite -1.5 vs a strong team)")
+            # Bet Labs definitions (checked against its past picks 10/31): Win % = wins / games played (OT and shootout losses are losses),
+            # each team's value truncated to a whole percent; "Win % Difference" = OPPONENT's win% minus the team's. So this rule backs a
+            # favorite whose opponent has the much better record (the market rates the favorite above its record), not the reverse.
+            wf, wd = int(100 * pf['win_pct']), int(100 * pd['win_pct']); rec_ = lambda p_: f"{p_['wins']}-{p_['games'] - p_['wins']}"
+            if wd - wf >= 22: trig['nhl_pl_fav_gap'] = ('spread', fav_side, f"favorite {fav} is {wf}% ({rec_(pf)}) but opponent {dog} is {wd}% ({rec_(pd)}): opponent's win% higher by {wd - wf} pts")
+            if wd >= 66: trig['nhl_pl_fav_strong_opp'] = ('spread', fav_side, f"opponent {dog} wins {wd}% ({rec_(pd)}); favorite {fav} -1.5 against a strong team")
             p_dog = 1 - max(p_home, 1 - p_home); am = N.prob_to_american(p_dog) if p_dog else None
             if am is not None and 181 <= am <= 196: trig['nhl_pl_dog_bigml'] = ('spread', 'away' if fav_side == 'home' else 'home', f"dog ML about +{am:.0f}: +1.5 on a big dog")
-            if fav == home and ph['games'] + 1 <= 24 and pd['win_pct'] >= 0.51:
-                trig['nhl_early_home_fav_qual'] = ('ml', 'home', f"home favorite, game {ph['games'] + 1} of the season, opponent {away} wins {100 * pd['win_pct']:.0f}%")
+            if fav == home and ph['games'] + 1 <= 24 and int(100 * pd['win_pct']) >= 51:
+                trig['nhl_early_home_fav_qual'] = ('ml', 'home', f"home favorite, game {ph['games'] + 1} of the season, opponent {away} wins {int(100 * pd['win_pct'])}% ({pd['wins']}-{pd['games'] - pd['wins']})")
         else:
             if (pa.get('over_pct') or 0) >= 0.71 and pa.get('games', 0) >= 8: trig['nba_1h_under_hot_over'] = ('1h_total', 'under', f"visitor {away} over rate {100 * pa['over_pct']:.0f}% this season; 1H under (regression lean)")
             h_off = (ph.get('days_since_last') or 0) - 1; a_off = (pa.get('days_since_last') or 0) - 1
