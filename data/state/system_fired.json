@@ -374,5 +374,31 @@
 "fair": null,
 "edge_pts": null,
 "why": "WPG opened +195 on the moneyline: +1.5 on a big dog"
+},
+"401892625:nhl_pl_fav_strong_opp": {
+"tag": "nhl_pl_fav_strong_opp",
+"fill_id": "73a9ef1687a7",
+"ts": "2026-10-31T14:34:22Z",
+"market": "spread",
+"side": "away",
+"line": -1.5,
+"venue": "Kalshi",
+"price": 194,
+"fair": 0.305,
+"edge_pts": -3.5,
+"why": "opponent WSH wins 66% (8-4); favorite MIN -1.5 against a strong team"
+},
+"401858278:xch_homedog_fade:ml": {
+"tag": "xch_homedog_fade",
+"fill_id": "8cd9a129b10d",
+"ts": "2026-10-31T14:34:22Z",
+"market": "ml",
+"side": "away",
+"line": null,
+"venue": "Novig",
+"price": -308,
+"fair": 0.75509,
+"edge_pts": 0.01,
+"why": "Novig home side mid 0.247 inside T-1.4h; audit band 20-35c"
 }
 }
