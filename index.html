@@ -283,6 +283,13 @@ function renderToday() {
       <td class="small mono"><span class="pos">+$${r.big_net.toLocaleString()}</span> risk-equiv. net in $${FL.big_usd}+ fills <span class="dim">(${r.big_fills} big fills)</span></td>
       <td class="small mono"><span class="neg">$${Math.abs(r.small_net).toLocaleString()}</span> net on ${esc(opp)} in $${FL.small_usd}-and-under fills</td>
       <td class="small dim">$${r.total.toLocaleString()} traded</td></tr>`; }).join('');
+  const km = FL && FL.moves ? FL.moves.filter(r => new Date(r.start) > Date.now()) : [];
+  const kmRows = km.map(r => { const g = {home: r.home, away: r.away, home_name: r.home_name, away_name: r.away_name};
+    const bet = betText({market: r.market, side: r.side, line: r.line}, g);
+    return `<tr><td class="small"><span class="badge b-sport">${SPORT_LABEL[r.sport] || r.sport}</span> <b>${ET(r.start)}</b><br><span class="dim">${until(r.start)}</span></td>
+      <td><span class="small">${esc(r.away_name || r.away)} @ ${esc(r.home_name || r.home)}</span><br><b>${esc(bet)}</b></td>
+      <td class="small mono">${r.open}% → <b>${r.now}%</b> <span class="pos">(+${r.move} pts)</span><br><span class="dim">first seen ${ET(r.open_ts)} ET</span></td>
+      <td class="small mono">ask ${r.ask}¢ (${toAm(r.ask / 100)})</td></tr>`; }).join('');
   return `<div class="hdr2"><h2>Vet these before the games</h2><span class="meta">system bets on upcoming games, tier A and B, soonest first</span></div>
     <p class="explain">Each card is a pre-registered rule that fired for this game (rules fire ${nWin} before kickoff and stay here until it starts). Check the price: green means the number we flagged, or better, is still on the board; amber means it has moved against us. Tier A is the wind family (beat the holdout at z ≥ 2 and the market does not fully price it); tier B is positive on both halves of the backtest and in most seasons since 2021.</p>
     ${vet.length ? sysCards(vet) : '<div class="small dim">No tier A or B bets on upcoming games right now.</div>'}
@@ -296,6 +303,9 @@ function renderToday() {
     <div class="hdr2"><h2>Watch: big money vs small money</h2><span class="meta">Kalshi pregame fills; markets where the two disagree</span></div>
     <p class="explain">Each row is a market where fills of $${FL ? FL.big_usd : 500} or more are net on one side by $${FL ? FL.div_usd.toLocaleString() : '1,000'}+ while fills of $${FL ? FL.small_usd : 50} and under lean the other way (the exchange version of money% vs ticket%, from real fill sizes). <b>Research only, tier C.</b> Sizes are risk-equivalent (the stake on a dog, the to-win on a favorite), so laying -900 does not look like big money. Backtest (docs/flow_split_2026-10-31.md): no version clears noise. The best, Kalshi 15 minutes out with $250-500 against small money, made +7% on about 600 games (z 1.7), and the price did not move toward the big side afterwards. Novig's live trades are logged and will be added once their side labelling is verified against Novig's next-day public file.</p>
     ${flRows ? `<div class="sec"><table><thead><tr><th>Game time</th><th>Game · big-money side</th><th>Big money</th><th>Small money</th><th></th></tr></thead><tbody>${flRows}</tbody></table></div>` : '<div class="small dim">No divergent markets right now.</div>'}
+    <div class="hdr2"><h2>Watch: Kalshi moved ${FL ? FL.move_pts : 4}+ points since its first price</h2><span class="meta">main line, two-sided book; best inside the last hour</span></div>
+    <p class="explain">The side the Kalshi price has moved toward, from the first tight two-sided price we logged to now. <b>Research only, tier C.</b> Backtest (sharp/flow_grid.py, paying the ask): following a 4+ point move since the open, 1 hour to 15 minutes before start, made +13% on about 500 October games (z 3.4), but was flat in September and negative in a thin August, and Kalshi's fee (about 1.5-2 cents a contract near even money) is not taken out. Bigger bars did not help outside October. Our "first price" is the first one we logged, which can be later than the true open.</p>
+    ${kmRows ? `<div class="sec"><table><thead><tr><th>Game time</th><th>Game · side it moved toward</th><th>Kalshi price</th><th>Now</th></tr></thead><tbody>${kmRows}</tbody></table></div>` : '<div class="small dim">No 4+ point movers right now.</div>'}
     <p class="explain" style="margin-top:14px">Built ${SY ? ET(SY.built) : '—'} ET. Everything else (each rule's record, the full move tape, the odds board, the research pages) is in the tabs above.</p>`;
 }
 // ---------------------------------------------------------------- Games: one simple row per game, details on click

@@ -16,7 +16,9 @@ Each also split by market type (ml / spread / total) and by price (favorite / do
 Train = games before 2026-10-01, test = October onward. A cell is only "found" if it is n >= 100 and z >= 2 on train; its
 test result is then read once. With hundreds of cells, ~2.5% clear z 2 on train by luck alone, so the count of train hits that keep
 their sign on test is the noise check.
-Writes data/state/flow_grid.json. Usage: python3 sharp/flow_grid.py"""
+--ask: enter at the side's last taker price (the ask) if it printed within 30 minutes, instead of the two-sided mid. The mid
+lags a moving price when one side has not traded lately, which flatters follow-the-move signals; --ask removes that.
+Writes data/research/flow_grid.json (or flow_grid_ask.json). Usage: python3 sharp/flow_grid.py [--ask]"""
 import os, sys, json, math, collections, datetime as dt, itertools
 HERE = os.path.dirname(os.path.abspath(__file__)); ROOT = os.path.abspath(os.path.join(HERE, '..')); sys.path.insert(0, ROOT); sys.path.insert(0, HERE)
 import sharp.exchange_backtest as EB
@@ -24,6 +26,7 @@ from flow_split import market_rows
 
 ENTRIES = {'T-6h': 6 * 3600, 'T-3h': 3 * 3600, 'T-1h': 3600, 'T-15m': 900}
 BIGS = (250.0, 500.0, 1000.0, 2500.0); SMALLS = (25.0, 50.0, 100.0)
+ASK = '--ask' in sys.argv; ASK_FRESH = 1800
 SPLIT = dt.datetime(2026, 10, 1, tzinfo=dt.timezone.utc).timestamp()
 
 
@@ -48,7 +51,10 @@ def build(rows):
             if len(pre) < 5: continue
             p = mid(pre, E)
             if p is None or not (0.03 < p < 0.97): continue
-            f = dict(v=v, sp=sp, mt=mt, gk=gk, start=start, ry=ry, en=en, p=p, close=close)
+            ly = next((x for x in reversed(pre) if x[3] > 0), None); ln = next((x for x in reversed(pre) if x[3] < 0), None)
+            f = dict(v=v, sp=sp, mt=mt, gk=gk, start=start, ry=ry, en=en, p=p, close=close,
+                     ask_y=ly[1] if ly and E - ly[0] <= ASK_FRESH else None,       # what a taker paid for yes, if it printed recently
+                     ask_n=1 - ln[1] if ln and E - ln[0] <= ASK_FRESH else None)  # what a taker paid for no
             for w, ws in (('1h', 3600), ('3h', 3 * 3600)):
                 q = mid(pre, E - ws); f['mv_' + w] = None if q is None else 100 * (p - q)
             f['mv_open'] = None if first2 is None or first2 >= E - 1800 else (lambda q: None if q is None else 100 * (p - q))(mid(pre, first2 + 1))
@@ -61,7 +67,11 @@ def build(rows):
 
 
 def grade(f, d):
-    price = f['p'] if d > 0 else 1 - f['p']; won = f['ry'] if d > 0 else 1 - f['ry']
+    if ASK:                                       # pay the side's last taker price (the ask), only if it printed within ASK_FRESH
+        price = f['ask_y'] if d > 0 else f['ask_n']
+        if price is None or not (0.02 < price < 0.98): return None
+    else: price = f['p'] if d > 0 else 1 - f['p']
+    won = f['ry'] if d > 0 else 1 - f['ry']
     clv = None if f['close'] is None else 100 * ((f['close'] if d > 0 else 1 - f['close']) - price)
     return dict(roi=(1 - price) / price if won else -1.0, won=won, price=price, clv=clv)
 
@@ -120,15 +130,19 @@ def main():
             for sub, ok in SUBS.items():
                 if not ok(f, d): continue
                 k = (f['v'], f['en'], sub); cur = hits[k].get(f['gk'])
-                if cur is None or strength > cur[0]: hits[k][f['gk']] = (strength, dict(grade(f, d), train=f['start'] < SPLIT, sp=f['sp']))
+                g = grade(f, d)
+                if g is None: continue
+                if cur is None or strength > cur[0]: hits[k][f['gk']] = (strength, dict(g, train=f['start'] < SPLIT, sp=f['sp'], month=dt.datetime.utcfromtimestamp(f['start']).strftime('%Y-%m')))
         for (v, en, sub), H in hits.items():
             B = [b for _, b in H.values()]
             tr = stats([b for b in B if b['train']]); te = stats([b for b in B if not b['train']])
-            out.append(dict(signal=name, venue=v, entry=en, sub=sub, train=tr, test=te, all=stats(B)))
+            bm = collections.defaultdict(list)
+            for b in B: bm[b['month']].append(b)
+            out.append(dict(signal=name, venue=v, entry=en, sub=sub, train=tr, test=te, all=stats(B), months={m: (lambda s_: [s_['n'], s_['roi']])(stats(x)) for m, x in sorted(bm.items())}))
     found = [r for r in out if r['train'] and r['train']['n'] >= 100 and r['train']['z'] >= 2]
     held = [r for r in found if r['test'] and r['test']['n'] >= 30 and r['test']['roi'] > 0]
     eligible = [r for r in out if r['train'] and r['train']['n'] >= 100]
-    json.dump(dict(cells=len(out), eligible=len(eligible), found=len(found), held=len(held), rows=out), open(os.path.join(ROOT, 'data', 'state', 'flow_grid.json'), 'w'))
+    json.dump(dict(cells=len(out), eligible=len(eligible), found=len(found), held=len(held), rows=out), open(os.path.join(ROOT, 'data', 'research', 'flow_grid_ask.json' if ASK else 'flow_grid.json'), 'w'))
     print(f"\n{len(out)} cells, {len(eligible)} with train n>=100; {len(found)} clear z>=2 on train (luck alone ~{0.025*len(eligible):.0f}); {len(held)} of those positive on Oct test (n>=30)")
     print(f"{'signal':58} {'venue':6} {'entry':5} {'sub':8} | train n  ROI    z    CLV | test n  ROI    z    CLV")
     for r in sorted(found, key=lambda r: -r['train']['z'])[:60]:

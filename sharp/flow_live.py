@@ -14,6 +14,7 @@ Writes data/state/flow_live.json."""
 import os, sys, json, gzip, glob, collections, datetime as dt
 HERE = os.path.dirname(os.path.abspath(__file__)); ROOT = os.path.abspath(os.path.join(HERE, '..')); sys.path.insert(0, ROOT)
 from sharp.norm import parse_ts
+MOVE_PTS = 4.0; TIGHT = 0.04
 BIG_USD = 500.0; SMALL_USD = 50.0; DIV_USD = 1000.0; NOVIG_VERIFIED = False
 OUT = os.path.join(ROOT, 'data', 'state', 'flow_live.json')
 OTHER = {'home': 'away', 'away': 'home', 'over': 'under', 'under': 'over'}
@@ -23,6 +24,56 @@ NOW = dt.datetime.now(dt.timezone.utc)
 def recent(d, days=8):
     cut = (NOW - dt.timedelta(days=days)).date().isoformat()
     return [f for f in sorted(glob.glob(os.path.join(d, '*.jsonl.gz'))) if os.path.basename(f)[:10] >= cut]
+
+
+def kalshi_moves(sched):
+    """Kalshi markets whose two-sided mid has moved MOVE_PTS+ points since the first two-sided price we logged (20-minute and 5-minute
+    ticks, last 14 days). Backtest (sharp/flow_grid.py --ask): following a 4+ pt move since the open at the ask, 1h to 15m before start,
+    +13% on ~500 October games (z 3.4) but about flat in August-September; see docs/flow_split_2026-10-31.md. Watch only."""
+    first, last = {}, {}
+    for sp in sorted({e['sport'] for e in sched.values()}):
+        files = []
+        for d in ('ticks', 'ticks5'): files += recent(os.path.join(ROOT, 'data', sp, d), days=14)
+        for f in files:
+            try: fh = gzip.open(f, 'rt'); lines = list(fh)
+            except (EOFError, OSError): continue
+            for l in lines:
+                if '"Kalshi"' not in l: continue
+                try: t = json.loads(l)
+                except Exception: continue
+                if t.get('market') not in ('ml', 'spread', 'total') or t.get('bid') is None or t.get('ask') is None: continue
+                e = sched.get(t.get('event_id'))
+                if not e or (sp == 'soccer' and t['market'] == 'ml'): continue
+                if not (0 < t['ask'] - t['bid'] <= TIGHT): continue
+                tk = (t.get('extra') or {}).get('ticker')
+                if not tk: continue
+                rec = (t['ts'], (t['bid'] + t['ask']) / 2, t['ask'], 1 - t['bid'], t.get('vol') or 0, t['side'], t.get('line'), t['event_id'], t['market'])
+                tk = (tk, t['side'])                     # the logger writes a spread/total ticker once per side, mirrored
+                if tk not in first or t['ts'] < first[tk][0]: first[tk] = rec
+                if tk not in last or t['ts'] > last[tk][0]: last[tk] = rec
+    best = {}
+    for tk, L in last.items():
+        F = first[tk]; ev, mk = L[7], L[8]; e = sched[ev]
+        if parse_ts(e['start']) <= NOW or parse_ts(L[0]) < NOW - dt.timedelta(hours=2): continue
+        mv = 100 * (L[1] - F[1])
+        k = (ev, mk)
+        # main line = most traded ticker; for moneylines the two team tickers mirror, so keep the busier one too
+        if L[5] not in ('home', 'over'): continue          # one orientation per ticker (home / over), so each market counts once
+        if k not in best or L[4] > best[k]['vol']:
+            best[k] = dict(vol=L[4], mv=mv, F=F, L=L, tk=tk[0])
+    out = []
+    for (ev, mk), b in best.items():
+        if abs(b['mv']) < MOVE_PTS: continue
+        e = sched[ev]; F, L = b['F'], b['L']; yes = L[5]; toward_yes = b['mv'] > 0
+        side = yes if toward_yes else OTHER.get(yes)
+        line = L[6]
+        if mk == 'spread' and line is not None and side != yes: line = -line
+        out.append(dict(sport=e['sport'], event_id=ev, away=e['away'], home=e['home'], away_name=(e.get('away_team') or {}).get('displayName'),
+                        home_name=(e.get('home_team') or {}).get('displayName'), start=e['start'], market=mk, side=side, line=line, ticker=b['tk'],
+                        open=round(100 * (F[1] if toward_yes else 1 - F[1]), 1), now=round(100 * (L[1] if toward_yes else 1 - L[1]), 1),
+                        ask=round(100 * (L[2] if toward_yes else L[3]), 1), move=round(abs(b['mv']), 1), open_ts=F[0], now_ts=L[0]))
+    out.sort(key=lambda r: r['start'])
+    return out
 
 
 def main():
@@ -70,8 +121,11 @@ def main():
                          total=round(tot), fills=s1['n'] + s2['n'], divergent=bool(big_net >= DIV_USD and small_net < 0), venues=sorted(a['venues']), last=a['last'],
                          sides={k: {kk: round(vv) for kk, vv in v.items()} for k, v in sides.items()}))
     rows.sort(key=lambda r: (-int(r['divergent']), -r['big_net']))
-    json.dump(dict(built=NOW.strftime('%Y-%m-%dT%H:%M:%SZ'), big_usd=BIG_USD, small_usd=SMALL_USD, div_usd=DIV_USD, novig_included=NOVIG_VERIFIED, rows=rows),
+    moves = kalshi_moves(sched)
+    json.dump(dict(built=NOW.strftime('%Y-%m-%dT%H:%M:%SZ'), big_usd=BIG_USD, small_usd=SMALL_USD, div_usd=DIV_USD, novig_included=NOVIG_VERIFIED, rows=rows,
+                   move_pts=MOVE_PTS, moves=moves),
               open(OUT, 'w'), separators=(',', ':'))
+    print(f"[flow_live] {len(moves)} upcoming Kalshi markets moved {MOVE_PTS}+ pts since their first two-sided price")
     print(f"[flow_live] {len(rows)} upcoming game markets with Kalshi flow; {sum(r['divergent'] for r in rows)} divergent (big >= ${DIV_USD:,.0f} one way, small money the other)")
 
 
