@@ -574,5 +574,44 @@
 "why": "home favorite, game 14 of the season, opponent OTT wins 57% (8-6)",
 "void": true,
 "void_why": "trigger no longer holds on current season records (2026-10-31T20:02:24Z)"
+},
+"401909897:nba_momentum:ml": {
+"tag": "nba_momentum",
+"fill_id": "c092d7d40406",
+"ts": "2026-10-31T20:41:29Z",
+"market": "ml",
+"side": "home",
+"line": null,
+"venue": "Novig",
+"price": 104,
+"fair": 0.48984,
+"edge_pts": -0.02,
+"why": "Novig ml mid 0.455 at T-6h -> 0.487 now (+3.3c); continuation (audit section 3, NBA only)"
+},
+"401909897:nba_momentum:spread": {
+"tag": "nba_momentum",
+"fill_id": "bb0b818c27ed",
+"ts": "2026-10-31T20:41:29Z",
+"market": "spread",
+"side": "home",
+"line": 1.5,
+"venue": "Novig",
+"price": -111,
+"fair": 0.52168,
+"edge_pts": -0.33,
+"why": "Novig spread mid 0.482 at T-6h -> 0.522 now (+4.0c); continuation (audit section 3, NBA only)"
+},
+"401909897:nba_momentum:total": {
+"tag": "nba_momentum",
+"fill_id": "ac1a3d0f27d2",
+"ts": "2026-10-31T20:41:29Z",
+"market": "total",
+"side": "under",
+"line": 211.5,
+"venue": "Novig",
+"price": 106,
+"fair": 0.48531,
+"edge_pts": 0.03,
+"why": "Novig total mid 0.580 at T-6h -> 0.518 now (-6.2c); continuation (audit section 3, NBA only)"
 }
 }
