@@ -83,6 +83,8 @@ def main():
         r['event_id'] = byk.get((c['date'], c['away'], c['home']))
         if not r['event_id'] and c['date']:      # abbreviation drift (AF vs AFA, MRSH vs MAR): same date, one side exact, other side shares a prefix
             cands = [(k, v) for k, v in byk.items() if k[0] == c['date'] and ((k[1] == c['away'] and (k[2][:2] == c['home'][:2] or c['home'][:2] == k[2][:2])) or (k[2] == c['home'] and k[1][:2] == c['away'][:2]))]
+            if not cands:    # a team plays once a day: one side exact on the date is enough (UA vs ARIZ, NW vs NU, IND vs IU, UW vs WASH ...)
+                cands = [(k, v) for k, v in byk.items() if k[0] == c['date'] and (k[1] == c['away'] or k[2] == c['home'])]
             if len(cands) == 1: r['event_id'] = cands[0][1]; r['match'] = 'fuzzy'
         rows.append(r)
     with open(os.path.join(OUT, 'msw.jsonl'), 'a') as f:

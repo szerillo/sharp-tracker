@@ -155,9 +155,29 @@ def paper_fill(conn, eq, ev, start, market, line, side, part, tag, stake, note, 
     return row
 
 
+# Fills written under a rule definition later found to be wrong are voided, graded or not, so they never count in that rule's record.
+# nhl_pl_fav_gap ran backwards (favorite better than opponent) until the 10/31 fix; every fill before it is void.
+RETRO_VOID = {'nhl_pl_fav_gap': ('2026-10-31T08:00:00Z', "fired under the reversed definition (favorite's win% above the opponent's); Bet Labs' rule is the opposite")}
+
+
+def retro_void(fired):
+    rows = FI.load(); ch = 0
+    for r in rows:
+        t = (r.get('rule_tag') or '').replace('paper:', '')
+        if t in RETRO_VOID and r['ts_utc'] < RETRO_VOID[t][0] and r.get('result') != 'void':
+            r['result'] = 'void'; r['pnl_units'] = 0.0; r['note'] = (r.get('note') or '') + ' | VOID: ' + RETRO_VOID[t][1]; ch += 1
+    if ch: FI.save(rows)
+    for k, rec in fired.items():
+        t = k.split(':')[1] if ':' in k else ''
+        if t in RETRO_VOID and (rec.get('ts') or '') < RETRO_VOID[t][0] and not rec.get('void'):
+            rec['void'] = True; rec['void_why'] = RETRO_VOID[t][1]
+    if ch: print(f"[systems] retro-voided {ch} fills")
+
+
 def main():
     conn = sqlite3.connect(DB)
     fired = json.load(open(FIRED)) if os.path.exists(FIRED) else {}
+    retro_void(fired)
     fires_now = []; view_games = []
     for ev, start, away, home in conn.execute("SELECT event_id, start_utc, away, home FROM events WHERE sport='nfl' ORDER BY start_utc").fetchall():
         st = N.parse_ts(start); ttk = (st - NOW).total_seconds() / 3600
@@ -223,11 +243,12 @@ def main():
         st = N.parse_ts(start); ttk = (st - NOW).total_seconds() / 3600
         if not (0 < ttk <= WINDOW_H[1]): continue      # visible until kickoff; new fills only inside the window (paper_fill checks)
         wx = weather_t24(ev, WX_CFB); msw = msw_latest('cfb', ev)
-        windy = wx and not wx.get('indoor') and wx.get('wind_mph') is not None and wx['wind_mph'] >= 14
+        windy = wx and not wx.get('indoor') and wx.get('wind_mph') is not None and round(wx['wind_mph']) >= 14
+        msw_only = (not windy) and msw and not (wx or {}).get('indoor') and round(msw.get('wind_mph') or 0) >= 14 and wx and wx.get('wind_mph') is not None
         eq = F.EventQuotes(conn, ev)
         sp_line, _n = main_line(eq, 'spread', home); tl, _n2 = main_line(eq, 'total', None); rec_s = sched_rec('cfb', ev)
         rdlt = sp_line is not None and sp_line <= -7 and tl is not None and tl <= 48 and rec_s.get('conf')
-        if not windy and not rdlt: continue
+        if not windy and not rdlt and not msw_only: continue
         game = dict(event_id=ev, away=away, home=home, start_utc=start, hours_to_kickoff=round(ttk, 1), spread_home=sp_line, dog=('away' if sp_line and sp_line < 0 else None), triggers={},
                     wind=(dict(mph=wx['wind_mph'], gust=wx.get('gust_mph'), temp_f=wx.get('temp_f'), at_h=wx['hours_to_kickoff']) if wx else None), fills=[], sport='cfb')
         if rdlt:
@@ -239,6 +260,7 @@ def main():
                     rec_ = dict(tag='cfb_road_dog_low_total', fill_id=row['fill_id'], ts=NOW_S, market='spread', side='away', line=-sp_line, venue=row['venue'], price=row['price_american'],
                                 fair=row['fair_at_fill'], edge_pts=(round(100 * (row['fair_at_fill'] - row['implied']), 2) if row['fair_at_fill'] is not None else None), why=why2)
                     fired[key2] = rec_; game['fills'].append(rec_); fires_now.append(dict(game=f"{away}@{home}", **rec_))
+        if msw_only: game['triggers']['wind_msw_only'] = f"MySportsWeather {msw['wind_mph']} mph at kickoff but Open-Meteo {wx['wind_mph']} mph (the rule fires on Open-Meteo)"
         if not windy: view_games.append(game); continue
         why = f"forecast {wx['wind_mph']} mph (gust {wx.get('gust_mph')}) at T-{wx['hours_to_kickoff']:.0f}h, {wx.get('temp_f')}F" + (f"; MSW {msw['wind_mph']} mph {msw.get('wind_dir') or ''}" if msw else '; MSW n/a')
         game['triggers']['cfb_wind14'] = why
