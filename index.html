@@ -203,6 +203,14 @@ function renderVenues() {
 }
 
 const SPORT_LABEL = {nfl: 'NFL', nba: 'NBA', nhl: 'NHL', cfb: 'CFB', soccer: 'Soccer', mma: 'MMA', mlb: 'MLB'};
+// Moves are stored as the home / over side's devigged probability. Everything shown to the reader is in the terms of the side the
+// market moved TOWARD: its own probability and American price, so "toward Under" always pairs with the under getting shorter.
+const sideP = (m, p) => p == null ? null : ((m.side === 'home' || m.side === 'over') ? p : 1 - p);
+const toAm = p => { if (p == null || p <= 0 || p >= 1) return '—'; const a = p >= 0.5 ? -Math.round(100 * p / (1 - p)) : Math.round(100 * (1 - p) / p); return (a > 0 ? '+' : '') + a; };
+function moveText(m, betLabel) {
+  const a = sideP(m, m.p0), b = sideP(m, m.p1);
+  return `<b>${esc(betLabel)}</b> shortened at ${m.origin}: <span class="mono">${toAm(a)} → ${toAm(b)}</span> <span class="dim small">(${(100 * a).toFixed(1)}% → ${(100 * b).toFixed(1)}%, +${m.size_pts} pts)</span>`;
+}
 // ---------------------------------------------------------------- Today: what to vet before the next games, and what to watch
 // A notable move: it started at Pinnacle, or $1k+ Kalshi fills went in the same direction. Same rule on every page.
 const isNotable = m => m.origin === 'Pinnacle' || !!(m.kalshi && m.kalshi.big_n && m.kalshi.big_net > 0);
@@ -212,7 +220,7 @@ function betText(f, g) {
   const per = /^(1h|1q|1p)_/.exec(f.market); const pre = per ? ({'1h': '1st half ', '1q': '1st quarter ', '1p': '1st period '}[per[1]]) : '';
   const base = f.market.replace(/^(1h|1q|1p)_/, ''); const team = f.side === 'home' ? (g.home_name || g.home) : (f.side === 'away' ? (g.away_name || g.away) : '');
   if (base === 'total') return `${pre}${f.side === 'over' ? 'Over' : 'Under'} ${f.line}`;
-  if (base === 'spread') return `${pre}${team} ${f.line > 0 ? '+' : ''}${f.line}`;
+  if (base === 'spread') return f.line === 0 ? `${pre}${team} draw no bet / pick'em` : `${pre}${team} ${f.line > 0 ? '+' : ''}${f.line}`;
   if (base === 'ml') return `${pre}${team} moneyline`;
   return `${pre}${MKT[f.market] || f.market} ${f.side} ${f.line ?? ''}`;
 }
@@ -262,7 +270,7 @@ function renderToday() {
     const stuck = Object.keys(m.stuck || {}); const fol = Object.entries(m.followed || {}).filter(([v, x]) => x != null).map(([v]) => v);
     return `<tr><td class="small"><span class="badge b-sport">${SPORT_LABEL[m.sport] || m.sport}</span> <b>${ET(m.start)}</b><br><span class="dim">${until(m.start)}</span></td>
       <td><span class="small">${esc(m.away_name || m.away)} @ ${esc(m.home_name || m.home)}</span><br><b>${esc(bet)}</b></td>
-      <td class="small">${m.origin} moved ${m.size_pts} pts toward it at ${ET(m.ts)}${m.limit && m.origin === 'Pinnacle' ? ` (limit $${m.limit.toLocaleString()})` : ''}${m.big ? `<br>Kalshi: $${m.kalshi.big_net.toLocaleString()} net in ${m.kalshi.big_n} fill${m.kalshi.big_n > 1 ? 's' : ''} of $1k+` : ''}</td>
+      <td class="small">${moveText(m, bet)} at ${ET(m.ts)}${m.limit && m.origin === 'Pinnacle' ? ` (limit $${m.limit.toLocaleString()})` : ''}${m.big ? `<br>Kalshi: $${m.kalshi.big_net.toLocaleString()} net in ${m.kalshi.big_n} fill${m.kalshi.big_n > 1 ? 's' : ''} of $1k+` : ''}</td>
       <td class="small">${stuck.length ? `<span class="ok-chip">still at the old price: ${stuck.join(', ')}</span>` : (fol.length ? `followed by ${fol.join(', ')}` : '<span class="dim">no soft book quote yet</span>')}</td></tr>`; }).join('');
   const nWin = SY.window_h ? `${SY.window_h[0]}–${SY.window_h[1]}h` : '';
   return `<div class="hdr2"><h2>Vet these before the games</h2><span class="meta">system bets on upcoming games, tier A and B, soonest first</span></div>
@@ -385,10 +393,11 @@ function renderMoves() {
   }
   const fmtp = p => p == null ? '—' : (100 * p).toFixed(1);
   const tr = rows.slice(0, 300).map(m => {
+    const betTxt = m.market === 'total' ? `${m.side === 'over' ? 'Over' : 'Under'} ${m.line}` : `${m.side === 'home' ? (m.home_name || m.home) : (m.away_name || m.away)}${m.market === 'spread' ? (m.line === 0 ? " draw no bet / pick'em" : ' ' + ((m.side === 'home' ? m.line : -m.line) > 0 ? '+' : '') + (m.side === 'home' ? m.line : -m.line)) : ' moneyline'}`;
     const bet = m.market === 'total' ? `<span class="side-${m.side}">${m.side === 'over' ? 'Over' : 'Under'} ${m.line}</span>` : `${m.side === 'home' ? m.home : m.away}${m.market === 'spread' ? ' ' + ((m.side === 'home' ? m.line : -m.line) > 0 ? '+' : '') + (m.side === 'home' ? m.line : -m.line) : ''}`;
     const fol = Object.entries(m.followed || {}).filter(([v, x]) => x != null).sort((a, b) => a[1] - b[1]).map(([v, x]) => `<span class="lad">${v} <span class="p">${x}m</span></span>`).join('');
     const nof = Object.entries(m.followed || {}).filter(([v, x]) => x == null).map(([v]) => v);
-    const stuck = Object.entries(m.stuck || {}).map(([v, p]) => `<span class="lad x">${v} <span class="p">${fmtp(p)}</span></span>`).join('');
+    const stuck = Object.entries(m.stuck || {}).map(([v, p]) => `<span class="lad x" title="${esc(v)} still has this side at ${toAm(sideP(m, p))}">${v} <span class="p">${toAm(sideP(m, p))}</span></span>`).join('');
     const withv = Object.keys(m.with_ || {}).length ? `<br><span class="dim small">with ${Object.entries(m.with_).map(([v, x]) => `${v} +${x}m`).join(', ')}</span>` : '';
     const k = !m.kalshi ? '<span class="dim">no trades</span>' : (m.kalshi.big_n ? `<span class="mono ${m.kalshi.big_net > 0 ? 'pos' : 'neg'}">${m.kalshi.big_net > 0 ? '+' : ''}$${m.kalshi.big_net.toLocaleString()}</span> <span class="small">${m.kalshi.big_net > 0 ? 'with' : 'against'} the move</span><br><span class="dim small">${m.kalshi.big_n} fill${m.kalshi.big_n > 1 ? 's' : ''} of $1k+ (${m.kalshi.big_with || 0} with, ${m.kalshi.big_against || 0} against)</span>` : `<span class="dim small">only small fills ($${m.kalshi.usd.toLocaleString()} in ${m.kalshi.n}, largest $${m.kalshi.big.toLocaleString()})</span>`);
     const nv = m.novig ? `<br><span class="dim small">Novig $${m.novig.usd.toLocaleString()} · ${m.novig.n} fills</span>` : '';
@@ -397,11 +406,11 @@ function renderMoves() {
     return `<tr><td class="small"><span class="badge b-sport">${SPORT_LABEL[m.sport] || m.sport}</span><br>${ET(m.ts)}<br><span class="dim">T-${m.ttk_h}h</span></td>
       <td class="small"><b>${esc(m.away_name || m.away)} @ ${esc(m.home_name || m.home)}</b><br><span class="dim">game ${ET(m.start)} ET</span><br><span class="dim">${MKT[m.market] || m.market}</span> · ${bet}</td>
       <td><b class="${SHARP.has(m.origin) ? '' : (XV.has(m.origin) ? '' : '')}">${m.origin}</b>${m.limit ? `<br><span class="dim small">limit $${m.limit.toLocaleString()}</span>` : ''}${withv}</td>
-      <td class="mono">${fmtp(m.p0)} → ${fmtp(m.p1)}<br><span class="${m.dir > 0 ? 'pos' : 'neg'}">${m.size_pts} pts toward ${bet}</span></td>
+      <td class="small">${moveText(m, betTxt)}</td>
       <td class="small">${fol || '<span class="dim">none yet</span>'}${nof.length ? `<br><span class="dim">not: ${nof.join(', ')}</span>` : ''}</td>
       <td class="small">${stuck || '<span class="dim">—</span>'}</td>
       <td class="small">${k}${nv}</td>
-      <td class="num mono">${m.close == null ? '—' : fmtp(m.close)}</td><td class="num">${clv}</td><td class="num">${res}</td></tr>`;
+      <td class="num mono small">${m.close == null ? '—' : `${toAm(sideP(m, m.close))}<br><span class="dim">${m.settled ? 'close' : 'latest'}</span>`}</td><td class="num">${clv}</td><td class="num">${res}</td></tr>`;
   }).join('');
   const origins = ['Pinnacle', 'Novig', 'Kalshi'];
   return `<div class="hdr2"><h2>Market moves</h2><span class="meta">research: who moved first, who followed, whether real money was behind it</span></div>
@@ -415,7 +424,7 @@ function renderMoves() {
       <span class="tabs inline">${chip(st.live, 1, 'upcoming only', 'live')}${chip(st.live, 0, 'include started', 'live')}</span>
       <span class="tabs inline">${chip(st.notable, 1, 'notable only', 'notable')}${chip(st.notable, 0, 'every move', 'notable')}</span>
       <input value="${esc(st.q)}" placeholder="team" oninput="_mf.q=this.value;draw()"> <span>${rows.length} moves</span></div>
-    <div class="sec"><table><thead><tr><th>Moved at</th><th>Game · market</th><th>Origin</th><th>Move</th><th>Followed (min after)</th><th>Still at old price</th><th>Kalshi $1k+ fills</th><th class="num">Close</th><th class="num">CLV</th><th class="num">Res</th></tr></thead><tbody>${tr}</tbody></table></div>`;
+    <div class="sec"><table><thead><tr><th>Moved at</th><th>Game · market</th><th>Origin</th><th>Move (the side that got shorter)</th><th>Followed (min after)</th><th>Still at old price</th><th>Kalshi $1k+ fills</th><th class="num">That side now / at close</th><th class="num">CLV</th><th class="num">Res</th></tr></thead><tbody>${tr}</tbody></table></div>`;
 }
 function renderEdges() {
   if (!E) return '<div class="banner">edges.json not loaded yet</div>';
