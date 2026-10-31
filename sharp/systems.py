@@ -263,6 +263,8 @@ def main():
             line = None; part = None
             if market == 'spread':
                 line = -1.5 if side == fav_side else 1.5; part = home if side == 'home' else away
+            elif market == 'ml':
+                part = home if side == 'home' else away      # moneyline: no number, the team is the participant
             else:
                 line, _n = main_line(eq, market, None)
                 if line is None: continue

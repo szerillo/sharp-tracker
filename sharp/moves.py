@@ -23,6 +23,7 @@ from sharp import sports as SP
 SD = os.path.join(ROOT, 'data', 'state'); OUT = os.path.join(SD, 'moves.json'); FULL = os.path.join(SD, 'moves.jsonl.gz'); NCACHE = os.path.join(SD, 'moves_novig_flow.json')
 FAST = ['Pinnacle', 'Novig', 'Kalshi']; SOFT = ['DK', 'FD', 'Caesars', 'BetRivers', 'Fanatics', 'theScore']
 BIG_USD = 1000.0   # a Kalshi fill counts as flow only at $1,000+ at risk (10/30: top 1% of fills on our markets, 44% of dollars; median fill $9)
+WINDOW_MIN = 30   # a move can build over up to 30 minutes (Pinnacle moves in small steps)
 MOVE = 0.02; FOLLOW = 0.01; CLUSTER_MIN = 15; FLOW_MIN = 30; STUCK_MAX_AGE_MIN = 45
 GATE = 150; TAPE_ROWS = 150; DAYS = 21
 MARKETS = ('ml', 'spread', 'total')
@@ -46,9 +47,14 @@ def recent(dirp):
     return [f for f in fs if os.path.basename(f)[:10] >= cut]
 
 
+def _v(x):
+    return None if x is None or (isinstance(x, float) and math.isnan(x)) else x
+
+
 def prob(r):
-    if r.get('bid') is not None and r.get('ask') is not None: return (r['bid'] + r['ask']) / 2
-    a = r.get('american')
+    """Mid for exchange rows, implied probability for book rows. Rows from a mixed table carry NaN, not None, for the fields they lack."""
+    bid, ask, a = _v(r.get('bid')), _v(r.get('ask')), _v(r.get('american'))
+    if bid is not None and ask is not None: return (bid + ask) / 2
     if a is None: return None
     return 1 / (1 + a / 100) if a > 0 else 1 / (1 + 100 / -a)
 
@@ -134,10 +140,17 @@ def detect(fast, soft, sched, closes, ktr, ntape, ncache, sport):
         for v in FAST:
             s = series.get(v)
             if s is None or len(s) < 2: continue
-            p = s['p'].values; ts = list(s['ts']); lim = s['limit'].values
+            # a move = MOVE or more within WINDOW_MIN, measured from the venue's price at the start of that window (or at its last move,
+            # whichever is later). Consecutive-snapshot jumps missed Pinnacle, which steps its price a few cents at a time.
+            p = s['p'].values; ts = list(s['ts']); lim = s['limit'].values; base = 0
             for i in range(1, len(p)):
-                d = p[i] - p[i - 1]
-                if abs(d) >= MOVE: raw.append(dict(venue=v, ts=ts[i], p0=float(p[i - 1]), p1=float(p[i]), dir=int(np.sign(d)), limit=(None if pd.isna(lim[i]) else float(lim[i]))))
+                while base < i and (ts[i] - ts[base]).total_seconds() > WINDOW_MIN * 60: base += 1
+                j = min(range(base, i), key=lambda k: -abs(p[i] - p[k])) if base < i else None   # the point in the window furthest from now
+                if j is None: continue
+                d = p[i] - p[j]
+                if abs(d) >= MOVE:
+                    raw.append(dict(venue=v, ts=ts[i], p0=float(p[j]), p1=float(p[i]), dir=int(np.sign(d)), limit=(None if pd.isna(lim[i]) else float(lim[i]))))
+                    base = i                                     # the next move is measured from here
         if not raw: continue
         raw.sort(key=lambda r: r['ts']); clusters = []
         for r in raw:

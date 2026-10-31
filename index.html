@@ -204,6 +204,8 @@ function renderVenues() {
 
 const SPORT_LABEL = {nfl: 'NFL', nba: 'NBA', nhl: 'NHL', cfb: 'CFB', soccer: 'Soccer', mma: 'MMA', mlb: 'MLB'};
 // ---------------------------------------------------------------- Today: what to vet before the next games, and what to watch
+// A notable move: it started at Pinnacle, or $1k+ Kalshi fills went in the same direction. Same rule on every page.
+const isNotable = m => m.origin === 'Pinnacle' || !!(m.kalshi && m.kalshi.big_n && m.kalshi.big_net > 0);
 const until = iso => { const m = Math.round((new Date(iso) - Date.now()) / 60000); if (m <= 0) return 'started'; const h = Math.floor(m / 60); return h ? `in ${h}h ${m % 60}m` : `in ${m}m`; };
 const prob = a => a == null ? null : (a > 0 ? 100 / (a + 100) : -a / (-a + 100));
 function betText(f, g) {
@@ -236,6 +238,14 @@ function renderToday() {
   for (const g of SY.games || []) { if (new Date(g.start_utc) <= Date.now()) continue;
     for (const f of g.fills || []) if (f.fill_id && !f.stacked) items.push({g, f, tag: f.tag}); }
   items.sort((a, b) => a.g.start_utc < b.g.start_utc ? -1 : 1);
+  const flags = [];
+  for (const g of SY.games || []) { if (new Date(g.start_utc) <= Date.now()) continue;
+    for (const [tag, why] of Object.entries(g.triggers || {})) { const f = (g.fills || []).find(x => x.tag === tag);
+      if (f && f.fill_id && !f.stacked) continue;
+      const reason = tag === 'wind_msw_only' ? 'Weather sources disagree: MySportsWeather has the wind in range, Open-Meteo (the source the rule was tested on) does not. Not a bet; worth a look if the forecasts converge.'
+        : (f && f.stacked ? 'Same bet already flagged by a stronger rule on this game; not a second bet.' : 'The rule fired but no book had a usable price at that moment. If you can find the number, it is the same bet as a card above.');
+      flags.push({g, tag, why, reason}); } }
+  flags.sort((a, b) => a.g.start_utc < b.g.start_utc ? -1 : 1);
   const tierOf = it => (((SY.rules || {})[it.tag] || {}).evidence || {}).tier || '?';   // unknown tier stays in Vet; only an explicit C is demoted
   const vet = items.filter(it => tierOf(it) !== 'C'), lean = items.filter(it => tierOf(it) === 'C');
   // notable market moves on upcoming games: Pinnacle-origin, or $1k+ Kalshi fills with the move; last 6 hours
@@ -243,9 +253,8 @@ function renderToday() {
   if (MV) for (const [sp, v] of Object.entries(MV.sports)) for (const m of v.tape || []) {
     if (m.started || new Date(m.start) <= Date.now()) continue;
     if ((Date.now() - new Date(m.ts)) / 3600000 > 6) continue;
-    const big = m.kalshi && m.kalshi.big_n && m.kalshi.big_net > 0;
-    if (m.origin !== 'Pinnacle' && !big) continue;
-    moves.push({...m, sport: sp, big});
+    if (!isNotable(m)) continue;
+    moves.push({...m, sport: sp, big: !!(m.kalshi && m.kalshi.big_n && m.kalshi.big_net > 0)});
   }
   moves.sort((a, b) => a.start < b.start ? -1 : 1);
   const mvRows = moves.slice(0, 40).map(m => { const g = {home: m.home, away: m.away, home_name: m.home_name, away_name: m.away_name};
@@ -253,7 +262,7 @@ function renderToday() {
     const stuck = Object.keys(m.stuck || {}); const fol = Object.entries(m.followed || {}).filter(([v, x]) => x != null).map(([v]) => v);
     return `<tr><td class="small"><span class="badge b-sport">${SPORT_LABEL[m.sport] || m.sport}</span> <b>${ET(m.start)}</b><br><span class="dim">${until(m.start)}</span></td>
       <td><span class="small">${esc(m.away_name || m.away)} @ ${esc(m.home_name || m.home)}</span><br><b>${esc(bet)}</b></td>
-      <td class="small">${m.origin} moved ${m.size_pts} pts toward it at ${ET(m.ts)}${m.limit ? ` (limit $${m.limit.toLocaleString()})` : ''}${m.big ? `<br>Kalshi: $${m.kalshi.big_net.toLocaleString()} net in ${m.kalshi.big_n} fill${m.kalshi.big_n > 1 ? 's' : ''} of $1k+` : ''}</td>
+      <td class="small">${m.origin} moved ${m.size_pts} pts toward it at ${ET(m.ts)}${m.limit && m.origin === 'Pinnacle' ? ` (limit $${m.limit.toLocaleString()})` : ''}${m.big ? `<br>Kalshi: $${m.kalshi.big_net.toLocaleString()} net in ${m.kalshi.big_n} fill${m.kalshi.big_n > 1 ? 's' : ''} of $1k+` : ''}</td>
       <td class="small">${stuck.length ? `<span class="ok-chip">still at the old price: ${stuck.join(', ')}</span>` : (fol.length ? `followed by ${fol.join(', ')}` : '<span class="dim">no soft book quote yet</span>')}</td></tr>`; }).join('');
   const nWin = SY.window_h ? `${SY.window_h[0]}–${SY.window_h[1]}h` : '';
   return `<div class="hdr2"><h2>Vet these before the games</h2><span class="meta">system bets on upcoming games, tier A and B, soonest first</span></div>
@@ -261,8 +270,10 @@ function renderToday() {
     ${vet.length ? sysCards(vet) : '<div class="small dim">No tier A or B bets on upcoming games right now.</div>'}
     <div class="hdr2"><h2>Watch: weaker leans</h2><span class="meta">tier C: thin samples or exchange-audit signals from sparse data</span></div>
     ${lean.length ? sysCards(lean) : '<div class="small dim">None right now.</div>'}
+    <div class="hdr2"><h2>Watch: rules that triggered without a bet</h2><span class="meta">why each one is not a card above</span></div>
+    ${flags.length ? `<div class="sec"><table><thead><tr><th>Game time</th><th>Game</th><th>Rule · trigger</th><th>Why no bet</th></tr></thead><tbody>${flags.map(x => `<tr><td class="small"><span class="badge b-sport">${SPORT_LABEL[x.g.sport] || x.g.sport}</span> <b>${ET(x.g.start_utc)}</b></td><td class="small">${esc(x.g.away_name || x.g.away)} @ ${esc(x.g.home_name || x.g.home)}</td><td class="small"><span class="mono">${esc(x.tag)}</span><br><span class="dim">${esc(x.why)}</span></td><td class="small">${esc(x.reason)}</td></tr>`).join('')}</tbody></table></div>` : '<div class="small dim">None right now.</div>'}
     <div class="hdr2"><h2>Watch: sharp-looking market moves</h2><span class="meta">last 6 hours, games not started</span></div>
-    <p class="explain">A Pinnacle move, or a move backed by $1,000+ Kalshi fills, on an upcoming game. <b>This is not a bet signal yet.</b> The move tape started on 10/30 and has no settled record; until a sport reaches ${MV ? MV.gate : 150} settled games we do not know whether following these makes money. Use it to sanity-check a system bet (is the market moving with you or against you?) and to spot soft books that have not caught up.</p>
+    <p class="explain">Moves on upcoming games in the last 6 hours that started at Pinnacle, or that $1,000+ Kalshi fills went in the same direction as (the same "notable" rule as the Market moves page, which keeps the older ones too). <b>This is not a bet signal yet.</b> The move tape started on 10/30 and has no settled record; until a sport reaches ${MV ? MV.gate : 150} settled games we do not know whether following these makes money. Use it to sanity-check a system bet (is the market moving with you or against you?) and to spot soft books that have not caught up.</p>
     ${mvRows ? `<div class="sec"><table><thead><tr><th>Game time</th><th>Game · direction</th><th>What moved</th><th>Soft books</th></tr></thead><tbody>${mvRows}</tbody></table></div>` : '<div class="small dim">No notable moves in the last 6 hours.</div>'}
     <p class="explain" style="margin-top:14px">Built ${SY ? ET(SY.built) : '—'} ET. Everything else (each rule's record, the full move tape, the odds board, the research pages) is in the tabs above.</p>`;
 }
@@ -285,7 +296,7 @@ function priceCell(c, label) {
 function gameFlags(g) {
   const out = [];
   if (SY) for (const sg of SY.games || []) if (sg.event_id === g.event_id) for (const f of sg.fills || []) if (f.fill_id && !f.stacked) out.push(`<span class="badge b-fit" title="${esc(f.why || '')}">system bet: ${esc(betText(f, sg))}</span>`);
-  if (MV) { const ms = (MV.sports[SPORT] || {}).tape || []; const m = ms.filter(m => m.event_id === g.event_id && !m.started && (m.origin === 'Pinnacle' || (m.kalshi && m.kalshi.big_n > 0)));
+  if (MV) { const ms = (MV.sports[SPORT] || {}).tape || []; const m = ms.filter(m => m.event_id === g.event_id && !m.started && isNotable(m));
     if (m.length) out.push(`<span class="badge b-prior" title="see Market moves">${m.length} notable move${m.length > 1 ? 's' : ''}</span>`); }
   return out.join(' ');
 }
@@ -356,7 +367,7 @@ function renderMoves() {
   const chip = (cur, val, label, field) => `<button class="${cur === val ? 'on' : ''}" onclick='_mf.${field}=${JSON.stringify(val)};draw()'>${label}</button>`;
   const pick = st.sport && MV.sports[st.sport] ? [st.sport] : sports;
   let rows = pick.flatMap(sp => (MV.sports[sp].tape || []).map(m => ({...m, sport: sp})));
-  const notable = m => m.origin === 'Pinnacle' || (m.kalshi && m.kalshi.big_n > 0);
+  const notable = isNotable;
   rows = rows.filter(m => (!st.origin || m.origin === st.origin) && (!st.market || m.market === st.market) && (!st.live || !m.started) && (!st.notable || notable(m))
     && (!st.q || `${m.away} ${m.home}`.toLowerCase().includes(st.q.toLowerCase())));
   rows.sort((a, b) => a.ts < b.ts ? 1 : -1);
