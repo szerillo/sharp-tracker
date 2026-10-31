@@ -401,7 +401,8 @@ def novig(M):
             for s_, nm in sides.items():
                 other = [t for t in sides if t != s_][0]; o = best[nm]
                 q3 = o['qty_3c'] if o['qty_3c'] is not None else o['qty_best']
-                ex_ = dict(qty_best=o['qty_best'], qty_3c=o['qty_3c'], depth3=round(q3 * o['best'] / 100, 2), depth_src='book' if o['qty_3c'] is not None else 'best', market_id=m['marketId'])   # 1c contracts -> dollars
+                ex_ = dict(qty_best=o['qty_best'], qty_3c=o['qty_3c'], depth3=round(q3 * o['best'] / 100, 2), depth_src='book' if o['qty_3c'] is not None else 'best', market_id=m['marketId'],
+                           outcome_id=next((x['outcomeId'] for x in m.get('outcomes', []) if x.get('name') == nm), None))   # 1c contracts -> dollars; outcome id maps live trades to a side
                 yield s_, bids[s_], 1 - bids[other], flags, ex_
             n += 1
         if typ in S.NOVIG_GAME:

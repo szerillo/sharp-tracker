@@ -22,7 +22,21 @@ ARGS = sys.argv[1:]
 SPORTS = (ARGS[ARGS.index('--sports') + 1] if '--sports' in ARGS else 'nfl,nba,cfb,nhl,soccer,mma').split(',')
 KAPI = "https://api.elections.kalshi.com/trade-api/v2"
 KD = os.path.join(ROOT, 'data', 'kalshi'); TR = os.path.join(KD, 'trades5'); os.makedirs(TR, exist_ok=True)
-TSTATE = os.path.join(KD, 'trades_state.json')   # global trade-tape cursor; per-group ticker metadata lives in fast_meta_<group>.json
+TSTATE = os.path.join(KD, 'trades_state.json'); NTR = os.path.join(ROOT, 'data', 'novig', 'trades5')
+NAPI = "https://api.novig.com"
+
+
+def nget(path):
+    for i in range(3):
+        dtm = time.time() - T_LAST[0]
+        if dtm < 0.25: time.sleep(0.25 - dtm)
+        T_LAST[0] = time.time()
+        try: return json.load(urllib.request.urlopen(urllib.request.Request(NAPI + path, headers={'User-Agent': 'Mozilla/5.0'}), timeout=20))
+        except urllib.error.HTTPError as e:
+            if e.code in (404, 400): return {}
+            time.sleep(2 * (i + 1))
+        except Exception: time.sleep(1.5 * (i + 1))
+    return {}   # global trade-tape cursor; per-group ticker metadata lives in fast_meta_<group>.json
 GAME = ('ml', 'spread', 'total')   # markets kept: these and their 1h_/1q_/1p_ variants; team totals and props are not move-tape markets
 T0 = time.time(); T_LAST = [0.0]
 
@@ -71,7 +85,11 @@ def run_sport(sport):
             try: fn(M)
             except Exception as e: counts[f'{name}:{lk}'] = f'{type(e).__name__}: {e}'
     rows = ladder([r for r in L.trim(L.ROWS) if keep(r)])
+    for ev, st in L.STARTS.items(): STARTS_ISO[ev] = st.strftime('%Y-%m-%dT%H:%M:%SZ')
     return rows, counts, L.et_date(L.NOW).isoformat()
+
+
+STARTS_ISO = {}
 
 
 LADDER = 3   # strikes kept per venue x event x market x side: the main line and its neighbours (exchanges list every alternate)
@@ -110,8 +128,24 @@ def main():
         if rows:
             with gzip.open(os.path.join(TR, f'{now.date().isoformat()}.jsonl.gz'), 'at') as f:
                 for t in rows: f.write(json.dumps(t, separators=(',', ':')) + '\n')
-        json.dump({'last_ts': newest + 1 if raw else since, 'pulled': now.isoformat()}, open(TSTATE, 'w'))
-        print(f"[fast trades] {round(time.time() - T0)}s; {len(raw)} trades since {since}, {len(rows)} on {len({r['ticker'] for r in rows})} known game tickers ({len(meta)} tickers in meta)")
+        nst = st.get('novig') or {}; nrows = []; nmk = 0
+        for k, m in meta.items():
+            if not k.startswith('nv:') or time.time() - T0 > 270: continue
+            if not m.get('start') or m['start'] <= now.strftime('%Y-%m-%dT%H:%M:%SZ'): continue
+            mid = k[3:]; last = int(nst.get(mid, 0)); nmk += 1
+            x = nget(f"/v3/public/catalog/markets/{mid}/trades?limit=200")
+            for t in (x or {}).get('items', []):
+                if int(t['ts']) <= last: continue
+                nrows.append(dict(ts=t['ts'], market_id=mid, outcome_id=t['outcomeId'], side_if_taker=m['outcomes'].get(t['outcomeId']), price=float(t['price']),
+                                  qty_cents=int(t['qty']), usd=round(float(t['price']) * int(t['qty']) / 100, 2), take_id=t.get('takeId'), trade_id=t.get('tradeId'),
+                                  **{f: m[f] for f in ('sport', 'event_id', 'market', 'line')}))
+                nst[mid] = max(int(nst.get(mid, 0)), int(t['ts']))
+        if nrows:
+            os.makedirs(NTR, exist_ok=True)
+            with gzip.open(os.path.join(NTR, f'{now.date().isoformat()}.jsonl.gz'), 'at') as f:
+                for t in nrows: f.write(json.dumps(t, separators=(',', ':')) + '\n')
+        json.dump({'last_ts': newest + 1 if raw else since, 'pulled': now.isoformat(), 'novig': nst}, open(TSTATE, 'w'))
+        print(f"[fast trades] {round(time.time() - T0)}s; Kalshi {len(raw)} trades since {since}, {len(rows)} on {len({r['ticker'] for r in rows})} known game tickers; Novig {len(nrows)} new trades on {nmk} markets")
         return
     slug = '-'.join(SPORTS); mp = os.path.join(KD, f'fast_meta_{slug}.json'); meta = json.load(open(mp)) if os.path.exists(mp) else {}
     report = []
@@ -128,6 +162,19 @@ def main():
             if r['venue'] != 'Kalshi' or not (r.get('extra') or {}).get('ticker'): continue
             yes = r['extra'].get('yes'); line = r.get('line') if r['side'] == yes else (-r['line'] if r.get('line') is not None and r['market'].endswith('spread') else r.get('line'))
             meta[r['extra']['ticker']] = dict(sport=sport, event_id=r['event_id'], market=r['market'], line=line, yes_side=yes, seen=day)
+        nv = collections.defaultdict(list)      # Novig: one market per game x market type, the strike priced nearest 50% (the main line)
+        for r in rows:
+            x = r.get('extra') or {}
+            if r['venue'] == 'Novig' and x.get('market_id') and x.get('outcome_id') and r['market'] in ('ml', 'spread', 'total'): nv[(r['event_id'], r['market'])].append(r)
+        for (ev, mk), L in nv.items():
+            by_m = collections.defaultdict(dict)
+            for r in L: by_m[r['extra']['market_id']][r['extra']['outcome_id']] = r
+            def mid_dist(d): return min(abs(((r.get('bid') or 0) + (r.get('ask') or 1)) / 2 - 0.5) for r in d.values())
+            mid_, outs = min(by_m.items(), key=lambda kv: mid_dist(kv[1]))
+            if len(outs) != 2: continue
+            hs = next((r for r in outs.values() if r['side'] in ('home', 'over')), None)
+            meta['nv:' + mid_] = dict(sport=sport, event_id=ev, market=mk, line=(hs or {}).get('line'), outcomes={o: r['side'] for o, r in outs.items()}, seen=day,
+                                      start=STARTS_ISO.get(ev))
         byv = collections.Counter(r['venue'] for r in rows)
         report.append(f"{sport}: {len(rows)} ticks {dict(byv)} on {len({r['event_id'] for r in rows})} events in {round(time.time() - t_s)}s" + (f" {counts}" if counts else ''))
     cut = (now - dt.timedelta(days=14)).date().isoformat(); meta = {k: v for k, v in meta.items() if v.get('seen', '9') >= cut}

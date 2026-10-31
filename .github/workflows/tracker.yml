@@ -45,6 +45,8 @@ jobs:
         run: python3 sharp/move_signals.py || true
       - name: move tape (origin, followers, stuck books, exchange flow, CLV) from the 5-minute fast tape
         run: python3 sharp/moves.py || true
+      - name: live big-money vs small-money split on the exchanges (watch signal)
+        run: python3 sharp/flow_live.py || true
       - run: python3 sharp/weights_fit.py
       - run: python3 sharp/export.py
       - name: roll off raw ticks older than 10 days to the raw-archive release
