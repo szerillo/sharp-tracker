@@ -23,7 +23,9 @@
 "price": 117,
 "fair": 0.45442,
 "edge_pts": -0.56,
-"why": "win% gap 33 pts (FLA 60% vs WPG 27%)"
+"why": "win% gap 33 pts (FLA 60% vs WPG 27%)",
+"void": true,
+"void_why": "fired under the reversed definition (favorite's win% above the opponent's); Bet Labs' rule is the opposite"
 },
 "401892614:nhl_pl_fav_gap": {
 "tag": "nhl_pl_fav_gap",
@@ -229,5 +231,44 @@
 "why": "home favorite, game 12 of the season, opponent CGY wins 60%",
 "void": true,
 "void_why": "trigger no longer holds on current season records (2026-10-31T07:41:29Z)"
+},
+"401892614:nhl_pl_dog_bigml": {
+"tag": "nhl_pl_dog_bigml",
+"fill_id": "5ae159c69906",
+"ts": "2026-10-31T08:05:40Z",
+"market": "spread",
+"side": "away",
+"line": 1.5,
+"venue": "Novig",
+"price": -122,
+"fair": 0.54693,
+"edge_pts": -0.31,
+"why": "CHI opened +185 on the moneyline: +1.5 on a big dog"
+},
+"401909899:nba_1h_under_hot_over": {
+"tag": "nba_1h_under_hot_over",
+"fill_id": "a9511c9b99d9",
+"ts": "2026-10-31T08:05:40Z",
+"market": "1h_total",
+"side": "under",
+"line": 120.5,
+"venue": "FD",
+"price": -115,
+"fair": 0.5116,
+"edge_pts": -2.33,
+"why": "visitor SAC over rate 80% this season; 1H under (regression lean)"
+},
+"401892623:nhl_pl_dog_bigml": {
+"tag": "nhl_pl_dog_bigml",
+"fill_id": "11d2a07c5003",
+"ts": "2026-10-31T08:05:40Z",
+"market": "spread",
+"side": "away",
+"line": 1.5,
+"venue": "DK",
+"price": 150,
+"fair": 0.39274,
+"edge_pts": -0.73,
+"why": "CGY opened +190 on the moneyline: +1.5 on a big dog"
 }
 }
