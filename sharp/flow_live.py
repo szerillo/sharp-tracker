@@ -3,7 +3,8 @@
 docs/flow_split_2026-10-31.md).
 
 Per upcoming game x market (moneyline, main spread, main total), from every pregame taker fill logged so far:
-  big   = dollars in fills of BIG_USD or more, per side        small = dollars in fills of SMALL_USD or less, per side
+  size of a fill = risk-equivalent dollars, contracts x min(price, 1 - price): the stake on a dog, the to-win on a favorite
+  big   = such dollars in fills of BIG_USD or more, per side   small = in fills of SMALL_USD or less, per side
   big_net = big dollars on the leading side minus the other side; small_net likewise (signed toward the big side)
   divergent = big money and small money on opposite sides with big_net >= DIV_USD (the backtest's best shape)
 Sources: Kalshi trades (data/kalshi/trades5, taker side explicit). Novig live trades (data/novig/trades5) are logged but only used
@@ -41,7 +42,9 @@ def main():
             if parse_ts(t['ts']) >= parse_ts(e['start']): continue      # pregame only
             yes = t['taker_side'] == 'yes'; side = t['yes_side'] if yes else OTHER.get(t['yes_side'])
             if not side: continue
-            usd = t['count'] * (t['yes_price'] if yes else 1 - t['yes_price'])
+            # size = risk-equivalent dollars: the stake on the cheaper side, the to-win on the dearer side (count x min(p, 1-p)), so a
+            # $9,000 bet on a -900 favorite (to win $1,000) counts the same as $1,000 on the +900 dog; at -110 it is about the stake
+            yp = t['yes_price']; usd = t['count'] * min(yp, 1 - yp)
             line = None if t['market'] == 'ml' else (t['line'] if side in ('home', 'over') or t['market'] == 'total' else -t['line'])   # home / over number
             k = (t['event_id'], t['market'], line); a = agg[k]; s = a['sides'][side]
             s['all'] += usd; s['n'] += 1

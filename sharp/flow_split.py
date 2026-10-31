@@ -4,6 +4,8 @@
 For every settled two-outcome game market on Kalshi (data/kalshi/history) and Novig (data/novig/tape + catalog), pregame taker fills only:
   big_net(T)   = net taker dollars at or above a size threshold (250 / 500 / 1000), signed toward the yes side, before time T
   small_net(T) = net taker dollars at or below $50, same sign convention
+Fill size = risk-equivalent dollars, contracts x min(p, 1-p) (stake on the dog side, to-win on the favorite side), so heavy favorites
+are not inflated by having to lay a big price (Sean, 10/31). The first run (stake dollars) is kept in data/state/flow_split_stake.json.
 Signals, evaluated at an entry time T (T-6h, T-1h, T-15m):
   DIV  big money and small money on opposite sides, |big_net| >= threshold  -> bet the big side
   BIG  big money net on one side by >= threshold, small money ignored      -> bet the big side
@@ -42,7 +44,7 @@ def market_rows():
         try:
             for l in gzip.open(f, 'rt'):
                 r = json.loads(l); y = r['taker'] == 'yes'
-                by[r['ticker']].append((ts(r['ts']), r['yes'], r['n'] * (r['yes'] if y else 1 - r['yes']), 1 if y else -1))
+                by[r['ticker']].append((ts(r['ts']), r['yes'], r['n'] * min(r['yes'], 1 - r['yes']), 1 if y else -1))
         except (EOFError, OSError, ValueError): pass
         for tk, L in by.items():
             m = mk.get(tk)
@@ -69,7 +71,7 @@ def market_rows():
             if mid not in cat: continue
             r = json.loads(l); sp, mt, st, yes, res, ev = cat[mid]
             y = r['outcome'] == yes; p = r['price'] if y else round(1 - r['price'], 4)
-            tape[mid].append((ts(r['ts']), p, r['price'] * r['qty'], 1 if y else -1))      # cost of the taker's side
+            tape[mid].append((ts(r['ts']), p, r['qty'] * min(r['price'], 1 - r['price']), 1 if y else -1))      # risk-equivalent size
     for mid, L in tape.items():
         sp, mt, st, yes, res, ev = cat[mid]
         out.append(('Novig', sp, mt, f"{sp}|{ev}|{mt}", st, res, L))
