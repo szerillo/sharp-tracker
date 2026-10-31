@@ -22,6 +22,7 @@ HERE = os.path.dirname(os.path.abspath(__file__)); ROOT = os.path.abspath(os.pat
 from sharp import sports as SP
 SD = os.path.join(ROOT, 'data', 'state'); OUT = os.path.join(SD, 'moves.json'); FULL = os.path.join(SD, 'moves.jsonl.gz'); NCACHE = os.path.join(SD, 'moves_novig_flow.json')
 FAST = ['Pinnacle', 'Novig', 'Kalshi']; SOFT = ['DK', 'FD', 'Caesars', 'BetRivers', 'Fanatics', 'theScore']
+BIG_USD = 1000.0   # a Kalshi fill counts as flow only at $1,000+ at risk (10/30: top 1% of fills on our markets, 44% of dollars; median fill $9)
 MOVE = 0.02; FOLLOW = 0.01; CLUSTER_MIN = 15; FLOW_MIN = 30; STUCK_MAX_AGE_MIN = 45
 GATE = 150; TAPE_ROWS = 150; DAYS = 21
 MARKETS = ('ml', 'spread', 'total')
@@ -176,7 +177,11 @@ def detect(fast, soft, sched, closes, ktr, ntape, ncache, sport):
             kflow = None
             if not ktr.empty:
                 w = ktr[(ktr['event_id'] == ev) & (ktr['market'] == mkt) & (ktr['home_line'] == hl) & (ktr['ts'] >= t0 - pd.Timedelta(minutes=FLOW_MIN)) & (ktr['ts'] <= t0 + pd.Timedelta(minutes=FLOW_MIN))]
-                if len(w): kflow = dict(usd=round(float(w['usd'].sum())), net=round(float((w['usd'] * w['dir'] * d).sum())), n=int(len(w)), big=round(float(w['usd'].max())))
+                w = w[w['ts'] < start]
+                if len(w):
+                    b = w[w['usd'] >= BIG_USD]
+                    kflow = dict(usd=round(float(w['usd'].sum())), net=round(float((w['usd'] * w['dir'] * d).sum())), n=int(len(w)), big=round(float(w['usd'].max())),
+                                 big_n=int(len(b)), big_net=round(float((b['usd'] * b['dir'] * d).sum())), big_with=int((b['dir'] * d > 0).sum()), big_against=int((b['dir'] * d < 0).sum()))
             mid = f"{ev}:{mkt}:{hl}:{t0.strftime('%Y%m%dT%H%M')}:{d}"
             nflow = ncache.get(mid)
             if nflow is None and not ntape.empty and nov is not None:
@@ -211,11 +216,11 @@ def tiles(moves):
     if len(pin) >= 30:
         lims = sorted(m['limit'] for m in pin); q1, q2 = lims[len(lims) // 3], lims[2 * len(lims) // 3]
         T['by_limit_tier'] = {f'low (<{q1:,.0f})': agg([m for m in pin if m['limit'] < q1]), f'mid': agg([m for m in pin if q1 <= m['limit'] < q2]), f'high (>={q2:,.0f})': agg([m for m in pin if m['limit'] >= q2])}
-    def kb(m):
-        k = m.get('kalshi')
-        if not k: return 'no trades'
-        return 'against' if k['net'] < -500 else ('<$1k with' if k['net'] < 1000 else ('$1k-5k with' if k['net'] < 5000 else '$5k+ with'))
-    T['by_kalshi_flow'] = {b: agg([m for m in s if kb(m) == b]) for b in ('no trades', 'against', '<$1k with', '$1k-5k with', '$5k+ with')}
+    def kb(m):      # only $1k+ single fills count (top 1% of fills, ~45% of dollars); smaller flow is treated as noise
+        k = m.get('kalshi') or {}; bn = k.get('big_net') or 0
+        if not k.get('big_n'): return 'no $1k+ fills'
+        return 'big money against the move' if bn < 0 else ('$1k-5k with the move' if bn < 5000 else '$5k+ with the move')
+    T['by_kalshi_flow'] = {b: agg([m for m in s if kb(m) == b]) for b in ('no $1k+ fills', 'big money against the move', '$1k-5k with the move', '$5k+ with the move')}
     def tb(m):
         h = m['ttk_h']; return '>24h' if h > 24 else ('6-24h' if h > 6 else ('1-6h' if h > 1 else '<1h'))
     T['by_time_to_kickoff'] = {b: agg([m for m in s if tb(m) == b]) for b in ('>24h', '6-24h', '1-6h', '<1h')}

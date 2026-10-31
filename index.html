@@ -46,16 +46,27 @@
   .b-sport{background:#1e3a5f;color:#bfdbfe} .erow:hover td{background:rgba(255,255,255,.04)}
   .lad{display:inline-block;margin:2px 6px 2px 0;padding:1px 6px;border:1px solid var(--border);border-radius:6px;font-size:12px} .lad.x{border-color:#4c6ef5} .lad .p{font-family:ui-monospace,monospace}
   @media (max-width:760px){.hide-m{display:none}}
+  .sub2 button{font-size:12px;padding:5px 10px} .sub2{border-bottom:0;margin-top:-4px}
+  .card{background:var(--panel);border:1px solid var(--border);border-radius:12px;padding:12px 14px;margin:8px 0;display:grid;grid-template-columns:150px 1fr 230px;gap:12px;align-items:start}
+  .card .when{font-size:13px} .card .when b{font-size:15px} .card .bet{font-size:18px;font-weight:800;margin:2px 0}
+  .card .price{font-family:ui-monospace,monospace;font-size:13px} .card .why{font-size:12px;color:var(--muted);margin-top:4px}
+  .ok-chip{color:#74d98e} .moved-chip{color:#fbbf24} .gone-chip{color:#ff8e6e}
+  .hdr2{display:flex;align-items:baseline;gap:10px;margin:18px 0 4px} .hdr2 h2{font-size:17px;margin:0} .hdr2 .meta{font-size:12px;color:var(--muted)}
+  .explain{font-size:12.5px;color:var(--muted);margin:0 0 6px;max-width:980px;line-height:1.5}
+  @media (max-width:760px){.card{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
 <div class="wrap">
-  <h1>SHARP TRACKER · <span id="sportname">…</span></h1>
-  <div class="tabs" id="sports"></div>
-  <div class="sub" id="sub">loading data/state/dashboard.json…</div>
-  <div id="banners"></div>
-  <div class="strip" id="strip"></div>
+  <h1>SHARP TRACKER<span id="sporthdr"> · <span id="sportname">…</span></span></h1>
   <div class="tabs" id="tabs"></div>
+  <div class="tabs sub2" id="subtabs"></div>
+  <div class="sport-ctx" id="sportctx">
+    <div class="tabs" id="sports"></div>
+    <div class="sub" id="sub">loading data/state/dashboard.json…</div>
+    <div id="banners"></div>
+    <div class="strip" id="strip"></div>
+  </div>
   <div id="view"></div>
 </div>
 <script>
@@ -69,8 +80,10 @@ const MKT = new Proxy(MKT0, {get(t, k) { if (k in t) return t[k]; const m = /^(1
 let SPORT = new URLSearchParams(location.search).get('sport') || null;
 const XV = new Set(['Kalshi', 'Novig', 'Polymarket']), SHARP = new Set(['Pinnacle', 'Circa']);
 const ET = iso => new Date(iso).toLocaleString('en-US', {timeZone: 'America/New_York', month: 'short', day: 'numeric', hour: 'numeric', minute: '2-digit'});
-let D = null, E = null, MV = null, SY = null, tab = new URLSearchParams(location.search).get('tab') || 'moves';
-const TABS = [['moves', 'Moves'], ['edges', 'Stale prices'], ['board', 'Board'], ['systems', 'Systems'], ['weekly', 'Weekly'], ['props', 'Props'], ['venues', 'Venue tests'], ['ledger', 'Ledger'], ['health', 'Log health'], ['constants', 'Constants']];
+let D = null, E = null, MV = null, SY = null, tab = new URLSearchParams(location.search).get('tab') || 'today';
+const TABS = [['today', 'Today'], ['systems', 'Systems'], ['moves', 'Market moves'], ['board', 'Odds board'], ['research', 'Research']];
+const RTABS = [['edges', 'Stale prices'], ['props', 'Props'], ['venues', 'Venue tests'], ['weekly', 'Weekly'], ['ledger', 'Ledger'], ['health', 'Log health'], ['constants', 'Constants']];
+let rtab = new URLSearchParams(location.search).get('r') || 'edges';
 
 const STATL = {MOV_DEC: 'wins by decision', MOV_KO: 'wins by KO/TKO', MOV_SUB: 'wins by submission', ITD: 'wins inside the distance', DIST: 'goes the distance', STARTR2: 'reaches round 2', STARTR3: 'reaches round 3', STARTR4: 'reaches round 4', STARTR5: 'reaches round 5'};
 const statLabel = s => STATL[s] || s;
@@ -187,14 +200,77 @@ function renderVenues() {
 }
 
 const SPORT_LABEL = {nfl: 'NFL', nba: 'NBA', nhl: 'NHL', cfb: 'CFB', soccer: 'Soccer', mma: 'MMA', mlb: 'MLB'};
+// ---------------------------------------------------------------- Today: what to vet before the next games, and what to watch
+const until = iso => { const m = Math.round((new Date(iso) - Date.now()) / 60000); if (m <= 0) return 'started'; const h = Math.floor(m / 60); return h ? `in ${h}h ${m % 60}m` : `in ${m}m`; };
+const prob = a => a == null ? null : (a > 0 ? 100 / (a + 100) : -a / (-a + 100));
+function betText(f, g) {
+  const per = /^(1h|1q|1p)_/.exec(f.market); const pre = per ? ({'1h': '1st half ', '1q': '1st quarter ', '1p': '1st period '}[per[1]]) : '';
+  const base = f.market.replace(/^(1h|1q|1p)_/, ''); const team = f.side === 'home' ? (g.home_name || g.home) : (f.side === 'away' ? (g.away_name || g.away) : '');
+  if (base === 'total') return `${pre}${f.side === 'over' ? 'Over' : 'Under'} ${f.line}`;
+  if (base === 'spread') return `${pre}${team} ${f.line > 0 ? '+' : ''}${f.line}`;
+  if (base === 'ml') return `${pre}${team} moneyline`;
+  return `${pre}${MKT[f.market] || f.market} ${f.side} ${f.line ?? ''}`;
+}
+function priceChip(f) {
+  if (!f.now) return '<span class="gone-chip">no bettable price right now</span>';
+  const was = prob(f.price), now = prob(f.now.price);
+  if (now <= was + 0.002) return `<span class="ok-chip">still there: ${esc(f.now.venue)} ${am(f.now.price)}</span>`;
+  return `<span class="moved-chip">worse now: best ${esc(f.now.venue)} ${am(f.now.price)} (was ${am(f.price)})</span>`;
+}
+function sysCards(list) {
+  const rules = (SY && SY.rules) || {};
+  return list.map(({g, f, tag}) => { const e = (rules[tag] || {}).evidence || {}; const tierCls = e.tier === 'A' ? 'b-fit' : (e.tier === 'B' ? 'b-prior' : 'b-gate');
+    return `<div class="card"><div class="when"><span class="badge b-sport">${SPORT_LABEL[g.sport] || g.sport}</span><br><b>${ET(g.start_utc)}</b><br><span class="dim">${until(g.start_utc)}</span></div>
+      <div><div class="small">${esc(g.away_name || g.away)} @ ${esc(g.home_name || g.home)}</div><div class="bet">${esc(betText(f, g))}</div>
+        <div class="why">${esc((rules[tag] || {}).desc || tag)}. This game: ${esc(f.why || '')}</div>
+        <div class="why">Backtest: ${esc(e.train || '—')}; since 2021 ${esc(e.hold || '—')}; ${esc(e.seasons || '—')} seasons positive.</div></div>
+      <div class="price"><span class="badge ${tierCls}">tier ${e.tier || '?'}</span> <span class="small dim">${(rules[tag] || {}).stake || ''}u</span><br>flagged at ${esc(f.venue)} <b>${am(f.price)}</b><br>${priceChip(f)}</div></div>`; }).join('');
+}
+function renderToday() {
+  if (!SY) return '<div class="banner">Loading…</div>';
+  const items = [];
+  for (const g of SY.games || []) { if (new Date(g.start_utc) <= Date.now()) continue;
+    for (const f of g.fills || []) if (f.fill_id && !f.stacked) items.push({g, f, tag: f.tag}); }
+  items.sort((a, b) => a.g.start_utc < b.g.start_utc ? -1 : 1);
+  const tierOf = it => (((SY.rules || {})[it.tag] || {}).evidence || {}).tier || 'C';
+  const vet = items.filter(it => tierOf(it) !== 'C'), lean = items.filter(it => tierOf(it) === 'C');
+  // notable market moves on upcoming games: Pinnacle-origin, or $1k+ Kalshi fills with the move; last 6 hours
+  const moves = [];
+  if (MV) for (const [sp, v] of Object.entries(MV.sports)) for (const m of v.tape || []) {
+    if (m.started || new Date(m.start) <= Date.now()) continue;
+    if ((Date.now() - new Date(m.ts)) / 3600000 > 6) continue;
+    const big = m.kalshi && m.kalshi.big_n && m.kalshi.big_net > 0;
+    if (m.origin !== 'Pinnacle' && !big) continue;
+    moves.push({...m, sport: sp, big});
+  }
+  moves.sort((a, b) => a.start < b.start ? -1 : 1);
+  const mvRows = moves.slice(0, 40).map(m => { const g = {home: m.home, away: m.away, home_name: m.home_name, away_name: m.away_name};
+    const bet = betText({market: m.market, side: m.side, line: m.market === 'spread' ? (m.side === 'home' ? m.line : -m.line) : m.line}, g);
+    const stuck = Object.keys(m.stuck || {}); const fol = Object.entries(m.followed || {}).filter(([v, x]) => x != null).map(([v]) => v);
+    return `<tr><td class="small"><span class="badge b-sport">${SPORT_LABEL[m.sport] || m.sport}</span> <b>${ET(m.start)}</b><br><span class="dim">${until(m.start)}</span></td>
+      <td><span class="small">${esc(m.away_name || m.away)} @ ${esc(m.home_name || m.home)}</span><br><b>${esc(bet)}</b></td>
+      <td class="small">${m.origin} moved ${m.size_pts} pts toward it at ${ET(m.ts)}${m.limit ? ` (limit $${m.limit.toLocaleString()})` : ''}${m.big ? `<br>Kalshi: $${m.kalshi.big_net.toLocaleString()} net in ${m.kalshi.big_n} fill${m.kalshi.big_n > 1 ? 's' : ''} of $1k+` : ''}</td>
+      <td class="small">${stuck.length ? `<span class="ok-chip">still at the old price: ${stuck.join(', ')}</span>` : (fol.length ? `followed by ${fol.join(', ')}` : '<span class="dim">no soft book quote yet</span>')}</td></tr>`; }).join('');
+  const nWin = SY.window_h ? `${SY.window_h[0]}–${SY.window_h[1]}h` : '';
+  return `<div class="hdr2"><h2>Vet these before the games</h2><span class="meta">system bets on upcoming games, tier A and B, soonest first</span></div>
+    <p class="explain">Each card is a pre-registered rule that fired for this game (rules fire ${nWin} before kickoff and stay here until it starts). Check the price: green means the number we flagged, or better, is still on the board; amber means it has moved against us. Tier A is the wind family (beat the holdout at z ≥ 2 and the market does not fully price it); tier B is positive on both halves of the backtest and in most seasons since 2021.</p>
+    ${vet.length ? sysCards(vet) : '<div class="small dim">No tier A or B bets on upcoming games right now.</div>'}
+    <div class="hdr2"><h2>Watch: weaker leans</h2><span class="meta">tier C: thin samples or exchange-audit signals from sparse data</span></div>
+    ${lean.length ? sysCards(lean) : '<div class="small dim">None right now.</div>'}
+    <div class="hdr2"><h2>Watch: sharp-looking market moves</h2><span class="meta">last 6 hours, games not started</span></div>
+    <p class="explain">A Pinnacle move, or a move backed by $1,000+ Kalshi fills, on an upcoming game. <b>This is not a bet signal yet.</b> The move tape started on 10/30 and has no settled record; until a sport reaches ${MV ? MV.gate : 150} settled games we do not know whether following these makes money. Use it to sanity-check a system bet (is the market moving with you or against you?) and to spot soft books that have not caught up.</p>
+    ${mvRows ? `<div class="sec"><table><thead><tr><th>Game time</th><th>Game · direction</th><th>What moved</th><th>Soft books</th></tr></thead><tbody>${mvRows}</tbody></table></div>` : '<div class="small dim">No notable moves in the last 6 hours.</div>'}
+    <p class="explain" style="margin-top:14px">Built ${SY ? ET(SY.built) : '—'} ET. Everything else (each rule's record, the full move tape, the odds board, the research pages) is in the tabs above.</p>`;
+}
 function renderMoves() {
   if (!MV) return '<div class="banner">moves.json not loaded yet. The 5-minute fast tape (Pinnacle, Novig, Kalshi + Kalshi trades) started 2026-10-30; the move table is rebuilt every 20 minutes by the tracker job.</div>';
-  const st = window._mf || (window._mf = {sport: SPORT || '', origin: '', market: '', live: 0, q: ''});
+  const st = window._mf || (window._mf = {sport: '', origin: '', market: '', live: 1, notable: 1, q: ''});
   const sports = Object.keys(MV.sports).filter(k => (MV.sports[k].moves || 0) > 0 || MV.sports[k].events);
-  const chip = (cur, val, label, field) => `<button class="${cur === val ? 'on' : ''}" onclick="_mf.${field}='${val}';draw()">${label}</button>`;
+  const chip = (cur, val, label, field) => `<button class="${cur === val ? 'on' : ''}" onclick='_mf.${field}=${JSON.stringify(val)};draw()'>${label}</button>`;
   const pick = st.sport && MV.sports[st.sport] ? [st.sport] : sports;
   let rows = pick.flatMap(sp => (MV.sports[sp].tape || []).map(m => ({...m, sport: sp})));
-  rows = rows.filter(m => (!st.origin || m.origin === st.origin) && (!st.market || m.market === st.market) && (!st.live || !m.started)
+  const notable = m => m.origin === 'Pinnacle' || (m.kalshi && m.kalshi.big_n > 0);
+  rows = rows.filter(m => (!st.origin || m.origin === st.origin) && (!st.market || m.market === st.market) && (!st.live || !m.started) && (!st.notable || notable(m))
     && (!st.q || `${m.away} ${m.home}`.toLowerCase().includes(st.q.toLowerCase())));
   rows.sort((a, b) => a.ts < b.ts ? 1 : -1);
   const S = st.sport && MV.sports[st.sport] ? MV.sports[st.sport] : null;
@@ -216,7 +292,7 @@ function renderMoves() {
     const nof = Object.entries(m.followed || {}).filter(([v, x]) => x == null).map(([v]) => v);
     const stuck = Object.entries(m.stuck || {}).map(([v, p]) => `<span class="lad x">${v} <span class="p">${fmtp(p)}</span></span>`).join('');
     const withv = Object.keys(m.with_ || {}).length ? `<br><span class="dim small">with ${Object.entries(m.with_).map(([v, x]) => `${v} +${x}m`).join(', ')}</span>` : '';
-    const k = m.kalshi ? `<span class="mono ${m.kalshi.net > 0 ? 'pos' : (m.kalshi.net < 0 ? 'neg' : '')}">${m.kalshi.net > 0 ? '+' : ''}$${m.kalshi.net.toLocaleString()}</span> <span class="dim small">of $${m.kalshi.usd.toLocaleString()} · ${m.kalshi.n} fills · max $${m.kalshi.big.toLocaleString()}</span>` : '<span class="dim">—</span>';
+    const k = !m.kalshi ? '<span class="dim">no trades</span>' : (m.kalshi.big_n ? `<span class="mono ${m.kalshi.big_net > 0 ? 'pos' : 'neg'}">${m.kalshi.big_net > 0 ? '+' : ''}$${m.kalshi.big_net.toLocaleString()}</span> <span class="small">${m.kalshi.big_net > 0 ? 'with' : 'against'} the move</span><br><span class="dim small">${m.kalshi.big_n} fill${m.kalshi.big_n > 1 ? 's' : ''} of $1k+ (${m.kalshi.big_with || 0} with, ${m.kalshi.big_against || 0} against)</span>` : `<span class="dim small">only small fills ($${m.kalshi.usd.toLocaleString()} in ${m.kalshi.n}, largest $${m.kalshi.big.toLocaleString()})</span>`);
     const nv = m.novig ? `<br><span class="dim small">Novig $${m.novig.usd.toLocaleString()} · ${m.novig.n} fills</span>` : '';
     const clv = m.clv_pts == null ? (m.started ? '<span class="dim small">grading</span>' : '<span class="dim small">open</span>') : `<b class="${m.clv_pts > 0 ? 'pos' : 'neg'}">${m.clv_pts > 0 ? '+' : ''}${m.clv_pts}</b>${m.stuck_clv_pts != null ? `<br><span class="dim small">stuck books ${m.stuck_clv_pts > 0 ? '+' : ''}${m.stuck_clv_pts}</span>` : ''}`;
     const res = m.outcome == null ? '' : (m.push ? 'push' : (m.outcome ? '<span class="pos">W</span>' : '<span class="neg">L</span>'));
@@ -230,15 +306,18 @@ function renderMoves() {
       <td class="num mono">${m.close == null ? '—' : fmtp(m.close)}</td><td class="num">${clv}</td><td class="num">${res}</td></tr>`;
   }).join('');
   const origins = ['Pinnacle', 'Novig', 'Kalshi'];
-  return `<div class="banner">The move tape: every ${MV.move_pts}-point move on a main-line moneyline, spread or total at Pinnacle, Novig or Kalshi (5-minute snapshots), who moved first, who followed within how many minutes, which soft books are still at the old number, the Kalshi taker dollars around the move, and once the game settles the distance to Pinnacle's close (CLV) and the result. Moves within ${MV.cluster_min} minutes in the same direction are one move. Built ${ET(MV.built)} ET.</div>
+  return `<div class="hdr2"><h2>Market moves</h2><span class="meta">research: who moved first, who followed, whether real money was behind it</span></div>
+    <p class="explain"><b>What this is.</b> Every 5 minutes we snapshot Pinnacle, Novig and Kalshi. A <b>move</b> is a ${MV.move_pts}-point change in the implied probability of a main-line moneyline, spread or total at one of them before kickoff (a game going from 50% to 52% for one side, about 8 to 10 cents of price). Moves within ${MV.cluster_min} minutes in the same direction count once, and the venue that moved first is the <b>origin</b>. For each move we record which other books followed and how fast, which soft books (DK, FD, Caesars, BetRivers, Fanatics, theScore) are still at the old number, and the Kalshi money traded in the ${MV.flow_min} minutes either side.</p>
+    <p class="explain"><b>Signal vs noise.</b> Most of this is noise and is hidden by default. What we treat as worth a look: moves that start at <b>Pinnacle</b> (it takes the largest limits and moves on sharp action), and moves backed by <b>Kalshi fills of $1,000 or more</b>. On our markets the median Kalshi fill is $9; $1k+ fills are the top 1% of fills but about 45% of the money, so smaller flow is ignored. Even the notable moves are <b>unproven</b>: nothing here becomes a bet signal until a sport has ${MV.gate} settled games on the tape and the pre-registered tests (docs/move_tape_prereg_2026-10-30.md) say following them beats the close. Built ${ET(MV.built)} ET.</p>
     ${tiles}
     <div class="controls">
       <span class="tabs inline">${chip(st.sport, '', 'all sports', 'sport')}${sports.map(sp => chip(st.sport, sp, SPORT_LABEL[sp] || sp, 'sport')).join('')}</span>
       <span class="tabs inline">${chip(st.origin, '', 'any origin', 'origin')}${origins.map(v => chip(st.origin, v, v, 'origin')).join('')}</span>
       <span class="tabs inline">${chip(st.market, '', 'all markets', 'market')}${['ml', 'spread', 'total'].map(v => chip(st.market, v, MKT[v], 'market')).join('')}</span>
-      <span class="tabs inline">${chip(st.live, 0, 'all', 'live')}${chip(st.live, 1, 'upcoming only', 'live')}</span>
+      <span class="tabs inline">${chip(st.live, 1, 'upcoming only', 'live')}${chip(st.live, 0, 'include started', 'live')}</span>
+      <span class="tabs inline">${chip(st.notable, 1, 'notable only', 'notable')}${chip(st.notable, 0, 'every move', 'notable')}</span>
       <input value="${esc(st.q)}" placeholder="team" oninput="_mf.q=this.value;draw()"> <span>${rows.length} moves</span></div>
-    <div class="sec"><table><thead><tr><th>Moved at</th><th>Game · market</th><th>Origin</th><th>Move</th><th>Followed (min after)</th><th>Still stuck</th><th>Kalshi flow</th><th class="num">Close</th><th class="num">CLV</th><th class="num">Res</th></tr></thead><tbody>${tr}</tbody></table></div>`;
+    <div class="sec"><table><thead><tr><th>Moved at</th><th>Game · market</th><th>Origin</th><th>Move</th><th>Followed (min after)</th><th>Still at old price</th><th>Kalshi $1k+ fills</th><th class="num">Close</th><th class="num">CLV</th><th class="num">Res</th></tr></thead><tbody>${tr}</tbody></table></div>`;
 }
 function renderEdges() {
   if (!E) return '<div class="banner">edges.json not loaded yet</div>';
@@ -362,8 +441,14 @@ function renderConstants() {
 }
 
 function draw() {
-  $('#tabs').innerHTML = TABS.map(([k, l]) => `<button class="${tab === k ? 'on' : ''}" onclick="tab='${k}';history.replaceState(null,'','?sport='+(SPORT||'')+'&tab='+'${k}');draw()">${l}</button>`).join('');
-  $('#view').innerHTML = {moves: renderMoves, edges: renderEdges, board: renderBoard, systems: renderSystems, weekly: renderWeekly, props: renderProps, venues: renderVenues, ledger: renderLedger, health: renderHealth, constants: renderConstants}[tab]();
+  if (!TABS.some(([k]) => k === tab)) { if (RTABS.some(([k]) => k === tab)) { rtab = tab; } tab = TABS.some(([k]) => k === tab) ? tab : (RTABS.some(([k]) => k === rtab) && tab !== 'today' ? 'research' : 'today'); }
+  const url = () => '?sport=' + (SPORT || '') + '&tab=' + tab + (tab === 'research' ? '&r=' + rtab : '');
+  $('#tabs').innerHTML = TABS.map(([k, l]) => `<button class="${tab === k ? 'on' : ''}" onclick="tab='${k}';history.replaceState(null,'',(${url.toString()})());draw()">${l}</button>`).join('');
+  $('#subtabs').innerHTML = tab === 'research' ? RTABS.map(([k, l]) => `<button class="${rtab === k ? 'on' : ''}" onclick="rtab='${k}';history.replaceState(null,'',(${url.toString()})());draw()">${l}</button>`).join('') : '';
+  const perSport = tab === 'board' || (tab === 'research' && !['edges', 'weekly'].includes(rtab));   // pages that show one sport at a time
+  $('#sportctx').style.display = perSport ? '' : 'none'; $('#sporthdr').style.display = perSport ? '' : 'none';
+  const R = {edges: renderEdges, props: renderProps, venues: renderVenues, weekly: renderWeekly, ledger: renderLedger, health: renderHealth, constants: renderConstants};
+  $('#view').innerHTML = {today: renderToday, systems: renderSystems, moves: renderMoves, board: renderBoard, research: () => R[rtab]()}[tab]();
 }
 async function load() {
   let u = new URLSearchParams(location.search).get('data') || 'data/state/dashboard.json';

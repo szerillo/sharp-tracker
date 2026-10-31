@@ -116,7 +116,9 @@ def public(conn, ev, market, side):
     return json.loads(r[0]) if r else {}
 
 
-def paper_fill(conn, eq, ev, start, market, line, side, part, tag, stake, note, venue=None):
+def paper_fill(conn, eq, ev, start, market, line, side, part, tag, stake, note, venue=None, min_h=None):
+    ttk = (N.parse_ts(start) - NOW).total_seconds() / 3600
+    if ttk < (WINDOW_H[0] if min_h is None else min_h): return None      # inside the last hours a new trigger is shown, not filled
     best = F.best_price(eq, market, line, side, NOW_S, part)
     if venue: best = [b for b in best if b['venue'] == venue]
     if not best: return None
@@ -137,7 +139,7 @@ def main():
     fires_now = []; view_games = []
     for ev, start, away, home in conn.execute("SELECT event_id, start_utc, away, home FROM events WHERE sport='nfl' ORDER BY start_utc").fetchall():
         st = N.parse_ts(start); ttk = (st - NOW).total_seconds() / 3600
-        if not (WINDOW_H[0] <= ttk <= WINDOW_H[1]): continue
+        if not (0 < ttk <= WINDOW_H[1]): continue      # visible until kickoff; new fills only inside the window (paper_fill checks)
         eq = F.EventQuotes(conn, ev); trig = {}
         wx = weather_t24(ev)
         pv = SEA.profile('nfl', away, st); ph = SEA.profile('nfl', home, st)
@@ -195,7 +197,7 @@ def main():
     # CFB: wind >= 14 mph -> under (docs/betlabs_cfb_audit_2026-10-29.md). Only rule audited for CFB.
     for ev, start, away, home in conn.execute("SELECT event_id, start_utc, away, home FROM events WHERE sport='cfb' ORDER BY start_utc").fetchall():
         st = N.parse_ts(start); ttk = (st - NOW).total_seconds() / 3600
-        if not (WINDOW_H[0] <= ttk <= WINDOW_H[1]): continue
+        if not (0 < ttk <= WINDOW_H[1]): continue      # visible until kickoff; new fills only inside the window (paper_fill checks)
         wx = weather_t24(ev, WX_CFB); msw = msw_latest('cfb', ev)
         windy = wx and not wx.get('indoor') and wx.get('wind_mph') is not None and wx['wind_mph'] >= 14
         eq = F.EventQuotes(conn, ev)
@@ -230,7 +232,7 @@ def main():
     # NHL and NBA leans from the segment audit: one fill per game per tag, inside the normal window.
     for ev, sport, start, away, home in conn.execute("SELECT event_id, sport, start_utc, away, home FROM events WHERE sport IN ('nhl','nba') ORDER BY start_utc").fetchall():
         st = N.parse_ts(start); ttk = (st - NOW).total_seconds() / 3600
-        if not (WINDOW_H[0] <= ttk <= WINDOW_H[1]): continue
+        if not (0 < ttk <= WINDOW_H[1]): continue      # visible until kickoff; new fills only inside the window (paper_fill checks)
         ph, pa = SEA.profile(sport, home, st), SEA.profile(sport, away, st)
         if ph.get('games', 0) < 8 or pa.get('games', 0) < 8: continue
         eq = F.EventQuotes(conn, ev); ml_h = eq.fair('ml', None, 'home', NOW_S, home); ml_a = eq.fair('ml', None, 'away', NOW_S, away)
@@ -283,7 +285,7 @@ def main():
             nonlocal game
             key = f"{ev}:{tag}:{market}"
             if key in fired: return
-            row = paper_fill(conn, eq, ev, start, market, line, side, part, tag, stake, why, venue=venue)
+            row = paper_fill(conn, eq, ev, start, market, line, side, part, tag, stake, why, venue=venue, min_h=LATE_H[0])
             if not row: return
             rec_ = dict(tag=tag, fill_id=row['fill_id'], ts=NOW_S, market=market, side=side, line=line, venue=row['venue'], price=row['price_american'], fair=row['fair_at_fill'],
                         edge_pts=(round(100 * (row['fair_at_fill'] - row['implied']), 2) if row['fair_at_fill'] is not None else None), why=why)
@@ -334,7 +336,20 @@ def main():
     for g in view_games:
         r_ = sched_rec(g.get('sport', 'nfl'), g['event_id']); g['away_name'] = (r_.get('away_team') or {}).get('displayName') or g['away']; g['home_name'] = (r_.get('home_team') or {}).get('displayName') or g['home']
         g.setdefault('sport', 'nfl')
-    json.dump(dict(built=NOW_S, window_h=WINDOW_H, rules={k: dict(v, tag=k, desc=DESC.get(k, '')) for k, v in RULES.items()}, games=view_games, fired_now=fires_now, record=dict(rec)),
+        g['hours_to_kickoff'] = round((N.parse_ts(g['start_utc']) - NOW).total_seconds() / 3600, 1)
+        fired_tags = {f['tag'] for f in g.get('fills', [])}
+        if g['hours_to_kickoff'] < WINDOW_H[0]:      # triggers that first appeared inside the last hours never became bets; do not show them as such
+            g['triggers'] = {t: w for t, w in g['triggers'].items() if t in fired_tags or t.startswith(('xch_', 'nba_momentum'))}
+        live = [f for f in g.get('fills', []) if f.get('fill_id') and not f.get('stacked')]
+        if live:
+            eq = F.EventQuotes(conn, g['event_id'])
+            for f in live:
+                part = None if f['market'].endswith('total') else (g['home'] if f['side'] == 'home' else g['away'])
+                try: best = F.best_price(eq, f['market'], f['line'], f['side'], NOW_S, part)
+                except Exception: best = []
+                f['now'] = dict(venue=best[0]['venue'], price=N.prob_to_american(best[0]['cost'])) if best else None
+    view_games = [g for g in view_games if g['triggers']]
+    json.dump(dict(built=NOW_S, window_h=WINDOW_H, rules={k: dict(v, tag=k, desc=DESC.get(k, ''), evidence=EVIDENCE.get(k)) for k, v in RULES.items()}, games=view_games, fired_now=fires_now, record=dict(rec)),
               open(VIEW, 'w'), default=str, separators=(',', ':'))
     print(f"[systems] {len(view_games)} games with triggers in the {WINDOW_H[0]}-{WINDOW_H[1]}h window; {len(fires_now)} new paper fills; tags on file {dict((k, v['n']) for k, v in rec.items())}")
     conn.close()
