@@ -377,18 +377,16 @@
 },
 "401892625:nhl_pl_fav_strong_opp": {
 "tag": "nhl_pl_fav_strong_opp",
-"fill_id": "067fb4fa819c",
-"ts": "2026-10-31T14:41:18Z",
+"fill_id": "d6daeffe33a4",
+"ts": "2026-10-31T21:43:02Z",
 "market": "spread",
 "side": "away",
 "line": -1.5,
-"venue": "Kalshi",
-"price": 194,
-"fair": 0.305,
-"edge_pts": -3.5,
-"why": "opponent WSH wins 66% (8-4); favorite MIN -1.5 against a strong team",
-"void": true,
-"void_why": "trigger no longer holds on current season records (2026-10-31T15:16:23Z)"
+"venue": "Novig",
+"price": 239,
+"fair": 0.28289,
+"edge_pts": -1.21,
+"why": "opponent WSH wins 66% (8-4); favorite MIN -1.5 against a strong team"
 },
 "401858278:xch_homedog_fade:ml": {
 "tag": "xch_homedog_fade",
@@ -447,7 +445,9 @@
 "price": -110,
 "fair": 0.5007,
 "edge_pts": -2.31,
-"why": "home favorite, game 13 of the season, opponent MIN wins 60% (9-6)"
+"why": "home favorite, game 13 of the season, opponent MIN wins 60% (9-6)",
+"void": true,
+"void_why": "trigger no longer holds on current season records (2026-10-31T21:43:02Z)"
 },
 "401873034:wind1014": {
 "tag": "wind1014",
@@ -613,5 +613,31 @@
 "fair": 0.48531,
 "edge_pts": 0.03,
 "why": "Novig total mid 0.580 at T-6h -> 0.518 now (-6.2c); continuation (audit section 3, NBA only)"
+},
+"401892620:xch_homedog_fade:spread": {
+"tag": "xch_homedog_fade",
+"fill_id": "824927c0d161",
+"ts": "2026-10-31T21:43:02Z",
+"market": "spread",
+"side": "away",
+"line": 1.5,
+"venue": "Novig",
+"price": -212,
+"fair": 0.67616,
+"edge_pts": -0.38,
+"why": "Novig home side mid 0.325 inside T-1.3h; audit band 20-35c"
+},
+"401856847:xch_homedog_fade:ml": {
+"tag": "xch_homedog_fade",
+"fill_id": "119d942d1d2c",
+"ts": "2026-10-31T21:43:02Z",
+"market": "ml",
+"side": "away",
+"line": null,
+"venue": "Novig",
+"price": -317,
+"fair": 0.76056,
+"edge_pts": 0.06,
+"why": "Novig home side mid 0.242 inside T-1.3h; audit band 20-35c"
 }
 }
