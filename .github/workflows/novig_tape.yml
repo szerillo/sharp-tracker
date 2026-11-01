@@ -1,0 +1,35 @@
+name: novig public tape (daily trade file)
+# Novig publishes every executed trade as a next-day file (data.novig.com/reporting/trade-data). The tape is ~5 MB/day and kept out of git
+# (data/novig/tape is ignored), so this job pulls the missing days and attaches them to the run as an artifact; the analysis machine
+# downloads them with `gh run download`. It is also the check on the live Novig trade log (data/novig/trades5): the public file labels
+# taker and maker, which settles whether a live trade's outcome is the taker's side.
+on:
+  workflow_dispatch:
+    inputs:
+      days:
+        description: "dates to pull (YYYY-MM-DD, space separated); blank = the last 3 published days"
+        required: false
+        default: ""
+  schedule:
+    - cron: "17 15 * * *"
+permissions:
+  contents: read
+jobs:
+  tape:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: pull tape
+        run: python3 loggers/novig_tape.py ${{ github.event.inputs.days }}
+      - uses: actions/upload-artifact@v4
+        with:
+          name: novig-tape
+          path: |
+            data/novig/tape/*.jsonl.gz
+            data/novig/daily/*.jsonl.gz
+          retention-days: 30
+          if-no-files-found: warn
