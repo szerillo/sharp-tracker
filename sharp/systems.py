@@ -26,7 +26,8 @@ RULES = {'wind1014': dict(market='total', side='under', stake=1.0), 'wind1014_1h
          'nba_1h_under_hot_over': dict(market='1h_total', side='under', stake=0.5, sport='nba'),
          # Bet Labs round 3 watch tier (docs/betlabs_account_systems_audit_2026-10-30.md), paper only
          'nhl_early_home_fav_qual': dict(market='ml', side='home', stake=0.5, sport='nhl'), 'nba_under_good_home_over': dict(market='total', side='under', stake=0.5, sport='nba'),
-         'cfb_road_dog_low_total': dict(market='spread', side='away', stake=0.5, sport='cfb')}
+         'cfb_road_dog_low_total': dict(market='spread', side='away', stake=0.5, sport='cfb'),
+         'cbb_bigloss_vs_top5': dict(market='spread', side='team', stake=0.5, sport='cbb')}
 # Evidence per tag: Bet Labs train / holdout record (regular season, closing lines; holdout = 03/2021 on), positive holdout seasons, and a tier:
 #   A = holdout z >= 2 with a mechanism (wind family); B = positive both halves, most seasons positive, z 1-2; C = lean (thin or z < 1).
 # These are what the screen shows next to a fire. The forward record (W-L, ROI, CLV) is a diagnostic, not a gate: a rule the market does
@@ -46,7 +47,8 @@ EVIDENCE = {'wind1014': dict(tier='A', train='533-376 all-time (2003-), +13.3%',
             'nba_1h_under_hot_over': dict(tier='C', train='508, +8.4%', hold='257, +6.1%', seasons='see audit', src='docs/betlabs_segments_audit_2026-10-30.md'),
             'nhl_early_home_fav_qual': dict(tier='B', train='1,459, +3.0%', hold='463, +7.2%', seasons='5 of 7', src='docs/betlabs_account_systems_audit_2026-10-30.md'),
             'nba_under_good_home_over': dict(tier='B', train='978, +10.9%', hold='344, +6.4%', seasons='5 of 6', src='docs/betlabs_account_systems_audit_2026-10-30.md'),
-            'cfb_road_dog_low_total': dict(tier='B', train='645, +14.9%', hold='238, +7.3%', seasons='5 of 6', src='docs/betlabs_account_systems_audit_2026-10-30.md')}
+            'cfb_road_dog_low_total': dict(tier='B', train='645, +14.9%', hold='238, +7.3%', seasons='5 of 6', src='docs/betlabs_account_systems_audit_2026-10-30.md'),
+            'cbb_bigloss_vs_top5': dict(tier='C', train='177, +23.1%', hold='66, +13.0%', seasons='thin (about 12 a season)', src='docs/betlabs_account_systems_audit_2026-10-30.md')}
 # nhl_over_busy_goalie retired 10/30: positive in 2 of 7 seasons and the goalie-saves field thins to a handful of games after 2023.
 DESC = {'wind1014': 'NFL outdoor, Open-Meteo sustained wind 10-14 mph at T-24h: full-game under', 'wind1014_1h': 'same wind band: first-half under',
         'cfb_wind14': 'CFB outdoor, wind 14+ mph at T-24h: full-game under', 'vrest8_1h': 'NFL visitor off 8-30 days: first-half under', 'mnf_1h': 'Monday night: first-half under',
@@ -55,7 +57,8 @@ DESC = {'wind1014': 'NFL outdoor, Open-Meteo sustained wind 10-14 mph at T-24h: 
         'nhl_pl_fav_gap': "NHL favorite -1.5 when the OPPONENT's win% is 22+ points higher than the favorite's (market rates the favorite above its record)", 'nhl_pl_fav_strong_opp': 'NHL favorite -1.5 when the opponent wins 66%+',
         'nhl_pl_dog_bigml': 'NHL dog +1.5 when the dog ML is +181 to +196', 'nba_1h_under_hot_over': 'NBA 1H under when the visitor has gone over 71%+ of the time',
         'nhl_early_home_fav_qual': 'NHL home favorite, game 24 or earlier, vs an opponent winning 51%+: moneyline', 'nba_under_good_home_over': 'NBA under: home team over 58%+, home 1-2 days off, visitor 1-3, total down 0.5+ from open',
-        'cfb_road_dog_low_total': 'CFB conference game, road dog of 7+ with a total of 48 or less: road spread'}
+        'cfb_road_dog_low_total': 'CFB conference game, road dog of 7+ with a total of 48 or less: road spread',
+        'cbb_bigloss_vs_top5': 'CBB regular-season conference game: unranked team off a 14-45 point loss vs a top-5 opponent: that team on the spread'}
 LATE_H = (0.1, 1.5)   # exchange rules fire in the last 90 minutes (the audit priced them at the close)
 WINDOW_H = tuple(float(x) for x in os.environ.get('SYSTEMS_WINDOW', '2,30').split(','))
 
@@ -330,6 +333,56 @@ def main():
             rec_ = dict(tag=tag, fill_id=row['fill_id'], ts=NOW_S, market=market, side=side, line=line, venue=row['venue'], price=row['price_american'], fair=row['fair_at_fill'],
                         edge_pts=(round(100 * (row['fair_at_fill'] - row['implied']), 2) if row['fair_at_fill'] is not None else None), why=why)
             fired[key] = rec_; game['fills'].append(rec_); fires_now.append(dict(game=f"{away}@{home}", **rec_))
+        view_games.append(game)
+    # CBB: Teams Off Big Loss vs Ranked Opponent (Bet Labs PRO 766983, read from the screen 11/1): previous game margin -45 to -14, opponent
+    # AP rank 1-5, team unranked, conference game, regular season. Previous game = the team's last completed game in our ESPN schedule log
+    # (scores from the schedule or results.jsonl), so a team's first logged game of the season never fires.
+    sched_rec('cbb', ''); cbb = SCHED_CACHE.get('cbb') or {}
+    res_ = {}
+    rp = os.path.join(SD, 'results.jsonl')
+    if os.path.exists(rp):
+        for l in open(rp):
+            try: r_ = json.loads(l)
+            except Exception: continue
+            if r_.get('status') == 'final' and r_.get('home_score') is not None: res_[r_['event_id']] = (r_['home_score'], r_['away_score'])
+    hist = collections.defaultdict(list)          # ESPN team id -> [(start, margin)]
+    for k, g in (cbb or {}).items():
+        hs = as_ = None
+        if k in res_: hs, as_ = res_[k]
+        elif g.get('completed') and (g.get('home_team') or {}).get('score') not in (None, '') and (g.get('away_team') or {}).get('score') not in (None, ''):
+            hs, as_ = float(g['home_team']['score']), float(g['away_team']['score'])
+        if hs is None: continue
+        if (g.get('home_team') or {}).get('id'): hist[g['home_team']['id']].append((g['start'], hs - as_))
+        if (g.get('away_team') or {}).get('id'): hist[g['away_team']['id']].append((g['start'], as_ - hs))
+    for ev, start, away, home in conn.execute("SELECT event_id, start_utc, away, home FROM events WHERE sport='cbb' ORDER BY start_utc").fetchall():
+        st = N.parse_ts(start); ttk = (st - NOW).total_seconds() / 3600
+        if not (0 < ttk <= WINDOW_H[1]): continue
+        g = (cbb or {}).get(ev) or {}
+        if not g.get('conf') or g.get('season_type') not in (2, None): continue
+        trig = None
+        for side, me, op in (('home', g.get('home_team') or {}, g.get('away_team') or {}), ('away', g.get('away_team') or {}, g.get('home_team') or {})):
+            if me.get('rank') or not op.get('rank') or op['rank'] > 5: continue
+            prev = [x for x in hist.get(me.get('id'), []) if x[0] < start]
+            if not prev: continue
+            m = max(prev)[1]
+            if -45 <= m <= -14:
+                trig = (side, f"{me.get('displayName')} (unranked) lost its last game by {abs(m):.0f}; opponent {op.get('displayName')} is ranked #{op['rank']}; conference game")
+        key = f"{ev}:cbb_bigloss_vs_top5"
+        if not trig:
+            if key in fired and not fired[key].get('void'): void_fill(fired, key, f"trigger no longer holds ({NOW_S})")
+            continue
+        side, why = trig
+        game = dict(event_id=ev, away=away, home=home, start_utc=start, hours_to_kickoff=round(ttk, 1), spread_home=None, dog=None, triggers={'cbb_bigloss_vs_top5': why}, fills=[], sport='cbb')
+        if key in fired and not fired[key].get('void'): game['fills'].append(fired[key])
+        else:
+            eq = F.EventQuotes(conn, ev); hl, _n = main_line(eq, 'spread', home)
+            if hl is not None:
+                line = hl if side == 'home' else -hl; part = home if side == 'home' else away
+                row = paper_fill(conn, eq, ev, start, 'spread', line, side, part, 'cbb_bigloss_vs_top5', 0.5, why)
+                if row:
+                    rec_ = dict(tag='cbb_bigloss_vs_top5', fill_id=row['fill_id'], ts=NOW_S, market='spread', side=side, line=line, venue=row['venue'], price=row['price_american'],
+                                fair=row['fair_at_fill'], edge_pts=(round(100 * (row['fair_at_fill'] - row['implied']), 2) if row['fair_at_fill'] is not None else None), why=why)
+                    fired[key] = rec_; game['fills'].append(rec_); fires_now.append(dict(game=f"{away}@{home}", **rec_))
         view_games.append(game)
     # Exchange rules, inside T-1.5h. One fill per game per rule; stacking across rules allowed only on different market x side.
     def xmid(eq, venue, market, line, side, part, ts):

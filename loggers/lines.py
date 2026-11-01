@@ -68,13 +68,16 @@ def espn_schedule():
         for ev in x.get('events', []):
             c = ev['competitions'][0]; teams = {}
             for t in c['competitors']:
-                tm = t['team']; teams[t['homeAway']] = dict(abbr=tm.get('abbreviation'), displayName=tm.get('displayName'), shortDisplayName=tm.get('shortDisplayName'),
-                                                              name=tm.get('name'), location=tm.get('location'), score=t.get('score'), id=tm.get('id'))
+                tm = t['team']; rk = (t.get('curatedRank') or {}).get('current')
+                teams[t['homeAway']] = dict(abbr=tm.get('abbreviation'), displayName=tm.get('displayName'), shortDisplayName=tm.get('shortDisplayName'),
+                                            name=tm.get('name'), location=tm.get('location'), score=t.get('score'), id=tm.get('id'),
+                                            rank=rk if rk and rk < 99 else None)     # AP rank (college); ESPN uses 99 for unranked
             v = c.get('venue') or {}; st = c.get('status', {}).get('type', {})
             rec = dict(event_id=ev['id'], start=ev['date'], away=teams.get('away', {}).get('abbr'), home=teams.get('home', {}).get('abbr'),
                        away_team=teams.get('away'), home_team=teams.get('home'), venue=v.get('fullName'), indoor=v.get('indoor'),
                        city=(v.get('address') or {}).get('city'), state=(v.get('address') or {}).get('state'), status=st.get('name'), completed=st.get('completed'),
-                       week=(ev.get('week') or {}).get('number'), neutral=c.get('neutralSite'), conf=c.get('conferenceCompetition'), fetched=TS, league=CFG.get('league_key'))
+                       week=(ev.get('week') or {}).get('number'), neutral=c.get('neutralSite'), conf=c.get('conferenceCompetition'), fetched=TS, league=CFG.get('league_key'),
+                       season_type=(ev.get('season') or {}).get('type'))      # 1 preseason, 2 regular, 3 postseason
             # linescores (for 1H / 1Q grading) when present
             ls = {t['homeAway']: [float(q.get('value') or 0) for q in (t.get('linescores') or [])] for t in c['competitors']}
             if any(ls.values()): rec['linescores'] = ls
