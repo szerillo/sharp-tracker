@@ -789,7 +789,9 @@
 "price": 212,
 "fair": 0.29691,
 "edge_pts": -2.31,
-"why": "opponent BOS wins 66% (10-5); favorite VGK -1.5 against a strong team"
+"why": "opponent BOS wins 66% (10-5); favorite VGK -1.5 against a strong team",
+"void": true,
+"void_why": "trigger no longer holds on current season records (2026-11-01T21:35:32Z)"
 },
 "401892631:nhl_pl_dog_bigml": {
 "tag": "nhl_pl_dog_bigml",
@@ -862,5 +864,31 @@
 "fair": 0.76061,
 "edge_pts": 0.06,
 "why": "Novig home side mid 0.242 inside T-1.2h; audit band 20-35c"
+},
+"401892629:nhl_early_home_fav_qual": {
+"tag": "nhl_early_home_fav_qual",
+"fill_id": "cd9ee3cab230",
+"ts": "2026-11-01T21:35:32Z",
+"market": "ml",
+"side": "home",
+"line": null,
+"venue": "Novig",
+"price": -104,
+"fair": 0.50063,
+"edge_pts": -0.94,
+"why": "home favorite, game 16 of the season, opponent VGK wins 60% (9-6)"
+},
+"401892627:xch_homedog_fade:spread": {
+"tag": "xch_homedog_fade",
+"fill_id": "40ff2607a266",
+"ts": "2026-11-01T21:35:32Z",
+"market": "spread",
+"side": "away",
+"line": 1.5,
+"venue": "Novig",
+"price": -208,
+"fair": 0.67226,
+"edge_pts": -0.27,
+"why": "Novig home side mid 0.330 inside T-1.4h; audit band 20-35c"
 }
 }
