@@ -2,7 +2,7 @@ name: pulse (scheduler)
 # GitHub's cron fired the 20-minute jobs about four times a day (checked 2026-10-30: 4 scheduled runs each for prices and tracker in
 # 24 hours; prices_fast never). This job is the clock instead: it runs for ~55 minutes, dispatching prices_fast every 5 minutes and
 # prices / tracker on their 20-minute slots inside the 10 AM to 2 AM ET window, then dispatches itself. The cron below is only the
-# restart if a pulse ever dies; cancel-in-progress collapses overlapping pulses.
+# restart if a pulse ever dies. Overnight (2-10 AM ET) it dispatches only the 20-minute tennis log and Pages; cancel-in-progress collapses overlapping pulses.
 on:
   schedule:
     - cron: '7,37 * * * *'
@@ -33,8 +33,12 @@ jobs:
                 10|11|12|13|14) fire tracker.yml ;;
                 15|16|17|18|19) fire pages.yml ;;     # workflow_run does not fire for runs started with GITHUB_TOKEN, so publish from here
               esac
-            else
-              echo "$(date -u +%H:%M) outside the window (ET $h)"
+            else                                   # 2-10 AM ET: only the overnight tennis log (European / Asian / Challenger starts) and its publish
+              case $(( m % 20 )) in
+                5|6|7|8|9) fire prices_tennis_overnight.yml ;;
+                15|16|17|18|19) fire pages.yml ;;
+                *) echo "$(date -u +%H:%M) overnight (ET $h): tennis only" ;;
+              esac
             fi
             sleep 300
           done
