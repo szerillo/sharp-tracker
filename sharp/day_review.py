@@ -224,7 +224,12 @@ def main():
         rows.append(dict(s, sport=e['sport'], game=f"{e['away']}@{e['home']}", start=e['st'].isoformat(), lead_h=round((e['st'] - s['t0']).total_seconds() / 3600, 1),
                          t0=s['t0'].isoformat(), path=pa, res=res, pnl_sig=pnl(res, p_sig) if mk != '' else None))
     json.dump(rows, open(os.path.join(ROOT, 'data', 'research', f'day_review_{DAY}.json'), 'w'), indent=0, default=str)
-    report(rows)
+    import io, contextlib
+    buf = io.StringIO()
+    with contextlib.redirect_stdout(buf): report(rows)
+    txt = f"Signal review for {DAY} (ET): {len(S)} games, {sum(1 for k in S if k in R)} final\n" + buf.getvalue()
+    open(os.path.join(ROOT, 'data', 'research', f'day_review_{DAY}.txt'), 'w').write(txt)
+    print(txt)
 
 
 def report(rows):
