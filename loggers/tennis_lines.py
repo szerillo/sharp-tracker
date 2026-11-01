@@ -25,7 +25,7 @@ HERE = os.path.dirname(os.path.abspath(__file__)); ROOT = os.path.abspath(os.pat
 FAST = '--fast' in sys.argv
 TD = os.path.join(ROOT, 'data', 'tennis'); OUTD = os.path.join(TD, 'ticks5' if FAST else 'ticks'); os.makedirs(OUTD, exist_ok=True)
 EVENTS = os.path.join(TD, 'events.json'); KMETA = os.path.join(ROOT, 'data', 'kalshi', 'fast_meta_tennis.json')
-NOW = dt.datetime.now(dt.timezone.utc); TS = NOW.strftime('%Y-%m-%dT%H:%M:%SZ'); ET = dt.timezone(dt.timedelta(hours=-4))
+NOW = dt.datetime.now(dt.timezone.utc); TS = NOW.strftime('%Y-%m-%dT%H:%M:%SZ'); ET = __import__('zoneinfo').ZoneInfo('America/New_York')
 PIN = "https://guest.api.arcadia.pinnacle.com/0.1"; KAPI = "https://api.elections.kalshi.com/trade-api/v2"; NOVP = "https://api.novig.com/v3/public/catalog"
 HORIZON_H = 36
 K_MATCH = ['KXATPMATCH', 'KXWTAMATCH', 'KXATPCHALLENGERMATCH', 'KXWTACHALLENGERMATCH', 'KXITFMATCH', 'KXITFWMATCH']

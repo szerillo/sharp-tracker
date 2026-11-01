@@ -9,7 +9,7 @@ def g(u):
         try: return json.load(urllib.request.urlopen(urllib.request.Request(u,headers={'User-Agent':'x'}),timeout=30))
         except Exception: time.sleep(1.5*(i+1))
     return {}
-et=datetime.datetime.utcnow()-datetime.timedelta(hours=4); dc=et.strftime('%y')+MON[et.month-1]+et.strftime('%d')
+et=datetime.datetime.now(__import__('zoneinfo').ZoneInfo('America/New_York')).replace(tzinfo=None); dc=et.strftime('%y')+MON[et.month-1]+et.strftime('%d')
 ms=[]
 for s in SER:
     cur=''

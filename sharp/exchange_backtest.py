@@ -50,7 +50,7 @@ class Sched:
         for sp, games in self.h.items():
             d = collections.defaultdict(list)
             for eid, g in games.items():
-                day = dt.datetime.fromtimestamp(ts(g['start']), dt.timezone.utc) - dt.timedelta(hours=4)   # ET date (approx, DST ignored)
+                day = dt.datetime.fromtimestamp(ts(g['start']), dt.timezone.utc).astimezone(__import__('zoneinfo').ZoneInfo('America/New_York'))   # ET date
                 for k in (-1, 0, 1): d[(day.date() + dt.timedelta(days=k), g['away'], g['home'])].append(g)
                 d[('name', g['away'], g['home'])].append(g)
             self.by[sp] = d
@@ -75,7 +75,7 @@ class Sched:
             a, h = T.code(aw), T.code(hm)
         else:
             a, h = aw, hm
-        day = (dt.datetime.fromtimestamp(start_ts / 1000, dt.timezone.utc) - dt.timedelta(hours=4)).date()
+        day = dt.datetime.fromtimestamp(start_ts / 1000, dt.timezone.utc).astimezone(__import__('zoneinfo').ZoneInfo('America/New_York')).date()
         c = self.by.get(sport, {}).get((day, a, h))
         return c[0] if c else None
 

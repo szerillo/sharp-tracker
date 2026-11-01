@@ -1,7 +1,8 @@
 """Normalisation helpers: odds conversions, team codes, player keys, canonical market/stat names."""
 import re, unicodedata, datetime as dt
 
-ET = dt.timezone(dt.timedelta(hours=-4))   # EDT; the logs run through October, DST ends 2026-11-01 -> see et_date()
+from zoneinfo import ZoneInfo
+ET = ZoneInfo('America/New_York')   # real New York time (EDT/EST switch handled); was a fixed UTC-4 until 2026-11-01
 
 TEAM_AB = {'Arizona Diamondbacks': 'ARI', 'Atlanta Braves': 'ATL', 'Baltimore Orioles': 'BAL', 'Boston Red Sox': 'BOS', 'Chicago Cubs': 'CHC',
            'Chicago White Sox': 'CWS', 'Cincinnati Reds': 'CIN', 'Cleveland Guardians': 'CLE', 'Colorado Rockies': 'COL', 'Detroit Tigers': 'DET',
@@ -91,8 +92,7 @@ def parse_ts(x):
 
 def et_date(d_utc):
     """ET calendar date with the DST rule applied (2026: EDT until Nov 1 06:00 UTC)."""
-    off = -4 if d_utc < dt.datetime(2026, 11, 1, 6, tzinfo=dt.timezone.utc) else -5
-    return (d_utc + dt.timedelta(hours=off)).date()
+    return d_utc.astimezone(ET).date()
 
 
 def iso(d):

@@ -64,7 +64,7 @@ def snap_market(args):
 
 
 def main():
-    now = dt.datetime.now(dt.timezone.utc); et = now - dt.timedelta(hours=4)
+    now = dt.datetime.now(dt.timezone.utc); et = now.astimezone(__import__('zoneinfo').ZoneInfo('America/New_York'))
     last = json.load(open(STATE)) if os.path.exists(STATE) else {}
     meta = json.load(open(META)) if os.path.exists(META) else {}
     todo = []

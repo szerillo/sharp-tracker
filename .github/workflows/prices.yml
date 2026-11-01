@@ -2,7 +2,7 @@ name: prices (20-minute price log)
 # The venue loggers on their own schedule and concurrency group, no sleeps. Every 20 min, 10 AM to 1:59 AM ET (cron is UTC, EDT = UTC-4).
 on:
   schedule:
-    - cron: '0,20,40 14-23,0-5 * * *'
+    - cron: '0,20,40 14-23,0-6 * * *'   # UTC; covers 10 AM-2 AM ET in both EDT and EST (pulse.yml is the main driver)
   workflow_dispatch: {}
 permissions:
   contents: write

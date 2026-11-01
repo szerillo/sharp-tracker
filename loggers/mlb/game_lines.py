@@ -20,7 +20,7 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.abspath(os.path.join(HERE, "..", ".."))
 OUT = os.environ.get("LINES_DIR") or os.path.join(ROOT, "data", "mlb", "game_lines")
 os.makedirs(OUT, exist_ok=True)
-ET = dt.timezone(dt.timedelta(hours=-4))
+ET = __import__('zoneinfo').ZoneInfo('America/New_York')
 NOW = dt.datetime.now(dt.timezone.utc); NOW_S = NOW.isoformat()
 TODAY = NOW.astimezone(ET).date(); DATES = [TODAY, TODAY + dt.timedelta(days=1)]
 KAPI = "https://api.elections.kalshi.com/trade-api/v2"

@@ -12,7 +12,7 @@ import os, sys, json, time, datetime as dt, urllib.request
 
 HERE = os.path.dirname(os.path.abspath(__file__)); OUT = os.path.join(HERE, '..', 'data', 'tennis'); os.makedirs(OUT, exist_ok=True)
 SCHED = os.path.join(OUT, 'schedule.json'); RES = os.path.join(OUT, 'results.jsonl')
-ET = dt.timezone(dt.timedelta(hours=-4))
+ET = __import__('zoneinfo').ZoneInfo('America/New_York')
 BACK = int(sys.argv[sys.argv.index('--days-back') + 1]) if '--days-back' in sys.argv else 1
 
 

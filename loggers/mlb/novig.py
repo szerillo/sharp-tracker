@@ -13,7 +13,7 @@ def g(u):
             return {}
         except Exception: time.sleep(1.5*(i+1))
     return {}
-now=time.time(); et=datetime.datetime.utcnow()-datetime.timedelta(hours=4)
+now=time.time(); et=datetime.datetime.now(__import__('zoneinfo').ZoneInfo('America/New_York')).replace(tzinfo=None)
 OUT=os.path.join(os.path.dirname(os.path.abspath(__file__)),'..','..','data','mlb','novig_log'); os.makedirs(OUT,exist_ok=True); stf=os.path.join(OUT,'_last_trade.json')
 last=json.load(open(stf)) if os.path.exists(stf) else {}
 ev=[e for e in g(f"{A}/catalog/events?league=MLB&status=OPEN_PREGAME&limit=500").get('items',[]) if '@' in e['description'] and e['startsTs']/1000-now<36*3600]

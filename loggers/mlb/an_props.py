@@ -9,7 +9,7 @@ def g(u):
         try: return json.load(urllib.request.urlopen(urllib.request.Request(u,headers={'User-Agent':'Mozilla/5.0'}),timeout=40))
         except Exception: time.sleep(2*(i+1))
     return {}
-et=datetime.datetime.utcnow()-datetime.timedelta(hours=4); D=et.strftime('%Y%m%d'); ts=int(time.time())
+et=datetime.datetime.now(__import__('zoneinfo').ZoneInfo('America/New_York')).replace(tzinfo=None); D=et.strftime('%Y%m%d'); ts=int(time.time())
 rows=[]
 for i in range(0,len(TYPES),4):
     ch=TYPES[i:i+4]

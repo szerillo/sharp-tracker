@@ -18,7 +18,8 @@ HERE = os.path.dirname(os.path.abspath(__file__)); ROOT = os.path.abspath(os.pat
 import pandas as pd
 from sharp import moves as MV
 
-ET = dt.timezone(dt.timedelta(hours=-4))
+from zoneinfo import ZoneInfo
+ET = ZoneInfo('America/New_York')
 DAY = sys.argv[1] if len(sys.argv) > 1 else (dt.datetime.now(ET) - dt.timedelta(days=1)).date().isoformat()
 D0 = dt.datetime.fromisoformat(DAY).replace(tzinfo=ET); LO, HI = D0.astimezone(dt.timezone.utc), (D0 + dt.timedelta(days=1)).astimezone(dt.timezone.utc)
 SPORTS = ('nfl', 'nba', 'nhl', 'cfb', 'soccer')
