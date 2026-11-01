@@ -18,7 +18,7 @@ Writes data/tennis/ticks/<ET date>.jsonl.gz (20-minute run) or data/tennis/ticks
 in the schedule shape the move tape reads: start, away, home, away_team/home_team displayName, tour, tournament) and
 data/kalshi/fast_meta_tennis.json (Kalshi ticker / Novig market -> event, market, side) so the 5-minute trade feed logs tennis fills.
 Usage: python3 loggers/tennis_lines.py [--fast]"""
-import os, sys, re, json, gzip, time, unicodedata, collections, datetime as dt, urllib.request, urllib.parse
+import os, sys, random, re, json, gzip, time, unicodedata, collections, datetime as dt, urllib.request, urllib.parse
 import concurrent.futures as cf
 
 HERE = os.path.dirname(os.path.abspath(__file__)); ROOT = os.path.abspath(os.path.join(HERE, '..')); sys.path.insert(0, ROOT)
@@ -201,7 +201,12 @@ def novig(R, meta):
     except Exception: signed = False
     def nv(path, query):
         if signed:
-            st, r = NA.request('GET', '/v3/catalog' + path, query, timeout=30); return r if st == 200 else {}
+            for i in range(4):          # the 5-minute job shares Novig with four other fast jobs at the same second: back off on 429 / 5xx
+                try: st, r = NA.request('GET', '/v3/catalog' + path, query, timeout=30)
+                except Exception as e: st, r = type(e).__name__, None
+                if st == 200: return r
+                STATS[f'novig_http_{st}'] += 1; time.sleep(3 * (i + 1) + random.random() * 2)
+            return {}
         return g(f"{NOVP}{path}?{query}")
     todo = []
     for lg in ('ATP', 'WTA'):
