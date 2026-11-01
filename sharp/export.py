@@ -15,8 +15,8 @@ GAME_ORDER = ['ml', 'rl', 'total', 'tt_away', 'tt_home', 'f5_ml', 'f5_rl', 'f5_t
 ORDER_SPORT = {'mlb': GAME_ORDER}
 for _sp, _cfg in SP.SPORTS.items():
     ORDER_SPORT[_sp] = [pre + m for pre in [''] + [SP.PERIODS[p] for p in _cfg['periods'] if p != 'full'] for m in ('ml', 'spread', 'total', 'tt_away', 'tt_home')]
-BOARD_HOURS = {'mlb': 40, 'nba': 40, 'nhl': 40, 'soccer': 72, 'nfl': 8 * 24, 'cfb': 8 * 24, 'mma': 9 * 24}   # how far ahead the board shows games (NFL/CFB lines are up all week)
-KEY_SPREAD = {'mlb': 1.5, 'nfl': 3, 'cfb': 3, 'nba': 3, 'nhl': 1.5, 'soccer': 0.5, 'mma': 0.5}
+BOARD_HOURS = {'mlb': 40, 'nba': 40, 'cbb': 40, 'nhl': 40, 'soccer': 72, 'nfl': 8 * 24, 'cfb': 8 * 24, 'mma': 9 * 24}   # how far ahead the board shows games (NFL/CFB lines are up all week)
+KEY_SPREAD = {'mlb': 1.5, 'nfl': 3, 'cfb': 3, 'nba': 3, 'cbb': 3, 'nhl': 1.5, 'soccer': 0.5, 'mma': 0.5}
 MIN_VENUES_FOR_EDGE = {'game': 3, 'prop': 2}   # fair shown only when at least this many ruler venues quote the cell (Fable 10/14; props 2 on 10/29: Kalshi+Novig+Pinnacle are the prop venues)
 
 
@@ -170,7 +170,7 @@ def main():
     sysv = json.load(open(os.path.join(SD, 'system_fires.json'))) if os.path.exists(os.path.join(SD, 'system_fires.json')) else None
     sports = [r[0] for r in conn.execute("SELECT DISTINCT sport FROM events")] or ['mlb']
     index = dict(built=NOW_S, sports=[], spec='SHARP_TRACKER_BUILD_SPEC_2026-10-14.md')
-    for sp in sorted(sports, key=lambda s: ['nfl', 'nba', 'nhl', 'cfb', 'soccer', 'mma', 'mlb'].index(s) if s in ('nfl', 'nba', 'nhl', 'cfb', 'soccer', 'mma', 'mlb') else 9):
+    for sp in sorted(sports, key=lambda s: ['nfl', 'nba', 'nhl', 'cfb', 'cbb', 'soccer', 'mma', 'mlb'].index(s) if s in ('nfl', 'nba', 'nhl', 'cfb', 'cbb', 'soccer', 'mma', 'mlb') else 9):
         nev = conn.execute("SELECT COUNT(*) FROM events WHERE sport=?", (sp,)).fetchone()[0]
         nset = conn.execute("SELECT COUNT(*) FROM results r JOIN events e ON e.event_id=r.event_id WHERE r.status='final' AND e.sport=?", (sp,)).fetchone()[0]
         nt = conn.execute("SELECT COUNT(*) FROM ticks WHERE sport=?", (sp,)).fetchone()[0]
@@ -194,7 +194,7 @@ def main():
                 if c.get('fair') is None or not c.get('best'): continue
                 b = c['best'][0]; b2 = c['best'][1] if len(c['best']) > 1 else None
                 lad = {l['venue']: l.get('p') for l in c.get('ladder', []) if l.get('p') is not None}
-                edges.append(dict(sport=spx['sport'], event_id=gm['event_id'], game=(f"{gm['away_name']} @ {gm['home_name']}" if spx['sport'] in ('mma', 'cfb', 'soccer', 'ncaab') and gm.get('away_name') else f"{gm['away']}@{gm['home']}"), start_utc=gm['start_utc'], ttk_h=round(gm['minutes_to_start'] / 60, 1),
+                edges.append(dict(sport=spx['sport'], event_id=gm['event_id'], game=(f"{gm['away_name']} @ {gm['home_name']}" if spx['sport'] in ('mma', 'cfb', 'soccer', 'cbb') and gm.get('away_name') else f"{gm['away']}@{gm['home']}"), start_utc=gm['start_utc'], ttk_h=round(gm['minutes_to_start'] / 60, 1),
                                   stale_min=gm['stale_min'], market=c['market'], mclass='prop' if c['market'].startswith('prop_') else 'game', side=c['side'], line=c.get('line'),
                                   participant=c.get('participant'), player=c.get('player'), stat=c.get('stat'), fair=c['fair'], fair_n=c['fair_n'], fair_status=c.get('fair_status'),
                                   venue=b['venue'], price=b.get('cost_american') or b.get('american'), cost=b['cost'], limit=b.get('limit'), flags=b.get('flags'),

@@ -122,7 +122,7 @@ function ladder(c) {
   }).join('');
 }
 
-const FULLNAME = new Set(['mma', 'cfb', 'soccer', 'ncaab']);
+const FULLNAME = new Set(['mma', 'cfb', 'soccer', 'cbb']);
 function gname(g) { return FULLNAME.has(SPORT) && (g.away_name || g.home_name) ? `${esc(g.away_name || g.away)} @ ${esc(g.home_name || g.home)}` : `${esc(g.away)} @ ${esc(g.home)}`; }
 function renderBoard() {
   if (!D.board.length) return '<div class="sec"><div class="sec-h"><span class="name">No upcoming games in the log</span></div></div>';
@@ -202,7 +202,7 @@ function renderVenues() {
   return h;
 }
 
-const SPORT_LABEL = {nfl: 'NFL', nba: 'NBA', nhl: 'NHL', cfb: 'CFB', soccer: 'Soccer', mma: 'MMA', mlb: 'MLB'};
+const SPORT_LABEL = {nfl: 'NFL', nba: 'NBA', nhl: 'NHL', cfb: 'CFB', cbb: 'CBB', soccer: 'Soccer', mma: 'MMA', mlb: 'MLB'};
 // Moves are stored as the home / over side's devigged probability. Everything shown to the reader is in the terms of the side the
 // market moved TOWARD: its own probability and American price, so "toward Under" always pairs with the under getting shorter.
 const sideP = (m, p) => p == null ? null : ((m.side === 'home' || m.side === 'over') ? p : 1 - p);

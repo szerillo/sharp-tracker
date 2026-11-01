@@ -17,7 +17,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        group: ['nfl,nba,nhl', 'cfb,soccer,mma', 'trades', 'tennis']
+        group: ['nfl,nba,nhl', 'cfb,soccer,mma', 'cbb', 'trades', 'tennis']
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5

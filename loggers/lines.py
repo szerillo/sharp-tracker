@@ -49,7 +49,7 @@ def espn_schedule():
     sched = json.load(open(SCHED)) if os.path.exists(SCHED) else {}
     for d in range(-1, CFG['horizon_days'] + 1):
         day = (et_date(NOW) + dt.timedelta(days=d)).strftime('%Y%m%d')
-        extra = '&groups=80&limit=400' if SPORT == 'cfb' else ''
+        extra = '&groups=80&limit=400' if SPORT == 'cfb' else (CFG.get('espn_query') or '')
         x = g(f"https://site.api.espn.com/apis/site/v2/sports/{CFG['espn']}/scoreboard?dates={day}{extra}")
         if CFG.get('fights'):
             for card in x.get('events', []):
@@ -105,10 +105,16 @@ class Matcher:
     def match(self, date, away, home, start=None):
         c = self.by.get((date, away, home)) or []
         if not c and CFG.get('fights'): c = self.by.get((date, home, away)) or []     # fight feeds disagree on who is listed first; orient() fixes the sides
+        if not c: c = [e for e in self.by.get((date, home, away)) or [] if e.get('neutral')]   # neutral site: vendors may list either team as home
         if not c: self.unmatched[f"{date} {away}@{home}"] += 1; return None
         if start is not None and len(c) > 1: c = sorted(c, key=lambda e: abs((parse_ts(e['start']) - start).total_seconds()))
         return c[0]['event_id']
 
+
+    def swapped(self, ev, a, h):
+        """True when the vendor's home team is the ESPN event's away team (fights, neutral-site games). Sides must then be flipped."""
+        e = self.sched.get(ev)
+        return bool(e) and e.get('home') == a and e.get('away') == h
 
     def orient(self, ev, a, h):
         """(away, home) in the ESPN event's own order, whatever order the feed used."""
@@ -157,7 +163,8 @@ def pinnacle(M):
         if not (a and h): continue
         st = parse_ts(m['startTime']); ev = M.match(et_date(st), a, h, st)
         if not ev: continue
-        pin_home, pin_away = h, a; a, h = M.orient(ev, a, h)
+        pin_home, pin_away = h, a; sw = M.swapped(ev, a, h); a, h = M.orient(ev, a, h)
+        flip = (lambda d: {'home': 'away', 'away': 'home'}.get(d, d)) if sw else (lambda d: d)
         games[m['id']] = (ev, a, h)
         for k in km[m['id']]:
             per = CFG['pin_period'].get(k.get('period'))
@@ -172,10 +179,10 @@ def pinnacle(M):
                 if 'draw' in P: tick(ev, per + 'ml', 'draw', 'Pinnacle', 'pinnacle_guest', american=P['draw']['price'], limit=lim, flags=fl)
             elif typ == 'spread' and 'home' in P:
                 lh = P['home'].get('points')
-                tick(ev, per + 'spread', 'home', 'Pinnacle', 'pinnacle_guest', line=lh, participant=h, american=P['home']['price'], limit=lim)
-                tick(ev, per + 'spread', 'away', 'Pinnacle', 'pinnacle_guest', line=-lh, participant=a, american=P['away']['price'], limit=lim)
+                tick(ev, per + 'spread', flip('home'), 'Pinnacle', 'pinnacle_guest', line=lh, participant=pin_home, american=P['home']['price'], limit=lim)
+                tick(ev, per + 'spread', flip('away'), 'Pinnacle', 'pinnacle_guest', line=-lh, participant=pin_away, american=P['away']['price'], limit=lim)
             elif typ in ('total', 'team_total') and 'over' in P:
-                mk = per + ('total' if typ == 'total' else 'tt_' + k.get('side', '')); part = None if typ == 'total' else (h if k.get('side') == 'home' else a)
+                mk = per + ('total' if typ == 'total' else 'tt_' + flip(k.get('side', ''))); part = None if typ == 'total' else (pin_home if k.get('side') == 'home' else pin_away)
                 tick(ev, mk, 'over', 'Pinnacle', 'pinnacle_guest', line=P['over'].get('points'), participant=part, american=P['over']['price'], limit=lim)
                 tick(ev, mk, 'under', 'Pinnacle', 'pinnacle_guest', line=P['under'].get('points'), participant=part, american=P['under']['price'], limit=lim)
             n += 1
@@ -317,6 +324,8 @@ def action_network(M):
             a, h = tm.get(gm['away_team_id']), tm.get(gm['home_team_id'])
             st = parse_ts(gm['start_time'].replace('.000Z', 'Z')); ev = M.match(et_date(st), a, h, st)
             if not ev: continue
+            sw = M.swapped(ev, a, h); a, h = M.orient(ev, a, h)
+            flip = (lambda d: {'home': 'away', 'away': 'home'}.get(d, d)) if sw else (lambda d: d)
             for bid_, per_m in (gm.get('markets') or {}).items():
                 venue = AN_BOOKS.get(bid_)
                 if not venue: continue
@@ -327,7 +336,7 @@ def action_network(M):
                     for typ, outs in mk.items():
                         for o in outs:
                             if o.get('is_live') or o.get('is_alt_market') or o.get('odds') is None: continue
-                            side = 'away' if o.get('team_id') == gm['away_team_id'] else ('home' if o.get('team_id') == gm['home_team_id'] else o.get('side'))
+                            side = flip('away' if o.get('team_id') == gm['away_team_id'] else ('home' if o.get('team_id') == gm['home_team_id'] else o.get('side')))
                             bi = o.get('bet_info') or {}
                             extra = {'tickets_pct': (bi.get('tickets') or {}).get('percent'), 'money_pct': (bi.get('money') or {}).get('percent')} if venue == 'AN_Consensus' else None
                             if extra and all(v is None for v in extra.values()): extra = None

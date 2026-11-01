@@ -78,7 +78,7 @@ def kalshi_moves(sched):
 
 def main():
     sched = {}
-    for sp in ('nfl', 'nba', 'nhl', 'cfb', 'soccer', 'mma'):
+    for sp in ('nfl', 'nba', 'nhl', 'cfb', 'cbb', 'soccer', 'mma'):
         p = os.path.join(ROOT, 'data', sp, 'schedule.json')
         if os.path.exists(p):
             for k, v in json.load(open(p)).items(): sched[k] = dict(v, sport=sp)

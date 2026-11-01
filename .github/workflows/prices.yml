@@ -55,7 +55,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        sport: [nfl, nba, cfb, nhl, soccer, mma]
+        sport: [nfl, nba, cfb, cbb, nhl, soccer, mma]
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5

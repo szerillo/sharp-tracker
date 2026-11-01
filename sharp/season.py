@@ -31,7 +31,7 @@ def refresh(sport):
     cfg = SP.SPORTS[sport]; st = load(sport); games = st['games']; today = et_date(dt.datetime.now(dt.timezone.utc))
     day = max(SEASON_START[sport], today - dt.timedelta(days=120)); n_new = 0
     while day <= today:
-        x = g(f"https://site.api.espn.com/apis/site/v2/sports/{cfg['espn']}/scoreboard?dates={day.strftime('%Y%m%d')}" + ('&groups=80&limit=400' if sport == 'cfb' else ''))
+        x = g(f"https://site.api.espn.com/apis/site/v2/sports/{cfg['espn']}/scoreboard?dates={day.strftime('%Y%m%d')}" + ('&groups=80&limit=400' if sport == 'cfb' else (cfg.get('espn_query') or '')))
         for ev in x.get('events', []):
             if ev['id'] in games and games[ev['id']].get('final'): continue
             c = ev['competitions'][0]; stt = (c.get('status') or {}).get('type') or {}

@@ -48,7 +48,7 @@ def parse_players(sport, box):
                 elif sport == 'soccer':
                     row.update(GOALS=_num(st.get('totalGoals') if st.get('totalGoals') is not None else st.get('goals')), AST=_num(st.get('goalAssists') if st.get('goalAssists') is not None else st.get('assists')),
                                SOT=_num(st.get('shotsOnTarget')), SAVES=_num(st.get('saves')), played=1)
-                elif sport == 'nba':
+                elif sport in ('nba', 'cbb'):
                     row.update(PTS=_num(st.get('points')), REB=_num(st.get('rebounds')), AST=_num(st.get('assists')), STL=_num(st.get('steals')), BLK=_num(st.get('blocks')),
                                TOV=_num(st.get('turnovers')), MIN=_num(st.get('minutes')),
                                FGM=_split(st.get('fieldGoalsMade-fieldGoalsAttempted'), 0), FTM=_split(st.get('freeThrowsMade-freeThrowsAttempted'), 0),
@@ -60,7 +60,7 @@ def parse_players(sport, box):
             if p.get('RUSHYDS') is not None or p.get('RECYDS') is not None: p['RUSHRECYDS'] = (p.get('RUSHYDS') or 0) + (p.get('RECYDS') or 0)
             if p.get('PASSYDS') is not None: p['PASSRUSHYDS'] = p['PASSYDS'] + (p.get('RUSHYDS') or 0)
             p['played'] = 1
-        elif sport == 'nba':
+        elif sport in ('nba', 'cbb'):
             if p.get('PTS') is not None:
                 p['PRA'] = p['PTS'] + (p.get('REB') or 0) + (p.get('AST') or 0); p['PR'] = p['PTS'] + (p.get('REB') or 0)
                 p['PA'] = p['PTS'] + (p.get('AST') or 0); p['RA'] = (p.get('REB') or 0) + (p.get('AST') or 0)
@@ -141,8 +141,8 @@ def pull(sport, event_id):
     per = {}
     for side, d in (('home', h), ('away', a)):
         q = d.get('q') or []
-        if sport == 'soccer':
-            if len(q) >= 1: per[f'1h_{side}'] = q[0]            # soccer periods are halves
+        if sport in ('soccer', 'cbb'):
+            if len(q) >= 1: per[f'1h_{side}'] = q[0]            # soccer and college basketball periods are halves
             continue
         if len(q) >= 2: per[f'1h_{side}'] = q[0] + q[1]
         if len(q) >= 1: per[f'1q_{side}'] = q[0]; per[f'1p_{side}'] = q[0]
