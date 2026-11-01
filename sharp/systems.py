@@ -50,8 +50,8 @@ EVIDENCE = {'wind1014': dict(tier='A', train='533-376 all-time (2003-), +13.3%',
             'cfb_road_dog_low_total': dict(tier='B', train='645, +14.9%', hold='238, +7.3%', seasons='5 of 6', src='docs/betlabs_account_systems_audit_2026-10-30.md'),
             'cbb_bigloss_vs_top5': dict(tier='C', train='177, +23.1%', hold='66, +13.0%', seasons='thin (about 12 a season)', src='docs/betlabs_account_systems_audit_2026-10-30.md')}
 # nhl_over_busy_goalie retired 10/30: positive in 2 of 7 seasons and the goalie-saves field thins to a handful of games after 2023.
-DESC = {'wind1014': 'NFL outdoor, Open-Meteo sustained wind 10-14 mph at T-24h: full-game under', 'wind1014_1h': 'same wind band: first-half under',
-        'cfb_wind14': 'CFB outdoor, wind 14+ mph at T-24h: full-game under', 'vrest8_1h': 'NFL visitor off 8-30 days: first-half under', 'mnf_1h': 'Monday night: first-half under',
+DESC = {'wind1014': 'NFL outdoor, wind 10-14 mph (average of Open-Meteo at T-24h and MySportsWeather, whole mph): full-game under', 'wind1014_1h': 'same wind, 10-13 mph: first-half under',
+        'cfb_wind14': 'CFB outdoor, wind 14+ mph (same two-source average): full-game under', 'vrest8_1h': 'NFL visitor off 8-30 days: first-half under', 'mnf_1h': 'Monday night: first-half under',
         'awfuldog': 'NFL dog with season margin -13 or worse (2+ games): full-game spread', 'bounce15_1h': 'NFL dog whose last game lost ATS by 15+: first-half spread',
         'xch_homedog_fade': 'Novig home side two-sided at 20-35c inside T-90m: take the road side on Novig', 'nba_momentum': 'NBA exchange mid moved 3c+ since T-6h: continuation at that exchange',
         'nhl_pl_fav_gap': "NHL favorite -1.5 when the OPPONENT's win% is 22+ points higher than the favorite's (market rates the favorite above its record)", 'nhl_pl_fav_strong_opp': 'NHL favorite -1.5 when the opponent wins 66%+',
@@ -497,7 +497,7 @@ def main():
         s['published'] = bool(s['graded'] >= s['gate'] and (s['clv_avg'] or 0) > 0)
     for g in view_games:
         r_ = sched_rec(g.get('sport', 'nfl'), g['event_id']); g['away_name'] = (r_.get('away_team') or {}).get('displayName') or g['away']; g['home_name'] = (r_.get('home_team') or {}).get('displayName') or g['home']
-        g.setdefault('sport', 'nfl')
+        g.setdefault('sport', 'nfl'); g['league'] = sched_rec(g['sport'], g['event_id']).get('league')
         g['hours_to_kickoff'] = round((N.parse_ts(g['start_utc']) - NOW).total_seconds() / 3600, 1)
         fired_tags = {f['tag'] for f in g.get('fills', [])}
         if g['hours_to_kickoff'] < WINDOW_H[0]:      # triggers that first appeared inside the last hours never became bets; do not show them as such

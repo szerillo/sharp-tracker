@@ -118,7 +118,7 @@ def main():
         pin1 = novig_pin_p(L, ev, '1s_ml', fav)
         name = (e.get('home_team') if fav == 'home' else e.get('away_team') or {}).get('displayName') if e else None
         opp = (e.get('away_team') if fav == 'home' else e.get('home_team') or {}).get('displayName') if e else None
-        row = dict(event_id=ev, start=e['start'], tour=e.get('tour'), tournament=e.get('tournament'), fav=fav, fav_name=name, opp_name=opp,
+        row = dict(event_id=ev, sport='tennis', league=(e.get('tour') or '').lower() or None, start=e['start'], tour=e.get('tour'), tournament=e.get('tournament'), fav=fav, fav_name=name, opp_name=opp,
                    match_p=round(pf, 4), match_src=src, model=round(model, 4), fair=round(fair, 4), pin_set1=round(pin1, 4) if pin1 else None,
                    best=best, edge=round(fair - best['cost'], 4) if best else None)
         row['flag'] = bool(best and pf >= MIN_FAV and row['edge'] >= MIN_EDGE)

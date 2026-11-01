@@ -202,7 +202,7 @@ function renderVenues() {
   return h;
 }
 
-const SPORT_LABEL = {nfl: 'NFL', nba: 'NBA', nhl: 'NHL', cfb: 'CFB', cbb: 'CBB', wnba: 'WNBA', soccer: 'Soccer', mma: 'MMA', mlb: 'MLB'};
+const SPORT_LABEL = {nfl: 'NFL', nba: 'NBA', nhl: 'NHL', cfb: 'CFB', cbb: 'CBB', wnba: 'WNBA', tennis: 'Tennis', soccer: 'Soccer', mma: 'MMA', mlb: 'MLB'};
 // Moves are stored as the home / over side's devigged probability. Everything shown to the reader is in the terms of the side the
 // market moved TOWARD: its own probability and American price, so "toward Under" always pairs with the under getting shorter.
 const sideP = (m, p) => p == null ? null : ((m.side === 'home' || m.side === 'over') ? p : 1 - p);
@@ -242,13 +242,32 @@ function sysCards(list) {
         ${e.train ? `<div class="why">Backtest: ${esc(e.train)}; since 2021 ${esc(e.hold || '—')}; ${esc(e.seasons || '—')} seasons positive.</div>` : ''}</div>
       <div class="price"><span class="badge ${tierCls}">tier ${e.tier || '?'}</span> <span class="small dim">${(rules[tag] || {}).stake || ''}u</span>${(rules[tag] || {}).labs ? ` <a class="small" target="_blank" href="https://sportsinsights.actionnetwork.com/betlabs/screen?ScreenId=${rules[tag].labs.id}">Bet Labs</a>` : ''}<br>flagged at ${VEN(f.venue)} <b>${am(f.price)}</b><br>${priceChip(f)}</div></div>`; }).join('');
 }
+// Today filter: sport, then league / tour where a sport has several (soccer leagues, tennis tours)
+window._tf = window._tf || {sport: '', league: ''};
+const LEAGUE_LABEL = {epl: 'EPL', laliga: 'La Liga', bundesliga: 'Bundesliga', seriea: 'Serie A', ligue1: 'Ligue 1', mls: 'MLS', ucl: 'Champions League', uel: 'Europa League', ligamx: 'Liga MX', atp: 'ATP', wta: 'WTA', itf: 'ITF', challenger: 'Challenger'};
+const passT = (sport, league) => (!_tf.sport || sport === _tf.sport) && (!_tf.league || league === _tf.league);
+function todayFilterBar(all) {
+  const bySport = {}, byLeague = {};
+  for (const [sp, lg] of all) { if (!sp) continue; bySport[sp] = (bySport[sp] || 0) + 1; if (lg) { byLeague[sp] = byLeague[sp] || {}; byLeague[sp][lg] = (byLeague[sp][lg] || 0) + 1; } }
+  const order = ['nfl', 'cfb', 'nba', 'cbb', 'nhl', 'soccer', 'mma', 'tennis', 'wnba', 'mlb'];
+  const sps = Object.keys(bySport).sort((a, b) => (order.indexOf(a) + 99) % 99 - (order.indexOf(b) + 99) % 99);
+  const chip = (on, label, js) => `<button class="${on ? 'on' : ''}" onclick="${js};draw()">${label}</button>`;
+  let h = `<div class="controls"><span class="tabs inline">${chip(!_tf.sport, `All (${all.length})`, "_tf.sport='';_tf.league=''")}`
+    + sps.map(sp => chip(_tf.sport === sp, `${SPORT_LABEL[sp] || sp} (${bySport[sp]})`, `_tf.sport='${sp}';_tf.league=''`)).join('') + '</span></div>';
+  const lgs = _tf.sport && byLeague[_tf.sport] ? Object.keys(byLeague[_tf.sport]) : [];
+  if (lgs.length > 1) h += `<div class="controls"><span class="tabs inline">${chip(!_tf.league, 'All', "_tf.league=''")}`
+    + lgs.sort().map(lg => chip(_tf.league === lg, `${LEAGUE_LABEL[lg] || lg.toUpperCase()} (${byLeague[_tf.sport][lg]})`, `_tf.league='${lg}'`)).join('') + '</span></div>';
+  return h;
+}
 function renderToday() {
   if (!SY) return '<div class="banner">Loading…</div>';
-  const items = [];
+  const ALL = [];      // every row on the page before filtering, for the chip counts
+  let items = [];
   for (const g of SY.games || []) { if (new Date(g.start_utc) <= Date.now()) continue;
     for (const f of g.fills || []) if (f.fill_id && !f.stacked) items.push({g, f, tag: f.tag}); }
   items.sort((a, b) => a.g.start_utc < b.g.start_utc ? -1 : 1);
-  const flags = [];
+  for (const it of items) ALL.push([it.g.sport, it.g.league]); items = items.filter(it => passT(it.g.sport, it.g.league));
+  let flags = [];
   for (const g of SY.games || []) { if (new Date(g.start_utc) <= Date.now()) continue;
     for (const [tag, why] of Object.entries(g.triggers || {})) { const f = (g.fills || []).find(x => x.tag === tag);
       if (f && f.fill_id && !f.stacked) continue;
@@ -258,6 +277,7 @@ function renderToday() {
         : 'The rule fired but no book had a usable price at that moment. If you can find the number, it is the same bet as a card above.'));
       flags.push({g, tag, why, reason}); } }
   flags.sort((a, b) => a.g.start_utc < b.g.start_utc ? -1 : 1);
+  for (const x of flags) ALL.push([x.g.sport, x.g.league]); flags = flags.filter(x => passT(x.g.sport, x.g.league));
   const tierOf = it => (((SY.rules || {})[it.tag] || {}).evidence || {}).tier || '?';   // unknown tier stays in Vet; only an explicit C is demoted
   const vet = items.filter(it => tierOf(it) !== 'C'), lean = items.filter(it => tierOf(it) === 'C');
   // notable market moves on upcoming games: Pinnacle-origin, or $1k+ Kalshi fills with the move; last 6 hours
@@ -266,6 +286,7 @@ function renderToday() {
     if (m.started || new Date(m.start) <= Date.now()) continue;
     if ((Date.now() - new Date(m.ts)) / 3600000 > 6) continue;
     if (!isNotable(m)) continue;
+    ALL.push([sp, m.league]); if (!passT(sp, m.league)) continue;
     moves.push({...m, sport: sp, big: !!(m.kalshi && m.kalshi.big_n && m.kalshi.big_net > 0)});
   }
   moves.sort((a, b) => a.start < b.start ? -1 : 1);
@@ -278,7 +299,7 @@ function renderToday() {
       <td class="small">${stuck.length ? `<span class="ok-chip">still at the old price: ${stuck.join(', ')}</span>` : (fol.length ? `followed by ${fol.join(', ')}` : '<span class="dim">no soft book quote yet</span>')}</td></tr>`; }).join('');
   const nWin = SY.window_h ? `${SY.window_h[0]}–${SY.window_h[1]}h` : '';
 // big money vs small money (Kalshi taker fills, pregame), divergent markets only
-  const fl = FL ? (FL.rows || []).filter(r => r.divergent && new Date(r.start) > Date.now()).sort((a, b) => a.start < b.start ? -1 : 1) : [];
+  const fl = FL ? (FL.rows || []).filter(r => r.divergent && new Date(r.start) > Date.now() && (ALL.push([r.sport, r.league]), passT(r.sport, r.league))).sort((a, b) => a.start < b.start ? -1 : 1) : [];
   const flRows = fl.slice(0, 30).map(r => { const g = {home: r.home, away: r.away, home_name: r.home_name, away_name: r.away_name};
     const bet = betText({market: r.market, side: r.big_side, line: r.market === 'spread' ? (r.big_side === 'home' ? r.line : -r.line) : r.line}, g);
     const opp = r.market === 'total' ? (r.big_side === 'over' ? 'under' : 'over') : (r.big_side === 'home' ? (r.away_name || r.away) : (r.home_name || r.home));
@@ -287,20 +308,20 @@ function renderToday() {
       <td class="small mono"><span class="pos">+$${r.big_net.toLocaleString()}</span> risk-equiv. net in $${FL.big_usd}+ fills <span class="dim">(${r.big_fills} big fills)</span></td>
       <td class="small mono"><span class="neg">$${Math.abs(r.small_net).toLocaleString()}</span> net on ${esc(opp)} in $${FL.small_usd}-and-under fills</td>
       <td class="small dim">$${r.total.toLocaleString()} traded</td></tr>`; }).join('');
-  const km = FL && FL.moves ? FL.moves.filter(r => new Date(r.start) > Date.now()) : [];
+  const km = FL && FL.moves ? FL.moves.filter(r => new Date(r.start) > Date.now() && (ALL.push([r.sport, r.league]), passT(r.sport, r.league))) : [];
   const kmRows = km.map(r => { const g = {home: r.home, away: r.away, home_name: r.home_name, away_name: r.away_name};
     const bet = betText({market: r.market, side: r.side, line: r.line}, g);
     return `<tr><td class="small"><span class="badge b-sport">${SPORT_LABEL[r.sport] || r.sport}</span> <b>${ET(r.start)}</b><br><span class="dim">${until(r.start)}</span></td>
       <td><span class="small">${esc(r.away_name || r.away)} @ ${esc(r.home_name || r.home)}</span><br><b>${esc(bet)}</b></td>
       <td class="small mono">${r.open}% → <b>${r.now}%</b> <span class="pos">(+${r.move} pts)</span><br><span class="dim">first seen ${ET(r.open_ts)} ET</span></td>
       <td class="small mono">ask ${r.ask}¢ (${toAm(r.ask / 100)})</td></tr>`; }).join('');
-  const tw = TW ? (TW.rows || []).filter(r => r.flag && new Date(r.start) > Date.now()) : [];
+  const tw = TW ? (TW.rows || []).filter(r => r.flag && new Date(r.start) > Date.now() && (ALL.push(['tennis', r.league]), passT('tennis', r.league))) : [];
   const twRows = tw.map(r => `<tr><td class="small"><span class="badge b-sport">${esc((r.tour || 'tennis').toUpperCase())}</span> <b>${ET(r.start)}</b><br><span class="dim">${until(r.start)}</span></td>
       <td><span class="small">${esc(r.fav_name || '')} vs ${esc(r.opp_name || '')}${r.tournament ? ' · ' + esc(r.tournament) : ''}</span><br><b>${esc(r.fav_name || 'Favourite')} to win set 1</b></td>
       <td class="small mono">match ${(100 * r.match_p).toFixed(1)}% → set 1 fair ${(100 * r.fair).toFixed(1)}%<br><span class="dim">model ${(100 * r.model).toFixed(1)}%${r.pin_set1 ? ' · Pinnacle ' + (100 * r.pin_set1).toFixed(1) + '%' : ''}</span></td>
       <td class="small mono">${VEN(r.best.venue)} ${(100 * r.best.cost).toFixed(1)}¢ (${toAm(r.best.cost)})<br><span class="pos">+${(100 * r.edge).toFixed(1)} pts</span></td></tr>`).join('');
   const twRec = TW && TW.record && TW.record.n ? `Paper record so far: ${TW.record.won}-${TW.record.n - TW.record.won}, ${TW.record.units > 0 ? '+' : ''}${TW.record.units}u.` : 'No graded paper entries yet.';
-  return `<div class="hdr2"><h2>Vet these before the games</h2><span class="meta">system bets on upcoming games, tier A and B, soonest first</span></div>
+  return todayFilterBar(ALL) + `<div class="hdr2"><h2>Vet these before the games</h2><span class="meta">system bets on upcoming games, tier A and B, soonest first</span></div>
     <p class="explain">Each card is a pre-registered rule that fired for this game (rules fire ${nWin} before kickoff and stay here until it starts). Check the price: green means the number we flagged, or better, is still on the board; amber means it has moved against us. Tier A is the wind family (beat the holdout at z ≥ 2 and the market does not fully price it); tier B is positive on both halves of the backtest and in most seasons since 2021.</p>
     ${vet.length ? sysCards(vet) : '<div class="small dim">No tier A or B bets on upcoming games right now.</div>'}
     <div class="hdr2"><h2>Watch: weaker leans</h2><span class="meta">tier C: thin samples or exchange-audit signals from sparse data</span></div>

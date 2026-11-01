@@ -68,7 +68,7 @@ def kalshi_moves(sched):
         side = yes if toward_yes else OTHER.get(yes)
         line = L[6]
         if mk == 'spread' and line is not None and side != yes: line = -line
-        out.append(dict(sport=e['sport'], event_id=ev, away=e['away'], home=e['home'], away_name=(e.get('away_team') or {}).get('displayName'),
+        out.append(dict(sport=e['sport'], league=e.get('league'), event_id=ev, away=e['away'], home=e['home'], away_name=(e.get('away_team') or {}).get('displayName'),
                         home_name=(e.get('home_team') or {}).get('displayName'), start=e['start'], market=mk, side=side, line=line, ticker=b['tk'],
                         open=round(100 * (F[1] if toward_yes else 1 - F[1]), 1), now=round(100 * (L[1] if toward_yes else 1 - L[1]), 1),
                         ask=round(100 * (L[2] if toward_yes else L[3]), 1), move=round(abs(b['mv']), 1), open_ts=F[0], now_ts=L[0]))
@@ -116,7 +116,7 @@ def main():
         lead = names[0] if s1['big'] >= s2['big'] else names[1]; lo = names[1] if lead == names[0] else names[0]
         L_, O_ = sides.get(lead, {}), sides.get(lo, {})
         big_net = (L_.get('big', 0) - O_.get('big', 0)); small_net = (L_.get('small', 0) - O_.get('small', 0))
-        rows.append(dict(sport=e['sport'], event_id=ev, away=e['away'], home=e['home'], away_name=(e.get('away_team') or {}).get('displayName'), home_name=(e.get('home_team') or {}).get('displayName'),
+        rows.append(dict(sport=e['sport'], league=e.get('league'), event_id=ev, away=e['away'], home=e['home'], away_name=(e.get('away_team') or {}).get('displayName'), home_name=(e.get('home_team') or {}).get('displayName'),
                          start=e['start'], market=mk, line=line, big_side=lead, big_net=round(big_net), small_net=round(small_net), big_fills=L_.get('n_big', 0) + O_.get('n_big', 0),
                          total=round(tot), fills=s1['n'] + s2['n'], divergent=bool(big_net >= DIV_USD and small_net < 0), venues=sorted(a['venues']), last=a['last'],
                          sides={k: {kk: round(vv) for kk, vv in v.items()} for k, v in sides.items()}))
