@@ -24,7 +24,7 @@ jobs:
         with:
           python-version: "3.11"
       - name: pull tape
-        run: python3 loggers/novig_tape.py ${{ github.event.inputs.days }}
+        run: python3 loggers/novig_tape.py --force ${{ github.event.inputs.days }}
       - uses: actions/upload-artifact@v4
         with:
           name: novig-tape

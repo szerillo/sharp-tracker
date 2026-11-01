@@ -83,7 +83,7 @@ def main():
     args = sys.argv[1:]
     if '--all' in args: todo = dates
     elif '--days' in args: todo = dates[-int(args[args.index('--days') + 1]):]
-    elif args: todo = [a for a in args if a in dates]
+    elif [a for a in args if not a.startswith('--')]: todo = [a for a in args if a in dates]   # --force alone still means the default days
     else: todo = dates[-3:]
     for d in todo: one_day(d, cat, force='--force' in args)
 
