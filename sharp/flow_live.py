@@ -15,8 +15,11 @@ import os, sys, json, gzip, glob, collections, datetime as dt
 HERE = os.path.dirname(os.path.abspath(__file__)); ROOT = os.path.abspath(os.path.join(HERE, '..')); sys.path.insert(0, ROOT)
 from sharp.norm import parse_ts
 MOVE_PTS = 4.0; TIGHT = 0.04
+STEAM_PTS = 3.0; STEAM_MIN = 60; REV_FRAC = 0.4; REV_FRESH = 30
+SHOW_TOTAL = 10000.0; SHOW_BIG = 2500.0   # Today-page floor for big vs small (readability only; stricter cuts were tested and did not help)
 BIG_USD = 500.0; SMALL_USD = 50.0; DIV_USD = 1000.0; NOVIG_VERIFIED = False
 OUT = os.path.join(ROOT, 'data', 'state', 'flow_live.json')
+PAPER = os.path.join(ROOT, 'data', 'kalshi', 'steam_rev_paper.jsonl'); RESC = os.path.join(ROOT, 'data', 'kalshi', 'steam_rev_results.json')
 OTHER = {'home': 'away', 'away': 'home', 'over': 'under', 'under': 'over'}
 NOW = dt.datetime.now(dt.timezone.utc)
 
@@ -30,7 +33,7 @@ def kalshi_moves(sched):
     """Kalshi markets whose two-sided mid has moved MOVE_PTS+ points since the first two-sided price we logged (20-minute and 5-minute
     ticks, last 14 days). Backtest (sharp/flow_grid.py --ask): following a 4+ pt move since the open at the ask, 1h to 15m before start,
     +13% on ~500 October games (z 3.4) but about flat in August-September; see docs/flow_split_2026-10-31.md. Watch only."""
-    first, last = {}, {}
+    first, last, series = {}, {}, collections.defaultdict(list)
     for sp in sorted({e['sport'] for e in sched.values()}):
         files = []
         for d in ('ticks', 'ticks5'): files += recent(os.path.join(ROOT, 'data', sp, d), days=14)
@@ -51,6 +54,7 @@ def kalshi_moves(sched):
                 tk = (tk, t['side'])                     # the logger writes a spread/total ticker once per side, mirrored
                 if tk not in first or t['ts'] < first[tk][0]: first[tk] = rec
                 if tk not in last or t['ts'] > last[tk][0]: last[tk] = rec
+                series[tk].append(rec)
     best = {}
     for tk, L in last.items():
         F = first[tk]; ev, mk = L[7], L[8]; e = sched[ev]
@@ -60,9 +64,16 @@ def kalshi_moves(sched):
         # main line = most traded ticker; for moneylines the two team tickers mirror, so keep the busier one too
         if L[5] not in ('home', 'over'): continue          # one orientation per ticker (home / over), so each market counts once
         if k not in best or L[4] > best[k]['vol']:
-            best[k] = dict(vol=L[4], mv=mv, F=F, L=L, tk=tk[0])
-    out = []
+            best[k] = dict(vol=L[4], mv=mv, F=F, L=L, tk=tk[0], st=steam_state(sorted(series[tk])))
+    out = []; steams = []
     for (ev, mk), b in best.items():
+        st = b['st']
+        if st:
+            e = sched[ev]; L = b['L']; yes = L[5]; up = st['dir'] > 0
+            steams.append(dict(sport=e['sport'], league=e.get('league'), event_id=ev, away=e['away'], home=e['home'], start=e['start'], market=mk,
+                               ticker=b['tk'], yes_side=yes, line=L[6], steam_side=yes if up else OTHER.get(yes), **{k: v for k, v in st.items() if k != 'dir'},
+                               steam_yes=up, rev_side=OTHER.get(yes) if up else yes,
+                               rev_cost=round(100 * (L[3] if up else L[2]), 1)))      # the reversal side's ask now (no-ask = 1 - yes bid)
         if abs(b['mv']) < MOVE_PTS: continue
         e = sched[ev]; F, L = b['F'], b['L']; yes = L[5]; toward_yes = b['mv'] > 0
         side = yes if toward_yes else OTHER.get(yes)
@@ -71,9 +82,76 @@ def kalshi_moves(sched):
         out.append(dict(sport=e['sport'], league=e.get('league'), event_id=ev, away=e['away'], home=e['home'], away_name=(e.get('away_team') or {}).get('displayName'),
                         home_name=(e.get('home_team') or {}).get('displayName'), start=e['start'], market=mk, side=side, line=line, ticker=b['tk'],
                         open=round(100 * (F[1] if toward_yes else 1 - F[1]), 1), now=round(100 * (L[1] if toward_yes else 1 - L[1]), 1),
-                        ask=round(100 * (L[2] if toward_yes else L[3]), 1), move=round(abs(b['mv']), 1), open_ts=F[0], now_ts=L[0]))
+                        ask=round(100 * (L[2] if toward_yes else L[3]), 1), move=round(abs(b['mv']), 1), open_ts=F[0], now_ts=L[0],
+                        state=(b['st'] or {}).get('state', 'drift'), steam_age_min=(b['st'] or {}).get('age_min')))
     out.sort(key=lambda r: r['start'])
-    return out
+    steams.sort(key=lambda r: r['start'])
+    return out, steams
+
+
+def steam_state(S):
+    """S = time-sorted (ts, mid, ...) for one ticker side. The steam_timing.py definitions (docs/steam_timing_2026-11-01.md):
+    steam = the first time the mid moved STEAM_PTS+ inside STEAM_MIN minutes; it has REVERSED once the mid gives back REV_FRAC of
+    that move from the steam price. state: fresh (under 60 min old, not reversed: waiting beat chasing), held (60+ min, not reversed:
+    fading it lost 15-25%), reversed (the bet-back candidate, paper-tracked as steam_rev). None when no steam."""
+    if len(S) < 3: return None
+    T = [parse_ts(x[0]) for x in S]; M = [x[1] for x in S]
+    for i in range(len(S)):
+        j = i - 1                                             # the last tick at least STEAM_MIN before tick i
+        while j >= 0 and (T[i] - T[j]).total_seconds() < STEAM_MIN * 60: j -= 1
+        if j < 0: continue
+        k = j
+        while k >= 0 and (T[i] - T[k]).total_seconds() <= STEAM_MIN * 60 + 1800: k -= 1   # not a stale gap: the earlier tick within 30 min of the window
+        if (T[i] - T[j]).total_seconds() > STEAM_MIN * 60 + 1800: continue
+        mv = 100 * (M[i] - M[j])
+        if abs(mv) >= STEAM_PTS:
+            d = 1 if mv > 0 else -1; lvl = M[i] - d * REV_FRAC * abs(M[i] - M[j]); rev_ts = None
+            for q in range(i + 1, len(S)):
+                if (M[q] - lvl) * d <= 0: rev_ts = S[q][0]; break
+            age = (NOW - T[i]).total_seconds() / 60
+            state = 'reversed' if rev_ts else ('held' if age >= 60 else 'fresh')
+            return dict(dir=d, state=state, steam_ts=S[i][0], steam_from=round(100 * M[j], 1), steam_to=round(100 * M[i], 1), now_mid=round(100 * M[-1], 1),
+                        rev_level=round(100 * lvl, 1), rev_ts=rev_ts, age_min=round(age))
+    return None
+
+
+def steam_paper(steams):
+    """Pre-registered paper rule steam_rev (11/1): a Kalshi steam (STEAM_PTS+ in STEAM_MIN min) that gives back REV_FRAC of its move
+    before the start -> the reversal side at its ask, logged on the first run within REV_FRESH minutes of the give-back, 5+ minutes
+    before the start (the 20-minute tracker cadence; older reversals are listed but not logged).
+    Graded on Kalshi's settlement. Backtest: +5.5% / +6.4% (3+ pts), +9.0% / +11.5% (5+ pts), train / October, z about 1."""
+    import urllib.request
+    have = {}
+    if os.path.exists(PAPER):
+        for l in open(PAPER): r = json.loads(l); have[(r['ticker'], r['steam_ts'])] = r
+    new = []
+    for s in steams:
+        if s['state'] != 'reversed' or (s['ticker'], s['steam_ts']) in have: continue
+        if (parse_ts(s['start']) - NOW).total_seconds() < 300 or not (2 < s['rev_cost'] < 98): continue
+        if (NOW - parse_ts(s['rev_ts'])).total_seconds() > REV_FRESH * 60: continue      # the backtest entered at the give-back; older reversals are shown, not logged
+        rec = dict(rule='steam_rev', ts=NOW.strftime('%Y-%m-%dT%H:%M:%SZ'), **{k: s[k] for k in ('sport', 'league', 'event_id', 'away', 'home', 'start', 'market', 'ticker',
+                   'line', 'steam_ts', 'steam_from', 'steam_to', 'rev_level', 'rev_ts', 'rev_side', 'steam_side')}, bet_yes=not s['steam_yes'], price=s['rev_cost'])
+        new.append(rec); have[(s['ticker'], s['steam_ts'])] = rec
+    if new:
+        with open(PAPER, 'a') as f:
+            for r in new: f.write(json.dumps(r) + '\n')
+    graded = []; asked = 0
+    cache = json.load(open(RESC)) if os.path.exists(RESC) else {}
+    for r in have.values():
+        if parse_ts(r['start']) > NOW - dt.timedelta(hours=3): continue
+        res = cache.get(r['ticker'])
+        if res is None and asked < 60:
+            asked += 1
+            try:
+                m = json.load(urllib.request.urlopen(urllib.request.Request(f"https://api.elections.kalshi.com/trade-api/v2/markets/{r['ticker']}", headers={'User-Agent': 'sharp-tracker'}), timeout=20)).get('market') or {}
+                if m.get('result') in ('yes', 'no'): res = cache[r['ticker']] = m['result']
+            except Exception: pass
+        if res not in ('yes', 'no'): continue
+        won = (res == 'yes') == r['bet_yes']; p = r['price'] / 100
+        graded.append(dict(r, won=won, pnl=round((1 - p) / p if won else -1.0, 3)))
+    json.dump(cache, open(RESC, 'w'))
+    rec = dict(n=len(graded), won=sum(g['won'] for g in graded), units=round(sum(g['pnl'] for g in graded), 2)) if graded else dict(n=0)
+    return dict(record=rec, recent=sorted(graded, key=lambda g: g['start'])[-20:], new=len(new))
 
 
 def main():
@@ -118,13 +196,16 @@ def main():
         big_net = (L_.get('big', 0) - O_.get('big', 0)); small_net = (L_.get('small', 0) - O_.get('small', 0))
         rows.append(dict(sport=e['sport'], league=e.get('league'), event_id=ev, away=e['away'], home=e['home'], away_name=(e.get('away_team') or {}).get('displayName'), home_name=(e.get('home_team') or {}).get('displayName'),
                          start=e['start'], market=mk, line=line, big_side=lead, big_net=round(big_net), small_net=round(small_net), big_fills=L_.get('n_big', 0) + O_.get('n_big', 0),
-                         total=round(tot), fills=s1['n'] + s2['n'], divergent=bool(big_net >= DIV_USD and small_net < 0), venues=sorted(a['venues']), last=a['last'],
+                         total=round(tot), fills=s1['n'] + s2['n'], divergent=bool(big_net >= DIV_USD and small_net < 0), show=bool(tot >= SHOW_TOTAL and big_net >= SHOW_BIG), venues=sorted(a['venues']), last=a['last'],
                          sides={k: {kk: round(vv) for kk, vv in v.items()} for k, v in sides.items()}))
     rows.sort(key=lambda r: (-int(r['divergent']), -r['big_net']))
-    moves = kalshi_moves(sched)
+    moves, steams = kalshi_moves(sched)
+    sp = steam_paper(steams)
     json.dump(dict(built=NOW.strftime('%Y-%m-%dT%H:%M:%SZ'), big_usd=BIG_USD, small_usd=SMALL_USD, div_usd=DIV_USD, novig_included=NOVIG_VERIFIED, rows=rows,
-                   move_pts=MOVE_PTS, moves=moves),
+                   show_total=SHOW_TOTAL, show_big=SHOW_BIG, move_pts=MOVE_PTS, moves=moves,
+                   steam=dict(pts=STEAM_PTS, minutes=STEAM_MIN, rev_frac=REV_FRAC, rows=steams, **sp)),
               open(OUT, 'w'), separators=(',', ':'))
+    print(f"[flow_live] steam: {len(steams)} upcoming markets with a {STEAM_PTS}+ pt / {STEAM_MIN}-min move ({collections.Counter(x['state'] for x in steams)}); steam_rev paper {sp['new']} new, record {sp['record']}")
     print(f"[flow_live] {len(moves)} upcoming Kalshi markets moved {MOVE_PTS}+ pts since their first two-sided price")
     print(f"[flow_live] {len(rows)} upcoming game markets with Kalshi flow; {sum(r['divergent'] for r in rows)} divergent (big >= ${DIV_USD:,.0f} one way, small money the other)")
 
