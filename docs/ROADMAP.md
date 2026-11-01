@@ -120,3 +120,15 @@ Scope: docs/sharp_framework_v2_scope.md. Pre-registration: docs/move_tape_prereg
   settled moves persist across roll-off); Moves tab is the landing view; Edges tab renamed Stale prices; AN public columns gone.
 - OPEN: gate at 150 settled events per sport; Novig flow direction (needs outcome names from the catalog); line-change moves;
   systems.py tags for whichever of T1-T3 pass.
+
+
+## Spring sports (set up 11/1)
+
+- MLB: the original MLB loggers (loggers/mlb/*) run in every 20-minute price job; they log nothing in the offseason and resume with
+  spring training lines. Bartolo's weather and the MLB Bet Labs systems carry over.
+- WNBA: registered as a sport (ESPN basketball/wnba, Pinnacle 578, Kalshi KXWNBA, Novig WNBA, Action Network); idle until ESPN lists
+  games (May). Results grade like the NBA.
+- KBO and NPB: Pinnacle (KBO league 6227; NPB main league id to confirm when the season opens) and Novig (KBO) carry them, ESPN does not.
+  Plan for March: a tennis-style standalone logger (loggers/asia_baseball_lines.py) keyed on team names and start time, graded on
+  Novig / Kalshi settlement rather than ESPN. Novig volume is small (KBO ~$3.5k a day in October), so this is for line-move research,
+  not betting size.

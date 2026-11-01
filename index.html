@@ -202,7 +202,7 @@ function renderVenues() {
   return h;
 }
 
-const SPORT_LABEL = {nfl: 'NFL', nba: 'NBA', nhl: 'NHL', cfb: 'CFB', cbb: 'CBB', soccer: 'Soccer', mma: 'MMA', mlb: 'MLB'};
+const SPORT_LABEL = {nfl: 'NFL', nba: 'NBA', nhl: 'NHL', cfb: 'CFB', cbb: 'CBB', wnba: 'WNBA', soccer: 'Soccer', mma: 'MMA', mlb: 'MLB'};
 // Moves are stored as the home / over side's devigged probability. Everything shown to the reader is in the terms of the side the
 // market moved TOWARD: its own probability and American price, so "toward Under" always pairs with the under getting shorter.
 const sideP = (m, p) => p == null ? null : ((m.side === 'home' || m.side === 'over') ? p : 1 - p);
