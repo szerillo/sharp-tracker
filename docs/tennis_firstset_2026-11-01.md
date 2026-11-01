@@ -53,9 +53,35 @@ Rule `tennis_fs_fav`, tier C:
 Checkpoint after 300 graded matches. Before then, also check whether Pinnacle's set-1 price already sits on the empirical curve
 rather than the model. If it does, the market prices this and the edge is only at the slower venues.
 
+## 4. Kalshi: first-set price against the same match's match price (added 11/1, once KXATPMATCH / KXWTAMATCH landed)
+
+Bet: the match favourite (55%+ on Kalshi's match market) to win set 1, at Kalshi's set-1 price 15 minutes before the ESPN start.
+
+| Entry | Train | Test |
+|---|---|---|
+| Mid | n 94, won 85.1% at 67.7%, +26.9% (z 4.5) | n 33, won 78.8% at 66.5%, +20.1% (z 1.8) |
+| Ask (a real fill within 30 minutes) | n 47, +29.1% (z 3.4) | n 25, +26.2% (z 2.2) |
+| Only when set 1 is under model + 1 pt, ask | n 39, +30.6% | n 16, +40.5% (z 2.8) |
+
+Earlier entries: 1 hour out, n 78, +24.8%; 3 hours out, n 23, +27.7%; 6 hours out, n 17, +4.0%.
+
+Leakage check:
+- Kalshi set-1 fills jump at the ESPN start: about 7k fills in the 10 minutes before it, 93k in the first 10 minutes after.
+- So the ESPN time marks the real start, and these are pregame prices.
+
+Why it is not a system yet:
+1. **Too big to be the same effect.** It is six to eight times the Novig + ESPN gap (+3.3 pts), on a far smaller sample.
+2. **The market is nearly empty pregame.** Favourite-side set-1 money traded in the two hours before entry was a median of $29
+   (75th percentile $183, 90th $1,290). Most of these prices are a handful of small fills: the number is real but the size is not.
+3. **The fee is not in the ROI.** Kalshi's fee (about 1.5-2 cents a contract) is not taken out.
+
+Read: first-set favourites look under-priced at every venue measured (Novig +3.3 pts over the model; Pinnacle carries about a
+fifth of that; Kalshi's thin pregame book much more). The live rule (`tennis_fs_fav`) is the test. The size that can actually be
+filled at Kalshi and Novig is the constraint to watch, not the edge.
+
 ## Still running
 
-The Kalshi match-winner history (KXATPMATCH / KXWTAMATCH and the Challenger series) is still pulling. When it lands:
+The Kalshi ATP Challenger match series is still pulling.
 
-- rerun T2 in sharp/tennis_firstset.py: Kalshi set-1 price vs Kalshi match price, same match;
-- extend section 1 with Kalshi match prices.
+- Section 4 (above) is done.
+- Still to do: extend section 1 with Kalshi match prices, and add the Challenger match series once that pull finishes.
