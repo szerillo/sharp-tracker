@@ -78,7 +78,10 @@ SPORTS = {
                             'ligue1': dict(label='Ligue 1', espn='soccer/fra.1', pinnacle=2036, kalshi='KXLIGUE1', novig='Ligue 1', an='ligue1'),
                             'mls': dict(label='MLS', espn='soccer/usa.1', pinnacle=2663, kalshi='KXMLS', novig='MLS', an='mls'),
                             'ucl': dict(label='Champions League', espn='soccer/uefa.champions', pinnacle=2627, kalshi='KXUCL', novig='Champions League', an=None),
-                            'uel': dict(label='Europa League', espn='soccer/uefa.europa', pinnacle=2630, kalshi='KXUEL', novig='Europa League', an=None)}),
+                            'uel': dict(label='Europa League', espn='soccer/uefa.europa', pinnacle=2630, kalshi='KXUEL', novig='Europa League', an=None),
+                            # Kalshi's Liga MX codes differ from ESPN's, and ATL is Atlas on Kalshi but Atlante on ESPN (Kalshi's Atlante is ALA)
+                            'ligamx': dict(label='Liga MX', espn='soccer/mex.1', pinnacle=2242, kalshi='KXLIGAMX', novig='Liga MX', an=None,
+                                           code_fix={'MON': 'MTY', 'QUE': 'QRO', 'CDG': 'GDL', 'PUM': 'UNAM', 'SLA': 'SAN', 'TIG': 'UANL', 'CRA': 'CAZ', 'ATL': 'ATS', 'ALA': 'ATL'})}),
     # MMA: each fight is an event (ESPN competition id); 'home' = the fighter ESPN lists first (order 1), 'away' = order 2, which is the
     # Novig 'away @ home' order and the Kalshi home-first ticker order. Codes are the first three letters of the surname (Kalshi's convention).
     'mma': dict(label='MMA', espn='mma/ufc', pinnacle=1624, kalshi='KXUFC', an=None, poly='UFC', novig='UFC', teams={}, weather=False, fights=True, kalshi_home_first=True,
@@ -125,7 +128,29 @@ class Teams:
         if low in self.loc: return self.loc[low]
         last = low.split()[-1] if low.split() else ''
         if last in self.nick: return self.nick[last]
-        return None
+        # fallback (Liga MX etc.): accents stripped and filler words dropped ('Club America' = 'América', 'FC Juarez' = 'FC Juárez',
+        # 'Atletico San Luis' = 'Atlético de San Luis', 'Santos Laguna' = 'Santos'); only used when every exact form above failed
+        if '(' in s: return None          # '(Corners)', '(Bookings)' ... are side markets on a separate matchup, never the game itself
+        k = _norm_name(s)
+        if not hasattr(self, '_normmap'):
+            self._normmap = {}; self._normtok = {}
+            for nm, ab in self.full.items():
+                kk = _norm_name(nm)
+                if kk: self._normmap.setdefault(kk, ab)
+                for tok in kk.split():
+                    if len(tok) >= 4: self._normtok.setdefault(tok, set()).add(ab)
+        if k in self._normmap: return self._normmap[k]
+        hits = set()
+        for tok in k.split():
+            if len(tok) >= 4 and len(self._normtok.get(tok, ())) == 1: hits |= self._normtok[tok]
+        return hits.pop() if len(hits) == 1 else None
+
+
+def _norm_name(x):
+    import unicodedata
+    t = unicodedata.normalize('NFKD', str(x)).encode('ascii', 'ignore').decode().lower()
+    t = re.sub(r'\(.*?\)', ' ', t); t = re.sub(r'[^a-z0-9 ]', ' ', t)
+    return ' '.join(w for w in t.split() if w not in ('club', 'fc', 'cf', 'de', 'del', 'deportivo', 'the', 'sc', 'ac', 'cd', 'ca'))
 
 
 MON = ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC']

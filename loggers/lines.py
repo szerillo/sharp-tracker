@@ -487,7 +487,7 @@ def main():
     leagues = CFG.get('leagues') or {'_': {}}
     for lk, lg in leagues.items():
         if over_budget(): break
-        CFG.update(lg); CFG['league_key'] = None if lk == '_' else lk
+        CFG.update({'code_fix': None, **lg}); CFG['league_key'] = None if lk == '_' else lk      # each league its own code_fix (was inherited from the previous league)
         sched = espn_schedule(); M = Matcher(sched)
         for name, fn in (('pinnacle', pinnacle), ('kalshi', kalshi), ('action_network', action_network), ('novig', novig)):
             if CFG.get({'pinnacle': 'pinnacle', 'kalshi': 'kalshi', 'action_network': 'an', 'novig': 'novig'}[name]) is None: continue

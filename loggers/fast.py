@@ -77,7 +77,7 @@ def run_sport(sport):
     leagues = L.CFG.get('leagues') or {'_': {}}
     for lk, lg in leagues.items():
         if L.over_budget(): counts['budget'] = lk; break
-        L.CFG.update(lg); L.CFG['league_key'] = None if lk == '_' else lk
+        L.CFG.update({'code_fix': None, **lg}); L.CFG['league_key'] = None if lk == '_' else lk
         if not os.path.exists(L.SCHED): continue
         M = L.Matcher(json.load(open(L.SCHED)))
         for name, fn, key in (('pinnacle', L.pinnacle, 'pinnacle'), ('kalshi', L.kalshi, 'kalshi'), ('novig', L.novig, 'novig')):
