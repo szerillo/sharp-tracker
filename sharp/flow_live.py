@@ -132,9 +132,8 @@ def steam_paper(steams):
         rec = dict(rule='steam_rev', ts=NOW.strftime('%Y-%m-%dT%H:%M:%SZ'), **{k: s[k] for k in ('sport', 'league', 'event_id', 'away', 'home', 'start', 'market', 'ticker',
                    'line', 'steam_ts', 'steam_from', 'steam_to', 'rev_level', 'rev_ts', 'rev_side', 'steam_side')}, bet_yes=not s['steam_yes'], price=s['rev_cost'])
         new.append(rec); have[(s['ticker'], s['steam_ts'])] = rec
-    if new:
-        with open(PAPER, 'a') as f:
-            for r in new: f.write(json.dumps(r) + '\n')
+    with open(PAPER, 'a') as f:                      # always exists, so the workflow's git add never fails on it
+        for r in new: f.write(json.dumps(r) + '\n')
     graded = []; asked = 0
     cache = json.load(open(RESC)) if os.path.exists(RESC) else {}
     for r in have.values():
