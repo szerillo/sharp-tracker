@@ -7,6 +7,7 @@ on:
   workflow_dispatch: {}
 permissions:
   contents: write
+  actions: write      # publishes Pages itself once the board is pushed (the pulse's Pages slot fired mid-run and shipped the previous board)
 concurrency:
   group: tracker
   cancel-in-progress: false
@@ -62,7 +63,10 @@ jobs:
           for d in data/*/ticks5 data/kalshi/trades5 data/novig/trades5; do [ -d "$d" ] && git add -A "$d"; done
           git add -A data/state data/tennis data/kalshi/steam_rev_paper.jsonl data/kalshi/steam_rev_results.json data/novig/daily data/novig/catalog data/novig/_history_state.json data/nfl/season.json data/nfl/ticks data/nba/ticks data/cfb/ticks data/nhl/ticks data/soccer/ticks data/mma/ticks data/nhl/season.json data/nba/season.json data/polymarket && git commit -m "tracker $(date -u +%Y-%m-%dT%H:%M)" || exit 0
           for i in 1 2 3 4 5; do
-            if git pull --rebase -X theirs && git push; then exit 0; fi
+            if git pull --rebase -X theirs && git push; then
+              GH_TOKEN="${{ secrets.GITHUB_TOKEN }}" gh api -X POST "repos/${GITHUB_REPOSITORY}/actions/workflows/pages.yml/dispatches" -f ref=main || true
+              exit 0
+            fi
             git rebase --abort 2>/dev/null || true
             sleep $((RANDOM % 15 + 5))
           done
