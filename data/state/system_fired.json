@@ -386,7 +386,9 @@
 "price": 245,
 "fair": 0.2837,
 "edge_pts": -0.63,
-"why": "opponent WSH wins 66% (8-4); favorite MIN -1.5 against a strong team"
+"why": "opponent WSH wins 66% (8-4); favorite MIN -1.5 against a strong team",
+"void": true,
+"void_why": "trigger no longer holds on current season records (2026-11-01T15:17:01Z)"
 },
 "401858278:xch_homedog_fade:ml": {
 "tag": "xch_homedog_fade",
@@ -438,18 +440,16 @@
 },
 "401892625:nhl_early_home_fav_qual": {
 "tag": "nhl_early_home_fav_qual",
-"fill_id": "950616efa580",
-"ts": "2026-11-01T01:17:32Z",
+"fill_id": "f3e7fc35565a",
+"ts": "2026-11-01T15:17:01Z",
 "market": "ml",
 "side": "home",
 "line": null,
 "venue": "Novig",
-"price": -100,
-"fair": 0.50071,
-"edge_pts": 0.07,
-"why": "home favorite, game 13 of the season, opponent MIN wins 60% (9-6)",
-"void": true,
-"void_why": "trigger no longer holds on current season records (2026-11-01T02:07:42Z)"
+"price": -102,
+"fair": 0.50077,
+"edge_pts": -0.42,
+"why": "home favorite, game 13 of the season, opponent MIN wins 60% (9-6)"
 },
 "401873034:wind1014": {
 "tag": "wind1014",
