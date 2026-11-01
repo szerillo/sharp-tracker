@@ -267,11 +267,13 @@ def main():
         game = dict(event_id=ev, away=away, home=home, start_utc=start, hours_to_kickoff=round(ttk, 1), spread_home=sp_line, dog=dog, triggers=trig,
                     wind=wx and dict(mph=wx['wind_mph'], gust=wx.get('gust_mph'), temp_f=wx.get('temp_f'), at_h=wx['hours_to_kickoff'],
                                      msw=msw and dict(mph=msw['wind_mph'], gust=msw.get('gust_mph'), dir=msw.get('wind_dir'), rain=msw.get('rain_pct'))), fills=[])
-        taken = {(f['market'], f['side']) for k, f in fired.items() if k.startswith(ev + ':') and f.get('fill_id')}   # one bet per game per market x side
+        taken = {(f['market'], f['side']) for k, f in fired.items() if k.startswith(ev + ':') and f.get('fill_id') and not f.get('void')}   # one bet per game per market x side (a voided fill does not block)
         for tag in [t for t in ('wind1014', 'wind1014_1h', 'vrest8_1h', 'mnf_1h', 'awfuldog', 'bounce15_1h') if t in trig]:   # priority order
             why = trig[tag]
             if tag == 'awfuldog' and skip_awful: continue
             key = f"{ev}:{tag}"
+            if key in fired and fired[key].get('stacked') and (fired[key]['market'], fired[key]['side']) not in taken:
+                del fired[key]                    # the bet it was stacked on is gone (voided): this rule gets its own fill now
             if key in fired: game['fills'].append(fired[key]); continue
             r = RULES[tag]; market = r['market']
             if r['side'] == 'dog':
@@ -292,7 +294,12 @@ def main():
             rec = dict(tag=tag, fill_id=row['fill_id'], ts=NOW_S, market=market, side=side, line=line, venue=row['venue'], price=row['price_american'],
                        fair=row['fair_at_fill'], edge_pts=(round(100 * (row['fair_at_fill'] - row['implied']), 2) if row['fair_at_fill'] is not None else None), why=why)
             fired[key] = rec; game['fills'].append(rec); fires_now.append(dict(game=f"{away}@{home}", **rec))
-        if trig: view_games.append(game)
+        # a bet already flagged whose trigger has since lapsed (e.g. the wind forecast moved out of range): keep it on the board,
+        # marked, so a bet placed on it does not silently disappear; it stays in the ledger and is graded either way
+        lapsed = [dict(f, lapsed=True) for k, f in fired.items() if k.startswith(ev + ':') and f.get('fill_id') and not f.get('void')
+                  and k.split(':', 1)[1] not in trig]
+        game['fills'] += lapsed
+        if trig or lapsed: view_games.append(game)
     # CFB: wind >= 14 mph -> under (docs/betlabs_cfb_audit_2026-10-29.md). Only rule audited for CFB.
     for ev, start, away, home in conn.execute("SELECT event_id, start_utc, away, home FROM events WHERE sport='cfb' ORDER BY start_utc").fetchall():
         st = N.parse_ts(start); ttk = (st - NOW).total_seconds() / 3600
@@ -511,7 +518,7 @@ def main():
                 try: best = F.best_price(eq, f['market'], f['line'], f['side'], NOW_S, part)
                 except Exception: best = []
                 f['now'] = dict(venue=best[0]['venue'], price=N.prob_to_american(best[0]['cost'])) if best else None
-    view_games = [g for g in view_games if g['triggers']]
+    view_games = [g for g in view_games if g['triggers'] or any(f.get('fill_id') for f in g.get('fills', []))]      # a lapsed bet keeps its game on the board
     json.dump(dict(built=NOW_S, window_h=WINDOW_H, rules={k: dict(v, tag=k, desc=DESC.get(k, ''), evidence=EVIDENCE.get(k), labs=(dict(id=LABS[k][0], name=LABS[k][1]) if k in LABS else None)) for k, v in RULES.items()}, games=view_games, fired_now=fires_now, record=dict(rec)),
               open(VIEW, 'w'), default=str, separators=(',', ':'))
     print(f"[systems] {len(view_games)} games with triggers (shown up to {VIEW_H}h out, filled {WINDOW_H[0]}-{WINDOW_H[1]}h); {len(fires_now)} new paper fills; tags on file {dict((k, v['n']) for k, v in rec.items())}")

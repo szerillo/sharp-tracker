@@ -54,6 +54,16 @@
   .hdr2{display:flex;align-items:baseline;gap:10px;margin:18px 0 4px} .hdr2 h2{font-size:17px;margin:0} .hdr2 .meta{font-size:12px;color:var(--muted)}
   .explain{font-size:12.5px;color:var(--muted);margin:0 0 6px;max-width:980px;line-height:1.5}
   @media (max-width:760px){.card{grid-template-columns:1fr}}
+  .topbar{gap:6px 12px;margin-top:2px} .tabs.inline.when button.on{color:#0d1117;background:var(--accent);border-radius:6px;border-bottom-color:transparent} .tabs.inline.when button.on .small{color:#0d1117}
+  .summary{background:var(--panel);border:1px solid var(--border);border-radius:10px;padding:8px 12px;font-size:13px;margin:4px 0 2px}
+  .gcard{background:var(--panel);border:1px solid var(--border);border-radius:12px;margin:8px 0;overflow:hidden}
+  .ghead{display:flex;flex-wrap:wrap;gap:4px 8px;align-items:baseline;padding:8px 14px;background:var(--panel2);border-bottom:1px solid var(--border);font-size:13px} .ghead .gname{font-weight:700;margin-left:4px}
+  .brow{display:grid;grid-template-columns:200px 1fr 210px;gap:12px;padding:10px 14px;border-top:1px solid var(--border)} .brow:first-of-type{border-top:0}
+  .brow .bet{font-size:17px;font-weight:800} .brow .price{font-family:ui-monospace,monospace;font-size:12.5px}
+  .sig{font-size:12.5px;margin-top:4px} .sig .kind{display:inline-block;min-width:118px;font-size:10.5px;font-weight:800;text-transform:uppercase;letter-spacing:.04em;color:var(--sharp)}
+  .tag-with{color:#74d98e;font-size:11.5px;font-weight:700} .tag-against{color:#ff8e6e;font-size:11.5px;font-weight:700}
+  details.how>summary{padding:2px 0 6px;font-size:12px;color:var(--accent)} details.how>summary::before{content:'▸ '} details.how[open]>summary::before{content:'▾ '}
+  @media (max-width:760px){.brow{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -243,121 +253,157 @@ function sysCards(list) {
         ${e.train ? `<div class="why">Backtest: ${esc(e.train)}; since 2021 ${esc(e.hold || '—')}; ${esc(e.seasons || '—')} seasons positive.</div>` : ''}</div>
       <div class="price"><span class="badge ${tierCls}">tier ${e.tier || '?'}</span> <span class="small dim">${(rules[tag] || {}).stake || ''}u</span>${(rules[tag] || {}).labs ? ` <a class="small" target="_blank" href="https://sportsinsights.actionnetwork.com/betlabs/screen?ScreenId=${rules[tag].labs.id}">Bet Labs</a>` : ''}<br>flagged at ${VEN(f.venue)} <b>${am(f.price)}</b><br>${priceChip(f)}</div></div>`; }).join('');
 }
-// Today filter: sport, then league / tour where a sport has several (soccer leagues, tennis tours)
+// ---------------------------------------------------------------- Today page (landing): Today / Upcoming / All, then sport and league
+// Sean, 11/1: one coherent page. The time toggle and the sport chips are independent and both persist, so picking a sport keeps the
+// day you were looking at. Today = games whose start falls on today's date in New York time; Upcoming = later dates; All = both.
 window._tf = window._tf || {sport: '', league: ''};
+window._when = window._when || 'today';
 const LEAGUE_LABEL = {epl: 'EPL', laliga: 'La Liga', bundesliga: 'Bundesliga', seriea: 'Serie A', ligue1: 'Ligue 1', mls: 'MLS', ucl: 'Champions League', uel: 'Europa League', ligamx: 'Liga MX', atp: 'ATP', wta: 'WTA', itf: 'ITF', challenger: 'Challenger'};
-const passT = (sport, league) => (!_tf.sport || sport === _tf.sport) && (!_tf.league || league === _tf.league);
-function todayFilterBar(all) {
+const SPORT_ORDER = ['nfl', 'cfb', 'nba', 'cbb', 'nhl', 'soccer', 'mma', 'tennis', 'wnba', 'mlb'];
+const etDay = d => new Date(d).toLocaleDateString('en-CA', {timeZone: 'America/New_York'});
+const DAYT = iso => new Date(iso).toLocaleString('en-US', {timeZone: 'America/New_York', weekday: 'short', month: 'short', day: 'numeric', hour: 'numeric', minute: '2-digit'}) + ' ET';
+const whenOf = iso => etDay(iso) === etDay(Date.now()) ? 'today' : 'upcoming';
+const passW = iso => _when === 'all' || whenOf(iso) === _when;
+const passS = (sport, league) => (!_tf.sport || sport === _tf.sport) && (!_tf.league || league === _tf.league);
+const passT = passS;            // older callers
+function whenBar(rows) {        // rows: [{start, sport, league}] after the sport filter
+  const n = {today: 0, upcoming: 0}; for (const r of rows) n[whenOf(r.start)]++;
+  const b = (k, l, c) => `<button class="${_when === k ? 'on' : ''}" onclick="_when='${k}';draw()">${l} <span class="small">${c}</span></button>`;
+  return `<span class="tabs inline when">${b('today', 'Today', n.today)}${b('upcoming', 'Upcoming', n.upcoming)}${b('all', 'All', n.today + n.upcoming)}</span>`;
+}
+function sportBar(rows) {       // rows after the time filter
   const bySport = {}, byLeague = {};
-  for (const [sp, lg] of all) { if (!sp) continue; bySport[sp] = (bySport[sp] || 0) + 1; if (lg) { byLeague[sp] = byLeague[sp] || {}; byLeague[sp][lg] = (byLeague[sp][lg] || 0) + 1; } }
-  const order = ['nfl', 'cfb', 'nba', 'cbb', 'nhl', 'soccer', 'mma', 'tennis', 'wnba', 'mlb'];
-  const sps = Object.keys(bySport).sort((a, b) => (order.indexOf(a) + 99) % 99 - (order.indexOf(b) + 99) % 99);
+  for (const r of rows) { if (!r.sport) continue; bySport[r.sport] = (bySport[r.sport] || 0) + 1; if (r.league) { byLeague[r.sport] = byLeague[r.sport] || {}; byLeague[r.sport][r.league] = (byLeague[r.sport][r.league] || 0) + 1; } }
+  if (_tf.sport && !bySport[_tf.sport]) bySport[_tf.sport] = 0;      // keep the chosen chip visible when the window has none
+  const sps = Object.keys(bySport).sort((a, b) => (SPORT_ORDER.indexOf(a) + 99) % 99 - (SPORT_ORDER.indexOf(b) + 99) % 99);
   const chip = (on, label, js) => `<button class="${on ? 'on' : ''}" onclick="${js};draw()">${label}</button>`;
-  let h = `<div class="controls"><span class="tabs inline">${chip(!_tf.sport, `All (${all.length})`, "_tf.sport='';_tf.league=''")}`
-    + sps.map(sp => chip(_tf.sport === sp, `${SPORT_LABEL[sp] || sp} (${bySport[sp]})`, `_tf.sport='${sp}';_tf.league=''`)).join('') + '</span></div>';
+  let h = `<span class="tabs inline">${chip(!_tf.sport, `All sports <span class="small">${rows.length}</span>`, "_tf.sport='';_tf.league=''")}`
+    + sps.map(sp => chip(_tf.sport === sp, `${SPORT_LABEL[sp] || sp} <span class="small">${bySport[sp]}</span>`, `_tf.sport='${sp}';_tf.league=''`)).join('') + '</span>';
   const lgs = _tf.sport && byLeague[_tf.sport] ? Object.keys(byLeague[_tf.sport]) : [];
-  if (lgs.length > 1) h += `<div class="controls"><span class="tabs inline">${chip(!_tf.league, 'All', "_tf.league=''")}`
-    + lgs.sort().map(lg => chip(_tf.league === lg, `${LEAGUE_LABEL[lg] || lg.toUpperCase()} (${byLeague[_tf.sport][lg]})`, `_tf.league='${lg}'`)).join('') + '</span></div>';
+  if (lgs.length > 1) h += `<div class="controls" style="margin:4px 0 0"><span class="tabs inline">${chip(!_tf.league, 'All', "_tf.league=''")}`
+    + lgs.sort().map(lg => chip(_tf.league === lg, `${LEAGUE_LABEL[lg] || lg.toUpperCase()} <span class="small">${byLeague[_tf.sport][lg]}</span>`, `_tf.league='${lg}'`)).join('') + '</span></div>';
   return h;
 }
+function emptyNote(what, rowsSport) {      // the chosen window is empty: say what the other window has, one click away
+  const n = {today: 0, upcoming: 0}; for (const r of rowsSport) n[whenOf(r.start)]++;
+  const other = _when === 'today' ? 'upcoming' : (_when === 'upcoming' ? 'today' : null);
+  const sp = _tf.sport ? (SPORT_LABEL[_tf.sport] || _tf.sport) + ' ' : '';
+  return `<div class="small dim">No ${sp}${what} ${_when === 'all' ? 'right now' : _when}.${other && n[other] ? ` <a href="#" onclick="_when='${other}';draw();return false">${n[other]} ${other} →</a>` : ''}</div>`;
+}
+const fmtRec = x => !x || !x.graded ? null : `${x.w}-${x.l}${x.p ? '-' + x.p : ''}, <span class="${x.pnl >= 0 ? 'pos' : 'neg'}">${x.pnl >= 0 ? '+' : ''}${(x.pnl || 0).toFixed(2)}u</span>`;
+function recordText(tag) {
+  const r = (SY.rules || {})[tag] || {}, e = r.evidence || {}, x = (SY.record || {})[tag];
+  const bt = e.train ? `<b>Backtest</b> (${esc(e.src && e.src.includes('betlabs') ? 'Bet Labs' : 'our audit')}): ${esc(e.train)}; since 2021: ${esc(e.hold || '—')}; ${esc(e.seasons || '—')} seasons positive.` : '<b>Backtest:</b> see the Systems tab.';
+  const fw = fmtRec(x) ? ` <b>On this tracker:</b> ${fmtRec(x)} (${x.graded} graded${x.clv_avg != null ? `, CLV ${x.clv_avg >= 0 ? '+' : ''}${x.clv_avg} pts, a diagnostic for a system` : ''}).` : ` <b>On this tracker:</b> no graded bets yet${x && x.n ? ` (${x.n} open)` : ''}.`;
+  return bt + fw;
+}
+const TIER_TXT = {A: 'tier A', B: 'tier B', C: 'tier C (lean)'};
+function betRow({g, f, tag}) {
+  const r = (SY.rules || {})[tag] || {}, e = r.evidence || {}; const tierCls = e.tier === 'A' ? 'b-fit' : (e.tier === 'B' ? 'b-prior' : 'b-gate');
+  const per = /^(1h|1q|1p)_/.test(f.market) ? 'first half' : 'full game';
+  return `<div class="brow">
+    <div><div class="bet">${esc(betText(f, g))}</div><div class="small">${per} · ${r.stake || 1}u · <span class="badge ${tierCls}">${TIER_TXT[e.tier] || 'tier ?'}</span></div></div>
+    <div class="small"><div><b>Why:</b> ${esc(r.desc || tag)}. <span class="dim">${f.lapsed ? 'When flagged' : 'This game'}: ${esc((g.triggers || {})[tag] || f.why || '')}</span></div>
+      ${f.lapsed ? `<div class="moved-chip" style="margin-top:3px"><b>Trigger no longer met on the latest data</b> (for wind: the forecast moved out of the band). Flagged ${ET(f.ts)} ET; it stays in the ledger and is graded either way. Not a new bet.</div>` : ''}<div style="margin-top:3px">${recordText(tag)}</div></div>
+    <div class="price">flagged at ${VEN(f.venue)} <b>${am(f.price)}</b><br>${priceChip(f)}${r.labs ? `<br><a class="small" target="_blank" href="https://sportsinsights.actionnetwork.com/betlabs/screen?ScreenId=${r.labs.id}">Bet Labs screen ↗</a>` : ''}</div></div>`;
+}
+function gameHead(x) {
+  return `<div class="ghead"><span class="badge b-sport">${SPORT_LABEL[x.sport] || x.sport}</span>${x.league && LEAGUE_LABEL[x.league] ? `<span class="badge b-gate">${LEAGUE_LABEL[x.league]}</span>` : ''}
+    <b>${DAYT(x.start)}</b> <span class="dim">${until(x.start)}</span> <span class="gname">${esc(x.away_name || x.away)} @ ${esc(x.home_name || x.home)}</span></div>`;
+}
+function groupByGame(list, keyOf) { const m = new Map(); for (const it of list) { const k = keyOf(it); if (!m.has(k)) m.set(k, []); m.get(k).push(it); } return [...m.values()]; }
 function renderToday() {
   if (!SY) return '<div class="banner">Loading…</div>';
-  const ALL = [];      // every row on the page before filtering, for the chip counts
-  let items = [];
-  for (const g of SY.games || []) { if (new Date(g.start_utc) <= Date.now()) continue;
-    for (const f of g.fills || []) if (f.fill_id && !f.stacked) items.push({g, f, tag: f.tag}); }
-  items.sort((a, b) => a.g.start_utc < b.g.start_utc ? -1 : 1);
-  for (const it of items) ALL.push([it.g.sport, it.g.league]); items = items.filter(it => passT(it.g.sport, it.g.league));
-  let flags = [];
-  for (const g of SY.games || []) { if (new Date(g.start_utc) <= Date.now()) continue;
+  const now = Date.now(); const future = iso => new Date(iso) > now;
+  // ---- 1. system bets (cards), keyed by game
+  const bets = [];
+  for (const g of SY.games || []) { if (!future(g.start_utc)) continue;
+    for (const f of g.fills || []) if (f.fill_id && !f.stacked) bets.push({g, f, tag: f.tag, start: g.start_utc, sport: g.sport, league: g.league}); }
+  const tierOf = it => (((SY.rules || {})[it.tag] || {}).evidence || {}).tier || '?';
+  const sysSide = {};       // event_id -> [{market base, side, label}] for the "with / against your system bet" tags below
+  for (const b of bets) (sysSide[b.g.event_id] = sysSide[b.g.event_id] || []).push({m: b.f.market, side: b.f.side, label: betText(b.f, b.g)});
+  // ---- 2. rules that fired without a bet
+  const flags = [];
+  for (const g of SY.games || []) { if (!future(g.start_utc)) continue;
     for (const [tag, why] of Object.entries(g.triggers || {})) { const f = (g.fills || []).find(x => x.tag === tag);
       if (f && f.fill_id && !f.stacked) continue;
-      const reason = tag === 'wind_msw_only' ? 'Weather sources disagree: one forecast has the wind in range but the average of Open-Meteo and MySportsWeather (what the rule fires on, the closest match to Bet Labs) does not. Not a bet; worth a look if the forecasts converge.'
-        : (f && f.stacked ? 'Same bet already flagged by a stronger rule on this game; not a second bet.'
-        : ((new Date(g.start_utc) - Date.now()) / 3.6e6 > (SY.window_h || [2, 30])[1] ? `Upcoming: becomes a bet inside ${(SY.window_h || [2, 30])[1]} hours of the start, at the price then (Bet Labs lists it already).`
-        : 'The rule fired but no book had a usable price at that moment. If you can find the number, it is the same bet as a card above.'));
-      flags.push({g, tag, why, reason}); } }
-  flags.sort((a, b) => a.g.start_utc < b.g.start_utc ? -1 : 1);
-  for (const x of flags) ALL.push([x.g.sport, x.g.league]); flags = flags.filter(x => passT(x.g.sport, x.g.league));
-  const tierOf = it => (((SY.rules || {})[it.tag] || {}).evidence || {}).tier || '?';   // unknown tier stays in Vet; only an explicit C is demoted
-  const vet = items.filter(it => tierOf(it) !== 'C'), lean = items.filter(it => tierOf(it) === 'C');
-  // notable market moves on upcoming games: Pinnacle-origin, or $1k+ Kalshi fills with the move; last 6 hours
-  const moves = [];
+      const reason = tag === 'wind_msw_only' ? 'Weather sources disagree: one forecast has the wind in range but the average of Open-Meteo and MySportsWeather (what the rule fires on, the closest match to Bet Labs) does not. Worth a look if the forecasts converge.'
+        : (f && f.stacked ? 'Same bet already flagged by a stronger rule on this game.'
+        : ((new Date(g.start_utc) - now) / 3.6e6 > (SY.window_h || [2, 30])[1] ? `Becomes a bet inside ${(SY.window_h || [2, 30])[1]} hours of the start, at the price then (Bet Labs lists it already).`
+        : 'Fired, but no bettable book had a usable price at that moment. If you can find the number, it is the same bet.'));
+      flags.push({g, tag, why, reason, start: g.start_utc, sport: g.sport, league: g.league}); } }
+  // ---- 3. sharp-money watch signals, one list per game
+  const sig = [];
+  const withSys = (ev, market, side) => { const L = sysSide[ev] || []; const base = market.replace(/^(1h|1q|1p)_/, '');
+    for (const s of L) { const sb = s.m.replace(/^(1h|1q|1p)_/, ''); if (sb !== base) continue;
+      return s.side === side ? `<span class="tag-with">with your system bet (${esc(s.label)})</span>` : `<span class="tag-against">against your system bet (${esc(s.label)})</span>`; }
+    return ''; };
   if (MV) for (const [sp, v] of Object.entries(MV.sports)) for (const m of v.tape || []) {
-    if (m.started || new Date(m.start) <= Date.now()) continue;
-    if ((Date.now() - new Date(m.ts)) / 3600000 > 6) continue;
-    if (!isNotable(m)) continue;
-    ALL.push([sp, m.league]); if (!passT(sp, m.league)) continue;
-    moves.push({...m, sport: sp, big: !!(m.kalshi && m.kalshi.big_n && m.kalshi.big_net > 0)});
-  }
-  moves.sort((a, b) => a.start < b.start ? -1 : 1);
-  const mvRows = moves.slice(0, 40).map(m => { const g = {home: m.home, away: m.away, home_name: m.home_name, away_name: m.away_name};
+    if (m.started || !future(m.start) || (now - new Date(m.ts)) / 3.6e6 > 6 || !isNotable(m)) continue;
+    const g = {home: m.home, away: m.away, home_name: m.home_name, away_name: m.away_name};
     const bet = betText({market: m.market, side: m.side, line: m.market === 'spread' ? (m.side === 'home' ? m.line : -m.line) : m.line}, g);
-    const stuck = Object.keys(m.stuck || {}); const fol = Object.entries(m.followed || {}).filter(([v, x]) => x != null).map(([v]) => v);
-    return `<tr><td class="small"><span class="badge b-sport">${SPORT_LABEL[m.sport] || m.sport}</span> <b>${ET(m.start)}</b><br><span class="dim">${until(m.start)}</span></td>
-      <td><span class="small">${esc(m.away_name || m.away)} @ ${esc(m.home_name || m.home)}</span><br><b>${esc(bet)}</b></td>
-      <td class="small">${moveText(m, bet)} at ${ET(m.ts)}${m.limit && m.origin === 'Pinnacle' ? ` (limit $${m.limit.toLocaleString()})` : ''}${m.big ? `<br>Kalshi: $${m.kalshi.big_net.toLocaleString()} net in ${m.kalshi.big_n} fill${m.kalshi.big_n > 1 ? 's' : ''} of $1k+` : ''}</td>
-      <td class="small">${stuck.length ? `<span class="ok-chip">still at the old price: ${stuck.join(', ')}</span>` : (fol.length ? `followed by ${fol.join(', ')}` : '<span class="dim">no soft book quote yet</span>')}</td></tr>`; }).join('');
-  const nWin = SY.window_h ? `${SY.window_h[0]}–${SY.window_h[1]}h` : '';
-// big money vs small money (Kalshi taker fills, pregame), divergent markets only
-  const fl0 = FL ? (FL.rows || []).filter(r => r.divergent && new Date(r.start) > Date.now() && (ALL.push([r.sport, r.league]), passT(r.sport, r.league))).sort((a, b) => a.start < b.start ? -1 : 1) : [];
-  const fl = fl0.filter(r => r.show !== false), flHidden = fl0.length - fl.length;   // readability floor (FL.show_total / show_big); every split is still logged and tested
-  const flRows = fl.slice(0, 30).map(r => { const g = {home: r.home, away: r.away, home_name: r.home_name, away_name: r.away_name};
-    const bet = betText({market: r.market, side: r.big_side, line: r.market === 'spread' ? (r.big_side === 'home' ? r.line : -r.line) : r.line}, g);
-    const opp = r.market === 'total' ? (r.big_side === 'over' ? 'under' : 'over') : (r.big_side === 'home' ? (r.away_name || r.away) : (r.home_name || r.home));
-    return `<tr><td class="small"><span class="badge b-sport">${SPORT_LABEL[r.sport] || r.sport}</span> <b>${ET(r.start)}</b><br><span class="dim">${until(r.start)}</span></td>
-      <td><span class="small">${esc(r.away_name || r.away)} @ ${esc(r.home_name || r.home)}</span><br><b>${esc(bet)}</b></td>
-      <td class="small mono"><span class="pos">+$${r.big_net.toLocaleString()}</span> risk-equiv. net in $${FL.big_usd}+ fills <span class="dim">(${r.big_fills} big fills)</span></td>
-      <td class="small mono"><span class="neg">$${Math.abs(r.small_net).toLocaleString()}</span> net on ${esc(opp)} in $${FL.small_usd}-and-under fills</td>
-      <td class="small dim">$${r.total.toLocaleString()} traded</td></tr>`; }).join('');
-  const km = FL && FL.moves ? FL.moves.filter(r => new Date(r.start) > Date.now() && (ALL.push([r.sport, r.league]), passT(r.sport, r.league))) : [];
-  const kmRows = km.map(r => { const g = {home: r.home, away: r.away, home_name: r.home_name, away_name: r.away_name};
-    const bet = betText({market: r.market, side: r.side, line: r.line}, g);
-    return `<tr><td class="small"><span class="badge b-sport">${SPORT_LABEL[r.sport] || r.sport}</span> <b>${ET(r.start)}</b><br><span class="dim">${until(r.start)}</span></td>
-      <td><span class="small">${esc(r.away_name || r.away)} @ ${esc(r.home_name || r.home)}</span><br><b>${esc(bet)}</b></td>
-      <td class="small mono">${r.open}% → <b>${r.now}%</b> <span class="pos">(+${r.move} pts)</span><br><span class="dim">first seen ${ET(r.open_ts)} ET</span></td>
-      <td class="small mono">ask ${r.ask}¢ (${toAm(r.ask / 100)})</td>
-      <td class="small">${STEAM_TAG[r.state] || ''}</td></tr>`; }).join('');
-  const sr = FL && FL.steam ? (FL.steam.rows || []).filter(r => r.state === 'reversed' && new Date(r.start) > Date.now() && (ALL.push([r.sport, r.league]), passT(r.sport, r.league))) : [];
-  const srRows = sr.map(r => { const g = {home: r.home, away: r.away, home_name: r.home_name, away_name: r.away_name};
-    const bet = betText({market: r.market, side: r.rev_side, line: r.market === 'spread' && r.line != null && r.rev_side !== r.yes_side ? -r.line : r.line}, g);
-    const rv = x => r.rev_side === r.yes_side ? x : Math.round(10 * (100 - x)) / 10;      // prices from the reversal side's view
-    return `<tr><td class="small"><span class="badge b-sport">${SPORT_LABEL[r.sport] || r.sport}</span> <b>${ET(r.start)}</b><br><span class="dim">${until(r.start)}</span></td>
-      <td><span class="small">${esc(r.away)} @ ${esc(r.home)}</span><br><b>${esc(bet)}</b></td>
-      <td class="small mono">${rv(r.steam_from)}% → ${rv(r.steam_to)}% (steam the other way, ${ET(r.steam_ts)} ET)<br><span class="dim">back past ${rv(r.rev_level)}% at ${ET(r.rev_ts)} ET; now ${rv(r.now_mid)}%</span></td>
-      <td class="small mono">ask ${r.rev_cost}¢ (${toAm(r.rev_cost / 100)})</td></tr>`; }).join('');
-  const srRec = FL && FL.steam && FL.steam.record && FL.steam.record.n ? `Paper record: ${FL.steam.record.won}-${FL.steam.record.n - FL.steam.record.won}, ${FL.steam.record.units > 0 ? '+' : ''}${FL.steam.record.units}u.` : 'No graded paper entries yet.';
-  const tw = TW ? (TW.rows || []).filter(r => r.flag && new Date(r.start) > Date.now() && (ALL.push(['tennis', r.league]), passT('tennis', r.league))) : [];
-  const twRows = tw.map(r => `<tr><td class="small"><span class="badge b-sport">${esc((r.tour || 'tennis').toUpperCase())}</span> <b>${ET(r.start)}</b><br><span class="dim">${until(r.start)}</span></td>
+    const stuck = Object.keys(m.stuck || {}); const big = m.kalshi && m.kalshi.big_n && m.kalshi.big_net > 0;
+    sig.push({kind: 'Sharp move', ev: m.event_id, start: m.start, sport: sp, league: m.league, away: m.away, home: m.home, away_name: m.away_name, home_name: m.home_name,
+      html: `${moveText(m, bet)} at ${ET(m.ts)}${m.limit && m.origin === 'Pinnacle' ? ` <span class="dim">(Pinnacle limit $${m.limit.toLocaleString()})</span>` : ''}${big ? `; Kalshi $${m.kalshi.big_net.toLocaleString()} in $1k+ fills with it` : ''}${stuck.length ? ` · <span class="ok-chip">old price still at ${stuck.join(', ')}</span>` : ''} ${withSys(m.event_id, m.market, m.side)}`});
+  }
+  if (FL) {
+    for (const r of FL.rows || []) { if (!r.divergent || r.show === false || !future(r.start)) continue;
+      const g = {home: r.home, away: r.away, home_name: r.home_name, away_name: r.away_name};
+      const bet = betText({market: r.market, side: r.big_side, line: r.market === 'spread' ? (r.big_side === 'home' ? r.line : -r.line) : r.line}, g);
+      sig.push({kind: 'Big vs small', ev: r.event_id, start: r.start, sport: r.sport, league: r.league, away: r.away, home: r.home, away_name: r.away_name, home_name: r.home_name,
+        html: `<b>${esc(bet)}</b>: big Kalshi money <span class="pos">+$${r.big_net.toLocaleString()}</span>, small money $${Math.abs(r.small_net).toLocaleString()} the other way <span class="dim">($${r.total.toLocaleString()} traded)</span> ${withSys(r.event_id, r.market, r.big_side)}`}); }
+    for (const r of FL.moves || []) { if (!future(r.start)) continue;
+      const g = {home: r.home, away: r.away, home_name: r.home_name, away_name: r.away_name};
+      sig.push({kind: `Kalshi ${FL.move_pts || 4}+ pts`, ev: r.event_id, start: r.start, sport: r.sport, league: r.league, away: r.away, home: r.home, away_name: r.away_name, home_name: r.home_name,
+        html: `<b>${esc(betText({market: r.market, side: r.side, line: r.line}, g))}</b>: ${r.open}% → ${r.now}% (+${r.move} pts), ask ${r.ask}¢ (${toAm(r.ask / 100)}) · ${(STEAM_TAG[r.state] || '').replace('<br>', ' ')} ${withSys(r.event_id, r.market, r.side)}`}); }
+    for (const r of (FL.steam || {}).rows || []) { if (r.state !== 'reversed' || !future(r.start)) continue;
+      const g = {home: r.home, away: r.away};
+      const bet = betText({market: r.market, side: r.rev_side, line: r.market === 'spread' && r.line != null && r.rev_side !== r.yes_side ? -r.line : r.line}, g);
+      const rv = x => r.rev_side === r.yes_side ? x : Math.round(10 * (100 - x)) / 10;
+      sig.push({kind: 'Bet back (paper)', ev: r.event_id, start: r.start, sport: r.sport, league: r.league, away: r.away, home: r.home,
+        html: `<b>${esc(bet)}</b>: steam the other way (${rv(r.steam_from)}% → ${rv(r.steam_to)}%), since given back to ${rv(r.now_mid)}%; ask ${r.rev_cost}¢ (${toAm(r.rev_cost / 100)}) ${withSys(r.event_id, r.market, r.rev_side)}`}); }
+  }
+  // ---- 4. tennis first-set rule (tier C, its own shape)
+  const tw = TW ? (TW.rows || []).filter(r => r.flag && future(r.start)).map(r => ({...r, sport: 'tennis', league: r.league})) : [];
+  // ---- filters: counts for the sport chips use the time window; counts for the time chips use the sport filter
+  const everything = [...bets, ...flags, ...sig, ...tw];
+  const inSport = everything.filter(x => passS(x.sport, x.league)), inWhen = everything.filter(x => passW(x.start));
+  const keep = x => passS(x.sport, x.league) && passW(x.start);
+  const B = bets.filter(keep).sort((a, b) => a.start < b.start ? -1 : 1), FLG = flags.filter(keep), S = sig.filter(keep), TWk = tw.filter(keep);
+  const vet = B.filter(it => tierOf(it) !== 'C'), lean = B.filter(it => tierOf(it) === 'C');
+  const games = groupByGame(vet, it => it.g.event_id), lgames = groupByGame(lean, it => it.g.event_id);
+  const sgames = groupByGame(S.sort((a, b) => a.start < b.start ? -1 : 1), x => x.ev || (x.sport + x.away + x.home));
+  const next = [...B, ...S].map(x => x.start).sort()[0];
+  const label = _when === 'today' ? 'Today' : (_when === 'upcoming' ? 'Upcoming' : 'All upcoming');
+  const summary = `<div class="summary"><b>${label}${_tf.sport ? ' · ' + (SPORT_LABEL[_tf.sport] || _tf.sport) : ''}:</b> ${vet.length} system bet${vet.length === 1 ? '' : 's'} on ${games.length} game${games.length === 1 ? '' : 's'} · ${lean.length + TWk.length} lean${lean.length + TWk.length === 1 ? '' : 's'} · sharp-money signals on ${sgames.length} game${sgames.length === 1 ? '' : 's'}${next ? ` · next start ${DAYT(next)} (${until(next)})` : ''}</div>`;
+  const cards = gs => gs.map(L => `<div class="gcard">${gameHead({...L[0], away_name: L[0].g.away_name, home_name: L[0].g.home_name, away: L[0].g.away, home: L[0].g.home})}${L.map(betRow).join('')}</div>`).join('');
+  const twRows = TWk.map(r => `<tr><td class="small"><span class="badge b-sport">${esc((r.tour || 'tennis').toUpperCase())}</span> <b>${DAYT(r.start)}</b><br><span class="dim">${until(r.start)}</span></td>
       <td><span class="small">${esc(r.fav_name || '')} vs ${esc(r.opp_name || '')}${r.tournament ? ' · ' + esc(r.tournament) : ''}</span><br><b>${esc(r.fav_name || 'Favourite')} to win set 1</b></td>
-      <td class="small mono">match ${(100 * r.match_p).toFixed(1)}% → set 1 fair ${(100 * r.fair).toFixed(1)}%<br><span class="dim">model ${(100 * r.model).toFixed(1)}%${r.pin_set1 ? ' · Pinnacle ' + (100 * r.pin_set1).toFixed(1) + '%' : ''}</span></td>
+      <td class="small mono">match ${(100 * r.match_p).toFixed(1)}% → set 1 fair ${(100 * r.fair).toFixed(1)}%${r.pin_set1 ? '<br><span class="dim">Pinnacle ' + (100 * r.pin_set1).toFixed(1) + '%</span>' : ''}</td>
       <td class="small mono">${VEN(r.best.venue)} ${(100 * r.best.cost).toFixed(1)}¢ (${toAm(r.best.cost)})<br><span class="pos">+${(100 * r.edge).toFixed(1)} pts</span></td></tr>`).join('');
-  const twRec = TW && TW.record && TW.record.n ? `Paper record so far: ${TW.record.won}-${TW.record.n - TW.record.won}, ${TW.record.units > 0 ? '+' : ''}${TW.record.units}u.` : 'No graded paper entries yet.';
-  return todayFilterBar(ALL) + `<div class="hdr2"><h2>Vet these before the games</h2><span class="meta">system bets on upcoming games, tier A and B, soonest first</span></div>
-    <p class="explain">Each card is a pre-registered rule that fired for this game (rules fire ${nWin} before kickoff and stay here until it starts). Check the price: green means the number we flagged, or better, is still on the board; amber means it has moved against us. Tier A is the wind family (beat the holdout at z ≥ 2 and the market does not fully price it); tier B is positive on both halves of the backtest and in most seasons since 2021.</p>
-    ${vet.length ? sysCards(vet) : '<div class="small dim">No tier A or B bets on upcoming games right now.</div>'}
-    <div class="hdr2"><h2>Watch: weaker leans</h2><span class="meta">tier C: thin samples or exchange-audit signals from sparse data</span></div>
-    ${lean.length ? sysCards(lean) : '<div class="small dim">None right now.</div>'}
-    <div class="hdr2"><h2>Watch: rules that triggered without a bet</h2><span class="meta">why each one is not a card above</span></div>
-    ${flags.length ? `<div class="sec"><table><thead><tr><th>Game time</th><th>Game</th><th>Rule · trigger</th><th>Why no bet</th></tr></thead><tbody>${flags.map(x => `<tr><td class="small"><span class="badge b-sport">${SPORT_LABEL[x.g.sport] || x.g.sport}</span> <b>${ET(x.g.start_utc)}</b></td><td class="small">${esc(x.g.away_name || x.g.away)} @ ${esc(x.g.home_name || x.g.home)}</td><td class="small"><span class="mono">${esc(x.tag)}</span><br><span class="dim">${esc(x.why)}</span></td><td class="small">${esc(x.reason)}</td></tr>`).join('')}</tbody></table></div>` : '<div class="small dim">None right now.</div>'}
-    <div class="hdr2"><h2>Watch: sharp-looking market moves</h2><span class="meta">last 6 hours, games not started</span></div>
-    <p class="explain">Moves on upcoming games in the last 6 hours that started at Pinnacle, or that $1,000+ Kalshi fills went in the same direction as (the same "notable" rule as the Market moves page, which keeps the older ones too). <b>This is not a bet signal yet.</b> The move tape started on 10/30 and has no settled record; until a sport reaches ${MV ? MV.gate : 150} settled games we do not know whether following these makes money. Use it to sanity-check a system bet (is the market moving with you or against you?) and to spot soft books that have not caught up.</p>
-    ${mvRows ? `<div class="sec"><table><thead><tr><th>Game time</th><th>Game · direction</th><th>What moved</th><th>Soft books</th></tr></thead><tbody>${mvRows}</tbody></table></div>` : '<div class="small dim">No notable moves in the last 6 hours.</div>'}
-    <div class="hdr2"><h2>Watch: big money vs small money</h2><span class="meta">Kalshi pregame fills; markets where the two disagree</span></div>
-    <p class="explain">Each row is a market where fills of $${FL ? FL.big_usd : 500} or more are net on one side by $${FL ? FL.div_usd.toLocaleString() : '1,000'}+ while fills of $${FL ? FL.small_usd : 50} and under lean the other way (the exchange version of money% vs ticket%, from real fill sizes). <b>Research only, tier C.</b> Sizes are risk-equivalent (the stake on a dog, the to-win on a favorite), so laying -900 does not look like big money. Backtest (docs/flow_split_2026-10-31.md): no version clears noise. The best, Kalshi 15 minutes out with $250-500 against small money, made +7% on about 600 games (z 1.7), and the price did not move toward the big side afterwards. Novig's live trades are logged and will be added once their side labelling is verified against Novig's next-day public file.</p>
-    ${flRows ? `<div class="sec"><table><thead><tr><th>Game time</th><th>Game · big-money side</th><th>Big money</th><th>Small money</th><th></th></tr></thead><tbody>${flRows}</tbody></table></div>` : '<div class="small dim">No divergent markets above the floor right now.</div>'}
-    ${flHidden ? `<div class="small dim">${flHidden} smaller split${flHidden > 1 ? 's' : ''} hidden (under $${(FL.show_total || 10000).toLocaleString()} traded or under $${(FL.show_big || 2500).toLocaleString()} big-money net). The floor is for readability only: stricter size cuts were tested and did not make the split predictive. Every split is still logged and graded.</div>` : ''}
-    <div class="hdr2"><h2>Watch: Kalshi moved ${FL ? FL.move_pts : 4}+ points since its first price</h2><span class="meta">main line, two-sided book; best inside the last hour</span></div>
-    <p class="explain">The side the Kalshi price has moved toward, from the first tight two-sided price we logged to now. <b>Research only, tier C.</b> Backtest (sharp/flow_grid.py, paying the ask): following a 4+ point move since the open, 1 hour to 15 minutes before start, made +13% on about 500 October games (z 3.4), but was flat in September and negative in a thin August, and Kalshi's fee (about 1.5-2 cents a contract near even money) is not taken out. Bigger bars did not help outside October. Our "first price" is the first one we logged, which can be later than the true open.</p>
-    <p class="explain"><b>State column</b> (docs/steam_timing_2026-11-01.md, every settled Kalshi game market since August): a steam is the first ${FL && FL.steam ? FL.steam.pts : 3}+ point move inside ${FL && FL.steam ? FL.steam.minutes : 60} minutes. <b>Fresh</b>: under an hour old; chasing at once was the worst entry (1.4 to 4.6 points worse than the close), waiting until near the start cost about half a point. <b>Held 1h+</b>: still there after an hour; fading those lost 15-25% on both periods. <b>Gave back</b>: retraced 40% of the steam; the reversal side is the paper rule below. <b>Drift</b>: moved 4+ points slowly, no steam.</p>
-    ${kmRows ? `<div class="sec"><table><thead><tr><th>Game time</th><th>Game · side it moved toward</th><th>Kalshi price</th><th>Now</th><th>State</th></tr></thead><tbody>${kmRows}</tbody></table></div>` : '<div class="small dim">No 4+ point movers right now.</div>'}
-    <div class="hdr2"><h2>Watch: steam that got bet back</h2><span class="meta">paper rule steam_rev, pre-registered 11/1, not a bet</span></div>
-    <p class="explain">Kalshi markets where a ${FL && FL.steam ? FL.steam.pts : 3}+ point steam has given back ${FL && FL.steam ? Math.round(100 * FL.steam.rev_frac) : 40}% of its move; the row is the reversal side. Backtest: betting the reversal at the ask made +5.5% (296) and +6.4% (326) on 3+ point steams, +9.0% (122) and +11.5% (138) on 5+, before October and in October, but only about one standard error from zero and with slightly negative CLV, so it is logged on paper the first time each market reverses and graded on Kalshi's settlement. ${srRec}</p>
-    ${srRows ? `<div class="sec"><table><thead><tr><th>Game time</th><th>Game · reversal side</th><th>Path</th><th>Now</th></tr></thead><tbody>${srRows}</tbody></table></div>` : '<div class="small dim">No reversed steams on upcoming games right now.</div>'}
-    <div class="hdr2"><h2>Watch: tennis first-set favourites</h2><span class="meta">rule tennis_fs_fav, tier C, pre-registered 11/1</span></div>
-    <p class="explain">Match favourites (55%+) win set 1 about 3.3 points more often than the standard independent-sets model says (2,107 Novig-priced tour matches since August, z 3.1, every month positive; docs/tennis_firstset_2026-11-01.md). Pinnacle's set-1 prices carry only about a fifth of that. Listed: matches where the best bettable set-1 price (Kalshi with fee, Novig) is at least 1 point under the curve. <b>Research only</b>: graded on ESPN set scores from here on. ${twRec}</p>
-    ${twRows ? `<div class="sec"><table><thead><tr><th>Start</th><th>Match · bet</th><th>Fair set-1 price</th><th>Best price</th></tr></thead><tbody>${twRows}</tbody></table></div>` : '<div class="small dim">No first-set favourites under the curve right now.</div>'}
-    <p class="explain" style="margin-top:14px">Built ${SY ? ET(SY.built) : '—'} ET. Everything else (each rule's record, the full move tape, the odds board, the research pages) is in the tabs above.</p>`;
+  const twRec = TW && TW.record && TW.record.n ? `${TW.record.won}-${TW.record.n - TW.record.won}, ${TW.record.units > 0 ? '+' : ''}${TW.record.units}u` : 'no graded bets yet';
+  const srRec = FL && FL.steam && FL.steam.record && FL.steam.record.n ? `${FL.steam.record.won}-${FL.steam.record.n - FL.steam.record.won}, ${FL.steam.record.units > 0 ? '+' : ''}${FL.steam.record.units}u` : 'no graded bets yet';
+  const sigRows = sgames.map(L => `<tr><td class="small"><span class="badge b-sport">${SPORT_LABEL[L[0].sport] || L[0].sport}</span><br><b>${DAYT(L[0].start)}</b><br><span class="dim">${until(L[0].start)}</span></td>
+      <td><b class="small">${esc(L[0].away_name || L[0].away)} @ ${esc(L[0].home_name || L[0].home)}</b>${L.map(x => `<div class="sig"><span class="kind">${x.kind}</span> ${x.html}</div>`).join('')}</td></tr>`).join('');
+  const nWin = SY.window_h ? `${SY.window_h[0]}–${SY.window_h[1]}h` : '';
+  return `<div class="controls topbar">${whenBar(inSport)} ${sportBar(inWhen)}</div>${summary}
+    <div class="hdr2"><h2>System bets</h2><span class="meta">tier A and B, grouped by game, soonest first</span></div>
+    <details class="how"><summary>How to read a bet</summary><p class="explain">Each bet is a pre-registered rule that fired for this game (rules fire ${nWin} before the start and stay until it begins). <b>Why</b> is the rule and the number that triggered it here. <b>Backtest</b> is the historical test the rule was kept on (Bet Labs closing lines unless noted; "since 2021" is the holdout we read once). <b>On this tracker</b> is how the rule has done since we started logging it, at the prices we flagged; for a system, CLV is a diagnostic, not a verdict, because a rule the market does not price can win without beating the close. The price box says whether the flagged number is still on the board. Tier A: beat the holdout at z ≥ 2 with a mechanism (the wind family). Tier B: positive on both halves of the backtest and in most seasons since 2021.</p></details>
+    ${games.length ? cards(games) : emptyNote('system bets', bets.filter(x => passS(x.sport, x.league)))}
+    <div class="hdr2"><h2>Leans</h2><span class="meta">tier C: thin samples or paper rules</span></div>
+    ${lgames.length ? cards(lgames) : ''}
+    ${twRows ? `<div class="sec"><div class="sec-h"><span class="name">Tennis: set-1 favourites under the curve</span><span class="meta">rule tennis_fs_fav · paper record ${twRec}</span></div><table><thead><tr><th>Start</th><th>Match · bet</th><th>Fair set-1 price</th><th>Best price</th></tr></thead><tbody>${twRows}</tbody></table></div>` : ''}
+    ${!lgames.length && !twRows ? emptyNote('leans', [...bets.filter(it => tierOf(it) === 'C'), ...tw].filter(x => passS(x.sport, x.league))) : ''}
+    <div class="hdr2"><h2>Sharp-money watch</h2><span class="meta">not bets: top-down signals, judged on whether following them beats the close</span></div>
+    <details class="how"><summary>What each signal means, and how it has tested</summary><p class="explain">
+      <b>Sharp move</b>: a move in the last 6 hours that started at Pinnacle, or that $1,000+ Kalshi fills went with. The move tape started 10/30 and has no settled record yet (publication gate ${MV ? MV.gate : 150} settled games per sport).<br>
+      <b>Big vs small</b>: Kalshi fills of $${FL ? FL.big_usd : 500}+ net on one side by $${FL ? FL.div_usd.toLocaleString() : '1,000'}+ while fills of $${FL ? FL.small_usd : 50} and under lean the other way; sizes are risk-equivalent, so laying -900 is not "big money". Shown only above $${FL ? (FL.show_total || 10000).toLocaleString() : '10,000'} traded and $${FL ? (FL.show_big || 2500).toLocaleString() : '2,500'} big-money net (readability; stricter cuts were tested and did not make it predictive). Backtest: no version clears noise.<br>
+      <b>Kalshi ${FL ? FL.move_pts : 4}+ pts</b>: the Kalshi price moved that far since the first price we logged. Following it 1h to 15m before the start made +13% on about 500 October games but was flat in September. The state comes from the steam timing study: <i>fresh</i> = under an hour old (waiting beat chasing), <i>held 1h+</i> = fading those lost 15-25%, <i>gave back</i> = retraced 40% of the steam, <i>drift</i> = no fast move.<br>
+      <b>Bet back (paper)</b>: a 3+ point Kalshi steam that gave back 40%; the row is the reversal side. +5.5% / +6.4% (3+ pts) and +9.0% / +11.5% (5+) before and in October, about one standard error and slightly negative CLV. Paper record: ${srRec}.<br>
+      Tags show where a signal lines up with or runs against one of the system bets above.</p></details>
+    ${sigRows ? `<div class="sec"><table><thead><tr><th style="width:150px">Game time</th><th>Game · signals</th></tr></thead><tbody>${sigRows}</tbody></table></div>` : emptyNote('sharp-money signals', sig.filter(x => passS(x.sport, x.league)))}
+    ${FLG.length ? `<details class="how" style="margin-top:14px"><summary>Rules that triggered without a bet (${FLG.length})</summary><div class="sec"><table><thead><tr><th>Game time</th><th>Game</th><th>Rule · trigger</th><th>Why no bet</th></tr></thead><tbody>${FLG.sort((a, b) => a.start < b.start ? -1 : 1).map(x => `<tr><td class="small"><span class="badge b-sport">${SPORT_LABEL[x.g.sport] || x.g.sport}</span> <b>${DAYT(x.g.start_utc)}</b></td><td class="small">${esc(x.g.away_name || x.g.away)} @ ${esc(x.g.home_name || x.g.home)}</td><td class="small"><span class="mono">${esc(x.tag)}</span><br><span class="dim">${esc(x.why)}</span></td><td class="small">${esc(x.reason)}</td></tr>`).join('')}</tbody></table></div></details>` : ''}
+    <p class="explain" style="margin-top:14px">Systems built ${SY ? ET(SY.built) : '—'} ET · sharp money ${FL ? ET(FL.built) : '—'} ET · moves ${MV ? ET(MV.built) : '—'} ET. Each rule's full record is on the Systems tab; the full move tape is on Market moves.</p>`;
 }
 // ---------------------------------------------------------------- Games: one simple row per game, details on click
 function bestOf(c) { return c && c.best && c.best[0] ? c.best[0] : null; }
@@ -385,16 +431,17 @@ function gameFlags(g) {
 function renderGames() {
   if (!D || !D.board) return '<div class="banner">loading…</div>';
   const st = window._gf || (window._gf = {view: 'lines', open: {}});
-  const games = D.board.filter(g => !g.closed && new Date(g.start_utc) > Date.now());
-  const toggle = `<div class="controls"><span class="tabs inline"><button class="${st.view === 'lines' ? 'on' : ''}" onclick="_gf.view='lines';draw()">Game lines</button><button class="${st.view === 'props' ? 'on' : ''}" onclick="_gf.view='props';draw()">Player props</button></span>
-    <span>${games.length} upcoming games. Prices are the best available where you can bet (Novig, Kalshi, Polymarket, FanDuel, Caesars, DraftKings; Kalshi fee included); a green +number means that price beats our fair line by that many percentage points.</span></div>`;
+  const gamesAll = D.board.filter(g => !g.closed && new Date(g.start_utc) > Date.now());
+  const games = gamesAll.filter(g => passW(g.start_utc));
+  const toggle = `<div class="controls topbar">${whenBar(gamesAll.map(g => ({start: g.start_utc})))}<span class="tabs inline"><button class="${st.view === 'lines' ? 'on' : ''}" onclick="_gf.view='lines';draw()">Game lines</button><button class="${st.view === 'props' ? 'on' : ''}" onclick="_gf.view='props';draw()">Player props</button></span></div>
+    <div class="controls"><span>${games.length} game${games.length === 1 ? '' : 's'} (${_when === 'all' ? 'all upcoming' : _when}).${!games.length && gamesAll.length ? ` <a href="#" onclick="_when='${_when === 'today' ? 'upcoming' : 'today'}';draw();return false">Show ${_when === 'today' ? 'upcoming' : 'today'} →</a>` : ''} Prices are the best available where you can bet (Novig, Kalshi, Polymarket, FanDuel, Caesars, DraftKings; Kalshi fee included); a green +number means that price beats our fair line by that many percentage points.</span></div>`;
   if (st.view === 'props') return toggle + renderPropsSimple(games);
   const rows = games.map(g => {
     const sp = mainPair(g, 'spread'), to = mainPair(g, 'total'), ml = mainPair(g, 'ml'); const open = st.open[g.event_id];
     const an = g.away_name || g.away, hn = g.home_name || g.home;
     const spl = (c, team) => c ? `${esc(team)} ${c.line > 0 ? '+' : ''}${c.line}` : esc(team);
     const head = `<tr class="erow" style="cursor:pointer" onclick="_gf.open['${g.event_id}']=!_gf.open['${g.event_id}'];draw()">
-      <td class="small"><b>${ET(g.start_utc)}</b><br><span class="dim">${until(g.start_utc)}</span></td>
+      <td class="small"><b>${DAYT(g.start_utc)}</b><br><span class="dim">${until(g.start_utc)}</span></td>
       <td><b>${esc(an)}</b><br><b>${esc(hn)}</b></td>
       <td>${priceCell(sp && sp.a, spl(sp && sp.a, '').trim() || 'away')}<br>${priceCell(sp && sp.b, spl(sp && sp.b, '').trim() || 'home')}</td>
       <td>${priceCell(to && to.a, to && to.a ? 'O ' + to.a.line : 'O')}<br>${priceCell(to && to.b, to && to.b ? 'U ' + to.b.line : 'U')}</td>
@@ -626,7 +673,7 @@ function draw() {
   const url = () => '?sport=' + (SPORT || '') + '&tab=' + tab + (tab === 'research' ? '&r=' + rtab : '');
   $('#tabs').innerHTML = TABS.map(([k, l]) => `<button class="${tab === k ? 'on' : ''}" onclick="tab='${k}';history.replaceState(null,'',(${url.toString()})());draw()">${l}</button>`).join('');
   $('#subtabs').innerHTML = tab === 'research' ? `<button onclick="tab='more';draw()">← More</button>` + RTABS.map(([k, l]) => `<button class="${rtab === k ? 'on' : ''}" onclick="rtab='${k}';history.replaceState(null,'',(${url.toString()})());draw()">${l}</button>`).join('') : '';
-  if (tab === 'today' && SY) { const n = (SY.games || []).filter(g => new Date(g.start_utc) > Date.now()).reduce((a, g) => a + (g.fills || []).filter(f => f.fill_id && !f.stacked).length, 0); $('#tabs').querySelector('button').textContent = `Today (${n})`; }
+  if (SY) { const n = (SY.games || []).filter(g => new Date(g.start_utc) > Date.now() && whenOf(g.start_utc) === 'today').reduce((a, g) => a + (g.fills || []).filter(f => f.fill_id && !f.stacked).length, 0); $('#tabs').querySelector('button').textContent = `Today (${n} bet${n === 1 ? '' : 's'})`; }
   const perSport = tab === 'games' || (tab === 'research' && !['edges', 'weekly'].includes(rtab));   // pages that show one sport at a time
   $('#sportctx').style.display = perSport ? '' : 'none'; $('#sporthdr').style.display = perSport ? '' : 'none';
   for (const id of ['#sub', '#banners', '#strip']) $(id).style.display = tab === 'research' ? '' : 'none';   // build details and model caveats only on the research pages
