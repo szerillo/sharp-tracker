@@ -108,9 +108,26 @@ def pull_fight(event_id):
     return None
 
 
+_SOCCER = None
+
+
+def soccer_league(event_id):
+    global _SOCCER
+    if _SOCCER is None:
+        import os
+        p = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'data', 'soccer', 'schedule.json')
+        _SOCCER = json.load(open(p)) if os.path.exists(p) else {}
+    return (_SOCCER.get(str(event_id)) or {}).get('league')
+
+
 def pull(sport, event_id):
     if sport == 'mma': return pull_fight(event_id)
-    s = g(f"https://site.api.espn.com/apis/site/v2/sports/{SP.SPORTS[sport]['espn']}/summary?event={event_id}")
+    path = SP.SPORTS[sport]['espn']
+    if sport == 'soccer':        # no sport-level ESPN path: each league has its own (the URL used to read .../None/summary and every pull failed)
+        lg = soccer_league(event_id)
+        path = (SP.SPORTS['soccer']['leagues'].get(lg) or {}).get('espn')
+        if not path: return None
+    s = g(f"https://site.api.espn.com/apis/site/v2/sports/{path}/summary?event={event_id}")
     comp = ((s.get('header') or {}).get('competitions') or [{}])[0]; st = (comp.get('status') or {}).get('type') or {}
     if not st: return None
     if st.get('name') in ('STATUS_POSTPONED', 'STATUS_CANCELED'): return dict(event_id=str(event_id), status='postponed', detail=st.get('name'))
@@ -124,6 +141,9 @@ def pull(sport, event_id):
     per = {}
     for side, d in (('home', h), ('away', a)):
         q = d.get('q') or []
+        if sport == 'soccer':
+            if len(q) >= 1: per[f'1h_{side}'] = q[0]            # soccer periods are halves
+            continue
         if len(q) >= 2: per[f'1h_{side}'] = q[0] + q[1]
         if len(q) >= 1: per[f'1q_{side}'] = q[0]; per[f'1p_{side}'] = q[0]
     players = parse_players(sport, s.get('boxscore') or {}); players['_periods'] = per; players['_sport'] = sport
