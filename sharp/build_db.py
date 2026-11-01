@@ -41,7 +41,7 @@ def g(u, tries=4):
 
 def jl(p):
     try:
-        with open(p) as f:
+        with (gzip.open(p, 'rt') if p.endswith('.gz') else open(p)) as f:
             for l in f:
                 l = l.strip()
                 if l:
@@ -395,7 +395,7 @@ POLY_TYPES = {'moneyline': 'ml', 'nrfi': 'rfi', 'spreads': 'rl', 'totals': 'tota
 
 def load_polymarket():
     n = 0
-    for f in sorted(glob.glob(os.path.join(ROOT, 'data', 'polymarket', '*.jsonl'))):
+    for f in sorted(glob.glob(os.path.join(ROOT, 'data', 'polymarket', '*.jsonl')) + glob.glob(os.path.join(ROOT, 'data', 'polymarket', '*.jsonl.gz'))):
         src = 'polymarket/' + os.path.basename(f)
         for r in jl(f):
             if r.get('league') != 'MLB' or r.get('type') not in POLY_TYPES or not r.get('sides'): continue

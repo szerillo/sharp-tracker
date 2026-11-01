@@ -1,13 +1,13 @@
 #!/usr/bin/env python3
 """Polymarket sports markets (public, no key): Gamma catalog + CLOB order books + public trade tape.
-One snapshot per run for every game-tagged market starting within 36 hours -> data/polymarket/YYYY-MM-DD.jsonl, one row per market:
+One snapshot per run for every game-tagged market starting within 36 hours -> data/polymarket/YYYY-MM-DD.jsonl.gz, one row per market:
   event slug/title, league, gameStartTime, question, sportsMarketType (moneyline / spreads / totals / nrfi / <prop stat>), line, outcomes,
   per outcome: best bid / ask, resting dollars within 3c of best on each side (bid side = shares x price), last trade,
   and taker trades since the last run (price, size, side, outcome) from data-api.polymarket.com.
 Game lines only in MLB today (moneyline, nrfi); NFL/NBA carry spreads, totals and player props. Matched to a game by the slug's
 team codes + gameStartTime in build_db (Polymarket slugs read away-home: mlb-cle-tb-2026-10-19 = CLE @ TB).
 Also keeps data/polymarket/_markets.json (conditionId -> market metadata) so the public trade tape stays decodable."""
-import json, os, time, datetime as dt, urllib.request, concurrent.futures as cf
+import json, os, gzip, time, datetime as dt, urllib.request, concurrent.futures as cf
 
 HERE = os.path.dirname(os.path.abspath(__file__)); OUT = os.path.join(HERE, '..', 'data', 'polymarket'); os.makedirs(OUT, exist_ok=True)
 G = "https://gamma-api.polymarket.com"; CLOB = "https://clob.polymarket.com"; DATA = "https://data-api.polymarket.com"
@@ -83,7 +83,8 @@ def main():
                                                   start=m.get('gameStartTime'))
     with cf.ThreadPoolExecutor(6) as ex: rows = [r for r in ex.map(snap_market, todo) if r]
     ts = int(now.timestamp())
-    with open(os.path.join(OUT, f"{et.date().isoformat()}.jsonl"), 'a') as f:
+    # gzip (appended members): the plain .jsonl hit GitHub's 100 MB file limit on a Saturday (2026-10-31, 114k rows) and the push failed
+    with gzip.open(os.path.join(OUT, f"{et.date().isoformat()}.jsonl.gz"), 'at') as f:
         for r in rows: f.write(json.dumps({'ts': ts, **{k: v for k, v in r.items() if k != 'last_ts'}}) + '\n')
     last.update({r['cond']: r['last_ts'] for r in rows}); json.dump(last, open(STATE, 'w'))
     json.dump(meta, open(META, 'w'), separators=(',', ':'))
