@@ -16,8 +16,8 @@ window.BM = {
  TRAIN: '08/01/2003 - 02/28/2021', HOLD: '03/01/2021 - 10/31/2026',
  find(re){ return BL.items().find(i => re.test(i.name)); },
  changeItem(){ const lt = analyticsData.Screen.LineType; return lt === 3 ? this.find(/^O\/U Change Open to Close/i) : lt === 2 ? this.find(/^Moneyline Change Open to Close/i) : this.find(/^Spread Change Open to Close/i); },
- sideItem(){ return this.find(/^(Home\/Away|Home or Away)$/i) || this.find(/Home.?Away/i); },
- ouItem(){ return this.find(/^(Over\/Under|Over or Under|O\/U Side)$/i) || this.find(/Over.?Under/i); },
+ sideItem(){ return this.find(/^(Home ?\/ ?Away|Home or Away|Home\/Visitor|Home ?\/ ?Visitor)$/i); },
+ ouItem(){ return this.find(/^Over ?\/ ?Under$/i); },
  async pull(sid, item, dfid, range){ await BL.call('ScreenFilters.SetDateFilter', {filterId: dfid, value: range}); const a = await BL.call('ScreenFilters.Add', {screenId: sid, dataItemId: item.id});
   try { return await BL.values(sid, item, a.FilterId); } finally { await BL.call('ScreenFilters.DeleteFilter', {ScreenId: sid, filterId: a.FilterId}); } },
  async run(sid){ const ch = this.changeItem(); const lt = analyticsData.Screen.LineType; const sideIt = lt === 3 ? this.ouItem() : this.sideItem();
