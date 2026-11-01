@@ -3,7 +3,7 @@ name: prices fast (5-minute move tape)
 # the move framework (docs/sharp_framework_v2_scope.md). Actions cron jitter is 1 to 4 minutes; rows carry their true timestamps.
 on:
   schedule:
-    - cron: '*/5 14-23,0-5 * * *'
+    - cron: '*/5 14-23,0-6 * * *'   # UTC; covers both EDT and EST
   workflow_dispatch: {}
 permissions:
   contents: write

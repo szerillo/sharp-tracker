@@ -3,7 +3,7 @@ name: tracker (fold, grade, export)
 # Every 20 min offset :10 from the price log, 10 AM to 1:59 AM ET.
 on:
   schedule:
-    - cron: '10,30,50 14-23,0-5 * * *'
+    - cron: '10,30,50 14-23,0-6 * * *'   # UTC; covers both EDT and EST
   workflow_dispatch: {}
 permissions:
   contents: write
