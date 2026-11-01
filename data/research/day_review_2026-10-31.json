@@ -19,8 +19,8 @@
 "T-1h": 0.52,
 "close": 0.525
 },
-"res": null,
-"pnl_sig": null
+"res": 1.0,
+"pnl_sig": 0.9417475728155339
 },
 {
 "family": "moves_other",
@@ -1609,8 +1609,8 @@
 "T-1h": 0.5069,
 "close": 0.4954
 },
-"res": null,
-"pnl_sig": null
+"res": 1.0,
+"pnl_sig": 0.9638648860958366
 },
 {
 "family": "moves_notable",
@@ -1713,8 +1713,8 @@
 "T-1h": 0.48,
 "close": 0.475
 },
-"res": null,
-"pnl_sig": null
+"res": 0.0,
+"pnl_sig": -1.0
 },
 {
 "family": "bigsmall",
@@ -2015,8 +2015,8 @@
 "T-1h": 0.315,
 "close": 0.315
 },
-"res": null,
-"pnl_sig": null
+"res": 1.0,
+"pnl_sig": 2.174603174603175
 },
 {
 "family": "bigsmall",
@@ -2591,8 +2591,8 @@
 "T-1h": 0.495,
 "close": 0.495
 },
-"res": null,
-"pnl_sig": null
+"res": 1.0,
+"pnl_sig": 1.02020202020202
 },
 {
 "family": "bigsmall",
@@ -3054,8 +3054,8 @@
 "T-1h": 0.445,
 "close": 0.455
 },
-"res": null,
-"pnl_sig": null
+"res": 1.0,
+"pnl_sig": 1.150537634408602
 },
 {
 "family": "bigsmall",
@@ -3282,8 +3282,8 @@
 "T-1h": 0.485,
 "close": 0.495
 },
-"res": null,
-"pnl_sig": null
+"res": 0.0,
+"pnl_sig": -1.0
 },
 {
 "family": "bigsmall",
@@ -3344,8 +3344,8 @@
 "T-1h": 0.525,
 "close": 0.475
 },
-"res": null,
-"pnl_sig": null
+"res": 1.0,
+"pnl_sig": 0.9047619047619047
 },
 {
 "family": "bigsmall",
@@ -4486,8 +4486,8 @@
 "tag": "xch_homedog_fade",
 "fill_price": -212,
 "fill_implied": 0.68,
-"result": null,
-"pnl_units": null,
+"result": "L",
+"pnl_units": -0.5,
 "stake": 0.5,
 "sport": "cfb",
 "game": "ORST@FRES",
@@ -4500,8 +4500,8 @@
 "T-1h": 0.685,
 "close": 0.685
 },
-"res": null,
-"pnl_sig": null
+"res": 0.0,
+"pnl_sig": -1.0
 },
 {
 "family": "kmove4",
@@ -4736,6 +4736,30 @@
 },
 {
 "family": "kmove4",
+"event_id": "401909898",
+"market": "total",
+"home_line": 239.5,
+"side": "over",
+"t0": "2026-10-31T02:52:11+00:00",
+"first": 0.495,
+"at": 0.545,
+"sport": "nba",
+"game": "ATL@NO",
+"start": "2026-10-31T23:00:00+00:00",
+"lead_h": 20.1,
+"path": {
+"signal": 0.545,
+"+15m": 0.54,
+"+1h": 0.535,
+"+3h": 0.54,
+"T-1h": 0.535,
+"close": 0.5
+},
+"res": 0.0,
+"pnl_sig": -1.0
+},
+{
+"family": "kmove4",
 "event_id": "401909900",
 "market": "total",
 "home_line": 236.5,
@@ -4783,30 +4807,6 @@
 },
 {
 "family": "kmove4",
-"event_id": "401909898",
-"market": "total",
-"home_line": 239.5,
-"side": "over",
-"t0": "2026-10-31T02:52:11+00:00",
-"first": 0.495,
-"at": 0.545,
-"sport": "nba",
-"game": "ATL@NO",
-"start": "2026-10-31T23:00:00+00:00",
-"lead_h": 20.1,
-"path": {
-"signal": 0.545,
-"+15m": 0.54,
-"+1h": 0.535,
-"+3h": 0.54,
-"T-1h": 0.535,
-"close": 0.5
-},
-"res": 0.0,
-"pnl_sig": -1.0
-},
-{
-"family": "kmove4",
 "event_id": "401909897",
 "market": "spread",
 "home_line": 1.5,
@@ -4832,25 +4832,25 @@
 "family": "kmove4",
 "event_id": "401909897",
 "market": "total",
-"home_line": 215.5,
+"home_line": 217.5,
 "side": "under",
-"t0": "2026-10-31T15:37:37+00:00",
-"first": 0.52,
-"at": 0.48,
+"t0": "2026-10-31T17:08:34+00:00",
+"first": 0.48,
+"at": 0.43,
 "sport": "nba",
 "game": "PHI@CHA",
 "start": "2026-10-31T22:00:00+00:00",
-"lead_h": 6.4,
+"lead_h": 4.9,
 "path": {
-"signal": 0.52,
-"+15m": 0.515,
-"+1h": 0.515,
-"+3h": 0.575,
-"T-1h": 0.585,
-"close": 0.595
+"signal": 0.57,
+"+15m": 0.57,
+"+1h": 0.605,
+"+3h": 0.63,
+"T-1h": 0.63,
+"close": 0.635
 },
 "res": 1.0,
-"pnl_sig": 0.923076923076923
+"pnl_sig": 0.7543859649122808
 },
 {
 "family": "kmove4",
@@ -5169,8 +5169,8 @@
 "+15m": 0.545,
 "close": 0.555
 },
-"res": null,
-"pnl_sig": null
+"res": 1.0,
+"pnl_sig": 0.8348623853211008
 },
 {
 "family": "kmove4",
@@ -5277,8 +5277,8 @@
 "+15m": 0.525,
 "close": 0.525
 },
-"res": null,
-"pnl_sig": null
+"res": 0.0,
+"pnl_sig": -1.0
 },
 {
 "family": "kmove4",
@@ -5456,8 +5456,8 @@
 "T-1h": 0.54,
 "close": 0.545
 },
-"res": null,
-"pnl_sig": null
+"res": 1.0,
+"pnl_sig": 0.8691588785046728
 },
 {
 "family": "kmove4",
@@ -5640,27 +5640,6 @@
 },
 {
 "family": "kmove4",
-"event_id": "401884751",
-"market": "total",
-"home_line": 3.5,
-"side": "under",
-"t0": "2026-10-31T13:50:24+00:00",
-"first": 0.445,
-"at": 0.395,
-"sport": "soccer",
-"game": "SCF@FCA",
-"start": "2026-10-31T14:30:00+00:00",
-"lead_h": 0.7,
-"path": {
-"signal": 0.605,
-"+15m": 0.595,
-"close": 0.585
-},
-"res": 1.0,
-"pnl_sig": 0.6528925619834711
-},
-{
-"family": "kmove4",
 "event_id": "761922",
 "market": "total",
 "home_line": 3.5,
@@ -5679,6 +5658,27 @@
 },
 "res": 1.0,
 "pnl_sig": 0.6260162601626017
+},
+{
+"family": "kmove4",
+"event_id": "401884751",
+"market": "total",
+"home_line": 3.5,
+"side": "under",
+"t0": "2026-10-31T13:50:24+00:00",
+"first": 0.445,
+"at": 0.395,
+"sport": "soccer",
+"game": "SCF@FCA",
+"start": "2026-10-31T14:30:00+00:00",
+"lead_h": 0.7,
+"path": {
+"signal": 0.605,
+"+15m": 0.595,
+"close": 0.585
+},
+"res": 1.0,
+"pnl_sig": 0.6528925619834711
 },
 {
 "family": "kmove4",
