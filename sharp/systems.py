@@ -200,15 +200,23 @@ def paper_fill(conn, eq, ev, start, market, line, side, part, tag, stake, note, 
 RETRO_VOID = {'nhl_pl_fav_gap': ('2026-10-31T08:00:00Z', "fired under the reversed definition (favorite's win% above the opponent's); Bet Labs' rule is the opposite")}
 
 
+# single fills voided after an input definition changed (event_id, tag) -> why
+RETRO_VOID_EV = {('401873032', 'wind1014_1h'): "filled 10/31 on Open-Meteo alone (12.7 mph); on the Open-Meteo/MySportsWeather average (13.8 -> 14) it is outside the "
+                                                "1H 10-13 band, and Bet Labs (14 mph) does not list it"}
+
+
 def retro_void(fired):
     rows = FI.load(); ch = 0
     for r in rows:
         t = (r.get('rule_tag') or '').replace('paper:', '')
+        if (r.get('event_id'), t) in RETRO_VOID_EV and r.get('result') != 'void':
+            r['result'] = 'void'; r['pnl_units'] = 0.0; r['note'] = (r.get('note') or '') + ' | VOID: ' + RETRO_VOID_EV[(r['event_id'], t)]; ch += 1
         if t in RETRO_VOID and r['ts_utc'] < RETRO_VOID[t][0] and r.get('result') != 'void':
             r['result'] = 'void'; r['pnl_units'] = 0.0; r['note'] = (r.get('note') or '') + ' | VOID: ' + RETRO_VOID[t][1]; ch += 1
     if ch: FI.save(rows)
     for k, rec in fired.items():
         t = k.split(':')[1] if ':' in k else ''
+        if (k.split(':')[0], t) in RETRO_VOID_EV and not rec.get('void'): rec['void'] = True; rec['void_why'] = RETRO_VOID_EV[(k.split(':')[0], t)]
         if t in RETRO_VOID and (rec.get('ts') or '') < RETRO_VOID[t][0] and not rec.get('void'):
             rec['void'] = True; rec['void_why'] = RETRO_VOID[t][1]
     if ch: print(f"[systems] retro-voided {ch} fills")
