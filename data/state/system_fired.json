@@ -769,5 +769,18 @@
 "fair": 0.67636,
 "edge_pts": -0.36,
 "why": "Novig home side mid 0.323 inside T-1.1h; audit band 20-35c"
+},
+"401909903:nba_under_good_home_over": {
+"tag": "nba_under_good_home_over",
+"fill_id": "573b2a251841",
+"ts": "2026-11-01T03:23:28Z",
+"market": "total",
+"side": "under",
+"line": 221.5,
+"venue": "Novig",
+"price": 113,
+"fair": 0.47286,
+"edge_pts": 0.29,
+"why": "home ORL over rate 60%, days since last game: home 2, visitor 2; total 223.5 -> 221.5"
 }
 }
