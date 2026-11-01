@@ -1,0 +1,38 @@
+name: prices tennis overnight (20-minute tennis log, 2 AM to 10 AM ET)
+# The main price workflows run 10 AM to 2 AM ET; European, Asian and Challenger tennis starts overnight, so tennis keeps a 20-minute
+# log through the night to give those matches a real closing price. Same logger as prices.yml (loggers/tennis_lines.py).
+on:
+  schedule:
+    - cron: '7,27,47 6-13 * * *'
+  workflow_dispatch: {}
+permissions:
+  contents: write
+concurrency:
+  group: prices-tennis
+  cancel-in-progress: false
+jobs:
+  tennis:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.12'}
+      - name: tennis lines
+        env:
+          NOVIG_KEY_ID: ${{ secrets.NOVIG_KEY_ID }}
+          NOVIG_PRIVATE_KEY: ${{ secrets.NOVIG_PRIVATE_KEY }}
+        run: |
+          pip install -q cryptography || true
+          python3 loggers/tennis_scores.py --days-back 1 || true
+          python3 loggers/tennis_lines.py || true
+      - name: commit
+        run: |
+          git config user.name "prices-bot"; git config user.email "actions@users.noreply.github.com"
+          git add data/tennis data/kalshi/fast_meta_tennis.json && git commit -m "tennis overnight $(date -u +%Y-%m-%dT%H:%M)" || exit 0
+          for i in 1 2 3 4 5; do
+            if git pull --rebase -X theirs && git push; then exit 0; fi
+            git rebase --abort 2>/dev/null || true
+            sleep $((RANDOM % 15 + 5))
+          done
+          exit 1

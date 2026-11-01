@@ -32,10 +32,17 @@ jobs:
           python3 loggers/nfl/weather.py --sport cfb || true
           python3 loggers/msw_weather.py --sport nfl || true
           python3 loggers/msw_weather.py --sport cfb || true
+      - name: tennis lines (Pinnacle, Kalshi, Novig; match, first set, games)
+        env:
+          NOVIG_KEY_ID: ${{ secrets.NOVIG_KEY_ID }}
+          NOVIG_PRIVATE_KEY: ${{ secrets.NOVIG_PRIVATE_KEY }}
+        run: |
+          pip install -q cryptography || true
+          python3 loggers/tennis_lines.py || true
       - name: commit
         run: |
           git config user.name "prices-bot"; git config user.email "actions@users.noreply.github.com"
-          git add data/mlb data/novig/catalog data/polymarket data/nfl/weather data/cfb/weather && git commit -m "prices $(date -u +%Y-%m-%dT%H:%M)" || exit 0
+          git add data/mlb data/novig/catalog data/polymarket data/tennis data/kalshi/fast_meta_tennis.json data/nfl/weather data/cfb/weather && git commit -m "prices $(date -u +%Y-%m-%dT%H:%M)" || exit 0
           for i in 1 2 3 4 5; do
             if git pull --rebase -X theirs && git push; then exit 0; fi
             git rebase --abort 2>/dev/null || true
