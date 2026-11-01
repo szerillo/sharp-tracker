@@ -425,7 +425,9 @@
 "price": -100,
 "fair": 0.49256,
 "edge_pts": -0.74,
-"why": "forecast 12.7 mph (gust 23.7) at T-30h, 65.9F; MSW 10.0 mph W gust 15.0"
+"why": "forecast 12.7 mph (gust 23.7) at T-30h, 65.9F; MSW 10.0 mph W gust 15.0",
+"void": true,
+"void_why": "filled 10/31 on Open-Meteo alone (12.7 mph); on the Open-Meteo/MySportsWeather average (13.8 -> 14) it is outside the 1H 10-13 band, and Bet Labs (14 mph) does not list it"
 },
 "401873032:vrest8_1h": {
 "tag": "vrest8_1h",
