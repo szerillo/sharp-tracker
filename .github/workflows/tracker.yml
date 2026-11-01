@@ -49,6 +49,8 @@ jobs:
         run: python3 sharp/moves.py || true
       - name: live big-money vs small-money split on the exchanges (watch signal)
         run: python3 sharp/flow_live.py || true
+      - name: tennis first-set watch list + paper log (tennis_fs_fav)
+        run: python3 sharp/tennis_watch.py || true
       - run: python3 sharp/weights_fit.py
       - run: python3 sharp/export.py
       - name: roll off raw ticks older than 10 days to the raw-archive release

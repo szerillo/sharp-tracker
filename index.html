@@ -80,7 +80,7 @@ const MKT = new Proxy(MKT0, {get(t, k) { if (k in t) return t[k]; const m = /^(1
 let SPORT = new URLSearchParams(location.search).get('sport') || null;
 const XV = new Set(['Kalshi', 'Novig', 'Polymarket']), SHARP = new Set(['Pinnacle', 'Circa']);
 const ET = iso => new Date(iso).toLocaleString('en-US', {timeZone: 'America/New_York', month: 'short', day: 'numeric', hour: 'numeric', minute: '2-digit'});
-let D = null, E = null, MV = null, SY = null, FL = null, tab = new URLSearchParams(location.search).get('tab') || 'today';
+let D = null, E = null, MV = null, SY = null, FL = null, TW = null, tab = new URLSearchParams(location.search).get('tab') || 'today';
 const TABS = [['today', 'Today'], ['games', 'Games'], ['systems', 'Systems'], ['moves', 'Market moves'], ['more', 'More']];
 const RTABS = [['edges', 'Off-market prices'], ['ledger', 'Bet ledger'], ['weekly', 'Weekly report'], ['venues', 'Which books lead'], ['board', 'Full odds board'], ['props', 'Prop list'], ['health', 'Data health'], ['constants', 'Settings']];
 let rtab = new URLSearchParams(location.search).get('r') || 'edges';
@@ -292,6 +292,12 @@ function renderToday() {
       <td><span class="small">${esc(r.away_name || r.away)} @ ${esc(r.home_name || r.home)}</span><br><b>${esc(bet)}</b></td>
       <td class="small mono">${r.open}% → <b>${r.now}%</b> <span class="pos">(+${r.move} pts)</span><br><span class="dim">first seen ${ET(r.open_ts)} ET</span></td>
       <td class="small mono">ask ${r.ask}¢ (${toAm(r.ask / 100)})</td></tr>`; }).join('');
+  const tw = TW ? (TW.rows || []).filter(r => r.flag && new Date(r.start) > Date.now()) : [];
+  const twRows = tw.map(r => `<tr><td class="small"><span class="badge b-sport">${esc((r.tour || 'tennis').toUpperCase())}</span> <b>${ET(r.start)}</b><br><span class="dim">${until(r.start)}</span></td>
+      <td><span class="small">${esc(r.fav_name || '')} vs ${esc(r.opp_name || '')}${r.tournament ? ' · ' + esc(r.tournament) : ''}</span><br><b>${esc(r.fav_name || 'Favourite')} to win set 1</b></td>
+      <td class="small mono">match ${(100 * r.match_p).toFixed(1)}% → set 1 fair ${(100 * r.fair).toFixed(1)}%<br><span class="dim">model ${(100 * r.model).toFixed(1)}%${r.pin_set1 ? ' · Pinnacle ' + (100 * r.pin_set1).toFixed(1) + '%' : ''}</span></td>
+      <td class="small mono">${VEN(r.best.venue)} ${(100 * r.best.cost).toFixed(1)}¢ (${toAm(r.best.cost)})<br><span class="pos">+${(100 * r.edge).toFixed(1)} pts</span></td></tr>`).join('');
+  const twRec = TW && TW.record && TW.record.n ? `Paper record so far: ${TW.record.won}-${TW.record.n - TW.record.won}, ${TW.record.units > 0 ? '+' : ''}${TW.record.units}u.` : 'No graded paper entries yet.';
   return `<div class="hdr2"><h2>Vet these before the games</h2><span class="meta">system bets on upcoming games, tier A and B, soonest first</span></div>
     <p class="explain">Each card is a pre-registered rule that fired for this game (rules fire ${nWin} before kickoff and stay here until it starts). Check the price: green means the number we flagged, or better, is still on the board; amber means it has moved against us. Tier A is the wind family (beat the holdout at z ≥ 2 and the market does not fully price it); tier B is positive on both halves of the backtest and in most seasons since 2021.</p>
     ${vet.length ? sysCards(vet) : '<div class="small dim">No tier A or B bets on upcoming games right now.</div>'}
@@ -308,6 +314,9 @@ function renderToday() {
     <div class="hdr2"><h2>Watch: Kalshi moved ${FL ? FL.move_pts : 4}+ points since its first price</h2><span class="meta">main line, two-sided book; best inside the last hour</span></div>
     <p class="explain">The side the Kalshi price has moved toward, from the first tight two-sided price we logged to now. <b>Research only, tier C.</b> Backtest (sharp/flow_grid.py, paying the ask): following a 4+ point move since the open, 1 hour to 15 minutes before start, made +13% on about 500 October games (z 3.4), but was flat in September and negative in a thin August, and Kalshi's fee (about 1.5-2 cents a contract near even money) is not taken out. Bigger bars did not help outside October. Our "first price" is the first one we logged, which can be later than the true open.</p>
     ${kmRows ? `<div class="sec"><table><thead><tr><th>Game time</th><th>Game · side it moved toward</th><th>Kalshi price</th><th>Now</th></tr></thead><tbody>${kmRows}</tbody></table></div>` : '<div class="small dim">No 4+ point movers right now.</div>'}
+    <div class="hdr2"><h2>Watch: tennis first-set favourites</h2><span class="meta">rule tennis_fs_fav, tier C, pre-registered 11/1</span></div>
+    <p class="explain">Match favourites (55%+) win set 1 about 3.3 points more often than the standard independent-sets model says (2,107 Novig-priced tour matches since August, z 3.1, every month positive; docs/tennis_firstset_2026-11-01.md). Pinnacle's set-1 prices carry only about a fifth of that. Listed: matches where the best bettable set-1 price (Kalshi with fee, Novig) is at least 1 point under the curve. <b>Research only</b>: graded on ESPN set scores from here on. ${twRec}</p>
+    ${twRows ? `<div class="sec"><table><thead><tr><th>Start</th><th>Match · bet</th><th>Fair set-1 price</th><th>Best price</th></tr></thead><tbody>${twRows}</tbody></table></div>` : '<div class="small dim">No first-set favourites under the curve right now.</div>'}
     <p class="explain" style="margin-top:14px">Built ${SY ? ET(SY.built) : '—'} ET. Everything else (each rule's record, the full move tape, the odds board, the research pages) is in the tabs above.</p>`;
 }
 // ---------------------------------------------------------------- Games: one simple row per game, details on click
@@ -593,6 +602,7 @@ async function load() {
     try { MV = await (await fetch('data/state/moves.json', {cache: 'no-store'})).json(); } catch (e) { MV = null; }
     try { SY = await (await fetch('data/state/system_fires.json', {cache: 'no-store'})).json(); } catch (e) { SY = null; }
     try { FL = await (await fetch('data/state/flow_live.json', {cache: 'no-store'})).json(); } catch (e) { FL = null; }
+    try { TW = await (await fetch('data/state/tennis_watch.json', {cache: 'no-store'})).json(); } catch (e) { TW = null; }
     const idx = D.index;
     if (idx && idx.sports && idx.sports.length) {
       if (!SPORT) SPORT = idx.sports[0].sport;
