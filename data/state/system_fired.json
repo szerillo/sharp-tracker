@@ -849,5 +849,18 @@
 "market": "1h_total",
 "side": "under",
 "why": "Monday night (same bet already taken by a higher-priority rule)"
+},
+"401873034:xch_homedog_fade:ml": {
+"tag": "xch_homedog_fade",
+"fill_id": "7ba731a32098",
+"ts": "2026-11-01T20:13:43Z",
+"market": "ml",
+"side": "away",
+"line": null,
+"venue": "Novig",
+"price": -317,
+"fair": 0.76061,
+"edge_pts": 0.06,
+"why": "Novig home side mid 0.242 inside T-1.2h; audit band 20-35c"
 }
 }
