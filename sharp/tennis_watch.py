@@ -7,7 +7,9 @@ For every upcoming tennis match in the latest tick snapshots (data/tennis/ticks 
   best bettable set-1 price = the lowest cost of the favourite's set 1 at Kalshi (ask + taker fee) or Novig (ask); Pinnacle's set-1
   no-vig price is shown as the sharp reference, not as a place to bet
 A match is flagged when the favourite is 55%+ on the match and fair minus cost is 1 point or more. The first time a match is
-flagged it is written to data/tennis/fs_paper.jsonl (price, venue, Pinnacle set-1 reference) and graded later from the ESPN result.
+flagged it is written to data/tennis/fs_paper.jsonl (price, venue, Pinnacle set-1 reference, Kalshi set-1 ticker) and graded once the
+match starts: from the ESPN set score, or from Kalshi's settlement for Challenger / ITF matches ESPN does not carry. CLV = Pinnacle's
+last pregame no-vig set-1 price minus the price taken.
 Writes data/state/tennis_watch.json. Usage: python3 sharp/tennis_watch.py"""
 import os, sys, json, gzip, glob, math, datetime as dt
 HERE = os.path.dirname(os.path.abspath(__file__)); ROOT = os.path.abspath(os.path.join(HERE, '..')); sys.path.insert(0, ROOT)
@@ -59,6 +61,37 @@ def mid(L, ev, mk, venue, side):
     return None
 
 
+def kalshi_result(ticker):
+    """True / False once Kalshi has settled the set-1 market, else None."""
+    import urllib.request
+    try:
+        m = json.load(urllib.request.urlopen(urllib.request.Request(f"https://api.elections.kalshi.com/trade-api/v2/markets/{ticker}", headers={'User-Agent': 'sharp-tracker'}), timeout=20)).get('market') or {}
+    except Exception: return None
+    return {'yes': True, 'no': False}.get(m.get('result')) if m.get('status') in ('settled', 'finalized', 'determined') or m.get('result') in ('yes', 'no') else None
+
+
+def pin_closes(evs):
+    """(event, side) -> Pinnacle's last pregame no-vig set-1 probability (the close, for CLV)."""
+    E = json.load(open(os.path.join(TD, 'events.json'))) if os.path.exists(os.path.join(TD, 'events.json')) else {}
+    last = {}
+    for d in ('ticks', 'ticks5'):
+        for f in sorted(glob.glob(os.path.join(TD, d, '*.jsonl.gz')))[-4:]:
+            try:
+                for l in gzip.open(f, 'rt'):
+                    if '"1s_ml"' not in l or '"Pinnacle"' not in l: continue
+                    r = json.loads(l)
+                    if r['event_id'] not in evs: continue
+                    k = (r['event_id'], r['side'])
+                    if k not in last or r['ts'] > last[k]['ts']: last[k] = r
+            except (EOFError, OSError): pass
+    out = {}
+    for ev in evs:
+        h, a = last.get((ev, 'home')), last.get((ev, 'away'))
+        if h and a and h['ts'][:16] == a['ts'][:16]:
+            ph, pa = implied(h['american']), implied(a['american']); out[(ev, 'home')] = ph / (ph + pa); out[(ev, 'away')] = pa / (ph + pa)
+    return out
+
+
 def main():
     E = json.load(open(os.path.join(TD, 'events.json'))) if os.path.exists(os.path.join(TD, 'events.json')) else {}
     L = latest(); evs = {k[0] for k in L}
@@ -91,8 +124,10 @@ def main():
         row['flag'] = bool(best and pf >= MIN_FAV and row['edge'] >= MIN_EDGE)
         rows.append(row)
         if row['flag'] and ev not in paper:
+            kt = (L.get((ev, '1s_ml', 'Kalshi', fav)) or {}).get('extra') or {}
             rec = dict(event_id=ev, ts=NOW.strftime('%Y-%m-%dT%H:%M:%SZ'), start=e['start'], fav=fav, fav_name=name, opp_name=opp, match_p=row['match_p'],
-                       fair=row['fair'], venue=best['venue'], price=best['cost'], pin_set1=row['pin_set1'], rule='tennis_fs_fav')
+                       fair=row['fair'], venue=best['venue'], price=best['cost'], pin_set1=row['pin_set1'], rule='tennis_fs_fav',
+                       kalshi_set1=kt.get('ticker'))            # settles Challenger / ITF matches ESPN does not carry
             new.append(rec); paper[ev] = rec
     if new:
         with open(PAPER, 'a') as f:
@@ -102,14 +137,22 @@ def main():
     rp = os.path.join(TD, 'results.jsonl')
     if os.path.exists(rp):
         for l in open(rp): r = json.loads(l); res[r['match_id']] = r
-    graded = []
+    graded = []; closes = pin_closes({ev for ev in paper})
     for ev, p in paper.items():
-        r = res.get(ev)
-        if not r or not r.get('first_set_complete') or not r.get('first_set_winner'): continue
-        won = (r['first_set_winner'] == 'p1') == (p['fav'] == 'home')
-        graded.append(dict(p, won=won, pnl=round((1 - p['price']) / p['price'] if won else -1.0, 3)))
+        if ts(p['start']) > NOW: continue
+        r = res.get(ev); won = None; src = None
+        if r and r.get('first_set_complete') and r.get('first_set_winner'):
+            won = (r['first_set_winner'] == 'p1') == (p['fav'] == 'home'); src = 'ESPN'
+        elif p.get('kalshi_set1'):
+            won = kalshi_result(p['kalshi_set1']); src = 'Kalshi' if won is not None else None
+        if won is None: continue
+        c = closes.get((ev, p['fav']))
+        graded.append(dict(p, won=won, graded_by=src, pnl=round((1 - p['price']) / p['price'] if won else -1.0, 3),
+                           pin_close=round(c, 4) if c else None, clv=round(100 * (c - p['price']), 2) if c else None))
     rows.sort(key=lambda r: (not r['flag'], r['start']))
-    rec = dict(n=len(graded), won=sum(g['won'] for g in graded), units=round(sum(g['pnl'] for g in graded), 2)) if graded else dict(n=0)
+    cl = [g['clv'] for g in graded if g.get('clv') is not None]
+    rec = dict(n=len(graded), won=sum(g['won'] for g in graded), units=round(sum(g['pnl'] for g in graded), 2),
+               clv=round(sum(cl) / len(cl), 2) if cl else None, clv_n=len(cl)) if graded else dict(n=0)
     json.dump(dict(built=NOW.strftime('%Y-%m-%dT%H:%M:%SZ'), gap=GAP, min_fav=MIN_FAV, min_edge=MIN_EDGE, record=rec, recent=sorted(graded, key=lambda g: g['start'])[-25:],
                    rows=rows), open(OUT, 'w'), separators=(',', ':'))
     print(f"[tennis watch] {len(rows)} upcoming matches priced, {sum(r['flag'] for r in rows)} flagged, {len(new)} new paper entries; record {rec}")
