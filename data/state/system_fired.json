@@ -780,18 +780,16 @@
 },
 "401892629:nhl_pl_fav_strong_opp": {
 "tag": "nhl_pl_fav_strong_opp",
-"fill_id": "b6bd6d6ec214",
-"ts": "2026-11-01T18:14:47Z",
+"fill_id": "81da72a00be6",
+"ts": "2026-11-01T21:55:58Z",
 "market": "spread",
 "side": "away",
 "line": -1.5,
-"venue": "Kalshi",
-"price": 212,
-"fair": 0.29691,
-"edge_pts": -2.31,
-"why": "opponent BOS wins 66% (10-5); favorite VGK -1.5 against a strong team",
-"void": true,
-"void_why": "trigger no longer holds on current season records (2026-11-01T21:35:32Z)"
+"venue": "Novig",
+"price": 245,
+"fair": 0.28729,
+"edge_pts": -0.27,
+"why": "opponent BOS wins 66% (10-5); favorite VGK -1.5 against a strong team"
 },
 "401892631:nhl_pl_dog_bigml": {
 "tag": "nhl_pl_dog_bigml",
@@ -876,7 +874,9 @@
 "price": -104,
 "fair": 0.50063,
 "edge_pts": -0.94,
-"why": "home favorite, game 16 of the season, opponent VGK wins 60% (9-6)"
+"why": "home favorite, game 16 of the season, opponent VGK wins 60% (9-6)",
+"void": true,
+"void_why": "trigger no longer holds on current season records (2026-11-01T21:55:58Z)"
 },
 "401892627:xch_homedog_fade:spread": {
 "tag": "xch_homedog_fade",
