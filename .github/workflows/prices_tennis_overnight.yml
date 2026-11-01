@@ -26,10 +26,11 @@ jobs:
           pip install -q cryptography || true
           python3 loggers/tennis_scores.py --days-back 1 || true
           python3 loggers/tennis_lines.py || true
+          python3 sharp/tennis_watch.py || true     # first-set rule: flag + paper-log overnight starts too
       - name: commit
         run: |
           git config user.name "prices-bot"; git config user.email "actions@users.noreply.github.com"
-          git add data/tennis data/kalshi/fast_meta_tennis.json && git commit -m "tennis overnight $(date -u +%Y-%m-%dT%H:%M)" || exit 0
+          git add data/tennis data/kalshi/fast_meta_tennis.json data/state/tennis_watch.json && git commit -m "tennis overnight $(date -u +%Y-%m-%dT%H:%M)" || exit 0
           for i in 1 2 3 4 5; do
             if git pull --rebase -X theirs && git push; then exit 0; fi
             git rebase --abort 2>/dev/null || true
