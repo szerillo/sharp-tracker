@@ -240,7 +240,7 @@ function sysCards(list) {
       <div><div class="small">${esc(g.away_name || g.away)} @ ${esc(g.home_name || g.home)}</div><div class="bet">${esc(betText(f, g))}</div>
         <div class="why">${esc((rules[tag] || {}).desc || tag)}. This game: ${esc((g.triggers || {})[tag] || f.why || '')}</div>
         ${e.train ? `<div class="why">Backtest: ${esc(e.train)}; since 2021 ${esc(e.hold || '—')}; ${esc(e.seasons || '—')} seasons positive.</div>` : ''}</div>
-      <div class="price"><span class="badge ${tierCls}">tier ${e.tier || '?'}</span> <span class="small dim">${(rules[tag] || {}).stake || ''}u</span><br>flagged at ${VEN(f.venue)} <b>${am(f.price)}</b><br>${priceChip(f)}</div></div>`; }).join('');
+      <div class="price"><span class="badge ${tierCls}">tier ${e.tier || '?'}</span> <span class="small dim">${(rules[tag] || {}).stake || ''}u</span>${(rules[tag] || {}).labs ? ` <a class="small" target="_blank" href="https://sportsinsights.actionnetwork.com/betlabs/screen?ScreenId=${rules[tag].labs.id}">Bet Labs</a>` : ''}<br>flagged at ${VEN(f.venue)} <b>${am(f.price)}</b><br>${priceChip(f)}</div></div>`; }).join('');
 }
 function renderToday() {
   if (!SY) return '<div class="banner">Loading…</div>';
@@ -252,8 +252,10 @@ function renderToday() {
   for (const g of SY.games || []) { if (new Date(g.start_utc) <= Date.now()) continue;
     for (const [tag, why] of Object.entries(g.triggers || {})) { const f = (g.fills || []).find(x => x.tag === tag);
       if (f && f.fill_id && !f.stacked) continue;
-      const reason = tag === 'wind_msw_only' ? 'Weather sources disagree: MySportsWeather has the wind in range, Open-Meteo (the source the rule was tested on) does not. Not a bet; worth a look if the forecasts converge.'
-        : (f && f.stacked ? 'Same bet already flagged by a stronger rule on this game; not a second bet.' : 'The rule fired but no book had a usable price at that moment. If you can find the number, it is the same bet as a card above.');
+      const reason = tag === 'wind_msw_only' ? 'Weather sources disagree: one forecast has the wind in range but the average of Open-Meteo and MySportsWeather (what the rule fires on, the closest match to Bet Labs) does not. Not a bet; worth a look if the forecasts converge.'
+        : (f && f.stacked ? 'Same bet already flagged by a stronger rule on this game; not a second bet.'
+        : ((new Date(g.start_utc) - Date.now()) / 3.6e6 > (SY.window_h || [2, 30])[1] ? `Upcoming: becomes a bet inside ${(SY.window_h || [2, 30])[1]} hours of the start, at the price then (Bet Labs lists it already).`
+        : 'The rule fired but no book had a usable price at that moment. If you can find the number, it is the same bet as a card above.'));
       flags.push({g, tag, why, reason}); } }
   flags.sort((a, b) => a.g.start_utc < b.g.start_utc ? -1 : 1);
   const tierOf = it => (((SY.rules || {})[it.tag] || {}).evidence || {}).tier || '?';   // unknown tier stays in Vet; only an explicit C is demoted

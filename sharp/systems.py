@@ -59,8 +59,19 @@ DESC = {'wind1014': 'NFL outdoor, Open-Meteo sustained wind 10-14 mph at T-24h: 
         'nhl_early_home_fav_qual': 'NHL home favorite, game 24 or earlier, vs an opponent winning 51%+: moneyline', 'nba_under_good_home_over': 'NBA under: home team over 58%+, home 1-2 days off, visitor 1-3, total down 0.5+ from open',
         'cfb_road_dog_low_total': 'CFB conference game, road dog of 7+ with a total of 48 or less: road spread',
         'cbb_bigloss_vs_top5': 'CBB regular-season conference game: unranked team off a 14-45 point loss vs a top-5 opponent: that team on the spread'}
+# Bet Labs screen per rule (every rule Bet Labs can express has a "Tested:" screen in the account, aligned 11/1). Exchange and tennis rules
+# use data Bet Labs does not have, so they have none.
+LABS = {'wind1014': (1772775, 'Tested: NFL Wind 10-14 Under'), 'wind1014_1h': (769171, 'Tested: NFL 1H Wind 10-13 Under'),
+        'vrest8_1h': (1772962, 'Tested: NFL 1H Visitor Off 8 to 30 Days Under'), 'mnf_1h': (1772963, 'Tested: NFL 1H Monday Night Under'),
+        'awfuldog': (1772776, 'Tested: NFL Awful-Team Dog ATS'), 'bounce15_1h': (1772929, 'Tested: NFL 1H Blowout Bounce Dog ATS'),
+        'cfb_wind14': (1783043, 'Tested: CFB Wind 14 Plus Under'), 'cfb_road_dog_low_total': (1789286, 'Tested: CFB Conf Road Dog 7 Plus Total 48 or Less'),
+        'nhl_pl_fav_gap': (1784154, 'Tested: NHL Puck Line Fav Win Pct Gap 22 Plus'), 'nhl_pl_fav_strong_opp': (1784155, 'Tested: NHL Puck Line Fav vs Opp Win Pct 66 Plus'),
+        'nhl_pl_dog_bigml': (1784156, 'Tested: NHL Puck Line Dog Open ML 181 to 196'), 'nhl_early_home_fav_qual': (1789284, 'Tested: NHL Early Season Home Fav vs Quality Opp ML'),
+        'nba_1h_under_hot_over': (1784158, 'Tested: NBA 1H Under Visitor Over Pct 71 Plus'), 'nba_under_good_home_over': (1789285, 'Tested: NBA Under Good Home Over Team Rest Total Down'),
+        'cbb_bigloss_vs_top5': (1789287, 'Tested: CBB Unranked Off 14 Plus Loss vs Top 5 Conf')}
 LATE_H = (0.1, 1.5)   # exchange rules fire in the last 90 minutes (the audit priced them at the close)
 WINDOW_H = tuple(float(x) for x in os.environ.get('SYSTEMS_WINDOW', '2,30').split(','))
+VIEW_H = 8 * 24          # how far ahead a trigger is shown (Bet Labs lists current picks days ahead)
 
 
 def msw_latest(sport, event_id):
@@ -85,6 +96,28 @@ def weather_t24(event_id, path=None):
     if not rows: return None
     t24 = [r for r in rows if 18 <= r['hours_to_kickoff'] <= 30]
     return min(t24, key=lambda r: abs(r['hours_to_kickoff'] - 24)) if t24 else rows[-1]
+
+
+def blend_wind(wx, msw):
+    """Wind the rules fire on: the average of Open-Meteo (T-24h) and MySportsWeather (latest) when both exist, else whichever exists.
+    Bet Labs' own wind sits between the two (11/1: LAC@LAR 14 vs 12.7 / 15, NE@MIA 10 vs 10.2 / 13, IND@JAX 11 vs 9.4 / 15, ATL@TB 11 vs
+    8.9 / 12; the average matched all four in-band calls and the out-of-band KC@DEN). Returns (mph or None, label)."""
+    o = wx.get('wind_mph') if wx and not wx.get('indoor') else None
+    m = msw.get('wind_mph') if msw else None
+    if o is not None and m is not None: return (o + m) / 2, f"avg {((o + m) / 2):.1f} mph (Open-Meteo {o} at T-{wx['hours_to_kickoff']:.0f}h, MySportsWeather {m})"
+    if o is not None: return o, f"Open-Meteo {o} mph at T-{wx['hours_to_kickoff']:.0f}h (MySportsWeather n/a)"
+    if m is not None and not (wx or {}).get('indoor'): return m, f"MySportsWeather {m} mph (Open-Meteo n/a)"
+    return None, 'no forecast'
+
+
+def prev_scheduled(sport, team, st):
+    """(start, event_id) of the team's last scheduled game before st, played or not (postponed games skipped), from the ESPN schedule."""
+    sched_rec(sport, ''); best = None
+    for k, g in (SCHED_CACHE.get(sport) or {}).items():
+        if team not in (g.get('away'), g.get('home')) or 'POSTPONED' in str(g.get('status') or '') or 'CANCELED' in str(g.get('status') or ''): continue
+        t = N.parse_ts(g['start'])
+        if t < st and (best is None or t > best[0]): best = (t, k)
+    return best
 
 
 def main_line(eq, market, home):
@@ -147,6 +180,7 @@ def void_fill(fired, key, why):
 def paper_fill(conn, eq, ev, start, market, line, side, part, tag, stake, note, venue=None, min_h=None):
     ttk = (N.parse_ts(start) - NOW).total_seconds() / 3600
     if ttk < (WINDOW_H[0] if min_h is None else min_h): return None      # inside the last hours a new trigger is shown, not filled
+    if ttk > WINDOW_H[1]: return None      # further out than the fill window: shown as an upcoming trigger, filled once inside it
     best = F.best_price(eq, market, line, side, NOW_S, part)
     if venue: best = [b for b in best if b['venue'] == venue]
     if not best: return None
@@ -187,27 +221,34 @@ def main():
     fires_now = []; view_games = []
     for ev, start, away, home in conn.execute("SELECT event_id, start_utc, away, home FROM events WHERE sport='nfl' ORDER BY start_utc").fetchall():
         st = N.parse_ts(start); ttk = (st - NOW).total_seconds() / 3600
-        if not (0 < ttk <= WINDOW_H[1]): continue      # visible until kickoff; new fills only inside the window (paper_fill checks)
+        if not (0 < ttk <= VIEW_H): continue      # triggers visible up to a week out (like Bet Labs); fills only inside WINDOW_H (paper_fill checks)
         eq = F.EventQuotes(conn, ev); trig = {}
         wx = weather_t24(ev)
         pv = SEA.profile('nfl', away, st); ph = SEA.profile('nfl', home, st)
         sp_line, sp_n = main_line(eq, 'spread', home)       # home line
         dog = None
         if sp_line is not None and sp_line != 0: dog = 'home' if sp_line > 0 else 'away'
-        et_dow = (st + dt.timedelta(hours=-5 if st >= dt.datetime(2026, 11, 1, 6, tzinfo=dt.timezone.utc) else -4)).strftime('%A')
+        et_dow = st.astimezone(N.ET).strftime('%A')
+        v_prev = prev_scheduled('nfl', away, st); h_prev = prev_scheduled('nfl', home, st)
+        # a team with a game still to play before this one: its record / last result are not final yet, so result-based rules wait
+        pending = {t for t, pg in ((away, v_prev), (home, h_prev)) if pg and pg[0] > NOW}
         # --- rules
         msw = msw_latest('nfl', ev)
-        wr = round(wx['wind_mph']) if wx and wx.get('wind_mph') is not None else None     # Bet Labs' wind is whole mph (checked on its 2026 picks 10/31)
-        if wx and not wx.get('indoor') and 10 <= wr <= 14:
-            trig['wind1014'] = f"forecast {wx['wind_mph']} mph (gust {wx.get('gust_mph')}) at T-{wx['hours_to_kickoff']:.0f}h, {wx.get('temp_f')}F" + (f"; MSW {msw['wind_mph']} mph {msw.get('wind_dir') or ''} gust {msw.get('gust_mph')}" if msw else '; MSW n/a')
+        wv, wlab = blend_wind(wx, msw)
+        wr = round(wv) if wv is not None else None     # Bet Labs' wind is whole mph (checked on its 2026 picks 10/31)
+        if wr is not None and 10 <= wr <= 14:
+            trig['wind1014'] = wlab + (f", gust {wx.get('gust_mph')}, {wx.get('temp_f')}F" if wx else '')
             if wr <= 13: trig['wind1014_1h'] = trig['wind1014']      # the tested first-half screen is 10-13 mph, not 10-14
-        elif msw and not (wx or {}).get('indoor') and 10 <= round(msw['wind_mph']) <= 14 and wx and wx.get('wind_mph') is not None:
-            trig['wind_msw_only'] = f"MSW {msw['wind_mph']} mph in band but Open-Meteo {wx['wind_mph']} mph is not (flag only; the rule fires on Open-Meteo)"
-        vdays = (N.et_date(st) - N.et_date(N.parse_ts(pv['last_start']))).days if pv.get('games') and pv.get('last_start') else None   # calendar days, as Bet Labs counts
+        elif wr is not None and any(x is not None and 10 <= round(x) <= 14 for x in ((wx or {}).get('wind_mph'), (msw or {}).get('wind_mph'))):
+            trig['wind_msw_only'] = f"one source in the 10-14 band but the average is {wv:.1f} mph ({wlab}); flag only"
+        # visitor's previous game: the later of its last completed game (season log) and its last scheduled game before this one (the schedule
+        # file only keeps a rolling window, the season log only has finished games); calendar days, as Bet Labs counts
+        cand = [t for t in (v_prev[0] if v_prev else None, N.parse_ts(pv['last_start']) if pv.get('last_start') else None) if t is not None and t < st]
+        vdays = (N.et_date(st) - N.et_date(max(cand))).days if cand else None
         if vdays is not None and 8 <= vdays <= 30:
             trig['vrest8_1h'] = f"{away} off {vdays} days"
         if et_dow == 'Monday': trig['mnf_1h'] = 'Monday night'
-        if dog:
+        if dog and (away if dog == 'away' else home) not in pending:
             dp = pv if dog == 'away' else ph; dteam = away if dog == 'away' else home
             if dp.get('games', 0) >= 1 and dp.get('margin_avg') is not None and dp['margin_avg'] <= -13:     # Bet Labs: no minimum (4 of its 8 2026 picks were week 2)
                 trig['awfuldog'] = f"{dteam} season margin {dp['margin_avg']:+.1f} over {dp['games']} games, dog {('+' if sp_line > 0 else '')}{sp_line if dog == 'home' else -sp_line}"
@@ -247,10 +288,11 @@ def main():
     # CFB: wind >= 14 mph -> under (docs/betlabs_cfb_audit_2026-10-29.md). Only rule audited for CFB.
     for ev, start, away, home in conn.execute("SELECT event_id, start_utc, away, home FROM events WHERE sport='cfb' ORDER BY start_utc").fetchall():
         st = N.parse_ts(start); ttk = (st - NOW).total_seconds() / 3600
-        if not (0 < ttk <= WINDOW_H[1]): continue      # visible until kickoff; new fills only inside the window (paper_fill checks)
+        if not (0 < ttk <= VIEW_H): continue      # triggers visible up to a week out (like Bet Labs); fills only inside WINDOW_H (paper_fill checks)
         wx = weather_t24(ev, WX_CFB); msw = msw_latest('cfb', ev)
-        windy = wx and not wx.get('indoor') and wx.get('wind_mph') is not None and round(wx['wind_mph']) >= 14
-        msw_only = (not windy) and msw and not (wx or {}).get('indoor') and round(msw.get('wind_mph') or 0) >= 14 and wx and wx.get('wind_mph') is not None
+        wv, wlab = blend_wind(wx, msw)
+        windy = wv is not None and round(wv) >= 14
+        msw_only = (not windy) and wv is not None and any(x is not None and round(x) >= 14 for x in ((wx or {}).get('wind_mph'), (msw or {}).get('wind_mph')))
         eq = F.EventQuotes(conn, ev)
         sp_line, _n = main_line(eq, 'spread', home); tl, _n2 = main_line(eq, 'total', None); rec_s = sched_rec('cfb', ev)
         rdlt = sp_line is not None and sp_line <= -7 and tl is not None and tl <= 48 and rec_s.get('conf')
@@ -266,9 +308,9 @@ def main():
                     rec_ = dict(tag='cfb_road_dog_low_total', fill_id=row['fill_id'], ts=NOW_S, market='spread', side='away', line=-sp_line, venue=row['venue'], price=row['price_american'],
                                 fair=row['fair_at_fill'], edge_pts=(round(100 * (row['fair_at_fill'] - row['implied']), 2) if row['fair_at_fill'] is not None else None), why=why2)
                     fired[key2] = rec_; game['fills'].append(rec_); fires_now.append(dict(game=f"{away}@{home}", **rec_))
-        if msw_only: game['triggers']['wind_msw_only'] = f"MySportsWeather {msw['wind_mph']} mph at kickoff but Open-Meteo {wx['wind_mph']} mph (the rule fires on Open-Meteo)"
+        if msw_only: game['triggers']['wind_msw_only'] = f"one source at 14+ mph but the average is {wv:.1f} mph ({wlab}); flag only"
         if not windy: view_games.append(game); continue
-        why = f"forecast {wx['wind_mph']} mph (gust {wx.get('gust_mph')}) at T-{wx['hours_to_kickoff']:.0f}h, {wx.get('temp_f')}F" + (f"; MSW {msw['wind_mph']} mph {msw.get('wind_dir') or ''}" if msw else '; MSW n/a')
+        why = wlab + (f", gust {wx.get('gust_mph')}, {wx.get('temp_f')}F" if wx else '')
         game['triggers']['cfb_wind14'] = why
         key = f"{ev}:cfb_wind14"
         if key in fired: game['fills'].append(fired[key])
@@ -284,7 +326,7 @@ def main():
     # NHL and NBA leans from the segment audit: one fill per game per tag, inside the normal window.
     for ev, sport, start, away, home in conn.execute("SELECT event_id, sport, start_utc, away, home FROM events WHERE sport IN ('nhl','nba') ORDER BY start_utc").fetchall():
         st = N.parse_ts(start); ttk = (st - NOW).total_seconds() / 3600
-        if not (0 < ttk <= WINDOW_H[1]): continue      # visible until kickoff; new fills only inside the window (paper_fill checks)
+        if not (0 < ttk <= VIEW_H): continue      # triggers visible up to a week out (like Bet Labs); fills only inside WINDOW_H (paper_fill checks)
         ph, pa = SEA.profile(sport, home, st), SEA.profile(sport, away, st)
         if ph.get('games', 0) < 1 or pa.get('games', 0) < 1: continue      # Bet Labs applies no minimum (its picks start in a team's 2nd game); 8 was ours
         eq = F.EventQuotes(conn, ev); ml_h = eq.fair('ml', None, 'home', NOW_S, home); ml_a = eq.fair('ml', None, 'away', NOW_S, away)
@@ -356,7 +398,7 @@ def main():
         if (g.get('away_team') or {}).get('id'): hist[g['away_team']['id']].append((g['start'], as_ - hs))
     for ev, start, away, home in conn.execute("SELECT event_id, start_utc, away, home FROM events WHERE sport='cbb' ORDER BY start_utc").fetchall():
         st = N.parse_ts(start); ttk = (st - NOW).total_seconds() / 3600
-        if not (0 < ttk <= WINDOW_H[1]): continue
+        if not (0 < ttk <= VIEW_H): continue
         g = (cbb or {}).get(ev) or {}
         if not g.get('conf') or g.get('season_type') not in (2, None): continue
         trig = None
@@ -462,9 +504,9 @@ def main():
                 except Exception: best = []
                 f['now'] = dict(venue=best[0]['venue'], price=N.prob_to_american(best[0]['cost'])) if best else None
     view_games = [g for g in view_games if g['triggers']]
-    json.dump(dict(built=NOW_S, window_h=WINDOW_H, rules={k: dict(v, tag=k, desc=DESC.get(k, ''), evidence=EVIDENCE.get(k)) for k, v in RULES.items()}, games=view_games, fired_now=fires_now, record=dict(rec)),
+    json.dump(dict(built=NOW_S, window_h=WINDOW_H, rules={k: dict(v, tag=k, desc=DESC.get(k, ''), evidence=EVIDENCE.get(k), labs=(dict(id=LABS[k][0], name=LABS[k][1]) if k in LABS else None)) for k, v in RULES.items()}, games=view_games, fired_now=fires_now, record=dict(rec)),
               open(VIEW, 'w'), default=str, separators=(',', ':'))
-    print(f"[systems] {len(view_games)} games with triggers in the {WINDOW_H[0]}-{WINDOW_H[1]}h window; {len(fires_now)} new paper fills; tags on file {dict((k, v['n']) for k, v in rec.items())}")
+    print(f"[systems] {len(view_games)} games with triggers (shown up to {VIEW_H}h out, filled {WINDOW_H[0]}-{WINDOW_H[1]}h); {len(fires_now)} new paper fills; tags on file {dict((k, v['n']) for k, v in rec.items())}")
     conn.close()
 
 
