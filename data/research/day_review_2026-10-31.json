@@ -1805,8 +1805,8 @@
 "T-1h": 0.785,
 "close": 0.785
 },
-"res": null,
-"pnl_sig": null
+"res": 1.0,
+"pnl_sig": 0.2738853503184713
 },
 {
 "family": "bigsmall",
@@ -3908,8 +3908,8 @@
 "tag": "nhl_pl_dog_bigml",
 "fill_price": 150,
 "fill_implied": 0.4,
-"result": null,
-"pnl_units": null,
+"result": "L",
+"pnl_units": -0.5,
 "stake": 0.5,
 "sport": "nhl",
 "game": "CGY@COL",
@@ -3922,8 +3922,8 @@
 "T-1h": 0.395,
 "close": 0.405
 },
-"res": null,
-"pnl_sig": null
+"res": 0.0,
+"pnl_sig": -1.0
 },
 {
 "family": "systems",
@@ -4694,27 +4694,6 @@
 },
 {
 "family": "kmove4",
-"event_id": "401909901",
-"market": "spread",
-"home_line": -11.5,
-"side": "home",
-"t0": "2026-10-31T23:03:38+00:00",
-"first": 0.515,
-"at": 0.555,
-"sport": "nba",
-"game": "MIN@SA",
-"start": "2026-11-01T00:00:00+00:00",
-"lead_h": 0.9,
-"path": {
-"signal": 0.555,
-"+15m": 0.555,
-"close": 0.555
-},
-"res": 0.0,
-"pnl_sig": -1.0
-},
-{
-"family": "kmove4",
 "event_id": "401909898",
 "market": "spread",
 "home_line": 4.5,
@@ -4737,23 +4716,20 @@
 {
 "family": "kmove4",
 "event_id": "401909901",
-"market": "total",
-"home_line": 226.5,
-"side": "under",
-"t0": "2026-10-31T16:23:06+00:00",
-"first": 0.5,
-"at": 0.455,
+"market": "spread",
+"home_line": -11.5,
+"side": "home",
+"t0": "2026-10-31T23:03:38+00:00",
+"first": 0.515,
+"at": 0.555,
 "sport": "nba",
 "game": "MIN@SA",
 "start": "2026-11-01T00:00:00+00:00",
-"lead_h": 7.6,
+"lead_h": 0.9,
 "path": {
-"signal": 0.545,
-"+15m": 0.545,
-"+1h": 0.545,
-"+3h": 0.465,
-"T-1h": 0.445,
-"close": 0.435
+"signal": 0.555,
+"+15m": 0.555,
+"close": 0.555
 },
 "res": 0.0,
 "pnl_sig": -1.0
@@ -4780,6 +4756,30 @@
 },
 "res": 1.0,
 "pnl_sig": 0.8691588785046728
+},
+{
+"family": "kmove4",
+"event_id": "401909901",
+"market": "total",
+"home_line": 226.5,
+"side": "under",
+"t0": "2026-10-31T16:23:06+00:00",
+"first": 0.5,
+"at": 0.455,
+"sport": "nba",
+"game": "MIN@SA",
+"start": "2026-11-01T00:00:00+00:00",
+"lead_h": 7.6,
+"path": {
+"signal": 0.545,
+"+15m": 0.545,
+"+1h": 0.545,
+"+3h": 0.465,
+"T-1h": 0.445,
+"close": 0.435
+},
+"res": 0.0,
+"pnl_sig": -1.0
 },
 {
 "family": "kmove4",
@@ -4945,8 +4945,8 @@
 "T-1h": 0.785,
 "close": 0.785
 },
-"res": null,
-"pnl_sig": null
+"res": 1.0,
+"pnl_sig": 0.25786163522012573
 },
 {
 "family": "kmove4",
