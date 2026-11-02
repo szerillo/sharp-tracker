@@ -53,7 +53,7 @@ def catalog():
     print(f"[poly hist] catalog: {n} markets on {len(seen)} games")
 
 
-def catalog_back():
+def catalog_back(tags=None):
     """Older settled game markets the newest-first listing cannot reach (Gamma stops paging around 2,100 events per tag): walk each tag
     backwards by end date (end_date_max = the oldest start seen so far) until a window holds no game events, and append markets not
     already in catalog.jsonl."""
@@ -61,13 +61,13 @@ def catalog_back():
     for l in open(os.path.join(OUT, 'catalog.jsonl')): have.add(json.loads(l)['cond'])
     n = 0
     with open(os.path.join(OUT, 'catalog.jsonl'), 'a') as f:
-        for tag in TAGS:
+        for tag in (tags or TAGS):
             mx = None; empty = 0; nt = 0
             for l in open(os.path.join(OUT, 'catalog.jsonl')):
                 r = json.loads(l)
                 if r['tag'] == tag and (mx is None or r['date'] < mx): mx = r['date']
             mx = mx or '2026-11-02'
-            while empty < 3:
+            while empty < 60 and mx > '2023-06-01':          # props / novelty events fill whole windows; keep walking
                 E = g(f"{G}/events?tag_slug={tag}&closed=true&limit=100&order=startDate&ascending=false&end_date_max={mx}T00:00:00Z")
                 if not E: break
                 got = 0; oldest = mx
@@ -152,6 +152,6 @@ if __name__ == '__main__':
     mv = float(sys.argv[sys.argv.index('--min-volume') + 1]) if '--min-volume' in sys.argv else 1000.0
     if sys.argv[1] == 'catalog': catalog()
     elif sys.argv[1] == 'catalog_props': catalog_props()
-    elif sys.argv[1] == 'catalog_back': catalog_back()
+    elif sys.argv[1] == 'catalog_back': catalog_back([t for t in sys.argv[2:] if not t.startswith('--')] or None)
     elif sys.argv[1] == 'trades_props': trades(mv, 'catalog_props.jsonl')
     else: trades(mv)
