@@ -12,7 +12,7 @@ from sharp import norm as N, fair as F, constants as C, season as SEA, fills as 
 ROOT = os.path.abspath(os.path.join(HERE, '..')); SD = os.path.join(ROOT, 'data', 'state'); DB = os.path.join(SD, 'sharp.sqlite')
 FIRED = os.path.join(SD, 'system_fired.json'); VIEW = os.path.join(SD, 'system_fires.json'); WX = os.path.join(ROOT, 'data', 'nfl', 'weather', 'weather.jsonl')
 WX_CFB = os.path.join(ROOT, 'data', 'cfb', 'weather', 'weather.jsonl')
-NOW = dt.datetime.now(dt.timezone.utc); NOW_S = N.iso(NOW)
+NOW = dt.datetime.fromisoformat(os.environ["SYSTEMS_NOW"].replace("Z", "+00:00")) if os.environ.get("SYSTEMS_NOW") else dt.datetime.now(dt.timezone.utc); NOW_S = N.iso(NOW)   # SYSTEMS_NOW replays a past run (debugging)
 RULES = {'wind1014': dict(market='total', side='under', stake=1.0), 'wind1014_1h': dict(market='1h_total', side='under', stake=0.5),
          'cfb_wind14': dict(market='total', side='under', stake=1.0, sport='cfb'),
          'vrest8_1h': dict(market='1h_total', side='under', stake=0.5), 'mnf_1h': dict(market='1h_total', side='under', stake=0.5),
@@ -568,8 +568,8 @@ def main():
         g.setdefault('sport', 'nfl'); g['league'] = sched_rec(g['sport'], g['event_id']).get('league')
         g['hours_to_kickoff'] = round((N.parse_ts(g['start_utc']) - NOW).total_seconds() / 3600, 1)
         fired_tags = {f['tag'] for f in g.get('fills', [])}
-        if g['hours_to_kickoff'] < WINDOW_H[0]:      # triggers that first appeared inside the last hours never became bets; do not show them as such
-            g['triggers'] = {t: w for t, w in g['triggers'].items() if t in fired_tags or t.startswith(('xch_', 'nba_momentum'))}
+        if g['hours_to_kickoff'] < WINDOW_H[0]:      # inside the last hours a trigger without a fill cannot become a bet any more: keep it visible, labelled
+            g['late'] = [t for t in g['triggers'] if t not in fired_tags and not t.startswith(('xch_', 'nba_momentum'))]
         g['fills'] = [f for f in g.get('fills', []) if not f.get('void')]
         live = [f for f in g.get('fills', []) if f.get('fill_id') and not f.get('stacked')]
         if live:

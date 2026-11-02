@@ -329,7 +329,8 @@ function renderToday() {
   for (const g of SY.games || []) { if (!future(g.start_utc)) continue;
     for (const [tag, why] of Object.entries(g.triggers || {})) { const f = (g.fills || []).find(x => x.tag === tag);
       if (f && f.fill_id && !f.stacked) continue;
-      const reason = tag === 'wind_msw_only' ? 'Weather sources disagree: one forecast has the wind in range but the average of Open-Meteo and MySportsWeather (what the rule fires on, the closest match to Bet Labs) does not. Worth a look if the forecasts converge.'
+      const reason = (g.late || []).includes(tag) ? `Fired, but there is no bet: inside ${(SY.window_h || [2, 30])[0]} hours of the start, and rules only take a price ${(SY.window_h || [2, 30])[0]}-${(SY.window_h || [2, 30])[1]} hours out. If it had been eligible earlier, check the rule card's history (a voided or stacked fill can block it).`
+        : tag === 'wind_msw_only' ? 'Weather sources disagree: one forecast has the wind in range but the average of Open-Meteo and MySportsWeather (what the rule fires on, the closest match to Bet Labs) does not. Worth a look if the forecasts converge.'
         : (f && f.stacked ? 'Same bet already flagged by a stronger rule on this game.'
         : ((new Date(g.start_utc) - now) / 3.6e6 > (SY.window_h || [2, 30])[1] ? `Becomes a bet inside ${(SY.window_h || [2, 30])[1]} hours of the start, at the price then (Bet Labs lists it already).`
         : 'Fired, but no bettable book had a usable price at that moment. If you can find the number, it is the same bet.'));
