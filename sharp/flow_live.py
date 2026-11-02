@@ -26,7 +26,8 @@ NOW = dt.datetime.now(dt.timezone.utc)
 
 def recent(d, days=8):
     cut = (NOW - dt.timedelta(days=days)).date().isoformat()
-    return [f for f in sorted(glob.glob(os.path.join(d, '*.jsonl.gz'))) if os.path.basename(f)[:10] >= cut]
+    fs = glob.glob(os.path.join(d, '*.jsonl.gz')) + glob.glob(os.path.join(d, '*.jsonl'))     # the Polymarket logger wrote plain .jsonl before 10/31
+    return [f for f in sorted(fs) if os.path.basename(f)[:10] >= cut]
 
 
 LINKS = {}      # event_id -> {'kalshi': {market: url}, 'poly': url, 'an': url}: where the Today page sends you to bet
@@ -166,10 +167,11 @@ POLY_LEAGUES = {'NFL': 'nfl', 'NBA': 'nba', 'NHL': 'nhl', 'CFB': 'cfb', 'CBB': '
 POLY_TYPES = {'moneyline': 'ml', 'spreads': 'spread', 'totals': 'total'}
 
 
-def poly_trades(sched, agg):
+def poly_trades(sched, agg, cut=None):
     """Polymarket taker trades on game lines (logged by loggers/polymarket.py from data-api.polymarket.com, which returns taker fills:
     BUY outcome X = a bet on X, SELL outcome X = a bet against X), added to the same per-market buckets as Kalshi, risk-equivalent size.
-    Matched to our schedule by start time and team names. Pregame only; each trade counted once across snapshots."""
+    Matched to our schedule by start time and team names. Pregame only; each trade counted once across snapshots.
+    cut: optional {event_id: datetime} to count only trades before that time (sharp/strongest_backfill.py rebuilds the watch at T-1h)."""
     idx = collections.defaultdict(list)
     for ev, e in sched.items(): idx[(e['sport'], e['start'][:16])].append(ev)
     def name_side(e, nm):
@@ -181,7 +183,7 @@ def poly_trades(sched, agg):
         return None
     seen = set(); n = 0; root = os.path.join(ROOT, 'data', 'polymarket')
     for f in recent(root):
-        try: fh = gzip.open(f, 'rt'); lines = fh
+        try: fh = gzip.open(f, 'rt') if f.endswith('.gz') else open(f); lines = fh
         except OSError: continue
         try:
             for l in lines:
@@ -206,7 +208,7 @@ def poly_trades(sched, agg):
                     if k in seen: continue
                     seen.add(k)
                     tt = dt.datetime.fromtimestamp(int(t['ts']), dt.timezone.utc)
-                    if tt >= start_ts: continue
+                    if tt >= ((cut or {}).get(ev) or start_ts): continue
                     p = float(t['p']); usd = float(t['size']) * min(p, 1 - p)
                     if mk == 'total':
                         o = (t.get('outcome') or '').lower(); bet = o if t['side'] == 'BUY' else OTHER.get(o)

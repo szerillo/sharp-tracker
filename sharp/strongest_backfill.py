@@ -6,7 +6,7 @@ At T = start - 1h, per game x market (main line):
   PRICE  sharp move: notable move on the move tape (Pinnacle origin, or $1k+ Kalshi fills with it) with ts in [T-6h, T]
          Kalshi move: Kalshi two-sided mid moved 4+ pts from its first tight print to T (state from flow_live.steam_state)
          bet back:    a 3+ pt / 60-min Kalshi steam that gave back 40% by T (reversal side)
-  MONEY  big vs small: Kalshi + Polymarket pregame taker fills before T, risk-equivalent, $500+ net $1,000+ one way with small
+  MONEY  big vs small: Kalshi + Polymarket taker fills before T, risk-equivalent, $500+ net $1,000+ one way with small
          money ($50 and under) the other way, above the display floor ($10k traded, $2.5k big net)
 Strongest = price (one side) and money agree, or any signal on a system bet (system_fired.json) for that market.
 A Kalshi move that gave back is folded into its bet-back row (same story), as on the page.
@@ -52,9 +52,9 @@ def main():
                 if usd >= FL.BIG_USD: s['big'] += usd; s['n_big'] += 1
                 if usd <= FL.SMALL_USD: s['small'] += usd
         except (EOFError, OSError): pass
-    pagg = collections.defaultdict(lambda: dict(sides=collections.defaultdict(lambda: dict(big=0.0, small=0.0, all=0.0, n=0, n_big=0)), venues=set(), last=None))
-    FL.NOW = NOW; FL.poly_trades(games, pagg)            # pregame-only trades; cut at T below needs per-trade times, so Polymarket is
-    money = {}                                          # added only for markets whose trades all precede T (conservative: skipped otherwise)
+    FL.NOW = NOW; npoly = FL.poly_trades(games, agg, cut=T)       # Polymarket taker fills before T, same buckets as Kalshi
+    print(f"[strongest backfill] {npoly} Polymarket trades before T-1h added")
+    money = {}
     best = {}
     for (ev, mk, line), a in agg.items():
         tot = sum(s['all'] for s in a['sides'].values())
