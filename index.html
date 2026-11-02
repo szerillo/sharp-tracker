@@ -765,6 +765,11 @@ async function load() {
   draw();
 }
 load();
+// keep an open tab current: redraw every minute (rolling 24h window, countdowns), re-fetch the data every 5 minutes (the tracker
+// publishes about every 20). Filters, sort and open rows live on window.* and survive both.
+setInterval(() => { try { if (!document.hidden) draw(); } catch (e) {} }, 60 * 1000);
+setInterval(() => { if (!document.hidden) load(); }, 5 * 60 * 1000);
+document.addEventListener('visibilitychange', () => { if (!document.hidden) load(); });   // coming back to the tab: fresh data at once
 </script>
 </body>
 </html>
