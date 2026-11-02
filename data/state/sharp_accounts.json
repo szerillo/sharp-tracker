@@ -1,5 +1,5 @@
 {
- "built": "2026-11-02T18:26:29Z",
+ "built": "2026-11-02T18:41:50Z",
  "rows": [
   {
    "cond": "0xdc614e16fcccc4cce28241e13e7b774d797e30bbb55b0985f63915c039fa7aa7",
@@ -73,7 +73,7 @@
    "best_rank": 40,
    "usd": 525,
    "paid": 0.5,
-   "ask": 0.48,
+   "ask": 0.47,
    "status": "live",
    "link": "https://polymarket.us/event/nba-atl-ind-2026-11-02",
    "other": null,
@@ -86,7 +86,10 @@
    "away_name": "Atlanta Hawks",
    "home_name": "Indiana Pacers",
    "game_start": "2026-11-03T00:30Z",
-   "side_std": "over"
+   "side_std": "over",
+   "conflict": [
+    "Kalshi move"
+   ]
   },
   {
    "cond": "0x8c5d7c86eb94c854ce720ffe8b82d934db5294c7e60c9d70aa80dcce628d80c4",
