@@ -1,25 +1,6 @@
 {
- "built": "2026-11-02T07:36:10Z",
+ "built": "2026-11-02T07:39:40Z",
  "rows": [
-  {
-   "cond": "0xf3a327ce7671b289896dd99c4aabd590e334c3b70389cfee17578c9c522253d5",
-   "slug": "nba-was-orl-2026-11-02",
-   "title": "Wizards vs. Magic",
-   "mtype": "ml",
-   "start": "2026-11-03T00:30:00Z",
-   "bet": "Magic ML",
-   "side": "Magic",
-   "flagged": "2026-11-01T08:39:51Z",
-   "why": "3 top-200 accounts",
-   "n_accounts": 3,
-   "best_rank": 28,
-   "usd": 613,
-   "paid": 0.538,
-   "ask": 0.57,
-   "status": "live",
-   "link": "https://polymarket.us/event/nba-was-orl-2026-11-02",
-   "other": null
-  },
   {
    "cond": "0x7172e2f4cb02bc1e159cbd92f390336fd879d09d117be3ea8ce8f34c8719c624",
    "slug": "nba-tor-lac-2026-11-02",
@@ -37,7 +18,8 @@
    "ask": 0.66,
    "status": "live",
    "link": "https://polymarket.us/event/nba-tor-lac-2026-11-02",
-   "other": null
+   "other": null,
+   "kalshi_against": null
   },
   {
    "cond": "0x484829914029c89c187799972e5a2e50b48e94347b17e2bd2d7badd313d573d3",
@@ -56,7 +38,8 @@
    "ask": 0.39,
    "status": "live",
    "link": "https://polymarket.us/event/ucl-vil-psg-2026-11-03",
-   "other": null
+   "other": null,
+   "kalshi_against": null
   },
   {
    "cond": "0xe7f9ccd549f2d959314cce993bc3424f944cc9b95fab6f792ddc49ae5aae1abc",
@@ -75,7 +58,8 @@
    "ask": 0.61,
    "status": "live",
    "link": "https://polymarket.us/event/ucl-atm-bay-2026-11-03",
-   "other": null
+   "other": null,
+   "kalshi_against": null
   },
   {
    "cond": "0x00f341c1ce5ac7d38b59f3606333d0db49b6a51f7cfa86c543cebc811ba46f79",
@@ -94,7 +78,32 @@
    "ask": 0.8,
    "status": "live",
    "link": "https://polymarket.us/event/nfl-jax-bal-2026-11-06",
-   "other": null
+   "other": null,
+   "kalshi_against": null
+  },
+  {
+   "cond": "0xf3a327ce7671b289896dd99c4aabd590e334c3b70389cfee17578c9c522253d5",
+   "slug": "nba-was-orl-2026-11-02",
+   "title": "Wizards vs. Magic",
+   "mtype": "ml",
+   "start": "2026-11-03T00:30:00Z",
+   "bet": "Magic ML",
+   "side": "Magic",
+   "flagged": "2026-11-01T08:39:51Z",
+   "why": "3 top-200 accounts",
+   "n_accounts": 3,
+   "best_rank": 28,
+   "usd": 613,
+   "paid": 0.538,
+   "ask": 0.57,
+   "status": "live",
+   "link": "https://polymarket.us/event/nba-was-orl-2026-11-02",
+   "other": null,
+   "kalshi_against": {
+    "move": 4.0,
+    "now": 42.5,
+    "state": "held"
+   }
   },
   {
    "cond": "0xc94d2d36ea4b02d121cf9dd446fe61f0ffbc4b54053cf9f0e771ae4e4eec08b5",
@@ -119,7 +128,8 @@
     "usd": 175,
     "first": "2026-11-01T23:00:37Z"
    },
-   "exit_bid": 0.21
+   "exit_bid": 0.21,
+   "kalshi_against": null
   }
  ],
  "record": {

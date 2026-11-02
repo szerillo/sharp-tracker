@@ -340,7 +340,8 @@ function sharpAcctSection() {
   const rec = SA.record && SA.record.n ? `paper ${SA.record.won}-${SA.record.n - SA.record.won}, ${SA.record.units > 0 ? '+' : ''}${SA.record.units}u, CLV ${SA.record.clv > 0 ? '+' : ''}${SA.record.clv} pts` : 'paper record starts with the first graded flag';
   const c = x => x == null ? '—' : `${(100 * x).toFixed(1)}¢ (${toAm(x)})`;
   const row = r => {
-    const st = r.status === 'live' ? '<span class="ok-chip">live</span>'
+    const st = r.kalshi_against && r.status === 'live' ? `<span class="tag-against">Kalshi has moved ${r.kalshi_against.move} pts the other way</span><div class="small dim">Backtest: a sharp bet with Kalshi 4+ pts against kept only +0.24 pts CLV (vs +0.99), so skip it.</div>`
+      : r.status === 'live' ? '<span class="ok-chip">live</span>'
       : `<span class="tag-against">a rank-${r.other.best_rank} sharp bet the other side ${ET(r.other.first)} ($${r.other.usd.toLocaleString()})</span>
          <div class="small dim">Backtest: holding still beat getting out (+1.12 vs +0.89 pts CLV on 194 cases), so the default is hold.${r.exit_bid ? ` To get out now: sell at about ${(100 * r.exit_bid).toFixed(1)}¢.` : ''}</div>`;
     return `<tr><td class="small"><b>${DAYT(r.start)}</b><br><span class="dim">${until(r.start)}</span></td>

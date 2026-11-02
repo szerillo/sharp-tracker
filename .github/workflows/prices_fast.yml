@@ -30,7 +30,7 @@ jobs:
           NOVIG_PRIVATE_KEY: ${{ secrets.NOVIG_PRIVATE_KEY }}
         run: |
           pip install -q cryptography
-          if [ "${{ matrix.group }}" = "trades" ]; then python3 loggers/fast.py --trades || true; python3 loggers/poly_sharps.py || true; python3 sharp/sharp_live.py || true
+          if [ "${{ matrix.group }}" = "trades" ]; then python3 loggers/poly_sharps.py || true; python3 sharp/sharp_live.py || true; python3 loggers/fast.py --trades || true
           elif [ "${{ matrix.group }}" = "tennis" ]; then python3 loggers/tennis_lines.py --fast || true
           else python3 loggers/fast.py --sports ${{ matrix.group }} || true; fi
       - name: commit

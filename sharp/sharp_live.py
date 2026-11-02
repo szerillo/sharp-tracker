@@ -10,6 +10,9 @@ Input: data/polymarket/sharp_fills.jsonl (loggers/poly_sharps.py, every 5 minute
           getting out at the mid 5 minutes later (194 cases), so the default is to hold; the row says so, with the current price to get out.
   Accounts on both sides before any flag: no flag (head-to-head at T-15m had no edge either way).
 Price: the current best ask on the flagged side from the Polymarket CLOB (what a follower pays now), next to what the sharps paid.
+Kalshi veto (moneylines): if Kalshi's price has moved 4+ points against the flagged side since its first two-sided price
+(data/state/flow_live.json moves), the row is marked "Kalshi against" and moved below the others. Backtest (top 200, 5 minutes behind,
+moneylines since September): CLV +1.10 when Kalshi had moved 4+ the same way, +0.99 under 4, +0.24 when 4+ against.
 Paper log: data/state/sharp_paper.jsonl, one row per flag at the ask when first seen; graded after the game on the result (Gamma) and on
 CLV vs Polymarket's two-sided close (public trade tape). Writes data/state/sharp_accounts.json.
 Usage: python3 sharp/sharp_live.py"""
@@ -75,6 +78,19 @@ def main():
     meta = json.load(open(META)) if os.path.exists(META) else {}
     paper = [json.loads(l) for l in open(PAPER)] if os.path.exists(PAPER) else []
     logged = {p['cond'] for p in paper}
+    KM = []
+    try: KM = [m for m in json.load(open(os.path.join(ROOT, 'data', 'state', 'flow_live.json'))).get('moves') or [] if m['market'] == 'ml']
+    except Exception: pass
+    def kalshi_against(title, side, start):
+        """Kalshi moneyline mover for this game (same start within 15 min, team names match), moved 4+ against `side`."""
+        nm = lambda x: (x or '').lower().split()[-1] if x else ''
+        for k in KM:
+            if abs(epoch(k['start']) - start) > 900: continue
+            teams = {nm(k.get('away_name')): 'away', nm(k.get('home_name')): 'home'}
+            if not any(t and t in (title or '').lower() for t in teams): continue
+            mine = next((v for t, v in teams.items() if t and t in side.lower()), None)
+            if mine and k['side'] != mine: return k
+        return None
     rows = []
     for cond, L in F.items():
         L.sort(key=lambda r: r['ts']); m = meta.get(cond) or {}; start = epoch(L[0]['start'])
@@ -103,10 +119,13 @@ def main():
         if opp:
             otok = (m.get('tokens') or [None, None])[outs.index(opp[0]['bet'])] if opp[0]['bet'] in outs else None
             row['exit_bid'] = round(1 - ask(otok), 3) if otok and start > NOW and ask(otok) else None   # selling our side = buying the other side's ask
+        ka = kalshi_against(row['title'], side, start) if row['mtype'] == 'ml' and side not in ('Yes', 'No') else None
+        row['kalshi_against'] = dict(move=ka['move'], now=ka.get('now'), state=ka.get('state')) if ka else None
         rows.append(row)
         if cond not in logged and start > NOW and a and not opp:      # a flag first seen after a sharp already took the other side is not logged
             paper.append(dict(cond=cond, slug=row['slug'], bet=row['bet'], side=side, mtype=row['mtype'], start=row['start'], flagged=row['flagged'],
-                              logged=dt.datetime.fromtimestamp(NOW, dt.timezone.utc).strftime('%Y-%m-%dT%H:%M:%SZ'), price=a, why=row['why'], best_rank=row['best_rank']))
+                              logged=dt.datetime.fromtimestamp(NOW, dt.timezone.utc).strftime('%Y-%m-%dT%H:%M:%SZ'), price=a, why=row['why'], best_rank=row['best_rank'],
+                              kalshi_against=bool(row['kalshi_against'])))
             logged.add(cond)
     # grade paper rows after the game: result from Gamma, CLV vs Polymarket's two-sided close
     for p in paper:
@@ -125,7 +144,7 @@ def main():
     G_ = [p for p in paper if p.get('result')]
     rec = dict(n=len(G_), won=sum(p['result'] == 'W' for p in G_), units=round(sum(p['pnl'] for p in G_), 2),
                clv=round(sum(p['clv'] for p in G_ if 'clv' in p) / max(1, sum('clv' in p for p in G_)), 2) if G_ else None)
-    rows.sort(key=lambda r: (r['status'] != 'live', r['start']))
+    rows.sort(key=lambda r: (r['status'] != 'live' or bool(r.get('kalshi_against')), r['start']))
     json.dump(dict(built=dt.datetime.fromtimestamp(NOW, dt.timezone.utc).strftime('%Y-%m-%dT%H:%M:%SZ'), rows=[r for r in rows if epoch(r['start']) > NOW],
                    record=rec, rule=f'top-{TOP_RANK} account, or {TWO}+ top-200 accounts on one side, none on the other'), open(OUT, 'w'), indent=1)
     print(f"[sharp_live] {sum(epoch(r['start']) > NOW for r in rows)} upcoming flagged markets ({sum(r['status'] == 'other side' for r in rows)} with a sharp on the other side since); paper {rec}")
