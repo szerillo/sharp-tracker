@@ -1,8 +1,8 @@
 {
-"built": "2026-11-02T07:33:20Z",
+"built": "2026-11-02T08:06:45Z",
 "history_through": "2026-11-02",
 "scored": 4147,
-"method": "mean CLV vs Polymarket close of $100+ pregame fills, 30+ fills on 15+ games, top 200",
+"method": "mean CLV vs Polymarket close of $100+ pregame fills, 30+ fills on 15+ games, top 200 (sharp/poly_agg.py)",
 "accounts": [
 {
 "w": "0x161a7f666ca49d592848cf415b42f49a84714103",
@@ -232,7 +232,7 @@
 "w": "0x44a1159b925c145e70f746bb3f0f58380553bd21",
 "rank": 29,
 "clv": 2.06,
-"roi": -3.3,
+"roi": -3.4,
 "fills": 56,
 "games": 47
 },
@@ -888,7 +888,7 @@
 "w": "0xf4ec03081af3116b77f0d52c109c6828ff0ec574",
 "rank": 111,
 "clv": 1.05,
-"roi": 17.7,
+"roi": 17.6,
 "fills": 40,
 "games": 29
 },
@@ -1413,20 +1413,20 @@
 "games": 373
 },
 {
-"w": "0x494e6eec37f3d1350854987360a5ae3bd8326f79",
-"rank": 177,
-"clv": 0.85,
-"roi": -8.0,
-"fills": 30,
-"games": 23
-},
-{
 "w": "0x3f6a1d7286ba411f050c2c2fb534253dddb1a7bf",
-"rank": 178,
+"rank": 177,
 "clv": 0.85,
 "roi": 15.8,
 "fills": 40,
 "games": 36
+},
+{
+"w": "0x494e6eec37f3d1350854987360a5ae3bd8326f79",
+"rank": 178,
+"clv": 0.85,
+"roi": -8.0,
+"fills": 30,
+"games": 23
 },
 {
 "w": "0x16b29c50f2439faf627209b2ac0c7bbddaa8a881",

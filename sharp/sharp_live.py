@@ -68,6 +68,48 @@ def close_mid(cond, start):
     return None
 
 
+ALERTS = os.path.join(ROOT, 'data', 'state', 'sharp_alerts.json')
+
+
+def ntfy(title, msg, click, tags, prio='high'):
+    topic = os.environ.get('NTFY_TOPIC')
+    if not topic: return False
+    req = urllib.request.Request(f"https://ntfy.sh/{topic}", data=msg.encode('utf-8'), method='POST',
+                                 headers={'Title': title.encode('ascii', 'ignore').decode(), 'Click': click, 'Tags': tags, 'Priority': prio})
+    try: urllib.request.urlopen(req, timeout=15); return True
+    except Exception as e: print(f"[sharp_live] ntfy failed: {e}"); return False
+
+
+def alerts(rows):
+    """Phone push (ntfy, topic in the NTFY_TOPIC repo secret) when a flag first appears, and when a sharp later takes the other side of
+    a flag already pushed. Not pushed: flags with Kalshi 4+ against, or when the ask is already 5c+ above what the sharps paid (edge gone).
+    The first run with no state only records what is on the board, so nothing old is pushed."""
+    first = not os.path.exists(ALERTS)
+    st = json.load(open(ALERTS)) if not first else {}
+    c = lambda x: f"{100 * x:.0f}c" if x is not None else '?'
+    for r in rows:
+        if epoch(r['start']) <= NOW: continue
+        s = st.setdefault(r['cond'], {})
+        when = dt.datetime.fromisoformat(r['start'].replace('Z', '+00:00')).astimezone(__import__('zoneinfo').ZoneInfo('America/New_York')).strftime('%a %-I:%M %p ET')
+        if 'flag' not in s:
+            ok = r['status'] == 'live' and not r.get('kalshi_against') and r.get('ask') is not None and r['ask'] - r['paid'] <= 0.05
+            if ok and not first:
+                ntfy(f"Sharp: {r['bet']}", f"{r['title']} · {when}\n{r['why']}, best rank {r['best_rank']}, ${r['usd']:,}\nSharps paid {c(r['paid'])}, ask now {c(r['ask'])}",
+                     r['link'], 'chart_with_upwards_trend')
+            s['flag'] = int(NOW) if ok or first else None
+            if not (ok or first): del st[r['cond']]
+        if first and r['status'] == 'other side': s['other'] = int(NOW)       # already on the board: record, do not push
+        elif r['status'] == 'other side' and s.get('flag') and 'other' not in s:
+            o = r['other']
+            if not first:
+                ntfy(f"Sharp on the other side: {r['bet']}", f"{r['title']} · {when}\nA rank-{o['best_rank']} account bet the other side (${o['usd']:,}). "
+                     f"Backtest: holding still beat getting out (+1.12 vs +0.89 pts).{' Sell about ' + c(r['exit_bid']) + '.' if r.get('exit_bid') else ''}",
+                     r['link'], 'warning', 'default')
+            s['other'] = int(NOW)
+    st = {k: v for k, v in st.items() if v.get('flag') and NOW - v['flag'] < 10 * 86400}
+    json.dump(st, open(ALERTS, 'w'))
+
+
 def main():
     if not os.path.exists(FILLS): print('[sharp_live] no fills yet'); return
     F = collections.defaultdict(list)
@@ -144,6 +186,7 @@ def main():
     G_ = [p for p in paper if p.get('result')]
     rec = dict(n=len(G_), won=sum(p['result'] == 'W' for p in G_), units=round(sum(p['pnl'] for p in G_), 2),
                clv=round(sum(p['clv'] for p in G_ if 'clv' in p) / max(1, sum('clv' in p for p in G_)), 2) if G_ else None)
+    alerts(rows)
     rows.sort(key=lambda r: (r['status'] != 'live' or bool(r.get('kalshi_against')), r['start']))
     json.dump(dict(built=dt.datetime.fromtimestamp(NOW, dt.timezone.utc).strftime('%Y-%m-%dT%H:%M:%SZ'), rows=[r for r in rows if epoch(r['start']) > NOW],
                    record=rec, rule=f'top-{TOP_RANK} account, or {TWO}+ top-200 accounts on one side, none on the other'), open(OUT, 'w'), indent=1)
