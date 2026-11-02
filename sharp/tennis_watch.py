@@ -122,6 +122,8 @@ def main():
                    match_p=round(pf, 4), match_src=src, model=round(model, 4), fair=round(fair, 4), pin_set1=round(pin1, 4) if pin1 else None,
                    best=best, edge=round(fair - best['cost'], 4) if best else None)
         row['flag'] = bool(best and pf >= MIN_FAV and row['edge'] >= MIN_EDGE)
+        if ev in paper:                           # already paper-logged: stays on the page even if the price has since gone (11/2)
+            row['logged'] = dict(ts=paper[ev]['ts'], venue=paper[ev]['venue'], price=paper[ev]['price'], edge=round(paper[ev]['fair'] - paper[ev]['price'], 4))
         rows.append(row)
         if row['flag'] and ev not in paper:
             kt = (L.get((ev, '1s_ml', 'Kalshi', fav)) or {}).get('extra') or {}

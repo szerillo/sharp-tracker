@@ -411,7 +411,7 @@ function renderToday() {
       why: `${r.n_accounts} sharp account${r.n_accounts === 1 ? '' : 's'} ($${r.usd.toLocaleString()}), flagged ${ET(r.flagged)}; sharps paid ${(100 * r.paid).toFixed(1)}¢, ask now ${r.ask != null ? (100 * r.ask).toFixed(1) + '¢' : '—'}${r.ask != null && r.ask - r.paid > 0.05 ? ' (price has moved: most of the edge is gone)' : ''}`,
       price: r.ask != null ? `Polymarket ask ${(100 * r.ask).toFixed(1)}¢ (${toAm(r.ask)})` : ''}); }
   // ---- 4. tennis first-set rule (tier C, its own shape)
-  const tw = TW ? (TW.rows || []).filter(r => r.flag && future(r.start)).map(r => ({...r, sport: 'tennis', league: r.league})) : [];
+  const tw = TW ? (TW.rows || []).filter(r => (r.flag || r.logged) && future(r.start)).map(r => ({...r, sport: 'tennis', league: r.league})) : [];
   // ---- filters: counts for the sport chips use the time window; counts for the time chips use the sport filter
   const everything = [...bets, ...flags, ...sig, ...tw];
   const inSport = everything.filter(x => passS(x.sport, x.league)), inWhen = everything.filter(x => passW(x.start));
@@ -427,8 +427,8 @@ function renderToday() {
   const twRows = TWk.map(r => `<tr><td class="small"><span class="badge b-sport">${esc((r.tour || 'tennis').toUpperCase())}</span> <b>${DAYT(r.start)}</b><br><span class="dim">${until(r.start)}</span></td>
       <td><span class="small">${esc(r.fav_name || '')} vs ${esc(r.opp_name || '')}${r.tournament ? ' · ' + esc(r.tournament) : ''}</span><br><b>${esc(r.fav_name || 'Favourite')} to win set 1</b></td>
       <td class="small mono">match ${(100 * r.match_p).toFixed(1)}% → set 1 fair ${(100 * r.fair).toFixed(1)}%${r.pin_set1 ? '<br><span class="dim">Pinnacle ' + (100 * r.pin_set1).toFixed(1) + '%</span>' : ''}</td>
-      <td class="small mono">${VEN(r.best.venue)} ${(100 * r.best.cost).toFixed(1)}¢ (${toAm(r.best.cost)})<br><span class="pos">+${(100 * r.edge).toFixed(1)} pts</span>
-        ${r.best.venue === 'Kalshi' && r.best.ticker ? `<br><a class="betbtn" target="_blank" rel="noopener" href="https://kalshi.com/markets/${r.best.ticker.toLowerCase().split('-')[0]}/x/${r.best.ticker.toLowerCase().split('-').slice(0, -1).join('-')}">Bet at Kalshi ↗</a>` : (r.best.venue === 'Novig' ? `<br><a class="betbtn" target="_blank" rel="noopener" href="https://novig.com/">Bet at Novig ↗</a>` : '')}</td></tr>`).join('');
+      <td class="small mono">${r.logged ? `flagged ${ET(r.logged.ts)} at ${VEN(r.logged.venue)} ${(100 * r.logged.price).toFixed(1)}¢ (+${(100 * r.logged.edge).toFixed(1)} pts)<br>` : ''}${r.best ? `${r.logged ? 'now ' : ''}${VEN(r.best.venue)} ${(100 * r.best.cost).toFixed(1)}¢ (${toAm(r.best.cost)})<br><span class="${r.edge >= 0 ? 'pos' : 'neg'}">${r.edge >= 0 ? '+' : ''}${(100 * r.edge).toFixed(1)} pts</span>${!r.flag ? '<br><span class="moved-chip">price gone: no longer at an edge</span>' : ''}` : '<span class="moved-chip">no price now</span>'}
+        ${r.best && r.flag && r.best.venue === 'Kalshi' && r.best.ticker ? `<br><a class="betbtn" target="_blank" rel="noopener" href="https://kalshi.com/markets/${r.best.ticker.toLowerCase().split('-')[0]}/x/${r.best.ticker.toLowerCase().split('-').slice(0, -1).join('-')}">Bet at Kalshi ↗</a>` : (r.best && r.flag && r.best.venue === 'Novig' ? `<br><a class="betbtn" target="_blank" rel="noopener" href="https://novig.com/">Bet at Novig ↗</a>` : '')}</td></tr>`).join('');
   const twRec = TW && TW.record && TW.record.n ? `${TW.record.won}-${TW.record.n - TW.record.won}, ${TW.record.units > 0 ? '+' : ''}${TW.record.units}u` : 'no graded bets yet';
   const srRec = FL && FL.steam && FL.steam.record && FL.steam.record.n ? `${FL.steam.record.won}-${FL.steam.record.n - FL.steam.record.won}, ${FL.steam.record.units > 0 ? '+' : ''}${FL.steam.record.units}u` : 'no graded bets yet';
   // watch cards: one per game, one row per market. A Kalshi mover that has given back its steam is the same story as its bet-back row,
