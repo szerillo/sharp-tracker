@@ -1,0 +1,96 @@
+{
+ "prop_markets": 3569,
+ "test_markets": 522,
+ "prop_scored": 37,
+ "overlap_prop50_game200": 4,
+ "cells": {
+  "GAME-LINE top 200 | all": {
+   "n": 10,
+   "clv": 0.54,
+   "clv_z": 0.92,
+   "roi": 94.8,
+   "roi_z": 1.48,
+   "members": 200
+  },
+  "GAME-LINE top 200 | nba": {
+   "n": 2,
+   "members": 200
+  },
+  "GAME-LINE top 200 | ufc": {
+   "n": 0,
+   "members": 200
+  },
+  "PROP top 50 | all": {
+   "n": 42,
+   "clv": -0.21,
+   "clv_z": -0.27,
+   "roi": 37.4,
+   "roi_z": 2.3,
+   "members": 37
+  },
+  "PROP top 50 | nba": {
+   "n": 10,
+   "clv": -0.14,
+   "clv_z": -0.07,
+   "roi": -16.6,
+   "roi_z": -0.48,
+   "members": 37
+  },
+  "PROP top 50 | ufc": {
+   "n": 3,
+   "members": 37
+  },
+  "PROP top 50 not in game-line top 200 | all": {
+   "n": 38,
+   "clv": -0.38,
+   "clv_z": -0.45,
+   "roi": 30.4,
+   "roi_z": 1.73,
+   "members": 33
+  },
+  "PROP top 50 not in game-line top 200 | nba": {
+   "n": 8,
+   "members": 33
+  },
+  "PROP top 50 not in game-line top 200 | ufc": {
+   "n": 3,
+   "members": 33
+  },
+  "PROP bottom 50 | all": {
+   "n": 0,
+   "members": 0
+  },
+  "PROP bottom 50 | nba": {
+   "n": 0,
+   "members": 0
+  },
+  "PROP bottom 50 | ufc": {
+   "n": 0,
+   "members": 0
+  },
+  "ANY $100+ fill | all": {
+   "n": 320,
+   "clv": 0.13,
+   "clv_z": 0.23,
+   "roi": -5.2,
+   "roi_z": -0.85,
+   "members": null
+  },
+  "ANY $100+ fill | nba": {
+   "n": 59,
+   "clv": 0.45,
+   "clv_z": 0.47,
+   "roi": 22.8,
+   "roi_z": 1.64,
+   "members": null
+  },
+  "ANY $100+ fill | ufc": {
+   "n": 61,
+   "clv": 3.18,
+   "clv_z": 1.26,
+   "roi": -10.4,
+   "roi_z": -0.77,
+   "members": null
+  }
+ }
+}
