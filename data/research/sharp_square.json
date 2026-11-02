@@ -1,0 +1,376 @@
+{
+ "scored": 3703,
+ "sharp": 200,
+ "squares": {
+  "square = bottom 500 by ROI": 500,
+  "square = bottom 500 by CLV": 500,
+  "square = ROI and CLV both negative (worst 500 by ROI)": 500
+ },
+ "overlap_sharp_square": {
+  "square = bottom 500 by ROI": 23,
+  "square = bottom 500 by CLV": 0,
+  "square = ROI and CLV both negative (worst 500 by ROI)": 0
+ },
+ "cells": {
+  "BOTH AGREE (square = ROI and CLV both negative (worst 500 by ROI))": {
+   "n": 699,
+   "clv": 0.18,
+   "clv_z": 1.05,
+   "roi": -1.8,
+   "roi_z": -0.49,
+   "win": 0.521,
+   "price": 0.528
+  },
+  "BOTH AGREE (square = ROI and CLV both negative (worst 500 by ROI)) | ml": {
+   "n": 372,
+   "clv": 0.27,
+   "clv_z": 0.87,
+   "roi": -6.5,
+   "roi_z": -1.27,
+   "win": 0.519,
+   "price": 0.549
+  },
+  "BOTH AGREE (square = ROI and CLV both negative (worst 500 by ROI)) | spread": {
+   "n": 205,
+   "clv": 0.1,
+   "clv_z": 0.75,
+   "roi": 2.0,
+   "roi_z": 0.29,
+   "win": 0.517,
+   "price": 0.508
+  },
+  "BOTH AGREE (square = ROI and CLV both negative (worst 500 by ROI)) | total": {
+   "n": 122,
+   "clv": 0.03,
+   "clv_z": 0.23,
+   "roi": 5.9,
+   "roi_z": 0.65,
+   "win": 0.533,
+   "price": 0.498
+  },
+  "BOTH AGREE (square = bottom 500 by CLV)": {
+   "n": 613,
+   "clv": 0.46,
+   "clv_z": 2.72,
+   "roi": -2.1,
+   "roi_z": -0.48,
+   "win": 0.476,
+   "price": 0.49
+  },
+  "BOTH AGREE (square = bottom 500 by CLV) | ml": {
+   "n": 402,
+   "clv": 0.46,
+   "clv_z": 1.91,
+   "roi": 3.1,
+   "roi_z": 0.53,
+   "win": 0.498,
+   "price": 0.49
+  },
+  "BOTH AGREE (square = bottom 500 by CLV) | spread": {
+   "n": 126,
+   "clv": 0.52,
+   "clv_z": 3.06,
+   "roi": -15.2,
+   "roi_z": -1.65,
+   "win": 0.413,
+   "price": 0.481
+  },
+  "BOTH AGREE (square = bottom 500 by CLV) | total": {
+   "n": 85,
+   "clv": 0.32,
+   "clv_z": 1.2,
+   "roi": -7.5,
+   "roi_z": -0.7,
+   "win": 0.471,
+   "price": 0.502
+  },
+  "BOTH AGREE (square = bottom 500 by ROI)": {
+   "n": 691,
+   "clv": 0.17,
+   "clv_z": 1.08,
+   "roi": 0.2,
+   "roi_z": 0.05,
+   "win": 0.518,
+   "price": 0.515
+  },
+  "BOTH AGREE (square = bottom 500 by ROI) | ml": {
+   "n": 397,
+   "clv": 0.25,
+   "clv_z": 0.95,
+   "roi": -2.1,
+   "roi_z": -0.41,
+   "win": 0.514,
+   "price": 0.525
+  },
+  "BOTH AGREE (square = bottom 500 by ROI) | spread": {
+   "n": 179,
+   "clv": 0.03,
+   "clv_z": 0.21,
+   "roi": 7.2,
+   "roi_z": 0.97,
+   "win": 0.542,
+   "price": 0.501
+  },
+  "BOTH AGREE (square = bottom 500 by ROI) | total": {
+   "n": 115,
+   "clv": 0.11,
+   "clv_z": 0.7,
+   "roi": -2.7,
+   "roi_z": -0.29,
+   "win": 0.496,
+   "price": 0.503
+  },
+  "CLASH, bet sharp side (square = ROI and CLV both negative (worst 500 by ROI))": {
+   "n": 700,
+   "clv": 0.27,
+   "clv_z": 1.81,
+   "roi": 2.9,
+   "roi_z": 0.7,
+   "win": 0.504,
+   "price": 0.488
+  },
+  "CLASH, bet sharp side (square = ROI and CLV both negative (worst 500 by ROI)) | ml": {
+   "n": 385,
+   "clv": 0.18,
+   "clv_z": 0.7,
+   "roi": 3.6,
+   "roi_z": 0.59,
+   "win": 0.494,
+   "price": 0.474
+  },
+  "CLASH, bet sharp side (square = ROI and CLV both negative (worst 500 by ROI)) | spread": {
+   "n": 208,
+   "clv": 0.46,
+   "clv_z": 3.2,
+   "roi": 0.0,
+   "roi_z": 0.0,
+   "win": 0.505,
+   "price": 0.504
+  },
+  "CLASH, bet sharp side (square = ROI and CLV both negative (worst 500 by ROI)) | total": {
+   "n": 107,
+   "clv": 0.24,
+   "clv_z": 1.61,
+   "roi": 6.3,
+   "roi_z": 0.66,
+   "win": 0.542,
+   "price": 0.506
+  },
+  "CLASH, bet sharp side (square = bottom 500 by CLV)": {
+   "n": 582,
+   "clv": 0.22,
+   "clv_z": 1.06,
+   "roi": -3.1,
+   "roi_z": -0.71,
+   "win": 0.502,
+   "price": 0.518
+  },
+  "CLASH, bet sharp side (square = bottom 500 by CLV) | ml": {
+   "n": 382,
+   "clv": 0.13,
+   "clv_z": 0.44,
+   "roi": -3.5,
+   "roi_z": -0.63,
+   "win": 0.503,
+   "price": 0.523
+  },
+  "CLASH, bet sharp side (square = bottom 500 by CLV) | spread": {
+   "n": 121,
+   "clv": 0.44,
+   "clv_z": 2.21,
+   "roi": -3.7,
+   "roi_z": -0.41,
+   "win": 0.496,
+   "price": 0.513
+  },
+  "CLASH, bet sharp side (square = bottom 500 by CLV) | total": {
+   "n": 79,
+   "clv": 0.29,
+   "clv_z": 1.3,
+   "roi": -0.2,
+   "roi_z": -0.02,
+   "win": 0.506,
+   "price": 0.503
+  },
+  "CLASH, bet sharp side (square = bottom 500 by ROI)": {
+   "n": 649,
+   "clv": 0.61,
+   "clv_z": 2.99,
+   "roi": -1.7,
+   "roi_z": -0.42,
+   "win": 0.495,
+   "price": 0.497
+  },
+  "CLASH, bet sharp side (square = bottom 500 by ROI) | ml": {
+   "n": 370,
+   "clv": 0.78,
+   "clv_z": 2.26,
+   "roi": 3.4,
+   "roi_z": 0.6,
+   "win": 0.522,
+   "price": 0.494
+  },
+  "CLASH, bet sharp side (square = bottom 500 by ROI) | spread": {
+   "n": 181,
+   "clv": 0.4,
+   "clv_z": 2.49,
+   "roi": -8.3,
+   "roi_z": -1.09,
+   "win": 0.459,
+   "price": 0.5
+  },
+  "CLASH, bet sharp side (square = bottom 500 by ROI) | total": {
+   "n": 98,
+   "clv": 0.34,
+   "clv_z": 2.05,
+   "roi": -9.1,
+   "roi_z": -0.9,
+   "win": 0.459,
+   "price": 0.501
+  },
+  "FADE square = ROI and CLV both negative (worst 500 by ROI)": {
+   "n": 1262,
+   "clv": -0.17,
+   "clv_z": -1.39,
+   "roi": -2.2,
+   "roi_z": -0.76,
+   "win": 0.511,
+   "price": 0.522
+  },
+  "FADE square = ROI and CLV both negative (worst 500 by ROI) | ml": {
+   "n": 594,
+   "clv": 0.02,
+   "clv_z": 0.09,
+   "roi": -3.3,
+   "roi_z": -0.76,
+   "win": 0.522,
+   "price": 0.539
+  },
+  "FADE square = ROI and CLV both negative (worst 500 by ROI) | spread": {
+   "n": 428,
+   "clv": -0.21,
+   "clv_z": -1.95,
+   "roi": -0.1,
+   "roi_z": -0.02,
+   "win": 0.514,
+   "price": 0.514
+  },
+  "FADE square = ROI and CLV both negative (worst 500 by ROI) | total": {
+   "n": 240,
+   "clv": -0.59,
+   "clv_z": -1.75,
+   "roi": -3.2,
+   "roi_z": -0.48,
+   "win": 0.479,
+   "price": 0.495
+  },
+  "FADE square = bottom 500 by CLV": {
+   "n": 986,
+   "clv": 0.18,
+   "clv_z": 1.32,
+   "roi": 0.4,
+   "roi_z": 0.11,
+   "win": 0.499,
+   "price": 0.495
+  },
+  "FADE square = bottom 500 by CLV | ml": {
+   "n": 587,
+   "clv": 0.34,
+   "clv_z": 1.59,
+   "roi": 4.1,
+   "roi_z": 0.88,
+   "win": 0.52,
+   "price": 0.498
+  },
+  "FADE square = bottom 500 by CLV | spread": {
+   "n": 235,
+   "clv": 0.05,
+   "clv_z": 0.34,
+   "roi": -7.5,
+   "roi_z": -1.12,
+   "win": 0.455,
+   "price": 0.488
+  },
+  "FADE square = bottom 500 by CLV | total": {
+   "n": 164,
+   "clv": -0.2,
+   "clv_z": -0.95,
+   "roi": -1.5,
+   "roi_z": -0.19,
+   "win": 0.488,
+   "price": 0.495
+  },
+  "FADE square = bottom 500 by ROI": {
+   "n": 1203,
+   "clv": -0.25,
+   "clv_z": -1.88,
+   "roi": 3.7,
+   "roi_z": 1.23,
+   "win": 0.533,
+   "price": 0.514
+  },
+  "FADE square = bottom 500 by ROI | ml": {
+   "n": 620,
+   "clv": -0.17,
+   "clv_z": -0.76,
+   "roi": 3.0,
+   "roi_z": 0.68,
+   "win": 0.539,
+   "price": 0.525
+  },
+  "FADE square = bottom 500 by ROI | spread": {
+   "n": 352,
+   "clv": -0.26,
+   "clv_z": -2.05,
+   "roi": 8.4,
+   "roi_z": 1.58,
+   "win": 0.548,
+   "price": 0.504
+  },
+  "FADE square = bottom 500 by ROI | total": {
+   "n": 231,
+   "clv": -0.46,
+   "clv_z": -1.55,
+   "roi": -1.5,
+   "roi_z": -0.22,
+   "win": 0.494,
+   "price": 0.501
+  },
+  "FOLLOW sharp": {
+   "n": 2503,
+   "clv": 0.73,
+   "clv_z": 8.61,
+   "roi": 2.5,
+   "roi_z": 1.02,
+   "win": 0.494,
+   "price": 0.485
+  },
+  "FOLLOW sharp | ml": {
+   "n": 1067,
+   "clv": 0.94,
+   "clv_z": 5.96,
+   "roi": 5.1,
+   "roi_z": 1.2,
+   "win": 0.497,
+   "price": 0.483
+  },
+  "FOLLOW sharp | spread": {
+   "n": 788,
+   "clv": 0.62,
+   "clv_z": 6.27,
+   "roi": -0.1,
+   "roi_z": -0.03,
+   "win": 0.484,
+   "price": 0.48
+  },
+  "FOLLOW sharp | total": {
+   "n": 648,
+   "clv": 0.5,
+   "clv_z": 3.25,
+   "roi": 1.3,
+   "roi_z": 0.33,
+   "win": 0.502,
+   "price": 0.496
+  }
+ }
+}

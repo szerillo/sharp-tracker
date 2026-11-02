@@ -135,3 +135,22 @@ Read:
 4. Adding to a position is as good as the first bet; a flip is weaker.
 5. Speed matters: the same accounts' net position entered at T-1h or T-15m keeps only +0.1 to +0.4. Earlier bets (24h+) carry the most.
 6. Moneylines and dogs carry the most; favorites the least. UFC is excluded.
+
+## Follow the sharps, fade the squares (sharp/sharp_square.py, data/research/sharp_square.json)
+
+Sean, 11/2: combine following sharps with fading bad bettors. Squares defined three ways on train (bottom 500 by ROI, bottom 500 by
+CLV, both negative). Holdout, entry 5 minutes after the trigger, CLV vs Polymarket's close.
+
+| Signal | n | CLV | z | ROI |
+|---|---|---|---|---|
+| Follow a sharp (top 200 by CLV) | 2,503 | +0.73 | 8.6 | +2.5% |
+| Fade a square: bottom 500 by ROI | 1,203 | -0.25 | -1.9 | +3.7% (z 1.2) |
+| Fade a square: bottom 500 by CLV | 986 | +0.18 | 1.3 | +0.4% |
+| Fade a square: ROI and CLV both negative | 1,262 | -0.17 | -1.4 | -2.2% |
+| Sharp on X and square on the other side (best version) | 613 | +0.46 | 2.7 | -2.1% |
+| Sharp and square on the same side (bet the sharp side, best version) | 649 | +0.61 | 3.0 | -1.7% |
+
+Read: fading squares does not work at the price a follower gets. Accounts with the worst past ROI are not picking the wrong side going
+forward (fading them loses CLV); their past losses were mostly price (longshots, buying after the move) and luck, which a fade at the
+next price does not capture. Adding a square on the other side does not improve a sharp bet (it triggers later, so it is worse), and
+a square on the same side does not spoil one. Keep the signal to following sharps.
