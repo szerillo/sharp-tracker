@@ -18,6 +18,7 @@ HERE = os.path.dirname(os.path.abspath(__file__)); ROOT = os.path.abspath(os.pat
 FILLS = os.path.join(ROOT, 'data', 'polymarket', 'sharp_fills.jsonl'); OUT = os.path.join(ROOT, 'data', 'state', 'sharp_accounts.json')
 PAPER = os.path.join(ROOT, 'data', 'state', 'sharp_paper.jsonl'); META = os.path.join(ROOT, 'data', 'polymarket', '_sharp_meta.json')
 NOW = time.time(); TOP_RANK = 50; TWO = 2
+LEAGUES = {'nfl', 'nba', 'nhl', 'cfb', 'mlb', 'wnba', 'epl', 'bun', 'ucl', 'mls'}
 
 
 def g(u):
@@ -32,6 +33,7 @@ def epoch(s): return dt.datetime.fromisoformat(s.replace(' ', 'T').replace('+00'
 
 def bet_text(r, side):
     """'Celtics -6.5', 'Over 220.5', 'Magic ML'. Polymarket spread questions name the team the line belongs to: 'Spread: Celtics (-6.5)'."""
+    if set(r.get('outcomes') or []) == {'Yes', 'No'}: return f"{(r.get('q') or '').rstrip('?')}: {side}"     # soccer: one yes/no market per team
     if r['mtype'] == 'ml': return f"{side} ML"
     if r['mtype'] == 'total': return f"{side} {r['line']}"
     m = re.search(r':\s*(.+?)\s*\(([-+]?[\d.]+)\)', r.get('q') or '')
@@ -69,7 +71,7 @@ def main():
     for l in open(FILLS):
         try: r = json.loads(l)
         except Exception: continue
-        if epoch(r['start']) > NOW - 6 * 3600: F[r['cond']].append(r)
+        if epoch(r['start']) > NOW - 6 * 3600 and (r.get('slug') or '').split('-')[0] in LEAGUES: F[r['cond']].append(r)
     meta = json.load(open(META)) if os.path.exists(META) else {}
     paper = [json.loads(l) for l in open(PAPER)] if os.path.exists(PAPER) else []
     logged = {p['cond'] for p in paper}
@@ -102,7 +104,7 @@ def main():
             otok = (m.get('tokens') or [None, None])[outs.index(opp[0]['bet'])] if opp[0]['bet'] in outs else None
             row['exit_bid'] = round(1 - ask(otok), 3) if otok and start > NOW and ask(otok) else None   # selling our side = buying the other side's ask
         rows.append(row)
-        if cond not in logged and start > NOW and a:
+        if cond not in logged and start > NOW and a and not opp:      # a flag first seen after a sharp already took the other side is not logged
             paper.append(dict(cond=cond, slug=row['slug'], bet=row['bet'], side=side, mtype=row['mtype'], start=row['start'], flagged=row['flagged'],
                               logged=dt.datetime.fromtimestamp(NOW, dt.timezone.utc).strftime('%Y-%m-%dT%H:%M:%SZ'), price=a, why=row['why'], best_rank=row['best_rank']))
             logged.add(cond)

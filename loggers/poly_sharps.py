@@ -10,6 +10,7 @@ HERE = os.path.dirname(os.path.abspath(__file__)); ROOT = os.path.abspath(os.pat
 PD = os.path.join(ROOT, 'data', 'polymarket'); LIST = os.path.join(ROOT, 'data', 'state', 'poly_sharps_list.json')
 OUT = os.path.join(PD, 'sharp_fills.jsonl'); META = os.path.join(PD, '_sharp_meta.json'); STATE = os.path.join(PD, '_sharp_state.json')
 D = "https://data-api.polymarket.com"; G = "https://gamma-api.polymarket.com"; MIN_USD = 100.0
+LEAGUES = {'nfl', 'nba', 'nhl', 'cfb', 'mlb', 'wnba', 'epl', 'bun', 'ucl', 'mls'}
 TYPES = {'moneyline': 'ml', 'spreads': 'spread', 'totals': 'total'}
 
 
@@ -52,7 +53,7 @@ def main():
         for t in T:
             ts = int(t.get('timestamp') or 0); c = t.get('conditionId'); m = meta.get(c) or {}
             if ts <= last or not m.get('type') or not m.get('start') or len(m.get('outcomes') or []) != 2: continue
-            if (m.get('slug') or '').startswith('ufc'): continue
+            if (m.get('slug') or '').split('-')[0] not in LEAGUES: continue      # only leagues in the backtest (UFC was negative; tennis, CBB untested)
             start = dt.datetime.fromisoformat(m['start'].replace(' ', 'T').replace('+00', '+00:00')).timestamp()
             if ts >= start: continue
             p = float(t['price']); usd = float(t['size']) * min(p, 1 - p)
