@@ -5,12 +5,14 @@ spread / total market: conditionId, outcomes, line, gameStartTime, winner (outco
 data/polymarket/history/catalog.jsonl. Step 2 (trades): every public trade on those markets from data-api.polymarket.com (taker fills:
 side BUY/SELL of an outcome, price, size, timestamp, proxyWallet) -> data/polymarket/history/trades/<conditionId>.jsonl.gz.
 The wallet column is what makes Polymarket different: every fill has an on-chain account, so a wallet's record can be tested too.
-Usage: python3 loggers/polymarket_history.py catalog | trades [--min-volume N]"""
+Usage: python3 loggers/polymarket_history.py catalog | trades | catalog_props | trades_props [--min-volume N]"""
 import os, sys, re, json, gzip, time, urllib.request, urllib.error, concurrent.futures as cf
 OUT = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'data', 'polymarket', 'history'); os.makedirs(os.path.join(OUT, 'trades'), exist_ok=True)
 G = "https://gamma-api.polymarket.com"; D = "https://data-api.polymarket.com"
 TAGS = ['nfl', 'nba', 'nhl', 'cfb', 'cbb', 'mlb', 'epl', 'ucl', 'mls', 'laliga', 'bundesliga', 'seriea', 'ligue1', 'ufc', 'wnba']
 GAME = re.compile(r'^([a-z0-9]+)-([a-z0-9]+)-([a-z0-9]+)-(\d{4}-\d{2}-\d{2})$')
+PROPEV = re.compile(r'^([a-z0-9]+)-([a-z0-9]+)-([a-z0-9]+)-(\d{4}-\d{2}-\d{2})(-player-props)?$')
+NOT_PROP = {'moneyline', 'spreads', 'totals', 'first_touchdowns', 'team_first_touchdowns', 'highest_scoring_quarter', 'exact_margin', None}
 TYPES = {'moneyline': 'ml', 'spreads': 'spread', 'totals': 'total'}
 
 
@@ -51,6 +53,34 @@ def catalog():
     print(f"[poly hist] catalog: {n} markets on {len(seen)} games")
 
 
+def catalog_props(min_vol=2000.0):
+    """Settled two-way player-prop markets (any sportsMarketType that is not a game line or a many-way novelty) on game and
+    '-player-props' events -> data/polymarket/history/catalog_props.jsonl (same fields as catalog.jsonl plus the stat type)."""
+    n = 0
+    with open(os.path.join(OUT, 'catalog_props.jsonl'), 'w') as f:
+        for tag in TAGS:
+            off = 0; nt = 0
+            while off < 20000:
+                E = g(f"{G}/events?tag_slug={tag}&closed=true&limit=100&offset={off}&order=startDate&ascending=false")
+                if not E: break
+                for e in E:
+                    m_ = PROPEV.match(e.get('slug') or '')
+                    if not m_: continue
+                    for m in e.get('markets') or []:
+                        t = m.get('sportsMarketType')
+                        if t in NOT_PROP or t.startswith(('first_half', 'second_half', 'q1', 'q2', 'q3', 'q4', 'team_')) or float(m.get('volume') or 0) < min_vol: continue
+                        try: outs = json.loads(m['outcomes']); px = [float(x) for x in json.loads(m.get('outcomePrices') or '[]')]
+                        except Exception: continue
+                        if len(outs) != 2 or sorted(px) != [0.0, 1.0] or not m.get('gameStartTime'): continue
+                        f.write(json.dumps(dict(tag=tag, event=e['slug'], title=e.get('title'), date=m_.group(4), market='prop', stat=t, q=m.get('question'), line=m.get('line'),
+                                                cond=m['conditionId'], outcomes=outs, winner=outs[px.index(1.0)], start=m.get('gameStartTime'),
+                                                volume=float(m.get('volume') or 0))) + '\n'); n += 1; nt += 1
+                off += len(E)
+                if len(E) < 100: break
+            print(f"[poly hist] props {tag}: {nt} settled prop markets", flush=True)
+    print(f"[poly hist] props catalog: {n} markets")
+
+
 def trades_for(cond):
     p = os.path.join(OUT, 'trades', f'{cond}.jsonl.gz')
     if os.path.exists(p): return 0
@@ -67,8 +97,8 @@ def trades_for(cond):
     return len(rows)
 
 
-def trades(min_vol):
-    C = [json.loads(l) for l in open(os.path.join(OUT, 'catalog.jsonl'))]
+def trades(min_vol, cat='catalog.jsonl'):
+    C = [json.loads(l) for l in open(os.path.join(OUT, cat))]
     todo = [c['cond'] for c in C if c['volume'] >= min_vol]
     t0 = time.time(); n = 0
     with cf.ThreadPoolExecutor(8) as ex:
@@ -79,5 +109,8 @@ def trades(min_vol):
 
 
 if __name__ == '__main__':
+    mv = float(sys.argv[sys.argv.index('--min-volume') + 1]) if '--min-volume' in sys.argv else 1000.0
     if sys.argv[1] == 'catalog': catalog()
-    else: trades(float(sys.argv[sys.argv.index('--min-volume') + 1]) if '--min-volume' in sys.argv else 1000.0)
+    elif sys.argv[1] == 'catalog_props': catalog_props()
+    elif sys.argv[1] == 'trades_props': trades(mv, 'catalog_props.jsonl')
+    else: trades(mv)
