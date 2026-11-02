@@ -22,7 +22,7 @@ HERE = os.path.dirname(os.path.abspath(__file__)); ROOT = os.path.abspath(os.pat
 FILLS = os.path.join(ROOT, 'data', 'polymarket', 'sharp_fills.jsonl'); OUT = os.path.join(ROOT, 'data', 'state', 'sharp_accounts.json')
 PAPER = os.path.join(ROOT, 'data', 'state', 'sharp_paper.jsonl'); META = os.path.join(ROOT, 'data', 'polymarket', '_sharp_meta.json')
 NOW = time.time(); TOP_RANK = 50; TWO = 2
-LEAGUES = {'nfl', 'nba', 'nhl', 'cfb', 'mlb', 'wnba', 'epl', 'bun', 'ucl', 'mls'}
+LEAGUES = {'nfl', 'nba', 'nhl', 'cfb', 'cbb', 'mlb', 'wnba', 'epl', 'bun', 'ucl', 'mls'}   # cbb added 11/2: top 200 +0.39 CLV (z 3.0) on 2025-26
 
 
 def g(u):

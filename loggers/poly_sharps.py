@@ -10,7 +10,7 @@ HERE = os.path.dirname(os.path.abspath(__file__)); ROOT = os.path.abspath(os.pat
 PD = os.path.join(ROOT, 'data', 'polymarket'); LIST = os.path.join(ROOT, 'data', 'state', 'poly_sharps_list.json')
 OUT = os.path.join(PD, 'sharp_fills.jsonl'); PROPS = os.path.join(PD, 'sharp_prop_fills.jsonl'); META = os.path.join(PD, '_sharp_meta.json'); STATE = os.path.join(PD, '_sharp_state.json')
 D = "https://data-api.polymarket.com"; G = "https://gamma-api.polymarket.com"; MIN_USD = 100.0
-LEAGUES = {'nfl', 'nba', 'nhl', 'cfb', 'mlb', 'wnba', 'epl', 'bun', 'ucl', 'mls'}
+LEAGUES = {'nfl', 'nba', 'nhl', 'cfb', 'cbb', 'mlb', 'wnba', 'epl', 'bun', 'ucl', 'mls'}   # cbb added 11/2: top 200 +0.39 CLV (z 3.0) on 2025-26
 TYPES = {'moneyline': 'ml', 'spreads': 'spread', 'totals': 'total'}
 
 

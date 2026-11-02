@@ -267,3 +267,13 @@ Read:
 2. Adding families at T-1h barely helps. Money is the one useful partner (+0.25); a price move adds nothing (+0.10), and 3 of 3 is no
    better than accounts alone (+0.02 on 261).
 3. Without accounts, price and money lose (price only -0.14, z -2.8).
+
+## College basketball (11/2)
+
+CBB was missing from every earlier test: 2025-26 college basketball game events on Polymarket carry the 'ncaa-basketball' tag, not
+'cbb', so the history pull found none. Added (loggers/polymarket_history.py TAG_ALIAS): 12,550 game markets Nov 2025 to now, 1,458
+with $10k+ volume, 572k trades. sharp/sport_sharps.py:
+- scored before 2025-11-01, followed Nov 2025 to Feb 2026: cross-sport top 200 +0.39 pts CLV (423, z 3.0); persistence 0.38
+- scored before 2026-03-01, followed through March: cross-sport top 200 +0.37 (87, z 1.3); CBB's own top 50 +0.18 (168); both lists +0.43 (67)
+Read: the cross-sport sharps carry into CBB, at about half the edge of the other team sports; CBB-only specialists do not add. CBB added
+to the live flags with the cross-sport list.

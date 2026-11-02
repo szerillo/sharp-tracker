@@ -73,7 +73,7 @@ def update():
     import polymarket_history as PH
     A = json.load(gzip.open(AGG, 'rt')); since = A.get('through') or '2026-11-01'
     T0 = time.time(); n = 0; cutoff = time.time() - 6 * 3600          # settled: started 6h+ ago
-    for tag in [t for t in PH.TAGS if t != 'ufc']:
+    for tag in [t for t in PH.TAGS if t != 'ufc'] + list(PH.TAG_ALIAS):
         off = 0; stop = False
         while not stop and off < 20000:
             E = PH.g(f"{PH.G}/events?tag_slug={tag}&closed=true&limit=100&offset={off}&order=startDate&ascending=false")
@@ -90,7 +90,7 @@ def update():
                     if len(outs) != 2 or sorted(px) != [0.0, 1.0]: continue
                     st = dt.datetime.fromisoformat(m['gameStartTime'].replace(' ', 'T').replace('+00', '+00:00')).timestamp()
                     if st > cutoff: continue
-                    c = dict(tag=tag, cond=m['conditionId'], outcomes=outs, winner=outs[px.index(1.0)], start=m['gameStartTime'], volume=float(m.get('volume') or 0))
+                    c = dict(tag=PH.TAG_ALIAS.get(tag, tag), cond=m['conditionId'], outcomes=outs, winner=outs[px.index(1.0)], start=m['gameStartTime'], volume=float(m.get('volume') or 0))
                     PH.trades_for(c['cond']); L = V.poly_trades(c, st); add_market(A, c, st, L); n += 1
                     try: os.remove(os.path.join(V.PH, 'trades', f"{c['cond']}.jsonl.gz"))
                     except OSError: pass
