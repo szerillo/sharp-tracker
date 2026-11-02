@@ -1,5 +1,5 @@
 {
- "built": "2026-11-02T16:55:14Z",
+ "built": "2026-11-02T17:01:06Z",
  "rows": [
   {
    "cond": "0xdc614e16fcccc4cce28241e13e7b774d797e30bbb55b0985f63915c039fa7aa7",
@@ -256,9 +256,15 @@
    "usd": 4560,
    "paid": 0.557,
    "ask": 0.59,
-   "status": "live",
+   "status": "other side",
    "link": "https://polymarket.us/event/nba-was-orl-2026-11-02",
-   "other": null,
+   "other": {
+    "n_accounts": 1,
+    "best_rank": 55,
+    "usd": 700,
+    "first": "2026-11-02T17:00:16Z"
+   },
+   "exit_bid": 0.58,
    "kalshi_against": {
     "move": 4.0,
     "now": 42.5,
@@ -399,6 +405,11 @@
     "n": 4,
     "best_rank": 28,
     "usd": 4560
+   },
+   "away": {
+    "n": 1,
+    "best_rank": 55,
+    "usd": 700
    }
   },
   "401909911|spread": {
