@@ -1,5 +1,5 @@
 {
- "built": "2026-11-02T19:11:57Z",
+ "built": "2026-11-02T19:34:31Z",
  "rows": [
   {
    "cond": "0xdc614e16fcccc4cce28241e13e7b774d797e30bbb55b0985f63915c039fa7aa7",
@@ -44,7 +44,7 @@
    "best_rank": 31,
    "usd": 8520,
    "paid": 0.51,
-   "ask": 0.61,
+   "ask": 0.63,
    "status": "live",
    "link": "https://polymarket.us/event/nba-atl-ind-2026-11-02",
    "other": null,
@@ -102,7 +102,7 @@
    "best_rank": 12,
    "usd": 2399,
    "paid": 0.527,
-   "ask": 0.59,
+   "ask": 0.6,
    "status": "live",
    "link": "https://polymarket.us/event/nba-sac-dal-2026-11-02",
    "other": null,
@@ -131,7 +131,7 @@
    "best_rank": 40,
    "usd": 394,
    "paid": 0.5,
-   "ask": 0.56,
+   "ask": 0.55,
    "status": "live",
    "link": "https://polymarket.us/event/nba-mil-min-2026-11-02",
    "other": null,
@@ -144,10 +144,7 @@
    "away_name": "Milwaukee Bucks",
    "home_name": "Minnesota Timberwolves",
    "game_start": "2026-11-03T01:00Z",
-   "side_std": "away",
-   "conflict": [
-    "Kalshi move"
-   ]
+   "side_std": "away"
   },
   {
    "cond": "0x5b84eeee777c4bdc55f5233f642d52227727685d4a393f557c059bf752464620",
@@ -176,10 +173,7 @@
    "away_name": "Milwaukee Bucks",
    "home_name": "Minnesota Timberwolves",
    "game_start": "2026-11-03T01:00Z",
-   "side_std": "away",
-   "conflict": [
-    "Kalshi move"
-   ]
+   "side_std": "away"
   },
   {
    "cond": "0xd56e40b0c4edaf8802fbf18d85da12906a47dc77f64321924056c14f143be117",
@@ -238,38 +232,6 @@
    "home_name": "Seattle Seahawks",
    "game_start": "2026-11-03T01:15Z",
    "side_std": "home"
-  },
-  {
-   "cond": "0x25b252cc2010b6b75627644a58148bb73993e2b4c4b1be776942f8f0bc9f5b1a",
-   "slug": "nba-bos-hou-2026-11-02",
-   "title": "Celtics vs. Rockets",
-   "mtype": "ml",
-   "start": "2026-11-03T01:30:00Z",
-   "bet": "Rockets ML",
-   "side": "Rockets",
-   "flagged": "2026-11-02T18:59:25Z",
-   "why": "4 top-200 accounts",
-   "n_accounts": 4,
-   "best_rank": 31,
-   "usd": 8240,
-   "paid": 0.65,
-   "ask": 0.65,
-   "status": "live",
-   "link": "https://polymarket.us/event/nba-bos-hou-2026-11-02",
-   "other": null,
-   "kalshi_against": null,
-   "event_id": "401909916",
-   "sport": "nba",
-   "league": null,
-   "away": "BOS",
-   "home": "HOU",
-   "away_name": "Boston Celtics",
-   "home_name": "Houston Rockets",
-   "game_start": "2026-11-03T01:30Z",
-   "side_std": "home",
-   "conflict": [
-    "Kalshi bet back"
-   ]
   },
   {
    "cond": "0xc12c795a1c5a3cef7772e01b73944198a67005cd17f460369a6ab6f03359971f",
@@ -538,6 +500,44 @@
    "home_name": "Dallas Mavericks",
    "game_start": "2026-11-03T01:00Z",
    "side_std": "away"
+  },
+  {
+   "cond": "0x25b252cc2010b6b75627644a58148bb73993e2b4c4b1be776942f8f0bc9f5b1a",
+   "slug": "nba-bos-hou-2026-11-02",
+   "title": "Celtics vs. Rockets",
+   "mtype": "ml",
+   "start": "2026-11-03T01:30:00Z",
+   "bet": "Rockets ML",
+   "side": "Rockets",
+   "flagged": "2026-11-02T18:59:25Z",
+   "why": "4 top-200 accounts",
+   "n_accounts": 4,
+   "best_rank": 31,
+   "usd": 8240,
+   "paid": 0.65,
+   "ask": 0.64,
+   "status": "other side",
+   "link": "https://polymarket.us/event/nba-bos-hou-2026-11-02",
+   "other": {
+    "n_accounts": 2,
+    "best_rank": 31,
+    "usd": 503,
+    "first": "2026-11-02T19:13:55Z"
+   },
+   "exit_bid": 0.63,
+   "kalshi_against": null,
+   "event_id": "401909916",
+   "sport": "nba",
+   "league": null,
+   "away": "BOS",
+   "home": "HOU",
+   "away_name": "Boston Celtics",
+   "home_name": "Houston Rockets",
+   "game_start": "2026-11-03T01:30Z",
+   "side_std": "home",
+   "conflict": [
+    "Kalshi bet back"
+   ]
   },
   {
    "cond": "0x7172e2f4cb02bc1e159cbd92f390336fd879d09d117be3ea8ce8f34c8719c624",
@@ -814,6 +814,11 @@
     "n": 4,
     "best_rank": 31,
     "usd": 8240
+   },
+   "away": {
+    "n": 2,
+    "best_rank": 31,
+    "usd": 503
    }
   },
   "401909916|spread": {
@@ -821,6 +826,11 @@
     "n": 2,
     "best_rank": 142,
     "usd": 22900
+   },
+   "away": {
+    "n": 1,
+    "best_rank": 154,
+    "usd": 32624
    }
   },
   "401909916|total": {
