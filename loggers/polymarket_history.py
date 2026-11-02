@@ -13,6 +13,7 @@ TAGS = ['nfl', 'nba', 'nhl', 'cfb', 'cbb', 'mlb', 'epl', 'ucl', 'mls', 'laliga',
 GAME = re.compile(r'^([a-z0-9]+)-([a-z0-9]+)-([a-z0-9]+)-(\d{4}-\d{2}-\d{2})$')
 PROPEV = re.compile(r'^([a-z0-9]+)-([a-z0-9]+)-([a-z0-9]+)-(\d{4}-\d{2}-\d{2})(-player-props)?$')
 NOT_PROP = {'moneyline', 'spreads', 'totals', 'first_touchdowns', 'team_first_touchdowns', 'highest_scoring_quarter', 'exact_margin', None}
+TAG_ALIAS = {'ncaa-basketball': 'cbb'}     # 2025-26 college basketball game events carry this tag, not 'cbb'
 TYPES = {'moneyline': 'ml', 'spreads': 'spread', 'totals': 'total'}
 
 
@@ -83,7 +84,7 @@ def catalog_back(tags=None):
                         except Exception: continue
                         if len(outs) != 2 or len(px) != 2 or sorted(px) != [0.0, 1.0]: continue
                         have.add(m['conditionId'])
-                        f.write(json.dumps(dict(tag=tag, event=e['slug'], title=e.get('title'), date=m_.group(4), market=mk, line=m.get('line'),
+                        f.write(json.dumps(dict(tag=TAG_ALIAS.get(tag, tag), event=e['slug'], title=e.get('title'), date=m_.group(4), market=mk, line=m.get('line'),
                                                 cond=m['conditionId'], outcomes=outs, winner=outs[px.index(1.0)], start=m.get('gameStartTime'),
                                                 volume=float(m.get('volume') or 0))) + '\n'); n += 1; nt += 1
                 empty = empty + 1 if got == 0 else 0

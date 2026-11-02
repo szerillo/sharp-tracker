@@ -8,7 +8,7 @@ Usage: python3 loggers/poly_sharps.py"""
 import os, json, time, datetime as dt, urllib.request, urllib.error, concurrent.futures as cf
 HERE = os.path.dirname(os.path.abspath(__file__)); ROOT = os.path.abspath(os.path.join(HERE, '..'))
 PD = os.path.join(ROOT, 'data', 'polymarket'); LIST = os.path.join(ROOT, 'data', 'state', 'poly_sharps_list.json')
-OUT = os.path.join(PD, 'sharp_fills.jsonl'); META = os.path.join(PD, '_sharp_meta.json'); STATE = os.path.join(PD, '_sharp_state.json')
+OUT = os.path.join(PD, 'sharp_fills.jsonl'); PROPS = os.path.join(PD, 'sharp_prop_fills.jsonl'); META = os.path.join(PD, '_sharp_meta.json'); STATE = os.path.join(PD, '_sharp_state.json')
 D = "https://data-api.polymarket.com"; G = "https://gamma-api.polymarket.com"; MIN_USD = 100.0
 LEAGUES = {'nfl', 'nba', 'nhl', 'cfb', 'mlb', 'wnba', 'epl', 'bun', 'ucl', 'mls'}
 TYPES = {'moneyline': 'ml', 'spreads': 'spread', 'totals': 'total'}
@@ -32,14 +32,14 @@ def main():
     meta = json.load(open(META)) if os.path.exists(META) else {}
     with cf.ThreadPoolExecutor(8) as ex:
         res = dict(zip(acc, ex.map(lambda w: g(f"{D}/trades?user={w}&limit=100&takerOnly=true") or [], acc)))
-    need = {t['conditionId'] for T in res.values() for t in T if t.get('conditionId') and t['conditionId'] not in meta}
+    need = {t['conditionId'] for T in res.values() for t in T if t.get('conditionId') and (t['conditionId'] not in meta or 'stat' not in meta[t['conditionId']])}
     need = list(need)
     for i in range(0, len(need), 20):
         M = g(f"{G}/markets?" + '&'.join(f'condition_ids={c}' for c in need[i:i + 20])) or []
         for m in M:
             try: outs = json.loads(m.get('outcomes') or '[]'); toks = json.loads(m.get('clobTokenIds') or '[]')
             except Exception: outs, toks = [], []
-            meta[m['conditionId']] = dict(type=TYPES.get(m.get('sportsMarketType')), q=m.get('question'), line=m.get('line'), outcomes=outs, tokens=toks,
+            meta[m['conditionId']] = dict(type=TYPES.get(m.get('sportsMarketType')), stat=m.get('sportsMarketType'), q=m.get('question'), line=m.get('line'), outcomes=outs, tokens=toks,
                                           start=m.get('gameStartTime'), slug=(m.get('events') or [{}])[0].get('slug') or m.get('slug'),
                                           title=(m.get('events') or [{}])[0].get('title'))
         for c in need[i:i + 20]: meta.setdefault(c, dict(type=None))
@@ -48,13 +48,15 @@ def main():
         for l in open(OUT):
             try: r = json.loads(l); seen.add((r['tx'], r['cond'], r['outcome']))
             except Exception: pass
-    new = []
+    new = []; props = []
     for w, T in res.items():
         last = st.get(w, 0)
         for t in T:
             ts = int(t.get('timestamp') or 0); c = t.get('conditionId'); m = meta.get(c) or {}
-            if ts <= last or not m.get('type') or not m.get('start') or len(m.get('outcomes') or []) != 2: continue
-            if (m.get('slug') or '').split('-')[0] not in LEAGUES: continue      # only leagues in the backtest (UFC was negative; tennis, CBB untested)
+            if ts <= last or not m.get('start') or len(m.get('outcomes') or []) != 2: continue
+            prop = not m.get('type') and bool(m.get('stat'))                # player / game props: archived only (11/2), never flagged
+            if not m.get('type') and not prop: continue
+            if not prop and (m.get('slug') or '').split('-')[0] not in LEAGUES: continue      # game lines: only leagues in the backtest
             start = dt.datetime.fromisoformat(m['start'].replace(' ', 'T').replace('+00', '+00:00')).timestamp()
             if ts >= start: continue
             p = float(t['price']); usd = float(t['size']) * min(p, 1 - p)
@@ -67,14 +69,20 @@ def main():
             if k in seen: continue
             seen.add(k)
             spk = {'epl': 'soccer', 'ucl': 'soccer', 'mls': 'soccer', 'bun': 'soccer'}.get(m['slug'].split('-')[0], m['slug'].split('-')[0])
+            if prop:
+                props.append(dict(ts=ts, w=w, rank=acc[w]['rank'], specialist=bool(acc[w].get('specialist')), cond=c, slug=m['slug'], stat=m['stat'], q=m.get('q'),
+                                  line=m.get('line'), outcomes=outs, bet=bet, price=round(price, 4), usd=round(usd, 2), start=m['start'], tx=t.get('transactionHash')))
+                continue
             new.append(dict(ts=ts, w=w, rank=acc[w]['rank'], both=spk in (acc[w].get('sport_top50') or []), specialist=bool(acc[w].get('specialist')), cond=c, slug=m['slug'], title=m.get('title'), mtype=m['type'], q=m.get('q'), line=m.get('line'),
                             outcomes=outs, outcome=o, side=t['side'], bet=bet, price=round(price, 4), size=float(t['size']), usd=round(usd, 2),
                             start=m['start'], tx=t.get('transactionHash')))
         if T: st[w] = max([last] + [int(t.get('timestamp') or 0) for t in T])
     with open(OUT, 'a') as f:
         for r in sorted(new, key=lambda r: r['ts']): f.write(json.dumps(r) + '\n')
+    with open(PROPS, 'a') as f:                                      # prop fills: built up for a later test (Polymarket props were too thin on 11/2)
+        for r in sorted(props, key=lambda r: r['ts']): f.write(json.dumps(r) + '\n')
     json.dump(st, open(STATE, 'w')); json.dump(meta, open(META, 'w'), separators=(',', ':'))
-    print(f"[poly_sharps] {len(acc)} accounts, {sum(len(T) for T in res.values())} recent fills, {len(new)} new pregame game-line fills of ${MIN_USD:.0f}+")
+    print(f"[poly_sharps] {len(acc)} accounts, {sum(len(T) for T in res.values())} recent fills, {len(new)} new pregame game-line fills and {len(props)} prop fills of ${MIN_USD:.0f}+")
 
 
 if __name__ == '__main__':
