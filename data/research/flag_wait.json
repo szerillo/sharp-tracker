@@ -1,0 +1,71 @@
+{
+ "flags": 774,
+ "opposed": 255,
+ "time_to_opposing_hours_quantiles": {
+  "p25": 0.65,
+  "p50": 5.7,
+  "p75": 16.07,
+  "p90": 42.51
+ },
+ "share_opposed_by": {
+  "5m": 0.023,
+  "15m": 0.045,
+  "30m": 0.072,
+  "60m": 0.094,
+  "120m": 0.123,
+  "240m": 0.15,
+  "480m": 0.191
+ },
+ "lead_hours_median": 4.2,
+ "enter_after_wait_if_still_unopposed": {
+  "5m": {
+   "n": 660,
+   "clv": 0.96,
+   "clv_z": 7.44,
+   "roi": -0.3,
+   "units_per_flag": 0.821
+  },
+  "15m": {
+   "n": 602,
+   "clv": 0.79,
+   "clv_z": 5.68,
+   "roi": -1.5,
+   "units_per_flag": 0.611
+  },
+  "30m": {
+   "n": 545,
+   "clv": 0.77,
+   "clv_z": 5.11,
+   "roi": 0.9,
+   "units_per_flag": 0.543
+  },
+  "60m": {
+   "n": 463,
+   "clv": 0.74,
+   "clv_z": 4.34,
+   "roi": 2.3,
+   "units_per_flag": 0.442
+  },
+  "120m": {
+   "n": 383,
+   "clv": 0.68,
+   "clv_z": 3.34,
+   "roi": 5.9,
+   "units_per_flag": 0.339
+  },
+  "240m": {
+   "n": 277,
+   "clv": 0.66,
+   "clv_z": 2.59,
+   "roi": 4.3,
+   "units_per_flag": 0.236
+  },
+  "480m": {
+   "n": 178,
+   "clv": 0.77,
+   "clv_z": 2.44,
+   "roi": 6.3,
+   "units_per_flag": 0.177
+  }
+ }
+}
