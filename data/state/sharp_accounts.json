@@ -1,5 +1,5 @@
 {
- "built": "2026-11-02T23:43:13Z",
+ "built": "2026-11-02T23:47:33Z",
  "rows": [
   {
    "cond": "0xdc614e16fcccc4cce28241e13e7b774d797e30bbb55b0985f63915c039fa7aa7",
@@ -431,7 +431,7 @@
    "best_rank": 42,
    "usd": 10963,
    "paid": 0.4,
-   "ask": 0.4,
+   "ask": 0.41,
    "status": "live",
    "link": "https://polymarket.us/event/ucl-vil-psg-2026-11-03",
    "other": null,
@@ -699,7 +699,7 @@
     "usd": 595,
     "first": "2026-11-02T18:37:58Z"
    },
-   "exit_bid": 0.41,
+   "exit_bid": 0.4,
    "kalshi_against": null,
    "logged": true,
    "event_id": "401909909",
@@ -897,6 +897,42 @@
   "clv_poly_same": null
  },
  "sys_tags": {
+  "401873036:vrest8_1h": {
+   "with": {
+    "n": 1,
+    "best_rank": 59,
+    "usd": 490
+   },
+   "against": null
+  },
+  "401909915:nba_1h_under_hot_over": {
+   "with": null,
+   "against": {
+    "n": 1,
+    "best_rank": 75,
+    "usd": 1706
+   }
+  },
+  "401909913:nba_1h_under_hot_over": {
+   "with": {
+    "n": 2,
+    "best_rank": 59,
+    "usd": 7415
+   },
+   "against": null
+  },
+  "401909919:nba_1h_under_hot_over": {
+   "with": {
+    "n": 1,
+    "best_rank": 75,
+    "usd": 113
+   },
+   "against": {
+    "n": 1,
+    "best_rank": 134,
+    "usd": 175
+   }
+  },
   "401892639:nhl_early_home_fav_qual": {
    "with": {
     "n": 1,

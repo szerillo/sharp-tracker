@@ -416,13 +416,16 @@ function priceOf(f) {
 }
 function sysRow({g, f, tag}) {
   const r = (SY.rules || {})[tag] || {}, e = r.evidence || {}, x = (SY.record || {})[tag];
-  const per = /^(1h|1q|1p)_/.test(f.market) ? '1st half' : 'Full game', gone = f.lapsed || f.now === null;
   const t = SA && SA.sys_tags && (SA.sys_tags[`${g.event_id}:${tag}`] || Object.entries(SA.sys_tags).find(([k]) => k.startsWith(`${g.event_id}:${tag}:`))?.[1]);
+  // 11/2 (Sean): a tier C lean is held (not bet) when Polymarket sharp accounts are on the other side of the same game x market
+  // (first-half leans against the full-game market); whether leans and sharps add up is graded later from sys_sharp_tags.jsonl
+  const held = e.tier === 'C' && !!(t && t.against);
+  const per = /^(1h|1q|1p)_/.test(f.market) ? '1st half' : 'Full game', gone = f.lapsed || f.now === null || held;
   const sp = t ? [t.with ? `<span class="tag-with">${t.with.n} sharp account${t.with.n === 1 ? '' : 's'} with ($${t.with.usd.toLocaleString()})</span>` : '', t.against ? `<span class="tag-against">${t.against.n} sharp account${t.against.n === 1 ? '' : 's'} against ($${t.against.usd.toLocaleString()})</span>` : ''].filter(Boolean).join(' · ') : '';
   const trk = fmtRec(x) || `none graded${x && x.n ? ` (${x.n} open)` : ''}`;
   return sRow({id: `s|${g.event_id}|${tag}|${f.market}`, start: g.start_utc, sportLabel: SPORT_LABEL[g.sport] || g.sport, game: `${esc(g.away_name || g.away)} @ ${esc(g.home_name || g.home)}`,
-    bet: esc(betText(f, g)), sub: `${per} · tier ${e.tier || '?'}${f.lapsed ? ' · <span class="moved-chip">trigger no longer met</span>' : ''}`,
-    size: unitText(['A', 'B'].includes(e.tier) ? SLIP.big : SLIP.small, amProb(f.now ? f.now.price : f.price)),
+    bet: esc(betText(f, g)), sub: `${per} · tier ${e.tier || '?'}${f.lapsed ? ' · <span class="moved-chip">trigger no longer met</span>' : ''}${held ? ' · <span class="tag-against">held: sharps on the other side</span>' : ''}`,
+    size: held ? '' : unitText(['A', 'B'].includes(e.tier) ? SLIP.big : SLIP.small, amProb(f.now ? f.now.price : f.price)),
     price: priceOf(f), link: gone ? '' : betLink((f.now && f.now.venue) || f.venue, g.event_id, f.market),
     why: `${esc(r.desc || tag)}${sp ? `<div>${sp}</div>` : ''}`,
     rec: lbl('Backtest', esc(e.train || '—')) + lbl('Tracker', trk), gone,
@@ -431,7 +434,7 @@ function sysRow({g, f, tag}) {
       ['Since 2021', esc(e.hold || '')], ['Seasons positive', esc(e.seasons || '')],
       ['Tracker', `${trk}${x && x.clv_avg != null ? ` · CLV ${x.clv_avg >= 0 ? '+' : ''}${x.clv_avg} pts (diagnostic only for a system)` : ''}`],
       ['Polymarket sharps', sp], ['Flagged', f.ts ? `${DAYT(f.ts)} at ${VS(f.venue)} ${am(f.price)}` : `${VS(f.venue)} ${am(f.price)}`],
-      ['Status', f.lapsed ? 'The trigger is no longer met on the latest data (for wind: the forecast moved out of the band). Stays in the ledger and is graded either way; not a new bet.' : (f.now === null ? 'No bettable price right now. Still counted at the flagged price.' : '')],
+      ['Status', held ? 'Held, not a bet: Polymarket sharp accounts are on the other side of this game (for a first-half lean, the full-game market). Tier C leans and sharp signals have not been tested together yet, so a conflict is a pass; the fill stays in the ledger and is graded, and the tag is logged so the combination can be tested.' : f.lapsed ? 'The trigger is no longer met on the latest data (for wind: the forecast moved out of the band). Stays in the ledger and is graded either way; not a new bet.' : (f.now === null ? 'No bettable price right now. Still counted at the flagged price.' : '')],
       ['Links', r.labs ? `<a target="_blank" href="https://sportsinsights.actionnetwork.com/betlabs/screen?ScreenId=${r.labs.id}">Bet Labs screen ↗</a>` : '']])});
 }
 function gameHead(x) {
@@ -617,7 +620,7 @@ function renderToday() {
   return `<div class="controls topbar">${whenBar(inSport)} ${sportBar(inWhen)}</div>${summary.replace('__NSIG__', `${strong.length} sharp signal${strong.length === 1 ? '' : 's'}`)}
     ${H('System bets', 'Tier A and B · 0.5u · click a row for the full rule and record')}
     ${vet.length ? sTable(vet.map(sysRow)) : emptyNote('system bets', bets.filter(x => passS(x.sport, x.league)))}
-    ${H('Leans', 'Tier C and tennis · 0.25u · thin samples or paper rules')}
+    ${H('Leans', 'Tier C and tennis · 0.25u · thin samples or paper rules · held when sharp accounts are on the other side')}
     ${leanRows.length ? sTable(leanRows) : emptyNote('leans', [...bets.filter(it => tierOf(it) === 'C'), ...tw].filter(x => passS(x.sport, x.league)))}
     ${H('Sharp signals', `Grade A: a sport-proven sharp account or sharps + big money · B: other sharp flags · C: sharps + another signal · A 0.5u, B and C 0.25u · paper ${SAREC}${SA && SA.record && SA.record.clv != null ? ` · CLV ${SA.record.clv > 0 ? '+' : ''}${SA.record.clv} pts at Polymarket` : ''}${SA && SA.record && SA.record.n_venue ? `, ${SA.record.clv_venue > 0 ? '+' : ''}${SA.record.clv_venue} at your books (${SA.record.n_venue} flags, ${SA.record.units_venue > 0 ? '+' : ''}${SA.record.units_venue}u)` : ''}`)}
     ${strong.length ? sTable(strong.map(wtr)) : (wrows.length ? '<div class="small dim">No market has sharp accounts on it with nothing against, right now.</div>' : emptyNote('sharp-money signals', sig.filter(x => passS(x.sport, x.league))))}

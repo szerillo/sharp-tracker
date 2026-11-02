@@ -145,14 +145,15 @@ def by_event(F):
 
 def sys_tags(BE):
     """Tag each open system bet (data/state/system_fired.json) with the top-200 accounts on the same full-game market (by_event):
-    with (same side) / against (other side). First-half bets are not tagged. The first time a bet is tagged, the tag is appended to
+    with (same side) / against (other side). First-half and period bets are tagged against the full-game market. The first time a bet is tagged, the tag is appended to
     data/state/sys_sharp_tags.jsonl so agreement can be graded against the bet's result later."""
     try: fired = json.load(open(os.path.join(ROOT, 'data', 'state', 'system_fired.json')))
     except Exception: return {}
     OTH = {'home': 'away', 'away': 'home', 'over': 'under', 'under': 'over'}; out = {}
     for k, f in fired.items():
-        if not f.get('fill_id') or f.get('void') or f['market'] not in ('ml', 'spread', 'total'): continue
-        x = BE.get(f"{k.split(':')[0]}|{f['market']}")
+        base = re.sub(r'^(1h|1q|1p)_', '', f['market'])          # 11/2 (Sean): first-half / period leans are tagged against the full-game market
+        if not f.get('fill_id') or f.get('void') or base not in ('ml', 'spread', 'total'): continue
+        x = BE.get(f"{k.split(':')[0]}|{base}")
         if not x: continue
         w, ag = x.get(f['side']), x.get(OTH.get(f['side']))
         if w or ag: out[k] = {'with': w, 'against': ag}
