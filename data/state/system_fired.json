@@ -916,5 +916,31 @@
 "fair": 0.49696,
 "edge_pts": -4.3,
 "why": "Kalshi total mid 0.520 at T-6h -> 0.490 now (-3.0c); continuation (audit section 3, NBA only)"
+},
+"401909915:nba_1h_under_hot_over": {
+"tag": "nba_1h_under_hot_over",
+"fill_id": "0b6896790b02",
+"ts": "2026-11-02T04:14:49Z",
+"market": "1h_total",
+"side": "under",
+"line": 113.5,
+"venue": "FD",
+"price": -112,
+"fair": 0.50464,
+"edge_pts": -2.37,
+"why": "visitor MIL over rate 83% this season; 1H under (regression lean)"
+},
+"401909913:nba_1h_under_hot_over": {
+"tag": "nba_1h_under_hot_over",
+"fill_id": "bf0b8263ae8d",
+"ts": "2026-11-02T04:14:49Z",
+"market": "1h_total",
+"side": "under",
+"line": 120.5,
+"venue": "FD",
+"price": -108,
+"fair": 0.49536,
+"edge_pts": -2.39,
+"why": "visitor SAC over rate 83% this season; 1H under (regression lean)"
 }
 }
