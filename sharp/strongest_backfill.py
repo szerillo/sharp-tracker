@@ -6,7 +6,7 @@ At T = start - 1h, per game x market (main line):
   PRICE  sharp move: notable move on the move tape (Pinnacle origin, or $1k+ Kalshi fills with it) with ts in [T-6h, T]
          Kalshi move: Kalshi two-sided mid moved 4+ pts from its first tight print to T (state from flow_live.steam_state)
          bet back:    a 3+ pt / 60-min Kalshi steam that gave back 40% by T (reversal side)
-  MONEY  big vs small: Kalshi + Polymarket taker fills before T, risk-equivalent, $500+ net $1,000+ one way with small
+  MONEY  big vs small: Kalshi + Polymarket + Novig taker fills before T, risk-equivalent, $500+ net $1,000+ one way with small
          money ($50 and under) the other way, above the display floor ($10k traded, $2.5k big net)
 Strongest = price (one side) and money agree, or any signal on a system bet (system_fired.json) for that market.
 A Kalshi move that gave back is folded into its bet-back row (same story), as on the page.
@@ -46,14 +46,15 @@ def main():
                 yes = t['taker_side'] == 'yes'; side = t['yes_side'] if yes else OTHER.get(t['yes_side'])
                 if not side: continue
                 yp = t['yes_price']; usd = t['count'] * min(yp, 1 - yp)
-                line = None if t['market'] == 'ml' else (t['line'] if side in ('home', 'over') or t['market'] == 'total' else -t['line'])
+                line = None if t['market'] == 'ml' else (t['line'] if t['market'] == 'total' or t['yes_side'] == 'home' else -t['line'])
                 a = agg[(ev, t['market'], line)]; s = a['sides'][side]
                 s['all'] += usd; s['n'] += 1
                 if usd >= FL.BIG_USD: s['big'] += usd; s['n_big'] += 1
                 if usd <= FL.SMALL_USD: s['small'] += usd
         except (EOFError, OSError): pass
     FL.NOW = NOW; npoly = FL.poly_trades(games, agg, cut=T)       # Polymarket taker fills before T, same buckets as Kalshi
-    print(f"[strongest backfill] {npoly} Polymarket trades before T-1h added")
+    nnov = FL.novig_trades(games, agg, cut=T)
+    print(f"[strongest backfill] {npoly} Polymarket and {nnov} Novig trades before T-1h added")
     money = {}
     best = {}
     for (ev, mk, line), a in agg.items():

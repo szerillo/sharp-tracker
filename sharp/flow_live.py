@@ -7,9 +7,8 @@ Per upcoming game x market (moneyline, main spread, main total), from every preg
   big   = such dollars in fills of BIG_USD or more, per side   small = in fills of SMALL_USD or less, per side
   big_net = big dollars on the leading side minus the other side; small_net likewise (signed toward the big side)
   divergent = big money and small money on opposite sides with big_net >= DIV_USD (the backtest's best shape)
-Sources: Kalshi trades (data/kalshi/trades5, taker side explicit) and Polymarket taker trades on game lines (data/polymarket, see poly_trades). Novig live trades (data/novig/trades5) are logged but only used
-once NOVIG_VERIFIED is set: the API does not say whether a trade's outcome is the taker's, so it is checked against the next-day
-public tape (which labels taker/maker) first.
+Sources: Kalshi trades (data/kalshi/trades5, taker side explicit), Polymarket taker trades on game lines (data/polymarket, see
+poly_trades) and Novig live trades (data/novig/trades5, see novig_trades; the taker side was verified against Novig's public tape on 11/1).
 Writes data/state/flow_live.json."""
 import os, sys, json, gzip, glob, collections, datetime as dt
 HERE = os.path.dirname(os.path.abspath(__file__)); ROOT = os.path.abspath(os.path.join(HERE, '..')); sys.path.insert(0, ROOT)
@@ -17,7 +16,7 @@ from sharp.norm import parse_ts
 MOVE_PTS = 4.0; TIGHT = 0.04
 STEAM_PTS = 3.0; STEAM_MIN = 60; REV_FRAC = 0.4; REV_FRESH = 30
 SHOW_TOTAL = 10000.0; SHOW_BIG = 2500.0   # Today-page floor for big vs small (readability only; stricter cuts were tested and did not help)
-BIG_USD = 500.0; SMALL_USD = 50.0; DIV_USD = 1000.0; NOVIG_VERIFIED = False
+BIG_USD = 500.0; SMALL_USD = 50.0; DIV_USD = 1000.0; NOVIG_VERIFIED = True   # 11/1: sharp/novig_verify.py, 1,547 of 1,548 matched trades
 OUT = os.path.join(ROOT, 'data', 'state', 'flow_live.json')
 PAPER = os.path.join(ROOT, 'data', 'kalshi', 'steam_rev_paper.jsonl'); RESC = os.path.join(ROOT, 'data', 'kalshi', 'steam_rev_results.json')
 OTHER = {'home': 'away', 'away': 'home', 'over': 'under', 'under': 'over'}
@@ -232,6 +231,36 @@ def poly_trades(sched, agg, cut=None):
     return n
 
 
+def novig_trades(sched, agg, cut=None):
+    """Novig live trades (data/novig/trades5, loggers/fast.py). Each row's outcome is the MAKER's side: checked against Novig's public
+    taker tape (sharp/novig_verify.py, 11/1: the taker took the other outcome on 1,547 of 1,548 matched trades, $500+ 29 of 29, at
+    1 - the row's price). So the bet is the other side at 1 - price; size is risk-equivalent like Kalshi: contracts x min(p, 1-p).
+    Lines are the home number (spreads) or the total, as the Kalshi buckets. Pregame only; each trade counted once."""
+    seen = set(); n = 0
+    for f in recent(os.path.join(ROOT, 'data', 'novig', 'trades5')):
+        try:
+            for l in gzip.open(f, 'rt'):
+                try: t = json.loads(l)
+                except Exception: continue
+                ev = t.get('event_id'); e = sched.get(ev); mk = t.get('market')
+                if not e or mk not in ('ml', 'spread', 'total') or t.get('trade_id') in seen: continue
+                if e['sport'] == 'soccer' and mk == 'ml': continue
+                seen.add(t.get('trade_id'))
+                tt = dt.datetime.fromtimestamp(int(t['ts']) / 1000, dt.timezone.utc)
+                if tt >= ((cut or {}).get(ev) or parse_ts(e['start'])): continue
+                side = OTHER.get(t.get('side_if_taker'))
+                if not side: continue
+                p = float(t['price']); usd = t['qty_cents'] / 100 * min(p, 1 - p)
+                line = None if mk == 'ml' else t.get('line')
+                a = agg[(ev, mk, line)]; s_ = a['sides'][side]
+                s_['all'] += usd; s_['n'] += 1
+                if usd >= BIG_USD: s_['big'] += usd; s_['n_big'] += 1
+                if usd <= SMALL_USD: s_['small'] += usd
+                a['venues'].add('Novig'); a['last'] = max(a['last'] or '', tt.strftime('%Y-%m-%dT%H:%M:%SZ')); n += 1
+        except (EOFError, OSError): pass
+    return n
+
+
 def main():
     sched = {}
     for sp in ('nfl', 'nba', 'nhl', 'cfb', 'cbb', 'soccer', 'mma'):
@@ -252,13 +281,14 @@ def main():
             # size = risk-equivalent dollars: the stake on the cheaper side, the to-win on the dearer side (count x min(p, 1-p)), so a
             # $9,000 bet on a -900 favorite (to win $1,000) counts the same as $1,000 on the +900 dog; at -110 it is about the stake
             yp = t['yes_price']; usd = t['count'] * min(yp, 1 - yp)
-            line = None if t['market'] == 'ml' else (t['line'] if side in ('home', 'over') or t['market'] == 'total' else -t['line'])   # home / over number
+            line = None if t['market'] == 'ml' else (t['line'] if t['market'] == 'total' or t['yes_side'] == 'home' else -t['line'])   # home number: Kalshi's line is the YES team's own number (fixed 11/1: was flipped by the bet side, which split no-takers onto the wrong line)
             k = (t['event_id'], t['market'], line); a = agg[k]; s = a['sides'][side]
             s['all'] += usd; s['n'] += 1
             if usd >= BIG_USD: s['big'] += usd; s['n_big'] += 1
             if usd <= SMALL_USD: s['small'] += usd
             a['venues'].add('Kalshi'); a['last'] = max(a['last'] or '', t['ts'])
     n_poly = poly_trades(sched, agg)
+    n_novig = novig_trades(sched, agg) if NOVIG_VERIFIED else 0
     # main line per game x market = the line with the most dollars
     best = {}
     for (ev, mk, line), a in agg.items():
@@ -292,7 +322,7 @@ def main():
               open(OUT, 'w'), separators=(',', ':'))
     print(f"[flow_live] steam: {len(steams)} upcoming markets with a {STEAM_PTS}+ pt / {STEAM_MIN}-min move ({collections.Counter(x['state'] for x in steams)}); steam_rev paper {sp['new']} new, record {sp['record']}")
     print(f"[flow_live] {len(moves)} upcoming Kalshi markets moved {MOVE_PTS}+ pts since their first two-sided price")
-    print(f"[flow_live] {n_poly} Polymarket pregame taker trades added")
+    print(f"[flow_live] {n_poly} Polymarket and {n_novig} Novig pregame taker trades added")
     print(f"[flow_live] {len(rows)} upcoming game markets with exchange flow; {sum(r['divergent'] for r in rows)} divergent (big >= ${DIV_USD:,.0f} one way, small money the other)")
 
 

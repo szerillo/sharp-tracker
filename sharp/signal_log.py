@@ -12,8 +12,12 @@ Each tracker run overwrites the pregame snapshot (data/state/signal_snap.json); 
 pregame snapshot to data/research/signal_log.jsonl and drops it from the snapshot file. Grading (agree / conflict / single, by kind,
 against results and the close) is a later script once there are enough games.
 Lines are logged as the home number for spreads and the total for totals (sharp/signal_grade.py grades them).
+Each signal keeps `first`, the first run it was seen on that side (shown on the Today page as "first seen"). When a snapshot is
+frozen, each signal gets Pinnacle's devigged price on its side and line at `first` (p_first) and at the start (p_close), from the
+tick database built earlier in the same tracker run: clv = p_close - p_first, in points, the main test for top-down signals.
 Usage: python3 sharp/signal_log.py"""
-import os, sys, json, datetime as dt
+import os, sys, json, sqlite3, datetime as dt
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(os.path.abspath(__file__)), '..')))
 HERE = os.path.dirname(os.path.abspath(__file__)); ROOT = os.path.abspath(os.path.join(HERE, '..'))
 ST = os.path.join(ROOT, 'data', 'state'); SNAP = os.path.join(ST, 'signal_snap.json'); LOG = os.path.join(ROOT, 'data', 'research', 'signal_log.jsonl')
 NOW = dt.datetime.now(dt.timezone.utc)
@@ -27,7 +31,39 @@ def load(name):
     except Exception: return {}
 
 
+def pinnacle_clv(rows):
+    """Pinnacle devigged price on each signal's side at first sight and at the start (None when Pinnacle has no quote on that line)."""
+    try:
+        from sharp import constants as C, fair as F, sports as SP
+        conn = sqlite3.connect(os.environ.get('SHARP_DB') or os.path.join(ST, 'sharp.sqlite'))
+    except Exception as e:
+        print(f"[signal_log] no tick database for CLV ({e})"); return
+    for v in rows:
+        try: eq = F.EventQuotes(conn, v['event_id'])
+        except Exception: continue
+        mk = v['market']; start = ts(v['start']).strftime('%Y-%m-%dT%H:%M:%SZ')
+        try: meth = C.DEVIG_METHOD[(v['sport'], SP.market_class(mk))]['value']
+        except Exception: meth = 'power'
+        for kind, sg in v['signals'].items():
+            ln = sg.get('line')
+            if mk == 'spread' and ln is not None and sg['side'] == 'away': ln = -ln          # the tick database keeps each side's own number
+            if mk == 'ml': ln = None
+            first = sg.get('first') or v.get('ts')
+            part = (eq.event[4] if sg['side'] == 'home' else eq.event[3]) if mk in ('ml', 'spread') and eq.event and sg['side'] in ('home', 'away') else None   # team markets are keyed by team
+            p1 = eq.venue_prob('Pinnacle', mk, ln, sg['side'], first, meth, part)[0] if first else None
+            p2 = eq.venue_prob('Pinnacle', mk, ln, sg['side'], start, meth, part, max_age=180)[0]
+            sg['p_first'] = round(p1, 4) if p1 is not None else None; sg['p_close'] = round(p2, 4) if p2 is not None else None
+            sg['clv'] = round(100 * (p2 - p1), 2) if p1 is not None and p2 is not None else None
+
+
 def main():
+    if '--reclv' in sys.argv:                   # one-off: add CLV to log rows frozen before it was recorded
+        rows = [json.loads(l) for l in open(LOG) if l.strip()]
+        todo = [v for v in rows if any('clv' not in sg for sg in v['signals'].values())]
+        pinnacle_clv(todo)
+        with open(LOG, 'w') as f:
+            for v in rows: f.write(json.dumps(v) + '\n')
+        print(f"[signal_log] CLV added to {len(todo)} logged snapshots"); return
     MV, FL = load('moves.json'), load('flow_live.json')
     cur = {}
     def add(kind, ev, market, side, start, sport, line=None, **extra):
@@ -55,7 +91,13 @@ def main():
         sides = {s['side'] for s in r['signals'].values()}
         r['agree'] = len(sides) == 1; r['ts'] = NOW.strftime('%Y-%m-%dT%H:%M:%SZ')
     old = json.load(open(SNAP)) if os.path.exists(SNAP) else {}
+    now_s = NOW.strftime('%Y-%m-%dT%H:%M:%SZ')
+    for k, r in cur.items():                     # first seen: carried while the signal stays on the same side
+        for kind, sg in r['signals'].items():
+            o = ((old.get(k) or {}).get('signals') or {}).get(kind) or {}
+            sg['first'] = o.get('first') if o.get('side') == sg['side'] and o.get('first') else now_s
     frozen = [v for k, v in old.items() if ts(v['start']) <= NOW]
+    pinnacle_clv(frozen)
     os.makedirs(os.path.dirname(LOG), exist_ok=True)
     with open(LOG, 'a') as f:                   # always exists, so the workflow's git add never fails on it
         for v in frozen: f.write(json.dumps(v) + '\n')

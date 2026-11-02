@@ -1,25 +1,25 @@
 {
- "built": "2026-11-02T04:17:04Z",
+ "built": "2026-11-02T04:53:34Z",
  "days": 2,
- "games": 140,
+ "games": 143,
  "counts": {
-  "single": 52,
-  "strongest": 4,
-  "mixed": 7,
-  "strongest (system bet)": 12
+  "single": 61,
+  "strongest (system bet)": 13,
+  "strongest": 6,
+  "mixed": 8
  },
  "graded": {
   "single": {
-   "W": 29,
-   "L": 22
+   "W": 35,
+   "L": 26
+  },
+  "strongest (system bet)": {
+   "W": 8,
+   "L": 5
   },
   "strongest": {
    "W": 2,
-   "L": 2
-  },
-  "strongest (system bet)": {
-   "W": 7,
-   "L": 5
+   "L": 4
   }
  },
  "rows": [
@@ -56,21 +56,21 @@
    "result": "W"
   },
   {
-   "event_id": "401858502",
+   "event_id": "401866452",
    "sport": "cfb",
-   "game": "WIS@IOWA",
+   "game": "BGSU@WMU",
    "start": "2026-10-31T16:00Z",
-   "market": "ml",
-   "cls": "single",
-   "side": "home",
-   "line": null,
+   "market": "spread",
+   "cls": "strongest (system bet)",
+   "side": "away",
+   "line": -13.5,
    "price": [],
    "money": {
-    "side": "home",
-    "line": null,
-    "big_net": 16569,
-    "small_net": -3511,
-    "total": 149008
+    "side": "away",
+    "line": -13.5,
+    "big_net": 4941,
+    "small_net": -450,
+    "total": 12979
    },
    "ask": null,
    "result": "W"
@@ -112,6 +112,42 @@
    "result": "W"
   },
   {
+   "event_id": "401858502",
+   "sport": "cfb",
+   "game": "WIS@IOWA",
+   "start": "2026-10-31T16:00Z",
+   "market": "ml",
+   "cls": "single",
+   "side": "home",
+   "line": null,
+   "price": [],
+   "money": {
+    "side": "home",
+    "line": null,
+    "big_net": 16569,
+    "small_net": -3511,
+    "total": 149008
+   },
+   "ask": null,
+   "result": "W"
+  },
+  {
+   "event_id": "401858507",
+   "sport": "cfb",
+   "game": "MICH@RUTG",
+   "start": "2026-10-31T16:30Z",
+   "market": "spread",
+   "cls": "single",
+   "side": "away",
+   "line": 16.5,
+   "price": [
+    "move"
+   ],
+   "money": null,
+   "ask": null,
+   "result": "L"
+  },
+  {
    "event_id": "401858507",
    "sport": "cfb",
    "game": "MICH@RUTG",
@@ -132,20 +168,24 @@
    "result": "W"
   },
   {
-   "event_id": "401858507",
+   "event_id": "401856735",
    "sport": "cfb",
-   "game": "MICH@RUTG",
-   "start": "2026-10-31T16:30Z",
+   "game": "AUB@MISS",
+   "start": "2026-10-31T16:45Z",
    "market": "spread",
    "cls": "single",
-   "side": "away",
-   "line": 16.5,
-   "price": [
-    "move"
-   ],
-   "money": null,
+   "side": "home",
+   "line": -11.5,
+   "price": [],
+   "money": {
+    "side": "home",
+    "line": -11.5,
+    "big_net": 23894,
+    "small_net": -65,
+    "total": 56647
+   },
    "ask": null,
-   "result": "L"
+   "result": "W"
   },
   {
    "event_id": "401892614",
@@ -202,22 +242,6 @@
    "result": "W"
   },
   {
-   "event_id": "401856846",
-   "sport": "cfb",
-   "game": "KSU@COLO",
-   "start": "2026-10-31T18:00Z",
-   "market": "spread",
-   "cls": "single",
-   "side": "home",
-   "line": -2.5,
-   "price": [
-    "kmove/drift"
-   ],
-   "money": null,
-   "ask": 54.0,
-   "result": "W"
-  },
-  {
    "event_id": "401892617",
    "sport": "nhl",
    "game": "EDM@NYI",
@@ -232,6 +256,22 @@
    "money": null,
    "ask": null,
    "result": "L"
+  },
+  {
+   "event_id": "761919",
+   "sport": "soccer",
+   "game": "PHI@CIN",
+   "start": "2026-10-31T18:00Z",
+   "market": "total",
+   "cls": "single",
+   "side": "under",
+   "line": 3.5,
+   "price": [
+    "kmove/held"
+   ],
+   "money": null,
+   "ask": 56.0,
+   "result": "W"
   },
   {
    "event_id": "401892617",
@@ -256,37 +296,20 @@
    "result": "L"
   },
   {
-   "event_id": "761919",
-   "sport": "soccer",
-   "game": "PHI@CIN",
+   "event_id": "401856846",
+   "sport": "cfb",
+   "game": "KSU@COLO",
    "start": "2026-10-31T18:00Z",
-   "market": "total",
-   "cls": "single",
-   "side": "under",
-   "line": 3.5,
-   "price": [
-    "kmove/held"
-   ],
-   "money": null,
-   "ask": 56.0,
-   "result": "W"
-  },
-  {
-   "event_id": "401909896",
-   "sport": "nba",
-   "game": "POR@UTAH",
-   "start": "2026-10-31T19:00Z",
    "market": "spread",
-   "cls": "mixed",
-   "side": null,
-   "line": 8.5,
+   "cls": "single",
+   "side": "home",
+   "line": -2.5,
    "price": [
-    "move",
-    "back"
+    "kmove/drift"
    ],
    "money": null,
-   "ask": 43.0,
-   "result": null
+   "ask": 54.0,
+   "result": "W"
   },
   {
    "event_id": "401861966",
@@ -329,16 +352,17 @@
    "sport": "nba",
    "game": "POR@UTAH",
    "start": "2026-10-31T19:00Z",
-   "market": "ml",
-   "cls": "strongest (system bet)",
-   "side": "away",
-   "line": null,
+   "market": "spread",
+   "cls": "mixed",
+   "side": null,
+   "line": 8.5,
    "price": [
-    "kmove/drift"
+    "move",
+    "back"
    ],
    "money": null,
-   "ask": 74.0,
-   "result": "W"
+   "ask": 43.0,
+   "result": null
   },
   {
    "event_id": "401909896",
@@ -355,6 +379,38 @@
    "money": null,
    "ask": 47.0,
    "result": "L"
+  },
+  {
+   "event_id": "401909896",
+   "sport": "nba",
+   "game": "POR@UTAH",
+   "start": "2026-10-31T19:00Z",
+   "market": "ml",
+   "cls": "strongest (system bet)",
+   "side": "away",
+   "line": null,
+   "price": [
+    "kmove/drift"
+   ],
+   "money": null,
+   "ask": 74.0,
+   "result": "W"
+  },
+  {
+   "event_id": "401860910",
+   "sport": "cfb",
+   "game": "CSU@USU",
+   "start": "2026-10-31T19:30Z",
+   "market": "total",
+   "cls": "single",
+   "side": "under",
+   "line": 62.5,
+   "price": [
+    "kmove/drift"
+   ],
+   "money": null,
+   "ask": 57.0,
+   "result": "W"
   },
   {
    "event_id": "401856734",
@@ -381,22 +437,6 @@
    "sport": "cfb",
    "game": "CSU@USU",
    "start": "2026-10-31T19:30Z",
-   "market": "spread",
-   "cls": "single",
-   "side": "home",
-   "line": -7.5,
-   "price": [
-    "kmove/drift"
-   ],
-   "money": null,
-   "ask": 52.0,
-   "result": "W"
-  },
-  {
-   "event_id": "401860910",
-   "sport": "cfb",
-   "game": "CSU@USU",
-   "start": "2026-10-31T19:30Z",
    "market": "ml",
    "cls": "single",
    "side": "home",
@@ -413,15 +453,15 @@
    "sport": "cfb",
    "game": "CSU@USU",
    "start": "2026-10-31T19:30Z",
-   "market": "total",
+   "market": "spread",
    "cls": "single",
-   "side": "under",
-   "line": 62.5,
+   "side": "home",
+   "line": -7.5,
    "price": [
     "kmove/drift"
    ],
    "money": null,
-   "ask": 57.0,
+   "ask": 52.0,
    "result": "W"
   },
   {
@@ -516,19 +556,51 @@
    "result": "W"
   },
   {
-   "event_id": "401858280",
-   "sport": "cfb",
-   "game": "CLEM@FSU",
+   "event_id": "401909898",
+   "sport": "nba",
+   "game": "ATL@NO",
+   "start": "2026-10-31T23:00Z",
+   "market": "spread",
+   "cls": "strongest (system bet)",
+   "side": "away",
+   "line": 3.5,
+   "price": [
+    "kmove/drift"
+   ],
+   "money": null,
+   "ask": 56.0,
+   "result": "L"
+  },
+  {
+   "event_id": "401892620",
+   "sport": "nhl",
+   "game": "PIT@MTL",
    "start": "2026-10-31T23:00Z",
    "market": "ml",
    "cls": "single",
    "side": "away",
    "line": null,
    "price": [
-    "move"
+    "kmove/held"
    ],
    "money": null,
-   "ask": null,
+   "ask": 47.0,
+   "result": "L"
+  },
+  {
+   "event_id": "401909898",
+   "sport": "nba",
+   "game": "ATL@NO",
+   "start": "2026-10-31T23:00Z",
+   "market": "total",
+   "cls": "strongest (system bet)",
+   "side": "under",
+   "line": 241.5,
+   "price": [
+    "back"
+   ],
+   "money": null,
+   "ask": 54.0,
    "result": "W"
   },
   {
@@ -550,38 +622,6 @@
    "result": "L"
   },
   {
-   "event_id": "401909898",
-   "sport": "nba",
-   "game": "ATL@NO",
-   "start": "2026-10-31T23:00Z",
-   "market": "total",
-   "cls": "strongest (system bet)",
-   "side": "under",
-   "line": 241.5,
-   "price": [
-    "back"
-   ],
-   "money": null,
-   "ask": 54.0,
-   "result": "W"
-  },
-  {
-   "event_id": "401892620",
-   "sport": "nhl",
-   "game": "PIT@MTL",
-   "start": "2026-10-31T23:00Z",
-   "market": "ml",
-   "cls": "single",
-   "side": "away",
-   "line": null,
-   "price": [
-    "kmove/held"
-   ],
-   "money": null,
-   "ask": 47.0,
-   "result": "L"
-  },
-  {
    "event_id": "401892621",
    "sport": "nhl",
    "game": "TOR@VAN",
@@ -598,36 +638,20 @@
    "result": "W"
   },
   {
-   "event_id": "401909898",
-   "sport": "nba",
-   "game": "ATL@NO",
-   "start": "2026-10-31T23:00Z",
-   "market": "spread",
-   "cls": "strongest (system bet)",
-   "side": "away",
-   "line": 3.5,
-   "price": [
-    "kmove/drift"
-   ],
-   "money": null,
-   "ask": 56.0,
-   "result": "L"
-  },
-  {
-   "event_id": "401858509",
+   "event_id": "401858280",
    "sport": "cfb",
-   "game": "OSU@USC",
-   "start": "2026-10-31T23:30Z",
-   "market": "total",
+   "game": "CLEM@FSU",
+   "start": "2026-10-31T23:00Z",
+   "market": "ml",
    "cls": "single",
-   "side": "over",
-   "line": 51.0,
+   "side": "away",
+   "line": null,
    "price": [
     "move"
    ],
    "money": null,
    "ask": null,
-   "result": "L"
+   "result": "W"
   },
   {
    "event_id": "401856737",
@@ -654,6 +678,22 @@
    "sport": "cfb",
    "game": "OSU@USC",
    "start": "2026-10-31T23:30Z",
+   "market": "total",
+   "cls": "single",
+   "side": "over",
+   "line": 51.0,
+   "price": [
+    "move"
+   ],
+   "money": null,
+   "ask": null,
+   "result": "L"
+  },
+  {
+   "event_id": "401858509",
+   "sport": "cfb",
+   "game": "OSU@USC",
+   "start": "2026-10-31T23:30Z",
    "market": "ml",
    "cls": "strongest (system bet)",
    "side": "away",
@@ -667,6 +707,95 @@
     "total": 119037
    },
    "ask": null,
+   "result": "L"
+  },
+  {
+   "event_id": "401909901",
+   "sport": "nba",
+   "game": "MIN@SA",
+   "start": "2026-11-01T00:00Z",
+   "market": "total",
+   "cls": "strongest (system bet)",
+   "side": "over",
+   "line": 226.5,
+   "price": [
+    "move",
+    "back"
+   ],
+   "money": null,
+   "ask": 56.0,
+   "result": "W"
+  },
+  {
+   "event_id": "401909901",
+   "sport": "nba",
+   "game": "MIN@SA",
+   "start": "2026-11-01T00:00Z",
+   "market": "spread",
+   "cls": "single",
+   "side": "home",
+   "line": -12.0,
+   "price": [
+    "move"
+   ],
+   "money": null,
+   "ask": null,
+   "result": "L"
+  },
+  {
+   "event_id": "401858504",
+   "sport": "cfb",
+   "game": "WASH@NEB",
+   "start": "2026-11-01T00:00Z",
+   "market": "spread",
+   "cls": "single",
+   "side": "away",
+   "line": -7.5,
+   "price": [],
+   "money": {
+    "side": "away",
+    "line": -7.5,
+    "big_net": 6043,
+    "small_net": -2807,
+    "total": 38309
+   },
+   "ask": null,
+   "result": "W"
+  },
+  {
+   "event_id": "401858504",
+   "sport": "cfb",
+   "game": "WASH@NEB",
+   "start": "2026-11-01T00:00Z",
+   "market": "ml",
+   "cls": "single",
+   "side": "away",
+   "line": null,
+   "price": [],
+   "money": {
+    "side": "away",
+    "line": null,
+    "big_net": 5617,
+    "small_net": -222,
+    "total": 13955
+   },
+   "ask": null,
+   "result": "W"
+  },
+  {
+   "event_id": "401909899",
+   "sport": "nba",
+   "game": "SAC@MEM",
+   "start": "2026-11-01T00:00Z",
+   "market": "spread",
+   "cls": "strongest (system bet)",
+   "side": "away",
+   "line": -10.5,
+   "price": [
+    "kmove/drift"
+   ],
+   "money": null,
+   "ask": 56.0,
    "result": "L"
   },
   {
@@ -690,55 +819,6 @@
    "sport": "nba",
    "game": "SAC@MEM",
    "start": "2026-11-01T00:00Z",
-   "market": "ml",
-   "cls": "single",
-   "side": "home",
-   "line": null,
-   "price": [
-    "back"
-   ],
-   "money": null,
-   "ask": 76.0,
-   "result": "W"
-  },
-  {
-   "event_id": "401909899",
-   "sport": "nba",
-   "game": "SAC@MEM",
-   "start": "2026-11-01T00:00Z",
-   "market": "spread",
-   "cls": "strongest (system bet)",
-   "side": "away",
-   "line": -10.5,
-   "price": [
-    "kmove/drift"
-   ],
-   "money": null,
-   "ask": 56.0,
-   "result": "L"
-  },
-  {
-   "event_id": "401909901",
-   "sport": "nba",
-   "game": "MIN@SA",
-   "start": "2026-11-01T00:00Z",
-   "market": "total",
-   "cls": "strongest (system bet)",
-   "side": "over",
-   "line": 226.5,
-   "price": [
-    "move",
-    "back"
-   ],
-   "money": null,
-   "ask": 56.0,
-   "result": "W"
-  },
-  {
-   "event_id": "401909899",
-   "sport": "nba",
-   "game": "SAC@MEM",
-   "start": "2026-11-01T00:00Z",
    "market": "total",
    "cls": "strongest (system bet)",
    "side": "under",
@@ -751,40 +831,36 @@
    "result": "L"
   },
   {
-   "event_id": "401909901",
+   "event_id": "401909899",
    "sport": "nba",
-   "game": "MIN@SA",
-   "start": "2026-11-01T00:00Z",
-   "market": "spread",
-   "cls": "single",
-   "side": "home",
-   "line": -12.0,
-   "price": [
-    "move"
-   ],
-   "money": null,
-   "ask": null,
-   "result": "L"
-  },
-  {
-   "event_id": "401858504",
-   "sport": "cfb",
-   "game": "WASH@NEB",
+   "game": "SAC@MEM",
    "start": "2026-11-01T00:00Z",
    "market": "ml",
    "cls": "single",
-   "side": "away",
+   "side": "home",
    "line": null,
-   "price": [],
-   "money": {
-    "side": "away",
-    "line": null,
-    "big_net": 5617,
-    "small_net": -222,
-    "total": 13955
-   },
-   "ask": null,
+   "price": [
+    "back"
+   ],
+   "money": null,
+   "ask": 76.0,
    "result": "W"
+  },
+  {
+   "event_id": "401909902",
+   "sport": "nba",
+   "game": "OKC@HOU",
+   "start": "2026-11-01T00:30Z",
+   "market": "spread",
+   "cls": "single",
+   "side": "away",
+   "line": -2.5,
+   "price": [
+    "back"
+   ],
+   "money": null,
+   "ask": 51.0,
+   "result": "L"
   },
   {
    "event_id": "401909902",
@@ -810,22 +886,6 @@
    "result": null
   },
   {
-   "event_id": "401909902",
-   "sport": "nba",
-   "game": "OKC@HOU",
-   "start": "2026-11-01T00:30Z",
-   "market": "spread",
-   "cls": "single",
-   "side": "away",
-   "line": -2.5,
-   "price": [
-    "back"
-   ],
-   "money": null,
-   "ask": 51.0,
-   "result": "L"
-  },
-  {
    "event_id": "401864530",
    "sport": "cfb",
    "game": "NIU@UNLV",
@@ -833,13 +893,19 @@
    "market": "spread",
    "cls": "mixed",
    "side": null,
-   "line": -22.5,
+   "line": -20.5,
    "price": [
     "move",
     "move",
     "kmove/drift"
    ],
-   "money": null,
+   "money": {
+    "side": "away",
+    "line": -20.5,
+    "big_net": 25499,
+    "small_net": -67,
+    "total": 31791
+   },
    "ask": 55.0,
    "result": null
   },
@@ -864,6 +930,22 @@
    "sport": "cfb",
    "game": "ORST@FRES",
    "start": "2026-11-01T03:00Z",
+   "market": "total",
+   "cls": "single",
+   "side": "under",
+   "line": 57.5,
+   "price": [
+    "kmove/drift"
+   ],
+   "money": null,
+   "ask": 53.0,
+   "result": "L"
+  },
+  {
+   "event_id": "401860924",
+   "sport": "cfb",
+   "game": "ORST@FRES",
+   "start": "2026-11-01T03:00Z",
    "market": "ml",
    "cls": "single",
    "side": "home",
@@ -878,22 +960,6 @@
    },
    "ask": null,
    "result": "W"
-  },
-  {
-   "event_id": "401860924",
-   "sport": "cfb",
-   "game": "ORST@FRES",
-   "start": "2026-11-01T03:00Z",
-   "market": "total",
-   "cls": "single",
-   "side": "under",
-   "line": 57.5,
-   "price": [
-    "kmove/drift"
-   ],
-   "money": null,
-   "ask": 53.0,
-   "result": "L"
   },
   {
    "event_id": "401920982",
@@ -912,38 +978,182 @@
    "result": "W"
   },
   {
+   "event_id": "401879246",
+   "sport": "soccer",
+   "game": "ARS@LIV",
+   "start": "2026-11-01T16:30Z",
+   "market": "total",
+   "cls": "single",
+   "side": "over",
+   "line": 2.5,
+   "price": [],
+   "money": {
+    "side": "over",
+    "line": 2.5,
+    "big_net": 8963,
+    "small_net": -378,
+    "total": 28766
+   },
+   "ask": null,
+   "result": "L"
+  },
+  {
+   "event_id": "401873030",
+   "sport": "nfl",
+   "game": "MIN@DET",
+   "start": "2026-11-01T18:00Z",
+   "market": "ml",
+   "cls": "single",
+   "side": "home",
+   "line": null,
+   "price": [],
+   "money": {
+    "side": "home",
+    "line": null,
+    "big_net": 145313,
+    "small_net": -97748,
+    "total": 740073
+   },
+   "ask": null,
+   "result": "W"
+  },
+  {
    "event_id": "401873026",
    "sport": "nfl",
    "game": "BAL@BUF",
    "start": "2026-11-01T18:00Z",
    "market": "ml",
    "cls": "single",
-   "side": "away",
+   "side": "home",
    "line": null,
    "price": [],
    "money": {
-    "side": "away",
+    "side": "home",
     "line": null,
-    "big_net": 2774,
-    "small_net": -601,
-    "total": 278963
+    "big_net": 25635,
+    "small_net": -2050,
+    "total": 382205
    },
    "ask": null,
-   "result": "L"
+   "result": "W"
   },
   {
-   "event_id": "401873024",
+   "event_id": "401873028",
    "sport": "nfl",
-   "game": "ARI@DAL",
+   "game": "IND@JAX",
+   "start": "2026-11-01T18:00Z",
+   "market": "ml",
+   "cls": "single",
+   "side": "home",
+   "line": null,
+   "price": [],
+   "money": {
+    "side": "home",
+    "line": null,
+    "big_net": 8437,
+    "small_net": -3952,
+    "total": 84263
+   },
+   "ask": null,
+   "result": "W"
+  },
+  {
+   "event_id": "401873027",
+   "sport": "nfl",
+   "game": "CLE@PIT",
+   "start": "2026-11-01T18:00Z",
+   "market": "total",
+   "cls": "single",
+   "side": "under",
+   "line": 38.5,
+   "price": [],
+   "money": {
+    "side": "under",
+    "line": 38.5,
+    "big_net": 59390,
+    "small_net": -346,
+    "total": 97692
+   },
+   "ask": null,
+   "result": "W"
+  },
+  {
+   "event_id": "401873025",
+   "sport": "nfl",
+   "game": "ATL@TB",
+   "start": "2026-11-01T18:00Z",
+   "market": "total",
+   "cls": "strongest (system bet)",
+   "side": "under",
+   "line": 43.5,
+   "price": [],
+   "money": {
+    "side": "under",
+    "line": 43.5,
+    "big_net": 34968,
+    "small_net": -864,
+    "total": 82557
+   },
+   "ask": null,
+   "result": "W"
+  },
+  {
+   "event_id": "401873027",
+   "sport": "nfl",
+   "game": "CLE@PIT",
+   "start": "2026-11-01T18:00Z",
+   "market": "ml",
+   "cls": "single",
+   "side": "home",
+   "line": null,
+   "price": [],
+   "money": {
+    "side": "home",
+    "line": null,
+    "big_net": 43314,
+    "small_net": -16755,
+    "total": 205665
+   },
+   "ask": null,
+   "result": "W"
+  },
+  {
+   "event_id": "401873025",
+   "sport": "nfl",
+   "game": "ATL@TB",
+   "start": "2026-11-01T18:00Z",
+   "market": "ml",
+   "cls": "single",
+   "side": "home",
+   "line": null,
+   "price": [],
+   "money": {
+    "side": "home",
+    "line": null,
+    "big_net": 57334,
+    "small_net": -24492,
+    "total": 319161
+   },
+   "ask": null,
+   "result": "W"
+  },
+  {
+   "event_id": "401873031",
+   "sport": "nfl",
+   "game": "TEN@CIN",
    "start": "2026-11-01T18:00Z",
    "market": "spread",
    "cls": "single",
    "side": "home",
-   "line": -7.5,
-   "price": [
-    "move"
-   ],
-   "money": null,
+   "line": -13.5,
+   "price": [],
+   "money": {
+    "side": "home",
+    "line": -13.5,
+    "big_net": 129554,
+    "small_net": -602,
+    "total": 448182
+   },
    "ask": null,
    "result": "L"
   },
@@ -964,64 +1174,26 @@
    "result": "L"
   },
   {
-   "event_id": "401873030",
+   "event_id": "401873024",
    "sport": "nfl",
-   "game": "MIN@DET",
+   "game": "ARI@DAL",
    "start": "2026-11-01T18:00Z",
-   "market": "ml",
-   "cls": "single",
+   "market": "spread",
+   "cls": "strongest",
    "side": "home",
-   "line": null,
-   "price": [],
+   "line": -7.5,
+   "price": [
+    "move"
+   ],
    "money": {
     "side": "home",
-    "line": null,
-    "big_net": 180629,
-    "small_net": -94069,
-    "total": 558354
+    "line": -7.5,
+    "big_net": 60486,
+    "small_net": -5873,
+    "total": 322200
    },
    "ask": null,
-   "result": "W"
-  },
-  {
-   "event_id": "401873027",
-   "sport": "nfl",
-   "game": "CLE@PIT",
-   "start": "2026-11-01T18:00Z",
-   "market": "ml",
-   "cls": "single",
-   "side": "home",
-   "line": null,
-   "price": [],
-   "money": {
-    "side": "home",
-    "line": null,
-    "big_net": 19693,
-    "small_net": -15239,
-    "total": 150545
-   },
-   "ask": null,
-   "result": "W"
-  },
-  {
-   "event_id": "401873025",
-   "sport": "nfl",
-   "game": "ATL@TB",
-   "start": "2026-11-01T18:00Z",
-   "market": "ml",
-   "cls": "single",
-   "side": "home",
-   "line": null,
-   "price": [],
-   "money": {
-    "side": "home",
-    "line": null,
-    "big_net": 24373,
-    "small_net": -24191,
-    "total": 231682
-   },
-   "ask": null,
-   "result": "W"
+   "result": "L"
   },
   {
    "event_id": "401873029",
@@ -1036,32 +1208,52 @@
    "money": {
     "side": "home",
     "line": null,
-    "big_net": 38512,
-    "small_net": -91356,
-    "total": 828953
+    "big_net": 156848,
+    "small_net": -90827,
+    "total": 1138088
    },
    "ask": null,
    "result": "L"
   },
   {
-   "event_id": "401873025",
+   "event_id": "401873024",
    "sport": "nfl",
-   "game": "ATL@TB",
+   "game": "ARI@DAL",
    "start": "2026-11-01T18:00Z",
-   "market": "total",
-   "cls": "strongest (system bet)",
-   "side": "under",
-   "line": 43.5,
+   "market": "ml",
+   "cls": "single",
+   "side": "home",
+   "line": null,
    "price": [],
    "money": {
-    "side": "under",
-    "line": 43.5,
-    "big_net": 16346,
-    "small_net": -1163,
-    "total": 45906
+    "side": "home",
+    "line": null,
+    "big_net": 19406,
+    "small_net": -16734,
+    "total": 176329
    },
    "ask": null,
-   "result": "W"
+   "result": "L"
+  },
+  {
+   "event_id": "401873030",
+   "sport": "nfl",
+   "game": "MIN@DET",
+   "start": "2026-11-01T18:00Z",
+   "market": "spread",
+   "cls": "single",
+   "side": "away",
+   "line": -3.5,
+   "price": [],
+   "money": {
+    "side": "away",
+    "line": -3.5,
+    "big_net": 40032,
+    "small_net": -513,
+    "total": 487699
+   },
+   "ask": null,
+   "result": "L"
   },
   {
    "event_id": "401874949",
@@ -1114,19 +1306,19 @@
    "result": "L"
   },
   {
-   "event_id": "401909903",
-   "sport": "nba",
-   "game": "BOS@ORL",
+   "event_id": "761927",
+   "sport": "soccer",
+   "game": "SEA@VAN",
    "start": "2026-11-01T20:30Z",
-   "market": "ml",
-   "cls": "strongest (system bet)",
-   "side": "away",
-   "line": null,
+   "market": "total",
+   "cls": "single",
+   "side": "over",
+   "line": 3.5,
    "price": [
-    "kmove/held"
+    "back"
    ],
    "money": null,
-   "ask": 73.0,
+   "ask": 44.0,
    "result": "W"
   },
   {
@@ -1146,19 +1338,19 @@
    "result": "W"
   },
   {
-   "event_id": "761927",
-   "sport": "soccer",
-   "game": "SEA@VAN",
+   "event_id": "401909903",
+   "sport": "nba",
+   "game": "BOS@ORL",
    "start": "2026-11-01T20:30Z",
-   "market": "total",
-   "cls": "single",
-   "side": "over",
-   "line": 3.5,
+   "market": "ml",
+   "cls": "strongest (system bet)",
+   "side": "away",
+   "line": null,
    "price": [
-    "back"
+    "kmove/held"
    ],
    "money": null,
-   "ask": 44.0,
+   "ask": 73.0,
    "result": "W"
   },
   {
@@ -1182,61 +1374,19 @@
    "sport": "nfl",
    "game": "LAC@LAR",
    "start": "2026-11-01T21:05Z",
-   "market": "ml",
-   "cls": "single",
-   "side": "home",
-   "line": null,
-   "price": [],
-   "money": {
-    "side": "home",
-    "line": null,
-    "big_net": 16814,
-    "small_net": -5657,
-    "total": 104455
-   },
-   "ask": null,
-   "result": "W"
-  },
-  {
-   "event_id": "401873034",
-   "sport": "nfl",
-   "game": "NE@MIA",
-   "start": "2026-11-01T21:25Z",
-   "market": "ml",
-   "cls": "single",
-   "side": "home",
-   "line": null,
-   "price": [],
-   "money": {
-    "side": "home",
-    "line": null,
-    "big_net": 9851,
-    "small_net": -785,
-    "total": 111461
-   },
-   "ask": null,
-   "result": "L"
-  },
-  {
-   "event_id": "401873034",
-   "sport": "nfl",
-   "game": "NE@MIA",
-   "start": "2026-11-01T21:25Z",
    "market": "total",
-   "cls": "strongest",
-   "side": "under",
-   "line": 42.5,
-   "price": [
-    "kmove/drift"
-   ],
+   "cls": "single",
+   "side": "over",
+   "line": 46.5,
+   "price": [],
    "money": {
-    "side": "under",
-    "line": 42.5,
-    "big_net": 79674,
-    "small_net": -40,
-    "total": 90882
+    "side": "over",
+    "line": 46.5,
+    "big_net": 13211,
+    "small_net": -936,
+    "total": 22563
    },
-   "ask": 55.0,
+   "ask": null,
    "result": "L"
   },
   {
@@ -1254,12 +1404,54 @@
    "money": {
     "side": "over",
     "line": 41.5,
-    "big_net": 103458,
-    "small_net": -627,
-    "total": 117151
+    "big_net": 19024,
+    "small_net": -1404,
+    "total": 355638
    },
    "ask": 55.0,
    "result": "W"
+  },
+  {
+   "event_id": "401873034",
+   "sport": "nfl",
+   "game": "NE@MIA",
+   "start": "2026-11-01T21:25Z",
+   "market": "total",
+   "cls": "strongest",
+   "side": "under",
+   "line": 42.5,
+   "price": [
+    "kmove/drift"
+   ],
+   "money": {
+    "side": "under",
+    "line": 42.5,
+    "big_net": 75457,
+    "small_net": -1560,
+    "total": 182545
+   },
+   "ask": 55.0,
+   "result": "L"
+  },
+  {
+   "event_id": "401873034",
+   "sport": "nfl",
+   "game": "NE@MIA",
+   "start": "2026-11-01T21:25Z",
+   "market": "ml",
+   "cls": "single",
+   "side": "home",
+   "line": null,
+   "price": [],
+   "money": {
+    "side": "home",
+    "line": null,
+    "big_net": 33148,
+    "small_net": -554,
+    "total": 192370
+   },
+   "ask": null,
+   "result": "L"
   },
   {
    "event_id": "401909904",
@@ -1276,9 +1468,9 @@
    "money": {
     "side": "away",
     "line": null,
-    "big_net": 4778,
-    "small_net": -818,
-    "total": 20312
+    "big_net": 6488,
+    "small_net": -589,
+    "total": 43647
    },
    "ask": 62.0,
    "result": null
@@ -1289,15 +1481,21 @@
    "game": "EDM@NYR",
    "start": "2026-11-01T23:00Z",
    "market": "ml",
-   "cls": "single",
-   "side": "away",
+   "cls": "mixed",
+   "side": null,
    "line": null,
    "price": [
     "back"
    ],
-   "money": null,
+   "money": {
+    "side": "home",
+    "line": null,
+    "big_net": 17457,
+    "small_net": -2391,
+    "total": 75661
+   },
    "ask": 46.0,
-   "result": "W"
+   "result": null
   },
   {
    "event_id": "761932",
@@ -1329,7 +1527,7 @@
    ],
    "money": null,
    "ask": 56.0,
-   "result": null
+   "result": "W"
   },
   {
    "event_id": "401892628",
@@ -1346,12 +1544,86 @@
    "money": {
     "side": "away",
     "line": null,
-    "big_net": 5841,
-    "small_net": -634,
-    "total": 20402
+    "big_net": 44767,
+    "small_net": -1862,
+    "total": 89711
    },
    "ask": 47.0,
    "result": null
+  },
+  {
+   "event_id": "401873035",
+   "sport": "nfl",
+   "game": "PHI@WSH",
+   "start": "2026-11-02T01:20Z",
+   "market": "spread",
+   "cls": "strongest",
+   "side": "away",
+   "line": -5.5,
+   "price": [
+    "kmove/drift"
+   ],
+   "money": {
+    "side": "away",
+    "line": -5.5,
+    "big_net": 408558,
+    "small_net": -3103,
+    "total": 701530
+   },
+   "ask": 50.0,
+   "result": "L"
+  },
+  {
+   "event_id": "401909905",
+   "sport": "nba",
+   "game": "LAC@GS",
+   "start": "2026-11-02T01:30Z",
+   "market": "total",
+   "cls": "single",
+   "side": "under",
+   "line": 220.5,
+   "price": [],
+   "money": {
+    "side": "under",
+    "line": 220.5,
+    "big_net": 14941,
+    "small_net": -280,
+    "total": 24020
+   },
+   "ask": null,
+   "result": "L"
+  },
+  {
+   "event_id": "401909905",
+   "sport": "nba",
+   "game": "LAC@GS",
+   "start": "2026-11-02T01:30Z",
+   "market": "ml",
+   "cls": "single",
+   "side": "home",
+   "line": null,
+   "price": [
+    "back"
+   ],
+   "money": null,
+   "ask": 55.0,
+   "result": "W"
+  },
+  {
+   "event_id": "761921",
+   "sport": "soccer",
+   "game": "MIN@LAFC",
+   "start": "2026-11-02T01:30Z",
+   "market": "total",
+   "cls": "single",
+   "side": "over",
+   "line": 3.5,
+   "price": [
+    "kmove/held"
+   ],
+   "money": null,
+   "ask": 46.0,
+   "result": "W"
   }
  ]
 }

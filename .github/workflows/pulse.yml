@@ -2,7 +2,9 @@ name: pulse (scheduler)
 # GitHub's cron fired the 20-minute jobs about four times a day (checked 2026-10-30: 4 scheduled runs each for prices and tracker in
 # 24 hours; prices_fast never). This job is the clock instead: it runs for ~55 minutes, dispatching prices_fast every 5 minutes and
 # prices / tracker on their 20-minute slots inside the 10 AM to 2 AM ET window, then dispatches itself. The cron below is only the
-# restart if a pulse ever dies. Overnight (2-10 AM ET) it dispatches only the 20-minute tennis log and Pages; cancel-in-progress collapses overlapping pulses.
+# restart if a pulse ever dies. Since 11/1 it runs around the clock: prices / tracker / Pages every 20 minutes all day, the 5-minute tape
+# every 5 minutes 10 AM-2 AM ET and every 10 minutes overnight (prices.yml carries the tennis lines, so the overnight tennis job is not
+# needed). cancel-in-progress collapses overlapping pulses.
 on:
   schedule:
     - cron: '7,37 * * * *'
@@ -28,18 +30,14 @@ jobs:
             h=$(TZ=America/New_York date +%H); m=$(date -u +%M); m=$((10#$m))
             if [ $h -ge 10 ] || [ $h -le 1 ]; then
               fire prices_fast.yml
-              case $(( m % 20 )) in
-                0|1|2|3|4) fire prices.yml ;;
-                10|11|12|13|14) fire tracker.yml ;;
-                15|16|17|18|19) fire pages.yml ;;     # workflow_run does not fire for runs started with GITHUB_TOKEN, so publish from here
-              esac
-            else                                   # 2-10 AM ET: only the overnight tennis log (European / Asian / Challenger starts) and its publish
-              case $(( m % 20 )) in
-                5|6|7|8|9) fire prices_tennis_overnight.yml ;;
-                15|16|17|18|19) fire pages.yml ;;
-                *) echo "$(date -u +%H:%M) overnight (ET $h): tennis only" ;;
-              esac
+            elif [ $(( m % 10 )) -lt 5 ]; then     # 2-10 AM ET (11/1): the 5-minute tape every 10 minutes, so early soccer kickoffs and overnight
+              fire prices_fast.yml                 # Pinnacle moves on NFL / CFB lines are on the move tape (it was tennis only before)
             fi
+            case $(( m % 20 )) in                  # 20-minute price log, tracker and publish around the clock (the repo is public: no minute cap)
+              0|1|2|3|4) fire prices.yml ;;
+              10|11|12|13|14) fire tracker.yml ;;
+              15|16|17|18|19) fire pages.yml ;;     # workflow_run does not fire for runs started with GITHUB_TOKEN, so publish from here
+            esac
             sleep 300
           done
           fire pulse.yml

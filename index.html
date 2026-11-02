@@ -96,7 +96,7 @@ const MKT = new Proxy(MKT0, {get(t, k) { if (k in t) return t[k]; const m = /^(1
 let SPORT = new URLSearchParams(location.search).get('sport') || null;
 const XV = new Set(['Kalshi', 'Novig', 'Polymarket']), SHARP = new Set(['Pinnacle', 'Circa']);
 const ET = iso => new Date(iso).toLocaleString('en-US', {timeZone: 'America/New_York', month: 'short', day: 'numeric', hour: 'numeric', minute: '2-digit'});
-let D = null, E = null, MV = null, SY = null, FL = null, TW = null, tab = new URLSearchParams(location.search).get('tab') || 'today';
+let D = null, E = null, MV = null, SY = null, FL = null, TW = null, SN = null, tab = new URLSearchParams(location.search).get('tab') || 'today';
 const TABS = [['today', 'Today'], ['games', 'Games'], ['systems', 'Systems'], ['moves', 'Market moves'], ['more', 'More']];
 const RTABS = [['edges', 'Off-market prices'], ['ledger', 'Bet ledger'], ['weekly', 'Weekly report'], ['venues', 'Which books lead'], ['board', 'Full odds board'], ['props', 'Prop list'], ['health', 'Data health'], ['constants', 'Settings']];
 let rtab = new URLSearchParams(location.search).get('r') || 'edges';
@@ -442,12 +442,15 @@ function renderToday() {
     const chip = x => `<span class="badge ${r.mixed ? 'b-gate' : 'b-watch'}" title="${esc(x.bet)}">${KIND[x.kind]}${x.kind === 'kmove' && x.state ? ' · ' + ({fresh: 'fresh', held: 'held', reversed: 'gave back', drift: 'drift'})[x.state] : ''}</span>`;
     const pr = r.rest.filter(x => x.kind !== 'big'), mo = r.rest.filter(x => x.kind === 'big');
     const chips = (pr.length ? `<div><span class="fam">price</span> ${pr.map(chip).join(' ')}</div>` : '') + (mo.length ? `<div><span class="fam">money</span> ${mo.map(chip).join(' ')}</div>` : '');
+    // first seen: the earliest tracker run that logged any of this row's signals on its side (sharp/signal_log.py, data/state/signal_snap.json)
+    const sn = SN && SN[r.id] && SN[r.id].signals, fs = sn ? r.rest.map(x => sn[x.kind] && sn[x.kind].side === x.side && sn[x.kind].first).filter(Boolean).sort()[0] : null;
+    const seen = fs ? `<div class="small dim">first seen ${ET(fs)}${(Date.now() - new Date(fs)) > 36e5 ? ` (${Math.round((Date.now() - new Date(fs)) / 36e5)}h ago)` : ''}</div>` : '';
     const lv = r.mixed ? null : (r.rest.find(x => x.kind === 'kmove' || x.kind === 'back') ? 'Kalshi' : 'AN');
     const link = r.mixed ? '' : (lv === 'Kalshi' ? betLink('Kalshi', g.ev, r.rest[0].market) : betLink('FD', g.ev, r.rest[0].market, 'Game page'));
     const head = `<tr class="erow click" title="Click for the reasons and records" onclick="_wo['${r.id}']=!_wo['${r.id}'];draw()">
       <td class="small"><span class="chev">${open ? '▾' : '▸'}</span> <span class="badge b-sport">${SPORT_LABEL[g.sport] || g.sport}</span> <b>${DAYT(g.start)}</b><br><span class="dim">${until(g.start)}</span></td>
       <td class="small">${esc(g.away_name || g.away)} @ ${esc(g.home_name || g.home)}</td>
-      <td>${lean}</td><td>${chips}</td><td class="small mono">${r.price || '<span class="dim">—</span>'}${link ? '<br>' + link : ''}</td><td class="small mono">${r.vol ? '$' + Math.round(r.vol).toLocaleString() : '<span class="dim">—</span>'}</td><td class="small">${r.tag || ''}</td></tr>`;
+      <td>${lean}</td><td>${chips}${seen}</td><td class="small mono">${r.price || '<span class="dim">—</span>'}${link ? '<br>' + link : ''}</td><td class="small mono">${r.vol ? '$' + Math.round(r.vol).toLocaleString() : '<span class="dim">—</span>'}</td><td class="small">${r.tag || ''}</td></tr>`;
     if (!open) return head;
     return head + `<tr><td></td><td colspan="6" class="small" style="padding-bottom:12px">${r.rest.map(x => `<div><b>${KIND[x.kind]}${r.mixed ? ` → ${esc(x.bet)}` : ''}:</b> ${x.why}</div>`).join('')}
       ${r.folded.map(x => `<div class="dim">(earlier: ${esc(x.bet)}, ${x.why})</div>`).join('')}
@@ -457,7 +460,7 @@ function renderToday() {
     <div class="small" style="margin:2px 0 6px"><b>Strongest</b>: price (where the line went) and money (who bet it) agree, or a signal touches one of your system bets. Several price signals count once (usually the same news on different venues). Click a row for the reasons.</div>
     ${strong.length ? `<div class="sec"><table>${thead}<tbody>${strong.map(wtr).join('')}</tbody></table></div>` : '<div class="small dim">No market has price and money agreeing, or a signal on your system bets, right now.</div>'}
     ${others.length ? `<details class="how" ${window._wopen ? 'open' : ''} ontoggle="window._wopen=this.open"><summary>All other signals (${others.length}): untested on their own</summary>
-      <div class="controls"><span>Sort</span><span class="tabs inline"><button class="${_ws === 'vol' ? 'on' : ''}" onclick="_ws='vol';window._wopen=true;draw()">Volume</button><button class="${_ws === 'time' ? 'on' : ''}" onclick="_ws='time';window._wopen=true;draw()">Game time</button></span><span>Volume = exchange dollars traded on that market (Kalshi + Polymarket, risk-equivalent); a signal on a busy market carries more than one on a thin one.</span></div>
+      <div class="controls"><span>Sort</span><span class="tabs inline"><button class="${_ws === 'vol' ? 'on' : ''}" onclick="_ws='vol';window._wopen=true;draw()">Volume</button><button class="${_ws === 'time' ? 'on' : ''}" onclick="_ws='time';window._wopen=true;draw()">Game time</button></span><span>Volume = exchange dollars traded on that market (Kalshi + Polymarket + Novig, risk-equivalent); a signal on a busy market carries more than one on a thin one.</span></div>
       <div class="sec"><table>${thead}<tbody>${others.map(wtr).join('')}</tbody></table></div></details>` : ''}`;
   const nWin = SY.window_h ? `${SY.window_h[0]}–${SY.window_h[1]}h` : '';
   return `<div class="controls topbar">${whenBar(inSport)} ${sportBar(inWhen)}</div>${summary}
@@ -471,7 +474,7 @@ function renderToday() {
     <div class="hdr2"><h2>Sharp-money watch</h2><span class="meta">not bets: top-down signals, judged on whether following them beats the close</span></div>
     <details class="how"><summary>What each signal means, and how it has tested</summary><p class="explain">
       <b>Sharp move</b>: a move in the last 6 hours that started at Pinnacle, or that $1,000+ Kalshi fills went with. The move tape started 10/30 and has no settled record yet (publication gate ${MV ? MV.gate : 150} settled games per sport).<br>
-      <b>Big vs small</b>: exchange taker fills (Kalshi and Polymarket; Novig once its side labels are verified) of $${FL ? FL.big_usd : 500}+ net on one side by $${FL ? FL.div_usd.toLocaleString() : '1,000'}+ while fills of $${FL ? FL.small_usd : 50} and under lean the other way; sizes are risk-equivalent, so laying -900 is not "big money". Shown only above $${FL ? (FL.show_total || 10000).toLocaleString() : '10,000'} traded and $${FL ? (FL.show_big || 2500).toLocaleString() : '2,500'} big-money net (readability; stricter cuts were tested and did not make it predictive). Backtest: no version clears noise.<br>
+      <b>Big vs small</b>: exchange taker fills (Kalshi, Polymarket and Novig; Novig's taker side was checked against its public tape on 11/1) of $${FL ? FL.big_usd : 500}+ net on one side by $${FL ? FL.div_usd.toLocaleString() : '1,000'}+ while fills of $${FL ? FL.small_usd : 50} and under lean the other way; sizes are risk-equivalent, so laying -900 is not "big money". Shown only above $${FL ? (FL.show_total || 10000).toLocaleString() : '10,000'} traded and $${FL ? (FL.show_big || 2500).toLocaleString() : '2,500'} big-money net (readability; stricter cuts were tested and did not make it predictive). Backtest: no version clears noise.<br>
       <b>Kalshi ${FL ? FL.move_pts : 4}+ pts</b>: the Kalshi price moved that far since the first price we logged. Following it 1h to 15m before the start made +13% on about 500 October games but was flat in September. The state comes from the steam timing study: <i>fresh</i> = under an hour old (waiting beat chasing), <i>held 1h+</i> = fading those lost 15-25%, <i>gave back</i> = retraced 40% of the steam, <i>drift</i> = no fast move.<br>
       <b>Bet back (paper)</b>: a 3+ point Kalshi steam that gave back 40%; the row is the reversal side. +5.5% / +6.4% (3+ pts) and +9.0% / +11.5% (5+) before and in October, about one standard error and slightly negative CLV. Paper record: ${srRec}.<br>
       Signals come in two families: <b>price</b> (sharp move, Kalshi move, bet back: where the line went) and <b>money</b> (big vs small: who bet it). Several price signals on one market count once, because they are usually the same news reaching different venues (a Pinnacle move is often what bets Kalshi back). A row is <b>Strongest</b> when price and money agree, or when it touches one of your system bets; whether that agreement actually adds value is graded from the signal log as games settle. Each game shows one row per market. A Kalshi move that has since given back its steam is folded into the bet-back row (same story; the timing study leans, weakly, to the bet-back side). If signals still point both ways on a market, the row says <b>Mixed signals, no lean</b>: we do not have a tested way to net them, and every game x market's signals are logged at the start so agree vs conflict can be graded. Tags show where a signal lines up with or runs against one of the system bets above.</p></details>
@@ -765,6 +768,9 @@ async function load() {
     try { SY = await (await fetch('data/state/system_fires.json', {cache: 'no-store'})).json(); } catch (e) { SY = null; }
     try { FL = await (await fetch('data/state/flow_live.json', {cache: 'no-store'})).json(); } catch (e) { FL = null; }
     try { TW = await (await fetch('data/state/tennis_watch.json', {cache: 'no-store'})).json(); } catch (e) { TW = null; }
+    let TH = null; try { TH = await (await fetch('data/state/tape_health.json', {cache: 'no-store'})).json(); } catch (e) { TH = null; }
+    window._TH = TH;
+    try { SN = await (await fetch('data/state/signal_snap.json', {cache: 'no-store'})).json(); } catch (e) { SN = null; }
     const idx = D.index;
     if (idx && idx.sports && idx.sports.length) {
       if (!SPORT) SPORT = idx.sports[0].sport;
@@ -782,6 +788,12 @@ async function load() {
     <span class="pill">Test gates: A/B ${D.venues.A.game.n}/${D.venues.A.game.gate} games · C ${D.venues.C.n}/${D.venues.C.gate} pairs · D ${D.venues.D.n}/${D.venues.D.gate} prop rows</span>
     <span class="pill">Fanatics, theScore, BetRivers, BetMGM: archived only, never shown as a price</span>`;
   const b = [];
+  const TH = window._TH;
+  if (TH) {
+    const recent = (TH.gaps || []).filter(g => (Date.now() - new Date(g.end)) < 6 * 36e5 && g.minutes >= 30 && new Date(g.end) < Date.now() - 6e4);
+    if (TH.stale_min != null && TH.stale_min >= 30) b.push(`<div class="banner red">The 5-minute tape has not run for ${TH.stale_min} minutes (last ${ET(TH.last)} ET): moves, steam states and big vs small are stale.</div>`);
+    else if (recent.length) b.push(`<div class="banner">The 5-minute tape missed ${recent.map(g => `${ET(g.start)} to ${ET(g.end)} ET (${g.minutes} min)`).join(', ')}: moves inside that window are not on the tape.</div>`);
+  }
   if (ageMin > 90) b.push(`<div class="banner red">The export is ${ageMin} minutes old — the workflow has not run. Prices on the board are not current.</div>`);
   if (D.weights.game_status !== 'fitted') b.push(`<div class="banner">Fair prices use the <b>prior</b> weight vector (unfitted). Edges are a ruler-vs-price gap under those weights, not a validated result; nothing in the first month produces a bet on its own. Weights fit automatically once the game-line gate (${D.venues.A.game.gate} settled games) is reached.</div>`);
   $('#banners').innerHTML = b.join('');
