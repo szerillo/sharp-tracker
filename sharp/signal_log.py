@@ -11,6 +11,7 @@ Same signal definitions as the Today page (index.html renderToday):
 Each tracker run overwrites the pregame snapshot (data/state/signal_snap.json); the first run after the start appends the last
 pregame snapshot to data/research/signal_log.jsonl and drops it from the snapshot file. Grading (agree / conflict / single, by kind,
 against results and the close) is a later script once there are enough games.
+Lines are logged as the home number for spreads and the total for totals (sharp/signal_grade.py grades them).
 Usage: python3 sharp/signal_log.py"""
 import os, sys, json, datetime as dt
 HERE = os.path.dirname(os.path.abspath(__file__)); ROOT = os.path.abspath(os.path.join(HERE, '..'))
@@ -44,7 +45,9 @@ def main():
         if r.get('divergent') and r.get('show') is not False:
             add('big', r['event_id'], r['market'], r['big_side'], r['start'], r['sport'], r.get('line'), big_net=r.get('big_net'), small_net=r.get('small_net'))
     for r in FL.get('moves') or []:
-        add('kmove', r['event_id'], r['market'], r['side'], r['start'], r['sport'], r.get('line'), state=r.get('state'), now=r.get('now'), ask=r.get('ask'))
+        ln = r.get('line')
+        if r['market'] == 'spread' and ln is not None and r['side'] == 'away': ln = -ln      # flow_live gives the side's own number; log the home number
+        add('kmove', r['event_id'], r['market'], r['side'], r['start'], r['sport'], ln, state=r.get('state'), now=r.get('now'), ask=r.get('ask'))
     for r in (FL.get('steam') or {}).get('rows') or []:
         if r.get('state') == 'reversed':
             add('back', r['event_id'], r['market'], r['rev_side'], r['start'], r['sport'], r.get('line'), cost=r.get('rev_cost'), ticker=r.get('ticker'))
