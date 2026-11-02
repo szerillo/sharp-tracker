@@ -86,3 +86,52 @@ entry, CLV vs Polymarket's close):
 | Kalshi moved 4+ the other way | 57 | +0.24 (z 0.3) | 0.0% |
 
 Read: an agreeing Kalshi move adds little to CLV; an opposing one cuts most of it. Use Kalshi as a veto, not a booster. Small samples.
+
+## Round 2 cuts (sharp/sharp_accounts2.py, data/research/sharp_accounts2.json)
+
+Sean, 11/2: bigger orders isolated, head-to-head, multiple positions, other angles. Holdout only (Sep 1 on), accounts ranked on train,
+entry 5 minutes after the triggering fill, CLV vs Polymarket's close. These cuts were chosen after round 1, so read them as
+descriptive, not as new pre-registered tests.
+
+| Cut | n | CLV | z | ROI |
+|---|---|---|---|---|
+| A fill $100-500 (top 200) | 2,483 | +0.75 | 8.0 | +2.5% |
+| A fill $500-2k | 2,021 | +0.62 | 7.0 | +5.5% (z 2.1) |
+| A fill $2k-10k | 1,339 | +0.58 | 5.3 | -1.2% |
+| A fill $10k+ | 331 | +0.74 | 2.4 | +2.8% |
+| B rank 1-50 | 170 | +1.06 | 2.7 | -3.0% |
+| B rank 51-200 | 3,181 | +0.64 | 8.5 | +2.2% |
+| B rank 201-1000 | 3,598 | +0.53 | 7.0 | +4.3% (z 2.1) |
+| B rank 1001+ | 3,295 | +0.19 | 2.4 | +2.3% |
+| C first top-200 account in | 3,180 | +0.66 | 8.7 | +2.2% |
+| C joins a top-200 already on that side | 1,448 | +0.81 | 7.7 | +0.6% |
+| C another top-200 already on the other side | 1,759 | +0.56 | 5.0 | +3.2% |
+| D head-to-head at T-15m: side with more top-200 $ | 1,512 | -0.03 | -0.5 | +2.0% |
+| D head-to-head at T-15m: best-ranked account's side | 1,512 | -0.01 | -0.2 | -1.8% |
+| E account's 1st fill | 6,387 | +0.67 | 12.2 | +2.1% |
+| E 2nd fill, same side (adding) | 2,564 | +0.68 | 8.5 | +2.1% |
+| E flip (already bet the other side) | 1,162 | +0.41 | 3.2 | -0.3% |
+| F net top-200 $5k+, entered at T-1h | 707 | +0.44 | 2.8 | +1.9% |
+| F net top-200 $1k+, entered at T-15m | 2,206 | +0.10 | 3.2 | +1.3% |
+| G first top-200 fill 24h+ out | 540 | +1.04 | 4.1 | +3.5% |
+| G 6-24h | 1,162 | +0.63 | 5.0 | +2.1% |
+| G 1-6h | 807 | +0.71 | 4.3 | +1.0% |
+| G under 1h | 671 | +0.36 | 6.7 | +2.9% |
+| H moneyline | 1,125 | +0.92 | 6.0 | +8.4% (z 1.9) |
+| H spread | 1,110 | +0.49 | 5.0 | -3.0% |
+| H total | 945 | +0.53 | 4.0 | +0.9% |
+| H followed side under 40c (dog) | 471 | +0.83 | 3.4 | +15.2% (z 1.6) |
+| H 40-60c | 2,214 | +0.69 | 8.7 | +0.5% |
+| H over 60c (fav) | 495 | +0.37 | 1.6 | -2.6% |
+
+By sport (first top-200 fill): positive CLV everywhere but UFC (-1.52 on 66). Soccer and WNBA highest (+1.0 to +1.2), NFL / CFB / NBA
++0.6, NHL +0.5.
+
+Read:
+1. Size does not matter: a $100-500 fill from a top account carries as much as a $10k one. The account is the signal, not the bet size.
+2. Rank matters, monotonically (top 50 > 51-200 > 201-1000 > the rest).
+3. Two top accounts on the same side is the best case (+0.81). Head-to-head is weaker at the moment of the bet (+0.56), and once both
+   sides have top money by 15 minutes out, nothing is left on either side (D about 0).
+4. Adding to a position is as good as the first bet; a flip is weaker.
+5. Speed matters: the same accounts' net position entered at T-1h or T-15m keeps only +0.1 to +0.4. Earlier bets (24h+) carry the most.
+6. Moneylines and dogs carry the most; favorites the least. UFC is excluded.

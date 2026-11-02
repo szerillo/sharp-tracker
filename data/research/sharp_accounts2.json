@@ -1,0 +1,314 @@
+{
+ "train_cut": "2026-09-01",
+ "lag_s": 300,
+ "cells": {
+  "A size $100-500": {
+   "clv": 0.75,
+   "clv_z": 7.96,
+   "n": 2483,
+   "roi": 2.48,
+   "roi_z": 1.01
+  },
+  "A size $10k+": {
+   "clv": 0.74,
+   "clv_z": 2.37,
+   "n": 331,
+   "roi": 2.81,
+   "roi_z": 0.47
+  },
+  "A size $2k-10k": {
+   "clv": 0.58,
+   "clv_z": 5.33,
+   "n": 1339,
+   "roi": -1.22,
+   "roi_z": -0.42
+  },
+  "A size $500-2k": {
+   "clv": 0.62,
+   "clv_z": 6.98,
+   "n": 2021,
+   "roi": 5.45,
+   "roi_z": 2.07
+  },
+  "B rank 1-50": {
+   "clv": 1.06,
+   "clv_z": 2.68,
+   "n": 170,
+   "roi": -2.96,
+   "roi_z": -0.38
+  },
+  "B rank 1001-3687": {
+   "clv": 0.19,
+   "clv_z": 2.4,
+   "n": 3295,
+   "roi": 2.32,
+   "roi_z": 1.14
+  },
+  "B rank 201-1000": {
+   "clv": 0.53,
+   "clv_z": 6.98,
+   "n": 3598,
+   "roi": 4.34,
+   "roi_z": 2.11
+  },
+  "B rank 51-200": {
+   "clv": 0.64,
+   "clv_z": 8.5,
+   "n": 3181,
+   "roi": 2.17,
+   "roi_z": 1.02
+  },
+  "C first top-200 in": {
+   "clv": 0.66,
+   "clv_z": 8.67,
+   "n": 3180,
+   "roi": 2.22,
+   "roi_z": 1.04
+  },
+  "C head-to-head (another top-200 on the other side)": {
+   "clv": 0.56,
+   "clv_z": 4.99,
+   "n": 1759,
+   "roi": 3.2,
+   "roi_z": 1.22
+  },
+  "C joins a top-200 on the same side": {
+   "clv": 0.81,
+   "clv_z": 7.66,
+   "n": 1448,
+   "roi": 0.59,
+   "roi_z": 0.2
+  },
+  "D head-to-head: best-ranked account side": {
+   "clv": -0.01,
+   "clv_z": -0.16,
+   "n": 1512,
+   "roi": -1.79,
+   "roi_z": -0.64
+  },
+  "D head-to-head: side with fewer top-200 $": {
+   "clv": 0.03,
+   "clv_z": 0.46,
+   "n": 1512,
+   "roi": -4.63,
+   "roi_z": -1.67
+  },
+  "D head-to-head: side with more top-200 $": {
+   "clv": -0.03,
+   "clv_z": -0.46,
+   "n": 1512,
+   "roi": 1.96,
+   "roi_z": 0.73
+  },
+  "E 1st fill": {
+   "clv": 0.67,
+   "clv_z": 12.23,
+   "n": 6387,
+   "roi": 2.12,
+   "roi_z": 1.47
+  },
+  "E adds same side (2nd fill)": {
+   "clv": 0.68,
+   "clv_z": 8.48,
+   "n": 2564,
+   "roi": 2.09,
+   "roi_z": 0.9
+  },
+  "E flip (already bet the other side)": {
+   "clv": 0.41,
+   "clv_z": 3.21,
+   "n": 1162,
+   "roi": -0.29,
+   "roi_z": -0.09
+  },
+  "F net top-200 $1k+ at T-15m": {
+   "clv": 0.1,
+   "clv_z": 3.24,
+   "n": 2206,
+   "roi": 1.28,
+   "roi_z": 0.53
+  },
+  "F net top-200 $1k+ at T-1h": {
+   "clv": 0.21,
+   "clv_z": 2.56,
+   "n": 1702,
+   "roi": 1.46,
+   "roi_z": 0.53
+  },
+  "F net top-200 $1k+ at T-6h": {
+   "clv": 0.06,
+   "clv_z": 0.37,
+   "n": 929,
+   "roi": 2.94,
+   "roi_z": 0.84
+  },
+  "F net top-200 $5k+ at T-15m": {
+   "clv": 0.17,
+   "clv_z": 3.02,
+   "n": 933,
+   "roi": -1.15,
+   "roi_z": -0.33
+  },
+  "F net top-200 $5k+ at T-1h": {
+   "clv": 0.44,
+   "clv_z": 2.8,
+   "n": 707,
+   "roi": 1.86,
+   "roi_z": 0.46
+  },
+  "F net top-200 $5k+ at T-6h": {
+   "clv": -0.03,
+   "clv_z": -0.1,
+   "n": 328,
+   "roi": 2.81,
+   "roi_z": 0.49
+  },
+  "G 1-6h out": {
+   "clv": 0.71,
+   "clv_z": 4.32,
+   "n": 807,
+   "roi": 1.01,
+   "roi_z": 0.22
+  },
+  "G 24h+ out": {
+   "clv": 1.04,
+   "clv_z": 4.09,
+   "n": 540,
+   "roi": 3.49,
+   "roi_z": 0.74
+  },
+  "G 6-24h out": {
+   "clv": 0.63,
+   "clv_z": 4.95,
+   "n": 1162,
+   "roi": 2.08,
+   "roi_z": 0.61
+  },
+  "G under 1h out": {
+   "clv": 0.36,
+   "clv_z": 6.65,
+   "n": 671,
+   "roi": 2.89,
+   "roi_z": 0.62
+  },
+  "H ml": {
+   "clv": 0.92,
+   "clv_z": 6.0,
+   "n": 1125,
+   "roi": 8.42,
+   "roi_z": 1.92
+  },
+  "H price 40-60c": {
+   "clv": 0.69,
+   "clv_z": 8.67,
+   "n": 2214,
+   "roi": 0.54,
+   "roi_z": 0.25
+  },
+  "H price over 60c (fav)": {
+   "clv": 0.37,
+   "clv_z": 1.56,
+   "n": 495,
+   "roi": -2.57,
+   "roi_z": -0.87
+  },
+  "H price under 40c (dog)": {
+   "clv": 0.83,
+   "clv_z": 3.37,
+   "n": 471,
+   "roi": 15.17,
+   "roi_z": 1.56
+  },
+  "H sport bundesliga": {
+   "clv": 0.96,
+   "clv_z": 5.96,
+   "n": 97,
+   "roi": 24.39,
+   "roi_z": 1.48
+  },
+  "H sport cfb": {
+   "clv": 0.59,
+   "clv_z": 6.38,
+   "n": 725,
+   "roi": 6.0,
+   "roi_z": 1.28
+  },
+  "H sport epl": {
+   "clv": 1.11,
+   "clv_z": 5.18,
+   "n": 130,
+   "roi": 6.0,
+   "roi_z": 0.54
+  },
+  "H sport mlb": {
+   "clv": 0.76,
+   "clv_z": 3.9,
+   "n": 165,
+   "roi": -13.26,
+   "roi_z": -1.67
+  },
+  "H sport mls": {
+   "clv": 1.03,
+   "clv_z": 4.45,
+   "n": 143,
+   "roi": 19.51,
+   "roi_z": 1.56
+  },
+  "H sport nba": {
+   "clv": 0.62,
+   "clv_z": 3.96,
+   "n": 861,
+   "roi": -2.36,
+   "roi_z": -0.7
+  },
+  "H sport nfl": {
+   "clv": 0.59,
+   "clv_z": 4.94,
+   "n": 533,
+   "roi": 1.72,
+   "roi_z": 0.36
+  },
+  "H sport nhl": {
+   "clv": 0.47,
+   "clv_z": 3.19,
+   "n": 219,
+   "roi": 4.2,
+   "roi_z": 0.59
+  },
+  "H sport ucl": {
+   "clv": 1.23,
+   "clv_z": 4.49,
+   "n": 123,
+   "roi": -5.86,
+   "roi_z": -0.32
+  },
+  "H sport ufc": {
+   "clv": -1.52,
+   "clv_z": -0.6,
+   "n": 66,
+   "roi": -14.19,
+   "roi_z": -1.01
+  },
+  "H sport wnba": {
+   "clv": 1.23,
+   "clv_z": 3.46,
+   "n": 118,
+   "roi": 6.89,
+   "roi_z": 0.72
+  },
+  "H spread": {
+   "clv": 0.49,
+   "clv_z": 5.03,
+   "n": 1110,
+   "roi": -2.97,
+   "roi_z": -0.98
+  },
+  "H total": {
+   "clv": 0.53,
+   "clv_z": 3.97,
+   "n": 945,
+   "roi": 0.94,
+   "roi_z": 0.28
+  }
+ }
+}
