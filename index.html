@@ -411,7 +411,11 @@ function renderToday() {
       const fam = {price: rest.some(x => x.kind !== 'big'), money: rest.some(x => x.kind === 'big')};
       wrows.push({id: `${L[0].ev}|${mkt}`, g: L[0], mixed, rest, folded, kinds, tag, fam, price: mixed ? '' : (rest.map(x => x.price).filter(Boolean)[0] || ''),
         strong: !mixed && ((fam.price && fam.money) || !!tag)}); } }
-  const strong = wrows.filter(r => r.strong), shownW = _wv === 'all' ? wrows : strong;
+  const VOL = {}; for (const r of (FL && FL.rows) || []) { const k = `${r.event_id}|${r.market}`; VOL[k] = Math.max(VOL[k] || 0, r.total || 0); }   // exchange $ on the market (main line)
+  for (const r of wrows) r.vol = VOL[r.id] || 0;
+  window._ws = window._ws || 'vol';
+  const strong = wrows.filter(r => r.strong), others = wrows.filter(r => !r.strong)
+    .sort((x, y) => _ws === 'vol' ? (y.vol - x.vol) || (x.g.start < y.g.start ? -1 : 1) : (x.g.start < y.g.start ? -1 : 1));
   const wtr = r => { const g = r.g, open = _wo[r.id];
     const lean = r.mixed ? `<span class="mixed">Mixed, no lean</span><div class="small dim">${[...new Set(r.rest.map(x => esc(x.bet)))].join(' vs ')}</div>` : `<b>${esc(r.rest[0].bet)}</b>`;
     const chip = x => `<span class="badge ${r.mixed ? 'b-gate' : 'b-watch'}" title="${esc(x.bet)}">${KIND[x.kind]}${x.kind === 'kmove' && x.state ? ' · ' + ({fresh: 'fresh', held: 'held', reversed: 'gave back', drift: 'drift'})[x.state] : ''}</span>`;
@@ -420,14 +424,18 @@ function renderToday() {
     const head = `<tr class="erow" style="cursor:pointer" onclick="_wo['${r.id}']=!_wo['${r.id}'];draw()">
       <td class="small"><span class="badge b-sport">${SPORT_LABEL[g.sport] || g.sport}</span> <b>${DAYT(g.start)}</b><br><span class="dim">${until(g.start)}</span></td>
       <td class="small">${esc(g.away_name || g.away)} @ ${esc(g.home_name || g.home)}</td>
-      <td>${lean}</td><td>${chips}</td><td class="small mono">${r.price || '<span class="dim">—</span>'}</td><td class="small">${r.tag || ''}</td></tr>`;
+      <td>${lean}</td><td>${chips}</td><td class="small mono">${r.price || '<span class="dim">—</span>'}</td><td class="small mono">${r.vol ? '$' + Math.round(r.vol).toLocaleString() : '<span class="dim">—</span>'}</td><td class="small">${r.tag || ''}</td></tr>`;
     if (!open) return head;
-    return head + `<tr><td></td><td colspan="5" class="small" style="padding-bottom:12px">${r.rest.map(x => `<div><b>${KIND[x.kind]}${r.mixed ? ` → ${esc(x.bet)}` : ''}:</b> ${x.why}</div>`).join('')}
+    return head + `<tr><td></td><td colspan="6" class="small" style="padding-bottom:12px">${r.rest.map(x => `<div><b>${KIND[x.kind]}${r.mixed ? ` → ${esc(x.bet)}` : ''}:</b> ${x.why}</div>`).join('')}
       ${r.folded.map(x => `<div class="dim">(earlier: ${esc(x.bet)}, ${x.why})</div>`).join('')}
       <div style="margin-top:4px">${r.kinds.map(k => `<div class="dim"><b>${KIND[k]} record:</b> ${REC[k]}.</div>`).join('')}</div></td></tr>`; };
-  const sigRows = shownW.length ? `<div class="controls"><span class="tabs inline"><button class="${_wv === 'top' ? 'on' : ''}" onclick="_wv='top';draw()">Strongest <span class="small">${strong.length}</span></button><button class="${_wv === 'all' ? 'on' : ''}" onclick="_wv='all';draw()">All <span class="small">${wrows.length}</span></button></span><span>Strongest = price (where the line went) and money (who bet it) agree, or a signal touches one of your system bets. Several price signals count once: they are usually the same news on different venues. Click a row for the reasons.</span></div>
-    <div class="sec"><table><thead><tr><th style="width:160px">Game time</th><th>Game</th><th>Lean</th><th>Signals</th><th>Price</th><th>Your bets</th></tr></thead><tbody>${shownW.map(wtr).join('')}</tbody></table></div>`
-    : (wrows.length ? `<div class="controls"><span class="tabs inline"><button class="on" onclick="_wv='top';draw()">Strongest 0</button><button onclick="_wv='all';draw()">All <span class="small">${wrows.length}</span></button></span><span>No row has price and money agreeing or touches your bets; ${wrows.length} rows under All.</span></div>` : '');
+  const thead = `<thead><tr><th style="width:160px">Game time</th><th>Game</th><th>Lean</th><th>Signals</th><th>Price</th><th>Traded</th><th>Your bets</th></tr></thead>`;
+  const sigRows = !wrows.length ? '' : `
+    <div class="small" style="margin:2px 0 6px"><b>Strongest</b>: price (where the line went) and money (who bet it) agree, or a signal touches one of your system bets. Several price signals count once (usually the same news on different venues). Click a row for the reasons.</div>
+    ${strong.length ? `<div class="sec"><table>${thead}<tbody>${strong.map(wtr).join('')}</tbody></table></div>` : '<div class="small dim">No market has price and money agreeing, or a signal on your system bets, right now.</div>'}
+    ${others.length ? `<details class="how" ${window._wopen ? 'open' : ''} ontoggle="window._wopen=this.open"><summary>All other signals (${others.length}): untested on their own</summary>
+      <div class="controls"><span>Sort</span><span class="tabs inline"><button class="${_ws === 'vol' ? 'on' : ''}" onclick="_ws='vol';window._wopen=true;draw()">Volume</button><button class="${_ws === 'time' ? 'on' : ''}" onclick="_ws='time';window._wopen=true;draw()">Game time</button></span><span>Volume = exchange dollars traded on that market (Kalshi + Polymarket, risk-equivalent); a signal on a busy market carries more than one on a thin one.</span></div>
+      <div class="sec"><table>${thead}<tbody>${others.map(wtr).join('')}</tbody></table></div></details>` : ''}`;
   const nWin = SY.window_h ? `${SY.window_h[0]}–${SY.window_h[1]}h` : '';
   return `<div class="controls topbar">${whenBar(inSport)} ${sportBar(inWhen)}</div>${summary}
     <div class="hdr2"><h2>System bets</h2><span class="meta">tier A and B, grouped by game, soonest first</span></div>
