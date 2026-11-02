@@ -6,7 +6,7 @@ data/polymarket/history/catalog.jsonl. Step 2 (trades): every public trade on th
 side BUY/SELL of an outcome, price, size, timestamp, proxyWallet) -> data/polymarket/history/trades/<conditionId>.jsonl.gz.
 The wallet column is what makes Polymarket different: every fill has an on-chain account, so a wallet's record can be tested too.
 Usage: python3 loggers/polymarket_history.py catalog | trades | catalog_props | trades_props [--min-volume N]"""
-import os, sys, re, json, gzip, time, urllib.request, urllib.error, concurrent.futures as cf
+import os, sys, re, json, gzip, time, datetime as dt, urllib.request, urllib.error, concurrent.futures as cf
 OUT = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'data', 'polymarket', 'history'); os.makedirs(os.path.join(OUT, 'trades'), exist_ok=True)
 G = "https://gamma-api.polymarket.com"; D = "https://data-api.polymarket.com"
 TAGS = ['nfl', 'nba', 'nhl', 'cfb', 'cbb', 'mlb', 'epl', 'ucl', 'mls', 'laliga', 'bundesliga', 'seriea', 'ligue1', 'ufc', 'wnba']
@@ -51,6 +51,46 @@ def catalog():
                 if len(E) < 100: break
             print(f"[poly hist] {tag}: {nt} settled game markets (scanned {off} events)", flush=True)
     print(f"[poly hist] catalog: {n} markets on {len(seen)} games")
+
+
+def catalog_back():
+    """Older settled game markets the newest-first listing cannot reach (Gamma stops paging around 2,100 events per tag): walk each tag
+    backwards by end date (end_date_max = the oldest start seen so far) until a window holds no game events, and append markets not
+    already in catalog.jsonl."""
+    have = set()
+    for l in open(os.path.join(OUT, 'catalog.jsonl')): have.add(json.loads(l)['cond'])
+    n = 0
+    with open(os.path.join(OUT, 'catalog.jsonl'), 'a') as f:
+        for tag in TAGS:
+            mx = None; empty = 0; nt = 0
+            for l in open(os.path.join(OUT, 'catalog.jsonl')):
+                r = json.loads(l)
+                if r['tag'] == tag and (mx is None or r['date'] < mx): mx = r['date']
+            mx = mx or '2026-11-02'
+            while empty < 3:
+                E = g(f"{G}/events?tag_slug={tag}&closed=true&limit=100&order=startDate&ascending=false&end_date_max={mx}T00:00:00Z")
+                if not E: break
+                got = 0; oldest = mx
+                for e in E:
+                    m_ = GAME.match(e.get('slug') or ''); sd = (e.get('startDate') or '')[:10]
+                    if sd and sd < oldest: oldest = sd
+                    if not m_: continue
+                    got += 1
+                    for m in e.get('markets') or []:
+                        mk = TYPES.get(m.get('sportsMarketType'))
+                        if not mk or m['conditionId'] in have: continue
+                        try: outs = json.loads(m['outcomes']); px = [float(x) for x in json.loads(m.get('outcomePrices') or '[]')]
+                        except Exception: continue
+                        if len(outs) != 2 or len(px) != 2 or sorted(px) != [0.0, 1.0]: continue
+                        have.add(m['conditionId'])
+                        f.write(json.dumps(dict(tag=tag, event=e['slug'], title=e.get('title'), date=m_.group(4), market=mk, line=m.get('line'),
+                                                cond=m['conditionId'], outcomes=outs, winner=outs[px.index(1.0)], start=m.get('gameStartTime'),
+                                                volume=float(m.get('volume') or 0))) + '\n'); n += 1; nt += 1
+                empty = empty + 1 if got == 0 else 0
+                if oldest >= mx: oldest = (dt.date.fromisoformat(mx) - dt.timedelta(days=3)).isoformat()   # no progress: step back
+                mx = oldest
+            print(f"[poly hist] back {tag}: {nt} older markets, reached {mx}", flush=True)
+    print(f"[poly hist] back: {n} older markets added")
 
 
 def catalog_props(min_vol=2000.0):
@@ -112,5 +152,6 @@ if __name__ == '__main__':
     mv = float(sys.argv[sys.argv.index('--min-volume') + 1]) if '--min-volume' in sys.argv else 1000.0
     if sys.argv[1] == 'catalog': catalog()
     elif sys.argv[1] == 'catalog_props': catalog_props()
+    elif sys.argv[1] == 'catalog_back': catalog_back()
     elif sys.argv[1] == 'trades_props': trades(mv, 'catalog_props.jsonl')
     else: trades(mv)
