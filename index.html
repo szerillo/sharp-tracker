@@ -341,22 +341,8 @@ function gameHead(x) {
 }
 function groupByGame(list, keyOf) { const m = new Map(); for (const it of list) { const k = keyOf(it); if (!m.has(k)) m.set(k, []); m.get(k).push(it); } return [...m.values()]; }
 // ---- Polymarket sharp accounts (sharp/sharp_live.py): accounts that beat the close before September kept beating it after
-function sharpAcctSection() {
-  if (!SA) return '';
-  const R = (SA.rows || []).filter(r => new Date(r.start) > Date.now() && (!_tf.sport || (_tf.sport === 'soccer' ? /^(epl|ucl|uel|mls|bun|lal|sea|lig|fl1|ser)/.test(r.slug || '') : (r.slug || '').startsWith(_tf.sport + '-'))) && passW(r.start));
-  const rec = SA.record && SA.record.n ? `paper ${SA.record.won}-${SA.record.n - SA.record.won}, ${SA.record.units > 0 ? '+' : ''}${SA.record.units}u, CLV ${SA.record.clv > 0 ? '+' : ''}${SA.record.clv} pts` : 'paper record starts with the first graded flag';
-  const c = x => x == null ? '—' : `${(100 * x).toFixed(1)}¢ (${toAm(x)})`;
-  const row = r => {
-    const st = r.kalshi_against && r.status === 'live' ? `<span class="tag-against">Kalshi has moved ${r.kalshi_against.move} pts the other way</span><div class="small dim">Backtest: a sharp bet with Kalshi 4+ pts against kept only +0.24 pts CLV (vs +0.99), so skip it.</div>`
-      : r.status === 'live' ? '<span class="ok-chip">live</span>'
-      : `<span class="tag-against">${r.other.n_accounts} sharp account${r.other.n_accounts === 1 ? '' : 's'} bet the other side ${ET(r.other.first)} ($${r.other.usd.toLocaleString()})</span>
-         <div class="small dim">Backtest: holding still beat getting out (+1.12 vs +0.89 pts CLV on 194 cases), so the default is hold.${r.exit_bid ? ` To get out now: sell at about ${(100 * r.exit_bid).toFixed(1)}¢.` : ''}</div>`;
-    return `<tr><td class="small"><b>${DAYT(r.start)}</b><br><span class="dim">${until(r.start)}</span></td>
-      <td class="small">${esc(r.title || r.slug)}</td><td><b>${esc(r.bet)}</b><div class="small dim">${r.n_accounts} sharp account${r.n_accounts === 1 ? '' : 's'}, $${r.usd.toLocaleString()} · flagged ${ET(r.flagged)}</div></td>
-      <td class="small mono">sharps paid ${c(r.paid)}<br>ask now ${c(r.ask)}${r.ask != null && r.ask - r.paid > 0.05 ? '<br><span class="tag-against">price has moved: most of the edge is gone</span>' : ''}<br><a class="betbtn" target="_blank" rel="noopener" href="${r.link}">Polymarket ↗</a></td><td class="small">${st}</td></tr>`; };
-  return `<div class="hdr2"><h2>Sharp accounts</h2><span class="meta">Polymarket accounts with a proven record of beating the close · ${rec}</span></div>
-    <details class="how"><summary>How this works and how it tested</summary><p class="explain">Every Polymarket bet shows the account behind it. Accounts were scored on how well their pregame bets beat the closing price (30+ bets on 15+ games); scored on games before September and followed after, the top 200 kept beating the close (+0.64 pts, z 8.9, and +1.11 pts against Pinnacle's close), while ranking accounts by past profit did not work. A row appears only when a <b>top-50 account</b> bets, a top-200 account that is <b>also in that sport's own top 50</b> bets (the best group in the sport-by-sport test: +0.9 to +1.8 pts), or <b>two top-200 accounts</b> are on the same side, with none on the other side (about 8-9 games a day in the backtest, +0.96 pts CLV). Bet size does not matter; speed does (the edge was +0.80 a minute after their bet, +0.39 an hour after), so the price to compare is the <b>ask now</b> against what the sharps paid. If a sharp later takes the other side the row turns red; on past data holding still did slightly better than getting out. UFC is excluded (negative in the backtest). Each flag is paper-logged at the ask when first seen and graded on the result and on CLV.</p></details>
-    ${R.length ? `<div class="sec"><table><thead><tr><th style="width:150px">Game time</th><th>Game</th><th>Bet</th><th>Price</th><th>Status</th></tr></thead><tbody>${R.map(row).join('')}</tbody></table></div>` : '<div class="small dim">No sharp-account flags on upcoming games right now.</div>'}`;
+function sharpAcctExplain() {
+  return `<details class="how"><summary>How sharp accounts work and how they tested</summary><p class="explain">Every Polymarket bet shows the account behind it. Accounts are scored on how well their pregame bets beat the closing price (30+ bets on 15+ games). Scored on earlier games and followed on later ones, the top 200 beat the close in every team sport in every period from July 2025 on (+0.87 pts entering 5 minutes after their bet; +1.1 vs Pinnacle's close on the live sample); ranking accounts by past profit, fading bad accounts and following sport-only specialists did not work, and UFC is excluded. Bet size does not matter; speed does (+0.80 a minute after their bet, +0.39 an hour after), and waiting to see whether a sharp takes the other side costs more than it saves. If a sharp takes the other side after you are in, holding did slightly better than getting out (+1.12 vs +0.89 pts); the phone alert says so. Flags are paper-logged at the ask when first seen and graded on the result and CLV.</p></details>`;
 }
 function renderToday() {
   if (!SY) return '<div class="banner">Loading…</div>';
@@ -415,6 +401,15 @@ function renderToday() {
         why: `Kalshi steamed the other way (${rv(r.steam_from)}% → ${rv(r.steam_to)}% on this side, ${ET(r.steam_ts)}) and has been bet back to ${rv(r.now_mid)}%`,
         price: `Kalshi ask ${r.rev_cost}¢ (${toAm(r.rev_cost / 100)})`}); }
   }
+  // Polymarket sharp-account flags (sharp/sharp_live.py), merged into the watch 11/2 (Sean): only live flags with nothing against them
+  // (no sharp on the other side, no Kalshi 4+ move against); a flag that conflicts with any other signal becomes a Mixed row.
+  if (SA) for (const r of SA.rows || []) { if (r.status !== 'live' || r.kalshi_against || !future(r.game_start || r.start)) continue;
+    const yn = !r.event_id, tt = (r.title || '').split(/ vs\.? /);
+    push({kind: 'acct', ev: r.event_id || r.cond, start: r.game_start || r.start, sport: r.sport || ({ucl: 'soccer', epl: 'soccer', mls: 'soccer', bun: 'soccer'})[(r.slug || '').split('-')[0]] || (r.slug || '').split('-')[0],
+      league: r.league, away: r.away || tt[0], home: r.home || tt[1], away_name: r.away_name || tt[0], home_name: r.home_name || tt[1],
+      market: yn ? 'yesno:' + r.cond : r.mtype, side: r.side_std || r.side, bet: r.bet, n: r.n_accounts, link: r.link,
+      why: `${r.n_accounts} sharp account${r.n_accounts === 1 ? '' : 's'} ($${r.usd.toLocaleString()}), flagged ${ET(r.flagged)}; sharps paid ${(100 * r.paid).toFixed(1)}¢, ask now ${r.ask != null ? (100 * r.ask).toFixed(1) + '¢' : '—'}${r.ask != null && r.ask - r.paid > 0.05 ? ' (price has moved: most of the edge is gone)' : ''}`,
+      price: r.ask != null ? `Polymarket ask ${(100 * r.ask).toFixed(1)}¢ (${toAm(r.ask)})` : ''}); }
   // ---- 4. tennis first-set rule (tier C, its own shape)
   const tw = TW ? (TW.rows || []).filter(r => r.flag && future(r.start)).map(r => ({...r, sport: 'tennis', league: r.league})) : [];
   // ---- filters: counts for the sport chips use the time window; counts for the time chips use the sport filter
@@ -439,8 +434,9 @@ function renderToday() {
   // watch cards: one per game, one row per market. A Kalshi mover that has given back its steam is the same story as its bet-back row,
   // so it is folded into it (the timing study backs the bet-back side, weakly). Anything still pointing both ways is one "mixed" row
   // with no lean; every game x market snapshot is logged at the start (sharp/signal_log.py) so agree vs conflict can be graded.
-  const KIND = {move: 'Sharp move', big: 'Big money', kmove: 'Kalshi move', back: 'Bet back'};
+  const KIND = {move: 'Sharp move', big: 'Big money', kmove: 'Kalshi move', back: 'Bet back', acct: 'Sharp accounts'};
   const REC = {move: 'so far -0.65 pts CLV on 77 settled moves (z -3.7): moves partly give back; kept to build the sample', big: 'no backtest version clears noise (best +7% on ~600 games, z 1.7)',
+    acct: 'Polymarket accounts scored on beating the close kept beating it in every team sport over 16 months (top 200, +0.87 pts CLV entering 5 minutes after their bet; +1.1 vs Pinnacle on the live sample); speed matters',
     kmove: 'following a 4+ pt Kalshi move 1h-15m out made +13% on ~500 October games, flat in September', back: `+5.5% / +6.4% (3+ pt steams) and +9.0% / +11.5% (5+) before and in October, about one standard error, CLV slightly negative; paper ${srRec}`};
   // watch table: one row per game x market. A Kalshi mover that has given back its steam is folded into the bet-back row (same story);
   // anything still pointing both ways is a "Mixed, no lean" row. Default view = the strongest rows (2+ signal kinds agreeing, or
@@ -455,34 +451,37 @@ function renderToday() {
       const kinds = [...new Set(rest.map(x => x.kind))]; const tag = mixed ? '' : sysTag(L[0].ev, rest[0].market, rest[0].side);
       // two evidence families: PRICE (sharp move, Kalshi move, bet back: where the line went; one vote however many) and MONEY
       // (big vs small: who bet it). Strong = both families on the same side, or any signal on one of your system bets.
-      const fam = {price: rest.some(x => x.kind !== 'big'), money: rest.some(x => x.kind === 'big')};
+      const flagged = rest.some(x => x.kind === 'acct');
+      const fam = {price: rest.some(x => x.kind !== 'big' && x.kind !== 'acct'), money: rest.some(x => x.kind === 'big')};
       // third family (11/2): Polymarket sharp accounts (top 200 by CLV) on this market, from sharp_live.py by_event
       const be = SA && SA.by_event && SA.by_event[`${L[0].ev}|${mkt}`], OTH = {home: 'away', away: 'home', over: 'under', under: 'over'};
       const acct = !mixed && be ? {with: be[rest[0].side] || null, against: be[OTH[rest[0].side]] || null} : null;
-      fam.accounts = !!(acct && acct.with && !acct.against);
+      fam.accounts = !mixed && !(acct && acct.against) && (flagged || !!(acct && acct.with));
       const nfam = [fam.price, fam.money, fam.accounts].filter(Boolean).length;
       // 11/2 (Sean): Strongest = 2+ families agree and nothing against: a sharp account on the other side demotes the row, and a
       // system-bet tag no longer promotes on its own (it still shows in the Your bets column).
-      wrows.push({id: `${L[0].ev}|${mkt}`, g: L[0], mixed, rest, folded, kinds, tag, fam, acct, nfam, price: mixed ? '' : (rest.map(x => x.price).filter(Boolean)[0] || ''),
-        strong: !mixed && !(acct && acct.against) && fam.accounts && nfam >= 2}); } }   // 11/2 (Sean): sharp accounts required (the one family with a proven edge)
+      const ka = rest.find(x => x.kind === 'kmove' || x.kind === 'back'), fl = rest.find(x => x.kind === 'acct');
+      wrows.push({id: `${L[0].ev}|${mkt}`, g: L[0], mixed, rest, folded, kinds, tag, fam, acct, nfam, flagged, fl, price: mixed ? '' : ((ka || fl || rest.find(x => x.price) || {}).price || ''),
+        // top table: no conflicts (not mixed, no sharp against) and either a live sharp-account flag or accounts plus another family
+        strong: !mixed && fam.accounts && (flagged || nfam >= 2)}); } }   // 11/2 (Sean): sharp accounts required (the one family with a proven edge)
   const VOL = {}; for (const r of (FL && FL.rows) || []) { const k = `${r.event_id}|${r.market}`; VOL[k] = Math.max(VOL[k] || 0, r.total || 0); }   // exchange $ on the market (main line)
   for (const r of wrows) r.vol = VOL[r.id] || 0;
   window._ws = window._ws || 'vol';
   // 11/2 families backtest (docs/flow_volume_2026-11-02.md): accounts + money was the best pairing (+0.25 CLV at T-1h), accounts + a price
   // move added nothing (+0.10), and 3 of 3 was no better than accounts alone (+0.02). So: accounts + money first, then by game time.
-  const strong = wrows.filter(r => r.strong).sort((x, y) => ((y.fam.money ? 1 : 0) - (x.fam.money ? 1 : 0)) || (x.g.start < y.g.start ? -1 : 1)), others = wrows.filter(r => !r.strong)
+  const strong = wrows.filter(r => r.strong).sort((x, y) => ((y.fam.money ? 1 : 0) - (x.fam.money ? 1 : 0)) || ((y.flagged ? 1 : 0) - (x.flagged ? 1 : 0)) || (x.g.start < y.g.start ? -1 : 1)), others = wrows.filter(r => !r.strong)
     .sort((x, y) => _ws === 'vol' ? (y.vol - x.vol) || (x.g.start < y.g.start ? -1 : 1) : (x.g.start < y.g.start ? -1 : 1));
   const wtr = r => { const g = r.g, open = _wo[r.id];
-    const lean = r.mixed ? `<span class="mixed">Mixed, no lean</span><div class="small dim">${[...new Set(r.rest.map(x => esc(x.bet)))].join(' vs ')}</div>` : `<b>${esc(r.rest[0].bet)}</b>${r.strong ? `<div class="small dim">${['accounts', r.fam.money ? 'money' : '', r.fam.price ? 'price' : ''].filter(Boolean).join(' + ')}</div>` : ''}`;
+    const lean = r.mixed ? `<span class="mixed">Mixed, no lean</span><div class="small dim">${[...new Set(r.rest.map(x => esc(x.bet)))].join(' vs ')}</div>` : `<b>${esc(r.rest[0].bet)}</b>${r.strong ? `<div class="small dim">${['accounts' + (r.flagged ? ' (flagged)' : ''), r.fam.money ? 'money' : '', r.fam.price ? 'price' : ''].filter(Boolean).join(' + ')}</div>` : ''}`;
     const chip = x => `<span class="badge ${r.mixed ? 'b-gate' : 'b-watch'}" title="${esc(x.bet)}">${KIND[x.kind]}${x.kind === 'kmove' && x.state ? ' · ' + ({fresh: 'fresh', held: 'held', reversed: 'gave back', drift: 'drift'})[x.state] : ''}</span>`;
-    const pr = r.rest.filter(x => x.kind !== 'big'), mo = r.rest.filter(x => x.kind === 'big');
+    const pr = r.rest.filter(x => x.kind !== 'big' && x.kind !== 'acct'), mo = r.rest.filter(x => x.kind === 'big'), fa = r.rest.filter(x => x.kind === 'acct');
     const chips = (pr.length ? `<div><span class="fam">price</span> ${pr.map(chip).join(' ')}</div>` : '') + (mo.length ? `<div><span class="fam">money</span> ${mo.map(chip).join(' ')}</div>` : '')
-      + (r.acct && (r.acct.with || r.acct.against) ? `<div><span class="fam">accounts</span> ${r.acct.with ? `<span class="badge b-watch" title="Polymarket top-200 accounts on this side">Sharp accts ${r.acct.with.n}</span>` : ''}${r.acct.against ? ` <span class="badge b-gate" title="Polymarket top-200 accounts on the other side">Sharp accts against ${r.acct.against.n}</span>` : ''}</div>` : '');
+      + ((r.acct && (r.acct.with || r.acct.against)) || fa.length ? `<div><span class="fam">accounts</span> ${(r.acct && r.acct.with) || fa.length ? `<span class="badge b-watch" title="Polymarket top-200 accounts on this side">Sharp accts ${Math.max((r.acct && r.acct.with && r.acct.with.n) || 0, ...fa.map(x => x.n || 0))}${fa.length ? ' · flagged' : ''}</span>` : ''}${r.acct && r.acct.against ? ` <span class="badge b-gate" title="Polymarket top-200 accounts on the other side">Sharp accts against ${r.acct.against.n}</span>` : ''}</div>` : '');
     // first seen: the earliest tracker run that logged any of this row's signals on its side (sharp/signal_log.py, data/state/signal_snap.json)
     const sn = SN && SN[r.id] && SN[r.id].signals, fs = sn ? r.rest.map(x => sn[x.kind] && sn[x.kind].side === x.side && sn[x.kind].first).filter(Boolean).sort()[0] : null;
     const seen = fs ? `<div class="small dim">first seen ${ET(fs)}${(Date.now() - new Date(fs)) > 36e5 ? ` (${Math.round((Date.now() - new Date(fs)) / 36e5)}h ago)` : ''}</div>` : '';
     const lv = r.mixed ? null : (r.rest.find(x => x.kind === 'kmove' || x.kind === 'back') ? 'Kalshi' : 'AN');
-    const link = r.mixed ? '' : (lv === 'Kalshi' ? betLink('Kalshi', g.ev, r.rest[0].market) : betLink('FD', g.ev, r.rest[0].market, 'Game page'));
+    const link = r.mixed ? '' : (lv === 'Kalshi' ? betLink('Kalshi', g.ev, r.rest[0].market) : r.fl && r.fl.link ? `<a class="betbtn" target="_blank" rel="noopener" href="${r.fl.link}">Bet at Polymarket ↗</a>` : betLink('FD', g.ev, r.rest[0].market, 'Game page'));
     const head = `<tr class="erow click" title="Click for the reasons and records" onclick="_wo['${r.id}']=!_wo['${r.id}'];draw()">
       <td class="small"><span class="chev">${open ? '▾' : '▸'}</span> <span class="badge b-sport">${SPORT_LABEL[g.sport] || g.sport}</span> <b>${DAYT(g.start)}</b><br><span class="dim">${until(g.start)}</span></td>
       <td class="small">${esc(g.away_name || g.away)} @ ${esc(g.home_name || g.home)}</td>
@@ -493,10 +492,10 @@ function renderToday() {
       <div style="margin-top:4px">${r.kinds.map(k => `<div class="dim"><b>${KIND[k]} record:</b> ${REC[k]}.</div>`).join('')}</div></td></tr>`; };
   const thead = `<thead><tr><th style="width:160px">Game time</th><th>Game</th><th>Lean</th><th>Signals</th><th>Price</th><th>Traded</th><th>Your bets</th></tr></thead>`;
   const sigRows = !wrows.length ? '' : `
-    <div class="small" style="margin:2px 0 6px"><b>Strongest</b>: Polymarket sharp accounts are on the side and at least one other family agrees (money: big vs small; price: where the line went), with no sharp account on the other side. Accounts + money sorts first: in the backtest it was the best pairing (+0.25 pts CLV an hour out), a price move added nothing, and all three agreeing was no better than accounts alone. This table is context: most of the edge goes to acting when the account bets (Sharp accounts above, and the phone alerts). Several price signals count once. Click a row for the reasons.</div>
+    <div class="small" style="margin:2px 0 6px"><b>Top</b>: Polymarket sharp accounts are on the side and nothing points the other way (no sharp account against, no Kalshi move or other signal on the other side). Either a live sharp-account flag (a top-50 account, a top-200 account also in its sport's top 50, or 2+ top-200 accounts) or sharp accounts plus money or price agreeing. Accounts + money sorts first (the best pairing in the backtest), then flags. Act early: most of the edge goes to acting when the account bets. Click a row for the reasons.</div>
     
-    ${strong.length ? `<div class="sec"><table>${thead}<tbody>${strong.map(wtr).join('')}</tbody></table></div>` : '<div class="small dim">No market has sharp accounts plus another family agreeing, with nothing against, right now.</div>'}
-    ${others.length ? `<details class="how" ${window._wopen ? 'open' : ''} ontoggle="window._wopen=this.open"><summary>All other signals (${others.length}): untested on their own</summary>
+    ${strong.length ? `<div class="sec"><table>${thead}<tbody>${strong.map(wtr).join('')}</tbody></table></div>` : '<div class="small dim">No market has sharp accounts on it with nothing against, right now.</div>'}
+    ${others.length ? `<details class="how" ${window._wopen ? 'open' : ''} ontoggle="window._wopen=this.open"><summary>All other signals (${others.length}): conflicts, or no sharp accounts</summary>
       <div class="controls"><span>Sort</span><span class="tabs inline"><button class="${_ws === 'vol' ? 'on' : ''}" onclick="_ws='vol';window._wopen=true;draw()">Volume</button><button class="${_ws === 'time' ? 'on' : ''}" onclick="_ws='time';window._wopen=true;draw()">Game time</button></span><span>Volume = exchange dollars traded on that market (Kalshi + Polymarket + Novig, risk-equivalent); a signal on a busy market carries more than one on a thin one.</span></div>
       <div class="sec"><table>${thead}<tbody>${others.map(wtr).join('')}</tbody></table></div></details>` : ''}`;
   const nWin = SY.window_h ? `${SY.window_h[0]}–${SY.window_h[1]}h` : '';
@@ -508,8 +507,8 @@ function renderToday() {
     ${lgames.length ? cards(lgames) : ''}
     ${twRows ? `<div class="sec"><div class="sec-h"><span class="name">Tennis: set-1 favourites under the curve</span><span class="meta">rule tennis_fs_fav · paper record ${twRec}</span></div><table><thead><tr><th>Start</th><th>Match · bet</th><th>Fair set-1 price</th><th>Best price</th></tr></thead><tbody>${twRows}</tbody></table></div>` : ''}
     ${!lgames.length && !twRows ? emptyNote('leans', [...bets.filter(it => tierOf(it) === 'C'), ...tw].filter(x => passS(x.sport, x.league))) : ''}
-    ${sharpAcctSection()}
-    <div class="hdr2"><h2>Sharp-money watch</h2><span class="meta">context, not bets: the edge is in Sharp accounts above</span></div>
+    <div class="hdr2"><h2>Sharp signals</h2><span class="meta">${SA && SA.record && SA.record.n ? `sharp-account flags: paper ${SA.record.won}-${SA.record.n - SA.record.won}, ${SA.record.units > 0 ? '+' : ''}${SA.record.units}u, CLV ${SA.record.clv > 0 ? '+' : ''}${SA.record.clv} pts` : 'sharp-account paper record starts with the first graded flag'}</span></div>
+    ${sharpAcctExplain()}
     <details class="how"><summary>What each signal means, and how it has tested</summary><p class="explain">
       <b>Sharp move</b>: a move in the last 6 hours that started at Pinnacle, or that $1,000+ Kalshi fills went with. So far following it has lost 0.65 pts to the close on 77 settled moves (z -3.7; moves partly give back); kept on the watch while the sample grows, not a bet.<br>
       <b>Big vs small</b>: exchange taker fills (Kalshi, Polymarket and Novig; Novig's taker side was checked against its public tape on 11/1) of $${FL ? FL.big_usd : 500}+ net on one side by $${FL ? FL.div_usd.toLocaleString() : '1,000'}+ while fills of $${FL ? FL.small_usd : 50} and under lean the other way; sizes are risk-equivalent, so laying -900 is not "big money". Shown only above $${FL ? (FL.show_total || 10000).toLocaleString() : '10,000'} traded and $${FL ? (FL.show_big || 2500).toLocaleString() : '2,500'} big-money net (readability; stricter cuts were tested and did not make it predictive). Backtest: no version clears noise.<br>

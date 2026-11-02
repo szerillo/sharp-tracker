@@ -93,7 +93,7 @@ def alerts(rows):
         s = st.setdefault(r['cond'], {})
         when = dt.datetime.fromisoformat(r['start'].replace('Z', '+00:00')).astimezone(__import__('zoneinfo').ZoneInfo('America/New_York')).strftime('%a %-I:%M %p ET')
         if 'flag' not in s:
-            ok = r['status'] == 'live' and not r.get('kalshi_against') and r.get('ask') is not None and r['ask'] - r['paid'] <= 0.05
+            ok = r['status'] == 'live' and not r.get('kalshi_against') and not r.get('conflict') and r.get('ask') is not None and r['ask'] - r['paid'] <= 0.05
             if ok and not first:
                 ntfy(f"Sharp: {r['bet']}", f"{r['title']} · {when}\n{r['n_accounts']} sharp account{'s' if r['n_accounts'] != 1 else ''}, ${r['usd']:,}\nSharps paid {c(r['paid'])}, ask now {c(r['ask'])}",
                      r['link'], 'chart_with_upwards_trend')
@@ -165,6 +165,48 @@ def sys_tags(BE):
         for k, v in out.items():
             if k not in seen: fh.write(json.dumps(dict(key=k, fill_id=fired[k]['fill_id'], ts=dt.datetime.fromtimestamp(NOW, dt.timezone.utc).strftime('%Y-%m-%dT%H:%M:%SZ'), **v)) + '\n')
     return out
+
+
+def conflicts(rows):
+    """Mark flags that any other live watch signal opposes (Sean, 11/2: only no-conflict flags): big vs small money, a Kalshi 4+ move
+    or a Kalshi bet-back on the other side of the same game x market (data/state/flow_live.json). Such flags are not pushed and show
+    as Mixed on the page."""
+    try: FLv = json.load(open(os.path.join(ROOT, 'data', 'state', 'flow_live.json')))
+    except Exception: return
+    opp = collections.defaultdict(set)
+    for r in FLv.get('rows') or []:
+        if r.get('divergent') and r.get('show') is not False: opp[(r['event_id'], r['market'])].add(('big money', r['big_side']))
+    for r in FLv.get('moves') or []: opp[(r['event_id'], r['market'])].add(('Kalshi move', r['side']))
+    for r in (FLv.get('steam') or {}).get('rows') or []:
+        if r.get('state') == 'reversed': opp[(r['event_id'], r['market'])].add(('Kalshi bet back', r['rev_side']))
+    for r in rows:
+        if not r.get('event_id'): continue
+        against = sorted({k for k, sd in opp.get((r['event_id'], r['mtype']), ()) if sd != r.get('side_std')})
+        if against: r['conflict'] = against
+
+
+def map_rows(rows):
+    """Attach our schedule's game (event_id, sport, teams, start) and side (home / away / over / under) to each flag, the same way
+    by_event matches (start within 15 min, team nicknames in the Polymarket title), so the page can merge flags into the watch."""
+    sched = {}
+    for sp in ('nfl', 'nba', 'nhl', 'cfb', 'cbb', 'soccer', 'mlb', 'wnba'):
+        try:
+            for k, v in json.load(open(os.path.join(ROOT, 'data', sp, 'schedule.json'))).items(): sched[k] = dict(v, sport=sp)
+        except Exception: pass
+    nick = lambda t: (((t or {}).get('shortDisplayName') or (t or {}).get('name') or (t or {}).get('displayName') or '').lower().split() or [''])[-1]
+    for r in rows:
+        st = epoch(r['start']); t = (r.get('title') or '').lower(); b = (r.get('side') or '').lower()
+        for ev, e in sched.items():
+            try:
+                if abs(epoch(e['start'].replace('Z', '+00:00')) - st) > 900: continue
+            except Exception: continue
+            a, h = nick(e.get('away_team')), nick(e.get('home_team'))
+            if not a or not h or a not in t or h not in t: continue
+            side = b if r['mtype'] == 'total' else ('away' if a in b else 'home' if h in b else None)
+            if side not in ('home', 'away', 'over', 'under'): break
+            r.update(event_id=ev, sport=e['sport'], league=e.get('league'), away=e['away'], home=e['home'], away_name=(e.get('away_team') or {}).get('displayName'),
+                     home_name=(e.get('home_team') or {}).get('displayName'), game_start=e['start'], side_std=side)
+            break
 
 
 def main():
@@ -244,6 +286,8 @@ def main():
     G_ = [p for p in paper if p.get('result')]
     rec = dict(n=len(G_), won=sum(p['result'] == 'W' for p in G_), units=round(sum(p['pnl'] for p in G_), 2),
                clv=round(sum(p['clv'] for p in G_ if 'clv' in p) / max(1, sum('clv' in p for p in G_)), 2) if G_ else None)
+    map_rows(rows)
+    conflicts(rows)
     alerts(rows)
     BE = by_event(F)
     rows.sort(key=lambda r: (r['status'] != 'live' or bool(r.get('kalshi_against')), r['start']))
