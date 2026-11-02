@@ -255,23 +255,23 @@ function sysCards(list) {
         ${e.train ? `<div class="why">Backtest: ${esc(e.train)}; since 2021 ${esc(e.hold || '—')}; ${esc(e.seasons || '—')} seasons positive.</div>` : ''}</div>
       <div class="price"><span class="badge ${tierCls}">tier ${e.tier || '?'}</span> <span class="small dim">${(rules[tag] || {}).stake || ''}u</span>${(rules[tag] || {}).labs ? ` <a class="small" target="_blank" href="https://sportsinsights.actionnetwork.com/betlabs/screen?ScreenId=${rules[tag].labs.id}">Bet Labs</a>` : ''}<br>flagged at ${VEN(f.venue)} <b>${am(f.price)}</b><br>${priceChip(f)}</div></div>`; }).join('');
 }
-// ---------------------------------------------------------------- Today page (landing): Today / Upcoming / All, then sport and league
+// ---------------------------------------------------------------- Today page (landing): Next 24h / Later / All, then sport and league
 // Sean, 11/1: one coherent page. The time toggle and the sport chips are independent and both persist, so picking a sport keeps the
-// day you were looking at. Today = games whose start falls on today's date in New York time; Upcoming = later dates; All = both.
+// window you were looking at. Next 24h = games starting within 24 hours (rolling); Later = after that; All = both.
 window._tf = window._tf || {sport: '', league: ''};
 window._when = window._when || 'today';
 const LEAGUE_LABEL = {epl: 'EPL', laliga: 'La Liga', bundesliga: 'Bundesliga', seriea: 'Serie A', ligue1: 'Ligue 1', mls: 'MLS', ucl: 'Champions League', uel: 'Europa League', ligamx: 'Liga MX', atp: 'ATP', wta: 'WTA', itf: 'ITF', challenger: 'Challenger'};
 const SPORT_ORDER = ['nfl', 'cfb', 'nba', 'cbb', 'nhl', 'soccer', 'mma', 'tennis', 'wnba', 'mlb'];
 const etDay = d => new Date(d).toLocaleDateString('en-CA', {timeZone: 'America/New_York'});
 const DAYT = iso => new Date(iso).toLocaleString('en-US', {timeZone: 'America/New_York', weekday: 'short', month: 'short', day: 'numeric', hour: 'numeric', minute: '2-digit'}) + ' ET';
-const whenOf = iso => etDay(iso) === etDay(Date.now()) ? 'today' : 'upcoming';
+const whenOf = iso => (new Date(iso) - Date.now()) <= 24 * 3600e3 ? 'today' : 'upcoming';   // rolling: 'today' = starts in the next 24 hours, so late-night and morning games are never split off
 const passW = iso => _when === 'all' || whenOf(iso) === _when;
 const passS = (sport, league) => (!_tf.sport || sport === _tf.sport) && (!_tf.league || league === _tf.league);
 const passT = passS;            // older callers
 function whenBar(rows) {        // rows: [{start, sport, league}] after the sport filter
   const n = {today: 0, upcoming: 0}; for (const r of rows) n[whenOf(r.start)]++;
   const b = (k, l, c) => `<button class="${_when === k ? 'on' : ''}" onclick="_when='${k}';draw()">${l} <span class="small">${c}</span></button>`;
-  return `<span class="tabs inline when">${b('today', 'Today', n.today)}${b('upcoming', 'Upcoming', n.upcoming)}${b('all', 'All', n.today + n.upcoming)}</span>`;
+  return `<span class="tabs inline when">${b('today', 'Next 24h', n.today)}${b('upcoming', 'Later', n.upcoming)}${b('all', 'All', n.today + n.upcoming)}</span>`;
 }
 function sportBar(rows) {       // rows after the time filter
   const bySport = {}, byLeague = {};
@@ -290,7 +290,7 @@ function emptyNote(what, rowsSport) {      // the chosen window is empty: say wh
   const n = {today: 0, upcoming: 0}; for (const r of rowsSport) n[whenOf(r.start)]++;
   const other = _when === 'today' ? 'upcoming' : (_when === 'upcoming' ? 'today' : null);
   const sp = _tf.sport ? (SPORT_LABEL[_tf.sport] || _tf.sport) + ' ' : '';
-  return `<div class="small dim">No ${sp}${what} ${_when === 'all' ? 'right now' : _when}.${other && n[other] ? ` <a href="#" onclick="_when='${other}';draw();return false">${n[other]} ${other} →</a>` : ''}</div>`;
+  return `<div class="small dim">No ${sp}${what} ${_when === 'all' ? 'right now' : (_when === 'today' ? 'in the next 24 hours' : 'after the next 24 hours')}.${other && n[other] ? ` <a href="#" onclick="_when='${other}';draw();return false">${n[other]} ${other === 'today' ? 'in the next 24h' : 'later'} →</a>` : ''}</div>`;
 }
 const fmtRec = x => !x || !x.graded ? null : `${x.w}-${x.l}${x.p ? '-' + x.p : ''}, <span class="${x.pnl >= 0 ? 'pos' : 'neg'}">${x.pnl >= 0 ? '+' : ''}${(x.pnl || 0).toFixed(2)}u</span>`;
 function recordText(tag) {
@@ -381,7 +381,7 @@ function renderToday() {
   const games = groupByGame(vet, it => it.g.event_id), lgames = groupByGame(lean, it => it.g.event_id);
   const sgames = groupByGame(S.sort((a, b) => a.start < b.start ? -1 : 1), x => x.ev || (x.sport + x.away + x.home));
   const next = [...B, ...S].map(x => x.start).sort()[0];
-  const label = _when === 'today' ? 'Today' : (_when === 'upcoming' ? 'Upcoming' : 'All upcoming');
+  const label = _when === 'today' ? 'Next 24 hours' : (_when === 'upcoming' ? 'Later' : 'All upcoming');
   const summary = `<div class="summary"><b>${label}${_tf.sport ? ' · ' + (SPORT_LABEL[_tf.sport] || _tf.sport) : ''}:</b> ${vet.length} system bet${vet.length === 1 ? '' : 's'} on ${games.length} game${games.length === 1 ? '' : 's'} · ${lean.length + TWk.length} lean${lean.length + TWk.length === 1 ? '' : 's'} · sharp-money signals on ${sgames.length} game${sgames.length === 1 ? '' : 's'}${next ? ` · next start ${DAYT(next)} (${until(next)})` : ''}</div>`;
   const cards = gs => gs.map(L => `<div class="gcard">${gameHead({...L[0], away_name: L[0].g.away_name, home_name: L[0].g.home_name, away: L[0].g.away, home: L[0].g.home})}${L.map(betRow).join('')}</div>`).join('');
   const twRows = TWk.map(r => `<tr><td class="small"><span class="badge b-sport">${esc((r.tour || 'tennis').toUpperCase())}</span> <b>${DAYT(r.start)}</b><br><span class="dim">${until(r.start)}</span></td>
@@ -486,7 +486,7 @@ function renderGames() {
   const gamesAll = D.board.filter(g => !g.closed && new Date(g.start_utc) > Date.now());
   const games = gamesAll.filter(g => passW(g.start_utc));
   const toggle = `<div class="controls topbar">${whenBar(gamesAll.map(g => ({start: g.start_utc})))}<span class="tabs inline"><button class="${st.view === 'lines' ? 'on' : ''}" onclick="_gf.view='lines';draw()">Game lines</button><button class="${st.view === 'props' ? 'on' : ''}" onclick="_gf.view='props';draw()">Player props</button></span></div>
-    <div class="controls"><span>${games.length} game${games.length === 1 ? '' : 's'} (${_when === 'all' ? 'all upcoming' : _when}).${!games.length && gamesAll.length ? ` <a href="#" onclick="_when='${_when === 'today' ? 'upcoming' : 'today'}';draw();return false">Show ${_when === 'today' ? 'upcoming' : 'today'} →</a>` : ''} Prices are the best available where you can bet (Novig, Kalshi, Polymarket, FanDuel, Caesars, DraftKings; Kalshi fee included); a green +number means that price beats our fair line by that many percentage points.</span></div>`;
+    <div class="controls"><span>${games.length} game${games.length === 1 ? '' : 's'} (${_when === 'all' ? 'all upcoming' : (_when === 'today' ? 'next 24 hours' : 'later')}).${!games.length && gamesAll.length ? ` <a href="#" onclick="_when='${_when === 'today' ? 'upcoming' : 'today'}';draw();return false">Show ${_when === 'today' ? 'later' : 'next 24h'} →</a>` : ''} Prices are the best available where you can bet (Novig, Kalshi, Polymarket, FanDuel, Caesars, DraftKings; Kalshi fee included); a green +number means that price beats our fair line by that many percentage points.</span></div>`;
   if (st.view === 'props') return toggle + renderPropsSimple(games);
   const rows = games.map(g => {
     const sp = mainPair(g, 'spread'), to = mainPair(g, 'total'), ml = mainPair(g, 'ml'); const open = st.open[g.event_id];
@@ -725,7 +725,7 @@ function draw() {
   const url = () => '?sport=' + (SPORT || '') + '&tab=' + tab + (tab === 'research' ? '&r=' + rtab : '');
   $('#tabs').innerHTML = TABS.map(([k, l]) => `<button class="${tab === k ? 'on' : ''}" onclick="tab='${k}';history.replaceState(null,'',(${url.toString()})());draw()">${l}</button>`).join('');
   $('#subtabs').innerHTML = tab === 'research' ? `<button onclick="tab='more';draw()">← More</button>` + RTABS.map(([k, l]) => `<button class="${rtab === k ? 'on' : ''}" onclick="rtab='${k}';history.replaceState(null,'',(${url.toString()})());draw()">${l}</button>`).join('') : '';
-  if (SY) { const n = (SY.games || []).filter(g => new Date(g.start_utc) > Date.now() && whenOf(g.start_utc) === 'today').reduce((a, g) => a + (g.fills || []).filter(f => f.fill_id && !f.stacked).length, 0); $('#tabs').querySelector('button').textContent = `Today (${n} bet${n === 1 ? '' : 's'})`; }
+  if (SY) { const n = (SY.games || []).filter(g => new Date(g.start_utc) > Date.now() && whenOf(g.start_utc) === 'today').reduce((a, g) => a + (g.fills || []).filter(f => f.fill_id && !f.stacked).length, 0); $('#tabs').querySelector('button').textContent = `Today (${n} bet${n === 1 ? '' : 's'} in 24h)`; }
   const perSport = tab === 'games' || (tab === 'research' && !['edges', 'weekly'].includes(rtab));   // pages that show one sport at a time
   $('#sportctx').style.display = perSport ? '' : 'none'; $('#sporthdr').style.display = perSport ? '' : 'none';
   for (const id of ['#sub', '#banners', '#strip']) $(id).style.display = tab === 'research' ? '' : 'none';   // build details and model caveats only on the research pages
