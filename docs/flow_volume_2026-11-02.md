@@ -188,3 +188,17 @@ Read:
 3. Specialists (good in one sport only) are positive in most sports but weaker than the general list (NFL +0.30, NHL +0.6-0.7, CFB +0.59;
    NBA about zero). They add coverage, mainly NFL and CFB, at a lower edge.
 4. UFC is not sustainable: fold A looked strong (+1.0) and fold B fell apart (persistence 0.06). Keep UFC out.
+
+## Player props (sharp/prop_sharps.py, data/research/prop_sharps.json)
+
+Settled two-way Polymarket prop markets with $2k+ volume: 3,569 (NBA 1,925, UFC 928, NFL 351, MLB 130, WNBA 84, soccer 146), only 160k
+taker trades in all. Test from 2026-06-27. Too thin to read: 37 accounts reach 15 prop fills on 8 markets before the cut, and the test
+third has 522 markets, of which 320 had any $100+ fill. Following any $100+ prop fill: +0.13 pts CLV (z 0.2). Polymarket's prop board
+is not liquid enough for an account signal yet; revisit when NBA and NFL prop volume builds.
+
+## Live changes (11/2)
+
+- The account list (data/state/poly_sharps_list.json) now marks each top-200 account's sports where it is also in that sport's own top 50
+  (108 of 200). Such an account flags a game on its own, like a top-50 account.
+- Sport specialists (a sport's top 50, not in the cross-sport top 200; 188 accounts, UFC excluded) are followed and their fills logged,
+  but they do not flag. Their live record decides later whether they should.

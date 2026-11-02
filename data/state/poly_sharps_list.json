@@ -1,8 +1,8 @@
 {
-"built": "2026-11-02T08:06:45Z",
+"built": "2026-11-02T10:07:06Z",
 "history_through": "2026-11-02",
 "scored": 4147,
-"method": "mean CLV vs Polymarket close of $100+ pregame fills, 30+ fills on 15+ games, top 200 (sharp/poly_agg.py)",
+"method": "mean CLV vs Polymarket close of $100+ pregame fills, 30+ fills on 15+ games, top 200 (sharp/poly_agg.py); sport_top50 = also in that sport's own top 50 (20+ fills on 10+ games there): the strongest tier (docs/flow_volume_2026-11-02.md)",
 "accounts": [
 {
 "w": "0x161a7f666ca49d592848cf415b42f49a84714103",
@@ -10,7 +10,8 @@
 "clv": 18.7,
 "roi": 56.5,
 "fills": 35,
-"games": 19
+"games": 19,
+"sport_top50": []
 },
 {
 "w": "0xd218e474776403a330142299f7796e8ba32eb5c9",
@@ -18,7 +19,10 @@
 "clv": 11.01,
 "roi": 50.8,
 "fills": 86,
-"games": 42
+"games": 42,
+"sport_top50": [
+"nba"
+]
 },
 {
 "w": "0x033f0346c007323030eb420305ffede19a95618e",
@@ -26,7 +30,10 @@
 "clv": 6.79,
 "roi": -29.2,
 "fills": 42,
-"games": 37
+"games": 37,
+"sport_top50": [
+"nba"
+]
 },
 {
 "w": "0x7aa832fdc93406ea5b57b4382a7ca200d6c056db",
@@ -34,7 +41,10 @@
 "clv": 5.04,
 "roi": -0.9,
 "fills": 91,
-"games": 22
+"games": 22,
+"sport_top50": [
+"nba"
+]
 },
 {
 "w": "0xf9b5f7293b8258be8b0e1f03717c5d2ad94809ee",
@@ -42,7 +52,10 @@
 "clv": 4.2,
 "roi": 11.5,
 "fills": 35,
-"games": 25
+"games": 25,
+"sport_top50": [
+"nba"
+]
 },
 {
 "w": "0xb351fb73fa5df3dbec1d3b4f42b3e6696aef5fbf",
@@ -50,7 +63,10 @@
 "clv": 3.95,
 "roi": 44.1,
 "fills": 44,
-"games": 20
+"games": 20,
+"sport_top50": [
+"nba"
+]
 },
 {
 "w": "0x5caec2331059ed7bbead580c8bc56e2d1896a00a",
@@ -58,7 +74,10 @@
 "clv": 3.66,
 "roi": 4.5,
 "fills": 44,
-"games": 38
+"games": 38,
+"sport_top50": [
+"nba"
+]
 },
 {
 "w": "0xacb206b460a17382a734de8d931cc176307eb989",
@@ -66,7 +85,10 @@
 "clv": 3.55,
 "roi": -1.1,
 "fills": 128,
-"games": 98
+"games": 98,
+"sport_top50": [
+"nba"
+]
 },
 {
 "w": "0xb6c35456f029c3eeb66853a0481199d2c474600f",
@@ -74,7 +96,10 @@
 "clv": 3.37,
 "roi": -48.0,
 "fills": 66,
-"games": 15
+"games": 15,
+"sport_top50": [
+"wnba"
+]
 },
 {
 "w": "0x0d2d845a6ff64e31e04a70afce8a573940767ff5",
@@ -82,7 +107,8 @@
 "clv": 3.11,
 "roi": 21.3,
 "fills": 33,
-"games": 27
+"games": 27,
+"sport_top50": []
 },
 {
 "w": "0xed72c58176a997ca7f128c1f885b6e48b936b8b0",
@@ -90,7 +116,10 @@
 "clv": 3.04,
 "roi": 52.1,
 "fills": 43,
-"games": 18
+"games": 18,
+"sport_top50": [
+"nba"
+]
 },
 {
 "w": "0x5ec1272b672931a308175a122f6f191cd7bc057c",
@@ -98,7 +127,10 @@
 "clv": 3.02,
 "roi": -11.9,
 "fills": 47,
-"games": 31
+"games": 31,
+"sport_top50": [
+"nba"
+]
 },
 {
 "w": "0xcc0296855d99a45c88ceba0cc3caa4c75f39e0d4",
@@ -106,7 +138,10 @@
 "clv": 3.0,
 "roi": 8.7,
 "fills": 45,
-"games": 37
+"games": 37,
+"sport_top50": [
+"nba"
+]
 },
 {
 "w": "0x7b1036b62136cad4ac4b86668c3dcb9e84e2acab",
@@ -114,7 +149,8 @@
 "clv": 2.95,
 "roi": 22.8,
 "fills": 71,
-"games": 61
+"games": 61,
+"sport_top50": []
 },
 {
 "w": "0xacdfb794e0a4968d572283d16818eddbc534f80a",
@@ -122,7 +158,10 @@
 "clv": 2.93,
 "roi": 6.5,
 "fills": 71,
-"games": 33
+"games": 33,
+"sport_top50": [
+"nba"
+]
 },
 {
 "w": "0x437b91c5863bec6586af33dcabb640c58f200ba4",
@@ -130,7 +169,8 @@
 "clv": 2.81,
 "roi": 2.4,
 "fills": 33,
-"games": 28
+"games": 28,
+"sport_top50": []
 },
 {
 "w": "0x85e543138bdab08fdaab477a6f59581d1ca19343",
@@ -138,7 +178,10 @@
 "clv": 2.52,
 "roi": 0.6,
 "fills": 50,
-"games": 30
+"games": 30,
+"sport_top50": [
+"nhl"
+]
 },
 {
 "w": "0x6e82b93eb57b01a63027bd0c6d2f3f04934a752c",
@@ -146,7 +189,12 @@
 "clv": 2.48,
 "roi": 11.9,
 "fills": 1813,
-"games": 863
+"games": 863,
+"sport_top50": [
+"nba",
+"nfl",
+"wnba"
+]
 },
 {
 "w": "0x6e1e2c6ce864287b386d2824b540607bf23abb68",
@@ -154,7 +202,10 @@
 "clv": 2.47,
 "roi": 9.0,
 "fills": 81,
-"games": 80
+"games": 80,
+"sport_top50": [
+"nba"
+]
 },
 {
 "w": "0xff36c717909a7bad60e74eed3418009ff481e757",
@@ -162,7 +213,10 @@
 "clv": 2.46,
 "roi": -2.1,
 "fills": 178,
-"games": 85
+"games": 85,
+"sport_top50": [
+"nba"
+]
 },
 {
 "w": "0xe542afd3881c4c330ba0ebbb603bb470b2ba0a37",
@@ -170,7 +224,10 @@
 "clv": 2.42,
 "roi": -1.1,
 "fills": 104,
-"games": 56
+"games": 56,
+"sport_top50": [
+"nfl"
+]
 },
 {
 "w": "0x67bb64fac5252df3f61ee2d91a4b1350e40eb6ef",
@@ -178,7 +235,10 @@
 "clv": 2.32,
 "roi": 23.0,
 "fills": 60,
-"games": 43
+"games": 43,
+"sport_top50": [
+"nba"
+]
 },
 {
 "w": "0x0441a78d2fbc0b55b1d0141a7aa6054d724ab3aa",
@@ -186,7 +246,10 @@
 "clv": 2.29,
 "roi": 25.4,
 "fills": 31,
-"games": 22
+"games": 22,
+"sport_top50": [
+"nba"
+]
 },
 {
 "w": "0x7df662e68f3056d852a617e976a02f890ea6b212",
@@ -194,7 +257,10 @@
 "clv": 2.29,
 "roi": 8.6,
 "fills": 31,
-"games": 16
+"games": 16,
+"sport_top50": [
+"nba"
+]
 },
 {
 "w": "0x5c814e0948a367b28dffc4153700ef94b26ae258",
@@ -202,7 +268,8 @@
 "clv": 2.24,
 "roi": 33.3,
 "fills": 34,
-"games": 32
+"games": 32,
+"sport_top50": []
 },
 {
 "w": "0x0f8eb0d3521f61b7a83428c321dd7fb296c63082",
@@ -210,7 +277,10 @@
 "clv": 2.15,
 "roi": -45.0,
 "fills": 30,
-"games": 22
+"games": 22,
+"sport_top50": [
+"nba"
+]
 },
 {
 "w": "0x272df07434614e735c7896b0eb9d3d26c78d9e36",
@@ -218,7 +288,10 @@
 "clv": 2.08,
 "roi": -14.6,
 "fills": 36,
-"games": 31
+"games": 31,
+"sport_top50": [
+"nba"
+]
 },
 {
 "w": "0x529279dda0372d07277456829f27c2151ec3fb5e",
@@ -226,15 +299,21 @@
 "clv": 2.08,
 "roi": -2.0,
 "fills": 57,
-"games": 21
+"games": 21,
+"sport_top50": [
+"nba"
+]
 },
 {
 "w": "0x44a1159b925c145e70f746bb3f0f58380553bd21",
 "rank": 29,
 "clv": 2.06,
-"roi": -3.4,
+"roi": -3.3,
 "fills": 56,
-"games": 47
+"games": 47,
+"sport_top50": [
+"nba"
+]
 },
 {
 "w": "0x130710e5f3fe1b2682440077d84078832197d640",
@@ -242,7 +321,8 @@
 "clv": 2.06,
 "roi": -1.4,
 "fills": 30,
-"games": 20
+"games": 20,
+"sport_top50": []
 },
 {
 "w": "0x6b7c75862e64d6e976d2c08ad9f9b54add6c5f83",
@@ -250,7 +330,10 @@
 "clv": 2.02,
 "roi": -4.9,
 "fills": 155,
-"games": 79
+"games": 79,
+"sport_top50": [
+"nba"
+]
 },
 {
 "w": "0x1b5e20a28d7115f10ce6190a5ae9a91169be83f8",
@@ -258,7 +341,8 @@
 "clv": 1.99,
 "roi": 24.7,
 "fills": 114,
-"games": 69
+"games": 69,
+"sport_top50": []
 },
 {
 "w": "0xd12cba563f08a96846b50c4d0047443741ccf2d4",
@@ -266,7 +350,10 @@
 "clv": 1.98,
 "roi": -9.6,
 "fills": 67,
-"games": 25
+"games": 25,
+"sport_top50": [
+"nba"
+]
 },
 {
 "w": "0x7deb2b78c632361841645f5e4dd086e03b5a2682",
@@ -274,7 +361,10 @@
 "clv": 1.97,
 "roi": 13.0,
 "fills": 62,
-"games": 60
+"games": 60,
+"sport_top50": [
+"nba"
+]
 },
 {
 "w": "0x35eab16eaa0fcc6eaae638a78352e7a3a10c85dd",
@@ -282,7 +372,10 @@
 "clv": 1.95,
 "roi": 34.4,
 "fills": 33,
-"games": 28
+"games": 28,
+"sport_top50": [
+"nba"
+]
 },
 {
 "w": "0xb7901c393c80f07b9962bc19c3a98a685c808389",
@@ -290,7 +383,11 @@
 "clv": 1.93,
 "roi": 7.9,
 "fills": 47,
-"games": 39
+"games": 39,
+"sport_top50": [
+"cfb",
+"nfl"
+]
 },
 {
 "w": "0x26e7234a906e7e93d1272cde5d6118d94749cc6c",
@@ -298,7 +395,10 @@
 "clv": 1.92,
 "roi": 12.5,
 "fills": 74,
-"games": 27
+"games": 27,
+"sport_top50": [
+"soccer"
+]
 },
 {
 "w": "0x43a47b6aad4cf1dc4e35942ca2f9eb96485f7170",
@@ -306,7 +406,10 @@
 "clv": 1.87,
 "roi": 22.9,
 "fills": 88,
-"games": 22
+"games": 22,
+"sport_top50": [
+"nba"
+]
 },
 {
 "w": "0xa6dff7d8c3ea5d1bbd6f3404a59f566d9562dda7",
@@ -314,7 +417,10 @@
 "clv": 1.85,
 "roi": 5.8,
 "fills": 293,
-"games": 209
+"games": 209,
+"sport_top50": [
+"wnba"
+]
 },
 {
 "w": "0xf3dba267630ffff79d20dd497687545ae9f20b3c",
@@ -322,7 +428,10 @@
 "clv": 1.81,
 "roi": 104.0,
 "fills": 32,
-"games": 15
+"games": 15,
+"sport_top50": [
+"nba"
+]
 },
 {
 "w": "0x5bca6f131412244091d9c3c78afcb505f6d90d11",
@@ -330,7 +439,10 @@
 "clv": 1.8,
 "roi": 10.4,
 "fills": 148,
-"games": 91
+"games": 91,
+"sport_top50": [
+"nhl"
+]
 },
 {
 "w": "0x52ed504e3c3c7cfceaa61dc4f23a6e29d79f8db7",
@@ -338,7 +450,10 @@
 "clv": 1.75,
 "roi": 1.1,
 "fills": 720,
-"games": 376
+"games": 376,
+"sport_top50": [
+"soccer"
+]
 },
 {
 "w": "0xd9c4f7323b02bcb3e476291e9203239667006f95",
@@ -346,7 +461,10 @@
 "clv": 1.7,
 "roi": 1.1,
 "fills": 308,
-"games": 45
+"games": 45,
+"sport_top50": [
+"soccer"
+]
 },
 {
 "w": "0x87b89db942ac3385a9508f0bed316136ea89e1a1",
@@ -354,7 +472,8 @@
 "clv": 1.68,
 "roi": 5.8,
 "fills": 31,
-"games": 28
+"games": 28,
+"sport_top50": []
 },
 {
 "w": "0x4b493d8ea89203ecfa5ac53ff8fc4a45aa050397",
@@ -362,7 +481,10 @@
 "clv": 1.62,
 "roi": 26.0,
 "fills": 53,
-"games": 47
+"games": 47,
+"sport_top50": [
+"nba"
+]
 },
 {
 "w": "0x54ce7dd357766fc3255645e55ef41edd51cc9f80",
@@ -370,7 +492,11 @@
 "clv": 1.61,
 "roi": 3.1,
 "fills": 106,
-"games": 74
+"games": 74,
+"sport_top50": [
+"cfb",
+"nfl"
+]
 },
 {
 "w": "0xb915070c8007b1bdf4b1ef04e56b066a022e8da5",
@@ -378,7 +504,11 @@
 "clv": 1.6,
 "roi": 8.7,
 "fills": 268,
-"games": 148
+"games": 148,
+"sport_top50": [
+"nba",
+"wnba"
+]
 },
 {
 "w": "0xdebbe89ceb32828a99648bca497684f5209ceedb",
@@ -386,7 +516,10 @@
 "clv": 1.59,
 "roi": -6.5,
 "fills": 213,
-"games": 108
+"games": 108,
+"sport_top50": [
+"soccer"
+]
 },
 {
 "w": "0x03524d9d00cffe5004d1d270edfea7b3109e3292",
@@ -394,7 +527,8 @@
 "clv": 1.58,
 "roi": -4.6,
 "fills": 161,
-"games": 80
+"games": 80,
+"sport_top50": []
 },
 {
 "w": "0x3c83e9a8754d7c66255b1a3d60e945ebb4f0cf0a",
@@ -402,7 +536,8 @@
 "clv": 1.53,
 "roi": 39.5,
 "fills": 47,
-"games": 40
+"games": 40,
+"sport_top50": []
 },
 {
 "w": "0xf638471812cd1a61208e85a1e2462a3ef7a7aa50",
@@ -410,7 +545,10 @@
 "clv": 1.52,
 "roi": 10.8,
 "fills": 49,
-"games": 32
+"games": 32,
+"sport_top50": [
+"cfb"
+]
 },
 {
 "w": "0x72032b3d4fa25d97b2824ccec1d404e4561c22d6",
@@ -418,7 +556,8 @@
 "clv": 1.52,
 "roi": 14.6,
 "fills": 40,
-"games": 39
+"games": 39,
+"sport_top50": []
 },
 {
 "w": "0xb406f1f3abe02300d4504b6940f6954c238c4964",
@@ -426,7 +565,8 @@
 "clv": 1.51,
 "roi": 22.5,
 "fills": 51,
-"games": 45
+"games": 45,
+"sport_top50": []
 },
 {
 "w": "0x9a2ebc0fb4dbe92921e343c2d97f8d0ace6537ca",
@@ -434,7 +574,8 @@
 "clv": 1.51,
 "roi": 3.9,
 "fills": 92,
-"games": 41
+"games": 41,
+"sport_top50": []
 },
 {
 "w": "0x96e1532f24a4aadc89979aba2a96993c2f576293",
@@ -442,7 +583,8 @@
 "clv": 1.5,
 "roi": -0.8,
 "fills": 49,
-"games": 28
+"games": 28,
+"sport_top50": []
 },
 {
 "w": "0x724861ef0564ca04a923cee0525b30b510c48cb4",
@@ -450,7 +592,8 @@
 "clv": 1.48,
 "roi": -11.6,
 "fills": 57,
-"games": 45
+"games": 45,
+"sport_top50": []
 },
 {
 "w": "0x8314fd1f002a4e9bbf4b5abb939e24949a4e0f1e",
@@ -458,7 +601,12 @@
 "clv": 1.46,
 "roi": -2.3,
 "fills": 404,
-"games": 330
+"games": 330,
+"sport_top50": [
+"cfb",
+"nba",
+"wnba"
+]
 },
 {
 "w": "0x2396babfc88a7a7dcc0390262ab747d7cbad9485",
@@ -466,7 +614,8 @@
 "clv": 1.46,
 "roi": -16.2,
 "fills": 62,
-"games": 36
+"games": 36,
+"sport_top50": []
 },
 {
 "w": "0xbde6a122620b9052f934274e0b00c1699dd0e8b5",
@@ -474,7 +623,8 @@
 "clv": 1.44,
 "roi": 12.3,
 "fills": 79,
-"games": 73
+"games": 73,
+"sport_top50": []
 },
 {
 "w": "0x9e2f652edcc5f944f33f68410d10ea4464a9ec47",
@@ -482,7 +632,8 @@
 "clv": 1.42,
 "roi": 10.2,
 "fills": 352,
-"games": 244
+"games": 244,
+"sport_top50": []
 },
 {
 "w": "0xd4fb9ab08860f8cf7f5e6b47331d01a8dbd34c2a",
@@ -490,7 +641,10 @@
 "clv": 1.42,
 "roi": -15.2,
 "fills": 54,
-"games": 44
+"games": 44,
+"sport_top50": [
+"cfb"
+]
 },
 {
 "w": "0x2131a32e8dbb7199480e710abe94983c3044aaf2",
@@ -498,7 +652,11 @@
 "clv": 1.42,
 "roi": 4.8,
 "fills": 149,
-"games": 75
+"games": 75,
+"sport_top50": [
+"nba",
+"nhl"
+]
 },
 {
 "w": "0xf15475fc69aa22ee6559de0f367c35c57d2727e3",
@@ -506,7 +664,8 @@
 "clv": 1.39,
 "roi": 22.8,
 "fills": 232,
-"games": 87
+"games": 87,
+"sport_top50": []
 },
 {
 "w": "0x507e52ef684ca2dd91f90a9d26d149dd3288beae",
@@ -514,7 +673,10 @@
 "clv": 1.36,
 "roi": -4.5,
 "fills": 1916,
-"games": 820
+"games": 820,
+"sport_top50": [
+"nba"
+]
 },
 {
 "w": "0x9cb48ddd4185f3e947edf596589e40e574588285",
@@ -522,7 +684,10 @@
 "clv": 1.35,
 "roi": 8.9,
 "fills": 491,
-"games": 180
+"games": 180,
+"sport_top50": [
+"soccer"
+]
 },
 {
 "w": "0xa6a786cac8fee1d184e3ef986894c7a7244fe5d4",
@@ -530,7 +695,10 @@
 "clv": 1.32,
 "roi": 17.7,
 "fills": 49,
-"games": 28
+"games": 28,
+"sport_top50": [
+"nba"
+]
 },
 {
 "w": "0x27f2499f59b59a22bc0dd5f518cf5ea0b35c702c",
@@ -538,7 +706,10 @@
 "clv": 1.31,
 "roi": 7.7,
 "fills": 31,
-"games": 26
+"games": 26,
+"sport_top50": [
+"nfl"
+]
 },
 {
 "w": "0xe3015c631605e328b39f5888da942b3078ab9bd9",
@@ -546,7 +717,10 @@
 "clv": 1.31,
 "roi": 4.7,
 "fills": 58,
-"games": 52
+"games": 52,
+"sport_top50": [
+"nhl"
+]
 },
 {
 "w": "0x4e948fa5d984c0077bb8f0d2f8d0f7779f656243",
@@ -554,7 +728,10 @@
 "clv": 1.3,
 "roi": -30.4,
 "fills": 41,
-"games": 21
+"games": 21,
+"sport_top50": [
+"wnba"
+]
 },
 {
 "w": "0x602785cdf56a03221130d3d42a577ac6cf444320",
@@ -562,7 +739,12 @@
 "clv": 1.27,
 "roi": -0.7,
 "fills": 407,
-"games": 296
+"games": 296,
+"sport_top50": [
+"cfb",
+"nfl",
+"wnba"
+]
 },
 {
 "w": "0xac9ba267c879bbc02c6f7b809b48f4b775fe18eb",
@@ -570,7 +752,10 @@
 "clv": 1.27,
 "roi": -26.4,
 "fills": 41,
-"games": 16
+"games": 16,
+"sport_top50": [
+"soccer"
+]
 },
 {
 "w": "0xedf9877a55459348058f966b6a0069651d025b10",
@@ -578,7 +763,8 @@
 "clv": 1.26,
 "roi": 12.6,
 "fills": 35,
-"games": 29
+"games": 29,
+"sport_top50": []
 },
 {
 "w": "0xdcc4bc454ebfe67ea76e0f1a39415eec0379a439",
@@ -586,7 +772,8 @@
 "clv": 1.25,
 "roi": 2.4,
 "fills": 160,
-"games": 134
+"games": 134,
+"sport_top50": []
 },
 {
 "w": "0x906fd5683ec51f215164f55b06bbee2b0f1288b4",
@@ -594,7 +781,8 @@
 "clv": 1.25,
 "roi": 2.5,
 "fills": 530,
-"games": 189
+"games": 189,
+"sport_top50": []
 },
 {
 "w": "0x4278f7e5cb5f2d68d204d7403270c79cb07e0e92",
@@ -602,7 +790,10 @@
 "clv": 1.24,
 "roi": 0.5,
 "fills": 507,
-"games": 410
+"games": 410,
+"sport_top50": [
+"wnba"
+]
 },
 {
 "w": "0xd9a0cdd2f18d42f7cf0540d38036c597925288ee",
@@ -610,7 +801,10 @@
 "clv": 1.23,
 "roi": 14.0,
 "fills": 73,
-"games": 44
+"games": 44,
+"sport_top50": [
+"nhl"
+]
 },
 {
 "w": "0x60bad0ad4871a31cb2bf392472056b15e20b3c6c",
@@ -618,7 +812,10 @@
 "clv": 1.23,
 "roi": -7.5,
 "fills": 160,
-"games": 82
+"games": 82,
+"sport_top50": [
+"nhl"
+]
 },
 {
 "w": "0xc29a02c2d0683d9cc1e5ef810cdf48a9e2c67816",
@@ -626,7 +823,10 @@
 "clv": 1.22,
 "roi": -14.0,
 "fills": 45,
-"games": 28
+"games": 28,
+"sport_top50": [
+"nhl"
+]
 },
 {
 "w": "0x8ec3e3f7ea9fea645ced82ddbddea3e23018b672",
@@ -634,7 +834,8 @@
 "clv": 1.22,
 "roi": 33.8,
 "fills": 31,
-"games": 16
+"games": 16,
+"sport_top50": []
 },
 {
 "w": "0xea2b4224411e723499a803ce3f4758779fb31fc6",
@@ -642,7 +843,8 @@
 "clv": 1.2,
 "roi": 8.8,
 "fills": 296,
-"games": 223
+"games": 223,
+"sport_top50": []
 },
 {
 "w": "0x026985b67ade7ba199698b9d7d0451a22214cb2d",
@@ -650,7 +852,10 @@
 "clv": 1.19,
 "roi": -9.4,
 "fills": 170,
-"games": 98
+"games": 98,
+"sport_top50": [
+"nfl"
+]
 },
 {
 "w": "0xba9c90eb69f83b3287773549b01cec7c5eacd2c1",
@@ -658,7 +863,10 @@
 "clv": 1.18,
 "roi": 7.4,
 "fills": 121,
-"games": 114
+"games": 114,
+"sport_top50": [
+"nhl"
+]
 },
 {
 "w": "0xca470764e667e2c59d32bca387f01885111a3ef4",
@@ -666,7 +874,8 @@
 "clv": 1.18,
 "roi": -18.0,
 "fills": 31,
-"games": 25
+"games": 25,
+"sport_top50": []
 },
 {
 "w": "0x3fd9a838ded6eb832baab3ccbcb5e934e3871ef0",
@@ -674,7 +883,10 @@
 "clv": 1.18,
 "roi": -35.9,
 "fills": 68,
-"games": 23
+"games": 23,
+"sport_top50": [
+"soccer"
+]
 },
 {
 "w": "0x1dbd30000dd7dd051e8fc803fac38e8246d9af92",
@@ -682,7 +894,10 @@
 "clv": 1.17,
 "roi": 0.1,
 "fills": 137,
-"games": 59
+"games": 59,
+"sport_top50": [
+"nfl"
+]
 },
 {
 "w": "0x7200ef39ca19e5ded632820a654e9de23ce29299",
@@ -690,7 +905,8 @@
 "clv": 1.17,
 "roi": 25.8,
 "fills": 55,
-"games": 41
+"games": 41,
+"sport_top50": []
 },
 {
 "w": "0xf6683d202f76fc9b79e5be716ce8519dab5b5c69",
@@ -698,7 +914,10 @@
 "clv": 1.17,
 "roi": 15.0,
 "fills": 577,
-"games": 325
+"games": 325,
+"sport_top50": [
+"wnba"
+]
 },
 {
 "w": "0x533017ca37064a7201a5a633bfd1347d5ad20bfa",
@@ -706,7 +925,8 @@
 "clv": 1.16,
 "roi": -4.6,
 "fills": 226,
-"games": 115
+"games": 115,
+"sport_top50": []
 },
 {
 "w": "0xfd2930a094c0a6900a2dc947e5db462d11ae77ae",
@@ -714,7 +934,10 @@
 "clv": 1.16,
 "roi": -4.9,
 "fills": 40,
-"games": 21
+"games": 21,
+"sport_top50": [
+"soccer"
+]
 },
 {
 "w": "0x5cebd4d7a6bc79afb7c30c97bd830c946028b821",
@@ -722,7 +945,10 @@
 "clv": 1.16,
 "roi": 24.0,
 "fills": 40,
-"games": 37
+"games": 37,
+"sport_top50": [
+"wnba"
+]
 },
 {
 "w": "0xdf2f8a6e33e82ab38ff0b4c65a59d3aa8ddc297c",
@@ -730,7 +956,8 @@
 "clv": 1.15,
 "roi": 18.9,
 "fills": 30,
-"games": 27
+"games": 27,
+"sport_top50": []
 },
 {
 "w": "0x50925f09c54a632c248d3127d451d63b0368fccd",
@@ -738,7 +965,8 @@
 "clv": 1.15,
 "roi": 0.8,
 "fills": 51,
-"games": 35
+"games": 35,
+"sport_top50": []
 },
 {
 "w": "0xd68430d35d77cfa80e95a3e773aa1c55c137f320",
@@ -746,7 +974,10 @@
 "clv": 1.13,
 "roi": 4.7,
 "fills": 68,
-"games": 25
+"games": 25,
+"sport_top50": [
+"soccer"
+]
 },
 {
 "w": "0xb2304a93c928e05c13e3b96b07be1f2ea8374193",
@@ -754,7 +985,11 @@
 "clv": 1.12,
 "roi": 1.4,
 "fills": 297,
-"games": 230
+"games": 230,
+"sport_top50": [
+"nfl",
+"soccer"
+]
 },
 {
 "w": "0xfe67df6e0c585e50cbe8bdcad804d980c6b8a2e8",
@@ -762,7 +997,10 @@
 "clv": 1.12,
 "roi": -37.4,
 "fills": 67,
-"games": 42
+"games": 42,
+"sport_top50": [
+"soccer"
+]
 },
 {
 "w": "0x920ddce1012abe1553092974750866b953ce38ad",
@@ -770,7 +1008,8 @@
 "clv": 1.12,
 "roi": 22.4,
 "fills": 30,
-"games": 29
+"games": 29,
+"sport_top50": []
 },
 {
 "w": "0xc1f7a546505fa29e6293536878deadeda748c4e5",
@@ -778,7 +1017,11 @@
 "clv": 1.11,
 "roi": 8.2,
 "fills": 150,
-"games": 111
+"games": 111,
+"sport_top50": [
+"nfl",
+"nhl"
+]
 },
 {
 "w": "0x42b53f1fa44a03de5f9cb8586fa13ef5ac1cb5b6",
@@ -786,7 +1029,11 @@
 "clv": 1.11,
 "roi": 4.2,
 "fills": 506,
-"games": 300
+"games": 300,
+"sport_top50": [
+"nba",
+"nhl"
+]
 },
 {
 "w": "0xa2cced8bfae7d645f7f437fb76becf2fcbb70cbc",
@@ -794,7 +1041,10 @@
 "clv": 1.11,
 "roi": -8.5,
 "fills": 258,
-"games": 201
+"games": 201,
+"sport_top50": [
+"cfb"
+]
 },
 {
 "w": "0x0a7c46489299331559598ab0412f46bda8ce8964",
@@ -802,7 +1052,8 @@
 "clv": 1.1,
 "roi": 15.2,
 "fills": 224,
-"games": 201
+"games": 201,
+"sport_top50": []
 },
 {
 "w": "0x010084f243ec251c6eef4b6be1bf936ad9f2f6dc",
@@ -810,7 +1061,8 @@
 "clv": 1.1,
 "roi": -20.7,
 "fills": 81,
-"games": 26
+"games": 26,
+"sport_top50": []
 },
 {
 "w": "0x8b02c9e1ee95c1d9ec862af66b0cb69235fdb95f",
@@ -818,7 +1070,8 @@
 "clv": 1.1,
 "roi": 20.6,
 "fills": 39,
-"games": 32
+"games": 32,
+"sport_top50": []
 },
 {
 "w": "0x746e936f43ff75bf508cf8375b7a8e2515ef68ca",
@@ -826,7 +1079,10 @@
 "clv": 1.08,
 "roi": 3.1,
 "fills": 180,
-"games": 152
+"games": 152,
+"sport_top50": [
+"cfb"
+]
 },
 {
 "w": "0x2c866881290c2197960f06448d3a236d9f20d939",
@@ -834,7 +1090,8 @@
 "clv": 1.08,
 "roi": 6.8,
 "fills": 256,
-"games": 92
+"games": 92,
+"sport_top50": []
 },
 {
 "w": "0xf54b584939be3cdd4a4b521c7ba3b00a18138a63",
@@ -842,7 +1099,10 @@
 "clv": 1.08,
 "roi": -7.3,
 "fills": 78,
-"games": 59
+"games": 59,
+"sport_top50": [
+"nba"
+]
 },
 {
 "w": "0x62fb171d1ead8281d38074927ea2507eaa444d60",
@@ -850,7 +1110,11 @@
 "clv": 1.08,
 "roi": -2.4,
 "fills": 589,
-"games": 286
+"games": 286,
+"sport_top50": [
+"soccer",
+"wnba"
+]
 },
 {
 "w": "0x26e23b2138a7a27089561c6bd960cee33f5f1a63",
@@ -858,7 +1122,8 @@
 "clv": 1.07,
 "roi": 13.3,
 "fills": 34,
-"games": 34
+"games": 34,
+"sport_top50": []
 },
 {
 "w": "0x97000eac5406cc902de5617a4bd6457bde120e70",
@@ -866,7 +1131,8 @@
 "clv": 1.06,
 "roi": 12.6,
 "fills": 36,
-"games": 25
+"games": 25,
+"sport_top50": []
 },
 {
 "w": "0xb8ef617fd5d960e61e56c50d2971697300b32864",
@@ -874,7 +1140,8 @@
 "clv": 1.06,
 "roi": -3.9,
 "fills": 67,
-"games": 49
+"games": 49,
+"sport_top50": []
 },
 {
 "w": "0x5e6e2c3f06686f2607b86c90e35f536e81a1be00",
@@ -882,15 +1149,17 @@
 "clv": 1.06,
 "roi": 9.3,
 "fills": 333,
-"games": 254
+"games": 254,
+"sport_top50": []
 },
 {
 "w": "0xf4ec03081af3116b77f0d52c109c6828ff0ec574",
 "rank": 111,
 "clv": 1.05,
-"roi": 17.6,
+"roi": 17.7,
 "fills": 40,
-"games": 29
+"games": 29,
+"sport_top50": []
 },
 {
 "w": "0xd48d425b30eda052f40fef7395f814f50a325182",
@@ -898,7 +1167,8 @@
 "clv": 1.05,
 "roi": 21.6,
 "fills": 30,
-"games": 23
+"games": 23,
+"sport_top50": []
 },
 {
 "w": "0x4309b8fa35a26ac2eef6532147d7e5a6e5697456",
@@ -906,7 +1176,8 @@
 "clv": 1.04,
 "roi": 14.1,
 "fills": 289,
-"games": 193
+"games": 193,
+"sport_top50": []
 },
 {
 "w": "0x68cabafd9ce49a6cd008dbe34c63868404939f73",
@@ -914,7 +1185,8 @@
 "clv": 1.04,
 "roi": 9.5,
 "fills": 393,
-"games": 131
+"games": 131,
+"sport_top50": []
 },
 {
 "w": "0xeaac36f714563e13d88db7a4f0a0898388f2d71d",
@@ -922,7 +1194,10 @@
 "clv": 1.03,
 "roi": 16.4,
 "fills": 100,
-"games": 90
+"games": 90,
+"sport_top50": [
+"soccer"
+]
 },
 {
 "w": "0x19254b55e7c48e88baab9e62cc218223a6544654",
@@ -930,7 +1205,10 @@
 "clv": 1.03,
 "roi": -12.5,
 "fills": 198,
-"games": 69
+"games": 69,
+"sport_top50": [
+"nhl"
+]
 },
 {
 "w": "0xc8b438e4a1c10643ea0ea3e59bcaadc73174f05d",
@@ -938,7 +1216,12 @@
 "clv": 1.03,
 "roi": 13.4,
 "fills": 486,
-"games": 378
+"games": 378,
+"sport_top50": [
+"cfb",
+"nfl",
+"nhl"
+]
 },
 {
 "w": "0x30ef4e0a3695a333c51824a2b98cb17f96e670df",
@@ -946,7 +1229,10 @@
 "clv": 1.02,
 "roi": -1.5,
 "fills": 69,
-"games": 63
+"games": 63,
+"sport_top50": [
+"nba"
+]
 },
 {
 "w": "0x60abb49bd25c01b5568be65a69aa65afbc1be297",
@@ -954,7 +1240,10 @@
 "clv": 1.02,
 "roi": 0.3,
 "fills": 44,
-"games": 41
+"games": 41,
+"sport_top50": [
+"soccer"
+]
 },
 {
 "w": "0x971639c4a072d15ad14be0a8fc7584e70bad378a",
@@ -962,7 +1251,11 @@
 "clv": 1.02,
 "roi": 22.5,
 "fills": 297,
-"games": 111
+"games": 111,
+"sport_top50": [
+"nhl",
+"wnba"
+]
 },
 {
 "w": "0xe9f5c75ee1ae1aae57bf8582e359913c795a3e7a",
@@ -970,7 +1263,11 @@
 "clv": 1.01,
 "roi": -11.8,
 "fills": 220,
-"games": 178
+"games": 178,
+"sport_top50": [
+"cfb",
+"nhl"
+]
 },
 {
 "w": "0x076daa87c4fe1a85402a9b6b8e0a866224388d4c",
@@ -978,7 +1275,11 @@
 "clv": 1.01,
 "roi": 3.0,
 "fills": 1269,
-"games": 673
+"games": 673,
+"sport_top50": [
+"mlb",
+"soccer"
+]
 },
 {
 "w": "0x34fc33896eb6cbe9effe30995467ff330bbd050c",
@@ -986,7 +1287,8 @@
 "clv": 1.01,
 "roi": 0.7,
 "fills": 48,
-"games": 42
+"games": 42,
+"sport_top50": []
 },
 {
 "w": "0x37eb926be9e8684203a68dec1373db6f12c16bf7",
@@ -994,7 +1296,8 @@
 "clv": 1.01,
 "roi": 9.1,
 "fills": 33,
-"games": 32
+"games": 32,
+"sport_top50": []
 },
 {
 "w": "0x39932ca2b7a1b8ab6cbf0b8f7419261b950ccded",
@@ -1002,7 +1305,8 @@
 "clv": 1.01,
 "roi": -1.4,
 "fills": 80,
-"games": 63
+"games": 63,
+"sport_top50": []
 },
 {
 "w": "0x83d22814af497297b3023897a6e3a25cfcf7d196",
@@ -1010,7 +1314,10 @@
 "clv": 1.0,
 "roi": -23.2,
 "fills": 123,
-"games": 44
+"games": 44,
+"sport_top50": [
+"soccer"
+]
 },
 {
 "w": "0xcd3a86397374792ea12ace64471470ec525867ca",
@@ -1018,7 +1325,8 @@
 "clv": 1.0,
 "roi": 13.9,
 "fills": 213,
-"games": 141
+"games": 141,
+"sport_top50": []
 },
 {
 "w": "0x3388d431c4185fc299fa7dec80e27e3f390261d7",
@@ -1026,7 +1334,10 @@
 "clv": 1.0,
 "roi": 12.8,
 "fills": 50,
-"games": 45
+"games": 45,
+"sport_top50": [
+"soccer"
+]
 },
 {
 "w": "0xdb27bf2ac5d428a9c63dbc914611036855a6c56e",
@@ -1034,7 +1345,8 @@
 "clv": 1.0,
 "roi": 25.3,
 "fills": 584,
-"games": 369
+"games": 369,
+"sport_top50": []
 },
 {
 "w": "0x985bec68287e126230c22ac9b5f00515820af21e",
@@ -1042,7 +1354,8 @@
 "clv": 1.0,
 "roi": 7.6,
 "fills": 31,
-"games": 31
+"games": 31,
+"sport_top50": []
 },
 {
 "w": "0x34493d37f00b68da3bc1fb65151f13c96f43abdf",
@@ -1050,7 +1363,8 @@
 "clv": 0.99,
 "roi": -14.4,
 "fills": 35,
-"games": 31
+"games": 31,
+"sport_top50": []
 },
 {
 "w": "0x6211f97a76ed5c4b1d658f637041ac5f293db89e",
@@ -1058,7 +1372,10 @@
 "clv": 0.98,
 "roi": 1.8,
 "fills": 110,
-"games": 61
+"games": 61,
+"sport_top50": [
+"nba"
+]
 },
 {
 "w": "0x209b7ae1ca186e3e05c5d2dd2f504e6936e95706",
@@ -1066,7 +1383,8 @@
 "clv": 0.98,
 "roi": 18.9,
 "fills": 30,
-"games": 25
+"games": 25,
+"sport_top50": []
 },
 {
 "w": "0x14ccf1f4f402ed164477e9ac50a699f425307c02",
@@ -1074,7 +1392,8 @@
 "clv": 0.98,
 "roi": -7.2,
 "fills": 253,
-"games": 106
+"games": 106,
+"sport_top50": []
 },
 {
 "w": "0xbc43c8bfbc4d77c2fc9011adad38ba43b88996d3",
@@ -1082,7 +1401,12 @@
 "clv": 0.98,
 "roi": 6.9,
 "fills": 462,
-"games": 205
+"games": 205,
+"sport_top50": [
+"nfl",
+"nhl",
+"wnba"
+]
 },
 {
 "w": "0xd3394d85e1c3f2990e348d1432eed4c781b1d3a1",
@@ -1090,7 +1414,10 @@
 "clv": 0.97,
 "roi": 18.9,
 "fills": 35,
-"games": 31
+"games": 31,
+"sport_top50": [
+"nhl"
+]
 },
 {
 "w": "0x9495425feeb0c250accb89275c97587011b19a27",
@@ -1098,7 +1425,11 @@
 "clv": 0.97,
 "roi": -25.9,
 "fills": 678,
-"games": 118
+"games": 118,
+"sport_top50": [
+"soccer",
+"wnba"
+]
 },
 {
 "w": "0x7b47a31c97e22de4d7af4a07365545cbc5aed615",
@@ -1106,7 +1437,10 @@
 "clv": 0.97,
 "roi": -14.7,
 "fills": 191,
-"games": 114
+"games": 114,
+"sport_top50": [
+"cfb"
+]
 },
 {
 "w": "0x47fb36749088ac0f5c78bb310ee6a18725eb0c7b",
@@ -1114,7 +1448,10 @@
 "clv": 0.96,
 "roi": 13.9,
 "fills": 51,
-"games": 48
+"games": 48,
+"sport_top50": [
+"soccer"
+]
 },
 {
 "w": "0x279027e3d9f78eb749dafea97f3620b803f42233",
@@ -1122,7 +1459,8 @@
 "clv": 0.96,
 "roi": -25.5,
 "fills": 67,
-"games": 46
+"games": 46,
+"sport_top50": []
 },
 {
 "w": "0x0a39b3b29ab3b7dd753aa96fde4ecab3f2dbb0b9",
@@ -1130,7 +1468,10 @@
 "clv": 0.95,
 "roi": -30.3,
 "fills": 279,
-"games": 48
+"games": 48,
+"sport_top50": [
+"soccer"
+]
 },
 {
 "w": "0x34cf2fa34863491efdce686061639fe43b47b71f",
@@ -1138,7 +1479,8 @@
 "clv": 0.95,
 "roi": 38.5,
 "fills": 52,
-"games": 52
+"games": 52,
+"sport_top50": []
 },
 {
 "w": "0x606f6e092872da5ee66097d5fd36694d70deb043",
@@ -1146,7 +1488,10 @@
 "clv": 0.95,
 "roi": -4.3,
 "fills": 40,
-"games": 34
+"games": 34,
+"sport_top50": [
+"soccer"
+]
 },
 {
 "w": "0x6633d0e3822d88882e01402d91dfc698ee6bdcfe",
@@ -1154,7 +1499,8 @@
 "clv": 0.95,
 "roi": -7.9,
 "fills": 50,
-"games": 44
+"games": 44,
+"sport_top50": []
 },
 {
 "w": "0x92d10d15ba35c6a909ad2d5f0e88ce5b14718a29",
@@ -1162,7 +1508,8 @@
 "clv": 0.94,
 "roi": 9.0,
 "fills": 34,
-"games": 27
+"games": 27,
+"sport_top50": []
 },
 {
 "w": "0x2c57db9e442ef5ffb2651f03afd551171738c94d",
@@ -1170,7 +1517,11 @@
 "clv": 0.94,
 "roi": -10.5,
 "fills": 217,
-"games": 95
+"games": 95,
+"sport_top50": [
+"nba",
+"nhl"
+]
 },
 {
 "w": "0x8c5e8ccd19eba2b566b1af96a698debd5cf1a114",
@@ -1178,7 +1529,8 @@
 "clv": 0.94,
 "roi": -8.4,
 "fills": 77,
-"games": 30
+"games": 30,
+"sport_top50": []
 },
 {
 "w": "0xc3066f356e5895fd2c0ff410b5c9aa2b02d0accd",
@@ -1186,7 +1538,10 @@
 "clv": 0.94,
 "roi": -3.1,
 "fills": 51,
-"games": 44
+"games": 44,
+"sport_top50": [
+"wnba"
+]
 },
 {
 "w": "0x78a2557d4d0bcb0ebdd9a88bfa5ee5c1684cd0a5",
@@ -1194,7 +1549,8 @@
 "clv": 0.93,
 "roi": -5.0,
 "fills": 60,
-"games": 49
+"games": 49,
+"sport_top50": []
 },
 {
 "w": "0x5213eb85fcd465c8927a8382f95dd2dc22306a35",
@@ -1202,7 +1558,10 @@
 "clv": 0.91,
 "roi": 12.5,
 "fills": 69,
-"games": 61
+"games": 61,
+"sport_top50": [
+"soccer"
+]
 },
 {
 "w": "0x4b9fab56e4c9a96ffdd393e85db9d91b5e83e125",
@@ -1210,7 +1569,8 @@
 "clv": 0.91,
 "roi": 19.4,
 "fills": 64,
-"games": 47
+"games": 47,
+"sport_top50": []
 },
 {
 "w": "0x67b7fe8d5bb679a055aa8e91683ab3e4b2595918",
@@ -1218,7 +1578,8 @@
 "clv": 0.91,
 "roi": 22.7,
 "fills": 44,
-"games": 18
+"games": 18,
+"sport_top50": []
 },
 {
 "w": "0xf284ad6d607f777f34bc643cea587c33a886b9f9",
@@ -1226,7 +1587,8 @@
 "clv": 0.9,
 "roi": -27.4,
 "fills": 42,
-"games": 32
+"games": 32,
+"sport_top50": []
 },
 {
 "w": "0x339a0e5aea39a7db5cea5b0003abab33c78c1eae",
@@ -1234,7 +1596,10 @@
 "clv": 0.9,
 "roi": 11.0,
 "fills": 250,
-"games": 192
+"games": 192,
+"sport_top50": [
+"nfl"
+]
 },
 {
 "w": "0xc16bd015bdb4b9b3cfa1f25ee0671cf3e36a8404",
@@ -1242,7 +1607,8 @@
 "clv": 0.9,
 "roi": -9.8,
 "fills": 59,
-"games": 49
+"games": 49,
+"sport_top50": []
 },
 {
 "w": "0x4d3079bd4c73bc0e8f7d9f64a9f64fadbd17a42d",
@@ -1250,7 +1616,10 @@
 "clv": 0.9,
 "roi": -15.1,
 "fills": 181,
-"games": 42
+"games": 42,
+"sport_top50": [
+"soccer"
+]
 },
 {
 "w": "0xa7b7dada578ef061f1d874414c91aff2c7910adb",
@@ -1258,7 +1627,8 @@
 "clv": 0.9,
 "roi": 26.6,
 "fills": 132,
-"games": 107
+"games": 107,
+"sport_top50": []
 },
 {
 "w": "0xefe8dae2343483a97ddc8992bc78b1c80807fe1a",
@@ -1266,7 +1636,8 @@
 "clv": 0.89,
 "roi": 0.9,
 "fills": 58,
-"games": 40
+"games": 40,
+"sport_top50": []
 },
 {
 "w": "0xd1008c0b83d2d969440ba11be6d5c65727dc3960",
@@ -1274,7 +1645,8 @@
 "clv": 0.88,
 "roi": 24.6,
 "fills": 41,
-"games": 41
+"games": 41,
+"sport_top50": []
 },
 {
 "w": "0x876426b52898c295848f56760dd24b55eda2604a",
@@ -1282,7 +1654,8 @@
 "clv": 0.88,
 "roi": 30.4,
 "fills": 134,
-"games": 73
+"games": 73,
+"sport_top50": []
 },
 {
 "w": "0x69c222d5d505da8e261a2eed3d5885fd4e0e40cf",
@@ -1290,7 +1663,8 @@
 "clv": 0.88,
 "roi": -5.3,
 "fills": 142,
-"games": 121
+"games": 121,
+"sport_top50": []
 },
 {
 "w": "0xf1e0fb17c53ee8e4551aacfa9ba12df248c0041b",
@@ -1298,7 +1672,10 @@
 "clv": 0.88,
 "roi": 2.0,
 "fills": 45,
-"games": 42
+"games": 42,
+"sport_top50": [
+"soccer"
+]
 },
 {
 "w": "0x8d10b39465225d7a881b56b4af8354997f0c940a",
@@ -1306,7 +1683,10 @@
 "clv": 0.88,
 "roi": 6.2,
 "fills": 86,
-"games": 72
+"games": 72,
+"sport_top50": [
+"nhl"
+]
 },
 {
 "w": "0x8758aeabe3b25e9c4fad2ff4132b8582016501e0",
@@ -1314,7 +1694,8 @@
 "clv": 0.88,
 "roi": -6.7,
 "fills": 44,
-"games": 42
+"games": 42,
+"sport_top50": []
 },
 {
 "w": "0x8d362581a46300e5e3e314e245eaf26eea7668fd",
@@ -1322,7 +1703,8 @@
 "clv": 0.86,
 "roi": -26.3,
 "fills": 43,
-"games": 38
+"games": 38,
+"sport_top50": []
 },
 {
 "w": "0xc49fe658479db29e1a2fefebf0735f657dca9e05",
@@ -1330,7 +1712,10 @@
 "clv": 0.86,
 "roi": 1.1,
 "fills": 127,
-"games": 123
+"games": 123,
+"sport_top50": [
+"nhl"
+]
 },
 {
 "w": "0x47bc38f8f3349715e56c6f56b5c0b35fd9b59504",
@@ -1338,7 +1723,8 @@
 "clv": 0.86,
 "roi": 15.1,
 "fills": 72,
-"games": 41
+"games": 41,
+"sport_top50": []
 },
 {
 "w": "0xc95b029a388f573920fec85fb60974bc9551f819",
@@ -1346,7 +1732,8 @@
 "clv": 0.86,
 "roi": -51.7,
 "fills": 95,
-"games": 30
+"games": 30,
+"sport_top50": []
 },
 {
 "w": "0x21e64338c32e39ecdc56c9dda2fa4bf81d3dcbd8",
@@ -1354,7 +1741,8 @@
 "clv": 0.86,
 "roi": 13.9,
 "fills": 104,
-"games": 87
+"games": 87,
+"sport_top50": []
 },
 {
 "w": "0x374a925188f542733dfa9b0ba4518fb4878103ed",
@@ -1362,7 +1750,8 @@
 "clv": 0.86,
 "roi": 7.8,
 "fills": 38,
-"games": 33
+"games": 33,
+"sport_top50": []
 },
 {
 "w": "0xf38b4136077ebcfa18a27729d1c72edfd5a6b601",
@@ -1370,7 +1759,8 @@
 "clv": 0.85,
 "roi": -30.8,
 "fills": 45,
-"games": 37
+"games": 37,
+"sport_top50": []
 },
 {
 "w": "0xb786b8b6335e77dfad19928313e97753039cb18d",
@@ -1378,7 +1768,11 @@
 "clv": 0.85,
 "roi": 6.8,
 "fills": 376,
-"games": 304
+"games": 304,
+"sport_top50": [
+"nfl",
+"wnba"
+]
 },
 {
 "w": "0x4bd74aef0ee5f1ec0718890f55c15f047e28373e",
@@ -1386,7 +1780,8 @@
 "clv": 0.85,
 "roi": -7.6,
 "fills": 169,
-"games": 86
+"games": 86,
+"sport_top50": []
 },
 {
 "w": "0x162ca4c5249987872fea1e15c846d7fe80316c47",
@@ -1394,7 +1789,8 @@
 "clv": 0.85,
 "roi": 10.0,
 "fills": 37,
-"games": 19
+"games": 19,
+"sport_top50": []
 },
 {
 "w": "0xfe118ec36f66719b9376adb5cffd8cedc19d18cf",
@@ -1402,7 +1798,8 @@
 "clv": 0.85,
 "roi": 7.8,
 "fills": 57,
-"games": 53
+"games": 53,
+"sport_top50": []
 },
 {
 "w": "0x224a89dbe0db0d6124b335edabd15b3f877da3d5",
@@ -1410,23 +1807,31 @@
 "clv": 0.85,
 "roi": 6.6,
 "fills": 1418,
-"games": 373
-},
-{
-"w": "0x3f6a1d7286ba411f050c2c2fb534253dddb1a7bf",
-"rank": 177,
-"clv": 0.85,
-"roi": 15.8,
-"fills": 40,
-"games": 36
+"games": 373,
+"sport_top50": [
+"cfb",
+"mlb",
+"nfl",
+"wnba"
+]
 },
 {
 "w": "0x494e6eec37f3d1350854987360a5ae3bd8326f79",
-"rank": 178,
+"rank": 177,
 "clv": 0.85,
 "roi": -8.0,
 "fills": 30,
-"games": 23
+"games": 23,
+"sport_top50": []
+},
+{
+"w": "0x3f6a1d7286ba411f050c2c2fb534253dddb1a7bf",
+"rank": 178,
+"clv": 0.85,
+"roi": 15.8,
+"fills": 40,
+"games": 36,
+"sport_top50": []
 },
 {
 "w": "0x16b29c50f2439faf627209b2ac0c7bbddaa8a881",
@@ -1434,7 +1839,11 @@
 "clv": 0.85,
 "roi": 2.3,
 "fills": 9733,
-"games": 1971
+"games": 1971,
+"sport_top50": [
+"cfb",
+"nfl"
+]
 },
 {
 "w": "0xfcd0892ffd4a61327a5573b1496f7382c812865f",
@@ -1442,7 +1851,10 @@
 "clv": 0.85,
 "roi": -14.1,
 "fills": 34,
-"games": 34
+"games": 34,
+"sport_top50": [
+"nhl"
+]
 },
 {
 "w": "0xd81e5bc01e4a98d0af93d82dc2c542a4c0f9e3d0",
@@ -1450,7 +1862,11 @@
 "clv": 0.85,
 "roi": 1.0,
 "fills": 328,
-"games": 193
+"games": 193,
+"sport_top50": [
+"nfl",
+"wnba"
+]
 },
 {
 "w": "0x3fcdce4130d638cc4f9e9726a9089df2804f355a",
@@ -1458,7 +1874,8 @@
 "clv": 0.84,
 "roi": -31.9,
 "fills": 35,
-"games": 28
+"games": 28,
+"sport_top50": []
 },
 {
 "w": "0xf35fe1a55f4dc4dc1f32abafa985398a1a0a64c5",
@@ -1466,7 +1883,8 @@
 "clv": 0.84,
 "roi": 3.2,
 "fills": 60,
-"games": 58
+"games": 58,
+"sport_top50": []
 },
 {
 "w": "0x75ee6e4680d9bc1384e4b7f4aa516a8c226eca3c",
@@ -1474,7 +1892,8 @@
 "clv": 0.83,
 "roi": 8.3,
 "fills": 30,
-"games": 21
+"games": 21,
+"sport_top50": []
 },
 {
 "w": "0xf403a0ec6fc130684b9fe5c5745e7f0e4a25e176",
@@ -1482,7 +1901,8 @@
 "clv": 0.83,
 "roi": 9.9,
 "fills": 42,
-"games": 42
+"games": 42,
+"sport_top50": []
 },
 {
 "w": "0x25867077c891354137bbaf7fde12eec6949cc893",
@@ -1490,7 +1910,10 @@
 "clv": 0.81,
 "roi": 3.1,
 "fills": 441,
-"games": 369
+"games": 369,
+"sport_top50": [
+"nhl"
+]
 },
 {
 "w": "0xa6bebf32fbca25ed1592b6edb096f75c1880b977",
@@ -1498,7 +1921,8 @@
 "clv": 0.81,
 "roi": -26.8,
 "fills": 65,
-"games": 57
+"games": 57,
+"sport_top50": []
 },
 {
 "w": "0xd4146942df50d22dcfc3af8761ff3af4b3126a0c",
@@ -1506,7 +1930,8 @@
 "clv": 0.81,
 "roi": -7.1,
 "fills": 49,
-"games": 17
+"games": 17,
+"sport_top50": []
 },
 {
 "w": "0x1147b9250ada15b0516aad4971c37fa3881dda78",
@@ -1514,7 +1939,8 @@
 "clv": 0.81,
 "roi": -7.0,
 "fills": 34,
-"games": 28
+"games": 28,
+"sport_top50": []
 },
 {
 "w": "0x03e8a544e97eeff5753bc1e90d46e5ef22af1697",
@@ -1522,7 +1948,10 @@
 "clv": 0.8,
 "roi": 1.6,
 "fills": 829,
-"games": 373
+"games": 373,
+"sport_top50": [
+"nhl"
+]
 },
 {
 "w": "0x2cecf842a8e47711191b035c3e87d04817ee5326",
@@ -1530,7 +1959,8 @@
 "clv": 0.8,
 "roi": 6.9,
 "fills": 39,
-"games": 37
+"games": 37,
+"sport_top50": []
 },
 {
 "w": "0x3b5c629f114098b0dee345fb78b7a3a013c7126e",
@@ -1538,7 +1968,10 @@
 "clv": 0.8,
 "roi": 2.2,
 "fills": 432,
-"games": 240
+"games": 240,
+"sport_top50": [
+"cfb"
+]
 },
 {
 "w": "0xb7271c112cbd83eb4c1ef1b554ff963604ae2a9d",
@@ -1546,7 +1979,10 @@
 "clv": 0.8,
 "roi": 28.2,
 "fills": 102,
-"games": 65
+"games": 65,
+"sport_top50": [
+"cfb"
+]
 },
 {
 "w": "0xa7f0c531da7c689dc9a1a967eb724be6dd4fbac0",
@@ -1554,7 +1990,8 @@
 "clv": 0.79,
 "roi": 18.2,
 "fills": 31,
-"games": 31
+"games": 31,
+"sport_top50": []
 },
 {
 "w": "0xcf02c5ef0f508aa88a4ed9435c85f50291d14fdc",
@@ -1562,7 +1999,8 @@
 "clv": 0.79,
 "roi": -15.1,
 "fills": 53,
-"games": 23
+"games": 23,
+"sport_top50": []
 },
 {
 "w": "0xb7e90681f15a36e24591baf24645f84726b6bdac",
@@ -1570,7 +2008,8 @@
 "clv": 0.79,
 "roi": 14.2,
 "fills": 40,
-"games": 25
+"games": 25,
+"sport_top50": []
 },
 {
 "w": "0x2e00a32fbadb4e6d3cfb10eb852b293ad65aeb46",
@@ -1578,7 +2017,8 @@
 "clv": 0.79,
 "roi": 3.9,
 "fills": 763,
-"games": 324
+"games": 324,
+"sport_top50": []
 },
 {
 "w": "0xea342097eeda5e523a32fa1e00ff5a3d339e0a92",
@@ -1586,7 +2026,8 @@
 "clv": 0.78,
 "roi": -11.2,
 "fills": 159,
-"games": 71
+"games": 71,
+"sport_top50": []
 },
 {
 "w": "0x924379a79c64b77ad5816ad362122a5f6228658e",
@@ -1594,7 +2035,10 @@
 "clv": 0.78,
 "roi": 12.9,
 "fills": 281,
-"games": 161
+"games": 161,
+"sport_top50": [
+"cfb"
+]
 },
 {
 "w": "0x0f6f76ced62a911bccef92f50faaff143854d977",
@@ -1602,7 +2046,1802 @@
 "clv": 0.78,
 "roi": -20.6,
 "fills": 77,
-"games": 18
+"games": 18,
+"sport_top50": []
+}
+],
+"specialists": [
+{
+"w": "0x53d2d3c78597a78402d4db455a680da7ef560c3f",
+"sports": {
+"nfl": {
+"rank": 2,
+"clv": 3.48
+}
+}
+},
+{
+"w": "0xb820a226ccd013630d84f5a6ea4d674cd183cbe7",
+"sports": {
+"nfl": {
+"rank": 5,
+"clv": 2.65
+}
+}
+},
+{
+"w": "0xfa5cad53809273518ba4b0dc7f530c4ff842be69",
+"sports": {
+"nfl": {
+"rank": 7,
+"clv": 2.45
+}
+}
+},
+{
+"w": "0x71409bd4f53a2c50e1f27c7ff0843f7a0e6047e3",
+"sports": {
+"nfl": {
+"rank": 12,
+"clv": 1.59
+},
+"cfb": {
+"rank": 21,
+"clv": 1.0
+}
+}
+},
+{
+"w": "0x684baa57c338c2549aec0aa3f034f695d72a8409",
+"sports": {
+"nfl": {
+"rank": 13,
+"clv": 1.54
+},
+"wnba": {
+"rank": 27,
+"clv": 1.05
+},
+"mlb": {
+"rank": 9,
+"clv": 0.92
+}
+}
+},
+{
+"w": "0x3e04fbc51adb75418129f6ce2091ae633070564d",
+"sports": {
+"nfl": {
+"rank": 17,
+"clv": 1.28
+},
+"nhl": {
+"rank": 40,
+"clv": 0.77
+}
+}
+},
+{
+"w": "0x0944e4da1f949b201a136d73f488d03c0c506771",
+"sports": {
+"nfl": {
+"rank": 18,
+"clv": 1.23
+},
+"cfb": {
+"rank": 18,
+"clv": 1.07
+}
+}
+},
+{
+"w": "0x383df1f0b1786b64db3143d91fa501e4afe4a9f2",
+"sports": {
+"nfl": {
+"rank": 22,
+"clv": 1.1
+}
+}
+},
+{
+"w": "0x02988e03673a3f31d269c8ae735971dcd7a993c4",
+"sports": {
+"nfl": {
+"rank": 23,
+"clv": 1.09
+}
+}
+},
+{
+"w": "0xd3989ba133ab48b5b3a81e3dba9b37b5966a46d7",
+"sports": {
+"nfl": {
+"rank": 24,
+"clv": 1.07
+}
+}
+},
+{
+"w": "0xe83cc0c82d009a1c349c1a89feaadfcee9655e8f",
+"sports": {
+"nfl": {
+"rank": 25,
+"clv": 1.05
+},
+"wnba": {
+"rank": 16,
+"clv": 1.42
+}
+}
+},
+{
+"w": "0x31519628fb5e5aa559d4ba27aa1248810b9f0977",
+"sports": {
+"nfl": {
+"rank": 26,
+"clv": 1.04
+},
+"cfb": {
+"rank": 36,
+"clv": 0.79
+}
+}
+},
+{
+"w": "0x5c57496c97dd151f54b2d727646aa796ced55b16",
+"sports": {
+"nfl": {
+"rank": 27,
+"clv": 1.01
+}
+}
+},
+{
+"w": "0xa90429bc88a1d22eb40e4aac9aaf0bcefd29d20c",
+"sports": {
+"nfl": {
+"rank": 28,
+"clv": 0.99
+}
+}
+},
+{
+"w": "0x1d3a805284bc8029cd6acd06d5a2b8b2b1807b63",
+"sports": {
+"nfl": {
+"rank": 29,
+"clv": 0.99
+}
+}
+},
+{
+"w": "0x39ae1d77616a0c7c8c315b62f0656236cae80268",
+"sports": {
+"nfl": {
+"rank": 31,
+"clv": 0.92
+}
+}
+},
+{
+"w": "0x09af4fa45eff006e02c0b81aa5e230d7ffebd337",
+"sports": {
+"nfl": {
+"rank": 33,
+"clv": 0.91
+}
+}
+},
+{
+"w": "0xc8ab96973c303aafd184103c3f04c4589a534f9c",
+"sports": {
+"nfl": {
+"rank": 34,
+"clv": 0.91
+}
+}
+},
+{
+"w": "0xcc500cbcc8b7cf5bd21975ebbea34f21b5644c82",
+"sports": {
+"nfl": {
+"rank": 35,
+"clv": 0.9
+}
+}
+},
+{
+"w": "0x5696b785aa4b08fc68dadd06dbdf2f349a8ab3aa",
+"sports": {
+"nfl": {
+"rank": 37,
+"clv": 0.87
+}
+}
+},
+{
+"w": "0x216050de6080fac3926226b2b8ce3d5544784c78",
+"sports": {
+"nfl": {
+"rank": 38,
+"clv": 0.86
+},
+"cfb": {
+"rank": 44,
+"clv": 0.62
+}
+}
+},
+{
+"w": "0xe4a57385a34b0b32fd86be72efd25cda41003cad",
+"sports": {
+"nfl": {
+"rank": 39,
+"clv": 0.85
+},
+"nhl": {
+"rank": 42,
+"clv": 0.73
+}
+}
+},
+{
+"w": "0x6387cfb4719f0b1ed27a73348511b8eaad1895dc",
+"sports": {
+"nfl": {
+"rank": 40,
+"clv": 0.83
+}
+}
+},
+{
+"w": "0xef5406737e5bdc47067258b8a057022c48f9c997",
+"sports": {
+"nfl": {
+"rank": 41,
+"clv": 0.83
+}
+}
+},
+{
+"w": "0xc8075693f48668a264b9fa313b47f52712fcc12b",
+"sports": {
+"nfl": {
+"rank": 42,
+"clv": 0.8
+}
+}
+},
+{
+"w": "0xa1d75a199ef084ee3ec9ae60dc986b439fe6e17e",
+"sports": {
+"nfl": {
+"rank": 43,
+"clv": 0.79
+}
+}
+},
+{
+"w": "0xd1acd3925d895de9aec98ff95f3a30c5279d08d5",
+"sports": {
+"nfl": {
+"rank": 44,
+"clv": 0.78
+}
+}
+},
+{
+"w": "0x212954857f5efc138748c33d032a93bf95974222",
+"sports": {
+"nfl": {
+"rank": 45,
+"clv": 0.77
+}
+}
+},
+{
+"w": "0xf5f232033c51448e17ced9f2ff7c91b78b620234",
+"sports": {
+"nfl": {
+"rank": 46,
+"clv": 0.75
+},
+"wnba": {
+"rank": 12,
+"clv": 1.48
+}
+}
+},
+{
+"w": "0x3c9b3ca52eb1ad72b8d632e2ca1d9290ccfaa556",
+"sports": {
+"nfl": {
+"rank": 47,
+"clv": 0.75
+}
+}
+},
+{
+"w": "0xb6bed94e75c333dae24eb9c80b3fef47ef3cfcfe",
+"sports": {
+"nfl": {
+"rank": 48,
+"clv": 0.75
+}
+}
+},
+{
+"w": "0xc660ae71765d0d9eaf5fa8328c1c959841d2bd28",
+"sports": {
+"nfl": {
+"rank": 49,
+"clv": 0.74
+}
+}
+},
+{
+"w": "0x3dfb153c197d4c19d3b31c1ecd2c7b6860eeabaf",
+"sports": {
+"nfl": {
+"rank": 50,
+"clv": 0.73
+},
+"mlb": {
+"rank": 18,
+"clv": 0.26
+}
+}
+},
+{
+"w": "0xaca23974e2b8131efbafaa1fe03ea9595ea0b9a1",
+"sports": {
+"nhl": {
+"rank": 1,
+"clv": 2.94
+}
+}
+},
+{
+"w": "0xce9d204439cfcc2affaf0ce4de449e5750c23c05",
+"sports": {
+"nhl": {
+"rank": 5,
+"clv": 2.1
+}
+}
+},
+{
+"w": "0x7e5972bfc25819775ee5a9d4f191919375487b8b",
+"sports": {
+"nhl": {
+"rank": 6,
+"clv": 2.05
+},
+"wnba": {
+"rank": 10,
+"clv": 1.56
+}
+}
+},
+{
+"w": "0x0767aa79d578aead1c849fd9f0fdc6cdb50336b0",
+"sports": {
+"nhl": {
+"rank": 7,
+"clv": 1.91
+}
+}
+},
+{
+"w": "0x4fe7306c7d9939224f2bc6e776373336ffbb2f3c",
+"sports": {
+"nhl": {
+"rank": 9,
+"clv": 1.5
+}
+}
+},
+{
+"w": "0x1df231bd33dae91463e1682927e8096b82c289a0",
+"sports": {
+"nhl": {
+"rank": 10,
+"clv": 1.5
+}
+}
+},
+{
+"w": "0x1418d1d10cc82124d6e3ba689062bfe0d2876fef",
+"sports": {
+"nhl": {
+"rank": 12,
+"clv": 1.46
+}
+}
+},
+{
+"w": "0x833347f8ffaceb69e0f242247f1ae76be32ceb93",
+"sports": {
+"nhl": {
+"rank": 14,
+"clv": 1.43
+}
+}
+},
+{
+"w": "0xec8d7bf83a1db5f06b9535985e58ffd17708dd71",
+"sports": {
+"nhl": {
+"rank": 20,
+"clv": 1.23
+}
+}
+},
+{
+"w": "0x7d9a514f9da9e8aa7fa37306943c7d1720d805e6",
+"sports": {
+"nhl": {
+"rank": 22,
+"clv": 1.12
+}
+}
+},
+{
+"w": "0x081a3b357baafc91af26f83f622e2652668c66d0",
+"sports": {
+"nhl": {
+"rank": 23,
+"clv": 1.1
+}
+}
+},
+{
+"w": "0x44d682939eb6a4a1349fa50411531876a6089858",
+"sports": {
+"nhl": {
+"rank": 24,
+"clv": 1.08
+}
+}
+},
+{
+"w": "0x2e4c9c7275d0f5d02e1787e7f59d98ad985b28dd",
+"sports": {
+"nhl": {
+"rank": 25,
+"clv": 1.04
+}
+}
+},
+{
+"w": "0xe3c9c84c9917d21351902f3bfde3420543ea4b9c",
+"sports": {
+"nhl": {
+"rank": 28,
+"clv": 0.99
+}
+}
+},
+{
+"w": "0xde0463ea7f611b065e8ab06bbfbddad75e6dfa37",
+"sports": {
+"nhl": {
+"rank": 30,
+"clv": 0.96
+}
+}
+},
+{
+"w": "0x3354c1ef2d89dd8ae5e5c61b829411e356ed5042",
+"sports": {
+"nhl": {
+"rank": 31,
+"clv": 0.93
+}
+}
+},
+{
+"w": "0x8bf976b961ce1ea932a62e1f73af87c9e5228292",
+"sports": {
+"nhl": {
+"rank": 33,
+"clv": 0.92
+}
+}
+},
+{
+"w": "0x84ad9c5c547a82ec9a08547b94bd922446e5bfb7",
+"sports": {
+"nhl": {
+"rank": 34,
+"clv": 0.84
+},
+"soccer": {
+"rank": 43,
+"clv": 0.92
+}
+}
+},
+{
+"w": "0xebc0df15e665da95bf819105b723ae90042ffa41",
+"sports": {
+"nhl": {
+"rank": 35,
+"clv": 0.84
+}
+}
+},
+{
+"w": "0xcc81ac351bac7d067e83df73780aab6a4fd15df2",
+"sports": {
+"nhl": {
+"rank": 41,
+"clv": 0.74
+}
+}
+},
+{
+"w": "0x07aa5fb9f7db93e1d1ffdc6e0251f28a3aa2deb1",
+"sports": {
+"nhl": {
+"rank": 44,
+"clv": 0.67
+}
+}
+},
+{
+"w": "0x43372356634781eea88d61bbdd7824cdce958882",
+"sports": {
+"nhl": {
+"rank": 45,
+"clv": 0.67
+}
+}
+},
+{
+"w": "0xfea31bc088000ff909be1dfd8d0e3f2c7ef2d227",
+"sports": {
+"nhl": {
+"rank": 46,
+"clv": 0.64
+}
+}
+},
+{
+"w": "0x2f5bb96e2da56a85e7bfddcad6e48f73e9bbe747",
+"sports": {
+"nhl": {
+"rank": 48,
+"clv": 0.63
+}
+}
+},
+{
+"w": "0xb9c7d35d1f04d08624fabcfd3b6cee2d3c9baade",
+"sports": {
+"nhl": {
+"rank": 49,
+"clv": 0.62
+}
+}
+},
+{
+"w": "0x46fbc68c460f43be34bdc8523edf36d404872b75",
+"sports": {
+"nhl": {
+"rank": 50,
+"clv": 0.62
+}
+}
+},
+{
+"w": "0x7fb7ad0d194d7123e711e7db6c9d418fac14e33d",
+"sports": {
+"wnba": {
+"rank": 5,
+"clv": 2.2
+},
+"cfb": {
+"rank": 28,
+"clv": 0.9
+}
+}
+},
+{
+"w": "0xf3a6ac44c5c90ff2b4afa4459f71acc2e57971bd",
+"sports": {
+"wnba": {
+"rank": 9,
+"clv": 1.6
+}
+}
+},
+{
+"w": "0x8717513a2f3936b09dde0a7da636a4da1b0b32c2",
+"sports": {
+"wnba": {
+"rank": 13,
+"clv": 1.47
+}
+}
+},
+{
+"w": "0x2c335066fe58fe9237c3d3dc7b275c2a034a0563",
+"sports": {
+"wnba": {
+"rank": 14,
+"clv": 1.44
+},
+"mlb": {
+"rank": 16,
+"clv": 0.42
+}
+}
+},
+{
+"w": "0x9b6618bea83cb0ddb3126de9773fccb5ff54336a",
+"sports": {
+"wnba": {
+"rank": 15,
+"clv": 1.42
+}
+}
+},
+{
+"w": "0x6691b0f6747492e38a6fda1d8991b711f4b35a83",
+"sports": {
+"wnba": {
+"rank": 19,
+"clv": 1.31
+}
+}
+},
+{
+"w": "0xcdfeea81a9903944ec9542ade8b71cea31bc9483",
+"sports": {
+"wnba": {
+"rank": 21,
+"clv": 1.26
+}
+}
+},
+{
+"w": "0xa1f39b9b21a7bfb0f540cf106b92e240c7b7d99c",
+"sports": {
+"wnba": {
+"rank": 23,
+"clv": 1.16
+}
+}
+},
+{
+"w": "0x379ac19d17a045325c99afc2e0c86d61b03b5122",
+"sports": {
+"wnba": {
+"rank": 25,
+"clv": 1.07
+}
+}
+},
+{
+"w": "0xc4c915914de877a79fae0a2c2dfe69d9d690617d",
+"sports": {
+"wnba": {
+"rank": 26,
+"clv": 1.05
+}
+}
+},
+{
+"w": "0x4df332e27f9ee3224f52ce30e3ce15c1075e788f",
+"sports": {
+"wnba": {
+"rank": 30,
+"clv": 0.93
+}
+}
+},
+{
+"w": "0x4a1e3e68c188d68f5bd7ac9692d836af0c8086d3",
+"sports": {
+"wnba": {
+"rank": 32,
+"clv": 0.91
+}
+}
+},
+{
+"w": "0x73e83485b8e20b70c53c27bef8ba4c62575dcd6f",
+"sports": {
+"wnba": {
+"rank": 33,
+"clv": 0.91
+},
+"mlb": {
+"rank": 4,
+"clv": 1.61
+}
+}
+},
+{
+"w": "0x204f72f35326db932158cba6adff0b9a1da95e14",
+"sports": {
+"wnba": {
+"rank": 35,
+"clv": 0.86
+}
+}
+},
+{
+"w": "0x27f738fe203827445690339104aae35b20bc44b0",
+"sports": {
+"wnba": {
+"rank": 36,
+"clv": 0.86
+},
+"mlb": {
+"rank": 7,
+"clv": 0.99
+}
+}
+},
+{
+"w": "0x57a8d63731277200ed26cfde9a8a830d94f36933",
+"sports": {
+"wnba": {
+"rank": 38,
+"clv": 0.82
+}
+}
+},
+{
+"w": "0xefde78f38169634477f6ff46572128b6d21a6505",
+"sports": {
+"wnba": {
+"rank": 39,
+"clv": 0.78
+}
+}
+},
+{
+"w": "0xead152b855effa6b5b5837f53b24c0756830c76a",
+"sports": {
+"wnba": {
+"rank": 40,
+"clv": 0.74
+}
+}
+},
+{
+"w": "0xb4c8b96f00848679d884d34da9da55a31afe8f5a",
+"sports": {
+"wnba": {
+"rank": 41,
+"clv": 0.74
+}
+}
+},
+{
+"w": "0x2a69660046d7acc4ab204d7cc5ba78b0776cd2f7",
+"sports": {
+"wnba": {
+"rank": 42,
+"clv": 0.73
+},
+"cfb": {
+"rank": 49,
+"clv": 0.58
+},
+"soccer": {
+"rank": 50,
+"clv": 0.86
+},
+"mlb": {
+"rank": 12,
+"clv": 0.78
+}
+}
+},
+{
+"w": "0xdd5ef115f801999575b03d78d0115ad8b2d59040",
+"sports": {
+"wnba": {
+"rank": 43,
+"clv": 0.73
+},
+"mlb": {
+"rank": 29,
+"clv": -0.1
+}
+}
+},
+{
+"w": "0xb209ec049419fe55a1075981fe67d5dd23fab744",
+"sports": {
+"wnba": {
+"rank": 44,
+"clv": 0.71
+}
+}
+},
+{
+"w": "0x5268527977f700f9bf9b6d5cd843859e4e70135d",
+"sports": {
+"wnba": {
+"rank": 45,
+"clv": 0.69
+},
+"cfb": {
+"rank": 19,
+"clv": 1.04
+},
+"mlb": {
+"rank": 6,
+"clv": 1.11
+}
+}
+},
+{
+"w": "0xae825b67fac24b92f328f25b5d2530567605faf0",
+"sports": {
+"wnba": {
+"rank": 46,
+"clv": 0.68
+}
+}
+},
+{
+"w": "0x781caf04d98a281712caf1677877c442789fdb68",
+"sports": {
+"wnba": {
+"rank": 47,
+"clv": 0.68
+}
+}
+},
+{
+"w": "0x0c154c190e293b7e5f8d453b5f690c4dc9599a45",
+"sports": {
+"wnba": {
+"rank": 48,
+"clv": 0.67
+}
+}
+},
+{
+"w": "0xd6966eb1ae7b52320ba7ab1016680198c9e08a49",
+"sports": {
+"wnba": {
+"rank": 49,
+"clv": 0.62
+}
+}
+},
+{
+"w": "0xf68a281980f8c13828e84e147e3822381d6e5b1b",
+"sports": {
+"wnba": {
+"rank": 50,
+"clv": 0.59
+}
+}
+},
+{
+"w": "0x2100806b2dafff251907c473971dbd3806df930c",
+"sports": {
+"nba": {
+"rank": 3,
+"clv": 5.58
+}
+}
+},
+{
+"w": "0x710a95c3de1e8472a10c8de9e2271e34feeeed6c",
+"sports": {
+"nba": {
+"rank": 9,
+"clv": 3.45
+}
+}
+},
+{
+"w": "0xdfccf476c6b01557de9f48b321eae23124ee441b",
+"sports": {
+"nba": {
+"rank": 10,
+"clv": 3.42
+}
+}
+},
+{
+"w": "0xc3a55c27bf0a3acdfe76ed35d1828baf8f7f0a1a",
+"sports": {
+"nba": {
+"rank": 25,
+"clv": 2.45
+}
+}
+},
+{
+"w": "0x5e58b4971b62c3bff58135e564ed21abe041f73b",
+"sports": {
+"nba": {
+"rank": 32,
+"clv": 2.17
+}
+}
+},
+{
+"w": "0xa373b58561b3e6f4c875e4a01e382535175db6dc",
+"sports": {
+"nba": {
+"rank": 35,
+"clv": 2.08
+}
+}
+},
+{
+"w": "0xc260b6e3ad0c81e0da3ac637874fb4fcbff5d7cc",
+"sports": {
+"nba": {
+"rank": 42,
+"clv": 1.97
+}
+}
+},
+{
+"w": "0xf60aac5de7b026ab4a06670f7f182b9f05d780f4",
+"sports": {
+"nba": {
+"rank": 45,
+"clv": 1.95
+}
+}
+},
+{
+"w": "0xe7681f4559bd03da95704ba17bcd8fc95305b331",
+"sports": {
+"nba": {
+"rank": 46,
+"clv": 1.95
+}
+}
+},
+{
+"w": "0xfd9d9e97c5903bcc33483a41339150b6a513ed02",
+"sports": {
+"nba": {
+"rank": 47,
+"clv": 1.95
+}
+}
+},
+{
+"w": "0xaab674486bc938bfad6a7473448ea2a4f9b2607e",
+"sports": {
+"nba": {
+"rank": 48,
+"clv": 1.91
+}
+}
+},
+{
+"w": "0x24fba3d6d6e43967eb03b9bd1fe4f004ce68a48e",
+"sports": {
+"nba": {
+"rank": 49,
+"clv": 1.85
+}
+}
+},
+{
+"w": "0x6a72f61820b26b1fe4d956e17b6dc2a1ea3033ee",
+"sports": {
+"cfb": {
+"rank": 3,
+"clv": 2.82
+}
+}
+},
+{
+"w": "0x9d8c906108696d3e207a8ad378e613624c942799",
+"sports": {
+"cfb": {
+"rank": 6,
+"clv": 1.43
+}
+}
+},
+{
+"w": "0xdbb9b3616f733e19278d1ca6f3207a8344b5ed8d",
+"sports": {
+"cfb": {
+"rank": 8,
+"clv": 1.36
+}
+}
+},
+{
+"w": "0xc9af3f93f3a727191de4cb92a18a979ba3e76371",
+"sports": {
+"cfb": {
+"rank": 11,
+"clv": 1.25
+}
+}
+},
+{
+"w": "0xee613b3fc183ee44f9da9c05f53e2da107e3debf",
+"sports": {
+"cfb": {
+"rank": 13,
+"clv": 1.17
+}
+}
+},
+{
+"w": "0xb1236312535e9119eeac1d849e1d821fbb350a15",
+"sports": {
+"cfb": {
+"rank": 14,
+"clv": 1.16
+}
+}
+},
+{
+"w": "0x62365f754d4aa7dc537f997f23bb5dd9a9e36881",
+"sports": {
+"cfb": {
+"rank": 17,
+"clv": 1.08
+}
+}
+},
+{
+"w": "0xe42e0ad78e9ebb121314384484b983231db48d89",
+"sports": {
+"cfb": {
+"rank": 22,
+"clv": 0.99
+}
+}
+},
+{
+"w": "0x38ee7c83277adb670eb930f0179f26eb3827a618",
+"sports": {
+"cfb": {
+"rank": 23,
+"clv": 0.97
+}
+}
+},
+{
+"w": "0x958bdb8aa30b8e5bd1fe4ee071f309c84e97f826",
+"sports": {
+"cfb": {
+"rank": 25,
+"clv": 0.96
+}
+}
+},
+{
+"w": "0x1f3a646ce5cbe2c70270e7a46161d89b7c7b895d",
+"sports": {
+"cfb": {
+"rank": 26,
+"clv": 0.94
+}
+}
+},
+{
+"w": "0x7b2c123bceec0c3d0fd206a19c283af65932af48",
+"sports": {
+"cfb": {
+"rank": 27,
+"clv": 0.9
+}
+}
+},
+{
+"w": "0xc32d0c03dfc8c6364e488fce819e0d65400c2659",
+"sports": {
+"cfb": {
+"rank": 30,
+"clv": 0.88
+}
+}
+},
+{
+"w": "0xd6ce651998b7a30ff3384e5a01feab8a2da00772",
+"sports": {
+"cfb": {
+"rank": 31,
+"clv": 0.85
+}
+}
+},
+{
+"w": "0x18670d5a83b7b38d509398067c095d4c321992ca",
+"sports": {
+"cfb": {
+"rank": 32,
+"clv": 0.82
+}
+}
+},
+{
+"w": "0xe0dbdb7f005f233f4510e4ef7e53a2f76a8df44e",
+"sports": {
+"cfb": {
+"rank": 33,
+"clv": 0.82
+}
+}
+},
+{
+"w": "0x0d3b10b8eac8b089c6e4a695e65d8e044167c46b",
+"sports": {
+"cfb": {
+"rank": 34,
+"clv": 0.8
+}
+}
+},
+{
+"w": "0x00ffb912f1bf01c0123869ddb92d4b6a6ad3f7ad",
+"sports": {
+"cfb": {
+"rank": 37,
+"clv": 0.78
+}
+}
+},
+{
+"w": "0x796fc6fda8f8e03c03e2a2d012155989960300f6",
+"sports": {
+"cfb": {
+"rank": 38,
+"clv": 0.76
+}
+}
+},
+{
+"w": "0x92672c80d36dcd08172aa1e51dface0f20b70f9a",
+"sports": {
+"cfb": {
+"rank": 40,
+"clv": 0.68
+}
+}
+},
+{
+"w": "0xdf2e12c6a53671d0b08f29d0391728097029ddec",
+"sports": {
+"cfb": {
+"rank": 41,
+"clv": 0.67
+}
+}
+},
+{
+"w": "0xec1369338d55b6e2baba1fed61f533d86431862b",
+"sports": {
+"cfb": {
+"rank": 42,
+"clv": 0.65
+}
+}
+},
+{
+"w": "0xe20a1538293903b746ffe6c4ce2d5c3c0300e469",
+"sports": {
+"cfb": {
+"rank": 45,
+"clv": 0.59
+}
+}
+},
+{
+"w": "0x5e3040eb55cb0f4f86eb0af40cb84c9d3585acbf",
+"sports": {
+"cfb": {
+"rank": 46,
+"clv": 0.58
+}
+}
+},
+{
+"w": "0xbc31a305cebe4c9cd0574c5cd170c8991ac34a51",
+"sports": {
+"cfb": {
+"rank": 47,
+"clv": 0.58
+}
+}
+},
+{
+"w": "0xbfdfe31978b9ba79056b884ccf3bbc9225718e02",
+"sports": {
+"cfb": {
+"rank": 48,
+"clv": 0.58
+}
+}
+},
+{
+"w": "0xe5502f3b033ebcd64233b5ffc43c44c24170be3f",
+"sports": {
+"cfb": {
+"rank": 50,
+"clv": 0.57
+},
+"soccer": {
+"rank": 27,
+"clv": 1.1
+}
+}
+},
+{
+"w": "0x38f0b76ed812c24166a4f6293f991ac4b9972768",
+"sports": {
+"soccer": {
+"rank": 1,
+"clv": 2.57
+}
+}
+},
+{
+"w": "0xfaa55858f098040003978c3615a086cdd0cd7cc9",
+"sports": {
+"soccer": {
+"rank": 5,
+"clv": 1.63
+}
+}
+},
+{
+"w": "0xbd7053e163caee5a32dad2e8e7759d469f95ccdb",
+"sports": {
+"soccer": {
+"rank": 8,
+"clv": 1.57
+}
+}
+},
+{
+"w": "0x2005d16a84ceefa912d4e380cd32e7ff827875ea",
+"sports": {
+"soccer": {
+"rank": 11,
+"clv": 1.51
+}
+}
+},
+{
+"w": "0x7d0caf83488431bb760f204d52bdf5246e2fa3b7",
+"sports": {
+"soccer": {
+"rank": 12,
+"clv": 1.42
+}
+}
+},
+{
+"w": "0x48e29b54cc028b71d9af1bcb157b7ba8e6482a5f",
+"sports": {
+"soccer": {
+"rank": 14,
+"clv": 1.35
+}
+}
+},
+{
+"w": "0xa96274cc1b321afc8cbdc1ba07f7e2d471e6f7c8",
+"sports": {
+"soccer": {
+"rank": 15,
+"clv": 1.35
+}
+}
+},
+{
+"w": "0xbf5ee1a0ffdd3b84ae02deda340973db743a4e1a",
+"sports": {
+"soccer": {
+"rank": 17,
+"clv": 1.34
+}
+}
+},
+{
+"w": "0x56acab44cfca2e88bb9b3406890aea7bfa0cd77e",
+"sports": {
+"soccer": {
+"rank": 19,
+"clv": 1.28
+},
+"mlb": {
+"rank": 13,
+"clv": 0.73
+}
+}
+},
+{
+"w": "0x3ae5c492d2193b1a9e7702665807bdf82a3e53c8",
+"sports": {
+"soccer": {
+"rank": 21,
+"clv": 1.27
+}
+}
+},
+{
+"w": "0x08f0ee219134c06cbca53508c49738098ac0b809",
+"sports": {
+"soccer": {
+"rank": 22,
+"clv": 1.2
+}
+}
+},
+{
+"w": "0x10658d371ae1f09eed503a3a14c8ac6a1a936218",
+"sports": {
+"soccer": {
+"rank": 23,
+"clv": 1.2
+}
+}
+},
+{
+"w": "0x300b4292912c123066a380a344b505b0f353f636",
+"sports": {
+"soccer": {
+"rank": 28,
+"clv": 1.03
+}
+}
+},
+{
+"w": "0xf142015c4f59b68bc78d17ffb4977d670f0957e7",
+"sports": {
+"soccer": {
+"rank": 30,
+"clv": 1.02
+}
+}
+},
+{
+"w": "0x0e64bde21d716711fbe59095eb0c88fae55e336d",
+"sports": {
+"soccer": {
+"rank": 32,
+"clv": 1.02
+}
+}
+},
+{
+"w": "0x4ae53924e9a6b86293305cdf26d26bd094a56079",
+"sports": {
+"soccer": {
+"rank": 33,
+"clv": 1.0
+}
+}
+},
+{
+"w": "0xa52e6317068cb54c40e3de1eb4b31fad9a1f453f",
+"sports": {
+"soccer": {
+"rank": 35,
+"clv": 1.0
+}
+}
+},
+{
+"w": "0xa18c5cf2bc6eec389d2d512582ae14654b99d792",
+"sports": {
+"soccer": {
+"rank": 36,
+"clv": 0.98
+}
+}
+},
+{
+"w": "0xd836c16b0498b4ccee54b813f327eeb202bbea78",
+"sports": {
+"soccer": {
+"rank": 37,
+"clv": 0.98
+}
+}
+},
+{
+"w": "0x8aea90f65757381c63c81289bdc79562018dec91",
+"sports": {
+"soccer": {
+"rank": 38,
+"clv": 0.97
+}
+}
+},
+{
+"w": "0x0eb568f307e9a48af2c3e688ad6074236712c494",
+"sports": {
+"soccer": {
+"rank": 39,
+"clv": 0.97
+}
+}
+},
+{
+"w": "0x6fa1cb5f88b8ba95ec30cd1419e7db1e3db16edb",
+"sports": {
+"soccer": {
+"rank": 44,
+"clv": 0.91
+}
+}
+},
+{
+"w": "0x2a2c53bd278c04da9962fcf96490e17f3dfb9bc1",
+"sports": {
+"soccer": {
+"rank": 45,
+"clv": 0.91
+}
+}
+},
+{
+"w": "0x2b344112f63e69a2e411b0cb7f200cbc0051176e",
+"sports": {
+"mlb": {
+"rank": 3,
+"clv": 1.75
+}
+}
+},
+{
+"w": "0x6de54132caa70303ecac051d1b0892932dba084b",
+"sports": {
+"mlb": {
+"rank": 5,
+"clv": 1.18
+}
+}
+},
+{
+"w": "0xa3b5da76ffbbe3325bb1b40a30f6a4634962941a",
+"sports": {
+"mlb": {
+"rank": 8,
+"clv": 0.98
+}
+}
+},
+{
+"w": "0xdc41c39b95453c943174f369926018f6963bdd7e",
+"sports": {
+"mlb": {
+"rank": 10,
+"clv": 0.87
+}
+}
+},
+{
+"w": "0x6d3c5bd13984b2de47c3a88ddc455309aab3d294",
+"sports": {
+"mlb": {
+"rank": 11,
+"clv": 0.83
+}
+}
+},
+{
+"w": "0xa71093cafc0c099b4ccab24c3cb8018d817923c4",
+"sports": {
+"mlb": {
+"rank": 14,
+"clv": 0.68
+}
+}
+},
+{
+"w": "0x16bb9951a36fce71e2ef57890b786145e0ba8492",
+"sports": {
+"mlb": {
+"rank": 15,
+"clv": 0.55
+}
+}
+},
+{
+"w": "0x4bff30af91642dc7d2b19a8664378fe55c45fc26",
+"sports": {
+"mlb": {
+"rank": 17,
+"clv": 0.26
+}
+}
+},
+{
+"w": "0xfe787d2da716d60e8acff57fb87eb13cd4d10319",
+"sports": {
+"mlb": {
+"rank": 19,
+"clv": 0.26
+}
+}
+},
+{
+"w": "0xe8c4d68aff65b38cac46987b9b65e01eb47d395d",
+"sports": {
+"mlb": {
+"rank": 20,
+"clv": 0.1
+}
+}
+},
+{
+"w": "0xa73a1952f1f0d94aeb396ffdaf7e111a8eab656a",
+"sports": {
+"mlb": {
+"rank": 21,
+"clv": 0.1
+}
+}
+},
+{
+"w": "0x1610db79f753a80207e1d66716be9e91e627ae49",
+"sports": {
+"mlb": {
+"rank": 22,
+"clv": 0.05
+}
+}
+},
+{
+"w": "0xedbbdd8110aff4e77421df3bd1d7c5c8d4cc63b8",
+"sports": {
+"mlb": {
+"rank": 23,
+"clv": -0.02
+}
+}
+},
+{
+"w": "0x5b8df22419eb1b7aeb4bc6e789648cc64bd4bb92",
+"sports": {
+"mlb": {
+"rank": 24,
+"clv": -0.02
+}
+}
+},
+{
+"w": "0xb88aed2ba55b1accfbf30b2c004317976ec1f6ad",
+"sports": {
+"mlb": {
+"rank": 25,
+"clv": -0.05
+}
+}
+},
+{
+"w": "0x7a33a267c1ddc001538604784176deaf8635dd0f",
+"sports": {
+"mlb": {
+"rank": 26,
+"clv": -0.06
+}
+}
+},
+{
+"w": "0x84cfffc3f16dcc353094de30d4a45226eccd2f63",
+"sports": {
+"mlb": {
+"rank": 27,
+"clv": -0.09
+}
+}
+},
+{
+"w": "0xab1ce6d9a41d618aa687222744ec30d5be94aadd",
+"sports": {
+"mlb": {
+"rank": 28,
+"clv": -0.1
+}
+}
+},
+{
+"w": "0x821dab0565ebf5b327f51db06223fdcfe01acf16",
+"sports": {
+"mlb": {
+"rank": 30,
+"clv": -0.14
+}
+}
+},
+{
+"w": "0x5331121e9f2f206d8c06ae6235761b1a3f8d3672",
+"sports": {
+"mlb": {
+"rank": 31,
+"clv": -0.25
+}
+}
+},
+{
+"w": "0x67e2bb04749ca589ac8028c62dc0c1378b5322c5",
+"sports": {
+"mlb": {
+"rank": 32,
+"clv": -0.26
+}
+}
+},
+{
+"w": "0x26b46988d027c6c03cfa12a7c0c6d778be49b8a9",
+"sports": {
+"mlb": {
+"rank": 33,
+"clv": -0.36
+}
+}
+},
+{
+"w": "0x5b6331e7ff0831a3fe2ed12004747db1a9c911a4",
+"sports": {
+"mlb": {
+"rank": 34,
+"clv": -0.38
+}
+}
+},
+{
+"w": "0x715b82a4baefe3f4c93828661603ffbf2ce9920f",
+"sports": {
+"mlb": {
+"rank": 35,
+"clv": -0.4
+}
+}
+},
+{
+"w": "0xd4cfe5fe9def193dbfb19fe5b755800bb42e0e95",
+"sports": {
+"mlb": {
+"rank": 36,
+"clv": -0.41
+}
+}
+},
+{
+"w": "0x425d6966af479815cfc6e2c69dc0443a076cba78",
+"sports": {
+"mlb": {
+"rank": 37,
+"clv": -0.41
+}
+}
+},
+{
+"w": "0x5a5ce0126c2786cd048f21843ad85316e0b10fc2",
+"sports": {
+"mlb": {
+"rank": 38,
+"clv": -0.45
+}
+}
+},
+{
+"w": "0x8ca5b36966f07475431822b35f478940a41357ef",
+"sports": {
+"mlb": {
+"rank": 39,
+"clv": -0.46
+}
+}
+},
+{
+"w": "0xe9076a87c5ed90ef16e6fe6529c943baeca0cff6",
+"sports": {
+"mlb": {
+"rank": 40,
+"clv": -0.46
+}
+}
+},
+{
+"w": "0x96cfcd2da5ed71317af162749a67883bbc28f7ac",
+"sports": {
+"mlb": {
+"rank": 41,
+"clv": -0.48
+}
+}
+},
+{
+"w": "0x6055af2b735b5840988c2d1025c74981dd2c5fde",
+"sports": {
+"mlb": {
+"rank": 42,
+"clv": -0.48
+}
+}
+},
+{
+"w": "0x32a92411cb2f56065c679e854fb717e5414cb987",
+"sports": {
+"mlb": {
+"rank": 43,
+"clv": -0.48
+}
+}
+},
+{
+"w": "0x0d0efde748a217f3985ef32ecc7d005f83e50570",
+"sports": {
+"mlb": {
+"rank": 44,
+"clv": -0.49
+}
+}
+},
+{
+"w": "0xba5ad62dc13426ec5c7b750aa645bd94ecd6b257",
+"sports": {
+"mlb": {
+"rank": 45,
+"clv": -0.49
+}
+}
+},
+{
+"w": "0xf0b3fee1bb052e25a73cd91cb23ce41c72a2145d",
+"sports": {
+"mlb": {
+"rank": 46,
+"clv": -0.52
+}
+}
+},
+{
+"w": "0xf7f0b0b1e9c0fe02ccad926916ee31aef74b912c",
+"sports": {
+"mlb": {
+"rank": 47,
+"clv": -0.54
+}
+}
+},
+{
+"w": "0x79412243d22647a11628b461285a8fa69b53c675",
+"sports": {
+"mlb": {
+"rank": 48,
+"clv": -0.54
+}
+}
+},
+{
+"w": "0x7ba1926069acbb7d967430bf48074392f7533820",
+"sports": {
+"mlb": {
+"rank": 49,
+"clv": -0.55
+}
+}
+},
+{
+"w": "0x0eb75bf6f54794a83bd26095811f30b530161f17",
+"sports": {
+"mlb": {
+"rank": 50,
+"clv": -0.56
+}
+}
 }
 ]
 }
