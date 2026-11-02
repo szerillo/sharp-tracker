@@ -9,7 +9,7 @@ from sharp.norm import parse_ts, et_date
 ROOT = os.path.abspath(os.path.join(HERE, '..'))
 # Scan from these dates; only regular-season and postseason games are kept (ESPN season.type 2 or 3), so preseason never counts.
 # 10/31 fix: NHL opened 2026-09-30 (the old 10/05 start missed 3-4 games per team); NBA preseason games from 10/15 were being counted.
-SEASON_START = {'nfl': dt.date(2026, 9, 1), 'nba': dt.date(2026, 10, 1), 'cfb': dt.date(2026, 8, 20), 'nhl': dt.date(2026, 9, 20), 'soccer': dt.date(2026, 8, 1)}
+SEASON_START = {'nfl': dt.date(2026, 9, 1), 'nba': dt.date(2026, 10, 1), 'cfb': dt.date(2026, 8, 20), 'nhl': dt.date(2026, 9, 20), 'soccer': dt.date(2026, 8, 1), 'cbb': dt.date(2026, 11, 2)}
 
 
 def g(u, tries=3):

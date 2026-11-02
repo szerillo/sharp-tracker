@@ -27,7 +27,11 @@ RULES = {'wind1014': dict(market='total', side='under', stake=1.0), 'wind1014_1h
          # Bet Labs round 3 watch tier (docs/betlabs_account_systems_audit_2026-10-30.md), paper only
          'nhl_early_home_fav_qual': dict(market='ml', side='home', stake=0.5, sport='nhl'), 'nba_under_good_home_over': dict(market='total', side='under', stake=0.5, sport='nba'),
          'cfb_road_dog_low_total': dict(market='spread', side='away', stake=0.5, sport='cfb'),
-         'cbb_bigloss_vs_top5': dict(market='spread', side='team', stake=0.5, sport='cbb')}
+         'cbb_bigloss_vs_top5': dict(market='spread', side='team', stake=0.5, sport='cbb'),
+         # rescued variants of failed account systems (docs/betlabs_rescue_2026-11-01.md), paper only
+         'cfb_hot_over_low_total': dict(market='total', side='over', stake=0.5, sport='cfb'),
+         'cfb_road_streak_dog': dict(market='spread', side='away', stake=0.5, sport='cfb'),
+         'cbb_under_good_over_drop': dict(market='total', side='under', stake=0.5, sport='cbb')}
 # Evidence per tag: Bet Labs train / holdout record (regular season, closing lines; holdout = 03/2021 on), positive holdout seasons, and a tier:
 #   A = holdout z >= 2 with a mechanism (wind family); B = positive both halves, most seasons positive, z 1-2; C = lean (thin or z < 1).
 # These are what the screen shows next to a fire. The forward record (W-L, ROI, CLV) is a diagnostic, not a gate: a rule the market does
@@ -48,7 +52,10 @@ EVIDENCE = {'wind1014': dict(tier='A', train='533-376 all-time (2003-), +13.3%',
             'nhl_early_home_fav_qual': dict(tier='B', train='1,459, +3.0%', hold='463, +7.2%', seasons='5 of 7', src='docs/betlabs_account_systems_audit_2026-10-30.md'),
             'nba_under_good_home_over': dict(tier='B', train='978, +10.9%', hold='344, +6.4%', seasons='5 of 6', src='docs/betlabs_account_systems_audit_2026-10-30.md'),
             'cfb_road_dog_low_total': dict(tier='B', train='645, +14.9%', hold='238, +7.3%', seasons='5 of 6', src='docs/betlabs_account_systems_audit_2026-10-30.md'),
-            'cbb_bigloss_vs_top5': dict(tier='C', train='177, +23.1%', hold='66, +13.0%', seasons='thin (about 12 a season)', src='docs/betlabs_account_systems_audit_2026-10-30.md')}
+            'cbb_bigloss_vs_top5': dict(tier='C', train='177, +23.1%', hold='66, +13.0%', seasons='thin (about 12 a season)', src='docs/betlabs_account_systems_audit_2026-10-30.md'),
+            'cfb_hot_over_low_total': dict(tier='C', train='203, +16.4%', hold='92, +10.1%', seasons='August-September only', src='docs/betlabs_rescue_2026-11-01.md'),
+            'cfb_road_streak_dog': dict(tier='C', train='214, +20.7%', hold='85, +5.3%', seasons='see rescue doc', src='docs/betlabs_rescue_2026-11-01.md'),
+            'cbb_under_good_over_drop': dict(tier='C', train='949, +7.6%', hold='497, +1.9%', seasons='see rescue doc', src='docs/betlabs_rescue_2026-11-01.md')}
 # nhl_over_busy_goalie retired 10/30: positive in 2 of 7 seasons and the goalie-saves field thins to a handful of games after 2023.
 DESC = {'wind1014': 'NFL outdoor, wind 10-14 mph (average of Open-Meteo at T-24h and MySportsWeather, whole mph): full-game under', 'wind1014_1h': 'same wind, 10-13 mph: first-half under',
         'cfb_wind14': 'CFB outdoor, wind 14+ mph (same two-source average): full-game under', 'vrest8_1h': 'NFL visitor off 8-30 days: first-half under', 'mnf_1h': 'Monday night: first-half under',
@@ -58,7 +65,10 @@ DESC = {'wind1014': 'NFL outdoor, wind 10-14 mph (average of Open-Meteo at T-24h
         'nhl_pl_dog_bigml': 'NHL dog +1.5 when the dog ML is +181 to +196', 'nba_1h_under_hot_over': 'NBA 1H under when the visitor has gone over 71%+ of the time',
         'nhl_early_home_fav_qual': 'NHL home favorite, game 24 or earlier, vs an opponent winning 51%+: moneyline', 'nba_under_good_home_over': 'NBA under: home team over 58%+, home 1-2 days off, visitor 1-3, total down 0.5+ from open',
         'cfb_road_dog_low_total': 'CFB conference game, road dog of 7+ with a total of 48 or less: road spread',
-        'cbb_bigloss_vs_top5': 'CBB regular-season conference game: unranked team off a 14-45 point loss vs a top-5 opponent: that team on the spread'}
+        'cbb_bigloss_vs_top5': 'CBB regular-season conference game: unranked team off a 14-45 point loss vs a top-5 opponent: that team on the spread',
+        'cfb_hot_over_low_total': 'CFB non-conference game, 85F+ and wind 10 mph or less, total 55 or lower: over (heat wears defences down; low totals price it least)',
+        'cfb_road_streak_dog': 'CFB conference road dog on its 2nd-5th straight road game, total 54 or lower: road spread (Bet Labs also requires a heavy-bet day, which we cannot see)',
+        'cbb_under_good_over_drop': 'CBB weekday game, home team over 50%+ and visitor over 59%+ this season (3+ games each), total down 0.5+ from open: under'}
 # Bet Labs screen per rule (every rule Bet Labs can express has a "Tested:" screen in the account, aligned 11/1). Exchange and tennis rules
 # use data Bet Labs does not have, so they have none.
 LABS = {'wind1014': (1772775, 'Tested: NFL Wind 10-14 Under'), 'wind1014_1h': (769171, 'Tested: NFL 1H Wind 10-13 Under'),
@@ -68,7 +78,9 @@ LABS = {'wind1014': (1772775, 'Tested: NFL Wind 10-14 Under'), 'wind1014_1h': (7
         'nhl_pl_fav_gap': (1784154, 'Tested: NHL Puck Line Fav Win Pct Gap 22 Plus'), 'nhl_pl_fav_strong_opp': (1784155, 'Tested: NHL Puck Line Fav vs Opp Win Pct 66 Plus'),
         'nhl_pl_dog_bigml': (1784156, 'Tested: NHL Puck Line Dog Open ML 181 to 196'), 'nhl_early_home_fav_qual': (1789284, 'Tested: NHL Early Season Home Fav vs Quality Opp ML'),
         'nba_1h_under_hot_over': (1784158, 'Tested: NBA 1H Under Visitor Over Pct 71 Plus'), 'nba_under_good_home_over': (1789285, 'Tested: NBA Under Good Home Over Team Rest Total Down'),
-        'cbb_bigloss_vs_top5': (1789287, 'Tested: CBB Unranked Off 14 Plus Loss vs Top 5 Conf')}
+        'cbb_bigloss_vs_top5': (1789287, 'Tested: CBB Unranked Off 14 Plus Loss vs Top 5 Conf'),
+        'cfb_hot_over_low_total': (1792204, 'Tested: CFB Hot Weather Over Total 55 or Less'), 'cfb_road_streak_dog': (1792198, 'Tested: CFB Conf Road Streak Dog Total 54 or Less'),
+        'cbb_under_good_over_drop': (1792184, 'Tested: CBB Under Good Over Teams Total Down')}
 LATE_H = (0.1, 1.5)   # exchange rules fire in the last 90 minutes (the audit priced them at the close)
 WINDOW_H = tuple(float(x) for x in os.environ.get('SYSTEMS_WINDOW', '2,30').split(','))
 VIEW_H = 8 * 24          # how far ahead a trigger is shown (Bet Labs lists current picks days ahead)
@@ -132,6 +144,28 @@ def main_line(eq, market, home):
         if nv: break
     if not nv: return None, 0
     l = max(nv, key=lambda k: (nv[k], -abs(k))); return l, nv[l]
+
+
+def take(conn, eq, fired, fires_now, game, ev, start, away, home, tag, market, line, side, part, stake, why):
+    """One paper fill per game per tag; appends to the game view either way."""
+    key = f"{ev}:{tag}"; game['triggers'][tag] = why
+    if key in fired: game['fills'].append(fired[key]); return
+    if line is None: return
+    row = paper_fill(conn, eq, ev, start, market, line, side, part, tag, stake, why)
+    if not row: return
+    rec_ = dict(tag=tag, fill_id=row['fill_id'], ts=NOW_S, market=market, side=side, line=line, venue=row['venue'], price=row['price_american'],
+                fair=row['fair_at_fill'], edge_pts=(round(100 * (row['fair_at_fill'] - row['implied']), 2) if row['fair_at_fill'] is not None else None), why=why)
+    fired[key] = rec_; game['fills'].append(rec_); fires_now.append(dict(game=f"{away}@{home}", **rec_))
+
+
+def road_streak(sport, team, before):
+    """Consecutive away games (this one included) for `team` going into a road game at `before`, from the season log."""
+    L = [g for g in SEA.team_logs(sport).get(team, []) if N.parse_ts(g['start']) < before]
+    k = 1
+    for g in reversed(L):
+        if g['side'] != 'away': break
+        k += 1
+    return k, len(L)
 
 
 def open_line(conn, ev, market):
@@ -311,7 +345,13 @@ def main():
         eq = F.EventQuotes(conn, ev)
         sp_line, _n = main_line(eq, 'spread', home); tl, _n2 = main_line(eq, 'total', None); rec_s = sched_rec('cfb', ev)
         rdlt = sp_line is not None and sp_line <= -7 and tl is not None and tl <= 48 and rec_s.get('conf')
-        if not windy and not rdlt and not msw_only: continue
+        temp = (wx or {}).get('temp_f')
+        hot = (not rec_s.get('conf')) and temp is not None and temp >= 85 and wv is not None and round(wv) <= 10 and tl is not None and tl <= 55
+        rs = None
+        if rec_s.get('conf') and sp_line is not None and sp_line < 0 and tl is not None and tl <= 54:
+            k_, n_ = road_streak('cfb', away, st)
+            if n_ >= 1 and 2 <= k_ <= 5: rs = k_
+        if not windy and not rdlt and not msw_only and not hot and not rs: continue
         game = dict(event_id=ev, away=away, home=home, start_utc=start, hours_to_kickoff=round(ttk, 1), spread_home=sp_line, dog=('away' if sp_line and sp_line < 0 else None), triggers={},
                     wind=(dict(mph=wx['wind_mph'], gust=wx.get('gust_mph'), temp_f=wx.get('temp_f'), at_h=wx['hours_to_kickoff']) if wx else None), fills=[], sport='cfb')
         if rdlt:
@@ -323,6 +363,12 @@ def main():
                     rec_ = dict(tag='cfb_road_dog_low_total', fill_id=row['fill_id'], ts=NOW_S, market='spread', side='away', line=-sp_line, venue=row['venue'], price=row['price_american'],
                                 fair=row['fair_at_fill'], edge_pts=(round(100 * (row['fair_at_fill'] - row['implied']), 2) if row['fair_at_fill'] is not None else None), why=why2)
                     fired[key2] = rec_; game['fills'].append(rec_); fires_now.append(dict(game=f"{away}@{home}", **rec_))
+        if hot:
+            take(conn, eq, fired, fires_now, game, ev, start, away, home, 'cfb_hot_over_low_total', 'total', tl, 'over', None, 0.5,
+                 f"non-conference, forecast {temp:.0f}F, wind {wlab}, total {tl}")
+        if rs:
+            take(conn, eq, fired, fires_now, game, ev, start, away, home, 'cfb_road_streak_dog', 'spread', -sp_line, 'away', away, 0.5,
+                 f"conference game, {away} on road game {rs} in a row, +{-sp_line}, total {tl}")
         if msw_only: game['triggers']['wind_msw_only'] = f"one source at 14+ mph but the average is {wv:.1f} mph ({wlab}); flag only"
         if not windy: view_games.append(game); continue
         why = wlab + (f", gust {wx.get('gust_mph')}, {wx.get('temp_f')}F" if wx else '')
@@ -440,6 +486,21 @@ def main():
                     rec_ = dict(tag='cbb_bigloss_vs_top5', fill_id=row['fill_id'], ts=NOW_S, market='spread', side=side, line=line, venue=row['venue'], price=row['price_american'],
                                 fair=row['fair_at_fill'], edge_pts=(round(100 * (row['fair_at_fill'] - row['implied']), 2) if row['fair_at_fill'] is not None else None), why=why)
                     fired[key] = rec_; game['fills'].append(rec_); fires_now.append(dict(game=f"{away}@{home}", **rec_))
+        view_games.append(game)
+    # CBB under with two over-heavy teams once the total has dropped (rescued 766981 variant)
+    for ev, start, away, home in conn.execute("SELECT event_id, start_utc, away, home FROM events WHERE sport='cbb' ORDER BY start_utc").fetchall():
+        st = N.parse_ts(start); ttk = (st - NOW).total_seconds() / 3600
+        if not (0 < ttk <= VIEW_H): continue
+        g = (cbb or {}).get(ev) or {}
+        if g.get('season_type') not in (2, None) or st.astimezone(N.ET).weekday() > 4: continue      # Monday-Friday, regular season
+        ph, pa = SEA.profile('cbb', home, st), SEA.profile('cbb', away, st)
+        if ph.get('games', 0) < 3 or pa.get('games', 0) < 3 or ph.get('over_pct') is None or pa.get('over_pct') is None: continue
+        if not (ph['over_pct'] >= 0.50 and pa['over_pct'] >= 0.59): continue
+        eq = F.EventQuotes(conn, ev); tl, _n = main_line(eq, 'total', None); op = open_line(conn, ev, 'total')
+        if tl is None or op is None or op - tl < 0.5: continue
+        game = dict(event_id=ev, away=away, home=home, start_utc=start, hours_to_kickoff=round(ttk, 1), spread_home=None, dog=None, triggers={}, fills=[], sport='cbb')
+        take(conn, eq, fired, fires_now, game, ev, start, away, home, 'cbb_under_good_over_drop', 'total', tl, 'under', None, 0.5,
+             f"home {home} over {100 * ph['over_pct']:.0f}% ({ph['games']} games), visitor {away} over {100 * pa['over_pct']:.0f}% ({pa['games']}); total {op} -> {tl}")
         view_games.append(game)
     # Exchange rules, inside T-1.5h. One fill per game per rule; stacking across rules allowed only on different market x side.
     def xmid(eq, venue, market, line, side, part, ts):

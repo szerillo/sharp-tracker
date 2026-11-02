@@ -7,7 +7,7 @@ Per upcoming game x market (moneyline, main spread, main total), from every preg
   big   = such dollars in fills of BIG_USD or more, per side   small = in fills of SMALL_USD or less, per side
   big_net = big dollars on the leading side minus the other side; small_net likewise (signed toward the big side)
   divergent = big money and small money on opposite sides with big_net >= DIV_USD (the backtest's best shape)
-Sources: Kalshi trades (data/kalshi/trades5, taker side explicit). Novig live trades (data/novig/trades5) are logged but only used
+Sources: Kalshi trades (data/kalshi/trades5, taker side explicit) and Polymarket taker trades on game lines (data/polymarket, see poly_trades). Novig live trades (data/novig/trades5) are logged but only used
 once NOVIG_VERIFIED is set: the API does not say whether a trade's outcome is the taker's, so it is checked against the next-day
 public tape (which labels taker/maker) first.
 Writes data/state/flow_live.json."""
@@ -153,6 +153,73 @@ def steam_paper(steams):
     return dict(record=rec, recent=sorted(graded, key=lambda g: g['start'])[-20:], new=len(new))
 
 
+POLY_LEAGUES = {'NFL': 'nfl', 'NBA': 'nba', 'NHL': 'nhl', 'CFB': 'cfb', 'CBB': 'cbb', 'NCAAF': 'cfb', 'NCAAB': 'cbb'}   # Polymarket game lines (only NFL lists them today)
+POLY_TYPES = {'moneyline': 'ml', 'spreads': 'spread', 'totals': 'total'}
+
+
+def poly_trades(sched, agg):
+    """Polymarket taker trades on game lines (logged by loggers/polymarket.py from data-api.polymarket.com, which returns taker fills:
+    BUY outcome X = a bet on X, SELL outcome X = a bet against X), added to the same per-market buckets as Kalshi, risk-equivalent size.
+    Matched to our schedule by start time and team names. Pregame only; each trade counted once across snapshots."""
+    idx = collections.defaultdict(list)
+    for ev, e in sched.items(): idx[(e['sport'], e['start'][:16])].append(ev)
+    def name_side(e, nm):
+        nm = (nm or '').lower().strip()
+        for side in ('home', 'away'):
+            t = e.get(side + '_team') or {}
+            full = (t.get('displayName') or '').lower(); short = (t.get('shortDisplayName') or t.get('name') or '').lower()
+            if nm and (full.endswith(nm) or nm == short or nm == full or nm == (e.get(side) or '').lower()): return side
+        return None
+    seen = set(); n = 0; root = os.path.join(ROOT, 'data', 'polymarket')
+    for f in recent(root):
+        try: fh = gzip.open(f, 'rt'); lines = fh
+        except OSError: continue
+        try:
+            for l in lines:
+                if '"new_trades": [{' not in l or not any(f'"type": "{t}"' in l for t in POLY_TYPES): continue
+                r = json.loads(l); sp = POLY_LEAGUES.get(r.get('league')); mk = POLY_TYPES.get(r.get('type'))
+                if not sp or not mk or not r.get('start'): continue
+                st = r['start'].replace(' ', 'T')[:16]
+                cands = idx.get((sp, st)) or []
+                sides = list((r.get('sides') or {}).keys())
+                ev = None
+                for c in cands:
+                    e = sched[c]
+                    if mk == 'total':
+                        teams = [x.strip() for x in (r.get('title') or '').split(' vs. ')]
+                        if len(teams) == 2 and {name_side(e, teams[0]), name_side(e, teams[1])} == {'home', 'away'}: ev = c; break
+                    elif len(sides) == 2 and {name_side(e, sides[0]), name_side(e, sides[1])} == {'home', 'away'}: ev = c; break
+                if not ev: continue
+                e = sched[ev]; start_ts = parse_ts(e['start'])
+                for t in r['new_trades']:
+                    k = (r.get('cond'), t.get('ts'), t.get('side'), t.get('outcome'), t.get('size'), t.get('p'))
+                    if k in seen: continue
+                    seen.add(k)
+                    tt = dt.datetime.fromtimestamp(int(t['ts']), dt.timezone.utc)
+                    if tt >= start_ts: continue
+                    p = float(t['p']); usd = float(t['size']) * min(p, 1 - p)
+                    if mk == 'total':
+                        o = (t.get('outcome') or '').lower(); bet = o if t['side'] == 'BUY' else OTHER.get(o)
+                        if bet not in ('over', 'under'): continue
+                        line = r.get('line')
+                    else:
+                        os_ = name_side(e, t.get('outcome'))
+                        if not os_: continue
+                        bet = os_ if t['side'] == 'BUY' else OTHER[os_]
+                        line = None
+                        if mk == 'spread':
+                            first = name_side(e, sides[0]); L = r.get('line')
+                            if L is None or not first: continue
+                            line = L if first == 'home' else -L          # home number, as for Kalshi
+                    a = agg[(ev, mk, line)]; s_ = a['sides'][bet]
+                    s_['all'] += usd; s_['n'] += 1
+                    if usd >= BIG_USD: s_['big'] += usd; s_['n_big'] += 1
+                    if usd <= SMALL_USD: s_['small'] += usd
+                    a['venues'].add('Polymarket'); a['last'] = max(a['last'] or '', tt.strftime('%Y-%m-%dT%H:%M:%SZ')); n += 1
+        except (EOFError, OSError): pass
+    return n
+
+
 def main():
     sched = {}
     for sp in ('nfl', 'nba', 'nhl', 'cfb', 'cbb', 'soccer', 'mma'):
@@ -179,6 +246,7 @@ def main():
             if usd >= BIG_USD: s['big'] += usd; s['n_big'] += 1
             if usd <= SMALL_USD: s['small'] += usd
             a['venues'].add('Kalshi'); a['last'] = max(a['last'] or '', t['ts'])
+    n_poly = poly_trades(sched, agg)
     # main line per game x market = the line with the most dollars
     best = {}
     for (ev, mk, line), a in agg.items():
@@ -206,7 +274,8 @@ def main():
               open(OUT, 'w'), separators=(',', ':'))
     print(f"[flow_live] steam: {len(steams)} upcoming markets with a {STEAM_PTS}+ pt / {STEAM_MIN}-min move ({collections.Counter(x['state'] for x in steams)}); steam_rev paper {sp['new']} new, record {sp['record']}")
     print(f"[flow_live] {len(moves)} upcoming Kalshi markets moved {MOVE_PTS}+ pts since their first two-sided price")
-    print(f"[flow_live] {len(rows)} upcoming game markets with Kalshi flow; {sum(r['divergent'] for r in rows)} divergent (big >= ${DIV_USD:,.0f} one way, small money the other)")
+    print(f"[flow_live] {n_poly} Polymarket pregame taker trades added")
+    print(f"[flow_live] {len(rows)} upcoming game markets with exchange flow; {sum(r['divergent'] for r in rows)} divergent (big >= ${DIV_USD:,.0f} one way, small money the other)")
 
 
 if __name__ == '__main__':
