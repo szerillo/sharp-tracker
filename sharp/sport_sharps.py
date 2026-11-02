@@ -2,7 +2,7 @@
 """Sport-specific Polymarket sharps vs one cross-sport list, and whether either holds up over time (Sean, 11/2: "every sport has
 sport-specific sharps; the question is whether that is sustainable over time, or whether the cream rises to the top across all sports").
 
-Two walk-forward folds on the settled game-line history (data/polymarket/history, moneyline / spread / total, $10k+ volume):
+Walk-forward folds on the settled game-line history (folds 1 and 2 added 11/2 after the history was extended back to mid-2024) (data/polymarket/history, moneyline / spread / total, $10k+ volume):
   fold A: score on games before 2026-03-01, follow on 2026-03-01 to 2026-08-31
   fold B: score on games before 2026-09-01, follow on 2026-09-01 on   (the split round 3 used)
 Scores (train): mean CLV vs Polymarket's two-sided close of $100+ (risk-equivalent) pregame fills.
@@ -22,7 +22,7 @@ HERE = os.path.dirname(os.path.abspath(__file__)); ROOT = os.path.abspath(os.pat
 import sharp.flow_volume as V
 from sharp.sharp_accounts2 import Px
 SPORT = {'epl': 'soccer', 'ucl': 'soccer', 'mls': 'soccer', 'bundesliga': 'soccer'}
-FOLDS = {'A': ('2026-03-01', '2026-09-01'), 'B': ('2026-09-01', '2099-01-01')}
+FOLDS = {'1': ('2025-07-01', '2025-11-01'), '2': ('2025-11-01', '2026-03-01'), 'A': ('2026-03-01', '2026-09-01'), 'B': ('2026-09-01', '2099-01-01')}   # 1 and 2 added 11/2 with the deeper history
 LAG = 300
 
 
