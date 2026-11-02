@@ -1,5 +1,5 @@
 {
- "built": "2026-11-02T23:48:37Z",
+ "built": "2026-11-02T23:54:13Z",
  "rows": [
   {
    "cond": "0xdc614e16fcccc4cce28241e13e7b774d797e30bbb55b0985f63915c039fa7aa7",
@@ -122,7 +122,7 @@
    "best_rank": 59,
    "usd": 7415,
    "paid": 0.519,
-   "ask": 0.61,
+   "ask": 0.62,
    "status": "live",
    "link": "https://polymarket.us/event/nba-sac-dal-2026-11-02",
    "other": null,
@@ -258,7 +258,7 @@
    "best_rank": 135,
    "usd": 3296,
    "paid": 0.23,
-   "ask": 0.23,
+   "ask": 0.24,
    "status": "live",
    "link": "https://polymarket.us/event/nfl-chi-sea-2026-11-03",
    "other": null,
@@ -341,8 +341,8 @@
    "home_name": "Seattle Seahawks",
    "game_start": "2026-11-03T01:15Z",
    "side_std": "home",
-   "money_with": true,
-   "grade": "A"
+   "money_with": false,
+   "grade": "B"
   },
   {
    "cond": "0xc12c795a1c5a3cef7772e01b73944198a67005cd17f460369a6ab6f03359971f",
@@ -653,8 +653,8 @@
    "link": "https://polymarket.us/event/nba-chi-phi-2026-11-02",
    "other": null,
    "kalshi_against": {
-    "move": 5.0,
-    "now": 82.5,
+    "move": 4.5,
+    "now": 82.0,
     "state": "reversed"
    },
    "logged": true,
@@ -859,7 +859,7 @@
    "best_rank": 40,
    "usd": 15394,
    "paid": 0.497,
-   "ask": 0.54,
+   "ask": 0.56,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-tor-lac-2026-11-02",
    "other": {
@@ -868,7 +868,7 @@
     "usd": 1850,
     "first": "2026-11-02T21:16:22Z"
    },
-   "exit_bid": 0.53,
+   "exit_bid": 0.55,
    "kalshi_against": null,
    "logged": true,
    "event_id": "401909920",
@@ -984,6 +984,74 @@
     "best_rank": 40,
     "usd": 525
    }
+  },
+  "401909914:nba_momentum:spread": {
+   "with": {
+    "n": 1,
+    "best_rank": 59,
+    "usd": 490
+   },
+   "against": {
+    "n": 1,
+    "best_rank": 112,
+    "usd": 1894
+   }
+  },
+  "401909915:nba_momentum:ml": {
+   "with": {
+    "n": 2,
+    "best_rank": 40,
+    "usd": 381
+   },
+   "against": {
+    "n": 3,
+    "best_rank": 55,
+    "usd": 2325
+   }
+  },
+  "401909915:nba_momentum:spread": {
+   "with": {
+    "n": 3,
+    "best_rank": 40,
+    "usd": 2893
+   },
+   "against": null
+  },
+  "401909915:nba_momentum:total": {
+   "with": null,
+   "against": {
+    "n": 1,
+    "best_rank": 75,
+    "usd": 1706
+   }
+  },
+  "401909913:nba_momentum:ml": {
+   "with": {
+    "n": 5,
+    "best_rank": 39,
+    "usd": 2637
+   },
+   "against": {
+    "n": 1,
+    "best_rank": 54,
+    "usd": 175
+   }
+  },
+  "401909913:nba_momentum:spread": {
+   "with": {
+    "n": 3,
+    "best_rank": 12,
+    "usd": 10579
+   },
+   "against": null
+  },
+  "401909913:nba_momentum:total": {
+   "with": {
+    "n": 2,
+    "best_rank": 59,
+    "usd": 7415
+   },
+   "against": null
   }
  },
  "by_event": {
