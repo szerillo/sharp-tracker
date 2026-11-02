@@ -29,6 +29,15 @@ def recent(d, days=8):
     return [f for f in sorted(glob.glob(os.path.join(d, '*.jsonl.gz'))) if os.path.basename(f)[:10] >= cut]
 
 
+LINKS = {}      # event_id -> {'kalshi': {market: url}, 'poly': url, 'an': url}: where the Today page sends you to bet
+
+
+def kalshi_url(ticker):
+    """Kalshi web page for a market ticker: /markets/<series>/x/<event ticker> (the middle slug is free text; checked 11/1)."""
+    parts = ticker.lower().split('-')
+    return f"https://kalshi.com/markets/{parts[0]}/x/{'-'.join(parts[:2])}"
+
+
 def kalshi_moves(sched):
     """Kalshi markets whose two-sided mid has moved MOVE_PTS+ points since the first two-sided price we logged (20-minute and 5-minute
     ticks, last 14 days). Backtest (sharp/flow_grid.py --ask): following a 4+ pt move since the open at the ask, 1h to 15m before start,
@@ -50,6 +59,7 @@ def kalshi_moves(sched):
                 if not (0 < t['ask'] - t['bid'] <= TIGHT): continue
                 tk = (t.get('extra') or {}).get('ticker')
                 if not tk: continue
+                LINKS.setdefault(t['event_id'], {}).setdefault('kalshi', {})[t['market']] = kalshi_url(tk)
                 rec = (t['ts'], (t['bid'] + t['ask']) / 2, t['ask'], 1 - t['bid'], t.get('vol') or 0, t['side'], t.get('line'), t['event_id'], t['market'])
                 tk = (tk, t['side'])                     # the logger writes a spread/total ticker once per side, mirrored
                 if tk not in first or t['ts'] < first[tk][0]: first[tk] = rec
@@ -191,6 +201,7 @@ def poly_trades(sched, agg):
                     elif len(sides) == 2 and {name_side(e, sides[0]), name_side(e, sides[1])} == {'home', 'away'}: ev = c; break
                 if not ev: continue
                 e = sched[ev]; start_ts = parse_ts(e['start'])
+                if r.get('event'): LINKS.setdefault(ev, {})['poly'] = f"https://polymarket.us/event/{r['event']}"
                 for t in r['new_trades']:
                     k = (r.get('cond'), t.get('ts'), t.get('side'), t.get('outcome'), t.get('size'), t.get('p'))
                     if k in seen: continue
@@ -267,9 +278,15 @@ def main():
                          sides={k: {kk: round(vv) for kk, vv in v.items()} for k, v in sides.items()}))
     rows.sort(key=lambda r: (-int(r['divergent']), -r['big_net']))
     moves, steams = kalshi_moves(sched)
+    for sp in ('nfl', 'nba', 'nhl', 'cfb', 'cbb', 'soccer', 'mma'):          # Action Network game pages (loggers/lines.py)
+        try:
+            for ev, u in json.load(open(os.path.join(ROOT, 'data', sp, 'an_links.json'))).items():
+                if ev in sched and parse_ts(sched[ev]['start']) > NOW: LINKS.setdefault(ev, {})['an'] = u
+        except Exception: pass
+    links = {ev: v for ev, v in LINKS.items() if ev in sched and parse_ts(sched[ev]['start']) > NOW}
     sp = steam_paper(steams)
     json.dump(dict(built=NOW.strftime('%Y-%m-%dT%H:%M:%SZ'), big_usd=BIG_USD, small_usd=SMALL_USD, div_usd=DIV_USD, novig_included=NOVIG_VERIFIED, rows=rows,
-                   show_total=SHOW_TOTAL, show_big=SHOW_BIG, move_pts=MOVE_PTS, moves=moves,
+                   show_total=SHOW_TOTAL, show_big=SHOW_BIG, move_pts=MOVE_PTS, moves=moves, links=links,
                    steam=dict(pts=STEAM_PTS, minutes=STEAM_MIN, rev_frac=REV_FRAC, rows=steams, **sp)),
               open(OUT, 'w'), separators=(',', ':'))
     print(f"[flow_live] steam: {len(steams)} upcoming markets with a {STEAM_PTS}+ pt / {STEAM_MIN}-min move ({collections.Counter(x['state'] for x in steams)}); steam_rev paper {sp['new']} new, record {sp['record']}")

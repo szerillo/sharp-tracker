@@ -126,7 +126,7 @@ class Matcher:
 
 
 # ----------------------------------------------------------------- ticks ----
-ROWS = []; UNMATCHED = collections.Counter(); STARTS = {}   # event_id -> kickoff (UTC); filled by Matcher from the schedule
+ROWS = []; UNMATCHED = collections.Counter(); STARTS = {}; AN_LINKS = {}   # AN_LINKS: event_id -> Action Network game page (every book's bet button)   # event_id -> kickoff (UTC); filled by Matcher from the schedule
 
 
 def tick(event_id, market, side, venue, feed, line=None, participant=None, player=None, american=None, bid=None, ask=None, last=None, vol=None,
@@ -328,6 +328,7 @@ def action_network(M):
             st = parse_ts(gm['start_time'].replace('.000Z', 'Z')); ev = M.match(et_date(st), a, h, st)
             if not ev: continue
             sw = M.swapped(ev, a, h); a, h = M.orient(ev, a, h)
+            if gm.get('id'): AN_LINKS[ev] = f"https://www.actionnetwork.com/{CFG['an']}-game/x/{gm['id']}"   # AN resolves the game page from the id alone
             flip = (lambda d: {'home': 'away', 'away': 'home'}.get(d, d)) if sw else (lambda d: d)
             for bid_, per_m in (gm.get('markets') or {}).items():
                 venue = AN_BOOKS.get(bid_)
@@ -505,6 +506,11 @@ def main():
         if M.unmatched: UNMATCHED.update(M.unmatched)
     counts = dict(counts); counts.update(errs); M = type('M', (), {'unmatched': UNMATCHED})()
     rows = trim(ROWS)
+    if AN_LINKS:                       # merge into data/<sport>/an_links.json (the Today page links each bet to its game page)
+        pth = os.path.join(TD, '..', 'an_links.json'); cur = {}
+        try: cur = json.load(open(pth))
+        except Exception: pass
+        cur.update(AN_LINKS); json.dump(cur, open(pth, 'w'), separators=(',', ':'))
     with gzip.open(os.path.join(TD, f"{et_date(NOW).isoformat()}.jsonl.gz"), 'at') as f:
         for r in rows: f.write(json.dumps(r, separators=(',', ':')) + '\n')
     byv = collections.Counter(r['venue'] for r in rows); nev = len({r['event_id'] for r in rows})
