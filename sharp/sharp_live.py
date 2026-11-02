@@ -263,12 +263,13 @@ def main():
             row['exit_bid'] = round(1 - ask(otok), 3) if otok and start > NOW and ask(otok) else None   # selling our side = buying the other side's ask
         ka = kalshi_against(row['title'], side, start) if row['mtype'] == 'ml' and side not in ('Yes', 'No') else None
         row['kalshi_against'] = dict(move=ka['move'], now=ka.get('now'), state=ka.get('state')) if ka else None
+        row['logged'] = cond in logged
         rows.append(row)
         if cond not in logged and start > NOW and a and not opp:      # a flag first seen after a sharp already took the other side is not logged
             paper.append(dict(cond=cond, slug=row['slug'], bet=row['bet'], side=side, mtype=row['mtype'], start=row['start'], flagged=row['flagged'],
                               logged=dt.datetime.fromtimestamp(NOW, dt.timezone.utc).strftime('%Y-%m-%dT%H:%M:%SZ'), price=a, why=row['why'], best_rank=row['best_rank'],
                               kalshi_against=bool(row['kalshi_against'])))
-            logged.add(cond)
+            logged.add(cond); row['logged'] = True
     # grade paper rows after the game: result from Gamma, CLV vs Polymarket's two-sided close
     for p in paper:
         if p.get('result') or epoch(p['start']) > NOW - 3 * 3600: continue

@@ -3,74 +3,100 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Sharp Tracker · MLB</title>
+<title>Sharp Tracker</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&family=VT323&display=swap" rel="stylesheet">
 <style>
-  :root{--bg:#0d1117;--panel:#141a23;--panel2:#1a2230;--border:#263042;--text:#e6e9ef;--muted:#8b96a8;--accent:#5eead4;--good:#4ade80;--bad:#f87171;--warn:#fbbf24;
-        --over:#74d98e;--under:#ff8e6e;--x:#60a5fa;--sharp:#a78bfa}
+  /* Old Vegas sports book board (11/2): smoked-glass board, brass trim, slotted white letters for teams, amber LED digits for every
+     number. Oswald = the board's condensed gothic letters (names, headings, body); VT323 = the dot-matrix LED (odds, prices, times, $). */
+  :root{--bg:#0f0c09;--panel:#1a1511;--panel2:#231c16;--border:#3a2e22;--text:#efe6d2;--muted:#a3927a;--accent:#d4a94f;
+        --led:#ffb52e;--good:#5bff8f;--bad:#ff4a3d;--warn:#ffb52e;--over:#5bff8f;--under:#ff6a4d;--x:#8fc3ff;--sharp:#ffb52e;
+        --glow:0 0 6px rgba(255,181,46,.55),0 0 1px rgba(255,181,46,.9)}
   *{box-sizing:border-box}
-  body{margin:0;background:var(--bg);color:var(--text);font:14px/1.45 Inter,system-ui,-apple-system,Segoe UI,sans-serif}
-  .wrap{max-width:1360px;margin:0 auto;padding:12px 16px 60px}
-  h1{font-size:18px;font-weight:800;letter-spacing:.03em;margin:0 0 4px}
-  .sub{color:var(--muted);font-size:12px;margin-bottom:10px}
+  body{margin:0;color:var(--text);font:15px/1.45 Oswald,'Arial Narrow',sans-serif;font-weight:300;letter-spacing:.01em;
+       background:var(--bg) radial-gradient(ellipse at 50% -10%,#2a1f14 0%,var(--bg) 55%) fixed}
+  b,strong{font-weight:500}
+  .wrap{max-width:1360px;margin:0 auto;padding:14px 16px 60px}
+  /* the marquee: the one loud thing */
+  h1{font-family:VT323,monospace;font-weight:400;font-size:44px;line-height:1;letter-spacing:.08em;color:var(--led);text-shadow:var(--glow);
+     margin:0 0 8px;padding:10px 16px 8px;background:#0b0806;border:2px solid var(--accent);border-radius:3px;
+     box-shadow:inset 0 0 0 4px #0b0806,inset 0 0 0 5px #5a4528;
+     background-image:radial-gradient(rgba(255,181,46,.07) 1px,transparent 1.2px);background-size:4px 4px}
+  h1 #sporthdr{font-size:24px;color:var(--muted);text-shadow:none}
+  h2{font-family:Oswald,sans-serif;font-weight:600;font-size:22px;letter-spacing:.02em;color:var(--text)}
+  .sub{color:var(--muted);font-size:13px;margin-bottom:10px}
   .strip{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:8px 0 12px}
-  .pill{border:1px solid var(--border);border-radius:999px;padding:3px 10px;font-size:12px;color:var(--muted);background:var(--panel)}
-  .pill b{color:var(--text)} .pill.ok{color:var(--good);border-color:#1f6f4a} .pill.bad{color:var(--bad);border-color:#7f2a2a} .pill.warn{color:var(--warn);border-color:#7a5b12}
-  .tabs{display:flex;flex-wrap:wrap;gap:4px;border-bottom:1px solid var(--border);margin:6px 0 14px}
-  .tabs button{background:none;border:0;border-bottom:2px solid transparent;color:var(--muted);padding:8px 14px;cursor:pointer;font:inherit;font-weight:600}
-  .tabs button.on{color:var(--accent);border-bottom-color:var(--accent)}
-  .banner{background:#3a2a12;border:1px solid #7a5b12;color:#fde68a;border-radius:8px;padding:8px 12px;margin:8px 0;font-size:13px}
-  .banner.red{background:#3a1d1d;border-color:#7f2a2a;color:#fecaca}
-  .sec{background:var(--panel);border:1px solid var(--border);border-radius:12px;margin:12px 0;overflow:hidden}
-  .sec-h{display:flex;flex-wrap:wrap;gap:6px 14px;align-items:baseline;padding:10px 14px;background:var(--panel2);border-bottom:1px solid var(--border)}
-  .sec-h .name{font-weight:800;font-size:15px} .sec-h .meta{color:var(--muted);font-size:12px} .sec-h .right{margin-left:auto;font-size:12px;color:var(--muted)}
-  table{width:100%;border-collapse:collapse;font-size:13px} th{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.05em;text-align:left;padding:7px 10px;background:rgba(255,255,255,.015);border-bottom:1px solid var(--border);white-space:nowrap}
-  td{padding:7px 10px;border-top:1px solid var(--border);vertical-align:top} tr:hover td{background:rgba(255,255,255,.02)}
-  .mono{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:12.5px}
+  .pill{border:1px solid var(--border);border-radius:2px;padding:2px 9px;font-size:13px;color:var(--muted);background:var(--panel)}
+  .pill b{color:var(--text)} .pill.ok{color:var(--good);border-color:#2f5e3c} .pill.bad{color:var(--bad);border-color:#6e2a22} .pill.warn{color:var(--led);border-color:#6a4d1c}
+  /* tabs read as the board's section placards */
+  .tabs{display:flex;flex-wrap:wrap;gap:6px;border-bottom:2px solid var(--accent);margin:6px 0 14px;padding-bottom:6px}
+  .tabs button{background:var(--panel);border:1px solid var(--border);border-radius:2px;color:var(--muted);padding:6px 14px;cursor:pointer;
+     font:500 15px Oswald,sans-serif;letter-spacing:.04em}
+  .tabs button:hover{color:var(--text);border-color:var(--accent)}
+  .tabs button.on{color:#0f0c09;background:var(--accent);border-color:var(--accent)}
+  .tabs button:focus-visible,.betbtn:focus-visible,summary:focus-visible{outline:2px solid var(--led);outline-offset:2px}
+  .banner{background:#2a1d0d;border:1px solid #6a4d1c;color:#ffd58a;border-radius:2px;padding:8px 12px;margin:8px 0;font-size:14px}
+  .banner.red{background:#2c1310;border-color:#6e2a22;color:#ffc2b8}
+  .sec{background:var(--panel);border:1px solid var(--border);border-top:3px solid var(--accent);border-radius:2px;margin:12px 0;overflow:hidden}
+  .sec-h{display:flex;flex-wrap:wrap;gap:6px 14px;align-items:baseline;padding:9px 14px;background:var(--panel2);border-bottom:1px solid var(--border)}
+  .sec-h .name{font-weight:600;font-size:17px} .sec-h .meta{color:var(--muted);font-size:13px} .sec-h .right{margin-left:auto;font-size:13px;color:var(--muted)}
+  /* tables: the board's line slots */
+  table{width:100%;border-collapse:collapse;font-size:15px}
+  th{font-size:13px;font-weight:500;color:var(--accent);letter-spacing:.04em;text-align:left;padding:7px 10px;background:#140f0b;border-bottom:1px solid var(--accent);white-space:nowrap}
+  td{padding:8px 10px;border-top:1px solid var(--border);vertical-align:top} tr:hover td{background:rgba(212,169,79,.05)}
+  /* every number is an LED */
+  .mono,.price,.num,.card .price,.brow .price,.lad .p,.tile .k{font-family:VT323,monospace;font-size:19px;line-height:1.15;color:var(--led);text-shadow:var(--glow);letter-spacing:.02em}
   .num{text-align:right;font-variant-numeric:tabular-nums} th.num{text-align:right}
-  .pos{color:var(--good);font-weight:700} .neg{color:var(--bad)} .dim{color:var(--muted)}
-  .badge{display:inline-block;font-size:10px;font-weight:800;letter-spacing:.04em;text-transform:uppercase;border-radius:5px;padding:1px 6px;margin-left:4px}
-  .b-prior{background:#3a2a12;color:#fde68a} .b-fit{background:#143a2a;color:#86efac} .b-x{background:#1e2a44;color:#93c5fd} .b-stale{background:#3a1d1d;color:#fecaca} .b-gate{background:#262c38;color:var(--muted)}
-  .chip{display:inline-block;border:1px solid var(--border);border-radius:6px;padding:1px 6px;margin:1px 2px 1px 0;font-size:11.5px;background:var(--panel2);white-space:nowrap}
-  .chip.x{border-color:#2b4a7a} .chip.sharp{border-color:#4c3d8a} .chip.off{opacity:.45;text-decoration:line-through} .chip .p{font-weight:700}
-  .chip.best{border-color:var(--accent);box-shadow:inset 0 0 0 1px var(--accent)}
-  .bar{height:7px;background:var(--panel2);border-radius:4px;overflow:hidden;margin-top:4px} .bar i{display:block;height:100%;background:var(--accent)}
-  .controls{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:4px 0 10px;font-size:12px;color:var(--muted)}
-  .controls select,.controls input{background:var(--panel2);color:var(--text);border:1px solid var(--border);border-radius:6px;padding:4px 8px;font:inherit;font-size:12px}
+  .pos{color:var(--good);font-weight:500;text-shadow:0 0 6px rgba(91,255,143,.45)} .neg{color:var(--bad);text-shadow:0 0 6px rgba(255,74,61,.45)} .dim{color:var(--muted);text-shadow:none}
+  .badge{display:inline-block;font:500 12px Oswald,sans-serif;letter-spacing:.04em;border-radius:2px;padding:0 6px;margin-left:4px;border:1px solid transparent}
+  .b-prior{background:#3a2a10;color:#ffd58a;border-color:#6a4d1c} .b-fit{background:#123020;color:#8dffb4;border-color:#2f5e3c} .b-x{background:#16233a;color:#a8ccff}
+  .b-stale{background:#2c1310;color:#ffc2b8} .b-gate{background:#231c16;color:var(--muted);border-color:var(--border)}
+  .chip{display:inline-block;border:1px solid var(--border);border-radius:2px;padding:0 6px;margin:1px 2px 1px 0;font-size:13px;background:var(--panel2);white-space:nowrap}
+  .chip.x{border-color:#2b4a7a} .chip.sharp{border-color:#6a4d1c} .chip.off{opacity:.45;text-decoration:line-through} .chip .p{font-weight:500}
+  .chip.best{border-color:var(--led);box-shadow:inset 0 0 0 1px var(--led)}
+  .bar{height:7px;background:var(--panel2);border-radius:1px;overflow:hidden;margin-top:4px} .bar i{display:block;height:100%;background:var(--led)}
+  .controls{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:4px 0 10px;font-size:13px;color:var(--muted)}
+  .controls select,.controls input{background:var(--panel2);color:var(--text);border:1px solid var(--border);border-radius:2px;padding:4px 8px;font:inherit;font-size:13px}
   .tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:8px;margin:6px 0 12px}
-  .tile{background:var(--panel);border:1px solid var(--border);border-radius:10px;padding:8px 12px} .tile .k{font-size:20px;font-weight:800} .tile .l{font-size:11px;color:var(--muted)}
+  .tile{background:var(--panel);border:1px solid var(--border);border-radius:2px;padding:8px 12px} .tile .k{font-size:28px} .tile .l{font-size:13px;color:var(--muted)}
   .side-over{color:var(--over)} .side-under{color:var(--under)}
-  details>summary{cursor:pointer;color:var(--muted);font-size:12px;padding:6px 14px;list-style:none} details>summary::-webkit-details-marker{display:none}
-  .small{font-size:12px;color:var(--muted)}
+  details>summary{cursor:pointer;color:var(--muted);font-size:13px;padding:6px 14px;list-style:none} details>summary::-webkit-details-marker{display:none}
+  .small{font-size:13.5px;color:var(--muted)}
   details.game>summary{list-style:none;cursor:pointer} details.game>summary::-webkit-details-marker{display:none} details.game>summary .name::before{content:'▸ ';color:var(--muted)} details.game[open]>summary .name::before{content:'▾ '}
-  .tabs.inline{display:inline-flex;border:0;margin:0 8px 0 0} .tabs.inline button{padding:4px 8px;font-size:12px}
-  .b-sport{background:#1e3a5f;color:#bfdbfe} .erow:hover td{background:rgba(255,255,255,.04)}
-  .lad{display:inline-block;margin:2px 6px 2px 0;padding:1px 6px;border:1px solid var(--border);border-radius:6px;font-size:12px} .lad.x{border-color:#4c6ef5} .lad .p{font-family:ui-monospace,monospace}
+  .tabs.inline{display:inline-flex;border:0;margin:0 8px 0 0;padding:0} .tabs.inline button{padding:3px 10px;font-size:14px}
+  .b-sport{background:#0b0806;color:var(--led);border-color:#5a4528;font-family:VT323,monospace;font-size:15px;text-shadow:var(--glow);padding:0 5px}
+  .erow:hover td{background:rgba(212,169,79,.06)}
+  .lad{display:inline-block;margin:2px 6px 2px 0;padding:0 6px;border:1px solid var(--border);border-radius:2px;font-size:13px} .lad.x{border-color:#4c6ef5}
   @media (max-width:760px){.hide-m{display:none}}
-  .sub2 button{font-size:12px;padding:5px 10px} .sub2{border-bottom:0;margin-top:-4px}
-  .card{background:var(--panel);border:1px solid var(--border);border-radius:12px;padding:12px 14px;margin:8px 0;display:grid;grid-template-columns:150px 1fr 230px;gap:12px;align-items:start}
-  .card .when{font-size:13px} .card .when b{font-size:15px} .card .bet{font-size:18px;font-weight:800;margin:2px 0}
-  .card .price{font-family:ui-monospace,monospace;font-size:13px} .card .why{font-size:12px;color:var(--muted);margin-top:4px}
-  .ok-chip{color:#74d98e} .moved-chip{color:#fbbf24} .gone-chip{color:#ff8e6e}
-  .hdr2{display:flex;align-items:baseline;gap:10px;margin:18px 0 4px} .hdr2 h2{font-size:17px;margin:0} .hdr2 .meta{font-size:12px;color:var(--muted)}
-  .explain{font-size:12.5px;color:var(--muted);margin:0 0 6px;max-width:980px;line-height:1.5}
-  @media (max-width:760px){.card{grid-template-columns:1fr}}
-  .topbar{gap:6px 12px;margin-top:2px} .tabs.inline.when button.on{color:#0d1117;background:var(--accent);border-radius:6px;border-bottom-color:transparent} .tabs.inline.when button.on .small{color:#0d1117}
-  .summary{background:var(--panel);border:1px solid var(--border);border-radius:10px;padding:8px 12px;font-size:13px;margin:4px 0 2px}
-  .gcard{background:var(--panel);border:1px solid var(--border);border-radius:12px;margin:8px 0;overflow:hidden}
-  .ghead{display:flex;flex-wrap:wrap;gap:4px 8px;align-items:baseline;padding:8px 14px;background:var(--panel2);border-bottom:1px solid var(--border);font-size:13px} .ghead .gname{font-weight:700;margin-left:4px}
-  .brow{display:grid;grid-template-columns:200px 1fr 210px;gap:12px;padding:10px 14px;border-top:1px solid var(--border)} .brow:first-of-type{border-top:0}
-  .brow .bet{font-size:17px;font-weight:800} .brow .price{font-family:ui-monospace,monospace;font-size:12.5px}
-  .sig{font-size:12.5px;margin-top:4px} .sig .kind{display:inline-block;min-width:118px;font-size:10.5px;font-weight:800;text-transform:uppercase;letter-spacing:.04em;color:var(--sharp)}
-  .click{cursor:pointer} tr.click:hover td{background:rgba(94,234,212,.06)} .chev{display:inline-block;width:12px;color:var(--accent);font-weight:800}
-  .betbtn{display:inline-block;border:1px solid var(--accent);color:var(--accent);border-radius:6px;padding:1px 7px;font-size:11.5px;font-family:Inter,system-ui,sans-serif;text-decoration:none;white-space:nowrap}
-  .betbtn:hover{background:var(--accent);color:#0d1117}
-  details.how>summary{display:inline-block;border:1px solid var(--border);border-radius:7px;padding:3px 10px;margin:2px 0 6px;background:var(--panel)} details.how>summary:hover{border-color:var(--accent)}
-  .mixed{color:var(--warn);font-weight:700} .fam{display:inline-block;width:42px;font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:.05em}
-  .b-watch{background:#2a2350;color:#c4b5fd} .bet.mixed{color:var(--warn)}
-  .tag-with{color:#74d98e;font-size:11.5px;font-weight:700} .tag-against{color:#ff8e6e;font-size:11.5px;font-weight:700}
-  details.how>summary{padding:2px 0 6px;font-size:12px;color:var(--accent)} details.how>summary::before{content:'▸ '} details.how[open]>summary::before{content:'▾ '}
+  .sub2 button{font-size:14px;padding:4px 10px} .sub2{border-bottom:0;margin-top:-4px}
+  .card{background:var(--panel);border:1px solid var(--border);border-radius:2px;padding:12px 14px;margin:8px 0;display:grid;grid-template-columns:150px 1fr 230px;gap:12px;align-items:start}
+  .card .when{font-size:14px} .card .when b{font-size:16px} .card .bet{font-size:20px;font-weight:600;margin:2px 0} .card .why{font-size:13.5px;color:var(--muted);margin-top:4px}
+  .ok-chip{color:var(--good)} .moved-chip{color:var(--led)} .gone-chip{color:var(--under)}
+  .hdr2{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 12px;margin:22px 0 6px;padding-bottom:4px;border-bottom:1px solid var(--border)} .hdr2 h2{margin:0} .hdr2 .meta{font-size:13.5px;color:var(--muted)}
+  .explain{font-size:14px;color:var(--muted);margin:0 0 6px;max-width:72ch;line-height:1.55}
+  @media (max-width:760px){.card{grid-template-columns:1fr} h1{font-size:32px}}
+  .topbar{gap:6px 12px;margin-top:2px} .tabs.inline.when button.on{color:#0f0c09;background:var(--accent)} .tabs.inline.when button.on .small{color:#0f0c09}
+  .summary{background:var(--panel);border:1px solid var(--border);border-left:3px solid var(--accent);border-radius:2px;padding:8px 12px;font-size:15px;margin:4px 0 2px}
+  .gcard{background:var(--panel);border:1px solid var(--border);border-top:3px solid var(--accent);border-radius:2px;margin:10px 0;overflow:hidden}
+  .ghead{display:flex;flex-wrap:wrap;gap:4px 8px;align-items:baseline;padding:8px 14px;background:var(--panel2);border-bottom:1px solid var(--border);font-size:15px}
+  .ghead .gname{font-weight:500;margin-left:4px;letter-spacing:.02em}
+  .brow{display:grid;grid-template-columns:210px 1fr 220px;gap:12px;padding:11px 14px;border-top:1px solid var(--border)} .brow:first-of-type{border-top:0}
+  .brow .bet{font-size:20px;font-weight:600;letter-spacing:.01em}
+  .sig{font-size:14px;margin-top:4px} .sig .kind{display:inline-block;min-width:118px;font-size:12px;font-weight:500;letter-spacing:.04em;color:var(--led)}
+  .click{cursor:pointer} tr.click:hover td{background:rgba(255,181,46,.06)} .chev{display:inline-block;width:12px;color:var(--accent);font-weight:600}
+  .betbtn{display:inline-block;border:1px solid var(--accent);color:var(--accent);border-radius:2px;padding:0 8px;font:500 13px Oswald,sans-serif;letter-spacing:.03em;text-decoration:none;white-space:nowrap;text-shadow:none}
+  .betbtn:hover{background:var(--accent);color:#0f0c09}
+  details.how>summary{display:inline-block;border:0;padding:2px 0 6px;margin:2px 0 6px;font-size:14px;color:var(--accent);background:none} details.how>summary::before{content:'▸ '} details.how[open]>summary::before{content:'▾ '}
+  details.how>summary:hover{color:var(--text)}
+  .mixed{color:var(--led);font-weight:500} .fam{display:inline-block;width:62px;font-size:12px;color:var(--muted);letter-spacing:.03em}
+  .b-watch{background:#2a1d0d;color:#ffd58a;border-color:#6a4d1c} .bet.mixed{color:var(--led)}
+  .tag-with{color:var(--good);font-size:13px;font-weight:500} .tag-against{color:var(--under);font-size:13px;font-weight:500}
   @media (max-width:760px){.brow{grid-template-columns:1fr}}
-.slip{margin-top:4px;color:var(--fg,inherit)}
+  .slip{margin-top:4px;font-family:Oswald,sans-serif;font-size:14px;color:var(--text);text-shadow:none} .slip b{font-weight:500;color:var(--good)}
+  /* flagged earlier, since gone: kept on the board, greyed (still counted in the record) */
+  .gone,.gone td{opacity:.48} .gone .mono,.gone .price,.gone .pos,.gone .neg{text-shadow:none}
+  .gone-sec{border-top-color:var(--border)} .gone-sec .sec-h .name{color:var(--muted)}
+  @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
 </style>
 </head>
 <body>
@@ -340,7 +366,7 @@ function slipText(size, p, venue) {
 function betRow({g, f, tag}) {
   const r = (SY.rules || {})[tag] || {}, e = r.evidence || {}; const tierCls = e.tier === 'A' ? 'b-fit' : (e.tier === 'B' ? 'b-prior' : 'b-gate');
   const per = /^(1h|1q|1p)_/.test(f.market) ? 'first half' : 'full game';
-  return `<div class="brow">
+  return `<div class="brow${f.lapsed || f.now === null ? ' gone' : ''}">
     <div><div class="bet">${esc(betText(f, g))}</div><div class="small">${per} · ${r.stake || 1}u · <span class="badge ${tierCls}">${TIER_TXT[e.tier] || 'tier ?'}</span></div></div>
     <div class="small"><div><b>Why:</b> ${esc(r.desc || tag)}. <span class="dim">${f.lapsed ? 'When flagged' : 'This game'}: ${esc((g.triggers || {})[tag] || f.why || '')}</span></div>
       ${f.lapsed ? `<div class="moved-chip" style="margin-top:3px"><b>Trigger no longer met on the latest data</b> (for wind: the forecast moved out of the band). Flagged ${ET(f.ts)} ET; it stays in the ledger and is graded either way. Not a new bet.</div>` : ''}<div style="margin-top:3px">${recordText(tag)}</div>${sharpTag(g, tag)}</div>
@@ -435,7 +461,7 @@ function renderToday() {
   const label = _when === 'today' ? 'Next 24 hours' : (_when === 'upcoming' ? 'Later' : 'All upcoming');
   const summary = `<div class="summary"><b>${label}${_tf.sport ? ' · ' + (SPORT_LABEL[_tf.sport] || _tf.sport) : ''}:</b> ${vet.length} system bet${vet.length === 1 ? '' : 's'} on ${games.length} game${games.length === 1 ? '' : 's'} · ${lean.length + TWk.length} lean${lean.length + TWk.length === 1 ? '' : 's'} · sharp-money signals on ${sgames.length} game${sgames.length === 1 ? '' : 's'}${next ? ` · next start ${DAYT(next)} (${until(next)})` : ''}</div>`;
   const cards = gs => gs.map(L => `<div class="gcard">${gameHead({...L[0], away_name: L[0].g.away_name, home_name: L[0].g.home_name, away: L[0].g.away, home: L[0].g.home})}${L.map(betRow).join('')}</div>`).join('');
-  const twRows = TWk.map(r => `<tr><td class="small"><span class="badge b-sport">${esc((r.tour || 'tennis').toUpperCase())}</span> <b>${DAYT(r.start)}</b><br><span class="dim">${until(r.start)}</span></td>
+  const twRows = TWk.map(r => `<tr class="${r.flag ? '' : 'gone'}"><td class="small"><span class="badge b-sport">${esc((r.tour || 'tennis').toUpperCase())}</span> <b>${DAYT(r.start)}</b><br><span class="dim">${until(r.start)}</span></td>
       <td><span class="small">${esc(r.fav_name || '')} vs ${esc(r.opp_name || '')}${r.tournament ? ' · ' + esc(r.tournament) : ''}</span><br><b>${esc(r.fav_name || 'Favourite')} to win set 1</b></td>
       <td class="small mono">match ${(100 * r.match_p).toFixed(1)}% → set 1 fair ${(100 * r.fair).toFixed(1)}%${r.pin_set1 ? '<br><span class="dim">Pinnacle ' + (100 * r.pin_set1).toFixed(1) + '%</span>' : ''}</td>
       <td class="small mono">${r.logged ? `flagged ${ET(r.logged.ts)} at ${VEN(r.logged.venue)} ${(100 * r.logged.price).toFixed(1)}¢ (+${(100 * r.logged.edge).toFixed(1)} pts)<br>` : ''}${r.best ? `${r.logged ? 'now ' : ''}${VEN(r.best.venue)} ${(100 * r.best.cost).toFixed(1)}¢ (${toAm(r.best.cost)})<br><span class="${r.edge >= 0 ? 'pos' : 'neg'}">${r.edge >= 0 ? '+' : ''}${(100 * r.edge).toFixed(1)} pts</span>${!r.flag ? '<br><span class="moved-chip">price gone: no longer at an edge</span>' : slipText(SLIP.small, r.best.venue === 'Kalshi' ? r.best.ask : r.best.cost, r.best.venue)}` : '<span class="moved-chip">no price now</span>'}
@@ -501,11 +527,17 @@ function renderToday() {
     return head + `<tr><td></td><td colspan="6" class="small" style="padding-bottom:12px">${r.rest.map(x => `<div><b>${KIND[x.kind]}${r.mixed ? ` → ${esc(x.bet)}` : ''}:</b> ${x.why}</div>`).join('')}
       ${r.folded.map(x => `<div class="dim">(earlier: ${esc(x.bet)}, ${x.why})</div>`).join('')}
       <div style="margin-top:4px">${r.kinds.map(k => `<div class="dim"><b>${KIND[k]} record:</b> ${REC[k]}.</div>`).join('')}</div></td></tr>`; };
+  // sharp-account flags that were logged (counted) and have since gone: shown greyed with what changed (Sean, 11/2)
+  const goneRows = (SA ? (SA.rows || []) : []).filter(r => r.logged && future(r.game_start || r.start) && passW(r.game_start || r.start) && (r.status !== 'live' || r.kalshi_against || r.conflict))
+    .map(r => `<tr class="gone"><td class="small"><b>${DAYT(r.game_start || r.start)}</b><br><span class="dim">${until(r.game_start || r.start)}</span></td><td class="small">${esc(r.away_name && r.home_name ? r.away_name + ' @ ' + r.home_name : r.title || '')}</td>
+      <td><b>${esc(r.bet)}</b><div class="small">${r.status !== 'live' ? `${r.other ? r.other.n_accounts : ''} sharp account${r.other && r.other.n_accounts === 1 ? '' : 's'} took the other side` : r.kalshi_against ? `Kalshi moved ${r.kalshi_against.move} pts the other way` : `${(r.conflict || []).join(', ')} on the other side`}</div></td>
+      <td class="small mono">flagged ${ET(r.flagged)}<br>sharps paid ${(100 * r.paid).toFixed(1)}¢${r.ask != null ? `, ask now ${(100 * r.ask).toFixed(1)}¢` : ''}</td></tr>`).join('');
   const thead = `<thead><tr><th style="width:160px">Game time</th><th>Game</th><th>Lean</th><th>Signals</th><th>Price</th><th>Traded</th><th>Your bets</th></tr></thead>`;
   const sigRows = !wrows.length ? '' : `
     <div class="small" style="margin:2px 0 6px"><b>Top</b>: Polymarket sharp accounts are on the side and nothing points the other way (no sharp account against, no Kalshi move or other signal on the other side). Either a live sharp-account flag (a top-50 account, a top-200 account also in its sport's top 50, or 2+ top-200 accounts) or sharp accounts plus money or price agreeing. Accounts + money sorts first (the best pairing in the backtest), then flags. Act early: most of the edge goes to acting when the account bets. Click a row for the reasons.</div>
     
     ${strong.length ? `<div class="sec"><table>${thead}<tbody>${strong.map(wtr).join('')}</tbody></table></div>` : '<div class="small dim">No market has sharp accounts on it with nothing against, right now.</div>'}
+    ${goneRows ? `<div class="sec gone-sec"><div class="sec-h"><span class="name">Flagged earlier, since gone</span><span class="meta">still counted in the paper record at the flagged price</span></div><table><tbody>${goneRows}</tbody></table></div>` : ''}
     ${others.length ? `<details class="how" ${window._wopen ? 'open' : ''} ontoggle="window._wopen=this.open"><summary>All other signals (${others.length}): conflicts, or no sharp accounts</summary>
       <div class="controls"><span>Sort</span><span class="tabs inline"><button class="${_ws === 'vol' ? 'on' : ''}" onclick="_ws='vol';window._wopen=true;draw()">Volume</button><button class="${_ws === 'time' ? 'on' : ''}" onclick="_ws='time';window._wopen=true;draw()">Game time</button></span><span>Volume = exchange dollars traded on that market (Kalshi + Polymarket + Novig, risk-equivalent); a signal on a busy market carries more than one on a thin one.</span></div>
       <div class="sec"><table>${thead}<tbody>${others.map(wtr).join('')}</tbody></table></div></details>` : ''}`;
