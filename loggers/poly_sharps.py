@@ -26,7 +26,8 @@ def g(u):
 
 def main():
     if not os.path.exists(LIST): print('[poly_sharps] no account list'); return
-    acc = {a['w']: a for a in json.load(open(LIST))['accounts']}
+    LS = json.load(open(LIST)); acc = {a['w']: a for a in LS['accounts']}
+    for sp_ in LS.get('specialists') or []: acc.setdefault(sp_['w'], dict(w=sp_['w'], rank=None, specialist=sp_['sports']))   # logged, not flagged (11/2: archive to test)
     st = json.load(open(STATE)) if os.path.exists(STATE) else {}
     meta = json.load(open(META)) if os.path.exists(META) else {}
     with cf.ThreadPoolExecutor(8) as ex:
@@ -65,7 +66,8 @@ def main():
             k = (t.get('transactionHash'), c, o)
             if k in seen: continue
             seen.add(k)
-            new.append(dict(ts=ts, w=w, rank=acc[w]['rank'], cond=c, slug=m['slug'], title=m.get('title'), mtype=m['type'], q=m.get('q'), line=m.get('line'),
+            spk = {'epl': 'soccer', 'ucl': 'soccer', 'mls': 'soccer', 'bun': 'soccer'}.get(m['slug'].split('-')[0], m['slug'].split('-')[0])
+            new.append(dict(ts=ts, w=w, rank=acc[w]['rank'], both=spk in (acc[w].get('sport_top50') or []), specialist=bool(acc[w].get('specialist')), cond=c, slug=m['slug'], title=m.get('title'), mtype=m['type'], q=m.get('q'), line=m.get('line'),
                             outcomes=outs, outcome=o, side=t['side'], bet=bet, price=round(price, 4), size=float(t['size']), usd=round(usd, 2),
                             start=m['start'], tx=t.get('transactionHash')))
         if T: st[w] = max([last] + [int(t.get('timestamp') or 0) for t in T])

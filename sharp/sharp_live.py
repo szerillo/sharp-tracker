@@ -3,7 +3,8 @@
 other side after I have a position).
 
 Input: data/polymarket/sharp_fills.jsonl (loggers/poly_sharps.py, every 5 minutes). Per upcoming game market:
-  FLAG    the first moment a top-50 account bets a side, or two different top-200 accounts are on the same side, with no top-200
+  FLAG    the first moment a top-50 account (or, from 11/2, a top-200 account also in that sport's own top 50: the strongest tier in
+          docs/flow_volume_2026-11-02.md) bets a side, or two different top-200 accounts are on the same side, with no top-200
           account on the other side yet. Backtest (holdout Sep 1 to Nov 1, entry 5 minutes after, data/research/sharp_accounts_filters.json):
           about 8-9 games a day, +0.96 pts CLV (z 7.4) vs +0.78 for every single top-200 bet (19 games a day).
   OTHER SIDE  after a flag, a top-200 account bets the other side. Backtest: holding still averaged +1.12 pts CLV vs +0.89 locked in by
@@ -172,7 +173,7 @@ def main():
     for l in open(FILLS):
         try: r = json.loads(l)
         except Exception: continue
-        if epoch(r['start']) > NOW - 6 * 3600 and (r.get('slug') or '').split('-')[0] in LEAGUES: F[r['cond']].append(r)
+        if r.get('rank') and epoch(r['start']) > NOW - 6 * 3600 and (r.get('slug') or '').split('-')[0] in LEAGUES: F[r['cond']].append(r)   # specialists (rank None) are logged only
     meta = json.load(open(META)) if os.path.exists(META) else {}
     paper = [json.loads(l) for l in open(PAPER)] if os.path.exists(PAPER) else []
     logged = {p['cond'] for p in paper}
@@ -199,7 +200,7 @@ def main():
                 other = [s for s in sides if s != r['bet']]
                 if any(sides[s] for s in other): continue          # sharps already on both sides: no flag
                 accts = sides[r['bet']]
-                if r['rank'] <= TOP_RANK or len(accts) >= TWO: flag = dict(side=r['bet'], ts=r['ts'], trigger=r)
+                if r['rank'] <= TOP_RANK or r.get('both') or len(accts) >= TWO: flag = dict(side=r['bet'], ts=r['ts'], trigger=r)
             else:
                 sides[r['bet']].setdefault(r['w'], r)
         if not flag: continue
@@ -209,7 +210,8 @@ def main():
         a = ask(tok) if tok and start > NOW else None
         row = dict(cond=cond, slug=L[0]['slug'], title=L[0].get('title'), mtype=L[0]['mtype'], start=dt.datetime.fromtimestamp(start, dt.timezone.utc).strftime('%Y-%m-%dT%H:%M:%SZ'),
                    bet=bet_text(L[0], side), side=side, flagged=dt.datetime.fromtimestamp(flag['ts'], dt.timezone.utc).strftime('%Y-%m-%dT%H:%M:%SZ'),
-                   why=('a top-50 account' if flag['trigger']['rank'] <= TOP_RANK and len(sides[side]) < 2 else f"{len(sides[side])} top-200 accounts"),
+                   why=(f"{len(sides[side])} top-200 accounts" if len(sides[side]) >= 2 else 'a top-50 account' if flag['trigger']['rank'] <= TOP_RANK
+                        else 'a top-200 account also in this sport\'s top 50'),
                    n_accounts=len(sides[side]), best_rank=min(r['rank'] for r in with_), usd=round(sum(r['usd'] for r in with_)), paid=round(paid, 3), ask=a,
                    status='other side' if opp else 'live', link=f"https://polymarket.us/event/{L[0]['slug']}",
                    other=dict(n_accounts=len({r['w'] for r in opp}), best_rank=min(r['rank'] for r in opp), usd=round(sum(r['usd'] for r in opp)),
@@ -246,7 +248,7 @@ def main():
     BE = by_event(F)
     rows.sort(key=lambda r: (r['status'] != 'live' or bool(r.get('kalshi_against')), r['start']))
     json.dump(dict(built=dt.datetime.fromtimestamp(NOW, dt.timezone.utc).strftime('%Y-%m-%dT%H:%M:%SZ'), rows=[r for r in rows if epoch(r['start']) > NOW],
-                   record=rec, sys_tags=sys_tags(BE), by_event=BE, rule=f'top-{TOP_RANK} account, or {TWO}+ top-200 accounts on one side, none on the other'), open(OUT, 'w'), indent=1)
+                   record=rec, sys_tags=sys_tags(BE), by_event=BE, rule=f'top-{TOP_RANK} account, a top-200 account that is also in the sport top 50, or {TWO}+ top-200 accounts on one side, none on the other'), open(OUT, 'w'), indent=1)
     print(f"[sharp_live] {sum(epoch(r['start']) > NOW for r in rows)} upcoming flagged markets ({sum(r['status'] == 'other side' for r in rows)} with a sharp on the other side since); paper {rec}")
 
 

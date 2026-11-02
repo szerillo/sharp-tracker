@@ -15,6 +15,7 @@ import sharp.flow_volume as V
 from sharp.sharp_accounts2 import Px
 AGG = os.path.join(ROOT, 'data', 'research', 'poly_agg.json.gz'); LIST = os.path.join(ROOT, 'data', 'state', 'poly_sharps_list.json')
 MIN_VOL = 10000.0
+SPORT = {'epl': 'soccer', 'ucl': 'soccer', 'mls': 'soccer', 'bundesliga': 'soccer', 'laliga': 'soccer', 'seriea': 'soccer', 'ligue1': 'soccer'}
 
 
 def add_market(A, c, st, L):
@@ -23,29 +24,40 @@ def add_market(A, c, st, L):
     P = Px([x[:4] for x in L]); cl = P.at(st)
     A['done'][c['cond']] = 1
     if cl is None: return
-    ry = 1 if c['winner'] == c['outcomes'][0] else 0; seen = set()
+    ry = 1 if c['winner'] == c['outcomes'][0] else 0; seen = set(); sp = SPORT.get(c['tag'], c['tag'])
+    WS = A.setdefault('ws', {}).setdefault(sp, {})
     for t, py, usd, d, w in L:
         if usd < 100 or not w: continue
-        price = py if d > 0 else 1 - py; won = ry if d > 0 else 1 - ry
+        price = py if d > 0 else 1 - py; won = ry if d > 0 else 1 - ry; v = 100 * ((cl if d > 0 else 1 - cl) - price)
         x = A['w'].setdefault(w, [0.0, 0, 0, 0.0])
-        x[0] += 100 * ((cl if d > 0 else 1 - cl) - price); x[1] += 1; x[3] += (1 - price) / price if won else -1.0
-        if w not in seen: x[2] += 1; seen.add(w)
+        x[0] += v; x[1] += 1; x[3] += (1 - price) / price if won else -1.0
+        y = WS.setdefault(w, [0.0, 0, 0]); y[0] += v; y[1] += 1
+        if w not in seen: x[2] += 1; y[2] += 1; seen.add(w)
     A['through'] = max(A.get('through') or '', dt.datetime.fromtimestamp(st, dt.timezone.utc).strftime('%Y-%m-%d'))
 
 
 def write_list(A):
     W = A['w']; sc = {w: x for w, x in W.items() if x[1] >= 30 and x[2] >= 15}
     ranked = sorted(sc, key=lambda w: -sc[w][0] / sc[w][1])
+    top = set(ranked[:200]); s50 = {}
+    for sp, WS in (A.get('ws') or {}).items():                 # per-sport top 50 (20+ fills on 10+ games in that sport)
+        r_ = sorted([w for w, y in WS.items() if y[1] >= 20 and y[2] >= 10], key=lambda w: -WS[w][0] / WS[w][1])[:50]
+        for i, w in enumerate(r_): s50.setdefault(w, {})[sp] = dict(rank=i + 1, clv=round(WS[w][0] / WS[w][1], 2))
     out = dict(built=dt.datetime.now(dt.timezone.utc).strftime('%Y-%m-%dT%H:%M:%SZ'), history_through=A.get('through'), scored=len(sc),
-               method='mean CLV vs Polymarket close of $100+ pregame fills, 30+ fills on 15+ games, top 200 (sharp/poly_agg.py)',
-               accounts=[dict(w=w, rank=i + 1, clv=round(sc[w][0] / sc[w][1], 2), roi=round(100 * sc[w][3] / sc[w][1], 1), fills=sc[w][1], games=sc[w][2])
-                         for i, w in enumerate(ranked[:200])])
+               method='mean CLV vs Polymarket close of $100+ pregame fills, 30+ fills on 15+ games, top 200 (sharp/poly_agg.py); sport_top50 = '
+                      'also in that sport\'s own top 50 (20+ fills on 10+ games there): the strongest tier (docs/flow_volume_2026-11-02.md)',
+               accounts=[dict(w=w, rank=i + 1, clv=round(sc[w][0] / sc[w][1], 2), roi=round(100 * sc[w][3] / sc[w][1], 1), fills=sc[w][1], games=sc[w][2],
+                              sport_top50=sorted(s50.get(w, {}))) for i, w in enumerate(ranked[:200])],
+               specialists=[dict(w=w, sports={k: v for k, v in d.items() if k != 'ufc'}) for w, d in s50.items() if w not in top and any(k != 'ufc' for k in d)])
     json.dump(out, open(LIST, 'w'), indent=0)
     print(f"[poly_agg] list: {len(sc)} accounts scored through {A.get('through')}, top 200 (CLV floor {out['accounts'][-1]['clv'] if out['accounts'] else None})")
 
 
 def save(A):
-    with gzip.open(AGG, 'wt') as f: json.dump({k: ({w: [round(x[0], 3), x[1], x[2], round(x[3], 3)] for w, x in v.items()} if k == 'w' else v) for k, v in A.items()}, f, separators=(',', ':'))
+    rnd = lambda x: [round(v, 3) if isinstance(v, float) else v for v in x]
+    with gzip.open(AGG, 'wt') as f:
+        json.dump({k: ({w: rnd(x) for w, x in v.items()} if k == 'w' else {sp: {w: rnd(y) for w, y in W.items()} for sp, W in v.items()} if k == 'ws' else v)
+                   for k, v in A.items()}, f, separators=(',', ':'))
 
 
 def init():
