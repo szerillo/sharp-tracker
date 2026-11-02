@@ -1,5 +1,5 @@
 {
- "built": "2026-11-02T18:41:50Z",
+ "built": "2026-11-02T18:49:22Z",
  "rows": [
   {
    "cond": "0xdc614e16fcccc4cce28241e13e7b774d797e30bbb55b0985f63915c039fa7aa7",
@@ -60,38 +60,6 @@
    "side_std": "away"
   },
   {
-   "cond": "0x9345f66db680b2b406afe71585ae252d2823e1eddcf52e9396d3dc42a93adce8",
-   "slug": "nba-atl-ind-2026-11-02",
-   "title": "Hawks vs. Pacers",
-   "mtype": "total",
-   "start": "2026-11-03T00:30:00Z",
-   "bet": "Over 231.5",
-   "side": "Over",
-   "flagged": "2026-11-02T18:00:06Z",
-   "why": "a top-50 account",
-   "n_accounts": 1,
-   "best_rank": 40,
-   "usd": 525,
-   "paid": 0.5,
-   "ask": 0.47,
-   "status": "live",
-   "link": "https://polymarket.us/event/nba-atl-ind-2026-11-02",
-   "other": null,
-   "kalshi_against": null,
-   "event_id": "401909909",
-   "sport": "nba",
-   "league": null,
-   "away": "ATL",
-   "home": "IND",
-   "away_name": "Atlanta Hawks",
-   "home_name": "Indiana Pacers",
-   "game_start": "2026-11-03T00:30Z",
-   "side_std": "over",
-   "conflict": [
-    "Kalshi move"
-   ]
-  },
-  {
    "cond": "0x8c5d7c86eb94c854ce720ffe8b82d934db5294c7e60c9d70aa80dcce628d80c4",
    "slug": "nba-sac-dal-2026-11-02",
    "title": "Kings vs. Mavericks",
@@ -105,7 +73,7 @@
    "best_rank": 59,
    "usd": 7415,
    "paid": 0.519,
-   "ask": 0.56,
+   "ask": 0.57,
    "status": "live",
    "link": "https://polymarket.us/event/nba-sac-dal-2026-11-02",
    "other": null,
@@ -281,7 +249,7 @@
    "best_rank": 75,
    "usd": 19552,
    "paid": 0.681,
-   "ask": 0.78,
+   "ask": 0.79,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-atl-ind-2026-11-02",
    "other": {
@@ -290,7 +258,7 @@
     "usd": 183,
     "first": "2026-11-02T18:05:37Z"
    },
-   "exit_bid": 0.77,
+   "exit_bid": 0.78,
    "kalshi_against": null,
    "event_id": "401909909",
    "sport": "nba",
@@ -345,6 +313,44 @@
    ]
   },
   {
+   "cond": "0x9345f66db680b2b406afe71585ae252d2823e1eddcf52e9396d3dc42a93adce8",
+   "slug": "nba-atl-ind-2026-11-02",
+   "title": "Hawks vs. Pacers",
+   "mtype": "total",
+   "start": "2026-11-03T00:30:00Z",
+   "bet": "Over 231.5",
+   "side": "Over",
+   "flagged": "2026-11-02T18:00:06Z",
+   "why": "a top-50 account",
+   "n_accounts": 1,
+   "best_rank": 40,
+   "usd": 525,
+   "paid": 0.5,
+   "ask": 0.47,
+   "status": "other side",
+   "link": "https://polymarket.us/event/nba-atl-ind-2026-11-02",
+   "other": {
+    "n_accounts": 1,
+    "best_rank": 119,
+    "usd": 595,
+    "first": "2026-11-02T18:37:58Z"
+   },
+   "exit_bid": 0.46,
+   "kalshi_against": null,
+   "event_id": "401909909",
+   "sport": "nba",
+   "league": null,
+   "away": "ATL",
+   "home": "IND",
+   "away_name": "Atlanta Hawks",
+   "home_name": "Indiana Pacers",
+   "game_start": "2026-11-03T00:30Z",
+   "side_std": "over",
+   "conflict": [
+    "Kalshi move"
+   ]
+  },
+  {
    "cond": "0xc94d2d36ea4b02d121cf9dd446fe61f0ffbc4b54053cf9f0e771ae4e4eec08b5",
    "slug": "nba-sac-dal-2026-11-02",
    "title": "Kings vs. Mavericks",
@@ -358,7 +364,7 @@
    "best_rank": 39,
    "usd": 1437,
    "paid": 0.21,
-   "ask": 0.21,
+   "ask": 0.24,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-sac-dal-2026-11-02",
    "other": {
@@ -367,7 +373,7 @@
     "usd": 175,
     "first": "2026-11-01T23:00:37Z"
    },
-   "exit_bid": 0.2,
+   "exit_bid": 0.23,
    "kalshi_against": null,
    "event_id": "401909913",
    "sport": "nba",
@@ -521,6 +527,11 @@
     "n": 1,
     "best_rank": 40,
     "usd": 525
+   },
+   "under": {
+    "n": 1,
+    "best_rank": 119,
+    "usd": 595
    }
   },
   "401909911|ml": {
