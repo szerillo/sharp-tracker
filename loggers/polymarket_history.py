@@ -93,6 +93,36 @@ def catalog_back(tags=None):
     print(f"[poly hist] back: {n} older markets added")
 
 
+def catalog_ufc_cards(out_name='catalog_ufc_old.jsonl'):
+    """Older UFC markets live on card-level events ('ufc-320-ankalaev-vs-pereira-2', one moneyline market per fight), which the
+    league-a-h-date pattern misses. Walk the ufc tag back by end date and keep settled two-way moneyline fight markets with a
+    gameStartTime that are not already in catalog.jsonl -> catalog_ufc_old.jsonl (merge by hand after checking)."""
+    have = set(json.loads(l)['cond'] for l in open(os.path.join(OUT, 'catalog.jsonl')))
+    mx = '2026-11-02'; n = 0; empty = 0
+    with open(os.path.join(OUT, out_name), 'w') as f:
+        while empty < 20 and mx > '2023-01-01':
+            E = g(f"{G}/events?tag_slug=ufc&closed=true&limit=100&order=startDate&ascending=false&end_date_max={mx}T00:00:00Z")
+            if not E: break
+            oldest = mx; got = 0
+            for e in E:
+                sd = (e.get('startDate') or '')[:10]
+                if sd and sd < oldest: oldest = sd
+                if not (e.get('slug') or '').startswith('ufc'): continue
+                for m in e.get('markets') or []:
+                    if m.get('sportsMarketType') != 'moneyline' or m['conditionId'] in have or not m.get('gameStartTime'): continue
+                    try: outs = json.loads(m['outcomes']); px = [float(x) for x in json.loads(m.get('outcomePrices') or '[]')]
+                    except Exception: continue
+                    if len(outs) != 2 or sorted(px) != [0.0, 1.0]: continue
+                    have.add(m['conditionId']); got += 1; n += 1
+                    f.write(json.dumps(dict(tag='ufc', event=m.get('slug') or e['slug'], title=m.get('question'), date=m['gameStartTime'][:10], market='ml', line=None,
+                                            cond=m['conditionId'], outcomes=outs, winner=outs[px.index(1.0)], start=m['gameStartTime'],
+                                            volume=float(m.get('volume') or 0))) + '\n')
+            empty = empty + 1 if got == 0 else 0
+            if oldest >= mx: oldest = (dt.date.fromisoformat(mx) - dt.timedelta(days=3)).isoformat()
+            mx = oldest
+    print(f"[poly hist] ufc cards: {n} older fight markets, reached {mx}")
+
+
 def catalog_props(min_vol=2000.0):
     """Settled two-way player-prop markets (any sportsMarketType that is not a game line or a many-way novelty) on game and
     '-player-props' events -> data/polymarket/history/catalog_props.jsonl (same fields as catalog.jsonl plus the stat type)."""
@@ -152,6 +182,7 @@ if __name__ == '__main__':
     mv = float(sys.argv[sys.argv.index('--min-volume') + 1]) if '--min-volume' in sys.argv else 1000.0
     if sys.argv[1] == 'catalog': catalog()
     elif sys.argv[1] == 'catalog_props': catalog_props()
+    elif sys.argv[1] == 'catalog_ufc': catalog_ufc_cards()
     elif sys.argv[1] == 'catalog_back': catalog_back([t for t in sys.argv[2:] if not t.startswith('--')] or None)
     elif sys.argv[1] == 'trades_props': trades(mv, 'catalog_props.jsonl')
     else: trades(mv)
