@@ -1035,5 +1035,44 @@
 "fair": 0.50143,
 "edge_pts": -2.24,
 "why": "home HOU over rate 71%, days since last game: home 2, visitor 1; total 218.5 -> 217.0"
+},
+"401909908:xch_homedog_fade:ml": {
+"tag": "xch_homedog_fade",
+"fill_id": "49e1b48876e8",
+"ts": "2026-11-02T23:06:14Z",
+"market": "ml",
+"side": "away",
+"line": null,
+"venue": "Novig",
+"price": -208,
+"fair": 0.67467,
+"edge_pts": -0.03,
+"why": "Novig home side mid 0.328 inside T-1.4h; audit band 20-35c"
+},
+"401909909:xch_homedog_fade:ml": {
+"tag": "xch_homedog_fade",
+"fill_id": "0937ac9baab0",
+"ts": "2026-11-02T23:06:14Z",
+"market": "ml",
+"side": "away",
+"line": null,
+"venue": "Novig",
+"price": -376,
+"fair": 0.79056,
+"edge_pts": 0.06,
+"why": "Novig home side mid 0.212 inside T-1.4h; audit band 20-35c"
+},
+"401909909:nba_momentum:spread": {
+"tag": "nba_momentum",
+"fill_id": "d5aace88111b",
+"ts": "2026-11-02T23:06:14Z",
+"market": "spread",
+"side": "away",
+"line": -10.5,
+"venue": "Kalshi",
+"price": -104,
+"fair": 0.48738,
+"edge_pts": -2.26,
+"why": "Kalshi spread mid 0.550 at T-6h -> 0.515 now (-3.5c); continuation (audit section 3, NBA only)"
 }
 }
