@@ -1,5 +1,5 @@
 {
- "built": "2026-11-02T19:04:13Z",
+ "built": "2026-11-02T19:11:57Z",
  "rows": [
   {
    "cond": "0xdc614e16fcccc4cce28241e13e7b774d797e30bbb55b0985f63915c039fa7aa7",
@@ -131,7 +131,39 @@
    "best_rank": 40,
    "usd": 394,
    "paid": 0.5,
-   "ask": 0.54,
+   "ask": 0.56,
+   "status": "live",
+   "link": "https://polymarket.us/event/nba-mil-min-2026-11-02",
+   "other": null,
+   "kalshi_against": null,
+   "event_id": "401909915",
+   "sport": "nba",
+   "league": null,
+   "away": "MIL",
+   "home": "MIN",
+   "away_name": "Milwaukee Bucks",
+   "home_name": "Minnesota Timberwolves",
+   "game_start": "2026-11-03T01:00Z",
+   "side_std": "away",
+   "conflict": [
+    "Kalshi move"
+   ]
+  },
+  {
+   "cond": "0x5b84eeee777c4bdc55f5233f642d52227727685d4a393f557c059bf752464620",
+   "slug": "nba-mil-min-2026-11-02",
+   "title": "Bucks vs. Timberwolves",
+   "mtype": "spread",
+   "start": "2026-11-03T01:00:00Z",
+   "bet": "Bucks +10.5",
+   "side": "Bucks",
+   "flagged": "2026-11-02T19:03:28Z",
+   "why": "2 top-200 accounts",
+   "n_accounts": 2,
+   "best_rank": 112,
+   "usd": 3238,
+   "paid": 0.48,
+   "ask": 0.51,
    "status": "live",
    "link": "https://polymarket.us/event/nba-mil-min-2026-11-02",
    "other": null,
@@ -215,12 +247,12 @@
    "start": "2026-11-03T01:30:00Z",
    "bet": "Rockets ML",
    "side": "Rockets",
-   "flagged": "2026-11-02T18:59:42Z",
-   "why": "2 top-200 accounts",
-   "n_accounts": 2,
-   "best_rank": 134,
-   "usd": 318,
-   "paid": 0.638,
+   "flagged": "2026-11-02T18:59:25Z",
+   "why": "4 top-200 accounts",
+   "n_accounts": 4,
+   "best_rank": 31,
+   "usd": 8240,
+   "paid": 0.65,
    "ask": 0.65,
    "status": "live",
    "link": "https://polymarket.us/event/nba-bos-hou-2026-11-02",
@@ -238,6 +270,35 @@
    "conflict": [
     "Kalshi bet back"
    ]
+  },
+  {
+   "cond": "0xc12c795a1c5a3cef7772e01b73944198a67005cd17f460369a6ab6f03359971f",
+   "slug": "nba-bos-hou-2026-11-02",
+   "title": "Celtics vs. Rockets",
+   "mtype": "total",
+   "start": "2026-11-03T01:30:00Z",
+   "bet": "Under 218.5",
+   "side": "Under",
+   "flagged": "2026-11-02T19:02:49Z",
+   "why": "a top-50 account",
+   "n_accounts": 1,
+   "best_rank": 12,
+   "usd": 118,
+   "paid": 0.53,
+   "ask": 0.54,
+   "status": "live",
+   "link": "https://polymarket.us/event/nba-bos-hou-2026-11-02",
+   "other": null,
+   "kalshi_against": null,
+   "event_id": "401909916",
+   "sport": "nba",
+   "league": null,
+   "away": "BOS",
+   "home": "HOU",
+   "away_name": "Boston Celtics",
+   "home_name": "Houston Rockets",
+   "game_start": "2026-11-03T01:30Z",
+   "side_std": "under"
   },
   {
    "cond": "0x484829914029c89c187799972e5a2e50b48e94347b17e2bd2d7badd313d573d3",
@@ -743,16 +804,16 @@
   },
   "401909915|spread": {
    "away": {
-    "n": 2,
+    "n": 3,
     "best_rank": 40,
-    "usd": 1713
+    "usd": 2893
    }
   },
   "401909916|ml": {
    "home": {
-    "n": 2,
-    "best_rank": 134,
-    "usd": 318
+    "n": 4,
+    "best_rank": 31,
+    "usd": 8240
    }
   },
   "401909916|spread": {
@@ -760,6 +821,13 @@
     "n": 2,
     "best_rank": 142,
     "usd": 22900
+   }
+  },
+  "401909916|total": {
+   "under": {
+    "n": 1,
+    "best_rank": 12,
+    "usd": 118
    }
   },
   "401909918|ml": {
