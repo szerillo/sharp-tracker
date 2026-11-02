@@ -1,0 +1,83 @@
+#!/usr/bin/env python3
+"""Polymarket settled game markets + their full public trade tape, for backtesting big vs small money on Polymarket (Sean, 11/2).
+Step 1 (catalog): every closed game event (slug league-away-home-YYYY-MM-DD) per sport tag from the Gamma API, with each moneyline /
+spread / total market: conditionId, outcomes, line, gameStartTime, winner (outcomePrices 1/0), volume ->
+data/polymarket/history/catalog.jsonl. Step 2 (trades): every public trade on those markets from data-api.polymarket.com (taker fills:
+side BUY/SELL of an outcome, price, size, timestamp, proxyWallet) -> data/polymarket/history/trades/<conditionId>.jsonl.gz.
+The wallet column is what makes Polymarket different: every fill has an on-chain account, so a wallet's record can be tested too.
+Usage: python3 loggers/polymarket_history.py catalog | trades [--min-volume N]"""
+import os, sys, re, json, gzip, time, urllib.request, urllib.error, concurrent.futures as cf
+OUT = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'data', 'polymarket', 'history'); os.makedirs(os.path.join(OUT, 'trades'), exist_ok=True)
+G = "https://gamma-api.polymarket.com"; D = "https://data-api.polymarket.com"
+TAGS = ['nfl', 'nba', 'nhl', 'cfb', 'cbb', 'mlb', 'epl', 'ucl', 'mls', 'laliga', 'bundesliga', 'seriea', 'ligue1', 'ufc', 'wnba']
+GAME = re.compile(r'^([a-z0-9]+)-([a-z0-9]+)-([a-z0-9]+)-(\d{4}-\d{2}-\d{2})$')
+TYPES = {'moneyline': 'ml', 'spreads': 'spread', 'totals': 'total'}
+
+
+def g(u, tries=5):
+    for i in range(tries):
+        try: return json.load(urllib.request.urlopen(urllib.request.Request(u, headers={'User-Agent': 'sharp-tracker'}), timeout=40))
+        except urllib.error.HTTPError as e:
+            if e.code in (429, 500, 502, 503): time.sleep(2 * (i + 1)); continue
+            return None
+        except Exception: time.sleep(2 * (i + 1))
+    return None
+
+
+def catalog():
+    seen = set(); n = 0
+    with open(os.path.join(OUT, 'catalog.jsonl'), 'w') as f:
+        for tag in TAGS:
+            off = 0; nt = 0
+            while off < 20000:
+                E = g(f"{G}/events?tag_slug={tag}&closed=true&limit=100&offset={off}&order=startDate&ascending=false")
+                if not E: break
+                for e in E:
+                    m_ = GAME.match(e.get('slug') or '')
+                    if not m_ or e['slug'] in seen: continue
+                    seen.add(e['slug'])
+                    for m in e.get('markets') or []:
+                        mk = TYPES.get(m.get('sportsMarketType'))
+                        if not mk: continue
+                        try: outs = json.loads(m['outcomes']); px = [float(x) for x in json.loads(m.get('outcomePrices') or '[]')]
+                        except Exception: continue
+                        if len(outs) != 2 or len(px) != 2 or sorted(px) != [0.0, 1.0]: continue      # settled two-way only (no voids/pushes)
+                        f.write(json.dumps(dict(tag=tag, event=e['slug'], title=e.get('title'), date=m_.group(4), market=mk, line=m.get('line'),
+                                                cond=m['conditionId'], outcomes=outs, winner=outs[px.index(1.0)], start=m.get('gameStartTime'),
+                                                volume=float(m.get('volume') or 0))) + '\n'); n += 1; nt += 1
+                off += len(E)
+                if len(E) < 100: break
+            print(f"[poly hist] {tag}: {nt} settled game markets (scanned {off} events)", flush=True)
+    print(f"[poly hist] catalog: {n} markets on {len(seen)} games")
+
+
+def trades_for(cond):
+    p = os.path.join(OUT, 'trades', f'{cond}.jsonl.gz')
+    if os.path.exists(p): return 0
+    rows = []; off = 0
+    while True:
+        T = g(f"{D}/trades?market={cond}&limit=500&offset={off}&takerOnly=true")
+        if not T: break
+        rows += [dict(ts=t['timestamp'], side=t['side'], outcome=t.get('outcome'), price=t['price'], size=t['size'], wallet=t.get('proxyWallet')) for t in T]
+        off += len(T)
+        if len(T) < 500 or off >= 10000: break       # the API stops paging around 10k; very busy markets are truncated (flagged)
+    with gzip.open(p, 'wt') as f:
+        for r in rows: f.write(json.dumps(r, separators=(',', ':')) + '\n')
+        if off >= 10000: f.write(json.dumps(dict(truncated=True)) + '\n')
+    return len(rows)
+
+
+def trades(min_vol):
+    C = [json.loads(l) for l in open(os.path.join(OUT, 'catalog.jsonl'))]
+    todo = [c['cond'] for c in C if c['volume'] >= min_vol]
+    t0 = time.time(); n = 0
+    with cf.ThreadPoolExecutor(8) as ex:
+        for i, k in enumerate(ex.map(trades_for, todo)):
+            n += k
+            if i % 500 == 0: print(f"[poly hist] trades {i}/{len(todo)} markets, {n} trades, {time.time() - t0:.0f}s", flush=True)
+    print(f"[poly hist] trades done: {len(todo)} markets, {n} new trades")
+
+
+if __name__ == '__main__':
+    if sys.argv[1] == 'catalog': catalog()
+    else: trades(float(sys.argv[sys.argv.index('--min-volume') + 1]) if '--min-volume' in sys.argv else 1000.0)
