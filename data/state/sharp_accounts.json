@@ -1,5 +1,5 @@
 {
- "built": "2026-11-02T23:15:19Z",
+ "built": "2026-11-02T23:20:44Z",
  "rows": [
   {
    "cond": "0xdc614e16fcccc4cce28241e13e7b774d797e30bbb55b0985f63915c039fa7aa7",
@@ -60,39 +60,6 @@
    "home_name": "Cleveland Cavaliers",
    "game_start": "2026-11-03T00:00Z",
    "side_std": "home",
-   "conflict": [
-    "Kalshi bet back"
-   ]
-  },
-  {
-   "cond": "0x087cd258edf923859b8229711c89d194eae8e526c03783c926d99b1ee9662edc",
-   "slug": "nba-chi-phi-2026-11-02",
-   "title": "Bulls vs. 76ers",
-   "mtype": "ml",
-   "start": "2026-11-03T00:30:00Z",
-   "bet": "Bulls ML",
-   "side": "Bulls",
-   "flagged": "2026-11-02T21:53:54Z",
-   "why": "2 top-200 accounts",
-   "n_accounts": 2,
-   "best_rank": 90,
-   "usd": 313,
-   "paid": 0.167,
-   "ask": 0.19,
-   "status": "live",
-   "link": "https://polymarket.us/event/nba-chi-phi-2026-11-02",
-   "other": null,
-   "kalshi_against": null,
-   "logged": true,
-   "event_id": "401909912",
-   "sport": "nba",
-   "league": null,
-   "away": "CHI",
-   "home": "PHI",
-   "away_name": "Chicago Bulls",
-   "home_name": "Philadelphia 76ers",
-   "game_start": "2026-11-03T00:30Z",
-   "side_std": "away",
    "conflict": [
     "Kalshi bet back"
    ]
@@ -587,6 +554,44 @@
    "side_std": "home"
   },
   {
+   "cond": "0x087cd258edf923859b8229711c89d194eae8e526c03783c926d99b1ee9662edc",
+   "slug": "nba-chi-phi-2026-11-02",
+   "title": "Bulls vs. 76ers",
+   "mtype": "ml",
+   "start": "2026-11-03T00:30:00Z",
+   "bet": "Bulls ML",
+   "side": "Bulls",
+   "flagged": "2026-11-02T21:53:54Z",
+   "why": "2 top-200 accounts",
+   "n_accounts": 2,
+   "best_rank": 90,
+   "usd": 313,
+   "paid": 0.167,
+   "ask": 0.19,
+   "status": "live",
+   "link": "https://polymarket.us/event/nba-chi-phi-2026-11-02",
+   "other": null,
+   "kalshi_against": {
+    "move": 4.5,
+    "now": 82.0,
+    "state": "reversed"
+   },
+   "logged": true,
+   "event_id": "401909912",
+   "sport": "nba",
+   "league": null,
+   "away": "CHI",
+   "home": "PHI",
+   "away_name": "Chicago Bulls",
+   "home_name": "Philadelphia 76ers",
+   "game_start": "2026-11-03T00:30Z",
+   "side_std": "away",
+   "conflict": [
+    "Kalshi bet back",
+    "Kalshi move"
+   ]
+  },
+  {
    "cond": "0x9345f66db680b2b406afe71585ae252d2823e1eddcf52e9396d3dc42a93adce8",
    "slug": "nba-atl-ind-2026-11-02",
    "title": "Hawks vs. Pacers",
@@ -639,7 +644,7 @@
    "best_rank": 39,
    "usd": 2637,
    "paid": 0.224,
-   "ask": 0.26,
+   "ask": 0.25,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-sac-dal-2026-11-02",
    "other": {
@@ -648,7 +653,7 @@
     "usd": 175,
     "first": "2026-11-01T23:00:37Z"
    },
-   "exit_bid": 0.25,
+   "exit_bid": 0.24,
    "kalshi_against": null,
    "logged": false,
    "event_id": "401909913",
@@ -803,6 +808,30 @@
     "usd": 118
    },
    "against": null
+  },
+  "401909909:xch_homedog_fade:ml": {
+   "with": {
+    "n": 3,
+    "best_rank": 75,
+    "usd": 19552
+   },
+   "against": {
+    "n": 1,
+    "best_rank": 55,
+    "usd": 183
+   }
+  },
+  "401909909:nba_momentum:spread": {
+   "with": {
+    "n": 3,
+    "best_rank": 31,
+    "usd": 8520
+   },
+   "against": {
+    "n": 1,
+    "best_rank": 112,
+    "usd": 271
+   }
   }
  },
  "by_event": {
