@@ -1,5 +1,5 @@
 {
- "built": "2026-11-02T17:56:25Z",
+ "built": "2026-11-02T18:19:20Z",
  "rows": [
   {
    "cond": "0xdc614e16fcccc4cce28241e13e7b774d797e30bbb55b0985f63915c039fa7aa7",
@@ -29,6 +29,64 @@
    "home_name": "Boston Bruins",
    "game_start": "2026-11-03T00:00Z",
    "side_std": "away"
+  },
+  {
+   "cond": "0x59b4183e400ce040935d5eb2d29bd7b61046f774e51a8f25aeb1a99150f7ae94",
+   "slug": "nba-atl-ind-2026-11-02",
+   "title": "Hawks vs. Pacers",
+   "mtype": "spread",
+   "start": "2026-11-03T00:30:00Z",
+   "bet": "Hawks -5.5",
+   "side": "Hawks",
+   "flagged": "2026-11-02T18:00:06Z",
+   "why": "3 top-200 accounts",
+   "n_accounts": 3,
+   "best_rank": 31,
+   "usd": 8520,
+   "paid": 0.51,
+   "ask": 0.61,
+   "status": "live",
+   "link": "https://polymarket.us/event/nba-atl-ind-2026-11-02",
+   "other": null,
+   "kalshi_against": null,
+   "event_id": "401909909",
+   "sport": "nba",
+   "league": null,
+   "away": "ATL",
+   "home": "IND",
+   "away_name": "Atlanta Hawks",
+   "home_name": "Indiana Pacers",
+   "game_start": "2026-11-03T00:30Z",
+   "side_std": "away"
+  },
+  {
+   "cond": "0x9345f66db680b2b406afe71585ae252d2823e1eddcf52e9396d3dc42a93adce8",
+   "slug": "nba-atl-ind-2026-11-02",
+   "title": "Hawks vs. Pacers",
+   "mtype": "total",
+   "start": "2026-11-03T00:30:00Z",
+   "bet": "Over 231.5",
+   "side": "Over",
+   "flagged": "2026-11-02T18:00:06Z",
+   "why": "a top-50 account",
+   "n_accounts": 1,
+   "best_rank": 40,
+   "usd": 525,
+   "paid": 0.5,
+   "ask": 0.48,
+   "status": "live",
+   "link": "https://polymarket.us/event/nba-atl-ind-2026-11-02",
+   "other": null,
+   "kalshi_against": null,
+   "event_id": "401909909",
+   "sport": "nba",
+   "league": null,
+   "away": "ATL",
+   "home": "IND",
+   "away_name": "Atlanta Hawks",
+   "home_name": "Indiana Pacers",
+   "game_start": "2026-11-03T00:30Z",
+   "side_std": "over"
   },
   {
    "cond": "0x8c5d7c86eb94c854ce720ffe8b82d934db5294c7e60c9d70aa80dcce628d80c4",
@@ -116,38 +174,6 @@
    "home_name": "Seattle Seahawks",
    "game_start": "2026-11-03T01:15Z",
    "side_std": "home"
-  },
-  {
-   "cond": "0x7172e2f4cb02bc1e159cbd92f390336fd879d09d117be3ea8ce8f34c8719c624",
-   "slug": "nba-tor-lac-2026-11-02",
-   "title": "Raptors vs. Clippers",
-   "mtype": "ml",
-   "start": "2026-11-03T03:00:00Z",
-   "bet": "Raptors ML",
-   "side": "Raptors",
-   "flagged": "2026-11-01T17:33:52Z",
-   "why": "a top-50 account",
-   "n_accounts": 1,
-   "best_rank": 28,
-   "usd": 655,
-   "paid": 0.627,
-   "ask": 0.67,
-   "status": "live",
-   "link": "https://polymarket.us/event/nba-tor-lac-2026-11-02",
-   "other": null,
-   "kalshi_against": null,
-   "event_id": "401909920",
-   "sport": "nba",
-   "league": null,
-   "away": "TOR",
-   "home": "LAC",
-   "away_name": "Toronto Raptors",
-   "home_name": "LA Clippers",
-   "game_start": "2026-11-03T03:00Z",
-   "side_std": "away",
-   "conflict": [
-    "big money"
-   ]
   },
   {
    "cond": "0x484829914029c89c187799972e5a2e50b48e94347b17e2bd2d7badd313d573d3",
@@ -239,6 +265,41 @@
    "side_std": "away"
   },
   {
+   "cond": "0xc7b7e24f6e83d65a9a51eb1652730908414f942206cd33d37dd66731e5852189",
+   "slug": "nba-atl-ind-2026-11-02",
+   "title": "Hawks vs. Pacers",
+   "mtype": "ml",
+   "start": "2026-11-03T00:30:00Z",
+   "bet": "Hawks ML",
+   "side": "Hawks",
+   "flagged": "2026-11-02T18:00:06Z",
+   "why": "3 top-200 accounts",
+   "n_accounts": 3,
+   "best_rank": 75,
+   "usd": 19552,
+   "paid": 0.681,
+   "ask": 0.78,
+   "status": "other side",
+   "link": "https://polymarket.us/event/nba-atl-ind-2026-11-02",
+   "other": {
+    "n_accounts": 1,
+    "best_rank": 55,
+    "usd": 183,
+    "first": "2026-11-02T18:05:37Z"
+   },
+   "exit_bid": 0.77,
+   "kalshi_against": null,
+   "event_id": "401909909",
+   "sport": "nba",
+   "league": null,
+   "away": "ATL",
+   "home": "IND",
+   "away_name": "Atlanta Hawks",
+   "home_name": "Indiana Pacers",
+   "game_start": "2026-11-03T00:30Z",
+   "side_std": "away"
+  },
+  {
    "cond": "0xf3a327ce7671b289896dd99c4aabd590e334c3b70389cfee17578c9c522253d5",
    "slug": "nba-was-orl-2026-11-02",
    "title": "Wizards vs. Magic",
@@ -247,11 +308,11 @@
    "bet": "Magic ML",
    "side": "Magic",
    "flagged": "2026-11-01T08:39:51Z",
-   "why": "4 top-200 accounts",
-   "n_accounts": 4,
+   "why": "5 top-200 accounts",
+   "n_accounts": 5,
    "best_rank": 28,
-   "usd": 4560,
-   "paid": 0.557,
+   "usd": 5244,
+   "paid": 0.561,
    "ask": 0.59,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-was-orl-2026-11-02",
@@ -314,6 +375,44 @@
    "home_name": "Dallas Mavericks",
    "game_start": "2026-11-03T01:00Z",
    "side_std": "away"
+  },
+  {
+   "cond": "0x7172e2f4cb02bc1e159cbd92f390336fd879d09d117be3ea8ce8f34c8719c624",
+   "slug": "nba-tor-lac-2026-11-02",
+   "title": "Raptors vs. Clippers",
+   "mtype": "ml",
+   "start": "2026-11-03T03:00:00Z",
+   "bet": "Raptors ML",
+   "side": "Raptors",
+   "flagged": "2026-11-01T17:33:52Z",
+   "why": "2 top-200 accounts",
+   "n_accounts": 2,
+   "best_rank": 23,
+   "usd": 1278,
+   "paid": 0.643,
+   "ask": 0.67,
+   "status": "other side",
+   "link": "https://polymarket.us/event/nba-tor-lac-2026-11-02",
+   "other": {
+    "n_accounts": 1,
+    "best_rank": 132,
+    "usd": 376,
+    "first": "2026-11-02T18:01:00Z"
+   },
+   "exit_bid": 0.66,
+   "kalshi_against": null,
+   "event_id": "401909920",
+   "sport": "nba",
+   "league": null,
+   "away": "TOR",
+   "home": "LAC",
+   "away_name": "Toronto Raptors",
+   "home_name": "LA Clippers",
+   "game_start": "2026-11-03T03:00Z",
+   "side_std": "away",
+   "conflict": [
+    "big money"
+   ]
   }
  ],
  "record": {
@@ -392,16 +491,40 @@
   },
   "401909909|ml": {
    "away": {
+    "n": 3,
+    "best_rank": 75,
+    "usd": 19552
+   },
+   "home": {
     "n": 1,
-    "best_rank": 90,
-    "usd": 341
+    "best_rank": 55,
+    "usd": 183
+   }
+  },
+  "401909909|spread": {
+   "away": {
+    "n": 3,
+    "best_rank": 31,
+    "usd": 8520
+   },
+   "home": {
+    "n": 1,
+    "best_rank": 112,
+    "usd": 271
+   }
+  },
+  "401909909|total": {
+   "over": {
+    "n": 1,
+    "best_rank": 40,
+    "usd": 525
    }
   },
   "401909911|ml": {
    "home": {
-    "n": 4,
+    "n": 5,
     "best_rank": 28,
-    "usd": 4560
+    "usd": 5244
    },
    "away": {
     "n": 1,
@@ -534,9 +657,14 @@
   },
   "401909920|ml": {
    "away": {
+    "n": 2,
+    "best_rank": 23,
+    "usd": 1278
+   },
+   "home": {
     "n": 1,
-    "best_rank": 28,
-    "usd": 655
+    "best_rank": 132,
+    "usd": 376
    }
   },
   "401909921|ml": {
