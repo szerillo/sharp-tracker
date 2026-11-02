@@ -57,7 +57,7 @@ def snap_market(args):
     tr = g(f"{DATA}/trades?market={cid}&limit=200") or []
     lt = last_ts.get(cid, 0)
     for t in tr:
-        if t.get('timestamp', 0) > lt: new.append(dict(ts=t['timestamp'], side=t.get('side'), outcome=t.get('outcome'), p=t.get('price'), size=t.get('size')))
+        if t.get('timestamp', 0) > lt: new.append(dict(ts=t['timestamp'], side=t.get('side'), outcome=t.get('outcome'), p=t.get('price'), size=t.get('size'), w=t.get('proxyWallet')))
     return dict(event=e.get('slug'), title=e.get('title'), league=e.get('_league'), market=m.get('id'), cond=cid, q=m.get('question'), type=m.get('sportsMarketType'),
                 line=m.get('line'), start=m.get('gameStartTime') or e.get('startDate'), vol=float(m.get('volume') or 0), liq=float(m.get('liquidity') or 0),
                 sides=sides, new_trades=new, last_ts=max([t.get('timestamp', 0) for t in tr] + [lt]))
