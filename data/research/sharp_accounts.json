@@ -1,0 +1,339 @@
+{
+ "pinnacle": {
+  "match": {
+   "in window": 746,
+   "no game match": 187,
+   "graded": 231,
+   "no Pinnacle quote": 240,
+   "no Pinnacle": 88
+  },
+  "cells": {
+   "bottom200_lag1m": {
+    "pin_clv": {
+     "n": 9,
+     "mean": 0.44,
+     "z": 0.56
+    },
+    "poly_clv": {
+     "n": 9,
+     "mean": 0.5,
+     "z": 0.87
+    },
+    "roi": {
+     "n": 9,
+     "mean": 8.37,
+     "z": 0.18
+    }
+   },
+   "bottom200_lag5m": {
+    "pin_clv": {
+     "n": 8,
+     "mean": 0.67,
+     "z": 0.8
+    },
+    "poly_clv": {
+     "n": 8,
+     "mean": 0.56,
+     "z": 0.86
+    },
+    "roi": {
+     "n": 8,
+     "mean": 21.92,
+     "z": 0.44
+    }
+   },
+   "rest_lag1m": {
+    "pin_clv": {
+     "n": 123,
+     "mean": 0.03,
+     "z": 0.14
+    },
+    "poly_clv": {
+     "n": 120,
+     "mean": -0.02,
+     "z": -0.07
+    },
+    "roi": {
+     "n": 123,
+     "mean": -0.59,
+     "z": -0.07
+    }
+   },
+   "rest_lag5m": {
+    "pin_clv": {
+     "n": 126,
+     "mean": 0.01,
+     "z": 0.03
+    },
+    "poly_clv": {
+     "n": 123,
+     "mean": -0.06,
+     "z": -0.23
+    },
+    "roi": {
+     "n": 126,
+     "mean": -0.2,
+     "z": -0.02
+    }
+   },
+   "top200_lag1m": {
+    "pin_clv": {
+     "n": 93,
+     "mean": 1.26,
+     "z": 4.13
+    },
+    "poly_clv": {
+     "n": 91,
+     "mean": 1.1,
+     "z": 3.71
+    },
+    "roi": {
+     "n": 93,
+     "mean": 12.11,
+     "z": 1.11
+    }
+   },
+   "top200_lag5m": {
+    "pin_clv": {
+     "n": 92,
+     "mean": 1.11,
+     "z": 3.73
+    },
+    "poly_clv": {
+     "n": 90,
+     "mean": 0.9,
+     "z": 3.14
+    },
+    "roi": {
+     "n": 92,
+     "mean": 6.6,
+     "z": 0.63
+    }
+   }
+  }
+ },
+ "kalshi": {
+  "match": {
+   "no Kalshi two-sided": 895,
+   "graded": 1358,
+   "no Kalshi": 414,
+   "no game match": 215
+  },
+  "bottom200_lag1m | kalshi against (4+)": {
+   "poly_clv": {
+    "n": 7,
+    "mean": 0.5,
+    "z": 0.31
+   },
+   "roi": {
+    "n": 7,
+    "mean": -12.78,
+    "z": -0.31
+   }
+  },
+  "bottom200_lag1m | kalshi agrees (4+)": {
+   "poly_clv": {
+    "n": 12,
+    "mean": 0.54,
+    "z": 0.79
+   },
+   "roi": {
+    "n": 12,
+    "mean": -7.04,
+    "z": -0.29
+   }
+  },
+  "bottom200_lag1m | kalshi under 4": {
+   "poly_clv": {
+    "n": 34,
+    "mean": -0.55,
+    "z": -1.87
+   },
+   "roi": {
+    "n": 34,
+    "mean": -16.32,
+    "z": -1.03
+   }
+  },
+  "bottom200_lag5m | kalshi against (4+)": {
+   "poly_clv": {
+    "n": 7,
+    "mean": 0.5,
+    "z": 0.31
+   },
+   "roi": {
+    "n": 7,
+    "mean": -12.78,
+    "z": -0.31
+   }
+  },
+  "bottom200_lag5m | kalshi agrees (4+)": {
+   "poly_clv": {
+    "n": 12,
+    "mean": 0.5,
+    "z": 0.72
+   },
+   "roi": {
+    "n": 12,
+    "mean": -7.05,
+    "z": -0.29
+   }
+  },
+  "bottom200_lag5m | kalshi under 4": {
+   "poly_clv": {
+    "n": 32,
+    "mean": -0.56,
+    "z": -1.81
+   },
+   "roi": {
+    "n": 32,
+    "mean": -16.68,
+    "z": -1.01
+   }
+  },
+  "rest_lag1m | kalshi against (4+)": {
+   "poly_clv": {
+    "n": 71,
+    "mean": -0.04,
+    "z": -0.09
+   },
+   "roi": {
+    "n": 72,
+    "mean": 21.98,
+    "z": 0.7
+   }
+  },
+  "rest_lag1m | kalshi agrees (4+)": {
+   "poly_clv": {
+    "n": 59,
+    "mean": 1.02,
+    "z": 1.49
+   },
+   "roi": {
+    "n": 59,
+    "mean": -9.52,
+    "z": -0.83
+   }
+  },
+  "rest_lag1m | kalshi under 4": {
+   "poly_clv": {
+    "n": 221,
+    "mean": 0.2,
+    "z": 0.83
+   },
+   "roi": {
+    "n": 222,
+    "mean": -10.21,
+    "z": -1.27
+   }
+  },
+  "rest_lag5m | kalshi against (4+)": {
+   "poly_clv": {
+    "n": 71,
+    "mean": -0.07,
+    "z": -0.14
+   },
+   "roi": {
+    "n": 72,
+    "mean": 23.94,
+    "z": 0.76
+   }
+  },
+  "rest_lag5m | kalshi agrees (4+)": {
+   "poly_clv": {
+    "n": 61,
+    "mean": 1.05,
+    "z": 1.46
+   },
+   "roi": {
+    "n": 61,
+    "mean": -6.06,
+    "z": -0.53
+   }
+  },
+  "rest_lag5m | kalshi under 4": {
+   "poly_clv": {
+    "n": 226,
+    "mean": 0.15,
+    "z": 0.69
+   },
+   "roi": {
+    "n": 228,
+    "mean": -9.29,
+    "z": -1.17
+   }
+  },
+  "top200_lag1m | kalshi against (4+)": {
+   "poly_clv": {
+    "n": 60,
+    "mean": 0.49,
+    "z": 0.7
+   },
+   "roi": {
+    "n": 61,
+    "mean": 19.53,
+    "z": 0.59
+   }
+  },
+  "top200_lag1m | kalshi agrees (4+)": {
+   "poly_clv": {
+    "n": 38,
+    "mean": 1.31,
+    "z": 1.63
+   },
+   "roi": {
+    "n": 38,
+    "mean": 31.49,
+    "z": 2.02
+   }
+  },
+  "top200_lag1m | kalshi under 4": {
+   "poly_clv": {
+    "n": 173,
+    "mean": 1.1,
+    "z": 4.49
+   },
+   "roi": {
+    "n": 173,
+    "mean": -3.96,
+    "z": -0.48
+   }
+  },
+  "top200_lag5m | kalshi against (4+)": {
+   "poly_clv": {
+    "n": 57,
+    "mean": 0.24,
+    "z": 0.33
+   },
+   "roi": {
+    "n": 58,
+    "mean": 0.02,
+    "z": 0.0
+   }
+  },
+  "top200_lag5m | kalshi agrees (4+)": {
+   "poly_clv": {
+    "n": 44,
+    "mean": 1.1,
+    "z": 1.49
+   },
+   "roi": {
+    "n": 44,
+    "mean": 17.22,
+    "z": 1.15
+   }
+  },
+  "top200_lag5m | kalshi under 4": {
+   "poly_clv": {
+    "n": 166,
+    "mean": 0.99,
+    "z": 4.06
+   },
+   "roi": {
+    "n": 166,
+    "mean": -1.49,
+    "z": -0.18
+   }
+  }
+ }
+}

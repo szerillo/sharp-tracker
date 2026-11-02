@@ -58,3 +58,31 @@ Read:
 
 Next: live paper test. Score accounts on all history to date, flag a top-200 account's $100+ pregame fill on the Today page as a
 "Sharp account" signal (price family), log it with the price 5 minutes later, grade on CLV vs Pinnacle and on the result.
+
+## Checks 1 and 2 (sharp/sharp_accounts.py, data/research/sharp_accounts.json)
+
+Same scoring and split. First follow per group x market, entry 1 or 5 minutes after the account's first $100+ fill.
+
+**1. Against Pinnacle's no-vig close** (moneylines and totals, games from 2026-10-29 when Pinnacle game lines start on our tape;
+746 follows in the window, 231 graded: 187 no schedule match, 328 no Pinnacle quote on that line):
+
+| Group | Lag | n | CLV vs Pinnacle | z | CLV vs Polymarket | ROI |
+|---|---|---|---|---|---|---|
+| Top 200 | 1m | 93 | +1.26 | 4.1 | +1.10 | +12.1% (z 1.1) |
+| Top 200 | 5m | 92 | +1.11 | 3.7 | +0.90 | +6.6% (z 0.6) |
+| Rest of scored | 5m | 126 | +0.01 | 0.0 | -0.06 | -0.2% |
+| Bottom 200 | 5m | 8 | +0.67 | | | |
+
+Read: the top accounts beat Pinnacle's close by as much as Polymarket's, so it is not their own orders moving Polymarket's price.
+Thin (four days of Pinnacle), but z 3.7 with the rest of the accounts at exactly zero.
+
+**2. With a Kalshi 4+ point move** (moneylines, NFL / NBA / NHL / CFB / MLB, Kalshi move from its first two-sided price to the follower's
+entry, CLV vs Polymarket's close):
+
+| Top 200, 5m | n | CLV | ROI |
+|---|---|---|---|
+| Kalshi moved 4+ the same way | 44 | +1.10 (z 1.5) | +17.2% |
+| Kalshi under 4 | 166 | +0.99 (z 4.1) | -1.5% |
+| Kalshi moved 4+ the other way | 57 | +0.24 (z 0.3) | 0.0% |
+
+Read: an agreeing Kalshi move adds little to CLV; an opposing one cuts most of it. Use Kalshi as a veto, not a booster. Small samples.
