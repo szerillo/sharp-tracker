@@ -1,5 +1,5 @@
 {
- "built": "2026-11-02T19:34:31Z",
+ "built": "2026-11-02T20:53:11Z",
  "rows": [
   {
    "cond": "0xdc614e16fcccc4cce28241e13e7b774d797e30bbb55b0985f63915c039fa7aa7",
@@ -20,6 +20,7 @@
    "link": "https://polymarket.us/event/nhl-las-bos-2026-11-02",
    "other": null,
    "kalshi_against": null,
+   "logged": true,
    "event_id": "401892629",
    "sport": "nhl",
    "league": null,
@@ -49,6 +50,7 @@
    "link": "https://polymarket.us/event/nba-atl-ind-2026-11-02",
    "other": null,
    "kalshi_against": null,
+   "logged": true,
    "event_id": "401909909",
    "sport": "nba",
    "league": null,
@@ -78,6 +80,7 @@
    "link": "https://polymarket.us/event/nba-sac-dal-2026-11-02",
    "other": null,
    "kalshi_against": null,
+   "logged": true,
    "event_id": "401909913",
    "sport": "nba",
    "league": null,
@@ -107,6 +110,7 @@
    "link": "https://polymarket.us/event/nba-sac-dal-2026-11-02",
    "other": null,
    "kalshi_against": null,
+   "logged": true,
    "event_id": "401909913",
    "sport": "nba",
    "league": null,
@@ -136,6 +140,7 @@
    "link": "https://polymarket.us/event/nba-mil-min-2026-11-02",
    "other": null,
    "kalshi_against": null,
+   "logged": true,
    "event_id": "401909915",
    "sport": "nba",
    "league": null,
@@ -165,6 +170,7 @@
    "link": "https://polymarket.us/event/nba-mil-min-2026-11-02",
    "other": null,
    "kalshi_against": null,
+   "logged": true,
    "event_id": "401909915",
    "sport": "nba",
    "league": null,
@@ -194,6 +200,7 @@
    "link": "https://polymarket.us/event/nfl-chi-sea-2026-11-03",
    "other": null,
    "kalshi_against": null,
+   "logged": true,
    "event_id": "401873036",
    "sport": "nfl",
    "league": null,
@@ -223,6 +230,37 @@
    "link": "https://polymarket.us/event/nfl-chi-sea-2026-11-03",
    "other": null,
    "kalshi_against": null,
+   "logged": true,
+   "event_id": "401873036",
+   "sport": "nfl",
+   "league": null,
+   "away": "CHI",
+   "home": "SEA",
+   "away_name": "Chicago Bears",
+   "home_name": "Seattle Seahawks",
+   "game_start": "2026-11-03T01:15Z",
+   "side_std": "home"
+  },
+  {
+   "cond": "0xc138f7ba5966e0ec354a50479099578139e6ad25ddd6c3101aea81a3916aa43b",
+   "slug": "nfl-chi-sea-2026-11-03",
+   "title": "Bears vs. Seahawks",
+   "mtype": "ml",
+   "start": "2026-11-03T01:15:00Z",
+   "bet": "Seahawks ML",
+   "side": "Seahawks",
+   "flagged": "2026-11-02T20:10:01Z",
+   "why": "2 top-200 accounts",
+   "n_accounts": 2,
+   "best_rank": 58,
+   "usd": 554,
+   "paid": 0.623,
+   "ask": 0.62,
+   "status": "live",
+   "link": "https://polymarket.us/event/nfl-chi-sea-2026-11-03",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
    "event_id": "401873036",
    "sport": "nfl",
    "league": null,
@@ -252,6 +290,7 @@
    "link": "https://polymarket.us/event/nba-bos-hou-2026-11-02",
    "other": null,
    "kalshi_against": null,
+   "logged": true,
    "event_id": "401909916",
    "sport": "nba",
    "league": null,
@@ -280,7 +319,8 @@
    "status": "live",
    "link": "https://polymarket.us/event/ucl-vil-psg-2026-11-03",
    "other": null,
-   "kalshi_against": null
+   "kalshi_against": null,
+   "logged": true
   },
   {
    "cond": "0xe7f9ccd549f2d959314cce993bc3424f944cc9b95fab6f792ddc49ae5aae1abc",
@@ -300,7 +340,8 @@
    "status": "live",
    "link": "https://polymarket.us/event/ucl-atm-bay-2026-11-03",
    "other": null,
-   "kalshi_against": null
+   "kalshi_against": null,
+   "logged": true
   },
   {
    "cond": "0xa98f1371108dfffc8908efcdd5ccbe93cfdd2ab148d37eb5910072fc80b80030",
@@ -320,7 +361,8 @@
    "status": "live",
    "link": "https://polymarket.us/event/ucl-psv-bru-2026-11-04",
    "other": null,
-   "kalshi_against": null
+   "kalshi_against": null,
+   "logged": true
   },
   {
    "cond": "0x00f341c1ce5ac7d38b59f3606333d0db49b6a51f7cfa86c543cebc811ba46f79",
@@ -341,6 +383,7 @@
    "link": "https://polymarket.us/event/nfl-jax-bal-2026-11-06",
    "other": null,
    "kalshi_against": null,
+   "logged": true,
    "event_id": "401873037",
    "sport": "nfl",
    "league": null,
@@ -376,6 +419,7 @@
    },
    "exit_bid": 0.78,
    "kalshi_against": null,
+   "logged": false,
    "event_id": "401909909",
    "sport": "nba",
    "league": null,
@@ -415,6 +459,7 @@
     "now": 42.5,
     "state": "held"
    },
+   "logged": true,
    "event_id": "401909911",
    "sport": "nba",
    "league": null,
@@ -453,6 +498,7 @@
    },
    "exit_bid": 0.46,
    "kalshi_against": null,
+   "logged": true,
    "event_id": "401909909",
    "sport": "nba",
    "league": null,
@@ -491,6 +537,7 @@
    },
    "exit_bid": 0.24,
    "kalshi_against": null,
+   "logged": false,
    "event_id": "401909913",
    "sport": "nba",
    "league": null,
@@ -521,11 +568,12 @@
    "other": {
     "n_accounts": 2,
     "best_rank": 31,
-    "usd": 503,
+    "usd": 3463,
     "first": "2026-11-02T19:13:55Z"
    },
    "exit_bid": 0.63,
    "kalshi_against": null,
+   "logged": true,
    "event_id": "401909916",
    "sport": "nba",
    "league": null,
@@ -564,6 +612,7 @@
    },
    "exit_bid": 0.66,
    "kalshi_against": null,
+   "logged": true,
    "event_id": "401909920",
    "sport": "nba",
    "league": null,
@@ -584,7 +633,24 @@
   "units": 0,
   "clv": null
  },
- "sys_tags": {},
+ "sys_tags": {
+  "401892639:nhl_early_home_fav_qual": {
+   "with": {
+    "n": 1,
+    "best_rank": 132,
+    "usd": 1006
+   },
+   "against": null
+  },
+  "401909916:nba_under_good_home_over": {
+   "with": {
+    "n": 1,
+    "best_rank": 12,
+    "usd": 118
+   },
+   "against": null
+  }
+ },
  "by_event": {
   "401873036|spread": {
    "home": {
@@ -595,9 +661,9 @@
   },
   "401873036|ml": {
    "home": {
-    "n": 1,
-    "best_rank": 187,
-    "usd": 174
+    "n": 2,
+    "best_rank": 58,
+    "usd": 554
    }
   },
   "401873036|total": {
@@ -828,9 +894,9 @@
     "usd": 22900
    },
    "away": {
-    "n": 1,
-    "best_rank": 154,
-    "usd": 32624
+    "n": 2,
+    "best_rank": 142,
+    "usd": 33328
    }
   },
   "401909916|total": {
@@ -914,6 +980,34 @@
     "n": 1,
     "best_rank": 71,
     "usd": 126
+   }
+  },
+  "401892637|ml": {
+   "away": {
+    "n": 1,
+    "best_rank": 132,
+    "usd": 1015
+   }
+  },
+  "401892638|ml": {
+   "home": {
+    "n": 1,
+    "best_rank": 132,
+    "usd": 220
+   }
+  },
+  "401892639|ml": {
+   "home": {
+    "n": 1,
+    "best_rank": 132,
+    "usd": 1006
+   }
+  },
+  "401892643|ml": {
+   "home": {
+    "n": 1,
+    "best_rank": 132,
+    "usd": 693
    }
   }
  },
