@@ -18,6 +18,7 @@ Writes data/research/flow_volume.json. Usage: python3 sharp/flow_volume.py [kals
 import os, sys, json, gzip, glob, math, collections, datetime as dt
 HERE = os.path.dirname(os.path.abspath(__file__)); ROOT = os.path.abspath(os.path.join(HERE, '..')); sys.path.insert(0, ROOT); sys.path.insert(0, os.path.join(ROOT, 'loggers'))
 import sharp.exchange_backtest as EB
+LAGS = (60, 300, 900, 3600)
 SMALL = 50.0; CUTS = (500.0, 1000.0, 2500.0, 5000.0, 10000.0); ENTRIES = {'T-6h': 6 * 3600, 'T-1h': 3600, 'T-15m': 900}
 VOLS = (0, 25000, 100000, 500000); OUT = os.path.join(ROOT, 'data', 'research', 'flow_volume.json')
 PH = os.path.join(ROOT, 'data', 'polymarket', 'history')
@@ -131,31 +132,39 @@ def poly(MK):
             # follower entries for each wallet are resolved later; keep the follow price now (cheap) for every first fill
             ent = {}
             for w, (t, d) in firsts.items():
-                E = t + 300
-                if E >= st: continue
-                px, tw = EB.px_at([x for x in L4 if x[0] <= E], E)
-                if px is None or tw != 2: continue
-                price = px if d > 0 else 1 - px
-                if not 0.05 < price < 0.95: continue
-                ent[w] = (t, d, price)
-            hold_first.append((gk, ry, None if two != 2 else cl, ent))
+                pr = {}
+                for lag in LAGS:                 # follower entry: the two-sided mid `lag` seconds after their fill
+                    E = t + lag
+                    if E >= st: continue
+                    px, tw = EB.px_at([x for x in L4 if x[0] <= E], E)
+                    if px is None or tw != 2: continue
+                    price = px if d > 0 else 1 - px
+                    if 0.05 < price < 0.95: pr[lag] = price
+                if pr: ent[w] = (t, d, pr)
+            hold_first.append((gk, ry, None if two != 2 else cl, ent, c['tag']))
         if i % 2000 == 0: print(f"[flow_volume] Polymarket {i}/{len(MK)} markets", flush=True)
     res = grid(F, cut_t, 'Polymarket'); del F
     score = {w: x[0] / x[1] for w, x in W.items() if x[1] >= 30 and len(x[2]) >= 15}
     ranked = sorted(score, key=lambda w: -score[w])
     wal = dict(wallets_scored=len(score), train_cut=dt.datetime.fromtimestamp(cut_t, dt.timezone.utc).strftime('%Y-%m-%d'))
-    for name, S in (('top50', set(ranked[:50])), ('top200', set(ranked[:200])), ('top1000', set(ranked[:1000])), ('bottom200', set(ranked[-200:]))):
-        recs = []
-        for gk, ry, cl, ent in hold_first:
-            hits = sorted(v for w, v in ent.items() if w in S)
-            if not hits: continue
-            t, d, price = hits[0]; won = ry if d > 0 else 1 - ry
-            recs.append(((1 - price) / price if won else -1.0, None if cl is None else 100 * ((cl if d > 0 else 1 - cl) - price)))
-        if not recs: continue
+    def stat(recs):
         roi = [r[0] for r in recs]; mu = sum(roi) / len(roi); sd = (sum((x - mu) ** 2 for x in roi) / max(1, len(roi) - 1)) ** 0.5
-        cv = [r[1] for r in recs if r[1] is not None]
-        wal[name] = dict(n=len(recs), roi=round(100 * mu, 1), z=round(mu / (sd / math.sqrt(len(recs))), 2), clv=round(sum(cv) / len(cv), 2) if cv else None,
-                         train_clv_floor=round(min(score[w] for w in S), 2) if S else None)
+        cv = [r[1] for r in recs if r[1] is not None]; cm = sum(cv) / len(cv) if cv else None
+        csd = (sum((x - cm) ** 2 for x in cv) / max(1, len(cv) - 1)) ** 0.5 if cv else None
+        return dict(n=len(recs), roi=round(100 * mu, 1), z=round(mu / (sd / math.sqrt(len(recs))), 2) if sd else None,
+                    clv=round(cm, 2) if cv else None, clv_z=round(cm / (csd / math.sqrt(len(cv))), 2) if cv and csd else None)
+    for name, S in (('top50', set(ranked[:50])), ('top200', set(ranked[:200])), ('top1000', set(ranked[:1000])), ('bottom200', set(ranked[-200:]))):
+        for lag in LAGS:
+            recs = []; bys = collections.defaultdict(list)
+            for gk, ry, cl, ent, tag in hold_first:
+                hits = sorted((v[0], v[1], v[2][lag]) for w, v in ent.items() if w in S and lag in v[2])
+                if not hits: continue
+                t, d, price = hits[0]; won = ry if d > 0 else 1 - ry
+                r = ((1 - price) / price if won else -1.0, None if cl is None else 100 * ((cl if d > 0 else 1 - cl) - price))
+                recs.append(r); bys[tag].append(r)
+            if not recs: continue
+            k = f'{name}_lag{lag // 60}m'; wal[k] = stat(recs); wal[k]['train_clv_floor'] = round(min(score[w] for w in S), 2) if S else None
+            if lag == 300: wal[k]['by_sport'] = {t: stat(v) for t, v in bys.items() if len(v) >= 20}
     return res, wal['train_cut'], wal
 
 
