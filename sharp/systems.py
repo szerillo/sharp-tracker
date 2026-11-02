@@ -43,8 +43,10 @@ EVIDENCE = {'wind1014': dict(tier='A', train='533-376 all-time (2003-), +13.3%',
             'mnf_1h': dict(tier='B', train='168-118 all-time, +12.3%', hold='positive on both halves', seasons='4 of 6', src='docs/betlabs_nfl_audit_2026-10-25.md'),
             'awfuldog': dict(tier='B', train='203-133', hold='51-31 (+17.2% all-time)', seasons='6 of 6 (n ~15 a season)', src='docs/betlabs_nfl_audit_2026-10-25.md'),
             'bounce15_1h': dict(tier='B', train='312-258', hold='117-80 (+7.5% all-time)', seasons='4 of 6', src='docs/betlabs_nfl_audit_2026-10-25.md'),
-            'xch_homedog_fade': dict(tier='C', train='exchange audit, sparse tape', hold='+12% at the close, n 300', seasons='two months', src='docs/exchange_signals_audit_2026-10-29.md'),
-            'nba_momentum': dict(tier='C', train='exchange audit, sparse tape', hold='continuation +4 to +6 pts', seasons='two months', src='docs/exchange_signals_audit_2026-10-29.md'),
+            # 11/2 (Sean): the two exchange-audit rules are paper only (tier P): both were below the audit's bar, xch_homedog_fade failed its
+            # robustness check and decayed by month, nba_momentum was graded at the close while live fires come earlier; live 12-6 -0.73u and 3-9 -3.15u, both negative CLV
+            'xch_homedog_fade': dict(tier='P', train='exchange audit, sparse tape', hold='+12% at the close, n 300', seasons='two months', src='docs/exchange_signals_audit_2026-10-29.md'),
+            'nba_momentum': dict(tier='P', train='exchange audit, sparse tape', hold='continuation +4 to +6 pts', seasons='two months', src='docs/exchange_signals_audit_2026-10-29.md'),
             'nhl_pl_fav_gap': dict(tier='B', train='502, +17.4%', hold='196, +14.6%', seasons='5 of 7', src='docs/betlabs_segments_audit_2026-10-30.md'),
             'nhl_pl_fav_strong_opp': dict(tier='B', train='992, +11.9%', hold='405, +12.8%', seasons='5 of 7', src='docs/betlabs_segments_audit_2026-10-30.md'),
             'nhl_pl_dog_bigml': dict(tier='C', train='810, +6.0%', hold='310, +7.4%', seasons='4 of 7', src='docs/betlabs_segments_audit_2026-10-30.md'),
