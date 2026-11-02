@@ -1038,41 +1038,54 @@
 },
 "401909908:xch_homedog_fade:ml": {
 "tag": "xch_homedog_fade",
-"fill_id": "49e1b48876e8",
-"ts": "2026-11-02T23:06:14Z",
+"fill_id": "6df527ea6626",
+"ts": "2026-11-02T23:20:19Z",
 "market": "ml",
 "side": "away",
 "line": null,
 "venue": "Novig",
-"price": -208,
-"fair": 0.67467,
-"edge_pts": -0.03,
-"why": "Novig home side mid 0.328 inside T-1.4h; audit band 20-35c"
+"price": -212,
+"fair": 0.67624,
+"edge_pts": -0.38,
+"why": "Novig home side mid 0.325 inside T-1.2h; audit band 20-35c"
+},
+"401909912:nba_momentum:spread": {
+"tag": "nba_momentum",
+"fill_id": "163ef2aab880",
+"ts": "2026-11-02T23:20:19Z",
+"market": "spread",
+"side": "away",
+"line": 9.5,
+"venue": "Kalshi",
+"price": -108,
+"fair": 0.49342,
+"edge_pts": -2.66,
+"why": "Kalshi spread mid 0.535 at T-6h -> 0.505 now (-3.0c); continuation (audit section 3, NBA only)"
 },
 "401909909:xch_homedog_fade:ml": {
 "tag": "xch_homedog_fade",
-"fill_id": "0937ac9baab0",
-"ts": "2026-11-02T23:06:14Z",
+"fill_id": "052aff9728c0",
+"ts": "2026-11-02T23:20:19Z",
 "market": "ml",
 "side": "away",
 "line": null,
 "venue": "Novig",
-"price": -376,
-"fair": 0.79056,
-"edge_pts": 0.06,
-"why": "Novig home side mid 0.212 inside T-1.4h; audit band 20-35c"
+"price": -335,
+"fair": 0.77274,
+"edge_pts": 0.27,
+"why": "Novig home side mid 0.232 inside T-1.2h; audit band 20-35c"
 },
-"401909909:nba_momentum:spread": {
+"401909909:nba_momentum:total": {
 "tag": "nba_momentum",
-"fill_id": "d5aace88111b",
-"ts": "2026-11-02T23:06:14Z",
-"market": "spread",
-"side": "away",
-"line": -10.5,
-"venue": "Kalshi",
-"price": -104,
-"fair": 0.48738,
-"edge_pts": -2.26,
-"why": "Kalshi spread mid 0.550 at T-6h -> 0.515 now (-3.5c); continuation (audit section 3, NBA only)"
+"fill_id": "257f4909ef52",
+"ts": "2026-11-02T23:20:19Z",
+"market": "total",
+"side": "under",
+"line": 229.5,
+"venue": "Novig",
+"price": -130,
+"fair": 0.4993,
+"edge_pts": -6.57,
+"why": "Novig total mid 0.515 at T-6h -> 0.445 now (-7.0c); continuation (audit section 3, NBA only)"
 }
 }
