@@ -1,5 +1,5 @@
 {
- "built": "2026-11-02T23:26:21Z",
+ "built": "2026-11-02T23:34:26Z",
  "rows": [
   {
    "cond": "0xdc614e16fcccc4cce28241e13e7b774d797e30bbb55b0985f63915c039fa7aa7",
@@ -11,6 +11,8 @@
    "side": "Golden Knights",
    "flagged": "2026-11-02T12:24:30Z",
    "why": "a top-200 account also in this sport's top 50",
+   "proven": true,
+   "trigger": "proven",
    "n_accounts": 1,
    "best_rank": 71,
    "usd": 243,
@@ -41,6 +43,8 @@
    "side": "Cavaliers",
    "flagged": "2026-11-02T21:13:03Z",
    "why": "a top-50 account",
+   "proven": false,
+   "trigger": "top50",
    "n_accounts": 1,
    "best_rank": 43,
    "usd": 469,
@@ -74,6 +78,8 @@
    "side": "Hawks",
    "flagged": "2026-11-02T18:00:06Z",
    "why": "3 top-200 accounts",
+   "proven": true,
+   "trigger": "two",
    "n_accounts": 3,
    "best_rank": 31,
    "usd": 8520,
@@ -104,6 +110,8 @@
    "side": "Under",
    "flagged": "2026-11-02T12:41:40Z",
    "why": "2 top-200 accounts",
+   "proven": false,
+   "trigger": "two",
    "n_accounts": 2,
    "best_rank": 59,
    "usd": 7415,
@@ -134,6 +142,8 @@
    "side": "Kings",
    "flagged": "2026-11-02T18:47:33Z",
    "why": "2 top-200 accounts",
+   "proven": false,
+   "trigger": "two",
    "n_accounts": 2,
    "best_rank": 12,
    "usd": 2399,
@@ -164,6 +174,8 @@
    "side": "Bucks",
    "flagged": "2026-11-02T18:59:36Z",
    "why": "a top-50 account",
+   "proven": false,
+   "trigger": "top50",
    "n_accounts": 1,
    "best_rank": 40,
    "usd": 394,
@@ -194,6 +206,8 @@
    "side": "Bucks",
    "flagged": "2026-11-02T19:03:28Z",
    "why": "2 top-200 accounts",
+   "proven": false,
+   "trigger": "two",
    "n_accounts": 2,
    "best_rank": 112,
    "usd": 3238,
@@ -224,6 +238,8 @@
    "side": "Seahawks",
    "flagged": "2026-11-02T15:26:28Z",
    "why": "a top-200 account also in this sport's top 50",
+   "proven": true,
+   "trigger": "proven",
    "n_accounts": 1,
    "best_rank": 135,
    "usd": 3296,
@@ -254,6 +270,8 @@
    "side": "Seahawks",
    "flagged": "2026-11-02T16:11:00Z",
    "why": "a top-200 account also in this sport's top 50",
+   "proven": true,
+   "trigger": "proven",
    "n_accounts": 1,
    "best_rank": 135,
    "usd": 2506,
@@ -284,6 +302,8 @@
    "side": "Seahawks",
    "flagged": "2026-11-02T20:10:01Z",
    "why": "2 top-200 accounts",
+   "proven": false,
+   "trigger": "two",
    "n_accounts": 2,
    "best_rank": 58,
    "usd": 554,
@@ -314,6 +334,8 @@
    "side": "Under",
    "flagged": "2026-11-02T19:02:49Z",
    "why": "a top-50 account",
+   "proven": false,
+   "trigger": "top50",
    "n_accounts": 1,
    "best_rank": 12,
    "usd": 118,
@@ -344,6 +366,8 @@
    "side": "Warriors",
    "flagged": "2026-11-02T21:08:40Z",
    "why": "a top-50 account",
+   "proven": false,
+   "trigger": "top50",
    "n_accounts": 1,
    "best_rank": 43,
    "usd": 994,
@@ -377,6 +401,8 @@
    "side": "No",
    "flagged": "2026-10-26T15:39:23Z",
    "why": "2 top-200 accounts",
+   "proven": true,
+   "trigger": "two",
    "n_accounts": 2,
    "best_rank": 42,
    "usd": 10963,
@@ -398,6 +424,8 @@
    "side": "No",
    "flagged": "2026-10-31T19:18:24Z",
    "why": "a top-50 account",
+   "proven": false,
+   "trigger": "top50",
    "n_accounts": 1,
    "best_rank": 42,
    "usd": 211,
@@ -419,6 +447,8 @@
    "side": "Yes",
    "flagged": "2026-11-02T21:28:27Z",
    "why": "a top-200 account also in this sport's top 50",
+   "proven": true,
+   "trigger": "proven",
    "n_accounts": 1,
    "best_rank": 132,
    "usd": 4318,
@@ -440,6 +470,8 @@
    "side": "Yes",
    "flagged": "2026-11-02T14:10:39Z",
    "why": "a top-200 account also in this sport's top 50",
+   "proven": true,
+   "trigger": "proven",
    "n_accounts": 1,
    "best_rank": 73,
    "usd": 400,
@@ -461,6 +493,8 @@
    "side": "Jaguars",
    "flagged": "2026-11-01T18:17:25Z",
    "why": "2 top-200 accounts",
+   "proven": false,
+   "trigger": "two",
    "n_accounts": 2,
    "best_rank": 21,
    "usd": 1064,
@@ -491,6 +525,8 @@
    "side": "Hawks",
    "flagged": "2026-11-02T18:00:06Z",
    "why": "3 top-200 accounts",
+   "proven": false,
+   "trigger": "two",
    "n_accounts": 3,
    "best_rank": 75,
    "usd": 19552,
@@ -527,6 +563,8 @@
    "side": "Magic",
    "flagged": "2026-11-01T08:39:51Z",
    "why": "5 top-200 accounts",
+   "proven": false,
+   "trigger": "two",
    "n_accounts": 5,
    "best_rank": 28,
    "usd": 5244,
@@ -541,7 +579,11 @@
     "first": "2026-11-02T17:00:16Z"
    },
    "exit_bid": 0.58,
-   "kalshi_against": null,
+   "kalshi_against": {
+    "move": 4.0,
+    "now": 42.5,
+    "state": "held"
+   },
    "logged": true,
    "event_id": "401909911",
    "sport": "nba",
@@ -551,7 +593,10 @@
    "away_name": "Washington Wizards",
    "home_name": "Orlando Magic",
    "game_start": "2026-11-03T00:30Z",
-   "side_std": "home"
+   "side_std": "home",
+   "conflict": [
+    "Kalshi move"
+   ]
   },
   {
    "cond": "0x087cd258edf923859b8229711c89d194eae8e526c03783c926d99b1ee9662edc",
@@ -563,6 +608,8 @@
    "side": "Bulls",
    "flagged": "2026-11-02T21:53:54Z",
    "why": "2 top-200 accounts",
+   "proven": false,
+   "trigger": "two",
    "n_accounts": 2,
    "best_rank": 90,
    "usd": 313,
@@ -572,8 +619,8 @@
    "link": "https://polymarket.us/event/nba-chi-phi-2026-11-02",
    "other": null,
    "kalshi_against": {
-    "move": 4.5,
-    "now": 82.0,
+    "move": 5.0,
+    "now": 82.5,
     "state": "reversed"
    },
    "logged": true,
@@ -601,6 +648,8 @@
    "side": "Over",
    "flagged": "2026-11-02T18:00:06Z",
    "why": "a top-50 account",
+   "proven": false,
+   "trigger": "top50",
    "n_accounts": 1,
    "best_rank": 40,
    "usd": 525,
@@ -640,6 +689,8 @@
    "side": "Kings",
    "flagged": "2026-11-01T11:59:18Z",
    "why": "5 top-200 accounts",
+   "proven": false,
+   "trigger": "two",
    "n_accounts": 5,
    "best_rank": 39,
    "usd": 2637,
@@ -676,6 +727,8 @@
    "side": "Rockets",
    "flagged": "2026-11-02T18:59:25Z",
    "why": "4 top-200 accounts",
+   "proven": true,
+   "trigger": "two",
    "n_accounts": 4,
    "best_rank": 31,
    "usd": 8240,
@@ -715,6 +768,8 @@
    "side": "Raptors",
    "flagged": "2026-11-01T17:33:52Z",
    "why": "2 top-200 accounts",
+   "proven": true,
+   "trigger": "two",
    "n_accounts": 2,
    "best_rank": 23,
    "usd": 1278,
@@ -754,6 +809,8 @@
    "side": "Clippers",
    "flagged": "2026-11-02T21:00:06Z",
    "why": "2 top-200 accounts",
+   "proven": false,
+   "trigger": "two",
    "n_accounts": 2,
    "best_rank": 40,
    "usd": 15394,
@@ -809,6 +866,18 @@
    },
    "against": null
   },
+  "401909912:nba_momentum:spread": {
+   "with": {
+    "n": 1,
+    "best_rank": 59,
+    "usd": 480
+   },
+   "against": {
+    "n": 1,
+    "best_rank": 134,
+    "usd": 126
+   }
+  },
   "401909909:xch_homedog_fade:ml": {
    "with": {
     "n": 3,
@@ -821,16 +890,16 @@
     "usd": 183
    }
   },
-  "401909909:nba_momentum:spread": {
+  "401909909:nba_momentum:total": {
    "with": {
-    "n": 3,
-    "best_rank": 31,
-    "usd": 8520
+    "n": 1,
+    "best_rank": 119,
+    "usd": 595
    },
    "against": {
     "n": 1,
-    "best_rank": 112,
-    "usd": 271
+    "best_rank": 40,
+    "usd": 525
    }
   }
  },

@@ -288,6 +288,9 @@ def main():
                    bet=bet_text(L[0], side), side=side, flagged=dt.datetime.fromtimestamp(flag['ts'], dt.timezone.utc).strftime('%Y-%m-%dT%H:%M:%SZ'),
                    why=(f"{len(sides[side])} top-200 accounts" if len(sides[side]) >= 2 else 'a top-50 account' if flag['trigger']['rank'] <= TOP_RANK
                         else 'a top-200 account also in this sport\'s top 50'),
+                   # 11/2 grades (sharp/account_count.py): a sport-proven account (top 200 and its sport's top 50) is the strongest trigger
+                   proven=any(r.get('both') for r in with_) or bool(flag['trigger'].get('both')),
+                   trigger=('proven' if flag['trigger'].get('both') else 'top50' if flag['trigger']['rank'] <= TOP_RANK and len(sides[side]) < TWO else 'two'),
                    n_accounts=len(sides[side]), best_rank=min(r['rank'] for r in with_), usd=round(sum(r['usd'] for r in with_)), paid=round(paid, 3), ask=a,
                    status='other side' if opp else 'live', link=f"https://polymarket.us/event/{L[0]['slug']}",
                    other=dict(n_accounts=len({r['w'] for r in opp}), best_rank=min(r['rank'] for r in opp), usd=round(sum(r['usd'] for r in opp)),
