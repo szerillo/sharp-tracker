@@ -319,13 +319,20 @@ function recordText(tag) {
   return bt + fw;
 }
 const TIER_TXT = {A: 'tier A', B: 'tier B', C: 'tier C (lean)'};
+// Polymarket sharp accounts on the same full-game market as a system bet (sharp/sharp_live.py sys_tags)
+function sharpTag(g, tag) {
+  const t = SA && SA.sys_tags && (SA.sys_tags[`${g.event_id}:${tag}`] || Object.entries(SA.sys_tags).find(([k]) => k.startsWith(`${g.event_id}:${tag}:`))?.[1]);
+  if (!t) return '';
+  const p = x => `${x.n} top-200 account${x.n === 1 ? '' : 's'} (best rank ${x.best_rank}, $${x.usd.toLocaleString()})`;
+  return `<div style="margin-top:3px">${t.with ? `<span class="tag-with">Polymarket sharps with this bet: ${p(t.with)}</span> ` : ''}${t.against ? `<span class="tag-against">Polymarket sharps against: ${p(t.against)}</span>` : ''}</div>`;
+}
 function betRow({g, f, tag}) {
   const r = (SY.rules || {})[tag] || {}, e = r.evidence || {}; const tierCls = e.tier === 'A' ? 'b-fit' : (e.tier === 'B' ? 'b-prior' : 'b-gate');
   const per = /^(1h|1q|1p)_/.test(f.market) ? 'first half' : 'full game';
   return `<div class="brow">
     <div><div class="bet">${esc(betText(f, g))}</div><div class="small">${per} · ${r.stake || 1}u · <span class="badge ${tierCls}">${TIER_TXT[e.tier] || 'tier ?'}</span></div></div>
     <div class="small"><div><b>Why:</b> ${esc(r.desc || tag)}. <span class="dim">${f.lapsed ? 'When flagged' : 'This game'}: ${esc((g.triggers || {})[tag] || f.why || '')}</span></div>
-      ${f.lapsed ? `<div class="moved-chip" style="margin-top:3px"><b>Trigger no longer met on the latest data</b> (for wind: the forecast moved out of the band). Flagged ${ET(f.ts)} ET; it stays in the ledger and is graded either way. Not a new bet.</div>` : ''}<div style="margin-top:3px">${recordText(tag)}</div></div>
+      ${f.lapsed ? `<div class="moved-chip" style="margin-top:3px"><b>Trigger no longer met on the latest data</b> (for wind: the forecast moved out of the band). Flagged ${ET(f.ts)} ET; it stays in the ledger and is graded either way. Not a new bet.</div>` : ''}<div style="margin-top:3px">${recordText(tag)}</div>${sharpTag(g, tag)}</div>
     <div class="price">flagged at ${VEN(f.venue)} <b>${am(f.price)}</b><br>${priceChip(f)}<div style="margin-top:6px">${betLink((f.now && f.now.venue) || f.venue, g.event_id, f.market)}</div>${r.labs ? `<a class="small" target="_blank" href="https://sportsinsights.actionnetwork.com/betlabs/screen?ScreenId=${r.labs.id}">Bet Labs screen ↗</a>` : ''}</div></div>`;
 }
 function gameHead(x) {

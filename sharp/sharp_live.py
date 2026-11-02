@@ -110,6 +110,51 @@ def alerts(rows):
     json.dump(st, open(ALERTS, 'w'))
 
 
+def sys_tags(F):
+    """Tag each open system bet (data/state/system_fired.json) with the top-200 Polymarket accounts on the same full-game market:
+    with (same side) / against (other side). Matched by start time (within 15 min) and team nicknames in the Polymarket title;
+    sides: team name for moneylines and spreads, Over / Under for totals (soccer yes/no markets and first-half bets are not tagged).
+    The first time a bet is tagged, the tag is appended to data/state/sys_sharp_tags.jsonl so agreement can be graded against the
+    bet's result later."""
+    try: fired = json.load(open(os.path.join(ROOT, 'data', 'state', 'system_fired.json')))
+    except Exception: return {}
+    sched = {}
+    for sp in ('nfl', 'nba', 'nhl', 'cfb', 'cbb', 'soccer', 'mlb', 'wnba'):
+        try: sched.update(json.load(open(os.path.join(ROOT, 'data', sp, 'schedule.json'))))
+        except Exception: pass
+    nick = lambda t: ((t or {}).get('shortDisplayName') or (t or {}).get('name') or (t or {}).get('displayName') or '').lower().split()[-1:] or ['']
+    out = {}
+    for k, f in fired.items():
+        if not f.get('fill_id') or f.get('void') or f['market'] not in ('ml', 'spread', 'total'): continue
+        ev = k.split(':')[0]; e = sched.get(ev)
+        if not e or epoch(e['start'].replace('Z', '+00:00')) <= NOW: continue
+        st = epoch(e['start'].replace('Z', '+00:00')); a, h = nick(e.get('away_team'))[0], nick(e.get('home_team'))[0]
+        if not a or not h: continue
+        w, ag = {}, {}
+        for cond, L in F.items():
+            r0 = L[0]
+            if r0['mtype'] != f['market'] or abs(epoch(r0['start']) - st) > 900: continue
+            t = (r0.get('title') or '').lower()
+            if a not in t or h not in t: continue
+            for r in L:
+                b = r['bet'].lower()
+                side = r['bet'].lower() if f['market'] == 'total' else ('away' if a in b else 'home' if h in b else None)
+                if side not in ('home', 'away', 'over', 'under'): continue
+                (w if side == f['side'] else ag).setdefault(r['w'], r)
+        if w or ag:
+            summ = lambda D: dict(n=len(D), best_rank=min(r['rank'] for r in D.values()), usd=round(sum(r['usd'] for r in D.values()))) if D else None
+            out[k] = {'with': summ(w), 'against': summ(ag)}
+    log = os.path.join(ROOT, 'data', 'state', 'sys_sharp_tags.jsonl'); seen = set()
+    if os.path.exists(log):
+        for l in open(log):
+            try: seen.add(json.loads(l)['key'])
+            except Exception: pass
+    with open(log, 'a') as fh:
+        for k, v in out.items():
+            if k not in seen: fh.write(json.dumps(dict(key=k, fill_id=fired[k]['fill_id'], ts=dt.datetime.fromtimestamp(NOW, dt.timezone.utc).strftime('%Y-%m-%dT%H:%M:%SZ'), **v)) + '\n')
+    return out
+
+
 def main():
     if not os.path.exists(FILLS): print('[sharp_live] no fills yet'); return
     F = collections.defaultdict(list)
@@ -189,7 +234,7 @@ def main():
     alerts(rows)
     rows.sort(key=lambda r: (r['status'] != 'live' or bool(r.get('kalshi_against')), r['start']))
     json.dump(dict(built=dt.datetime.fromtimestamp(NOW, dt.timezone.utc).strftime('%Y-%m-%dT%H:%M:%SZ'), rows=[r for r in rows if epoch(r['start']) > NOW],
-                   record=rec, rule=f'top-{TOP_RANK} account, or {TWO}+ top-200 accounts on one side, none on the other'), open(OUT, 'w'), indent=1)
+                   record=rec, sys_tags=sys_tags(F), rule=f'top-{TOP_RANK} account, or {TWO}+ top-200 accounts on one side, none on the other'), open(OUT, 'w'), indent=1)
     print(f"[sharp_live] {sum(epoch(r['start']) > NOW for r in rows)} upcoming flagged markets ({sum(r['status'] == 'other side' for r in rows)} with a sharp on the other side since); paper {rec}")
 
 
