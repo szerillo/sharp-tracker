@@ -154,3 +154,37 @@ Read: fading squares does not work at the price a follower gets. Accounts with t
 forward (fading them loses CLV); their past losses were mostly price (longshots, buying after the move) and luck, which a fade at the
 next price does not capture. Adding a square on the other side does not improve a sharp bet (it triggers later, so it is worse), and
 a square on the same side does not spoil one. Keep the signal to following sharps.
+
+## Sport-specific sharps vs one cross-sport list (sharp/sport_sharps.py, data/research/sport_sharps.json)
+
+Sean, 11/2: every sport likely has its own sharps; is that sustainable, or does the cream rise across all sports? Two walk-forward
+folds: A scored before 2026-03-01 and followed Mar to Aug; B scored before 2026-09-01 and followed since. Groups: GENERAL (cross-sport
+top 200), SPORT top 50 (that sport's fills only, 20+ fills on 10+ games), SPECIALIST (sport top 50 not in the general top 200), BOTH
+(in both). Entry 5 minutes after the first member fill, CLV vs Polymarket's close.
+
+| Sport, fold | General top 200 | Sport top 50 | Specialist | Both | Sport bottom 50 |
+|---|---|---|---|---|---|
+| NBA A | +0.85 (1,477) | +0.95 (436) | -0.02 (66) | +1.09 (383) | -0.31 |
+| NBA B | +0.90 (518) | +0.84 (38) | | +0.87 (37) | -0.25 |
+| NFL B | +0.74 (551) | +0.40 (789) | +0.30 (786) | +1.53 (69) | -0.35 |
+| NHL A | +0.82 (420) | +0.91 (415) | +0.71 (288) | +0.89 (286) | -0.68 |
+| NHL B | +0.60 (196) | +0.79 (105) | +0.61 (84) | +1.57 (30) | -2.23 (15) |
+| Soccer A | +0.75 (334) | +0.68 (310) | +0.98 (51) | +0.65 (309) | -0.22 |
+| Soccer B | +1.04 (547) | +1.11 (534) | +1.31 (33) | +1.11 (531) | -0.05 |
+| CFB B | +0.50 (638) | +0.59 (538) | +0.59 (538) | | -0.09 |
+| WNBA A | +1.19 (327) | +0.64 (266) | +0.51 (241) | +1.81 (26) | |
+| WNBA B | +1.40 (110) | +1.03 (149) | +0.81 (109) | +1.44 (106) | -0.34 |
+| UFC A | +0.52 (138) | +0.99 (127) | +1.08 (126) | | |
+| UFC B | -1.53 (80) | -0.47 (95) | +1.70 (83, z 0.9) | -2.78 (40) | |
+
+Persistence (correlation of an account's train CLV with its test CLV, 10+ fills each side), sport-only score vs cross-sport score:
+NBA 0.16 / 0.21 and 0.22 / 0.23; NFL B 0.35 / 0.44; NHL 0.24 / 0.22 and 0.62 / 0.37; soccer 0.45 / 0.44 and 0.37 / 0.46; CFB B 0.35 / 0.49;
+WNBA B 0.41 / 0.42; UFC B 0.06 / 0.11.
+
+Read:
+1. Skill persists in every team sport, and the cross-sport score predicts an account's future at least as well as the sport-only score
+   (higher in 6 of 9 comparisons). The cream does rise across sports: a good account is mostly good everywhere.
+2. The best group is BOTH (sport-proven and in the cross-sport top 200): +0.9 to +1.8 pts, the top of every sport except UFC.
+3. Specialists (good in one sport only) are positive in most sports but weaker than the general list (NFL +0.30, NHL +0.6-0.7, CFB +0.59;
+   NBA about zero). They add coverage, mainly NFL and CFB, at a lower edge.
+4. UFC is not sustainable: fold A looked strong (+1.0) and fold B fell apart (persistence 0.06). Keep UFC out.
