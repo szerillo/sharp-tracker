@@ -1,0 +1,267 @@
+{
+ "days": 62.1,
+ "cells": {
+  "R0 all": {
+   "n": 1012,
+   "per_day": 16.3,
+   "clv": 1.06,
+   "clv_z": 10.72,
+   "roi": 3.8,
+   "roi_z": 0.92
+  },
+  "R2only (wait for 2+)": {
+   "n": 602,
+   "per_day": 9.7,
+   "clv": 0.95,
+   "clv_z": 8.08,
+   "roi": -1.5,
+   "roi_z": -0.31
+  },
+  "R3only (wait for 3+)": {
+   "n": 124,
+   "per_day": 2.0,
+   "clv": 0.84,
+   "clv_z": 3.16,
+   "roi": -11.8,
+   "roi_z": -1.39
+  },
+  "count at flag: 1": {
+   "n": 595,
+   "per_day": 9.6,
+   "clv": 1.2,
+   "clv_z": 8.85,
+   "roi": 6.3,
+   "roi_z": 1.08
+  },
+  "count at flag: 2": {
+   "n": 417,
+   "per_day": 6.7,
+   "clv": 0.86,
+   "clv_z": 6.08,
+   "roi": 0.3,
+   "roi_z": 0.05
+  },
+  "count by start: 1": {
+   "n": 284,
+   "per_day": 4.6,
+   "clv": 1.08,
+   "clv_z": 7.33,
+   "roi": 13.6,
+   "roi_z": 1.5
+  },
+  "count by start: 1 (a sharp took the other side later)": {
+   "n": 107,
+   "per_day": 1.7,
+   "clv": 0.46,
+   "clv_z": 1.07,
+   "roi": 10.8,
+   "roi_z": 0.98
+  },
+  "count by start: 2": {
+   "n": 330,
+   "per_day": 5.3,
+   "clv": 0.96,
+   "clv_z": 8.34,
+   "roi": 1.1,
+   "roi_z": 0.16
+  },
+  "count by start: 2 (a sharp took the other side later)": {
+   "n": 132,
+   "per_day": 2.1,
+   "clv": 0.7,
+   "clv_z": 2.23,
+   "roi": -3.3,
+   "roi_z": -0.28
+  },
+  "count by start: 3+": {
+   "n": 83,
+   "per_day": 1.3,
+   "clv": 1.7,
+   "clv_z": 3.98,
+   "roi": 3.9,
+   "roi_z": 0.36
+  },
+  "count by start: 3+ (a sharp took the other side later)": {
+   "n": 76,
+   "per_day": 1.2,
+   "clv": 2.18,
+   "clv_z": 4.11,
+   "roi": -18.6,
+   "roi_z": -1.67
+  },
+  "sport bundesliga: count at flag 1": {
+   "n": 73,
+   "per_day": 1.2,
+   "clv": 1.11,
+   "clv_z": 5.9,
+   "roi": 36.3,
+   "roi_z": 1.83
+  },
+  "sport bundesliga: count at flag 2+": {
+   "n": 10,
+   "per_day": 0.2,
+   "clv": 0.55,
+   "clv_z": 2.01,
+   "roi": -9.6,
+   "roi_z": -0.2
+  },
+  "sport cfb: count at flag 1": {
+   "n": 3
+  },
+  "sport cfb: count at flag 2+": {
+   "n": 121,
+   "per_day": 1.9,
+   "clv": 0.83,
+   "clv_z": 5.52,
+   "roi": 8.5,
+   "roi_z": 0.78
+  },
+  "sport epl: count at flag 1": {
+   "n": 97,
+   "per_day": 1.6,
+   "clv": 1.2,
+   "clv_z": 4.88,
+   "roi": 2.8,
+   "roi_z": 0.24
+  },
+  "sport epl: count at flag 2+": {
+   "n": 18,
+   "per_day": 0.3,
+   "clv": 1.36,
+   "clv_z": 2.42,
+   "roi": -47.7,
+   "roi_z": -1.3
+  },
+  "sport mlb: count at flag 1": {
+   "n": 27,
+   "per_day": 0.4,
+   "clv": 0.72,
+   "clv_z": 0.92,
+   "roi": 8.4,
+   "roi_z": 0.43
+  },
+  "sport mlb: count at flag 2+": {
+   "n": 17,
+   "per_day": 0.3,
+   "clv": 0.81,
+   "clv_z": 2.46,
+   "roi": 4.4,
+   "roi_z": 0.18
+  },
+  "sport mls: count at flag 1": {
+   "n": 101,
+   "per_day": 1.6,
+   "clv": 1.19,
+   "clv_z": 4.14,
+   "roi": 12.0,
+   "roi_z": 0.76
+  },
+  "sport mls: count at flag 2+": {
+   "n": 22,
+   "per_day": 0.4,
+   "clv": 0.27,
+   "clv_z": 0.37,
+   "roi": -2.2,
+   "roi_z": -0.11
+  },
+  "sport nba: count at flag 1": {
+   "n": 31,
+   "per_day": 0.5,
+   "clv": -0.39,
+   "clv_z": -0.5,
+   "roi": -6.8,
+   "roi_z": -0.39
+  },
+  "sport nba: count at flag 2+": {
+   "n": 111,
+   "per_day": 1.8,
+   "clv": 0.98,
+   "clv_z": 2.2,
+   "roi": -3.6,
+   "roi_z": -0.39
+  },
+  "sport nfl: count at flag 1": {
+   "n": 49,
+   "per_day": 0.8,
+   "clv": 2.05,
+   "clv_z": 2.9,
+   "roi": 25.6,
+   "roi_z": 1.7
+  },
+  "sport nfl: count at flag 2+": {
+   "n": 71,
+   "per_day": 1.1,
+   "clv": 0.64,
+   "clv_z": 4.31,
+   "roi": -18.2,
+   "roi_z": -1.56
+  },
+  "sport nhl: count at flag 1": {
+   "n": 29,
+   "per_day": 0.5,
+   "clv": 1.29,
+   "clv_z": 2.42,
+   "roi": -14.8,
+   "roi_z": -0.75
+  },
+  "sport nhl: count at flag 2+": {
+   "n": 29,
+   "per_day": 0.5,
+   "clv": 0.73,
+   "clv_z": 2.66,
+   "roi": 35.8,
+   "roi_z": 1.82
+  },
+  "sport ucl: count at flag 1": {
+   "n": 91,
+   "per_day": 1.5,
+   "clv": 1.3,
+   "clv_z": 4.2,
+   "roi": -8.1,
+   "roi_z": -0.39
+  },
+  "sport ucl: count at flag 2+": {
+   "n": 16,
+   "per_day": 0.3,
+   "clv": 2.0,
+   "clv_z": 3.11,
+   "roi": 42.3,
+   "roi_z": 0.73
+  },
+  "sport wnba: count at flag 1": {
+   "n": 94,
+   "per_day": 1.5,
+   "clv": 1.5,
+   "clv_z": 3.66,
+   "roi": -4.1,
+   "roi_z": -0.38
+  },
+  "sport wnba: count at flag 2+": {
+   "n": 2
+  },
+  "trigger: one top-200 also in its sport top 50": {
+   "n": 543,
+   "per_day": 8.7,
+   "clv": 1.23,
+   "clv_z": 9.97,
+   "roi": 8.8,
+   "roi_z": 1.42
+  },
+  "trigger: one top-50 account": {
+   "n": 52,
+   "per_day": 0.8,
+   "clv": 0.84,
+   "clv_z": 0.98,
+   "roi": -20.1,
+   "roi_z": -1.52
+  },
+  "trigger: two+ top-200 accounts": {
+   "n": 417,
+   "per_day": 6.7,
+   "clv": 0.86,
+   "clv_z": 6.08,
+   "roi": 0.3,
+   "roi_z": 0.05
+  }
+ }
+}

@@ -277,3 +277,22 @@ with $10k+ volume, 572k trades. sharp/sport_sharps.py:
 - scored before 2026-03-01, followed through March: cross-sport top 200 +0.37 (87, z 1.3); CBB's own top 50 +0.18 (168); both lists +0.43 (67)
 Read: the cross-sport sharps carry into CBB, at about half the edge of the other team sports; CBB-only specialists do not add. CBB added
 to the live flags with the cross-sport list.
+
+## Does the number of sharp accounts matter? (sharp/account_count.py, data/research/account_count.json)
+
+Sean, 11/2: should single-account flags be left alone? Same walk-forward as the specialist test (scored before 2026-09-01, followed after,
+62 days, UFC excluded, entry 5 minutes after the trigger, CLV vs Polymarket's close).
+
+| Live-rule flags | n | CLV | z | ROI |
+|---|---|---|---|---|
+| All | 1,012 | +1.06 | 10.7 | +3.8% |
+| Fired on one account | 595 | +1.20 | 8.9 | +6.3% |
+| Fired on two accounts | 417 | +0.86 | 6.1 | +0.3% |
+| Trigger: one top-200 account also in its sport's top 50 | 543 | +1.23 | 10.0 | +8.8% |
+| Trigger: one top-50 account (not proven in that sport) | 52 | +0.84 | 1.0 | -20.1% |
+| Wait for 2+ accounts, enter then | 602 | +0.95 | 8.1 | -1.5% |
+| Wait for 3+ accounts, enter then | 124 | +0.84 | 3.2 | -11.8% |
+
+Read: a second account does not add edge at the moment of the flag, and waiting for one costs flags and a little CLV. The single
+sport-proven account is the strongest trigger. The single top-50 account outside its proven sport is the weakest (thin). NBA is the one
+sport where single-account flags were not positive (-0.39 on 31, thin; 2+ accounts +0.98 on 111). No rule change.
