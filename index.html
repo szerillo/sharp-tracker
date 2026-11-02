@@ -243,9 +243,9 @@ function betText(f, g) {
 }
 // where Sean can bet: DraftKings counts but at low limits (Fanatics, theScore, BetRivers, BetMGM are archive-only and never priced)
 const VEN = v => v === 'DK' ? 'DK <span class="dim small">(low limits)</span>' : esc(v);
-// Where to place a bet: Kalshi opens the exact market, Polymarket US the game, Novig its events page (event links need the app),
+// Where to place a bet: Kalshi opens the exact market, Polymarket US the game, Novig its desktop site (no per-game link),
 // sportsbooks the Action Network game page (every book's bet button is there). Links come from flow_live.json (links per event).
-const BOOKLINK = {Novig: 'https://app.novig.us/events', FD: null, Caesars: null, DK: null};
+const BOOKLINK = {Novig: 'https://novig.com/', FD: null, Caesars: null, DK: null};
 function betHref(venue, ev, market) {
   const L = ((FL && FL.links) || {})[ev] || {};
   if (venue === 'Kalshi') { const k = L.kalshi || {}; return k[market] || k[(market || '').replace(/^(1h|1q|1p)_/, '')] || k.ml || null; }
@@ -407,7 +407,7 @@ function renderToday() {
       <td><span class="small">${esc(r.fav_name || '')} vs ${esc(r.opp_name || '')}${r.tournament ? ' · ' + esc(r.tournament) : ''}</span><br><b>${esc(r.fav_name || 'Favourite')} to win set 1</b></td>
       <td class="small mono">match ${(100 * r.match_p).toFixed(1)}% → set 1 fair ${(100 * r.fair).toFixed(1)}%${r.pin_set1 ? '<br><span class="dim">Pinnacle ' + (100 * r.pin_set1).toFixed(1) + '%</span>' : ''}</td>
       <td class="small mono">${VEN(r.best.venue)} ${(100 * r.best.cost).toFixed(1)}¢ (${toAm(r.best.cost)})<br><span class="pos">+${(100 * r.edge).toFixed(1)} pts</span>
-        ${r.best.venue === 'Kalshi' && r.best.ticker ? `<br><a class="betbtn" target="_blank" rel="noopener" href="https://kalshi.com/markets/${r.best.ticker.toLowerCase().split('-')[0]}/x/${r.best.ticker.toLowerCase().split('-').slice(0, 2).join('-')}">Bet at Kalshi ↗</a>` : (r.best.venue === 'Novig' ? `<br><a class="betbtn" target="_blank" rel="noopener" href="https://app.novig.us/events">Bet at Novig ↗</a>` : '')}</td></tr>`).join('');
+        ${r.best.venue === 'Kalshi' && r.best.ticker ? `<br><a class="betbtn" target="_blank" rel="noopener" href="https://kalshi.com/markets/${r.best.ticker.toLowerCase().split('-')[0]}/x/${r.best.ticker.toLowerCase().split('-').slice(0, -1).join('-')}">Bet at Kalshi ↗</a>` : (r.best.venue === 'Novig' ? `<br><a class="betbtn" target="_blank" rel="noopener" href="https://novig.com/">Bet at Novig ↗</a>` : '')}</td></tr>`).join('');
   const twRec = TW && TW.record && TW.record.n ? `${TW.record.won}-${TW.record.n - TW.record.won}, ${TW.record.units > 0 ? '+' : ''}${TW.record.units}u` : 'no graded bets yet';
   const srRec = FL && FL.steam && FL.steam.record && FL.steam.record.n ? `${FL.steam.record.won}-${FL.steam.record.n - FL.steam.record.won}, ${FL.steam.record.units > 0 ? '+' : ''}${FL.steam.record.units}u` : 'no graded bets yet';
   // watch cards: one per game, one row per market. A Kalshi mover that has given back its steam is the same story as its bet-back row,

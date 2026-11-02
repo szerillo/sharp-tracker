@@ -33,9 +33,8 @@ LINKS = {}      # event_id -> {'kalshi': {market: url}, 'poly': url, 'an': url}:
 
 
 def kalshi_url(ticker):
-    """Kalshi web page for a market ticker: /markets/<series>/x/<event ticker> (the middle slug is free text; checked 11/1)."""
-    parts = ticker.lower().split('-')
-    return f"https://kalshi.com/markets/{parts[0]}/x/{'-'.join(parts[:2])}"
+    """Kalshi web page for a market ticker: /markets/<series>/x/<event ticker> (the middle slug is free text; checked 11/1; the event ticker is the market ticker minus its last part)."""
+    t = ticker.lower(); return f"https://kalshi.com/markets/{t.split('-')[0]}/x/{t.rsplit('-', 1)[0]}"     # event ticker = market ticker minus its outcome suffix
 
 
 def kalshi_moves(sched):
