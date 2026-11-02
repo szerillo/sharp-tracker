@@ -1,5 +1,246 @@
 {
- "snapshots": 9,
- "graded": 0,
- "cells": {}
+ "snapshots": 30,
+ "graded": 27,
+ "cells": {
+  "kind: back | ml": {
+   "W": 2,
+   "L": 1,
+   "P": 0,
+   "win": 0.667,
+   "mean_price": 0.477,
+   "clv_n": 0,
+   "clv": null,
+   "clv_pos": null
+  },
+  "kind: back | spread": {
+   "W": 3,
+   "L": 0,
+   "P": 0,
+   "win": 1.0,
+   "mean_price": null,
+   "clv_n": 0,
+   "clv": null,
+   "clv_pos": null
+  },
+  "kind: back | total": {
+   "W": 0,
+   "L": 3,
+   "P": 0,
+   "win": 0.0,
+   "mean_price": null,
+   "clv_n": 0,
+   "clv": null,
+   "clv_pos": null
+  },
+  "kind: big | ml": {
+   "W": 0,
+   "L": 1,
+   "P": 0,
+   "win": 0.0,
+   "mean_price": null,
+   "clv_n": 0,
+   "clv": null,
+   "clv_pos": null
+  },
+  "kind: big | total": {
+   "W": 1,
+   "L": 0,
+   "P": 0,
+   "win": 1.0,
+   "mean_price": null,
+   "clv_n": 0,
+   "clv": null,
+   "clv_pos": null
+  },
+  "kind: kmove (drift) | spread": {
+   "W": 1,
+   "L": 3,
+   "P": 0,
+   "win": 0.25,
+   "mean_price": null,
+   "clv_n": 0,
+   "clv": null,
+   "clv_pos": null
+  },
+  "kind: kmove (drift) | total": {
+   "W": 2,
+   "L": 1,
+   "P": 0,
+   "win": 0.667,
+   "mean_price": null,
+   "clv_n": 0,
+   "clv": null,
+   "clv_pos": null
+  },
+  "kind: kmove (fresh) | spread": {
+   "W": 0,
+   "L": 1,
+   "P": 0,
+   "win": 0.0,
+   "mean_price": null,
+   "clv_n": 0,
+   "clv": null,
+   "clv_pos": null
+  },
+  "kind: kmove (held) | ml": {
+   "W": 0,
+   "L": 1,
+   "P": 0,
+   "win": 0.0,
+   "mean_price": 0.61,
+   "clv_n": 1,
+   "clv": 0.0,
+   "clv_pos": 0.0
+  },
+  "kind: kmove (held) | spread": {
+   "W": 0,
+   "L": 0,
+   "P": 0,
+   "win": null,
+   "mean_price": null,
+   "clv_n": 0,
+   "clv": null,
+   "clv_pos": null
+  },
+  "kind: kmove (held) | total": {
+   "W": 3,
+   "L": 1,
+   "P": 0,
+   "win": 0.75,
+   "mean_price": null,
+   "clv_n": 0,
+   "clv": null,
+   "clv_pos": null
+  },
+  "kind: kmove (reversed) | ml": {
+   "W": 0,
+   "L": 2,
+   "P": 0,
+   "win": 0.0,
+   "mean_price": 0.5,
+   "clv_n": 0,
+   "clv": null,
+   "clv_pos": null
+  },
+  "kind: kmove (reversed) | spread": {
+   "W": 1,
+   "L": 0,
+   "P": 0,
+   "win": 1.0,
+   "mean_price": null,
+   "clv_n": 0,
+   "clv": null,
+   "clv_pos": null
+  },
+  "kind: move | ml": {
+   "W": 0,
+   "L": 2,
+   "P": 0,
+   "win": 0.0,
+   "mean_price": null,
+   "clv_n": 3,
+   "clv": -2.45,
+   "clv_pos": 0.0
+  },
+  "kind: move | spread": {
+   "W": 0,
+   "L": 2,
+   "P": 0,
+   "win": 0.0,
+   "mean_price": null,
+   "clv_n": 3,
+   "clv": 0.62,
+   "clv_pos": 0.67
+  },
+  "kind: move | total": {
+   "W": 3,
+   "L": 1,
+   "P": 0,
+   "win": 0.75,
+   "mean_price": null,
+   "clv_n": 3,
+   "clv": 1.68,
+   "clv_pos": 1.0
+  },
+  "money_only | total": {
+   "W": 1,
+   "L": 0,
+   "P": 0,
+   "win": 1.0,
+   "mean_price": null,
+   "clv_n": 0,
+   "clv": null,
+   "clv_pos": null
+  },
+  "price_only | ml": {
+   "W": 0,
+   "L": 3,
+   "P": 0,
+   "win": 0.0,
+   "mean_price": 0.41,
+   "clv_n": 3,
+   "clv": -2.45,
+   "clv_pos": 0.0
+  },
+  "price_only | spread": {
+   "W": 4,
+   "L": 5,
+   "P": 0,
+   "win": 0.444,
+   "mean_price": null,
+   "clv_n": 3,
+   "clv": 0.62,
+   "clv_pos": 0.67
+  },
+  "price_only | total": {
+   "W": 7,
+   "L": 4,
+   "P": 0,
+   "win": 0.636,
+   "mean_price": null,
+   "clv_n": 2,
+   "clv": 1.74,
+   "clv_pos": 1.0
+  },
+  "price_split: back | ml": {
+   "W": 2,
+   "L": 0,
+   "P": 0,
+   "win": 1.0,
+   "mean_price": 0.51,
+   "clv_n": 0,
+   "clv": null,
+   "clv_pos": null
+  },
+  "price_split: back | total": {
+   "W": 0,
+   "L": 1,
+   "P": 0,
+   "win": 0.0,
+   "mean_price": null,
+   "clv_n": 0,
+   "clv": null,
+   "clv_pos": null
+  },
+  "price_split: kmove | ml": {
+   "W": 0,
+   "L": 2,
+   "P": 0,
+   "win": 0.0,
+   "mean_price": 0.5,
+   "clv_n": 0,
+   "clv": null,
+   "clv_pos": null
+  },
+  "price_split: move | total": {
+   "W": 1,
+   "L": 0,
+   "P": 0,
+   "win": 1.0,
+   "mean_price": null,
+   "clv_n": 1,
+   "clv": 1.57,
+   "clv_pos": 1.0
+  }
+ }
 }
