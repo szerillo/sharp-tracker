@@ -19,7 +19,7 @@ Rules applied: docs/checkpoint_rules_2026-11-02.md (committed before these numbe
 
 | Signal | Graded | Result | Rule outcome |
 |---|---|---|---|
-| Sharp move (notable moves on the move tape) | 77 settled | CLV -0.65 pts, z -3.7 (Pinnacle origin -0.27 on 44, Kalshi -0.91 on 83, Novig -1.18 on 49) | **retired from the watch** (50+ graded, CLV below zero with z below -1). Moves partly give back. Kept on the Market moves tab and in the signal log. |
+| Sharp move (notable moves on the move tape) | 77 settled | CLV -0.65 pts, z -3.7 (Pinnacle origin -0.27 on 44, Kalshi -0.91 on 83, Novig -1.18 on 49) | met the retire line, but **kept** (Sean, 11/2): not bet on, so it stays on the watch and keeps logging until a bigger sample. |
 | steam_rev (paper) | 1 of 36 settled | 1-0, +1.0u | keep (most logged bets are for games later this week) |
 | Kalshi 4+ movers, big vs small, bet back (watch) | 9 snapshots graded | too few | keep; CLV grading from first seen started 11/1 |
 | Polymarket sharp accounts | 0 graded (5 logged) | | keep; first read at 150 |
@@ -27,7 +27,7 @@ Rules applied: docs/checkpoint_rules_2026-11-02.md (committed before these numbe
 
 ## Changes
 
-1. Sharp move removed from the sharp-money watch and from the Strongest rule's price family (now Kalshi move and bet back).
+1. Sharp move: retire line met; kept on the watch to build the sample (rules amended: unbet watch signals wait for 300+ settled).
 2. Nothing promoted; no system retired.
 
 ## Worth watching

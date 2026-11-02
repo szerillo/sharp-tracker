@@ -18,6 +18,9 @@ CLV is the main test.
 - **Promote** (from watch to a sized paper bet) at 150+ graded with CLV z of 2 or better and ROI not below -5%.
 - Polymarket sharp accounts: graded on CLV vs Polymarket's close and, where we have it, Pinnacle's; first read at 150 graded flags.
 
+Amended 2026-11-02 (Sean): watch signals that are not bet are not retired at this stage; they keep logging and stay on the
+page until a bigger sample (300+ settled) or Sean decides. The retire rule above applies to signals that are bet or paper-bet.
+
 ## Tennis first-set favourites (tier C)
 
 First read at 300 graded matches (set in the methodology doc); retire early only at 100+ with ROI z of -2 or worse.
