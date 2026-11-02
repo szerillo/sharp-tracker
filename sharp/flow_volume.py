@@ -23,46 +23,48 @@ VOLS = (0, 25000, 100000, 500000); OUT = os.path.join(ROOT, 'data', 'research', 
 PH = os.path.join(ROOT, 'data', 'polymarket', 'history')
 
 
-def poly_rows():
-    """-> [(venue, sport, mtype, game_key, start_epoch, result_yes, trades[(t, p_yes, usd, dir)])], plus wallets per trade (for the wallet test)."""
+def poly_markets():
+    """Polymarket settled game markets with a trade file: (catalog row, start epoch), oldest first."""
     out = []
     for l in open(os.path.join(PH, 'catalog.jsonl')):
         c = json.loads(l); p = os.path.join(PH, 'trades', f"{c['cond']}.jsonl.gz")
         if not os.path.exists(p) or not c.get('start'): continue
-        st = dt.datetime.fromisoformat(c['start'].replace(' ', 'T').replace('+00', '+00:00')).timestamp()
-        o0 = c['outcomes'][0]; L = []
-        try:
-            for l2 in gzip.open(p, 'rt'):
-                t = json.loads(l2)
-                if 'ts' not in t or t['ts'] >= st: continue
-                pr = float(t['price']); sz = float(t['size'])
-                if not 0.01 <= pr <= 0.99: continue
-                is0 = t.get('outcome') == o0; buy = t['side'] == 'BUY'
-                d = 1 if is0 == buy else -1; py = pr if is0 else 1 - pr
-                L.append((t['ts'], py, sz * min(pr, 1 - pr), d, t.get('wallet')))
-        except (EOFError, OSError): continue
-        if L: out.append(('Polymarket', c['tag'], c['market'], f"{c['event']}|{c['market']}", st, 1 if c['winner'] == o0 else 0, L))
+        out.append((c, dt.datetime.fromisoformat(c['start'].replace(' ', 'T').replace('+00', '+00:00')).timestamp()))
+    return sorted(out, key=lambda x: x[1])
+
+
+def poly_trades(c, st):
+    """Pregame taker fills of one market -> sorted [(t, p_yes, usd_risk_equivalent, dir, wallet)], yes = the first outcome."""
+    o0 = c['outcomes'][0]; L = []
+    try:
+        for l2 in gzip.open(os.path.join(PH, 'trades', f"{c['cond']}.jsonl.gz"), 'rt'):
+            t = json.loads(l2)
+            if 'ts' not in t or t['ts'] >= st: continue
+            pr = float(t['price']); sz = float(t['size'])
+            if not 0.01 <= pr <= 0.99: continue
+            is0 = t.get('outcome') == o0; buy = t['side'] == 'BUY'
+            L.append((t['ts'], pr if is0 else 1 - pr, sz * min(pr, 1 - pr), 1 if is0 == buy else -1, t.get('wallet')))
+    except (EOFError, OSError): return []
+    return sorted(L)
+
+
+def feats_for(sp, mt, gk, start, ry, L):
+    """One market -> {entry: feature tuple} (the grid only needs these, so trades are not kept in memory)."""
+    out = {}
+    cl, two_c = EB.px_at(L, start)
+    for entry, sec in ENTRIES.items():
+        E = start - sec; pre = [x for x in L if x[0] < E]
+        if len(pre) < 5: continue
+        px, two = EB.px_at(pre, E)
+        if px is None or two != 2: continue
+        vol = sum(x[2] for x in pre); sn = sum(x[2] * x[3] for x in pre if x[2] <= SMALL)
+        out[entry] = (sp, mt, gk, start, ry, px, cl if two_c == 2 else None, vol, sn, {c: sum(x[2] * x[3] for x in pre if x[2] >= c) for c in CUTS})
     return out
 
 
-def evaluate(rows, venue):
-    rows = sorted(rows, key=lambda r: r[4])
-    games = sorted({r[3] for r in rows}, key=lambda g: min(r[4] for r in rows if r[3] == g)) if len(rows) < 1 else None
-    starts = sorted(r[4] for r in rows); cut_t = starts[int(len(starts) * 2 / 3)] if starts else 0
+def grid(F, cut_t, venue):
     res = {}
-    # precompute per row: sorted pregame trades
-    R = [(sp, mt, gk, start, ry, sorted(x[:4] for x in L)) for v, sp, mt, gk, start, ry, L in rows]
-    for entry, sec in ENTRIES.items():
-        feats = []
-        for sp, mt, gk, start, ry, L in R:
-            E = start - sec; pre = [x for x in L if x[0] < E]
-            if len(pre) < 5: continue
-            px, two = EB.px_at(pre, E)
-            if px is None or two != 2: continue
-            cl, two_c = EB.px_at(L, start)
-            vol = sum(x[2] for x in pre); sn = sum(x[2] * x[3] for x in pre if x[2] <= SMALL)
-            bn = {c: sum(x[2] * x[3] for x in pre if x[2] >= c) for c in CUTS}
-            feats.append((sp, mt, gk, start, ry, px, cl if two_c == 2 else None, vol, sn, bn))
+    for entry, feats in F.items():
         for c in CUTS:
             for kind in ('DIV', 'BIG'):
                 for vmin in VOLS:
@@ -85,49 +87,76 @@ def evaluate(rows, venue):
                             n=len(B), roi=round(100 * mu, 1), z=round(mu / (sd / math.sqrt(len(B))), 2) if sd and len(B) > 1 else None,
                             win=round(sum(b['won'] for b in B) / len(B), 3), price=round(sum(b['price'] for b in B) / len(B), 3),
                             clv=round(sum(cv) / len(cv), 2) if cv else None)
-    return res, dt.datetime.fromtimestamp(cut_t, dt.timezone.utc).strftime('%Y-%m-%d') if cut_t else None
+    return res
 
 
-def wallets(rows):
-    """Polymarket only: does a wallet's past pregame record predict its future bets? Train = first two thirds by start time.
-    Wallet score on train = mean CLV of its pregame fills ($100+ risk-equivalent; fill price vs the side's mid at the start), min 30
-    fills on 15+ games. Holdout: follow the top-50 / top-200 wallets by train CLV. Entry is NOT at their fill price: the next two-sided
-    mid 5 minutes after their fill (what a follower could get), first qualifying fill per game x market, graded on result and CLV."""
-    rows = sorted(rows, key=lambda r: r[4]); starts = [r[4] for r in rows]; cut_t = starts[int(len(starts) * 2 / 3)]
-    W = collections.defaultdict(lambda: dict(clv=[], games=set()))
+def evaluate(rows, venue):
+    starts = sorted(r[4] for r in rows); cut_t = starts[int(len(starts) * 2 / 3)] if starts else 0
+    F = collections.defaultdict(list)
     for v, sp, mt, gk, start, ry, L in rows:
-        if start >= cut_t: continue
-        L = sorted(L); cl, two = EB.px_at([x[:4] for x in L], start)
-        if cl is None or two != 2: continue
-        for t, py, usd, d, w in L:
-            if usd < 100 or not w: continue
-            price = py if d > 0 else 1 - py
-            W[w]['clv'].append(100 * ((cl if d > 0 else 1 - cl) - price)); W[w]['games'].add(gk)
-    score = {w: sum(x['clv']) / len(x['clv']) for w, x in W.items() if len(x['clv']) >= 30 and len(x['games']) >= 15}
+        for e, f in feats_for(sp, mt, gk, start, ry, sorted(x[:4] for x in L)).items(): F[e].append(f)
+    return grid(F, cut_t, venue), dt.datetime.fromtimestamp(cut_t, dt.timezone.utc).strftime('%Y-%m-%d') if cut_t else None
+
+
+def poly(MK):
+    """Grid + wallet test on Polymarket, streaming one market at a time.
+    Wallet test: does a wallet's past pregame record predict its future bets? Train = the first two thirds of markets by start time.
+    Wallet score on train = mean CLV of its pregame fills ($100+ risk-equivalent; fill price vs the side's two-sided mid at the start),
+    min 30 fills on 15+ games. Holdout: follow the top-50 / top-200 wallets (and, as a check, the bottom 200). Entry is NOT their fill
+    price: the two-sided mid 5 minutes after their first qualifying fill on that market (what a follower could get), graded on result and CLV."""
+    cut_t = MK[int(len(MK) * 2 / 3)][1]
+    F = collections.defaultdict(list)
+    W = collections.defaultdict(lambda: [0.0, 0, set()])
+    scored = None
+    hold_first = []          # holdout markets: per wallet, its first $100+ fill (t, dir) -> kept compactly
+    for i, (c, st) in enumerate(MK):
+        L = poly_trades(c, st)
+        if not L: continue
+        gk = f"{c['event']}|{c['market']}"; ry = 1 if c['winner'] == c['outcomes'][0] else 0
+        L4 = [x[:4] for x in L]
+        for e, f in feats_for(c['tag'], c['market'], gk, st, ry, L4).items(): F[e].append(f)
+        cl, two = EB.px_at(L4, st)
+        if st < cut_t:
+            if cl is None or two != 2: continue
+            for t, py, usd, d, w in L:
+                if usd < 100 or not w: continue
+                price = py if d > 0 else 1 - py; x = W[w]
+                x[0] += 100 * ((cl if d > 0 else 1 - cl) - price); x[1] += 1; x[2].add(gk)
+        else:
+            if scored is None:           # markets are in start order, so the train pass is complete here: only scored wallets matter
+                scored = {w for w, x in W.items() if x[1] >= 30 and len(x[2]) >= 15}
+            firsts = {}
+            for t, py, usd, d, w in L:
+                if usd >= 100 and w in scored and w not in firsts: firsts[w] = (t, d)
+            # follower entries for each wallet are resolved later; keep the follow price now (cheap) for every first fill
+            ent = {}
+            for w, (t, d) in firsts.items():
+                E = t + 300
+                if E >= st: continue
+                px, tw = EB.px_at([x for x in L4 if x[0] <= E], E)
+                if px is None or tw != 2: continue
+                price = px if d > 0 else 1 - px
+                if not 0.05 < price < 0.95: continue
+                ent[w] = (t, d, price)
+            hold_first.append((gk, ry, None if two != 2 else cl, ent))
+        if i % 2000 == 0: print(f"[flow_volume] Polymarket {i}/{len(MK)} markets", flush=True)
+    res = grid(F, cut_t, 'Polymarket'); del F
+    score = {w: x[0] / x[1] for w, x in W.items() if x[1] >= 30 and len(x[2]) >= 15}
     ranked = sorted(score, key=lambda w: -score[w])
-    out = dict(wallets_scored=len(score), train_cut=dt.datetime.fromtimestamp(cut_t, dt.timezone.utc).strftime('%Y-%m-%d'))
-    for top in (50, 200, 'bottom200'):
-        S = set(ranked[-200:]) if top == 'bottom200' else set(ranked[:top])
+    wal = dict(wallets_scored=len(score), train_cut=dt.datetime.fromtimestamp(cut_t, dt.timezone.utc).strftime('%Y-%m-%d'))
+    for name, S in (('top50', set(ranked[:50])), ('top200', set(ranked[:200])), ('top1000', set(ranked[:1000])), ('bottom200', set(ranked[-200:]))):
         recs = []
-        for v, sp, mt, gk, start, ry, L in rows:
-            if start < cut_t: continue
-            L = sorted(L); L4 = [x[:4] for x in L]
-            hit = next((x for x in L if x[4] in S and x[2] >= 100), None)
-            if not hit: continue
-            E = hit[0] + 300
-            if E >= start: continue
-            px, two = EB.px_at([x for x in L4 if x[0] <= E], E)
-            if px is None or two != 2: continue
-            cl, two_c = EB.px_at(L4, start); d = hit[3]; price = px if d > 0 else 1 - px
-            if not 0.05 < price < 0.95: continue
-            won = ry if d > 0 else 1 - ry
-            recs.append(dict(roi=(1 - price) / price if won else -1.0, clv=None if two_c != 2 else 100 * ((cl if d > 0 else 1 - cl) - price)))
+        for gk, ry, cl, ent in hold_first:
+            hits = sorted(v for w, v in ent.items() if w in S)
+            if not hits: continue
+            t, d, price = hits[0]; won = ry if d > 0 else 1 - ry
+            recs.append(((1 - price) / price if won else -1.0, None if cl is None else 100 * ((cl if d > 0 else 1 - cl) - price)))
         if not recs: continue
-        roi = [r['roi'] for r in recs]; mu = sum(roi) / len(roi); sd = (sum((x - mu) ** 2 for x in roi) / max(1, len(roi) - 1)) ** 0.5
-        cv = [r['clv'] for r in recs if r['clv'] is not None]
-        out[f'top{top}' if top != 'bottom200' else 'bottom200'] = dict(n=len(recs), roi=round(100 * mu, 1), z=round(mu / (sd / math.sqrt(len(recs))), 2),
-                                                                      clv=round(sum(cv) / len(cv), 2) if cv else None, train_clv_floor=round(min(score[w] for w in S), 2))
-    return out
+        roi = [r[0] for r in recs]; mu = sum(roi) / len(roi); sd = (sum((x - mu) ** 2 for x in roi) / max(1, len(roi) - 1)) ** 0.5
+        cv = [r[1] for r in recs if r[1] is not None]
+        wal[name] = dict(n=len(recs), roi=round(100 * mu, 1), z=round(mu / (sd / math.sqrt(len(recs))), 2), clv=round(sum(cv) / len(cv), 2) if cv else None,
+                         train_clv_floor=round(min(score[w] for w in S), 2) if S else None)
+    return res, wal['train_cut'], wal
 
 
 def main():
@@ -141,8 +170,8 @@ def main():
             r, cut = evaluate([x for x in rows if x[0] == v], v); allres[v] = dict(holdout_from=cut, cells=r); print(f"[flow_volume] {v}: {len(r)} versions, holdout from {cut}", flush=True)
         del rows
     if 'poly' in want:
-        rows = poly_rows(); print(f"[flow_volume] Polymarket: {len(rows)} markets with pregame trades", flush=True)
-        r, cut = evaluate(rows, 'Polymarket'); allres['Polymarket'] = dict(holdout_from=cut, cells=r, wallets=wallets(rows))
+        MK = poly_markets(); print(f"[flow_volume] Polymarket: {len(MK)} markets with a trade file", flush=True)
+        r, cut, wal = poly(MK); allres['Polymarket'] = dict(holdout_from=cut, cells=r, wallets=wal)
     json.dump(allres, open(OUT, 'w'), indent=1)
     for v, d in allres.items():
         C = d['cells']; tr = [k for k, x in C.items() if 'train' in x and x['train']['n'] >= 100 and (x['train']['z'] or 0) >= 2]
