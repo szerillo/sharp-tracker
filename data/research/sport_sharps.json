@@ -724,5 +724,957 @@
     }
    }
   }
+ },
+ "A": {
+  "train_before": "2026-03-01",
+  "test_until": "2026-09-01",
+  "sports": {
+   "nba": {
+    "scored_in_sport": 2213,
+    "test_markets": 2105,
+    "overlap_sport50_general200": 35,
+    "groups": {
+     "GENERAL top 200": {
+      "n": 1424,
+      "clv": 0.91,
+      "clv_z": 7.77,
+      "roi": -2.6,
+      "roi_z": -0.94,
+      "members": 200
+     },
+     "SPORT top 50": {
+      "n": 362,
+      "clv": 0.93,
+      "clv_z": 4.29,
+      "roi": 7.6,
+      "roi_z": 1.35,
+      "members": 50
+     },
+     "SPORT top 100": {
+      "n": 590,
+      "clv": 1.11,
+      "clv_z": 6.0,
+      "roi": 2.7,
+      "roi_z": 0.59,
+      "members": 100
+     },
+     "SPECIALIST (sport top 50, not general)": {
+      "n": 66,
+      "clv": -0.02,
+      "clv_z": -0.07,
+      "roi": 8.1,
+      "roi_z": 0.7,
+      "members": 15
+     },
+     "BOTH (sport top 50 and general)": {
+      "n": 307,
+      "clv": 1.1,
+      "clv_z": 4.44,
+      "roi": 7.7,
+      "roi_z": 1.24,
+      "members": 35
+     },
+     "SPORT bottom 50": {
+      "n": 247,
+      "clv": -0.28,
+      "clv_z": -0.82,
+      "roi": 7.2,
+      "roi_z": 1.1,
+      "members": 50
+     }
+    },
+    "persistence_sport_score": {
+     "n": 571,
+     "r": 0.171
+    },
+    "persistence_general_score": {
+     "n": 593,
+     "r": 0.22
+    }
+   },
+   "nhl": {
+    "scored_in_sport": 751,
+    "test_markets": 812,
+    "overlap_sport50_general200": 18,
+    "groups": {
+     "GENERAL top 200": {
+      "n": 396,
+      "clv": 0.83,
+      "clv_z": 4.96,
+      "roi": 3.6,
+      "roi_z": 0.7,
+      "members": 200
+     },
+     "SPORT top 50": {
+      "n": 413,
+      "clv": 0.91,
+      "clv_z": 4.73,
+      "roi": 9.8,
+      "roi_z": 1.93,
+      "members": 50
+     },
+     "SPORT top 100": {
+      "n": 489,
+      "clv": 0.86,
+      "clv_z": 5.11,
+      "roi": 4.0,
+      "roi_z": 0.87,
+      "members": 100
+     },
+     "SPECIALIST (sport top 50, not general)": {
+      "n": 335,
+      "clv": 0.64,
+      "clv_z": 3.2,
+      "roi": 11.1,
+      "roi_z": 1.94,
+      "members": 32
+     },
+     "BOTH (sport top 50 and general)": {
+      "n": 243,
+      "clv": 0.98,
+      "clv_z": 4.65,
+      "roi": 7.0,
+      "roi_z": 1.04,
+      "members": 18
+     },
+     "SPORT bottom 50": {
+      "n": 157,
+      "clv": -0.6,
+      "clv_z": -2.89,
+      "roi": -8.2,
+      "roi_z": -0.99,
+      "members": 50
+     }
+    },
+    "persistence_sport_score": {
+     "n": 195,
+     "r": 0.239
+    },
+    "persistence_general_score": {
+     "n": 247,
+     "r": 0.202
+    }
+   },
+   "soccer": {
+    "scored_in_sport": 467,
+    "test_markets": 747,
+    "overlap_sport50_general200": 15,
+    "groups": {
+     "GENERAL top 200": {
+      "n": 359,
+      "clv": 0.69,
+      "clv_z": 4.61,
+      "roi": 10.1,
+      "roi_z": 1.6,
+      "members": 200
+     },
+     "SPORT top 50": {
+      "n": 339,
+      "clv": 0.66,
+      "clv_z": 4.52,
+      "roi": 10.8,
+      "roi_z": 1.66,
+      "members": 50
+     },
+     "SPORT top 100": {
+      "n": 472,
+      "clv": 0.61,
+      "clv_z": 5.02,
+      "roi": 2.5,
+      "roi_z": 0.46,
+      "members": 100
+     },
+     "SPECIALIST (sport top 50, not general)": {
+      "n": 55,
+      "clv": 0.93,
+      "clv_z": 2.38,
+      "roi": -10.7,
+      "roi_z": -0.84,
+      "members": 35
+     },
+     "BOTH (sport top 50 and general)": {
+      "n": 338,
+      "clv": 0.59,
+      "clv_z": 4.05,
+      "roi": 13.1,
+      "roi_z": 2.0,
+      "members": 15
+     },
+     "SPORT bottom 50": {
+      "n": 255,
+      "clv": -0.21,
+      "clv_z": -1.23,
+      "roi": -1.9,
+      "roi_z": -0.22,
+      "members": 50
+     }
+    },
+    "persistence_sport_score": {
+     "n": 181,
+     "r": 0.435
+    },
+    "persistence_general_score": {
+     "n": 225,
+     "r": 0.418
+    }
+   },
+   "mlb": {
+    "scored_in_sport": 473,
+    "test_markets": 911,
+    "overlap_sport50_general200": 15,
+    "groups": {
+     "GENERAL top 200": {
+      "n": 360,
+      "clv": 0.54,
+      "clv_z": 4.18,
+      "roi": 5.1,
+      "roi_z": 0.92,
+      "members": 200
+     },
+     "SPORT top 50": {
+      "n": 53,
+      "clv": 1.43,
+      "clv_z": 5.92,
+      "roi": 2.8,
+      "roi_z": 0.18,
+      "members": 50
+     },
+     "SPORT top 100": {
+      "n": 243,
+      "clv": 0.57,
+      "clv_z": 3.76,
+      "roi": 6.9,
+      "roi_z": 1.0,
+      "members": 100
+     },
+     "SPECIALIST (sport top 50, not general)": {
+      "n": 9,
+      "members": 35
+     },
+     "BOTH (sport top 50 and general)": {
+      "n": 44,
+      "clv": 1.45,
+      "clv_z": 6.03,
+      "roi": -2.9,
+      "roi_z": -0.17,
+      "members": 15
+     },
+     "SPORT bottom 50": {
+      "n": 41,
+      "clv": 0.14,
+      "clv_z": 0.49,
+      "roi": 4.2,
+      "roi_z": 0.27,
+      "members": 50
+     }
+    },
+    "persistence_sport_score": {
+     "n": 31,
+     "r": 0.504
+    },
+    "persistence_general_score": {
+     "n": 157,
+     "r": 0.324
+    }
+   },
+   "ufc": {
+    "scored_in_sport": 33,
+    "test_markets": 278,
+    "overlap_sport50_general200": 1,
+    "groups": {
+     "GENERAL top 200": {
+      "n": 127,
+      "clv": 0.43,
+      "clv_z": 3.04,
+      "roi": -1.0,
+      "roi_z": -0.09,
+      "members": 200
+     },
+     "SPORT top 50": {
+      "n": 127,
+      "clv": 0.99,
+      "clv_z": 4.69,
+      "roi": -8.0,
+      "roi_z": -0.81,
+      "members": 33
+     },
+     "SPORT top 100": {
+      "n": 127,
+      "clv": 0.99,
+      "clv_z": 4.69,
+      "roi": -8.0,
+      "roi_z": -0.81,
+      "members": 33
+     },
+     "SPECIALIST (sport top 50, not general)": {
+      "n": 126,
+      "clv": 1.08,
+      "clv_z": 5.28,
+      "roi": -8.5,
+      "roi_z": -0.87,
+      "members": 32
+     },
+     "BOTH (sport top 50 and general)": {
+      "n": 7,
+      "members": 1
+     },
+     "SPORT bottom 50": {
+      "n": 0,
+      "members": 0
+     }
+    },
+    "persistence_sport_score": {
+     "n": 21,
+     "r": 0.546
+    },
+    "persistence_general_score": {
+     "n": 52,
+     "r": 0.101
+    }
+   },
+   "wnba": {
+    "scored_in_sport": 30,
+    "test_markets": 1008,
+    "overlap_sport50_general200": 5,
+    "groups": {
+     "GENERAL top 200": {
+      "n": 313,
+      "clv": 1.19,
+      "clv_z": 5.52,
+      "roi": 1.3,
+      "roi_z": 0.21,
+      "members": 200
+     },
+     "SPORT top 50": {
+      "n": 266,
+      "clv": 0.64,
+      "clv_z": 3.67,
+      "roi": 8.4,
+      "roi_z": 1.34,
+      "members": 30
+     },
+     "SPORT top 100": {
+      "n": 266,
+      "clv": 0.64,
+      "clv_z": 3.67,
+      "roi": 8.4,
+      "roi_z": 1.34,
+      "members": 30
+     },
+     "SPECIALIST (sport top 50, not general)": {
+      "n": 241,
+      "clv": 0.51,
+      "clv_z": 3.0,
+      "roi": 6.5,
+      "roi_z": 0.97,
+      "members": 25
+     },
+     "BOTH (sport top 50 and general)": {
+      "n": 26,
+      "clv": 1.81,
+      "clv_z": 2.31,
+      "roi": 29.3,
+      "roi_z": 1.75,
+      "members": 5
+     },
+     "SPORT bottom 50": {
+      "n": 0,
+      "members": 0
+     }
+    },
+    "persistence_sport_score": {
+     "n": 5
+    },
+    "persistence_general_score": {
+     "n": 76,
+     "r": 0.444
+    }
+   },
+   "nfl": {
+    "scored_in_sport": 829,
+    "test_markets": 104,
+    "overlap_sport50_general200": 24,
+    "groups": {
+     "GENERAL top 200": {
+      "n": 11,
+      "clv": -0.1,
+      "clv_z": -0.07,
+      "roi": 26.0,
+      "roi_z": 0.81,
+      "members": 200
+     },
+     "SPORT top 50": {
+      "n": 34,
+      "clv": 1.19,
+      "clv_z": 1.32,
+      "roi": 12.2,
+      "roi_z": 0.69,
+      "members": 50
+     },
+     "SPORT top 100": {
+      "n": 34,
+      "clv": 1.19,
+      "clv_z": 1.32,
+      "roi": 12.2,
+      "roi_z": 0.69,
+      "members": 100
+     },
+     "SPECIALIST (sport top 50, not general)": {
+      "n": 31,
+      "clv": 1.86,
+      "clv_z": 2.01,
+      "roi": 7.1,
+      "roi_z": 0.37,
+      "members": 26
+     },
+     "BOTH (sport top 50 and general)": {
+      "n": 8,
+      "members": 24
+     },
+     "SPORT bottom 50": {
+      "n": 2,
+      "members": 50
+     }
+    },
+    "persistence_sport_score": {
+     "n": 9
+    },
+    "persistence_general_score": {
+     "n": 15,
+     "r": -0.22
+    }
+   },
+   "cfb": {
+    "scored_in_sport": 251,
+    "test_markets": 14,
+    "overlap_sport50_general200": 11,
+    "groups": {
+     "GENERAL top 200": {
+      "n": 0,
+      "members": 200
+     },
+     "SPORT top 50": {
+      "n": 0,
+      "members": 50
+     },
+     "SPORT top 100": {
+      "n": 2,
+      "members": 100
+     },
+     "SPECIALIST (sport top 50, not general)": {
+      "n": 0,
+      "members": 39
+     },
+     "BOTH (sport top 50 and general)": {
+      "n": 0,
+      "members": 11
+     },
+     "SPORT bottom 50": {
+      "n": 3,
+      "members": 50
+     }
+    },
+    "persistence_sport_score": {
+     "n": 0
+    },
+    "persistence_general_score": {
+     "n": 0
+    }
+   }
+  }
+ },
+ "B": {
+  "train_before": "2026-09-01",
+  "test_until": "2099-01-01",
+  "sports": {
+   "ufc": {
+    "scored_in_sport": 125,
+    "test_markets": 148,
+    "overlap_sport50_general200": 7,
+    "groups": {
+     "GENERAL top 200": {
+      "n": 78,
+      "clv": -2.69,
+      "clv_z": -1.35,
+      "roi": -19.2,
+      "roi_z": -1.55,
+      "members": 200
+     },
+     "SPORT top 50": {
+      "n": 95,
+      "clv": -0.47,
+      "clv_z": -0.23,
+      "roi": 0.8,
+      "roi_z": 0.07,
+      "members": 50
+     },
+     "SPORT top 100": {
+      "n": 130,
+      "clv": -1.3,
+      "clv_z": -0.85,
+      "roi": 21.6,
+      "roi_z": 1.58,
+      "members": 100
+     },
+     "SPECIALIST (sport top 50, not general)": {
+      "n": 84,
+      "clv": 2.65,
+      "clv_z": 1.21,
+      "roi": 9.9,
+      "roi_z": 0.8,
+      "members": 43
+     },
+     "BOTH (sport top 50 and general)": {
+      "n": 39,
+      "clv": -3.48,
+      "clv_z": -0.96,
+      "roi": -1.9,
+      "roi_z": -0.1,
+      "members": 7
+     },
+     "SPORT bottom 50": {
+      "n": 0,
+      "members": 0
+     }
+    },
+    "persistence_sport_score": {
+     "n": 38,
+     "r": 0.055
+    },
+    "persistence_general_score": {
+     "n": 43,
+     "r": 0.12
+    }
+   },
+   "cfb": {
+    "scored_in_sport": 252,
+    "test_markets": 1395,
+    "overlap_sport50_general200": 6,
+    "groups": {
+     "GENERAL top 200": {
+      "n": 623,
+      "clv": 0.54,
+      "clv_z": 6.67,
+      "roi": 5.8,
+      "roi_z": 1.28,
+      "members": 200
+     },
+     "SPORT top 50": {
+      "n": 539,
+      "clv": 0.59,
+      "clv_z": 3.44,
+      "roi": 0.4,
+      "roi_z": 0.08,
+      "members": 50
+     },
+     "SPORT top 100": {
+      "n": 616,
+      "clv": 0.61,
+      "clv_z": 4.01,
+      "roi": -0.3,
+      "roi_z": -0.06,
+      "members": 100
+     },
+     "SPECIALIST (sport top 50, not general)": {
+      "n": 539,
+      "clv": 0.59,
+      "clv_z": 3.44,
+      "roi": 0.4,
+      "roi_z": 0.08,
+      "members": 44
+     },
+     "BOTH (sport top 50 and general)": {
+      "n": 0,
+      "members": 6
+     },
+     "SPORT bottom 50": {
+      "n": 150,
+      "clv": -0.01,
+      "clv_z": -0.06,
+      "roi": 13.8,
+      "roi_z": 1.63,
+      "members": 50
+     }
+    },
+    "persistence_sport_score": {
+     "n": 30,
+     "r": 0.345
+    },
+    "persistence_general_score": {
+     "n": 115,
+     "r": 0.576
+    }
+   },
+   "soccer": {
+    "scored_in_sport": 829,
+    "test_markets": 742,
+    "overlap_sport50_general200": 25,
+    "groups": {
+     "GENERAL top 200": {
+      "n": 545,
+      "clv": 1.1,
+      "clv_z": 10.06,
+      "roi": 7.7,
+      "roi_z": 1.15,
+      "members": 200
+     },
+     "SPORT top 50": {
+      "n": 490,
+      "clv": 1.15,
+      "clv_z": 9.9,
+      "roi": 9.0,
+      "roi_z": 1.25,
+      "members": 50
+     },
+     "SPORT top 100": {
+      "n": 608,
+      "clv": 1.03,
+      "clv_z": 9.22,
+      "roi": 5.3,
+      "roi_z": 0.82,
+      "members": 100
+     },
+     "SPECIALIST (sport top 50, not general)": {
+      "n": 35,
+      "clv": 1.34,
+      "clv_z": 3.36,
+      "roi": 11.9,
+      "roi_z": 0.49,
+      "members": 25
+     },
+     "BOTH (sport top 50 and general)": {
+      "n": 483,
+      "clv": 1.14,
+      "clv_z": 9.74,
+      "roi": 7.3,
+      "roi_z": 1.03,
+      "members": 25
+     },
+     "SPORT bottom 50": {
+      "n": 67,
+      "clv": -0.1,
+      "clv_z": -0.37,
+      "roi": 30.3,
+      "roi_z": 1.61,
+      "members": 50
+     }
+    },
+    "persistence_sport_score": {
+     "n": 123,
+     "r": 0.373
+    },
+    "persistence_general_score": {
+     "n": 132,
+     "r": 0.468
+    }
+   },
+   "nfl": {
+    "scored_in_sport": 839,
+    "test_markets": 1126,
+    "overlap_sport50_general200": 14,
+    "groups": {
+     "GENERAL top 200": {
+      "n": 538,
+      "clv": 0.76,
+      "clv_z": 7.94,
+      "roi": 1.0,
+      "roi_z": 0.19,
+      "members": 200
+     },
+     "SPORT top 50": {
+      "n": 789,
+      "clv": 0.4,
+      "clv_z": 4.53,
+      "roi": -1.6,
+      "roi_z": -0.42,
+      "members": 50
+     },
+     "SPORT top 100": {
+      "n": 808,
+      "clv": 0.41,
+      "clv_z": 4.76,
+      "roi": -0.1,
+      "roi_z": -0.02,
+      "members": 100
+     },
+     "SPECIALIST (sport top 50, not general)": {
+      "n": 786,
+      "clv": 0.3,
+      "clv_z": 3.39,
+      "roi": -1.5,
+      "roi_z": -0.4,
+      "members": 36
+     },
+     "BOTH (sport top 50 and general)": {
+      "n": 69,
+      "clv": 1.53,
+      "clv_z": 2.98,
+      "roi": 14.0,
+      "roi_z": 1.12,
+      "members": 14
+     },
+     "SPORT bottom 50": {
+      "n": 52,
+      "clv": -0.35,
+      "clv_z": -1.48,
+      "roi": 1.8,
+      "roi_z": 0.11,
+      "members": 50
+     }
+    },
+    "persistence_sport_score": {
+     "n": 117,
+     "r": 0.351
+    },
+    "persistence_general_score": {
+     "n": 216,
+     "r": 0.447
+    }
+   },
+   "wnba": {
+    "scored_in_sport": 208,
+    "test_markets": 202,
+    "overlap_sport50_general200": 20,
+    "groups": {
+     "GENERAL top 200": {
+      "n": 108,
+      "clv": 1.39,
+      "clv_z": 4.34,
+      "roi": 0.1,
+      "roi_z": 0.01,
+      "members": 200
+     },
+     "SPORT top 50": {
+      "n": 149,
+      "clv": 1.03,
+      "clv_z": 3.39,
+      "roi": 4.5,
+      "roi_z": 0.45,
+      "members": 50
+     },
+     "SPORT top 100": {
+      "n": 181,
+      "clv": 0.72,
+      "clv_z": 2.46,
+      "roi": -3.0,
+      "roi_z": -0.4,
+      "members": 100
+     },
+     "SPECIALIST (sport top 50, not general)": {
+      "n": 112,
+      "clv": 0.85,
+      "clv_z": 2.45,
+      "roi": -5.2,
+      "roi_z": -0.54,
+      "members": 30
+     },
+     "BOTH (sport top 50 and general)": {
+      "n": 104,
+      "clv": 1.43,
+      "clv_z": 4.4,
+      "roi": 6.4,
+      "roi_z": 0.5,
+      "members": 20
+     },
+     "SPORT bottom 50": {
+      "n": 66,
+      "clv": -0.34,
+      "clv_z": -0.69,
+      "roi": 7.8,
+      "roi_z": 0.67,
+      "members": 50
+     }
+    },
+    "persistence_sport_score": {
+     "n": 38,
+     "r": 0.408
+    },
+    "persistence_general_score": {
+     "n": 39,
+     "r": 0.413
+    }
+   },
+   "nhl": {
+    "scored_in_sport": 1041,
+    "test_markets": 503,
+    "overlap_sport50_general200": 22,
+    "groups": {
+     "GENERAL top 200": {
+      "n": 178,
+      "clv": 0.6,
+      "clv_z": 3.72,
+      "roi": 4.8,
+      "roi_z": 0.6,
+      "members": 200
+     },
+     "SPORT top 50": {
+      "n": 104,
+      "clv": 0.78,
+      "clv_z": 2.61,
+      "roi": 16.7,
+      "roi_z": 1.72,
+      "members": 50
+     },
+     "SPORT top 100": {
+      "n": 196,
+      "clv": 0.64,
+      "clv_z": 3.83,
+      "roi": 0.5,
+      "roi_z": 0.07,
+      "members": 100
+     },
+     "SPECIALIST (sport top 50, not general)": {
+      "n": 97,
+      "clv": 0.68,
+      "clv_z": 2.26,
+      "roi": 16.3,
+      "roi_z": 1.64,
+      "members": 28
+     },
+     "BOTH (sport top 50 and general)": {
+      "n": 11,
+      "clv": 1.77,
+      "clv_z": 1.71,
+      "roi": -6.9,
+      "roi_z": -0.21,
+      "members": 22
+     },
+     "SPORT bottom 50": {
+      "n": 15,
+      "clv": -2.23,
+      "clv_z": -1.71,
+      "roi": 37.2,
+      "roi_z": 1.21,
+      "members": 50
+     }
+    },
+    "persistence_sport_score": {
+     "n": 50,
+     "r": 0.621
+    },
+    "persistence_general_score": {
+     "n": 68,
+     "r": 0.363
+    }
+   },
+   "mlb": {
+    "scored_in_sport": 739,
+    "test_markets": 351,
+    "overlap_sport50_general200": 13,
+    "groups": {
+     "GENERAL top 200": {
+      "n": 115,
+      "clv": 0.89,
+      "clv_z": 3.75,
+      "roi": -7.7,
+      "roi_z": -0.8,
+      "members": 200
+     },
+     "SPORT top 50": {
+      "n": 158,
+      "clv": 0.56,
+      "clv_z": 2.9,
+      "roi": 1.3,
+      "roi_z": 0.17,
+      "members": 50
+     },
+     "SPORT top 100": {
+      "n": 242,
+      "clv": 0.83,
+      "clv_z": 5.29,
+      "roi": -1.1,
+      "roi_z": -0.17,
+      "members": 100
+     },
+     "SPECIALIST (sport top 50, not general)": {
+      "n": 141,
+      "clv": 0.51,
+      "clv_z": 3.23,
+      "roi": 4.0,
+      "roi_z": 0.47,
+      "members": 37
+     },
+     "BOTH (sport top 50 and general)": {
+      "n": 36,
+      "clv": 0.47,
+      "clv_z": 0.78,
+      "roi": 8.2,
+      "roi_z": 0.49,
+      "members": 13
+     },
+     "SPORT bottom 50": {
+      "n": 1,
+      "members": 50
+     }
+    },
+    "persistence_sport_score": {
+     "n": 34,
+     "r": 0.334
+    },
+    "persistence_general_score": {
+     "n": 62,
+     "r": 0.498
+    }
+   },
+   "nba": {
+    "scored_in_sport": 3071,
+    "test_markets": 1145,
+    "overlap_sport50_general200": 38,
+    "groups": {
+     "GENERAL top 200": {
+      "n": 496,
+      "clv": 0.96,
+      "clv_z": 4.84,
+      "roi": 4.4,
+      "roi_z": 0.97,
+      "members": 200
+     },
+     "SPORT top 50": {
+      "n": 20,
+      "clv": 1.01,
+      "clv_z": 1.58,
+      "roi": 1.8,
+      "roi_z": 0.08,
+      "members": 50
+     },
+     "SPORT top 100": {
+      "n": 240,
+      "clv": 0.85,
+      "clv_z": 3.13,
+      "roi": 5.7,
+      "roi_z": 0.88,
+      "members": 100
+     },
+     "SPECIALIST (sport top 50, not general)": {
+      "n": 3,
+      "members": 12
+     },
+     "BOTH (sport top 50 and general)": {
+      "n": 17,
+      "clv": 1.28,
+      "clv_z": 1.74,
+      "roi": 12.2,
+      "roi_z": 0.52,
+      "members": 38
+     },
+     "SPORT bottom 50": {
+      "n": 140,
+      "clv": -0.25,
+      "clv_z": -1.0,
+      "roi": -10.2,
+      "roi_z": -1.19,
+      "members": 50
+     }
+    },
+    "persistence_sport_score": {
+     "n": 180,
+     "r": 0.215
+    },
+    "persistence_general_score": {
+     "n": 205,
+     "r": 0.224
+    }
+   }
+  }
  }
 }

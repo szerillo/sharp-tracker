@@ -218,3 +218,28 @@ Scored before 2026-09-01, followed after (62 days), UFC excluded, entry 5 minute
 
 Read: the flags specialists would add are real but carry about half the edge (+0.45 vs +0.87) and no profit at the result. Not turned on.
 Note: with the sport-proven tier added today, the live rule now flags about 12-13 games a day (was 8-9) at +0.87 pts.
+
+## Deeper history, four periods (11/2)
+
+The Polymarket history was extended back past Gamma's paging limit (loggers/polymarket_history.py catalog_back): NBA to mid-2024, NHL to
+December 2024, the full 2025 MLB season, CFB to September 2025; 3.76M more trades. Older UFC fight markets carry no start time and cannot
+be used. sharp/sport_sharps.py rerun with four walk-forward periods (score on everything before the cutoff, follow until the next):
+Jul 2025, Nov 2025, Mar 2026, Sep 2026. CLV vs Polymarket's close, entry 5 minutes after the first member bet (n in brackets).
+
+| Sport | Cross-sport top 200, by period | Both lists, by period | Sport bottom 50 |
+|---|---|---|---|
+| NBA | +1.57 (289), +0.59 (5,012), +0.91 (1,424), +0.96 (496) | +2.51, +0.66, +1.10, +1.28 | +0.29, +0.20, -0.28, -0.25 |
+| NFL | +1.08 (360), +0.85 (742), (11), +0.76 (538) | +1.07, +0.98, -, +1.53 | -0.45, -0.35, -, -0.35 |
+| NHL | +0.66 (199), +0.56 (1,207), +0.83 (396), +0.60 (178) | +0.71, +0.60, +0.98, +1.77 (11) | -, -0.23, -0.60, -2.23 |
+| MLB | +0.64 (952), -, +0.54 (360), +0.89 (115) | +0.49 (895), -, +1.45 (44), +0.47 (36) | -0.22, -, +0.14, - |
+| CFB | +0.48 (256), +0.65 (739), -, +0.54 (623) | -, +0.63, -, - | -, -, -, -0.01 |
+| Soccer | -, +0.39 (749), +0.69 (359), +1.10 (545) | -, -, +0.59, +1.14 | -, -, -0.21, -0.10 |
+| WNBA | +1.43 (121), -, +1.19 (313), +1.39 (108) | +1.32, -, +1.81 (26), +1.43 | -, -, -, -0.34 |
+| UFC | -, +0.39 (63), +0.43 (127), -2.69 (78) | -, -, -, -3.48 (39) | |
+
+Persistence (an account's earlier CLV vs its later CLV) is positive in every sport and period with a sample, about 0.2 to 0.5, except UFC
+in the latest period (0.06 to 0.12).
+
+Read: over 16 months and four separate periods, the cross-sport top 200 beat Polymarket's close in every team sport in every period with a
+sample (the one exception is NFL in Mar-Aug 2026 on 11 bets, the offseason). Accounts in both lists are usually the best. The worst
+accounts in each sport stay at or below zero. MLB holds with a full season (+0.5 to +0.9). Specialists remain mixed. UFC stays out.
