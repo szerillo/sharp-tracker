@@ -1,0 +1,68 @@
+{
+ "days": 62.1,
+ "rules": {
+  "R0": {
+   "markets": 1435,
+   "per_day": 23.1,
+   "games_per_day": 12.7,
+   "clv": 0.87,
+   "clv_z": 10.73,
+   "roi": 5.0,
+   "roi_z": 1.5
+  },
+  "R1": {
+   "markets": 1725,
+   "per_day": 27.8,
+   "games_per_day": 14.7,
+   "clv": 0.82,
+   "clv_z": 11.7,
+   "roi": 4.0,
+   "roi_z": 1.28
+  },
+  "R1-only (added over R0)": {
+   "markets": 308,
+   "per_day": 5.0,
+   "games_per_day": 4.0,
+   "clv": 0.45,
+   "clv_z": 4.66,
+   "roi": -1.1,
+   "roi_z": -0.13
+  },
+  "R1b": {
+   "markets": 1540,
+   "per_day": 24.8,
+   "games_per_day": 14.0,
+   "clv": 0.84,
+   "clv_z": 11.02,
+   "roi": 4.3,
+   "roi_z": 1.27
+  },
+  "R1b-only (added over R0)": {
+   "markets": 236,
+   "per_day": 3.8,
+   "games_per_day": 3.2,
+   "clv": 0.46,
+   "clv_z": 4.45,
+   "roi": -0.7,
+   "roi_z": -0.07
+  },
+  "R2": {
+   "markets": 1772,
+   "per_day": 28.6,
+   "games_per_day": 14.7,
+   "clv": 0.78,
+   "clv_z": 11.43,
+   "roi": 3.7,
+   "roi_z": 1.21
+  },
+  "R2-only (added over R0)": {
+   "markets": 363,
+   "per_day": 5.8,
+   "games_per_day": 4.1,
+   "clv": 0.35,
+   "clv_z": 4.04,
+   "roi": -2.1,
+   "roi_z": -0.28
+  }
+ }
+}

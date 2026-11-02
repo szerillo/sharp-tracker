@@ -202,3 +202,19 @@ is not liquid enough for an account signal yet; revisit when NBA and NFL prop vo
   (108 of 200). Such an account flags a game on its own, like a top-50 account.
 - Sport specialists (a sport's top 50, not in the cross-sport top 200; 188 accounts, UFC excluded) are followed and their fills logged,
   but they do not flag. Their live record decides later whether they should.
+
+## Specialists as the second account (sharp/specialist_rule.py, data/research/specialist_rule.json)
+
+Scored before 2026-09-01, followed after (62 days), UFC excluded, entry 5 minutes after the trigger, CLV vs Polymarket's close.
+
+| Rule | Markets a day | Games a day | CLV | z | ROI |
+|---|---|---|---|---|---|
+| R0 live (top 50, or top 200 also in its sport's top 50, or 2+ top 200) | 23.1 | 12.7 | +0.87 | 10.7 | +5.0% |
+| R1 = R0 + a specialist can be the second account | 27.8 | 14.7 | +0.82 | 11.7 | +4.0% |
+| the flags R1 adds | 5.0 | 4.0 | +0.45 | 4.7 | -1.1% |
+| R1b = R1, and a specialist on the other side also blocks | 24.8 | 14.0 | +0.84 | 11.0 | +4.3% |
+| R2 = any two of top 200 or specialists | 28.6 | 14.7 | +0.78 | 11.4 | +3.7% |
+| the flags R2 adds | 5.8 | 4.1 | +0.35 | 4.0 | -2.1% |
+
+Read: the flags specialists would add are real but carry about half the edge (+0.45 vs +0.87) and no profit at the result. Not turned on.
+Note: with the sport-proven tier added today, the live rule now flags about 12-13 games a day (was 8-9) at +0.87 pts.
