@@ -468,12 +468,12 @@ function renderToday() {
   const VOL = {}; for (const r of (FL && FL.rows) || []) { const k = `${r.event_id}|${r.market}`; VOL[k] = Math.max(VOL[k] || 0, r.total || 0); }   // exchange $ on the market (main line)
   for (const r of wrows) r.vol = VOL[r.id] || 0;
   window._ws = window._ws || 'vol';
-  window._w3 = window._w3 || false;
-  const strongAll = wrows.filter(r => r.strong).sort((x, y) => (y.nfam - x.nfam) || ((y.fam.accounts ? 1 : 0) - (x.fam.accounts ? 1 : 0)) || (x.g.start < y.g.start ? -1 : 1));
-  const strong = _w3 ? strongAll.filter(r => r.nfam === 3) : strongAll, others = wrows.filter(r => !r.strong)
+  // 11/2 families backtest (docs/flow_volume_2026-11-02.md): accounts + money was the best pairing (+0.25 CLV at T-1h), accounts + a price
+  // move added nothing (+0.10), and 3 of 3 was no better than accounts alone (+0.02). So: accounts + money first, then by game time.
+  const strong = wrows.filter(r => r.strong).sort((x, y) => ((y.fam.money ? 1 : 0) - (x.fam.money ? 1 : 0)) || (x.g.start < y.g.start ? -1 : 1)), others = wrows.filter(r => !r.strong)
     .sort((x, y) => _ws === 'vol' ? (y.vol - x.vol) || (x.g.start < y.g.start ? -1 : 1) : (x.g.start < y.g.start ? -1 : 1));
   const wtr = r => { const g = r.g, open = _wo[r.id];
-    const lean = r.mixed ? `<span class="mixed">Mixed, no lean</span><div class="small dim">${[...new Set(r.rest.map(x => esc(x.bet)))].join(' vs ')}</div>` : `<b>${esc(r.rest[0].bet)}</b>${r.strong ? `<div class="small dim">${r.nfam} of 3 agree</div>` : ''}`;
+    const lean = r.mixed ? `<span class="mixed">Mixed, no lean</span><div class="small dim">${[...new Set(r.rest.map(x => esc(x.bet)))].join(' vs ')}</div>` : `<b>${esc(r.rest[0].bet)}</b>${r.strong ? `<div class="small dim">${['accounts', r.fam.money ? 'money' : '', r.fam.price ? 'price' : ''].filter(Boolean).join(' + ')}</div>` : ''}`;
     const chip = x => `<span class="badge ${r.mixed ? 'b-gate' : 'b-watch'}" title="${esc(x.bet)}">${KIND[x.kind]}${x.kind === 'kmove' && x.state ? ' · ' + ({fresh: 'fresh', held: 'held', reversed: 'gave back', drift: 'drift'})[x.state] : ''}</span>`;
     const pr = r.rest.filter(x => x.kind !== 'big'), mo = r.rest.filter(x => x.kind === 'big');
     const chips = (pr.length ? `<div><span class="fam">price</span> ${pr.map(chip).join(' ')}</div>` : '') + (mo.length ? `<div><span class="fam">money</span> ${mo.map(chip).join(' ')}</div>` : '')
@@ -493,9 +493,9 @@ function renderToday() {
       <div style="margin-top:4px">${r.kinds.map(k => `<div class="dim"><b>${KIND[k]} record:</b> ${REC[k]}.</div>`).join('')}</div></td></tr>`; };
   const thead = `<thead><tr><th style="width:160px">Game time</th><th>Game</th><th>Lean</th><th>Signals</th><th>Price</th><th>Traded</th><th>Your bets</th></tr></thead>`;
   const sigRows = !wrows.length ? '' : `
-    <div class="small" style="margin:2px 0 6px"><b>Strongest</b>: Polymarket sharp accounts are on the side (the one signal with a proven edge) and at least one other family agrees (price: where the line went; money: big vs small), with no sharp account on the other side. All three agreeing sorts first. Several price signals count once. Click a row for the reasons.</div>
-    <div class="controls"><span>Show</span><span class="tabs inline"><button class="${!_w3 ? 'on' : ''}" onclick="_w3=false;draw()">All strongest (${strongAll.length})</button><button class="${_w3 ? 'on' : ''}" onclick="_w3=true;draw()">All three agree (${strongAll.filter(r => r.nfam === 3).length})</button></span></div>
-    ${strong.length ? `<div class="sec"><table>${thead}<tbody>${strong.map(wtr).join('')}</tbody></table></div>` : `<div class="small dim">${_w3 ? 'No market has all three families agreeing right now.' : 'No market has sharp accounts plus another family agreeing, with nothing against, right now.'}</div>`}
+    <div class="small" style="margin:2px 0 6px"><b>Strongest</b>: Polymarket sharp accounts are on the side and at least one other family agrees (money: big vs small; price: where the line went), with no sharp account on the other side. Accounts + money sorts first: in the backtest it was the best pairing (+0.25 pts CLV an hour out), a price move added nothing, and all three agreeing was no better than accounts alone. This table is context: most of the edge goes to acting when the account bets (Sharp accounts above, and the phone alerts). Several price signals count once. Click a row for the reasons.</div>
+    
+    ${strong.length ? `<div class="sec"><table>${thead}<tbody>${strong.map(wtr).join('')}</tbody></table></div>` : '<div class="small dim">No market has sharp accounts plus another family agreeing, with nothing against, right now.</div>'}
     ${others.length ? `<details class="how" ${window._wopen ? 'open' : ''} ontoggle="window._wopen=this.open"><summary>All other signals (${others.length}): untested on their own</summary>
       <div class="controls"><span>Sort</span><span class="tabs inline"><button class="${_ws === 'vol' ? 'on' : ''}" onclick="_ws='vol';window._wopen=true;draw()">Volume</button><button class="${_ws === 'time' ? 'on' : ''}" onclick="_ws='time';window._wopen=true;draw()">Game time</button></span><span>Volume = exchange dollars traded on that market (Kalshi + Polymarket + Novig, risk-equivalent); a signal on a busy market carries more than one on a thin one.</span></div>
       <div class="sec"><table>${thead}<tbody>${others.map(wtr).join('')}</tbody></table></div></details>` : ''}`;
@@ -509,7 +509,7 @@ function renderToday() {
     ${twRows ? `<div class="sec"><div class="sec-h"><span class="name">Tennis: set-1 favourites under the curve</span><span class="meta">rule tennis_fs_fav · paper record ${twRec}</span></div><table><thead><tr><th>Start</th><th>Match · bet</th><th>Fair set-1 price</th><th>Best price</th></tr></thead><tbody>${twRows}</tbody></table></div>` : ''}
     ${!lgames.length && !twRows ? emptyNote('leans', [...bets.filter(it => tierOf(it) === 'C'), ...tw].filter(x => passS(x.sport, x.league))) : ''}
     ${sharpAcctSection()}
-    <div class="hdr2"><h2>Sharp-money watch</h2><span class="meta">not bets: top-down signals, judged on whether following them beats the close</span></div>
+    <div class="hdr2"><h2>Sharp-money watch</h2><span class="meta">context, not bets: the edge is in Sharp accounts above</span></div>
     <details class="how"><summary>What each signal means, and how it has tested</summary><p class="explain">
       <b>Sharp move</b>: a move in the last 6 hours that started at Pinnacle, or that $1,000+ Kalshi fills went with. So far following it has lost 0.65 pts to the close on 77 settled moves (z -3.7; moves partly give back); kept on the watch while the sample grows, not a bet.<br>
       <b>Big vs small</b>: exchange taker fills (Kalshi, Polymarket and Novig; Novig's taker side was checked against its public tape on 11/1) of $${FL ? FL.big_usd : 500}+ net on one side by $${FL ? FL.div_usd.toLocaleString() : '1,000'}+ while fills of $${FL ? FL.small_usd : 50} and under lean the other way; sizes are risk-equivalent, so laying -900 is not "big money". Shown only above $${FL ? (FL.show_total || 10000).toLocaleString() : '10,000'} traded and $${FL ? (FL.show_big || 2500).toLocaleString() : '2,500'} big-money net (readability; stricter cuts were tested and did not make it predictive). Backtest: no version clears noise.<br>
