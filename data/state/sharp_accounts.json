@@ -1,5 +1,5 @@
 {
- "built": "2026-11-02T20:53:11Z",
+ "built": "2026-11-02T21:15:39Z",
  "rows": [
   {
    "cond": "0xdc614e16fcccc4cce28241e13e7b774d797e30bbb55b0985f63915c039fa7aa7",
@@ -30,6 +30,39 @@
    "home_name": "Boston Bruins",
    "game_start": "2026-11-03T00:00Z",
    "side_std": "away"
+  },
+  {
+   "cond": "0xce020263693fd2189f633197a53aaf2576a83780598a424680c48fe9595b1e44",
+   "slug": "nba-okc-cle-2026-11-02",
+   "title": "Thunder vs. Cavaliers",
+   "mtype": "ml",
+   "start": "2026-11-03T00:00:00Z",
+   "bet": "Cavaliers ML",
+   "side": "Cavaliers",
+   "flagged": "2026-11-02T21:13:03Z",
+   "why": "a top-50 account",
+   "n_accounts": 1,
+   "best_rank": 43,
+   "usd": 469,
+   "paid": 0.61,
+   "ask": 0.61,
+   "status": "live",
+   "link": "https://polymarket.us/event/nba-okc-cle-2026-11-02",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401909907",
+   "sport": "nba",
+   "league": null,
+   "away": "OKC",
+   "home": "CLE",
+   "away_name": "Oklahoma City Thunder",
+   "home_name": "Cleveland Cavaliers",
+   "game_start": "2026-11-03T00:00Z",
+   "side_std": "home",
+   "conflict": [
+    "Kalshi bet back"
+   ]
   },
   {
    "cond": "0x59b4183e400ce040935d5eb2d29bd7b61046f774e51a8f25aeb1a99150f7ae94",
@@ -75,7 +108,7 @@
    "best_rank": 59,
    "usd": 7415,
    "paid": 0.519,
-   "ask": 0.57,
+   "ask": 0.61,
    "status": "live",
    "link": "https://polymarket.us/event/nba-sac-dal-2026-11-02",
    "other": null,
@@ -165,7 +198,7 @@
    "best_rank": 112,
    "usd": 3238,
    "paid": 0.48,
-   "ask": 0.51,
+   "ask": 0.5,
    "status": "live",
    "link": "https://polymarket.us/event/nba-mil-min-2026-11-02",
    "other": null,
@@ -302,6 +335,69 @@
    "side_std": "under"
   },
   {
+   "cond": "0xbdaee84a4a1034b08f0e3748430ec218fcce78b85142d3c426747756d5a83621",
+   "slug": "nba-tor-lac-2026-11-02",
+   "title": "Raptors vs. Clippers",
+   "mtype": "spread",
+   "start": "2026-11-03T03:00:00Z",
+   "bet": "Clippers +5.5",
+   "side": "Clippers",
+   "flagged": "2026-11-02T21:00:06Z",
+   "why": "2 top-200 accounts",
+   "n_accounts": 2,
+   "best_rank": 40,
+   "usd": 15394,
+   "paid": 0.497,
+   "ask": 0.55,
+   "status": "live",
+   "link": "https://polymarket.us/event/nba-tor-lac-2026-11-02",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401909920",
+   "sport": "nba",
+   "league": null,
+   "away": "TOR",
+   "home": "LAC",
+   "away_name": "Toronto Raptors",
+   "home_name": "LA Clippers",
+   "game_start": "2026-11-03T03:00Z",
+   "side_std": "home"
+  },
+  {
+   "cond": "0xeaeea042e89fa470d02300bbc955b047923d3be181bc64790b837e42fa332a87",
+   "slug": "nba-phx-gsw-2026-11-02",
+   "title": "Suns vs. Warriors",
+   "mtype": "ml",
+   "start": "2026-11-03T03:00:00Z",
+   "bet": "Warriors ML",
+   "side": "Warriors",
+   "flagged": "2026-11-02T21:08:40Z",
+   "why": "a top-50 account",
+   "n_accounts": 1,
+   "best_rank": 43,
+   "usd": 994,
+   "paid": 0.57,
+   "ask": 0.57,
+   "status": "live",
+   "link": "https://polymarket.us/event/nba-phx-gsw-2026-11-02",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401909919",
+   "sport": "nba",
+   "league": null,
+   "away": "PHX",
+   "home": "GS",
+   "away_name": "Phoenix Suns",
+   "home_name": "Golden State Warriors",
+   "game_start": "2026-11-03T03:00Z",
+   "side_std": "home",
+   "conflict": [
+    "big money"
+   ]
+  },
+  {
    "cond": "0x484829914029c89c187799972e5a2e50b48e94347b17e2bd2d7badd313d573d3",
    "slug": "ucl-vil-psg-2026-11-03",
    "title": "Villarreal CF vs. Paris Saint-Germain FC",
@@ -315,7 +411,7 @@
    "best_rank": 42,
    "usd": 393,
    "paid": 0.4,
-   "ask": 0.39,
+   "ask": 0.4,
    "status": "live",
    "link": "https://polymarket.us/event/ucl-vil-psg-2026-11-03",
    "other": null,
@@ -526,7 +622,7 @@
    "best_rank": 39,
    "usd": 2637,
    "paid": 0.224,
-   "ask": 0.25,
+   "ask": 0.26,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-sac-dal-2026-11-02",
    "other": {
@@ -535,7 +631,7 @@
     "usd": 175,
     "first": "2026-11-01T23:00:37Z"
    },
-   "exit_bid": 0.24,
+   "exit_bid": 0.25,
    "kalshi_against": null,
    "logged": false,
    "event_id": "401909913",
@@ -601,16 +697,16 @@
    "best_rank": 23,
    "usd": 1278,
    "paid": 0.643,
-   "ask": 0.67,
+   "ask": 0.62,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-tor-lac-2026-11-02",
    "other": {
-    "n_accounts": 1,
-    "best_rank": 132,
-    "usd": 376,
+    "n_accounts": 4,
+    "best_rank": 40,
+    "usd": 44055,
     "first": "2026-11-02T18:01:00Z"
    },
-   "exit_bid": 0.66,
+   "exit_bid": 0.61,
    "kalshi_against": null,
    "logged": true,
    "event_id": "401909920",
@@ -697,6 +793,13 @@
     "n": 1,
     "best_rank": 143,
     "usd": 2350
+   }
+  },
+  "401909907|ml": {
+   "home": {
+    "n": 1,
+    "best_rank": 43,
+    "usd": 469
    }
   },
   "401909908|total": {
@@ -851,9 +954,9 @@
   },
   "401909915|ml": {
    "home": {
-    "n": 1,
-    "best_rank": 75,
-    "usd": 1661
+    "n": 3,
+    "best_rank": 55,
+    "usd": 2325
    },
    "away": {
     "n": 2,
@@ -932,6 +1035,13 @@
     "usd": 368
    }
   },
+  "401909919|ml": {
+   "home": {
+    "n": 1,
+    "best_rank": 43,
+    "usd": 994
+   }
+  },
   "401909920|ml": {
    "away": {
     "n": 2,
@@ -939,9 +1049,16 @@
     "usd": 1278
    },
    "home": {
-    "n": 1,
-    "best_rank": 132,
-    "usd": 376
+    "n": 4,
+    "best_rank": 40,
+    "usd": 21622
+   }
+  },
+  "401909920|spread": {
+   "home": {
+    "n": 2,
+    "best_rank": 40,
+    "usd": 15394
    }
   },
   "401909921|ml": {
@@ -954,6 +1071,13 @@
     "n": 2,
     "best_rank": 23,
     "usd": 17550
+   }
+  },
+  "401909921|spread": {
+   "home": {
+    "n": 1,
+    "best_rank": 76,
+    "usd": 3253
    }
   },
   "401892629|ml": {
