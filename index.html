@@ -96,7 +96,7 @@ const MKT = new Proxy(MKT0, {get(t, k) { if (k in t) return t[k]; const m = /^(1
 let SPORT = new URLSearchParams(location.search).get('sport') || null;
 const XV = new Set(['Kalshi', 'Novig', 'Polymarket']), SHARP = new Set(['Pinnacle', 'Circa']);
 const ET = iso => new Date(iso).toLocaleString('en-US', {timeZone: 'America/New_York', month: 'short', day: 'numeric', hour: 'numeric', minute: '2-digit'});
-let D = null, E = null, MV = null, SY = null, FL = null, TW = null, SN = null, tab = new URLSearchParams(location.search).get('tab') || 'today';
+let D = null, E = null, MV = null, SY = null, FL = null, TW = null, SN = null, SA = null, tab = new URLSearchParams(location.search).get('tab') || 'today';
 const TABS = [['today', 'Today'], ['games', 'Games'], ['systems', 'Systems'], ['moves', 'Market moves'], ['more', 'More']];
 const RTABS = [['edges', 'Off-market prices'], ['ledger', 'Bet ledger'], ['weekly', 'Weekly report'], ['venues', 'Which books lead'], ['board', 'Full odds board'], ['props', 'Prop list'], ['health', 'Data health'], ['constants', 'Settings']];
 let rtab = new URLSearchParams(location.search).get('r') || 'edges';
@@ -333,6 +333,23 @@ function gameHead(x) {
     <b>${DAYT(x.start)}</b> <span class="dim">${until(x.start)}</span> <span class="gname">${esc(x.away_name || x.away)} @ ${esc(x.home_name || x.home)}</span></div>`;
 }
 function groupByGame(list, keyOf) { const m = new Map(); for (const it of list) { const k = keyOf(it); if (!m.has(k)) m.set(k, []); m.get(k).push(it); } return [...m.values()]; }
+// ---- Polymarket sharp accounts (sharp/sharp_live.py): accounts that beat the close before September kept beating it after
+function sharpAcctSection() {
+  if (!SA) return '';
+  const R = (SA.rows || []).filter(r => new Date(r.start) > Date.now() && (!_tf.sport || (_tf.sport === 'soccer' ? /^(epl|ucl|uel|mls|bun|lal|sea|lig|fl1|ser)/.test(r.slug || '') : (r.slug || '').startsWith(_tf.sport + '-'))) && passW(r.start));
+  const rec = SA.record && SA.record.n ? `paper ${SA.record.won}-${SA.record.n - SA.record.won}, ${SA.record.units > 0 ? '+' : ''}${SA.record.units}u, CLV ${SA.record.clv > 0 ? '+' : ''}${SA.record.clv} pts` : 'paper record starts with the first graded flag';
+  const c = x => x == null ? '—' : `${(100 * x).toFixed(1)}¢ (${toAm(x)})`;
+  const row = r => {
+    const st = r.status === 'live' ? '<span class="ok-chip">live</span>'
+      : `<span class="tag-against">a rank-${r.other.best_rank} sharp bet the other side ${ET(r.other.first)} ($${r.other.usd.toLocaleString()})</span>
+         <div class="small dim">Backtest: holding still beat getting out (+1.12 vs +0.89 pts CLV on 194 cases), so the default is hold.${r.exit_bid ? ` To get out now: sell at about ${(100 * r.exit_bid).toFixed(1)}¢.` : ''}</div>`;
+    return `<tr><td class="small"><b>${DAYT(r.start)}</b><br><span class="dim">${until(r.start)}</span></td>
+      <td class="small">${esc(r.title || r.slug)}</td><td><b>${esc(r.bet)}</b><div class="small dim">${esc(r.why)}, best rank ${r.best_rank}, $${r.usd.toLocaleString()} · flagged ${ET(r.flagged)}</div></td>
+      <td class="small mono">sharps paid ${c(r.paid)}<br>ask now ${c(r.ask)}<br><a class="betbtn" target="_blank" rel="noopener" href="${r.link}">Polymarket ↗</a></td><td class="small">${st}</td></tr>`; };
+  return `<div class="hdr2"><h2>Sharp accounts</h2><span class="meta">Polymarket accounts with a proven record of beating the close · ${rec}</span></div>
+    <details class="how"><summary>How this works and how it tested</summary><p class="explain">Every Polymarket bet shows the account behind it. Accounts were scored on how well their pregame bets beat the closing price (30+ bets on 15+ games); scored on games before September and followed after, the top 200 kept beating the close (+0.64 pts, z 8.9, and +1.11 pts against Pinnacle's close), while ranking accounts by past profit did not work. A row appears only when a <b>top-50 account</b> bets, or <b>two top-200 accounts</b> are on the same side, with none on the other side (about 8-9 games a day in the backtest, +0.96 pts CLV). Bet size does not matter; speed does (the edge was +0.80 a minute after their bet, +0.39 an hour after), so the price to compare is the <b>ask now</b> against what the sharps paid. If a sharp later takes the other side the row turns red; on past data holding still did slightly better than getting out. UFC is excluded (negative in the backtest). Each flag is paper-logged at the ask when first seen and graded on the result and on CLV.</p></details>
+    ${R.length ? `<div class="sec"><table><thead><tr><th style="width:150px">Game time</th><th>Game</th><th>Bet</th><th>Price</th><th>Status</th></tr></thead><tbody>${R.map(row).join('')}</tbody></table></div>` : '<div class="small dim">No sharp-account flags on upcoming games right now.</div>'}`;
+}
 function renderToday() {
   if (!SY) return '<div class="banner">Loading…</div>';
   const now = Date.now(); const future = iso => new Date(iso) > now;
@@ -471,6 +488,7 @@ function renderToday() {
     ${lgames.length ? cards(lgames) : ''}
     ${twRows ? `<div class="sec"><div class="sec-h"><span class="name">Tennis: set-1 favourites under the curve</span><span class="meta">rule tennis_fs_fav · paper record ${twRec}</span></div><table><thead><tr><th>Start</th><th>Match · bet</th><th>Fair set-1 price</th><th>Best price</th></tr></thead><tbody>${twRows}</tbody></table></div>` : ''}
     ${!lgames.length && !twRows ? emptyNote('leans', [...bets.filter(it => tierOf(it) === 'C'), ...tw].filter(x => passS(x.sport, x.league))) : ''}
+    ${sharpAcctSection()}
     <div class="hdr2"><h2>Sharp-money watch</h2><span class="meta">not bets: top-down signals, judged on whether following them beats the close</span></div>
     <details class="how"><summary>What each signal means, and how it has tested</summary><p class="explain">
       <b>Sharp move</b>: a move in the last 6 hours that started at Pinnacle, or that $1,000+ Kalshi fills went with. The move tape started 10/30 and has no settled record yet (publication gate ${MV ? MV.gate : 150} settled games per sport).<br>
@@ -771,6 +789,7 @@ async function load() {
     let TH = null; try { TH = await (await fetch('data/state/tape_health.json', {cache: 'no-store'})).json(); } catch (e) { TH = null; }
     window._TH = TH;
     try { SN = await (await fetch('data/state/signal_snap.json', {cache: 'no-store'})).json(); } catch (e) { SN = null; }
+    try { SA = await (await fetch('data/state/sharp_accounts.json', {cache: 'no-store'})).json(); } catch (e) { SA = null; }
     const idx = D.index;
     if (idx && idx.sports && idx.sports.length) {
       if (!SPORT) SPORT = idx.sports[0].sport;

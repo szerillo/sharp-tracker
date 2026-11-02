@@ -1,0 +1,54 @@
+{
+ "any200": {
+  "markets": 2443,
+  "games": 1137,
+  "per_day": 41.3,
+  "games_per_day": 19.2,
+  "clv": 0.78,
+  "clv_z": 12.95,
+  "roi": 3.0
+ },
+ "two200": {
+  "markets": 638,
+  "games": 492,
+  "per_day": 10.8,
+  "games_per_day": 8.3,
+  "clv": 0.93,
+  "clv_z": 8.23,
+  "roi": -0.3
+ },
+ "top50|two200": {
+  "markets": 678,
+  "games": 511,
+  "per_day": 11.5,
+  "games_per_day": 8.6,
+  "clv": 0.96,
+  "clv_z": 7.36,
+  "roi": -0.8
+ },
+ "top100|two200": {
+  "markets": 1007,
+  "games": 651,
+  "per_day": 17.0,
+  "games_per_day": 11.0,
+  "clv": 0.94,
+  "clv_z": 9.18,
+  "roi": -1.0
+ },
+ "top50": {
+  "markets": 101,
+  "games": 88,
+  "per_day": 1.7,
+  "games_per_day": 1.5,
+  "clv": 1.28,
+  "clv_z": 2.03,
+  "roi": -3.6
+ },
+ "flagged then a sharp took the other side": {
+  "n": 194,
+  "clv_if_hold": 1.12,
+  "pts_if_exit": 0.89,
+  "roi_if_hold": -8.0
+ },
+ "days": 59.1
+}
