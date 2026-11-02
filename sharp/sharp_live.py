@@ -183,15 +183,25 @@ def conflicts(rows):
         if not r.get('event_id'): continue
         against = sorted({k for k, sd in opp.get((r['event_id'], r['mtype']), ()) if sd != r.get('side_std')})
         if against: r['conflict'] = against
+        r['money_with'] = ('big money', r.get('side_std')) in opp.get((r['event_id'], r['mtype']), ())
+    for r in rows: r['grade'] = grade(r)
 
 
-SIZE = 0.25        # sharp signals are 0.25u (Sean, 11/2): to WIN when the price is over 50%, to RISK on plus money
+def grade(r):
+    """Sean, 11/2 (sharp/account_count.py): A = a sport-proven account flagged it, or big money is on the same side (0.5u); B = any other
+    flag (0.25u); 'watch' = an NBA flag with a single account (-0.39 CLV on 31 in the walk-forward test)."""
+    if r.get('sport') == 'nba' and (r.get('n_accounts') or 0) < 2: return 'watch'
+    return 'A' if r.get('proven') or r.get('money_with') else 'B'
 
 
-def units(p, won):
-    """Result in Sean's units at 0.25u sizing for a bet at implied cost p."""
-    if p > 0.5: return round(SIZE if won else -SIZE * p / (1 - p), 3)
-    return round(SIZE * (1 - p) / p if won else -SIZE, 3)
+SIZE = 0.25        # sharp signals: grade A 0.5u, B and NBA-single watch rows 0.25u (Sean, 11/2); to WIN over 50%, to RISK on plus money
+GSIZE = {'A': 0.5}
+
+
+def units(p, won, size=SIZE):
+    """Result in Sean's units for a bet at implied cost p: size to win when p > 0.5, size to risk otherwise."""
+    if p > 0.5: return round(size if won else -size * p / (1 - p), 3)
+    return round(size * (1 - p) / p if won else -size, 3)
 
 
 _BOARD = {}
@@ -303,8 +313,8 @@ def main():
         row['logged'] = cond in logged
         rows.append(row)
         if cond not in logged and start > NOW and a and not opp:      # a flag first seen after a sharp already took the other side is not logged
-            map_rows([row])
-            paper.append(dict(venues=venue_prices(row), event_id=row.get('event_id'), cond=cond, slug=row['slug'], bet=row['bet'], side=side, mtype=row['mtype'], start=row['start'], flagged=row['flagged'],
+            map_rows([row]); conflicts([row])
+            paper.append(dict(grade=row.get('grade'), venues=venue_prices(row), event_id=row.get('event_id'), cond=cond, slug=row['slug'], bet=row['bet'], side=side, mtype=row['mtype'], start=row['start'], flagged=row['flagged'],
                               logged=dt.datetime.fromtimestamp(NOW, dt.timezone.utc).strftime('%Y-%m-%dT%H:%M:%SZ'), price=a, why=row['why'], best_rank=row['best_rank'],
                               kalshi_against=bool(row['kalshi_against'])))
             logged.add(cond); row['logged'] = True
@@ -318,9 +328,9 @@ def main():
         if sorted(px) != [0.0, 1.0]: continue
         won = px[outs.index(p['side'])] == 1.0; p['result'] = 'W' if won else 'L'
         p['pnl'] = round((1 - p['price']) / p['price'] if won else -1.0, 3)          # 1u to risk at the Polymarket ask (kept for the research)
-        p['u'] = units(p['price'], won)                                                 # Sean's sizing (0.25u to win / to risk) at the Polymarket ask
+        sz = GSIZE.get(p.get('grade'), SIZE); p['u'] = units(p['price'], won, sz)                                                 # Sean's sizing (0.25u to win / to risk) at the Polymarket ask
         vq = {k: v for k, v in ((p.get('venues') or {}).get('q') or {}).items() if k != 'DK'}      # where Sean bets (DK excluded: low limits)
-        if vq: bv = min(vq, key=vq.get); p['best_venue'] = bv; p['best_cost'] = vq[bv]; p['u_venue'] = units(vq[bv], won)
+        if vq: bv = min(vq, key=vq.get); p['best_venue'] = bv; p['best_cost'] = vq[bv]; p['u_venue'] = units(vq[bv], won, sz)
         cm = close_mid(p['cond'], epoch(p['start']))
         if cm is not None:
             q = cm if outs.index(p['side']) == 0 else 1 - cm; p['clv'] = round(100 * (q - p['price']), 2)
@@ -329,7 +339,9 @@ def main():
         for p in paper: f.write(json.dumps(p) + '\n')
     G_ = [p for p in paper if p.get('result')]; GV = [p for p in G_ if 'u_venue' in p]
     avg = lambda L, k: round(sum(p[k] for p in L if k in p) / max(1, sum(k in p for p in L)), 2) if any(k in p for p in L) else None
-    rec = dict(n=len(G_), won=sum(p['result'] == 'W' for p in G_), units=round(sum(p.get('u', units(p['price'], p['result'] == 'W')) for p in G_), 2),
+    rec = dict(n=len(G_), won=sum(p['result'] == 'W' for p in G_), units=round(sum(p.get('u', units(p['price'], p['result'] == 'W', GSIZE.get(p.get('grade'), SIZE))) for p in G_), 2),
+               by_grade={k: dict(n=len(L_), won=sum(p['result'] == 'W' for p in L_), units=round(sum(p.get('u', 0) for p in L_), 2), clv=avg(L_, 'clv'))
+                         for k in ('A', 'B', 'watch') for L_ in [[p for p in G_ if p.get('grade') == k]] if L_},
                units_1u=round(sum(p['pnl'] for p in G_), 2), clv=avg(G_, 'clv'),
                # the same flags at the best price at Novig / Kalshi / FD / Caesars when first seen: can the edge be captured where Sean bets?
                n_venue=len(GV), units_venue=round(sum(p['u_venue'] for p in GV), 2), clv_venue=avg(GV, 'clv_venue'), clv_poly_same=avg(GV, 'clv'))
