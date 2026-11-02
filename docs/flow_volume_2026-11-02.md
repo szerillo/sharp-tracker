@@ -243,3 +243,27 @@ in the latest period (0.06 to 0.12).
 Read: over 16 months and four separate periods, the cross-sport top 200 beat Polymarket's close in every team sport in every period with a
 sample (the one exception is NFL in Mar-Aug 2026 on 11 bets, the offseason). Accounts in both lists are usually the best. The worst
 accounts in each sport stay at or below zero. MLB holds with a full season (+0.5 to +0.9). Specialists remain mixed. UFC stays out.
+
+## Backtest of the watch's Strongest families (sharp/families_backtest.py, data/research/families_backtest.json)
+
+Polymarket game markets, July 2025 to now (488 days), every family rebuilt from the market's own tape as of one hour before the start;
+account list rescored walk-forward at each cutoff; price = Polymarket 4+ pt move since its first two-sided price (stand-in for the
+Kalshi move; Pinnacle sharp moves and Kalshi bet-backs cannot be rebuilt that far back). Entry at the T-1h mid, CLV vs Polymarket's close.
+
+| Class at T-1h | Markets | A day | CLV | z | ROI |
+|---|---|---|---|---|---|
+| 3 of 3 | 261 | 0.5 | +0.02 | 0.2 | +0.1% |
+| accounts + money | 694 | 1.4 | +0.25 | 4.8 | +5.0% |
+| accounts + price | 1,133 | 2.3 | +0.10 | 1.4 | +4.9% |
+| Strongest (accounts + 1 or 2 others) | 2,088 | 4.3 | +0.14 | 3.0 | +4.4% (z 2.1) |
+| accounts only | 4,016 | 8.2 | +0.13 | 4.7 | +2.4% |
+| price + money, no accounts | 129 | 0.3 | -0.22 | -1.2 | -8.3% |
+| price only | 1,356 | 2.8 | -0.14 | -2.8 | -3.2% |
+| money only | 826 | 1.7 | -0.01 | -0.2 | -2.7% |
+
+Read:
+1. By one hour out most of the account edge is already priced (+0.13 here vs +0.87 entering 5 minutes after the account's bet): the value
+   is in acting when the account bets, not in a later snapshot.
+2. Adding families at T-1h barely helps. Money is the one useful partner (+0.25); a price move adds nothing (+0.10), and 3 of 3 is no
+   better than accounts alone (+0.02 on 261).
+3. Without accounts, price and money lose (price only -0.14, z -2.8).

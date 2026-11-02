@@ -1,0 +1,650 @@
+{
+ "graded_from": "2025-07-01",
+ "days": 489,
+ "cells": {
+  "3 of 3": {
+   "n": 261,
+   "clv": 0.02,
+   "clv_z": 0.15,
+   "roi": 0.1,
+   "roi_z": 0.03,
+   "per_day": 0.5
+  },
+  "3 of 3 | cfb": {
+   "n": 18,
+   "clv": 0.02,
+   "clv_z": 0.06,
+   "roi": -36.7,
+   "roi_z": -1.85,
+   "per_day": 0.0
+  },
+  "3 of 3 | mlb": {
+   "n": 26,
+   "clv": 0.06,
+   "clv_z": 0.36,
+   "roi": 12.9,
+   "roi_z": 0.71,
+   "per_day": 0.1
+  },
+  "3 of 3 | nba": {
+   "n": 129,
+   "clv": -0.33,
+   "clv_z": -1.47,
+   "roi": -1.3,
+   "roi_z": -0.17,
+   "per_day": 0.3
+  },
+  "3 of 3 | nfl": {
+   "n": 23,
+   "clv": 0.44,
+   "clv_z": 2.69,
+   "roi": 13.4,
+   "roi_z": 0.53,
+   "per_day": 0.0
+  },
+  "3 of 3 | nhl": {
+   "n": 35,
+   "clv": 0.39,
+   "clv_z": 1.69,
+   "roi": 10.6,
+   "roi_z": 0.66,
+   "per_day": 0.1
+  },
+  "3 of 3 | soccer": {
+   "n": 15,
+   "clv": 0.38,
+   "clv_z": 0.63,
+   "roi": -13.5,
+   "roi_z": -0.61,
+   "per_day": 0.0
+  },
+  "3 of 3 | wnba": {
+   "n": 15,
+   "clv": 1.11,
+   "clv_z": 2.37,
+   "roi": 3.7,
+   "roi_z": 0.18,
+   "per_day": 0.0
+  },
+  "STRONGEST (accounts + 1 or 2 others)": {
+   "n": 2088,
+   "clv": 0.14,
+   "clv_z": 2.99,
+   "roi": 4.4,
+   "roi_z": 2.09,
+   "per_day": 4.3
+  },
+  "accounts + money": {
+   "n": 694,
+   "clv": 0.25,
+   "clv_z": 4.78,
+   "roi": 5.0,
+   "roi_z": 1.27,
+   "per_day": 1.4
+  },
+  "accounts + money | cfb": {
+   "n": 87,
+   "clv": 0.67,
+   "clv_z": 3.98,
+   "roi": -6.3,
+   "roi_z": -0.62,
+   "per_day": 0.2
+  },
+  "accounts + money | mlb": {
+   "n": 82,
+   "clv": 0.07,
+   "clv_z": 0.66,
+   "roi": -2.4,
+   "roi_z": -0.21,
+   "per_day": 0.2
+  },
+  "accounts + money | nba": {
+   "n": 253,
+   "clv": 0.28,
+   "clv_z": 2.67,
+   "roi": 8.2,
+   "roi_z": 1.34,
+   "per_day": 0.5
+  },
+  "accounts + money | nfl": {
+   "n": 88,
+   "clv": 0.14,
+   "clv_z": 1.34,
+   "roi": 23.8,
+   "roi_z": 1.98,
+   "per_day": 0.2
+  },
+  "accounts + money | nhl": {
+   "n": 108,
+   "clv": 0.03,
+   "clv_z": 0.33,
+   "roi": -1.8,
+   "roi_z": -0.18,
+   "per_day": 0.2
+  },
+  "accounts + money | soccer": {
+   "n": 46,
+   "clv": 0.57,
+   "clv_z": 2.1,
+   "roi": 11.0,
+   "roi_z": 0.52,
+   "per_day": 0.1
+  },
+  "accounts + money | wnba": {
+   "n": 30,
+   "clv": 0.01,
+   "clv_z": 0.04,
+   "roi": -8.4,
+   "roi_z": -0.48,
+   "per_day": 0.1
+  },
+  "accounts + price": {
+   "n": 1133,
+   "clv": 0.1,
+   "clv_z": 1.36,
+   "roi": 4.9,
+   "roi_z": 1.84,
+   "per_day": 2.3
+  },
+  "accounts + price | cfb": {
+   "n": 79,
+   "clv": -0.29,
+   "clv_z": -0.6,
+   "roi": 2.4,
+   "roi_z": 0.22,
+   "per_day": 0.2
+  },
+  "accounts + price | mlb": {
+   "n": 83,
+   "clv": -0.12,
+   "clv_z": -1.26,
+   "roi": -17.1,
+   "roi_z": -1.69,
+   "per_day": 0.2
+  },
+  "accounts + price | nba": {
+   "n": 624,
+   "clv": 0.06,
+   "clv_z": 0.58,
+   "roi": 4.0,
+   "roi_z": 1.17,
+   "per_day": 1.3
+  },
+  "accounts + price | nfl": {
+   "n": 93,
+   "clv": 0.36,
+   "clv_z": 2.38,
+   "roi": 9.7,
+   "roi_z": 1.06,
+   "per_day": 0.2
+  },
+  "accounts + price | nhl": {
+   "n": 84,
+   "clv": 0.14,
+   "clv_z": 0.59,
+   "roi": 6.7,
+   "roi_z": 0.71,
+   "per_day": 0.2
+  },
+  "accounts + price | soccer": {
+   "n": 93,
+   "clv": 0.43,
+   "clv_z": 2.49,
+   "roi": 18.9,
+   "roi_z": 1.7,
+   "per_day": 0.2
+  },
+  "accounts + price | wnba": {
+   "n": 77,
+   "clv": 0.33,
+   "clv_z": 1.15,
+   "roi": 14.0,
+   "roi_z": 1.25,
+   "per_day": 0.2
+  },
+  "accounts only": {
+   "n": 4016,
+   "clv": 0.13,
+   "clv_z": 4.67,
+   "roi": 2.4,
+   "roi_z": 1.37,
+   "per_day": 8.2
+  },
+  "accounts only | cfb": {
+   "n": 605,
+   "clv": 0.18,
+   "clv_z": 3.7,
+   "roi": 5.9,
+   "roi_z": 1.14,
+   "per_day": 1.2
+  },
+  "accounts only | mlb": {
+   "n": 437,
+   "clv": 0.02,
+   "clv_z": 0.35,
+   "roi": 5.4,
+   "roi_z": 1.11,
+   "per_day": 0.9
+  },
+  "accounts only | nba": {
+   "n": 1346,
+   "clv": 0.1,
+   "clv_z": 1.61,
+   "roi": 2.8,
+   "roi_z": 1.02,
+   "per_day": 2.8
+  },
+  "accounts only | nfl": {
+   "n": 443,
+   "clv": 0.19,
+   "clv_z": 3.36,
+   "roi": -7.5,
+   "roi_z": -1.5,
+   "per_day": 0.9
+  },
+  "accounts only | nhl": {
+   "n": 511,
+   "clv": 0.19,
+   "clv_z": 2.3,
+   "roi": 1.8,
+   "roi_z": 0.4,
+   "per_day": 1.0
+  },
+  "accounts only | soccer": {
+   "n": 493,
+   "clv": 0.17,
+   "clv_z": 2.62,
+   "roi": 8.5,
+   "roi_z": 1.24,
+   "per_day": 1.0
+  },
+  "accounts only | wnba": {
+   "n": 181,
+   "clv": 0.06,
+   "clv_z": 0.3,
+   "roi": -9.3,
+   "roi_z": -1.29,
+   "per_day": 0.4
+  },
+  "money only": {
+   "n": 826,
+   "clv": -0.01,
+   "clv_z": -0.17,
+   "roi": -2.7,
+   "roi_z": -0.7,
+   "per_day": 1.7
+  },
+  "money only (an account against)": {
+   "n": 1475,
+   "clv": 0.09,
+   "clv_z": 1.99,
+   "roi": 1.2,
+   "roi_z": 0.41,
+   "per_day": 3.0
+  },
+  "money only (an account against) | cfb": {
+   "n": 118,
+   "clv": 0.05,
+   "clv_z": 0.42,
+   "roi": -2.8,
+   "roi_z": -0.28,
+   "per_day": 0.2
+  },
+  "money only (an account against) | mlb": {
+   "n": 166,
+   "clv": 0.07,
+   "clv_z": 0.8,
+   "roi": 7.6,
+   "roi_z": 0.95,
+   "per_day": 0.3
+  },
+  "money only (an account against) | nba": {
+   "n": 632,
+   "clv": -0.01,
+   "clv_z": -0.06,
+   "roi": -3.9,
+   "roi_z": -0.85,
+   "per_day": 1.3
+  },
+  "money only (an account against) | nfl": {
+   "n": 217,
+   "clv": 0.27,
+   "clv_z": 3.32,
+   "roi": 3.5,
+   "roi_z": 0.4,
+   "per_day": 0.4
+  },
+  "money only (an account against) | nhl": {
+   "n": 229,
+   "clv": 0.13,
+   "clv_z": 1.97,
+   "roi": 9.0,
+   "roi_z": 1.27,
+   "per_day": 0.5
+  },
+  "money only (an account against) | soccer": {
+   "n": 96,
+   "clv": 0.3,
+   "clv_z": 2.08,
+   "roi": 0.0,
+   "roi_z": 0.0,
+   "per_day": 0.2
+  },
+  "money only (an account against) | wnba": {
+   "n": 17,
+   "clv": -0.3,
+   "clv_z": -0.59,
+   "roi": 28.0,
+   "roi_z": 0.97,
+   "per_day": 0.0
+  },
+  "money only | cfb": {
+   "n": 119,
+   "clv": 0.31,
+   "clv_z": 2.27,
+   "roi": -5.9,
+   "roi_z": -0.63,
+   "per_day": 0.2
+  },
+  "money only | mlb": {
+   "n": 135,
+   "clv": -0.06,
+   "clv_z": -1.04,
+   "roi": -0.1,
+   "roi_z": -0.01,
+   "per_day": 0.3
+  },
+  "money only | nba": {
+   "n": 234,
+   "clv": -0.1,
+   "clv_z": -0.83,
+   "roi": 0.4,
+   "roi_z": 0.05,
+   "per_day": 0.5
+  },
+  "money only | nfl": {
+   "n": 111,
+   "clv": 0.14,
+   "clv_z": 1.66,
+   "roi": -2.5,
+   "roi_z": -0.25,
+   "per_day": 0.2
+  },
+  "money only | nhl": {
+   "n": 113,
+   "clv": -0.01,
+   "clv_z": -0.05,
+   "roi": -8.5,
+   "roi_z": -0.9,
+   "per_day": 0.2
+  },
+  "money only | soccer": {
+   "n": 38,
+   "clv": 0.28,
+   "clv_z": 1.31,
+   "roi": -10.5,
+   "roi_z": -0.36,
+   "per_day": 0.1
+  },
+  "money only | wnba": {
+   "n": 76,
+   "clv": -0.51,
+   "clv_z": -2.18,
+   "roi": 0.7,
+   "roi_z": 0.06,
+   "per_day": 0.2
+  },
+  "price + money, no accounts": {
+   "n": 129,
+   "clv": -0.22,
+   "clv_z": -1.22,
+   "roi": -8.3,
+   "roi_z": -1.02,
+   "per_day": 0.3
+  },
+  "price + money, no accounts (an account against)": {
+   "n": 706,
+   "clv": 0.03,
+   "clv_z": 0.41,
+   "roi": 3.1,
+   "roi_z": 0.91,
+   "per_day": 1.4
+  },
+  "price + money, no accounts (an account against) | cfb": {
+   "n": 25,
+   "clv": -1.01,
+   "clv_z": -0.93,
+   "roi": 7.0,
+   "roi_z": 0.34,
+   "per_day": 0.1
+  },
+  "price + money, no accounts (an account against) | mlb": {
+   "n": 30,
+   "clv": 0.04,
+   "clv_z": 0.22,
+   "roi": 19.0,
+   "roi_z": 1.1,
+   "per_day": 0.1
+  },
+  "price + money, no accounts (an account against) | nba": {
+   "n": 415,
+   "clv": 0.07,
+   "clv_z": 0.63,
+   "roi": 6.4,
+   "roi_z": 1.45,
+   "per_day": 0.8
+  },
+  "price + money, no accounts (an account against) | nfl": {
+   "n": 66,
+   "clv": 0.07,
+   "clv_z": 0.49,
+   "roi": -0.2,
+   "roi_z": -0.02,
+   "per_day": 0.1
+  },
+  "price + money, no accounts (an account against) | nhl": {
+   "n": 95,
+   "clv": 0.23,
+   "clv_z": 2.08,
+   "roi": -9.4,
+   "roi_z": -1.03,
+   "per_day": 0.2
+  },
+  "price + money, no accounts (an account against) | soccer": {
+   "n": 63,
+   "clv": -0.1,
+   "clv_z": -0.42,
+   "roi": -1.0,
+   "roi_z": -0.09,
+   "per_day": 0.1
+  },
+  "price + money, no accounts (an account against) | wnba": {
+   "n": 12,
+   "clv": -0.17,
+   "clv_z": -0.62,
+   "roi": -19.1,
+   "roi_z": -0.78,
+   "per_day": 0.0
+  },
+  "price + money, no accounts | cfb": {
+   "n": 8,
+   "per_day": 0.0
+  },
+  "price + money, no accounts | mlb": {
+   "n": 20,
+   "clv": -0.24,
+   "clv_z": -1.61,
+   "roi": 9.8,
+   "roi_z": 0.42,
+   "per_day": 0.0
+  },
+  "price + money, no accounts | nba": {
+   "n": 43,
+   "clv": -0.4,
+   "clv_z": -1.07,
+   "roi": -18.6,
+   "roi_z": -1.35,
+   "per_day": 0.1
+  },
+  "price + money, no accounts | nfl": {
+   "n": 15,
+   "clv": -0.47,
+   "clv_z": -0.97,
+   "roi": -7.6,
+   "roi_z": -0.32,
+   "per_day": 0.0
+  },
+  "price + money, no accounts | nhl": {
+   "n": 15,
+   "clv": -0.1,
+   "clv_z": -0.34,
+   "roi": -4.4,
+   "roi_z": -0.18,
+   "per_day": 0.0
+  },
+  "price + money, no accounts | soccer": {
+   "n": 14,
+   "clv": 0.61,
+   "clv_z": 1.49,
+   "roi": -31.3,
+   "roi_z": -1.35,
+   "per_day": 0.0
+  },
+  "price + money, no accounts | wnba": {
+   "n": 14,
+   "clv": -1.06,
+   "clv_z": -1.3,
+   "roi": -3.2,
+   "roi_z": -0.14,
+   "per_day": 0.0
+  },
+  "price only": {
+   "n": 1356,
+   "clv": -0.14,
+   "clv_z": -2.81,
+   "roi": -3.2,
+   "roi_z": -1.28,
+   "per_day": 2.8
+  },
+  "price only (an account against)": {
+   "n": 1732,
+   "clv": 0.09,
+   "clv_z": 1.65,
+   "roi": 0.4,
+   "roi_z": 0.19,
+   "per_day": 3.5
+  },
+  "price only (an account against) | cfb": {
+   "n": 56,
+   "clv": 0.04,
+   "clv_z": 0.32,
+   "roi": 8.6,
+   "roi_z": 0.7,
+   "per_day": 0.1
+  },
+  "price only (an account against) | mlb": {
+   "n": 90,
+   "clv": -0.21,
+   "clv_z": -1.26,
+   "roi": 13.5,
+   "roi_z": 1.39,
+   "per_day": 0.2
+  },
+  "price only (an account against) | nba": {
+   "n": 1084,
+   "clv": 0.22,
+   "clv_z": 2.98,
+   "roi": 2.7,
+   "roi_z": 0.99,
+   "per_day": 2.2
+  },
+  "price only (an account against) | nfl": {
+   "n": 130,
+   "clv": 0.06,
+   "clv_z": 0.46,
+   "roi": -13.7,
+   "roi_z": -1.76,
+   "per_day": 0.3
+  },
+  "price only (an account against) | nhl": {
+   "n": 176,
+   "clv": -0.3,
+   "clv_z": -1.19,
+   "roi": -5.3,
+   "roi_z": -0.73,
+   "per_day": 0.4
+  },
+  "price only (an account against) | soccer": {
+   "n": 166,
+   "clv": 0.08,
+   "clv_z": 0.68,
+   "roi": -6.4,
+   "roi_z": -0.87,
+   "per_day": 0.3
+  },
+  "price only (an account against) | wnba": {
+   "n": 30,
+   "clv": -0.87,
+   "clv_z": -1.93,
+   "roi": -2.6,
+   "roi_z": -0.16,
+   "per_day": 0.1
+  },
+  "price only | cfb": {
+   "n": 72,
+   "clv": 0.15,
+   "clv_z": 0.82,
+   "roi": 11.9,
+   "roi_z": 1.19,
+   "per_day": 0.1
+  },
+  "price only | mlb": {
+   "n": 143,
+   "clv": -0.04,
+   "clv_z": -0.34,
+   "roi": -5.7,
+   "roi_z": -0.73,
+   "per_day": 0.3
+  },
+  "price only | nba": {
+   "n": 461,
+   "clv": -0.06,
+   "clv_z": -0.57,
+   "roi": -5.6,
+   "roi_z": -1.34,
+   "per_day": 0.9
+  },
+  "price only | nfl": {
+   "n": 109,
+   "clv": -0.13,
+   "clv_z": -0.74,
+   "roi": -6.7,
+   "roi_z": -0.75,
+   "per_day": 0.2
+  },
+  "price only | nhl": {
+   "n": 133,
+   "clv": -0.05,
+   "clv_z": -0.42,
+   "roi": -1.0,
+   "roi_z": -0.12,
+   "per_day": 0.3
+  },
+  "price only | soccer": {
+   "n": 122,
+   "clv": -0.18,
+   "clv_z": -0.97,
+   "roi": -5.7,
+   "roi_z": -0.57,
+   "per_day": 0.2
+  },
+  "price only | wnba": {
+   "n": 316,
+   "clv": -0.4,
+   "clv_z": -4.18,
+   "roi": -0.7,
+   "roi_z": -0.16,
+   "per_day": 0.6
+  }
+ }
+}
