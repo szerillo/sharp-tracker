@@ -61,6 +61,7 @@
   .brow{display:grid;grid-template-columns:200px 1fr 210px;gap:12px;padding:10px 14px;border-top:1px solid var(--border)} .brow:first-of-type{border-top:0}
   .brow .bet{font-size:17px;font-weight:800} .brow .price{font-family:ui-monospace,monospace;font-size:12.5px}
   .sig{font-size:12.5px;margin-top:4px} .sig .kind{display:inline-block;min-width:118px;font-size:10.5px;font-weight:800;text-transform:uppercase;letter-spacing:.04em;color:var(--sharp)}
+  .mixed{color:var(--warn);font-weight:700}
   .b-watch{background:#2a2350;color:#c4b5fd} .bet.mixed{color:var(--warn)}
   .tag-with{color:#74d98e;font-size:11.5px;font-weight:700} .tag-against{color:#ff8e6e;font-size:11.5px;font-weight:700}
   details.how>summary{padding:2px 0 6px;font-size:12px;color:var(--accent)} details.how>summary::before{content:'▸ '} details.how[open]>summary::before{content:'▾ '}
@@ -394,23 +395,34 @@ function renderToday() {
   const KIND = {move: 'Sharp move', big: 'Big money', kmove: 'Kalshi move', back: 'Bet back'};
   const REC = {move: 'untested: the move tape started 10/30 and has no settled record yet', big: 'no backtest version clears noise (best +7% on ~600 games, z 1.7)',
     kmove: 'following a 4+ pt Kalshi move 1h-15m out made +13% on ~500 October games, flat in September', back: `+5.5% / +6.4% (3+ pt steams) and +9.0% / +11.5% (5+) before and in October, about one standard error, CLV slightly negative; paper ${srRec}`};
-  const watchRow = (ev, items) => {
-    const backs = items.filter(x => x.kind === 'back');
-    const folded = items.filter(x => x.kind === 'kmove' && x.state === 'reversed' && backs.some(b => b.side !== x.side));
-    const rest = items.filter(x => !folded.includes(x)); const sides = [...new Set(rest.map(x => x.side))];
-    const kinds = [...new Set(rest.map(x => x.kind))]; const mixed = sides.length > 1;
-    const badges = `<span class="badge b-watch">watch</span>${kinds.map(k => `<span class="badge b-gate">${KIND[k]}</span>`).join('')}`;
-    const whyL = rest.map(x => `<div><b>${KIND[x.kind]}${mixed ? ` → ${esc(x.bet)}` : ''}:</b> ${x.why}</div>`).join('')
-      + folded.map(x => `<div class="dim">(earlier: ${esc(x.bet)}, ${x.why})</div>`).join('');
-    const recL = kinds.map(k => `<div class="dim"><b>${KIND[k]} record:</b> ${REC[k]}.</div>`).join('');
-    const price = mixed ? '' : rest.map(x => x.price).filter(Boolean).join('<br>');
-    const tags = mixed ? '' : sysTag(ev, rest[0].market, rest[0].side);
-    return `<div class="brow">
-      <div>${mixed ? `<div class="bet mixed">Mixed signals</div><div class="small">no lean: ${rest.map(x => esc(x.bet)).filter((v, i, a) => a.indexOf(v) === i).join(' vs ')}</div>` : `<div class="bet">${esc(rest[0].bet)}</div>`}<div class="small" style="margin-top:2px">${badges}</div></div>
-      <div class="small"><div><b>Why:</b></div>${whyL}<div style="margin-top:3px">${recL}</div></div>
-      <div class="price">${price || '<span class="dim">no price check</span>'}${tags ? '<br>' + tags : ''}</div></div>`; };
-  const sigRows = sgames.map(L => { const byM = new Map(); for (const x of L) { const k = x.market; if (!byM.has(k)) byM.set(k, []); byM.get(k).push(x); }
-    return `<div class="gcard">${gameHead(L[0])}${[...byM.values()].map(items => watchRow(L[0].ev, items)).join('')}</div>`; }).join('');
+  // watch table: one row per game x market. A Kalshi mover that has given back its steam is folded into the bet-back row (same story);
+  // anything still pointing both ways is a "Mixed, no lean" row. Default view = the strongest rows (2+ signal kinds agreeing, or
+  // touching one of your system bets); "All" shows the rest. Click a row for the reasons and each signal's record.
+  window._wv = window._wv || 'top'; window._wo = window._wo || {};
+  const wrows = [];
+  for (const L of sgames) { const byM = new Map(); for (const x of L) { if (!byM.has(x.market)) byM.set(x.market, []); byM.get(x.market).push(x); }
+    for (const [mkt, items] of byM) {
+      const backs = items.filter(x => x.kind === 'back');
+      const folded = items.filter(x => x.kind === 'kmove' && x.state === 'reversed' && backs.length);   // same Kalshi ticker, same story: never two votes
+      const rest = items.filter(x => !folded.includes(x)); const sides = [...new Set(rest.map(x => x.side))]; const mixed = sides.length > 1;
+      const kinds = [...new Set(rest.map(x => x.kind))]; const tag = mixed ? '' : sysTag(L[0].ev, rest[0].market, rest[0].side);
+      wrows.push({id: `${L[0].ev}|${mkt}`, g: L[0], mixed, rest, folded, kinds, tag, price: mixed ? '' : (rest.map(x => x.price).filter(Boolean)[0] || ''),
+        score: mixed ? 0 : kinds.length + (tag ? 1 : 0)}); } }
+  const strong = wrows.filter(r => r.score >= 2), shownW = _wv === 'all' ? wrows : strong;
+  const wtr = r => { const g = r.g, open = _wo[r.id];
+    const lean = r.mixed ? `<span class="mixed">Mixed, no lean</span><div class="small dim">${[...new Set(r.rest.map(x => esc(x.bet)))].join(' vs ')}</div>` : `<b>${esc(r.rest[0].bet)}</b>`;
+    const chips = r.rest.map(x => `<span class="badge ${r.mixed ? 'b-gate' : 'b-watch'}" title="${esc(x.bet)}">${KIND[x.kind]}${x.kind === 'kmove' && x.state ? ' · ' + ({fresh: 'fresh', held: 'held', reversed: 'gave back', drift: 'drift'})[x.state] : ''}</span>`).join(' ');
+    const head = `<tr class="erow" style="cursor:pointer" onclick="_wo['${r.id}']=!_wo['${r.id}'];draw()">
+      <td class="small"><span class="badge b-sport">${SPORT_LABEL[g.sport] || g.sport}</span> <b>${DAYT(g.start)}</b><br><span class="dim">${until(g.start)}</span></td>
+      <td class="small">${esc(g.away_name || g.away)} @ ${esc(g.home_name || g.home)}</td>
+      <td>${lean}</td><td>${chips}</td><td class="small mono">${r.price || '<span class="dim">—</span>'}</td><td class="small">${r.tag || ''}</td></tr>`;
+    if (!open) return head;
+    return head + `<tr><td></td><td colspan="5" class="small" style="padding-bottom:12px">${r.rest.map(x => `<div><b>${KIND[x.kind]}${r.mixed ? ` → ${esc(x.bet)}` : ''}:</b> ${x.why}</div>`).join('')}
+      ${r.folded.map(x => `<div class="dim">(earlier: ${esc(x.bet)}, ${x.why})</div>`).join('')}
+      <div style="margin-top:4px">${r.kinds.map(k => `<div class="dim"><b>${KIND[k]} record:</b> ${REC[k]}.</div>`).join('')}</div></td></tr>`; };
+  const sigRows = shownW.length ? `<div class="controls"><span class="tabs inline"><button class="${_wv === 'top' ? 'on' : ''}" onclick="_wv='top';draw()">Strongest <span class="small">${strong.length}</span></button><button class="${_wv === 'all' ? 'on' : ''}" onclick="_wv='all';draw()">All <span class="small">${wrows.length}</span></button></span><span>Strongest = two or more signal kinds agreeing, or a signal on one of your system bets. Click a row for the reasons and records.</span></div>
+    <div class="sec"><table><thead><tr><th style="width:160px">Game time</th><th>Game</th><th>Lean</th><th>Signals</th><th>Price</th><th>Your bets</th></tr></thead><tbody>${shownW.map(wtr).join('')}</tbody></table></div>`
+    : (wrows.length ? `<div class="controls"><span class="tabs inline"><button class="on" onclick="_wv='top';draw()">Strongest 0</button><button onclick="_wv='all';draw()">All <span class="small">${wrows.length}</span></button></span><span>No row has two signals agreeing or touches your bets; ${wrows.length} single-signal rows under All.</span></div>` : '');
   const nWin = SY.window_h ? `${SY.window_h[0]}–${SY.window_h[1]}h` : '';
   return `<div class="controls topbar">${whenBar(inSport)} ${sportBar(inWhen)}</div>${summary}
     <div class="hdr2"><h2>System bets</h2><span class="meta">tier A and B, grouped by game, soonest first</span></div>
