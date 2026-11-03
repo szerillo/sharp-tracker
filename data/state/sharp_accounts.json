@@ -1,77 +1,6 @@
 {
- "built": "2026-11-02T23:59:35Z",
+ "built": "2026-11-03T00:04:53Z",
  "rows": [
-  {
-   "cond": "0xdc614e16fcccc4cce28241e13e7b774d797e30bbb55b0985f63915c039fa7aa7",
-   "slug": "nhl-las-bos-2026-11-02",
-   "title": "Golden Knights vs. Bruins",
-   "mtype": "ml",
-   "start": "2026-11-03T00:00:00Z",
-   "bet": "Golden Knights ML",
-   "side": "Golden Knights",
-   "flagged": "2026-11-02T12:24:30Z",
-   "why": "a top-200 account also in this sport's top 50",
-   "proven": true,
-   "trigger": "proven",
-   "n_accounts": 1,
-   "best_rank": 71,
-   "usd": 243,
-   "paid": 0.51,
-   "ask": 0.52,
-   "status": "live",
-   "link": "https://polymarket.us/event/nhl-las-bos-2026-11-02",
-   "other": null,
-   "kalshi_against": null,
-   "logged": true,
-   "event_id": "401892629",
-   "sport": "nhl",
-   "league": null,
-   "away": "VGK",
-   "home": "BOS",
-   "away_name": "Vegas Golden Knights",
-   "home_name": "Boston Bruins",
-   "game_start": "2026-11-03T00:00Z",
-   "side_std": "away",
-   "money_with": true,
-   "grade": "A"
-  },
-  {
-   "cond": "0xce020263693fd2189f633197a53aaf2576a83780598a424680c48fe9595b1e44",
-   "slug": "nba-okc-cle-2026-11-02",
-   "title": "Thunder vs. Cavaliers",
-   "mtype": "ml",
-   "start": "2026-11-03T00:00:00Z",
-   "bet": "Cavaliers ML",
-   "side": "Cavaliers",
-   "flagged": "2026-11-02T21:13:03Z",
-   "why": "a top-50 account",
-   "proven": false,
-   "trigger": "top50",
-   "n_accounts": 1,
-   "best_rank": 43,
-   "usd": 469,
-   "paid": 0.61,
-   "ask": 0.62,
-   "status": "live",
-   "link": "https://polymarket.us/event/nba-okc-cle-2026-11-02",
-   "other": null,
-   "kalshi_against": null,
-   "logged": true,
-   "event_id": "401909907",
-   "sport": "nba",
-   "league": null,
-   "away": "OKC",
-   "home": "CLE",
-   "away_name": "Oklahoma City Thunder",
-   "home_name": "Cleveland Cavaliers",
-   "game_start": "2026-11-03T00:00Z",
-   "side_std": "home",
-   "conflict": [
-    "Kalshi bet back"
-   ],
-   "money_with": true,
-   "grade": "watch"
-  },
   {
    "cond": "0x59b4183e400ce040935d5eb2d29bd7b61046f774e51a8f25aeb1a99150f7ae94",
    "slug": "nba-atl-ind-2026-11-02",
@@ -561,7 +490,7 @@
    "best_rank": 75,
    "usd": 19552,
    "paid": 0.681,
-   "ask": 0.78,
+   "ask": 0.79,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-atl-ind-2026-11-02",
    "other": {
@@ -570,7 +499,7 @@
     "usd": 183,
     "first": "2026-11-02T18:05:37Z"
    },
-   "exit_bid": 0.77,
+   "exit_bid": 0.78,
    "kalshi_against": null,
    "logged": false,
    "event_id": "401909909",
@@ -1090,25 +1019,6 @@
     "usd": 116
    }
   },
-  "401909907|total": {
-   "under": {
-    "n": 1,
-    "best_rank": 75,
-    "usd": 1889
-   },
-   "over": {
-    "n": 1,
-    "best_rank": 143,
-    "usd": 2350
-   }
-  },
-  "401909907|ml": {
-   "home": {
-    "n": 1,
-    "best_rank": 43,
-    "usd": 469
-   }
-  },
   "401909908|total": {
    "over": {
     "n": 1,
@@ -1390,13 +1300,6 @@
     "n": 1,
     "best_rank": 76,
     "usd": 3253
-   }
-  },
-  "401892629|ml": {
-   "away": {
-    "n": 1,
-    "best_rank": 71,
-    "usd": 243
    }
   },
   "401892632|ml": {
