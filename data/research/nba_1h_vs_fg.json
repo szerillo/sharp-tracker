@@ -1,0 +1,664 @@
+{
+ "picks": 131,
+ "matched": 71,
+ "1h_under": [
+  39,
+  32
+ ],
+ "fg_under": [
+  37,
+  34
+ ],
+ "cross": {
+  "1H L / FG over": 22,
+  "1H W / FG over": 12,
+  "1H W / FG under": 27,
+  "1H L / FG under": 10
+ },
+ "baseline_fg_under_same_months": [
+  264,
+  265
+ ],
+ "phi": 0.38,
+ "rows": [
+  {
+   "date": "2026-10-31",
+   "home": "Grizzlies",
+   "vis": "Kings",
+   "line1h": 117.5,
+   "res1h": "L",
+   "fg_line": 229.5,
+   "fg_under": false
+  },
+  {
+   "date": "2026-10-30",
+   "home": "Mavericks",
+   "vis": "Rockets",
+   "line1h": 108.5,
+   "res1h": "W",
+   "fg_line": 223.5,
+   "fg_under": false
+  },
+  {
+   "date": "2026-10-28",
+   "home": "Bucks",
+   "vis": "Rockets",
+   "line1h": 110.5,
+   "res1h": "W",
+   "fg_line": 226.5,
+   "fg_under": false
+  },
+  {
+   "date": "2026-10-28",
+   "home": "Clippers",
+   "vis": "Lakers",
+   "line1h": 114.5,
+   "res1h": "W",
+   "fg_line": 223.5,
+   "fg_under": true
+  },
+  {
+   "date": "2026-10-25",
+   "home": "76ers",
+   "vis": "Pistons",
+   "line1h": 117.5,
+   "res1h": "W",
+   "fg_line": 229.5,
+   "fg_under": true
+  },
+  {
+   "date": "2026-10-24",
+   "home": "76ers",
+   "vis": "Bucks",
+   "line1h": 114.5,
+   "res1h": "L",
+   "fg_line": 234.5,
+   "fg_under": false
+  },
+  {
+   "date": "2026-10-24",
+   "home": "Nuggets",
+   "vis": "Pelicans",
+   "line1h": 122.5,
+   "res1h": "L",
+   "fg_line": 239.5,
+   "fg_under": false
+  },
+  {
+   "date": "2026-10-23",
+   "home": "Hornets",
+   "vis": "Hawks",
+   "line1h": 116.5,
+   "res1h": "W",
+   "fg_line": 226.5,
+   "fg_under": true
+  },
+  {
+   "date": "2026-10-23",
+   "home": "Pacers",
+   "vis": "Mavericks",
+   "line1h": 124.0,
+   "res1h": "W",
+   "fg_line": 240.5,
+   "fg_under": true
+  },
+  {
+   "date": "2026-10-23",
+   "home": "Heat",
+   "vis": "Pistons",
+   "line1h": 121.5,
+   "res1h": "W",
+   "fg_line": 235.5,
+   "fg_under": false
+  },
+  {
+   "date": "2026-10-23",
+   "home": "Jazz",
+   "vis": "Pelicans",
+   "line1h": 122.5,
+   "res1h": "W",
+   "fg_line": 239.5,
+   "fg_under": true
+  },
+  {
+   "date": "2026-10-23",
+   "home": "Spurs",
+   "vis": "Rockets",
+   "line1h": 108.5,
+   "res1h": "L",
+   "fg_line": 224.5,
+   "fg_under": true
+  },
+  {
+   "date": "2025-12-07",
+   "home": "76ers",
+   "vis": "Lakers",
+   "line1h": 120.5,
+   "res1h": "W",
+   "fg_line": 233.5,
+   "fg_under": true
+  },
+  {
+   "date": "2025-12-05",
+   "home": "Celtics",
+   "vis": "Lakers",
+   "line1h": 117.5,
+   "res1h": "W",
+   "fg_line": 227.5,
+   "fg_under": false
+  },
+  {
+   "date": "2025-11-24",
+   "home": "Suns",
+   "vis": "Rockets",
+   "line1h": 108.5,
+   "res1h": "L",
+   "fg_line": 223.5,
+   "fg_under": true
+  },
+  {
+   "date": "2025-11-23",
+   "home": "Thunder",
+   "vis": "Blazers",
+   "line1h": 120.5,
+   "res1h": "W",
+   "fg_line": 233.5,
+   "fg_under": true
+  },
+  {
+   "date": "2025-11-21",
+   "home": "Warriors",
+   "vis": "Blazers",
+   "line1h": 122.5,
+   "res1h": "L",
+   "fg_line": 237.5,
+   "fg_under": false
+  },
+  {
+   "date": "2025-11-19",
+   "home": "Cavaliers",
+   "vis": "Rockets",
+   "line1h": 114.5,
+   "res1h": "W",
+   "fg_line": 233.5,
+   "fg_under": true
+  },
+  {
+   "date": "2025-11-17",
+   "home": "Heat",
+   "vis": "Knicks",
+   "line1h": 126.5,
+   "res1h": "W",
+   "fg_line": 244.5,
+   "fg_under": true
+  },
+  {
+   "date": "2025-11-16",
+   "home": "Mavericks",
+   "vis": "Blazers",
+   "line1h": 121.5,
+   "res1h": "W",
+   "fg_line": 236.5,
+   "fg_under": false
+  },
+  {
+   "date": "2025-11-14",
+   "home": "Rockets",
+   "vis": "Blazers",
+   "line1h": 121.5,
+   "res1h": "L",
+   "fg_line": 236.5,
+   "fg_under": false
+  },
+  {
+   "date": "2025-11-14",
+   "home": "Pelicans",
+   "vis": "Lakers",
+   "line1h": 117.5,
+   "res1h": "W",
+   "fg_line": 229.5,
+   "fg_under": true
+  },
+  {
+   "date": "2025-11-12",
+   "home": "Thunder",
+   "vis": "Lakers",
+   "line1h": 118.5,
+   "res1h": "W",
+   "fg_line": 229.5,
+   "fg_under": true
+  },
+  {
+   "date": "2025-11-10",
+   "home": "Magic",
+   "vis": "Blazers",
+   "line1h": 120.5,
+   "res1h": "W",
+   "fg_line": 235.5,
+   "fg_under": true
+  },
+  {
+   "date": "2025-11-10",
+   "home": "Hornets",
+   "vis": "Lakers",
+   "line1h": 118.5,
+   "res1h": "L",
+   "fg_line": 230.5,
+   "fg_under": false
+  },
+  {
+   "date": "2025-11-10",
+   "home": "Jazz",
+   "vis": "Timberwolves",
+   "line1h": 113.5,
+   "res1h": "W",
+   "fg_line": 234.5,
+   "fg_under": true
+  },
+  {
+   "date": "2025-11-09",
+   "home": "Bucks",
+   "vis": "Rockets",
+   "line1h": 113.5,
+   "res1h": "W",
+   "fg_line": 232.5,
+   "fg_under": false
+  },
+  {
+   "date": "2025-11-09",
+   "home": "Kings",
+   "vis": "Timberwolves",
+   "line1h": 115.5,
+   "res1h": "L",
+   "fg_line": 237.5,
+   "fg_under": false
+  },
+  {
+   "date": "2025-11-08",
+   "home": "Heat",
+   "vis": "Blazers",
+   "line1h": 124.5,
+   "res1h": "L",
+   "fg_line": 240.5,
+   "fg_under": false
+  },
+  {
+   "date": "2025-11-08",
+   "home": "Hawks",
+   "vis": "Lakers",
+   "line1h": 117.5,
+   "res1h": "L",
+   "fg_line": 228.5,
+   "fg_under": true
+  },
+  {
+   "date": "2025-11-06",
+   "home": "Suns",
+   "vis": "Clippers",
+   "line1h": 110.5,
+   "res1h": "W",
+   "fg_line": 224.5,
+   "fg_under": true
+  },
+  {
+   "date": "2025-11-05",
+   "home": "Cavaliers",
+   "vis": "76ers",
+   "line1h": 121.5,
+   "res1h": "L",
+   "fg_line": 234.5,
+   "fg_under": false
+  },
+  {
+   "date": "2025-11-05",
+   "home": "Pacers",
+   "vis": "Nets",
+   "line1h": 119.5,
+   "res1h": "W",
+   "fg_line": 232.5,
+   "fg_under": true
+  },
+  {
+   "date": "2025-11-05",
+   "home": "Knicks",
+   "vis": "Timberwolves",
+   "line1h": 112.5,
+   "res1h": "W",
+   "fg_line": 229.5,
+   "fg_under": false
+  },
+  {
+   "date": "2025-11-05",
+   "home": "Nuggets",
+   "vis": "Heat",
+   "line1h": 124.5,
+   "res1h": "L",
+   "fg_line": 241.5,
+   "fg_under": true
+  },
+  {
+   "date": "2025-11-04",
+   "home": "Raptors",
+   "vis": "Bucks",
+   "line1h": 122.5,
+   "res1h": "L",
+   "fg_line": 236.5,
+   "fg_under": true
+  },
+  {
+   "date": "2025-11-04",
+   "home": "Bulls",
+   "vis": "76ers",
+   "line1h": 123.5,
+   "res1h": "L",
+   "fg_line": 239.5,
+   "fg_under": true
+  },
+  {
+   "date": "2025-11-04",
+   "home": "Warriors",
+   "vis": "Suns",
+   "line1h": 120.5,
+   "res1h": "W",
+   "fg_line": 234.5,
+   "fg_under": true
+  },
+  {
+   "date": "2025-11-03",
+   "home": "Pacers",
+   "vis": "Bucks",
+   "line1h": 121.5,
+   "res1h": "W",
+   "fg_line": 235.5,
+   "fg_under": true
+  },
+  {
+   "date": "2025-11-03",
+   "home": "Blazers",
+   "vis": "Lakers",
+   "line1h": 117.5,
+   "res1h": "W",
+   "fg_line": 236.5,
+   "fg_under": false
+  },
+  {
+   "date": "2025-11-02",
+   "home": "Nets",
+   "vis": "76ers",
+   "line1h": 119.5,
+   "res1h": "L",
+   "fg_line": 233.5,
+   "fg_under": false
+  },
+  {
+   "date": "2025-10-31",
+   "home": "Cavaliers",
+   "vis": "Raptors",
+   "line1h": 114.5,
+   "res1h": "W",
+   "fg_line": 237.5,
+   "fg_under": true
+  },
+  {
+   "date": "2025-10-31",
+   "home": "Grizzlies",
+   "vis": "Lakers",
+   "line1h": 122.5,
+   "res1h": "L",
+   "fg_line": 238.5,
+   "fg_under": true
+  },
+  {
+   "date": "2025-10-31",
+   "home": "Blazers",
+   "vis": "Nuggets",
+   "line1h": 123.5,
+   "res1h": "W",
+   "fg_line": 239.5,
+   "fg_under": true
+  },
+  {
+   "date": "2025-10-30",
+   "home": "Thunder",
+   "vis": "Wizards",
+   "line1h": 118.5,
+   "res1h": "W",
+   "fg_line": 228.5,
+   "fg_under": false
+  },
+  {
+   "date": "2025-10-30",
+   "home": "Bucks",
+   "vis": "Warriors",
+   "line1h": 111.5,
+   "res1h": "L",
+   "fg_line": 232.5,
+   "fg_under": true
+  },
+  {
+   "date": "2025-10-30",
+   "home": "Spurs",
+   "vis": "Heat",
+   "line1h": 118.5,
+   "res1h": "W",
+   "fg_line": 228.5,
+   "fg_under": true
+  },
+  {
+   "date": "2025-10-29",
+   "home": "Jazz",
+   "vis": "Blazers",
+   "line1h": 120.5,
+   "res1h": "L",
+   "fg_line": 233.5,
+   "fg_under": false
+  },
+  {
+   "date": "2025-10-29",
+   "home": "Timberwolves",
+   "vis": "Lakers",
+   "line1h": 115.5,
+   "res1h": "L",
+   "fg_line": 225.5,
+   "fg_under": false
+  },
+  {
+   "date": "2025-10-29",
+   "home": "Suns",
+   "vis": "Grizzlies",
+   "line1h": 124.5,
+   "res1h": "W",
+   "fg_line": 240.5,
+   "fg_under": true
+  },
+  {
+   "date": "2025-10-28",
+   "home": "Wizards",
+   "vis": "76ers",
+   "line1h": 123.5,
+   "res1h": "L",
+   "fg_line": 239.5,
+   "fg_under": false
+  },
+  {
+   "date": "2025-10-28",
+   "home": "Heat",
+   "vis": "Hornets",
+   "line1h": 117.5,
+   "res1h": "L",
+   "fg_line": 240.5,
+   "fg_under": false
+  },
+  {
+   "date": "2025-10-27",
+   "home": "Spurs",
+   "vis": "Raptors",
+   "line1h": 113.5,
+   "res1h": "L",
+   "fg_line": 232.5,
+   "fg_under": true
+  },
+  {
+   "date": "2025-10-27",
+   "home": "Timberwolves",
+   "vis": "Nuggets",
+   "line1h": 117.5,
+   "res1h": "L",
+   "fg_line": 228.5,
+   "fg_under": false
+  },
+  {
+   "date": "2025-10-26",
+   "home": "Spurs",
+   "vis": "Nets",
+   "line1h": 116.5,
+   "res1h": "L",
+   "fg_line": 228.5,
+   "fg_under": true
+  },
+  {
+   "date": "2025-10-26",
+   "home": "Wizards",
+   "vis": "Hornets",
+   "line1h": 116.5,
+   "res1h": "W",
+   "fg_line": 238.5,
+   "fg_under": false
+  },
+  {
+   "date": "2025-10-26",
+   "home": "Mavericks",
+   "vis": "Raptors",
+   "line1h": 112.5,
+   "res1h": "L",
+   "fg_line": 231.5,
+   "fg_under": false
+  },
+  {
+   "date": "2025-10-26",
+   "home": "Kings",
+   "vis": "Lakers",
+   "line1h": 114.5,
+   "res1h": "L",
+   "fg_line": 231.5,
+   "fg_under": false
+  },
+  {
+   "date": "2025-10-26",
+   "home": "Clippers",
+   "vis": "Blazers",
+   "line1h": 115.5,
+   "res1h": "W",
+   "fg_line": 225.5,
+   "fg_under": true
+  },
+  {
+   "date": "2025-10-25",
+   "home": "Hawks",
+   "vis": "Thunder",
+   "line1h": 115.5,
+   "res1h": "W",
+   "fg_line": 237.5,
+   "fg_under": true
+  },
+  {
+   "date": "2025-10-25",
+   "home": "76ers",
+   "vis": "Hornets",
+   "line1h": 114.5,
+   "res1h": "L",
+   "fg_line": 236.5,
+   "fg_under": false
+  },
+  {
+   "date": "2025-10-25",
+   "home": "Grizzlies",
+   "vis": "Pacers",
+   "line1h": 116.5,
+   "res1h": "W",
+   "fg_line": 237.5,
+   "fg_under": true
+  },
+  {
+   "date": "2025-10-25",
+   "home": "Nuggets",
+   "vis": "Suns",
+   "line1h": 120.5,
+   "res1h": "L",
+   "fg_line": 233.5,
+   "fg_under": false
+  },
+  {
+   "date": "2025-10-24",
+   "home": "Raptors",
+   "vis": "Bucks",
+   "line1h": 120.5,
+   "res1h": "W",
+   "fg_line": 234.5,
+   "fg_under": false
+  },
+  {
+   "date": "2025-10-24",
+   "home": "Magic",
+   "vis": "Hawks",
+   "line1h": 121.5,
+   "res1h": "W",
+   "fg_line": 235.5,
+   "fg_under": true
+  },
+  {
+   "date": "2025-10-24",
+   "home": "Nets",
+   "vis": "Cavaliers",
+   "line1h": 111.5,
+   "res1h": "L",
+   "fg_line": 228.5,
+   "fg_under": false
+  },
+  {
+   "date": "2025-10-24",
+   "home": "Knicks",
+   "vis": "Celtics",
+   "line1h": 118.5,
+   "res1h": "W",
+   "fg_line": 231.5,
+   "fg_under": true
+  },
+  {
+   "date": "2025-10-24",
+   "home": "Grizzlies",
+   "vis": "Heat",
+   "line1h": 119.5,
+   "res1h": "L",
+   "fg_line": 233.5,
+   "fg_under": false
+  },
+  {
+   "date": "2025-10-24",
+   "home": "Kings",
+   "vis": "Jazz",
+   "line1h": 113.5,
+   "res1h": "W",
+   "fg_line": 234.5,
+   "fg_under": true
+  },
+  {
+   "date": "2025-10-24",
+   "home": "Blazers",
+   "vis": "Warriors",
+   "line1h": 110.5,
+   "res1h": "L",
+   "fg_line": 227.5,
+   "fg_under": false
+  },
+  {
+   "date": "2025-10-23",
+   "home": "Pacers",
+   "vis": "Thunder",
+   "line1h": 112.5,
+   "res1h": "W",
+   "fg_line": 231.5,
+   "fg_under": false
+  }
+ ]
+}

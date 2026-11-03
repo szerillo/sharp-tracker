@@ -296,3 +296,20 @@ Sean, 11/2: should single-account flags be left alone? Same walk-forward as the 
 Read: a second account does not add edge at the moment of the flag, and waiting for one costs flags and a little CLV. The single
 sport-proven account is the strongest trigger. The single top-50 account outside its proven sport is the weakest (thin). NBA is the one
 sport where single-account flags were not positive (-0.39 on 31, thin; 2+ accounts +0.98 on 111). No rule change.
+
+## NBA 1H under system vs the full-game under on the same games (sharp/nba_1h_vs_fg.py, data/research/nba_1h_vs_fg.json)
+
+Sean, 11/2. The 131 picks of Bet Labs screen 1784158 (NBA 1H under, visitor over 71%+) from 2024-25 on, matched to Polymarket's settled
+NBA totals (main line = the total closest to 50/50 at the start). 71 matched.
+
+| | Record |
+|---|---|
+| 1H under (the system) | 39-32 (54.9%) |
+| Full-game under, same games | 37-34 (52.1%) |
+| Full-game under, every other NBA game in the same months | 264-265 (49.9%) |
+| 1H won: full game went under | 27 of 39 (69%) |
+| 1H lost: full game went under | 10 of 32 (31%) |
+
+Read: the full game leans the same way but at about break-even (52.1% vs 52.4% needed at -110); the 1H is where the system's edge sits.
+The two results move together (phi 0.38), so a full-game under next to the 1H under is mostly the same bet twice, not a second edge.
+Thin: 71 games.
