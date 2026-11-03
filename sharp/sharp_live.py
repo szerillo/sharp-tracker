@@ -348,6 +348,7 @@ def main():
                n_venue=len(GV), units_venue=round(sum(p['u_venue'] for p in GV), 2), clv_venue=avg(GV, 'clv_venue'), clv_poly_same=avg(GV, 'clv'))
     map_rows(rows)
     conflicts(rows)
+    for r in rows: r['books'] = venue_prices(r) if r['status'] == 'live' else None     # best Novig / Kalshi / FD / Caesars / DK now (11/2)
     alerts(rows)
     BE = by_event(F)
     rows.sort(key=lambda r: (r['status'] != 'live' or bool(r.get('kalshi_against')), r['start']))

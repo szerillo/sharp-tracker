@@ -25,7 +25,7 @@ NOW = dt.datetime.now(dt.timezone.utc); NOW_S = NOW.isoformat()
 TODAY = NOW.astimezone(ET).date(); DATES = [TODAY, TODAY + dt.timedelta(days=1)]
 KAPI = "https://api.elections.kalshi.com/trade-api/v2"
 PIN = "https://guest.api.arcadia.pinnacle.com/0.1"
-AN_BOOKS = {'15': 'Consensus', '30': 'Open', '1548': 'DK', '69': 'FD', '1005': 'CZR', '972': 'BetRivers', '2789': 'Fanatics', '4621': 'theScore'}
+AN_BOOKS = {'15': 'Consensus', '30': 'Open', '1548': 'DK', '1006': 'FD', '1005': 'CZR', '972': 'BetRivers', '2789': 'Fanatics', '4621': 'theScore'}
 KSER = ['KXMLBGAME', 'KXMLBTOTAL', 'KXMLBSPREAD', 'KXMLBF5', 'KXMLBF5TOTAL', 'KXMLBF5SPREAD', 'KXMLBTEAMTOTAL']
 MON = ['JAN','FEB','MAR','APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC']
 CODES = {d.strftime('%y') + MON[d.month - 1] + d.strftime('%d') for d in DATES}

@@ -161,6 +161,39 @@ def pinnacle(R):
     return n
 
 
+AN_TENNIS = {'1548': 'DK', '1006': 'FD', '1005': 'Caesars', '15': 'AN_Consensus'}   # NY books (11/2, Sean: domestic books price set 1 softer than the exchanges)
+
+
+def action_network(R):
+    """US sportsbooks through Action Network's public scoreboard: match moneyline and set-1 moneyline (DraftKings NY carries ATP set 1;
+    FanDuel NY the match only; Caesars NY no tennis at present; consensus for reference). Joined to the registry by player names."""
+    n = 0
+    for lg in ('atp', 'wta'):
+        for d in (0, 1):
+            day = (NOW.astimezone(ET) + dt.timedelta(days=d)).strftime('%Y%m%d')
+            x = g(f"https://api.actionnetwork.com/web/v2/scoreboard/{lg}?bookIds={','.join(AN_TENNIS)}&periods=event,set1&date={day}") or {}
+            for c in x.get('competitions') or []:
+                if c.get('status') != 'scheduled': continue
+                st = ts(c['start_time'].replace('.000Z', 'Z'))
+                if st <= NOW or st > NOW + dt.timedelta(hours=HORIZON_H): continue
+                cp = {p['id']: (p.get('player') or {}).get('full_name') for p in c.get('competitors') or []}
+                ah = {p['side']: cp[p['id']] for p in c.get('competitors') or []}
+                if not ah.get('home') or not ah.get('away'): continue
+                ev, o = R.find(ah['home'], ah['away'], st)
+                if not ev: continue
+                for bid, M in (c.get('markets') or {}).items():
+                    v = AN_TENNIS.get(bid)
+                    if not v: continue
+                    for per, mk in (('event', 'ml'), ('set1', '1s_ml')):
+                        for oc in ((M.get(per) or {}).get('moneyline') or []):
+                            nm = cp.get(oc.get('competitor_id'))
+                            if not nm or oc.get('odds') is None or oc.get('is_live'): continue
+                            e = R.ev[ev]; sd = 'home' if same_player(nm, e['home_team']['displayName']) else 'away' if same_player(nm, e['away_team']['displayName']) else None
+                            if not sd: continue
+                            tick(ev, mk, sd, v, 'action_network', R, american=oc['odds'], participant=nm); n += 1
+    return n
+
+
 def kalshi(R, meta):
     def walk(series):
         cur = ''
@@ -265,7 +298,7 @@ def novig(R, meta):
 def main():
     R = Registry(); meta = json.load(open(KMETA)) if os.path.exists(KMETA) else {}
     rep = {}
-    for name, fn in (('pinnacle', lambda: pinnacle(R)), ('novig', lambda: novig(R, meta)), ('kalshi', lambda: kalshi(R, meta))):   # Kalshi last: it only joins events
+    for name, fn in (('pinnacle', lambda: pinnacle(R)), ('novig', lambda: novig(R, meta)), ('action_network', lambda: action_network(R)), ('kalshi', lambda: kalshi(R, meta))):   # Kalshi last: it only joins events
         t = time.time()
         try: rep[name] = fn()
         except Exception as e: rep[name] = f'{type(e).__name__}: {e}'

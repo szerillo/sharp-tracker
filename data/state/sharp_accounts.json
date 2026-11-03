@@ -1,5 +1,5 @@
 {
- "built": "2026-11-03T00:27:30Z",
+ "built": "2026-11-03T00:26:52Z",
  "rows": [
   {
    "cond": "0x59b4183e400ce040935d5eb2d29bd7b61046f774e51a8f25aeb1a99150f7ae94",
@@ -33,7 +33,8 @@
    "game_start": "2026-11-03T00:30Z",
    "side_std": "away",
    "money_with": false,
-   "grade": "A"
+   "grade": "A",
+   "books": null
   },
   {
    "cond": "0x8c5d7c86eb94c854ce720ffe8b82d934db5294c7e60c9d70aa80dcce628d80c4",
@@ -67,7 +68,8 @@
    "game_start": "2026-11-03T01:00Z",
    "side_std": "under",
    "money_with": false,
-   "grade": "B"
+   "grade": "B",
+   "books": null
   },
   {
    "cond": "0xf297c40a0fa0ee52d16c6557823109d33a9d1d7d95976f1a7f40b08b03beb10f",
@@ -101,7 +103,8 @@
    "game_start": "2026-11-03T01:00Z",
    "side_std": "away",
    "money_with": true,
-   "grade": "A"
+   "grade": "A",
+   "books": null
   },
   {
    "cond": "0x1d1be66f194b14daff84ea873be8bcc30ca8b44a44f44991bf96bb4703aec858",
@@ -135,7 +138,15 @@
    "game_start": "2026-11-03T01:00Z",
    "side_std": "away",
    "money_with": false,
-   "grade": "watch"
+   "grade": "watch",
+   "books": {
+    "at": "2026-11-02T23:47:09Z",
+    "fair": null,
+    "q": {
+     "Novig": 0.555,
+     "Kalshi": 0.58
+    }
+   }
   },
   {
    "cond": "0x5b84eeee777c4bdc55f5233f642d52227727685d4a393f557c059bf752464620",
@@ -169,7 +180,17 @@
    "game_start": "2026-11-03T01:00Z",
    "side_std": "away",
    "money_with": false,
-   "grade": "B"
+   "grade": "B",
+   "books": {
+    "at": "2026-11-02T23:47:09Z",
+    "fair": 0.506,
+    "q": {
+     "Novig": 0.51,
+     "DK": 0.5122,
+     "Kalshi": 0.53,
+     "Caesars": 0.5349
+    }
+   }
   },
   {
    "cond": "0xd56e40b0c4edaf8802fbf18d85da12906a47dc77f64321924056c14f143be117",
@@ -203,7 +224,8 @@
    "game_start": "2026-11-03T01:15Z",
    "side_std": "home",
    "money_with": false,
-   "grade": "A"
+   "grade": "A",
+   "books": null
   },
   {
    "cond": "0x1dc763b8f8b3fe9f71a21fba44dda5cb40155cdfea442ea2c81faa21460e11bd",
@@ -237,7 +259,8 @@
    "game_start": "2026-11-03T01:15Z",
    "side_std": "home",
    "money_with": false,
-   "grade": "A"
+   "grade": "A",
+   "books": null
   },
   {
    "cond": "0xc138f7ba5966e0ec354a50479099578139e6ad25ddd6c3101aea81a3916aa43b",
@@ -271,7 +294,17 @@
    "game_start": "2026-11-03T01:15Z",
    "side_std": "home",
    "money_with": false,
-   "grade": "B"
+   "grade": "B",
+   "books": {
+    "at": "2026-11-02T23:47:09Z",
+    "fair": 0.6171,
+    "q": {
+     "Novig": 0.615,
+     "DK": 0.6296,
+     "Caesars": 0.6377,
+     "Kalshi": 0.64
+    }
+   }
   },
   {
    "cond": "0xc12c795a1c5a3cef7772e01b73944198a67005cd17f460369a6ab6f03359971f",
@@ -305,7 +338,8 @@
    "game_start": "2026-11-03T01:30Z",
    "side_std": "under",
    "money_with": false,
-   "grade": "watch"
+   "grade": "watch",
+   "books": null
   },
   {
    "cond": "0xeaeea042e89fa470d02300bbc955b047923d3be181bc64790b837e42fa332a87",
@@ -342,7 +376,17 @@
     "big money"
    ],
    "money_with": false,
-   "grade": "watch"
+   "grade": "watch",
+   "books": {
+    "at": "2026-11-02T23:47:09Z",
+    "fair": 0.5644,
+    "q": {
+     "Novig": 0.57,
+     "FD": 0.5798,
+     "DK": 0.5868,
+     "Kalshi": 0.59
+    }
+   }
   },
   {
    "cond": "0x484829914029c89c187799972e5a2e50b48e94347b17e2bd2d7badd313d573d3",
@@ -366,7 +410,8 @@
    "other": null,
    "kalshi_against": null,
    "logged": true,
-   "grade": "A"
+   "grade": "A",
+   "books": null
   },
   {
    "cond": "0xe7f9ccd549f2d959314cce993bc3424f944cc9b95fab6f792ddc49ae5aae1abc",
@@ -390,7 +435,8 @@
    "other": null,
    "kalshi_against": null,
    "logged": true,
-   "grade": "B"
+   "grade": "B",
+   "books": null
   },
   {
    "cond": "0x605e64bac476f348d18ca4b5d587d451afd7c794c304d2d2a5dbbb7cf6dbc9c7",
@@ -414,7 +460,8 @@
    "other": null,
    "kalshi_against": null,
    "logged": true,
-   "grade": "A"
+   "grade": "A",
+   "books": null
   },
   {
    "cond": "0xa98f1371108dfffc8908efcdd5ccbe93cfdd2ab148d37eb5910072fc80b80030",
@@ -438,7 +485,8 @@
    "other": null,
    "kalshi_against": null,
    "logged": true,
-   "grade": "A"
+   "grade": "A",
+   "books": null
   },
   {
    "cond": "0x00f341c1ce5ac7d38b59f3606333d0db49b6a51f7cfa86c543cebc811ba46f79",
@@ -472,7 +520,15 @@
    "game_start": "2026-11-06T01:15Z",
    "side_std": "away",
    "money_with": true,
-   "grade": "A"
+   "grade": "A",
+   "books": {
+    "at": "2026-11-02T23:47:09Z",
+    "fair": null,
+    "q": {
+     "Novig": 0.8,
+     "Kalshi": 0.82
+    }
+   }
   },
   {
    "cond": "0xc7b7e24f6e83d65a9a51eb1652730908414f942206cd33d37dd66731e5852189",
@@ -512,7 +568,8 @@
    "game_start": "2026-11-03T00:30Z",
    "side_std": "away",
    "money_with": false,
-   "grade": "B"
+   "grade": "B",
+   "books": null
   },
   {
    "cond": "0xf3a327ce7671b289896dd99c4aabd590e334c3b70389cfee17578c9c522253d5",
@@ -559,7 +616,8 @@
     "Kalshi move"
    ],
    "money_with": false,
-   "grade": "B"
+   "grade": "B",
+   "books": null
   },
   {
    "cond": "0x087cd258edf923859b8229711c89d194eae8e526c03783c926d99b1ee9662edc",
@@ -601,7 +659,17 @@
     "Kalshi move"
    ],
    "money_with": false,
-   "grade": "B"
+   "grade": "B",
+   "books": {
+    "at": "2026-11-02T23:47:09Z",
+    "fair": 0.18,
+    "q": {
+     "Novig": 0.185,
+     "Caesars": 0.2,
+     "DK": 0.2016,
+     "FD": 0.2062
+    }
+   }
   },
   {
    "cond": "0x9345f66db680b2b406afe71585ae252d2823e1eddcf52e9396d3dc42a93adce8",
@@ -644,7 +712,8 @@
     "Kalshi move"
    ],
    "money_with": false,
-   "grade": "watch"
+   "grade": "watch",
+   "books": null
   },
   {
    "cond": "0xc94d2d36ea4b02d121cf9dd446fe61f0ffbc4b54053cf9f0e771ae4e4eec08b5",
@@ -684,7 +753,8 @@
    "game_start": "2026-11-03T01:00Z",
    "side_std": "away",
    "money_with": false,
-   "grade": "B"
+   "grade": "B",
+   "books": null
   },
   {
    "cond": "0x25b252cc2010b6b75627644a58148bb73993e2b4c4b1be776942f8f0bc9f5b1a",
@@ -727,7 +797,8 @@
     "Kalshi bet back"
    ],
    "money_with": false,
-   "grade": "A"
+   "grade": "A",
+   "books": null
   },
   {
    "cond": "0x7172e2f4cb02bc1e159cbd92f390336fd879d09d117be3ea8ce8f34c8719c624",
@@ -770,7 +841,8 @@
     "big money"
    ],
    "money_with": false,
-   "grade": "A"
+   "grade": "A",
+   "books": null
   },
   {
    "cond": "0xbdaee84a4a1034b08f0e3748430ec218fcce78b85142d3c426747756d5a83621",
@@ -810,7 +882,8 @@
    "game_start": "2026-11-03T03:00Z",
    "side_std": "home",
    "money_with": false,
-   "grade": "B"
+   "grade": "B",
+   "books": null
   }
  ],
  "record": {

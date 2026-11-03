@@ -19,7 +19,7 @@ OUT = os.path.join(HERE, '..', 'data', SPORT); TD = os.path.join(OUT, 'ticks'); 
 SCHED = os.path.join(OUT, 'schedule.json')
 NOW = dt.datetime.now(dt.timezone.utc); TS = iso(NOW)
 KAPI = "https://api.elections.kalshi.com/trade-api/v2"; PIN = "https://guest.api.arcadia.pinnacle.com/0.1"; NOV = "https://api.novig.com/v3/public"
-AN_BOOKS = {'15': 'AN_Consensus', '30': 'AN_Open', '1548': 'DK', '69': 'FD', '1005': 'Caesars', '972': 'BetRivers', '2789': 'Fanatics', '4621': 'theScore'}
+AN_BOOKS = {'15': 'AN_Consensus', '30': 'AN_Open', '1548': 'DK', '1006': 'FD', '1005': 'Caesars', '972': 'BetRivers', '2789': 'Fanatics', '4621': 'theScore'}
 
 
 T0 = time.time(); BUDGET_S = float(os.environ.get('LINES_BUDGET_S', 420)); STATS = collections.Counter()

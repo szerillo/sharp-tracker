@@ -114,13 +114,17 @@ def main():
             if not r or not r.get('ask') or 'oneside' in (r.get('flags') or []): continue
             cost = r['ask'] + (math.ceil(KFEE * r['ask'] * (1 - r['ask']) * 100) / 100 if v == 'Kalshi' else 0)
             cands.append(dict(venue=v, ask=r['ask'], cost=round(cost, 4), ticker=(r.get('extra') or {}).get('ticker')))
+        for v in ('DK', 'FD', 'Caesars'):                # US books via Action Network (11/2): American odds, cost = implied probability
+            r = L.get((ev, '1s_ml', v, fav))
+            if r and r.get('american') is not None: cands.append(dict(venue=v, american=r['american'], cost=round(implied(r['american']), 4)))
+        prices = {c['venue']: c['cost'] for c in cands}
         best = min(cands, key=lambda c: c['cost']) if cands else None
         pin1 = novig_pin_p(L, ev, '1s_ml', fav)
         name = (e.get('home_team') if fav == 'home' else e.get('away_team') or {}).get('displayName') if e else None
         opp = (e.get('away_team') if fav == 'home' else e.get('home_team') or {}).get('displayName') if e else None
         row = dict(event_id=ev, sport='tennis', league=(e.get('tour') or '').lower() or None, start=e['start'], tour=e.get('tour'), tournament=e.get('tournament'), fav=fav, fav_name=name, opp_name=opp,
                    match_p=round(pf, 4), match_src=src, model=round(model, 4), fair=round(fair, 4), pin_set1=round(pin1, 4) if pin1 else None,
-                   best=best, edge=round(fair - best['cost'], 4) if best else None)
+                   best=best, prices=prices, edge=round(fair - best['cost'], 4) if best else None)
         row['flag'] = bool(best and pf >= MIN_FAV and row['edge'] >= MIN_EDGE)
         if ev in paper:                           # already paper-logged: stays on the page even if the price has since gone (11/2)
             row['logged'] = dict(ts=paper[ev]['ts'], venue=paper[ev]['venue'], price=paper[ev]['price'], edge=round(paper[ev]['fair'] - paper[ev]['price'], 4))
@@ -151,6 +155,7 @@ def main():
         c = closes.get((ev, p['fav']))
         graded.append(dict(p, won=won, graded_by=src, pnl=round((1 - p['price']) / p['price'] if won else -1.0, 3),
                            pin_close=round(c, 4) if c else None, clv=round(100 * (c - p['price']), 2) if c else None))
+    json.dump(graded, open(os.path.join(TD, 'fs_graded.json'), 'w'), separators=(',', ':'))     # every graded paper pick (sharp/bet_log.py reads it)
     rows.sort(key=lambda r: (not r['flag'], r['start']))
     cl = [g['clv'] for g in graded if g.get('clv') is not None]
     rec = dict(n=len(graded), won=sum(g['won'] for g in graded), units=round(sum(g['pnl'] for g in graded), 2),
