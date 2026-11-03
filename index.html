@@ -631,7 +631,7 @@ function renderToday() {
         const bv = Object.keys(q).filter(v => v !== 'DK').sort((a, b) => q[a] - q[b])[0] || x.venue;
         return `<b>${toAm(q[bv])}</b> <span class="small dim">${VS(bv)}</span>${bv !== x.venue ? `<div class="small dim">${VS(x.venue)} ${toAm(x.p)}</div>` : ''}`; })(), link,
       why: parts.join(' + ') + (r.tag ? `<div>${r.tag}</div>` : ''),
-      rec: (r.grade && r.fl ? lbl('Backtest', r.fl.trigger === 'proven' || r.fl.proven ? '+1.23% CLV (proven acct)' : r.fl.trigger === 'top50' ? '+0.84% CLV (top 50, thin)' : '+0.86% CLV (2+ accts)') : FAMBT(r) ? lbl('Backtest', FAMBT(r)) : '') + (r.flagged ? lbl('Tracker', SAREC) : ''),
+      rec: (r.grade && r.fl ? lbl('Backtest', r.fl.trigger === 'proven' || r.fl.proven ? '+1.23% CLV (proven acct)' : r.fl.trigger === 'top50' ? '+0.84% CLV (top 50, thin)' : '+0.86% CLV (2+ accts)') : FAMBT(r) && r.g.sport !== 'mma' ? lbl('Backtest', FAMBT(r)) : '') + (r.flagged ? lbl('Tracker', SAREC) : ''),
       detail: `${r.rest.map(y => `<div><b>${KIND[y.kind]}${r.mixed ? ` → ${esc(y.bet)}` : ''}:</b> ${y.why}</div>`).join('')}
         ${r.folded.map(y => `<div class="dim">(earlier: ${esc(y.bet)}, ${y.why})</div>`).join('')}
         <div class="dim" style="margin-top:4px">${fs ? `First seen ${DAYT(fs)}. ` : ''}${r.vol ? `$${Math.round(r.vol).toLocaleString()} traded on the exchanges. ` : ''}${r.price ? r.price + '.' : ''}</div>
