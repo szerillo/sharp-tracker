@@ -1,120 +1,6 @@
 {
- "built": "2026-11-03T01:10:52Z",
+ "built": "2026-11-03T01:16:16Z",
  "rows": [
-  {
-   "cond": "0xd56e40b0c4edaf8802fbf18d85da12906a47dc77f64321924056c14f143be117",
-   "slug": "nfl-chi-sea-2026-11-03",
-   "title": "Bears vs. Seahawks",
-   "mtype": "spread",
-   "start": "2026-11-03T01:15:00Z",
-   "bet": "Seahawks -10.5",
-   "side": "Seahawks",
-   "flagged": "2026-11-02T15:26:28Z",
-   "why": "a top-200 account also in this sport's top 50",
-   "proven": true,
-   "trigger": "proven",
-   "n_accounts": 1,
-   "best_rank": 135,
-   "usd": 3296,
-   "paid": 0.23,
-   "ask": 0.26,
-   "status": "live",
-   "link": "https://polymarket.us/event/nfl-chi-sea-2026-11-03",
-   "other": null,
-   "kalshi_against": null,
-   "logged": true,
-   "event_id": "401873036",
-   "sport": "nfl",
-   "league": null,
-   "away": "CHI",
-   "home": "SEA",
-   "away_name": "Chicago Bears",
-   "home_name": "Seattle Seahawks",
-   "game_start": "2026-11-03T01:15Z",
-   "side_std": "home",
-   "money_with": true,
-   "grade": "A",
-   "books": null
-  },
-  {
-   "cond": "0x1dc763b8f8b3fe9f71a21fba44dda5cb40155cdfea442ea2c81faa21460e11bd",
-   "slug": "nfl-chi-sea-2026-11-03",
-   "title": "Bears vs. Seahawks",
-   "mtype": "spread",
-   "start": "2026-11-03T01:15:00Z",
-   "bet": "Seahawks -13.5",
-   "side": "Seahawks",
-   "flagged": "2026-11-02T16:11:00Z",
-   "why": "a top-200 account also in this sport's top 50",
-   "proven": true,
-   "trigger": "proven",
-   "n_accounts": 1,
-   "best_rank": 135,
-   "usd": 2506,
-   "paid": 0.18,
-   "ask": 0.21,
-   "status": "live",
-   "link": "https://polymarket.us/event/nfl-chi-sea-2026-11-03",
-   "other": null,
-   "kalshi_against": null,
-   "logged": true,
-   "event_id": "401873036",
-   "sport": "nfl",
-   "league": null,
-   "away": "CHI",
-   "home": "SEA",
-   "away_name": "Chicago Bears",
-   "home_name": "Seattle Seahawks",
-   "game_start": "2026-11-03T01:15Z",
-   "side_std": "home",
-   "money_with": true,
-   "grade": "A",
-   "books": null
-  },
-  {
-   "cond": "0xc138f7ba5966e0ec354a50479099578139e6ad25ddd6c3101aea81a3916aa43b",
-   "slug": "nfl-chi-sea-2026-11-03",
-   "title": "Bears vs. Seahawks",
-   "mtype": "ml",
-   "start": "2026-11-03T01:15:00Z",
-   "bet": "Seahawks ML",
-   "side": "Seahawks",
-   "flagged": "2026-11-02T20:10:01Z",
-   "why": "2 top-200 accounts",
-   "proven": false,
-   "trigger": "two",
-   "n_accounts": 2,
-   "best_rank": 58,
-   "usd": 554,
-   "paid": 0.623,
-   "ask": 0.62,
-   "status": "live",
-   "link": "https://polymarket.us/event/nfl-chi-sea-2026-11-03",
-   "other": null,
-   "kalshi_against": null,
-   "logged": true,
-   "event_id": "401873036",
-   "sport": "nfl",
-   "league": null,
-   "away": "CHI",
-   "home": "SEA",
-   "away_name": "Chicago Bears",
-   "home_name": "Seattle Seahawks",
-   "game_start": "2026-11-03T01:15Z",
-   "side_std": "home",
-   "money_with": true,
-   "grade": "A",
-   "books": {
-    "at": "2026-11-03T01:03:52Z",
-    "fair": 0.6179,
-    "q": {
-     "Novig": 0.62,
-     "DK": 0.6296,
-     "Caesars": 0.6377,
-     "Kalshi": 0.64
-    }
-   }
-  },
   {
    "cond": "0xc12c795a1c5a3cef7772e01b73944198a67005cd17f460369a6ab6f03359971f",
    "slug": "nba-bos-hou-2026-11-02",
@@ -482,14 +368,6 @@
   "clv_poly_same": null
  },
  "sys_tags": {
-  "401873036:vrest8_1h": {
-   "with": {
-    "n": 1,
-    "best_rank": 59,
-    "usd": 490
-   },
-   "against": null
-  },
   "401909919:nba_1h_under_hot_over": {
    "with": {
     "n": 1,
@@ -540,27 +418,6 @@
   }
  },
  "by_event": {
-  "401873036|spread": {
-   "home": {
-    "n": 1,
-    "best_rank": 135,
-    "usd": 3296
-   }
-  },
-  "401873036|ml": {
-   "home": {
-    "n": 2,
-    "best_rank": 58,
-    "usd": 554
-   }
-  },
-  "401873036|total": {
-   "under": {
-    "n": 1,
-    "best_rank": 59,
-    "usd": 490
-   }
-  },
   "401873037|ml": {
    "away": {
     "n": 2,
