@@ -1,5 +1,5 @@
 {
- "built": "2026-11-03T02:31:58Z",
+ "built": "2026-11-03T02:37:41Z",
  "rows": [
   {
    "cond": "0xeaeea042e89fa470d02300bbc955b047923d3be181bc64790b837e42fa332a87",
@@ -38,13 +38,13 @@
    "money_with": false,
    "grade": "watch",
    "books": {
-    "at": "2026-11-03T02:09:09Z",
-    "fair": 0.5623,
+    "at": "2026-11-03T02:25:52Z",
+    "fair": 0.5617,
     "q": {
      "Novig": 0.565,
-     "FD": 0.5798,
-     "Caesars": 0.5833,
-     "DK": 0.5868
+     "DK": 0.5745,
+     "FD": 0.5868,
+     "Kalshi": 0.59
     }
    }
   },
@@ -182,7 +182,7 @@
    "money_with": true,
    "grade": "A",
    "books": {
-    "at": "2026-11-03T02:09:09Z",
+    "at": "2026-11-03T02:25:52Z",
     "fair": 0.7973,
     "q": {
      "Novig": 0.8,
@@ -271,6 +271,9 @@
    "home_name": "LA Clippers",
    "game_start": "2026-11-03T03:00Z",
    "side_std": "home",
+   "conflict": [
+    "Kalshi bet back"
+   ],
    "money_with": false,
    "grade": "B",
    "books": null
@@ -332,6 +335,14 @@
     "best_rank": 112,
     "usd": 1850
    }
+  },
+  "401909919:nba_momentum:spread": {
+   "with": {
+    "n": 1,
+    "best_rank": 112,
+    "usd": 368
+   },
+   "against": null
   }
  },
  "by_event": {
