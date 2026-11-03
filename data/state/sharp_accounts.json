@@ -1,41 +1,6 @@
 {
- "built": "2026-11-03T01:26:44Z",
+ "built": "2026-11-03T01:32:32Z",
  "rows": [
-  {
-   "cond": "0xc12c795a1c5a3cef7772e01b73944198a67005cd17f460369a6ab6f03359971f",
-   "slug": "nba-bos-hou-2026-11-02",
-   "title": "Celtics vs. Rockets",
-   "mtype": "total",
-   "start": "2026-11-03T01:30:00Z",
-   "bet": "Under 218.5",
-   "side": "Under",
-   "flagged": "2026-11-02T19:02:49Z",
-   "why": "a top-50 account",
-   "proven": false,
-   "trigger": "top50",
-   "n_accounts": 1,
-   "best_rank": 12,
-   "usd": 118,
-   "paid": 0.53,
-   "ask": 0.57,
-   "status": "live",
-   "link": "https://polymarket.us/event/nba-bos-hou-2026-11-02",
-   "other": null,
-   "kalshi_against": null,
-   "logged": true,
-   "event_id": "401909916",
-   "sport": "nba",
-   "league": null,
-   "away": "BOS",
-   "home": "HOU",
-   "away_name": "Boston Celtics",
-   "home_name": "Houston Rockets",
-   "game_start": "2026-11-03T01:30Z",
-   "side_std": "under",
-   "money_with": false,
-   "grade": "watch",
-   "books": null
-  },
   {
    "cond": "0xeaeea042e89fa470d02300bbc955b047923d3be181bc64790b837e42fa332a87",
    "slug": "nba-phx-gsw-2026-11-02",
@@ -226,50 +191,6 @@
    }
   },
   {
-   "cond": "0x25b252cc2010b6b75627644a58148bb73993e2b4c4b1be776942f8f0bc9f5b1a",
-   "slug": "nba-bos-hou-2026-11-02",
-   "title": "Celtics vs. Rockets",
-   "mtype": "ml",
-   "start": "2026-11-03T01:30:00Z",
-   "bet": "Rockets ML",
-   "side": "Rockets",
-   "flagged": "2026-11-02T18:59:25Z",
-   "why": "4 top-200 accounts",
-   "proven": true,
-   "trigger": "two",
-   "n_accounts": 4,
-   "best_rank": 31,
-   "usd": 8240,
-   "paid": 0.65,
-   "ask": 0.63,
-   "status": "other side",
-   "link": "https://polymarket.us/event/nba-bos-hou-2026-11-02",
-   "other": {
-    "n_accounts": 2,
-    "best_rank": 31,
-    "usd": 3463,
-    "first": "2026-11-02T19:13:55Z"
-   },
-   "exit_bid": 0.62,
-   "kalshi_against": null,
-   "logged": true,
-   "event_id": "401909916",
-   "sport": "nba",
-   "league": null,
-   "away": "BOS",
-   "home": "HOU",
-   "away_name": "Boston Celtics",
-   "home_name": "Houston Rockets",
-   "game_start": "2026-11-03T01:30Z",
-   "side_std": "home",
-   "conflict": [
-    "Kalshi bet back"
-   ],
-   "money_with": false,
-   "grade": "A",
-   "books": null
-  },
-  {
    "cond": "0x7172e2f4cb02bc1e159cbd92f390336fd879d09d117be3ea8ce8f34c8719c624",
    "slug": "nba-tor-lac-2026-11-02",
    "title": "Raptors vs. Clippers",
@@ -387,34 +308,6 @@
     "usd": 1006
    },
    "against": null
-  },
-  "401909916:nba_under_good_home_over": {
-   "with": {
-    "n": 1,
-    "best_rank": 12,
-    "usd": 118
-   },
-   "against": null
-  },
-  "401909916:nba_momentum:total": {
-   "with": {
-    "n": 1,
-    "best_rank": 12,
-    "usd": 118
-   },
-   "against": null
-  },
-  "401909916:nba_momentum:spread": {
-   "with": {
-    "n": 2,
-    "best_rank": 142,
-    "usd": 33328
-   },
-   "against": {
-    "n": 2,
-    "best_rank": 142,
-    "usd": 22900
-   }
   }
  },
  "by_event": {
@@ -430,37 +323,6 @@
     "n": 1,
     "best_rank": 121,
     "usd": 116
-   }
-  },
-  "401909916|ml": {
-   "home": {
-    "n": 4,
-    "best_rank": 31,
-    "usd": 8240
-   },
-   "away": {
-    "n": 2,
-    "best_rank": 31,
-    "usd": 503
-   }
-  },
-  "401909916|spread": {
-   "home": {
-    "n": 2,
-    "best_rank": 142,
-    "usd": 22900
-   },
-   "away": {
-    "n": 2,
-    "best_rank": 142,
-    "usd": 33328
-   }
-  },
-  "401909916|total": {
-   "under": {
-    "n": 1,
-    "best_rank": 12,
-    "usd": 118
    }
   },
   "401909918|ml": {
