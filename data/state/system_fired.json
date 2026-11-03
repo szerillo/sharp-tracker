@@ -1241,5 +1241,31 @@
 "fair": 0.50511,
 "edge_pts": -2.49,
 "why": "Kalshi spread mid 0.525 at T-6h -> 0.495 now (-3.0c); continuation (audit section 3, NBA only)"
+},
+"401909920:nba_momentum:ml": {
+"tag": "nba_momentum",
+"fill_id": "3678ec54fc0b",
+"ts": "2026-11-03T01:59:45Z",
+"market": "ml",
+"side": "home",
+"line": null,
+"venue": "Novig",
+"price": 163,
+"fair": 0.37554,
+"edge_pts": -0.45,
+"why": "Novig ml mid 0.328 at T-6h -> 0.378 now (+5.0c); continuation (audit section 3, NBA only)"
+},
+"401909920:nba_momentum:spread": {
+"tag": "nba_momentum",
+"fill_id": "88211b841c0b",
+"ts": "2026-11-03T01:59:45Z",
+"market": "spread",
+"side": "home",
+"line": 4.5,
+"venue": "Novig",
+"price": 102,
+"fair": 0.49261,
+"edge_pts": -0.24,
+"why": "Novig spread mid 0.450 at T-6h -> 0.492 now (+4.3c); continuation (audit section 3, NBA only)"
 }
 }
