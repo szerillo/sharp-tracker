@@ -609,7 +609,7 @@ def main():
                 try: best = F.best_price(eq, f['market'], f['line'], f['side'], NOW_S, part)
                 except Exception: best = []
                 f['now'] = dict(venue=best[0]['venue'], price=N.prob_to_american(best[0]['cost'])) if best else None
-                if f['market'] != 'ml' and not f['market'].endswith('_ml') and f.get('line') is not None:
+                if f['market'] != 'ml' and not f['market'].endswith('_ml') and f.get('line') is not None and not (g.get('sport') in ('nhl', 'mlb') and f['market'].endswith('spread')):   # puck / run lines: a different number is a different bet
                     f['ladder'], f['bet_to'] = alt_lines(eq, f, part)
                     if not best and f['bet_to']:               # the flagged number is gone but a nearby one keeps the value (Sean, 11/2: Celtics Under 217 -> 216.5)
                         x = f['bet_to']; f['now'] = dict(venue=x['venue'], price=x['price'], line=x['line'], alt=True)
