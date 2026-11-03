@@ -258,6 +258,34 @@ def retro_void(fired):
     if ch: print(f"[systems] retro-voided {ch} fills")
 
 
+ALT_TOL = 0.02     # an alternate line is still the bet while its value (fair - cost) is within 2% of the value at the flagged number
+
+
+def alt_lines(eq, f, part):
+    """Sean, 11/2: where can a system bet still be placed once its number moves? For the flagged line and up to 2 points either way (half
+    steps), the best bettable price and the ruler fair at that line now. value = fair - cost; 'loss' = flagged value - value at that line,
+    in probability. bet_to = the furthest line in the worse direction whose loss is within ALT_TOL (or the flagged line itself)."""
+    L0 = float(f['line']); side = f['side']
+    worse = -1 if side in ('under', 'home', 'away') else 1          # under / a spread side: lower lines are worse; over: higher is worse
+    try: fair0 = float(f.get('fair')) if f.get('fair') is not None else None
+    except (TypeError, ValueError): fair0 = None
+    p0 = N.implied_from_american(f['price']) if f.get('price') is not None else None
+    if fair0 is None or p0 is None: return [], None
+    v0 = fair0 - p0; out = []
+    for k in range(-4, 5):
+        L = round(L0 + worse * 0.5 * k, 1)
+        try: b = F.best_price(eq, f['market'], L, side, NOW_S, part)
+        except Exception: b = []
+        if not b: continue
+        try: fr = eq.fair(f['market'], L, side, NOW_S, part).get('fair')
+        except Exception: fr = None
+        c = b[0]['cost']; v = (fr - c) if fr is not None else None
+        out.append(dict(line=L, steps=k, venue=b[0]['venue'], price=N.prob_to_american(c), cost=round(c, 4), fair=round(fr, 4) if fr is not None else None,
+                        loss=round(v0 - v, 4) if v is not None else None))
+    ok = [x for x in out if x['loss'] is not None and x['loss'] <= ALT_TOL and x['steps'] >= 0]
+    return out, (max(ok, key=lambda x: x['steps']) if ok else None)
+
+
 def main():
     conn = sqlite3.connect(DB)
     fired = json.load(open(FIRED)) if os.path.exists(FIRED) else {}
@@ -581,6 +609,10 @@ def main():
                 try: best = F.best_price(eq, f['market'], f['line'], f['side'], NOW_S, part)
                 except Exception: best = []
                 f['now'] = dict(venue=best[0]['venue'], price=N.prob_to_american(best[0]['cost'])) if best else None
+                if f['market'] != 'ml' and not f['market'].endswith('_ml') and f.get('line') is not None:
+                    f['ladder'], f['bet_to'] = alt_lines(eq, f, part)
+                    if not best and f['bet_to']:               # the flagged number is gone but a nearby one keeps the value (Sean, 11/2: Celtics Under 217 -> 216.5)
+                        x = f['bet_to']; f['now'] = dict(venue=x['venue'], price=x['price'], line=x['line'], alt=True)
     view_games = [g for g in view_games if g['triggers'] or any(f.get('fill_id') for f in g.get('fills', []))]      # a lapsed bet keeps its game on the board
     json.dump(dict(built=NOW_S, window_h=WINDOW_H, rules={k: dict(v, tag=k, desc=DESC.get(k, ''), evidence=EVIDENCE.get(k), labs=(dict(id=LABS[k][0], name=LABS[k][1]) if k in LABS else None)) for k, v in RULES.items()}, games=view_games, fired_now=fires_now, record=dict(rec)),
               open(VIEW, 'w'), default=str, separators=(',', ':'))

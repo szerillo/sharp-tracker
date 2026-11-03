@@ -16,7 +16,10 @@ import os, sys, re, json, gzip, glob, math, bisect, collections, datetime as dt
 HERE = os.path.dirname(os.path.abspath(__file__)); ROOT = os.path.abspath(os.path.join(HERE, '..')); sys.path.insert(0, ROOT)
 SD = os.path.join(ROOT, 'data', 'state'); OUT = os.path.join(SD, 'bet_log.json')
 SPORTS = ('nfl', 'nba', 'nhl', 'cfb', 'cbb', 'soccer', 'mlb', 'wnba', 'tennis')
-VENUES = ('Novig', 'Kalshi', 'FD', 'Caesars', 'DK')
+VENUES = ('Novig', 'Kalshi', 'FD', 'Caesars', 'DK'); REF = ('Pinnacle', 'AN_Consensus')
+OTH = {'home': 'away', 'away': 'home', 'over': 'under', 'under': 'over'}
+UNIT = {'mlb': 'runs', 'nhl': 'goals', 'soccer': 'goals'}            # everything else: points
+KEYS = {('nfl', 'spread'): [3, 7, 10, 14, 6, 4, 17], ('cfb', 'spread'): [3, 7, 10, 14, 17, 21], ('nfl', 'total'): [37, 41, 43, 44, 47, 51]}
 KFEE = 0.07; STEP = 600; MAX_AGE = 45 * 60
 NOW = dt.datetime.now(dt.timezone.utc)
 
@@ -53,6 +56,7 @@ class Tape:
     """(event, market, side, line) -> venue -> sorted [(t, cost)] for the events asked for, from the 20-minute and 5-minute tick logs."""
     def __init__(self, sport, events, days):
         self.s = collections.defaultdict(lambda: collections.defaultdict(list))
+        self.raw = collections.defaultdict(lambda: collections.defaultdict(list)); self.lines = collections.defaultdict(lambda: collections.defaultdict(list))
         for sub in ('ticks', 'ticks5'):
             for d in days:
                 f = os.path.join(ROOT, 'data', sport, sub, f'{d}.jsonl.gz')
@@ -61,14 +65,48 @@ class Tape:
                     for l in gzip.open(f, 'rt'):
                         if '"event_id"' not in l: continue
                         r = json.loads(l)
-                        if r.get('event_id') not in events or r.get('venue') not in VENUES: continue
+                        if r.get('event_id') not in events or r.get('venue') not in VENUES + REF: continue
+                        line = r.get('line'); line = None if line is None else float(line); t = ts(r['ts']).timestamp()
+                        key = (r['event_id'], r['market'], r['side'], line)
+                        if r['venue'] in REF or r['venue'] == 'Novig':
+                            p = implied(r['american']) if r.get('american') is not None else ((r['bid'] + r['ask']) / 2 if r.get('bid') is not None and r.get('ask') is not None else None)
+                            if p is not None and 0 < p < 1:
+                                self.raw[key][r['venue']].append((t, p, r.get('limit') or ((r.get('extra') or {}).get('qty_best'))))
+                            if r['venue'] in ('AN_Consensus', 'Pinnacle'): self.lines[(r['event_id'], r['market'], r['side'])][r['venue']].append((t, line))
+                        if r['venue'] not in VENUES: continue
                         c = cost(r)
                         if c is None or not 0 < c < 1: continue
-                        line = r.get('line'); line = None if line is None else float(line)
-                        self.s[(r['event_id'], r['market'], r['side'], line)][r['venue']].append((ts(r['ts']).timestamp(), c))
+                        self.s[key][r['venue']].append((t, c))
                 except (EOFError, OSError): pass
-        for k in self.s:
-            for v in self.s[k]: self.s[k][v].sort()
+        for D_ in (self.s, self.raw, self.lines):
+            for k in D_:
+                for v in D_[k]: D_[k][v].sort(key=lambda x: x[0])
+
+    def last(self, L, t, age=MAX_AGE):
+        i = bisect.bisect_right([x[0] for x in L], t) - 1
+        return L[i] if i >= 0 and t - L[i][0] <= age else None
+
+    def novig_pin(self, key, t):
+        """No-vig Pinnacle probability of this exact side and line at t (multiplicative, both sides quoted); Novig mid as the fallback."""
+        ev, m, side, line = key
+        okey = (ev, m, OTH.get(side), line if (line is None or 'total' in m) else -line)
+        a = self.last(self.raw.get(key, {}).get('Pinnacle', []), t); b = self.last(self.raw.get(okey, {}).get('Pinnacle', []), t)
+        if a and b: return a[1] / (a[1] + b[1]), 'Pinnacle'
+        n = self.last(self.raw.get(key, {}).get('Novig', []), t)
+        return (n[1], 'Novig mid') if n else (None, None)
+
+    def depth(self, key, t):
+        out = {}
+        for v, nm in (('Pinnacle', 'pinnacle_limit'), ('Novig', 'novig_qty')):
+            x = self.last(self.raw.get(key, {}).get(v, []), t)
+            if x and x[2]: out[nm] = x[2]
+        return out
+
+    def main_line(self, ev, m, side, t):
+        for v in ('AN_Consensus', 'Pinnacle'):
+            x = self.last(self.lines.get((ev, m, side), {}).get(v, []), t, 90 * 60)
+            if x and x[1] is not None: return x[1], v
+        return None, None
 
     def board(self, key, t):
         out = {}
@@ -104,7 +142,7 @@ def main():
         e = S.get(r['event_id']) or {}
         won = {'W': 1, 'L': 0, 'P': 0.5}.get(r.get('result'))
         bets.append(dict(id='s:' + r['fill_id'], src='system', cat=cat, rule=tag, sport=e.get('sport'), event_id=r['event_id'], game=f"{e.get('away', '?')} @ {e.get('home', '?')}",
-                         start=r['start_utc'], market=r['market'], side=r['side'], line=r.get('line'), flagged=r['ts_utc'], venue=r['venue'], price=r['implied'], won=won))
+                         start=r['start_utc'], market=r['market'], side=r['side'], line=r.get('line'), flagged=r['ts_utc'], venue=r['venue'], price=r['implied'], won=won, fair_at_flag=r.get('fair_at_fill')))
     # ---- Polymarket sharp-account flags
     import sharp.sharp_live as SL
     meta = json.load(open(SL.META)) if os.path.exists(SL.META) else {}
@@ -143,12 +181,82 @@ def main():
             if close:
                 b['close_board'] = close; cb = {v: c for v, c in close.items() if v != 'DK'} or close
                 b['close'] = min(cb.values()); b['clv'] = round(100 * (b['close'] - b['price']), 2)
+            # no-vig close at the same number (Pinnacle, else the Novig mid): CLV that does not carry the vig
+            nv, src = T.novig_pin(key, st - 60)
+            if nv is not None: b['nv_close'] = round(nv, 4); b['nv_src'] = src; b['clv_nv'] = round(100 * (nv - b['price']), 2)
+            # edge at the flag: the fair price then minus the price taken (systems carry their own ruler fair)
+            fa, fsrc = (b['fair_at_flag'], 'ruler') if b.get('fair_at_flag') is not None else T.novig_pin(key, t0)
+            if fa is not None: b['fair_at_flag'] = round(fa, 4); b['fair_src'] = fsrc; b['edge'] = round(100 * (fa - b['price']), 2)
+            d_ = T.depth(key, t0)
+            if d_: b['depth'] = d_
+            # line movement in points / runs / goals, against the main line at the close (consensus, else Pinnacle)
+            base = re.sub(r'^(1h|1q|1p)_', '', b['market'])
+            if base in ('spread', 'total') and b['line'] is not None and not (base == 'spread' and b['sport'] in ('nhl', 'mlb')):   # puck / run lines sit at 1.5: the price moves, not the number
+                cl, csrc = T.main_line(b['event_id'], b['market'], b['side'], st - 60); ol, _ = T.main_line(b['event_id'], b['market'], b['side'], t0)
+                if cl is not None:
+                    fl = float(b['line'])
+                    b['close_line'] = cl; b['open_line'] = ol
+                    # positive = the number taken beat the closing number: under / spread side want a higher number than the close, over a lower one
+                    # an alternate number (more than a point off the main line when it flagged) is compared main-to-main: how the market moved
+                    ref = fl if ol is None or abs(fl - ol) <= 1 else ol
+                    if ref != fl: b['alt_line'] = True
+                    b['line_value'] = round(cl - ref, 1) if (base == 'total' and b['side'] == 'over') else round(ref - cl, 1)
+                    ks = KEYS.get((b['sport'], base)) or []
+                    lo, hi = sorted([abs(ref), abs(cl)]) if base == 'spread' else sorted([ref, cl])
+                    b['keys_crossed'] = [k for k in ks if lo <= k <= hi and lo != hi]     # moving onto or off a key number counts (-3 to -3.5 crosses 3)
+    # margin against the number, from final scores (data/state/results.jsonl; 1H from the half-time fields)
+    RES = {}
+    rp = os.path.join(SD, 'results.jsonl')
+    if os.path.exists(rp):
+        for l in open(rp):
+            try: r = json.loads(l)
+            except Exception: continue
+            if r.get('status') == 'final' and r.get('home_score') is not None: RES[r['event_id']] = r
+    for b in bets:
+        r = RES.get(b['event_id']); m = b['market']
+        if not r or b['sport'] == 'tennis' or not b['side']: continue
+        h_, a_ = (r.get('f5_home'), r.get('f5_away')) if m.startswith('1h_') else (r['home_score'], r['away_score'])
+        if h_ is None: continue
+        base = re.sub(r'^(1h|1q|1p)_', '', m); L = float(b['line'] or 0)
+        if base == 'total': b['margin'] = round((L - (h_ + a_)) if b['side'] == 'under' else ((h_ + a_) - L), 1)
+        elif base == 'spread': b['margin'] = round(((h_ - a_) if b['side'] == 'home' else (a_ - h_)) + L, 1)
+        elif base == 'ml': b['margin'] = (h_ - a_) if b['side'] == 'home' else (a_ - h_)
+        b['unit_name'] = UNIT.get(b['sport'], 'points')
+    # correlation (Sean, 11/2): bets on one game in one family (the team side: moneyline / spread, any period; or the total, any period)
+    fam = lambda m: 'total' if 'total' in m else ('side' if re.sub(r'^(1h|1q|1p)_', '', m) in ('ml', 'spread') else None)
+    grp = collections.defaultdict(list)
+    for b in bets:
+        if b['event_id'] and b['side'] and fam(b['market']) and b['cat'] != 'paper P': grp[(b['event_id'], fam(b['market']))].append(b)
+    for (ev, fm), L in grp.items():
+        for b in L:
+            same = [x['id'] for x in L if x is not b and x['side'] == b['side']]; opp = [x['id'] for x in L if x['side'] != b['side']]
+            b['position'] = f"{ev}|{fm}|{b['side']}"
+            if same: b['corr_same'] = same
+            if opp: b['corr_opp'] = opp
+    # what else was on the board when the bet flagged: snapped the first time this log sees a bet within an hour of its flag
+    try: SA = json.load(open(os.path.join(SD, 'sharp_accounts.json')))
+    except Exception: SA = {}
+    try: FLv = json.load(open(os.path.join(SD, 'flow_live.json')))
+    except Exception: FLv = {}
+    def ctx(b):
+        base = re.sub(r'^(1h|1q|1p)_', '', b['market']); ms = ['total'] if base == 'total' else ['ml', 'spread']; out = {}
+        for m in ms:
+            x = (SA.get('by_event') or {}).get(f"{b['event_id']}|{m}") or {}
+            if x.get(b['side']): out['sharps_with'] = max(out.get('sharps_with', 0), x[b['side']]['n'])
+            if x.get(OTH.get(b['side'])): out['sharps_against'] = max(out.get('sharps_against', 0), x[OTH[b['side']]]['n'])
+            for r in FLv.get('rows') or []:
+                if r.get('event_id') == b['event_id'] and r.get('market') == m and r.get('divergent'): out['big_money'] = 'with' if r.get('big_side') == b['side'] else 'against'
+            for r in FLv.get('moves') or []:
+                if r.get('event_id') == b['event_id'] and r.get('market') == m: out['kalshi_move'] = 'with' if r.get('side') == b['side'] else 'against'
+        return out
     # raw ticks roll off after 10 days (sharp/rolloff.py): keep a bet's path from the last build when the tape is gone
     old = {b.get('id'): b for b in (json.load(open(OUT)).get('rows') or [])} if os.path.exists(OUT) else {}
     for b in bets:
         o = old.get(b['id']) or {}
-        for k in ('best', 'best_venue', 'best_at', 'best_after_min', 'best_before_start_min', 'close_board', 'close', 'clv'):
+        for k in ('alt_line', 'best', 'best_venue', 'best_at', 'best_after_min', 'best_before_start_min', 'close_board', 'close', 'clv', 'nv_close', 'nv_src', 'clv_nv',
+                  'fair_at_flag', 'fair_src', 'edge', 'depth', 'close_line', 'open_line', 'line_value', 'keys_crossed', 'ctx'):
             if b.get(k) is None and o.get(k) is not None: b[k] = o[k]
+        if b.get('ctx') is None and b['event_id'] and b['side'] and 0 <= (NOW - ts(b['flagged'])).total_seconds() <= 3600: b['ctx'] = ctx(b)
     for b in bets:
         b['bet_type'] = b['market'].replace('1s_ml', 'set1_ml')
         b['size'] = size_units(b['cat']); b['units'] = units(b['price'], b['won'], b['size'])
@@ -158,7 +266,9 @@ def main():
         G_ = [b for b in L if b['won'] is not None]; cl = [b['clv'] for b in L if b.get('clv') is not None]
         gain = [100 * (b['price'] - b['best']) for b in L if b.get('best') is not None]
         later = [b for b in L if b.get('best') is not None and 100 * (b['price'] - b['best']) >= 1]
-        return dict(n=len(L), graded=len(G_), w=sum(1 for b in G_ if b['won'] == 1), l=sum(1 for b in G_ if b['won'] == 0), p=sum(1 for b in G_ if b['won'] == 0.5),
+        nvc = [b['clv_nv'] for b in L if b.get('clv_nv') is not None]; lv = [b['line_value'] for b in L if b.get('line_value') is not None]; ed = [b['edge'] for b in L if b.get('edge') is not None]
+        return dict(positions=len({b.get('position') or b['id'] for b in L}), clv_nv=round(sum(nvc) / len(nvc), 2) if nvc else None, clv_nv_n=len(nvc),
+                    line_value=round(sum(lv) / len(lv), 2) if lv else None, edge=round(sum(ed) / len(ed), 2) if ed else None, n=len(L), graded=len(G_), w=sum(1 for b in G_ if b['won'] == 1), l=sum(1 for b in G_ if b['won'] == 0), p=sum(1 for b in G_ if b['won'] == 0.5),
                     units=round(sum(b['units'] or 0 for b in G_), 2), clv=round(sum(cl) / len(cl), 2) if cl else None, clv_n=len(cl),
                     best_gain=round(sum(gain) / len(gain), 2) if gain else None, better_later=len(later), lead_h=round(sum(b['lead_h'] for b in L) / len(L), 1) if L else None)
     groups = collections.defaultdict(list)
