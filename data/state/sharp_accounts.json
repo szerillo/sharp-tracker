@@ -1,5 +1,5 @@
 {
- "built": "2026-11-03T10:14:05Z",
+ "built": "2026-11-03T10:24:12Z",
  "rows": [
   {
    "cond": "0x484829914029c89c187799972e5a2e50b48e94347b17e2bd2d7badd313d573d3",
@@ -135,11 +135,13 @@
    "money_with": true,
    "grade": "A",
    "books": {
-    "at": "2026-11-03T08:07:04Z",
-    "fair": 0.7963,
+    "at": "2026-11-03T10:10:02Z",
+    "fair": 0.798,
     "q": {
      "Novig": 0.8,
-     "Kalshi": 0.82
+     "DK": 0.8148,
+     "Kalshi": 0.82,
+     "Caesars": 0.8276
     }
    }
   }
@@ -156,7 +158,16 @@
   "clv_venue": null,
   "clv_poly_same": null
  },
- "sys_tags": {},
+ "sys_tags": {
+  "401892639:nhl_early_home_fav_qual": {
+   "with": {
+    "n": 1,
+    "best_rank": 132,
+    "usd": 1006
+   },
+   "against": null
+  }
+ },
  "by_event": {
   "401873037|ml": {
    "away": {
