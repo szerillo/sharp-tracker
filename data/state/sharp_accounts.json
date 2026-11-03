@@ -1,5 +1,5 @@
 {
- "built": "2026-11-03T00:43:39Z",
+ "built": "2026-11-03T00:49:04Z",
  "rows": [
   {
    "cond": "0x8c5d7c86eb94c854ce720ffe8b82d934db5294c7e60c9d70aa80dcce628d80c4",
@@ -17,7 +17,7 @@
    "best_rank": 59,
    "usd": 7415,
    "paid": 0.519,
-   "ask": 0.58,
+   "ask": 0.59,
    "status": "live",
    "link": "https://polymarket.us/event/nba-sac-dal-2026-11-02",
    "other": null,
@@ -87,7 +87,7 @@
    "best_rank": 40,
    "usd": 394,
    "paid": 0.5,
-   "ask": 0.5,
+   "ask": 0.51,
    "status": "live",
    "link": "https://polymarket.us/event/nba-mil-min-2026-11-02",
    "other": null,
@@ -105,11 +105,11 @@
    "money_with": false,
    "grade": "watch",
    "books": {
-    "at": "2026-11-03T00:25:53Z",
-    "fair": null,
+    "at": "2026-11-03T00:42:44Z",
+    "fair": 0.5193,
     "q": {
-     "Novig": 0.56,
-     "Kalshi": 0.58
+     "Novig": 0.52,
+     "Kalshi": 0.56
     }
    }
   },
@@ -147,12 +147,12 @@
    "money_with": false,
    "grade": "B",
    "books": {
-    "at": "2026-11-03T00:25:53Z",
-    "fair": 0.5096,
+    "at": "2026-11-03T00:42:44Z",
+    "fair": 0.4826,
     "q": {
+     "Novig": 0.475,
+     "Kalshi": 0.5,
      "DK": 0.5122,
-     "Novig": 0.515,
-     "Kalshi": 0.53,
      "Caesars": 0.5349
     }
    }
@@ -261,10 +261,10 @@
    "money_with": true,
    "grade": "A",
    "books": {
-    "at": "2026-11-03T00:25:53Z",
-    "fair": 0.6149,
+    "at": "2026-11-03T00:42:44Z",
+    "fair": 0.6179,
     "q": {
-     "Novig": 0.615,
+     "Novig": 0.62,
      "DK": 0.6296,
      "Caesars": 0.6377,
      "Kalshi": 0.64
@@ -343,13 +343,13 @@
    "money_with": false,
    "grade": "watch",
    "books": {
-    "at": "2026-11-03T00:25:53Z",
-    "fair": 0.5657,
+    "at": "2026-11-03T00:42:44Z",
+    "fair": 0.5645,
     "q": {
      "Novig": 0.57,
-     "Caesars": 0.5745,
      "FD": 0.5798,
-     "DK": 0.5868
+     "DK": 0.5868,
+     "Kalshi": 0.59
     }
    }
   },
@@ -419,7 +419,7 @@
    "best_rank": 132,
    "usd": 4318,
    "paid": 0.42,
-   "ask": 0.43,
+   "ask": 0.44,
    "status": "live",
    "link": "https://polymarket.us/event/ucl-mnu-rom-2026-11-03",
    "other": null,
@@ -487,10 +487,10 @@
    "money_with": true,
    "grade": "A",
    "books": {
-    "at": "2026-11-03T00:25:53Z",
-    "fair": 0.7988,
+    "at": "2026-11-03T00:42:44Z",
+    "fair": 0.7958,
     "q": {
-     "Novig": 0.805,
+     "Novig": 0.8,
      "Kalshi": 0.82
     }
    }
@@ -511,7 +511,7 @@
    "best_rank": 39,
    "usd": 2637,
    "paid": 0.224,
-   "ask": 0.25,
+   "ask": 0.26,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-sac-dal-2026-11-02",
    "other": {
@@ -520,7 +520,7 @@
     "usd": 175,
     "first": "2026-11-01T23:00:37Z"
    },
-   "exit_bid": 0.24,
+   "exit_bid": 0.25,
    "kalshi_against": null,
    "logged": false,
    "event_id": "401909913",
