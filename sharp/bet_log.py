@@ -99,7 +99,7 @@ class Tape:
         out = {}
         for v, nm in (('Pinnacle', 'pinnacle_limit'), ('Novig', 'novig_qty')):
             x = self.last(self.raw.get(key, {}).get(v, []), t)
-            if x and x[2]: out[nm] = x[2]
+            if x and x[2]: out[nm] = x[2] if v == 'Pinnacle' else round(x[2] * x[1] / 100)     # Novig quantity is in cents of payout: dollars = qty x price / 100
         return out
 
     def main_line(self, ev, m, side, t):
