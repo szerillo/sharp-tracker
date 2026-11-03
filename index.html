@@ -111,6 +111,9 @@
   tr.det td{background:var(--panel2);padding:10px 14px 14px;font-size:13.5px}
   .facts{display:grid;grid-template-columns:140px 1fr;gap:4px 14px;margin:0;max-width:960px} .facts dt{color:var(--muted)} .facts dd{margin:0}
   .show-m{display:none}
+  .stat{display:inline-block;margin-top:5px;padding:2px 9px;border-radius:6px;font:600 12px Poppins,sans-serif;line-height:1.5}
+  .stat-held{background:#fde8ea;color:#a1121f;box-shadow:inset 0 0 0 1px #f3a9b0} .stat-gone{background:#ececf1;color:#3a3a42;box-shadow:inset 0 0 0 1px #d4d5dc}
+  .stat-lapsed{background:#fff4d6;color:#6b4a00;box-shadow:inset 0 0 0 1px #f0d48a}
   @media (max-width:760px){.slipt thead,.slipt .c-game,.slipt .c-why,.slipt .c-rec{display:none} .show-m{display:block}
     .slipt,.slipt tbody{display:block} .slipt tr.erow{display:grid;grid-template-columns:1fr auto;grid-template-areas:"bet price" "when size";gap:4px 12px;padding:11px 12px;border-top:1px solid var(--border)}
     .slipt tr.erow:first-child{border-top:0} .slipt tr.erow td{display:block;border:0;padding:0;width:auto} .slipt .c-bet{grid-area:bet} .slipt .c-price{grid-area:price;text-align:right}
@@ -399,7 +402,7 @@ function sRow(o) {
   const head = `<tr class="erow${o.gone ? ' gone' : ''}${o.detail ? ' click' : ''}"${o.detail ? ` onclick="_wo['${id}']=!_wo['${id}'];draw()"` : ''}>
     <td class="c-when"><b>${TM(o.start)}</b><div class="small dim">${until(o.start)}</div></td>
     <td class="c-game"><span class="badge b-sport">${esc(o.sportLabel)}</span> <span class="small">${o.game}</span></td>
-    <td class="c-bet">${o.detail ? `<span class="chev">${open ? '▾' : '▸'}</span>` : ''}<span class="bet">${o.bet}</span><div class="small dim">${o.sub || ''}</div><div class="small dim show-m">${esc(o.sportLabel)} · ${o.game}</div></td>
+    <td class="c-bet">${o.detail ? `<span class="chev">${open ? '▾' : '▸'}</span>` : ''}<span class="bet">${o.bet}</span><div class="small dim">${o.sub || ''}</div>${o.status ? `<div class="stat stat-${o.status[0]}">${o.status[1]}</div>` : ''}<div class="small dim show-m">${esc(o.sportLabel)} · ${o.game}</div></td>
     <td class="c-size">${o.size || '<span class="dim">—</span>'}</td>
     <td class="c-price">${o.price || '<span class="dim">—</span>'}${o.link ? `<div class="go">${o.link}</div>` : ''}</td>
     <td class="c-why"><div class="why2">${o.why || ''}</div></td>
@@ -414,17 +417,30 @@ function priceOf(f) {
   else if (f.now) st = prob(f.now.price) <= prob(f.price) + 0.002 ? '<span class="ok-chip">still there</span>' : `<span class="moved-chip">now ${am(f.now.price)} ${VS(f.now.venue)}</span>`;
   return `${fl}<div class="small">${st}</div>`;
 }
+// Polymarket sharp accounts on the other side of a bet, same game, any market in the same family (team side: moneyline / spread, any
+// period; or the total). Sean, 11/2: nothing on the board disagrees with the Polymarket sharps for now, so any system bet they oppose is held.
+const OTHS = {home: 'away', away: 'home', over: 'under', under: 'over'};
+function sharpAgainst(ev, market, side) {
+  if (!SA || !SA.by_event || !OTHS[side]) return null;
+  const b = (market || '').replace(/^(1h|1q|1p)_/, ''), ms = b === 'total' ? ['total'] : (b === 'ml' || b === 'spread') ? ['ml', 'spread'] : [];
+  let best = null;
+  for (const m of ms) { const x = (SA.by_event[`${ev}|${m}`] || {})[OTHS[side]]; if (x && (!best || x.n > best.n)) best = {...x, m}; }
+  return best;
+}
 function sysRow({g, f, tag}) {
   const r = (SY.rules || {})[tag] || {}, e = r.evidence || {}, x = (SY.record || {})[tag];
   const t = SA && SA.sys_tags && (SA.sys_tags[`${g.event_id}:${tag}`] || Object.entries(SA.sys_tags).find(([k]) => k.startsWith(`${g.event_id}:${tag}:`))?.[1]);
   // 11/2 (Sean): a tier C lean is held (not bet) when Polymarket sharp accounts are on the other side of the same game x market
   // (first-half leans against the full-game market); whether leans and sharps add up is graded later from sys_sharp_tags.jsonl
-  const held = (e.tier === 'C' && !!(t && t.against)) || !!f._conf;
+  const sa = (t && t.against) || sharpAgainst(g.event_id, f.market, f.side);
+  const held = !!sa || !!f._conf;
   const per = /^(1h|1q|1p)_/.test(f.market) ? '1st half' : 'Full game', gone = f.lapsed || f.now === null || held;
   const sp = t ? [t.with ? `<span class="tag-with">${t.with.n} sharp account${t.with.n === 1 ? '' : 's'} with ($${t.with.usd.toLocaleString()})</span>` : '', t.against ? `<span class="tag-against">${t.against.n} sharp account${t.against.n === 1 ? '' : 's'} against ($${t.against.usd.toLocaleString()})</span>` : ''].filter(Boolean).join(' · ') : '';
   const trk = fmtRec(x) || `none graded${x && x.n ? ` (${x.n} open)` : ''}`;
   return sRow({id: `s|${g.event_id}|${tag}|${f.market}`, start: g.start_utc, sportLabel: SPORT_LABEL[g.sport] || g.sport, game: `${esc(g.away_name || g.away)} @ ${esc(g.home_name || g.home)}`,
-    bet: esc(betText(f, g)), sub: `${per} · tier ${e.tier || '?'}${f.lapsed ? ' · <span class="moved-chip">trigger no longer met</span>' : ''}${held ? ` · <span class="tag-against">held: ${f._conf ? 'a stronger rule is on the other side' : 'sharps on the other side'}</span>` : ''}`,
+    bet: esc(betText(f, g)), sub: `${per} · tier ${e.tier || '?'}`,
+    status: sa ? ['held', `Held: Polymarket sharps on the other side (${sa.n} account${sa.n === 1 ? '' : 's'}, $${(sa.usd || 0).toLocaleString()})`] : f._conf ? ['held', 'Held: a stronger rule is on the other side']
+      : f.lapsed ? ['lapsed', 'Trigger no longer met'] : f.now === null ? ['gone', 'Price gone: no bettable price'] : null,
     size: held || e.tier === 'P' ? '' : unitText(['A', 'B'].includes(e.tier) ? SLIP.big : SLIP.small, amProb(f.now ? f.now.price : f.price)),
     price: priceOf(f), link: gone || e.tier === 'P' ? '' : betLink((f.now && f.now.venue) || f.venue, g.event_id, f.market),
     why: `${esc(r.desc || tag)}${sp ? `<div>${sp}</div>` : ''}`,
@@ -434,7 +450,7 @@ function sysRow({g, f, tag}) {
       ['Since 2021', esc(e.hold || '')], ['Seasons positive', esc(e.seasons || '')],
       ['Tracker', `${trk}${x && x.clv_avg != null ? ` · CLV ${x.clv_avg >= 0 ? '+' : ''}${x.clv_avg} pts (diagnostic only for a system)` : ''}`],
       ['Polymarket sharps', sp], ['Flagged', f.ts ? `${DAYT(f.ts)} at ${VS(f.venue)} ${am(f.price)}` : `${VS(f.venue)} ${am(f.price)}`],
-      ['Status', f._conf ? `Held, not a bet: conflicts with ${esc(f._conf)}, the stronger rule on this game. The board keeps one side per game; the fill stays in the ledger and is graded.` : held ? 'Held, not a bet: Polymarket sharp accounts are on the other side of this game (for a first-half lean, the full-game market). Tier C leans and sharp signals have not been tested together yet, so a conflict is a pass; the fill stays in the ledger and is graded, and the tag is logged so the combination can be tested.' : f.lapsed ? 'The trigger is no longer met on the latest data (for wind: the forecast moved out of the band). Stays in the ledger and is graded either way; not a new bet.' : (f.now === null ? 'No bettable price right now. Still counted at the flagged price.' : '')],
+      ['Status', sa ? `Held, not a bet: Polymarket sharp accounts (${sa.n}, $${(sa.usd || 0).toLocaleString()}) are on the other side of this game (${sa.m === 'total' ? 'the total' : 'the ' + (sa.m === 'ml' ? 'moneyline' : 'spread')}). For now nothing on the board bets against the Polymarket sharps; the fill stays in the ledger and is graded, and the tag is logged so the combination can be tested.` : f._conf ? `Held, not a bet: conflicts with ${esc(f._conf)}, the stronger rule on this game. The board keeps one side per game; the fill stays in the ledger and is graded.` : held ? 'Held, not a bet: Polymarket sharp accounts are on the other side of this game (for a first-half lean, the full-game market). Tier C leans and sharp signals have not been tested together yet, so a conflict is a pass; the fill stays in the ledger and is graded, and the tag is logged so the combination can be tested.' : f.lapsed ? 'The trigger is no longer met on the latest data (for wind: the forecast moved out of the band). Stays in the ledger and is graded either way; not a new bet.' : (f.now === null ? 'No bettable price right now. Still counted at the flagged price.' : '')],
       ['Links', r.labs ? `<a target="_blank" href="https://sportsinsights.actionnetwork.com/betlabs/screen?ScreenId=${r.labs.id}">Bet Labs screen ↗</a>` : '']])});
 }
 function gameHead(x) {
@@ -543,7 +559,7 @@ function renderToday() {
     const st = !r.flag ? '<span class="neg">price gone</span>' : (lg && b && b.cost > lg.price + 0.002 ? `<span class="moved-chip">now ${toAm(b.cost)} ${VS(b.venue)}</span>` : '<span class="ok-chip">still there</span>');
     const link = r.flag && b && b.venue === 'Kalshi' && b.ticker ? `<a class="betbtn" target="_blank" rel="noopener" onclick="event.stopPropagation()" href="https://kalshi.com/markets/${b.ticker.toLowerCase().split('-')[0]}/x/${b.ticker.toLowerCase().split('-').slice(0, -1).join('-')}">Bet at Kalshi ↗</a>` : (r.flag && b && b.venue === 'Novig' ? `<a class="betbtn" target="_blank" rel="noopener" onclick="event.stopPropagation()" href="https://novig.com/">Bet at Novig ↗</a>` : '');
     return sRow({id: `t|${r.start}|${r.fav_name}`, start: r.start, sportLabel: (r.tour || 'tennis').toUpperCase(), game: `${esc(r.fav_name || '')} vs ${esc(r.opp_name || '')}`,
-      bet: `${esc(r.fav_name || 'Favourite')} set 1`, sub: 'Set 1 winner · tier C', gone: !r.flag, size: unitText(SLIP.small, lg ? lg.price : p), price: fl ? fl + `<div class="small">${st}</div>` : '', link,
+      bet: `${esc(r.fav_name || 'Favourite')} set 1`, sub: 'Set 1 winner · tier C', gone: !r.flag, status: r.flag ? null : ['gone', 'Price gone: no longer under the curve'], size: unitText(SLIP.small, lg ? lg.price : p), price: fl ? fl + `<div class="small">${st}</div>` : '', link,
       why: `Set-1 price under the curve: fair ${(100 * r.fair).toFixed(1)}%, ${b ? `best ${(100 * b.cost).toFixed(1)}% (${r.edge >= 0 ? '+' : ''}${(100 * r.edge).toFixed(1)} pts)` : 'no price now'}`,
       rec: lbl('Tracker', twRec),
       detail: facts([['Rule', 'Tennis favourite to win set 1 when the set-1 price sits under the match-to-set curve (tennis_fs_fav, paper)'], ['Match', `${esc(r.fav_name || '')} vs ${esc(r.opp_name || '')}${r.tournament ? ', ' + esc(r.tournament) : ''}`],
@@ -585,9 +601,6 @@ function renderToday() {
     const fl = r.fl;
     r.nbaSingle = r.g.sport === 'nba' && Math.max((fl && fl.n) || 0, (r.acct && r.acct.with && r.acct.with.n) || 0) < 2;   // flagged or not
     if (r.nbaSingle) r.strong = false;
-    // against one of your tier A/B system bets: the system bet keeps the board (Sean, 11/2: conflict-free)
-    const ss = !r.mixed && (sysSide[r.g.ev] || []).find(s => famOf({market: s.m}) && famOf({market: s.m}) === famOf({market: r.rest[0].market || ''}) && s.side !== r.rest[0].side && ['A', 'B'].includes(s.tier));
-    if (ss) { r.strong = false; r.sysConf = ss.label; }
     r.grade = !r.strong ? '' : (r.flagged ? ((fl && (fl.trigger === 'proven' || fl.proven)) || r.fam.money ? 'A' : 'B') : 'C');
   }   // 11/2 (Sean): sharp accounts required (the one family with a proven edge)
   const VOL = {}; for (const r of (FL && FL.rows) || []) { const k = `${r.event_id}|${r.market}`; VOL[k] = Math.max(VOL[k] || 0, r.total || 0); }   // exchange $ on the market (main line)
@@ -613,7 +626,7 @@ function renderToday() {
     const link = r.mixed ? '' : (lv === 'Kalshi' ? betLink('Kalshi', g.ev, r.rest[0].market) : r.fl && r.fl.link ? `<a class="betbtn" target="_blank" rel="noopener" onclick="event.stopPropagation()" href="${r.fl.link}">Bet at Polymarket ↗</a>` : betLink('FD', g.ev, r.rest[0].market, 'Game page'));
     const sn = SN && SN[r.id] && SN[r.id].signals, fs = sn ? r.rest.map(y => sn[y.kind] && sn[y.kind].side === y.side && sn[y.kind].first).filter(Boolean).sort()[0] : null;
     return sRow({id: 'w|' + r.id, start: g.start, sportLabel: SPORT_LABEL[g.sport] || g.sport, game: `${esc(g.away_name || g.away)} @ ${esc(g.home_name || g.home)}`,
-      bet: r.mixed ? '<span class="mixed">Mixed, no lean</span>' : esc(yn(r.rest[0].bet)), sub: r.mixed ? [...new Set(r.rest.map(y => esc(y.bet)))].join(' vs ') : (r.strong ? `<span class="badge ${r.grade === 'A' ? 'b-fit' : r.grade === 'B' ? 'b-prior' : 'b-gate'}" style="margin-left:0">Grade ${r.grade}</span>` : (r.sysConf ? `against your system bet (${esc(r.sysConf)}): watch only` : r.nbaSingle ? 'NBA single account: watch only' : 'Watch only')),
+      bet: r.mixed ? '<span class="mixed">Mixed, no lean</span>' : esc(yn(r.rest[0].bet)), sub: r.mixed ? [...new Set(r.rest.map(y => esc(y.bet)))].join(' vs ') : (r.strong ? `<span class="badge ${r.grade === 'A' ? 'b-fit' : r.grade === 'B' ? 'b-prior' : 'b-gate'}" style="margin-left:0">Grade ${r.grade}</span>` : 'Watch only'), status: r.strong || r.mixed ? null : ['gone', r.nbaSingle ? 'Watch only: NBA single account' : r.acct && r.acct.against ? 'Watch only: sharps on both sides' : 'Watch only: below flag level'],
       size: r.strong && x ? unitText(r.grade === 'A' ? SLIP.big : SLIP.small, x.p) : '', price: x && x.p != null ? `<b>${toAm(x.p)}</b> <span class="small dim">${VS(x.venue)}</span>` : '', link,
       why: parts.join(' + ') + (r.tag ? `<div>${r.tag}</div>` : ''),
       rec: (r.grade && r.fl ? lbl('Backtest', r.fl.trigger === 'proven' || r.fl.proven ? '+1.23 CLV (proven acct)' : r.fl.trigger === 'top50' ? '+0.84 CLV (top 50, thin)' : '+0.86 CLV (2+ accts)') : FAMBT(r) ? lbl('Backtest', FAMBT(r)) : '') + (r.flagged ? lbl('Tracker', SAREC) : ''),
@@ -624,7 +637,7 @@ function renderToday() {
   // sharp-account flags that were logged (counted) and have since gone: greyed, bet name kept bold (Sean, 11/2)
   const goneRows = (SA ? (SA.rows || []) : []).filter(r => r.logged && future(r.game_start || r.start) && passW(r.game_start || r.start) && passS(r.sport, r.league) && (r.status !== 'live' || r.kalshi_against || r.conflict))
     .map(r => sRow({id: 'g|' + (r.cond || r.event_id) + '|' + r.bet, start: r.game_start || r.start, sportLabel: SPORT_LABEL[r.sport] || r.sport || '', game: esc(r.away_name && r.home_name ? r.away_name + ' @ ' + r.home_name : r.title || ''),
-      bet: esc(yn(r.bet)), sub: 'Flagged earlier, since gone', gone: true, size: unitText(r.grade === 'A' ? SLIP.big : SLIP.small, r.paid),
+      bet: esc(yn(r.bet)), sub: 'Flagged earlier', status: ['held', r.status !== 'live' ? 'Dropped: a sharp took the other side' : r.kalshi_against ? 'Dropped: Kalshi moved the other way' : 'Dropped: a signal on the other side'], gone: true, size: unitText(r.grade === 'A' ? SLIP.big : SLIP.small, r.paid),
       price: `<b>${toAm(r.paid)}</b> <span class="small dim">Polymarket</span><div class="small"><span class="neg">${r.ask != null ? 'now ' + toAm(r.ask) : 'price gone'}</span></div>`,
       why: r.status !== 'live' ? `${r.other ? r.other.n_accounts : ''} sharp account${r.other && r.other.n_accounts === 1 ? '' : 's'} took the other side` : r.kalshi_against ? `Kalshi moved ${r.kalshi_against.move} pts the other way` : `${(r.conflict || []).join(', ')} on the other side`,
       rec: lbl('Tracker', SAREC)}));
