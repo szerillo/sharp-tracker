@@ -1,162 +1,6 @@
 {
- "built": "2026-11-03T00:59:47Z",
+ "built": "2026-11-03T01:05:13Z",
  "rows": [
-  {
-   "cond": "0x8c5d7c86eb94c854ce720ffe8b82d934db5294c7e60c9d70aa80dcce628d80c4",
-   "slug": "nba-sac-dal-2026-11-02",
-   "title": "Kings vs. Mavericks",
-   "mtype": "total",
-   "start": "2026-11-03T01:00:00Z",
-   "bet": "Under 235.5",
-   "side": "Under",
-   "flagged": "2026-11-02T12:41:40Z",
-   "why": "2 top-200 accounts",
-   "proven": false,
-   "trigger": "two",
-   "n_accounts": 2,
-   "best_rank": 59,
-   "usd": 7415,
-   "paid": 0.519,
-   "ask": 0.58,
-   "status": "live",
-   "link": "https://polymarket.us/event/nba-sac-dal-2026-11-02",
-   "other": null,
-   "kalshi_against": null,
-   "logged": true,
-   "event_id": "401909913",
-   "sport": "nba",
-   "league": null,
-   "away": "SAC",
-   "home": "DAL",
-   "away_name": "Sacramento Kings",
-   "home_name": "Dallas Mavericks",
-   "game_start": "2026-11-03T01:00Z",
-   "side_std": "under",
-   "money_with": false,
-   "grade": "B",
-   "books": null
-  },
-  {
-   "cond": "0xf297c40a0fa0ee52d16c6557823109d33a9d1d7d95976f1a7f40b08b03beb10f",
-   "slug": "nba-sac-dal-2026-11-02",
-   "title": "Kings vs. Mavericks",
-   "mtype": "spread",
-   "start": "2026-11-03T01:00:00Z",
-   "bet": "Kings +11.5",
-   "side": "Kings",
-   "flagged": "2026-11-02T18:47:33Z",
-   "why": "2 top-200 accounts",
-   "proven": false,
-   "trigger": "two",
-   "n_accounts": 2,
-   "best_rank": 12,
-   "usd": 2399,
-   "paid": 0.527,
-   "ask": 0.64,
-   "status": "live",
-   "link": "https://polymarket.us/event/nba-sac-dal-2026-11-02",
-   "other": null,
-   "kalshi_against": null,
-   "logged": true,
-   "event_id": "401909913",
-   "sport": "nba",
-   "league": null,
-   "away": "SAC",
-   "home": "DAL",
-   "away_name": "Sacramento Kings",
-   "home_name": "Dallas Mavericks",
-   "game_start": "2026-11-03T01:00Z",
-   "side_std": "away",
-   "money_with": true,
-   "grade": "A",
-   "books": null
-  },
-  {
-   "cond": "0x1d1be66f194b14daff84ea873be8bcc30ca8b44a44f44991bf96bb4703aec858",
-   "slug": "nba-mil-min-2026-11-02",
-   "title": "Bucks vs. Timberwolves",
-   "mtype": "spread",
-   "start": "2026-11-03T01:00:00Z",
-   "bet": "Bucks +11.5",
-   "side": "Bucks",
-   "flagged": "2026-11-02T18:59:36Z",
-   "why": "a top-50 account",
-   "proven": false,
-   "trigger": "top50",
-   "n_accounts": 1,
-   "best_rank": 40,
-   "usd": 394,
-   "paid": 0.5,
-   "ask": 0.53,
-   "status": "live",
-   "link": "https://polymarket.us/event/nba-mil-min-2026-11-02",
-   "other": null,
-   "kalshi_against": null,
-   "logged": true,
-   "event_id": "401909915",
-   "sport": "nba",
-   "league": null,
-   "away": "MIL",
-   "home": "MIN",
-   "away_name": "Milwaukee Bucks",
-   "home_name": "Minnesota Timberwolves",
-   "game_start": "2026-11-03T01:00Z",
-   "side_std": "away",
-   "money_with": false,
-   "grade": "watch",
-   "books": {
-    "at": "2026-11-03T00:42:44Z",
-    "fair": 0.5193,
-    "q": {
-     "Novig": 0.52,
-     "Kalshi": 0.56
-    }
-   }
-  },
-  {
-   "cond": "0x5b84eeee777c4bdc55f5233f642d52227727685d4a393f557c059bf752464620",
-   "slug": "nba-mil-min-2026-11-02",
-   "title": "Bucks vs. Timberwolves",
-   "mtype": "spread",
-   "start": "2026-11-03T01:00:00Z",
-   "bet": "Bucks +10.5",
-   "side": "Bucks",
-   "flagged": "2026-11-02T19:03:28Z",
-   "why": "2 top-200 accounts",
-   "proven": false,
-   "trigger": "two",
-   "n_accounts": 2,
-   "best_rank": 112,
-   "usd": 3238,
-   "paid": 0.48,
-   "ask": 0.48,
-   "status": "live",
-   "link": "https://polymarket.us/event/nba-mil-min-2026-11-02",
-   "other": null,
-   "kalshi_against": null,
-   "logged": true,
-   "event_id": "401909915",
-   "sport": "nba",
-   "league": null,
-   "away": "MIL",
-   "home": "MIN",
-   "away_name": "Milwaukee Bucks",
-   "home_name": "Minnesota Timberwolves",
-   "game_start": "2026-11-03T01:00Z",
-   "side_std": "away",
-   "money_with": false,
-   "grade": "B",
-   "books": {
-    "at": "2026-11-03T00:42:44Z",
-    "fair": 0.4826,
-    "q": {
-     "Novig": 0.475,
-     "Kalshi": 0.5,
-     "DK": 0.5122,
-     "Caesars": 0.5349
-    }
-   }
-  },
   {
    "cond": "0xd56e40b0c4edaf8802fbf18d85da12906a47dc77f64321924056c14f143be117",
    "slug": "nfl-chi-sea-2026-11-03",
@@ -208,7 +52,7 @@
    "best_rank": 135,
    "usd": 2506,
    "paid": 0.18,
-   "ask": 0.2,
+   "ask": 0.21,
    "status": "live",
    "link": "https://polymarket.us/event/nfl-chi-sea-2026-11-03",
    "other": null,
@@ -496,47 +340,6 @@
    }
   },
   {
-   "cond": "0xc94d2d36ea4b02d121cf9dd446fe61f0ffbc4b54053cf9f0e771ae4e4eec08b5",
-   "slug": "nba-sac-dal-2026-11-02",
-   "title": "Kings vs. Mavericks",
-   "mtype": "ml",
-   "start": "2026-11-03T01:00:00Z",
-   "bet": "Kings ML",
-   "side": "Kings",
-   "flagged": "2026-11-01T11:59:18Z",
-   "why": "5 top-200 accounts",
-   "proven": false,
-   "trigger": "two",
-   "n_accounts": 5,
-   "best_rank": 39,
-   "usd": 2637,
-   "paid": 0.224,
-   "ask": 0.26,
-   "status": "other side",
-   "link": "https://polymarket.us/event/nba-sac-dal-2026-11-02",
-   "other": {
-    "n_accounts": 1,
-    "best_rank": 54,
-    "usd": 175,
-    "first": "2026-11-01T23:00:37Z"
-   },
-   "exit_bid": 0.25,
-   "kalshi_against": null,
-   "logged": false,
-   "event_id": "401909913",
-   "sport": "nba",
-   "league": null,
-   "away": "SAC",
-   "home": "DAL",
-   "away_name": "Sacramento Kings",
-   "home_name": "Dallas Mavericks",
-   "game_start": "2026-11-03T01:00Z",
-   "side_std": "away",
-   "money_with": false,
-   "grade": "B",
-   "books": null
-  },
-  {
    "cond": "0x25b252cc2010b6b75627644a58148bb73993e2b4c4b1be776942f8f0bc9f5b1a",
    "slug": "nba-bos-hou-2026-11-02",
    "title": "Celtics vs. Rockets",
@@ -687,22 +490,6 @@
    },
    "against": null
   },
-  "401909915:nba_1h_under_hot_over": {
-   "with": null,
-   "against": {
-    "n": 1,
-    "best_rank": 75,
-    "usd": 1706
-   }
-  },
-  "401909913:nba_1h_under_hot_over": {
-   "with": {
-    "n": 2,
-    "best_rank": 59,
-    "usd": 7415
-   },
-   "against": null
-  },
   "401909919:nba_1h_under_hot_over": {
    "with": {
     "n": 1,
@@ -728,74 +515,6 @@
     "n": 1,
     "best_rank": 12,
     "usd": 118
-   },
-   "against": null
-  },
-  "401909914:nba_momentum:spread": {
-   "with": {
-    "n": 1,
-    "best_rank": 59,
-    "usd": 490
-   },
-   "against": {
-    "n": 1,
-    "best_rank": 112,
-    "usd": 1894
-   }
-  },
-  "401909915:nba_momentum:ml": {
-   "with": {
-    "n": 2,
-    "best_rank": 40,
-    "usd": 381
-   },
-   "against": {
-    "n": 3,
-    "best_rank": 55,
-    "usd": 2325
-   }
-  },
-  "401909915:nba_momentum:spread": {
-   "with": {
-    "n": 3,
-    "best_rank": 40,
-    "usd": 2893
-   },
-   "against": null
-  },
-  "401909915:nba_momentum:total": {
-   "with": null,
-   "against": {
-    "n": 1,
-    "best_rank": 75,
-    "usd": 1706
-   }
-  },
-  "401909913:nba_momentum:ml": {
-   "with": {
-    "n": 5,
-    "best_rank": 39,
-    "usd": 2637
-   },
-   "against": {
-    "n": 1,
-    "best_rank": 54,
-    "usd": 175
-   }
-  },
-  "401909913:nba_momentum:spread": {
-   "with": {
-    "n": 3,
-    "best_rank": 12,
-    "usd": 10579
-   },
-   "against": null
-  },
-  "401909913:nba_momentum:total": {
-   "with": {
-    "n": 2,
-    "best_rank": 59,
-    "usd": 7415
    },
    "against": null
   },
@@ -842,82 +561,6 @@
     "n": 1,
     "best_rank": 121,
     "usd": 116
-   }
-  },
-  "401909913|ml": {
-   "away": {
-    "n": 5,
-    "best_rank": 39,
-    "usd": 2637
-   },
-   "home": {
-    "n": 1,
-    "best_rank": 54,
-    "usd": 175
-   }
-  },
-  "401909913|total": {
-   "under": {
-    "n": 2,
-    "best_rank": 59,
-    "usd": 7415
-   }
-  },
-  "401909913|spread": {
-   "away": {
-    "n": 3,
-    "best_rank": 12,
-    "usd": 10579
-   }
-  },
-  "401909914|ml": {
-   "home": {
-    "n": 2,
-    "best_rank": 43,
-    "usd": 1132
-   },
-   "away": {
-    "n": 1,
-    "best_rank": 54,
-    "usd": 159
-   }
-  },
-  "401909914|spread": {
-   "home": {
-    "n": 1,
-    "best_rank": 59,
-    "usd": 490
-   },
-   "away": {
-    "n": 1,
-    "best_rank": 112,
-    "usd": 1894
-   }
-  },
-  "401909915|ml": {
-   "home": {
-    "n": 3,
-    "best_rank": 55,
-    "usd": 2325
-   },
-   "away": {
-    "n": 2,
-    "best_rank": 40,
-    "usd": 381
-   }
-  },
-  "401909915|total": {
-   "over": {
-    "n": 1,
-    "best_rank": 75,
-    "usd": 1706
-   }
-  },
-  "401909915|spread": {
-   "away": {
-    "n": 3,
-    "best_rank": 40,
-    "usd": 2893
    }
   },
   "401909916|ml": {
