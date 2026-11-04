@@ -24,6 +24,10 @@ jobs:
       - uses: actions/configure-pages@v5
         with:
           enablement: true
+      - name: check the page script parses before publishing (a syntax error blanks the whole board)
+        run: |
+          python3 -c "import re; h=open('index.html').read(); s=re.findall(r'<script>(.*?)</script>', h, re.S); open('/tmp/page.js','w').write('\n'.join(s))"
+          node --check /tmp/page.js
       - name: assemble site
         run: |
           mkdir -p _site/data/state

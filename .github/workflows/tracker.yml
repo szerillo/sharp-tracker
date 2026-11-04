@@ -58,6 +58,9 @@ jobs:
       - name: roll off raw ticks older than 10 days to the raw-archive release
         env: {GITHUB_TOKEN: '${{ secrets.GITHUB_TOKEN }}', GH_TOKEN: '${{ secrets.GITHUB_TOKEN }}'}
         run: python3 sharp/rolloff.py || true
+      - name: board audit (open bets on the board, freshness, duplicates, feeds; red banner + phone alert on a new failure)
+        env: {NTFY_TOPIC: '${{ secrets.NTFY_TOPIC }}'}
+        run: python3 sharp/audit.py || true
       - name: commit
         run: |
           git config user.name "tracker-bot"; git config user.email "actions@users.noreply.github.com"

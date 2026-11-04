@@ -149,7 +149,7 @@ const MKT = new Proxy(MKT0, {get(t, k) { if (k in t) return t[k]; const m = /^(1
 let SPORT = new URLSearchParams(location.search).get('sport') || null;
 const XV = new Set(['Kalshi', 'Novig', 'Polymarket']), SHARP = new Set(['Pinnacle', 'Circa']);
 const ET = iso => new Date(iso).toLocaleString('en-US', {timeZone: 'America/New_York', month: 'short', day: 'numeric', hour: 'numeric', minute: '2-digit'});
-let D = null, E = null, MV = null, SY = null, FL = null, TW = null, SN = null, SA = null, BL = null, tab = new URLSearchParams(location.search).get('tab') || 'today';
+let D = null, E = null, MV = null, SY = null, FL = null, TW = null, SN = null, SA = null, BL = null, AU = null, tab = new URLSearchParams(location.search).get('tab') || 'today';
 const TABS = [['today', 'Today'], ['tracker', 'Bet tracker'], ['games', 'Games'], ['systems', 'Systems'], ['moves', 'Market moves'], ['more', 'More']];
 const RTABS = [['edges', 'Off-market prices'], ['ledger', 'Bet ledger'], ['weekly', 'Weekly report'], ['venues', 'Which books lead'], ['board', 'Full odds board'], ['props', 'Prop list'], ['health', 'Data health'], ['constants', 'Settings']];
 let rtab = new URLSearchParams(location.search).get('r') || 'edges';
@@ -1047,7 +1047,9 @@ function draw() {
   for (const id of ['#sub', '#banners', '#strip']) $(id).style.display = tab === 'research' ? '' : 'none';   // build details and model caveats only on the research pages
   const R = {edges: renderEdges, props: renderProps, venues: renderVenues, weekly: renderWeekly, ledger: renderLedger, health: renderHealth, constants: renderConstants};
   const R2 = {...R, board: renderBoard};
-  $('#view').innerHTML = {today: renderToday, tracker: renderBetLog, games: renderGames, systems: renderSystems, moves: renderMoves, more: renderMore, research: () => R2[rtab]()}[tab]();
+  const bad = AU ? (AU.checks || []).filter(c => !c.ok) : [];
+  const audit = bad.length ? `<div class="banner ${bad.some(c => c.level === 'error') ? 'red' : ''}"><b>Board check (${ET(AU.built)} ET):</b> ${bad.map(c => `${esc(c.name)}: ${esc(c.detail)}`).join(' · ')}</div>` : '';
+  $('#view').innerHTML = audit + {today: renderToday, tracker: renderBetLog, games: renderGames, systems: renderSystems, moves: renderMoves, more: renderMore, research: () => R2[rtab]()}[tab]();
 }
 async function load() {
   let u = new URLSearchParams(location.search).get('data') || 'data/state/dashboard.json';
@@ -1063,6 +1065,7 @@ async function load() {
     try { SN = await (await fetch('data/state/signal_snap.json', {cache: 'no-store'})).json(); } catch (e) { SN = null; }
     try { SA = await (await fetch('data/state/sharp_accounts.json', {cache: 'no-store'})).json(); } catch (e) { SA = null; }
     try { BL = await (await fetch('data/state/bet_log.json', {cache: 'no-store'})).json(); } catch (e) { BL = null; }
+    try { AU = await (await fetch('data/state/audit.json', {cache: 'no-store'})).json(); } catch (e) { AU = null; }
     const idx = D.index;
     if (idx && idx.sports && idx.sports.length) {
       if (!SPORT) SPORT = idx.sports[0].sport;
