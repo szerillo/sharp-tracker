@@ -1,5 +1,5 @@
 {
- "built": "2026-11-04T18:10:35Z",
+ "built": "2026-11-04T18:16:19Z",
  "rows": [
   {
    "cond": "0xa98f1371108dfffc8908efcdd5ccbe93cfdd2ab148d37eb5910072fc80b80030",
@@ -146,6 +146,50 @@
    }
   },
   {
+   "cond": "0x8f097e91950aedef3070948ea5a777474f1d1f78e82796b3fe4b34afe0eb53f3",
+   "slug": "nba-atl-was-2026-11-04",
+   "title": "Hawks vs. Wizards",
+   "mtype": "ml",
+   "start": "2026-11-05T00:00:00Z",
+   "bet": "Hawks ML",
+   "side": "Hawks",
+   "flagged": "2026-11-03T13:11:31Z",
+   "why": "2 top-200 accounts",
+   "proven": false,
+   "trigger": "two",
+   "n_accounts": 2,
+   "best_rank": 43,
+   "usd": 1994,
+   "paid": 0.555,
+   "ask": 0.58,
+   "status": "live",
+   "link": "https://polymarket.us/event/nba-atl-was-2026-11-04",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401909923",
+   "sport": "nba",
+   "league": null,
+   "away": "ATL",
+   "home": "WSH",
+   "away_name": "Atlanta Hawks",
+   "home_name": "Washington Wizards",
+   "game_start": "2026-11-05T00:00Z",
+   "side_std": "away",
+   "money_with": true,
+   "grade": "A",
+   "books": {
+    "at": "2026-11-04T15:01:15Z",
+    "fair": 0.5832,
+    "q": {
+     "Caesars": 0.5918,
+     "Kalshi": 0.6,
+     "DK": 0.6078,
+     "FD": 0.6094
+    }
+   }
+  },
+  {
    "cond": "0x4e14101792372d8c16dae3092acf0f825ca206475de2d1c76c7ded8c208f9762",
    "slug": "nba-mil-bos-2026-11-04",
    "title": "Bucks vs. Celtics",
@@ -176,8 +220,8 @@
    "home_name": "Boston Celtics",
    "game_start": "2026-11-05T00:30Z",
    "side_std": "away",
-   "money_with": false,
-   "grade": "B",
+   "money_with": true,
+   "grade": "A",
    "books": {
     "at": "2026-11-04T15:01:15Z",
     "fair": 0.4973,
@@ -486,7 +530,8 @@
    "game_start": "2026-11-08T00:30Z",
    "side_std": "away",
    "conflict": [
-    "Kalshi move"
+    "Kalshi move",
+    "big money"
    ],
    "money_with": false,
    "grade": "A",
@@ -587,57 +632,6 @@
    "books": null
   },
   {
-   "cond": "0x8f097e91950aedef3070948ea5a777474f1d1f78e82796b3fe4b34afe0eb53f3",
-   "slug": "nba-atl-was-2026-11-04",
-   "title": "Hawks vs. Wizards",
-   "mtype": "ml",
-   "start": "2026-11-05T00:00:00Z",
-   "bet": "Hawks ML",
-   "side": "Hawks",
-   "flagged": "2026-11-03T13:11:31Z",
-   "why": "2 top-200 accounts",
-   "proven": false,
-   "trigger": "two",
-   "n_accounts": 2,
-   "best_rank": 43,
-   "usd": 1994,
-   "paid": 0.555,
-   "ask": 0.58,
-   "status": "live",
-   "link": "https://polymarket.us/event/nba-atl-was-2026-11-04",
-   "other": null,
-   "kalshi_against": {
-    "move": 4.5,
-    "now": 43.5,
-    "state": "reversed"
-   },
-   "logged": true,
-   "event_id": "401909923",
-   "sport": "nba",
-   "league": null,
-   "away": "ATL",
-   "home": "WSH",
-   "away_name": "Atlanta Hawks",
-   "home_name": "Washington Wizards",
-   "game_start": "2026-11-05T00:00Z",
-   "side_std": "away",
-   "conflict": [
-    "Kalshi move"
-   ],
-   "money_with": true,
-   "grade": "A",
-   "books": {
-    "at": "2026-11-04T15:01:15Z",
-    "fair": 0.5832,
-    "q": {
-     "Caesars": 0.5918,
-     "Kalshi": 0.6,
-     "DK": 0.6078,
-     "FD": 0.6094
-    }
-   }
-  },
-  {
    "cond": "0x8c46d71e1ac2d02318e36c88763d512a25f73153f03dffa8df67212a5a922698",
    "slug": "nba-por-phx-2026-11-04",
    "title": "Trail Blazers vs. Suns",
@@ -727,7 +721,8 @@
    "game_start": "2026-11-05T03:00Z",
    "side_std": "away",
    "conflict": [
-    "Kalshi bet back"
+    "Kalshi bet back",
+    "big money"
    ],
    "money_with": false,
    "grade": "watch",
