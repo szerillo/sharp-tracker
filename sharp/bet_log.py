@@ -26,7 +26,8 @@ NOW = dt.datetime.now(dt.timezone.utc)
 
 def ts(s): return dt.datetime.fromisoformat(s.replace(' ', 'T').replace('Z', '+00:00').replace('+00:00:00', '+00:00')) if s else None
 def implied(a): return 100 / (a + 100) if a > 0 else -a / (-a + 100)
-def size_units(cat): return 0.5 if cat in ('system A', 'system B', 'sharp A') else 0.25
+HALF_U = {'nba_1h_under_hot_over'}       # tier C rules sized at 0.5u (Sean, 11/4)
+def size_units(cat, rule=None): return 0.5 if cat in ('system A', 'system B', 'sharp A') or rule in HALF_U else 0.25
 
 
 def units(p, won, size):
@@ -266,7 +267,7 @@ def main():
         if b.get('ctx') is None and b['event_id'] and b['side'] and 0 <= (NOW - ts(b['flagged'])).total_seconds() <= 3600: b['ctx'] = ctx(b)
     for b in bets:
         b['bet_type'] = b['market'].replace('1s_ml', 'set1_ml')
-        b['size'] = size_units(b['cat']); b['units'] = units(b['price'], b['won'], b['size'])
+        b['size'] = size_units(b['cat'], b.get('rule')); b['units'] = units(b['price'], b['won'], b['size'])
         b['lead_h'] = round((ts(b['start']) - ts(b['flagged'])).total_seconds() / 3600, 1)
     # ---- summaries
     def summ(L):
