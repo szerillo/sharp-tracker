@@ -14,7 +14,7 @@ concurrency:
 jobs:
   grade:
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 45   # build_db alone takes about 12 min now; the 20-min limit killed every run from 11/3 midday
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
