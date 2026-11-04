@@ -935,6 +935,7 @@ const sgn = (x, d = 1) => `${x > 0 ? '+' : ''}${x.toFixed(d)}`;
 const unitName = b => b.unit_name || (b.sport === 'mlb' ? 'runs' : (b.sport === 'nhl' || b.sport === 'soccer') ? 'goals' : 'pts');
 function blCorr(b) {
   let s = '';
+  if (b.also) s += `<div class="small"><b>Also flagged by:</b> ${b.also.map(esc).join(', ')}</div>`;
   if (b.corr_same) s += `<div class="stat stat-lapsed">Same position as ${b.corr_same.length} other bet${b.corr_same.length === 1 ? '' : 's'}</div>`;
   if (b.corr_opp) s += `<div class="stat stat-held">Opposes ${b.corr_opp.length} other bet${b.corr_opp.length === 1 ? '' : 's'}</div>`;
   return s;

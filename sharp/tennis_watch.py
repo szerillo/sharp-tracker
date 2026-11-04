@@ -130,7 +130,11 @@ def main():
         if ev in paper:                           # already paper-logged: stays on the page even if the price has since gone (11/2)
             row['logged'] = dict(ts=paper[ev]['ts'], venue=paper[ev]['venue'], price=paper[ev]['price'], edge=round(paper[ev]['fair'] - paper[ev]['price'], 4))
         rows.append(row)
-        if row['flag'] and ev not in paper:
+        # the same match can carry two ids (a Pinnacle-made id before ESPN lists it, then ESPN's): one pick per match (11/4, Tiafoe set 1)
+        same = next((k for k, p in paper.items() if k != ev and {p.get('fav_name'), p.get('opp_name')} == {name, opp} and abs((ts(p['start']) - ts(e['start'])).total_seconds()) <= 6 * 3600), None)
+        if same and 'logged' not in row:
+            row['logged'] = dict(ts=paper[same]['ts'], venue=paper[same]['venue'], price=paper[same]['price'], edge=round(paper[same]['fair'] - paper[same]['price'], 4))
+        if row['flag'] and ev not in paper and not same:
             kt = (L.get((ev, '1s_ml', 'Kalshi', fav)) or {}).get('extra') or {}
             rec = dict(**({'backfill': 1} if os.environ.get('TENNIS_NOW') else {}), event_id=ev, ts=NOW.strftime('%Y-%m-%dT%H:%M:%SZ'), start=e['start'], fav=fav, fav_name=name, opp_name=opp, match_p=row['match_p'],
                        fair=row['fair'], venue=best['venue'], price=best['cost'], pin_set1=row['pin_set1'], rule='tennis_fs_fav',

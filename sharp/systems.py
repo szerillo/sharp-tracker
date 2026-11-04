@@ -217,6 +217,8 @@ def paper_fill(conn, eq, ev, start, market, line, side, part, tag, stake, note, 
     ttk = (N.parse_ts(start) - NOW).total_seconds() / 3600
     if ttk < (WINDOW_H[0] if min_h is None else min_h): return None      # inside the last hours a new trigger is shown, not filled
     if ttk > WINDOW_H[1]: return None      # further out than the fill window: shown as an upcoming trigger, filled once inside it
+    # one bet per rule per game (11/4): the fills ledger is the record, so a lost or voided state entry can never fire the same rule twice
+    if any(r['event_id'] == ev and r.get('rule_tag') == f'paper:{tag}' and r.get('market') == market and r.get('result') != 'void' for r in FI.load()): return None
     best = F.best_price(eq, market, line, side, NOW_S, part)
     if venue: best = [b for b in best if b['venue'] == venue]
     if not best: return None

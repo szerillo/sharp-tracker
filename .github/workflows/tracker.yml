@@ -56,6 +56,8 @@ jobs:
         run: python3 sharp/tape_health.py || true
       - name: tennis first-set watch list + paper log (tennis_fs_fav)
         run: python3 sharp/tennis_watch.py || true
+      - name: remove duplicate bets from the records (one fill per rule per game, one tennis pick per match)
+        run: python3 sharp/dedupe_fills.py || true
       - name: daily bet log (every flagged bet by sport and bet type, with best price timing and the closing board)
         run: python3 sharp/bet_log.py || true
       - run: python3 sharp/weights_fit.py

@@ -47,6 +47,7 @@ jobs:
           python3 sharp/systems.py || true
           python3 -m sharp.fills grade || true
           python3 sharp/tennis_watch.py || true
+          python3 sharp/dedupe_fills.py || true
           python3 sharp/bet_log.py || true
       - name: commit
         run: |

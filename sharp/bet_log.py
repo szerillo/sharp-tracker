@@ -233,6 +233,13 @@ def main():
             b['position'] = f"{ev}|{fm}|{b['side']}"
             if same: b['corr_same'] = same
             if opp: b['corr_opp'] = opp
+    # the same bet (game, market, side, number) flagged by more than one rule or source: each stays (different reasons), noted on each
+    sameb = collections.defaultdict(list)
+    for b in bets:
+        if b['event_id'] and b['side'] and b['src'] != 'tennis': sameb[(b['event_id'], b['market'], b['side'], None if b['line'] is None else float(b['line']))].append(b)
+    for L in sameb.values():
+        if len(L) > 1:
+            for b in L: b['also'] = [f"{x['cat']}" + (f" ({x['rule']})" if x['src'] == 'system' else '') for x in L if x is not b]
     # what else was on the board when the bet flagged: snapped the first time this log sees a bet within an hour of its flag
     try: SA = json.load(open(os.path.join(SD, 'sharp_accounts.json')))
     except Exception: SA = {}
