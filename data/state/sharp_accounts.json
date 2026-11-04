@@ -1,5 +1,5 @@
 {
- "built": "2026-11-04T23:43:07Z",
+ "built": "2026-11-04T23:48:59Z",
  "rows": [
   {
    "cond": "0x159b76fa5382b06fb70bf17593a79a9ee670b7888af945f917de7579138194eb",
@@ -201,6 +201,9 @@
    "home_name": "Brooklyn Nets",
    "game_start": "2026-11-05T00:30Z",
    "side_std": "away",
+   "conflict": [
+    "big money"
+   ],
    "money_with": false,
    "grade": "watch",
    "books": {
@@ -437,7 +440,7 @@
    "best_rank": 43,
    "usd": 1216,
    "paid": 0.62,
-   "ask": 0.69,
+   "ask": 0.68,
    "status": "live",
    "link": "https://polymarket.us/event/nba-was-atl-2026-11-06",
    "other": null,
@@ -659,13 +662,13 @@
    "bet": "Hawks ML",
    "side": "Hawks",
    "flagged": "2026-11-03T13:11:31Z",
-   "why": "3 top-200 accounts",
-   "proven": false,
+   "why": "4 top-200 accounts",
+   "proven": true,
    "trigger": "two",
-   "n_accounts": 3,
-   "best_rank": 43,
-   "usd": 2710,
-   "paid": 0.554,
+   "n_accounts": 4,
+   "best_rank": 23,
+   "usd": 8052,
+   "paid": 0.551,
    "ask": 0.55,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-atl-was-2026-11-04",
@@ -695,7 +698,7 @@
     "Kalshi move"
    ],
    "money_with": false,
-   "grade": "B",
+   "grade": "A",
    "books": null
   },
   {
@@ -895,6 +898,18 @@
     "best_rank": 93,
     "usd": 199
    }
+  },
+  "401909923:nba_momentum:spread": {
+   "with": {
+    "n": 3,
+    "best_rank": 12,
+    "usd": 16311
+   },
+   "against": {
+    "n": 1,
+    "best_rank": 112,
+    "usd": 3670
+   }
   }
  },
  "by_event": {
@@ -956,9 +971,9 @@
   },
   "401909923|ml": {
    "away": {
-    "n": 3,
-    "best_rank": 43,
-    "usd": 2710
+    "n": 4,
+    "best_rank": 23,
+    "usd": 8052
    },
    "home": {
     "n": 2,
