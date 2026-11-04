@@ -1,0 +1,1151 @@
+{
+ "A1 first match of the event (bo3, all years)": {
+  "both first match": {
+   "n": 211557,
+   "fav_won": 0.677,
+   "price": 0.677,
+   "match_resid": -0.0,
+   "set1": 0.646,
+   "set1_curve": 0.648,
+   "set1_resid": -0.1
+  },
+  "both have played": {
+   "n": 238772,
+   "fav_won": 0.656,
+   "price": 0.658,
+   "match_resid": -0.3,
+   "set1": 0.629,
+   "set1_curve": 0.631,
+   "set1_resid": -0.2
+  },
+  "dog first match, fav has played": {
+   "n": 21803,
+   "fav_won": 0.871,
+   "price": 0.69,
+   "match_resid": 18.1,
+   "set1": 0.788,
+   "set1_curve": 0.659,
+   "set1_resid": 13.0
+  },
+  "fav first match, dog has played": {
+   "n": 25801,
+   "fav_won": 0.544,
+   "price": 0.67,
+   "match_resid": -12.5,
+   "set1": 0.56,
+   "set1_curve": 0.641,
+   "set1_resid": -8.1
+  }
+ },
+ "A1h first match of the event (holdout)": {
+  "both first match": {
+   "n": 80802,
+   "fav_won": 0.686,
+   "price": 0.686,
+   "match_resid": 0.0,
+   "set1": 0.656,
+   "set1_curve": 0.655,
+   "set1_resid": 0.1
+  },
+  "both have played": {
+   "n": 87788,
+   "fav_won": 0.665,
+   "price": 0.664,
+   "match_resid": 0.1,
+   "set1": 0.636,
+   "set1_curve": 0.636,
+   "set1_resid": -0.0
+  },
+  "dog first match, fav has played": {
+   "n": 9533,
+   "fav_won": 0.888,
+   "price": 0.7,
+   "match_resid": 18.8,
+   "set1": 0.803,
+   "set1_curve": 0.667,
+   "set1_resid": 13.5
+  },
+  "fav first match, dog has played": {
+   "n": 11188,
+   "fav_won": 0.54,
+   "price": 0.676,
+   "match_resid": -13.6,
+   "set1": 0.556,
+   "set1_curve": 0.646,
+   "set1_resid": -9.0
+  }
+ },
+ "A1t first match, by tour x level": {
+  "atp_chall: dog first, fav played": {
+   "n": 4234,
+   "fav_won": 0.669,
+   "price": 0.617,
+   "match_resid": 5.2,
+   "set1": 0.618,
+   "set1_curve": 0.596,
+   "set1_resid": 2.1
+  },
+  "atp_chall: fav first, dog played": {
+   "n": 9934,
+   "fav_won": 0.648,
+   "price": 0.664,
+   "match_resid": -1.6,
+   "set1": 0.622,
+   "set1_curve": 0.636,
+   "set1_resid": -1.4
+  },
+  "atp_chall: other": {
+   "n": 83860,
+   "fav_won": 0.639,
+   "price": 0.64,
+   "match_resid": -0.1,
+   "set1": 0.612,
+   "set1_curve": 0.616,
+   "set1_resid": -0.4
+  },
+  "atp_itf: dog first, fav played": {
+   "n": 1382,
+   "fav_won": 0.915,
+   "price": 0.706,
+   "match_resid": 20.9,
+   "set1": 0.787,
+   "set1_curve": 0.673,
+   "set1_resid": 11.5
+  },
+  "atp_itf: fav first, dog played": {
+   "n": 828,
+   "fav_won": 0.324,
+   "price": 0.669,
+   "match_resid": -34.6,
+   "set1": 0.437,
+   "set1_curve": 0.641,
+   "set1_resid": -20.3
+  },
+  "atp_itf: other": {
+   "n": 136181,
+   "fav_won": 0.681,
+   "price": 0.681,
+   "match_resid": -0.0,
+   "set1": 0.65,
+   "set1_curve": 0.65,
+   "set1_resid": -0.1
+  },
+  "atp_tour: dog first, fav played": {
+   "n": 1379,
+   "fav_won": 0.629,
+   "price": 0.603,
+   "match_resid": 2.6,
+   "set1": 0.574,
+   "set1_curve": 0.585,
+   "set1_resid": -1.1
+  },
+  "atp_tour: fav first, dog played": {
+   "n": 5293,
+   "fav_won": 0.676,
+   "price": 0.681,
+   "match_resid": -0.5,
+   "set1": 0.64,
+   "set1_curve": 0.65,
+   "set1_resid": -1.0
+  },
+  "atp_tour: other": {
+   "n": 17777,
+   "fav_won": 0.642,
+   "price": 0.643,
+   "match_resid": -0.1,
+   "set1": 0.611,
+   "set1_curve": 0.618,
+   "set1_resid": -0.7
+  },
+  "wta_itf: dog first, fav played": {
+   "n": 14158,
+   "fav_won": 0.96,
+   "price": 0.721,
+   "match_resid": 23.8,
+   "set1": 0.867,
+   "set1_curve": 0.686,
+   "set1_resid": 18.1
+  },
+  "wta_itf: fav first, dog played": {
+   "n": 7114,
+   "fav_won": 0.281,
+   "price": 0.658,
+   "match_resid": -37.7,
+   "set1": 0.397,
+   "set1_curve": 0.632,
+   "set1_resid": -23.4
+  },
+  "wta_itf: other": {
+   "n": 187344,
+   "fav_won": 0.67,
+   "price": 0.674,
+   "match_resid": -0.4,
+   "set1": 0.645,
+   "set1_curve": 0.645,
+   "set1_resid": -0.0
+  },
+  "wta_tour: dog first, fav played": {
+   "n": 650,
+   "fav_won": 0.675,
+   "price": 0.622,
+   "match_resid": 5.4,
+   "set1": 0.635,
+   "set1_curve": 0.6,
+   "set1_resid": 3.5
+  },
+  "wta_tour: fav first, dog played": {
+   "n": 2632,
+   "fav_won": 0.667,
+   "price": 0.7,
+   "match_resid": -3.3,
+   "set1": 0.64,
+   "set1_curve": 0.667,
+   "set1_resid": -2.7
+  },
+  "wta_tour: other": {
+   "n": 25167,
+   "fav_won": 0.651,
+   "price": 0.649,
+   "match_resid": 0.2,
+   "set1": 0.621,
+   "set1_curve": 0.623,
+   "set1_resid": -0.2
+  }
+ },
+ "A2 layoff 28+ days since last event": {
+  "both off 28+": {
+   "n": 15630,
+   "fav_won": 0.67,
+   "price": 0.679,
+   "match_resid": -0.8,
+   "set1": 0.645,
+   "set1_curve": 0.649,
+   "set1_resid": -0.4
+  },
+  "dog off 28+ days": {
+   "n": 39695,
+   "fav_won": 0.78,
+   "price": 0.707,
+   "match_resid": 7.4,
+   "set1": 0.737,
+   "set1_curve": 0.673,
+   "set1_resid": 6.4
+  },
+  "fav off 28+ days": {
+   "n": 26040,
+   "fav_won": 0.569,
+   "price": 0.669,
+   "match_resid": -10.0,
+   "set1": 0.561,
+   "set1_curve": 0.641,
+   "set1_resid": -8.0
+  },
+  "neither": {
+   "n": 416568,
+   "fav_won": 0.664,
+   "price": 0.664,
+   "match_resid": -0.0,
+   "set1": 0.635,
+   "set1_curve": 0.636,
+   "set1_resid": -0.1
+  }
+ },
+ "A3 surface switch (last match on another surface)": {
+  "both switched": {
+   "n": 17900,
+   "fav_won": 0.659,
+   "price": 0.66,
+   "match_resid": -0.0,
+   "set1": 0.629,
+   "set1_curve": 0.633,
+   "set1_resid": -0.4
+  },
+  "dog switched, fav did not": {
+   "n": 32042,
+   "fav_won": 0.742,
+   "price": 0.686,
+   "match_resid": 5.6,
+   "set1": 0.701,
+   "set1_curve": 0.655,
+   "set1_resid": 4.6
+  },
+  "fav switched, dog did not": {
+   "n": 27422,
+   "fav_won": 0.615,
+   "price": 0.671,
+   "match_resid": -5.6,
+   "set1": 0.599,
+   "set1_curve": 0.643,
+   "set1_resid": -4.4
+  },
+  "neither": {
+   "n": 420569,
+   "fav_won": 0.666,
+   "price": 0.667,
+   "match_resid": -0.1,
+   "set1": 0.638,
+   "set1_curve": 0.639,
+   "set1_resid": -0.0
+  }
+ },
+ "A3s surface switch by surface": {
+  "Carpet: dog switched only": {
+   "n": 436,
+   "fav_won": 0.791,
+   "price": 0.656,
+   "match_resid": 13.5,
+   "set1": 0.713,
+   "set1_curve": 0.63,
+   "set1_resid": 8.4
+  },
+  "Carpet: fav switched only": {
+   "n": 361,
+   "fav_won": 0.579,
+   "price": 0.645,
+   "match_resid": -6.6,
+   "set1": 0.612,
+   "set1_curve": 0.62,
+   "set1_resid": -0.7
+  },
+  "Carpet: other": {
+   "n": 5955,
+   "fav_won": 0.642,
+   "price": 0.635,
+   "match_resid": 0.8,
+   "set1": 0.628,
+   "set1_curve": 0.611,
+   "set1_resid": 1.7
+  },
+  "Clay: dog switched only": {
+   "n": 14399,
+   "fav_won": 0.745,
+   "price": 0.69,
+   "match_resid": 5.5,
+   "set1": 0.707,
+   "set1_curve": 0.659,
+   "set1_resid": 4.8
+  },
+  "Clay: fav switched only": {
+   "n": 12664,
+   "fav_won": 0.625,
+   "price": 0.674,
+   "match_resid": -4.9,
+   "set1": 0.608,
+   "set1_curve": 0.645,
+   "set1_resid": -3.6
+  },
+  "Clay: other": {
+   "n": 190341,
+   "fav_won": 0.669,
+   "price": 0.668,
+   "match_resid": 0.1,
+   "set1": 0.641,
+   "set1_curve": 0.64,
+   "set1_resid": 0.1
+  },
+  "Grass: dog switched only": {
+   "n": 1435,
+   "fav_won": 0.771,
+   "price": 0.634,
+   "match_resid": 13.6,
+   "set1": 0.701,
+   "set1_curve": 0.611,
+   "set1_resid": 9.0
+  },
+  "Grass: fav switched only": {
+   "n": 1321,
+   "fav_won": 0.511,
+   "price": 0.64,
+   "match_resid": -12.9,
+   "set1": 0.526,
+   "set1_curve": 0.615,
+   "set1_resid": -8.9
+  },
+  "Grass: other": {
+   "n": 9845,
+   "fav_won": 0.624,
+   "price": 0.631,
+   "match_resid": -0.7,
+   "set1": 0.604,
+   "set1_curve": 0.608,
+   "set1_resid": -0.4
+  },
+  "Hard: dog switched only": {
+   "n": 15713,
+   "fav_won": 0.735,
+   "price": 0.688,
+   "match_resid": 4.7,
+   "set1": 0.695,
+   "set1_curve": 0.657,
+   "set1_resid": 3.9
+  },
+  "Hard: fav switched only": {
+   "n": 13003,
+   "fav_won": 0.617,
+   "price": 0.673,
+   "match_resid": -5.6,
+   "set1": 0.596,
+   "set1_curve": 0.644,
+   "set1_resid": -4.9
+  },
+  "Hard: other": {
+   "n": 230575,
+   "fav_won": 0.666,
+   "price": 0.668,
+   "match_resid": -0.2,
+   "set1": 0.638,
+   "set1_curve": 0.64,
+   "set1_resid": -0.2
+  },
+  "clay: other": {
+   "n": 1558,
+   "fav_won": 0.672,
+   "price": 0.626,
+   "match_resid": 4.6,
+   "set1": 0.649,
+   "set1_curve": 0.603,
+   "set1_resid": 4.5
+  }
+ },
+ "A1r first match of the event, tour + Challenger, holdout": {
+  "both first match": {
+   "n": 23026,
+   "fav_won": 0.665,
+   "price": 0.661,
+   "match_resid": 0.3,
+   "set1": 0.634,
+   "set1_curve": 0.634,
+   "set1_resid": -0.0
+  },
+  "both have played": {
+   "n": 23357,
+   "fav_won": 0.637,
+   "price": 0.64,
+   "match_resid": -0.3,
+   "set1": 0.607,
+   "set1_curve": 0.616,
+   "set1_resid": -0.9
+  },
+  "dog first match, fav has played": {
+   "n": 2121,
+   "fav_won": 0.653,
+   "price": 0.619,
+   "match_resid": 3.4,
+   "set1": 0.606,
+   "set1_curve": 0.598,
+   "set1_resid": 0.8
+  },
+  "fav first match, dog has played": {
+   "n": 7145,
+   "fav_won": 0.665,
+   "price": 0.682,
+   "match_resid": -1.6,
+   "set1": 0.629,
+   "set1_curve": 0.651,
+   "set1_resid": -2.2
+  }
+ },
+ "A2r layoff 28+ days, tour + Challenger, both in their first match": {
+  "both off 28+": {
+   "n": 3145,
+   "fav_won": 0.657,
+   "price": 0.657,
+   "match_resid": -0.0,
+   "set1": 0.636,
+   "set1_curve": 0.63,
+   "set1_resid": 0.6
+  },
+  "dog off 28+ days": {
+   "n": 6810,
+   "fav_won": 0.76,
+   "price": 0.691,
+   "match_resid": 6.9,
+   "set1": 0.719,
+   "set1_curve": 0.66,
+   "set1_resid": 5.9
+  },
+  "fav off 28+ days": {
+   "n": 4667,
+   "fav_won": 0.562,
+   "price": 0.649,
+   "match_resid": -8.8,
+   "set1": 0.552,
+   "set1_curve": 0.624,
+   "set1_resid": -7.1
+  },
+  "neither": {
+   "n": 48726,
+   "fav_won": 0.646,
+   "price": 0.645,
+   "match_resid": 0.2,
+   "set1": 0.614,
+   "set1_curve": 0.62,
+   "set1_resid": -0.6
+  }
+ },
+ "A3r surface switch, tour + Challenger, both in their first match": {
+  "both switched": {
+   "n": 5246,
+   "fav_won": 0.627,
+   "price": 0.636,
+   "match_resid": -0.9,
+   "set1": 0.597,
+   "set1_curve": 0.613,
+   "set1_resid": -1.5
+  },
+  "dog switched, fav did not": {
+   "n": 7840,
+   "fav_won": 0.706,
+   "price": 0.665,
+   "match_resid": 4.1,
+   "set1": 0.67,
+   "set1_curve": 0.637,
+   "set1_resid": 3.2
+  },
+  "fav switched, dog did not": {
+   "n": 5917,
+   "fav_won": 0.62,
+   "price": 0.646,
+   "match_resid": -2.7,
+   "set1": 0.593,
+   "set1_curve": 0.621,
+   "set1_resid": -2.8
+  },
+  "neither": {
+   "n": 44345,
+   "fav_won": 0.651,
+   "price": 0.65,
+   "match_resid": 0.1,
+   "set1": 0.62,
+   "set1_curve": 0.625,
+   "set1_resid": -0.5
+  }
+ },
+ "A3r2 surface switch, same, holdout": {
+  "both switched": {
+   "n": 1591,
+   "fav_won": 0.635,
+   "price": 0.646,
+   "match_resid": -1.1,
+   "set1": 0.628,
+   "set1_curve": 0.621,
+   "set1_resid": 0.7
+  },
+  "dog switched, fav did not": {
+   "n": 2697,
+   "fav_won": 0.73,
+   "price": 0.682,
+   "match_resid": 4.8,
+   "set1": 0.696,
+   "set1_curve": 0.652,
+   "set1_resid": 4.4
+  },
+  "fav switched, dog did not": {
+   "n": 2032,
+   "fav_won": 0.635,
+   "price": 0.658,
+   "match_resid": -2.2,
+   "set1": 0.594,
+   "set1_curve": 0.631,
+   "set1_resid": -3.7
+  },
+  "neither": {
+   "n": 16706,
+   "fav_won": 0.66,
+   "price": 0.66,
+   "match_resid": 0.0,
+   "set1": 0.629,
+   "set1_curve": 0.633,
+   "set1_resid": -0.3
+  }
+ },
+ "B2r head-to-head, tour + Challenger, holdout": {
+  "dog leads h2h": {
+   "n": 6867,
+   "fav_won": 0.605,
+   "price": 0.614,
+   "match_resid": -0.9,
+   "set1": 0.577,
+   "set1_curve": 0.594,
+   "set1_resid": -1.6
+  },
+  "fav leads h2h": {
+   "n": 12450,
+   "fav_won": 0.664,
+   "price": 0.653,
+   "match_resid": 1.1,
+   "set1": 0.634,
+   "set1_curve": 0.627,
+   "set1_resid": 0.7
+  },
+  "h2h level": {
+   "n": 2830,
+   "fav_won": 0.601,
+   "price": 0.622,
+   "match_resid": -2.1,
+   "set1": 0.586,
+   "set1_curve": 0.6,
+   "set1_resid": -1.5
+  },
+  "no prior meetings": {
+   "n": 33502,
+   "fav_won": 0.662,
+   "price": 0.664,
+   "match_resid": -0.2,
+   "set1": 0.628,
+   "set1_curve": 0.636,
+   "set1_resid": -0.9
+  }
+ },
+ "B5r round, tour level only": {
+  "F": {
+   "n": 1294,
+   "fav_won": 0.646,
+   "price": 0.633,
+   "match_resid": 1.3,
+   "set1": 0.635,
+   "set1_curve": 0.609,
+   "set1_resid": 2.6
+  },
+  "QF": {
+   "n": 4910,
+   "fav_won": 0.637,
+   "price": 0.639,
+   "match_resid": -0.2,
+   "set1": 0.601,
+   "set1_curve": 0.615,
+   "set1_resid": -1.4
+  },
+  "R128": {
+   "n": 4920,
+   "fav_won": 0.649,
+   "price": 0.651,
+   "match_resid": -0.3,
+   "set1": 0.618,
+   "set1_curve": 0.625,
+   "set1_resid": -0.7
+  },
+  "R16": {
+   "n": 9775,
+   "fav_won": 0.654,
+   "price": 0.652,
+   "match_resid": 0.2,
+   "set1": 0.623,
+   "set1_curve": 0.626,
+   "set1_resid": -0.4
+  },
+  "R32": {
+   "n": 17735,
+   "fav_won": 0.647,
+   "price": 0.648,
+   "match_resid": -0.0,
+   "set1": 0.617,
+   "set1_curve": 0.622,
+   "set1_resid": -0.5
+  },
+  "R64": {
+   "n": 7786,
+   "fav_won": 0.659,
+   "price": 0.665,
+   "match_resid": -0.6,
+   "set1": 0.622,
+   "set1_curve": 0.637,
+   "set1_resid": -1.5
+  },
+  "SF": {
+   "n": 2541,
+   "fav_won": 0.607,
+   "price": 0.636,
+   "match_resid": -2.9,
+   "set1": 0.598,
+   "set1_curve": 0.612,
+   "set1_resid": -1.4
+  }
+ },
+ "B1 qualifier (entry Q) in R32/R64/R128": {
+  "dog is a qualifier": {
+   "n": 36765,
+   "fav_won": 0.703,
+   "price": 0.704,
+   "match_resid": -0.1,
+   "set1": 0.669,
+   "set1_curve": 0.67,
+   "set1_resid": -0.1
+  },
+  "fav is a qualifier": {
+   "n": 16379,
+   "fav_won": 0.617,
+   "price": 0.629,
+   "match_resid": -1.2,
+   "set1": 0.59,
+   "set1_curve": 0.607,
+   "set1_resid": -1.7
+  },
+  "neither": {
+   "n": 144396,
+   "fav_won": 0.675,
+   "price": 0.674,
+   "match_resid": 0.1,
+   "set1": 0.644,
+   "set1_curve": 0.645,
+   "set1_resid": -0.1
+  }
+ },
+ "B1b lucky loser / wild card": {
+  "dog is a lucky loser": {
+   "n": 6755,
+   "fav_won": 0.752,
+   "price": 0.698,
+   "match_resid": 5.5,
+   "set1": 0.71,
+   "set1_curve": 0.665,
+   "set1_resid": 4.5
+  },
+  "dog is a wild card": {
+   "n": 40013,
+   "fav_won": 0.737,
+   "price": 0.718,
+   "match_resid": 2.0,
+   "set1": 0.701,
+   "set1_curve": 0.682,
+   "set1_resid": 1.9
+  },
+  "fav is a wild card": {
+   "n": 12258,
+   "fav_won": 0.588,
+   "price": 0.639,
+   "match_resid": -5.1,
+   "set1": 0.57,
+   "set1_curve": 0.615,
+   "set1_resid": -4.5
+  }
+ },
+ "B2 head-to-head before this match": {
+  "dog leads h2h": {
+   "n": 36716,
+   "fav_won": 0.582,
+   "price": 0.619,
+   "match_resid": -3.7,
+   "set1": 0.565,
+   "set1_curve": 0.598,
+   "set1_resid": -3.3
+  },
+  "fav leads h2h": {
+   "n": 71701,
+   "fav_won": 0.687,
+   "price": 0.669,
+   "match_resid": 1.8,
+   "set1": 0.652,
+   "set1_curve": 0.641,
+   "set1_resid": 1.1
+  },
+  "h2h level": {
+   "n": 11673,
+   "fav_won": 0.618,
+   "price": 0.629,
+   "match_resid": -1.1,
+   "set1": 0.595,
+   "set1_curve": 0.606,
+   "set1_resid": -1.2
+  },
+  "no prior meetings": {
+   "n": 377843,
+   "fav_won": 0.674,
+   "price": 0.674,
+   "match_resid": 0.0,
+   "set1": 0.646,
+   "set1_curve": 0.645,
+   "set1_resid": 0.1
+  }
+ },
+ "B2b dog leads h2h by 2+": {
+  "dog leads by 2+": {
+   "n": 5971,
+   "fav_won": 0.569,
+   "price": 0.606,
+   "match_resid": -3.7,
+   "set1": 0.554,
+   "set1_curve": 0.587,
+   "set1_resid": -3.3
+  },
+  "fav leads by 2+": {
+   "n": 15427,
+   "fav_won": 0.695,
+   "price": 0.672,
+   "match_resid": 2.3,
+   "set1": 0.659,
+   "set1_curve": 0.643,
+   "set1_resid": 1.6
+  }
+ },
+ "B3 left-handers": {
+  "both right": {
+   "n": 253928,
+   "fav_won": 0.651,
+   "price": 0.659,
+   "match_resid": -0.9,
+   "set1": 0.623,
+   "set1_curve": 0.632,
+   "set1_resid": -0.9
+  },
+  "dog lefty vs righty": {
+   "n": 35959,
+   "fav_won": 0.655,
+   "price": 0.659,
+   "match_resid": -0.4,
+   "set1": 0.621,
+   "set1_curve": 0.632,
+   "set1_resid": -1.0
+  },
+  "fav lefty vs righty": {
+   "n": 36328,
+   "fav_won": 0.651,
+   "price": 0.658,
+   "match_resid": -0.7,
+   "set1": 0.628,
+   "set1_curve": 0.631,
+   "set1_resid": -0.2
+  }
+ },
+ "B4 age": {
+  "dog 33+": {
+   "n": 12145,
+   "fav_won": 0.673,
+   "price": 0.649,
+   "match_resid": 2.4,
+   "set1": 0.645,
+   "set1_curve": 0.624,
+   "set1_resid": 2.1
+  },
+  "dog under 21": {
+   "n": 88679,
+   "fav_won": 0.676,
+   "price": 0.684,
+   "match_resid": -0.8,
+   "set1": 0.649,
+   "set1_curve": 0.653,
+   "set1_resid": -0.5
+  },
+  "fav 33+": {
+   "n": 18136,
+   "fav_won": 0.638,
+   "price": 0.666,
+   "match_resid": -2.7,
+   "set1": 0.614,
+   "set1_curve": 0.638,
+   "set1_resid": -2.4
+  },
+  "fav under 21": {
+   "n": 110320,
+   "fav_won": 0.673,
+   "price": 0.668,
+   "match_resid": 0.5,
+   "set1": 0.644,
+   "set1_curve": 0.64,
+   "set1_resid": 0.4
+  }
+ },
+ "B5 round": {
+  "F": {
+   "n": 14544,
+   "fav_won": 0.613,
+   "price": 0.632,
+   "match_resid": -1.8,
+   "set1": 0.593,
+   "set1_curve": 0.608,
+   "set1_resid": -1.5
+  },
+  "Q1": {
+   "n": 50898,
+   "fav_won": 0.698,
+   "price": 0.682,
+   "match_resid": 1.5,
+   "set1": 0.67,
+   "set1_curve": 0.652,
+   "set1_resid": 1.8
+  },
+  "Q2": {
+   "n": 36360,
+   "fav_won": 0.664,
+   "price": 0.657,
+   "match_resid": 0.6,
+   "set1": 0.644,
+   "set1_curve": 0.631,
+   "set1_resid": 1.3
+  },
+  "Q3": {
+   "n": 8478,
+   "fav_won": 0.649,
+   "price": 0.645,
+   "match_resid": 0.3,
+   "set1": 0.626,
+   "set1_curve": 0.62,
+   "set1_resid": 0.6
+  },
+  "QF": {
+   "n": 55335,
+   "fav_won": 0.641,
+   "price": 0.651,
+   "match_resid": -1.0,
+   "set1": 0.617,
+   "set1_curve": 0.625,
+   "set1_resid": -0.8
+  },
+  "R128": {
+   "n": 4978,
+   "fav_won": 0.649,
+   "price": 0.651,
+   "match_resid": -0.2,
+   "set1": 0.618,
+   "set1_curve": 0.625,
+   "set1_resid": -0.8
+  },
+  "R16": {
+   "n": 102445,
+   "fav_won": 0.678,
+   "price": 0.674,
+   "match_resid": 0.3,
+   "set1": 0.647,
+   "set1_curve": 0.645,
+   "set1_resid": 0.2
+  },
+  "R32": {
+   "n": 180591,
+   "fav_won": 0.677,
+   "price": 0.678,
+   "match_resid": -0.1,
+   "set1": 0.646,
+   "set1_curve": 0.648,
+   "set1_resid": -0.2
+  },
+  "R64": {
+   "n": 11971,
+   "fav_won": 0.656,
+   "price": 0.659,
+   "match_resid": -0.3,
+   "set1": 0.621,
+   "set1_curve": 0.632,
+   "set1_resid": -1.1
+  },
+  "SF": {
+   "n": 28418,
+   "fav_won": 0.62,
+   "price": 0.639,
+   "match_resid": -1.9,
+   "set1": 0.598,
+   "set1_curve": 0.615,
+   "set1_resid": -1.7
+  }
+ },
+ "C beyond set 1 (bo3, 2+ sets played)": {
+  "atp p 0.50": {
+   "n": 58313,
+   "fav_won": 0.534,
+   "straight_sets": 0.348,
+   "straight_given_win": 0.652,
+   "set2_after_losing_set1": 0.386,
+   "games_mean": 22.75,
+   "tiebreak_in_match": 0.305,
+   "set1_10plus_games": 0.494,
+   "set1_games_mean": 9.73
+  },
+  "atp p 0.55": {
+   "n": 26797,
+   "fav_won": 0.59,
+   "straight_sets": 0.384,
+   "straight_given_win": 0.65,
+   "set2_after_losing_set1": 0.439,
+   "games_mean": 23.18,
+   "tiebreak_in_match": 0.339,
+   "set1_10plus_games": 0.523,
+   "set1_games_mean": 9.86
+  },
+  "atp p 0.60": {
+   "n": 48606,
+   "fav_won": 0.623,
+   "straight_sets": 0.427,
+   "straight_given_win": 0.686,
+   "set2_after_losing_set1": 0.438,
+   "games_mean": 22.49,
+   "tiebreak_in_match": 0.294,
+   "set1_10plus_games": 0.486,
+   "set1_games_mean": 9.68
+  },
+  "atp p 0.65": {
+   "n": 40113,
+   "fav_won": 0.683,
+   "straight_sets": 0.483,
+   "straight_given_win": 0.707,
+   "set2_after_losing_set1": 0.48,
+   "games_mean": 22.21,
+   "tiebreak_in_match": 0.282,
+   "set1_10plus_games": 0.47,
+   "set1_games_mean": 9.62
+  },
+  "atp p 0.70": {
+   "n": 22408,
+   "fav_won": 0.735,
+   "straight_sets": 0.54,
+   "straight_given_win": 0.735,
+   "set2_after_losing_set1": 0.51,
+   "games_mean": 21.71,
+   "tiebreak_in_match": 0.254,
+   "set1_10plus_games": 0.444,
+   "set1_games_mean": 9.49
+  },
+  "atp p 0.75": {
+   "n": 26156,
+   "fav_won": 0.791,
+   "straight_sets": 0.594,
+   "straight_given_win": 0.751,
+   "set2_after_losing_set1": 0.557,
+   "games_mean": 21.47,
+   "tiebreak_in_match": 0.25,
+   "set1_10plus_games": 0.437,
+   "set1_games_mean": 9.45
+  },
+  "atp p 0.80": {
+   "n": 20636,
+   "fav_won": 0.838,
+   "straight_sets": 0.658,
+   "straight_given_win": 0.784,
+   "set2_after_losing_set1": 0.605,
+   "games_mean": 20.9,
+   "tiebreak_in_match": 0.228,
+   "set1_10plus_games": 0.407,
+   "set1_games_mean": 9.32
+  },
+  "atp p 0.85": {
+   "n": 9256,
+   "fav_won": 0.896,
+   "straight_sets": 0.743,
+   "straight_given_win": 0.829,
+   "set2_after_losing_set1": 0.641,
+   "games_mean": 19.77,
+   "tiebreak_in_match": 0.177,
+   "set1_10plus_games": 0.353,
+   "set1_games_mean": 9.02
+  },
+  "atp p 0.90": {
+   "n": 1896,
+   "fav_won": 0.925,
+   "straight_sets": 0.767,
+   "straight_given_win": 0.83,
+   "set2_after_losing_set1": 0.733,
+   "games_mean": 19.95,
+   "tiebreak_in_match": 0.204,
+   "set1_10plus_games": 0.355,
+   "set1_games_mean": 9.11
+  },
+  "wta p 0.50": {
+   "n": 60085,
+   "fav_won": 0.54,
+   "straight_sets": 0.369,
+   "straight_given_win": 0.683,
+   "set2_after_losing_set1": 0.367,
+   "games_mean": 21.82,
+   "tiebreak_in_match": 0.205,
+   "set1_10plus_games": 0.414,
+   "set1_games_mean": 9.31
+  },
+  "wta p 0.55": {
+   "n": 5388,
+   "fav_won": 0.573,
+   "straight_sets": 0.376,
+   "straight_given_win": 0.656,
+   "set2_after_losing_set1": 0.428,
+   "games_mean": 22.33,
+   "tiebreak_in_match": 0.24,
+   "set1_10plus_games": 0.449,
+   "set1_games_mean": 9.48
+  },
+  "wta p 0.60": {
+   "n": 52622,
+   "fav_won": 0.621,
+   "straight_sets": 0.442,
+   "straight_given_win": 0.712,
+   "set2_after_losing_set1": 0.418,
+   "games_mean": 21.6,
+   "tiebreak_in_match": 0.198,
+   "set1_10plus_games": 0.402,
+   "set1_games_mean": 9.26
+  },
+  "wta p 0.65": {
+   "n": 43045,
+   "fav_won": 0.699,
+   "straight_sets": 0.519,
+   "straight_given_win": 0.743,
+   "set2_after_losing_set1": 0.464,
+   "games_mean": 21.19,
+   "tiebreak_in_match": 0.183,
+   "set1_10plus_games": 0.386,
+   "set1_games_mean": 9.16
+  },
+  "wta p 0.70": {
+   "n": 3107,
+   "fav_won": 0.745,
+   "straight_sets": 0.53,
+   "straight_given_win": 0.712,
+   "set2_after_losing_set1": 0.565,
+   "games_mean": 21.79,
+   "tiebreak_in_match": 0.221,
+   "set1_10plus_games": 0.419,
+   "set1_games_mean": 9.36
+  },
+  "wta p 0.75": {
+   "n": 30186,
+   "fav_won": 0.776,
+   "straight_sets": 0.606,
+   "straight_given_win": 0.781,
+   "set2_after_losing_set1": 0.52,
+   "games_mean": 20.54,
+   "tiebreak_in_match": 0.166,
+   "set1_10plus_games": 0.355,
+   "set1_games_mean": 9.02
+  },
+  "wta p 0.80": {
+   "n": 19635,
+   "fav_won": 0.837,
+   "straight_sets": 0.686,
+   "straight_given_win": 0.819,
+   "set2_after_losing_set1": 0.572,
+   "games_mean": 19.68,
+   "tiebreak_in_match": 0.139,
+   "set1_10plus_games": 0.316,
+   "set1_games_mean": 8.82
+  },
+  "wta p 0.85": {
+   "n": 10931,
+   "fav_won": 0.903,
+   "straight_sets": 0.772,
+   "straight_given_win": 0.856,
+   "set2_after_losing_set1": 0.652,
+   "games_mean": 18.74,
+   "tiebreak_in_match": 0.109,
+   "set1_10plus_games": 0.272,
+   "set1_games_mean": 8.58
+  },
+  "wta p 0.90": {
+   "n": 4923,
+   "fav_won": 0.949,
+   "straight_sets": 0.853,
+   "straight_given_win": 0.898,
+   "set2_after_losing_set1": 0.751,
+   "games_mean": 17.51,
+   "tiebreak_in_match": 0.083,
+   "set1_10plus_games": 0.211,
+   "set1_games_mean": 8.21
+  },
+  "wta p 0.95": {
+   "n": 1975,
+   "fav_won": 0.977,
+   "straight_sets": 0.933,
+   "straight_given_win": 0.954,
+   "set2_after_losing_set1": 0.688,
+   "games_mean": 15.76,
+   "tiebreak_in_match": 0.041,
+   "set1_10plus_games": 0.119,
+   "set1_games_mean": 7.62
+  }
+ }
+}
