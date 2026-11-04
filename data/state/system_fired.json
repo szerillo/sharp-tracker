@@ -1282,5 +1282,83 @@
 "fair": 0.50038,
 "edge_pts": -2.96,
 "why": "Kalshi spread mid 0.525 at T-6h -> 0.495 now (-3.0c); continuation (audit section 3, NBA only)"
+},
+"401866456:cfb_wind14": {
+"tag": "cfb_wind14",
+"fill_id": "b80f3227ec8f",
+"ts": "2026-11-04T03:44:23Z",
+"market": "total",
+"side": "under",
+"line": 44.5,
+"venue": "Novig",
+"price": -102,
+"fair": 0.49703,
+"edge_pts": -0.8,
+"why": "MySportsWeather 15.0 mph (Open-Meteo n/a)"
+},
+"401892644:nhl_early_home_fav_qual": {
+"tag": "nhl_early_home_fav_qual",
+"fill_id": "c357e972e0e1",
+"ts": "2026-11-04T03:44:23Z",
+"market": "ml",
+"side": "home",
+"line": null,
+"venue": "Novig",
+"price": -122,
+"fair": 0.5469,
+"edge_pts": -0.31,
+"why": "home favorite, game 15 of the season, opponent OTT wins 56% (9-7)"
+},
+"401892645:nhl_pl_dog_bigml": {
+"tag": "nhl_pl_dog_bigml",
+"fill_id": "697b194069ac",
+"ts": "2026-11-04T03:44:23Z",
+"market": "spread",
+"side": "away",
+"line": 1.5,
+"venue": "FD",
+"price": -115,
+"fair": 0.53305,
+"edge_pts": -0.18,
+"why": "CHI opened +195 on the moneyline: +1.5 on a big dog"
+},
+"401909930:nba_under_good_home_over": {
+"tag": "nba_under_good_home_over",
+"fill_id": "b031f482a43b",
+"ts": "2026-11-04T03:44:23Z",
+"market": "total",
+"side": "under",
+"line": 220.5,
+"venue": "Novig",
+"price": -106,
+"fair": 0.50563,
+"edge_pts": -0.94,
+"why": "home HOU over rate 62%, days since last game: home 2, visitor 2; total 224.5 -> 220.5"
+},
+"401909932:nba_under_good_home_over": {
+"tag": "nba_under_good_home_over",
+"fill_id": "e15ec9d596b7",
+"ts": "2026-11-04T03:44:23Z",
+"market": "total",
+"side": "under",
+"line": 227.5,
+"venue": "Novig",
+"price": -102,
+"fair": 0.4992,
+"edge_pts": -0.58,
+"why": "home PHX over rate 80%, days since last game: home 2, visitor 2; total 228.5 -> 227.5"
+},
+"401909934:nba_under_good_home_over": {
+"tag": "nba_under_good_home_over",
+"fill_id": "cd56627d4a22",
+"ts": "2026-11-04T03:44:23Z",
+"market": "total",
+"side": "under",
+"line": 234.5,
+"venue": "Novig",
+"price": -104,
+"fair": 0.5036,
+"edge_pts": -0.64,
+"why": "home SAC over rate 71%, days since last game: home 2, visitor 2; total 238.5 -> 234.5"
 }
 }
