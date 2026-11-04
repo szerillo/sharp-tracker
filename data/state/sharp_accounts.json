@@ -1,5 +1,5 @@
 {
- "built": "2026-11-04T19:26:30Z",
+ "built": "2026-11-04T19:32:17Z",
  "rows": [
   {
    "cond": "0xa98f1371108dfffc8908efcdd5ccbe93cfdd2ab148d37eb5910072fc80b80030",
@@ -295,8 +295,12 @@
    "home_name": "Boston Celtics",
    "game_start": "2026-11-05T00:30Z",
    "side_std": "away",
-   "money_with": true,
-   "grade": "A",
+   "conflict": [
+    "Kalshi bet back",
+    "big money"
+   ],
+   "money_with": false,
+   "grade": "B",
    "books": {
     "at": "2026-11-04T17:43:06Z",
     "fair": 0.4994,
@@ -589,7 +593,7 @@
    "best_rank": 137,
    "usd": 3798,
    "paid": 0.48,
-   "ask": 0.48,
+   "ask": 0.47,
    "status": "live",
    "link": "https://polymarket.us/event/cfb-mia-nd-2026-11-07",
    "other": null,
@@ -605,7 +609,8 @@
    "game_start": "2026-11-08T00:30Z",
    "side_std": "away",
    "conflict": [
-    "Kalshi move"
+    "Kalshi move",
+    "big money"
    ],
    "money_with": false,
    "grade": "A",
@@ -742,7 +747,8 @@
    "side_std": "away",
    "conflict": [
     "Kalshi bet back",
-    "Kalshi move"
+    "Kalshi move",
+    "big money"
    ],
    "money_with": false,
    "grade": "B",
