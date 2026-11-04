@@ -1,0 +1,49 @@
+name: tennis data (Tennis Abstract)
+# Sean, 11/4: Jeff Sackmann's Tennis Abstract match database (github.com/JeffSackmann/tennis_atp and tennis_wta), for the tennis models:
+# every tour-level, Challenger, qualifying and ITF match since 2015 with the set-by-set score string, surface, level, best-of, ranks,
+# rank points, seeds, ages, hands, heights and the per-match serve stats (aces, DFs, first-serve in/won, break points), plus the player
+# and current-ranking tables. Pulled on GitHub's runner (the research container cannot reach other GitHub repos), gzipped into
+# data/tennis/ta/. Weekly: the upstream repos update about once a week. Research reads these files; nothing live depends on them.
+on:
+  schedule:
+    - cron: '23 9 * * 2'      # Tuesdays 4:23 AM ET
+  workflow_dispatch: {}
+permissions:
+  contents: write
+concurrency:
+  group: tennis-data
+  cancel-in-progress: false
+jobs:
+  pull:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - name: shallow-clone Tennis Abstract and copy the files we use
+        run: |
+          set -e
+          mkdir -p data/tennis/ta
+          for tour in atp wta; do
+            git clone -q --depth 1 https://github.com/JeffSackmann/tennis_$tour /tmp/$tour
+            for y in $(seq 2015 2026); do
+              for f in ${tour}_matches_$y.csv ${tour}_matches_qual_chall_$y.csv ${tour}_matches_qual_itf_$y.csv ${tour}_matches_futures_$y.csv; do
+                [ -f /tmp/$tour/$f ] && gzip -c /tmp/$tour/$f > data/tennis/ta/$f.gz
+              done
+            done
+            for f in ${tour}_players.csv ${tour}_rankings_current.csv ${tour}_rankings_20s.csv; do
+              [ -f /tmp/$tour/$f ] && gzip -c /tmp/$tour/$f > data/tennis/ta/$f.gz
+            done
+            (cd /tmp/$tour && git log -1 --format='%H %cd' --date=iso) > data/tennis/ta/${tour}_upstream.txt
+          done
+          ls -la data/tennis/ta | head -60; du -sh data/tennis/ta
+      - name: commit
+        run: |
+          git config user.name "tracker-bot"; git config user.email "actions@users.noreply.github.com"
+          git add -A data/tennis/ta
+          git commit -q -m "tennis data (Tennis Abstract) $(date -u +%Y-%m-%d)" || exit 0
+          for i in 1 2 3 4 5; do
+            if git pull -q --rebase -X theirs && git push -q; then exit 0; fi
+            git rebase --abort 2>/dev/null || true
+            sleep $((RANDOM % 15 + 5))
+          done
+          exit 1
