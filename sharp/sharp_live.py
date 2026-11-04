@@ -138,7 +138,7 @@ def by_event(F):
                 for r in L:
                     b = r['bet'].lower()
                     side = b if r0['mtype'] == 'total' else ('away' if a in b else 'home' if h in b else None)
-                    if side in ('home', 'away', 'over', 'under'): D[r0['mtype']][side].setdefault(r['w'], r)
+                    if side in ('home', 'away', 'over', 'under') and r.get('rank') is not None: D[r0['mtype']][side].setdefault(r['w'], r)   # top-200 only: specialists are logged, never counted (11/4)
         for mk, sides in D.items():
             out[f"{ev}|{mk}"] = {sd: dict(n=len(W), best_rank=min(r['rank'] for r in W.values()), usd=round(sum(r['usd'] for r in W.values()))) for sd, W in sides.items()}
     return out
@@ -330,7 +330,7 @@ def main():
         if sorted(px) != [0.0, 1.0]: continue
         won = px[outs.index(p['side'])] == 1.0; p['result'] = 'W' if won else 'L'
         p['pnl'] = round((1 - p['price']) / p['price'] if won else -1.0, 3)          # 1u to risk at the Polymarket ask (kept for the research)
-        sz = GSIZE.get(p.get('grade'), SIZE); p['u'] = units(p['price'], won, sz)                                                 # Sean's sizing (0.25u to win / to risk) at the Polymarket ask
+        sz = SIZE if (p.get('slug') or '').split('-')[0] in ('ucl', 'epl', 'mls', 'bun') else GSIZE.get(p.get('grade'), SIZE); p['u'] = units(p['price'], won, sz)   # soccer 0.25u at any grade (Sean, 11/4)                                                 # Sean's sizing (0.25u to win / to risk) at the Polymarket ask
         vq = {k: v for k, v in ((p.get('venues') or {}).get('q') or {}).items() if k != 'DK'}      # where Sean bets (DK excluded: low limits)
         if vq: bv = min(vq, key=vq.get); p['best_venue'] = bv; p['best_cost'] = vq[bv]; p['u_venue'] = units(vq[bv], won, sz)
         cm = close_mid(p['cond'], epoch(p['start']))

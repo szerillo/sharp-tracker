@@ -542,7 +542,7 @@ function renderToday() {
     const yn = !r.event_id, tt = (r.title || '').split(/ vs\.? /);
     push({kind: 'acct', ev: r.event_id || r.cond, start: r.game_start || r.start, sport: r.sport || ({ucl: 'soccer', epl: 'soccer', mls: 'soccer', bun: 'soccer'})[(r.slug || '').split('-')[0]] || (r.slug || '').split('-')[0],
       league: r.league, away: r.away || tt[0], home: r.home || tt[1], away_name: r.away_name || tt[0], home_name: r.home_name || tt[1],
-      market: yn ? 'yesno:' + r.cond : r.mtype, side: r.side_std || r.side, bet: r.bet, n: r.n_accounts, link: r.link, trigger: r.trigger, proven: r.proven, books: r.books,
+      market: yn ? 'yesno:' + r.cond : r.mtype, side: r.side_std || r.side, bet: r.bet, n: r.n_accounts, link: r.link, trigger: r.trigger, proven: r.proven, grade: r.grade, books: r.books,
       why: `${r.n_accounts} sharp account${r.n_accounts === 1 ? '' : 's'}, flagged ${ET(r.flagged)}; sharps paid ${(100 * r.paid).toFixed(1)}¢, ask now ${r.ask != null ? (100 * r.ask).toFixed(1) + '¢' : '—'}${r.ask != null && r.ask - r.paid > 0.05 ? ' (price has moved: most of the edge is gone)' : ''}`,
       price: r.ask != null ? `Polymarket ask ${(100 * r.ask).toFixed(1)}¢ (${toAm(r.ask)})` : '', p: r.ask, venue: 'Polymarket'}); }
   // ---- 4. tennis first-set rule (tier C, its own shape)
@@ -605,9 +605,10 @@ function renderToday() {
   // sharp accounts plus money or price. NBA single-account flags (-0.39 on 31) are dropped to the other signals.
   for (const r of wrows) {
     const fl = r.fl;
-    r.nbaSingle = r.g.sport === 'nba' && Math.max((fl && fl.n) || 0, (r.acct && r.acct.with && r.acct.with.n) || 0) < 2;   // flagged or not
+    r.nbaSingle = r.g.sport === 'nba' && (fl ? (fl.n || 0) < 2 : ((r.acct && r.acct.with && r.acct.with.n) || 0) < 2);   // a flag's own account count (11/4: the Hawks)
     if (r.nbaSingle) r.strong = false;
-    r.grade = !r.strong ? '' : (r.flagged ? ((fl && (fl.trigger === 'proven' || fl.proven)) || r.fam.money ? 'A' : 'B') : 'C');
+    if (fl && fl.grade === 'watch') r.strong = false;                     // the flag's grade from sharp_live is the one grade (board, paper record, sizing)
+    r.grade = !r.strong ? '' : (r.flagged ? (fl && fl.grade ? fl.grade : (((fl && (fl.trigger === 'proven' || fl.proven)) || r.fam.money) ? 'A' : 'B')) : 'C');
   }   // 11/2 (Sean): sharp accounts required (the one family with a proven edge)
   const VOL = {}; for (const r of (FL && FL.rows) || []) { const k = `${r.event_id}|${r.market}`; VOL[k] = Math.max(VOL[k] || 0, r.total || 0); }   // exchange $ on the market (main line)
   for (const r of wrows) r.vol = VOL[r.id] || 0;
@@ -633,7 +634,7 @@ function renderToday() {
     const sn = SN && SN[r.id] && SN[r.id].signals, fs = sn ? r.rest.map(y => sn[y.kind] && sn[y.kind].side === y.side && sn[y.kind].first).filter(Boolean).sort()[0] : null;
     return sRow({id: 'w|' + r.id, start: g.start, sportLabel: SPORT_LABEL[g.sport] || g.sport, game: `${esc(g.away_name || g.away)} @ ${esc(g.home_name || g.home)}`,
       bet: r.mixed ? '<span class="mixed">Mixed, no lean</span>' : esc(yn(r.rest[0].bet)), sub: r.mixed ? [...new Set(r.rest.map(y => esc(y.bet)))].join(' vs ') : (r.strong ? `<span class="badge ${r.grade === 'A' ? 'b-fit' : r.grade === 'B' ? 'b-prior' : 'b-gate'}" style="margin-left:0">Grade ${r.grade}</span>` : 'Watch only'), status: r.strong || r.mixed ? null : ['gone', r.nbaSingle ? 'Watch only: NBA single account' : r.acct && r.acct.against ? 'Watch only: sharps on both sides' : r.g.sport === 'mma' ? 'Watch only: UFC has no sharp-account list' : 'Watch only: below flag level'],
-      size: r.strong && x ? unitText(r.grade === 'A' ? SLIP.big : SLIP.small, x.p) : '', price: (() => { if (!x || x.p == null) return ''; const q = {[x.venue]: x.p, ...((r.fl && r.fl.books && r.fl.books.q) || {})};
+      size: r.strong && x ? unitText(r.grade === 'A' && g.sport !== 'soccer' ? SLIP.big : SLIP.small, x.p) : '', price: (() => { if (!x || x.p == null) return ''; const q = {[x.venue]: x.p, ...((r.fl && r.fl.books && r.fl.books.q) || {})};
         const bv = Object.keys(q).filter(v => v !== 'DK').sort((a, b) => q[a] - q[b])[0] || x.venue;
         return `<b>${toAm(q[bv])}</b> <span class="small dim">${VS(bv)}</span>${bv !== x.venue ? `<div class="small dim">${VS(x.venue)} ${toAm(x.p)}</div>` : ''}`; })(), link,
       why: parts.join(' + ') + (r.tag ? `<div>${r.tag}</div>` : ''),
@@ -645,7 +646,7 @@ function renderToday() {
   // sharp-account flags that were logged (counted) and have since gone: greyed, bet name kept bold (Sean, 11/2)
   const goneRows = (SA ? (SA.rows || []) : []).filter(r => r.logged && future(r.game_start || r.start) && passW(r.game_start || r.start) && passS(r.sport, r.league) && (r.status !== 'live' || r.kalshi_against || r.conflict))
     .map(r => sRow({id: 'g|' + (r.cond || r.event_id) + '|' + r.bet, start: r.game_start || r.start, sportLabel: SPORT_LABEL[r.sport] || r.sport || '', game: esc(r.away_name && r.home_name ? r.away_name + ' @ ' + r.home_name : r.title || ''),
-      bet: esc(yn(r.bet)), sub: 'Flagged earlier', status: ['held', r.status !== 'live' ? 'Dropped: a sharp took the other side' : r.kalshi_against ? 'Dropped: Kalshi moved the other way' : 'Dropped: a signal on the other side'], gone: true, size: unitText(r.grade === 'A' ? SLIP.big : SLIP.small, r.paid),
+      bet: esc(yn(r.bet)), sub: 'Flagged earlier', status: ['held', r.status !== 'live' ? 'Dropped: a sharp took the other side' : r.kalshi_against ? 'Dropped: Kalshi moved the other way' : 'Dropped: a signal on the other side'], gone: true, size: unitText(r.grade === 'A' && (r.sport || '') !== 'soccer' ? SLIP.big : SLIP.small, r.paid),
       price: `<b>${toAm(r.paid)}</b> <span class="small dim">Polymarket</span><div class="small"><span class="neg">${r.ask != null ? 'now ' + toAm(r.ask) : 'price gone'}</span></div>`,
       why: r.status !== 'live' ? `${r.other ? r.other.n_accounts : ''} sharp account${r.other && r.other.n_accounts === 1 ? '' : 's'} took the other side` : r.kalshi_against ? `Kalshi moved ${r.kalshi_against.move}% the other way` : `${(r.conflict || []).join(', ')} on the other side`,
       rec: lbl('Tracker', SAREC)}));
@@ -657,7 +658,7 @@ function renderToday() {
     ${vet.length ? sTable(vet.map(sysRow)) : emptyNote('system bets', bets.filter(x => passS(x.sport, x.league)))}
     ${H('Leans', 'Tier C and tennis · 0.25u (NBA 1H under 0.5u) · thin samples or paper rules · held when sharp accounts are on the other side')}
     ${leanRows.length ? sTable(leanRows) : emptyNote('leans', [...bets.filter(it => tierOf(it) === 'C'), ...tw].filter(x => passS(x.sport, x.league)))}
-    ${H('Sharp signals', `Grade A: a sport-proven sharp account or sharps + big money · B: other sharp flags · C: sharps + another signal · A 0.5u, B and C 0.25u · paper ${SAREC}${SA && SA.record && SA.record.clv != null ? ` · CLV ${SA.record.clv > 0 ? '+' : ''}${SA.record.clv}% at Polymarket` : ''}${SA && SA.record && SA.record.n_venue ? `, ${SA.record.clv_venue > 0 ? '+' : ''}${SA.record.clv_venue} at your books (${SA.record.n_venue} flags, ${SA.record.units_venue > 0 ? '+' : ''}${SA.record.units_venue}u)` : ''}`)}
+    ${H('Sharp signals', `Grade A: a sport-proven sharp account or sharps + big money · B: other sharp flags · C: sharps + another signal · A 0.5u (soccer 0.25u), B and C 0.25u · paper ${SAREC}${SA && SA.record && SA.record.clv != null ? ` · CLV ${SA.record.clv > 0 ? '+' : ''}${SA.record.clv}% at Polymarket` : ''}${SA && SA.record && SA.record.n_venue ? `, ${SA.record.clv_venue > 0 ? '+' : ''}${SA.record.clv_venue} at your books (${SA.record.n_venue} flags, ${SA.record.units_venue > 0 ? '+' : ''}${SA.record.units_venue}u)` : ''}`)}
     ${strong.length ? sTable(strong.map(wtr)) : (wrows.length ? '<div class="small dim">No market has sharp accounts on it with nothing against, right now.</div>' : emptyNote('sharp-money signals', sig.filter(x => passS(x.sport, x.league))))}
     ${others.length ? `<details class="how" ${window._wopen ? 'open' : ''} ontoggle="window._wopen=this.open"><summary>Other signals (${others.length}): conflicts, NBA single accounts, accounts below flag level, MMA price and money moves. Watch only.</summary>
       <div class="controls"><span>Sort</span><span class="tabs inline"><button class="${_ws === 'vol' ? 'on' : ''}" onclick="_ws='vol';window._wopen=true;draw()">Volume</button><button class="${_ws === 'time' ? 'on' : ''}" onclick="_ws='time';window._wopen=true;draw()">Game time</button></span></div>
