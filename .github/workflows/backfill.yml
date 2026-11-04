@@ -13,7 +13,7 @@ permissions:
   contents: write
   actions: write
 concurrency:
-  group: tracker
+  group: backfill      # its own group: a pending run in the tracker group is cancelled by the next scheduled tracker run
   cancel-in-progress: false
 jobs:
   backfill:
