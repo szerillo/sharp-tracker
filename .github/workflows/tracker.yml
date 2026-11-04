@@ -49,6 +49,7 @@ jobs:
       - name: move-based sharp signals (Pinnacle steam, exchange lead, juice, timing, limits) on the tick log
         run: python3 sharp/move_signals.py || true
       - name: move tape (origin, followers, stuck books, exchange flow, CLV) from the 5-minute fast tape
+        env: {MOVES_DAYS: '3'}
         run: python3 sharp/moves.py || true
       - name: live big-money vs small-money split on the exchanges (watch signal)
         run: python3 sharp/flow_live.py || true

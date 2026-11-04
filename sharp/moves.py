@@ -26,7 +26,7 @@ FAST = ['Pinnacle', 'Novig', 'Kalshi']; SOFT = ['DK', 'FD', 'Caesars', 'BetRiver
 BIG_USD = 1000.0   # a Kalshi fill counts as flow only at $1,000+ at risk (10/30: top 1% of fills on our markets, 44% of dollars; median fill $9)
 WINDOW_MIN = 30   # a move can build over up to 30 minutes (Pinnacle moves in small steps)
 MOVE = 0.02; FOLLOW = 0.01; CLUSTER_MIN = 15; FLOW_MIN = 30; STUCK_MAX_AGE_MIN = 45
-GATE = 150; TAPE_ROWS = 150; DAYS = 21
+GATE = 150; TAPE_ROWS = 150; DAYS = int(os.environ.get('MOVES_DAYS') or 21)   # the tracker passes 3 (11/4): settled moves are kept in moves.jsonl.gz, so older raw days add nothing but run time
 MARKETS = ('ml', 'spread', 'total')
 NOW = pd.Timestamp.now(tz='UTC')
 
