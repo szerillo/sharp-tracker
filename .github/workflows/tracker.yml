@@ -29,7 +29,9 @@ jobs:
         run: python3 loggers/novig_tape.py --days 2 || true
       - name: tennis schedule and set-by-set results (ESPN ATP/WTA)
         run: python3 loggers/tennis_scores.py --days-back 2 || true
-      - run: python3 sharp/build_db.py
+      - name: price database (last 4 days of ticks: enough for today's board, grading and closes; the full 10-day build took 27 min)
+        env: {BUILD_DAYS: '4'}
+        run: python3 sharp/build_db.py
       - run: python3 sharp/results.py
       - run: python3 sharp/grade.py
       - name: season logs (ESPN scores + DK close) for the systems engine

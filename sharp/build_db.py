@@ -498,7 +498,9 @@ def load_sport(sport):
     sd = os.path.join(ROOT, 'data', sport); sched_p = os.path.join(sd, 'schedule.json')
     if not os.path.exists(sched_p): return 0
     sched = json.load(open(sched_p)); n = 0; used = set()
+    days_ = int(os.environ.get('BUILD_DAYS') or 0); cut = (NOW - dt.timedelta(days=days_)).strftime('%Y-%m-%d') if days_ else ''
     for f in sorted(glob.glob(os.path.join(sd, 'ticks', '*.jsonl.gz')) + glob.glob(os.path.join(sd, 'ticks', '*.jsonl'))):
+        if cut and os.path.basename(f)[:10] < cut: continue        # BUILD_DAYS (11/4): the live tracker only needs recent days; the full build took 27 min
         src = f"{sport}/ticks/{os.path.basename(f)}"
         opener = gzip.open if f.endswith('.gz') else open
         with opener(f, 'rt') as fh:
