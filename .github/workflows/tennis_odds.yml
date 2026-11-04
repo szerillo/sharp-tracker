@@ -26,7 +26,9 @@ jobs:
               [ "$t" = "atp" ] && d="$y" || d="${y}w"
               out="data/tennis/odds/${t}_${y}"
               for ext in xlsx xls; do
-                if curl -sfL -m 60 -A "Mozilla/5.0" -o "$out.$ext" "http://www.tennis-data.co.uk/$d/$y.$ext" && [ -s "$out.$ext" ]; then echo "ok $t $y .$ext"; break; else rm -f "$out.$ext"; fi
+                code=$(curl -sL -m 60 -A "Mozilla/5.0" -o "$out.$ext" -w '%{http_code}' "http://www.tennis-data.co.uk/$d/$y.$ext" || true)
+                echo "$t $y .$ext -> $code $(stat -c %s "$out.$ext" 2>/dev/null)"
+                if [ "$code" = "200" ] && [ -s "$out.$ext" ] && ! head -c 200 "$out.$ext" | grep -qi "<html"; then break; else rm -f "$out.$ext"; fi
               done
             done
           done
