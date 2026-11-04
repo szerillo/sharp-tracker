@@ -1412,5 +1412,104 @@
 "fair": 0.49728,
 "edge_pts": -3.27,
 "why": "Kalshi spread mid 0.465 at T-6h -> 0.500 now (+3.5c); continuation (audit section 3, NBA only)"
+},
+"401909928:nba_momentum:ml": {
+"tag": "nba_momentum",
+"fill_id": "b18082bdb932",
+"ts": "2026-11-04T23:30:30Z",
+"market": "ml",
+"side": "away",
+"line": null,
+"venue": "Kalshi",
+"price": 170,
+"fair": 0.34783,
+"edge_pts": -2.22,
+"why": "Kalshi ml mid 0.685 at T-6h -> 0.645 now (-4.0c); continuation (audit section 3, NBA only)",
+"now": {
+"venue": "Kalshi",
+"price": 170
+}
+},
+"401909928:nba_momentum:spread": {
+"tag": "nba_momentum",
+"fill_id": "5cc0023609b0",
+"ts": "2026-11-04T23:30:30Z",
+"market": "spread",
+"side": "away",
+"line": 4.5,
+"venue": "Kalshi",
+"price": -100,
+"fair": 0.48452,
+"edge_pts": -1.55,
+"why": "Kalshi spread mid 0.560 at T-6h -> 0.525 now (-3.5c); continuation (audit section 3, NBA only)",
+"now": {
+"venue": "Kalshi",
+"price": -100
+},
+"ladder": [
+{
+"line": 6.5,
+"steps": -4,
+"venue": "Kalshi",
+"price": -144,
+"cost": 0.59,
+"fair": 0.565,
+"loss": 0.0095
+},
+{
+"line": 5.5,
+"steps": -2,
+"venue": "Kalshi",
+"price": -113,
+"cost": 0.53,
+"fair": 0.505,
+"loss": 0.0095
+},
+{
+"line": 5.0,
+"steps": -1,
+"venue": "Caesars",
+"price": -105,
+"cost": 0.5122,
+"fair": 0.4965,
+"loss": 0.0002
+},
+{
+"line": 4.5,
+"steps": 0,
+"venue": "Kalshi",
+"price": -100,
+"cost": 0.5,
+"fair": 0.4845,
+"loss": 0.0
+},
+{
+"line": 3.5,
+"steps": 2,
+"venue": "Kalshi",
+"price": 113,
+"cost": 0.47,
+"fair": 0.445,
+"loss": 0.0095
+},
+{
+"line": 2.5,
+"steps": 4,
+"venue": "Kalshi",
+"price": 127,
+"cost": 0.44,
+"fair": 0.415,
+"loss": 0.0095
+}
+],
+"bet_to": {
+"line": 2.5,
+"steps": 4,
+"venue": "Kalshi",
+"price": 127,
+"cost": 0.44,
+"fair": 0.415,
+"loss": 0.0095
+}
 }
 }
