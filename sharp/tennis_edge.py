@@ -38,16 +38,36 @@ def key_ta(name):
     return (norm(''.join(parts[1:])), norm(parts[0])[:1])
 
 
+def odds_sources(tour):
+    """Rows from the deuce bundle (csv.gz) plus any tennis-data.co.uk workbooks dropped in as <tour>_<year>.xlsx / .xls."""
+    f = os.path.join(ODDS, f'{tour}_odds.csv.gz'); seen = set()
+    if os.path.exists(f):
+        for r in csv.DictReader(gzip.open(f, 'rt', encoding='utf-8', errors='replace')):
+            seen.add((r.get('Date', '')[:10], r.get('Winner'), r.get('Loser'))); yield r
+    import glob
+    for wb in sorted(glob.glob(os.path.join(ODDS, f'{tour}_*.xls*'))):
+        try:
+            import pandas as pd
+            df = pd.read_excel(wb)
+        except Exception as e:
+            print('skip', wb, e); continue
+        for r in df.to_dict('records'):
+            r = {k: ('' if (isinstance(v, float) and math.isnan(v)) else v) for k, v in r.items()}
+            r['Date'] = str(r.get('Date', ''))[:10]
+            if (r['Date'], r.get('Winner'), r.get('Loser')) in seen: continue
+            yield r
+
+
 def load_odds():
     rows = []
     for tour in ('atp', 'wta'):
-        f = os.path.join(ODDS, f'{tour}_odds.csv.gz')
-        if not os.path.exists(f): continue
-        for r in csv.DictReader(gzip.open(f, 'rt', encoding='utf-8', errors='replace')):
+        for r in odds_sources(tour):
             def num(x):
                 try: return float(x)
                 except Exception: return None
             psw, psl = num(r.get('PSW')), num(r.get('PSL'))
+            r['_src'] = 'pin' if psw else 'b365'
+            if (not psw or not psl) and num(r.get('B365W')) and num(r.get('B365L')): psw, psl = num(r.get('B365W')), num(r.get('B365L'))   # 2000-2003 and WTA 2009 have no Pinnacle column
             if not psw or not psl or psw < 1.001 or psl < 1.001: continue
             try: d = dt.datetime.strptime(r['Date'][:10], '%Y-%m-%d').date()
             except Exception: continue
