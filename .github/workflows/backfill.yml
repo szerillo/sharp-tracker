@@ -42,25 +42,32 @@ jobs:
                   print(s, script, (r.stdout.strip().splitlines() or [''])[-1][:200], r.stderr.strip()[-300:])
               t += step
           EOF
-      - name: rebuild the live view, the tennis watch and the bet log as of now
-        run: |
-          python3 sharp/systems.py || true
-          python3 -m sharp.fills grade || true
-          python3 sharp/tennis_watch.py || true
-          python3 sharp/dedupe_fills.py || true
-          python3 sharp/bet_log.py || true
-      - name: commit
+      - name: commit only the replayed bets, appended to the latest records (never overwrite files the tracker has moved on)
         run: |
           git config user.name "tracker-bot"; git config user.email "actions@users.noreply.github.com"
-          git add -A data/state/fills.jsonl data/state/system_fired.json data/state/system_fires.json data/state/bet_log.json data/state/tennis_watch.json data/tennis/fs_paper.jsonl data/tennis/fs_graded.json
-          git commit -m "backfill ${{ github.event.inputs.from }} to ${{ github.event.inputs.to }}" || exit 0
-          git stash -u -q || true          # other files the replays touched (board views, caches) are not part of the backfill
+          python3 -c "import json; F=[json.loads(l) for l in open('data/state/fills.jsonl')]; T=[json.loads(l) for l in open('data/tennis/fs_paper.jsonl')]; json.dump(dict(f=[r for r in F if r.get('backfill')], t=[p for p in T if p.get('backfill')]), open('/tmp/bf.json','w'))"
           for i in 1 2 3 4 5; do
-            if git pull --rebase -X theirs && git push; then
-              GH_TOKEN="${{ secrets.GITHUB_TOKEN }}" gh api -X POST "repos/${GITHUB_REPOSITORY}/actions/workflows/pages.yml/dispatches" -f ref=main || true
+            git fetch -q origin main && git reset -q --hard origin/main
+            python3 - <<'EOF'
+          import json
+          B = json.load(open('/tmp/bf.json'))
+          have = {json.loads(l)['fill_id'] for l in open('data/state/fills.jsonl') if l.strip()}
+          with open('data/state/fills.jsonl', 'a') as f:
+              for r in B['f']:
+                  if r['fill_id'] not in have: f.write(json.dumps(r) + '\n')
+          T = [json.loads(l) for l in open('data/tennis/fs_paper.jsonl') if l.strip()]
+          keys = {(frozenset((p.get('fav_name'), p.get('opp_name'))), p['start'][:10]) for p in T} | {p['event_id'] for p in T}
+          with open('data/tennis/fs_paper.jsonl', 'a') as f:
+              for p in B['t']:
+                  if p['event_id'] not in keys and (frozenset((p.get('fav_name'), p.get('opp_name'))), p['start'][:10]) not in keys: f.write(json.dumps(p) + '\n')
+          EOF
+            python3 sharp/dedupe_fills.py || true
+            git add data/state/fills.jsonl data/tennis/fs_paper.jsonl
+            git commit -q -m "backfill ${{ github.event.inputs.from }} to ${{ github.event.inputs.to }}" || exit 0
+            if git push -q; then
+              GH_TOKEN="${{ secrets.GITHUB_TOKEN }}" gh api -X POST "repos/${GITHUB_REPOSITORY}/actions/workflows/tracker.yml/dispatches" -f ref=main || true
               exit 0
             fi
-            git rebase --abort 2>/dev/null || true
             sleep $((RANDOM % 15 + 5))
           done
           exit 1

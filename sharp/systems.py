@@ -291,6 +291,17 @@ def alt_lines(eq, f, part):
 def main():
     conn = sqlite3.connect(DB)
     fired = json.load(open(FIRED)) if os.path.exists(FIRED) else {}
+    # the fills ledger is the record (11/4): a bet in the ledger that the state file lost (an older checkout's commit overwrote it) is
+    # restored here, so it stays on the board instead of vanishing (the duplicate guard in paper_fill would not refire it)
+    have = {v.get('fill_id') for v in fired.values() if isinstance(v, dict)}
+    for r in FI.load():
+        if not str(r.get('rule_tag', '')).startswith('paper:') or r['fill_id'] in have or r.get('result') == 'void' or r.get('mclass', 'game') != 'game': continue
+        if N.parse_ts(r['start_utc']) < NOW - dt.timedelta(hours=6): continue
+        tag = r['rule_tag'][6:]; key = f"{r['event_id']}:{tag}" + (f":{r['market']}" if tag in ('xch_homedog_fade', 'nba_momentum') else '')
+        if key in fired and fired[key].get('fill_id') and not fired[key].get('void'): continue
+        fired[key] = dict(tag=tag, fill_id=r['fill_id'], ts=r['ts_utc'], market=r['market'], side=r['side'], line=r.get('line'), venue=r['venue'], price=r['price_american'],
+                          fair=r.get('fair_at_fill'), edge_pts=(round(100 * (r['fair_at_fill'] - r['implied']), 2) if r.get('fair_at_fill') is not None else None),
+                          why=(r.get('note') or '').split(' | ')[0], restored=True)
     retro_void(fired)
     fires_now = []; view_games = []
     for ev, start, away, home in conn.execute("SELECT event_id, start_utc, away, home FROM events WHERE sport='nfl' ORDER BY start_utc").fetchall():
