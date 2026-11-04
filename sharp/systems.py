@@ -606,6 +606,21 @@ def main():
     for s in rec.values():
         s['clv_avg'] = round(sum(s['clv']) / len(s['clv']), 2) if s['clv'] else None; s['n_clv'] = len(s['clv']); del s['clv']; s['pnl'] = round(s['pnl'], 3)
         s['published'] = bool(s['graded'] >= s['gate'] and (s['clv_avg'] or 0) > 0)
+    # a placed bet stays on the board until its game starts (Sean, 11/4: the NBA unders vanished twice). A rule that is re-checked and
+    # no longer holds voids its fill explicitly above; anything else that fired and is not void is shown, even if this run did not
+    # re-evaluate its trigger (missing season data, the open line outside the 4-day price window, a skipped sport loop).
+    shown = {f.get('fill_id') for g in view_games for f in g.get('fills', [])}
+    byev = {g['event_id']: g for g in view_games}
+    for k, f in fired.items():
+        if not isinstance(f, dict) or not f.get('fill_id') or f.get('void') or f.get('stacked') or f['fill_id'] in shown: continue
+        ev_ = k.split(':')[0]
+        row = conn.execute("SELECT sport, start_utc, away, home FROM events WHERE event_id=?", (ev_,)).fetchone()
+        if not row or N.parse_ts(row[1]) <= NOW: continue
+        g = byev.get(ev_)
+        if g is None:
+            g = dict(event_id=ev_, away=row[2], home=row[3], start_utc=row[1], hours_to_kickoff=round((N.parse_ts(row[1]) - NOW).total_seconds() / 3600, 1),
+                     spread_home=None, dog=None, triggers={}, fills=[], sport=row[0]); view_games.append(g); byev[ev_] = g
+        g['fills'].append(f); g['triggers'].setdefault(f['tag'], f.get('why') or '')
     for g in view_games:
         r_ = sched_rec(g.get('sport', 'nfl'), g['event_id']); g['away_name'] = (r_.get('away_team') or {}).get('displayName') or g['away']; g['home_name'] = (r_.get('home_team') or {}).get('displayName') or g['home']
         g.setdefault('sport', 'nfl'); g['league'] = sched_rec(g['sport'], g['event_id']).get('league')
