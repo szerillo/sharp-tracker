@@ -1,5 +1,5 @@
 {
- "built": "2026-11-04T12:55:34Z",
+ "built": "2026-11-04T13:05:51Z",
  "rows": [
   {
    "cond": "0x69aeb202063d522a2138eea4af2b246ded0b5f0a369e3533844d3c3a91126b7a",
@@ -60,13 +60,13 @@
    "bet": "Pistons ML",
    "side": "Pistons",
    "flagged": "2026-11-03T23:12:37Z",
-   "why": "2 top-200 accounts",
+   "why": "3 top-200 accounts",
    "proven": false,
    "trigger": "two",
-   "n_accounts": 2,
-   "best_rank": 93,
-   "usd": 540,
-   "paid": 0.548,
+   "n_accounts": 3,
+   "best_rank": 58,
+   "usd": 990,
+   "paid": 0.549,
    "ask": 0.55,
    "status": "live",
    "link": "https://polymarket.us/event/nba-phi-det-2026-11-04",
@@ -552,14 +552,14 @@
    "bet": "Trail Blazers ML",
    "side": "Trail Blazers",
    "flagged": "2026-11-04T08:59:36Z",
-   "why": "a top-50 account",
+   "why": "2 top-200 accounts",
    "proven": false,
-   "trigger": "top50",
-   "n_accounts": 1,
+   "trigger": "two",
+   "n_accounts": 2,
    "best_rank": 43,
-   "usd": 226,
+   "usd": 1018,
    "paid": 0.58,
-   "ask": 0.58,
+   "ask": 0.59,
    "status": "live",
    "link": "https://polymarket.us/event/nba-por-phx-2026-11-04",
    "other": null,
@@ -583,7 +583,7 @@
     "Kalshi move"
    ],
    "money_with": false,
-   "grade": "watch",
+   "grade": "B",
    "books": {
     "at": "2026-11-04T11:24:34Z",
     "fair": 0.5848,
@@ -713,9 +713,9 @@
   },
   "401909922|ml": {
    "home": {
-    "n": 2,
-    "best_rank": 93,
-    "usd": 540
+    "n": 3,
+    "best_rank": 58,
+    "usd": 990
    }
   },
   "401909922|spread": {
@@ -788,9 +788,9 @@
   },
   "401909932|ml": {
    "away": {
-    "n": 1,
+    "n": 2,
     "best_rank": 43,
-    "usd": 226
+    "usd": 1018
    }
   },
   "401909934|ml": {
