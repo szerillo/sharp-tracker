@@ -1,5 +1,5 @@
 {
- "built": "2026-11-04T22:55:12Z",
+ "built": "2026-11-04T23:01:03Z",
  "rows": [
   {
    "cond": "0x159b76fa5382b06fb70bf17593a79a9ee670b7888af945f917de7579138194eb",
@@ -46,22 +46,22 @@
    }
   },
   {
-   "cond": "0x8f097e91950aedef3070948ea5a777474f1d1f78e82796b3fe4b34afe0eb53f3",
+   "cond": "0x2f2dca3863dafdbbf45d4bc682f3276d61676952d106d6bc65c31fed937324ae",
    "slug": "nba-atl-was-2026-11-04",
    "title": "Hawks vs. Wizards",
-   "mtype": "ml",
+   "mtype": "spread",
    "start": "2026-11-05T00:00:00Z",
-   "bet": "Hawks ML",
-   "side": "Hawks",
-   "flagged": "2026-11-03T13:11:31Z",
+   "bet": "Wizards +3.5",
+   "side": "Wizards",
+   "flagged": "2026-11-04T23:00:48Z",
    "why": "2 top-200 accounts",
    "proven": false,
    "trigger": "two",
    "n_accounts": 2,
-   "best_rank": 43,
-   "usd": 1994,
-   "paid": 0.555,
-   "ask": 0.58,
+   "best_rank": 12,
+   "usd": 2459,
+   "paid": 0.527,
+   "ask": 0.56,
    "status": "live",
    "link": "https://polymarket.us/event/nba-atl-was-2026-11-04",
    "other": null,
@@ -75,19 +75,10 @@
    "away_name": "Atlanta Hawks",
    "home_name": "Washington Wizards",
    "game_start": "2026-11-05T00:00Z",
-   "side_std": "away",
-   "money_with": true,
-   "grade": "A",
-   "books": {
-    "at": "2026-11-04T20:32:41Z",
-    "fair": 0.5844,
-    "q": {
-     "Caesars": 0.5918,
-     "DK": 0.6063,
-     "FD": 0.6063,
-     "Kalshi": 0.61
-    }
-   }
+   "side_std": "home",
+   "money_with": false,
+   "grade": "B",
+   "books": null
   },
   {
    "cond": "0x4e14101792372d8c16dae3092acf0f825ca206475de2d1c76c7ded8c208f9762",
@@ -491,6 +482,47 @@
    }
   },
   {
+   "cond": "0x8f097e91950aedef3070948ea5a777474f1d1f78e82796b3fe4b34afe0eb53f3",
+   "slug": "nba-atl-was-2026-11-04",
+   "title": "Hawks vs. Wizards",
+   "mtype": "ml",
+   "start": "2026-11-05T00:00:00Z",
+   "bet": "Hawks ML",
+   "side": "Hawks",
+   "flagged": "2026-11-03T13:11:31Z",
+   "why": "2 top-200 accounts",
+   "proven": false,
+   "trigger": "two",
+   "n_accounts": 2,
+   "best_rank": 43,
+   "usd": 1994,
+   "paid": 0.555,
+   "ask": 0.55,
+   "status": "other side",
+   "link": "https://polymarket.us/event/nba-atl-was-2026-11-04",
+   "other": {
+    "n_accounts": 2,
+    "best_rank": 23,
+    "usd": 49498,
+    "first": "2026-11-04T23:00:06Z"
+   },
+   "exit_bid": 0.54,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401909923",
+   "sport": "nba",
+   "league": null,
+   "away": "ATL",
+   "home": "WSH",
+   "away_name": "Atlanta Hawks",
+   "home_name": "Washington Wizards",
+   "game_start": "2026-11-05T00:00Z",
+   "side_std": "away",
+   "money_with": true,
+   "grade": "A",
+   "books": null
+  },
+  {
    "cond": "0x8c46d71e1ac2d02318e36c88763d512a25f73153f03dffa8df67212a5a922698",
    "slug": "nba-por-phx-2026-11-04",
    "title": "Trail Blazers vs. Suns",
@@ -589,21 +621,21 @@
   }
  ],
  "record": {
-  "n": 25,
-  "won": 8,
-  "units": -3.6,
+  "n": 35,
+  "won": 17,
+  "units": -1.27,
   "by_grade": {
    "A": {
-    "n": 14,
-    "won": 5,
-    "units": -1.85,
-    "clv": 1.29
+    "n": 21,
+    "won": 12,
+    "units": 0.22,
+    "clv": 0.37
    },
    "B": {
-    "n": 6,
-    "won": 1,
-    "units": -1.29,
-    "clv": -3.67
+    "n": 9,
+    "won": 3,
+    "units": -1.04,
+    "clv": -1.67
    },
    "watch": {
     "n": 5,
@@ -612,12 +644,12 @@
     "clv": -3.0
    }
   },
-  "units_1u": -9.88,
-  "clv": -0.56,
-  "n_venue": 14,
-  "units_venue": -2.31,
-  "clv_venue": 1.38,
-  "clv_poly_same": -1.95
+  "units_1u": -3.6,
+  "clv": -0.6,
+  "n_venue": 15,
+  "units_venue": -2.06,
+  "clv_venue": 0.79,
+  "clv_poly_same": -2.31
  },
  "sys_tags": {
   "401892644:nhl_early_home_fav_qual": {
@@ -698,6 +730,13 @@
     "usd": 150
    }
   },
+  "401873043|ml": {
+   "home": {
+    "n": 1,
+    "best_rank": 115,
+    "usd": 5008
+   }
+  },
   "401909922|ml": {
    "home": {
     "n": 3,
@@ -724,6 +763,11 @@
     "n": 2,
     "best_rank": 43,
     "usd": 1994
+   },
+   "home": {
+    "n": 2,
+    "best_rank": 23,
+    "usd": 12556
    }
   },
   "401909923|total": {
@@ -731,6 +775,13 @@
     "n": 1,
     "best_rank": 132,
     "usd": 1322
+   }
+  },
+  "401909923|spread": {
+   "home": {
+    "n": 2,
+    "best_rank": 12,
+    "usd": 12305
    }
   },
   "401909924|ml": {
