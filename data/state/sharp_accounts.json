@@ -1,5 +1,5 @@
 {
- "built": "2026-11-04T11:44:59Z",
+ "built": "2026-11-04T11:55:03Z",
  "rows": [
   {
    "cond": "0x69aeb202063d522a2138eea4af2b246ded0b5f0a369e3533844d3c3a91126b7a",
@@ -85,8 +85,8 @@
    "money_with": true,
    "grade": "A",
    "books": {
-    "at": "2026-11-04T10:03:31Z",
-    "fair": 0.5444,
+    "at": "2026-11-04T10:44:18Z",
+    "fair": 0.5434,
     "q": {
      "Novig": 0.55,
      "Kalshi": 0.56,
@@ -132,8 +132,8 @@
    "money_with": false,
    "grade": "watch",
    "books": {
-    "at": "2026-11-04T10:03:31Z",
-    "fair": 0.6994,
+    "at": "2026-11-04T10:44:18Z",
+    "fair": 0.7025,
     "q": {
      "Novig": 0.7,
      "Kalshi": 0.71,
@@ -176,8 +176,8 @@
    "money_with": false,
    "grade": "A",
    "books": {
-    "at": "2026-11-04T10:03:33Z",
-    "fair": 0.4405,
+    "at": "2026-11-04T10:44:14Z",
+    "fair": 0.4449,
     "q": {
      "Novig": 0.44,
      "Caesars": 0.4608,
@@ -245,13 +245,13 @@
    "money_with": true,
    "grade": "A",
    "books": {
-    "at": "2026-11-04T09:43:14Z",
-    "fair": 0.8167,
+    "at": "2026-11-04T10:44:11Z",
+    "fair": 0.8222,
     "q": {
-     "Novig": 0.815,
+     "DK": 0.8387,
      "FD": 0.8387,
      "Kalshi": 0.84,
-     "DK": 0.8425
+     "Caesars": 0.8485
     }
    }
   },
@@ -285,6 +285,41 @@
    "away_name": "Washington Wizards",
    "home_name": "Atlanta Hawks",
    "game_start": "2026-11-07T00:00Z",
+   "side_std": "home",
+   "money_with": false,
+   "grade": "watch",
+   "books": null
+  },
+  {
+   "cond": "0x153760e7ea5d8a07b8ceed9fe46440e44ad2d5f0028070b86acd53802329e1b3",
+   "slug": "nba-phi-cle-2026-11-06",
+   "title": "76ers vs. Cavaliers",
+   "mtype": "ml",
+   "start": "2026-11-07T00:30:00Z",
+   "bet": "Cavaliers ML",
+   "side": "Cavaliers",
+   "flagged": "2026-11-04T11:46:30Z",
+   "why": "a top-50 account",
+   "proven": true,
+   "trigger": "proven",
+   "n_accounts": 1,
+   "best_rank": 31,
+   "usd": 635,
+   "paid": 0.485,
+   "ask": 0.54,
+   "status": "live",
+   "link": "https://polymarket.us/event/nba-phi-cle-2026-11-06",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401909289",
+   "sport": "nba",
+   "league": null,
+   "away": "PHI",
+   "home": "CLE",
+   "away_name": "Philadelphia 76ers",
+   "home_name": "Cleveland Cavaliers",
+   "game_start": "2026-11-07T00:30Z",
    "side_std": "home",
    "money_with": false,
    "grade": "watch",
@@ -362,7 +397,7 @@
    "money_with": false,
    "grade": "A",
    "books": {
-    "at": "2026-11-04T10:03:34Z",
+    "at": "2026-11-04T10:44:23Z",
     "fair": 0.4988,
     "q": {
      "Kalshi": 0.52,
@@ -406,13 +441,13 @@
    "money_with": false,
    "grade": "A",
    "books": {
-    "at": "2026-11-04T09:43:14Z",
-    "fair": 0.4947,
+    "at": "2026-11-04T10:44:11Z",
+    "fair": 0.4942,
     "q": {
-     "Novig": 0.5,
      "Kalshi": 0.51,
      "FD": 0.5122,
-     "Caesars": 0.5146
+     "Caesars": 0.5146,
+     "DK": 0.5349
     }
    }
   },
@@ -498,12 +533,12 @@
    "money_with": false,
    "grade": "watch",
    "books": {
-    "at": "2026-11-04T10:03:31Z",
-    "fair": 0.5659,
+    "at": "2026-11-04T10:44:18Z",
+    "fair": 0.565,
     "q": {
      "Novig": 0.57,
+     "Kalshi": 0.58,
      "DK": 0.5868,
-     "Kalshi": 0.59,
      "Caesars": 0.5918
     }
    }
@@ -550,8 +585,8 @@
    "money_with": false,
    "grade": "watch",
    "books": {
-    "at": "2026-11-04T10:03:31Z",
-    "fair": 0.5812,
+    "at": "2026-11-04T10:44:18Z",
+    "fair": 0.5869,
     "q": {
      "Novig": 0.58,
      "FD": 0.5968,
@@ -559,6 +594,50 @@
      "DK": 0.6078
     }
    }
+  },
+  {
+   "cond": "0x0dd9e093eefd2c6259efcab15eae53816da332c74798271ad1ae35a4be0b0e84",
+   "slug": "nba-lal-sac-2026-11-04",
+   "title": "Lakers vs. Kings",
+   "mtype": "ml",
+   "start": "2026-11-05T03:00:00Z",
+   "bet": "Lakers ML",
+   "side": "Lakers",
+   "flagged": "2026-11-04T11:46:03Z",
+   "why": "a top-50 account",
+   "proven": true,
+   "trigger": "proven",
+   "n_accounts": 1,
+   "best_rank": 31,
+   "usd": 144,
+   "paid": 0.84,
+   "ask": 0.83,
+   "status": "other side",
+   "link": "https://polymarket.us/event/nba-lal-sac-2026-11-04",
+   "other": {
+    "n_accounts": 1,
+    "best_rank": 132,
+    "usd": 450,
+    "first": "2026-11-04T11:49:55Z"
+   },
+   "exit_bid": 0.82,
+   "kalshi_against": null,
+   "logged": false,
+   "event_id": "401909934",
+   "sport": "nba",
+   "league": null,
+   "away": "LAL",
+   "home": "SAC",
+   "away_name": "Los Angeles Lakers",
+   "home_name": "Sacramento Kings",
+   "game_start": "2026-11-05T03:00Z",
+   "side_std": "away",
+   "conflict": [
+    "Kalshi bet back"
+   ],
+   "money_with": false,
+   "grade": "watch",
+   "books": null
   }
  ],
  "record": {
@@ -699,11 +778,30 @@
     "usd": 226
    }
   },
+  "401909934|ml": {
+   "away": {
+    "n": 1,
+    "best_rank": 31,
+    "usd": 144
+   },
+   "home": {
+    "n": 1,
+    "best_rank": 132,
+    "usd": 450
+   }
+  },
   "401909287|ml": {
    "home": {
     "n": 1,
     "best_rank": 43,
     "usd": 1216
+   }
+  },
+  "401909289|ml": {
+   "home": {
+    "n": 1,
+    "best_rank": 31,
+    "usd": 635
    }
   },
   "401892647|ml": {
