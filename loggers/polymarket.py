@@ -8,6 +8,7 @@ Game lines only in MLB today (moneyline, nrfi); NFL/NBA carry spreads, totals an
 team codes + gameStartTime in build_db (Polymarket slugs read away-home: mlb-cle-tb-2026-10-19 = CLE @ TB).
 Also keeps data/polymarket/_markets.json (conditionId -> market metadata) so the public trade tape stays decodable."""
 import json, os, gzip, time, datetime as dt, urllib.request, concurrent.futures as cf
+import polydata                      # Data API v2 (v1 retired 11/2)
 
 HERE = os.path.dirname(os.path.abspath(__file__)); OUT = os.path.join(HERE, '..', 'data', 'polymarket'); os.makedirs(OUT, exist_ok=True)
 G = "https://gamma-api.polymarket.com"; CLOB = "https://clob.polymarket.com"; DATA = "https://data-api.polymarket.com"
@@ -54,7 +55,7 @@ def snap_market(args):
                            bid_depth3=depth3(bids, bb, True) if bb is not None else None, ask_depth3=depth3(asks, ba, False) if ba is not None else None,
                            last=float(b['last_trade_price']) if b.get('last_trade_price') not in (None, '') else None)
     cid = m.get('conditionId'); new = []
-    tr = g(f"{DATA}/trades?market={cid}&limit=200") or []
+    tr = polydata.trades(condition=cid, limit=200) if cid else []
     lt = last_ts.get(cid, 0)
     for t in tr:
         if t.get('timestamp', 0) > lt: new.append(dict(ts=t['timestamp'], side=t.get('side'), outcome=t.get('outcome'), p=t.get('price'), size=t.get('size'), w=t.get('proxyWallet')))

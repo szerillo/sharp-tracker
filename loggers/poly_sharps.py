@@ -6,6 +6,7 @@ risk-equivalent (shares x min(p, 1-p)), and append them to data/polymarket/sharp
 outcomes, tokens, start) comes from the Gamma API and is cached in data/polymarket/_sharp_meta.json.
 Usage: python3 loggers/poly_sharps.py"""
 import os, json, time, datetime as dt, urllib.request, urllib.error, concurrent.futures as cf
+import polydata                      # Data API v2 (v1 retired 11/2 and returned 410: no fills were logged 11/2 evening to 11/4)
 HERE = os.path.dirname(os.path.abspath(__file__)); ROOT = os.path.abspath(os.path.join(HERE, '..'))
 PD = os.path.join(ROOT, 'data', 'polymarket'); LIST = os.path.join(ROOT, 'data', 'state', 'poly_sharps_list.json')
 OUT = os.path.join(PD, 'sharp_fills.jsonl'); PROPS = os.path.join(PD, 'sharp_prop_fills.jsonl'); META = os.path.join(PD, '_sharp_meta.json'); STATE = os.path.join(PD, '_sharp_state.json')
@@ -31,7 +32,7 @@ def main():
     st = json.load(open(STATE)) if os.path.exists(STATE) else {}
     meta = json.load(open(META)) if os.path.exists(META) else {}
     with cf.ThreadPoolExecutor(8) as ex:
-        res = dict(zip(acc, ex.map(lambda w: g(f"{D}/trades?user={w}&limit=100&takerOnly=true") or [], acc)))
+        res = dict(zip(acc, ex.map(lambda w: polydata.trades(user=w, limit=100), acc)))
     need = {t['conditionId'] for T in res.values() for t in T if t.get('conditionId') and (t['conditionId'] not in meta or 'stat' not in meta[t['conditionId']])}
     need = list(need)
     for i in range(0, len(need), 20):

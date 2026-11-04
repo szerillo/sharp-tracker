@@ -7,6 +7,7 @@ side BUY/SELL of an outcome, price, size, timestamp, proxyWallet) -> data/polyma
 The wallet column is what makes Polymarket different: every fill has an on-chain account, so a wallet's record can be tested too.
 Usage: python3 loggers/polymarket_history.py catalog | trades | catalog_props | trades_props [--min-volume N]"""
 import os, sys, re, json, gzip, time, datetime as dt, urllib.request, urllib.error, concurrent.futures as cf
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__))); import polydata     # Data API v2
 OUT = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'data', 'polymarket', 'history'); os.makedirs(os.path.join(OUT, 'trades'), exist_ok=True)
 G = "https://gamma-api.polymarket.com"; D = "https://data-api.polymarket.com"
 TAGS = ['nfl', 'nba', 'nhl', 'cfb', 'cbb', 'mlb', 'epl', 'ucl', 'mls', 'laliga', 'bundesliga', 'seriea', 'ligue1', 'ufc', 'wnba']
@@ -155,13 +156,9 @@ def catalog_props(min_vol=2000.0):
 def trades_for(cond):
     p = os.path.join(OUT, 'trades', f'{cond}.jsonl.gz')
     if os.path.exists(p): return 0
-    rows = []; off = 0
-    while True:
-        T = g(f"{D}/trades?market={cond}&limit=500&offset={off}&takerOnly=true")
-        if not T: break
-        rows += [dict(ts=t['timestamp'], side=t['side'], outcome=t.get('outcome'), price=t['price'], size=t['size'], wallet=t.get('proxyWallet')) for t in T]
-        off += len(T)
-        if len(T) < 500 or off >= 10000: break       # the API stops paging around 10k; very busy markets are truncated (flagged)
+    T = polydata.trades(condition=cond, limit=500, max_rows=10000)       # v2 cursor paging; very busy markets are truncated at 10k (flagged)
+    rows = [dict(ts=t['timestamp'], side=t['side'], outcome=t.get('outcome'), price=t['price'], size=t['size'], wallet=t.get('proxyWallet')) for t in T]
+    off = len(rows)
     with gzip.open(p, 'wt') as f:
         for r in rows: f.write(json.dumps(r, separators=(',', ':')) + '\n')
         if off >= 10000: f.write(json.dumps(dict(truncated=True)) + '\n')

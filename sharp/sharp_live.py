@@ -18,7 +18,8 @@ Paper log: data/state/sharp_paper.jsonl, one row per flag at the ask when first 
 CLV vs Polymarket's two-sided close (public trade tape). Writes data/state/sharp_accounts.json.
 Usage: python3 sharp/sharp_live.py"""
 import os, sys, re, json, time, math, datetime as dt, urllib.request, collections
-HERE = os.path.dirname(os.path.abspath(__file__)); ROOT = os.path.abspath(os.path.join(HERE, '..')); sys.path.insert(0, ROOT)
+HERE = os.path.dirname(os.path.abspath(__file__)); ROOT = os.path.abspath(os.path.join(HERE, '..')); sys.path.insert(0, ROOT); sys.path.insert(0, os.path.join(ROOT, 'loggers'))
+import polydata                      # Data API v2 (v1 retired 11/2)
 FILLS = os.path.join(ROOT, 'data', 'polymarket', 'sharp_fills.jsonl'); OUT = os.path.join(ROOT, 'data', 'state', 'sharp_accounts.json')
 PAPER = os.path.join(ROOT, 'data', 'state', 'sharp_paper.jsonl'); META = os.path.join(ROOT, 'data', 'polymarket', '_sharp_meta.json')
 NOW = time.time(); TOP_RANK = 50; TWO = 2
@@ -56,7 +57,7 @@ def ask(token):
 
 def close_mid(cond, start):
     """Polymarket two-sided close from the public tape (last yes-buy and last no-buy before the start, within 2h), yes = outcome 0."""
-    T = g(f"https://data-api.polymarket.com/trades?market={cond}&limit=500&takerOnly=true") or []
+    T = polydata.trades(condition=cond, limit=500, max_rows=1500)
     meta = json.load(open(META)).get(cond) or {}; o0 = (meta.get('outcomes') or [None])[0]
     ly = ln = None
     for t in sorted(T, key=lambda t: t['timestamp']):
@@ -322,7 +323,7 @@ def main():
     # grade paper rows after the game: result from Gamma, CLV vs Polymarket's two-sided close
     for p in paper:
         if p.get('result') or epoch(p['start']) > NOW - 3 * 3600: continue
-        M = g(f"https://gamma-api.polymarket.com/markets?condition_ids={p['cond']}") or []
+        M = g(f"https://gamma-api.polymarket.com/markets?condition_ids={p['cond']}&closed=true") or []   # Gamma leaves settled markets out unless closed=true (the paper record never graded)
         if not M: continue
         try: outs = json.loads(M[0]['outcomes']); px = [float(x) for x in json.loads(M[0].get('outcomePrices') or '[]')]
         except Exception: continue

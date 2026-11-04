@@ -1,6 +1,31 @@
 {
- "built": "2026-11-04T09:12:58Z",
+ "built": "2026-11-04T09:24:07Z",
  "rows": [
+  {
+   "cond": "0x69aeb202063d522a2138eea4af2b246ded0b5f0a369e3533844d3c3a91126b7a",
+   "slug": "ucl-aek1-rma-2026-11-04",
+   "title": "AEK vs. Real Madrid CF",
+   "mtype": "ml",
+   "start": "2026-11-04T17:45:00Z",
+   "bet": "Will AEK win on 2026-11-04: Yes",
+   "side": "Yes",
+   "flagged": "2026-11-04T08:43:54Z",
+   "why": "a top-200 account also in this sport's top 50",
+   "proven": true,
+   "trigger": "proven",
+   "n_accounts": 1,
+   "best_rank": 132,
+   "usd": 983,
+   "paid": 0.07,
+   "ask": 0.08,
+   "status": "live",
+   "link": "https://polymarket.us/event/ucl-aek1-rma-2026-11-04",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "grade": "A",
+   "books": null
+  },
   {
    "cond": "0xa98f1371108dfffc8908efcdd5ccbe93cfdd2ab148d37eb5910072fc80b80030",
    "slug": "ucl-psv-bru-2026-11-04",
@@ -17,7 +42,7 @@
    "best_rank": 73,
    "usd": 400,
    "paid": 0.32,
-   "ask": 0.29,
+   "ask": 0.28,
    "status": "live",
    "link": "https://polymarket.us/event/ucl-psv-bru-2026-11-04",
    "other": null,
@@ -25,6 +50,183 @@
    "logged": true,
    "grade": "A",
    "books": null
+  },
+  {
+   "cond": "0xc2f77c45bc149b45c089dc80452787bd4cfe3fd94d8f2c9cb06d0b7ac1d2b4bc",
+   "slug": "ucl-psv-bru-2026-11-04-more-markets",
+   "title": "PSV vs. Club Brugge KV - More Markets",
+   "mtype": "total",
+   "start": "2026-11-04T20:00:00Z",
+   "bet": "Under 3.5",
+   "side": "Under",
+   "flagged": "2026-11-04T07:13:58Z",
+   "why": "a top-200 account also in this sport's top 50",
+   "proven": true,
+   "trigger": "proven",
+   "n_accounts": 1,
+   "best_rank": 132,
+   "usd": 2335,
+   "paid": 0.5,
+   "ask": 0.51,
+   "status": "live",
+   "link": "https://polymarket.us/event/ucl-psv-bru-2026-11-04-more-markets",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401915303",
+   "sport": "soccer",
+   "league": "ucl",
+   "away": "BRU",
+   "home": "PSV",
+   "away_name": "Club Brugge",
+   "home_name": "PSV Eindhoven",
+   "game_start": "2026-11-04T20:00Z",
+   "side_std": "under",
+   "money_with": false,
+   "grade": "A",
+   "books": {
+    "at": "2026-11-04T07:42:07Z",
+    "fair": 0.4986,
+    "q": {
+     "Novig": 0.5,
+     "Kalshi": 0.53
+    }
+   }
+  },
+  {
+   "cond": "0x159b76fa5382b06fb70bf17593a79a9ee670b7888af945f917de7579138194eb",
+   "slug": "nba-phi-det-2026-11-04",
+   "title": "76ers vs. Pistons",
+   "mtype": "ml",
+   "start": "2026-11-05T00:00:00Z",
+   "bet": "Pistons ML",
+   "side": "Pistons",
+   "flagged": "2026-11-03T23:12:37Z",
+   "why": "2 top-200 accounts",
+   "proven": false,
+   "trigger": "two",
+   "n_accounts": 2,
+   "best_rank": 93,
+   "usd": 540,
+   "paid": 0.548,
+   "ask": 0.55,
+   "status": "live",
+   "link": "https://polymarket.us/event/nba-phi-det-2026-11-04",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401909922",
+   "sport": "nba",
+   "league": null,
+   "away": "PHI",
+   "home": "DET",
+   "away_name": "Philadelphia 76ers",
+   "home_name": "Detroit Pistons",
+   "game_start": "2026-11-05T00:00Z",
+   "side_std": "home",
+   "money_with": true,
+   "grade": "A",
+   "books": {
+    "at": "2026-11-04T07:42:04Z",
+    "fair": 0.5415,
+    "q": {
+     "Novig": 0.545,
+     "Kalshi": 0.56,
+     "Caesars": 0.5652,
+     "DK": 0.5652
+    }
+   }
+  },
+  {
+   "cond": "0x2bba4a044b8b679166fa334c9a92c76a368e3e79ce09806fd5e8977d61b244fc",
+   "slug": "nba-ind-mem-2026-11-04",
+   "title": "Pacers vs. Grizzlies",
+   "mtype": "ml",
+   "start": "2026-11-05T01:00:00Z",
+   "bet": "Grizzlies ML",
+   "side": "Grizzlies",
+   "flagged": "2026-11-04T08:58:25Z",
+   "why": "a top-50 account",
+   "proven": false,
+   "trigger": "top50",
+   "n_accounts": 1,
+   "best_rank": 43,
+   "usd": 1716,
+   "paid": 0.7,
+   "ask": 0.71,
+   "status": "live",
+   "link": "https://polymarket.us/event/nba-ind-mem-2026-11-04",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401909927",
+   "sport": "nba",
+   "league": null,
+   "away": "IND",
+   "home": "MEM",
+   "away_name": "Indiana Pacers",
+   "home_name": "Memphis Grizzlies",
+   "game_start": "2026-11-05T01:00Z",
+   "side_std": "home",
+   "conflict": [
+    "Kalshi bet back"
+   ],
+   "money_with": false,
+   "grade": "watch",
+   "books": {
+    "at": "2026-11-04T07:42:04Z",
+    "fair": 0.6933,
+    "q": {
+     "Novig": 0.695,
+     "Kalshi": 0.71,
+     "DK": 0.7135,
+     "Caesars": 0.7143
+    }
+   }
+  },
+  {
+   "cond": "0x87c74536e0bdd3b79589f6d894a60bca4e0bbe8c201230754a6aff4b00a63fa6",
+   "slug": "nhl-cal-sea-2026-11-04",
+   "title": "Flames vs. Kraken",
+   "mtype": "ml",
+   "start": "2026-11-05T03:00:00Z",
+   "bet": "Flames ML",
+   "side": "Flames",
+   "flagged": "2026-11-04T00:00:13Z",
+   "why": "a top-200 account also in this sport's top 50",
+   "proven": true,
+   "trigger": "proven",
+   "n_accounts": 1,
+   "best_rank": 197,
+   "usd": 715,
+   "paid": 0.43,
+   "ask": 0.44,
+   "status": "live",
+   "link": "https://polymarket.us/event/nhl-cal-sea-2026-11-04",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401892647",
+   "sport": "nhl",
+   "league": null,
+   "away": "CGY",
+   "home": "SEA",
+   "away_name": "Calgary Flames",
+   "home_name": "Seattle Kraken",
+   "game_start": "2026-11-05T03:00Z",
+   "side_std": "away",
+   "money_with": false,
+   "grade": "A",
+   "books": {
+    "at": "2026-11-04T07:42:04Z",
+    "fair": 0.4375,
+    "q": {
+     "Novig": 0.44,
+     "Kalshi": 0.46,
+     "Caesars": 0.4608,
+     "DK": 0.4673
+    }
+   }
   },
   {
    "cond": "0x00f341c1ce5ac7d38b59f3606333d0db49b6a51f7cfa86c543cebc811ba46f79",
@@ -69,21 +271,278 @@
      "DK": 0.8425
     }
    }
+  },
+  {
+   "cond": "0x420aed52fb1560c0a6c033c271afa01532786963267264f2ceb123e70b41d1f4",
+   "slug": "cfb-ala-lsu-2026-11-07",
+   "title": "Alabama vs. LSU",
+   "mtype": "total",
+   "start": "2026-11-07T20:30:00Z",
+   "bet": "Over 54.5",
+   "side": "Over",
+   "flagged": "2026-11-03T15:16:51Z",
+   "why": "a top-200 account also in this sport's top 50",
+   "proven": true,
+   "trigger": "proven",
+   "n_accounts": 1,
+   "best_rank": 116,
+   "usd": 1505,
+   "paid": 0.45,
+   "ask": 0.44,
+   "status": "live",
+   "link": "https://polymarket.us/event/cfb-ala-lsu-2026-11-07",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401856740",
+   "sport": "cfb",
+   "league": null,
+   "away": "ALA",
+   "home": "LSU",
+   "away_name": "Alabama Crimson Tide",
+   "home_name": "LSU Tigers",
+   "game_start": "2026-11-07T20:30Z",
+   "side_std": "over",
+   "money_with": false,
+   "grade": "A",
+   "books": null
+  },
+  {
+   "cond": "0xc9d9cae40bec805456896cb5b06526a95c99410fe479c791b2a43344e1087c04",
+   "slug": "cfb-mia-nd-2026-11-07",
+   "title": "Miami (FL) vs. Notre Dame",
+   "mtype": "spread",
+   "start": "2026-11-08T00:30:00Z",
+   "bet": "Miami (FL) +5.5",
+   "side": "Miami (FL)",
+   "flagged": "2026-11-03T17:32:39Z",
+   "why": "a top-200 account also in this sport's top 50",
+   "proven": true,
+   "trigger": "proven",
+   "n_accounts": 1,
+   "best_rank": 137,
+   "usd": 3798,
+   "paid": 0.48,
+   "ask": 0.5,
+   "status": "live",
+   "link": "https://polymarket.us/event/cfb-mia-nd-2026-11-07",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401858291",
+   "sport": "cfb",
+   "league": null,
+   "away": "MIA",
+   "home": "ND",
+   "away_name": "Miami Hurricanes",
+   "home_name": "Notre Dame Fighting Irish",
+   "game_start": "2026-11-08T00:30Z",
+   "side_std": "away",
+   "conflict": [
+    "Kalshi move"
+   ],
+   "money_with": false,
+   "grade": "A",
+   "books": {
+    "at": "2026-11-04T07:42:07Z",
+    "fair": 0.4988,
+    "q": {
+     "Kalshi": 0.52,
+     "FD": 0.5238,
+     "DK": 0.5238,
+     "Caesars": 0.5283
+    }
+   }
+  },
+  {
+   "cond": "0x4482ea8fcedde0dfe70a6793f45114b74b40eb73e16bc1c25fe51a999a0ed1b7",
+   "slug": "nfl-det-mia-2026-11-08",
+   "title": "Lions vs. Dolphins",
+   "mtype": "total",
+   "start": "2026-11-08T18:00:00Z",
+   "bet": "Over 50.5",
+   "side": "Over",
+   "flagged": "2026-11-04T01:00:27Z",
+   "why": "a top-200 account also in this sport's top 50",
+   "proven": true,
+   "trigger": "proven",
+   "n_accounts": 1,
+   "best_rank": 137,
+   "usd": 150,
+   "paid": 0.48,
+   "ask": 0.49,
+   "status": "live",
+   "link": "https://polymarket.us/event/nfl-det-mia-2026-11-08",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401873042",
+   "sport": "nfl",
+   "league": null,
+   "away": "DET",
+   "home": "MIA",
+   "away_name": "Detroit Lions",
+   "home_name": "Miami Dolphins",
+   "game_start": "2026-11-08T18:00Z",
+   "side_std": "over",
+   "money_with": false,
+   "grade": "A",
+   "books": {
+    "at": "2026-11-04T07:42:12Z",
+    "fair": 0.4961,
+    "q": {
+     "Novig": 0.5,
+     "Kalshi": 0.51,
+     "Caesars": 0.5146,
+     "FD": 0.5238
+    }
+   }
+  },
+  {
+   "cond": "0x8f097e91950aedef3070948ea5a777474f1d1f78e82796b3fe4b34afe0eb53f3",
+   "slug": "nba-atl-was-2026-11-04",
+   "title": "Hawks vs. Wizards",
+   "mtype": "ml",
+   "start": "2026-11-05T00:00:00Z",
+   "bet": "Hawks ML",
+   "side": "Hawks",
+   "flagged": "2026-11-03T13:11:31Z",
+   "why": "a top-50 account",
+   "proven": false,
+   "trigger": "top50",
+   "n_accounts": 1,
+   "best_rank": 43,
+   "usd": 234,
+   "paid": 0.519,
+   "ask": 0.57,
+   "status": "live",
+   "link": "https://polymarket.us/event/nba-atl-was-2026-11-04",
+   "other": null,
+   "kalshi_against": {
+    "move": 4.5,
+    "now": 43.5,
+    "state": "reversed"
+   },
+   "logged": true,
+   "event_id": "401909923",
+   "sport": "nba",
+   "league": null,
+   "away": "ATL",
+   "home": "WSH",
+   "away_name": "Atlanta Hawks",
+   "home_name": "Washington Wizards",
+   "game_start": "2026-11-05T00:00Z",
+   "side_std": "away",
+   "conflict": [
+    "Kalshi move"
+   ],
+   "money_with": false,
+   "grade": "watch",
+   "books": {
+    "at": "2026-11-04T07:42:04Z",
+    "fair": 0.5653,
+    "q": {
+     "Novig": 0.565,
+     "DK": 0.5868,
+     "Kalshi": 0.59,
+     "Caesars": 0.5918
+    }
+   }
+  },
+  {
+   "cond": "0x8c46d71e1ac2d02318e36c88763d512a25f73153f03dffa8df67212a5a922698",
+   "slug": "nba-por-phx-2026-11-04",
+   "title": "Trail Blazers vs. Suns",
+   "mtype": "ml",
+   "start": "2026-11-05T02:00:00Z",
+   "bet": "Trail Blazers ML",
+   "side": "Trail Blazers",
+   "flagged": "2026-11-04T08:59:36Z",
+   "why": "a top-50 account",
+   "proven": false,
+   "trigger": "top50",
+   "n_accounts": 1,
+   "best_rank": 43,
+   "usd": 226,
+   "paid": 0.58,
+   "ask": 0.58,
+   "status": "live",
+   "link": "https://polymarket.us/event/nba-por-phx-2026-11-04",
+   "other": null,
+   "kalshi_against": {
+    "move": 7.0,
+    "now": 42.5,
+    "state": "reversed"
+   },
+   "logged": true,
+   "event_id": "401909932",
+   "sport": "nba",
+   "league": null,
+   "away": "POR",
+   "home": "PHX",
+   "away_name": "Portland Trail Blazers",
+   "home_name": "Phoenix Suns",
+   "game_start": "2026-11-05T02:00Z",
+   "side_std": "away",
+   "conflict": [
+    "Kalshi bet back",
+    "Kalshi move"
+   ],
+   "money_with": false,
+   "grade": "watch",
+   "books": {
+    "at": "2026-11-04T07:42:04Z",
+    "fair": 0.581,
+    "q": {
+     "Novig": 0.58,
+     "FD": 0.5968,
+     "Caesars": 0.6078,
+     "DK": 0.6078
+    }
+   }
   }
  ],
  "record": {
-  "n": 0,
-  "won": 0,
-  "units": 0,
-  "by_grade": {},
-  "units_1u": 0,
-  "clv": null,
-  "n_venue": 0,
-  "units_venue": 0,
-  "clv_venue": null,
-  "clv_poly_same": null
+  "n": 21,
+  "won": 7,
+  "units": -3.18,
+  "by_grade": {
+   "A": {
+    "n": 10,
+    "won": 4,
+    "units": -1.43,
+    "clv": 1.73
+   },
+   "B": {
+    "n": 6,
+    "won": 1,
+    "units": -1.29,
+    "clv": -3.67
+   },
+   "watch": {
+    "n": 5,
+    "won": 2,
+    "units": -0.46,
+    "clv": -3.0
+   }
+  },
+  "units_1u": -8.51,
+  "clv": -0.6,
+  "n_venue": 14,
+  "units_venue": -2.31,
+  "clv_venue": 1.38,
+  "clv_poly_same": -1.95
  },
- "sys_tags": {},
+ "sys_tags": {
+  "401909928:nba_under_good_home_over": {
+   "with": null,
+   "against": {
+    "n": 1,
+    "best_rank": 76,
+    "usd": 939
+   }
+  }
+ },
  "by_event": {
   "401873037|ml": {
    "away": {
@@ -97,6 +556,102 @@
     "n": 1,
     "best_rank": 121,
     "usd": 116
+   }
+  },
+  "401873042|total": {
+   "over": {
+    "n": 1,
+    "best_rank": 137,
+    "usd": 150
+   }
+  },
+  "401909922|ml": {
+   "home": {
+    "n": 2,
+    "best_rank": 93,
+    "usd": 540
+   }
+  },
+  "401909922|spread": {
+   "home": {
+    "n": 1,
+    "best_rank": 119,
+    "usd": 1447
+   }
+  },
+  "401909923|ml": {
+   "away": {
+    "n": 1,
+    "best_rank": 43,
+    "usd": 234
+   }
+  },
+  "401909924|ml": {
+   "away": {
+    "n": 1,
+    "best_rank": 142,
+    "usd": 1500
+   },
+   "home": {
+    "n": 2,
+    "best_rank": 4,
+    "usd": 499
+   }
+  },
+  "401909927|ml": {
+   "home": {
+    "n": 1,
+    "best_rank": 43,
+    "usd": 1716
+   }
+  },
+  "401909928|ml": {
+   "home": {
+    "n": 1,
+    "best_rank": 93,
+    "usd": 199
+   }
+  },
+  "401909928|total": {
+   "over": {
+    "n": 1,
+    "best_rank": 76,
+    "usd": 939
+   }
+  },
+  "401909932|ml": {
+   "away": {
+    "n": 1,
+    "best_rank": 43,
+    "usd": 226
+   }
+  },
+  "401892647|ml": {
+   "away": {
+    "n": 1,
+    "best_rank": 197,
+    "usd": 715
+   }
+  },
+  "401856740|total": {
+   "over": {
+    "n": 1,
+    "best_rank": 116,
+    "usd": 1505
+   }
+  },
+  "401858291|spread": {
+   "away": {
+    "n": 1,
+    "best_rank": 137,
+    "usd": 3798
+   }
+  },
+  "401915303|total": {
+   "under": {
+    "n": 1,
+    "best_rank": 132,
+    "usd": 2335
    }
   }
  },
