@@ -1,0 +1,899 @@
+{
+ "n_odds": 16556,
+ "n_joined": 6754,
+ "unmatched": {
+  "no match": 8529,
+  "date/score": 1273
+ },
+ "0 market calibration by Pinnacle favourite probability (bet fav)": {
+  "0.50": {
+   "n": 610,
+   "side": "fav",
+   "win_rate": 0.493,
+   "market": 0.527,
+   "edge": -3.4,
+   "se": 2.0,
+   "roi": -8.5,
+   "roi_best_price": -5.7,
+   "elo_vs_market": -1.6
+  },
+  "0.55": {
+   "n": 765,
+   "side": "fav",
+   "win_rate": 0.59,
+   "market": 0.575,
+   "edge": 1.5,
+   "se": 1.8,
+   "roi": 0.0,
+   "roi_best_price": 2.6,
+   "elo_vs_market": -2.7
+  },
+  "0.60": {
+   "n": 802,
+   "side": "fav",
+   "win_rate": 0.625,
+   "market": 0.625,
+   "edge": -0.0,
+   "se": 1.7,
+   "roi": -2.5,
+   "roi_best_price": 0.1,
+   "elo_vs_market": -3.2
+  },
+  "0.65": {
+   "n": 827,
+   "side": "fav",
+   "win_rate": 0.699,
+   "market": 0.675,
+   "edge": 2.4,
+   "se": 1.6,
+   "roi": 1.0,
+   "roi_best_price": 3.6,
+   "elo_vs_market": -3.9
+  },
+  "0.70": {
+   "n": 756,
+   "side": "fav",
+   "win_rate": 0.714,
+   "market": 0.726,
+   "edge": -1.2,
+   "se": 1.6,
+   "roi": -4.0,
+   "roi_best_price": -2.1,
+   "elo_vs_market": -5.0
+  },
+  "0.75": {
+   "n": 783,
+   "side": "fav",
+   "win_rate": 0.81,
+   "market": 0.775,
+   "edge": 3.5,
+   "se": 1.5,
+   "roi": 1.9,
+   "roi_best_price": 4.6,
+   "elo_vs_market": -5.4
+  },
+  "0.80": {
+   "n": 755,
+   "side": "fav",
+   "win_rate": 0.849,
+   "market": 0.825,
+   "edge": 2.4,
+   "se": 1.4,
+   "roi": 0.4,
+   "roi_best_price": 2.4,
+   "elo_vs_market": -6.3
+  },
+  "0.85": {
+   "n": 684,
+   "side": "fav",
+   "win_rate": 0.882,
+   "market": 0.874,
+   "edge": 0.7,
+   "se": 1.3,
+   "roi": -1.6,
+   "roi_best_price": 0.1,
+   "elo_vs_market": -6.2
+  },
+  "0.90": {
+   "n": 572,
+   "side": "fav",
+   "win_rate": 0.949,
+   "market": 0.923,
+   "edge": 2.6,
+   "se": 1.1,
+   "roi": 0.3,
+   "roi_best_price": 1.8,
+   "elo_vs_market": -4.7
+  },
+  "0.95": {
+   "n": 200,
+   "side": "fav",
+   "win_rate": 0.985,
+   "market": 0.962,
+   "edge": 2.3,
+   "se": 1.3,
+   "roi": 0.1,
+   "roi_best_price": 1.1,
+   "elo_vs_market": -2.1
+  }
+ },
+ "0b by tour (bet fav)": {
+  "atp": {
+   "n": 3460,
+   "side": "fav",
+   "win_rate": 0.763,
+   "market": 0.747,
+   "edge": 1.5,
+   "se": 0.7,
+   "roi": -0.2,
+   "roi_best_price": 1.9,
+   "elo_vs_market": -4.1
+  },
+  "wta": {
+   "n": 3294,
+   "side": "fav",
+   "win_rate": 0.713,
+   "market": 0.708,
+   "edge": 0.6,
+   "se": 0.8,
+   "roi": -2.4,
+   "roi_best_price": -0.0,
+   "elo_vs_market": -4.5
+  }
+ },
+ "0c by level (bet fav)": {
+  "atp_tour_bo5": {
+   "n": 3460,
+   "side": "fav",
+   "win_rate": 0.763,
+   "market": 0.747,
+   "edge": 1.5,
+   "se": 0.7,
+   "roi": -0.2,
+   "roi_best_price": 1.9,
+   "elo_vs_market": -4.1
+  },
+  "wta_tour": {
+   "n": 3294,
+   "side": "fav",
+   "win_rate": 0.713,
+   "market": 0.708,
+   "edge": 0.6,
+   "se": 0.8,
+   "roi": -2.4,
+   "roi_best_price": -0.0,
+   "elo_vs_market": -4.5
+  }
+ },
+ "1 Elo disagrees with the close: bet the side Elo likes, by Elo-market gap": {
+  "Elo likes dog 4-8%": {
+   "n": 1110,
+   "side": "dog",
+   "win_rate": 0.24,
+   "market": 0.262,
+   "edge": -2.2,
+   "se": 1.3,
+   "roi": -17.9,
+   "roi_best_price": -14.5,
+   "elo_vs_market": 5.9
+  },
+  "Elo likes dog by 8%+": {
+   "n": 2076,
+   "side": "dog",
+   "win_rate": 0.254,
+   "market": 0.271,
+   "edge": -1.7,
+   "se": 1.0,
+   "roi": -11.5,
+   "roi_best_price": -7.4,
+   "elo_vs_market": 15.7
+  },
+  "Elo likes fav 4-8%": {
+   "n": 626,
+   "side": "fav",
+   "win_rate": 0.695,
+   "market": 0.691,
+   "edge": 0.4,
+   "se": 1.8,
+   "roi": -2.1,
+   "roi_best_price": -0.2,
+   "elo_vs_market": 5.7
+  },
+  "Elo likes fav by 8%+": {
+   "n": 581,
+   "side": "fav",
+   "win_rate": 0.644,
+   "market": 0.635,
+   "edge": 0.9,
+   "se": 2.0,
+   "roi": -1.6,
+   "roi_best_price": 0.7,
+   "elo_vs_market": 12.5
+  },
+  "within 4%": {
+   "n": 2309,
+   "side": "fav",
+   "win_rate": 0.489,
+   "market": 0.482,
+   "edge": 0.7,
+   "se": 1.0,
+   "roi": -3.9,
+   "roi_best_price": -0.6,
+   "elo_vs_market": 1.9
+  }
+ },
+ "1b same, holdout 2021-2023": {
+  "Elo likes dog by 5%+": {
+   "n": 764,
+   "side": "dog",
+   "win_rate": 0.268,
+   "market": 0.273,
+   "edge": -0.5,
+   "se": 1.6,
+   "roi": -9.2,
+   "roi_best_price": -2.9,
+   "elo_vs_market": 11.8
+  },
+  "Elo likes fav by 5%+": {
+   "n": 317,
+   "side": "fav",
+   "win_rate": 0.659,
+   "market": 0.655,
+   "edge": 0.4,
+   "se": 2.7,
+   "roi": -2.1,
+   "roi_best_price": 0.4,
+   "elo_vs_market": 9.7
+  },
+  "within 5%": {
+   "n": 928,
+   "side": "fav",
+   "win_rate": 0.472,
+   "market": 0.469,
+   "edge": 0.3,
+   "se": 1.6,
+   "roi": -7.5,
+   "roi_best_price": -3.8,
+   "elo_vs_market": 2.4
+  }
+ },
+ "1c Elo picks the other player (Elo dog is the market fav): bet Elo favourite": {
+  "Elo favourite is the market dog": {
+   "n": 843,
+   "side": "dog",
+   "win_rate": 0.405,
+   "market": 0.404,
+   "edge": 0.1,
+   "se": 1.7,
+   "roi": -2.9,
+   "roi_best_price": 0.4,
+   "elo_vs_market": 16.8
+  }
+ },
+ "2 form (last 10), bet the hotter side": {
+  "dog hotter 10-30%": {
+   "n": 793,
+   "side": "dog",
+   "win_rate": 0.291,
+   "market": 0.32,
+   "edge": -2.9,
+   "se": 1.7,
+   "roi": -15.2,
+   "roi_best_price": -11.7,
+   "elo_vs_market": 7.7
+  },
+  "dog hotter by 30%+": {
+   "n": 320,
+   "side": "dog",
+   "win_rate": 0.353,
+   "market": 0.341,
+   "edge": 1.3,
+   "se": 2.6,
+   "roi": 2.9,
+   "roi_best_price": 7.7,
+   "elo_vs_market": 10.3
+  },
+  "fav hotter 10-30%": {
+   "n": 1567,
+   "side": "fav",
+   "win_rate": 0.744,
+   "market": 0.746,
+   "edge": -0.2,
+   "se": 1.1,
+   "roi": -2.6,
+   "roi_best_price": -0.5,
+   "elo_vs_market": -2.2
+  },
+  "fav hotter by 30%+": {
+   "n": 1217,
+   "side": "fav",
+   "win_rate": 0.825,
+   "market": 0.791,
+   "edge": 3.4,
+   "se": 1.2,
+   "roi": 2.0,
+   "roi_best_price": 4.0,
+   "elo_vs_market": -1.5
+  },
+  "similar": {
+   "n": 2857,
+   "side": "fav",
+   "win_rate": 0.616,
+   "market": 0.619,
+   "edge": -0.3,
+   "se": 0.9,
+   "roi": -5.9,
+   "roi_best_price": -3.3,
+   "elo_vs_market": -2.0
+  }
+ },
+ "2b favourite hotter by 30%+, by year (bet fav)": {
+  "2015": {
+   "n": 114,
+   "side": "fav",
+   "win_rate": 0.886,
+   "market": 0.826,
+   "edge": 6.0,
+   "se": 3.6,
+   "roi": 6.2,
+   "roi_best_price": 7.6,
+   "elo_vs_market": 0.2
+  },
+  "2016": {
+   "n": 151,
+   "side": "fav",
+   "win_rate": 0.808,
+   "market": 0.791,
+   "edge": 1.7,
+   "se": 3.3,
+   "roi": -0.1,
+   "roi_best_price": 1.4,
+   "elo_vs_market": 0.4
+  },
+  "2017": {
+   "n": 148,
+   "side": "fav",
+   "win_rate": 0.865,
+   "market": 0.803,
+   "edge": 6.2,
+   "se": 3.3,
+   "roi": 5.5,
+   "roi_best_price": 6.9,
+   "elo_vs_market": -0.3
+  },
+  "2018": {
+   "n": 140,
+   "side": "fav",
+   "win_rate": 0.771,
+   "market": 0.798,
+   "edge": -2.6,
+   "se": 3.4,
+   "roi": -6.7,
+   "roi_best_price": -4.7,
+   "elo_vs_market": -0.9
+  },
+  "2019": {
+   "n": 167,
+   "side": "fav",
+   "win_rate": 0.844,
+   "market": 0.787,
+   "edge": 5.8,
+   "se": 3.2,
+   "roi": 6.2,
+   "roi_best_price": 8.6,
+   "elo_vs_market": -1.5
+  },
+  "2020": {
+   "n": 103,
+   "side": "fav",
+   "win_rate": 0.796,
+   "market": 0.766,
+   "edge": 3.0,
+   "se": 4.2,
+   "roi": 1.4,
+   "roi_best_price": 4.0,
+   "elo_vs_market": -1.2
+  },
+  "2021": {
+   "n": 182,
+   "side": "fav",
+   "win_rate": 0.857,
+   "market": 0.792,
+   "edge": 6.5,
+   "se": 3.0,
+   "roi": 6.1,
+   "roi_best_price": 8.5,
+   "elo_vs_market": -4.6
+  },
+  "2022": {
+   "n": 173,
+   "side": "fav",
+   "win_rate": 0.769,
+   "market": 0.776,
+   "edge": -0.8,
+   "se": 3.2,
+   "roi": -3.8,
+   "roi_best_price": -1.6,
+   "elo_vs_market": -3.2
+  }
+ },
+ "2c favourite hotter by 30%+, by tour and price (bet fav)": {
+  "atp fav 70-85%": {
+   "n": 185,
+   "side": "fav",
+   "win_rate": 0.832,
+   "market": 0.785,
+   "edge": 4.8,
+   "se": 3.0,
+   "roi": 3.9,
+   "roi_best_price": 6.0,
+   "elo_vs_market": -1.1
+  },
+  "atp fav 85%+": {
+   "n": 287,
+   "side": "fav",
+   "win_rate": 0.944,
+   "market": 0.925,
+   "edge": 1.9,
+   "se": 1.6,
+   "roi": -0.3,
+   "roi_best_price": 1.0,
+   "elo_vs_market": -1.3
+  },
+  "atp fav under 70%": {
+   "n": 146,
+   "side": "fav",
+   "win_rate": 0.678,
+   "market": 0.609,
+   "edge": 6.9,
+   "se": 4.0,
+   "roi": 10.1,
+   "roi_best_price": 13.2,
+   "elo_vs_market": 3.5
+  },
+  "wta fav 70-85%": {
+   "n": 234,
+   "side": "fav",
+   "win_rate": 0.846,
+   "market": 0.784,
+   "edge": 6.3,
+   "se": 2.7,
+   "roi": 5.3,
+   "roi_best_price": 7.5,
+   "elo_vs_market": -3.2
+  },
+  "wta fav 85%+": {
+   "n": 192,
+   "side": "fav",
+   "win_rate": 0.927,
+   "market": 0.9,
+   "edge": 2.7,
+   "se": 2.2,
+   "roi": 0.4,
+   "roi_best_price": 2.0,
+   "elo_vs_market": -4.0
+  },
+  "wta fav under 70%": {
+   "n": 173,
+   "side": "fav",
+   "win_rate": 0.601,
+   "market": 0.618,
+   "edge": -1.7,
+   "se": 3.7,
+   "roi": -5.9,
+   "roi_best_price": -3.5,
+   "elo_vs_market": -1.5
+  }
+ },
+ "2d favourite hotter by 30%+ and Elo agrees with the market within 5% (bet fav)": {
+  "hot fav, Elo agrees": {
+   "n": 588,
+   "side": "fav",
+   "win_rate": 0.847,
+   "market": 0.826,
+   "edge": 2.1,
+   "se": 1.6,
+   "roi": 0.2,
+   "roi_best_price": 2.0,
+   "elo_vs_market": 0.0
+  },
+  "hot fav, Elo likes the dog 5%+": {
+   "n": 372,
+   "side": "fav",
+   "win_rate": 0.812,
+   "market": 0.778,
+   "edge": 3.4,
+   "se": 2.2,
+   "roi": 1.5,
+   "roi_best_price": 3.7,
+   "elo_vs_market": -11.1
+  }
+ },
+ "3 first match of the event (bet the side that has already played)": {
+  "both first match": {
+   "n": 3298,
+   "side": "fav",
+   "win_rate": 0.744,
+   "market": 0.725,
+   "edge": 1.9,
+   "se": 0.8,
+   "roi": 0.0,
+   "roi_best_price": 2.2,
+   "elo_vs_market": -5.1
+  },
+  "both have played": {
+   "n": 3392,
+   "side": "fav",
+   "win_rate": 0.735,
+   "market": 0.732,
+   "edge": 0.3,
+   "se": 0.8,
+   "roi": -2.4,
+   "roi_best_price": -0.1,
+   "elo_vs_market": -3.4
+  }
+ },
+ "4 layoff 28+ days, both in their first match (bet the rested side's opponent)": {
+  "dog off 28+ days": {
+   "n": 349,
+   "side": "fav",
+   "win_rate": 0.785,
+   "market": 0.755,
+   "edge": 3.0,
+   "se": 2.3,
+   "roi": 0.8,
+   "roi_best_price": 2.8,
+   "elo_vs_market": -9.3
+  },
+  "fav off 28+ days": {
+   "n": 204,
+   "side": "dog",
+   "win_rate": 0.25,
+   "market": 0.277,
+   "edge": -2.7,
+   "se": 3.1,
+   "roi": -21.8,
+   "roi_best_price": -18.3,
+   "elo_vs_market": 1.9
+  },
+  "neither": {
+   "n": 2714,
+   "side": "fav",
+   "win_rate": 0.738,
+   "market": 0.721,
+   "edge": 1.6,
+   "se": 0.9,
+   "roi": -0.3,
+   "roi_best_price": 1.9,
+   "elo_vs_market": -4.8
+  }
+ },
+ "5 surface switch, both in their first match (bet the side that did not switch)": {
+  "dog switched, fav did not": {
+   "n": 319,
+   "side": "fav",
+   "win_rate": 0.762,
+   "market": 0.768,
+   "edge": -0.6,
+   "se": 2.4,
+   "roi": -3.6,
+   "roi_best_price": -1.7,
+   "elo_vs_market": -10.0
+  },
+  "fav switched, dog did not": {
+   "n": 120,
+   "side": "dog",
+   "win_rate": 0.242,
+   "market": 0.283,
+   "edge": -4.1,
+   "se": 4.1,
+   "roi": -23.8,
+   "roi_best_price": -20.2,
+   "elo_vs_market": 1.7
+  },
+  "neither": {
+   "n": 2826,
+   "side": "fav",
+   "win_rate": 0.739,
+   "market": 0.72,
+   "edge": 1.9,
+   "se": 0.8,
+   "roi": -0.1,
+   "roi_best_price": 2.1,
+   "elo_vs_market": -4.6
+  }
+ },
+ "5b surface switch, all matches": {
+  "dog switched, fav did not": {
+   "n": 323,
+   "side": "fav",
+   "win_rate": 0.759,
+   "market": 0.766,
+   "edge": -0.8,
+   "se": 2.4,
+   "roi": -3.8,
+   "roi_best_price": -1.9,
+   "elo_vs_market": -10.1
+  },
+  "fav switched, dog did not": {
+   "n": 123,
+   "side": "dog",
+   "win_rate": 0.252,
+   "market": 0.283,
+   "edge": -3.1,
+   "se": 4.1,
+   "roi": -19.8,
+   "roi_best_price": -15.9,
+   "elo_vs_market": 2.0
+  }
+ },
+ "6 head-to-head (bet the h2h leader)": {
+  "dog leads h2h": {
+   "n": 774,
+   "side": "dog",
+   "win_rate": 0.31,
+   "market": 0.336,
+   "edge": -2.6,
+   "se": 1.7,
+   "roi": -11.7,
+   "roi_best_price": -7.9,
+   "elo_vs_market": 2.9
+  },
+  "fav leads h2h": {
+   "n": 1989,
+   "side": "fav",
+   "win_rate": 0.743,
+   "market": 0.744,
+   "edge": -0.1,
+   "se": 1.0,
+   "roi": -2.8,
+   "roi_best_price": -0.4,
+   "elo_vs_market": -3.7
+  },
+  "no edge / level": {
+   "n": 3991,
+   "side": "fav",
+   "win_rate": 0.746,
+   "market": 0.733,
+   "edge": 1.3,
+   "se": 0.7,
+   "roi": -1.0,
+   "roi_best_price": 1.1,
+   "elo_vs_market": -4.8
+  }
+ },
+ "6b dog leads h2h by 2+ (bet dog)": {
+  "dog leads by 2+": {
+   "n": 159,
+   "side": "dog",
+   "win_rate": 0.365,
+   "market": 0.364,
+   "edge": 0.1,
+   "se": 3.8,
+   "roi": -1.0,
+   "roi_best_price": 4.0,
+   "elo_vs_market": 3.0
+  }
+ },
+ "7 entry (bet dog)": {
+  "dog is a lucky loser": {
+   "n": 105,
+   "side": "dog",
+   "win_rate": 0.219,
+   "market": 0.258,
+   "edge": -3.9,
+   "se": 4.3,
+   "roi": -18.9,
+   "roi_best_price": -13.1,
+   "elo_vs_market": 6.1
+  },
+  "dog is a qualifier": {
+   "n": 606,
+   "side": "dog",
+   "win_rate": 0.226,
+   "market": 0.247,
+   "edge": -2.1,
+   "se": 1.8,
+   "roi": -17.0,
+   "roi_best_price": -13.2,
+   "elo_vs_market": 2.9
+  },
+  "dog is a wild card": {
+   "n": 208,
+   "side": "dog",
+   "win_rate": 0.24,
+   "market": 0.222,
+   "edge": 1.9,
+   "se": 2.9,
+   "roi": 1.6,
+   "roi_best_price": 9.7,
+   "elo_vs_market": 6.6
+  },
+  "fav is a qualifier": {
+   "n": 125,
+   "side": "dog",
+   "win_rate": 0.304,
+   "market": 0.365,
+   "edge": -6.1,
+   "se": 4.3,
+   "roi": -19.5,
+   "roi_best_price": -15.9,
+   "elo_vs_market": 9.3
+  },
+  "fav is a wild card": {
+   "n": 40,
+   "side": "dog",
+   "win_rate": 0.3,
+   "market": 0.379,
+   "edge": -7.9,
+   "se": 7.7,
+   "roi": -27.4,
+   "roi_best_price": -24.9,
+   "elo_vs_market": 9.2
+  }
+ },
+ "8 lefties (bet the lefty)": {
+  "dog lefty vs righty": {
+   "n": 672,
+   "side": "dog",
+   "win_rate": 0.241,
+   "market": 0.265,
+   "edge": -2.4,
+   "se": 1.7,
+   "roi": -14.6,
+   "roi_best_price": -9.9,
+   "elo_vs_market": 4.0
+  },
+  "fav lefty vs righty": {
+   "n": 650,
+   "side": "fav",
+   "win_rate": 0.723,
+   "market": 0.731,
+   "edge": -0.8,
+   "se": 1.7,
+   "roi": -3.5,
+   "roi_best_price": -1.3,
+   "elo_vs_market": -4.3
+  }
+ },
+ "9 serve profile (bet the bigger server)": {
+  "dog holds 3%+ more": {
+   "n": 1206,
+   "side": "dog",
+   "win_rate": 0.329,
+   "market": 0.341,
+   "edge": -1.2,
+   "se": 1.4,
+   "roi": -9.9,
+   "roi_best_price": -6.7,
+   "elo_vs_market": 5.1
+  },
+  "fav holds 3%+ more": {
+   "n": 3828,
+   "side": "fav",
+   "win_rate": 0.768,
+   "market": 0.759,
+   "edge": 0.9,
+   "se": 0.7,
+   "roi": -1.4,
+   "roi_best_price": 0.7,
+   "elo_vs_market": -3.9
+  },
+  "similar": {
+   "n": 1550,
+   "side": "dog",
+   "win_rate": 0.526,
+   "market": 0.52,
+   "edge": 0.6,
+   "se": 1.3,
+   "roi": -1.7,
+   "roi_best_price": 2.8,
+   "elo_vs_market": -0.2
+  }
+ },
+ "10 round (bet fav)": {
+  "QF": {
+   "n": 224,
+   "side": "fav",
+   "win_rate": 0.705,
+   "market": 0.721,
+   "edge": -1.5,
+   "se": 3.0,
+   "roi": -4.7,
+   "roi_best_price": -2.4,
+   "elo_vs_market": -3.7
+  },
+  "R128": {
+   "n": 3356,
+   "side": "fav",
+   "win_rate": 0.742,
+   "market": 0.724,
+   "edge": 1.8,
+   "se": 0.8,
+   "roi": -0.1,
+   "roi_best_price": 2.0,
+   "elo_vs_market": -5.1
+  },
+  "R16": {
+   "n": 435,
+   "side": "fav",
+   "win_rate": 0.685,
+   "market": 0.718,
+   "edge": -3.3,
+   "se": 2.2,
+   "roi": -6.6,
+   "roi_best_price": -4.3,
+   "elo_vs_market": -2.0
+  },
+  "R32": {
+   "n": 873,
+   "side": "fav",
+   "win_rate": 0.739,
+   "market": 0.721,
+   "edge": 1.8,
+   "se": 1.5,
+   "roi": -0.2,
+   "roi_best_price": 2.0,
+   "elo_vs_market": -2.7
+  },
+  "R64": {
+   "n": 1693,
+   "side": "fav",
+   "win_rate": 0.751,
+   "market": 0.745,
+   "edge": 0.6,
+   "se": 1.1,
+   "roi": -2.2,
+   "roi_best_price": -0.1,
+   "elo_vs_market": -4.1
+  },
+  "SF": {
+   "n": 114,
+   "side": "fav",
+   "win_rate": 0.746,
+   "market": 0.714,
+   "edge": 3.1,
+   "se": 4.2,
+   "roi": -0.5,
+   "roi_best_price": 2.3,
+   "elo_vs_market": -3.5
+  }
+ },
+ "10b best-of-5 vs 3 (bet fav)": {
+  "bo3": {
+   "n": 3294,
+   "side": "fav",
+   "win_rate": 0.713,
+   "market": 0.708,
+   "edge": 0.6,
+   "se": 0.8,
+   "roi": -2.4,
+   "roi_best_price": -0.0,
+   "elo_vs_market": -4.5
+  },
+  "bo5": {
+   "n": 3460,
+   "side": "fav",
+   "win_rate": 0.763,
+   "market": 0.747,
+   "edge": 1.5,
+   "se": 0.7,
+   "roi": -0.2,
+   "roi_best_price": 1.9,
+   "elo_vs_market": -4.1
+  }
+ },
+ "11 shop: Pinnacle close vs best price in the market (bet fav)": {
+  "fav": {
+   "n": 6754,
+   "side": "fav",
+   "win_rate": 0.739,
+   "market": 0.728,
+   "edge": 1.1,
+   "se": 0.5,
+   "roi": -1.2,
+   "roi_best_price": 1.0,
+   "elo_vs_market": -4.3
+  }
+ }
+}
