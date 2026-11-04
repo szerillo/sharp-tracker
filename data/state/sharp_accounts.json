@@ -1,5 +1,5 @@
 {
- "built": "2026-11-04T10:55:26Z",
+ "built": "2026-11-04T11:04:39Z",
  "rows": [
   {
    "cond": "0x69aeb202063d522a2138eea4af2b246ded0b5f0a369e3533844d3c3a91126b7a",
@@ -52,48 +52,6 @@
    "books": null
   },
   {
-   "cond": "0xc2f77c45bc149b45c089dc80452787bd4cfe3fd94d8f2c9cb06d0b7ac1d2b4bc",
-   "slug": "ucl-psv-bru-2026-11-04-more-markets",
-   "title": "PSV vs. Club Brugge KV - More Markets",
-   "mtype": "total",
-   "start": "2026-11-04T20:00:00Z",
-   "bet": "Under 3.5",
-   "side": "Under",
-   "flagged": "2026-11-04T07:13:58Z",
-   "why": "a top-200 account also in this sport's top 50",
-   "proven": true,
-   "trigger": "proven",
-   "n_accounts": 1,
-   "best_rank": 132,
-   "usd": 2335,
-   "paid": 0.5,
-   "ask": 0.51,
-   "status": "live",
-   "link": "https://polymarket.us/event/ucl-psv-bru-2026-11-04-more-markets",
-   "other": null,
-   "kalshi_against": null,
-   "logged": true,
-   "event_id": "401915303",
-   "sport": "soccer",
-   "league": "ucl",
-   "away": "BRU",
-   "home": "PSV",
-   "away_name": "Club Brugge",
-   "home_name": "PSV Eindhoven",
-   "game_start": "2026-11-04T20:00Z",
-   "side_std": "under",
-   "money_with": false,
-   "grade": "A",
-   "books": {
-    "at": "2026-11-04T09:23:11Z",
-    "fair": 0.5087,
-    "q": {
-     "Novig": 0.515,
-     "Kalshi": 0.53
-    }
-   }
-  },
-  {
    "cond": "0x159b76fa5382b06fb70bf17593a79a9ee670b7888af945f917de7579138194eb",
    "slug": "nba-phi-det-2026-11-04",
    "title": "76ers vs. Pistons",
@@ -127,8 +85,8 @@
    "money_with": true,
    "grade": "A",
    "books": {
-    "at": "2026-11-04T09:23:09Z",
-    "fair": 0.5448,
+    "at": "2026-11-04T10:03:31Z",
+    "fair": 0.5444,
     "q": {
      "Novig": 0.55,
      "Kalshi": 0.56,
@@ -174,8 +132,8 @@
    "money_with": false,
    "grade": "watch",
    "books": {
-    "at": "2026-11-04T09:23:09Z",
-    "fair": 0.6992,
+    "at": "2026-11-04T10:03:31Z",
+    "fair": 0.6994,
     "q": {
      "Novig": 0.7,
      "Kalshi": 0.71,
@@ -218,7 +176,7 @@
    "money_with": false,
    "grade": "A",
    "books": {
-    "at": "2026-11-04T09:23:02Z",
+    "at": "2026-11-04T10:03:33Z",
     "fair": 0.4405,
     "q": {
      "Novig": 0.44,
@@ -227,6 +185,31 @@
      "Kalshi": 0.47
     }
    }
+  },
+  {
+   "cond": "0x43bf75f521791c9dbf8423892ee11a1cb036ace20ff03283090d79e7a4174bbe",
+   "slug": "nhl-utah-mon-2026-11-05",
+   "title": "Utah vs. Canadiens",
+   "mtype": "ml",
+   "start": "2026-11-06T00:00:00Z",
+   "bet": "Utah ML",
+   "side": "Utah",
+   "flagged": "2026-11-04T10:57:01Z",
+   "why": "a top-200 account also in this sport's top 50",
+   "proven": true,
+   "trigger": "proven",
+   "n_accounts": 1,
+   "best_rank": 197,
+   "usd": 2933,
+   "paid": 0.51,
+   "ask": 0.54,
+   "status": "live",
+   "link": "https://polymarket.us/event/nhl-utah-mon-2026-11-05",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "grade": "A",
+   "books": null
   },
   {
    "cond": "0x00f341c1ce5ac7d38b59f3606333d0db49b6a51f7cfa86c543cebc811ba46f79",
@@ -262,13 +245,13 @@
    "money_with": true,
    "grade": "A",
    "books": {
-    "at": "2026-11-04T09:23:05Z",
-    "fair": 0.8165,
+    "at": "2026-11-04T09:43:14Z",
+    "fair": 0.8167,
     "q": {
      "Novig": 0.815,
-     "DK": 0.8387,
      "FD": 0.8387,
-     "Kalshi": 0.84
+     "Kalshi": 0.84,
+     "DK": 0.8425
     }
    }
   },
@@ -344,7 +327,7 @@
    "money_with": false,
    "grade": "A",
    "books": {
-    "at": "2026-11-04T09:23:01Z",
+    "at": "2026-11-04T10:03:34Z",
     "fair": 0.4988,
     "q": {
      "Kalshi": 0.52,
@@ -388,7 +371,7 @@
    "money_with": false,
    "grade": "A",
    "books": {
-    "at": "2026-11-04T09:23:05Z",
+    "at": "2026-11-04T09:43:14Z",
     "fair": 0.4947,
     "q": {
      "Novig": 0.5,
@@ -397,6 +380,47 @@
      "Caesars": 0.5146
     }
    }
+  },
+  {
+   "cond": "0xc2f77c45bc149b45c089dc80452787bd4cfe3fd94d8f2c9cb06d0b7ac1d2b4bc",
+   "slug": "ucl-psv-bru-2026-11-04-more-markets",
+   "title": "PSV vs. Club Brugge KV - More Markets",
+   "mtype": "total",
+   "start": "2026-11-04T20:00:00Z",
+   "bet": "Under 3.5",
+   "side": "Under",
+   "flagged": "2026-11-04T07:13:58Z",
+   "why": "a top-200 account also in this sport's top 50",
+   "proven": true,
+   "trigger": "proven",
+   "n_accounts": 1,
+   "best_rank": 132,
+   "usd": 2335,
+   "paid": 0.5,
+   "ask": 0.51,
+   "status": "other side",
+   "link": "https://polymarket.us/event/ucl-psv-bru-2026-11-04-more-markets",
+   "other": {
+    "n_accounts": 1,
+    "best_rank": 132,
+    "usd": 385,
+    "first": "2026-11-04T11:04:00Z"
+   },
+   "exit_bid": 0.5,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401915303",
+   "sport": "soccer",
+   "league": "ucl",
+   "away": "BRU",
+   "home": "PSV",
+   "away_name": "Club Brugge",
+   "home_name": "PSV Eindhoven",
+   "game_start": "2026-11-04T20:00Z",
+   "side_std": "under",
+   "money_with": false,
+   "grade": "A",
+   "books": null
   },
   {
    "cond": "0x8f097e91950aedef3070948ea5a777474f1d1f78e82796b3fe4b34afe0eb53f3",
@@ -419,8 +443,8 @@
    "link": "https://polymarket.us/event/nba-atl-was-2026-11-04",
    "other": null,
    "kalshi_against": {
-    "move": 4.5,
-    "now": 43.5,
+    "move": 5.0,
+    "now": 44.0,
     "state": "reversed"
    },
    "logged": true,
@@ -439,8 +463,8 @@
    "money_with": false,
    "grade": "watch",
    "books": {
-    "at": "2026-11-04T09:23:09Z",
-    "fair": 0.5668,
+    "at": "2026-11-04T10:03:31Z",
+    "fair": 0.5659,
     "q": {
      "Novig": 0.57,
      "DK": 0.5868,
@@ -491,8 +515,8 @@
    "money_with": false,
    "grade": "watch",
    "books": {
-    "at": "2026-11-04T09:23:09Z",
-    "fair": 0.581,
+    "at": "2026-11-04T10:03:31Z",
+    "fair": 0.5812,
     "q": {
      "Novig": 0.58,
      "FD": 0.5968,
@@ -666,6 +690,11 @@
     "n": 1,
     "best_rank": 132,
     "usd": 2335
+   },
+   "over": {
+    "n": 1,
+    "best_rank": 132,
+    "usd": 385
    }
   }
  },
