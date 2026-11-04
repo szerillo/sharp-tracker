@@ -104,7 +104,7 @@ def join(M, O):
 def se(p, n): return math.sqrt(max(p * (1 - p), 1e-9) / n) * 100 if n else None
 
 
-def main():
+def records():
     M = T.load(); T.elo_run(M); T.serve_profiles(M); T2.annotate(M)
     rows = T.fav_rows(M)
     cal = collections.defaultdict(lambda: collections.defaultdict(lambda: [0, 0]))
@@ -136,6 +136,11 @@ def main():
                       b365_fav=(o['b365w'] if fav_is_w else o['b365l']), b365_dog=(o['b365l'] if fav_is_w else o['b365w']),
                       max_fav=(o['maxw'] if fav_is_w else o['maxl']), max_dog=(o['maxl'] if fav_is_w else o['maxw'])))
     print(f"records: {len(R)}  years {min(r['year'] for r in R)}-{max(r['year'] for r in R)}")
+    return R, O, J, miss
+
+
+def main():
+    R, O, J, miss = records()
     res = {'n_odds': len(O), 'n_joined': len(J), 'unmatched': dict(miss)}
 
     def cut(name, keyf, sidef, rows_=R, min_n=60):
@@ -212,5 +217,62 @@ def main():
         for kk, vv in v.items(): print(f"  {kk:40} n={vv['n']:5} bet {vv['side']:3} win {vv['win_rate']:.3f} mkt {vv['market']:.3f} edge {vv['edge']:+5.1f} ±{vv['se']:.1f}  roi {vv['roi']:+5.1f}  best-price roi {vv['roi_best_price']}  elo-vs-mkt {vv['elo_vs_market']}")
 
 
+
+def scan():
+    """Sean, 11/4: results irrespective of CLV. Every simple angle (tour x round x surface x favourite price band, plus the feature cuts)
+    scored by flat ROI at the Pinnacle close, at Bet365 and at the market's best price, with the number of positive years out of the
+    years it covers. Reported: angles with n >= 150 and ROI > 0 at the close in at least 5 of the years. Many angles are tried, so
+    anything here is a candidate for the live paper test, not a system."""
+    R, O, J, miss = records()
+    years = sorted({r['year'] for r in R})
+    def pr(r, side, book):
+        if side == 'fav': return r['price_fav'] if book == 'pin' else r['b365_fav'] if book == 'b365' else r['max_fav']
+        return r['price_dog'] if book == 'pin' else r['b365_dog'] if book == 'b365' else r['max_dog']
+    def roi(rows_, side, book):
+        n = 0; pnl = 0.0
+        for r in rows_:
+            p = pr(r, side, book)
+            if not p: continue
+            win = r['fav_won'] if side == 'fav' else not r['fav_won']
+            n += 1; pnl += (p - 1) if win else -1
+        return (100 * pnl / n, n) if n else (None, 0)
+    band = lambda r: 'fav 50-60' if r['mkt'] < .6 else 'fav 60-70' if r['mkt'] < .7 else 'fav 70-80' if r['mkt'] < .8 else 'fav 80-90' if r['mkt'] < .9 else 'fav 90+'
+    rnd = lambda r: {'R128': 'R1', 'R64': 'R2', 'R32': 'R3', 'R16': 'R4'}.get(r['rnd'], 'QF+' if r['rnd'] in ('QF', 'SF', 'F') else None)
+    dims = dict(tour=lambda r: r['tour'], round=rnd, surface=lambda r: r['surface'], band=band,
+                form=lambda r: None if r['fav_form'] is None or r['dog_form'] is None else ('fav hot 30+' if r['fav_form'] - r['dog_form'] >= .3 else 'dog hot 30+' if r['dog_form'] - r['fav_form'] >= .3 else 'even form'),
+                first=lambda r: 'fav first, dog played' if r['fav_first'] and not r['dog_first'] else 'dog first, fav played' if r['dog_first'] and not r['fav_first'] else 'both first' if r['fav_first'] else 'both played',
+                h2h=lambda r: 'dog leads h2h' if r['dog_h2h'] > r['fav_h2h'] else 'fav leads h2h' if r['fav_h2h'] > r['dog_h2h'] else 'no h2h edge',
+                entry=lambda r: 'dog Q/LL' if r['dog_entry'] in ('Q', 'LL') else 'dog WC' if r['dog_entry'] == 'WC' else 'dog direct',
+                serve=lambda r: None if r['fav_hold'] is None or r['dog_hold'] is None else ('dog bigger server' if r['dog_hold'] - r['fav_hold'] >= .03 else 'fav bigger server' if r['fav_hold'] - r['dog_hold'] >= .03 else 'similar serve'),
+                hand=lambda r: 'lefty dog' if r['dog_hand'] == 'L' and r['fav_hand'] == 'R' else 'lefty fav' if r['fav_hand'] == 'L' and r['dog_hand'] == 'R' else 'righties')
+    import itertools
+    names = list(dims); combos = [()] + [(a,) for a in names] + list(itertools.combinations(names, 2)) + [c for c in itertools.combinations(names, 3) if 'band' in c or 'tour' in c]
+    out = []
+    for combo in combos:
+        groups = collections.defaultdict(list)
+        for r in R:
+            k = tuple(dims[d](r) for d in combo)
+            if any(x is None for x in k): continue
+            groups[k].append(r)
+        for k, rows_ in groups.items():
+            if len(rows_) < 150: continue
+            for side in ('fav', 'dog'):
+                rp, n = roi(rows_, side, 'pin')
+                if rp is None or rp <= 0: continue
+                ys = [roi([r for r in rows_ if r['year'] == y], side, 'pin') for y in years]
+                pos = sum(1 for v, nn in ys if nn >= 10 and v is not None and v > 0); cov = sum(1 for v, nn in ys if nn >= 10)
+                if pos < 5 or pos / max(cov, 1) < 0.7: continue
+                rb, _ = roi(rows_, side, 'b365'); rm, _ = roi(rows_, side, 'max')
+                wr = sum((r['fav_won'] if side == 'fav' else not r['fav_won']) for r in rows_) / len(rows_)
+                q = sum((r['mkt'] if side == 'fav' else 1 - r['mkt']) for r in rows_) / len(rows_)
+                out.append(dict(angle=' / '.join(f"{d}={v}" for d, v in zip(combo, k)) or 'everything', side=side, n=n, win=round(wr, 3), market=round(q, 3), edge=round(100 * (wr - q), 1), se=round(se(q, n), 1),
+                                roi_pin=round(rp, 1), roi_b365=round(rb, 1) if rb is not None else None, roi_best=round(rm, 1) if rm is not None else None, pos_years=f"{pos}/{cov}", dims=len(combo)))
+    out.sort(key=lambda x: (-x['roi_pin'] / (1 + x['dims']), ))
+    json.dump(dict(years=years, n=len(R), angles=out), open(os.path.join(ROOT, 'data', 'research', 'tennis_scan.json'), 'w'), indent=1)
+    print(f"\n{len(out)} angles with ROI > 0 at the Pinnacle close in 70%+ of years (n >= 150). Top by ROI, simplest first:")
+    for x in sorted(out, key=lambda x: (x['dims'], -x['roi_pin']))[:60]:
+        print(f"  {x['angle']:70} bet {x['side']:3} n={x['n']:5} win {x['win']:.3f} mkt {x['market']:.3f} edge {x['edge']:+5.1f}±{x['se']:.1f} roi pin {x['roi_pin']:+5.1f} b365 {x['roi_b365']} best {x['roi_best']} years {x['pos_years']}")
+
+
 if __name__ == '__main__':
-    main()
+    main() if '--scan' not in sys.argv else scan()
