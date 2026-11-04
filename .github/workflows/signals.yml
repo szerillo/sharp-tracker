@@ -1,0 +1,54 @@
+name: signals (market and sharp board, every 20 minutes)
+# Sean, 11/4: systems only need a couple of pulls a day; the market and Polymarket sharp information needs to update all day.
+# This job refreshes everything on the board that comes from the live tapes, without the price-database rebuild the systems engine
+# needs: the big-money / Kalshi-move watch, the tennis set-1 watch, the move tape, the duplicate cleanup and the bet tracker.
+# (Polymarket sharp flags already refresh every 5 minutes in prices_fast.) The full tracker (systems engine) runs 3 times a day.
+on:
+  workflow_dispatch: {}
+permissions:
+  contents: write
+  actions: write
+concurrency:
+  group: signals
+  cancel-in-progress: false
+jobs:
+  signals:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.12'}
+      - run: pip install -q numpy pandas
+      - name: live big-money vs small-money split on the exchanges (watch signal)
+        run: python3 sharp/flow_live.py || true
+      - name: move tape (last 3 days of the 5-minute tape; settled moves persist)
+        env: {MOVES_DAYS: '3'}
+        run: python3 sharp/moves.py || true
+      - name: missed-run check on the 5-minute tape
+        run: python3 sharp/tape_health.py || true
+      - name: tennis schedule and set-by-set results (ESPN) for grading
+        run: python3 loggers/tennis_scores.py --days-back 2 || true
+      - name: tennis set-1 watch list + paper log
+        run: python3 sharp/tennis_watch.py || true
+      - name: remove duplicate bets from the records
+        run: python3 sharp/dedupe_fills.py || true
+      - name: bet tracker
+        run: python3 sharp/bet_log.py || true
+      - name: commit
+        run: |
+          git config user.name "tracker-bot"; git config user.email "actions@users.noreply.github.com"
+          for f in data/state/flow_live.json data/state/moves.json data/state/moves.jsonl.gz data/state/moves_novig_flow.json data/state/tape_health.json \
+                   data/state/tennis_watch.json data/tennis/fs_paper.jsonl data/tennis/fs_graded.json data/tennis/results.jsonl data/tennis/schedule.json data/state/bet_log.json \
+                   data/kalshi/steam_rev_paper.jsonl data/kalshi/steam_rev_results.json; do [ -e "$f" ] && git add -A "$f"; done
+          git commit -q -m "signals $(date -u +%Y-%m-%dT%H:%M)" || exit 0
+          git stash -u -q || true
+          for i in 1 2 3 4 5; do
+            if git pull -q --rebase -X theirs && git push -q; then
+              GH_TOKEN="${{ secrets.GITHUB_TOKEN }}" gh api -X POST "repos/${GITHUB_REPOSITORY}/actions/workflows/pages.yml/dispatches" -f ref=main || true
+              exit 0
+            fi
+            git rebase --abort 2>/dev/null || true
+            sleep $((RANDOM % 15 + 5))
+          done
+          exit 1
