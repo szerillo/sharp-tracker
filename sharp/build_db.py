@@ -22,7 +22,8 @@ import gzip
 
 ROOT = os.path.abspath(os.path.join(HERE, '..'))
 D = os.path.join(ROOT, 'data', 'mlb'); SD = os.path.join(ROOT, 'data', 'state'); os.makedirs(SD, exist_ok=True)
-DB = os.path.join(SD, 'sharp.sqlite')
+DB = os.environ.get('BUILD_DB') or os.path.join(SD, 'sharp.sqlite')
+SOON_H = float(os.environ.get('BUILD_SOON_H') or 0)      # 11/4 late pass: only games starting inside the next SOON_H hours (and the last hour), a small fast database
 SCHED = os.path.join(SD, 'schedule_cache.json'); KMETA = os.path.join(SD, 'kalshi_markets.json')
 OFFLINE = os.environ.get('SHARP_OFFLINE') == '1'
 NOW = dt.datetime.now(dt.timezone.utc)
@@ -499,16 +500,27 @@ def load_sport(sport):
     if not os.path.exists(sched_p): return 0
     sched = json.load(open(sched_p)); n = 0; used = set()
     days_ = int(os.environ.get('BUILD_DAYS') or 0); cut = (NOW - dt.timedelta(days=days_)).strftime('%Y-%m-%d') if days_ else ''
+    soon = None
+    if SOON_H:
+        soon = set()
+        for eid, e in sched.items():
+            try: st = N.parse_ts(e['start'])
+            except Exception: continue
+            if NOW - dt.timedelta(hours=1) <= st <= NOW + dt.timedelta(hours=SOON_H): soon.add(eid)
+        if not soon: return 0
+        cut = max(cut, (NOW - dt.timedelta(days=2)).strftime('%Y-%m-%d'))      # the last two days of ticks carry the open and the T-6h quotes
+        pre = tuple(f'"{eid}"' for eid in soon)
     for f in sorted(glob.glob(os.path.join(sd, 'ticks', '*.jsonl.gz')) + glob.glob(os.path.join(sd, 'ticks', '*.jsonl'))):
         if cut and os.path.basename(f)[:10] < cut: continue        # BUILD_DAYS (11/4): the live tracker only needs recent days; the full build took 27 min
         src = f"{sport}/ticks/{os.path.basename(f)}"
         opener = gzip.open if f.endswith('.gz') else open
         with opener(f, 'rt') as fh:
             for l in fh:
+                if soon is not None and not any(p in l for p in pre): continue      # cheap substring test before parsing
                 try: r = json.loads(l)
                 except Exception: continue
                 e = sched.get(r['event_id'])
-                if not e: continue
+                if not e or (soon is not None and r['event_id'] not in soon): continue
                 used.add(r['event_id'])
                 T.add(r['ts'], r['event_id'], None, r['market'], r['side'], r['venue'], r['feed'], src, participant=r.get('participant'), player_name=r.get('player'),
                       line=r.get('line'), american=r.get('american'), bid=r.get('bid'), ask=r.get('ask'), last=r.get('last'), volume=r.get('vol'), limit=r.get('limit'),

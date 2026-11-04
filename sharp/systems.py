@@ -545,6 +545,54 @@ def main():
         take(conn, eq, fired, fires_now, game, ev, start, away, home, 'cbb_under_good_over_drop', 'total', tl, 'under', None, 0.5,
              f"home {home} over {100 * ph['over_pct']:.0f}% ({ph['games']} games), visitor {away} over {100 * pa['over_pct']:.0f}% ({pa['games']}); total {op} -> {tl}")
         view_games.append(game)
+    late_rules(conn, fired, fires_now, view_games)
+    json.dump(fired, open(FIRED, 'w'), indent=0)
+    # per-tag forward record from the ledger
+    rec = collections.defaultdict(lambda: dict(n=0, graded=0, w=0, l=0, p=0, pnl=0.0, clv=[], gate=100))
+    for f in FI.load():
+        t = (f.get('rule_tag') or '')
+        if not t.startswith('paper:'): continue
+        s = rec[t[6:]]; s['n'] += 1
+        if f.get('result') in ('W', 'L', 'P'):
+            s['graded'] += 1; s[{'W': 'w', 'L': 'l', 'P': 'p'}[f['result']]] += 1; s['pnl'] += f.get('pnl_units') or 0
+            if f.get('fair_at_close') is not None: s['clv'].append(100 * (f['fair_at_close'] - f['implied']))
+    for s in rec.values():
+        s['clv_avg'] = round(sum(s['clv']) / len(s['clv']), 2) if s['clv'] else None; s['n_clv'] = len(s['clv']); del s['clv']; s['pnl'] = round(s['pnl'], 3)
+        s['published'] = bool(s['graded'] >= s['gate'] and (s['clv_avg'] or 0) > 0)
+    # a placed bet stays on the board until its game starts (Sean, 11/4: the NBA unders vanished twice). A rule that is re-checked and
+    # no longer holds voids its fill explicitly above; anything else that fired and is not void is shown, even if this run did not
+    # re-evaluate its trigger (missing season data, the open line outside the 4-day price window, a skipped sport loop).
+    shown = {f.get('fill_id') for g in view_games for f in g.get('fills', [])}
+    byev = {g['event_id']: g for g in view_games}
+    for k, f in fired.items():
+        if not isinstance(f, dict) or not f.get('fill_id') or f.get('void') or f.get('stacked') or f['fill_id'] in shown: continue
+        ev_ = k.split(':')[0]
+        row = conn.execute("SELECT sport, start_utc, away, home FROM events WHERE event_id=?", (ev_,)).fetchone()
+        if not row or N.parse_ts(row[1]) <= NOW: continue
+        g = byev.get(ev_)
+        if g is None:
+            g = dict(event_id=ev_, away=row[2], home=row[3], start_utc=row[1], hours_to_kickoff=round((N.parse_ts(row[1]) - NOW).total_seconds() / 3600, 1),
+                     spread_home=None, dog=None, triggers={}, fills=[], sport=row[0]); view_games.append(g); byev[ev_] = g
+        g['fills'].append(f); g['triggers'].setdefault(f['tag'], f.get('why') or '')
+    for g in view_games:
+        r_ = sched_rec(g.get('sport', 'nfl'), g['event_id']); g['away_name'] = (r_.get('away_team') or {}).get('displayName') or g['away']; g['home_name'] = (r_.get('home_team') or {}).get('displayName') or g['home']
+        g.setdefault('sport', 'nfl'); g['league'] = sched_rec(g['sport'], g['event_id']).get('league')
+        g['hours_to_kickoff'] = round((N.parse_ts(g['start_utc']) - NOW).total_seconds() / 3600, 1)
+        fired_tags = {f['tag'] for f in g.get('fills', [])}
+        if g['hours_to_kickoff'] < WINDOW_H[0]:      # inside the last hours a trigger without a fill cannot become a bet any more: keep it visible, labelled
+            g['late'] = [t for t in g['triggers'] if t not in fired_tags and not t.startswith(('xch_', 'nba_momentum'))]
+        g['fills'] = [f for f in g.get('fills', []) if not f.get('void')]
+        refresh_fills(conn, g)
+    view_games = [g for g in view_games if g['triggers'] or any(f.get('fill_id') for f in g.get('fills', []))]      # a lapsed bet keeps its game on the board
+    json.dump(dict(built=NOW_S, window_h=WINDOW_H, rules={k: dict(v, tag=k, desc=DESC.get(k, ''), evidence=EVIDENCE.get(k), labs=(dict(id=LABS[k][0], name=LABS[k][1]) if k in LABS else None)) for k, v in RULES.items()}, games=view_games, fired_now=fires_now, record=dict(rec)),
+              open(VIEW, 'w'), default=str, separators=(',', ':'))
+    print(f"[systems] {len(view_games)} games with triggers (shown up to {VIEW_H}h out, filled {WINDOW_H[0]}-{WINDOW_H[1]}h); {len(fires_now)} new paper fills; tags on file {dict((k, v['n']) for k, v in rec.items())}")
+    conn.close()
+
+
+def late_rules(conn, fired, fires_now, view_games):
+    """Exchange rules that fire inside the last 90 minutes (LATE_H). Also run by sharp/late_pass.py every 20 minutes (Sean, 11/4: the
+    3-a-day systems run only saw games starting 6 to 7 PM in that window)."""
     # Exchange rules, inside T-1.5h. One fill per game per rule; stacking across rules allowed only on different market x side.
     def xmid(eq, venue, market, line, side, part, ts):
         q = eq.latest(venue, market, line, side, ts, 90, part)
@@ -593,59 +641,24 @@ def main():
                     fire('nba_momentum', market, (line if (up or market == 'total') else -line) if line is not None else None, side, part, venue,
                          f"{venue} {market} mid {p_6:.3f} at T-6h -> {p_now:.3f} now ({100 * (p_now - p_6):+.1f}c); continuation (audit section 3, NBA only)")
                     break
-    json.dump(fired, open(FIRED, 'w'), indent=0)
-    # per-tag forward record from the ledger
-    rec = collections.defaultdict(lambda: dict(n=0, graded=0, w=0, l=0, p=0, pnl=0.0, clv=[], gate=100))
-    for f in FI.load():
-        t = (f.get('rule_tag') or '')
-        if not t.startswith('paper:'): continue
-        s = rec[t[6:]]; s['n'] += 1
-        if f.get('result') in ('W', 'L', 'P'):
-            s['graded'] += 1; s[{'W': 'w', 'L': 'l', 'P': 'p'}[f['result']]] += 1; s['pnl'] += f.get('pnl_units') or 0
-            if f.get('fair_at_close') is not None: s['clv'].append(100 * (f['fair_at_close'] - f['implied']))
-    for s in rec.values():
-        s['clv_avg'] = round(sum(s['clv']) / len(s['clv']), 2) if s['clv'] else None; s['n_clv'] = len(s['clv']); del s['clv']; s['pnl'] = round(s['pnl'], 3)
-        s['published'] = bool(s['graded'] >= s['gate'] and (s['clv_avg'] or 0) > 0)
-    # a placed bet stays on the board until its game starts (Sean, 11/4: the NBA unders vanished twice). A rule that is re-checked and
-    # no longer holds voids its fill explicitly above; anything else that fired and is not void is shown, even if this run did not
-    # re-evaluate its trigger (missing season data, the open line outside the 4-day price window, a skipped sport loop).
-    shown = {f.get('fill_id') for g in view_games for f in g.get('fills', [])}
-    byev = {g['event_id']: g for g in view_games}
-    for k, f in fired.items():
-        if not isinstance(f, dict) or not f.get('fill_id') or f.get('void') or f.get('stacked') or f['fill_id'] in shown: continue
-        ev_ = k.split(':')[0]
-        row = conn.execute("SELECT sport, start_utc, away, home FROM events WHERE event_id=?", (ev_,)).fetchone()
-        if not row or N.parse_ts(row[1]) <= NOW: continue
-        g = byev.get(ev_)
-        if g is None:
-            g = dict(event_id=ev_, away=row[2], home=row[3], start_utc=row[1], hours_to_kickoff=round((N.parse_ts(row[1]) - NOW).total_seconds() / 3600, 1),
-                     spread_home=None, dog=None, triggers={}, fills=[], sport=row[0]); view_games.append(g); byev[ev_] = g
-        g['fills'].append(f); g['triggers'].setdefault(f['tag'], f.get('why') or '')
-    for g in view_games:
-        r_ = sched_rec(g.get('sport', 'nfl'), g['event_id']); g['away_name'] = (r_.get('away_team') or {}).get('displayName') or g['away']; g['home_name'] = (r_.get('home_team') or {}).get('displayName') or g['home']
-        g.setdefault('sport', 'nfl'); g['league'] = sched_rec(g['sport'], g['event_id']).get('league')
-        g['hours_to_kickoff'] = round((N.parse_ts(g['start_utc']) - NOW).total_seconds() / 3600, 1)
-        fired_tags = {f['tag'] for f in g.get('fills', [])}
-        if g['hours_to_kickoff'] < WINDOW_H[0]:      # inside the last hours a trigger without a fill cannot become a bet any more: keep it visible, labelled
-            g['late'] = [t for t in g['triggers'] if t not in fired_tags and not t.startswith(('xch_', 'nba_momentum'))]
-        g['fills'] = [f for f in g.get('fills', []) if not f.get('void')]
-        live = [f for f in g.get('fills', []) if f.get('fill_id') and not f.get('stacked')]
-        if live:
-            eq = F.EventQuotes(conn, g['event_id'])
-            for f in live:
-                part = None if f['market'].endswith('total') else (g['home'] if f['side'] == 'home' else g['away'])
-                try: best = F.best_price(eq, f['market'], f['line'], f['side'], NOW_S, part)
-                except Exception: best = []
-                f['now'] = dict(venue=best[0]['venue'], price=N.prob_to_american(best[0]['cost'])) if best else None
-                if f['market'] != 'ml' and not f['market'].endswith('_ml') and f.get('line') is not None and not (g.get('sport') in ('nhl', 'mlb') and f['market'].endswith('spread')):   # puck / run lines: a different number is a different bet
-                    f['ladder'], f['bet_to'] = alt_lines(eq, f, part)
-                    if not best and f['bet_to']:               # the flagged number is gone but a nearby one keeps the value (Sean, 11/2: Celtics Under 217 -> 216.5)
-                        x = f['bet_to']; f['now'] = dict(venue=x['venue'], price=x['price'], line=x['line'], alt=True)
-    view_games = [g for g in view_games if g['triggers'] or any(f.get('fill_id') for f in g.get('fills', []))]      # a lapsed bet keeps its game on the board
-    json.dump(dict(built=NOW_S, window_h=WINDOW_H, rules={k: dict(v, tag=k, desc=DESC.get(k, ''), evidence=EVIDENCE.get(k), labs=(dict(id=LABS[k][0], name=LABS[k][1]) if k in LABS else None)) for k, v in RULES.items()}, games=view_games, fired_now=fires_now, record=dict(rec)),
-              open(VIEW, 'w'), default=str, separators=(',', ':'))
-    print(f"[systems] {len(view_games)} games with triggers (shown up to {VIEW_H}h out, filled {WINDOW_H[0]}-{WINDOW_H[1]}h); {len(fires_now)} new paper fills; tags on file {dict((k, v['n']) for k, v in rec.items())}")
-    conn.close()
+
+
+def refresh_fills(conn, g):
+    """Current best price, ladder and bet-to number for each live fill on a game (board columns Price / Bet to)."""
+    g['fills'] = [f for f in g.get('fills', []) if not f.get('void')]
+    live = [f for f in g.get('fills', []) if f.get('fill_id') and not f.get('stacked')]
+    if live:
+        eq = F.EventQuotes(conn, g['event_id'])
+        for f in live:
+            part = None if f['market'].endswith('total') else (g['home'] if f['side'] == 'home' else g['away'])
+            try: best = F.best_price(eq, f['market'], f['line'], f['side'], NOW_S, part)
+            except Exception: best = []
+            f['now'] = dict(venue=best[0]['venue'], price=N.prob_to_american(best[0]['cost'])) if best else None
+            if f['market'] != 'ml' and not f['market'].endswith('_ml') and f.get('line') is not None and not (g.get('sport') in ('nhl', 'mlb') and f['market'].endswith('spread')):   # puck / run lines: a different number is a different bet
+                f['ladder'], f['bet_to'] = alt_lines(eq, f, part)
+                if not best and f['bet_to']:               # the flagged number is gone but a nearby one keeps the value (Sean, 11/2: Celtics Under 217 -> 216.5)
+                    x = f['bet_to']; f['now'] = dict(venue=x['venue'], price=x['price'], line=x['line'], alt=True)
+
 
 
 if __name__ == '__main__':
