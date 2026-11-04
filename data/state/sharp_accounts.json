@@ -1,5 +1,5 @@
 {
- "built": "2026-11-04T18:46:05Z",
+ "built": "2026-11-04T18:51:57Z",
  "rows": [
   {
    "cond": "0xa98f1371108dfffc8908efcdd5ccbe93cfdd2ab148d37eb5910072fc80b80030",
@@ -42,7 +42,7 @@
    "best_rank": 132,
    "usd": 129,
    "paid": 0.57,
-   "ask": 0.58,
+   "ask": 0.59,
    "status": "live",
    "link": "https://polymarket.us/event/ucl-bvb-bet-2026-11-04",
    "other": null,
@@ -92,7 +92,7 @@
    "best_rank": 3,
    "usd": 100,
    "paid": 0.5,
-   "ask": 0.52,
+   "ask": 0.53,
    "status": "live",
    "link": "https://polymarket.us/event/ucl-por-nap-2026-11-04",
    "other": null,
@@ -295,8 +295,11 @@
    "home_name": "Boston Celtics",
    "game_start": "2026-11-05T00:30Z",
    "side_std": "away",
-   "money_with": true,
-   "grade": "A",
+   "conflict": [
+    "Kalshi bet back"
+   ],
+   "money_with": false,
+   "grade": "B",
    "books": {
     "at": "2026-11-04T18:26:10Z",
     "fair": 0.4994,
@@ -605,7 +608,8 @@
    "game_start": "2026-11-08T00:30Z",
    "side_std": "away",
    "conflict": [
-    "Kalshi move"
+    "Kalshi move",
+    "big money"
    ],
    "money_with": false,
    "grade": "A",
