@@ -653,7 +653,18 @@ function renderToday() {
       why: r.status !== 'live' ? `${r.other ? r.other.n_accounts : ''} sharp account${r.other && r.other.n_accounts === 1 ? '' : 's'} took the other side` : r.kalshi_against ? `Kalshi moved ${r.kalshi_against.move}% the other way` : `${(r.conflict || []).join(', ')} on the other side`,
       rec: lbl('Tracker', SAREC)}));
   const nWin = SY.window_h ? `${SY.window_h[0]}–${SY.window_h[1]}h` : '';
-  const leanRows = [...lean.map(sysRow), ...TWk.map(tRow)];
+  // tennis hot favourite (paper, no units; docs/tennis_ta_2026-11-04.md section 9): favourite 60-85% whose last-10 record is 30%+ above the opponent's
+  const hRow = r => { const b = r.hot_best, lg = r.hot_logged, p = lg ? lg.price : (b ? b.cost : null);
+    return sRow({id: `th|${r.start}|${r.fav_name}`, start: r.start, sportLabel: (r.tour || 'tennis').toUpperCase(), game: `${esc(r.fav_name || '')} vs ${esc(r.opp_name || '')}`,
+      bet: `${esc(r.fav_name || 'Favourite')} to win`, sub: 'Match winner · paper, no units', gone: !r.hot, status: r.hot ? null : ['gone', 'Price gone or form changed'], size: '<span class="dim">paper</span>',
+      price: p != null ? `<b>${toAm(p)}</b> <span class="small dim">${VS(lg ? lg.venue : b.venue)}</span>` : '', link: '',
+      why: `Hot favourite: match ${(100 * r.match_p).toFixed(1)}% at Pinnacle, last 10: ${r.form && r.form.fav ? (100 * r.form.fav.rate).toFixed(0) + '%' : '?'} vs ${r.form && r.form.opp ? (100 * r.form.opp.rate).toFixed(0) + '%' : '?'}`,
+      rec: lbl('Backtest', '+3.4% vs close, slams 2015-23') + ' ' + lbl('Tracker', TW && TW.hot_record && TW.hot_record.n ? `${TW.hot_record.won}-${TW.hot_record.n - TW.hot_record.won}, ${TW.hot_record.units > 0 ? '+' : ''}${TW.hot_record.units}u` : 'no graded picks yet'),
+      detail: facts([['Rule', 'Tennis hot favourite (tennis_hot_fav, paper): Pinnacle no-vig favourite 60-85% whose last-10 win rate is 30%+ above the opponent\'s; bet the match. Slam test 2015-2023: +3.4% over the Pinnacle close on 1,217 matches, +2.0% flat ROI at the close.'],
+        ['Form source', 'Our ESPN results log since March (tour, Challenger and the ITF events ESPN carries): a player with wins at events ESPN does not list looks colder than they are'],
+        ['Flagged', lg ? `${DAYT(lg.ts)} at ${VS(lg.venue)} ${(100 * lg.price).toFixed(1)}¢` : ''], ['Now', b ? `${VS(b.venue)} ${(100 * b.cost).toFixed(1)}¢ (${toAm(b.cost)})` : 'no price']])}); };
+  const TH = TW ? (TW.rows || []).filter(r => (r.hot || r.hot_logged) && future(r.start) && passW(r.start) && passS('tennis', r.league)) : [];
+  const leanRows = [...lean.map(sysRow), ...TWk.map(tRow), ...TH.map(hRow)];
   const H = (t, meta) => `<div class="hdr2"><h2>${t}</h2><span class="meta">${meta}</span></div>`;
   return `<div class="controls topbar">${whenBar(inSport)} ${sportBar(inWhen)}</div>${summary.replace('__NSIG__', `${strong.length} sharp signal${strong.length === 1 ? '' : 's'}`)}
     ${H('System bets', 'Tier A and B · 0.5u · click a row for the full rule and record')}

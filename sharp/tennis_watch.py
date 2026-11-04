@@ -16,6 +16,7 @@ HERE = os.path.dirname(os.path.abspath(__file__)); ROOT = os.path.abspath(os.pat
 TD = os.path.join(ROOT, 'data', 'tennis'); OUT = os.path.join(ROOT, 'data', 'state', 'tennis_watch.json'); PAPER = os.path.join(TD, 'fs_paper.jsonl')
 NOW = dt.datetime.fromisoformat(os.environ['TENNIS_NOW'].replace('Z', '+00:00')) if os.environ.get('TENNIS_NOW') else dt.datetime.now(dt.timezone.utc);   # TENNIS_NOW replays a past run (backfill)
 GAP = 0.033; MIN_FAV = 0.55; MIN_EDGE = 0.01; KFEE = 0.07; STALE_MIN = 45
+HOT = dict(lo=0.60, hi=0.85, gap=0.30, min_n=8); HOT_PAPER = os.path.join(TD, 'hot_paper.jsonl')   # 11/4 (docs/tennis_ta section 9): hot favourite, paper only
 
 
 def s_from_match(p):
@@ -82,6 +83,23 @@ def serve_note(pf_, po_):
     hf, ho = pf_['hold'], po_['hold']
     k = 'dog' if ho > hf + 0.03 else 'fav' if hf > ho + 0.03 else 'similar'
     return SERVE_ADJ[k], f"holds: favourite {100 * hf:.0f}%, opponent {100 * ho:.0f}% ({'dog is the bigger server' if k == 'dog' else 'favourite is the bigger server' if k == 'fav' else 'similar'})"
+
+
+_FORM = None
+def form(name, before):
+    """Last-10 record from our ESPN results log (completed singles, main draw and qualifying, since March): (win rate, n) or None."""
+    global _FORM
+    if _FORM is None:
+        _FORM = {}
+        rp = os.path.join(TD, 'results.jsonl')
+        if os.path.exists(rp):
+            for l in open(rp):
+                r = json.loads(l)
+                if r.get('status') != 'STATUS_FINAL' or r.get('walkover') or not r.get('winner') or r.get('n_sets', 0) < 1: continue
+                for who in ('p1', 'p2'): _FORM.setdefault(r.get(who), []).append((r['start'], r['winner'] == who))
+        for v in _FORM.values(): v.sort()
+    L = [w for t, w in _FORM.get(name, []) if t < before][-10:]
+    return (sum(L) / len(L), len(L)) if len(L) >= HOT['min_n'] else None
 
 
 def implied(a): return 100 / (a + 100) if a > 0 else -a / (-a + 100)
@@ -156,7 +174,10 @@ def main():
     paper = {}
     if os.path.exists(PAPER):
         for l in open(PAPER): r = json.loads(l); paper[r['event_id']] = r
-    rows = []; new = []
+    hot_paper = {}
+    if os.path.exists(HOT_PAPER):
+        for l in open(HOT_PAPER): r = json.loads(l); hot_paper[r['event_id']] = r
+    rows = []; new = []; new_hot = []
     for ev in evs:
         e = E.get(ev)
         if not e or ts(e['start']) <= NOW: continue
@@ -193,6 +214,24 @@ def main():
         row['flag'] = bool(best and pf >= MIN_FAV and row['edge'] >= MIN_EDGE)
         if ev in paper:                           # already paper-logged: stays on the page even if the price has since gone (11/2)
             row['logged'] = dict(ts=paper[ev]['ts'], venue=paper[ev]['venue'], price=paper[ev]['price'], edge=round(paper[ev]['fair'] - paper[ev]['price'], 4))
+        # hot favourite (paper, no units): Pinnacle favourite 60-85% whose last-10 win rate is 30%+ above the opponent's; bet the match
+        ff, fo = form(name, e['start']), form(opp, e['start'])
+        row['form'] = dict(fav=ff and dict(rate=round(ff[0], 2), n=ff[1]), opp=fo and dict(rate=round(fo[0], 2), n=fo[1]))
+        mc = []
+        for v in ('Kalshi', 'Novig'):
+            r = L.get((ev, 'ml', v, fav))
+            if r and r.get('ask') and 'oneside' not in (r.get('flags') or []): mc.append(dict(venue=v, cost=round(r['ask'] + (math.ceil(KFEE * r['ask'] * (1 - r['ask']) * 100) / 100 if v == 'Kalshi' else 0), 4)))
+        for v in ('DK', 'FD', 'Caesars'):
+            r = L.get((ev, 'ml', v, fav))
+            if r and r.get('american') is not None: mc.append(dict(venue=v, american=r['american'], cost=round(implied(r['american']), 4)))
+        mbest = min(mc, key=lambda c: c['cost']) if mc else None
+        row['hot'] = bool(src == 'Pinnacle' and ff and fo and HOT['lo'] <= pf <= HOT['hi'] and ff[0] - fo[0] >= HOT['gap'] and mbest)
+        row['hot_best'] = mbest
+        if ev in hot_paper: row['hot_logged'] = dict(ts=hot_paper[ev]['ts'], venue=hot_paper[ev]['venue'], price=hot_paper[ev]['price'])
+        if row['hot'] and ev not in hot_paper and not any(p.get('fav_name') == name and p.get('opp_name') == opp and abs((ts(p['start']) - ts(e['start'])).total_seconds()) <= 6 * 3600 for p in hot_paper.values()):
+            rec = dict(event_id=ev, ts=NOW.strftime('%Y-%m-%dT%H:%M:%SZ'), start=e['start'], fav=fav, fav_name=name, opp_name=opp, match_p=round(pf, 4), form_fav=round(ff[0], 2), form_opp=round(fo[0], 2),
+                       venue=mbest['venue'], price=mbest['cost'], rule='tennis_hot_fav')
+            new_hot.append(rec); hot_paper[ev] = rec
         rows.append(row)
         # the same match can carry two ids (a Pinnacle-made id before ESPN lists it, then ESPN's): one pick per match (11/4, Tiafoe set 1)
         same = next((k for k, p in paper.items() if k != ev and {p.get('fav_name'), p.get('opp_name')} == {name, opp} and abs((ts(p['start']) - ts(e['start'])).total_seconds()) <= 6 * 3600), None)
@@ -207,6 +246,9 @@ def main():
     if new:
         with open(PAPER, 'a') as f:
             for r in new: f.write(json.dumps(r) + '\n')
+    if new_hot:
+        with open(HOT_PAPER, 'a') as f:
+            for r in new_hot: f.write(json.dumps(r) + '\n')
     # grade paper entries from ESPN (ESPN ids only; x: matches stay ungraded until a Kalshi/Novig settlement path is added)
     res = {}
     rp = os.path.join(TD, 'results.jsonl')
@@ -225,13 +267,38 @@ def main():
         graded.append(dict(p, won=won, graded_by=src, pnl=round((1 - p['price']) / p['price'] if won else -1.0, 3),
                            pin_close=round(c, 4) if c else None, clv=round(100 * (c - p['price']), 2) if c else None))
     json.dump(graded, open(os.path.join(TD, 'fs_graded.json'), 'w'), separators=(',', ':'))     # every graded paper pick (sharp/bet_log.py reads it)
+    # grade the hot-favourite paper picks on the match result; CLV against Pinnacle's last pregame no-vig match price
+    mclose = {}
+    for d in ('ticks', 'ticks5'):
+        for f in sorted(glob.glob(os.path.join(TD, d, '*.jsonl.gz')))[-4:]:
+            try:
+                for l in gzip.open(f, 'rt'):
+                    if '"ml"' not in l or '"Pinnacle"' not in l: continue
+                    r = json.loads(l)
+                    if r['event_id'] not in hot_paper or r['market'] != 'ml' or ts(r['ts']) > NOW: continue
+                    k = (r['event_id'], r['side'])
+                    if k not in mclose or r['ts'] > mclose[k]['ts']: mclose[k] = r
+            except (EOFError, OSError): pass
+    hot_graded = []
+    for ev, p in hot_paper.items():
+        if ts(p['start']) > NOW: continue
+        r = res.get(ev)
+        if not r or not r.get('winner') or r.get('walkover'): continue
+        won = (r['winner'] == 'p1') == (p['fav'] == 'home')
+        h, a_ = mclose.get((ev, 'home')), mclose.get((ev, 'away')); c = None
+        if h and a_ and h.get('american') and a_.get('american'):
+            ph, pa = implied(h['american']), implied(a_['american']); c = (ph if p['fav'] == 'home' else pa) / (ph + pa)
+        hot_graded.append(dict(p, won=won, pnl=round((1 - p['price']) / p['price'] if won else -1.0, 3), pin_close=round(c, 4) if c else None, clv=round(100 * (c - p['price']), 2) if c else None))
+    json.dump(hot_graded, open(os.path.join(TD, 'hot_graded.json'), 'w'), separators=(',', ':'))
+    hcl = [g['clv'] for g in hot_graded if g.get('clv') is not None]
+    hot_rec = dict(n=len(hot_graded), won=sum(g['won'] for g in hot_graded), units=round(sum(g['pnl'] for g in hot_graded), 2), clv=round(sum(hcl) / len(hcl), 2) if hcl else None, clv_n=len(hcl)) if hot_graded else dict(n=0)
     rows.sort(key=lambda r: (not r['flag'], r['start']))
     cl = [g['clv'] for g in graded if g.get('clv') is not None]
     rec = dict(n=len(graded), won=sum(g['won'] for g in graded), units=round(sum(g['pnl'] for g in graded), 2),
                clv=round(sum(cl) / len(cl), 2) if cl else None, clv_n=len(cl)) if graded else dict(n=0)
-    json.dump(dict(built=NOW.strftime('%Y-%m-%dT%H:%M:%SZ'), gap=GAP, min_fav=MIN_FAV, min_edge=MIN_EDGE, record=rec, recent=sorted(graded, key=lambda g: g['start'])[-25:],
+    json.dump(dict(built=NOW.strftime('%Y-%m-%dT%H:%M:%SZ'), gap=GAP, min_fav=MIN_FAV, min_edge=MIN_EDGE, record=rec, recent=sorted(graded, key=lambda g: g['start'])[-25:], hot=HOT, hot_record=hot_rec,
                    rows=rows), open(OUT, 'w'), separators=(',', ':'))
-    print(f"[tennis watch] {len(rows)} upcoming matches priced, {sum(r['flag'] for r in rows)} flagged, {len(new)} new paper entries; record {rec}")
+    print(f"[tennis watch] {len(rows)} upcoming matches priced, {sum(r['flag'] for r in rows)} flagged, {len(new)} new paper entries; record {rec}; hot favourites {sum(r.get('hot', False) for r in rows)} flagged, {len(new_hot)} new, record {hot_rec}")
 
 
 if __name__ == '__main__':
