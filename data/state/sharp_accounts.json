@@ -1,5 +1,5 @@
 {
- "built": "2026-11-04T19:43:37Z",
+ "built": "2026-11-04T19:49:48Z",
  "rows": [
   {
    "cond": "0xa98f1371108dfffc8908efcdd5ccbe93cfdd2ab148d37eb5910072fc80b80030",
@@ -117,7 +117,7 @@
    "best_rank": 71,
    "usd": 392,
    "paid": 0.51,
-   "ask": 0.51,
+   "ask": 0.52,
    "status": "live",
    "link": "https://polymarket.us/event/ucl-rcl-com-2026-11-04",
    "other": null,
@@ -142,7 +142,7 @@
    "best_rank": 71,
    "usd": 114,
    "paid": 0.78,
-   "ask": 0.77,
+   "ask": 0.78,
    "status": "live",
    "link": "https://polymarket.us/event/ucl-slp-ars-2026-11-04",
    "other": null,
@@ -160,14 +160,14 @@
    "bet": "Will Manchester City FC win on 2026-11-04: Yes",
    "side": "Yes",
    "flagged": "2026-11-04T18:30:00Z",
-   "why": "a top-200 account also in this sport's top 50",
+   "why": "2 top-200 accounts",
    "proven": true,
    "trigger": "proven",
-   "n_accounts": 1,
+   "n_accounts": 2,
    "best_rank": 71,
-   "usd": 247,
+   "usd": 784,
    "paid": 0.62,
-   "ask": 0.62,
+   "ask": 0.63,
    "status": "live",
    "link": "https://polymarket.us/event/ucl-rbl-mnc-2026-11-04",
    "other": null,
@@ -207,8 +207,8 @@
    "home_name": "Detroit Pistons",
    "game_start": "2026-11-05T00:00Z",
    "side_std": "home",
-   "money_with": true,
-   "grade": "A",
+   "money_with": false,
+   "grade": "B",
    "books": {
     "at": "2026-11-04T17:43:06Z",
     "fair": 0.5617,
@@ -296,11 +296,10 @@
    "game_start": "2026-11-05T00:30Z",
    "side_std": "away",
    "conflict": [
-    "Kalshi bet back",
-    "big money"
+    "Kalshi bet back"
    ],
-   "money_with": false,
-   "grade": "B",
+   "money_with": true,
+   "grade": "A",
    "books": {
     "at": "2026-11-04T17:43:06Z",
     "fair": 0.4994,
@@ -685,7 +684,7 @@
    "best_rank": 132,
    "usd": 2335,
    "paid": 0.5,
-   "ask": 0.48,
+   "ask": 0.47,
    "status": "other side",
    "link": "https://polymarket.us/event/ucl-psv-bru-2026-11-04-more-markets",
    "other": {
@@ -694,7 +693,7 @@
     "usd": 385,
     "first": "2026-11-04T11:04:00Z"
    },
-   "exit_bid": 0.47,
+   "exit_bid": 0.46,
    "kalshi_against": null,
    "logged": true,
    "event_id": "401915303",
@@ -747,8 +746,7 @@
    "side_std": "away",
    "conflict": [
     "Kalshi bet back",
-    "Kalshi move",
-    "big money"
+    "Kalshi move"
    ],
    "money_with": false,
    "grade": "B",
