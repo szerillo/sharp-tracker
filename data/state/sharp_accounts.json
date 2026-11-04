@@ -1,5 +1,5 @@
 {
- "built": "2026-11-04T16:58:51Z",
+ "built": "2026-11-04T17:05:26Z",
  "rows": [
   {
    "cond": "0x69aeb202063d522a2138eea4af2b246ded0b5f0a369e3533844d3c3a91126b7a",
@@ -17,7 +17,7 @@
    "best_rank": 132,
    "usd": 983,
    "paid": 0.07,
-   "ask": 0.08,
+   "ask": 0.07,
    "status": "live",
    "link": "https://polymarket.us/event/ucl-aek1-rma-2026-11-04",
    "other": null,
@@ -192,7 +192,7 @@
    "best_rank": 3,
    "usd": 100,
    "paid": 0.5,
-   "ask": 0.5,
+   "ask": 0.51,
    "status": "live",
    "link": "https://polymarket.us/event/ucl-por-nap-2026-11-04",
    "other": null,
@@ -617,7 +617,7 @@
    "best_rank": 132,
    "usd": 2335,
    "paid": 0.5,
-   "ask": 0.47,
+   "ask": 0.48,
    "status": "other side",
    "link": "https://polymarket.us/event/ucl-psv-bru-2026-11-04-more-markets",
    "other": {
@@ -626,7 +626,7 @@
     "usd": 385,
     "first": "2026-11-04T11:04:00Z"
    },
-   "exit_bid": 0.46,
+   "exit_bid": 0.47,
    "kalshi_against": null,
    "logged": true,
    "event_id": "401915303",
@@ -822,6 +822,22 @@
   "clv_poly_same": -1.95
  },
  "sys_tags": {
+  "401892644:nhl_early_home_fav_qual": {
+   "with": {
+    "n": 1,
+    "best_rank": 115,
+    "usd": 35766
+   },
+   "against": null
+  },
+  "401909930:nba_under_good_home_over": {
+   "with": {
+    "n": 1,
+    "best_rank": 58,
+    "usd": 465
+   },
+   "against": null
+  },
   "401909932:nba_under_good_home_over": {
    "with": null,
    "against": {
@@ -972,6 +988,13 @@
     "usd": 480
    }
   },
+  "401909930|total": {
+   "under": {
+    "n": 1,
+    "best_rank": 58,
+    "usd": 465
+   }
+  },
   "401909932|ml": {
    "away": {
     "n": 2,
@@ -1017,6 +1040,13 @@
     "n": 1,
     "best_rank": 31,
     "usd": 635
+   }
+  },
+  "401892644|ml": {
+   "home": {
+    "n": 1,
+    "best_rank": 115,
+    "usd": 35766
    }
   },
   "401892647|ml": {
