@@ -33,6 +33,25 @@ jobs:
             done
           done
           ls -la data/tennis/odds; du -sh data/tennis/odds
+      - name: fallback to the deuce R package (github.com/skoval/deuce) which bundles tennis-data.co.uk odds tables, converted to CSV
+        if: always()
+        run: |
+          set -e
+          n=$(ls data/tennis/odds/*.xls* 2>/dev/null | wc -l)
+          if [ "$n" -lt 10 ]; then
+            git clone -q --depth 1 --filter=blob:none --sparse https://github.com/skoval/deuce /tmp/deuce && (cd /tmp/deuce && git sparse-checkout set data)
+            ls -la /tmp/deuce/data | head -40
+            pip install -q pyreadr pandas
+            python3 - <<'PY'
+          import pyreadr, glob, os, gzip
+          for f in glob.glob('/tmp/deuce/data/*odds*.rda') + glob.glob('/tmp/deuce/data/*odds*.RData'):
+              for name, df in pyreadr.read_r(f).items():
+                  out = f'data/tennis/odds/{name}.csv.gz'
+                  with gzip.open(out, 'wt') as fh: df.to_csv(fh, index=False)
+                  print(name, df.shape, list(df.columns)[:40], out)
+          PY
+          fi
+          ls -la data/tennis/odds
       - name: commit
         run: |
           git config user.name "tracker-bot"; git config user.email "actions@users.noreply.github.com"
