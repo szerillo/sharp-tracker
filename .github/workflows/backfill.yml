@@ -54,6 +54,7 @@ jobs:
           git config user.name "tracker-bot"; git config user.email "actions@users.noreply.github.com"
           git add -A data/state/fills.jsonl data/state/system_fired.json data/state/system_fires.json data/state/bet_log.json data/state/tennis_watch.json data/tennis/fs_paper.jsonl data/tennis/fs_graded.json
           git commit -m "backfill ${{ github.event.inputs.from }} to ${{ github.event.inputs.to }}" || exit 0
+          git stash -u -q || true          # other files the replays touched (board views, caches) are not part of the backfill
           for i in 1 2 3 4 5; do
             if git pull --rebase -X theirs && git push; then
               GH_TOKEN="${{ secrets.GITHUB_TOKEN }}" gh api -X POST "repos/${GITHUB_REPOSITORY}/actions/workflows/pages.yml/dispatches" -f ref=main || true
