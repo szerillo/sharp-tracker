@@ -31,7 +31,7 @@ def main():
     for sp_ in LS.get('specialists') or []: acc.setdefault(sp_['w'], dict(w=sp_['w'], rank=None, specialist=sp_['sports']))   # logged, not flagged (11/2: archive to test)
     st = json.load(open(STATE)) if os.path.exists(STATE) else {}
     meta = json.load(open(META)) if os.path.exists(META) else {}
-    with cf.ThreadPoolExecutor(8) as ex:
+    with cf.ThreadPoolExecutor(16) as ex:     # 414 accounts on the v2 API: 8 threads took 2.5 min and pushed the trades job past its limit (11/4)
         res = dict(zip(acc, ex.map(lambda w: polydata.trades(user=w, limit=100), acc)))
     need = {t['conditionId'] for T in res.values() for t in T if t.get('conditionId') and (t['conditionId'] not in meta or 'stat' not in meta[t['conditionId']])}
     need = list(need)

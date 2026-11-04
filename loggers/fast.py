@@ -65,7 +65,7 @@ def kalshi_trades(min_ts, max_pages=60):
     for _ in range(max_pages):
         x = kget(f"{KAPI}/markets/trades?min_ts={min_ts}&limit=1000" + (f"&cursor={cur}" if cur else ''))
         out.extend(x.get('trades', [])); cur = x.get('cursor')
-        if not cur or not x.get('trades') or time.time() - T0 > 240: break
+        if not cur or not x.get("trades") or time.time() - T0 > 170: break     # 11/4: leave room for the sharp-account steps in the same 7-minute job
     return out
 
 
