@@ -1,40 +1,64 @@
-name: backfill (one-off history pulls)
+name: backfill missed tracker runs
+# Replays the systems engine and the tennis set-1 watch at every 20-minute step of a window when the tracker did not complete
+# (11/3: the 20-minute job limit killed every run from about 8:30 AM to 11 PM ET). Each step uses only prices logged up to that
+# moment (SYSTEMS_NOW / TENNIS_NOW); fills already on file are never refired. Replayed fills are marked backfill=1.
+# Inputs are UTC times: from=2026-11-03T12:30:00Z to=2026-11-04T03:30:00Z.
 on:
   workflow_dispatch:
     inputs:
-      pages:
-        description: 'max history pages per endpoint'
-        default: '400'
+      from: {description: 'first replay time (UTC, ISO)', required: true}
+      to: {description: 'last replay time (UTC, ISO)', required: true}
+      step_min: {description: 'minutes between replays', required: false, default: '20'}
 permissions:
   contents: write
+  actions: write
 concurrency:
   group: tracker
   cancel-in-progress: false
 jobs:
-  novig_history:
+  backfill:
     runs-on: ubuntu-latest
-    timeout-minutes: 300
+    timeout-minutes: 90
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with: {python-version: '3.12'}
-      - run: pip install -q cryptography
-      - name: Novig settled-market history, walk to the start of the tape
-        env:
-          NOVIG_KEY_ID: ${{ secrets.NOVIG_KEY_ID }}
-          NOVIG_PRIVATE_KEY: ${{ secrets.NOVIG_PRIVATE_KEY }}
+      - run: pip install -q cryptography numpy pandas
+      - run: python3 sharp/build_db.py
+      - run: python3 sharp/results.py
+      - run: python3 -m sharp.season nfl nhl nba cfb cbb || true
+      - name: replay the systems engine and the tennis watch
+        env: {FROM: '${{ github.event.inputs.from }}', TO: '${{ github.event.inputs.to }}', STEP: '${{ github.event.inputs.step_min }}'}
         run: |
-          for i in $(seq 1 60); do
-            python3 loggers/novig_history.py --all --max-pages ${{ github.event.inputs.pages }}
-            grep -q '"backfill_done": true' data/novig/_history_state.json && break
-            sleep 60
-          done
+          python3 - <<'EOF'
+          import os, subprocess, datetime as dt
+          t = dt.datetime.fromisoformat(os.environ['FROM'].replace('Z', '+00:00')); end = dt.datetime.fromisoformat(os.environ['TO'].replace('Z', '+00:00'))
+          step = dt.timedelta(minutes=int(os.environ.get('STEP') or 20))
+          while t <= end:
+              s = t.strftime('%Y-%m-%dT%H:%M:%SZ')
+              for script, var in (('sharp/systems.py', 'SYSTEMS_NOW'), ('sharp/tennis_watch.py', 'TENNIS_NOW')):
+                  env = dict(os.environ, **{var: s, 'SYSTEMS_BACKFILL': '1'})
+                  r = subprocess.run(['python3', script], env=env, capture_output=True, text=True)
+                  print(s, script, (r.stdout.strip().splitlines() or [''])[-1][:200], r.stderr.strip()[-300:])
+              t += step
+          EOF
+      - name: rebuild the live view, the tennis watch and the bet log as of now
+        run: |
+          python3 sharp/systems.py || true
+          python3 -m sharp.fills grade || true
+          python3 sharp/tennis_watch.py || true
+          python3 sharp/bet_log.py || true
       - name: commit
         run: |
           git config user.name "tracker-bot"; git config user.email "actions@users.noreply.github.com"
-          git add -A data/novig/catalog data/novig/_history_state.json && git commit -m "novig history backfill $(date -u +%Y-%m-%dT%H:%M)" || exit 0
-          for i in 1 2 3 4 5 6; do
-            if git pull --rebase -X theirs && git push; then exit 0; fi
-            git rebase --abort 2>/dev/null || true; sleep $((RANDOM % 20 + 5))
+          git add -A data/state/fills.jsonl data/state/system_fired.json data/state/system_fires.json data/state/bet_log.json data/state/tennis_watch.json data/tennis/fs_paper.jsonl data/tennis/fs_graded.json
+          git commit -m "backfill ${{ github.event.inputs.from }} to ${{ github.event.inputs.to }}" || exit 0
+          for i in 1 2 3 4 5; do
+            if git pull --rebase -X theirs && git push; then
+              GH_TOKEN="${{ secrets.GITHUB_TOKEN }}" gh api -X POST "repos/${GITHUB_REPOSITORY}/actions/workflows/pages.yml/dispatches" -f ref=main || true
+              exit 0
+            fi
+            git rebase --abort 2>/dev/null || true
+            sleep $((RANDOM % 15 + 5))
           done
           exit 1

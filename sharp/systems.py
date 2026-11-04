@@ -226,7 +226,7 @@ def paper_fill(conn, eq, ev, start, market, line, side, part, tag, stake, note, 
                line=line, side=side, venue=b['venue'], price_american=price, price_decimal=round(1 / imp, 4), implied=round(imp, 5), stake=stake,
                rule_tag=f'paper:{tag}', fair_at_fill=round(fr['fair'], 5) if fr['fair'] is not None else None, fair_at_fill_status=fr['status'],
                fair_at_fill_detail={k: (round(v['p'], 4) if v['p'] is not None else v['why']) for k, v in fr['detail'].items()},
-               fair_weights={k: round(v, 3) for k, v in fr['weights'].items()}, late=0, note=note, paper=1)
+               fair_weights={k: round(v, 3) for k, v in fr['weights'].items()}, late=0, note=note + (' | backfill: replayed after a missed run' if os.environ.get('SYSTEMS_BACKFILL') else ''), paper=1, **({'backfill': 1} if os.environ.get('SYSTEMS_BACKFILL') else {}))
     rows = FI.load(); rows.append(row); FI.save(rows)
     return row
 

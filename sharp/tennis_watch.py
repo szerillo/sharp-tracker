@@ -14,7 +14,8 @@ Writes data/state/tennis_watch.json. Usage: python3 sharp/tennis_watch.py"""
 import os, sys, json, gzip, glob, math, datetime as dt
 HERE = os.path.dirname(os.path.abspath(__file__)); ROOT = os.path.abspath(os.path.join(HERE, '..')); sys.path.insert(0, ROOT)
 TD = os.path.join(ROOT, 'data', 'tennis'); OUT = os.path.join(ROOT, 'data', 'state', 'tennis_watch.json'); PAPER = os.path.join(TD, 'fs_paper.jsonl')
-NOW = dt.datetime.now(dt.timezone.utc); GAP = 0.033; MIN_FAV = 0.55; MIN_EDGE = 0.01; KFEE = 0.07; STALE_MIN = 45
+NOW = dt.datetime.fromisoformat(os.environ['TENNIS_NOW'].replace('Z', '+00:00')) if os.environ.get('TENNIS_NOW') else dt.datetime.now(dt.timezone.utc);   # TENNIS_NOW replays a past run (backfill)
+GAP = 0.033; MIN_FAV = 0.55; MIN_EDGE = 0.01; KFEE = 0.07; STALE_MIN = 45
 
 
 def s_from_match(p):
@@ -40,7 +41,7 @@ def latest():
             try:
                 for l in gzip.open(f, 'rt'):
                     r = json.loads(l)
-                    if r['market'] not in ('ml', '1s_ml'): continue
+                    if r['market'] not in ('ml', '1s_ml') or ts(r['ts']) > NOW: continue
                     k = (r['event_id'], r['market'], r['venue'], r['side'])
                     if k not in L or r['ts'] > L[k]['ts']: L[k] = r
             except (EOFError, OSError): pass
@@ -131,7 +132,7 @@ def main():
         rows.append(row)
         if row['flag'] and ev not in paper:
             kt = (L.get((ev, '1s_ml', 'Kalshi', fav)) or {}).get('extra') or {}
-            rec = dict(event_id=ev, ts=NOW.strftime('%Y-%m-%dT%H:%M:%SZ'), start=e['start'], fav=fav, fav_name=name, opp_name=opp, match_p=row['match_p'],
+            rec = dict(**({'backfill': 1} if os.environ.get('TENNIS_NOW') else {}), event_id=ev, ts=NOW.strftime('%Y-%m-%dT%H:%M:%SZ'), start=e['start'], fav=fav, fav_name=name, opp_name=opp, match_p=row['match_p'],
                        fair=row['fair'], venue=best['venue'], price=best['cost'], pin_set1=row['pin_set1'], rule='tennis_fs_fav',
                        kalshi_set1=kt.get('ticker'))            # settles Challenger / ITF matches ESPN does not carry
             new.append(rec); paper[ev] = rec
