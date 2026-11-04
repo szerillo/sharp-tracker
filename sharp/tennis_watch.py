@@ -27,6 +27,63 @@ def s_from_match(p):
     return (lo + hi) / 2
 
 
+# ---- Tennis Abstract set-1 model (11/4, sharp/tennis_ta.py --map): fair set-1 = the observed set-1 rate of favourites at this calibrated
+# match probability, by tour and level (ATP / WTA x tour / Challenger / ITF, best-of-5 for men's slams), from 621k matches 2015-2026,
+# plus a serve-profile adjustment (both players' trailing hold rates): a dog who holds 3%+ more than the favourite takes set 1 about
+# 4 points more often than the curve says; a favourite who holds more, 1.3 points less often than... (see docs/tennis_ta_2026-11-04.md).
+MAP = json.load(open(os.path.join(ROOT, 'data', 'research', 'tennis_set1_map.json'))) if os.path.exists(os.path.join(ROOT, 'data', 'research', 'tennis_set1_map.json')) else None
+PROF = json.load(open(os.path.join(ROOT, 'data', 'state', 'tennis_profiles.json'))) if os.path.exists(os.path.join(ROOT, 'data', 'state', 'tennis_profiles.json')) else {}
+SLAMS = ('australian open', 'roland garros', 'french open', 'wimbledon', 'us open')
+SERVE_ADJ = {'dog': -0.041, 'fav': 0.013, 'similar': -0.013}
+
+
+def ta_group(e):
+    t = (e.get('tour') or '').lower(); tn = (e.get('tournament') or '').lower()
+    tour = 'wta' if t.startswith('wta') or 'wta' in tn or 'women' in tn or 'ladies' in tn else 'atp'
+    lvl = 'chall' if 'challenger' in tn or 'challenger' in t else 'itf' if t.startswith('itf') or 'itf' in tn or 'futures' in tn else 'tour'
+    if lvl == 'itf' and tour == 'atp': lvl = 'itf'
+    bo5 = tour == 'atp' and lvl == 'tour' and any(s in tn for s in SLAMS)
+    g = f"{tour}_{lvl}" + ('_bo5' if bo5 else '')
+    return g if MAP and g in MAP['groups'] else (f"{tour}_tour" if MAP and f"{tour}_tour" in MAP['groups'] else None)
+
+
+def ta_interp(cv, x):
+    if x <= cv[0][0]: return cv[0][1] + (x - cv[0][0]) * (cv[0][1] - 0.5) / max(1e-6, cv[0][0] - 0.5)
+    for (x0, y0, _), (x1, y1, _) in zip(cv, cv[1:]):
+        if x0 <= x <= x1: return y0 + (y1 - y0) * (x - x0) / max(1e-9, x1 - x0)
+    return cv[-1][1]                     # past the last well-populated bin: flat (the top bins are thin)
+
+
+def _norm(s):
+    import unicodedata, re
+    s = unicodedata.normalize('NFKD', s or '').encode('ascii', 'ignore').decode().lower()
+    return [t for t in re.sub(r'[^a-z\s-]', ' ', s).replace('-', ' ').split() if t]
+
+
+_PIDX = None
+def profile(name):
+    """Tennis Abstract profile by name: same surname and first initial (or a unique surname)."""
+    global _PIDX
+    if _PIDX is None:
+        _PIDX = {}
+        for n, p in PROF.items():
+            t = _norm(n)
+            if t: _PIDX.setdefault(t[-1], []).append((t[0][0] if t else '', n, p))
+    t = _norm(name)
+    if not t: return None
+    c = _PIDX.get(t[-1]) or []
+    hit = [x for x in c if x[0] == t[0][0]] or (c if len(c) == 1 else [])
+    return hit[0][2] if len(hit) == 1 else None
+
+
+def serve_note(pf_, po_):
+    """-> (adjustment, text) from the two players' trailing hold rates, None when either is unknown."""
+    if not pf_ or not po_ or pf_.get('hold') is None or po_.get('hold') is None: return None
+    hf, ho = pf_['hold'], po_['hold']
+    k = 'dog' if ho > hf + 0.03 else 'fav' if hf > ho + 0.03 else 'similar'
+    return SERVE_ADJ[k], f"holds: favourite {100 * hf:.0f}%, opponent {100 * ho:.0f}% ({'dog is the bigger server' if k == 'dog' else 'favourite is the bigger server' if k == 'fav' else 'similar'})"
+
+
 def implied(a): return 100 / (a + 100) if a > 0 else -a / (-a + 100)
 
 
@@ -108,7 +165,15 @@ def main():
             pm = mid(L, ev, 'ml', 'Kalshi', 'home') or mid(L, ev, 'ml', 'Novig', 'home'); src = 'exchange mid'
         if pm is None: continue
         fav = 'home' if pm >= 0.5 else 'away'; pf = pm if fav == 'home' else 1 - pm
-        model = s_from_match(pf); fair = min(model + GAP, pf)
+        name = (e.get('home_team') if fav == 'home' else e.get('away_team') or {}).get('displayName') if e else None
+        opp = (e.get('away_team') if fav == 'home' else e.get('home_team') or {}).get('displayName') if e else None
+        model = s_from_match(pf); fair_old = min(model + GAP, pf)
+        g = ta_group(e); pf_prof = profile(name); po_prof = profile(opp); sv = serve_note(pf_prof, po_prof)
+        if g:
+            base = ta_interp(MAP['groups'][g], pf) if g.endswith('bo5') else ta_interp(MAP['pooled'], pf) + MAP['offsets'].get(g, 0.0)
+            fair = min(base + (sv[0] if sv else 0.0), pf - 0.01); fair_src = f"Tennis Abstract {g}" + (' + serve profile' if sv else '')
+        else:
+            fair = fair_old; fair_src = 'independent sets + 3.3'
         cands = []
         for v in ('Kalshi', 'Novig'):
             r = L.get((ev, '1s_ml', v, fav))
@@ -121,10 +186,9 @@ def main():
         prices = {c['venue']: c['cost'] for c in cands}
         best = min(cands, key=lambda c: c['cost']) if cands else None
         pin1 = novig_pin_p(L, ev, '1s_ml', fav)
-        name = (e.get('home_team') if fav == 'home' else e.get('away_team') or {}).get('displayName') if e else None
-        opp = (e.get('away_team') if fav == 'home' else e.get('home_team') or {}).get('displayName') if e else None
         row = dict(event_id=ev, sport='tennis', league=(e.get('tour') or '').lower() or None, start=e['start'], tour=e.get('tour'), tournament=e.get('tournament'), fav=fav, fav_name=name, opp_name=opp,
-                   match_p=round(pf, 4), match_src=src, model=round(model, 4), fair=round(fair, 4), pin_set1=round(pin1, 4) if pin1 else None,
+                   match_p=round(pf, 4), match_src=src, model=round(model, 4), fair=round(fair, 4), fair_old=round(fair_old, 4), fair_src=fair_src, serve=sv[1] if sv else None,
+                   profiles=dict(fav=pf_prof and dict(elo=pf_prof['elo'], hold=pf_prof['hold'], last=pf_prof['last']), opp=po_prof and dict(elo=po_prof['elo'], hold=po_prof['hold'], last=po_prof['last'])), pin_set1=round(pin1, 4) if pin1 else None,
                    best=best, prices=prices, edge=round(fair - best['cost'], 4) if best else None)
         row['flag'] = bool(best and pf >= MIN_FAV and row['edge'] >= MIN_EDGE)
         if ev in paper:                           # already paper-logged: stays on the page even if the price has since gone (11/2)
