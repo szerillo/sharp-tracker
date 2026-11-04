@@ -1,5 +1,5 @@
 {
- "built": "2026-11-04T17:36:04Z",
+ "built": "2026-11-04T17:42:01Z",
  "rows": [
   {
    "cond": "0x69aeb202063d522a2138eea4af2b246ded0b5f0a369e3533844d3c3a91126b7a",
@@ -192,7 +192,7 @@
    "best_rank": 3,
    "usd": 100,
    "paid": 0.5,
-   "ask": 0.51,
+   "ask": 0.52,
    "status": "live",
    "link": "https://polymarket.us/event/ucl-por-nap-2026-11-04",
    "other": null,
@@ -213,10 +213,10 @@
    "why": "3 top-200 accounts",
    "proven": false,
    "trigger": "two",
-   "n_accounts": 2,
-   "best_rank": 93,
-   "usd": 540,
-   "paid": 0.548,
+   "n_accounts": 3,
+   "best_rank": 58,
+   "usd": 990,
+   "paid": 0.549,
    "ask": 0.56,
    "status": "live",
    "link": "https://polymarket.us/event/nba-phi-det-2026-11-04",
@@ -242,6 +242,50 @@
      "Caesars": 0.5745,
      "Kalshi": 0.58,
      "DK": 0.5868
+    }
+   }
+  },
+  {
+   "cond": "0x4e14101792372d8c16dae3092acf0f825ca206475de2d1c76c7ded8c208f9762",
+   "slug": "nba-mil-bos-2026-11-04",
+   "title": "Bucks vs. Celtics",
+   "mtype": "spread",
+   "start": "2026-11-05T00:30:00Z",
+   "bet": "Bucks +11.5",
+   "side": "Bucks",
+   "flagged": "2026-11-04T17:41:09Z",
+   "why": "2 top-200 accounts",
+   "proven": false,
+   "trigger": "two",
+   "n_accounts": 2,
+   "best_rank": 112,
+   "usd": 14384,
+   "paid": 0.513,
+   "ask": 0.55,
+   "status": "live",
+   "link": "https://polymarket.us/event/nba-mil-bos-2026-11-04",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401909924",
+   "sport": "nba",
+   "league": null,
+   "away": "MIL",
+   "home": "BOS",
+   "away_name": "Milwaukee Bucks",
+   "home_name": "Boston Celtics",
+   "game_start": "2026-11-05T00:30Z",
+   "side_std": "away",
+   "money_with": false,
+   "grade": "B",
+   "books": {
+    "at": "2026-11-04T15:01:15Z",
+    "fair": 0.4973,
+    "q": {
+     "DK": 0.5192,
+     "Kalshi": 0.52,
+     "Caesars": 0.5238,
+     "FD": 0.5238
     }
    }
   },
@@ -656,8 +700,8 @@
    "trigger": "two",
    "n_accounts": 2,
    "best_rank": 43,
-   "usd": 234,
-   "paid": 0.519,
+   "usd": 1994,
+   "paid": 0.555,
    "ask": 0.58,
    "status": "live",
    "link": "https://polymarket.us/event/nba-atl-was-2026-11-04",
@@ -922,9 +966,9 @@
   },
   "401909924|ml": {
    "away": {
-    "n": 1,
-    "best_rank": 142,
-    "usd": 1500
+    "n": 4,
+    "best_rank": 55,
+    "usd": 16106
    },
    "home": {
     "n": 2,
@@ -937,6 +981,13 @@
     "n": 1,
     "best_rank": 132,
     "usd": 1158
+   }
+  },
+  "401909924|spread": {
+   "away": {
+    "n": 2,
+    "best_rank": 112,
+    "usd": 14384
    }
   },
   "401909925|spread": {
