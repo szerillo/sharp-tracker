@@ -1,0 +1,44 @@
+name: tennis odds history (tennis-data.co.uk)
+# Sean, 11/4: historical tour-level results WITH closing odds (Pinnacle PSW/PSL, Bet365, market max/avg) from tennis-data.co.uk,
+# ATP and WTA, one workbook a year. With the Tennis Abstract database this is what turns a structural finding (rust, layoffs,
+# serve profiles, Elo) into an edge test against the closing price. Fetched on GitHub's runner, stored in data/tennis/odds/.
+# Monthly: the current year's file grows through the season.
+on:
+  schedule:
+    - cron: '41 8 3 * *'       # 3rd of the month, 3:41 AM ET
+  workflow_dispatch: {}
+permissions:
+  contents: write
+concurrency:
+  group: tennis-odds
+  cancel-in-progress: false
+jobs:
+  pull:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - name: download each year's workbook (xlsx, else xls)
+        run: |
+          mkdir -p data/tennis/odds
+          for y in $(seq 2010 2026); do
+            for t in atp wta; do
+              [ "$t" = "atp" ] && d="$y" || d="${y}w"
+              out="data/tennis/odds/${t}_${y}"
+              for ext in xlsx xls; do
+                if curl -sfL -m 60 -A "Mozilla/5.0" -o "$out.$ext" "http://www.tennis-data.co.uk/$d/$y.$ext" && [ -s "$out.$ext" ]; then echo "ok $t $y .$ext"; break; else rm -f "$out.$ext"; fi
+              done
+            done
+          done
+          ls -la data/tennis/odds; du -sh data/tennis/odds
+      - name: commit
+        run: |
+          git config user.name "tracker-bot"; git config user.email "actions@users.noreply.github.com"
+          git add -A data/tennis/odds
+          git commit -q -m "tennis odds history (tennis-data.co.uk) $(date -u +%Y-%m-%d)" || exit 0
+          for i in 1 2 3 4 5; do
+            if git pull -q --rebase -X theirs && git push -q; then exit 0; fi
+            git rebase --abort 2>/dev/null || true
+            sleep $((RANDOM % 15 + 5))
+          done
+          exit 1
