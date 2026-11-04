@@ -1,5 +1,5 @@
 {
- "built": "2026-11-04T23:19:30Z",
+ "built": "2026-11-04T23:31:33Z",
  "rows": [
   {
    "cond": "0x159b76fa5382b06fb70bf17593a79a9ee670b7888af945f917de7579138194eb",
@@ -76,9 +76,6 @@
    "home_name": "Washington Wizards",
    "game_start": "2026-11-05T00:00Z",
    "side_std": "home",
-   "conflict": [
-    "Kalshi move"
-   ],
    "money_with": false,
    "grade": "B",
    "books": {
@@ -122,9 +119,6 @@
    "home_name": "Washington Wizards",
    "game_start": "2026-11-05T00:00Z",
    "side_std": "home",
-   "conflict": [
-    "Kalshi move"
-   ],
    "money_with": false,
    "grade": "B",
    "books": null
@@ -264,97 +258,6 @@
      "Caesars": 0.1818,
      "DK": 0.1842,
      "FD": 0.1852
-    }
-   }
-  },
-  {
-   "cond": "0x5e05533be232a3db1c0d0bd0d31e03e92f23d49c76cb3858f36c76137160a993",
-   "slug": "nba-cha-bkn-2026-11-04",
-   "title": "Hornets vs. Nets",
-   "mtype": "ml",
-   "start": "2026-11-05T00:30:00Z",
-   "bet": "Hornets ML",
-   "side": "Hornets",
-   "flagged": "2026-11-04T23:07:43Z",
-   "why": "a top-50 account",
-   "proven": false,
-   "trigger": "top50",
-   "n_accounts": 1,
-   "best_rank": 43,
-   "usd": 637,
-   "paid": 0.61,
-   "ask": 0.62,
-   "status": "live",
-   "link": "https://polymarket.us/event/nba-cha-bkn-2026-11-04",
-   "other": null,
-   "kalshi_against": null,
-   "logged": true,
-   "event_id": "401909925",
-   "sport": "nba",
-   "league": null,
-   "away": "CHA",
-   "home": "BKN",
-   "away_name": "Charlotte Hornets",
-   "home_name": "Brooklyn Nets",
-   "game_start": "2026-11-05T00:30Z",
-   "side_std": "away",
-   "money_with": false,
-   "grade": "watch",
-   "books": {
-    "at": "2026-11-04T20:32:41Z",
-    "fair": 0.6071,
-    "q": {
-     "Caesars": 0.6226,
-     "FD": 0.6241,
-     "DK": 0.6296,
-     "Kalshi": 0.63
-    }
-   }
-  },
-  {
-   "cond": "0x031332a6b026b42c5162372f72f233653cd4d1b70134089547358cea7ab792a6",
-   "slug": "nba-chi-nyk-2026-11-04",
-   "title": "Bulls vs. Knicks",
-   "mtype": "ml",
-   "start": "2026-11-05T00:30:00Z",
-   "bet": "Bulls ML",
-   "side": "Bulls",
-   "flagged": "2026-11-04T23:08:10Z",
-   "why": "a top-50 account",
-   "proven": false,
-   "trigger": "top50",
-   "n_accounts": 1,
-   "best_rank": 43,
-   "usd": 680,
-   "paid": 0.17,
-   "ask": 0.17,
-   "status": "live",
-   "link": "https://polymarket.us/event/nba-chi-nyk-2026-11-04",
-   "other": null,
-   "kalshi_against": null,
-   "logged": true,
-   "event_id": "401909926",
-   "sport": "nba",
-   "league": null,
-   "away": "CHI",
-   "home": "NY",
-   "away_name": "Chicago Bulls",
-   "home_name": "New York Knicks",
-   "game_start": "2026-11-05T00:30Z",
-   "side_std": "away",
-   "conflict": [
-    "Kalshi bet back"
-   ],
-   "money_with": false,
-   "grade": "watch",
-   "books": {
-    "at": "2026-11-04T20:32:41Z",
-    "fair": 0.1604,
-    "q": {
-     "Kalshi": 0.18,
-     "DK": 0.1842,
-     "FD": 0.1852,
-     "Caesars": 0.1887
     }
    }
   },
@@ -756,14 +659,14 @@
    "bet": "Hawks ML",
    "side": "Hawks",
    "flagged": "2026-11-03T13:11:31Z",
-   "why": "2 top-200 accounts",
+   "why": "3 top-200 accounts",
    "proven": false,
    "trigger": "two",
-   "n_accounts": 2,
+   "n_accounts": 3,
    "best_rank": 43,
-   "usd": 1994,
-   "paid": 0.555,
-   "ask": 0.56,
+   "usd": 2710,
+   "paid": 0.554,
+   "ask": 0.55,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-atl-was-2026-11-04",
    "other": {
@@ -772,8 +675,12 @@
     "usd": 49498,
     "first": "2026-11-04T23:00:06Z"
    },
-   "exit_bid": 0.55,
-   "kalshi_against": null,
+   "exit_bid": 0.54,
+   "kalshi_against": {
+    "move": 5.5,
+    "now": 44.5,
+    "state": "reversed"
+   },
    "logged": true,
    "event_id": "401909923",
    "sport": "nba",
@@ -1041,9 +948,9 @@
   },
   "401909923|ml": {
    "away": {
-    "n": 2,
+    "n": 3,
     "best_rank": 43,
-    "usd": 1994
+    "usd": 2710
    },
    "home": {
     "n": 2,
