@@ -23,8 +23,16 @@ jobs:
         run: |
           set -e
           mkdir -p data/tennis/ta
+          # the original JeffSackmann/tennis_atp and tennis_wta repos no longer answer (11/4); the Aneeshers/tennis-sackmann-archive mirror
+          # (atp/ and wta/ folders, through 2026) is the fallback. Sparse checkout: the slam point-by-point folder is most of its 800 MB.
           for tour in atp wta; do
-            git clone -q --depth 1 https://github.com/JeffSackmann/tennis_$tour /tmp/$tour
+            if git clone -q --depth 1 https://github.com/JeffSackmann/tennis_$tour /tmp/$tour 2>/dev/null; then echo "upstream $tour"; else
+              if [ ! -d /tmp/mirror ]; then
+                git clone -q --depth 1 --filter=blob:none --sparse https://github.com/Aneeshers/tennis-sackmann-archive /tmp/mirror
+                (cd /tmp/mirror && git sparse-checkout set atp wta)
+              fi
+              rm -rf /tmp/$tour; cp -r /tmp/mirror/$tour /tmp/$tour; echo "mirror $tour"
+            fi
             for y in $(seq 2015 2026); do
               for f in ${tour}_matches_$y.csv ${tour}_matches_qual_chall_$y.csv ${tour}_matches_qual_itf_$y.csv ${tour}_matches_futures_$y.csv; do
                 [ -f /tmp/$tour/$f ] && gzip -c /tmp/$tour/$f > data/tennis/ta/$f.gz
@@ -33,7 +41,7 @@ jobs:
             for f in ${tour}_players.csv ${tour}_rankings_current.csv ${tour}_rankings_20s.csv; do
               [ -f /tmp/$tour/$f ] && gzip -c /tmp/$tour/$f > data/tennis/ta/$f.gz
             done
-            (cd /tmp/$tour && git log -1 --format='%H %cd' --date=iso) > data/tennis/ta/${tour}_upstream.txt
+            (cd /tmp/$tour && git log -1 --format='%H %cd' --date=iso 2>/dev/null || (cd /tmp/mirror && echo "mirror $(git log -1 --format='%H %cd' --date=iso)")) > data/tennis/ta/${tour}_upstream.txt
           done
           ls -la data/tennis/ta | head -60; du -sh data/tennis/ta
       - name: commit
