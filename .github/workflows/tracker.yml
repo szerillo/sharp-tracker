@@ -58,6 +58,8 @@ jobs:
       - name: roll off raw ticks older than 10 days to the raw-archive release
         env: {GITHUB_TOKEN: '${{ secrets.GITHUB_TOKEN }}', GH_TOKEN: '${{ secrets.GITHUB_TOKEN }}'}
         run: python3 sharp/rolloff.py || true
+      - name: read the latest signal files from main (owned by the signals and prices jobs)
+        run: git fetch -q origin main && git checkout -q origin/main -- data/state/flow_live.json data/state/tennis_watch.json data/state/bet_log.json data/state/sharp_accounts.json data/state/sharp_paper.jsonl data/tennis/fs_paper.jsonl || true
       - name: board audit (open bets on the board, freshness, duplicates, feeds; red banner + phone alert on a new failure)
         env: {NTFY_TOPIC: '${{ secrets.NTFY_TOPIC }}'}
         run: python3 sharp/audit.py || true

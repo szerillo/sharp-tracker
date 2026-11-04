@@ -35,6 +35,8 @@ jobs:
         run: python3 sharp/dedupe_fills.py || true
       - name: bet tracker
         run: python3 sharp/bet_log.py || true
+      - name: read the latest system-bet files from main (owned by the tracker job; this checkout may predate its last commit)
+        run: git fetch -q origin main && git checkout -q origin/main -- data/state/system_fires.json data/state/system_fired.json data/state/sharp_accounts.json data/state/sharp_paper.jsonl || true
       - name: board audit (open bets on the board, freshness, duplicates, feeds; red banner + phone alert on a new failure)
         env: {NTFY_TOPIC: '${{ secrets.NTFY_TOPIC }}'}
         run: python3 sharp/audit.py || true
