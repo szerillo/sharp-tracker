@@ -1,5 +1,5 @@
 {
- "built": "2026-11-04T23:31:33Z",
+ "built": "2026-11-04T23:43:07Z",
  "rows": [
   {
    "cond": "0x159b76fa5382b06fb70bf17593a79a9ee670b7888af945f917de7579138194eb",
@@ -76,8 +76,8 @@
    "home_name": "Washington Wizards",
    "game_start": "2026-11-05T00:00Z",
    "side_std": "home",
-   "money_with": false,
-   "grade": "B",
+   "money_with": true,
+   "grade": "A",
    "books": {
     "at": "2026-11-04T22:22:36Z",
     "fair": 0.4813,
@@ -119,8 +119,8 @@
    "home_name": "Washington Wizards",
    "game_start": "2026-11-05T00:00Z",
    "side_std": "home",
-   "money_with": false,
-   "grade": "B",
+   "money_with": true,
+   "grade": "A",
    "books": null
   },
   {
@@ -186,7 +186,7 @@
    "best_rank": 43,
    "usd": 637,
    "paid": 0.61,
-   "ask": 0.62,
+   "ask": 0.61,
    "status": "live",
    "link": "https://polymarket.us/event/nba-cha-bkn-2026-11-04",
    "other": null,
@@ -230,7 +230,7 @@
    "best_rank": 43,
    "usd": 680,
    "paid": 0.17,
-   "ask": 0.17,
+   "ask": 0.18,
    "status": "live",
    "link": "https://polymarket.us/event/nba-chi-nyk-2026-11-04",
    "other": null,
@@ -465,13 +465,13 @@
    "bet": "Cavaliers ML",
    "side": "Cavaliers",
    "flagged": "2026-11-04T11:46:30Z",
-   "why": "a top-50 account",
+   "why": "2 top-200 accounts",
    "proven": true,
    "trigger": "proven",
-   "n_accounts": 1,
+   "n_accounts": 2,
    "best_rank": 31,
-   "usd": 635,
-   "paid": 0.485,
+   "usd": 833,
+   "paid": 0.496,
    "ask": 0.53,
    "status": "live",
    "link": "https://polymarket.us/event/nba-phi-cle-2026-11-06",
@@ -488,7 +488,7 @@
    "game_start": "2026-11-07T00:30Z",
    "side_std": "home",
    "money_with": false,
-   "grade": "watch",
+   "grade": "A",
    "books": null
   },
   {
@@ -887,6 +887,14 @@
     "best_rank": 112,
     "usd": 14384
    }
+  },
+  "401909928:nba_momentum:ml": {
+   "with": null,
+   "against": {
+    "n": 1,
+    "best_rank": 93,
+    "usd": 199
+   }
   }
  },
  "by_event": {
@@ -1120,9 +1128,9 @@
   },
   "401909289|ml": {
    "home": {
-    "n": 1,
+    "n": 2,
     "best_rank": 31,
-    "usd": 635
+    "usd": 833
    }
   },
   "401892644|ml": {
