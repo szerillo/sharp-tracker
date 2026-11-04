@@ -16,7 +16,7 @@ HERE = os.path.dirname(os.path.abspath(__file__)); ROOT = os.path.abspath(os.pat
 TD = os.path.join(ROOT, 'data', 'tennis'); OUT = os.path.join(ROOT, 'data', 'state', 'tennis_watch.json'); PAPER = os.path.join(TD, 'fs_paper.jsonl')
 NOW = dt.datetime.fromisoformat(os.environ['TENNIS_NOW'].replace('Z', '+00:00')) if os.environ.get('TENNIS_NOW') else dt.datetime.now(dt.timezone.utc);   # TENNIS_NOW replays a past run (backfill)
 GAP = 0.033; MIN_FAV = 0.55; MIN_EDGE = 0.01; KFEE = 0.07; STALE_MIN = 45
-HOT = dict(lo=0.60, hi=0.85, gap=0.30, min_n=8); HOT_PAPER = os.path.join(TD, 'hot_paper.jsonl')   # 11/4 (docs/tennis_ta section 9): hot favourite, paper only
+HOT = dict(lo=0.60, hi=0.85, gap=0.30, min_n=8); HOT_PAPER = os.path.join(TD, 'hot_paper.jsonl'); SERVE_PAPER = os.path.join(TD, 'serve_paper.jsonl')   # 11/4 (docs/tennis_ta section 9): hot favourite, paper only
 
 
 def s_from_match(p):
@@ -177,7 +177,10 @@ def main():
     hot_paper = {}
     if os.path.exists(HOT_PAPER):
         for l in open(HOT_PAPER): r = json.loads(l); hot_paper[r['event_id']] = r
-    rows = []; new = []; new_hot = []
+    serve_paper = {}
+    if os.path.exists(SERVE_PAPER):
+        for l in open(SERVE_PAPER): r = json.loads(l); serve_paper[r['event_id']] = r
+    rows = []; new = []; new_hot = []; new_serve = []
     for ev in evs:
         e = E.get(ev)
         if not e or ts(e['start']) <= NOW: continue
@@ -217,14 +220,30 @@ def main():
         # hot favourite (paper, no units): Pinnacle favourite 60-85% whose last-10 win rate is 30%+ above the opponent's; bet the match
         ff, fo = form(name, e['start']), form(opp, e['start'])
         row['form'] = dict(fav=ff and dict(rate=round(ff[0], 2), n=ff[1]), opp=fo and dict(rate=round(fo[0], 2), n=fo[1]))
-        mc = []
-        for v in ('Kalshi', 'Novig'):
-            r = L.get((ev, 'ml', v, fav))
-            if r and r.get('ask') and 'oneside' not in (r.get('flags') or []): mc.append(dict(venue=v, cost=round(r['ask'] + (math.ceil(KFEE * r['ask'] * (1 - r['ask']) * 100) / 100 if v == 'Kalshi' else 0), 4)))
-        for v in ('DK', 'FD', 'Caesars'):
-            r = L.get((ev, 'ml', v, fav))
-            if r and r.get('american') is not None: mc.append(dict(venue=v, american=r['american'], cost=round(implied(r['american']), 4)))
-        mbest = min(mc, key=lambda c: c['cost']) if mc else None
+        def match_best(side):
+            mc = []
+            for v in ('Kalshi', 'Novig'):
+                r = L.get((ev, 'ml', v, side))
+                if r and r.get('ask') and 'oneside' not in (r.get('flags') or []): mc.append(dict(venue=v, cost=round(r['ask'] + (math.ceil(KFEE * r['ask'] * (1 - r['ask']) * 100) / 100 if v == 'Kalshi' else 0), 4)))
+            for v in ('DK', 'FD', 'Caesars'):
+                r = L.get((ev, 'ml', v, side))
+                if r and r.get('american') is not None: mc.append(dict(venue=v, american=r['american'], cost=round(implied(r['american']), 4)))
+            return min(mc, key=lambda c: c['cost']) if mc else None
+        mbest = match_best(fav)
+        # serve-profile angles (paper, no units; docs/tennis_ta section 9b): the dog is the bigger server (3%+ hold) and the favourite is
+        # 50-60% -> bet the dog; 70-80% -> bet the favourite. Hold rates from the Tennis Abstract profiles (tour-level players).
+        hf, ho = (pf_prof or {}).get('hold'), (po_prof or {}).get('hold')
+        row['serve_rule'] = None
+        if src == 'Pinnacle' and hf is not None and ho is not None and ho - hf >= 0.03 and g in ('atp_tour', 'atp_chall', 'wta_tour', 'atp_tour_bo5', 'wta_tour_bo5'):   # tour + Challenger only: ITF players have no serve stats, a hold rate there is a name mismatch
+            if 0.50 <= pf < 0.60: row['serve_rule'] = dict(rule='tennis_serve_dog', side='away' if fav == 'home' else 'home', name=opp, best=match_best('away' if fav == 'home' else 'home'))
+            elif 0.70 <= pf < 0.80: row['serve_rule'] = dict(rule='tennis_serve_fav', side=fav, name=name, best=mbest)
+            if row['serve_rule'] and not row['serve_rule']['best']: row['serve_rule'] = None
+        if ev in serve_paper: row['serve_logged'] = dict(ts=serve_paper[ev]['ts'], venue=serve_paper[ev]['venue'], price=serve_paper[ev]['price'], rule=serve_paper[ev]['rule'], name=serve_paper[ev]['pick_name'])
+        if row['serve_rule'] and ev not in serve_paper and not any(p.get('fav_name') == name and p.get('opp_name') == opp and abs((ts(p['start']) - ts(e['start'])).total_seconds()) <= 6 * 3600 for p in serve_paper.values()):
+            sr = row['serve_rule']
+            rec = dict(event_id=ev, ts=NOW.strftime('%Y-%m-%dT%H:%M:%SZ'), start=e['start'], fav=fav, fav_name=name, opp_name=opp, match_p=round(pf, 4), side=sr['side'], pick_name=sr['name'],
+                       hold_fav=round(hf, 3), hold_opp=round(ho, 3), venue=sr['best']['venue'], price=sr['best']['cost'], rule=sr['rule'])
+            new_serve.append(rec); serve_paper[ev] = rec
         row['hot'] = bool(src == 'Pinnacle' and ff and fo and HOT['lo'] <= pf <= HOT['hi'] and ff[0] - fo[0] >= HOT['gap'] and mbest)
         row['hot_best'] = mbest
         if ev in hot_paper: row['hot_logged'] = dict(ts=hot_paper[ev]['ts'], venue=hot_paper[ev]['venue'], price=hot_paper[ev]['price'])
@@ -249,6 +268,9 @@ def main():
     if new_hot:
         with open(HOT_PAPER, 'a') as f:
             for r in new_hot: f.write(json.dumps(r) + '\n')
+    if new_serve:
+        with open(SERVE_PAPER, 'a') as f:
+            for r in new_serve: f.write(json.dumps(r) + '\n')
     # grade paper entries from ESPN (ESPN ids only; x: matches stay ungraded until a Kalshi/Novig settlement path is added)
     res = {}
     rp = os.path.join(TD, 'results.jsonl')
@@ -275,20 +297,30 @@ def main():
                 for l in gzip.open(f, 'rt'):
                     if '"ml"' not in l or '"Pinnacle"' not in l: continue
                     r = json.loads(l)
-                    if r['event_id'] not in hot_paper or r['market'] != 'ml' or ts(r['ts']) > NOW: continue
+                    if (r['event_id'] not in hot_paper and r['event_id'] not in serve_paper) or r['market'] != 'ml' or ts(r['ts']) > NOW: continue
                     k = (r['event_id'], r['side'])
                     if k not in mclose or r['ts'] > mclose[k]['ts']: mclose[k] = r
             except (EOFError, OSError): pass
-    hot_graded = []
-    for ev, p in hot_paper.items():
-        if ts(p['start']) > NOW: continue
-        r = res.get(ev)
-        if not r or not r.get('winner') or r.get('walkover'): continue
-        won = (r['winner'] == 'p1') == (p['fav'] == 'home')
-        h, a_ = mclose.get((ev, 'home')), mclose.get((ev, 'away')); c = None
-        if h and a_ and h.get('american') and a_.get('american'):
-            ph, pa = implied(h['american']), implied(a_['american']); c = (ph if p['fav'] == 'home' else pa) / (ph + pa)
-        hot_graded.append(dict(p, won=won, pnl=round((1 - p['price']) / p['price'] if won else -1.0, 3), pin_close=round(c, 4) if c else None, clv=round(100 * (c - p['price']), 2) if c else None))
+    def grade_match(paper_):
+        out = []
+        for ev, p in paper_.items():
+            if ts(p['start']) > NOW: continue
+            r = res.get(ev)
+            if not r or not r.get('winner') or r.get('walkover'): continue
+            side = p.get('side') or p['fav']
+            won = (r['winner'] == 'p1') == (side == 'home')
+            h, a_ = mclose.get((ev, 'home')), mclose.get((ev, 'away')); c = None
+            if h and a_ and h.get('american') and a_.get('american'):
+                ph, pa = implied(h['american']), implied(a_['american']); c = (ph if side == 'home' else pa) / (ph + pa)
+            out.append(dict(p, won=won, pnl=round((1 - p['price']) / p['price'] if won else -1.0, 3), pin_close=round(c, 4) if c else None, clv=round(100 * (c - p['price']), 2) if c else None))
+        return out
+    def record_of(g_):
+        cl_ = [g['clv'] for g in g_ if g.get('clv') is not None]
+        return dict(n=len(g_), won=sum(g['won'] for g in g_), units=round(sum(g['pnl'] for g in g_), 2), clv=round(sum(cl_) / len(cl_), 2) if cl_ else None, clv_n=len(cl_)) if g_ else dict(n=0)
+    hot_graded = grade_match(hot_paper)
+    serve_graded = grade_match(serve_paper)
+    json.dump(serve_graded, open(os.path.join(TD, 'serve_graded.json'), 'w'), separators=(',', ':'))
+    serve_rec = {rule: record_of([g for g in serve_graded if g['rule'] == rule]) for rule in ('tennis_serve_dog', 'tennis_serve_fav')}
     json.dump(hot_graded, open(os.path.join(TD, 'hot_graded.json'), 'w'), separators=(',', ':'))
     hcl = [g['clv'] for g in hot_graded if g.get('clv') is not None]
     hot_rec = dict(n=len(hot_graded), won=sum(g['won'] for g in hot_graded), units=round(sum(g['pnl'] for g in hot_graded), 2), clv=round(sum(hcl) / len(hcl), 2) if hcl else None, clv_n=len(hcl)) if hot_graded else dict(n=0)
@@ -296,9 +328,9 @@ def main():
     cl = [g['clv'] for g in graded if g.get('clv') is not None]
     rec = dict(n=len(graded), won=sum(g['won'] for g in graded), units=round(sum(g['pnl'] for g in graded), 2),
                clv=round(sum(cl) / len(cl), 2) if cl else None, clv_n=len(cl)) if graded else dict(n=0)
-    json.dump(dict(built=NOW.strftime('%Y-%m-%dT%H:%M:%SZ'), gap=GAP, min_fav=MIN_FAV, min_edge=MIN_EDGE, record=rec, recent=sorted(graded, key=lambda g: g['start'])[-25:], hot=HOT, hot_record=hot_rec,
+    json.dump(dict(built=NOW.strftime('%Y-%m-%dT%H:%M:%SZ'), gap=GAP, min_fav=MIN_FAV, min_edge=MIN_EDGE, record=rec, recent=sorted(graded, key=lambda g: g['start'])[-25:], hot=HOT, hot_record=hot_rec, serve_record=serve_rec,
                    rows=rows), open(OUT, 'w'), separators=(',', ':'))
-    print(f"[tennis watch] {len(rows)} upcoming matches priced, {sum(r['flag'] for r in rows)} flagged, {len(new)} new paper entries; record {rec}; hot favourites {sum(r.get('hot', False) for r in rows)} flagged, {len(new_hot)} new, record {hot_rec}")
+    print(f"[tennis watch] {len(rows)} upcoming matches priced, {sum(r['flag'] for r in rows)} flagged, {len(new)} new paper entries; record {rec}; hot favourites {sum(r.get('hot', False) for r in rows)} flagged, {len(new_hot)} new, record {hot_rec}; serve angles {sum(bool(r.get('serve_rule')) for r in rows)} flagged, {len(new_serve)} new")
 
 
 if __name__ == '__main__':

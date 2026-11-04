@@ -664,7 +664,19 @@ function renderToday() {
         ['Form source', 'Our ESPN results log since March (tour, Challenger and the ITF events ESPN carries): a player with wins at events ESPN does not list looks colder than they are'],
         ['Flagged', lg ? `${DAYT(lg.ts)} at ${VS(lg.venue)} ${(100 * lg.price).toFixed(1)}¢` : ''], ['Now', b ? `${VS(b.venue)} ${(100 * b.cost).toFixed(1)}¢ (${toAm(b.cost)})` : 'no price']])}); };
   const TH = TW ? (TW.rows || []).filter(r => (r.hot || r.hot_logged) && future(r.start) && passW(r.start) && passS('tennis', r.league)) : [];
-  const leanRows = [...lean.map(sysRow), ...TWk.map(tRow), ...TH.map(hRow)];
+  // serve-profile angles (paper, no units; section 9b): dog is the bigger server; fav 50-60% -> bet the dog, 70-80% -> bet the fav
+  const vRow = r => { const sr = r.serve_rule, lg = r.serve_logged, rule = (sr || lg || {}).rule, pick = (sr || lg || {}).name, b = sr ? sr.best : null, p = lg ? lg.price : (b ? b.cost : null);
+    const rec = TW && TW.serve_record && TW.serve_record[rule] && TW.serve_record[rule].n ? `${TW.serve_record[rule].won}-${TW.serve_record[rule].n - TW.serve_record[rule].won}, ${TW.serve_record[rule].units > 0 ? '+' : ''}${TW.serve_record[rule].units}u` : 'no graded picks yet';
+    return sRow({id: `tv|${r.start}|${r.fav_name}`, start: r.start, sportLabel: (r.tour || 'tennis').toUpperCase(), game: `${esc(r.fav_name || '')} vs ${esc(r.opp_name || '')}`,
+      bet: `${esc(pick || '')} to win`, sub: 'Match winner · paper, no units', gone: !sr, status: sr ? null : ['gone', 'Price gone or the match price left the band'], size: '<span class="dim">paper</span>',
+      price: p != null ? `<b>${toAm(p)}</b> <span class="small dim">${VS(lg ? lg.venue : b.venue)}</span>` : '', link: '',
+      why: `${rule === 'tennis_serve_dog' ? 'Big-serving dog near a coin flip' : 'Favourite 70-80% against a bigger server'}: match ${(100 * r.match_p).toFixed(1)}% at Pinnacle; ${r.serve ? esc(r.serve) : ''}`,
+      rec: lbl('Backtest', rule === 'tennis_serve_dog' ? '+7.4% vs close, slams 2015-23' : '+8.0% vs close, slams 2015-23') + ' ' + lbl('Tracker', rec),
+      detail: facts([['Rule', rule === 'tennis_serve_dog' ? 'Tennis big-serving dog (tennis_serve_dog, paper): Pinnacle favourite 50-60% and the dog holds serve 3%+ more often (Tennis Abstract trailing hold rates); bet the dog. Slam test 2015-2023: +7.4% over the close on 339 matches, +13% flat ROI, positive in 7 of 9 years.' : 'Tennis favourite vs a bigger server (tennis_serve_fav, paper): Pinnacle favourite 70-80% and the dog holds serve 3%+ more often; bet the favourite. Slam test 2015-2023: +8.0% over the close on 226 matches, +7.9% flat ROI, positive in 8 of 8 years.'],
+        ['Caution', 'One feature pointing two ways across price bands is the kind of result that fails to replicate; paper only until it has a record of its own'],
+        ['Flagged', lg ? `${DAYT(lg.ts)} at ${VS(lg.venue)} ${(100 * lg.price).toFixed(1)}¢` : ''], ['Now', b ? `${VS(b.venue)} ${(100 * b.cost).toFixed(1)}¢ (${toAm(b.cost)})` : 'no price']])}); };
+  const TV = TW ? (TW.rows || []).filter(r => (r.serve_rule || r.serve_logged) && future(r.start) && passW(r.start) && passS('tennis', r.league)) : [];
+  const leanRows = [...lean.map(sysRow), ...TWk.map(tRow), ...TH.map(hRow), ...TV.map(vRow)];
   const H = (t, meta) => `<div class="hdr2"><h2>${t}</h2><span class="meta">${meta}</span></div>`;
   return `<div class="controls topbar">${whenBar(inSport)} ${sportBar(inWhen)}</div>${summary.replace('__NSIG__', `${strong.length} sharp signal${strong.length === 1 ? '' : 's'}`)}
     ${H('System bets', 'Tier A and B · 0.5u · click a row for the full rule and record')}
