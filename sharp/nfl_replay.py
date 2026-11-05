@@ -99,8 +99,7 @@ def main():
             band = 'wind 0-5' if w <= 5 else 'wind 6-9' if w <= 9 else 'wind 10-14 (the rule)' if w <= 14 else 'wind 15-19' if w <= 19 else 'wind 20+'
             gr = RR.grade(g, 'total', 'under')
             if gr: H[f'A1 wind1014 and its neighbours: UNDER by kickoff wind (Open-Meteo archive, 3h avg) | {band}'].append((g, gr))
-            if 10 <= w <= 14:
-                H['A1b wind 10-14 under, by temperature'].append((g, gr)) if False else None
+            if 10 <= w <= 14 and gr and g.get('tot_close') is not None:
                 k2 = 'cold (under 40F)' if wx['temp'] is not None and wx['temp'] < 40 else 'mild'
                 H[f'A1c wind 10-14 under | {k2}'].append((g, gr))
                 gr2 = RR.grade(g, 'total', 'under')
