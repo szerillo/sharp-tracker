@@ -1,5 +1,5 @@
 {
- "built": "2026-11-05T12:26:12Z",
+ "built": "2026-11-05T12:36:18Z",
  "rows": [
   {
    "cond": "0x43bf75f521791c9dbf8423892ee11a1cb036ace20ff03283090d79e7a4174bbe",
@@ -413,7 +413,7 @@
    "best_rank": 31,
    "usd": 1607,
    "paid": 0.428,
-   "ask": 0.37,
+   "ask": 0.36,
    "status": "live",
    "link": "https://polymarket.us/event/nba-phi-cle-2026-11-06",
    "other": null,
@@ -473,7 +473,11 @@
  },
  "sys_tags": {
   "401873037:bounce15_1h": {
-   "with": null,
+   "with": {
+    "n": 1,
+    "best_rank": 182,
+    "usd": 296
+   },
    "against": {
     "n": 1,
     "best_rank": 121,
@@ -494,6 +498,11 @@
     "n": 1,
     "best_rank": 121,
     "usd": 116
+   },
+   "home": {
+    "n": 1,
+    "best_rank": 182,
+    "usd": 296
    }
   },
   "401873037|total": {
