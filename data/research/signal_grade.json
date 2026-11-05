@@ -1,30 +1,30 @@
 {
- "snapshots": 246,
- "graded": 238,
+ "snapshots": 316,
+ "graded": 313,
  "cells": {
   "agree | ml": {
-   "W": 1,
-   "L": 1,
+   "W": 4,
+   "L": 2,
    "P": 0,
-   "win": 0.5,
-   "mean_price": 0.505,
-   "clv_n": 2,
-   "clv": 0.18,
-   "clv_pos": 0.5
+   "win": 0.667,
+   "mean_price": 0.57,
+   "clv_n": 3,
+   "clv": 0.54,
+   "clv_pos": 0.67
   },
   "agree | spread": {
-   "W": 1,
-   "L": 3,
+   "W": 2,
+   "L": 5,
    "P": 0,
-   "win": 0.25,
+   "win": 0.286,
    "mean_price": null,
-   "clv_n": 0,
-   "clv": null,
-   "clv_pos": null
+   "clv_n": 3,
+   "clv": -0.16,
+   "clv_pos": 0.33
   },
   "agree | total": {
    "W": 0,
-   "L": 2,
+   "L": 3,
    "P": 0,
    "win": 0.0,
    "mean_price": null,
@@ -53,14 +53,14 @@
    "clv_pos": null
   },
   "conflict: money side | total": {
-   "W": 1,
-   "L": 0,
+   "W": 2,
+   "L": 2,
    "P": 0,
-   "win": 1.0,
+   "win": 0.5,
    "mean_price": null,
-   "clv_n": 0,
-   "clv": null,
-   "clv_pos": null
+   "clv_n": 1,
+   "clv": 0.24,
+   "clv_pos": 1.0
   },
   "conflict: price side | ml": {
    "W": 1,
@@ -83,74 +83,74 @@
    "clv_pos": null
   },
   "conflict: price side | total": {
-   "W": 0,
-   "L": 1,
+   "W": 2,
+   "L": 2,
    "P": 0,
-   "win": 0.0,
+   "win": 0.5,
    "mean_price": null,
    "clv_n": 0,
    "clv": null,
    "clv_pos": null
   },
   "kind: back | ml": {
-   "W": 11,
-   "L": 6,
-   "P": 0,
-   "win": 0.647,
-   "mean_price": 0.517,
-   "clv_n": 11,
-   "clv": 0.85,
-   "clv_pos": 0.64
-  },
-  "kind: back | spread": {
-   "W": 11,
-   "L": 6,
-   "P": 0,
-   "win": 0.647,
-   "mean_price": null,
-   "clv_n": 1,
-   "clv": 0.24,
-   "clv_pos": 1.0
-  },
-  "kind: back | total": {
-   "W": 10,
+   "W": 18,
    "L": 12,
    "P": 0,
-   "win": 0.455,
+   "win": 0.6,
+   "mean_price": 0.529,
+   "clv_n": 14,
+   "clv": 1.11,
+   "clv_pos": 0.71
+  },
+  "kind: back | spread": {
+   "W": 17,
+   "L": 10,
+   "P": 0,
+   "win": 0.63,
+   "mean_price": null,
+   "clv_n": 5,
+   "clv": -0.35,
+   "clv_pos": 0.4
+  },
+  "kind: back | total": {
+   "W": 11,
+   "L": 19,
+   "P": 0,
+   "win": 0.367,
    "mean_price": null,
    "clv_n": 3,
    "clv": 0.76,
    "clv_pos": 0.67
   },
   "kind: big | ml": {
-   "W": 4,
-   "L": 7,
+   "W": 9,
+   "L": 10,
    "P": 0,
-   "win": 0.364,
+   "win": 0.474,
    "mean_price": null,
-   "clv_n": 10,
-   "clv": 0.93,
-   "clv_pos": 0.7
+   "clv_n": 18,
+   "clv": 0.5,
+   "clv_pos": 0.61
   },
   "kind: big | spread": {
-   "W": 8,
-   "L": 11,
+   "W": 12,
+   "L": 16,
    "P": 0,
-   "win": 0.421,
+   "win": 0.429,
    "mean_price": null,
-   "clv_n": 6,
-   "clv": 0.25,
-   "clv_pos": 0.17
+   "clv_n": 10,
+   "clv": 0.4,
+   "clv_pos": 0.4
   },
   "kind: big | total": {
-   "W": 2,
-   "L": 6,
+   "W": 6,
+   "L": 10,
    "P": 0,
-   "win": 0.25,
+   "win": 0.375,
    "mean_price": null,
-   "clv_n": 4,
-   "clv": -0.05,
-   "clv_pos": 0.5
+   "clv_n": 7,
+   "clv": 0.05,
+   "clv_pos": 0.71
   },
   "kind: kmove (drift) | ml": {
    "W": 6,
@@ -163,24 +163,34 @@
    "clv_pos": 0.25
   },
   "kind: kmove (drift) | spread": {
-   "W": 5,
-   "L": 7,
+   "W": 7,
+   "L": 9,
    "P": 0,
-   "win": 0.417,
+   "win": 0.438,
    "mean_price": null,
    "clv_n": 2,
    "clv": 0.47,
    "clv_pos": 0.5
   },
   "kind: kmove (drift) | total": {
-   "W": 13,
+   "W": 14,
    "L": 13,
    "P": 0,
-   "win": 0.5,
+   "win": 0.519,
    "mean_price": null,
    "clv_n": 0,
    "clv": null,
    "clv_pos": null
+  },
+  "kind: kmove (fresh) | ml": {
+   "W": 1,
+   "L": 0,
+   "P": 0,
+   "win": 1.0,
+   "mean_price": 0.54,
+   "clv_n": 1,
+   "clv": 3.09,
+   "clv_pos": 1.0
   },
   "kind: kmove (fresh) | spread": {
    "W": 2,
@@ -203,170 +213,170 @@
    "clv_pos": 0.0
   },
   "kind: kmove (held) | ml": {
-   "W": 6,
-   "L": 5,
+   "W": 7,
+   "L": 6,
    "P": 0,
-   "win": 0.545,
-   "mean_price": 0.568,
-   "clv_n": 4,
-   "clv": -2.16,
-   "clv_pos": 0.25
+   "win": 0.538,
+   "mean_price": 0.564,
+   "clv_n": 5,
+   "clv": -1.47,
+   "clv_pos": 0.4
   },
   "kind: kmove (held) | spread": {
-   "W": 23,
-   "L": 16,
+   "W": 27,
+   "L": 17,
    "P": 0,
-   "win": 0.59,
+   "win": 0.614,
    "mean_price": null,
-   "clv_n": 2,
-   "clv": -0.12,
-   "clv_pos": 0.0
+   "clv_n": 3,
+   "clv": 0.4,
+   "clv_pos": 0.33
   },
   "kind: kmove (held) | total": {
-   "W": 19,
-   "L": 15,
+   "W": 27,
+   "L": 16,
    "P": 0,
-   "win": 0.559,
+   "win": 0.628,
    "mean_price": null,
    "clv_n": 1,
    "clv": 0.0,
    "clv_pos": 0.0
   },
   "kind: kmove (reversed) | ml": {
-   "W": 4,
-   "L": 4,
-   "P": 0,
-   "win": 0.5,
-   "mean_price": 0.542,
-   "clv_n": 6,
-   "clv": 0.12,
-   "clv_pos": 0.17
-  },
-  "kind: kmove (reversed) | spread": {
-   "W": 1,
+   "W": 8,
    "L": 6,
    "P": 0,
-   "win": 0.143,
+   "win": 0.571,
+   "mean_price": 0.612,
+   "clv_n": 8,
+   "clv": 0.3,
+   "clv_pos": 0.38
+  },
+  "kind: kmove (reversed) | spread": {
+   "W": 2,
+   "L": 8,
+   "P": 0,
+   "win": 0.2,
    "mean_price": null,
-   "clv_n": 0,
-   "clv": null,
-   "clv_pos": null
+   "clv_n": 1,
+   "clv": 0.47,
+   "clv_pos": 1.0
   },
   "kind: kmove (reversed) | total": {
-   "W": 5,
+   "W": 7,
    "L": 4,
    "P": 0,
-   "win": 0.556,
+   "win": 0.636,
    "mean_price": null,
    "clv_n": 4,
    "clv": 0.48,
    "clv_pos": 0.25
   },
   "kind: move | ml": {
-   "W": 7,
-   "L": 10,
+   "W": 9,
+   "L": 12,
    "P": 0,
-   "win": 0.412,
+   "win": 0.429,
    "mean_price": null,
-   "clv_n": 17,
-   "clv": -0.4,
-   "clv_pos": 0.29
+   "clv_n": 21,
+   "clv": -0.15,
+   "clv_pos": 0.38
   },
   "kind: move | spread": {
-   "W": 5,
-   "L": 7,
-   "P": 0,
-   "win": 0.417,
+   "W": 8,
+   "L": 10,
+   "P": 1,
+   "win": 0.444,
    "mean_price": null,
-   "clv_n": 12,
-   "clv": -0.03,
-   "clv_pos": 0.5
+   "clv_n": 15,
+   "clv": -0.24,
+   "clv_pos": 0.47
   },
   "kind: move | total": {
-   "W": 8,
-   "L": 5,
-   "P": 0,
-   "win": 0.615,
+   "W": 10,
+   "L": 7,
+   "P": 1,
+   "win": 0.588,
    "mean_price": null,
-   "clv_n": 12,
-   "clv": 0.03,
-   "clv_pos": 0.33
+   "clv_n": 13,
+   "clv": 0.2,
+   "clv_pos": 0.38
   },
   "money_only | ml": {
-   "W": 2,
-   "L": 1,
+   "W": 4,
+   "L": 2,
    "P": 0,
    "win": 0.667,
    "mean_price": null,
-   "clv_n": 3,
-   "clv": 1.63,
-   "clv_pos": 1.0
+   "clv_n": 6,
+   "clv": 0.85,
+   "clv_pos": 0.67
   },
   "money_only | spread": {
-   "W": 6,
-   "L": 6,
+   "W": 8,
+   "L": 8,
    "P": 0,
    "win": 0.5,
    "mean_price": null,
-   "clv_n": 6,
-   "clv": 0.25,
-   "clv_pos": 0.17
+   "clv_n": 7,
+   "clv": 0.3,
+   "clv_pos": 0.29
   },
   "money_only | total": {
-   "W": 1,
-   "L": 3,
+   "W": 4,
+   "L": 4,
    "P": 0,
-   "win": 0.25,
+   "win": 0.5,
    "mean_price": null,
-   "clv_n": 3,
-   "clv": -0.15,
-   "clv_pos": 0.33
-  },
-  "price_only | ml": {
-   "W": 18,
-   "L": 17,
-   "P": 0,
-   "win": 0.514,
-   "mean_price": 0.629,
-   "clv_n": 20,
-   "clv": 0.05,
-   "clv_pos": 0.35
-  },
-  "price_only | spread": {
-   "W": 34,
-   "L": 31,
-   "P": 0,
-   "win": 0.523,
-   "mean_price": null,
-   "clv_n": 14,
-   "clv": 0.11,
-   "clv_pos": 0.5
-  },
-  "price_only | total": {
-   "W": 46,
-   "L": 37,
-   "P": 0,
-   "win": 0.554,
-   "mean_price": null,
-   "clv_n": 14,
-   "clv": 0.18,
-   "clv_pos": 0.36
-  },
-  "price_split: back | ml": {
-   "W": 6,
-   "L": 1,
-   "P": 0,
-   "win": 0.857,
-   "mean_price": 0.529,
    "clv_n": 5,
-   "clv": 0.54,
+   "clv": -0.02,
    "clv_pos": 0.6
   },
-  "price_split: back | spread": {
-   "W": 5,
-   "L": 0,
+  "price_only | ml": {
+   "W": 23,
+   "L": 21,
    "P": 0,
-   "win": 1.0,
+   "win": 0.523,
+   "mean_price": 0.629,
+   "clv_n": 24,
+   "clv": 0.43,
+   "clv_pos": 0.46
+  },
+  "price_only | spread": {
+   "W": 44,
+   "L": 36,
+   "P": 1,
+   "win": 0.55,
+   "mean_price": null,
+   "clv_n": 19,
+   "clv": -0.1,
+   "clv_pos": 0.47
+  },
+  "price_only | total": {
+   "W": 56,
+   "L": 44,
+   "P": 1,
+   "win": 0.56,
+   "mean_price": null,
+   "clv_n": 15,
+   "clv": 0.32,
+   "clv_pos": 0.4
+  },
+  "price_split: back | ml": {
+   "W": 8,
+   "L": 3,
+   "P": 0,
+   "win": 0.727,
+   "mean_price": 0.473,
+   "clv_n": 7,
+   "clv": 0.69,
+   "clv_pos": 0.71
+  },
+  "price_split: back | spread": {
+   "W": 7,
+   "L": 2,
+   "P": 0,
+   "win": 0.778,
    "mean_price": null,
    "clv_n": 0,
    "clv": null,
@@ -374,39 +384,39 @@
   },
   "price_split: back | total": {
    "W": 4,
-   "L": 5,
+   "L": 6,
    "P": 0,
-   "win": 0.444,
+   "win": 0.4,
    "mean_price": null,
    "clv_n": 1,
    "clv": 0.0,
    "clv_pos": 0.0
   },
   "price_split: kmove | ml": {
-   "W": 1,
-   "L": 5,
+   "W": 3,
+   "L": 6,
    "P": 0,
-   "win": 0.167,
-   "mean_price": 0.497,
-   "clv_n": 3,
-   "clv": -0.26,
-   "clv_pos": 0.0
+   "win": 0.333,
+   "mean_price": 0.593,
+   "clv_n": 4,
+   "clv": 0.1,
+   "clv_pos": 0.25
   },
   "price_split: kmove | spread": {
-   "W": 1,
-   "L": 5,
+   "W": 3,
+   "L": 7,
    "P": 0,
-   "win": 0.167,
+   "win": 0.3,
    "mean_price": null,
-   "clv_n": 0,
-   "clv": null,
-   "clv_pos": null
+   "clv_n": 1,
+   "clv": 0.47,
+   "clv_pos": 1.0
   },
   "price_split: kmove | total": {
-   "W": 4,
+   "W": 5,
    "L": 4,
    "P": 0,
-   "win": 0.5,
+   "win": 0.556,
    "mean_price": null,
    "clv_n": 3,
    "clv": 0.0,
@@ -414,17 +424,17 @@
   },
   "price_split: move | ml": {
    "W": 1,
-   "L": 2,
+   "L": 3,
    "P": 0,
-   "win": 0.333,
+   "win": 0.25,
    "mean_price": null,
-   "clv_n": 3,
-   "clv": -2.01,
+   "clv_n": 4,
+   "clv": -2.11,
    "clv_pos": 0.0
   },
   "price_split: move | spread": {
-   "W": 1,
-   "L": 1,
+   "W": 2,
+   "L": 2,
    "P": 0,
    "win": 0.5,
    "mean_price": null,
