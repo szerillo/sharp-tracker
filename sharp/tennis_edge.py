@@ -105,7 +105,7 @@ def join(M, O):
 def se(p, n): return math.sqrt(max(p * (1 - p), 1e-9) / n) * 100 if n else None
 
 
-def records():
+def records(O=None):
     M = T.load(); T.elo_run(M); T.serve_profiles(M); T2.annotate(M); T3.fatigue(M)
     rows = T.fav_rows(M)
     cal = collections.defaultdict(lambda: collections.defaultdict(lambda: [0, 0]))
@@ -113,7 +113,8 @@ def records():
     for r in rows:
         c = cal[T.grp(r)].get(T.binp(r['p'])); r['p_cal'] = c[1] / c[0] if c and c[0] >= 100 else None
     byid = {(r['date'], r['w'], r['l']): r for r in rows}
-    O = load_odds(); print(f"odds rows with a Pinnacle price: {len(O)}")
+    if O is None: O = load_odds()
+    print(f"odds rows with a Pinnacle price: {len(O)}")
     J, miss = join([r for r in rows], O); print(f"joined to Tennis Abstract: {len(J)}  unmatched: {dict(miss)}")
     # one record per joined match, from the market favourite's side
     R = []
@@ -141,8 +142,8 @@ def records():
     return R, O, J, miss
 
 
-def main():
-    R, O, J, miss = records()
+def main(O=None, out=None):
+    R, O, J, miss = records(O)
     res = {'n_odds': len(O), 'n_joined': len(J), 'unmatched': dict(miss)}
 
     def cut(name, keyf, sidef, rows_=R, min_n=60):
@@ -222,7 +223,7 @@ def main():
     cut('10b best-of-5 vs 3 (bet fav)', lambda r: f"bo{r['bo']}", fav)
     # 11. Pinnacle vs the field: the market max vs Pinnacle (is there price to be had?)
     cut('11 shop: Pinnacle close vs best price in the market (bet fav)', lambda r: 'fav' , fav)
-    json.dump(res, open(OUT, 'w'), indent=1)
+    json.dump(res, open(out or OUT, 'w'), indent=1)
     for k, v in res.items():
         if not isinstance(v, dict) or not v or not isinstance(next(iter(v.values())), dict): continue
         print(f"\n== {k}")

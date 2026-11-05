@@ -5,7 +5,7 @@ import os, sys, json, time, urllib.request, datetime as dt
 HERE = os.path.dirname(os.path.abspath(__file__)); ROOT = os.path.abspath(os.path.join(HERE, '..'))
 OUT = os.path.join(ROOT, 'data', 'state', 'hist_schedule.json')
 PATHS = {'nfl': 'football/nfl', 'nba': 'basketball/nba', 'nhl': 'hockey/nhl', 'cfb': 'football/college-football', 'mlb': 'baseball/mlb',
-         'epl': 'soccer/eng.1', 'laliga': 'soccer/esp.1', 'bundesliga': 'soccer/ger.1', 'seriea': 'soccer/ita.1', 'ligue1': 'soccer/fra.1', 'mls': 'soccer/usa.1', 'ucl': 'soccer/uefa.champions'}
+         'cbb': 'basketball/mens-college-basketball', 'mma': 'mma/ufc', 'epl': 'soccer/eng.1', 'laliga': 'soccer/esp.1', 'bundesliga': 'soccer/ger.1', 'seriea': 'soccer/ita.1', 'ligue1': 'soccer/fra.1', 'mls': 'soccer/usa.1', 'ucl': 'soccer/uefa.champions'}
 
 
 def g(u, tries=4):
@@ -15,14 +15,24 @@ def g(u, tries=4):
     return {}
 
 
-def main(d0, d1):
+def main(d0, d1, only=None):
     out = json.load(open(OUT)) if os.path.exists(OUT) else {}
     for sp, path in PATHS.items():
+        if only and sp not in only: continue
         out.setdefault(sp, {}); day = d0
         while day <= d1:
             end = day
-            x = g(f"https://site.api.espn.com/apis/site/v2/sports/{path}/scoreboard?dates={day:%Y%m%d}" + ('&groups=80&limit=400' if sp == 'cfb' else ''))
+            x = g(f"https://site.api.espn.com/apis/site/v2/sports/{path}/scoreboard?dates={day:%Y%m%d}" + ('&groups=80&limit=400' if sp == 'cfb' else '&groups=50&limit=500' if sp == 'cbb' else ''))
             for ev in x.get('events', []):
+                if sp == 'mma':          # a card: one event, many fights (competitions); each fight is its own row keyed by the fight id
+                    for c in ev.get('competitions', []):
+                        cc = c.get('competitors') or []
+                        if len(cc) != 2: continue
+                        stt = (c.get('status') or {}).get('type') or {}
+                        out[sp][c['id']] = dict(start=c.get('date') or ev['date'], card=ev.get('name'), p1=(cc[0].get('athlete') or {}).get('displayName'), p2=(cc[1].get('athlete') or {}).get('displayName'),
+                                                winner=((cc[0].get('athlete') or {}).get('displayName') if cc[0].get('winner') else (cc[1].get('athlete') or {}).get('displayName') if cc[1].get('winner') else None),
+                                                final=bool(stt.get('completed')), status=stt.get('name'), result=(c.get('status') or {}).get('result') and (c['status']['result'].get('displayName')), rounds=((c.get('status') or {}).get('period')))
+                    continue
                 c = ev['competitions'][0]; t = {k['homeAway']: k for k in c['competitors']}
                 if 'home' not in t or 'away' not in t: continue
                 stt = (c.get('status') or {}).get('type') or {}
@@ -36,4 +46,4 @@ def main(d0, d1):
 
 if __name__ == '__main__':
     a = sys.argv[1:]
-    main(dt.date.fromisoformat(a[0]) if a else dt.date(2026, 8, 1), dt.date.fromisoformat(a[1]) if len(a) > 1 else dt.date.today())
+    main(dt.date.fromisoformat(a[0]) if a else dt.date(2026, 8, 1), dt.date.fromisoformat(a[1]) if len(a) > 1 else dt.date.today(), only=set(a[2].split(',')) if len(a) > 2 else None)
