@@ -732,6 +732,15 @@ function renderToday() {
       detail: facts([['Rule', 'MMA steam favourite (mma_steam_fav, tier C, 0.25u): Pinnacle no-vig win probability for the favourite is 6+ points above Pinnacle\'s opening number; bet the favourite at the best US book or exchange. Odds API 2022-26 (1,457 graded UFC fights): following a 6+ point move at the close 161-76 (+7.3%); toward the favourite 136-53 (+6.6%, positive 4 of 5 years); fading those moves -19.7%. Smaller moves (1-6 points) are priced by the close.'],
         ['Open', `${(100 * r.open_p).toFixed(1)}% at ${DAYT(r.open_ts)}${r.open_src ? ' (' + esc(r.open_src) + ')' : ''}`], ['Now', `${(100 * r.cur_p).toFixed(1)}% at Pinnacle (${toAm(r.cur_p)})`],
         ['Flagged', lg ? `${DAYT(lg.ts)} at ${VS(lg.venue)} ${(100 * lg.price).toFixed(1)}¢` : ''], ['Price', b ? `${VS(b.venue)} ${(100 * b.cost).toFixed(1)}¢ (${toAm(b.cost)})` : 'no price']])}); };
+  // Kalshi NHL late flow (sharp/kalshi_flow.py): paper lean, tier P. Taker dollars in the last 6h 30%+ one way on $500+, flagged inside 90 min.
+  const kRow = r => { const KF = window._KF, rec = KF && KF.record; const nm = r.game || `${esc(r.away || '')} @ ${esc(r.home || '')}`;
+    return sRow({id: `kf|${r.event_id}|${r.market}|${r.line}`, start: r.start, sportLabel: 'NHL', game: nm, bet: esc(r.bet || `${r.side}${r.line != null ? ' ' + r.line : ''}`), sub: `${r.market === 'ml' ? 'Moneyline' : r.market === 'total' ? 'Total' : 'Puck line'} · Kalshi late flow, tier P (paper)`,
+      gone: !r.flag, status: ['gone', 'Paper: exchange flow lean, z 1.3 in the holdout; no units until it has a forward record'], size: '', price: `<b>${toAm(r.price)}</b> <span class="small dim">Kalshi tape</span>`, link: betLink('Kalshi', r.event_id, r.market),
+      why: `Kalshi takers put ${Math.round(100 * Math.abs(r.share))}% of the last ${r.window_h}h of money ($${(r.usd || 0).toLocaleString()}, ${r.trades} trades) on this side`,
+      rec: lbl('Backtest', 'NHL main lines +8.3% train / +10.7% holdout (n 152, z 1.3), before fees') + ' ' + lbl('Tracker', rec && rec.n ? `${rec.won}-${rec.n - rec.won}, ${rec.units > 0 ? '+' : ''}${rec.units}u` : 'no graded picks yet'),
+      detail: facts([['Rule', 'Kalshi NHL late taker flow (docs/exchange_signals_audit_2026-10-29.md section 4): signed taker dollars in the last 6 hours before the start at 30%+ of the window on $500+; follow the takers at the close. Paper until it has a forward record.']])}); };
+  const KFall = (window._KF && window._KF.rows || []).filter(r => r.flag && future(r.start)).map(r => ({start: r.start, sport: 'nhl', league: 'nhl'}));
+  const KF = (window._KF && window._KF.rows || []).filter(r => r.flag && future(r.start) && passW(r.start) && passS('nhl', 'nhl'));
   const MSall = (window._MS && window._MS.rows || []).filter(r => (r.flag || r.logged) && future(r.start)).map(r => ({start: r.start, sport: 'mma', league: 'ufc'}));
   // 11/4 (Sean): the watch-only Other signals count too (CBB, MMA, NBA single accounts are viewed and tested from there), so a sport with
   // only watch rows keeps its chip; filtering to it opens Other signals.
@@ -749,6 +758,7 @@ function renderToday() {
     const rec = fmtRec(x) ? ` · record ${fmtRec(x)}` : ' · no graded fires yet';
     return `<details class="how" ${window['_lb_' + tag] ? 'open' : ''} ontoggle="window['_lb_${tag}']=this.open"><summary>${esc(r.desc || tag)} (${L.length} games, tier ${(r.evidence || {}).tier || '?'}, 0.25u each${rec}) · broad rule, grouped</summary>${sTable(L.map(sysRow))}</details>`; }).join('');
   const leanRows = [...leanOne.map(sysRow), ...TWk.map(tRow), ...THc.map(hRow), ...TD.map(dRow), ...TV.map(vRow), ...MS.map(mRow)];
+  const paperOnlyExtra = KF.map(kRow);
   const sysRows = [...vet.map(sysRow), ...THb.map(hRow)];
   const H = (t, meta) => `<div class="hdr2"><h2>${t}</h2><span class="meta">${meta}</span></div>`;
   return `<div class="controls topbar">${whenBar(inSport)} ${sportBar(inWhen)}</div>${summary.replace('__NSIG__', `${strong.length} sharp signal${strong.length === 1 ? '' : 's'}`)}
@@ -767,7 +777,7 @@ function renderToday() {
         + (NB.length ? `<details class="how"><summary>Triggered without a bet (${NB.length})</summary>${tbl(NB)}</details>` : ''); })()}
     ${H('Leans', 'Tier C and tennis · 0.25u · thin samples or paper rules · held when sharp accounts are on the other side')}
     ${leanRows.length ? sTable(leanRows) : (bulkBlocks ? '' : emptyNote('leans', [...bets.filter(it => tierOf(it) === 'C'), ...tw].filter(x => passS(x.sport, x.league))))}${bulkBlocks}
-    ${paperOnly.length ? `<details class="how" ${window._popen == null ? 'open' : (window._popen ? 'open' : '')} ontoggle="window._popen=this.open"><summary>Paper-only rules (${paperOnly.length}): logged and graded, not bets. Click a row for why it is paper (no mechanism, since-2020 only, or thin)</summary>${sTable(paperOnly.map(sysRow))}</details>` : ''}
+    ${paperOnly.length || paperOnlyExtra.length ? `<details class="how" ${window._popen == null ? 'open' : (window._popen ? 'open' : '')} ontoggle="window._popen=this.open"><summary>Paper-only rules (${paperOnly.length + paperOnlyExtra.length}): logged and graded, not bets. Click a row for why it is paper (no mechanism, since-2020 only, or thin)</summary>${sTable([...paperOnly.map(sysRow), ...paperOnlyExtra])}</details>` : ''}
     <div class="small dim" style="margin:6px 0">Bets already started or graded are on the <a href="#" onclick="tab='tracker';_lw='d1';draw();return false">Bet tracker</a> (In progress, Past 24 hours).</div>
     <details class="how"><summary>How to read this page</summary><div class="explain">
       <p><b>Every row</b> reads the same way: start time (ET), game, the bet, size in units ($500 unit; to win when laying juice, to risk on plus money), the flagged price and whether it is still there, why it flagged, and its record. Click a row for the full rule, the trigger in this game and the backtest detail.</p>
@@ -1191,6 +1201,7 @@ async function load() {
     try { FL = await (await fetch('data/state/flow_live.json', {cache: 'no-store'})).json(); } catch (e) { FL = null; }
     try { TW = await (await fetch('data/state/tennis_watch.json', {cache: 'no-store'})).json(); } catch (e) { TW = null; }
     try { window._MS = await (await fetch('data/state/mma_steam.json', {cache: 'no-store'})).json(); } catch (e) { window._MS = null; }
+    try { window._KF = await (await fetch('data/state/kalshi_flow.json', {cache: 'no-store'})).json(); } catch (e) { window._KF = null; }
     let TH = null; try { TH = await (await fetch('data/state/tape_health.json', {cache: 'no-store'})).json(); } catch (e) { TH = null; }
     window._TH = TH;
     try { SN = await (await fetch('data/state/signal_snap.json', {cache: 'no-store'})).json(); } catch (e) { SN = null; }
