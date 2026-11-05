@@ -38,6 +38,14 @@ PLANS = {
 }
 CUPS = {'fa_cup': 'soccer_fa_cup', 'efl_cup': 'soccer_england_efl_cup', 'copa_del_rey': 'soccer_spain_copa_del_rey', 'coppa_italia': 'soccer_italy_coppa_italia', 'dfb_pokal': 'soccer_germany_dfb_pokal',
         'coupe_de_france': 'soccer_france_coupe_de_france', 'club_world_cup': 'soccer_fifa_club_world_cup', 'copa_america': 'soccer_conmebol_copa_america', 'euros_qual': 'soccer_uefa_champs_league_qualification'}
+# 11/5 (Sean: "as accurate a database as possible"): the Bet Labs reconciliation showed our first snapshot is the morning of the game for
+# the daily sports (lines post overnight after the previous night's games), so "open to close" was a same-day move. These plans add the
+# overnight and midday snapshots (06, 09, 12, 18, 21 UTC) for the same seasons; odds_db folds plan 'nba2' into sport 'nba'.
+# Credits: 449k left on 11/5 after the main backfill, so two extra slots (06 and 12 UTC, ~30 credits each) for the five core sports (~300k).
+for _sp in ('nba', 'nhl', 'cbb', 'mlb', 'cfb', 'wnba', 'wncaab', 'euroleague'):
+    _k, _m, _seasons, _slots, _probe = PLANS[_sp]
+    PLANS[_sp + '2'] = (_k, _m, _seasons, [6, 12], _probe)
+
 SOCCER3 = {'ligue1': 'soccer_france_ligue_one', 'eredivisie': 'soccer_netherlands_eredivisie', 'portugal': 'soccer_portugal_primeira_liga', 'efl_champ': 'soccer_efl_champ',
            'libertadores': 'soccer_conmebol_copa_libertadores', 'brazil': 'soccer_brazil_campeonato', 'argentina': 'soccer_argentina_primera_division', 'turkey': 'soccer_turkey_super_league'}
 # futures: one snapshot a week (Tuesday 15:00 UTC) 2021-2026; outright markets cost 10 a snapshot

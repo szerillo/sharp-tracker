@@ -16,7 +16,7 @@ jobs:
       fail-fast: false
       max-parallel: 6
       matrix:
-        plan: [nba, nhl, cbb, nfl, cfb, soccer, soccer2, soccer3, cups, futures, mlb, wnba, cfl, kbo, npb, boxing, wncaab, euroleague, milb, ncaa_baseball]
+        plan: [nba, nhl, cbb, nfl, cfb, soccer, soccer2, soccer3, cups, futures, mlb, wnba, cfl, kbo, npb, boxing, wncaab, euroleague, milb, ncaa_baseball, nba2, nhl2, cbb2, mlb2, wnba2, cfb2, wncaab2, euroleague2]
     steps:
       - uses: actions/checkout@v4
       - name: pull (stops itself at 5.4h; re-dispatch to continue)

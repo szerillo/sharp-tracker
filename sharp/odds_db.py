@@ -40,7 +40,7 @@ def compact_rows():
                 for l in fh:
                     try: r = json.loads(l)
                     except Exception: continue
-                    r['sport'] = SPORT_OF_PLAN.get(plan, plan); yield r
+                    r['sport'] = SPORT_OF_PLAN.get(plan, plan.rstrip('0123456789')); yield r
         except (EOFError, OSError): pass       # a file still being written: the complete lines are in
 
 
