@@ -41,3 +41,10 @@ opening price (CFB large moves +19%, MLB +8%, MMA +20%): that is the sharp track
 - `nba_bigfav_over`: moneyline favourite 85%+: over. 272-202, 6 of 6.
 - `nhl_loss_streak_over`: home team lost 3+ straight, season over rate 40-60%: over. 385-290, 5 of 6.
 MLB road-team unders (342-246) wait for the season.
+
+## Evening: NFL favourite-off-a-bye reconciled
+Our 120-143 "favourite off a bye" counted week 1 as a bye (every team is 12+ days off after the previous season) and the games after the
+playoff break. True byes only (12-20 days since the last game): favourite 70-84 ATS, the dog +5.4% on 154 games 2020-26. Bet Labs' screen
+is wider (opponent off 8-30 days, which also catches the long week after a Thursday game): 203-188 (-0.4%) since 2020 and 356-389 (-6.5%)
+in 2003-19. No edge either way; `nfl_fade_fav_bye` stays paper with the reason on the board. Also stale above: the NHL puck-line rules do
+not need a regulation-win% change; the Bet Labs match came from using regular-season records, not from excluding overtime losses.
