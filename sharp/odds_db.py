@@ -74,8 +74,8 @@ def build():
       CREATE UNIQUE INDEX q_uni ON quotes(game_id, t, book);
       CREATE TABLE games(game_id TEXT PRIMARY KEY, sport TEXT, key TEXT, start TEXT, home TEXT, away TEXT, n_snaps INT, open_t TEXT, close_t TEXT, close_h REAL,
         pin_open_home REAL, pin_close_home REAL, pin_close_away REAL, pin_close_draw REAL, pin_open_sp REAL, pin_close_sp REAL, pin_open_tot REAL, pin_close_tot REAL,
-        best_home REAL, best_home_book TEXT, best_away REAL, best_away_book TEXT);
-      CREATE TABLE results(game_id TEXT PRIMARY KEY, home_score REAL, away_score REAL, winner TEXT, src TEXT, ot INT, conf INT, neutral INT);""")
+        best_home REAL, best_home_book TEXT, best_away REAL, best_away_book TEXT, mkt_open_sp REAL, mkt_open_tot REAL, mkt_open_t TEXT);
+      CREATE TABLE results(game_id TEXT PRIMARY KEY, home_score REAL, away_score REAL, winner TEXT, src TEXT, ot INT, conf INT, neutral INT, home_ab TEXT, away_ab TEXT, espn_id TEXT);""")
     G = {}; Q = []; n = 0
     import itertools
     def keep(b):          # the part of a snapshot the games table needs
@@ -100,6 +100,11 @@ def build():
             pb = r['books'].get('pinnacle') or {}
             for mk in ('h2h', 'sp', 'tot'):
                 if pb.get(mk) and (g.get('o_' + mk) is None or t < g['o_' + mk][0]): g['o_' + mk] = (t, pb[mk])
+            # market open (11/5, Bet Labs reconciliation): the first snapshot where 2+ books have the number; Pinnacle posts NBA / CBB totals
+            # ~6h after DraftKings / FanDuel, so its first number is not the opener Bet Labs measures moves from. Median line across books.
+            for mk in ('sp', 'tot'):
+                ls = sorted(e[mk][0] for e in r['books'].values() if e.get(mk) and e[mk][0] is not None)
+                if len(ls) >= 2 and (g.get('m_' + mk) is None or t < g['m_' + mk][0]): g['m_' + mk] = (t, ls[len(ls) // 2])
         for bk, e in r['books'].items():
             ml = e.get('h2h') or [None, None]; sp = e.get('sp') or [None, None, None]; tt = e.get('tot') or [None, None, None]
             Q.append((r['sport'], r.get('key'), r['id'], t, bk, ml[0], ml[1], ml[2] if len(ml) > 2 else None, sp[0], sp[1], sp[2], tt[0], tt[1], tt[2]))
@@ -124,8 +129,9 @@ def build():
         rows.append((gid, g['sport'], g['key'], g['start'], g['home'], g['away'], g['n'], ot, ct, round((st - dt.datetime.fromisoformat(ct.replace('Z', '+00:00'))).total_seconds() / 3600, 2),
                      nvo[0] if nvo else None, nvc[0] if nvc else None, nvc[1] if nvc else None, nvc[2] if nvc and len(nvc) > 2 else None,
                      sp_o[0] if sp_o else None, sp_c[0] if sp_c else None, to_o[0] if to_o else None, to_c[0] if to_c else None,
-                     *(best.get('home') or (None, None)), *(best.get('away') or (None, None))))
-    conn.executemany("INSERT OR REPLACE INTO games VALUES (" + ','.join('?' * 22) + ")", rows)
+                     *(best.get('home') or (None, None)), *(best.get('away') or (None, None)),
+                     (g.get('m_sp') or (None, None))[1], (g.get('m_tot') or (None, None))[1], (g.get('m_tot') or g.get('m_sp') or (None, None))[0]))
+    conn.executemany("INSERT OR REPLACE INTO games VALUES (" + ','.join('?' * 25) + ")", rows)
     conn.execute("CREATE INDEX q_game ON quotes(game_id, t)"); conn.execute("CREATE INDEX g_sport ON games(sport, start)")
     conn.commit()
     print(f"[odds_db] {n} snapshot rows, {len(rows)} games, by sport: {dict(collections.Counter(r[1] for r in rows))} in {time.time() - t0:.0f}s", flush=True)
@@ -159,9 +165,9 @@ def results(conn):
                 if len(k) >= 6 and (k in n or n in k) and (best is None or len(k) > len(best[0])): best = (k, v)
             return best[1] if best else None
         idx = collections.defaultdict(list)
-        for h in (H.get(hkey) or {}).values():
+        for eid, h in (H.get(hkey) or {}).items():
             if h.get('hs') is None: continue
-            idx[(h['home'], h['away'])].append(h)
+            idx[(h['home'], h['away'])].append(dict(h, eid=eid))
         k0 = len(out)
         for gid, home, away, start in conn.execute(sql, arg):
             ha, aa = ab(home), ab(away)
@@ -170,7 +176,7 @@ def results(conn):
             for h in idx.get((ha, aa), []):
                 if abs((dt.datetime.fromisoformat(h['start'].replace('Z', '+00:00')) - st).total_seconds()) < 6 * 3600:
                     out.append((gid, h['hs'], h['as_'], 'home' if h['hs'] > h['as_'] else 'away' if h['as_'] > h['hs'] else 'draw', 'espn',
-                                1 if h.get('ot') else 0, None if h.get('conf') is None else int(bool(h['conf'])), 1 if h.get('neutral') else 0)); break
+                                1 if h.get('ot') else 0, None if h.get('conf') is None else int(bool(h['conf'])), 1 if h.get('neutral') else 0, ha, aa, h.get('eid'))); break
         print(f"[odds_db] results {hkey}: {len(out) - k0}", flush=True)
     # MMA: fighter names, fight within 2 days
     idx = collections.defaultdict(list)
@@ -184,10 +190,10 @@ def results(conn):
             if abs((dt.datetime.fromisoformat(h['start'].replace('Z', '+00:00')) - st).total_seconds()) < 48 * 3600:
                 w = E.norm(h['winner']); nh, na = E.norm(home), E.norm(away)
                 side = 'home' if w == nh else 'away' if w == na else ('home' if (w in nh or nh in w) and not (w in na or na in w) else 'away' if (w in na or na in w) else None)
-                if side: out.append((gid, 1.0 if side == 'home' else 0.0, 1.0 if side == 'away' else 0.0, side, 'espn', 0, None, 0))
+                if side: out.append((gid, 1.0 if side == 'home' else 0.0, 1.0 if side == 'away' else 0.0, side, 'espn', 0, None, 0, None, None, None))
                 break
     print(f"[odds_db] results mma: {len(out) - k0}", flush=True)
-    conn.executemany("INSERT OR REPLACE INTO results VALUES (?,?,?,?,?,?,?,?)", out); conn.commit()
+    conn.executemany("INSERT OR REPLACE INTO results VALUES (?,?,?,?,?,?,?,?,?,?,?)", out); conn.commit()
     print(f"[odds_db] results joined: {len(out)}")
 
 
@@ -195,7 +201,7 @@ if __name__ == '__main__':
     if '--results' in sys.argv:
         c = sqlite3.connect(DB)
         cols = [r[1] for r in c.execute("PRAGMA table_info(results)")]
-        for col in ('ot', 'conf', 'neutral'):
-            if col not in cols: c.execute(f"ALTER TABLE results ADD COLUMN {col} INT")
+        for col in ('ot', 'conf', 'neutral', 'home_ab', 'away_ab', 'espn_id'):
+            if col not in cols: c.execute(f"ALTER TABLE results ADD COLUMN {col} {'TEXT' if col.endswith(('_ab', '_id')) else 'INT'}")
         results(c); c.close()
     else: build()

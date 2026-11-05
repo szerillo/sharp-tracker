@@ -29,12 +29,12 @@ def load(sport):
     c = sqlite3.connect(DB)
     G = []
     cols = {r[1] for r in c.execute("PRAGMA table_info(results)")}
-    extra = ", r.ot, r.conf, r.neutral" if 'ot' in cols else ", NULL, NULL, NULL"
+    extra = (", r.ot, r.conf, r.neutral" if 'ot' in cols else ", NULL, NULL, NULL") + (", r.home_ab, r.away_ab" if 'home_ab' in cols else ", NULL, NULL")
     for row in c.execute(f"""SELECT g.game_id, g.start, g.home, g.away, g.open_t, g.close_t, g.close_h, g.pin_open_home, g.pin_close_home, g.pin_open_sp, g.pin_close_sp, g.pin_open_tot, g.pin_close_tot,
-                                   r.home_score, r.away_score, g.best_home, g.best_away{extra} FROM games g LEFT JOIN results r ON r.game_id=g.game_id WHERE g.sport=? ORDER BY g.start""", (sport,)):
-        gid, start, home, away, ot, ct, ch, poh, pch, posp, pcsp, pot, pct_, hs, as_, bh, ba, otf, conf, neutral = row
-        g = dict(id=gid, sport=sport, start=ts(start), home=home, away=away, close_h=ch, p_open=poh, p_close=pch, sp_open=posp, sp_close=pcsp, tot_open=pot, tot_close=pct_, hs=hs, as_=as_, best_home=bh, best_away=ba,
-                 ot=bool(otf), conf=conf, neutral=bool(neutral))
+                                   r.home_score, r.away_score, g.best_home, g.best_away{extra}, g.mkt_open_sp, g.mkt_open_tot FROM games g LEFT JOIN results r ON r.game_id=g.game_id WHERE g.sport=? ORDER BY g.start""", (sport,)):
+        gid, start, home, away, ot, ct, ch, poh, pch, posp, pcsp, pot, pct_, hs, as_, bh, ba, otf, conf, neutral, hab, aab, mosp, motot = row
+        g = dict(id=gid, sport=sport, start=ts(start), home=home, away=away, close_h=ch, p_open=poh, p_close=pch, sp_open=mosp if mosp is not None else posp, sp_close=pcsp, tot_open=motot if motot is not None else pot, tot_close=pct_, pin_sp_open=posp, pin_tot_open=pot, hs=hs, as_=as_, best_home=bh, best_away=ba,
+                 ot=bool(otf), conf=conf, neutral=bool(neutral), home_ab=hab, away_ab=aab)
         q = c.execute("SELECT ml_home, ml_away, sp_line, sp_home, sp_away, tot_line, tot_over, tot_under FROM quotes WHERE game_id=? AND book='pinnacle' AND t=?", (gid, ct)).fetchone()
         if q: g.update(ml_home=q[0], ml_away=q[1], sp_home_dec=q[3], sp_away_dec=q[4], over_dec=q[6], under_dec=q[7])
         q0 = c.execute("SELECT ml_home, ml_away FROM quotes WHERE game_id=? AND book='pinnacle' AND t=?", (gid, ot)).fetchone()
@@ -44,24 +44,52 @@ def load(sport):
 
 
 def profiles(G):
-    """Before each game: each team's games played, wins, over rate (vs the closing total), last start; and the away team's road streak."""
-    H = collections.defaultdict(list)          # (team, season) -> games; a season's record starts from zero (11/5 fix: it used to run on across seasons)
+    """Before each game: each team's games, wins, win% (W / games), over rate vs the closing total, last start, road streak.
+    11/5: records come from the COMPLETE ESPN schedule (data/state/hist_schedule.json) when the game is matched to ESPN; the odds database
+    misses some games, and a record short by a game moved teams across Bet Labs' win% thresholds. Over% still needs a closing total, so it
+    comes from the odds games. A season's record starts from zero."""
     sport = G[0].get('sport') if G else None
+    E = {}
+    hp = os.path.join(ROOT, 'data', 'state', 'hist_schedule.json')
+    if sport and os.path.exists(hp):
+        try: E = json.load(open(hp)).get(sport) or {}
+        except Exception: E = {}
+    sched = collections.defaultdict(list)           # (abbr, season) -> [(start, won, side)]
+    for h in E.values():
+        if h.get('hs') is None or not h.get('home') or not h.get('away'): continue
+        if h.get('stype') is not None and h['stype'] != 2: continue          # regular season only (preseason / playoff games are not in a team's record)
+        st = ts(h['start']); sea = season_of(sport, st)
+        sched[(h['home'], sea)].append((st, h['hs'] > h['as_'], 'home'))
+        sched[(h['away'], sea)].append((st, h['as_'] > h['hs'], 'away'))
+    for v in sched.values(): v.sort(key=lambda x: x[0])
+    import bisect
+    keys = {k: [x[0] for x in v] for k, v in sched.items()}
+    H = collections.defaultdict(list)               # odds-game history for over%
     for g in G:
         sea = season_of(g.get('sport') or sport or 'x', g['start'])
         for side, team in (('home', g['home']), ('away', g['away'])):
-            L = H[(team, sea)]; n = len(L)
-            g[f'{side}_games'] = n; g[f'{side}_wins'] = sum(x['won'] for x in L)
-            # win% = W / (W + regulation L): an overtime or shootout loss is not a loss (Bet Labs' NHL convention, 11/5 reconciliation); no effect elsewhere
-            reg = sum(1 for x in L if not x['won'] and not x.get('ot')); g[f'{side}_win_pct'] = int(100 * g[f'{side}_wins'] / (g[f'{side}_wins'] + reg)) if (g[f'{side}_wins'] + reg) else (None if not n else 100)
+            ab = g.get(side + '_ab'); L = H[(team, sea)]
+            if ab and (ab, sea) in sched:
+                S_ = sched[(ab, sea)]; i = bisect.bisect_left(keys[(ab, sea)], g['start'] - dt.timedelta(hours=3)); P = S_[:i]
+                n = len(P); w = sum(1 for x in P if x[1])
+                g[f'{side}_games'] = n; g[f'{side}_wins'] = w; g[f'{side}_win_pct'] = int(100 * w / n) if n else None
+                g[f'{side}_last'] = P[-1][0] if P else None
+                k = 0
+                for x in reversed(P):
+                    if x[2] == 'away': k += 1
+                    else: break
+                g[f'{side}_road_streak'] = k
+            else:
+                n = len(L); w = sum(x['won'] for x in L)
+                g[f'{side}_games'] = n; g[f'{side}_wins'] = w; g[f'{side}_win_pct'] = int(100 * w / n) if n else None
+                g[f'{side}_last'] = L[-1]['start'] if L else None
+                k = 0
+                for x in reversed(L):
+                    if x['side'] == 'away': k += 1
+                    else: break
+                g[f'{side}_road_streak'] = k
             ov = [x['over'] for x in L if x['over'] is not None]
             g[f'{side}_over_pct'] = sum(ov) / len(ov) if ov else None; g[f'{side}_over_n'] = len(ov)
-            g[f'{side}_last'] = L[-1]['start'] if L else None
-            k = 0
-            for x in reversed(L):
-                if x['side'] == 'away': k += 1
-                else: break
-            g[f'{side}_road_streak'] = k
         if g['hs'] is None: continue
         tot = g['hs'] + g['as_']; over = (tot > g['tot_close']) if g['tot_close'] is not None and tot != g['tot_close'] else None
         H[(g['home'], sea)].append(dict(start=g['start'], won=g['hs'] > g['as_'], over=over, side='home', ot=g.get('ot')))

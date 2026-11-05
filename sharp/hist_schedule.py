@@ -41,7 +41,8 @@ def main(d0, d1, only=None):
                                          hs=float(t['home'].get('score') or 0) if stt.get('completed') else None, as_=float(t['away'].get('score') or 0) if stt.get('completed') else None,
                                          final=bool(stt.get('completed')), status=stt.get('name'),
                                          # 11/5: overtime / shootout flag (Bet Labs' NHL win% excludes OT losses), conference game and neutral site (CFB / CBB filters)
-                                         ot=('OT' in det or 'SO' in det) or None, conf=c.get('conferenceCompetition'), neutral=c.get('neutralSite') or None)
+                                         ot=('OT' in det or 'SO' in det) or None, conf=c.get('conferenceCompetition'), neutral=c.get('neutralSite') or None,
+                                         stype=(ev.get('season') or {}).get('type'))     # 1 preseason, 2 regular, 3 postseason (11/5: records were counting preseason games)
             day = end + dt.timedelta(days=1)
         print(f"[hist_schedule] {sp}: {len(out[sp])} games", flush=True)
         json.dump(out, open(OUT, 'w'), separators=(',', ':'))
