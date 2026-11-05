@@ -1,0 +1,222 @@
+{
+ "nba": {
+  "1a favourite by Pinnacle no-vig band (bet fav)": {},
+  "1b dog by band (bet dog)": {},
+  "1c home / away (bet home)": {
+   "home": {
+    "n": 70,
+    "win": 0.543,
+    "pin_nv": 0.569,
+    "edge": -2.6,
+    "se": 5.9,
+    "roi_pin": -13.8,
+    "roi_best_us": -14.4
+   }
+  },
+  "1d home dog / away dog (bet dog)": {
+   "away dog": {
+    "n": 49,
+    "win": 0.327,
+    "pin_nv": 0.335,
+    "edge": -0.8,
+    "se": 6.7,
+    "roi_pin": -15.4,
+    "roi_best_us": -15.7
+   }
+  },
+  "2 US book price vs Pinnacle no-vig, bet the fav at the best US book": {
+   "book 1-2% under fair": {
+    "n": 28,
+    "win": 0.679,
+    "pin_nv": 0.635,
+    "edge": 4.4,
+    "se": 9.1,
+    "roi_pin": 6.6,
+    "roi_best_us": 6.2
+   },
+   "book 2-3% under fair": {
+    "n": 25,
+    "win": 0.72,
+    "pin_nv": 0.683,
+    "edge": 3.7,
+    "se": 9.3,
+    "roi_pin": -0.4,
+    "roi_best_us": -1.0
+   }
+  },
+  "2 US book price vs Pinnacle no-vig, bet the dog at the best US book": {
+   "book 0-1% under fair": {
+    "n": 25,
+    "win": 0.2,
+    "pin_nv": 0.309,
+    "edge": -10.9,
+    "se": 9.2,
+    "roi_pin": -51.6,
+    "roi_best_us": -51.3
+   }
+  },
+  "3a home ATS by spread band (Pinnacle close)": {},
+  "3b over rate by total band (Pinnacle close) vs Pinnacle no-vig over": {
+   "all": {
+    "n": 70,
+    "over": 0.507,
+    "pin_over": 0.499,
+    "push": 0.043
+   },
+   "total mid": {
+    "n": 26,
+    "over": 0.56,
+    "pin_over": 0.5,
+    "push": 0.038
+   }
+  },
+  "3c totals: book number 0.5+ better than Pinnacle close, bet toward Pinnacle": {
+   "over at a book 0.5+ better than Pinnacle": {
+    "n": 36,
+    "win": 0.556,
+    "roi": 6.1
+   }
+  },
+  "_n": {
+   "rows": 130,
+   "graded": 70,
+   "pin": 108
+  }
+ },
+ "nhl": {
+  "1a favourite by Pinnacle no-vig band (bet fav)": {
+   "0.5": {
+    "n": 50,
+    "win": 0.4,
+    "pin_nv": 0.538,
+    "edge": -13.8,
+    "se": 7.1,
+    "roi_pin": -28.3,
+    "roi_best_us": -28.9
+   },
+   "0.6": {
+    "n": 30,
+    "win": 0.633,
+    "pin_nv": 0.635,
+    "edge": -0.1,
+    "se": 8.8,
+    "roi_pin": -2.3,
+    "roi_best_us": -2.7
+   }
+  },
+  "1b dog by band (bet dog)": {
+   "0.5": {
+    "n": 50,
+    "win": 0.6,
+    "pin_nv": 0.462,
+    "edge": 13.8,
+    "se": 7.1,
+    "roi_pin": 25.9,
+    "roi_best_us": 24.1
+   },
+   "0.6": {
+    "n": 30,
+    "win": 0.367,
+    "pin_nv": 0.365,
+    "edge": 0.1,
+    "se": 8.8,
+    "roi_pin": -1.0,
+    "roi_best_us": -1.7
+   }
+  },
+  "1c home / away (bet home)": {
+   "home": {
+    "n": 84,
+    "win": 0.524,
+    "pin_nv": 0.513,
+    "edge": 1.0,
+    "se": 5.5,
+    "roi_pin": -0.3,
+    "roi_best_us": -1.3
+   }
+  },
+  "1d home dog / away dog (bet dog)": {
+   "away dog": {
+    "n": 45,
+    "win": 0.467,
+    "pin_nv": 0.411,
+    "edge": 5.5,
+    "se": 7.3,
+    "roi_pin": 5.9,
+    "roi_best_us": 4.8
+   },
+   "home dog": {
+    "n": 39,
+    "win": 0.513,
+    "pin_nv": 0.426,
+    "edge": 8.6,
+    "se": 7.9,
+    "roi_pin": 15.4,
+    "roi_best_us": 13.8
+   }
+  },
+  "2 US book price vs Pinnacle no-vig, bet the fav at the best US book": {
+   "book 1-2% under fair": {
+    "n": 41,
+    "win": 0.463,
+    "pin_nv": 0.569,
+    "edge": -10.6,
+    "se": 7.7,
+    "roi_pin": -21.7,
+    "roi_best_us": -21.8
+   },
+   "book 2-3% under fair": {
+    "n": 37,
+    "win": 0.595,
+    "pin_nv": 0.598,
+    "edge": -0.3,
+    "se": 8.1,
+    "roi_pin": -4.9,
+    "roi_best_us": -6.1
+   }
+  },
+  "2 US book price vs Pinnacle no-vig, bet the dog at the best US book": {
+   "book 1-2% under fair": {
+    "n": 44,
+    "win": 0.455,
+    "pin_nv": 0.412,
+    "edge": 4.3,
+    "se": 7.4,
+    "roi_pin": 5.9,
+    "roi_best_us": 4.8
+   }
+  },
+  "3a home ATS by spread band (Pinnacle close)": {
+   "home dog 1-3": {
+    "n": 41,
+    "home_cover": 0.585,
+    "push": 0.0
+   },
+   "home fav 1-3": {
+    "n": 43,
+    "home_cover": 0.302,
+    "push": 0.0
+   }
+  },
+  "3b over rate by total band (Pinnacle close) vs Pinnacle no-vig over": {
+   "all": {
+    "n": 84,
+    "over": 0.571,
+    "pin_over": 0.502,
+    "push": 0.083
+   },
+   "total mid": {
+    "n": 74,
+    "over": 0.588,
+    "pin_over": 0.503,
+    "push": 0.081
+   }
+  },
+  "3c totals: book number 0.5+ better than Pinnacle close, bet toward Pinnacle": {},
+  "_n": {
+   "rows": 207,
+   "graded": 84,
+   "pin": 196
+  }
+ }
+}
