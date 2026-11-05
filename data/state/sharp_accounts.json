@@ -1,5 +1,5 @@
 {
- "built": "2026-11-05T22:24:33Z",
+ "built": "2026-11-05T22:51:22Z",
  "rows": [
   {
    "cond": "0x43bf75f521791c9dbf8423892ee11a1cb036ace20ff03283090d79e7a4174bbe",
@@ -71,7 +71,7 @@
    "best_rank": 58,
    "usd": 460,
    "paid": 0.54,
-   "ask": 0.55,
+   "ask": 0.56,
    "status": "live",
    "link": "https://polymarket.us/event/cfb-utsa-flatl-2026-11-05",
    "other": null,
@@ -98,7 +98,7 @@
    "best_rank": 110,
    "usd": 822,
    "paid": 0.58,
-   "ask": 0.58,
+   "ask": 0.57,
    "status": "live",
    "link": "https://polymarket.us/event/cfb-jmad-soumis-2026-11-05",
    "other": null,
@@ -135,7 +135,7 @@
    "best_rank": 58,
    "usd": 470,
    "paid": 0.53,
-   "ask": 0.51,
+   "ask": 0.52,
    "status": "live",
    "link": "https://polymarket.us/event/cfb-jmad-soumis-2026-11-05",
    "other": null,
@@ -189,7 +189,7 @@
    "side_std": "away",
    "money_with": false,
    "grade": "B",
-   "fair_board": 0.8196,
+   "fair_board": 0.8192,
    "inside_fair": true,
    "books": {
     "at": "2026-11-05T21:56:29Z",
@@ -201,6 +201,43 @@
      "FD": 0.8462
     }
    }
+  },
+  {
+   "cond": "0x256ecbfd9a5107d1b288a0d214934539a3be7ea1ac213dcb1d1fdd9b5f02cb5c",
+   "slug": "nfl-jax-bal-2026-11-06",
+   "title": "Jaguars vs. Ravens",
+   "mtype": "total",
+   "start": "2026-11-06T01:15:00Z",
+   "bet": "Under 40.5",
+   "side": "Under",
+   "flagged": "2026-11-05T22:36:37Z",
+   "why": "2 top-200 accounts",
+   "proven": false,
+   "trigger": "two",
+   "n_accounts": 2,
+   "best_rank": 58,
+   "usd": 838,
+   "paid": 0.535,
+   "ask": 0.53,
+   "status": "live",
+   "link": "https://polymarket.us/event/nfl-jax-bal-2026-11-06",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401873037",
+   "sport": "nfl",
+   "league": null,
+   "away": "JAX",
+   "home": "BAL",
+   "away_name": "Jacksonville Jaguars",
+   "home_name": "Baltimore Ravens",
+   "game_start": "2026-11-06T01:15Z",
+   "side_std": "under",
+   "money_with": true,
+   "grade": "A",
+   "fair_board": null,
+   "inside_fair": null,
+   "books": null
   },
   {
    "cond": "0xaad81cd350ffef5f0b3ded21bc89537c81aa880921993e3b32826c48b606df0e",
@@ -261,7 +298,7 @@
    "best_rank": 31,
    "usd": 1715,
    "paid": 0.425,
-   "ask": 0.43,
+   "ask": 0.44,
    "status": "live",
    "link": "https://polymarket.us/event/nba-phi-cle-2026-11-06",
    "other": null,
@@ -634,57 +671,6 @@
    "books": null
   },
   {
-   "cond": "0x153760e7ea5d8a07b8ceed9fe46440e44ad2d5f0028070b86acd53802329e1b3",
-   "slug": "nba-phi-cle-2026-11-06",
-   "title": "76ers vs. Cavaliers",
-   "mtype": "ml",
-   "start": "2026-11-07T00:30:00Z",
-   "bet": "Cavaliers ML",
-   "side": "Cavaliers",
-   "flagged": "2026-11-04T11:46:30Z",
-   "why": "4 top-200 accounts",
-   "proven": true,
-   "trigger": "proven",
-   "n_accounts": 4,
-   "best_rank": 31,
-   "usd": 1715,
-   "paid": 0.425,
-   "ask": 0.43,
-   "status": "live",
-   "link": "https://polymarket.us/event/nba-phi-cle-2026-11-06",
-   "other": null,
-   "kalshi_against": {
-    "move": 7.0,
-    "now": 62.0,
-    "state": "held"
-   },
-   "logged": true,
-   "event_id": "401909289",
-   "sport": "nba",
-   "league": null,
-   "away": "PHI",
-   "home": "CLE",
-   "away_name": "Philadelphia 76ers",
-   "home_name": "Cleveland Cavaliers",
-   "game_start": "2026-11-07T00:30Z",
-   "side_std": "home",
-   "conflict": [
-    "Kalshi move"
-   ],
-   "money_with": false,
-   "grade": "A",
-   "fair_board": null,
-   "inside_fair": null,
-   "books": {
-    "at": "2026-11-05T19:25:48Z",
-    "fair": null,
-    "q": {
-     "Kalshi": 0.39,
-     "DK": 0.5455
-    }
-   }
-  },
-  {
    "cond": "0xb9a7b47c2b3c56a902bd706745a98c3f627e6f25e3566205b362856f2804c721",
    "slug": "nfl-buf-min-2026-11-10",
    "title": "Bills vs. Vikings",
@@ -795,6 +781,14 @@
     "usd": 224
    },
    "against": null
+  },
+  "401909936:nba_under_good_home_over": {
+   "with": null,
+   "against": {
+    "n": 1,
+    "best_rank": 132,
+    "usd": 584
+   }
   }
  },
  "by_event": {
@@ -819,9 +813,14 @@
   },
   "401873037|total": {
    "under": {
-    "n": 1,
+    "n": 2,
     "best_rank": 58,
-    "usd": 460
+    "usd": 838
+   },
+   "over": {
+    "n": 1,
+    "best_rank": 98,
+    "usd": 2922
    }
   },
   "401873042|total": {
@@ -860,6 +859,13 @@
     "n": 1,
     "best_rank": 43,
     "usd": 12740
+   }
+  },
+  "401909936|total": {
+   "over": {
+    "n": 1,
+    "best_rank": 132,
+    "usd": 584
    }
   },
   "401909937|ml": {
