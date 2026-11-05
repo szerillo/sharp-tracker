@@ -31,9 +31,12 @@ def abbr_map():
     return {E.norm(t['name']): ab for ab, t in T.items()}
 
 
+_WX = None
 def weather(ab, start):
     """Kickoff-hour wind (mph), gust, temperature, precipitation at the home stadium from the Open-Meteo archive, cached."""
-    C = json.load(open(WXC)) if os.path.exists(WXC) else {}
+    global _WX
+    if _WX is None: _WX = json.load(open(WXC)) if os.path.exists(WXC) else {}
+    C = _WX
     k = f"{ab}|{start:%Y-%m-%dT%H}"
     if k in C: return C[k]
     lat, lon = OUTDOOR[ab]; d = start.strftime('%Y-%m-%d')
@@ -47,7 +50,9 @@ def weather(ab, start):
             out = dict(wind=round(sum(w) / len(w), 1) if w else None, wind_kick=h['wind_speed_10m'][i_], gust=h['wind_gusts_10m'][i_], temp=h['temperature_2m'][i_], precip=sum(v or 0 for v in h['precipitation'][i_:i_ + 3]))
             break
         except Exception as e: time.sleep(2)
-    C[k] = out; os.makedirs(os.path.dirname(WXC), exist_ok=True); json.dump(C, open(WXC, 'w')); time.sleep(0.15)
+    C[k] = out; weather.dirty = getattr(weather, 'dirty', 0) + 1
+    if weather.dirty % 25 == 0: os.makedirs(os.path.dirname(WXC), exist_ok=True); json.dump(C, open(WXC, 'w'))
+    time.sleep(0.1)
     return out
 
 
@@ -73,6 +78,7 @@ def main():
     for g in G:
         if g['hab'] in OUTDOOR:
             g['wx'] = weather(g['hab'], g['start']); nwx += bool(g['wx'])
+    os.makedirs(os.path.dirname(WXC), exist_ok=True); json.dump(_WX or {}, open(WXC, 'w'))
     print(f"weather pulled for {nwx} outdoor games")
     R = {}
     def rec(name, hits):
