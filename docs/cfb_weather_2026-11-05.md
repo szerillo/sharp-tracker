@@ -30,7 +30,7 @@ Verdict: `cfb_hot_over_low_total` holds on an independent database with the same
 edges rather than a wide plateau. Mechanism: early-season heat against thinner non-conference rosters; low totals are where the market
 prices it least. **Tier C -> B** (0.5u). Fires August-September only by construction (85F+).
 
-## Wind (diluted; read for shape only, not level)
+## Wind, first pass on NASA (diluted; read for shape only, not level)
 - Under by band: 0-5 -6.8%, 6-9 -6.7%, 10-13 +2.4% (5/7), 14-17 -3.7%, 18-21 +6.5% (5/7), 22+ 22-10 (+31.6%).
 - cfb_wind14 as the rule (14+): 206-182-4, +1.9%, 5 of 7 seasons. Cold (under 45F) and windy 27-10; mild and windy 179-172.
 - Totals 60+ in the wind: 43-27 (+18.6%). Rain in the wind: 13-19.
@@ -44,3 +44,20 @@ slot is positive in October and November too. It stays paper.
 
 ## Next
 Open-Meteo pass for wind (then wind and temperature bands as miner features for CFB); MLB weather when we circle back.
+
+## Open-Meteo pass (after the quota reset, 23:00 UTC) and the Bet Labs pick list
+Open-Meteo archive (ERA5, ~9 km), same 4,361 games. Heat: non-conference hot rule 88-55 (+18.4%), 5 of 6 seasons; conference 22-29;
+totals 55.5+ 82-106. Tier B confirmed.
+Wind, straight replay: 14+ under **114-102-2 (+1.3%)**, 4 of 7 seasons; 10-13 311-305; 18-21 15-14; 22+ 5-0. The rule does not replay on
+reanalysis wind. So the question became whether the rule or the wind source is wrong. Bet Labs' own picks for screen 1783043 since
+8/2020 (271 picks, 235 matched to our database, `data/research/betlabs/cfb_wind14_1783043.txt`):
+- Their picks graded at Pinnacle's closing total and price: **135-96 (+12.3%)**. The rule is real on their wind.
+- Their wind reads 16.0 mph on average where Open-Meteo's 3-hour average reads 14.3; only 54% of their 14+ picks are 14+ in Open-Meteo.
+- Their picks that Open-Meteo also puts at 14+: 68-53 (+8.0%). Their picks Open-Meteo puts at 11-13.9: 46-32 (+13.4%); under 11: 19-5.
+- Our Open-Meteo 14+ games that are on their list: 48-30 (+18.0%). Our Open-Meteo 14+ games they did NOT flag: **66-72 (-8.2%)**.
+Reading: the edge lives in Bet Labs' wind source (station observations at the venue, by the look of it), not in a reanalysis grid. A
+reanalysis 14+ that the venue reading does not confirm is not a windy game. This matches what the live tool already does for NFL
+(average of Open-Meteo and MySportsWeather, which sat on Bet Labs' number on the 11/1 games), and it changes one thing for CFB: the
+live rule now fires only when MySportsWeather is in the blend; Open-Meteo alone is a flag ("one source at 14+"), not a bet.
+`cfb_wind14` stays tier A on Bet Labs' record; the backtest line on the board now cites their picks at our close (135-96).
+The miner's CFB wind feature is therefore a weak proxy; wind angles from it (calm + low total over) are not trusted.

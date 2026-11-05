@@ -49,7 +49,7 @@ RULES = {'wind1014': dict(market='total', side='under', stake=1.0), 'wind1014_1h
 # not price can keep winning with zero CLV, so nothing here waits for CLV before it is shown as a bet.
 EVIDENCE = {'wind1014': dict(tier='A', train='533-376 all-time (2003-), +13.3%', hold='positive on both halves', seasons='5 of 6', src='docs/betlabs_nfl_audit_2026-10-25.md'),
             'wind1014_1h': dict(tier='A', train='403-300 all-time, +10.4%', hold='positive on both halves', seasons='4 of 6', src='docs/betlabs_nfl_audit_2026-10-25.md'),
-            'cfb_wind14': dict(tier='A', train='555-402 all-time, +12%', hold='positive on both halves', seasons='5 of 6', src='docs/betlabs_cfb_audit_2026-10-29.md'),
+            'cfb_wind14': dict(tier='A', train='Bet Labs 555-402 all-time, +12%', hold="Bet Labs' own picks since 2020 graded at Pinnacle's close: 135-96 (+12.3%)", seasons='5 of 6', labs_check='11/5 (docs/cfb_weather_2026-11-05.md): the edge sits in Bet Labs\' wind source; Open-Meteo reanalysis 14+ alone replays 114-102, and its 14+ games Bet Labs did not flag went 66-72. Live rule fires only with MySportsWeather in the blend', src='docs/betlabs_cfb_audit_2026-10-29.md'),
             'vrest8_1h': dict(tier='C', train='454-357 all-time, +7.7%', hold='Odds API full-game cousin 127-93-2 (+11.9%) but 48-49-2 since 2024', seasons='5 of 6', src='docs/betlabs_nfl_audit_2026-10-25.md'),   # 11/5: tier C, the edge is fading
             'mnf_1h': dict(tier='B', train='168-118 all-time, +12.3%', hold='positive on both halves', seasons='4 of 6', src='docs/betlabs_nfl_audit_2026-10-25.md'),
             # 11/5: the Odds API replay (2020-26, Pinnacle closes, results) re-banded the dog rule: season margin -7 to -13 is 91-75-5 (+5.6%, 5 of 7 seasons),
@@ -170,13 +170,14 @@ def weather_t24(event_id, path=None):
     return min(t24, key=lambda r: abs(r['hours_to_kickoff'] - 24)) if t24 else rows[-1]
 
 
-def blend_wind(wx, msw):
+def blend_wind(wx, msw, need_both=False):
     """Wind the rules fire on: the average of Open-Meteo (T-24h) and MySportsWeather (latest) when both exist, else whichever exists.
     Bet Labs' own wind sits between the two (11/1: LAC@LAR 14 vs 12.7 / 15, NE@MIA 10 vs 10.2 / 13, IND@JAX 11 vs 9.4 / 15, ATL@TB 11 vs
     8.9 / 12; the average matched all four in-band calls and the out-of-band KC@DEN). Returns (mph or None, label)."""
     o = wx.get('wind_mph') if wx and not wx.get('indoor') else None
     m = msw.get('wind_mph') if msw else None
     if o is not None and m is not None: return (o + m) / 2, f"avg {((o + m) / 2):.1f} mph (Open-Meteo {o} at T-{wx['hours_to_kickoff']:.0f}h, MySportsWeather {m})"
+    if o is not None and need_both: return None, f"Open-Meteo {o} mph alone (MySportsWeather n/a): flag only. 11/5 CFB replay: Open-Meteo 14+ games Bet Labs' wind did not confirm went 66-72"
     if o is not None: return o, f"Open-Meteo {o} mph at T-{wx['hours_to_kickoff']:.0f}h (MySportsWeather n/a)"
     if m is not None and not (wx or {}).get('indoor'): return m, f"MySportsWeather {m} mph (Open-Meteo n/a)"
     return None, 'no forecast'
@@ -448,9 +449,9 @@ def main():
         st = N.parse_ts(start); ttk = (st - NOW).total_seconds() / 3600
         if not (0 < ttk <= VIEW_H): continue      # triggers visible up to a week out (like Bet Labs); fills only inside WINDOW_H (paper_fill checks)
         wx = weather_t24(ev, WX_CFB); msw = msw_latest('cfb', ev)
-        wv, wlab = blend_wind(wx, msw)
+        wv, wlab = blend_wind(wx, msw, need_both=True)      # 11/5: CFB needs the MySportsWeather reading; Open-Meteo alone does not carry the rule
         windy = wv is not None and round(wv) >= 14
-        msw_only = (not windy) and wv is not None and any(x is not None and round(x) >= 14 for x in ((wx or {}).get('wind_mph'), (msw or {}).get('wind_mph')))
+        msw_only = (not windy) and any(x is not None and round(x) >= 14 for x in ((wx or {}).get('wind_mph'), (msw or {}).get('wind_mph')))   # one source (or Open-Meteo alone) at 14+: flag, no bet
         eq = F.EventQuotes(conn, ev)
         sp_line, _n = main_line(eq, 'spread', home); tl, _n2 = main_line(eq, 'total', None); rec_s = sched_rec('cfb', ev)
         rdlt = sp_line is not None and sp_line <= -7 and tl is not None and tl <= 48 and rec_s.get('conf')
