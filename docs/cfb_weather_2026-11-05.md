@@ -61,3 +61,11 @@ reanalysis 14+ that the venue reading does not confirm is not a windy game. This
 live rule now fires only when MySportsWeather is in the blend; Open-Meteo alone is a flag ("one source at 14+"), not a bet.
 `cfb_wind14` stays tier A on Bet Labs' record; the backtest line on the board now cites their picks at our close (135-96).
 The miner's CFB wind feature is therefore a weak proxy; wind angles from it (calm + low total over) are not trusted.
+
+## The same check for the NFL rule (why the NFL replay worked and the CFB one did not)
+Bet Labs' picks for NFL wind 10-14 under since 2020 (270, 263 matched, `data/research/betlabs/nfl_wind1014_1772775.txt`): graded at
+Pinnacle's close **160-101 (+18.6%)**. Their wind averages 11.6 mph on those games, Open-Meteo's 11.8; 67% of their picks are in the
+10-14 band by Open-Meteo too, and the rule holds in every Open-Meteo bucket of their picks (in band 98-61, below 10 25-13, above 14 25-18).
+NFL stadiums sit where a 9 km reanalysis cell reads the venue well; CFB venues do not (their wind read 1.7 mph above Open-Meteo and only
+half of their 14+ games were 14+ in it). So: NFL fires on the Open-Meteo / MySportsWeather average as before; CFB fires only when
+MySportsWeather (a point forecast at the stadium) is in the blend.
