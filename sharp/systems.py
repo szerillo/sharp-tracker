@@ -57,20 +57,20 @@ EVIDENCE = {'wind1014': dict(tier='A', train='533-376 all-time (2003-), +13.3%',
             'awfuldog': dict(tier='C', train='Bet Labs 203-133 (margin -13 or worse)', hold='Odds API 2020-26: -7 to -13 band 91-75-5, +5.6%', seasons='5 of 7', src='data/research/nfl_replay.json'),
             'awfuldog_deep': dict(tier='P', train='Odds API 2020-26: 14-16, -11%', hold='the old live band', seasons='3 of 6', src='data/research/nfl_replay.json'),
             'wind1014_cold': dict(tier='P', train='Odds API 2020-26: wind 10-14 at 35F or colder 27-27', hold='mild weather 133-76, +23.4%', seasons='cold band flat', src='data/research/nfl_replay.json'),
-            'nfl_home_dog_7510': dict(tier='C', train='Odds API 2020-26: home dog +7.5 to +10 47-25-1, +23%', hold='all dogs 7.5-10: 135-97-3, +10%, 6 of 7 seasons', seasons='5 of 7', src='data/research/nfl_replay.json'),
+            'nfl_home_dog_7510': dict(tier='B', train='Odds API 2020-26: home dog +7.5 to +10 47-25-1, +23%', hold='all dogs 7.5-10: 135-97-3, +10%, 6 of 7 seasons', seasons='5 of 7', labs_check='Bet Labs: 119-84-2 (+11.2%) all-time, 46-21-1 (+30%) since 2020', src='data/research/nfl_replay.json'),
             'nfl_road_dog_7510': dict(tier='P', train='Odds API 2020-26: road dog +7.5 to +10 88-72-2', hold='paper, the home version is the bet', seasons='4 of 7', src='data/research/nfl_replay.json'),
             # 11/5 (Sean): mined angles start at B when they hold every season with a mechanism, C when a season is negative; up to A on a forward record.
             # Selection haircut: these were the best of ~100k tests per sport, so expect about half the backtest ROI going forward.
-            'nba_ats_hot_home': dict(tier='B', train='miner 2020-23: 203-156 (+10.1%)', hold='2024-26: 108-72 (+17.0%); every season +6% or better', seasons='7 of 7', src='docs/angles_2026-11-05.md'),
-            'nba_badteams_under': dict(tier='B', train='miner 2020-23: 76-50 (+19%)', hold='2024-26: 77-45 (+22.3%); 153-95 overall, all seasons positive', seasons='7 of 7', src='docs/angles_2026-11-05.md'),
-            'nhl_loss_streak_over': dict(tier='B', train='miner 2020-23: 244-202 (+6.0%)', hold='2024-26: 141-88 (+18.7%); 385-290 overall; the one miss -1%', seasons='6 of 7', src='docs/angles_2026-11-05.md'),
-            'nhl_bounce_home_ml': dict(tier='B', train='miner 2020-23: 212-136 (+4.9%)', hold='2024-26: 125-61 (+19.9%); 337-197 overall; -6% in 2022-23', seasons='6 of 7', src='docs/angles_2026-11-05.md'),
-            'mlb_road_over_under': dict(tier='B', train='miner 2020-23: 206-151 (+11.1%)', hold='2024-25: 136-95 (+13.6%); 342-246 overall', seasons='6 of 6', src='docs/angles_2026-11-05.md'),
-            'nba_bigfav_over': dict(tier='C', train='miner 2020-23: 154-114 (+11.3%)', hold='2024-26: 118-86 (+10.5%); 272-202 overall; flat in 2021-22, -8% road-trip variant in 2022-23', seasons='6 of 7', src='docs/angles_2026-11-05.md'),
-            'nba_roadtrip_over': dict(tier='C', train='miner 2020-23: 126-99 (+8%)', hold='2024-26: 64-32 (+28.9%); 190-131 overall; 2023-24 only +2%', seasons='6 of 6', src='docs/angles_2026-11-05.md'),
-            'nhl_skid_fade_road': dict(tier='C', train='miner 2020-23: 132-100 (+19.9%)', hold='2024-26: 64-45 (+20.8%); 196-145 overall at the puck line; 2020-21 -6%', seasons='5 of 6', src='docs/angles_2026-11-05.md'),
-            'cfb_day_over': dict(tier='C', train='miner 2020-23: 242-193 (+7.0%)', hold='2024-26: 263-202 (+8.7%); 505-395 overall; 2021 -9%', seasons='6 of 7', src='docs/angles_2026-11-05.md'),
-            'cfb_homefav_7510_under': dict(tier='C', train='miner 2020-23: 98-74 (+9.7%)', hold='2024-26: 90-56 (+18.2%); 188-130 overall; 2023 -14%', seasons='6 of 7', src='docs/angles_2026-11-05.md'),
+            'nba_ats_hot_home': dict(tier='C', train='miner 2020-23: 203-156 (+10.1%)', hold='2024-26: 108-72 (+17.0%); every season +6% or better', seasons='7 of 7', labs_check='Bet Labs since 8/2020: 261-218 (+4.4%); all-time -1.5%', src='docs/angles_2026-11-05.md'),
+            'nba_badteams_under': dict(tier='C', train='miner 2020-23: 76-50 (+19%)', hold='2024-26: 77-45 (+22.3%); 153-95 overall, all seasons positive', seasons='7 of 7', labs_check='Bet Labs approximation (visitor 30-45%, home under 40%): 203-175 (+3.0%) since 2020', src='docs/angles_2026-11-05.md'),
+            'nhl_loss_streak_over': dict(tier='C', train='miner 2020-23: 244-202 (+6.0%)', hold='2024-26: 141-88 (+18.7%); 385-290 overall; the one miss -1%', seasons='6 of 7', labs_check='Bet Labs since 8/2020: 391-326 (+4.3%); all-time flat', src='docs/angles_2026-11-05.md'),
+            'nhl_bounce_home_ml': dict(tier='B', train='miner 2020-23: 212-136 (+4.9%)', hold='2024-26: 125-61 (+19.9%); 337-197 overall; -6% in 2022-23', seasons='6 of 7', labs_check='Bet Labs since 8/2020: 314-191 (+6.2%)', src='docs/angles_2026-11-05.md'),
+            'mlb_road_over_under': dict(tier='P', train='miner 2020-23: 206-151 (+11.1%)', hold='2024-25: 136-95 (+13.6%); 342-246 overall', seasons='6 of 6', labs_check='Bet Labs since 2020: 311-313 (-3.9%) vs our 342-246; definitions do not reconcile yet', src='docs/angles_2026-11-05.md'),
+            'nba_bigfav_over': dict(tier='P', train='miner 2020-23: 154-114 (+11.3%)', hold='2024-26: 118-86 (+10.5%); 272-202 overall; flat in 2021-22, -8% road-trip variant in 2022-23', seasons='6 of 7', labs_check='Bet Labs since 8/2020: home fav -650+ 335-300 (+1.0%), visitor fav 59-46; the backtest pair included a filler filter', src='docs/angles_2026-11-05.md'),
+            'nba_roadtrip_over': dict(tier='P', train='miner 2020-23: 126-99 (+8%)', hold='2024-26: 64-32 (+28.9%); 190-131 overall; 2023-24 only +2%', seasons='6 of 6', labs_check='Bet Labs: 4th+ road game alone 519-550 (-6.9%) since 2020; the last-meeting split carried the backtest', src='docs/angles_2026-11-05.md'),
+            'nhl_skid_fade_road': dict(tier='C', train='miner 2020-23: 132-100 (+19.9%)', hold='2024-26: 64-45 (+20.8%); 196-145 overall at the puck line; 2020-21 -6%', seasons='5 of 6', labs_check='Bet Labs since 8/2020: 284-264 (+5.6%) at the puck line', src='docs/angles_2026-11-05.md'),
+            'cfb_day_over': dict(tier='C', train='miner 2020-23: 242-193 (+7.0%)', hold='2024-26: 263-202 (+8.7%); 505-395 overall; 2021 -9%', seasons='6 of 7', labs_check='Bet Labs since 8/2020: 482-395 (+5.0%)', src='docs/angles_2026-11-05.md'),
+            'cfb_homefav_7510_under': dict(tier='B', train='miner 2020-23: 98-74 (+9.7%)', hold='2024-26: 90-56 (+18.2%); 188-130 overall; 2023 -14%', seasons='6 of 7', labs_check='Bet Labs: 611-523 (+4.1%) all-time, 194-138 (+11.4%) since 2020', src='docs/angles_2026-11-05.md'),
             'nfl_fade_fav_bye': dict(tier='P', train='Odds API 2020-26: favourite off a bye 120-143-7 ATS (-9.9%)', hold='bet the dog: positive 6 of 7 seasons', seasons='6 of 7', src='data/research/nfl_replay.json'),
             'bounce15_1h': dict(tier='B', train='312-258', hold='117-80 (+7.5% all-time)', seasons='4 of 6', src='docs/betlabs_nfl_audit_2026-10-25.md'),
             # 11/2 (Sean): the two exchange-audit rules are paper only (tier P): both were below the audit's bar, xch_homedog_fade failed its
@@ -126,7 +126,15 @@ LABS = {'wind1014': (1772775, 'Tested: NFL Wind 10-14 Under'), 'wind1014_1h': (7
         'nba_1h_under_hot_over': (1784158, 'Tested: NBA 1H Under Visitor Over Pct 71 Plus'), 'nba_under_good_home_over': (1789285, 'Tested: NBA Under Good Home Over Team Rest Total Down'),
         'cbb_bigloss_vs_top5': (1789287, 'Tested: CBB Unranked Off 14 Plus Loss vs Top 5 Conf'),
         'cfb_hot_over_low_total': (1792204, 'Tested: CFB Hot Weather Over Total 55 or Less'), 'cfb_road_streak_dog': (1792198, 'Tested: CFB Conf Road Streak Dog Total 54 or Less'),
-        'cbb_under_good_over_drop': (1792184, 'Tested: CBB Under Good Over Teams Total Down')}
+        'cbb_under_good_over_drop': (1792184, 'Tested: CBB Under Good Over Teams Total Down'),
+        # 11/5 (Sean): every added system has a Bet Labs screen for tracking; 'Tracked:' screens, built from the data service
+        'nhl_loss_streak_over': (1799428, 'Tracked: NHL Home Lost 3 Straight Over'), 'nhl_bounce_home_ml': (1799430, 'Tracked: NHL Bounce Home Off 3 Plus Goal Loss ML'),
+        'nhl_skid_fade_road': (1799431, 'Tracked: NHL Road Off Win vs Home Lost 3 Plus PL'), 'nba_ats_hot_home': (1799432, 'Tracked: NBA Home ATS 60 Pct Rest 2 Days'),
+        'nfl_home_dog_7510': (1799433, 'Tracked: NFL Home Dog 7.5 to 10 ATS'), 'nfl_road_dog_7510': (1799434, 'Tracked: NFL Road Dog 7.5 to 10 ATS'),
+        'nfl_fade_fav_bye': (1799435, 'Tracked: NFL Dog vs Favorite Off Bye ATS'), 'nba_bigfav_over': (1799443, 'Tracked: NBA Big Home Fav 85 Pct Over (visitor: 1799444)'),
+        'nba_roadtrip_over': (1799438, 'Tracked: NBA Visitor 4th Plus Straight Road Game Over'), 'nba_badteams_under': (1799442, 'Tracked: NBA Weak Visitor at Home Team Under 40 Pct Under (approx)'),
+        'cfb_day_over': (1799439, 'Tracked: CFB Day Game Total 45 to 51.5 Over'), 'cfb_homefav_7510_under': (1799440, 'Tracked: CFB Home Fav 7.5 to 10 Under'),
+        'mlb_road_over_under': (1799441, 'Tracked: MLB Visitor Over 60 Pct Under')}
 LATE_H = (0.1, 1.5)   # exchange rules fire in the last 90 minutes (the audit priced them at the close)
 WINDOW_H = tuple(float(x) for x in os.environ.get('SYSTEMS_WINDOW', '2,30').split(','))
 # 11/4 (Sean: "why do CFB / NFL systems need to be inside 30 hours to fire?"): only the weather rules do, because the forecast they fire on
