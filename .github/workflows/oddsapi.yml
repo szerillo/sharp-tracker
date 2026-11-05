@@ -1,0 +1,53 @@
+name: odds history (The Odds API)
+# Sean, 11/4: closing snapshots (Pinnacle, DK, FD, Caesars, BetMGM, BetOnline, LowVig; moneyline, spread, total) for every system's
+# sport, from The Odds API's historical endpoint, key in the ODDS_API_KEY secret. Daily: yesterday's closes (about 120-240 credits a
+# day, 20,000 a month on the plan). Manual: any sport / date range / hours for a backfill, within --budget.
+on:
+  schedule:
+    - cron: '23 9 * * *'      # 4:23 AM ET: yesterday's closes
+  workflow_dispatch:
+    inputs:
+      sport: {description: 'nba nhl nfl cfb cbb soccer_epl mma', default: 'nba', required: false}
+      from: {description: 'YYYY-MM-DD', default: '', required: false}
+      to: {description: 'YYYY-MM-DD', default: '', required: false}
+      hours: {description: 'UTC hours, comma separated (0,3 = 7 PM and 10 PM ET tips)', default: '0,3', required: false}
+      dow: {description: 'weekdays 0=Mon..6=Sun, blank = every day', default: '', required: false}
+      budget: {description: 'max credits this run', default: '2000', required: false}
+permissions:
+  contents: write
+concurrency:
+  group: oddsapi
+  cancel-in-progress: false
+jobs:
+  pull:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - name: daily closes (yesterday ET, every active sport)
+        if: github.event_name == 'schedule'
+        env: {ODDS_API_KEY: '${{ secrets.ODDS_API_KEY }}'}
+        run: |
+          Y=$(TZ=America/New_York date -d 'yesterday' +%F); DOW=$(TZ=America/New_York date -d 'yesterday' +%u)
+          python3 loggers/oddsapi_hist.py --sport nba --from $Y --to $Y --hours 0,3 --budget 100 || true
+          python3 loggers/oddsapi_hist.py --sport nhl --from $Y --to $Y --hours 0,3 --budget 100 || true
+          python3 loggers/oddsapi_hist.py --sport cbb --from $Y --to $Y --hours 0,3 --budget 100 || true
+          if [ "$DOW" = "6" ]; then python3 loggers/oddsapi_hist.py --sport cfb --from $Y --to $Y --hours 16,19,23,0,3 --budget 200 || true; fi
+          if [ "$DOW" = "7" ]; then python3 loggers/oddsapi_hist.py --sport nfl --from $Y --to $Y --hours 17,20,0 --budget 100 || true; fi
+          if [ "$DOW" = "1" ] || [ "$DOW" = "4" ]; then python3 loggers/oddsapi_hist.py --sport nfl --from $Y --to $Y --hours 0 --budget 50 || true; fi
+      - name: backfill (manual)
+        if: github.event_name == 'workflow_dispatch'
+        env: {ODDS_API_KEY: '${{ secrets.ODDS_API_KEY }}'}
+        run: python3 loggers/oddsapi_hist.py --sport "${{ inputs.sport }}" --from "${{ inputs.from }}" --to "${{ inputs.to }}" --hours "${{ inputs.hours }}" ${{ inputs.dow && format('--dow {0}', inputs.dow) || '' }} --budget "${{ inputs.budget }}"
+      - name: commit
+        if: always()
+        run: |
+          git config user.name "tracker-bot"; git config user.email "actions@users.noreply.github.com"
+          git add -A data/oddsapi
+          git commit -q -m "odds history $(date -u +%Y-%m-%d)" || exit 0
+          for i in 1 2 3 4 5; do
+            if git pull -q --rebase -X theirs && git push -q; then exit 0; fi
+            git rebase --abort 2>/dev/null || true
+            sleep $((RANDOM % 15 + 5))
+          done
+          exit 1
