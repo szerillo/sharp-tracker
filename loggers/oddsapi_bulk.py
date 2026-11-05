@@ -24,8 +24,22 @@ PLANS = {
     'nfl': ('americanfootball_nfl', 'h2h,spreads,totals', [(D(2021, 9, 8), D(2022, 2, 14)), (D(2022, 9, 7), D(2023, 2, 13)), (D(2023, 9, 6), D(2024, 2, 12)), (D(2024, 9, 4), D(2025, 2, 10)), (D(2025, 9, 3), D(2026, 2, 9))], [15, 17, 20, 0, 1], True),
     'cfb': ('americanfootball_ncaaf', 'h2h,spreads,totals', [(D(2021, 8, 26), D(2022, 1, 11)), (D(2022, 8, 25), D(2023, 1, 10)), (D(2023, 8, 24), D(2024, 1, 9)), (D(2024, 8, 24), D(2025, 1, 21)), (D(2025, 8, 23), D(2026, 1, 20))], [15, 16, 19, 23, 0, 3], True),
     'mma': ('mma_mixed_martial_arts', 'h2h,totals', [(D(2022, 1, 1), D(2025, 12, 31))], [22, 2], True),
+    # phase 2 (Sean, 11/4: "if credits are left over: MLB, WNBA, futures, whatever else"; no motorsport on the API)
+    'mlb': ('baseball_mlb', 'h2h,spreads,totals', [(D(2021, 4, 1), D(2021, 11, 3)), (D(2022, 4, 7), D(2022, 11, 6)), (D(2023, 3, 30), D(2023, 11, 2)), (D(2024, 3, 20), D(2024, 10, 31)), (D(2025, 3, 27), D(2025, 11, 2))], [15, 17, 18, 22, 23, 0, 2], False),
+    'wnba': ('basketball_wnba', 'h2h,spreads,totals', [(D(2021, 5, 14), D(2021, 10, 18)), (D(2022, 5, 6), D(2022, 9, 19)), (D(2023, 5, 19), D(2023, 10, 19)), (D(2024, 5, 14), D(2024, 10, 21)), (D(2025, 5, 16), D(2025, 10, 18))], [15, 23, 0, 2, 3], True),
+    'cfl': ('americanfootball_cfl', 'h2h,spreads,totals', [(D(2021, 8, 5), D(2021, 12, 13)), (D(2022, 6, 9), D(2022, 11, 21)), (D(2023, 6, 8), D(2023, 11, 20)), (D(2024, 6, 6), D(2024, 11, 18)), (D(2025, 6, 5), D(2025, 11, 17))], [15, 23, 0, 2], True),
+    'kbo': ('baseball_kbo', 'h2h,spreads,totals', [(D(2023, 4, 1), D(2023, 11, 15)), (D(2024, 3, 23), D(2024, 11, 1)), (D(2025, 3, 22), D(2025, 11, 1))], [8, 9, 10], True),
+    'npb': ('baseball_npb', 'h2h,spreads,totals', [(D(2023, 3, 30), D(2023, 11, 6)), (D(2024, 3, 29), D(2024, 11, 4)), (D(2025, 3, 28), D(2025, 11, 3))], [3, 8, 9, 10], True),
+    'boxing': ('boxing_boxing', 'h2h', [(D(2022, 1, 1), D(2025, 12, 31))], [22, 2], True),
 }
+SOCCER3 = {'ligue1': 'soccer_france_ligue_one', 'eredivisie': 'soccer_netherlands_eredivisie', 'portugal': 'soccer_portugal_primeira_liga', 'efl_champ': 'soccer_efl_champ',
+           'libertadores': 'soccer_conmebol_copa_libertadores', 'brazil': 'soccer_brazil_campeonato', 'argentina': 'soccer_argentina_primera_division', 'turkey': 'soccer_turkey_super_league'}
+# futures: one snapshot a week (Tuesday 15:00 UTC) 2021-2026; outright markets cost 10 a snapshot
+FUTURES = {'nba_champ': 'basketball_nba_championship_winner', 'nfl_sb': 'americanfootball_nfl_super_bowl_winner', 'nhl_cup': 'icehockey_nhl_championship_winner',
+           'mlb_ws': 'baseball_mlb_world_series_winner', 'cbb_champ': 'basketball_ncaab_championship_winner', 'cfb_champ': 'americanfootball_ncaaf_championship_winner',
+           'world_cup': 'soccer_fifa_world_cup_winner', 'masters': 'golf_masters_tournament_winner', 'pga': 'golf_pga_championship_winner', 'open': 'golf_the_open_championship_winner', 'us_open_golf': 'golf_us_open_winner'}
 SOCCER = {'epl': 'soccer_epl', 'laliga': 'soccer_spain_la_liga', 'seriea': 'soccer_italy_serie_a', 'ucl': 'soccer_uefa_champs_league', 'mls': 'soccer_usa_mls', 'ligamx': 'soccer_mexico_ligamx'}
+SOCCER2 = {'europa': 'soccer_uefa_europa_league', 'bundesliga': 'soccer_germany_bundesliga', 'worldcup': 'soccer_fifa_world_cup'}   # 11/4: added; own plan and file so it can run beside the first
 SOCCER_SEASONS = [(D(2021, 8, 1), D(2022, 6, 5)), (D(2022, 8, 1), D(2023, 6, 12)), (D(2023, 8, 1), D(2024, 6, 5)), (D(2024, 8, 1), D(2025, 6, 5)), (D(2025, 7, 15), D(2026, 6, 5))]
 SOCCER_SLOTS = [10, 12, 14, 16, 19, 0, 2]
 # tennis: the 2026 windows from oddsapi_tennis.py, shifted a year back for 2024 and 2025 and widened a week each side (the events probe trims)
@@ -120,21 +134,40 @@ def run_plan(plan, budget):
                 for w in slot_times(day, slots):
                     if not R.snap(plan, key, markets, w): R.save_done(); print(f"[bulk {plan}] budget reached"); return
                 day += dt.timedelta(days=1)
-    elif plan == 'soccer':
-        for lg, key in SOCCER.items():
-            for a, b in SOCCER_SEASONS:
+    elif plan in ('soccer', 'soccer2', 'soccer3'):
+        for lg, key in (SOCCER if plan == 'soccer' else SOCCER2 if plan == 'soccer2' else SOCCER3).items():
+            for a, b in ([(D(2022, 11, 18), D(2022, 12, 20))] if lg == 'worldcup' else SOCCER_SEASONS):
                 day = a
                 while day <= b:
                     w0 = dt.datetime.combine(day, dt.time(10, 0), dt.timezone.utc)
-                    if f"soccer|{key}|{w0:%Y-%m-%dT%H%M}" not in R.done:
+                    if f"{plan}|{key}|{w0:%Y-%m-%dT%H%M}" not in R.done:
                         ev = R.probe(key, w0)
                         if not ev:
-                            for w in slot_times(day, SOCCER_SLOTS): R.done.add(f"soccer|{key}|{w:%Y-%m-%dT%H%M}")
+                            for w in slot_times(day, SOCCER_SLOTS): R.done.add(f"{plan}|{key}|{w:%Y-%m-%dT%H%M}")
                             day += dt.timedelta(days=1); continue
                     for w in slot_times(day, SOCCER_SLOTS):
-                        if not R.snap('soccer', key, 'h2h,spreads,totals', w): R.save_done(); print('[bulk soccer] budget reached'); return
+                        if not R.snap(plan, key, 'h2h,spreads,totals', w): R.save_done(); print(f'[bulk {plan}] budget reached'); return
                     day += dt.timedelta(days=1)
-            R.save_done(); print(f"[bulk soccer] {lg} done, {R.spent} credits", flush=True)
+            R.save_done(); print(f"[bulk {plan}] {lg} done, {R.spent} credits", flush=True)
+    elif plan == 'futures':
+        for name, key in FUTURES.items():
+            day = D(2021, 6, 1)
+            while day <= D(2026, 11, 3):
+                if day.weekday() == 1:
+                    w = dt.datetime.combine(day, dt.time(15, 0), dt.timezone.utc); k = f"futures|{key}|{w:%Y-%m-%dT%H%M}"
+                    if k not in R.done:
+                        d, used, left = get(f"{API}/historical/sports/{key}/odds/?apiKey={KEY}&bookmakers={BOOKS}&markets=outrights&oddsFormat=decimal&date={w:%Y-%m-%dT%H:%M:%SZ}")
+                        R.spent += used; R.left = left; R.done.add(k)
+                        if d and d.get('data'):
+                            with gzip.open(os.path.join(OUT, 'futures.jsonl.gz'), 'at') as fh:
+                                for g in d['data']:
+                                    B = {b['key']: {o['name']: o.get('price') for m in b.get('markets') or [] for o in m.get('outcomes') or []} for b in g.get('bookmakers') or []}
+                                    fh.write(json.dumps(dict(t=d.get('timestamp'), id=g['id'], sport='futures', key=key, name=name, start=g.get('commence_time'), title=g.get('home_team') or g.get('sport_title'), books=B), separators=(',', ':')) + '\n')
+                            R.n += 1
+                        time.sleep(0.4)
+                        if R.spent + 20 > R.budget: R.save_done(); print('[bulk futures] budget reached'); return
+                day += dt.timedelta(days=1)
+            R.save_done(); print(f"[bulk futures] {name} done, {R.spent} credits", flush=True)
     elif plan == 'tennis':
         for key, (a, b) in TENNIS_2026.items():
             for yrs in (4, 3, 2, 1):
