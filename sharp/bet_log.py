@@ -15,7 +15,7 @@ Writes data/state/bet_log.json (rows + summaries by category x sport x bet type)
 import os, sys, re, json, gzip, glob, math, bisect, collections, datetime as dt
 HERE = os.path.dirname(os.path.abspath(__file__)); ROOT = os.path.abspath(os.path.join(HERE, '..')); sys.path.insert(0, ROOT)
 SD = os.path.join(ROOT, 'data', 'state'); OUT = os.path.join(SD, 'bet_log.json')
-SPORTS = ('nfl', 'nba', 'nhl', 'cfb', 'cbb', 'soccer', 'mlb', 'wnba', 'tennis')
+SPORTS = ('nfl', 'nba', 'nhl', 'cfb', 'cbb', 'soccer', 'mlb', 'wnba', 'mma', 'tennis')
 VENUES = ('Novig', 'Kalshi', 'FD', 'Caesars', 'DK'); REF = ('Pinnacle', 'AN_Consensus')
 OTH = {'home': 'away', 'away': 'home', 'over': 'under', 'under': 'over'}
 UNIT = {'mlb': 'runs', 'nhl': 'goals', 'soccer': 'goals'}            # everything else: points
@@ -27,7 +27,7 @@ NOW = dt.datetime.now(dt.timezone.utc)
 def ts(s): return dt.datetime.fromisoformat(s.replace(' ', 'T').replace('Z', '+00:00').replace('+00:00:00', '+00:00')) if s else None
 def implied(a): return 100 / (a + 100) if a > 0 else -a / (-a + 100)
 HALF_U = {'nba_1h_under_hot_over'}       # tier C rules sized at 0.5u (Sean, 11/4)
-def size_units(cat, rule=None, sport=None): return 0.5 if (cat in ('system A', 'system B') or (cat == 'sharp A' and sport != 'soccer') or rule in HALF_U) else 0.25
+def size_units(cat, rule=None, sport=None): return 0.0 if cat == 'watch' else 0.5 if (cat in ('system A', 'system B') or (cat == 'sharp A' and sport != 'soccer') or rule in HALF_U) else 0.25
 
 
 def units(p, won, size):
@@ -166,6 +166,31 @@ def main():
             bets.append(dict(id='t:' + p['event_id'], src='tennis', cat='tennis', rule='tennis_fs_fav', sport='tennis', event_id=p['event_id'], game=f"{p.get('fav_name')} vs {p.get('opp_name')}",
                              start=p['start'], market='1s_ml', side=p['fav'], line=None, flagged=p['ts'], venue=p['venue'], price=p['price'],
                              won=None if not g_ else (1 if g_['won'] else 0), bet=f"{p.get('fav_name')} set 1"))
+    # ---- watch-only sharp-money signals (Sean, 11/4: "signals have appeared all week, MMA for instance, why aren't those in the tracker?"):
+    # sharp move, big money, Kalshi 4+ move, bet back, one row per game x market x kind, from the frozen snapshots (sharp/signal_log.py,
+    # data/research/signal_log.jsonl) plus the live pregame ones (data/state/signal_snap.json). No units (watch), graded W/L at the
+    # line in the snapshot, CLV against the no-vig price when the signal was first seen (Kalshi ask for Kalshi moves and bet backs).
+    WK = {'move': 'sharp move', 'big': 'big money', 'kmove': 'Kalshi move', 'back': 'bet back'}
+    snaps = {}
+    lp = os.path.join(ROOT, 'data', 'research', 'signal_log.jsonl')
+    if os.path.exists(lp):
+        for l in open(lp):
+            try: r = json.loads(l); snaps[(r['event_id'], r['market'])] = r
+            except Exception: pass
+    try:
+        for k, r in json.load(open(os.path.join(SD, 'signal_snap.json'))).items(): snaps.setdefault((r['event_id'], r['market']), r)
+    except Exception: pass
+    for (ev, mk), r in snaps.items():
+        e = S.get(ev) or {}
+        for kind, sg in (r.get('signals') or {}).items():
+            side = sg.get('side'); ln = sg.get('line')
+            if not side or kind not in WK: continue
+            if mk == 'spread' and ln is not None: ln = ln if side == 'home' else -ln      # snapshots log the home number
+            pr = (sg.get('ask') if kind == 'kmove' else sg.get('cost') if kind == 'back' else None)
+            pr = pr / 100 if pr else None
+            bets.append(dict(id=f"w:{ev}|{mk}|{kind}", src='watch', cat='watch', rule=WK[kind], sport=r.get('sport') or e.get('sport'), event_id=ev,
+                             game=f"{e.get('away', '?')} @ {e.get('home', '?')}", start=r['start'].replace('Z', ':00Z') if len(r['start']) == 17 else r['start'], market=mk, side=side, line=ln,
+                             flagged=sg.get('first') or r.get('ts'), venue='Kalshi' if kind in ('kmove', 'back') else 'no-vig', price=pr, won=None))
     # ---- price paths
     by = collections.defaultdict(list)
     for b in bets:
@@ -176,6 +201,10 @@ def main():
         for b in L:
             st = ts(b['start']).timestamp(); t0 = ts(b['flagged']).timestamp()
             key = (b['event_id'], b['market'], b['side'], None if b['line'] is None else float(b['line']))
+            if b['price'] is None:              # watch rows without an entry price: the no-vig price when first seen is the reference
+                nv0, src0 = T.novig_pin(key, t0)
+                if nv0 is None: continue
+                b['price'] = round(nv0, 4); b['venue'] = f"no-vig ({src0})"
             best, close = path(T, key, t0, st)
             if best: b.update(best=round(best[0], 4), best_venue=best[2], best_at=dt.datetime.fromtimestamp(best[1], dt.timezone.utc).strftime('%Y-%m-%dT%H:%M:%SZ'),
                               best_after_min=round((best[1] - t0) / 60), best_before_start_min=round((st - best[1]) / 60))
@@ -223,6 +252,8 @@ def main():
         elif base == 'spread': b['margin'] = round(((h_ - a_) if b['side'] == 'home' else (a_ - h_)) + L, 1)
         elif base == 'ml': b['margin'] = (h_ - a_) if b['side'] == 'home' else (a_ - h_)
         b['unit_name'] = UNIT.get(b['sport'], 'points')
+        if b['src'] == 'watch' and b['won'] is None and b.get('margin') is not None and (base != 'total' and base != 'spread' or b['line'] is not None):
+            b['won'] = 1 if b['margin'] > 0 else 0 if b['margin'] < 0 else 0.5
     # correlation (Sean, 11/2): bets on one game in one family (the team side: moneyline / spread, any period; or the total, any period)
     fam = lambda m: 'total' if 'total' in m else ('side' if re.sub(r'^(1h|1q|1p)_', '', m) in ('ml', 'spread') else None)
     grp = collections.defaultdict(list)
@@ -265,6 +296,12 @@ def main():
                   'fair_at_flag', 'fair_src', 'edge', 'depth', 'close_line', 'open_line', 'line_value', 'keys_crossed', 'ctx'):
             if b.get(k) is None and o.get(k) is not None: b[k] = o[k]
         if b.get('ctx') is None and b['event_id'] and b['side'] and 0 <= (NOW - ts(b['flagged'])).total_seconds() <= 3600: b['ctx'] = ctx(b)
+    # ---- sharps against (Sean, 11/4: "note on the tracker when an NBA under got opposed by sharp money and would have been taken off the
+    # board, so how they perform is easy to see; backfill tonight's"). Recomputed from the whole Polymarket sharp-fill log every run, so it
+    # covers every bet back to 10/10. Top-200 accounts only (specialists excluded), the same full-game market family, opposite side, before
+    # the start: 'at_flag' when the first one came before the bet flagged (today's board would hold it), 'after' when after (it gets greyed
+    # late; the bet already stood). The bet stays in every record; this only labels it.
+    opp_stats = sharps_against(bets, S)
     for b in bets:
         b['bet_type'] = b['market'].replace('1s_ml', 'set1_ml')
         b['size'] = size_units(b['cat'], b.get('rule'), b.get('sport')); b['units'] = units(b['price'], b['won'], b['size'])
@@ -281,14 +318,62 @@ def main():
                     best_gain=round(sum(gain) / len(gain), 2) if gain else None, better_later=len(later), lead_h=round(sum(b['lead_h'] for b in L) / len(L), 1) if L else None)
     groups = collections.defaultdict(list)
     for b in bets:
+        if b['cat'] == 'watch':
+            for k in (('watch', 'all', 'all'), ('watch', b['sport'] or '?', 'all'), ('watch', b['sport'] or '?', b['bet_type'])): groups['|'.join(k)].append(b)
+            continue
         for k in ((b['cat'], 'all', 'all'), (b['cat'], b['sport'] or '?', 'all'), (b['cat'], b['sport'] or '?', b['bet_type']), ('all', b['sport'] or '?', b['bet_type']), ('all', b['sport'] or '?', 'all'), ('all', 'all', 'all')):
             groups['|'.join(k)].append(b)
-    out = dict(built=NOW.strftime('%Y-%m-%dT%H:%M:%SZ'), venues=list(VENUES),
+    opp_summ = {k: summ([b for b in bets if (b.get('opp') or {}).get('when') == k and b['src'] != 'paper']) for k in ('at_flag', 'after')}
+    opp_summ['none'] = summ([b for b in bets if b['event_id'] and b['side'] and not b.get('opp') and b['src'] in ('system', 'sharp')])
+    out = dict(built=NOW.strftime('%Y-%m-%dT%H:%M:%SZ'), venues=list(VENUES), opposed=opp_summ,
                summary={k: summ(v) for k, v in sorted(groups.items())},
                rows=sorted(bets, key=lambda b: b['start'], reverse=True))
     json.dump(out, open(OUT, 'w'), separators=(',', ':'), default=str)
     s = out['summary'].get('all|all|all', {})
     print(f"[bet_log] {len(bets)} flagged bets ({s.get('graded')} graded, {s.get('units')}u, CLV {s.get('clv')} on {s.get('clv_n')}); {sum(1 for b in bets if b.get('best') is not None)} with a price path")
+
+
+def sharps_against(bets, S):
+    """Label each bet with the Polymarket top-200 accounts on the other side of its game (see main). -> number labelled."""
+    p = os.path.join(ROOT, 'data', 'polymarket', 'sharp_fills.jsonl')
+    if not os.path.exists(p): return 0
+    raw = {}
+    for sp in SPORTS:
+        q = os.path.join(ROOT, 'data', sp, 'schedule.json')
+        if sp != 'tennis' and os.path.exists(q):
+            try: raw.update(json.load(open(q)))
+            except Exception: pass
+    nick = lambda t: (((t or {}).get('shortDisplayName') or (t or {}).get('name') or (t or {}).get('displayName') or '').lower().split() or [''])[-1]
+    byday = collections.defaultdict(list)
+    for l in open(p):
+        try: x = json.loads(l)
+        except Exception: continue
+        if x.get('rank') is None or x.get('specialist'): continue
+        byday[(x.get('start') or '')[:10]].append(x)
+    n = 0
+    for b in bets:
+        if b['src'] == 'tennis' or not b.get('event_id') or not b.get('side'): continue
+        e = raw.get(b['event_id'])
+        if not e: continue
+        a_, h_ = nick(e.get('away_team')), nick(e.get('home_team'))
+        if not a_ or not h_: continue
+        base = re.sub(r'^(1h|1q|1p)_', '', b['market']); fam = ('total',) if base == 'total' else ('ml', 'spread')
+        t_flag = ts(b['flagged']).timestamp(); t_start = ts(b['start']).timestamp()
+        W = {}
+        for x in byday.get(b['start'][:10], []):
+            t = (x.get('title') or '').lower()
+            if a_ not in t or h_ not in t or x.get('mtype') not in fam or x['ts'] >= t_start: continue
+            bt = (x.get('bet') or '').lower()
+            xs = (bt.split()[0] if bt else None) if base == 'total' else ('away' if a_ in bt else 'home' if h_ in bt else None)
+            if xs is None or xs == b['side']: continue
+            w = W.setdefault(x['w'], dict(first=x['ts'], usd=0.0, rank=x['rank'])); w['first'] = min(w['first'], x['ts']); w['usd'] += x.get('usd') or 0
+        if not W: continue
+        first = min(w['first'] for w in W.values())
+        b['opp'] = dict(n=len(W), usd=round(sum(w['usd'] for w in W.values())), best_rank=min(w['rank'] for w in W.values()),
+                        first=dt.datetime.fromtimestamp(first, dt.timezone.utc).strftime('%Y-%m-%dT%H:%M:%SZ'), when='at_flag' if first <= t_flag else 'after',
+                        min_before_start=round((t_start - first) / 60))
+        n += 1
+    return n
 
 
 if __name__ == '__main__':

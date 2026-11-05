@@ -1015,6 +1015,7 @@ function blCorr(b) {
   if (b.also) s += `<div class="small"><b>Also flagged by:</b> ${b.also.map(esc).join(', ')}</div>`;
   if (b.corr_same) s += `<div class="stat stat-lapsed">Same position as ${b.corr_same.length} other bet${b.corr_same.length === 1 ? '' : 's'}</div>`;
   if (b.corr_opp) s += `<div class="stat stat-held">Opposes ${b.corr_opp.length} other bet${b.corr_opp.length === 1 ? '' : 's'}</div>`;
+  if (b.opp) s += `<div class="stat ${b.opp.when === 'after' ? 'stat-lapsed' : 'stat-held'}">${b.opp.when === 'after' ? 'Sharps came in against later' : 'Sharps against at the flag'}: ${b.opp.n} account${b.opp.n === 1 ? '' : 's'}, $${(b.opp.usd || 0).toLocaleString()}, best rank ${b.opp.best_rank}${b.opp.when === 'after' ? `, ${mins(b.opp.min_before_start)} before the start` : ''}</div>`;
   return s;
 }
 function blFlagExtra(b) {
@@ -1050,7 +1051,7 @@ function blRow(b) {
     <td class="small"><b>${toAm(b.price)}</b> ${esc(b.venue)}<div class="dim">${ET(b.flagged)} · ${b.lead_h}h out</div>${blFlagExtra(b)}</td>
     <td class="small">${b.best != null ? `<b>${toAm(b.best)}</b> ${esc(b.best_venue)}<div class="dim">${b.best_after_min ? mins(b.best_after_min) + ' after the flag' : 'at the flag'} · ${mins(b.best_before_start_min)} before start</div>` : '<span class="dim">no tape</span>'}</td>
     <td class="small">${blClose(b)}</td>
-    <td class="num">${b.won == null ? (st === 'live' ? '<span class="stat stat-lapsed" style="margin:0;white-space:nowrap">In progress</span>' : st === 'awaiting' ? '<span class="stat stat-gone" style="margin:0;white-space:nowrap">Awaiting result</span>' : '<span class="dim">upcoming</span>') : b.won === 1 ? '<b class="pos">W</b>' : b.won === 0 ? '<b class="neg">L</b>' : 'P'}<div class="small">${b.size}u</div>${blMargin(b)}</td><td class="num">${blU(b.units)}<div class="small dim">risk ${blRisk(b).toFixed(2)}u</div></td></tr>`;
+    <td class="num">${b.won == null ? (st === 'live' ? '<span class="stat stat-lapsed" style="margin:0;white-space:nowrap">In progress</span>' : st === 'awaiting' ? '<span class="stat stat-gone" style="margin:0;white-space:nowrap">Awaiting result</span>' : '<span class="dim">upcoming</span>') : b.won === 1 ? '<b class="pos">W</b>' : b.won === 0 ? '<b class="neg">L</b>' : 'P'}<div class="small">${b.cat === 'watch' ? 'watch' : b.size + 'u'}</div>${blMargin(b)}</td><td class="num">${blU(b.units)}<div class="small dim">risk ${blRisk(b).toFixed(2)}u</div></td></tr>`;
 }
 const BLHEAD = `<thead><tr><th>Start</th><th>Game</th><th>Bet</th><th>Flagged</th><th>Best price before the start</th><th>Close and CLV</th><th class="num">Result</th><th class="num">Units</th></tr></thead>`;
 // windows (Sean, 11/2): in progress (started, not graded), past 24 hours (started), yesterday (ET day), upcoming, all
@@ -1061,8 +1062,10 @@ function renderBetLog() {
   if (!BL) return '<div class="banner">The bet tracker builds with the next tracker run.</div>';
   const chip = (on, label, js) => `<button class="${on ? 'on' : ''}" onclick="${js};draw()">${label}</button>`;
   const inW = BL.rows.filter(BLW[_lw][1]);
-  const cats = ['all', 'system A', 'system B', 'lean C', 'sharp A', 'sharp B', 'tennis', 'sharp watch', 'paper P'].filter(c => c === 'all' || BL.rows.some(b => b.cat === c));
-  const inC = inW.filter(b => _lc === 'all' || b.cat === _lc);
+  const cats = ['all', 'system A', 'system B', 'lean C', 'sharp A', 'sharp B', 'tennis', 'sharp watch', 'paper P', 'watch'].filter(c => c === 'all' || BL.rows.some(b => b.cat === c));
+  window._lo = window._lo || 'all';
+  const OPPF = {all: ['Any', () => true], at_flag: ['Sharps against at the flag', b => (b.opp || {}).when === 'at_flag'], after: ['Sharps came in against later', b => (b.opp || {}).when === 'after'], none: ['No sharps against', b => !b.opp]};
+  const inC = inW.filter(b => (_lc === 'all' ? b.cat !== 'watch' : b.cat === _lc) && OPPF[_lo][1](b));
   const sports = [...new Set(BL.rows.map(b => b.sport).filter(Boolean))].sort();
   const rows = inC.filter(b => _ls === 'all' || b.sport === _ls);
   const by = {}; for (const b of rows) { for (const k of [`${b.sport}|all`, `${b.sport}|${b.bet_type}`]) (by[k] = by[k] || []).push(b); }
@@ -1071,8 +1074,10 @@ function renderBetLog() {
     return `<tr${bt === 'all' ? ' style="background:var(--panel2)"' : ''}><td>${bt === 'all' ? '<b>' + esc((SPORT_LABEL[sp] || sp).toString()) + '</b>' : ''}</td><td>${bt === 'all' ? '<b>All bet types</b>' : esc(BT[bt] || bt)}</td><td class="num">${s.n}</td><td class="num">${blRec(s)}</td><td class="num">${blU(s.graded ? s.units : null)}</td><td class="num">${blPct(blRoi(s))}</td>
       <td class="num">${blPts(s.clv)}${s.clv_n ? ` <span class="small dim">(${s.clv_n})</span>` : ''}</td><td class="num">${blPts(s.clv_nv)}</td><td class="num">${blPts(s.edge)}</td><td class="num">${s.line_value == null ? '—' : sgn(s.line_value, 2)}</td><td class="num">${s.positions}</td><td class="num">${blPts(s.best_gain)}</td><td class="num">${s.better_later} of ${s.n}</td><td class="num">${s.lead_h ?? '—'}h</td></tr>`; }).join('');
   const tot = blSumm(rows);
-  return `<div class="controls"><span class="tabs inline">${Object.entries(BLW).map(([k, [l, f]]) => chip(_lw === k, `${l} <span class="small">${BL.rows.filter(f).length}</span>`, `_lw='${k}'`)).join('')}</span></div>
+  return `<div class="controls"><span class="tabs inline">${Object.entries(BLW).map(([k, [l, f]]) => chip(_lw === k, `${l} <span class="small">${BL.rows.filter(b => f(b) && (_lc === 'all' ? b.cat !== 'watch' : b.cat === _lc)).length}</span>`, `_lw='${k}'`)).join('')}</span></div>
     <div class="controls"><span class="tabs inline">${cats.map(c => chip(_lc === c, c === 'all' ? 'All categories' : c, `_lc='${c}'`)).join('')}</span></div>
+    <div class="controls"><span class="small dim">Sharps on the other side</span><span class="tabs inline">${Object.entries(OPPF).map(([k, [l, f]]) => chip(_lo === k, `${l} <span class="small">${inW.filter(b => (_lc === 'all' ? b.cat !== 'watch' : b.cat === _lc) && f(b)).length}</span>`, `_lo='${k}'`)).join('')}</span></div>
+    ${BL.opposed ? `<div class="small" style="margin:2px 0 8px">Every bet, systems and sharp flags: <b>no sharps against</b> ${blRec(BL.opposed.none)}, ${blU(BL.opposed.none.units)}, no-vig CLV ${blPts(BL.opposed.none.clv_nv)}% · <b>sharps against at the flag</b> (today's board holds these) ${blRec(BL.opposed.at_flag)}, ${blU(BL.opposed.at_flag.units)}, CLV ${blPts(BL.opposed.at_flag.clv_nv)}% · <b>sharps came in against later</b> (greyed out after you bet) ${blRec(BL.opposed.after)}, ${blU(BL.opposed.after.units)}, CLV ${blPts(BL.opposed.after.clv_nv)}%</div>` : ''}
     <div class="controls"><span class="tabs inline">${['all', ...sports].map(s => chip(_ls === s, s === 'all' ? 'All sports' : (SPORT_LABEL[s] || s), `_ls='${s}'`)).join('')}</span></div>
     <div class="summary"><b>${BLW[_lw][0]} · ${_lc === 'all' ? 'every category' : _lc}${_ls !== 'all' ? ' · ' + (SPORT_LABEL[_ls] || _ls) : ''}:</b> ${tot.n} flagged · ${blRec(tot)} · ${blU(tot.graded ? tot.units : null)} (${blPct(blRoi(tot))} ROI on ${tot.risked.toFixed(2)}u risked) · ${tot.positions} distinct positions · no-vig CLV ${blPts(tot.clv_nv)}% · CLV ${blPts(tot.clv)}% · a better price came later on ${tot.better_later} (by ${blPts(tot.best_gain)}% on average)</div>
     ${rows.length ? `<div class="sec"><div class="sec-h"><span class="name">By sport and bet type</span><span class="meta">CLV = closing best price minus the flagged price at the same number · No-vig CLV = Pinnacle's no-vig close at the same number (Novig mid when Pinnacle has no quote) minus the price taken · Edge at flag = fair then minus the price taken · Line value = the number taken minus the closing main number, in points, runs or goals (positive beat it) · Positions = distinct positions, counting correlated bets on one game once · Best later = how much better the best price between the flag and the start was, on average</span></div>
