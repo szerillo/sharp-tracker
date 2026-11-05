@@ -1,50 +1,6 @@
 {
- "built": "2026-11-05T02:51:47Z",
+ "built": "2026-11-05T03:03:24Z",
  "rows": [
-  {
-   "cond": "0x87c74536e0bdd3b79589f6d894a60bca4e0bbe8c201230754a6aff4b00a63fa6",
-   "slug": "nhl-cal-sea-2026-11-04",
-   "title": "Flames vs. Kraken",
-   "mtype": "ml",
-   "start": "2026-11-05T03:00:00Z",
-   "bet": "Flames ML",
-   "side": "Flames",
-   "flagged": "2026-11-04T00:00:13Z",
-   "why": "a top-200 account also in this sport's top 50",
-   "proven": true,
-   "trigger": "proven",
-   "n_accounts": 1,
-   "best_rank": 197,
-   "usd": 715,
-   "paid": 0.43,
-   "ask": 0.45,
-   "status": "live",
-   "link": "https://polymarket.us/event/nhl-cal-sea-2026-11-04",
-   "other": null,
-   "kalshi_against": null,
-   "logged": true,
-   "event_id": "401892647",
-   "sport": "nhl",
-   "league": null,
-   "away": "CGY",
-   "home": "SEA",
-   "away_name": "Calgary Flames",
-   "home_name": "Seattle Kraken",
-   "game_start": "2026-11-05T03:00Z",
-   "side_std": "away",
-   "money_with": false,
-   "grade": "A",
-   "books": {
-    "at": "2026-11-05T00:47:57Z",
-    "fair": 0.4551,
-    "q": {
-     "Caesars": 0.4739,
-     "DK": 0.4762,
-     "Kalshi": 0.48,
-     "FD": 0.4808
-    }
-   }
-  },
   {
    "cond": "0x43bf75f521791c9dbf8423892ee11a1cb036ace20ff03283090d79e7a4174bbe",
    "slug": "nhl-utah-mon-2026-11-05",
@@ -130,7 +86,7 @@
    "best_rank": 43,
    "usd": 1216,
    "paid": 0.62,
-   "ask": 0.68,
+   "ask": 0.67,
    "status": "live",
    "link": "https://polymarket.us/event/nba-was-atl-2026-11-06",
    "other": null,
@@ -342,57 +298,12 @@
      "DK": 0.5349
     }
    }
-  },
-  {
-   "cond": "0x0dd9e093eefd2c6259efcab15eae53816da332c74798271ad1ae35a4be0b0e84",
-   "slug": "nba-lal-sac-2026-11-04",
-   "title": "Lakers vs. Kings",
-   "mtype": "ml",
-   "start": "2026-11-05T03:00:00Z",
-   "bet": "Lakers ML",
-   "side": "Lakers",
-   "flagged": "2026-11-04T11:46:03Z",
-   "why": "a top-50 account",
-   "proven": true,
-   "trigger": "proven",
-   "n_accounts": 1,
-   "best_rank": 31,
-   "usd": 144,
-   "paid": 0.84,
-   "ask": 0.84,
-   "status": "other side",
-   "link": "https://polymarket.us/event/nba-lal-sac-2026-11-04",
-   "other": {
-    "n_accounts": 1,
-    "best_rank": 132,
-    "usd": 450,
-    "first": "2026-11-04T11:49:55Z"
-   },
-   "exit_bid": 0.83,
-   "kalshi_against": null,
-   "logged": false,
-   "event_id": "401909934",
-   "sport": "nba",
-   "league": null,
-   "away": "LAL",
-   "home": "SAC",
-   "away_name": "Los Angeles Lakers",
-   "home_name": "Sacramento Kings",
-   "game_start": "2026-11-05T03:00Z",
-   "side_std": "away",
-   "conflict": [
-    "Kalshi bet back",
-    "big money"
-   ],
-   "money_with": false,
-   "grade": "watch",
-   "books": null
   }
  ],
  "record": {
-  "n": 35,
-  "won": 17,
-  "units": -1.27,
+  "n": 38,
+  "won": 18,
+  "units": -1.61,
   "by_grade": {
    "A": {
     "n": 21,
@@ -401,24 +312,24 @@
     "clv": 0.37
    },
    "B": {
-    "n": 9,
+    "n": 11,
     "won": 3,
-    "units": -1.04,
-    "clv": -1.67
+    "units": -1.63,
+    "clv": -1.36
    },
    "watch": {
-    "n": 5,
-    "won": 2,
-    "units": -0.46,
-    "clv": -3.0
+    "n": 6,
+    "won": 3,
+    "units": -0.21,
+    "clv": -2.88
    }
   },
-  "units_1u": -3.6,
-  "clv": -0.6,
-  "n_venue": 15,
+  "units_1u": -4.84,
+  "clv": -0.66,
+  "n_venue": 17,
   "units_venue": -2.06,
-  "clv_venue": 0.79,
-  "clv_poly_same": -2.31
+  "clv_venue": 0.62,
+  "clv_poly_same": -2.17
  },
  "sys_tags": {
   "401873037:bounce15_1h": {
@@ -466,25 +377,6 @@
     "usd": 5008
    }
   },
-  "401909934|ml": {
-   "away": {
-    "n": 1,
-    "best_rank": 31,
-    "usd": 144
-   },
-   "home": {
-    "n": 1,
-    "best_rank": 132,
-    "usd": 450
-   }
-  },
-  "401909934|spread": {
-   "away": {
-    "n": 1,
-    "best_rank": 132,
-    "usd": 292
-   }
-  },
   "401909287|ml": {
    "home": {
     "n": 1,
@@ -497,13 +389,6 @@
     "n": 2,
     "best_rank": 31,
     "usd": 833
-   }
-  },
-  "401892647|ml": {
-   "away": {
-    "n": 1,
-    "best_rank": 197,
-    "usd": 715
    }
   },
   "401856740|total": {
