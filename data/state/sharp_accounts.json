@@ -1,5 +1,5 @@
 {
- "built": "2026-11-05T10:04:48Z",
+ "built": "2026-11-05T10:15:09Z",
  "rows": [
   {
    "cond": "0x43bf75f521791c9dbf8423892ee11a1cb036ace20ff03283090d79e7a4174bbe",
@@ -144,6 +144,41 @@
    "side_std": "home",
    "money_with": false,
    "grade": "watch",
+   "books": null
+  },
+  {
+   "cond": "0x5a4f48f65db8bb0de7274a91d32ae7abafaf1aae7e67322744658be0e0e73abb",
+   "slug": "cfb-flst-boscol-2026-11-07",
+   "title": "Florida State vs. Boston College",
+   "mtype": "total",
+   "start": "2026-11-07T17:00:00Z",
+   "bet": "Over 53.5",
+   "side": "Over",
+   "flagged": "2026-11-05T10:08:15Z",
+   "why": "a top-50 account",
+   "proven": false,
+   "trigger": "top50",
+   "n_accounts": 1,
+   "best_rank": 12,
+   "usd": 224,
+   "paid": 0.46,
+   "ask": 0.46,
+   "status": "live",
+   "link": "https://polymarket.us/event/cfb-flst-boscol-2026-11-07",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401858289",
+   "sport": "cfb",
+   "league": null,
+   "away": "FSU",
+   "home": "BC",
+   "away_name": "Florida State Seminoles",
+   "home_name": "Boston College Eagles",
+   "game_start": "2026-11-07T17:00Z",
+   "side_std": "over",
+   "money_with": false,
+   "grade": "B",
    "books": null
   },
   {
@@ -501,6 +536,13 @@
     "n": 2,
     "best_rank": 31,
     "usd": 833
+   }
+  },
+  "401858289|total": {
+   "over": {
+    "n": 1,
+    "best_rank": 12,
+    "usd": 224
    }
   },
   "401856740|total": {
