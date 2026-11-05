@@ -1,5 +1,5 @@
 {
- "built": "2026-11-05T04:54:12Z",
+ "built": "2026-11-05T05:10:15Z",
  "rows": [
   {
    "cond": "0x43bf75f521791c9dbf8423892ee11a1cb036ace20ff03283090d79e7a4174bbe",
@@ -221,6 +221,31 @@
    }
   },
   {
+   "cond": "0x6d6ae0aa68a1fa18d02432651325dd8cfdc589f125b50f48ab863ec17df16da6",
+   "slug": "epl-bri-bre-2026-11-08",
+   "title": "Brighton & Hove Albion FC vs. Brentford FC",
+   "mtype": "ml",
+   "start": "2026-11-08T14:00:00Z",
+   "bet": "Will Brighton & Hove Albion FC win on 2026-11-08: Yes",
+   "side": "Yes",
+   "flagged": "2026-11-05T05:05:31Z",
+   "why": "a top-200 account also in this sport's top 50",
+   "proven": true,
+   "trigger": "proven",
+   "n_accounts": 1,
+   "best_rank": 71,
+   "usd": 387,
+   "paid": 0.51,
+   "ask": 0.51,
+   "status": "live",
+   "link": "https://polymarket.us/event/epl-bri-bre-2026-11-08",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "grade": "A",
+   "books": null
+  },
+  {
    "cond": "0x4482ea8fcedde0dfe70a6793f45114b74b40eb73e16bc1c25fe51a999a0ed1b7",
    "slug": "nfl-det-mia-2026-11-08",
    "title": "Lions vs. Dolphins",
@@ -265,6 +290,54 @@
    }
   },
   {
+   "cond": "0x93458cdb046d83ab182e03834645e71b3d519ffde35e8decb48e122af749e8ad",
+   "slug": "nba-orl-phx-2026-11-05",
+   "title": "Magic vs. Suns",
+   "mtype": "ml",
+   "start": "2026-11-06T02:00:00Z",
+   "bet": "Magic ML",
+   "side": "Magic",
+   "flagged": "2026-11-05T05:06:52Z",
+   "why": "a top-200 account also in this sport's top 50",
+   "proven": true,
+   "trigger": "proven",
+   "n_accounts": 1,
+   "best_rank": 104,
+   "usd": 240,
+   "paid": 0.48,
+   "ask": 0.48,
+   "status": "live",
+   "link": "https://polymarket.us/event/nba-orl-phx-2026-11-05",
+   "other": null,
+   "kalshi_against": {
+    "move": 5.0,
+    "now": 52.5,
+    "state": "reversed"
+   },
+   "logged": true,
+   "event_id": "401909936",
+   "sport": "nba",
+   "league": null,
+   "away": "ORL",
+   "home": "PHX",
+   "away_name": "Orlando Magic",
+   "home_name": "Phoenix Suns",
+   "game_start": "2026-11-06T02:00Z",
+   "side_std": "away",
+   "conflict": [
+    "Kalshi move"
+   ],
+   "money_with": false,
+   "grade": "watch",
+   "books": {
+    "at": "2026-11-05T03:17:46Z",
+    "fair": null,
+    "q": {
+     "Kalshi": 0.5
+    }
+   }
+  },
+  {
    "cond": "0x153760e7ea5d8a07b8ceed9fe46440e44ad2d5f0028070b86acd53802329e1b3",
    "slug": "nba-phi-cle-2026-11-06",
    "title": "76ers vs. Cavaliers",
@@ -280,7 +353,7 @@
    "best_rank": 31,
    "usd": 833,
    "paid": 0.496,
-   "ask": 0.37,
+   "ask": 0.38,
    "status": "live",
    "link": "https://polymarket.us/event/nba-phi-cle-2026-11-06",
    "other": null,
@@ -308,9 +381,9 @@
   }
  ],
  "record": {
-  "n": 43,
-  "won": 19,
-  "units": -3.24,
+  "n": 44,
+  "won": 20,
+  "units": -2.99,
   "by_grade": {
    "A": {
     "n": 22,
@@ -325,18 +398,18 @@
     "clv": -1.93
    },
    "watch": {
-    "n": 9,
-    "won": 3,
-    "units": -1.48,
-    "clv": -2.2
+    "n": 10,
+    "won": 4,
+    "units": -1.23,
+    "clv": -1.75
    }
   },
-  "units_1u": -8.02,
-  "clv": -0.83,
-  "n_venue": 22,
-  "units_venue": -3.64,
-  "clv_venue": 0.25,
-  "clv_poly_same": -2.29
+  "units_1u": -7.3,
+  "clv": -0.78,
+  "n_venue": 23,
+  "units_venue": -3.39,
+  "clv_venue": 0.26,
+  "clv_poly_same": -2.1
  },
  "sys_tags": {
   "401873037:bounce15_1h": {
@@ -382,6 +455,13 @@
     "n": 1,
     "best_rank": 115,
     "usd": 5008
+   }
+  },
+  "401909936|ml": {
+   "away": {
+    "n": 1,
+    "best_rank": 104,
+    "usd": 240
    }
   },
   "401909287|ml": {
