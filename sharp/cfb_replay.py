@@ -5,14 +5,14 @@ archive (same method as sharp/nfl_replay.py: average of the kickoff hour and the
 ESPN team -> venue chain (data/cfb/weather/_venues.json first, then the Open-Meteo geocoder on the venue city); indoor venues are skipped.
 Replays the two live weather rules by season and shows their neighbours:
   cfb_wind14 (outdoor, wind 14+: under) and cfb_hot_over_low_total (85F+, wind <= 10, total <= 55, non-conference: over).
-Writes data/research/cfb_replay.json and caches weather in data/cfb/weather/archive.json, stadiums in data/cfb/weather/_stadiums.json.
+Writes data/research/cfb_replay.json (suffix _<src>) and caches weather in data/cfb/weather/archive[_nasa].json, stadiums in data/cfb/weather/_stadiums.json.
 Usage: python3 sharp/cfb_replay.py [--fetch-only]"""
 import os, sys, json, time, sqlite3, collections, urllib.request, urllib.parse, datetime as dt
 HERE = os.path.dirname(os.path.abspath(__file__)); ROOT = os.path.abspath(os.path.join(HERE, '..')); sys.path.insert(0, ROOT)
 import sharp.rule_replay as RR
 DB = os.path.join(ROOT, 'data', 'oddsapi', 'odds.sqlite'); WXD = os.path.join(ROOT, 'data', 'cfb', 'weather')
 WXC = os.path.join(WXD, 'archive.json'); STAD = os.path.join(WXD, '_stadiums.json'); VEN = os.path.join(WXD, '_venues.json')
-OUT = os.path.join(ROOT, 'data', 'research', 'cfb_replay.json')
+OUT = os.path.join(ROOT, 'data', 'research', 'cfb_replay.json')  # rewritten per source below
 UA = {'User-Agent': 'sharp-tracker-replay'}
 
 
@@ -61,7 +61,37 @@ def _wx_load():
     return _WX
 
 
+SRC = os.environ.get('WX_SRC', 'nasa')          # 'nasa' = NASA POWER (MERRA-2 reanalysis, ~50 km, no key, no daily cap); 'openmeteo' = ERA5-based archive (daily cap)
+WXC = os.path.join(WXD, 'archive.json' if SRC == 'openmeteo' else f'archive_{SRC}.json')
+
+
+def fetch_stadium_nasa(key, lat, lon, starts):
+    """NASA POWER hourly (WS10M m/s, T2M C, PRECTOTCORR mm/h), one call per stadium for the whole span; same cache shape as Open-Meteo
+    (wind = 3h average from kickoff in mph, temp F at kickoff, precip inches over 3h)."""
+    C = _wx_load(); need = [s for s in starts if f"{key}|{s:%Y-%m-%dT%H}" not in C]
+    if not need: return
+    d0 = min(need).strftime('%Y%m%d'); d1 = (max(need) + dt.timedelta(days=1)).strftime('%Y%m%d')
+    u = (f"https://power.larc.nasa.gov/api/temporal/hourly/point?parameters=WS10M,T2M,PRECTOTCORR&community=RE&longitude={lon}&latitude={lat}"
+         f"&start={d0}&end={d1}&format=JSON&time-standard=UTC")
+    x = None
+    for i in range(4):
+        x = get(u, timeout=180)
+        if x and 'properties' in x: break
+        time.sleep(5 * (i + 1))
+    if not x or 'properties' not in x: print('  no NASA data for', key, flush=True); return
+    P = x['properties']['parameter']; W, T, R = P.get('WS10M', {}), P.get('T2M', {}), P.get('PRECTOTCORR', {})
+    v = lambda D, k: (None if D.get(k) is None or D.get(k) == -999 else D[k])
+    for s in need:
+        k = f"{key}|{s:%Y-%m-%dT%H}"; hs = [(s + dt.timedelta(hours=h)).strftime('%Y%m%d%H') for h in range(3)]
+        if v(W, hs[0]) is None: C[k] = None; continue
+        w = [v(W, h) * 2.23694 for h in hs if v(W, h) is not None]
+        t = v(T, hs[0]); r = sum((v(R, h) or 0) for h in hs) / 25.4
+        C[k] = dict(wind=round(sum(w) / len(w), 1), wind_kick=round(w[0], 1), gust=None, temp=round(t * 9 / 5 + 32, 1) if t is not None else None, precip=round(r, 2), src='nasa')
+    save_wx(); time.sleep(0.5)
+
+
 def fetch_stadium(key, lat, lon, starts):
+    if SRC == 'nasa': return fetch_stadium_nasa(key, lat, lon, starts)
     """One Open-Meteo archive call per stadium covering every game date (the per-game version hit the 429 rate limit); keeps only the
     kickoff hours in the cache: {stadium|hour: dict(wind 3h avg, wind_kick, gust, temp, precip 3h)}."""
     C = _wx_load(); need = [s for s in starts if f"{key}|{s:%Y-%m-%dT%H}" not in C]
@@ -125,6 +155,8 @@ def by_season(rows):
 
 
 def main():
+    global OUT
+    if SRC != 'openmeteo': OUT = OUT.replace('.json', f'_{SRC}.json')
     G = [g for g in RR.load('cfb') if g.get('tot_close') is not None and g.get('hs') is not None]
     print('cfb games with a closing total and a result:', len(G), flush=True)
     S = attach(G)
