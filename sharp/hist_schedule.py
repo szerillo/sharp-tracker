@@ -5,7 +5,7 @@ import os, sys, json, time, urllib.request, datetime as dt
 HERE = os.path.dirname(os.path.abspath(__file__)); ROOT = os.path.abspath(os.path.join(HERE, '..'))
 OUT = os.path.join(ROOT, 'data', 'state', 'hist_schedule.json')
 PATHS = {'nfl': 'football/nfl', 'nba': 'basketball/nba', 'nhl': 'hockey/nhl', 'cfb': 'football/college-football', 'mlb': 'baseball/mlb',
-         'cbb': 'basketball/mens-college-basketball', 'mma': 'mma/ufc', 'epl': 'soccer/eng.1', 'laliga': 'soccer/esp.1', 'bundesliga': 'soccer/ger.1', 'seriea': 'soccer/ita.1', 'ligue1': 'soccer/fra.1', 'mls': 'soccer/usa.1', 'ucl': 'soccer/uefa.champions'}
+         'cbb': 'basketball/mens-college-basketball', 'mma': 'mma/ufc', 'epl': 'soccer/eng.1', 'laliga': 'soccer/esp.1', 'bundesliga': 'soccer/ger.1', 'seriea': 'soccer/ita.1', 'ligue1': 'soccer/fra.1', 'mls': 'soccer/usa.1', 'ucl': 'soccer/uefa.champions', 'ligamx': 'soccer/mex.1'}
 
 
 def g(u, tries=4):
