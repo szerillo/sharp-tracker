@@ -363,7 +363,16 @@ def main():
             groups['|'.join(k)].append(b)
     opp_summ = {k: summ([b for b in bets if (b.get('opp') or {}).get('when') == k and b['src'] != 'paper']) for k in ('at_flag', 'after')}
     opp_summ['none'] = summ([b for b in bets if b['event_id'] and b['side'] and not b.get('opp') and b['src'] in ('system', 'sharp')])
-    out = dict(built=NOW.strftime('%Y-%m-%dT%H:%M:%SZ'), venues=list(VENUES), opposed=opp_summ,
+    # 11/5 (Sean): the watch-only market signals (Kalshi move, bet back, big money, sharp move) graded by kind, so the board can show
+    # whether they are doing anything; flat ROI at the flagged price and mean no-vig CLV
+    wk = {}
+    for kind in ('Kalshi move', 'bet back', 'big money', 'sharp move'):
+        S_ = [b for b in bets if b['cat'] == 'watch' and b.get('rule') == kind and b.get('won') is not None and b.get('price')]
+        c_ = [b['clv_nv'] for b in S_ if b.get('clv_nv') is not None]
+        if S_: wk[kind] = dict(n=len(S_), w=sum(1 for b in S_ if b['won'] == 1), l=sum(1 for b in S_ if b['won'] == 0),
+                                roi=round(sum((1 / b['price'] - 1) if b['won'] == 1 else -1 if b['won'] == 0 else 0 for b in S_) / len(S_) * 100, 1),
+                                clv_nv=round(sum(c_) / len(c_), 2) if c_ else None, clv_n=len(c_))
+    out = dict(built=NOW.strftime('%Y-%m-%dT%H:%M:%SZ'), venues=list(VENUES), opposed=opp_summ, watch_kinds=wk,
                summary={k: summ(v) for k, v in sorted(groups.items())},
                rows=sorted(bets, key=lambda b: b['start'], reverse=True))
     json.dump(out, open(OUT, 'w'), separators=(',', ':'), default=str)

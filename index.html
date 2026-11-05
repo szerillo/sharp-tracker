@@ -738,17 +738,25 @@ function renderToday() {
   // 11/5 (Sean): settled hot favourites are tier B and sit with the system bets; the unsettled ones stay in Leans as paper
   const THb = TH.filter(r => r.hot_live || (r.hot_logged && r.settled && r.settled.ok)), THc = TH.filter(r => !THb.includes(r));
   const MS = (window._MS && window._MS.rows || []).filter(r => (r.flag || r.logged) && future(r.start) && passW(r.start) && passS('mma', 'ufc'));
-  const leanRows = [...lean.map(sysRow), ...TWk.map(tRow), ...THc.map(hRow), ...TD.map(dRow), ...TV.map(vRow), ...MS.map(mRow)];
+  // 11/5 (Sean): broad rules that fire on a big slice of a slate (4+ games in view) are grouped into one collapsed block per rule so the
+  // Leans table shows the one-off leans; the grouped leans are still bets at 0.25u and still in the record
+  const leanCount = {}; for (const it of lean) leanCount[it.tag] = (leanCount[it.tag] || 0) + 1;
+  const leanOne = lean.filter(it => leanCount[it.tag] < 4), leanBulk = {};
+  for (const it of lean) if (leanCount[it.tag] >= 4) (leanBulk[it.tag] = leanBulk[it.tag] || []).push(it);
+  const bulkBlocks = Object.entries(leanBulk).map(([tag, L]) => { const r = (SY.rules || {})[tag] || {}, x = (SY.record || {})[tag];
+    const rec = fmtRec(x) ? ` · record ${fmtRec(x)}` : ' · no graded fires yet';
+    return `<details class="how" ${window['_lb_' + tag] ? 'open' : ''} ontoggle="window['_lb_${tag}']=this.open"><summary>${esc(r.desc || tag)} (${L.length} games, tier ${(r.evidence || {}).tier || '?'}, 0.25u each${rec}) · broad rule, grouped</summary>${sTable(L.map(sysRow))}</details>`; }).join('');
+  const leanRows = [...leanOne.map(sysRow), ...TWk.map(tRow), ...THc.map(hRow), ...TD.map(dRow), ...TV.map(vRow), ...MS.map(mRow)];
   const sysRows = [...vet.map(sysRow), ...THb.map(hRow)];
   const H = (t, meta) => `<div class="hdr2"><h2>${t}</h2><span class="meta">${meta}</span></div>`;
   return `<div class="controls topbar">${whenBar(inSport)} ${sportBar(inWhen)}</div>${summary.replace('__NSIG__', `${strong.length} sharp signal${strong.length === 1 ? '' : 's'}`)}
     ${H('System bets', 'Tier A and B · 0.5u · click a row for the full rule and record')}
     ${sysRows.length ? sTable(sysRows) : emptyNote('system bets', bets.filter(x => passS(x.sport, x.league)))}
     ${H('Leans', 'Tier C and tennis · 0.25u · thin samples or paper rules · held when sharp accounts are on the other side')}
-    ${leanRows.length ? sTable(leanRows) : emptyNote('leans', [...bets.filter(it => tierOf(it) === 'C'), ...tw].filter(x => passS(x.sport, x.league)))}
+    ${leanRows.length ? sTable(leanRows) : (bulkBlocks ? '' : emptyNote('leans', [...bets.filter(it => tierOf(it) === 'C'), ...tw].filter(x => passS(x.sport, x.league))))}${bulkBlocks}
     ${H('Sharp signals', `Grade A: a sport-proven sharp account or sharps + big money · B: other sharp flags · C: sharps + another signal · A 0.5u (soccer 0.25u), B and C 0.25u · paper ${SAREC}${SA && SA.record && SA.record.clv != null ? ` · CLV ${SA.record.clv > 0 ? '+' : ''}${SA.record.clv}% at Polymarket` : ''}${SA && SA.record && SA.record.n_venue ? `, ${SA.record.clv_venue > 0 ? '+' : ''}${SA.record.clv_venue} at your books (${SA.record.n_venue} flags, ${SA.record.units_venue > 0 ? '+' : ''}${SA.record.units_venue}u)` : ''}`)}
     ${strong.length ? sTable(strong.map(wtr)) : (wrows.length ? '<div class="small dim">No market has sharp accounts on it with nothing against, right now.</div>' : emptyNote('sharp-money signals', sig.filter(x => passS(x.sport, x.league))))}
-    ${others.length ? `<details class="how" ${window._wopen || (_tf.sport && !vet.length && !lean.length && !TWk.length && !strong.length) ? 'open' : ''} ontoggle="window._wopen=this.open"><summary>Other signals (${others.length}): conflicts, NBA single accounts, accounts below flag level, MMA price and money moves. Watch only.</summary>
+    ${others.length ? `<details class="how" ${window._wopen || (_tf.sport && !vet.length && !lean.length && !TWk.length && !strong.length) ? 'open' : ''} ontoggle="window._wopen=this.open"><summary>Other signals (${others.length}): conflicts, NBA single accounts, accounts below flag level, MMA price and money moves. Watch only.${BL && BL.watch_kinds ? ` <span class="small dim">Market-only signals graded so far: ${Object.entries(BL.watch_kinds).map(([k, v]) => `${k} ${v.w}-${v.l} (${v.roi > 0 ? '+' : ''}${v.roi}%, CLV ${v.clv_nv > 0 ? '+' : ''}${v.clv_nv})`).join(' · ')}. None has positive CLV; they stay watch-only.</span>` : ''}</summary>
       <div class="controls"><span>Sort</span><span class="tabs inline"><button class="${_ws === 'vol' ? 'on' : ''}" onclick="_ws='vol';window._wopen=true;draw()">Volume</button><button class="${_ws === 'time' ? 'on' : ''}" onclick="_ws='time';window._wopen=true;draw()">Game time</button></span></div>
       ${sTable(others.map(wtr))}</details>` : ''}
     ${paperOnly.length ? `<details class="how"><summary>Paper-only rules (${paperOnly.length}): logged and graded, not bets</summary>${sTable(paperOnly.map(sysRow))}</details>` : ''}
