@@ -380,7 +380,7 @@ function emptyNote(what, rowsSport) {      // the chosen window is empty: say wh
   const n = {today: 0, upcoming: 0}; for (const r of rowsSport) n[whenOf(r.start)]++;
   const other = _when === 'today' ? 'upcoming' : (_when === 'upcoming' ? 'today' : null);
   const sp = _tf.sport ? (SPORT_LABEL[_tf.sport] || _tf.sport) + ' ' : '';
-  return `<div class="small dim">No ${sp}${what} ${_when === 'all' ? 'right now' : (_when === 'today' ? 'before 6 AM ET' : 'after 6 AM ET')}.${other && n[other] ? ` <a href="#" onclick="_when='${other}';draw();return false">${n[other]} ${other === 'today' ? 'in the next 24h' : 'later'} →</a>` : ''}</div>`;
+  return `<div class="small dim">No ${sp}${what} ${_when === 'all' ? 'right now' : (_when === 'today' ? 'before 6 AM ET' : 'after 6 AM ET')}${what === 'sharp signals' ? ' (watch-only signals, if any, are in Other signals below)' : what === 'system bets' ? ' (rules that fired without a bet are in their dropdown below)' : ''}.${other && n[other] ? ` <a href="#" onclick="_when='${other}';draw();return false">${n[other]} ${other === 'today' ? 'in the next 24h' : 'later'} →</a>` : ''}</div>`;
 }
 const fmtRec = x => !x || !x.graded ? null : `${x.w}-${x.l}${x.p ? '-' + x.p : ''}, <span class="${x.pnl >= 0 ? 'pos' : 'neg'}">${x.pnl >= 0 ? '+' : ''}${(x.pnl || 0).toFixed(2)}u</span>`;
 function recordText(tag) {
@@ -563,13 +563,14 @@ function renderToday() {
   // ---- 4. tennis first-set rule (tier C, its own shape)
   const tw = TW ? (TW.rows || []).filter(r => (r.flag || r.logged) && future(r.start)).map(r => ({...r, sport: 'tennis', league: r.league})) : [];
   // ---- filters: counts for the sport chips use the time window; counts for the time chips use the sport filter
-  const everything = [...bets, ...flags, ...sig, ...tw];
-  const inSport = everything.filter(x => passS(x.sport, x.league)), inWhen = everything.filter(x => passW(x.start));
+  // chip counts (Sean, 11/4): only rows that show in the three tables (system bets, leans, sharp signals). Rules that fired without a bet
+  // and the watch-only signals live in their own dropdowns with their own counts, so they no longer inflate the chips.
+  let everything = [...bets.filter(it => tierOf(it) !== 'P'), ...tw], inSport = [], inWhen = [];
   const keep = x => passS(x.sport, x.league) && passW(x.start);
   const B = bets.filter(keep).sort((a, b) => a.start < b.start ? -1 : 1), FLG = flags.filter(keep), S = sig.filter(keep), TWk = tw.filter(keep);
   const vet = B.filter(it => ['A', 'B'].includes(tierOf(it))), lean = B.filter(it => tierOf(it) === 'C'), paperOnly = B.filter(it => tierOf(it) === 'P');
   const games = groupByGame(vet, it => it.g.event_id), lgames = groupByGame(lean, it => it.g.event_id);
-  const sgames = groupByGame(S.sort((a, b) => a.start < b.start ? -1 : 1), x => x.ev || (x.sport + x.away + x.home));
+  const sgames = groupByGame([...sig].sort((a, b) => a.start < b.start ? -1 : 1), x => x.ev || (x.sport + x.away + x.home));   // whole pool: filtered for display below, so the chip counts can be the rows that actually show
   const next = [...B, ...S].map(x => x.start).sort()[0];
   const label = _when === 'today' ? 'Through 6 AM ET' : (_when === 'upcoming' ? 'Later' : 'All upcoming');
   const summary = `<div class="summary"><b>${label}${_tf.sport ? ' · ' + (SPORT_LABEL[_tf.sport] || _tf.sport) : ''}:</b> ${vet.length} system bet${vet.length === 1 ? '' : 's'} on ${games.length} game${games.length === 1 ? '' : 's'} · ${lean.length + TWk.length} lean${lean.length + TWk.length === 1 ? '' : 's'} · __NSIG__${next ? ` · next start ${DAYT(next)} (${until(next)})` : ''}</div>`;
@@ -632,7 +633,9 @@ function renderToday() {
   window._ws = window._ws || 'vol';
   // 11/2 families backtest (docs/flow_volume_2026-11-02.md): accounts + money was the best pairing (+0.25 CLV at T-1h), accounts + a price
   // move added nothing (+0.10), and 3 of 3 was no better than accounts alone (+0.02). So: accounts + money first, then by game time.
-  const strong = wrows.filter(r => r.strong).sort((x, y) => (x.grade < y.grade ? -1 : x.grade > y.grade ? 1 : 0) || ((y.fam.money ? 1 : 0) - (x.fam.money ? 1 : 0)) || ((y.flagged ? 1 : 0) - (x.flagged ? 1 : 0)) || (x.g.start < y.g.start ? -1 : 1)), others = wrows.filter(r => !r.strong && (r.flagged || (r.acct && (r.acct.with || r.acct.against)) || r.g.sport === 'mma'))   // MMA has no sharp-account list (UFC tested negative): its price and money rows stay on watch
+  const keepG = r => keep({sport: r.g.sport, league: r.g.league, start: r.g.start});
+  const strongAll = wrows.filter(r => r.strong);
+  const strong = strongAll.filter(keepG).sort((x, y) => (x.grade < y.grade ? -1 : x.grade > y.grade ? 1 : 0) || ((y.fam.money ? 1 : 0) - (x.fam.money ? 1 : 0)) || ((y.flagged ? 1 : 0) - (x.flagged ? 1 : 0)) || (x.g.start < y.g.start ? -1 : 1)), others = wrows.filter(r => keepG(r) && !r.strong && (r.flagged || (r.acct && (r.acct.with || r.acct.against)) || r.g.sport === 'mma'))   // MMA has no sharp-account list (UFC tested negative): its price and money rows stay on watch
     .sort((x, y) => _ws === 'vol' ? (y.vol - x.vol) || (x.g.start < y.g.start ? -1 : 1) : (x.g.start < y.g.start ? -1 : 1));
   const yn = s => { const m = /^Will (.+?) win on [\d-]+\??: (Yes|No)$/.exec(s || ''); return m ? (m[2] === 'Yes' ? `${m[1]} to win` : `${m[1]} not to win (draw or loss)`) : s; };
   const SAREC = SA && SA.record && SA.record.n ? `${SA.record.won}-${SA.record.n - SA.record.won}, <span class="${SA.record.units >= 0 ? 'pos' : 'neg'}">${SA.record.units > 0 ? '+' : ''}${SA.record.units}u</span>` : 'none graded';
@@ -693,6 +696,10 @@ function renderToday() {
         ['Caution', 'One feature pointing two ways across price bands is the kind of result that fails to replicate; paper only until it has a record of its own'],
         ['Flagged', lg ? `${DAYT(lg.ts)} at ${VS(lg.venue)} ${(100 * lg.price).toFixed(1)}¢` : ''], ['Now', b ? `${VS(b.venue)} ${(100 * b.cost).toFixed(1)}¢ (${toAm(b.cost)})` : 'no price']])}); };
   const TV = TW ? (TW.rows || []).filter(r => r.slam && (r.serve_rule || r.serve_logged) && future(r.start) && passW(r.start) && passS('tennis', r.league)) : [];
+  const THall = TW ? (TW.rows || []).filter(r => r.slam && (r.hot || r.hot_logged) && future(r.start)).map(r => ({start: r.start, sport: 'tennis', league: r.league})) : [];
+  const TVall = TW ? (TW.rows || []).filter(r => r.slam && (r.serve_rule || r.serve_logged) && future(r.start)).map(r => ({start: r.start, sport: 'tennis', league: r.league})) : [];
+  everything = [...everything, ...THall, ...TVall, ...strongAll.map(r => ({start: r.g.start, sport: r.g.sport, league: r.g.league}))];
+  inSport = everything.filter(x => passS(x.sport, x.league)); inWhen = everything.filter(x => passW(x.start));
   const leanRows = [...lean.map(sysRow), ...TWk.map(tRow), ...TH.map(hRow), ...TV.map(vRow)];
   const H = (t, meta) => `<div class="hdr2"><h2>${t}</h2><span class="meta">${meta}</span></div>`;
   return `<div class="controls topbar">${whenBar(inSport)} ${sportBar(inWhen)}</div>${summary.replace('__NSIG__', `${strong.length} sharp signal${strong.length === 1 ? '' : 's'}`)}
@@ -708,8 +715,7 @@ function renderToday() {
     ${paperOnly.length ? `<details class="how"><summary>Paper-only rules (${paperOnly.length}): logged and graded, not bets</summary>${sTable(paperOnly.map(sysRow))}</details>` : ''}
     ${goneRows.length ? `<details class="how"><summary>Sharp flags since dropped (${goneRows.length}): no longer signals; still graded in the paper record</summary>${sTable(goneRows)}</details>` : ''}
     ${FLG.length ? `<details class="how"><summary>Rules that triggered without a bet (${FLG.length})</summary><div class="sec"><table><thead><tr><th>Start</th><th>Game</th><th>Rule · trigger</th><th>Why no bet</th></tr></thead><tbody>${FLG.sort((a, b) => a.start < b.start ? -1 : 1).map(x => `<tr><td class="small"><span class="badge b-sport">${SPORT_LABEL[x.g.sport] || x.g.sport}</span> <b>${TM(x.g.start_utc)}</b></td><td class="small">${esc(x.g.away_name || x.g.away)} @ ${esc(x.g.home_name || x.g.home)}</td><td class="small"><span class="mono">${esc(x.tag)}</span><br><span class="dim">${esc(x.why)}</span></td><td class="small">${esc(x.reason)}</td></tr>`).join('')}</tbody></table></div></details>` : ''}
-    ${(() => { const L = BL ? BL.rows.filter(b => { const t = new Date(b.start); return t <= Date.now() && Date.now() - t <= 864e5 && b.cat !== 'paper P' && passS(b.sport, b.league); }) : [];
-      return L.length ? `<details class="how"><summary>Bets from the past 24 hours (${L.length}): in progress and graded</summary><div class="sec"><table>${BLHEAD}<tbody>${L.map(blRow).join('')}</tbody></table></div></details>` : ''; })()}
+    <div class="small dim" style="margin:6px 0">Bets already started or graded are on the <a href="#" onclick="tab='tracker';_lw='d1';draw();return false">Bet tracker</a> (In progress, Past 24 hours).</div>
     <details class="how"><summary>How to read this page</summary><div class="explain">
       <p><b>Every row</b> reads the same way: start time (ET), game, the bet, size in units ($500 unit; to win when laying juice, to risk on plus money), the flagged price and whether it is still there, why it flagged, and its record. Click a row for the full rule, the trigger in this game and the backtest detail.</p>
       <p><b>System bets</b> are pre-registered rules that fired for this game (rules fire ${nWin} before the start and stay until it begins). <b>Backtest</b> is the historical test the rule was kept on (Bet Labs closing lines unless noted; "since 2021" is the holdout read once). <b>Tracker</b> is how the rule has done since we started logging it, at the flagged prices. Tier A: beat the holdout at z ≥ 2 with a mechanism (the wind family). Tier B: positive on both halves of the backtest and in most seasons since 2021. Tier C: thin samples or paper rules.</p>
