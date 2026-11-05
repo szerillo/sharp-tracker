@@ -672,18 +672,28 @@ function renderToday() {
       rec: lbl('Tracker', SAREC)}));
   const nWin = SY.window_h ? `${SY.window_h[0]}–${SY.window_h[1]}h` : '';
   // tennis hot favourite (paper, no units; docs/tennis_ta_2026-11-04.md section 9): favourite 60-85% whose last-10 record is 30%+ above the opponent's
-  const hRow = r => { const b = r.hot_best, lg = r.hot_logged, p = lg ? lg.price : (b ? b.cost : null);
+  const hRow = r => { const b = r.hot_best, lg = r.hot_logged, p = lg ? lg.price : (b ? b.cost : null), live = r.tour_level;
     return sRow({id: `th|${r.start}|${r.fav_name}`, start: r.start, sportLabel: (r.tour || 'tennis').toUpperCase(), game: `${esc(r.fav_name || '')} vs ${esc(r.opp_name || '')}`,
-      bet: `${esc(r.fav_name || 'Favourite')} to win`, sub: 'Match winner · paper, no units', gone: !r.hot, status: r.hot ? null : ['gone', 'Price gone or form changed'], size: '<span class="dim">paper</span>',
+      bet: `${esc(r.fav_name || 'Favourite')} to win`, sub: live ? 'Match winner · tier C' : 'Match winner · Challenger, paper', gone: !r.hot, status: r.hot ? null : ['gone', 'Price gone or form changed'], size: live ? unitText(SLIP.small, p) : '<span class="dim">paper</span>',
       price: p != null ? `<b>${toAm(p)}</b> <span class="small dim">${VS(lg ? lg.venue : b.venue)}</span>` : '', link: '',
       why: `Hot favourite: match ${(100 * r.match_p).toFixed(1)}% at Pinnacle, last 10: ${r.form && r.form.fav ? (100 * r.form.fav.rate).toFixed(0) + '%' : '?'} vs ${r.form && r.form.opp ? (100 * r.form.opp.rate).toFixed(0) + '%' : '?'}`,
-      rec: lbl('Backtest', '+3.4% vs close, slams 2015-23') + ' ' + lbl('Tracker', TW && TW.hot_record && TW.hot_record.n ? `${TW.hot_record.won}-${TW.hot_record.n - TW.hot_record.won}, ${TW.hot_record.units > 0 ? '+' : ''}${TW.hot_record.units}u` : 'no graded picks yet'),
-      detail: facts([['Rule', 'Tennis hot favourite (tennis_hot_fav, paper): Pinnacle no-vig favourite 60-85% whose last-10 win rate is 30%+ above the opponent\'s; bet the match. Slam test 2015-2023: +3.4% over the Pinnacle close on 1,217 matches, +2.0% flat ROI at the close.'],
+      rec: lbl('Backtest', '+3.4% slams 2015-23 · +5.1% tour 2026') + ' ' + lbl('Tracker', TW && TW.hot_record && TW.hot_record.n ? `${TW.hot_record.won}-${TW.hot_record.n - TW.hot_record.won}, ${TW.hot_record.units > 0 ? '+' : ''}${TW.hot_record.units}u` : 'no graded picks yet'),
+      detail: facts([['Rule', 'Tennis hot favourite (tennis_hot_fav, tier C at tour level, 0.25u; Challenger paper): Pinnacle no-vig favourite 60-85% whose last-10 win rate is 30%+ above the opponent\'s; bet the match. Slams 2015-2023: +3.4% over the Pinnacle close on 1,217 (+2.0% ROI). Tour level 2026 (Odds API closes): +5.1% on 198 (+3.8% ROI); three samples, same sign.'],
         ['Form source', 'Our ESPN results log since March (tour, Challenger and the ITF events ESPN carries): a player with wins at events ESPN does not list looks colder than they are'],
         ['Flagged', lg ? `${DAYT(lg.ts)} at ${VS(lg.venue)} ${(100 * lg.price).toFixed(1)}¢` : ''], ['Now', b ? `${VS(b.venue)} ${(100 * b.cost).toFixed(1)}¢ (${toAm(b.cost)})` : 'no price']])}); };
   // 11/4 (Sean): the hot-favourite and serve angles were only priced at slams, so the board shows them at slams only; every tour and
   // Challenger pick is still paper-logged and graded (tennis_watch.json hot_record / serve_record) so the record builds by level.
-  const TH = TW ? (TW.rows || []).filter(r => r.slam && (r.hot || r.hot_logged) && future(r.start) && passW(r.start) && passS('tennis', r.league)) : [];
+  const TH = TW ? (TW.rows || []).filter(r => (r.tour_level || r.slam) && (r.hot || r.hot_logged) && future(r.start) && passW(r.start) && passS('tennis', r.league)) : [];
+  // hot dog (paper, no units; Odds API tour-level 2026: +4.7% vs close on 154, +10.8% ROI): dog's last-10 is 10-30% better than the favourite's
+  const dRow = r => { const b = r.hot_dog_best, lg = r.hot_dog_logged, p = lg ? lg.price : (b ? b.cost : null);
+    return sRow({id: `td|${r.start}|${r.opp_name}`, start: r.start, sportLabel: (r.tour || 'tennis').toUpperCase(), game: `${esc(r.fav_name || '')} vs ${esc(r.opp_name || '')}`,
+      bet: `${esc(r.opp_name || 'Dog')} to win`, sub: 'Match winner · paper, no units', gone: !r.hot_dog, status: r.hot_dog ? null : ['gone', 'Price gone or form changed'], size: '<span class="dim">paper</span>',
+      price: p != null ? `<b>${toAm(p)}</b> <span class="small dim">${VS(lg ? lg.venue : b.venue)}</span>` : '', link: '',
+      why: `Hot dog: match ${(100 * (1 - r.match_p)).toFixed(1)}% at Pinnacle, last 10: ${r.form && r.form.opp ? (100 * r.form.opp.rate).toFixed(0) + '%' : '?'} vs favourite ${r.form && r.form.fav ? (100 * r.form.fav.rate).toFixed(0) + '%' : '?'}`,
+      rec: lbl('Backtest', '+4.7% vs close, tour 2026') + ' ' + lbl('Tracker', TW && TW.hotdog_record && TW.hotdog_record.n ? `${TW.hotdog_record.won}-${TW.hotdog_record.n - TW.hotdog_record.won}, ${TW.hotdog_record.units > 0 ? '+' : ''}${TW.hotdog_record.units}u` : 'no graded picks yet'),
+      detail: facts([['Rule', 'Tennis hot dog (tennis_hot_dog, paper): Pinnacle favourite 50-85%, the dog\'s last-10 win rate 10-30% above the favourite\'s; bet the dog. Odds API tour-level 2026: +4.7% over the close on 154, +10.8% flat ROI. One sample; paper until it has a record.'],
+        ['Flagged', lg ? `${DAYT(lg.ts)} at ${VS(lg.venue)} ${(100 * lg.price).toFixed(1)}¢` : ''], ['Now', b ? `${VS(b.venue)} ${(100 * b.cost).toFixed(1)}¢ (${toAm(b.cost)})` : 'no price']])}); };
+  const TD = TW ? (TW.rows || []).filter(r => (r.tour_level || r.slam) && (r.hot_dog || r.hot_dog_logged) && future(r.start) && passW(r.start) && passS('tennis', r.league)) : [];
   // serve-profile angles (paper, no units; section 9b): dog is the bigger server; fav 50-60% -> bet the dog, 70-80% -> bet the fav
   const vRow = r => { const sr = r.serve_rule, lg = r.serve_logged, rule = (sr || lg || {}).rule, pick = (sr || lg || {}).name, b = sr ? sr.best : null, p = lg ? lg.price : (b ? b.cost : null);
     const rec = TW && TW.serve_record && TW.serve_record[rule] && TW.serve_record[rule].n ? `${TW.serve_record[rule].won}-${TW.serve_record[rule].n - TW.serve_record[rule].won}, ${TW.serve_record[rule].units > 0 ? '+' : ''}${TW.serve_record[rule].units}u` : 'no graded picks yet';
@@ -696,13 +706,13 @@ function renderToday() {
         ['Caution', 'One feature pointing two ways across price bands is the kind of result that fails to replicate; paper only until it has a record of its own'],
         ['Flagged', lg ? `${DAYT(lg.ts)} at ${VS(lg.venue)} ${(100 * lg.price).toFixed(1)}¢` : ''], ['Now', b ? `${VS(b.venue)} ${(100 * b.cost).toFixed(1)}¢ (${toAm(b.cost)})` : 'no price']])}); };
   const TV = TW ? (TW.rows || []).filter(r => r.slam && (r.serve_rule || r.serve_logged) && future(r.start) && passW(r.start) && passS('tennis', r.league)) : [];
-  const THall = TW ? (TW.rows || []).filter(r => r.slam && (r.hot || r.hot_logged) && future(r.start)).map(r => ({start: r.start, sport: 'tennis', league: r.league})) : [];
+  const THall = TW ? (TW.rows || []).filter(r => (r.tour_level || r.slam) && ((r.hot || r.hot_logged) || (r.hot_dog || r.hot_dog_logged)) && future(r.start)).map(r => ({start: r.start, sport: 'tennis', league: r.league})) : [];
   const TVall = TW ? (TW.rows || []).filter(r => r.slam && (r.serve_rule || r.serve_logged) && future(r.start)).map(r => ({start: r.start, sport: 'tennis', league: r.league})) : [];
   // 11/4 (Sean): the watch-only Other signals count too (CBB, MMA, NBA single accounts are viewed and tested from there), so a sport with
   // only watch rows keeps its chip; filtering to it opens Other signals.
   everything = [...everything, ...THall, ...TVall, ...[...strongAll, ...othersAll].map(r => ({start: r.g.start, sport: r.g.sport, league: r.g.league}))];
   inSport = everything.filter(x => passS(x.sport, x.league)); inWhen = everything.filter(x => passW(x.start));
-  const leanRows = [...lean.map(sysRow), ...TWk.map(tRow), ...TH.map(hRow), ...TV.map(vRow)];
+  const leanRows = [...lean.map(sysRow), ...TWk.map(tRow), ...TH.map(hRow), ...TD.map(dRow), ...TV.map(vRow)];
   const H = (t, meta) => `<div class="hdr2"><h2>${t}</h2><span class="meta">${meta}</span></div>`;
   return `<div class="controls topbar">${whenBar(inSport)} ${sportBar(inWhen)}</div>${summary.replace('__NSIG__', `${strong.length} sharp signal${strong.length === 1 ? '' : 's'}`)}
     ${H('System bets', 'Tier A and B · 0.5u · click a row for the full rule and record')}

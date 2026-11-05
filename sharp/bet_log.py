@@ -191,6 +191,19 @@ def main():
             bets.append(dict(id=f"w:{ev}|{mk}|{kind}", src='watch', cat='watch', rule=WK[kind], sport=r.get('sport') or e.get('sport'), event_id=ev,
                              game=f"{e.get('away', '?')} @ {e.get('home', '?')}", start=r['start'].replace('Z', ':00Z') if len(r['start']) == 17 else r['start'], market=mk, side=side, line=ln,
                              flagged=sg.get('first') or r.get('ts'), venue='Kalshi' if kind in ('kmove', 'back') else 'no-vig', price=pr, won=None))
+    # ---- tennis hot favourite (tour level = lean C, 0.25u; Challenger = paper) and hot dog (paper), from tennis_watch's paper logs
+    TOUR = ('atp_tour', 'wta_tour', 'atp_tour_bo5', 'wta_tour_bo5')
+    for fn, gn, rule in (('hot_paper.jsonl', 'hot_graded.json', 'tennis_hot_fav'), ('hotdog_paper.jsonl', 'hotdog_graded.json', 'tennis_hot_dog')):
+        tp = os.path.join(ROOT, 'data', 'tennis', fn); tg = os.path.join(ROOT, 'data', 'tennis', gn)
+        if not os.path.exists(tp): continue
+        G2 = {g['event_id']: g for g in (json.load(open(tg)) if os.path.exists(tg) else [])}
+        for l in open(tp):
+            p = json.loads(l); g_ = G2.get(p['event_id'])
+            live = rule == 'tennis_hot_fav' and p.get('level') in TOUR
+            side = p.get('side') or p['fav']; pick = p.get('pick_name') or p.get('fav_name')
+            bets.append(dict(id=f"{'th' if rule == 'tennis_hot_fav' else 'td'}:{p['event_id']}", src='tennis', cat='lean C' if live else 'paper P', rule=rule, sport='tennis', event_id=p['event_id'],
+                             game=f"{p.get('fav_name')} vs {p.get('opp_name')}", start=p['start'], market='ml', side=side, line=None, flagged=p['ts'], venue=p['venue'], price=p['price'],
+                             won=None if not g_ else (1 if g_['won'] else 0), bet=f"{pick} to win"))
     # ---- price paths
     by = collections.defaultdict(list)
     for b in bets:
