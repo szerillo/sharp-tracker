@@ -1,5 +1,5 @@
 {
- "built": "2026-11-05T16:10:46Z",
+ "built": "2026-11-05T16:31:21Z",
  "rows": [
   {
    "cond": "0x43bf75f521791c9dbf8423892ee11a1cb036ace20ff03283090d79e7a4174bbe",
@@ -17,9 +17,34 @@
    "best_rank": 197,
    "usd": 2933,
    "paid": 0.51,
-   "ask": 0.54,
+   "ask": 0.53,
    "status": "live",
    "link": "https://polymarket.us/event/nhl-utah-mon-2026-11-05",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "grade": "A",
+   "books": null
+  },
+  {
+   "cond": "0x0b5d6a629f7efadf848bab61ce565c54a7f25c3a058d864010c83809ab190021",
+   "slug": "cfb-utsa-flatl-2026-11-05",
+   "title": "UTSA vs. Florida Atlantic",
+   "mtype": "total",
+   "start": "2026-11-06T00:30:00Z",
+   "bet": "Under 73.5",
+   "side": "Under",
+   "flagged": "2026-11-05T16:23:18Z",
+   "why": "a top-200 account also in this sport's top 50",
+   "proven": true,
+   "trigger": "proven",
+   "n_accounts": 1,
+   "best_rank": 58,
+   "usd": 460,
+   "paid": 0.54,
+   "ask": 0.54,
+   "status": "live",
+   "link": "https://polymarket.us/event/cfb-utsa-flatl-2026-11-05",
    "other": null,
    "kalshi_against": null,
    "logged": true,
@@ -57,6 +82,9 @@
    "home_name": "Southern Miss Golden Eagles",
    "game_start": "2026-11-06T01:00Z",
    "side_std": "home",
+   "conflict": [
+    "Kalshi bet back"
+   ],
    "money_with": false,
    "grade": "A",
    "books": null
@@ -94,16 +122,7 @@
    "side_std": "over",
    "money_with": false,
    "grade": "A",
-   "books": {
-    "at": "2026-11-05T03:17:46Z",
-    "fair": 0.5032,
-    "q": {
-     "DK": 0.5238,
-     "FD": 0.5238,
-     "Kalshi": 0.53,
-     "Caesars": 0.5349
-    }
-   }
+   "books": null
   },
   {
    "cond": "0x00f341c1ce5ac7d38b59f3606333d0db49b6a51f7cfa86c543cebc811ba46f79",
@@ -139,13 +158,13 @@
    "money_with": false,
    "grade": "B",
    "books": {
-    "at": "2026-11-05T03:17:46Z",
-    "fair": 0.8209,
+    "at": "2026-11-05T15:22:55Z",
+    "fair": 0.8261,
     "q": {
-     "FD": 0.8361,
-     "DK": 0.8387,
      "Kalshi": 0.84,
-     "Caesars": 0.8413
+     "Caesars": 0.8413,
+     "DK": 0.8462,
+     "FD": 0.8462
     }
    }
   },
@@ -183,10 +202,13 @@
    "money_with": true,
    "grade": "A",
    "books": {
-    "at": "2026-11-05T03:17:46Z",
-    "fair": null,
+    "at": "2026-11-05T15:22:39Z",
+    "fair": 0.4965,
     "q": {
-     "Kalshi": 0.5
+     "Caesars": 0.5122,
+     "DK": 0.5192,
+     "FD": 0.5192,
+     "Kalshi": 0.52
     }
    }
   },
@@ -223,7 +245,13 @@
    "side_std": "home",
    "money_with": false,
    "grade": "watch",
-   "books": null
+   "books": {
+    "at": "2026-11-05T15:22:39Z",
+    "fair": null,
+    "q": {
+     "Kalshi": 0.73
+    }
+   }
   },
   {
    "cond": "0x5a4f48f65db8bb0de7274a91d32ae7abafaf1aae7e67322744658be0e0e73abb",
@@ -368,7 +396,7 @@
    "money_with": false,
    "grade": "A",
    "books": {
-    "at": "2026-11-05T03:17:46Z",
+    "at": "2026-11-05T15:22:35Z",
     "fair": null,
     "q": {
      "Kalshi": 0.45
@@ -459,7 +487,7 @@
    "money_with": false,
    "grade": "A",
    "books": {
-    "at": "2026-11-05T03:17:46Z",
+    "at": "2026-11-05T15:22:55Z",
     "fair": 0.4939,
     "q": {
      "Kalshi": 0.51,
@@ -509,7 +537,14 @@
    ],
    "money_with": false,
    "grade": "A",
-   "books": null
+   "books": {
+    "at": "2026-11-05T15:22:39Z",
+    "fair": null,
+    "q": {
+     "Kalshi": 0.36,
+     "DK": 0.5455
+    }
+   }
   },
   {
    "cond": "0xb9a7b47c2b3c56a902bd706745a98c3f627e6f25e3566205b362856f2804c721",
@@ -527,7 +562,7 @@
    "best_rank": 49,
    "usd": 6625,
    "paid": 0.64,
-   "ask": 0.64,
+   "ask": 0.63,
    "status": "other side",
    "link": "https://polymarket.us/event/nfl-buf-min-2026-11-10",
    "other": {
@@ -536,7 +571,7 @@
     "usd": 6921,
     "first": "2026-11-05T15:36:49Z"
    },
-   "exit_bid": 0.63,
+   "exit_bid": 0.62,
    "kalshi_against": null,
    "logged": true,
    "event_id": "401873051",
