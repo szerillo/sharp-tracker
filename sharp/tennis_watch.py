@@ -242,14 +242,14 @@ def main():
         if row['serve_rule'] and ev not in serve_paper and not any(p.get('fav_name') == name and p.get('opp_name') == opp and abs((ts(p['start']) - ts(e['start'])).total_seconds()) <= 6 * 3600 for p in serve_paper.values()):
             sr = row['serve_rule']
             rec = dict(event_id=ev, ts=NOW.strftime('%Y-%m-%dT%H:%M:%SZ'), start=e['start'], fav=fav, fav_name=name, opp_name=opp, match_p=round(pf, 4), side=sr['side'], pick_name=sr['name'],
-                       hold_fav=round(hf, 3), hold_opp=round(ho, 3), venue=sr['best']['venue'], price=sr['best']['cost'], rule=sr['rule'])
+                       hold_fav=round(hf, 3), hold_opp=round(ho, 3), venue=sr['best']['venue'], price=sr['best']['cost'], rule=sr['rule'], level=g, slam=bool(g and g.endswith('bo5') or any(x in (e.get('tournament') or '').lower() for x in SLAMS)))
             new_serve.append(rec); serve_paper[ev] = rec
-        row['hot'] = bool(src == 'Pinnacle' and ff and fo and HOT['lo'] <= pf <= HOT['hi'] and ff[0] - fo[0] >= HOT['gap'] and mbest)
+        row['hot'] = bool(src == 'Pinnacle' and ff and fo and HOT['lo'] <= pf <= HOT['hi'] and ff[0] - fo[0] >= HOT['gap'] and mbest and g in ('atp_tour', 'atp_chall', 'wta_tour', 'atp_tour_bo5', 'wta_tour_bo5'))   # tour + Challenger (11/4): the slam test is the only priced evidence; ITF form from ESPN is incomplete
         row['hot_best'] = mbest
         if ev in hot_paper: row['hot_logged'] = dict(ts=hot_paper[ev]['ts'], venue=hot_paper[ev]['venue'], price=hot_paper[ev]['price'])
         if row['hot'] and ev not in hot_paper and not any(p.get('fav_name') == name and p.get('opp_name') == opp and abs((ts(p['start']) - ts(e['start'])).total_seconds()) <= 6 * 3600 for p in hot_paper.values()):
             rec = dict(event_id=ev, ts=NOW.strftime('%Y-%m-%dT%H:%M:%SZ'), start=e['start'], fav=fav, fav_name=name, opp_name=opp, match_p=round(pf, 4), form_fav=round(ff[0], 2), form_opp=round(fo[0], 2),
-                       venue=mbest['venue'], price=mbest['cost'], rule='tennis_hot_fav')
+                       venue=mbest['venue'], price=mbest['cost'], rule='tennis_hot_fav', level=g, slam=bool(g and g.endswith('bo5') or any(x in (e.get('tournament') or '').lower() for x in SLAMS)))
             new_hot.append(rec); hot_paper[ev] = rec
         rows.append(row)
         # the same match can carry two ids (a Pinnacle-made id before ESPN lists it, then ESPN's): one pick per match (11/4, Tiafoe set 1)
