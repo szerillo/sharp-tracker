@@ -87,7 +87,13 @@ def profile(sport, team, before_utc):
     L = [gm for gm in team_logs(sport).get(team, []) if parse_ts(gm['start']) < before_utc]
     if not L: return dict(games=0)
     last = L[-1]
+    ats = [gm['ats_margin'] for gm in L if gm.get('ats_margin') is not None]
+    k = 0
+    for gm in reversed(L):
+        if gm['margin'] < 0: k += 1
+        else: break
     return dict(games=len(L), margin_avg=sum(gm['margin'] for gm in L) / len(L), last_ats_margin=last.get('ats_margin'), last_margin=last['margin'],
+                ats_pct=(sum(1 for a in ats if a > 0) / len(ats)) if ats else None, ats_n=len(ats), loss_streak=k,      # 11/5: for the mined paper angles
                 last_start=last['start'], days_since_last=(before_utc - parse_ts(last['start'])).total_seconds() / 86400,
                 wins=sum(1 for gm in L if gm['margin'] > 0), losses=sum(1 for gm in L if gm['margin'] < 0),
                 win_pct=sum(1 for gm in L if gm['margin'] > 0) / len(L),
