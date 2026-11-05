@@ -1,5 +1,5 @@
 {
- "built": "2026-11-05T18:48:36Z",
+ "built": "2026-11-05T18:55:15Z",
  "rows": [
   {
    "cond": "0x43bf75f521791c9dbf8423892ee11a1cb036ace20ff03283090d79e7a4174bbe",
@@ -155,8 +155,8 @@
    "home_name": "Baltimore Ravens",
    "game_start": "2026-11-06T01:15Z",
    "side_std": "away",
-   "money_with": true,
-   "grade": "A",
+   "money_with": false,
+   "grade": "B",
    "books": {
     "at": "2026-11-05T15:22:55Z",
     "fair": 0.8261,
@@ -698,9 +698,9 @@
   },
   "401909937|ml": {
    "home": {
-    "n": 1,
+    "n": 2,
     "best_rank": 76,
-    "usd": 2900
+    "usd": 3809
    },
    "away": {
     "n": 1,
@@ -720,6 +720,11 @@
     "n": 1,
     "best_rank": 154,
     "usd": 977
+   },
+   "home": {
+    "n": 1,
+    "best_rank": 154,
+    "usd": 949
    }
   },
   "401909287|ml": {
