@@ -1,128 +1,6 @@
 {
- "built": "2026-11-04T23:54:55Z",
+ "built": "2026-11-05T00:00:53Z",
  "rows": [
-  {
-   "cond": "0x159b76fa5382b06fb70bf17593a79a9ee670b7888af945f917de7579138194eb",
-   "slug": "nba-phi-det-2026-11-04",
-   "title": "76ers vs. Pistons",
-   "mtype": "ml",
-   "start": "2026-11-05T00:00:00Z",
-   "bet": "Pistons ML",
-   "side": "Pistons",
-   "flagged": "2026-11-03T23:12:37Z",
-   "why": "3 top-200 accounts",
-   "proven": false,
-   "trigger": "two",
-   "n_accounts": 3,
-   "best_rank": 58,
-   "usd": 990,
-   "paid": 0.549,
-   "ask": 0.57,
-   "status": "live",
-   "link": "https://polymarket.us/event/nba-phi-det-2026-11-04",
-   "other": null,
-   "kalshi_against": null,
-   "logged": true,
-   "event_id": "401909922",
-   "sport": "nba",
-   "league": null,
-   "away": "PHI",
-   "home": "DET",
-   "away_name": "Philadelphia 76ers",
-   "home_name": "Detroit Pistons",
-   "game_start": "2026-11-05T00:00Z",
-   "side_std": "home",
-   "money_with": false,
-   "grade": "B",
-   "books": {
-    "at": "2026-11-04T22:22:36Z",
-    "fair": 0.5608,
-    "q": {
-     "FD": 0.5763,
-     "Kalshi": 0.58,
-     "Caesars": 0.5833,
-     "DK": 0.5868
-    }
-   }
-  },
-  {
-   "cond": "0xab4a9c35f679a80b358bd67fce8e32db313a1486a949c31894220ac03d3d0e67",
-   "slug": "nba-atl-was-2026-11-04",
-   "title": "Hawks vs. Wizards",
-   "mtype": "spread",
-   "start": "2026-11-05T00:00:00Z",
-   "bet": "Wizards +2.5",
-   "side": "Wizards",
-   "flagged": "2026-11-04T23:00:10Z",
-   "why": "2 top-200 accounts",
-   "proven": false,
-   "trigger": "two",
-   "n_accounts": 2,
-   "best_rank": 112,
-   "usd": 16196,
-   "paid": 0.49,
-   "ask": 0.52,
-   "status": "live",
-   "link": "https://polymarket.us/event/nba-atl-was-2026-11-04",
-   "other": null,
-   "kalshi_against": null,
-   "logged": true,
-   "event_id": "401909923",
-   "sport": "nba",
-   "league": null,
-   "away": "ATL",
-   "home": "WSH",
-   "away_name": "Atlanta Hawks",
-   "home_name": "Washington Wizards",
-   "game_start": "2026-11-05T00:00Z",
-   "side_std": "home",
-   "money_with": true,
-   "grade": "A",
-   "books": {
-    "at": "2026-11-04T22:22:36Z",
-    "fair": 0.4813,
-    "q": {
-     "FD": 0.505,
-     "DK": 0.5098,
-     "Kalshi": 0.51
-    }
-   }
-  },
-  {
-   "cond": "0x2f2dca3863dafdbbf45d4bc682f3276d61676952d106d6bc65c31fed937324ae",
-   "slug": "nba-atl-was-2026-11-04",
-   "title": "Hawks vs. Wizards",
-   "mtype": "spread",
-   "start": "2026-11-05T00:00:00Z",
-   "bet": "Wizards +3.5",
-   "side": "Wizards",
-   "flagged": "2026-11-04T23:00:48Z",
-   "why": "3 top-200 accounts",
-   "proven": false,
-   "trigger": "two",
-   "n_accounts": 3,
-   "best_rank": 12,
-   "usd": 2718,
-   "paid": 0.531,
-   "ask": 0.56,
-   "status": "live",
-   "link": "https://polymarket.us/event/nba-atl-was-2026-11-04",
-   "other": null,
-   "kalshi_against": null,
-   "logged": true,
-   "event_id": "401909923",
-   "sport": "nba",
-   "league": null,
-   "away": "ATL",
-   "home": "WSH",
-   "away_name": "Atlanta Hawks",
-   "home_name": "Washington Wizards",
-   "game_start": "2026-11-05T00:00Z",
-   "side_std": "home",
-   "money_with": true,
-   "grade": "A",
-   "books": null
-  },
   {
    "cond": "0x4e14101792372d8c16dae3092acf0f825ca206475de2d1c76c7ded8c208f9762",
    "slug": "nba-mil-bos-2026-11-04",
@@ -654,54 +532,6 @@
    }
   },
   {
-   "cond": "0x8f097e91950aedef3070948ea5a777474f1d1f78e82796b3fe4b34afe0eb53f3",
-   "slug": "nba-atl-was-2026-11-04",
-   "title": "Hawks vs. Wizards",
-   "mtype": "ml",
-   "start": "2026-11-05T00:00:00Z",
-   "bet": "Hawks ML",
-   "side": "Hawks",
-   "flagged": "2026-11-03T13:11:31Z",
-   "why": "4 top-200 accounts",
-   "proven": true,
-   "trigger": "two",
-   "n_accounts": 4,
-   "best_rank": 23,
-   "usd": 8052,
-   "paid": 0.551,
-   "ask": 0.55,
-   "status": "other side",
-   "link": "https://polymarket.us/event/nba-atl-was-2026-11-04",
-   "other": {
-    "n_accounts": 2,
-    "best_rank": 23,
-    "usd": 49498,
-    "first": "2026-11-04T23:00:06Z"
-   },
-   "exit_bid": 0.54,
-   "kalshi_against": {
-    "move": 5.5,
-    "now": 44.5,
-    "state": "reversed"
-   },
-   "logged": true,
-   "event_id": "401909923",
-   "sport": "nba",
-   "league": null,
-   "away": "ATL",
-   "home": "WSH",
-   "away_name": "Atlanta Hawks",
-   "home_name": "Washington Wizards",
-   "game_start": "2026-11-05T00:00Z",
-   "side_std": "away",
-   "conflict": [
-    "Kalshi move"
-   ],
-   "money_with": false,
-   "grade": "A",
-   "books": null
-  },
-  {
    "cond": "0x8c46d71e1ac2d02318e36c88763d512a25f73153f03dffa8df67212a5a922698",
    "slug": "nba-por-phx-2026-11-04",
    "title": "Trail Blazers vs. Suns",
@@ -898,18 +728,6 @@
     "best_rank": 93,
     "usd": 199
    }
-  },
-  "401909923:nba_momentum:spread": {
-   "with": {
-    "n": 3,
-    "best_rank": 12,
-    "usd": 16311
-   },
-   "against": {
-    "n": 1,
-    "best_rank": 112,
-    "usd": 3670
-   }
   }
  },
  "by_event": {
@@ -946,58 +764,6 @@
     "n": 1,
     "best_rank": 115,
     "usd": 5008
-   }
-  },
-  "401909922|ml": {
-   "home": {
-    "n": 3,
-    "best_rank": 58,
-    "usd": 990
-   }
-  },
-  "401909922|spread": {
-   "home": {
-    "n": 1,
-    "best_rank": 119,
-    "usd": 1447
-   }
-  },
-  "401909922|total": {
-   "over": {
-    "n": 1,
-    "best_rank": 132,
-    "usd": 234
-   }
-  },
-  "401909923|ml": {
-   "away": {
-    "n": 4,
-    "best_rank": 23,
-    "usd": 8052
-   },
-   "home": {
-    "n": 2,
-    "best_rank": 23,
-    "usd": 12556
-   }
-  },
-  "401909923|total": {
-   "under": {
-    "n": 1,
-    "best_rank": 132,
-    "usd": 1322
-   }
-  },
-  "401909923|spread": {
-   "home": {
-    "n": 3,
-    "best_rank": 12,
-    "usd": 16311
-   },
-   "away": {
-    "n": 1,
-    "best_rank": 112,
-    "usd": 3670
    }
   },
   "401909924|ml": {
