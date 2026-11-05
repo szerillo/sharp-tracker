@@ -166,6 +166,22 @@ def sys_tags(BE):
     with open(log, 'a') as fh:
         for k, v in out.items():
             if k not in seen: fh.write(json.dumps(dict(key=k, fill_id=fired[k]['fill_id'], ts=dt.datetime.fromtimestamp(NOW, dt.timezone.utc).strftime('%Y-%m-%dT%H:%M:%SZ'), **v)) + '\n')
+    # 11/4 (Sean: "I'm placing some of these and they get wiped out by a late sharp buy on the other side"): phone push the first time
+    # sharp accounts show up against an open system bet after it fired, so a hedge is a choice rather than a surprise. One push per bet.
+    try: st = json.load(open(ALERTS)) if os.path.exists(ALERTS) else {}
+    except Exception: st = {}
+    for k, v in out.items():
+        ag = v.get('against'); f = fired[k]
+        if not ag or f.get('void'): continue
+        key = 'sys:' + f['fill_id']
+        if key in st: continue
+        st[key] = dict(flag=int(NOW), other=int(NOW))
+        if os.path.exists(ALERTS):          # not on the very first run (would push everything already on the board)
+            ev = k.split(':')[0]; ttl = f"{f.get('side', '')} {f['market']} {f.get('line') if f.get('line') is not None else ''}".strip()
+            ntfy(f"Sharps against your system bet: {ttl}", f"{k.split(':')[1]} · fired {f.get('ts', '')[:16].replace('T', ' ')}Z\n{ag['n']} sharp account{'s' if ag['n'] != 1 else ''} on the other side, ${ag['usd']:,} (best rank {ag['best_rank']}){' · ' + str(v['with']['n']) + ' with' if v.get('with') else ''}",
+                 f"https://szerillo.github.io/sharp-tracker/?tab=today", 'warning', 'default')
+    try: json.dump(st, open(ALERTS, 'w'))
+    except Exception: pass
     return out
 
 
