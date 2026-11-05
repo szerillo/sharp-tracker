@@ -85,6 +85,12 @@ LABS = {'wind1014': (1772775, 'Tested: NFL Wind 10-14 Under'), 'wind1014_1h': (7
         'cbb_under_good_over_drop': (1792184, 'Tested: CBB Under Good Over Teams Total Down')}
 LATE_H = (0.1, 1.5)   # exchange rules fire in the last 90 minutes (the audit priced them at the close)
 WINDOW_H = tuple(float(x) for x in os.environ.get('SYSTEMS_WINDOW', '2,30').split(','))
+# 11/4 (Sean: "why do CFB / NFL systems need to be inside 30 hours to fire?"): only the weather rules do, because the forecast they fire on
+# is only reliable inside about a day. Every other rule bets as soon as it triggers and a book has a price (the trigger is a schedule /
+# record / line fact that is already true days out), up to a week ahead.
+WEATHER = {'wind1014', 'wind1014_1h', 'cfb_wind14', 'cfb_hot_over_low_total', 'wind_msw_only'}
+EARLY_H = 7 * 24
+def max_h(tag): return WINDOW_H[1] if tag in WEATHER else EARLY_H
 VIEW_H = 8 * 24          # how far ahead a trigger is shown (Bet Labs lists current picks days ahead)
 
 
@@ -216,7 +222,7 @@ def void_fill(fired, key, why):
 def paper_fill(conn, eq, ev, start, market, line, side, part, tag, stake, note, venue=None, min_h=None):
     ttk = (N.parse_ts(start) - NOW).total_seconds() / 3600
     if ttk < (WINDOW_H[0] if min_h is None else min_h): return None      # inside the last hours a new trigger is shown, not filled
-    if ttk > WINDOW_H[1]: return None      # further out than the fill window: shown as an upcoming trigger, filled once inside it
+    if ttk > max_h(tag): return None      # weather rules: shown as an upcoming trigger, filled inside 30h; everything else fills when it triggers
     # one bet per rule per game (11/4): the fills ledger is the record, so a lost or voided state entry can never fire the same rule twice
     if any(r['event_id'] == ev and r.get('rule_tag') == f'paper:{tag}' and r.get('market') == market and r.get('result') != 'void' for r in FI.load()): return None
     best = F.best_price(eq, market, line, side, NOW_S, part)
@@ -584,7 +590,7 @@ def main():
         g['fills'] = [f for f in g.get('fills', []) if not f.get('void')]
         refresh_fills(conn, g)
     view_games = [g for g in view_games if g['triggers'] or any(f.get('fill_id') for f in g.get('fills', []))]      # a lapsed bet keeps its game on the board
-    json.dump(dict(built=NOW_S, window_h=WINDOW_H, rules={k: dict(v, tag=k, desc=DESC.get(k, ''), evidence=EVIDENCE.get(k), labs=(dict(id=LABS[k][0], name=LABS[k][1]) if k in LABS else None)) for k, v in RULES.items()}, games=view_games, fired_now=fires_now, record=dict(rec)),
+    json.dump(dict(built=NOW_S, window_h=WINDOW_H, rules={k: dict(v, tag=k, max_h=max_h(k), desc=DESC.get(k, ''), evidence=EVIDENCE.get(k), labs=(dict(id=LABS[k][0], name=LABS[k][1]) if k in LABS else None)) for k, v in RULES.items()}, games=view_games, fired_now=fires_now, record=dict(rec)),
               open(VIEW, 'w'), default=str, separators=(',', ':'))
     print(f"[systems] {len(view_games)} games with triggers (shown up to {VIEW_H}h out, filled {WINDOW_H[0]}-{WINDOW_H[1]}h); {len(fires_now)} new paper fills; tags on file {dict((k, v['n']) for k, v in rec.items())}")
     conn.close()
