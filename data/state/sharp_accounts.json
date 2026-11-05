@@ -1,5 +1,5 @@
 {
- "built": "2026-11-05T01:59:11Z",
+ "built": "2026-11-05T02:05:29Z",
  "rows": [
   {
    "cond": "0x87c74536e0bdd3b79589f6d894a60bca4e0bbe8c201230754a6aff4b00a63fa6",
@@ -130,7 +130,7 @@
    "best_rank": 43,
    "usd": 1216,
    "paid": 0.62,
-   "ask": 0.68,
+   "ask": 0.69,
    "status": "live",
    "link": "https://polymarket.us/event/nba-was-atl-2026-11-06",
    "other": null,
@@ -165,7 +165,7 @@
    "best_rank": 31,
    "usd": 833,
    "paid": 0.496,
-   "ask": 0.51,
+   "ask": 0.5,
    "status": "live",
    "link": "https://polymarket.us/event/nba-phi-cle-2026-11-06",
    "other": null,
@@ -270,7 +270,7 @@
    "best_rank": 137,
    "usd": 3798,
    "paid": 0.48,
-   "ask": 0.43,
+   "ask": 0.42,
    "status": "live",
    "link": "https://polymarket.us/event/cfb-mia-nd-2026-11-07",
    "other": null,
@@ -340,59 +340,6 @@
      "FD": 0.5122,
      "Caesars": 0.5146,
      "DK": 0.5349
-    }
-   }
-  },
-  {
-   "cond": "0x8c46d71e1ac2d02318e36c88763d512a25f73153f03dffa8df67212a5a922698",
-   "slug": "nba-por-phx-2026-11-04",
-   "title": "Trail Blazers vs. Suns",
-   "mtype": "ml",
-   "start": "2026-11-05T02:00:00Z",
-   "bet": "Trail Blazers ML",
-   "side": "Trail Blazers",
-   "flagged": "2026-11-04T08:59:36Z",
-   "why": "2 top-200 accounts",
-   "proven": false,
-   "trigger": "two",
-   "n_accounts": 2,
-   "best_rank": 43,
-   "usd": 1018,
-   "paid": 0.58,
-   "ask": 0.59,
-   "status": "live",
-   "link": "https://polymarket.us/event/nba-por-phx-2026-11-04",
-   "other": null,
-   "kalshi_against": {
-    "move": 7.0,
-    "now": 42.5,
-    "state": "reversed"
-   },
-   "logged": true,
-   "event_id": "401909932",
-   "sport": "nba",
-   "league": null,
-   "away": "POR",
-   "home": "PHX",
-   "away_name": "Portland Trail Blazers",
-   "home_name": "Phoenix Suns",
-   "game_start": "2026-11-05T02:00Z",
-   "side_std": "away",
-   "conflict": [
-    "Kalshi bet back",
-    "Kalshi move",
-    "big money"
-   ],
-   "money_with": false,
-   "grade": "B",
-   "books": {
-    "at": "2026-11-05T00:47:57Z",
-    "fair": 0.5721,
-    "q": {
-     "FD": 0.5868,
-     "Kalshi": 0.59,
-     "Caesars": 0.5918,
-     "DK": 0.5968
     }
    }
   },
@@ -474,14 +421,6 @@
   "clv_poly_same": -2.31
  },
  "sys_tags": {
-  "401909932:nba_under_good_home_over": {
-   "with": null,
-   "against": {
-    "n": 1,
-    "best_rank": 115,
-    "usd": 3554
-   }
-  },
   "401873037:bounce15_1h": {
    "with": null,
    "against": {
@@ -525,20 +464,6 @@
     "n": 1,
     "best_rank": 115,
     "usd": 5008
-   }
-  },
-  "401909932|ml": {
-   "away": {
-    "n": 2,
-    "best_rank": 43,
-    "usd": 1018
-   }
-  },
-  "401909932|total": {
-   "over": {
-    "n": 1,
-    "best_rank": 115,
-    "usd": 3554
    }
   },
   "401909934|ml": {
