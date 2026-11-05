@@ -1,0 +1,37 @@
+name: odds history bulk (The Odds API)
+# Sean, 11/5: the multi-season backfill, run on GitHub's runners so it keeps going unattended (the research container stops detached
+# jobs). One job per plan, each resumable (data/oddsapi/compact/_done_<plan>.json), committing its compact file when it finishes or
+# at the 5.5-hour mark; re-dispatch to continue. Key in the ODDS_API_KEY secret.
+on:
+  workflow_dispatch:
+    inputs:
+      plans: {description: 'space-separated plans (nba nhl cbb nfl cfb mlb wnba cfl kbo npb boxing wncaab euroleague milb ncaa_baseball soccer soccer2 soccer3 cups futures tennis mma)', default: 'nba nhl cbb nfl cfb soccer soccer2 soccer3 cups futures mlb wnba cfl kbo npb boxing wncaab euroleague milb ncaa_baseball', required: false}
+permissions:
+  contents: write
+jobs:
+  plan:
+    runs-on: ubuntu-latest
+    timeout-minutes: 350
+    strategy:
+      fail-fast: false
+      max-parallel: 6
+      matrix:
+        plan: [nba, nhl, cbb, nfl, cfb, soccer, soccer2, soccer3, cups, futures, mlb, wnba, cfl, kbo, npb, boxing, wncaab, euroleague, milb, ncaa_baseball]
+    steps:
+      - uses: actions/checkout@v4
+      - name: pull (stops itself at 5.4h; re-dispatch to continue)
+        if: contains(format(' {0} ', inputs.plans), format(' {0} ', matrix.plan))
+        env: {ODDS_API_KEY: '${{ secrets.ODDS_API_KEY }}'}
+        run: timeout 19400 python3 loggers/oddsapi_bulk.py ${{ matrix.plan }} || true
+      - name: commit
+        if: always()
+        run: |
+          git config user.name "tracker-bot"; git config user.email "actions@users.noreply.github.com"
+          git add -A data/oddsapi/compact
+          git commit -q -m "odds history: ${{ matrix.plan }} $(date -u +%Y-%m-%dT%H:%M)" || exit 0
+          for i in 1 2 3 4 5 6 7 8; do
+            if git pull -q --rebase -X theirs && git push -q; then exit 0; fi
+            git rebase --abort 2>/dev/null || true
+            sleep $((RANDOM % 20 + 5))
+          done
+          exit 1
