@@ -85,21 +85,52 @@ def serve_note(pf_, po_):
     return SERVE_ADJ[k], f"holds: favourite {100 * hf:.0f}%, opponent {100 * ho:.0f}% ({'dog is the bigger server' if k == 'dog' else 'favourite is the bigger server' if k == 'fav' else 'similar'})"
 
 
-_FORM = None
-def form(name, before):
-    """Last-10 record from our ESPN results log (completed singles, main draw and qualifying, since March): (win rate, n) or None."""
+_FORM = None; _EVSTART = {}; _TID = {}
+def _load_form():
+    """Per player, chronological (start, won, surface, tournament_id) from our ESPN results log (completed singles, main draw and
+    qualifying, since March); event start dates per tournament id; tournament name -> id."""
     global _FORM
-    if _FORM is None:
-        _FORM = {}
-        rp = os.path.join(TD, 'results.jsonl')
-        if os.path.exists(rp):
-            for l in open(rp):
-                r = json.loads(l)
-                if r.get('status') != 'STATUS_FINAL' or r.get('walkover') or not r.get('winner') or r.get('n_sets', 0) < 1: continue
-                for who in ('p1', 'p2'): _FORM.setdefault(r.get(who), []).append((r['start'], r['winner'] == who))
-        for v in _FORM.values(): v.sort()
-    L = [w for t, w in _FORM.get(name, []) if t < before][-10:]
+    if _FORM is not None: return
+    import sharp.tennis_surface as TS
+    _FORM = {}
+    rp = os.path.join(TD, 'results.jsonl')
+    if os.path.exists(rp):
+        for l in open(rp):
+            r = json.loads(l)
+            if r.get('status') != 'STATUS_FINAL' or r.get('walkover') or not r.get('winner') or r.get('n_sets', 0) < 1: continue
+            tid = r.get('tournament_id'); surf = TS.surface(r.get('tournament'), r.get('venue'), r['start'])
+            if tid:
+                if tid not in _EVSTART or r['start'] < _EVSTART[tid]: _EVSTART[tid] = r['start']
+                _TID[(r.get('tournament'), r['start'][:4])] = (tid, r.get('venue'))
+            for who in ('p1', 'p2'): _FORM.setdefault(r.get(who), []).append((r['start'], r['winner'] == who, surf, tid))
+    for v in _FORM.values(): v.sort()
+
+
+def form(name, before):
+    """Last-10 record: (win rate, n) or None."""
+    _load_form()
+    L = [w for t, w, *_ in _FORM.get(name, []) if t < before][-10:]
     return (sum(L) / len(L), len(L)) if len(L) >= HOT['min_n'] else None
+
+
+SETTLED = dict(same_share=0.4, rest=(8, 27))   # 11/5 (tennis_form.py on 6,782 tour matches 2022-26): the hot favourite only pays when settled
+def settled(name, e):
+    """11/5 refinement (data/research/tennis_form.json): the hot favourite's edge (+8.7% vs the Pinnacle close, +8.8% ROI, positive every year
+    2022-26) is confined to favourites whose previous event was on this surface, with 4+ of the last 10 on this surface, 8-27 days since that
+    event started and not yet played in this event. A surface switch is -10%, a 28+ day layoff -23%. Returns a dict (flag + the parts)."""
+    import sharp.tennis_surface as TS
+    _load_form()
+    tid, venue = _TID.get((e.get('tournament'), e['start'][:4]), (None, None))
+    surf = TS.surface(e.get('tournament'), venue, e['start'])
+    H = [h for h in _FORM.get(name, []) if h[0] < e['start']]
+    last10 = H[-10:]
+    in_event = bool(tid and H and H[-1][3] == tid)
+    prev = next((h for h in reversed(H) if h[3] != tid), None)
+    ev_start = _EVSTART.get(tid) or e['start']
+    rest = (ts(ev_start) - ts(_EVSTART.get(prev[3]) or prev[0])).days if prev else None
+    share = sum(1 for h in last10 if h[2] == surf) / len(last10) if last10 else None
+    ok = bool(len(last10) >= HOT['min_n'] and prev and prev[2] == surf and share >= SETTLED['same_share'] and rest is not None and SETTLED['rest'][0] <= rest <= SETTLED['rest'][1] and not in_event)
+    return dict(ok=ok, surface=surf, prev_surface=prev[2] if prev else None, same_share=round(share, 2) if share is not None else None, rest=rest, in_event=in_event)
 
 
 def implied(a): return 100 / (a + 100) if a > 0 else -a / (-a + 100)
@@ -177,6 +208,12 @@ def main():
     hot_paper = {}
     if os.path.exists(HOT_PAPER):
         for l in open(HOT_PAPER): r = json.loads(l); hot_paper[r['event_id']] = r
+        # 11/5 backfill: the settled flag on picks logged before the refinement (events.json still has the event; else unsettled)
+        for r in hot_paper.values():
+            if 'settled' not in r:
+                ee = E.get(r['event_id']); r['settled'] = settled(r['fav_name'], ee) if ee else dict(ok=False, note='event no longer listed')
+        with open(HOT_PAPER, 'w') as f:
+            for r in hot_paper.values(): f.write(json.dumps(r) + '\n')
     hotdog_paper = {}
     if os.path.exists(HOTDOG_PAPER):
         for l in open(HOTDOG_PAPER): r = json.loads(l); hotdog_paper[r['event_id']] = r
@@ -252,7 +289,8 @@ def main():
         # 11/4 (Odds API, tour-level 2026 + slams 2015-23): the hot favourite is a tier C lean at TOUR level (board, 0.25u); Challenger
         # picks stay paper. New paper line: the hot dog (dog's last-10 is 10-30% better than the favourite's), bet the dog.
         row['tour_level'] = g in ('atp_tour', 'wta_tour', 'atp_tour_bo5', 'wta_tour_bo5')
-        row['hot_live'] = bool(row['hot'] and row['tour_level'])
+        row['settled'] = settled(name, e) if row['hot'] else None
+        row['hot_live'] = bool(row['hot'] and row['tour_level'] and row['settled'] and row['settled']['ok'])   # 11/5: tier C only when settled; the rest is paper
         dbest = match_best('away' if fav == 'home' else 'home')
         row['hot_dog'] = bool(src == 'Pinnacle' and ff and fo and 0.5 <= pf <= 0.85 and 0.10 <= fo[0] - ff[0] < 0.30 and dbest and g in ('atp_tour', 'atp_chall', 'wta_tour', 'atp_tour_bo5', 'wta_tour_bo5'))
         row['hot_dog_best'] = dbest
@@ -260,7 +298,7 @@ def main():
         if ev in hot_paper: row['hot_logged'] = dict(ts=hot_paper[ev]['ts'], venue=hot_paper[ev]['venue'], price=hot_paper[ev]['price'])
         if row['hot'] and ev not in hot_paper and not any(p.get('fav_name') == name and p.get('opp_name') == opp and abs((ts(p['start']) - ts(e['start'])).total_seconds()) <= 6 * 3600 for p in hot_paper.values()):
             rec = dict(event_id=ev, ts=NOW.strftime('%Y-%m-%dT%H:%M:%SZ'), start=e['start'], fav=fav, fav_name=name, opp_name=opp, match_p=round(pf, 4), form_fav=round(ff[0], 2), form_opp=round(fo[0], 2),
-                       venue=mbest['venue'], price=mbest['cost'], rule='tennis_hot_fav', level=g, slam=bool(g and g.endswith('bo5') or any(x in (e.get('tournament') or '').lower() for x in SLAMS)))
+                       venue=mbest['venue'], price=mbest['cost'], rule='tennis_hot_fav', level=g, settled=row['settled'], slam=bool(g and g.endswith('bo5') or any(x in (e.get('tournament') or '').lower() for x in SLAMS)))
             new_hot.append(rec); hot_paper[ev] = rec
         if ev in hotdog_paper: row['hot_dog_logged'] = dict(ts=hotdog_paper[ev]['ts'], venue=hotdog_paper[ev]['venue'], price=hotdog_paper[ev]['price'])
         if row['hot_dog'] and ev not in hotdog_paper and not any(p.get('fav_name') == name and p.get('opp_name') == opp and abs((ts(p['start']) - ts(e['start'])).total_seconds()) <= 6 * 3600 for p in hotdog_paper.values()):
@@ -350,7 +388,7 @@ def main():
     cl = [g['clv'] for g in graded if g.get('clv') is not None]
     rec = dict(n=len(graded), won=sum(g['won'] for g in graded), units=round(sum(g['pnl'] for g in graded), 2),
                clv=round(sum(cl) / len(cl), 2) if cl else None, clv_n=len(cl)) if graded else dict(n=0)
-    json.dump(dict(built=NOW.strftime('%Y-%m-%dT%H:%M:%SZ'), gap=GAP, min_fav=MIN_FAV, min_edge=MIN_EDGE, record=rec, recent=sorted(graded, key=lambda g: g['start'])[-25:], hot=HOT, hot_record=hot_rec, hot_tour_record=record_of([g for g in hot_graded if g.get('level') in ('atp_tour', 'wta_tour', 'atp_tour_bo5', 'wta_tour_bo5')]), hotdog_record=hotdog_rec, serve_record=serve_rec,
+    json.dump(dict(built=NOW.strftime('%Y-%m-%dT%H:%M:%SZ'), gap=GAP, min_fav=MIN_FAV, min_edge=MIN_EDGE, record=rec, recent=sorted(graded, key=lambda g: g['start'])[-25:], hot=HOT, hot_record=hot_rec, hot_tour_record=record_of([g for g in hot_graded if g.get('level') in ('atp_tour', 'wta_tour', 'atp_tour_bo5', 'wta_tour_bo5')]), hot_settled_record=record_of([g for g in hot_graded if g.get('level') in ('atp_tour', 'wta_tour', 'atp_tour_bo5', 'wta_tour_bo5') and (g.get('settled') or {}).get('ok')]), settled=SETTLED, hotdog_record=hotdog_rec, serve_record=serve_rec,
                    rows=rows), open(OUT, 'w'), separators=(',', ':'))
     print(f"[tennis watch] {len(rows)} upcoming matches priced, {sum(r['flag'] for r in rows)} flagged, {len(new)} new paper entries; record {rec}; hot favourites {sum(r.get('hot', False) for r in rows)} flagged, {len(new_hot)} new, record {hot_rec}; serve angles {sum(bool(r.get('serve_rule')) for r in rows)} flagged, {len(new_serve)} new")
 

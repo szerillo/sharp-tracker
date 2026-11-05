@@ -199,7 +199,7 @@ def main():
         G2 = {g['event_id']: g for g in (json.load(open(tg)) if os.path.exists(tg) else [])}
         for l in open(tp):
             p = json.loads(l); g_ = G2.get(p['event_id'])
-            live = rule == 'tennis_hot_fav' and p.get('level') in TOUR
+            live = rule == 'tennis_hot_fav' and p.get('level') in TOUR and bool((p.get('settled') or {}).get('ok'))   # 11/5: settled favourites only
             side = p.get('side') or p['fav']; pick = p.get('pick_name') or p.get('fav_name')
             bets.append(dict(id=f"{'th' if rule == 'tennis_hot_fav' else 'td'}:{p['event_id']}", src='tennis', cat='lean C' if live else 'paper P', rule=rule, sport='tennis', event_id=p['event_id'],
                              game=f"{p.get('fav_name')} vs {p.get('opp_name')}", start=p['start'], market='ml', side=side, line=None, flagged=p['ts'], venue=p['venue'], price=p['price'],

@@ -51,38 +51,46 @@ def nv(a, b, c=None):
 
 
 def build():
+    """Streaming: one pass over the compact files, quotes inserted as they come (unique on game, time, book), and per game only the first and
+    last pre-start snapshot kept in memory (the 11/5 full backfill is ~2 GB of snapshots; the old all-in-memory build was OOM-killed)."""
     t0 = time.time()
     sys.path.insert(0, os.path.join(ROOT, 'loggers'))
     if os.path.exists(DB): os.remove(DB)
     conn = sqlite3.connect(DB)
     conn.executescript("""
+      PRAGMA journal_mode=OFF; PRAGMA synchronous=OFF;
       CREATE TABLE quotes(sport TEXT, key TEXT, game_id TEXT, t TEXT, book TEXT, ml_home REAL, ml_away REAL, ml_draw REAL, sp_line REAL, sp_home REAL, sp_away REAL, tot_line REAL, tot_over REAL, tot_under REAL);
+      CREATE UNIQUE INDEX q_uni ON quotes(game_id, t, book);
       CREATE TABLE games(game_id TEXT PRIMARY KEY, sport TEXT, key TEXT, start TEXT, home TEXT, away TEXT, n_snaps INT, open_t TEXT, close_t TEXT, close_h REAL,
         pin_open_home REAL, pin_close_home REAL, pin_close_away REAL, pin_close_draw REAL, pin_open_sp REAL, pin_close_sp REAL, pin_open_tot REAL, pin_close_tot REAL,
         best_home REAL, best_home_book TEXT, best_away REAL, best_away_book TEXT);
       CREATE TABLE results(game_id TEXT PRIMARY KEY, home_score REAL, away_score REAL, winner TEXT, src TEXT);""")
-    seen = set(); G = {}; Q = []; n = 0
+    G = {}; Q = []; n = 0
     import itertools
+    def keep(b):          # the part of a snapshot the games table needs
+        return {k: v for k, v in b.items() if k == 'pinnacle' or k in US}
     for r in itertools.chain(compact_rows(), raw_rows()):
-        k = (r['id'], r['t'])
-        if k in seen: continue
-        seen.add(k); n += 1
-        g = G.setdefault(r['id'], dict(sport=r['sport'], key=r.get('key'), start=r['start'], home=r['home'], away=r['away'], snaps=[]))
-        g['snaps'].append((r['t'], r['books']))
+        t = r['t']
+        if not t: continue
+        n += 1
+        g = G.get(r['id'])
+        if g is None: g = G[r['id']] = dict(sport=r['sport'], key=r.get('key'), start=r['start'], home=r['home'], away=r['away'], n=0, ot=None, ob=None, ct=None, cb=None)
+        if t < g['start']:
+            g['n'] += 1
+            if g['ot'] is None or t < g['ot']: g['ot'], g['ob'] = t, keep(r['books'])
+            if g['ct'] is None or t > g['ct']: g['ct'], g['cb'] = t, keep(r['books'])
         for bk, e in r['books'].items():
             ml = e.get('h2h') or [None, None]; sp = e.get('sp') or [None, None, None]; tt = e.get('tot') or [None, None, None]
-            Q.append((r['sport'], r.get('key'), r['id'], r['t'], bk, ml[0], ml[1], ml[2] if len(ml) > 2 else None, sp[0], sp[1], sp[2], tt[0], tt[1], tt[2]))
-        if len(Q) > 200000: conn.executemany("INSERT INTO quotes VALUES (" + ','.join('?' * 14) + ")", Q); Q = []
-    if Q: conn.executemany("INSERT INTO quotes VALUES (" + ','.join('?' * 14) + ")", Q)
+            Q.append((r['sport'], r.get('key'), r['id'], t, bk, ml[0], ml[1], ml[2] if len(ml) > 2 else None, sp[0], sp[1], sp[2], tt[0], tt[1], tt[2]))
+        if len(Q) > 200000: conn.executemany("INSERT OR IGNORE INTO quotes VALUES (" + ','.join('?' * 14) + ")", Q); Q = []; conn.commit()
+    if Q: conn.executemany("INSERT OR IGNORE INTO quotes VALUES (" + ','.join('?' * 14) + ")", Q)
     rows = []
     for gid, g in G.items():
+        if g['ot'] is None: continue
         st = dt.datetime.fromisoformat(g['start'].replace('Z', '+00:00'))
-        pre = sorted([(t, b) for t, b in g['snaps'] if t and dt.datetime.fromisoformat(t.replace('Z', '+00:00')) < st])
-        if not pre: continue
-        (ot, ob), (ct, cb) = pre[0], pre[-1]
+        ot, ob, ct, cb = g['ot'], g['ob'], g['ct'], g['cb']
         def pin(b, f):
-            e = (b.get('pinnacle') or {}).get(f)
-            return e
+            return (b.get('pinnacle') or {}).get(f)
         po, pc = pin(ob, 'h2h'), pin(cb, 'h2h')
         nvo = nv(*(po or [None, None])[:3]) if po else None; nvc = nv(*(pc or [None, None])[:3]) if pc else None
         best = {}
@@ -92,14 +100,14 @@ def build():
             for i, s in ((0, 'home'), (1, 'away')):
                 if e[i] and (s not in best or e[i] > best[s][0]): best[s] = (e[i], bk)
         sp_o, sp_c = pin(ob, 'sp'), pin(cb, 'sp'); to_o, to_c = pin(ob, 'tot'), pin(cb, 'tot')
-        rows.append((gid, g['sport'], g['key'], g['start'], g['home'], g['away'], len(pre), ot, ct, round((st - dt.datetime.fromisoformat(ct.replace('Z', '+00:00'))).total_seconds() / 3600, 2),
+        rows.append((gid, g['sport'], g['key'], g['start'], g['home'], g['away'], g['n'], ot, ct, round((st - dt.datetime.fromisoformat(ct.replace('Z', '+00:00'))).total_seconds() / 3600, 2),
                      nvo[0] if nvo else None, nvc[0] if nvc else None, nvc[1] if nvc else None, nvc[2] if nvc and len(nvc) > 2 else None,
                      sp_o[0] if sp_o else None, sp_c[0] if sp_c else None, to_o[0] if to_o else None, to_c[0] if to_c else None,
                      *(best.get('home') or (None, None)), *(best.get('away') or (None, None))))
     conn.executemany("INSERT OR REPLACE INTO games VALUES (" + ','.join('?' * 22) + ")", rows)
     conn.execute("CREATE INDEX q_game ON quotes(game_id, t)"); conn.execute("CREATE INDEX g_sport ON games(sport, start)")
     conn.commit()
-    print(f"[odds_db] {n} snapshot rows, {len(rows)} games, by sport: {dict(collections.Counter(r[1] for r in rows))} in {time.time() - t0:.0f}s")
+    print(f"[odds_db] {n} snapshot rows, {len(rows)} games, by sport: {dict(collections.Counter(r[1] for r in rows))} in {time.time() - t0:.0f}s", flush=True)
     results(conn)
     conn.close()
 

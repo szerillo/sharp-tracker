@@ -21,7 +21,7 @@ def ts(s): return dt.datetime.fromisoformat(s.replace('Z', '+00:00'))
 
 def season_of(sport, d):
     y = d.year
-    if sport in ('nba', 'nhl', 'cbb'): return f"{y}-{str(y + 1)[2:]}" if d.month >= 8 else f"{y - 1}-{str(y)[2:]}"
+    if sport in ('nba', 'nhl', 'cbb', 'wncaab', 'euroleague'): return f"{y}-{str(y + 1)[2:]}" if d.month >= 8 else f"{y - 1}-{str(y)[2:]}"
     return str(y)
 
 
