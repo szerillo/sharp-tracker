@@ -113,9 +113,11 @@ def features(g, sport):
         F['tot_move'] = 'down 1.5+' if mv <= -1.5 else 'down 0.5-1' if mv < 0 else 'flat' if mv == 0 else 'up 0.5-1' if mv <= 1 else 'up 1.5+'
     for side in ('home', 'away'):
         P = g.get(side + '_p') or {}
-        if P.get('games', 0) >= 3:
+        if P.get('games', 0) >= 3 and P.get('win_pct') is not None:
             F[side + ' win%'] = band(P['win_pct'], [.35, .5, .65], ['<35', '35-49', '50-64', '65+'])
+        if P.get('games', 0) >= 3 and P.get('margin') is not None:
             F[side + ' margin'] = band(P['margin'], [-7, -2, 2, 7], ['-7 or worse', '-7 to -2', 'even', '+2 to +7', '+7 or better']) if sport in ('nfl', 'cfb', 'nba', 'cbb', 'wnba') else band(P['margin'], [-.75, -.2, .2, .75], ['-.75 or worse', '-.75 to -.2', 'even', '+.2 to +.75', '+.75 or better'])
+        if P.get('games', 0) >= 3:
             if P.get('ats_pct') is not None: F[side + ' ats%'] = band(P['ats_pct'], [.4, .6], ['<40', '40-59', '60+'])
             if P.get('over_pct') is not None: F[side + ' over%'] = band(P['over_pct'], [.4, .6], ['<40', '40-59', '60+'])
         if P.get('last_margin') is not None:

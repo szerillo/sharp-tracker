@@ -50,3 +50,19 @@ The earlier audit note that Bet Labs "grades at -110" was wrong.
 3. Our bulk pulls' "open" is a morning number. Any move-based result in `market_replay`, `nfl_replay` (B6) and the angle miner's
    `sp_move` / `tot_move` features measures same-day movement only. True opens need an earlier snapshot per game (one extra historical
    call per game day, ~10 credits each); worth doing for NBA, NFL and CFB before trusting any move angle.
+
+## Afternoon update: what the corrected database changed
+Fixes applied: market open = first snapshot where two or more books post the number (Pinnacle posts NBA/CBB totals ~6h after
+DraftKings/FanDuel); 06:00 and 12:00 UTC snapshots added for NBA, NHL, CBB, CFB, MLB 2020-26; team records from the complete ESPN
+regular-season schedule (preseason excluded, OT flagged); conference and neutral-site flags.
+- NHL opponent win% now equals Bet Labs' number on 351 of 425 of their picks (was 32 of 433). Our strong-opp filter fires on 405 games to
+  their 445, overlapping on 367.
+- NBA under: our "total down 0.5+" now agrees with Bet Labs on 341 of 396 picks (was 275). The remainder is Bet Labs' earlier opener.
+- Every NFL and cross-sport line-move result from the morning was an artifact of the late open. With real opens: following or fading
+  spread and total moves at the close is 50/50 or negative in every sport (NFL small total move follow: +0.1% over, +2.1% under, down from
+  +9.5% and +17%). The one survivor is the opening price: the side the market moves toward wins at its OPENING price (CFB large moves
+  +19.3%, 5 of 6 seasons; MLB medium +7.9%, 5 of 6; MMA large +19.7%), and in MMA only, a 6+ point move toward the favourite is still
+  +6.6% at the close. WNBA fading medium spread moves +8.7% (3 of 3, n=201) is the only "fade" that survives.
+- Angle miner on the corrected data: 58 pass (NBA 23, NHL 15, MLB 14, CFB 5, CBB 1, NFL 0, WNBA 0). The NBA ATS-hot home-team theme
+  (home ats% 60%+ with rest / margin / streak variants, 7 of 7 seasons on the rest version) and the big-favourite over theme survive;
+  the NHL "home team lost 3+ straight: over" theme survives (385-290); MLB road-team unders survive. The CBB over-streak angle dropped out.
