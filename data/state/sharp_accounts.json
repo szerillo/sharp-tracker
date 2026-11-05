@@ -1,144 +1,6 @@
 {
- "built": "2026-11-05T00:24:14Z",
+ "built": "2026-11-05T00:30:03Z",
  "rows": [
-  {
-   "cond": "0x4e14101792372d8c16dae3092acf0f825ca206475de2d1c76c7ded8c208f9762",
-   "slug": "nba-mil-bos-2026-11-04",
-   "title": "Bucks vs. Celtics",
-   "mtype": "spread",
-   "start": "2026-11-05T00:30:00Z",
-   "bet": "Bucks +11.5",
-   "side": "Bucks",
-   "flagged": "2026-11-04T17:41:09Z",
-   "why": "2 top-200 accounts",
-   "proven": false,
-   "trigger": "two",
-   "n_accounts": 2,
-   "best_rank": 112,
-   "usd": 14384,
-   "paid": 0.513,
-   "ask": 0.49,
-   "status": "live",
-   "link": "https://polymarket.us/event/nba-mil-bos-2026-11-04",
-   "other": null,
-   "kalshi_against": null,
-   "logged": true,
-   "event_id": "401909924",
-   "sport": "nba",
-   "league": null,
-   "away": "MIL",
-   "home": "BOS",
-   "away_name": "Milwaukee Bucks",
-   "home_name": "Boston Celtics",
-   "game_start": "2026-11-05T00:30Z",
-   "side_std": "away",
-   "conflict": [
-    "Kalshi bet back"
-   ],
-   "money_with": true,
-   "grade": "A",
-   "books": {
-    "at": "2026-11-04T22:22:36Z",
-    "fair": 0.5027,
-    "q": {
-     "Caesars": 0.5238,
-     "Kalshi": 0.53,
-     "DK": 0.5305,
-     "FD": 0.5349
-    }
-   }
-  },
-  {
-   "cond": "0x5e05533be232a3db1c0d0bd0d31e03e92f23d49c76cb3858f36c76137160a993",
-   "slug": "nba-cha-bkn-2026-11-04",
-   "title": "Hornets vs. Nets",
-   "mtype": "ml",
-   "start": "2026-11-05T00:30:00Z",
-   "bet": "Hornets ML",
-   "side": "Hornets",
-   "flagged": "2026-11-04T23:07:43Z",
-   "why": "a top-50 account",
-   "proven": false,
-   "trigger": "top50",
-   "n_accounts": 1,
-   "best_rank": 43,
-   "usd": 637,
-   "paid": 0.61,
-   "ask": 0.61,
-   "status": "live",
-   "link": "https://polymarket.us/event/nba-cha-bkn-2026-11-04",
-   "other": null,
-   "kalshi_against": null,
-   "logged": true,
-   "event_id": "401909925",
-   "sport": "nba",
-   "league": null,
-   "away": "CHA",
-   "home": "BKN",
-   "away_name": "Charlotte Hornets",
-   "home_name": "Brooklyn Nets",
-   "game_start": "2026-11-05T00:30Z",
-   "side_std": "away",
-   "money_with": false,
-   "grade": "watch",
-   "books": {
-    "at": "2026-11-04T22:22:36Z",
-    "fair": 0.6079,
-    "q": {
-     "Caesars": 0.6226,
-     "FD": 0.6241,
-     "DK": 0.6296,
-     "Kalshi": 0.63
-    }
-   }
-  },
-  {
-   "cond": "0x031332a6b026b42c5162372f72f233653cd4d1b70134089547358cea7ab792a6",
-   "slug": "nba-chi-nyk-2026-11-04",
-   "title": "Bulls vs. Knicks",
-   "mtype": "ml",
-   "start": "2026-11-05T00:30:00Z",
-   "bet": "Bulls ML",
-   "side": "Bulls",
-   "flagged": "2026-11-04T23:08:10Z",
-   "why": "a top-50 account",
-   "proven": false,
-   "trigger": "top50",
-   "n_accounts": 1,
-   "best_rank": 43,
-   "usd": 680,
-   "paid": 0.17,
-   "ask": 0.18,
-   "status": "live",
-   "link": "https://polymarket.us/event/nba-chi-nyk-2026-11-04",
-   "other": null,
-   "kalshi_against": null,
-   "logged": true,
-   "event_id": "401909926",
-   "sport": "nba",
-   "league": null,
-   "away": "CHI",
-   "home": "NY",
-   "away_name": "Chicago Bulls",
-   "home_name": "New York Knicks",
-   "game_start": "2026-11-05T00:30Z",
-   "side_std": "away",
-   "conflict": [
-    "Kalshi bet back"
-   ],
-   "money_with": false,
-   "grade": "watch",
-   "books": {
-    "at": "2026-11-04T22:22:36Z",
-    "fair": 0.1601,
-    "q": {
-     "Kalshi": 0.18,
-     "Caesars": 0.1818,
-     "DK": 0.1842,
-     "FD": 0.1852
-    }
-   }
-  },
   {
    "cond": "0x87c74536e0bdd3b79589f6d894a60bca4e0bbe8c201230754a6aff4b00a63fa6",
    "slug": "nhl-cal-sea-2026-11-04",
@@ -408,7 +270,7 @@
    "best_rank": 137,
    "usd": 3798,
    "paid": 0.48,
-   "ask": 0.46,
+   "ask": 0.44,
    "status": "live",
    "link": "https://polymarket.us/event/cfb-mia-nd-2026-11-07",
    "other": null,
@@ -655,14 +517,6 @@
   "clv_poly_same": -2.31
  },
  "sys_tags": {
-  "401892644:nhl_early_home_fav_qual": {
-   "with": {
-    "n": 1,
-    "best_rank": 115,
-    "usd": 35766
-   },
-   "against": null
-  },
   "401909930:nba_under_good_home_over": {
    "with": {
     "n": 1,
@@ -687,32 +541,12 @@
     "usd": 939
    }
   },
-  "401909924:nba_1h_under_hot_over": {
-   "with": {
-    "n": 1,
-    "best_rank": 132,
-    "usd": 1158
-   },
-   "against": null
-  },
   "401873037:bounce15_1h": {
    "with": null,
    "against": {
     "n": 1,
     "best_rank": 121,
     "usd": 116
-   }
-  },
-  "401909924:nba_momentum:spread": {
-   "with": {
-    "n": 1,
-    "best_rank": 112,
-    "usd": 5741
-   },
-   "against": {
-    "n": 2,
-    "best_rank": 112,
-    "usd": 14384
    }
   },
   "401909928:nba_momentum:ml": {
@@ -770,65 +604,6 @@
     "n": 1,
     "best_rank": 115,
     "usd": 5008
-   }
-  },
-  "401909924|ml": {
-   "away": {
-    "n": 4,
-    "best_rank": 55,
-    "usd": 16106
-   },
-   "home": {
-    "n": 5,
-    "best_rank": 4,
-    "usd": 4063
-   }
-  },
-  "401909924|total": {
-   "under": {
-    "n": 1,
-    "best_rank": 132,
-    "usd": 1158
-   }
-  },
-  "401909924|spread": {
-   "away": {
-    "n": 2,
-    "best_rank": 112,
-    "usd": 14384
-   },
-   "home": {
-    "n": 1,
-    "best_rank": 112,
-    "usd": 5741
-   }
-  },
-  "401909925|spread": {
-   "away": {
-    "n": 1,
-    "best_rank": 132,
-    "usd": 243
-   }
-  },
-  "401909925|total": {
-   "over": {
-    "n": 1,
-    "best_rank": 58,
-    "usd": 480
-   }
-  },
-  "401909925|ml": {
-   "away": {
-    "n": 1,
-    "best_rank": 43,
-    "usd": 637
-   }
-  },
-  "401909926|ml": {
-   "away": {
-    "n": 1,
-    "best_rank": 43,
-    "usd": 680
    }
   },
   "401909927|ml": {
@@ -923,13 +698,6 @@
     "n": 2,
     "best_rank": 31,
     "usd": 833
-   }
-  },
-  "401892644|ml": {
-   "home": {
-    "n": 1,
-    "best_rank": 115,
-    "usd": 35766
    }
   },
   "401892647|ml": {
