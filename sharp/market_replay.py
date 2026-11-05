@@ -16,7 +16,7 @@ import os, sys, json, sqlite3, collections, datetime as dt
 HERE = os.path.dirname(os.path.abspath(__file__)); ROOT = os.path.abspath(os.path.join(HERE, '..')); sys.path.insert(0, ROOT)
 from sharp.rule_replay import load, profiles, grade, season_of, DB, ET
 OUT = os.path.join(ROOT, 'data', 'research', 'market_replay.json')
-SPORTS = ['nba', 'nhl', 'cbb', 'cfb', 'nfl', 'mlb', 'wnba', 'wncaab', 'euroleague', 'cfl', 'milb', 'ncaa_baseball', 'kbo', 'npb']
+SPORTS = ['nba', 'nhl', 'cbb', 'cfb', 'nfl', 'mma', 'mlb', 'wnba', 'wncaab', 'euroleague', 'cfl', 'milb', 'ncaa_baseball', 'kbo', 'npb']
 CLOSE_H = 6
 
 
@@ -65,7 +65,7 @@ def main():
                 gr = grade(g, 'spread', 'home')
                 if gr: T[f'M2 home ATS by band | {"home fav" if fav_sp == "home" else "home dog" if fav_sp == "away" else "pick"} {band}'].append((g, gr))
             # totals
-            if g.get('tot_close') is not None:
+            if g.get('tot_close') is not None and sport != 'mma':      # MMA results are win/loss only
                 gr = grade(g, 'total', 'under')
                 if gr:
                     T['M3 UNDER by closing total | all'].append((g, gr))
@@ -95,6 +95,18 @@ def main():
                 gfv = grade(g, 'ml', fav)
                 if gfv and pf >= .85: T['M10 ML favourite 85%+'].append((g, gfv))
                 if gd and pf >= .85: T['M10b ML dog vs 85%+ favourite'].append((g, gd))
+                # M11 moneyline move open -> close (no-vig points): follow the side the market moved toward / fade it
+                if g.get('p_open') is not None:
+                    mv = 100 * (g['p_close'] - g['p_open'])
+                    if abs(mv) >= 1:
+                        toward = 'home' if mv > 0 else 'away'; size = 'small 1-3' if abs(mv) < 3 else 'medium 3-6' if abs(mv) < 6 else 'large 6+'
+                        gt = grade(g, 'ml', toward); gf2 = grade(g, 'ml', 'away' if toward == 'home' else 'home')
+                        if gt: T[f'M11 ML move, FOLLOW at the close | {size}'].append((g, gt))
+                        if gf2: T[f'M11b ML move, FADE at the close | {size}'].append((g, gf2))
+                        # and at the OPEN price (what the mover got): bet the side the market will move toward, at its opening price
+                        if gt and g.get('ml_home_open') and g.get('ml_away_open'):
+                            od = g['ml_home_open'] if toward == 'home' else g['ml_away_open']
+                            T[f'M11c side the market moved toward, at its OPENING price | {size}'].append((g, (gt[0], od, None, gt[3], gt[4])))
             # rest
             for side in ('home', 'away'):
                 last = g.get(f'{side}_last')
@@ -115,8 +127,9 @@ def main():
                     d = ln - g['sp_close']            # home number at the book minus Pinnacle's: positive = home side gets more points at the book
                     if abs(d) >= 0.5:
                         side = 'home' if d > 0 else 'away'
+                        dec = h if side == 'home' else a          # the book's own price on that number (an alternate puck line is heavily juiced)
                         gr = grade(g, 'spread', side, line=(ln if side == 'home' else -ln))
-                        if gr: T[f'M8 US book gives 0.5+ more than Pinnacle: take it | {book}'].append((g, (gr[0], 1.91, None, gr[3], gr[4])))
+                        if gr and dec: T[f'M8 US book gives 0.5+ more than Pinnacle: take it at its price | {book}'].append((g, (gr[0], dec, None, gr[3], gr[4])))
         # fold
         S = {}
         for name, hits in T.items():

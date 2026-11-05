@@ -5,7 +5,7 @@ import os, sys, json, time, urllib.request, datetime as dt
 HERE = os.path.dirname(os.path.abspath(__file__)); ROOT = os.path.abspath(os.path.join(HERE, '..'))
 OUT = os.path.join(ROOT, 'data', 'state', 'hist_schedule.json')
 PATHS = {'nfl': 'football/nfl', 'nba': 'basketball/nba', 'nhl': 'hockey/nhl', 'cfb': 'football/college-football', 'mlb': 'baseball/mlb',
-         'cbb': 'basketball/mens-college-basketball', 'mma': 'mma/ufc', 'epl': 'soccer/eng.1', 'laliga': 'soccer/esp.1', 'bundesliga': 'soccer/ger.1', 'seriea': 'soccer/ita.1', 'ligue1': 'soccer/fra.1', 'mls': 'soccer/usa.1', 'ucl': 'soccer/uefa.champions', 'ligamx': 'soccer/mex.1'}
+         'cbb': 'basketball/mens-college-basketball', 'mma': 'mma/ufc', 'epl': 'soccer/eng.1', 'laliga': 'soccer/esp.1', 'bundesliga': 'soccer/ger.1', 'seriea': 'soccer/ita.1', 'ligue1': 'soccer/fra.1', 'mls': 'soccer/usa.1', 'ucl': 'soccer/uefa.champions', 'ligamx': 'soccer/mex.1', 'wnba': 'basketball/wnba', 'wncaab': 'basketball/womens-college-basketball'}
 
 
 def g(u, tries=4):
@@ -22,7 +22,7 @@ def main(d0, d1, only=None):
         out.setdefault(sp, {}); day = d0
         while day <= d1:
             end = day
-            x = g(f"https://site.api.espn.com/apis/site/v2/sports/{path}/scoreboard?dates={day:%Y%m%d}" + ('&groups=80&limit=400' if sp == 'cfb' else '&groups=50&limit=500' if sp == 'cbb' else ''))
+            x = g(f"https://site.api.espn.com/apis/site/v2/sports/{path}/scoreboard?dates={day:%Y%m%d}" + ('&groups=80&limit=400' if sp == 'cfb' else '&groups=50&limit=500' if sp in ('cbb', 'wncaab') else ''))
             for ev in x.get('events', []):
                 if sp == 'mma':          # a card: one event, many fights (competitions); each fight is its own row keyed by the fight id
                     for c in ev.get('competitions', []):

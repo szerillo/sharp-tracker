@@ -50,6 +50,17 @@ def nv(a, b, c=None):
     return [x / s for x in q]
 
 
+def flip(B):
+    out = {}
+    for bk, e in B.items():
+        f = {}
+        if e.get('h2h'): h = e['h2h']; f['h2h'] = [h[1], h[0]] + h[2:]
+        if e.get('sp'): sp = e['sp']; f['sp'] = [-sp[0] if sp[0] is not None else None, sp[2], sp[1]]
+        if e.get('tot'): f['tot'] = e['tot']
+        out[bk] = f
+    return out
+
+
 def build():
     """Streaming: one pass over the compact files, quotes inserted as they come (unique on game, time, book), and per game only the first and
     last pre-start snapshot kept in memory (the 11/5 full backfill is ~2 GB of snapshots; the old all-in-memory build was OOM-killed)."""
@@ -75,6 +86,11 @@ def build():
         n += 1
         g = G.get(r['id'])
         if g is None: g = G[r['id']] = dict(sport=r['sport'], key=r.get('key'), start=r['start'], home=r['home'], away=r['away'], n=0, ot=None, ob=None, ct=None, cb=None)
+        elif r['home'] != g['home']:
+            # the Odds API sometimes swaps home/away between snapshots of the same event (MMA, Amosov-Magny 12/2025): orient every snapshot to
+            # the first one seen so the quotes and the games row agree
+            if r['home'] == g['away']: r['books'] = flip(r['books'])
+            else: continue
         if t < g['start']:
             g['n'] += 1
             if g['ot'] is None or t < g['ot']: g['ot'], g['ob'] = t, keep(r['books'])
@@ -112,13 +128,20 @@ def build():
     conn.close()
 
 
+SOCCER_KEYS = {'soccer_epl': 'epl', 'soccer_spain_la_liga': 'laliga', 'soccer_germany_bundesliga': 'bundesliga', 'soccer_italy_serie_a': 'seriea', 'soccer_france_ligue_one': 'ligue1',
+               'soccer_usa_mls': 'mls', 'soccer_uefa_champs_league': 'ucl', 'soccer_mexico_ligamx': 'ligamx'}
+
+
 def results(conn):
-    """Team sports from data/state/hist_schedule.json (ESPN), matched by date and team names (data/state/espn_teams.json)."""
+    """Team sports from data/state/hist_schedule.json (ESPN), matched by date and team names (data/state/espn_teams.json); soccer leagues by
+    Odds API key; MMA by the two fighters' names (hist_schedule has one row per fight)."""
     import sharp.oddsapi_edge as E
     H = json.load(open(os.path.join(ROOT, 'data', 'state', 'hist_schedule.json')))
     teams = json.load(open(os.path.join(ROOT, 'data', 'state', 'espn_teams.json'))) if os.path.exists(os.path.join(ROOT, 'data', 'state', 'espn_teams.json')) else {}
     out = []
-    for sport in ('nba', 'nhl', 'nfl', 'cfb', 'cbb', 'mlb', 'wnba'):
+    jobs = [(sp, sp, "SELECT game_id, home, away, start FROM games WHERE sport=?", (sp,)) for sp in ('nba', 'nhl', 'nfl', 'cfb', 'cbb', 'mlb', 'wnba', 'wncaab')]
+    jobs += [(hk, hk, "SELECT game_id, home, away, start FROM games WHERE key=?", (ok,)) for ok, hk in SOCCER_KEYS.items()]
+    for sport, hkey, sql, arg in jobs:
         T = teams.get(sport, {}); alt = {}
         for ab, t in T.items():
             for k in (t.get('name'), (t.get('loc') or '') + ' ' + (t.get('nick') or ''), t.get('short')):
@@ -131,19 +154,38 @@ def results(conn):
                 if len(k) >= 6 and (k in n or n in k) and (best is None or len(k) > len(best[0])): best = (k, v)
             return best[1] if best else None
         idx = collections.defaultdict(list)
-        for h in (H.get(sport) or {}).values():
+        for h in (H.get(hkey) or {}).values():
             if h.get('hs') is None: continue
             idx[(h['home'], h['away'])].append(h)
-        for gid, home, away, start in conn.execute("SELECT game_id, home, away, start FROM games WHERE sport=?", (sport,)):
+        k0 = len(out)
+        for gid, home, away, start in conn.execute(sql, arg):
             ha, aa = ab(home), ab(away)
             if not ha or not aa: continue
             st = dt.datetime.fromisoformat(start.replace('Z', '+00:00'))
             for h in idx.get((ha, aa), []):
                 if abs((dt.datetime.fromisoformat(h['start'].replace('Z', '+00:00')) - st).total_seconds()) < 6 * 3600:
                     out.append((gid, h['hs'], h['as_'], 'home' if h['hs'] > h['as_'] else 'away' if h['as_'] > h['hs'] else 'draw', 'espn')); break
+        print(f"[odds_db] results {hkey}: {len(out) - k0}", flush=True)
+    # MMA: fighter names, fight within 2 days
+    idx = collections.defaultdict(list)
+    for h in (H.get('mma') or {}).values():
+        if not h.get('winner') or not h.get('p1') or not h.get('p2'): continue
+        idx[frozenset((E.norm(h['p1']), E.norm(h['p2'])))].append(h)
+    k0 = len(out)
+    for gid, home, away, start in conn.execute("SELECT game_id, home, away, start FROM games WHERE sport='mma'"):
+        st = dt.datetime.fromisoformat(start.replace('Z', '+00:00'))
+        for h in idx.get(frozenset((E.norm(home), E.norm(away))), []):
+            if abs((dt.datetime.fromisoformat(h['start'].replace('Z', '+00:00')) - st).total_seconds()) < 48 * 3600:
+                w = E.norm(h['winner']); nh, na = E.norm(home), E.norm(away)
+                side = 'home' if w == nh else 'away' if w == na else ('home' if (w in nh or nh in w) and not (w in na or na in w) else 'away' if (w in na or na in w) else None)
+                if side: out.append((gid, 1.0 if side == 'home' else 0.0, 1.0 if side == 'away' else 0.0, side, 'espn'))
+                break
+    print(f"[odds_db] results mma: {len(out) - k0}", flush=True)
     conn.executemany("INSERT OR REPLACE INTO results VALUES (?,?,?,?,?)", out); conn.commit()
     print(f"[odds_db] results joined: {len(out)}")
 
 
 if __name__ == '__main__':
-    build()
+    if '--results' in sys.argv:
+        c = sqlite3.connect(DB); results(c); c.close()
+    else: build()
