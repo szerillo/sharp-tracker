@@ -35,9 +35,9 @@ def index():
             if g.get('hs') is None: continue
             if g.get('tot_close') is not None: rt.append(g['hs'] + g['as_'] - g['tot_close'])
             if g.get('sp_close') is not None: m = g['hs'] - g['as_'] + g['sp_close']; rs += [m, -m]
-        RES[sp] = (sorted(rt), sorted(rs))
             g['_h'] = nz(g['home']); g['_a'] = nz(g['away'])
             for d in (-1, 0, 1): I[(sp, (g['start'] + dt.timedelta(days=d)).date())].append(g)
+        RES[sp] = (sorted(rt), sorted(rs))
     return I
 
 
@@ -175,12 +175,16 @@ def main():
         wins = sum(1 for f in R if f['roi'] > 0)
         return dict(label=label, n=len(R), accounts=len({f['w'] for f in R}), roi=round(roi, 1), clv_pin=round(clv, 2), win_rate=round(wins / len(R) * 100, 1),
                      clv_poly=round(sum(f['clv_poly'] for f in R if f['clv_poly'] is not None) / max(1, sum(1 for f in R if f['clv_poly'] is not None)), 2))
+    by_roi = sorted(sc, key=lambda w: -sc[w]['roi_m']); top_roi = set(by_roi[:200])
+    W_tot = {w: x for w, x in W.items() if x['n'] >= 30 and len(x['games']) >= 15}       # totals-inclusive pool, no Polymarket-close requirement
     oos = [follow(by_pin[:200], 'top 200 by Pinnacle CLV'), follow(by_poly[:200], 'top 200 by Polymarket CLV'), follow(top_pin & top_poly, 'in both top 200s'),
+           follow(by_roi[:200], 'top 200 by past ROI at fill (Sean 11/5: ROI decides)'), follow(top_roi & top_poly, 'in ROI top 200 and Polymarket-CLV top 200'),
+           follow(top_roi - top_poly, 'ROI top 200 only'), follow(by_roi[:50], 'top 50 by past ROI'),
            follow(top_pin - top_poly, 'Pinnacle top 200 only'), follow(top_poly - top_pin, 'Polymarket top 200 only'), follow(by_pin[:50], 'top 50 by Pinnacle CLV'),
            follow(by_poly[:50], 'top 50 by Polymarket CLV'), follow(sc, 'every qualified account (baseline)'), follow(by_pin[-200:], 'bottom 200 by Pinnacle CLV (fade?)')]
     # (3) combinations on the held-out fills of the Polymarket top 200 (the live list's method) and of the Pinnacle top 200
     combos = {}
-    for name, S in (('poly_top200', top_poly), ('pin_top200', top_pin)):
+    for name, S in (('poly_top200', top_poly), ('pin_top200', top_pin), ('roi_top200', top_roi)):
         R = [f for f in F if f['w'] in S]; C = {}
         C['with the Pinnacle move'] = follow(S, 'with', [f for f in R if f['mv'] is not None and f['mv'] > 0])
         C['against the Pinnacle move'] = follow(S, 'against', [f for f in R if f['mv'] is not None and f['mv'] < 0])
@@ -194,6 +198,10 @@ def main():
         for mk in ('ml', 'spread', 'total'): C[f'market {mk}'] = follow(S, mk, [f for f in R if f['mkt'] == mk])
         for kd in ('exact', 'shifted'): C[f'priced at Pinnacle number: {kd}'] = follow(S, kd, [f for f in R if f['kind'] == kd])
         for spt in sorted({f['sport'] for f in R}): C[f'sport {spt}'] = follow(S, spt, [f for f in R if f['sport'] == spt])
+        for spt in ('nba', 'nfl', 'cfb', 'nhl'):
+            C[f'{spt} totals'] = follow(S, spt, [f for f in R if f['sport'] == spt and f['mkt'] == 'total']); C[f'{spt} sides (ml+spread)'] = follow(S, spt, [f for f in R if f['sport'] == spt and f['mkt'] != 'total'])
+            C[f'{spt} sides WITH the Pinnacle move'] = follow(S, spt, [f for f in R if f['sport'] == spt and f['mkt'] != 'total' and f['mv'] is not None and f['mv'] > 0])
+            C[f'{spt} sides AGAINST the move'] = follow(S, spt, [f for f in R if f['sport'] == spt and f['mkt'] != 'total' and f['mv'] is not None and f['mv'] < 0])
         C['inside the last hour'] = follow(S, 'late', [f for f in R if f['t_to'] <= 3600]); C['earlier than 6h out'] = follow(S, 'early', [f for f in R if f['t_to'] > 6 * 3600])
         combos[name] = C
     res = dict(asof=dt.datetime.utcnow().isoformat() + 'Z', markets=dict(stats), cut=dt.datetime.utcfromtimestamp(cut).isoformat() + 'Z', agreement=agree, out_of_sample=oos,

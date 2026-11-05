@@ -655,6 +655,8 @@ function renderToday() {
     if (r.fam.money) parts.push('big money');
     for (const x of r.rest) if (x.kind !== 'big' && x.kind !== 'acct') parts.push(({move: 'sharp move', kmove: 'Kalshi move', back: 'bet back'})[x.kind] + (x.kind === 'kmove' && x.state ? ` (${({fresh: 'fresh', held: 'held', reversed: 'gave back', drift: 'drift'})[x.state]})` : ''));
     if (r.acct && r.acct.against) parts.push(`<span class="tag-against">${r.acct.against.n} sharp account${r.acct.against.n === 1 ? '' : 's'} against</span>`);
+    if (r.fl && r.fl.inside_fair === true) parts.push('<span class="badge b-prior" title="The sharps paid less than Pinnacle-based fair for this side: the stronger kind of flag (held out: +9.3% vs +3.8%)">priced inside fair</span>');
+    else if (r.fl && r.fl.inside_fair === false) parts.push('<span class="dim" title="The sharps paid more than the Pinnacle-based fair for this side (held out: +3.8%, negative CLV)">priced above fair</span>');
     const x = r.mixed ? null : (r.fl || r.rest.find(y => (y.kind === 'kmove' || y.kind === 'back') && y.p != null));
     const lv = r.mixed ? null : (r.rest.find(y => y.kind === 'kmove' || y.kind === 'back') ? 'Kalshi' : 'AN');
     const link = r.mixed ? '' : (lv === 'Kalshi' ? betLink('Kalshi', g.ev, r.rest[0].market) : r.fl && r.fl.link ? `<a class="betbtn" target="_blank" rel="noopener" onclick="event.stopPropagation()" href="${r.fl.link}">Bet at Polymarket ↗</a>` : betLink('FD', g.ev, r.rest[0].market, 'Game page'));

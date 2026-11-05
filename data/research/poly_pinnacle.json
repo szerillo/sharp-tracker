@@ -1,16 +1,18 @@
 {
- "asof": "2026-11-05T20:22:20.225534Z",
+ "asof": "2026-11-05T21:43:20.075300Z",
  "markets": {
-  "scored ml": 8266,
+  "scored ml ": 8266,
   "unmatched nfl": 493,
   "unmatched mlb": 2073,
-  "no pinnacle price total": 7979,
+  "no pinnacle price total": 2248,
   "no pinnacle price ml": 284,
   "unmatched nhl": 502,
   "unmatched nba": 716,
-  "no pinnacle price spread": 6887,
-  "scored total": 1435,
-  "scored spread": 1189,
+  "scored spread shifted": 3781,
+  "no pinnacle price spread": 3106,
+  "scored total exact": 1435,
+  "scored total shifted": 5731,
+  "scored spread exact": 1189,
   "unmatched cfb": 998,
   "unmatched wnba": 1783,
   "unmatched cbb": 576,
@@ -22,458 +24,1193 @@
  },
  "cut": "2026-06-11T00:30:00Z",
  "agreement": {
-  "accounts_scored": 2680,
-  "spearman": 0.751,
-  "top200_overlap": 129,
-  "mean_pin_clv_all": -0.41,
-  "mean_poly_clv_all": -0.38
+  "accounts_scored": 3257,
+  "spearman": 0.693,
+  "top200_overlap": 106,
+  "mean_pin_clv_all": -0.42,
+  "mean_poly_clv_all": -0.4
  },
  "out_of_sample": [
   {
    "label": "top 200 by Pinnacle CLV",
-   "n": 2314,
-   "accounts": 39,
-   "roi": 4.3,
-   "clv_pin": 0.3,
-   "win_rate": 52.4,
-   "clv_poly": 0.59
+   "n": 7337,
+   "accounts": 44,
+   "roi": 4.7,
+   "clv_pin": 0.29,
+   "win_rate": 52.7,
+   "clv_poly": 0.53
   },
   {
    "label": "top 200 by Polymarket CLV",
-   "n": 2523,
-   "accounts": 48,
-   "roi": 6.6,
-   "clv_pin": 0.36,
-   "win_rate": 53.1,
-   "clv_poly": 0.74
+   "n": 6552,
+   "accounts": 55,
+   "roi": 6.8,
+   "clv_pin": 0.35,
+   "win_rate": 53.8,
+   "clv_poly": 0.72
   },
   {
    "label": "in both top 200s",
-   "n": 2117,
-   "accounts": 28,
-   "roi": 6.8,
-   "clv_pin": 0.38,
-   "win_rate": 53.4,
-   "clv_poly": 0.78
+   "n": 5718,
+   "accounts": 26,
+   "roi": 7.6,
+   "clv_pin": 0.36,
+   "win_rate": 54.1,
+   "clv_poly": 0.73
+  },
+  {
+   "label": "top 200 by past ROI at fill (Sean 11/5: ROI decides)",
+   "n": 347,
+   "accounts": 32,
+   "roi": -15.2,
+   "clv_pin": -0.04,
+   "win_rate": 41.8,
+   "clv_poly": -0.29
+  },
+  {
+   "label": "in ROI top 200 and Polymarket-CLV top 200",
+   "n": 15,
+   "accounts": 3,
+   "roi": -15.0,
+   "clv_pin": 2.39,
+   "win_rate": 33.3,
+   "clv_poly": -2.62
+  },
+  {
+   "label": "ROI top 200 only",
+   "n": 332,
+   "accounts": 29,
+   "roi": -15.2,
+   "clv_pin": -0.15,
+   "win_rate": 42.2,
+   "clv_poly": -0.19
+  },
+  {
+   "label": "top 50 by past ROI",
+   "n": 85,
+   "accounts": 7,
+   "roi": -22.7,
+   "clv_pin": 0.62,
+   "win_rate": 36.5,
+   "clv_poly": -0.8
   },
   {
    "label": "Pinnacle top 200 only",
-   "n": 197,
-   "accounts": 11,
-   "roi": -23.2,
-   "clv_pin": -0.5,
-   "win_rate": 41.6,
-   "clv_poly": -1.46
+   "n": 1619,
+   "accounts": 18,
+   "roi": -5.8,
+   "clv_pin": 0.06,
+   "win_rate": 48.0,
+   "clv_poly": -0.17
   },
   {
    "label": "Polymarket top 200 only",
-   "n": 406,
-   "accounts": 20,
-   "roi": 5.0,
+   "n": 834,
+   "accounts": 29,
+   "roi": 1.2,
    "clv_pin": 0.27,
-   "win_rate": 51.2,
-   "clv_poly": 0.54
+   "win_rate": 51.8,
+   "clv_poly": 0.64
   },
   {
    "label": "top 50 by Pinnacle CLV",
    "n": 258,
-   "accounts": 16,
-   "roi": -6.7,
+   "accounts": 14,
+   "roi": -3.8,
    "clv_pin": 0.41,
-   "win_rate": 48.4,
-   "clv_poly": 0.45
+   "win_rate": 49.2,
+   "clv_poly": 0.69
   },
   {
    "label": "top 50 by Polymarket CLV",
-   "n": 203,
-   "accounts": 17,
-   "roi": -9.7,
-   "clv_pin": 0.83,
-   "win_rate": 46.3,
-   "clv_poly": 0.65
+   "n": 180,
+   "accounts": 18,
+   "roi": 4.2,
+   "clv_pin": 0.77,
+   "win_rate": 51.7,
+   "clv_poly": 0.87
   },
   {
    "label": "every qualified account (baseline)",
-   "n": 25365,
-   "accounts": 543,
-   "roi": -4.7,
-   "clv_pin": -0.01,
-   "win_rate": 47.7,
-   "clv_poly": 0.03
+   "n": 54334,
+   "accounts": 732,
+   "roi": -2.4,
+   "clv_pin": -0.08,
+   "win_rate": 49.1,
+   "clv_poly": 0.05
   },
   {
    "label": "bottom 200 by Pinnacle CLV (fade?)",
-   "n": 185,
+   "n": 212,
    "accounts": 27,
-   "roi": -13.7,
-   "clv_pin": -1.04,
-   "win_rate": 54.6,
-   "clv_poly": -0.43
+   "roi": -13.0,
+   "clv_pin": -0.96,
+   "win_rate": 52.8,
+   "clv_poly": -0.25
   }
  ],
  "combinations": {
   "poly_top200": {
    "with the Pinnacle move": {
     "label": "with",
-    "n": 760,
-    "accounts": 41,
-    "roi": 5.5,
-    "clv_pin": 1.34,
-    "win_rate": 51.8,
-    "clv_poly": 1.02
+    "n": 2297,
+    "accounts": 48,
+    "roi": 8.3,
+    "clv_pin": 1.11,
+    "win_rate": 54.3,
+    "clv_poly": 1.05
    },
    "against the Pinnacle move": {
     "label": "against",
-    "n": 669,
-    "accounts": 37,
-    "roi": -8.4,
-    "clv_pin": -0.56,
-    "win_rate": 48.4,
-    "clv_poly": -0.19
+    "n": 1947,
+    "accounts": 44,
+    "roi": -0.3,
+    "clv_pin": -0.39,
+    "win_rate": 51.3,
+    "clv_poly": 0.16
    },
    "no move": {
     "label": "flat",
-    "n": 1094,
-    "accounts": 38,
-    "roi": 16.4,
-    "clv_pin": 0.24,
-    "win_rate": 56.8,
-    "clv_poly": 1.12
+    "n": 2308,
+    "accounts": 42,
+    "roi": 11.3,
+    "clv_pin": 0.21,
+    "win_rate": 55.3,
+    "clv_poly": 0.87
    },
    "fill already inside Pinnacle fair (price < fair)": {
     "label": "inside",
-    "n": 1371,
-    "accounts": 41,
-    "roi": 7.1,
-    "clv_pin": 2.14,
-    "win_rate": 49.5,
-    "clv_poly": 2.0
+    "n": 3563,
+    "accounts": 46,
+    "roi": 9.3,
+    "clv_pin": 2.29,
+    "win_rate": 52.8,
+    "clv_poly": 1.66
    },
    "fill outside Pinnacle fair (price >= fair)": {
     "label": "outside",
-    "n": 1152,
-    "accounts": 45,
-    "roi": 5.9,
-    "clv_pin": -1.75,
-    "win_rate": 57.4,
-    "clv_poly": -0.77
+    "n": 2989,
+    "accounts": 51,
+    "roi": 3.8,
+    "clv_pin": -1.98,
+    "win_rate": 55.0,
+    "clv_poly": -0.39
    },
    "favourite side (fair >= 50%)": {
     "label": "fav",
-    "n": 1428,
-    "accounts": 42,
-    "roi": 5.0,
-    "clv_pin": 0.32,
-    "win_rate": 60.6,
-    "clv_poly": 0.59
+    "n": 3766,
+    "accounts": 49,
+    "roi": 7.4,
+    "clv_pin": 0.81,
+    "win_rate": 58.8,
+    "clv_poly": 0.91
    },
    "dog side": {
     "label": "dog",
-    "n": 1095,
-    "accounts": 40,
-    "roi": 8.5,
-    "clv_pin": 0.41,
-    "win_rate": 43.3,
-    "clv_poly": 0.93
+    "n": 2786,
+    "accounts": 46,
+    "roi": 6.0,
+    "clv_pin": -0.28,
+    "win_rate": 46.9,
+    "clv_poly": 0.47
    },
    "inside fair AND with the move": {
     "label": "both",
-    "n": 519,
-    "accounts": 34,
-    "roi": 5.7,
-    "clv_pin": 2.49,
-    "win_rate": 49.5,
-    "clv_poly": 1.88
+    "n": 1532,
+    "accounts": 36,
+    "roi": 10.2,
+    "clv_pin": 2.46,
+    "win_rate": 53.5,
+    "clv_poly": 1.72
    },
    "outside fair AND against the move": {
     "label": "neither",
-    "n": 408,
-    "accounts": 33,
-    "roi": -8.0,
-    "clv_pin": -2.01,
-    "win_rate": 52.5,
-    "clv_poly": -1.24
+    "n": 1115,
+    "accounts": 39,
+    "roi": -3.5,
+    "clv_pin": -2.09,
+    "win_rate": 51.7,
+    "clv_poly": -0.85
    },
    "market ml": {
     "label": "ml",
-    "n": 1460,
-    "accounts": 42,
-    "roi": 5.9,
-    "clv_pin": 0.47,
-    "win_rate": 52.4,
-    "clv_poly": 0.89
+    "n": 1341,
+    "accounts": 41,
+    "roi": 7.1,
+    "clv_pin": 0.43,
+    "win_rate": 53.4,
+    "clv_poly": 0.86
    },
    "market spread": {
     "label": "spread",
-    "n": 596,
-    "accounts": 25,
-    "roi": -0.5,
-    "clv_pin": 0.41,
-    "win_rate": 49.8,
-    "clv_poly": 0.63
+    "n": 2522,
+    "accounts": 34,
+    "roi": 6.4,
+    "clv_pin": 0.37,
+    "win_rate": 54.0,
+    "clv_poly": 0.6
    },
    "market total": {
     "label": "total",
-    "n": 467,
-    "accounts": 15,
-    "roi": 17.6,
-    "clv_pin": -0.05,
-    "win_rate": 59.3,
-    "clv_poly": 0.41
+    "n": 2689,
+    "accounts": 30,
+    "roi": 7.0,
+    "clv_pin": 0.28,
+    "win_rate": 53.8,
+    "clv_poly": 0.76
+   },
+   "priced at Pinnacle number: exact": {
+    "label": "exact",
+    "n": 1119,
+    "accounts": 29,
+    "roi": 8.1,
+    "clv_pin": 0.17,
+    "win_rate": 54.3,
+    "clv_poly": 0.52
+   },
+   "priced at Pinnacle number: shifted": {
+    "label": "shifted",
+    "n": 4092,
+    "accounts": 37,
+    "roi": 6.4,
+    "clv_pin": 0.37,
+    "win_rate": 53.8,
+    "clv_poly": 0.73
    },
    "sport cfb": {
     "label": "cfb",
-    "n": 596,
+    "n": 1497,
     "accounts": 16,
-    "roi": 13.5,
-    "clv_pin": 0.53,
-    "win_rate": 51.7,
-    "clv_poly": 0.58
+    "roi": 13.1,
+    "clv_pin": 0.65,
+    "win_rate": 54.4,
+    "clv_poly": 0.95
    },
    "sport nba": {
     "label": "nba",
-    "n": 955,
-    "accounts": 27,
-    "roi": -2.0,
-    "clv_pin": 0.16,
-    "win_rate": 51.7,
-    "clv_poly": 0.35
+    "n": 3188,
+    "accounts": 36,
+    "roi": 4.7,
+    "clv_pin": 0.12,
+    "win_rate": 53.5,
+    "clv_poly": 0.47
    },
    "sport nfl": {
     "label": "nfl",
-    "n": 564,
-    "accounts": 24,
-    "roi": -0.4,
-    "clv_pin": 0.54,
-    "win_rate": 50.7,
-    "clv_poly": 0.6
+    "n": 1447,
+    "accounts": 28,
+    "roi": 1.2,
+    "clv_pin": 0.43,
+    "win_rate": 51.6,
+    "clv_poly": 0.64
    },
    "sport nhl": {
     "label": "nhl",
-    "n": 362,
-    "accounts": 15,
-    "roi": 19.1,
-    "clv_pin": 0.1,
-    "win_rate": 61.9,
-    "clv_poly": 0.35
+    "n": 368,
+    "accounts": 17,
+    "roi": 17.0,
+    "clv_pin": 0.64,
+    "win_rate": 61.7,
+    "clv_poly": 0.4
    },
    "sport ufc": {
     "label": "ufc",
+    "n": 52,
+    "accounts": 8,
+    "roi": 42.6,
+    "clv_pin": 1.21,
+    "win_rate": 63.5,
+    "clv_poly": 13.56
+   },
+   "nba totals": {
+    "label": "nba",
+    "n": 1330,
+    "accounts": 20,
+    "roi": 4.6,
+    "clv_pin": 0.13,
+    "win_rate": 52.6,
+    "clv_poly": 0.58
+   },
+   "nba sides (ml+spread)": {
+    "label": "nba",
+    "n": 1858,
+    "accounts": 32,
+    "roi": 4.7,
+    "clv_pin": 0.1,
+    "win_rate": 54.1,
+    "clv_poly": 0.39
+   },
+   "nba sides WITH the Pinnacle move": {
+    "label": "nba",
+    "n": 562,
+    "accounts": 25,
+    "roi": 5.7,
+    "clv_pin": 1.29,
+    "win_rate": 51.4,
+    "clv_poly": 1.13
+   },
+   "nba sides AGAINST the move": {
+    "label": "nba",
+    "n": 442,
+    "accounts": 22,
+    "roi": 12.8,
+    "clv_pin": -1.01,
+    "win_rate": 60.2,
+    "clv_poly": -0.53
+   },
+   "nfl totals": {
+    "label": "nfl",
+    "n": 558,
+    "accounts": 16,
+    "roi": -1.6,
+    "clv_pin": 0.26,
+    "win_rate": 49.3,
+    "clv_poly": 0.43
+   },
+   "nfl sides (ml+spread)": {
+    "label": "nfl",
+    "n": 889,
+    "accounts": 28,
+    "roi": 2.9,
+    "clv_pin": 0.53,
+    "win_rate": 53.0,
+    "clv_poly": 0.76
+   },
+   "nfl sides WITH the Pinnacle move": {
+    "label": "nfl",
+    "n": 486,
+    "accounts": 25,
+    "roi": 10.2,
+    "clv_pin": 0.97,
+    "win_rate": 56.0,
+    "clv_poly": 1.02
+   },
+   "nfl sides AGAINST the move": {
+    "label": "nfl",
+    "n": 379,
+    "accounts": 20,
+    "roi": -6.5,
+    "clv_pin": -0.01,
+    "win_rate": 49.1,
+    "clv_poly": 0.44
+   },
+   "cfb totals": {
+    "label": "cfb",
+    "n": 621,
+    "accounts": 10,
+    "roi": 12.0,
+    "clv_pin": 0.58,
+    "win_rate": 55.9,
+    "clv_poly": 1.33
+   },
+   "cfb sides (ml+spread)": {
+    "label": "cfb",
+    "n": 876,
+    "accounts": 15,
+    "roi": 13.8,
+    "clv_pin": 0.71,
+    "win_rate": 53.3,
+    "clv_poly": 0.68
+   },
+   "cfb sides WITH the Pinnacle move": {
+    "label": "cfb",
+    "n": 257,
+    "accounts": 7,
+    "roi": -8.5,
+    "clv_pin": 1.0,
+    "win_rate": 46.7,
+    "clv_poly": 0.7
+   },
+   "cfb sides AGAINST the move": {
+    "label": "cfb",
+    "n": 237,
+    "accounts": 10,
+    "roi": -8.6,
+    "clv_pin": -0.14,
+    "win_rate": 46.8,
+    "clv_poly": 0.18
+   },
+   "nhl totals": {
+    "label": "nhl",
+    "n": 177,
+    "accounts": 6,
+    "roi": 33.4,
+    "clv_pin": 0.33,
+    "win_rate": 69.5,
+    "clv_poly": 0.38
+   },
+   "nhl sides (ml+spread)": {
+    "label": "nhl",
+    "n": 191,
+    "accounts": 14,
+    "roi": 1.8,
+    "clv_pin": 0.94,
+    "win_rate": 54.5,
+    "clv_poly": 0.42
+   },
+   "nhl sides WITH the Pinnacle move": {
+    "label": "nhl",
     "n": 46,
     "accounts": 7,
-    "roi": 80.4,
-    "clv_pin": 2.17,
-    "win_rate": 58.7,
-    "clv_poly": 15.65
+    "roi": 2.4,
+    "clv_pin": 1.45,
+    "win_rate": 54.3,
+    "clv_poly": 0.79
+   },
+   "nhl sides AGAINST the move": {
+    "label": "nhl",
+    "n": 31,
+    "accounts": 5,
+    "roi": 2.5,
+    "clv_pin": -1.26,
+    "win_rate": 51.6,
+    "clv_poly": 0.12
    },
    "inside the last hour": {
     "label": "late",
-    "n": 689,
-    "accounts": 28,
-    "roi": 5.8,
-    "clv_pin": 0.21,
-    "win_rate": 51.5,
-    "clv_poly": 0.24
+    "n": 1703,
+    "accounts": 33,
+    "roi": 7.1,
+    "clv_pin": -0.03,
+    "win_rate": 53.7,
+    "clv_poly": 0.29
    },
    "earlier than 6h out": {
     "label": "early",
-    "n": 1303,
-    "accounts": 42,
-    "roi": 1.2,
-    "clv_pin": 0.56,
-    "win_rate": 53.0,
-    "clv_poly": 0.67
+    "n": 3228,
+    "accounts": 46,
+    "roi": 5.3,
+    "clv_pin": 0.5,
+    "win_rate": 54.0,
+    "clv_poly": 0.82
    }
   },
   "pin_top200": {
    "with the Pinnacle move": {
     "label": "with",
-    "n": 718,
-    "accounts": 31,
-    "roi": 0.9,
-    "clv_pin": 1.24,
-    "win_rate": 50.0,
-    "clv_poly": 0.88
+    "n": 2625,
+    "accounts": 38,
+    "roi": 5.8,
+    "clv_pin": 1.07,
+    "win_rate": 53.4,
+    "clv_poly": 0.93
    },
    "against the Pinnacle move": {
     "label": "against",
-    "n": 592,
-    "accounts": 28,
-    "roi": -12.8,
-    "clv_pin": -0.44,
-    "win_rate": 47.3,
-    "clv_poly": -0.06
+    "n": 2171,
+    "accounts": 37,
+    "roi": -1.8,
+    "clv_pin": -0.46,
+    "win_rate": 50.1,
+    "clv_poly": 0.07
    },
    "no move": {
     "label": "flat",
-    "n": 1004,
-    "accounts": 33,
-    "roi": 16.8,
-    "clv_pin": 0.07,
-    "win_rate": 57.2,
-    "clv_poly": 0.75
+    "n": 2541,
+    "accounts": 34,
+    "roi": 9.1,
+    "clv_pin": 0.12,
+    "win_rate": 54.3,
+    "clv_poly": 0.51
    },
    "fill already inside Pinnacle fair (price < fair)": {
     "label": "inside",
-    "n": 1295,
-    "accounts": 34,
-    "roi": 3.5,
-    "clv_pin": 2.02,
-    "win_rate": 48.2,
-    "clv_poly": 1.59
+    "n": 3948,
+    "accounts": 37,
+    "roi": 5.9,
+    "clv_pin": 2.2,
+    "win_rate": 51.1,
+    "clv_poly": 1.44
    },
    "fill outside Pinnacle fair (price >= fair)": {
     "label": "outside",
-    "n": 1019,
-    "accounts": 35,
-    "roi": 5.3,
-    "clv_pin": -1.88,
-    "win_rate": 57.8,
-    "clv_poly": -0.7
+    "n": 3389,
+    "accounts": 41,
+    "roi": 3.3,
+    "clv_pin": -1.93,
+    "win_rate": 54.6,
+    "clv_poly": -0.52
    },
    "favourite side (fair >= 50%)": {
     "label": "fav",
-    "n": 1308,
-    "accounts": 34,
-    "roi": 3.4,
-    "clv_pin": 0.13,
-    "win_rate": 60.2,
-    "clv_poly": 0.23
+    "n": 4062,
+    "accounts": 38,
+    "roi": 5.8,
+    "clv_pin": 0.81,
+    "win_rate": 58.0,
+    "clv_poly": 0.79
    },
    "dog side": {
     "label": "dog",
-    "n": 1006,
-    "accounts": 33,
-    "roi": 5.4,
-    "clv_pin": 0.52,
-    "win_rate": 42.2,
-    "clv_poly": 1.03
+    "n": 3275,
+    "accounts": 39,
+    "roi": 3.2,
+    "clv_pin": -0.35,
+    "win_rate": 46.2,
+    "clv_poly": 0.21
    },
    "inside fair AND with the move": {
     "label": "both",
-    "n": 495,
-    "accounts": 26,
-    "roi": -0.2,
-    "clv_pin": 2.33,
-    "win_rate": 46.9,
-    "clv_poly": 1.66
+    "n": 1725,
+    "accounts": 31,
+    "roi": 7.3,
+    "clv_pin": 2.4,
+    "win_rate": 52.4,
+    "clv_poly": 1.59
    },
    "outside fair AND against the move": {
     "label": "neither",
-    "n": 345,
-    "accounts": 25,
-    "roi": -8.4,
-    "clv_pin": -1.95,
-    "win_rate": 52.2,
-    "clv_poly": -1.07
+    "n": 1255,
+    "accounts": 31,
+    "roi": -2.7,
+    "clv_pin": -2.05,
+    "win_rate": 51.5,
+    "clv_poly": -0.87
    },
    "market ml": {
     "label": "ml",
-    "n": 1318,
-    "accounts": 34,
-    "roi": 1.2,
-    "clv_pin": 0.34,
-    "win_rate": 50.9,
-    "clv_poly": 0.61
+    "n": 1517,
+    "accounts": 35,
+    "roi": 0.6,
+    "clv_pin": 0.48,
+    "win_rate": 50.7,
+    "clv_poly": 0.51
    },
    "market spread": {
     "label": "spread",
-    "n": 564,
-    "accounts": 20,
-    "roi": -0.6,
-    "clv_pin": 0.46,
-    "win_rate": 49.8,
-    "clv_poly": 0.63
+    "n": 2918,
+    "accounts": 31,
+    "roi": 2.9,
+    "clv_pin": 0.28,
+    "win_rate": 52.1,
+    "clv_poly": 0.46
    },
    "market total": {
     "label": "total",
-    "n": 432,
-    "accounts": 11,
-    "roi": 20.0,
-    "clv_pin": -0.02,
-    "win_rate": 60.4,
-    "clv_poly": 0.44
+    "n": 2902,
+    "accounts": 27,
+    "roi": 8.6,
+    "clv_pin": 0.2,
+    "win_rate": 54.5,
+    "clv_poly": 0.62
+   },
+   "priced at Pinnacle number: exact": {
+    "label": "exact",
+    "n": 1278,
+    "accounts": 24,
+    "roi": 7.7,
+    "clv_pin": 0.16,
+    "win_rate": 54.3,
+    "clv_poly": 0.41
+   },
+   "priced at Pinnacle number: shifted": {
+    "label": "shifted",
+    "n": 4542,
+    "accounts": 33,
+    "roi": 5.2,
+    "clv_pin": 0.27,
+    "win_rate": 53.0,
+    "clv_poly": 0.57
    },
    "sport cfb": {
     "label": "cfb",
-    "n": 572,
-    "accounts": 12,
-    "roi": 12.7,
-    "clv_pin": 0.57,
-    "win_rate": 51.2,
-    "clv_poly": 0.59
+    "n": 1758,
+    "accounts": 14,
+    "roi": 10.8,
+    "clv_pin": 0.54,
+    "win_rate": 54.0,
+    "clv_poly": 0.79
    },
    "sport nba": {
     "label": "nba",
-    "n": 867,
-    "accounts": 25,
-    "roi": -2.0,
-    "clv_pin": 0.13,
-    "win_rate": 51.7,
-    "clv_poly": 0.29
+    "n": 3330,
+    "accounts": 31,
+    "roi": 4.1,
+    "clv_pin": 0.03,
+    "win_rate": 53.0,
+    "clv_poly": 0.36
    },
    "sport nfl": {
     "label": "nfl",
-    "n": 532,
-    "accounts": 17,
-    "roi": -5.7,
-    "clv_pin": 0.47,
-    "win_rate": 48.5,
-    "clv_poly": 0.49
+    "n": 1745,
+    "accounts": 23,
+    "roi": -3.5,
+    "clv_pin": 0.44,
+    "win_rate": 48.9,
+    "clv_poly": 0.54
    },
    "sport nhl": {
     "label": "nhl",
-    "n": 271,
-    "accounts": 13,
-    "roi": 24.5,
-    "clv_pin": 0.18,
-    "win_rate": 64.9,
-    "clv_poly": 0.32
+    "n": 458,
+    "accounts": 14,
+    "roi": 15.1,
+    "clv_pin": 0.43,
+    "win_rate": 60.9,
+    "clv_poly": 0.29
    },
    "sport ufc": {
     "label": "ufc",
-    "n": 72,
+    "n": 46,
+    "accounts": 6,
+    "roi": 18.1,
+    "clv_pin": 2.29,
+    "win_rate": 47.8,
+    "clv_poly": 5.05
+   },
+   "nba totals": {
+    "label": "nba",
+    "n": 1454,
+    "accounts": 16,
+    "roi": 6.1,
+    "clv_pin": 0.1,
+    "win_rate": 53.3,
+    "clv_poly": 0.49
+   },
+   "nba sides (ml+spread)": {
+    "label": "nba",
+    "n": 1876,
+    "accounts": 28,
+    "roi": 2.5,
+    "clv_pin": -0.02,
+    "win_rate": 52.7,
+    "clv_poly": 0.26
+   },
+   "nba sides WITH the Pinnacle move": {
+    "label": "nba",
+    "n": 571,
+    "accounts": 20,
+    "roi": 2.9,
+    "clv_pin": 1.22,
+    "win_rate": 50.6,
+    "clv_poly": 1.02
+   },
+   "nba sides AGAINST the move": {
+    "label": "nba",
+    "n": 448,
+    "accounts": 19,
+    "roi": 6.3,
+    "clv_pin": -1.14,
+    "win_rate": 56.0,
+    "clv_poly": -0.59
+   },
+   "nfl totals": {
+    "label": "nfl",
+    "n": 618,
+    "accounts": 16,
+    "roi": 1.6,
+    "clv_pin": 0.13,
+    "win_rate": 50.8,
+    "clv_poly": 0.23
+   },
+   "nfl sides (ml+spread)": {
+    "label": "nfl",
+    "n": 1127,
+    "accounts": 23,
+    "roi": -6.3,
+    "clv_pin": 0.61,
+    "win_rate": 47.9,
+    "clv_poly": 0.71
+   },
+   "nfl sides WITH the Pinnacle move": {
+    "label": "nfl",
+    "n": 613,
+    "accounts": 20,
+    "roi": 1.2,
+    "clv_pin": 1.13,
+    "win_rate": 51.5,
+    "clv_poly": 1.07
+   },
+   "nfl sides AGAINST the move": {
+    "label": "nfl",
+    "n": 462,
+    "accounts": 20,
+    "roi": -13.7,
+    "clv_pin": -0.04,
+    "win_rate": 44.4,
+    "clv_poly": 0.3
+   },
+   "cfb totals": {
+    "label": "cfb",
+    "n": 634,
+    "accounts": 10,
+    "roi": 13.7,
+    "clv_pin": 0.49,
+    "win_rate": 56.6,
+    "clv_poly": 1.18
+   },
+   "cfb sides (ml+spread)": {
+    "label": "cfb",
+    "n": 1124,
+    "accounts": 13,
+    "roi": 9.2,
+    "clv_pin": 0.56,
+    "win_rate": 52.6,
+    "clv_poly": 0.58
+   },
+   "cfb sides WITH the Pinnacle move": {
+    "label": "cfb",
+    "n": 353,
+    "accounts": 10,
+    "roi": -5.4,
+    "clv_pin": 0.91,
+    "win_rate": 49.6,
+    "clv_poly": 0.71
+   },
+   "cfb sides AGAINST the move": {
+    "label": "cfb",
+    "n": 275,
+    "accounts": 9,
+    "roi": -5.1,
+    "clv_pin": -0.24,
+    "win_rate": 48.7,
+    "clv_poly": 0.05
+   },
+   "nhl totals": {
+    "label": "nhl",
+    "n": 193,
+    "accounts": 6,
+    "roi": 31.4,
+    "clv_pin": 0.22,
+    "win_rate": 67.9,
+    "clv_poly": 0.34
+   },
+   "nhl sides (ml+spread)": {
+    "label": "nhl",
+    "n": 265,
+    "accounts": 12,
+    "roi": 3.3,
+    "clv_pin": 0.58,
+    "win_rate": 55.8,
+    "clv_poly": 0.25
+   },
+   "nhl sides WITH the Pinnacle move": {
+    "label": "nhl",
+    "n": 64,
+    "accounts": 6,
+    "roi": 30.9,
+    "clv_pin": 0.97,
+    "win_rate": 68.8,
+    "clv_poly": 0.5
+   },
+   "nhl sides AGAINST the move": {
+    "label": "nhl",
+    "n": 49,
     "accounts": 7,
-    "roi": 11.4,
-    "clv_pin": -0.59,
-    "win_rate": 52.8,
-    "clv_poly": 5.77
+    "roi": -17.3,
+    "clv_pin": -1.01,
+    "win_rate": 42.9,
+    "clv_poly": 0.05
    },
    "inside the last hour": {
     "label": "late",
-    "n": 681,
-    "accounts": 22,
-    "roi": 4.3,
-    "clv_pin": -0.03,
-    "win_rate": 52.1,
-    "clv_poly": -0.24
+    "n": 2035,
+    "accounts": 28,
+    "roi": 4.1,
+    "clv_pin": 0.03,
+    "win_rate": 52.0,
+    "clv_poly": 0.04
    },
    "earlier than 6h out": {
     "label": "early",
-    "n": 1121,
-    "accounts": 34,
-    "roi": -1.2,
-    "clv_pin": 0.57,
-    "win_rate": 52.0,
-    "clv_poly": 0.61
+    "n": 3412,
+    "accounts": 37,
+    "roi": 4.6,
+    "clv_pin": 0.45,
+    "win_rate": 53.4,
+    "clv_poly": 0.72
+   }
+  },
+  "roi_top200": {
+   "with the Pinnacle move": {
+    "label": "with",
+    "n": 128,
+    "accounts": 24,
+    "roi": -17.9,
+    "clv_pin": 0.5,
+    "win_rate": 41.4,
+    "clv_poly": -0.48
+   },
+   "against the Pinnacle move": {
+    "label": "against",
+    "n": 120,
+    "accounts": 26,
+    "roi": -17.1,
+    "clv_pin": -0.62,
+    "win_rate": 40.8,
+    "clv_poly": -0.46
+   },
+   "no move": {
+    "label": "flat",
+    "n": 99,
+    "accounts": 22,
+    "roi": -9.6,
+    "clv_pin": -0.03,
+    "win_rate": 43.4,
+    "clv_poly": 0.16
+   },
+   "fill already inside Pinnacle fair (price < fair)": {
+    "label": "inside",
+    "n": 145,
+    "accounts": 22,
+    "roi": -26.3,
+    "clv_pin": 1.92,
+    "win_rate": 35.2,
+    "clv_poly": 0.36
+   },
+   "fill outside Pinnacle fair (price >= fair)": {
+    "label": "outside",
+    "n": 202,
+    "accounts": 28,
+    "roi": -7.3,
+    "clv_pin": -1.45,
+    "win_rate": 46.5,
+    "clv_poly": -0.76
+   },
+   "favourite side (fair >= 50%)": {
+    "label": "fav",
+    "n": 156,
+    "accounts": 23,
+    "roi": -16.2,
+    "clv_pin": -0.23,
+    "win_rate": 48.7,
+    "clv_poly": 0.1
+   },
+   "dog side": {
+    "label": "dog",
+    "n": 191,
+    "accounts": 29,
+    "roi": -14.4,
+    "clv_pin": 0.11,
+    "win_rate": 36.1,
+    "clv_poly": -0.61
+   },
+   "inside fair AND with the move": {
+    "label": "both",
+    "n": 64,
+    "accounts": 16,
+    "roi": -21.4,
+    "clv_pin": 2.19,
+    "win_rate": 39.1,
+    "clv_poly": -0.09
+   },
+   "outside fair AND against the move": {
+    "label": "neither",
+    "n": 80,
+    "accounts": 22,
+    "roi": -19.0,
+    "clv_pin": -1.36,
+    "win_rate": 42.5,
+    "clv_poly": -0.85
+   },
+   "market ml": {
+    "label": "ml",
+    "n": 197,
+    "accounts": 30,
+    "roi": -14.5,
+    "clv_pin": 0.15,
+    "win_rate": 41.6,
+    "clv_poly": -0.43
+   },
+   "market spread": {
+    "label": "spread",
+    "n": 119,
+    "accounts": 15,
+    "roi": -18.4,
+    "clv_pin": -0.35,
+    "win_rate": 40.3,
+    "clv_poly": -0.38
+   },
+   "market total": {
+    "label": "total",
+    "n": 31,
+    "accounts": 12,
+    "roi": -8.0,
+    "clv_pin": -0.05,
+    "win_rate": 48.4,
+    "clv_poly": 0.95
+   },
+   "priced at Pinnacle number: exact": {
+    "label": "exact",
+    "n": 44,
+    "accounts": 14,
+    "roi": -39.8,
+    "clv_pin": -0.23,
+    "win_rate": 29.5,
+    "clv_poly": 0.23
+   },
+   "priced at Pinnacle number: shifted": {
+    "label": "shifted",
+    "n": 106,
+    "accounts": 14,
+    "roi": -6.5,
+    "clv_pin": -0.32,
+    "win_rate": 47.2,
+    "clv_poly": -0.24
+   },
+   "sport cfb": {
+    "label": "cfb",
+    "n": 40,
+    "accounts": 10,
+    "roi": -0.8,
+    "clv_pin": -0.62,
+    "win_rate": 55.0,
+    "clv_poly": -0.48
+   },
+   "sport nba": {
+    "label": "nba",
+    "n": 119,
+    "accounts": 16,
+    "roi": -20.9,
+    "clv_pin": -0.02,
+    "win_rate": 37.8,
+    "clv_poly": -0.62
+   },
+   "sport nfl": {
+    "label": "nfl",
+    "n": 151,
+    "accounts": 19,
+    "roi": -12.5,
+    "clv_pin": -0.19,
+    "win_rate": 43.7,
+    "clv_poly": -0.15
+   },
+   "sport nhl": {
+    "label": "nhl",
+    "n": 12,
+    "accounts": 6,
+    "roi": 22.7,
+    "clv_pin": -0.01,
+    "win_rate": 58.3,
+    "clv_poly": 0.16
+   },
+   "sport ufc": {
+    "label": "ufc",
+    "n": 25,
+    "accounts": 7,
+    "roi": -45.9,
+    "clv_pin": 1.69,
+    "win_rate": 20.0,
+    "clv_poly": 0.49
+   },
+   "nba totals": {
+    "label": "nba",
+    "n": 6,
+    "accounts": 3,
+    "roi": -100.0,
+    "clv_pin": 0.36,
+    "win_rate": 0.0,
+    "clv_poly": -0.33
+   },
+   "nba sides (ml+spread)": {
+    "label": "nba",
+    "n": 113,
+    "accounts": 15,
+    "roi": -16.7,
+    "clv_pin": -0.05,
+    "win_rate": 39.8,
+    "clv_poly": -0.63
+   },
+   "nba sides WITH the Pinnacle move": {
+    "label": "nba",
+    "n": 26,
+    "accounts": 8,
+    "roi": -26.9,
+    "clv_pin": 0.15,
+    "win_rate": 30.8,
+    "clv_poly": -0.6
+   },
+   "nba sides AGAINST the move": {
+    "label": "nba",
+    "n": 31,
+    "accounts": 11,
+    "roi": -21.0,
+    "clv_pin": -0.66,
+    "win_rate": 38.7,
+    "clv_poly": -0.23
+   },
+   "nfl totals": {
+    "label": "nfl",
+    "n": 19,
+    "accounts": 4,
+    "roi": 11.9,
+    "clv_pin": -0.25,
+    "win_rate": 57.9,
+    "clv_poly": -0.39
+   },
+   "nfl sides (ml+spread)": {
+    "label": "nfl",
+    "n": 132,
+    "accounts": 19,
+    "roi": -16.0,
+    "clv_pin": -0.18,
+    "win_rate": 41.7,
+    "clv_poly": -0.12
+   },
+   "nfl sides WITH the Pinnacle move": {
+    "label": "nfl",
+    "n": 68,
+    "accounts": 14,
+    "roi": -19.5,
+    "clv_pin": 0.23,
+    "win_rate": 42.6,
+    "clv_poly": 0.22
+   },
+   "nfl sides AGAINST the move": {
+    "label": "nfl",
+    "n": 55,
+    "accounts": 16,
+    "roi": -5.3,
+    "clv_pin": -0.68,
+    "win_rate": 43.6,
+    "clv_poly": -0.47
+   },
+   "cfb totals": {
+    "label": "cfb",
+    "n": 3,
+    "accounts": 2,
+    "roi": -33.3,
+    "clv_pin": 0.26,
+    "win_rate": 33.3,
+    "clv_poly": 0.5
+   },
+   "cfb sides (ml+spread)": {
+    "label": "cfb",
+    "n": 37,
+    "accounts": 9,
+    "roi": 1.9,
+    "clv_pin": -0.7,
+    "win_rate": 56.8,
+    "clv_poly": -0.55
+   },
+   "cfb sides WITH the Pinnacle move": {
+    "label": "cfb",
+    "n": 12,
+    "accounts": 5,
+    "roi": -5.7,
+    "clv_pin": -0.64,
+    "win_rate": 58.3,
+    "clv_poly": -0.21
+   },
+   "cfb sides AGAINST the move": {
+    "label": "cfb",
+    "n": 10,
+    "accounts": 5,
+    "roi": 1.1,
+    "clv_pin": -1.35,
+    "win_rate": 60.0,
+    "clv_poly": -1.2
+   },
+   "nhl totals": {
+    "label": "nhl",
+    "n": 2,
+    "accounts": 2,
+    "roi": 82.1,
+    "clv_pin": -0.24,
+    "win_rate": 100.0,
+    "clv_poly": 0.25
+   },
+   "nhl sides (ml+spread)": {
+    "label": "nhl",
+    "n": 10,
+    "accounts": 5,
+    "roi": 10.8,
+    "clv_pin": 0.04,
+    "win_rate": 50.0,
+    "clv_poly": 0.14
+   },
+   "nhl sides WITH the Pinnacle move": {
+    "label": "nhl",
+    "n": 3,
+    "accounts": 2,
+    "roi": 18.4,
+    "clv_pin": -1.1,
+    "win_rate": 66.7,
+    "clv_poly": -0.83
+   },
+   "nhl sides AGAINST the move": {
+    "label": "nhl",
+    "n": 2,
+    "accounts": 2,
+    "roi": -100.0,
+    "clv_pin": -0.0,
+    "win_rate": 0.0,
+    "clv_poly": -0.25
+   },
+   "inside the last hour": {
+    "label": "late",
+    "n": 154,
+    "accounts": 24,
+    "roi": -10.3,
+    "clv_pin": 0.04,
+    "win_rate": 42.9,
+    "clv_poly": -0.34
+   },
+   "earlier than 6h out": {
+    "label": "early",
+    "n": 103,
+    "accounts": 21,
+    "roi": -33.9,
+    "clv_pin": 0.01,
+    "win_rate": 35.0,
+    "clv_poly": -0.31
    }
   }
  },
  "top20_pinnacle": [
   {
+   "w": "0x4c86e038874aed8993dfb12e55f057f1b0dd366b",
+   "pin_clv": 3.52,
+   "poly_clv": -0.37,
+   "fills": 33,
+   "roi": 15.6,
+   "poly_rank": 1441
+  },
+  {
+   "w": "0x71971342cb4c2555f60366ac62abdcdd1a1d14c8",
+   "pin_clv": 3.19,
+   "poly_clv": -0.77,
+   "fills": 34,
+   "roi": 18.4,
+   "poly_rank": 2430
+  },
+  {
    "w": "0xacb206b460a17382a734de8d931cc176307eb989",
-   "pin_clv": 4.2,
-   "poly_clv": 5.26,
-   "fills": 76,
-   "roi": -13.3,
-   "poly_rank": 4
+   "pin_clv": 2.98,
+   "poly_clv": 3.76,
+   "fills": 121,
+   "roi": -2.2,
+   "poly_rank": 5
+  },
+  {
+   "w": "0x775e387a0347272bf631238562963e1d3d566541",
+   "pin_clv": 2.64,
+   "poly_clv": -0.59,
+   "fills": 43,
+   "roi": -1.4,
+   "poly_rank": 2013
   },
   {
    "w": "0xb915070c8007b1bdf4b1ef04e56b066a022e8da5",
-   "pin_clv": 2.92,
-   "poly_clv": 3.11,
-   "fills": 92,
-   "roi": 34.6,
+   "pin_clv": 2.5,
+   "poly_clv": 2.63,
+   "fills": 123,
+   "roi": 24.2,
+   "poly_rank": 11
+  },
+  {
+   "w": "0xb406f1f3abe02300d4504b6940f6954c238c4964",
+   "pin_clv": 2.46,
+   "poly_clv": 1.49,
+   "fills": 70,
+   "roi": 13.8,
+   "poly_rank": 38
+  },
+  {
+   "w": "0x5caec2331059ed7bbead580c8bc56e2d1896a00a",
+   "pin_clv": 2.45,
+   "poly_clv": 3.47,
+   "fills": 39,
+   "roi": 8.0,
    "poly_rank": 7
   },
   {
@@ -490,7 +1227,7 @@
    "poly_clv": 2.23,
    "fills": 32,
    "roi": 21.5,
-   "poly_rank": 18
+   "poly_rank": 16
   },
   {
    "w": "0x85e543138bdab08fdaab477a6f59581d1ca19343",
@@ -498,7 +1235,7 @@
    "poly_clv": 3.44,
    "fills": 39,
    "roi": 3.8,
-   "poly_rank": 6
+   "poly_rank": 8
   },
   {
    "w": "0xff36c717909a7bad60e74eed3418009ff481e757",
@@ -514,63 +1251,39 @@
    "poly_clv": 1.5,
    "fills": 31,
    "roi": -3.2,
-   "poly_rank": 43
-  },
-  {
-   "w": "0x5bca6f131412244091d9c3c78afcb505f6d90d11",
-   "pin_clv": 2.26,
-   "poly_clv": 0.89,
-   "fills": 50,
-   "roi": 10.0,
-   "poly_rank": 104
-  },
-  {
-   "w": "0xdebbe89ceb32828a99648bca497684f5209ceedb",
-   "pin_clv": 2.23,
-   "poly_clv": 1.69,
-   "fills": 154,
-   "roi": -31.1,
-   "poly_rank": 32
-  },
-  {
-   "w": "0xc1f7a546505fa29e6293536878deadeda748c4e5",
-   "pin_clv": 2.19,
-   "poly_clv": 2.44,
-   "fills": 154,
-   "roi": 21.6,
-   "poly_rank": 17
+   "poly_rank": 36
   },
   {
    "w": "0xd1acd3925d895de9aec98ff95f3a30c5279d08d5",
-   "pin_clv": 2.17,
-   "poly_clv": 1.14,
-   "fills": 40,
-   "roi": -1.1,
-   "poly_rank": 73
+   "pin_clv": 2.16,
+   "poly_clv": 1.12,
+   "fills": 41,
+   "roi": -3.5,
+   "poly_rank": 71
   },
   {
-   "w": "0x5993ba19348ed5f2f265464148ee82f9693033a2",
-   "pin_clv": 2.15,
-   "poly_clv": 1.26,
-   "fills": 49,
-   "roi": 12.6,
-   "poly_rank": 62
+   "w": "0x6183e7dd70f73be3c34df258d5786484c9ce575f",
+   "pin_clv": 2.1,
+   "poly_clv": -2.04,
+   "fills": 30,
+   "roi": -8.6,
+   "poly_rank": 3199
   },
   {
-   "w": "0xa6a786cac8fee1d184e3ef986894c7a7244fe5d4",
-   "pin_clv": 2.12,
-   "poly_clv": 1.84,
-   "fills": 39,
-   "roi": 32.5,
-   "poly_rank": 26
-  },
-  {
-   "w": "0x6e82b93eb57b01a63027bd0c6d2f3f04934a752c",
+   "w": "0xc1f7a546505fa29e6293536878deadeda748c4e5",
    "pin_clv": 2.03,
-   "poly_clv": 2.22,
-   "fills": 1157,
-   "roi": 4.8,
-   "poly_rank": 19
+   "poly_clv": 2.36,
+   "fills": 166,
+   "roi": 22.5,
+   "poly_rank": 15
+  },
+  {
+   "w": "0xdebbe89ceb32828a99648bca497684f5209ceedb",
+   "pin_clv": 1.96,
+   "poly_clv": 1.55,
+   "fills": 177,
+   "roi": -28.9,
+   "poly_rank": 34
   },
   {
    "w": "0xe542afd3881c4c330ba0ebbb603bb470b2ba0a37",
@@ -578,7 +1291,7 @@
    "poly_clv": 1.91,
    "fills": 85,
    "roi": -5.7,
-   "poly_rank": 25
+   "poly_rank": 22
   },
   {
    "w": "0x20cc8d7e69a24d156cf8c17d32152a536befebc0",
@@ -586,7 +1299,7 @@
    "poly_clv": 2.21,
    "fills": 50,
    "roi": 1.0,
-   "poly_rank": 20
+   "poly_rank": 17
   },
   {
    "w": "0xe505530c4c854e75db39e84b96507ea6d88bd18b",
@@ -594,31 +1307,15 @@
    "poly_clv": 2.08,
    "fills": 71,
    "roi": 39.7,
-   "poly_rank": 22
+   "poly_rank": 19
   },
   {
-   "w": "0xf9803707fbaee06f055cc9257295fa217e916528",
-   "pin_clv": 1.74,
-   "poly_clv": 1.55,
-   "fills": 261,
-   "roi": -9.9,
-   "poly_rank": 39
-  },
-  {
-   "w": "0xa6dff7d8c3ea5d1bbd6f3404a59f566d9562dda7",
-   "pin_clv": 1.66,
-   "poly_clv": 1.75,
-   "fills": 80,
-   "roi": -1.8,
-   "poly_rank": 30
-  },
-  {
-   "w": "0x0a7c46489299331559598ab0412f46bda8ce8964",
-   "pin_clv": 1.62,
-   "poly_clv": 1.58,
-   "fills": 95,
-   "roi": 7.5,
-   "poly_rank": 36
+   "w": "0xa6a786cac8fee1d184e3ef986894c7a7244fe5d4",
+   "pin_clv": 1.85,
+   "poly_clv": 1.62,
+   "fills": 44,
+   "roi": 27.0,
+   "poly_rank": 31
   }
  ]
 }

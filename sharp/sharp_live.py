@@ -329,10 +329,13 @@ def main():
         ka = kalshi_against(row['title'], side, start) if row['mtype'] == 'ml' and side not in ('Yes', 'No') else None
         row['kalshi_against'] = dict(move=ka['move'], now=ka.get('now'), state=ka.get('state')) if ka else None
         row['logged'] = cond in logged
+        # 11/5 (poly_pinnacle.py, held out): a flag whose Polymarket price sits below the tracker's fair for the side (Pinnacle-based) was
+        # +9.3% / +2.3 pts CLV vs +3.8% / -2.0 outside it. Annotation on the board and a split in the paper record; not a filter yet.
         rows.append(row)
         if cond not in logged and start > NOW and a and not opp:      # a flag first seen after a sharp already took the other side is not logged
             map_rows([row]); conflicts([row])
-            paper.append(dict(grade=row.get('grade'), venues=venue_prices(row), event_id=row.get('event_id'), cond=cond, slug=row['slug'], bet=row['bet'], side=side, mtype=row['mtype'], start=row['start'], flagged=row['flagged'],
+            vp = venue_prices(row); fair_ = (vp or {}).get('fair'); row['fair_board'] = fair_; row['inside_fair'] = (a < fair_) if (fair_ is not None and a is not None) else None
+            paper.append(dict(grade=row.get('grade'), venues=vp, inside_fair=row['inside_fair'], event_id=row.get('event_id'), cond=cond, slug=row['slug'], bet=row['bet'], side=side, mtype=row['mtype'], start=row['start'], flagged=row['flagged'],
                               logged=dt.datetime.fromtimestamp(NOW, dt.timezone.utc).strftime('%Y-%m-%dT%H:%M:%SZ'), price=a, why=row['why'], best_rank=row['best_rank'],
                               kalshi_against=bool(row['kalshi_against'])))
             logged.add(cond); row['logged'] = True
@@ -357,7 +360,9 @@ def main():
         for p in paper: f.write(json.dumps(p) + '\n')
     G_ = [p for p in paper if p.get('result')]; GV = [p for p in G_ if 'u_venue' in p]
     avg = lambda L, k: round(sum(p[k] for p in L if k in p) / max(1, sum(k in p for p in L)), 2) if any(k in p for p in L) else None
-    rec = dict(n=len(G_), won=sum(p['result'] == 'W' for p in G_), units=round(sum(p.get('u', units(p['price'], p['result'] == 'W', GSIZE.get(p.get('grade'), SIZE))) for p in G_), 2),
+    by_fair = {k: dict(n=len(L_), won=sum(p['result'] == 'W' for p in L_), units=round(sum(p.get('u', 0) for p in L_), 2), clv=avg(L_, 'clv'))
+               for k, L_ in (('inside', [p for p in G_ if p.get('inside_fair') is True]), ('outside', [p for p in G_ if p.get('inside_fair') is False])) if L_}
+    rec = dict(by_fair=by_fair, n=len(G_), won=sum(p['result'] == 'W' for p in G_), units=round(sum(p.get('u', units(p['price'], p['result'] == 'W', GSIZE.get(p.get('grade'), SIZE))) for p in G_), 2),
                by_grade={k: dict(n=len(L_), won=sum(p['result'] == 'W' for p in L_), units=round(sum(p.get('u', 0) for p in L_), 2), clv=avg(L_, 'clv'))
                          for k in ('A', 'B', 'watch') for L_ in [[p for p in G_ if p.get('grade') == k]] if L_},
                units_1u=round(sum(p['pnl'] for p in G_), 2), clv=avg(G_, 'clv'),
@@ -365,6 +370,14 @@ def main():
                n_venue=len(GV), units_venue=round(sum(p['u_venue'] for p in GV), 2), clv_venue=avg(GV, 'clv_venue'), clv_poly_same=avg(GV, 'clv'))
     map_rows(rows)
     conflicts(rows)
+    # already-logged flags: keep the inside-fair read from when they were logged (the paper row), else read the board now
+    PF = {p['cond']: p for p in paper}
+    for row in rows:
+        if 'inside_fair' in row: continue
+        pr = PF.get(row.get('cond'))
+        if pr and pr.get('inside_fair') is not None: row['inside_fair'] = pr['inside_fair']; row['fair_board'] = (pr.get('venues') or {}).get('fair'); continue
+        vp = venue_prices(row) if row.get('event_id') and row.get('side_std') else None; fair_ = (vp or {}).get('fair'); a_ = row.get('ask') or row.get('price')
+        row['fair_board'] = fair_; row['inside_fair'] = (a_ < fair_) if (fair_ is not None and a_ is not None) else None
     for r in rows: r['books'] = venue_prices(r) if r['status'] == 'live' else None     # best Novig / Kalshi / FD / Caesars / DK now (11/2)
     alerts(rows)
     BE = by_event(F)

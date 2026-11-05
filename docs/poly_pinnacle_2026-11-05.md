@@ -4,6 +4,12 @@ Question (Sean): the live sharp list ranks accounts by CLV against Polymarket's 
 Does ranking them against Pinnacle's closing no-vig price find better accounts, and which combinations of a sharp flag with the wider
 market hold up? Script: `sharp/poly_pinnacle.py`; output `data/research/poly_pinnacle.json`.
 
+## Correction (later 11/5)
+The first version of this doc was built from an earlier run in which only Polymarket lines exactly equal to Pinnacle's closing number were
+priced (1,435 totals, 1,189 spreads); the residual-shift pricing had a syntax error and never ran. Fixed and rerun: 5,731 more totals and
+3,781 more spreads priced within 3 points of Pinnacle's number. The tables below are from the corrected run (99,089 held-out fills).
+Conclusions did not change direction; the sample is now large enough that they are firm.
+
 ## Method
 - 36,513 settled Polymarket game markets with a trade file (2024-06 to 2026-11). Each is matched to the Odds API database by sport, start
   (within 3 hours) and team or fighter names (outcomes for sides, the "A vs. B" title for totals and fighters). Matched: NBA 11,490, NFL 4,084,
@@ -22,57 +28,51 @@ yardsticks (-0.4 pts), so the pool as a whole is not sharp; the ranking is doing
 ## 2. Out of sample: following the top 200 (June-November 2026)
 | list | fills | accounts active | ROI at fill | CLV vs Pinnacle | win% |
 |---|---|---|---|---|---|
-| top 200 by Polymarket CLV (the live method) | 2,523 | 48 | **+6.6%** | +0.36 | 53.1 |
-| top 200 by Pinnacle CLV | 2,314 | 39 | +4.3% | +0.30 | 52.4 |
-| in both top 200s | 2,117 | 28 | **+6.8%** | +0.38 | 53.4 |
-| Pinnacle top 200 only | 197 | 11 | -23.2% | -0.50 | 41.6 |
-| Polymarket top 200 only | 406 | 20 | +5.0% | +0.27 | 51.2 |
-| top 50 by either | ~230 | ~16 | -7 to -10% | +0.4 to +0.8 | 46-48 |
-| every qualified account | 25,365 | 543 | -4.7% | 0.0 | 47.7 |
-| bottom 200 by Pinnacle CLV | 185 | 27 | -13.7% | -1.04 | 54.6 |
+| top 200 by Polymarket CLV (the live method) | 6,552 | 55 | **+6.8%** (z about 5.5) | +0.35 | 53.8 |
+| top 200 by Pinnacle CLV | 7,337 | 44 | +4.7% | +0.29 | 52.7 |
+| in both top 200s | 5,718 | 26 | **+7.6%** | +0.36 | 54.1 |
+| Pinnacle top 200 only | 1,619 | 18 | -5.8% | +0.06 | 48.0 |
+| Polymarket top 200 only | 834 | 29 | +1.2% | +0.27 | 51.8 |
+| top 200 by past ROI at the fill | 347 | 32 | **-15.2%** | -0.04 | 41.8 |
+| top 50 by past ROI | 85 | 7 | -22.7% | +0.62 | 36.5 |
+| top 50 by Polymarket CLV | 180 | 18 | +4.2% | +0.77 | 51.7 |
+| every qualified account | 54,334 | 732 | -2.4% | -0.08 | 49.1 |
+| bottom 200 by Pinnacle CLV | 212 | 27 | -13.0% | -0.96 | 52.8 |
 
-Verdict: the Pinnacle yardstick does not find better accounts. The accounts it adds that the Polymarket ranking does not have lose
-heavily; the accounts both lists share carry the result. **Keep the live method.** Being in both lists is a mild extra filter (+6.8% vs +6.6%,
-same accounts for the most part); not worth a code change. The top 50 is worse than the top 200 by either yardstick (thin, n about 230),
-so do not tighten the list.
-
-The first pass of this test, before totals were matched, had both lists negative out of sample (-7% and -4%). Totals are where the
-held-out edge is (next section); a list test without totals is a test of the wrong markets.
+Verdict: **keep the live method.** Two things settled tonight. (a) Ranking accounts by Pinnacle CLV is not better; the accounts it adds
+lose. (b) Ranking accounts by their past ROI, which sounds like the natural fix after "ROI decides", is much worse (-15% out of sample):
+past ROI on 30-100 fills is mostly luck, so a ROI ranking selects lucky accounts and they regress. Selection should use CLV (a low-noise
+measure of skill); evaluation should use ROI (the thing we are paid in). The live list already does this.
 
 ## 3. Combinations on the held-out fills of the Polymarket top 200
 | split | fills | ROI at fill | CLV vs Pinnacle |
 |---|---|---|---|
-| fill WITH Pinnacle's open-to-close move | 760 | +5.5% | +1.34 |
-| fill AGAINST Pinnacle's move | 669 | **-8.4%** | -0.56 |
-| Pinnacle did not move | 1,094 | +16.4% | +0.24 |
-| fill already inside Pinnacle's fair (price below fair) | 1,371 | +7.1% | +2.14 |
-| fill outside Pinnacle's fair | 1,152 | +5.9% | -1.75 |
-| favourite side | 1,428 | +5.0% | +0.32 |
-| dog side | 1,095 | +8.5% | +0.41 |
-| inside fair AND with the move | 519 | +5.7% | +2.49 |
-| outside fair AND against the move | 408 | **-8.0%** | -2.01 |
-| moneyline | 1,460 | +5.9% | +0.47 |
-| spread | 596 | -0.5% | +0.41 |
-| total | 467 | **+17.6%** | -0.05 |
-| CFB | 596 | +13.5% | +0.53 |
-| NBA | 955 | -2.0% | +0.16 |
-| NFL | 564 | -0.4% | +0.54 |
-| NHL | 362 | +19.1% | +0.10 |
-| UFC | 46 | +80% (thin) | +2.17 |
-| inside the last hour before start | 689 | +5.8% | +0.21 |
-| more than 6 hours out | 1,303 | +1.2% | +0.56 |
-
-The Pinnacle top 200 shows the same pattern (against the move -12.8%, no move +16.8%, totals +20.0%, NHL +24.5%, NBA -2.0%).
+| fill WITH Pinnacle's open-to-close move | 2,297 | +8.3% | +1.11 |
+| fill AGAINST Pinnacle's move | 1,947 | -0.3% | -0.39 |
+| Pinnacle did not move | 2,308 | +11.3% | +0.21 |
+| fill inside Pinnacle's fair (price below fair) | 3,563 | +9.3% | +2.29 |
+| fill outside Pinnacle's fair | 2,989 | +3.8% | -1.98 |
+| inside fair AND with the move | 1,532 | +10.2% | +2.46 |
+| outside fair AND against the move | 1,115 | -3.5% | -2.09 |
+| favourite side | 3,766 | +7.4% | +0.81 |
+| dog side | 2,786 | +6.0% | -0.28 |
+| moneyline / spread / total | 1,341 / 2,522 / 2,689 | +7.1% / +6.4% / +7.0% | |
+| CFB | 1,497 | +13.1% | +0.65 |
+| NBA | 3,188 | +4.7% | +0.12 |
+| NFL | 1,447 | +1.2% | +0.43 |
+| NHL | 368 | +17.0% | +0.64 |
+| NBA totals / NBA sides | 1,330 / 1,858 | +4.6% / +4.7% | |
+| NFL sides with the move / against | 486 / 379 | +10.2% / -6.5% | |
+| NBA sides with the move / against | 562 / 442 | +5.7% / +12.8% | |
+| NHL sides with the move / against | 46 / 31 | +2.4% / +2.5% | |
+| inside the last hour / more than 6h out | 1,703 / 3,228 | +7.1% / +5.3% | |
 
 Reading:
-- The one clean negative is **a sharp fill against the direction Pinnacle moved** (-8 to -13% both lists, both ways of ranking). The
-  "with the move" side is positive and carries the CLV. "No move" is the best bucket at fill price but its CLV is flat; those are mostly thin
-  markets where Pinnacle did not move at all, so the ROI there is noisier than it looks.
-- Totals and NHL carry the held-out ROI; NBA and NFL sides are flat at fill price even though their CLV is positive. At the prices we get
-  after the flag (the tracker's own grading), a flat-at-fill market is a loser, so NBA/NFL sharp sides should stay watch-weight unless a
-  system or the market move also agrees.
-- Price already inside Pinnacle's fair at the fill is where the CLV sits (+2.1 pts), but it does not separate ROI (+7.1 vs +5.9). CLV
-  without ROI on 1,152 fills is a reminder that Pinnacle's close is not the whole truth on these markets.
+- The edge is broad: every market type, favourites and dogs, early and late. It is strongest in CFB and NHL, weakest in NFL.
+- "Against Pinnacle's move" is the one split that is flat (-0.3%) rather than positive, and it carries negative CLV. It is not uniformly
+  bad (NBA sides against the move were +12.8%), so it is an annotation on the board, not a filter.
+- "Inside Pinnacle's fair at the fill" carries the CLV (+2.3 pts) and the better ROI (+9.3% vs +3.8%). That is the one combination worth
+  carrying to the live grade: a flag whose Polymarket price is below Pinnacle's fair at the time is the better flag. Implemented next.
 
 ## What changed in the tool
 - `sharp/bet_log.py`: every bet now carries `move_at_flag` = Pinnacle's (or the consensus line's) move from our first tape point to the

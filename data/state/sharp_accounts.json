@@ -1,5 +1,5 @@
 {
- "built": "2026-11-05T21:38:10Z",
+ "built": "2026-11-05T21:51:34Z",
  "rows": [
   {
    "cond": "0x43bf75f521791c9dbf8423892ee11a1cb036ace20ff03283090d79e7a4174bbe",
@@ -17,13 +17,15 @@
    "best_rank": 197,
    "usd": 2933,
    "paid": 0.51,
-   "ask": 0.54,
+   "ask": 0.53,
    "status": "live",
    "link": "https://polymarket.us/event/nhl-utah-mon-2026-11-05",
    "other": null,
    "kalshi_against": null,
    "logged": true,
    "grade": "A",
+   "fair_board": null,
+   "inside_fair": null,
    "books": null
   },
   {
@@ -49,6 +51,8 @@
    "kalshi_against": null,
    "logged": true,
    "grade": "A",
+   "fair_board": null,
+   "inside_fair": null,
    "books": null
   },
   {
@@ -84,6 +88,8 @@
    "side_std": "home",
    "money_with": false,
    "grade": "A",
+   "fair_board": null,
+   "inside_fair": null,
    "books": null
   },
   {
@@ -119,6 +125,8 @@
    "side_std": "over",
    "money_with": false,
    "grade": "A",
+   "fair_board": null,
+   "inside_fair": null,
    "books": null
   },
   {
@@ -137,7 +145,7 @@
    "best_rank": 21,
    "usd": 1064,
    "paid": 0.512,
-   "ask": 0.81,
+   "ask": 0.8,
    "status": "live",
    "link": "https://polymarket.us/event/nfl-jax-bal-2026-11-06",
    "other": null,
@@ -152,8 +160,10 @@
    "home_name": "Baltimore Ravens",
    "game_start": "2026-11-06T01:15Z",
    "side_std": "away",
-   "money_with": true,
-   "grade": "A",
+   "money_with": false,
+   "grade": "B",
+   "fair_board": 0.8196,
+   "inside_fair": true,
    "books": {
     "at": "2026-11-05T19:25:40Z",
     "fair": 0.8196,
@@ -198,6 +208,8 @@
    "side_std": "home",
    "money_with": false,
    "grade": "watch",
+   "fair_board": null,
+   "inside_fair": null,
    "books": {
     "at": "2026-11-05T19:25:48Z",
     "fair": null,
@@ -239,6 +251,8 @@
    "side_std": "home",
    "money_with": false,
    "grade": "watch",
+   "fair_board": null,
+   "inside_fair": null,
    "books": {
     "at": "2026-11-05T19:25:48Z",
     "fair": null,
@@ -280,6 +294,8 @@
    "side_std": "over",
    "money_with": false,
    "grade": "B",
+   "fair_board": null,
+   "inside_fair": null,
    "books": null
   },
   {
@@ -315,6 +331,8 @@
    "side_std": "over",
    "money_with": false,
    "grade": "A",
+   "fair_board": null,
+   "inside_fair": null,
    "books": null
   },
   {
@@ -350,6 +368,8 @@
    "side_std": "over",
    "money_with": false,
    "grade": "A",
+   "fair_board": null,
+   "inside_fair": null,
    "books": null
   },
   {
@@ -389,6 +409,8 @@
    ],
    "money_with": false,
    "grade": "A",
+   "fair_board": null,
+   "inside_fair": null,
    "books": {
     "at": "2026-11-05T19:25:36Z",
     "fair": null,
@@ -420,6 +442,8 @@
    "kalshi_against": null,
    "logged": true,
    "grade": "A",
+   "fair_board": null,
+   "inside_fair": null,
    "books": null
   },
   {
@@ -445,6 +469,8 @@
    "kalshi_against": null,
    "logged": true,
    "grade": "A",
+   "fair_board": null,
+   "inside_fair": null,
    "books": null
   },
   {
@@ -480,6 +506,8 @@
    "side_std": "over",
    "money_with": false,
    "grade": "A",
+   "fair_board": 0.4939,
+   "inside_fair": true,
    "books": {
     "at": "2026-11-05T19:25:40Z",
     "fair": 0.4939,
@@ -530,6 +558,8 @@
    "side_std": "away",
    "money_with": true,
    "grade": "A",
+   "fair_board": 0.4911,
+   "inside_fair": false,
    "books": null
   },
   {
@@ -548,7 +578,7 @@
    "best_rank": 31,
    "usd": 1715,
    "paid": 0.425,
-   "ask": 0.39,
+   "ask": 0.41,
    "status": "live",
    "link": "https://polymarket.us/event/nba-phi-cle-2026-11-06",
    "other": null,
@@ -572,6 +602,8 @@
    ],
    "money_with": false,
    "grade": "A",
+   "fair_board": null,
+   "inside_fair": null,
    "books": {
     "at": "2026-11-05T19:25:48Z",
     "fair": null,
@@ -623,10 +655,13 @@
    ],
    "money_with": false,
    "grade": "A",
+   "fair_board": 0.63,
+   "inside_fair": false,
    "books": null
   }
  ],
  "record": {
+  "by_fair": {},
   "n": 45,
   "won": 20,
   "units": -3.49,
