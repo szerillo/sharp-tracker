@@ -1,5 +1,5 @@
 {
- "built": "2026-11-05T20:27:39Z",
+ "built": "2026-11-05T20:34:01Z",
  "rows": [
   {
    "cond": "0x43bf75f521791c9dbf8423892ee11a1cb036ace20ff03283090d79e7a4174bbe",
@@ -155,12 +155,12 @@
    "money_with": true,
    "grade": "A",
    "books": {
-    "at": "2026-11-05T15:22:55Z",
-    "fair": 0.8261,
+    "at": "2026-11-05T19:25:40Z",
+    "fair": 0.8196,
     "q": {
-     "Kalshi": 0.84,
+     "Kalshi": 0.83,
+     "DK": 0.8333,
      "Caesars": 0.8413,
-     "DK": 0.8462,
      "FD": 0.8462
     }
    }
@@ -199,7 +199,7 @@
    "money_with": false,
    "grade": "watch",
    "books": {
-    "at": "2026-11-05T15:22:39Z",
+    "at": "2026-11-05T19:25:48Z",
     "fair": null,
     "q": {
      "Kalshi": 0.73
@@ -349,7 +349,7 @@
    "money_with": false,
    "grade": "A",
    "books": {
-    "at": "2026-11-05T15:22:35Z",
+    "at": "2026-11-05T19:25:36Z",
     "fair": null,
     "q": {
      "Kalshi": 0.45
@@ -440,7 +440,7 @@
    "money_with": false,
    "grade": "A",
    "books": {
-    "at": "2026-11-05T15:22:55Z",
+    "at": "2026-11-05T19:25:40Z",
     "fair": 0.4939,
     "q": {
      "Kalshi": 0.51,
@@ -459,14 +459,14 @@
    "bet": "Magic ML",
    "side": "Magic",
    "flagged": "2026-11-05T05:06:52Z",
-   "why": "3 top-200 accounts",
+   "why": "4 top-200 accounts",
    "proven": true,
    "trigger": "proven",
-   "n_accounts": 3,
-   "best_rank": 104,
-   "usd": 657,
-   "paid": 0.483,
-   "ask": 0.49,
+   "n_accounts": 4,
+   "best_rank": 43,
+   "usd": 1965,
+   "paid": 0.488,
+   "ask": 0.5,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-orl-phx-2026-11-05",
    "other": {
@@ -475,7 +475,7 @@
     "usd": 12740,
     "first": "2026-11-05T20:15:13Z"
    },
-   "exit_bid": 0.48,
+   "exit_bid": 0.49,
    "kalshi_against": null,
    "logged": true,
    "event_id": "401909936",
@@ -532,10 +532,10 @@
    "money_with": false,
    "grade": "A",
    "books": {
-    "at": "2026-11-05T15:22:39Z",
+    "at": "2026-11-05T19:25:48Z",
     "fair": null,
     "q": {
-     "Kalshi": 0.36,
+     "Kalshi": 0.39,
      "DK": 0.5455
     }
    }
@@ -581,10 +581,10 @@
    "money_with": false,
    "grade": "watch",
    "books": {
-    "at": "2026-11-05T15:22:39Z",
+    "at": "2026-11-05T19:25:48Z",
     "fair": null,
     "q": {
-     "Kalshi": 0.39
+     "Kalshi": 0.38
     }
    }
   },
@@ -676,6 +676,26 @@
     "best_rank": 121,
     "usd": 116
    }
+  },
+  "401873037:nfl_home_dog_7510": {
+   "with": {
+    "n": 1,
+    "best_rank": 182,
+    "usd": 296
+   },
+   "against": {
+    "n": 1,
+    "best_rank": 121,
+    "usd": 116
+   }
+  },
+  "401858289:cfb_day_over": {
+   "with": {
+    "n": 1,
+    "best_rank": 12,
+    "usd": 224
+   },
+   "against": null
   }
  },
  "by_event": {
@@ -733,9 +753,9 @@
   },
   "401909936|ml": {
    "away": {
-    "n": 3,
-    "best_rank": 104,
-    "usd": 657
+    "n": 4,
+    "best_rank": 43,
+    "usd": 1965
    },
    "home": {
     "n": 1,
