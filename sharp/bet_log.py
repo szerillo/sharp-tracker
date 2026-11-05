@@ -201,9 +201,17 @@ def main():
             p = json.loads(l); g_ = G2.get(p['event_id'])
             live = rule == 'tennis_hot_fav' and p.get('level') in TOUR and bool((p.get('settled') or {}).get('ok'))   # 11/5: settled favourites only
             side = p.get('side') or p['fav']; pick = p.get('pick_name') or p.get('fav_name')
-            bets.append(dict(id=f"{'th' if rule == 'tennis_hot_fav' else 'td'}:{p['event_id']}", src='tennis', cat='lean C' if live else 'paper P', rule=rule, sport='tennis', event_id=p['event_id'],
+            bets.append(dict(id=f"{'th' if rule == 'tennis_hot_fav' else 'td'}:{p['event_id']}", src='tennis', cat='system B' if live else 'paper P', rule=rule,   # 11/5 (Sean): settled favourites are tier B, 0.5u sport='tennis', event_id=p['event_id'],
                              game=f"{p.get('fav_name')} vs {p.get('opp_name')}", start=p['start'], market='ml', side=side, line=None, flagged=p['ts'], venue=p['venue'], price=p['price'],
                              won=None if not g_ else (1 if g_['won'] else 0), bet=f"{pick} to win"))
+    # ---- MMA steam favourite (11/5, tier C 0.25u): sharp/mma_steam.py paper log, graded from ESPN
+    mp = os.path.join(ROOT, 'data', 'mma', 'steam_paper.jsonl'); mg = os.path.join(ROOT, 'data', 'mma', 'steam_graded.json')
+    if os.path.exists(mp):
+        G3 = {g['key']: g for g in (json.load(open(mg)) if os.path.exists(mg) else [])}
+        for l in open(mp):
+            p = json.loads(l); g_ = G3.get(p['key'])
+            bets.append(dict(id=f"ms:{p['key']}", src='mma', cat='lean C', rule='mma_steam_fav', sport='mma', event_id=p.get('espn') or p['key'], game=f"{p['fav_name']} vs {p['dog_name']}", start=p['start'],
+                             market='ml', side=p.get('espn_side') or 'home', line=None, flagged=p['ts'], venue=p['venue'], price=p['price'], won=None if not g_ else (1 if g_['won'] else 0), bet=f"{p['fav_name']} to win"))
     # ---- price paths
     by = collections.defaultdict(list)
     for b in bets:

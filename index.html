@@ -677,11 +677,11 @@ function renderToday() {
   const hRow = r => { const b = r.hot_best, lg = r.hot_logged, p = lg ? lg.price : (b ? b.cost : null), st = r.settled || {}, live = r.hot_live || (lg && st.ok && r.tour_level);
     const whyNot = !r.tour_level ? 'Challenger' : st.in_event ? 'already played this event' : st.prev_surface && st.prev_surface !== st.surface ? `off ${st.prev_surface.toLowerCase()}` : st.rest != null && st.rest < 8 ? 'quick turnaround' : st.rest != null && st.rest > 27 ? 'layoff' : st.same_share != null && st.same_share < 0.4 ? 'form from another surface' : 'not settled';
     return sRow({id: `th|${r.start}|${r.fav_name}`, start: r.start, sportLabel: (r.tour || 'tennis').toUpperCase(), game: `${esc(r.fav_name || '')} vs ${esc(r.opp_name || '')}`,
-      bet: `${esc(r.fav_name || 'Favourite')} to win`, sub: live ? 'Match winner · settled favourite, tier C' : `Match winner · paper (${whyNot})`, gone: !r.hot, status: r.hot ? null : ['gone', 'Price gone or form changed'], size: live ? unitText(SLIP.small, p) : '<span class="dim">paper</span>',
+      bet: `${esc(r.fav_name || 'Favourite')} to win`, sub: live ? 'Match winner · settled favourite, tier B' : `Match winner · paper (${whyNot})`, gone: !r.hot, status: r.hot ? null : ['gone', 'Price gone or form changed'], size: live ? unitText(SLIP.big, p) : '<span class="dim">paper</span>',
       price: p != null ? `<b>${toAm(p)}</b> <span class="small dim">${VS(lg ? lg.venue : b.venue)}</span>` : '', link: '',
       why: `Hot favourite: match ${(100 * r.match_p).toFixed(1)}% at Pinnacle, last 10: ${r.form && r.form.fav ? (100 * r.form.fav.rate).toFixed(0) + '%' : '?'} vs ${r.form && r.form.opp ? (100 * r.form.opp.rate).toFixed(0) + '%' : '?'}`,
       rec: lbl('Backtest', live ? '+8.7% vs close, settled favourites 2022-26' : '+1.9% vs close, all hot favourites 2022-26') + ' ' + lbl('Tracker', TW && TW.hot_record && TW.hot_record.n ? `${TW.hot_record.won}-${TW.hot_record.n - TW.hot_record.won}, ${TW.hot_record.units > 0 ? '+' : ''}${TW.hot_record.units}u` : 'no graded picks yet'),
-      detail: facts([['Rule', 'Tennis hot favourite (tennis_hot_fav): Pinnacle no-vig favourite 60-85% whose last-10 win rate is 30%+ above the opponent\'s; bet the match. Tier C (0.25u) only when the favourite is SETTLED: previous event on this surface, 4+ of the last 10 on this surface, 8-27 days since that event started, first match of this event. Odds API Pinnacle closes 2022-26 (6,782 tour matches): all hot favourites +1.9% vs the close (-0.6% ROI); settled +8.7% (+8.8% ROI, n=173, positive all five years); after a surface switch -10%; after a 28+ day layoff -23%. Everything else is paper and graded.'],
+      detail: facts([['Rule', 'Tennis hot favourite (tennis_hot_fav): Pinnacle no-vig favourite 60-85% whose last-10 win rate is 30%+ above the opponent\'s; bet the match. Tier B (0.5u; Sean 11/5: consistent and rare) only when the favourite is SETTLED: previous event on this surface, 4+ of the last 10 on this surface, 8-27 days since that event started, first match of this event. Odds API Pinnacle closes 2022-26 (6,782 tour matches): all hot favourites +1.9% vs the close (-0.6% ROI); settled +8.7% (+8.8% ROI, n=173, positive all five years); after a surface switch -10%; after a 28+ day layoff -23%. Everything else is paper and graded.'],
         ['Settled check', st.surface ? `${st.surface}${st.prev_surface ? ', previous event ' + st.prev_surface.toLowerCase() : ''}; ${st.same_share != null ? Math.round(10 * st.same_share) + ' of last 10 on this surface' : ''}; ${st.rest != null ? st.rest + ' days since that event' : 'rest unknown'}${st.in_event ? '; already played here' : ''}` : 'no history'],
         ['Form source', 'Our ESPN results log since March (tour, Challenger and the ITF events ESPN carries): a player with wins at events ESPN does not list looks colder than they are'],
         ['Flagged', lg ? `${DAYT(lg.ts)} at ${VS(lg.venue)} ${(100 * lg.price).toFixed(1)}¢` : ''], ['Now', b ? `${VS(b.venue)} ${(100 * b.cost).toFixed(1)}¢ (${toAm(b.cost)})` : 'no price']])}); };
@@ -712,15 +712,31 @@ function renderToday() {
   const TV = TW ? (TW.rows || []).filter(r => r.slam && (r.serve_rule || r.serve_logged) && future(r.start) && passW(r.start) && passS('tennis', r.league)) : [];
   const THall = TW ? (TW.rows || []).filter(r => (r.tour_level || r.slam) && ((r.hot || r.hot_logged) || (r.hot_dog || r.hot_dog_logged)) && future(r.start)).map(r => ({start: r.start, sport: 'tennis', league: r.league})) : [];
   const TVall = TW ? (TW.rows || []).filter(r => r.slam && (r.serve_rule || r.serve_logged) && future(r.start)).map(r => ({start: r.start, sport: 'tennis', league: r.league})) : [];
+  // MMA steam favourite (11/5, Odds API replay 2022-26: a 6+ point no-vig move toward the favourite from Pinnacle's open is still 136-53,
+  // +6.6% at the close, 4 of 5 years; fading it -19.7%). Tier C, 0.25u. Rows from data/state/mma_steam.json (sharp/mma_steam.py).
+  const mRow = r => { const lg = r.logged, b = r.best, p = lg ? lg.price : (b ? b.cost : null), MSr = window._MS && window._MS.record;
+    return sRow({id: `ms|${r.start}|${r.fav_name}`, start: r.start, sportLabel: 'UFC', game: `${esc(r.fav_name || '')} vs ${esc(r.dog_name || '')}`,
+      bet: `${esc(r.fav_name || 'Favourite')} to win`, sub: 'Fight winner · steam favourite, tier C', gone: !r.flag, status: r.flag ? null : ['gone', 'Move no longer 6+ points or price gone'], size: unitText(SLIP.small, p),
+      price: p != null ? `<b>${toAm(p)}</b> <span class="small dim">${VS(lg ? lg.venue : b.venue)}</span>` : '', link: '',
+      why: `Pinnacle moved ${(100 * r.move).toFixed(1)} points toward ${esc(r.fav_name || '')} since its open (${(100 * r.open_p).toFixed(1)}% → ${(100 * r.cur_p).toFixed(1)}%)`,
+      rec: lbl('Backtest', '+6.6% at the close, 136-53, 2022-26') + ' ' + lbl('Tracker', MSr && MSr.n ? `${MSr.won}-${MSr.n - MSr.won}, ${MSr.units > 0 ? '+' : ''}${MSr.units}u` : 'no graded picks yet'),
+      detail: facts([['Rule', 'MMA steam favourite (mma_steam_fav, tier C, 0.25u): Pinnacle no-vig win probability for the favourite is 6+ points above Pinnacle\'s opening number; bet the favourite at the best US book or exchange. Odds API 2022-26 (1,457 graded UFC fights): following a 6+ point move at the close 161-76 (+7.3%); toward the favourite 136-53 (+6.6%, positive 4 of 5 years); fading those moves -19.7%. Smaller moves (1-6 points) are priced by the close.'],
+        ['Open', `${(100 * r.open_p).toFixed(1)}% at ${DAYT(r.open_ts)}${r.open_src ? ' (' + esc(r.open_src) + ')' : ''}`], ['Now', `${(100 * r.cur_p).toFixed(1)}% at Pinnacle (${toAm(r.cur_p)})`],
+        ['Flagged', lg ? `${DAYT(lg.ts)} at ${VS(lg.venue)} ${(100 * lg.price).toFixed(1)}¢` : ''], ['Price', b ? `${VS(b.venue)} ${(100 * b.cost).toFixed(1)}¢ (${toAm(b.cost)})` : 'no price']])}); };
+  const MSall = (window._MS && window._MS.rows || []).filter(r => (r.flag || r.logged) && future(r.start)).map(r => ({start: r.start, sport: 'mma', league: 'ufc'}));
   // 11/4 (Sean): the watch-only Other signals count too (CBB, MMA, NBA single accounts are viewed and tested from there), so a sport with
   // only watch rows keeps its chip; filtering to it opens Other signals.
-  everything = [...everything, ...THall, ...TVall, ...[...strongAll, ...othersAll].map(r => ({start: r.g.start, sport: r.g.sport, league: r.g.league}))];
+  everything = [...everything, ...THall, ...TVall, ...MSall, ...[...strongAll, ...othersAll].map(r => ({start: r.g.start, sport: r.g.sport, league: r.g.league}))];
   inSport = everything.filter(x => passS(x.sport, x.league)); inWhen = everything.filter(x => passW(x.start));
-  const leanRows = [...lean.map(sysRow), ...TWk.map(tRow), ...TH.map(hRow), ...TD.map(dRow), ...TV.map(vRow)];
+  // 11/5 (Sean): settled hot favourites are tier B and sit with the system bets; the unsettled ones stay in Leans as paper
+  const THb = TH.filter(r => r.hot_live || (r.hot_logged && r.settled && r.settled.ok)), THc = TH.filter(r => !THb.includes(r));
+  const MS = (window._MS && window._MS.rows || []).filter(r => (r.flag || r.logged) && future(r.start) && passW(r.start) && passS('mma', 'ufc'));
+  const leanRows = [...lean.map(sysRow), ...TWk.map(tRow), ...THc.map(hRow), ...TD.map(dRow), ...TV.map(vRow), ...MS.map(mRow)];
+  const sysRows = [...vet.map(sysRow), ...THb.map(hRow)];
   const H = (t, meta) => `<div class="hdr2"><h2>${t}</h2><span class="meta">${meta}</span></div>`;
   return `<div class="controls topbar">${whenBar(inSport)} ${sportBar(inWhen)}</div>${summary.replace('__NSIG__', `${strong.length} sharp signal${strong.length === 1 ? '' : 's'}`)}
     ${H('System bets', 'Tier A and B · 0.5u · click a row for the full rule and record')}
-    ${vet.length ? sTable(vet.map(sysRow)) : emptyNote('system bets', bets.filter(x => passS(x.sport, x.league)))}
+    ${sysRows.length ? sTable(sysRows) : emptyNote('system bets', bets.filter(x => passS(x.sport, x.league)))}
     ${H('Leans', 'Tier C and tennis · 0.25u · thin samples or paper rules · held when sharp accounts are on the other side')}
     ${leanRows.length ? sTable(leanRows) : emptyNote('leans', [...bets.filter(it => tierOf(it) === 'C'), ...tw].filter(x => passS(x.sport, x.league)))}
     ${H('Sharp signals', `Grade A: a sport-proven sharp account or sharps + big money · B: other sharp flags · C: sharps + another signal · A 0.5u (soccer 0.25u), B and C 0.25u · paper ${SAREC}${SA && SA.record && SA.record.clv != null ? ` · CLV ${SA.record.clv > 0 ? '+' : ''}${SA.record.clv}% at Polymarket` : ''}${SA && SA.record && SA.record.n_venue ? `, ${SA.record.clv_venue > 0 ? '+' : ''}${SA.record.clv_venue} at your books (${SA.record.n_venue} flags, ${SA.record.units_venue > 0 ? '+' : ''}${SA.record.units_venue}u)` : ''}`)}
@@ -1154,6 +1170,7 @@ async function load() {
     try { SY = await (await fetch('data/state/system_fires.json', {cache: 'no-store'})).json(); } catch (e) { SY = null; }
     try { FL = await (await fetch('data/state/flow_live.json', {cache: 'no-store'})).json(); } catch (e) { FL = null; }
     try { TW = await (await fetch('data/state/tennis_watch.json', {cache: 'no-store'})).json(); } catch (e) { TW = null; }
+    try { window._MS = await (await fetch('data/state/mma_steam.json', {cache: 'no-store'})).json(); } catch (e) { window._MS = null; }
     let TH = null; try { TH = await (await fetch('data/state/tape_health.json', {cache: 'no-store'})).json(); } catch (e) { TH = null; }
     window._TH = TH;
     try { SN = await (await fetch('data/state/signal_snap.json', {cache: 'no-store'})).json(); } catch (e) { SN = null; }
