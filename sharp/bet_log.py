@@ -212,6 +212,14 @@ def main():
             p = json.loads(l); g_ = G3.get(p['key'])
             bets.append(dict(id=f"ms:{p['key']}", src='mma', cat='lean C', rule='mma_steam_fav', sport='mma', event_id=p.get('espn') or p['key'], game=f"{p['fav_name']} vs {p['dog_name']}", start=p['start'],
                              market='ml', side=p.get('espn_side') or 'home', line=None, flagged=p['ts'], venue=p['venue'], price=p['price'], won=None if not g_ else (1 if g_['won'] else 0), bet=f"{p['fav_name']} to win"))
+    # ---- Kalshi NHL late-flow paper lean (sharp/kalshi_flow.py), tier P
+    kp = os.path.join(ROOT, 'data', 'kalshi', 'flow_paper.jsonl')
+    if os.path.exists(kp):
+        for l in open(kp):
+            p = json.loads(l)
+            bets.append(dict(id=f"kf:{p['event_id']}:{p['market']}:{p.get('line')}", src='paper', cat='paper P', rule='kalshi_nhl_flow', sport='nhl', event_id=str(p['event_id']), game=p.get('game') or '',
+                             start=p['start'].replace('Z', ':00Z') if len(p['start']) == 17 else p['start'], market=p['market'], side=p['side'], line=p.get('line'), flagged=p['logged'], venue='Kalshi', price=p['price'],
+                             won=p.get('won') if p.get('won') in (0, 1) else None, bet=p.get('bet') or f"{p['side']} {p.get('line') or ''}".strip()))
     # ---- price paths
     by = collections.defaultdict(list)
     for b in bets:
