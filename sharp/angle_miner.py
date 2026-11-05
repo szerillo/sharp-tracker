@@ -90,6 +90,15 @@ def profiles(G, sport):
 
 
 GEO = json.load(open(os.path.join(ROOT, 'data', 'state', 'team_geo.json'))) if os.path.exists(os.path.join(ROOT, 'data', 'state', 'team_geo.json')) else {}
+# 11/5: CFB kickoff weather from the replay caches (Open-Meteo archive preferred, NASA POWER otherwise); keyed home_ab|YYYY-MM-DDTHH (UTC)
+_WXC = {}
+for _f in ('archive.json', 'archive_nasa.json'):
+    _p = os.path.join(ROOT, 'data', 'cfb', 'weather', _f)
+    if os.path.exists(_p):
+        try:
+            for k, v in json.load(open(_p)).items():
+                if v and v.get('wind') is not None and k not in _WXC: _WXC[k] = v
+        except Exception: pass
 
 def features(g, sport):
     """One categorical value per feature for this game. Team features are given for home and away (and by role fav/dog via 'role')."""
@@ -125,6 +134,13 @@ def features(g, sport):
     if g.get('conf') is not None and sport in ('cfb', 'cbb', 'wncaab'): F['conference'] = 'conference' if g['conf'] else 'non-conference'
     if g.get('neutral') and sport in ('cfb', 'cbb', 'wncaab'): F['site'] = 'neutral'
     F['night'] = 'night (7pm+ ET)' if d.hour >= 19 else 'day'
+    if sport == 'cfb' and g.get('home_ab') and not g.get('neutral'):
+        wx = _WXC.get(f"{g['home_ab']}|{g['start']:%Y-%m-%dT%H}")
+        if wx:
+            w = round(wx['wind']); F['wind'] = 'calm 0-5' if w <= 5 else 'wind 6-9' if w <= 9 else 'wind 10-13' if w <= 13 else 'wind 14+'
+            t = wx.get('temp')
+            if t is not None: F['temp'] = 'under 40F' if t < 40 else '40-59F' if t < 60 else '60-79F' if t < 80 else '80F+'
+            if (wx.get('precip') or 0) >= 0.05: F['rain'] = 'rain'
     # 11/5 (Sean): travel and body clock. Home-venue UTC offsets from data/state/team_geo.json (sharp/team_geo.py); ET is -5 standard.
     GS = GEO.get(sport) or {}; gh, ga = GS.get(g.get('home_ab') or ''), GS.get(g.get('away_ab') or '')
     if gh and ga and gh.get('tz') is not None and ga.get('tz') is not None and not g.get('neutral'):
