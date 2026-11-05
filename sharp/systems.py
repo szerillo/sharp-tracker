@@ -24,6 +24,10 @@ RULES = {'wind1014': dict(market='total', side='under', stake=1.0), 'wind1014_1h
          # 11/5 angle miner on the corrected Odds API database (docs/angles_2026-11-05.md): paper, building a forward record
          'nba_ats_hot_home': dict(market='spread', side='home', stake=0.5, sport='nba'), 'nba_bigfav_over': dict(market='total', side='over', stake=0.5, sport='nba'),
          'nhl_loss_streak_over': dict(market='total', side='over', stake=0.5, sport='nhl'),
+         'nba_badteams_under': dict(market='total', side='under', stake=0.5, sport='nba'), 'nba_roadtrip_over': dict(market='total', side='over', stake=0.5, sport='nba'),
+         'nhl_bounce_home_ml': dict(market='ml', side='home', stake=0.5, sport='nhl'), 'nhl_skid_fade_road': dict(market='spread', side='away', stake=0.5, sport='nhl'),
+         'cfb_day_over': dict(market='total', side='over', stake=0.5, sport='cfb'), 'cfb_homefav_7510_under': dict(market='total', side='under', stake=0.5, sport='cfb'),
+         'mlb_road_over_under': dict(market='total', side='under', stake=0.5, sport='mlb'),
          # exchange signals (docs/exchange_signals_audit_2026-10-29.md): fired inside T-1.5h, at the exchange that shows the signal
          'xch_homedog_fade': dict(market='ml|spread', side='away', stake=0.5, sport='nfl,nba,cfb,nhl,mlb', venue='Novig'),
          'nba_momentum': dict(market='ml|spread|total', side='continuation', stake=0.5, sport='nba', venue='Novig|Kalshi'),
@@ -55,9 +59,18 @@ EVIDENCE = {'wind1014': dict(tier='A', train='533-376 all-time (2003-), +13.3%',
             'wind1014_cold': dict(tier='P', train='Odds API 2020-26: wind 10-14 at 35F or colder 27-27', hold='mild weather 133-76, +23.4%', seasons='cold band flat', src='data/research/nfl_replay.json'),
             'nfl_home_dog_7510': dict(tier='C', train='Odds API 2020-26: home dog +7.5 to +10 47-25-1, +23%', hold='all dogs 7.5-10: 135-97-3, +10%, 6 of 7 seasons', seasons='5 of 7', src='data/research/nfl_replay.json'),
             'nfl_road_dog_7510': dict(tier='P', train='Odds API 2020-26: road dog +7.5 to +10 88-72-2', hold='paper, the home version is the bet', seasons='4 of 7', src='data/research/nfl_replay.json'),
-            'nba_ats_hot_home': dict(tier='P', train='miner 2020-23: 203-156 (+10.1%)', hold='2024-26: 108-72 (+17.0%); 7 of 7 seasons', seasons='7 of 7', src='docs/angles_2026-11-05.md'),
-            'nba_bigfav_over': dict(tier='P', train='miner 2020-23: 154-114 (+11.3%)', hold='2024-26: 118-86 (+10.5%); 6 of 6 seasons', seasons='6 of 6', src='docs/angles_2026-11-05.md'),
-            'nhl_loss_streak_over': dict(tier='P', train='miner 2020-23: 244-202 (+6.0%)', hold='2024-26: 141-88 (+18.7%); 5 of 6 seasons', seasons='5 of 6', src='docs/angles_2026-11-05.md'),
+            # 11/5 (Sean): mined angles start at B when they hold every season with a mechanism, C when a season is negative; up to A on a forward record.
+            # Selection haircut: these were the best of ~100k tests per sport, so expect about half the backtest ROI going forward.
+            'nba_ats_hot_home': dict(tier='B', train='miner 2020-23: 203-156 (+10.1%)', hold='2024-26: 108-72 (+17.0%); every season +6% or better', seasons='7 of 7', src='docs/angles_2026-11-05.md'),
+            'nba_badteams_under': dict(tier='B', train='miner 2020-23: 76-50 (+19%)', hold='2024-26: 77-45 (+22.3%); 153-95 overall, all seasons positive', seasons='7 of 7', src='docs/angles_2026-11-05.md'),
+            'nhl_loss_streak_over': dict(tier='B', train='miner 2020-23: 244-202 (+6.0%)', hold='2024-26: 141-88 (+18.7%); 385-290 overall; the one miss -1%', seasons='6 of 7', src='docs/angles_2026-11-05.md'),
+            'nhl_bounce_home_ml': dict(tier='B', train='miner 2020-23: 212-136 (+4.9%)', hold='2024-26: 125-61 (+19.9%); 337-197 overall; -6% in 2022-23', seasons='6 of 7', src='docs/angles_2026-11-05.md'),
+            'mlb_road_over_under': dict(tier='B', train='miner 2020-23: 206-151 (+11.1%)', hold='2024-25: 136-95 (+13.6%); 342-246 overall', seasons='6 of 6', src='docs/angles_2026-11-05.md'),
+            'nba_bigfav_over': dict(tier='C', train='miner 2020-23: 154-114 (+11.3%)', hold='2024-26: 118-86 (+10.5%); 272-202 overall; flat in 2021-22, -8% road-trip variant in 2022-23', seasons='6 of 7', src='docs/angles_2026-11-05.md'),
+            'nba_roadtrip_over': dict(tier='C', train='miner 2020-23: 126-99 (+8%)', hold='2024-26: 64-32 (+28.9%); 190-131 overall; 2023-24 only +2%', seasons='6 of 6', src='docs/angles_2026-11-05.md'),
+            'nhl_skid_fade_road': dict(tier='C', train='miner 2020-23: 132-100 (+19.9%)', hold='2024-26: 64-45 (+20.8%); 196-145 overall at the puck line; 2020-21 -6%', seasons='5 of 6', src='docs/angles_2026-11-05.md'),
+            'cfb_day_over': dict(tier='C', train='miner 2020-23: 242-193 (+7.0%)', hold='2024-26: 263-202 (+8.7%); 505-395 overall; 2021 -9%', seasons='6 of 7', src='docs/angles_2026-11-05.md'),
+            'cfb_homefav_7510_under': dict(tier='C', train='miner 2020-23: 98-74 (+9.7%)', hold='2024-26: 90-56 (+18.2%); 188-130 overall; 2023 -14%', seasons='6 of 7', src='docs/angles_2026-11-05.md'),
             'nfl_fade_fav_bye': dict(tier='P', train='Odds API 2020-26: favourite off a bye 120-143-7 ATS (-9.9%)', hold='bet the dog: positive 6 of 7 seasons', seasons='6 of 7', src='data/research/nfl_replay.json'),
             'bounce15_1h': dict(tier='B', train='312-258', hold='117-80 (+7.5% all-time)', seasons='4 of 6', src='docs/betlabs_nfl_audit_2026-10-25.md'),
             # 11/2 (Sean): the two exchange-audit rules are paper only (tier P): both were below the audit's bar, xch_homedog_fade failed its
@@ -83,9 +96,16 @@ DESC = {'wind1014': 'NFL outdoor, wind 10-14 mph (average of Open-Meteo at T-24h
         'wind1014_cold': 'NFL outdoor, wind 10-14 mph but 35F or colder: full-game under (paper; the cold band was 27-27 in the replay, mild weather carries the rule)',
         'nfl_home_dog_7510': 'NFL home dog of +7.5 to +10 at the close: home spread', 'nfl_road_dog_7510': 'NFL road dog of +7.5 to +10: road spread (paper)',
         'nfl_fade_fav_bye': 'NFL favourite coming off a bye (8+ days): take the dog on the spread (paper)',
-        'nba_ats_hot_home': 'NBA home team covering 60%+ of its spreads this season (8+ games) on exactly 2 days rest: home spread (paper; mined 11/5)',
-        'nba_bigfav_over': 'NBA favourite at 85%+ no-vig on the moneyline: over (paper; mined 11/5, blowouts run up)',
-        'nhl_loss_streak_over': 'NHL home team on a 3+ game losing streak with a season over rate of 40-60%: over (paper; mined 11/5)',
+        'nba_ats_hot_home': 'NBA home team covering 60%+ of its spreads this season (8+ games) on exactly 2 days rest: home spread (mined 11/5)',
+        'nba_bigfav_over': 'NBA favourite at 85%+ no-vig on the moneyline: over (mined 11/5; blowouts run up)',
+        'nhl_loss_streak_over': 'NHL home team on a 3+ game losing streak with a season over rate of 40-60%: over (mined 11/5)',
+        'nba_badteams_under': 'NBA visitor with a season margin of -2 to -7 at a home team winning under 40% at home (8+ games each): under (mined 11/5)',
+        'nba_roadtrip_over': 'NBA visitor on its 4th+ straight road game that won the last meeting with this opponent: over (mined 11/5)',
+        'nhl_bounce_home_ml': 'NHL home team off a loss by 3+ goals with a 50-64% record (8+ games): home moneyline (mined 11/5)',
+        'nhl_skid_fade_road': 'NHL road team off a win against a home team that has lost 3+ straight: road puck line (mined 11/5)',
+        'cfb_day_over': 'CFB game kicking off before 7pm ET with a total of 45-51.5: over (mined 11/5)',
+        'cfb_homefav_7510_under': 'CFB home favourite of 7.5 to 10: under (mined 11/5)',
+        'mlb_road_over_under': 'MLB road team whose games have gone over 60%+ this season (15+ games): under (mined 11/5; fires in season)',
         'xch_homedog_fade': 'Novig home side two-sided at 20-35c inside T-90m: take the road side on Novig', 'nba_momentum': 'NBA exchange mid moved 3c+ since T-6h: continuation at that exchange',
         'nhl_pl_fav_gap': "NHL favorite -1.5 when the OPPONENT's win% is 22+ points higher than the favorite's (market rates the favorite above its record)", 'nhl_pl_fav_strong_opp': 'NHL favorite -1.5 when the opponent wins 66%+',
         'nhl_pl_dog_bigml': 'NHL dog +1.5 when the dog ML is +181 to +196', 'nba_1h_under_hot_over': 'NBA 1H under when the visitor has gone over 71%+ of the time',
@@ -228,7 +248,7 @@ def public(conn, ev, market, side):
     return json.loads(r[0]) if r else {}
 
 
-LEAN_TAGS = {'nhl_pl_fav_gap', 'nhl_pl_fav_strong_opp', 'nhl_pl_dog_bigml', 'nba_1h_under_hot_over', 'nhl_early_home_fav_qual', 'nba_under_good_home_over', 'nba_ats_hot_home', 'nba_bigfav_over', 'nhl_loss_streak_over'}
+LEAN_TAGS = {'nhl_pl_fav_gap', 'nhl_pl_fav_strong_opp', 'nhl_pl_dog_bigml', 'nba_1h_under_hot_over', 'nhl_early_home_fav_qual', 'nba_under_good_home_over', 'nba_ats_hot_home', 'nba_bigfav_over', 'nhl_loss_streak_over', 'nba_badteams_under', 'nba_roadtrip_over', 'nhl_bounce_home_ml', 'nhl_skid_fade_road'}
 
 
 def void_fill(fired, key, why):
@@ -432,7 +452,9 @@ def main():
         if rec_s.get('conf') and sp_line is not None and sp_line < 0 and tl is not None and tl <= 54:
             k_, n_ = road_streak('cfb', away, st)
             if n_ >= 1 and 2 <= k_ <= 5: rs = k_
-        if not windy and not rdlt and not msw_only and not hot and not rs: continue
+        dayover = tl is not None and 45 <= tl <= 51.5 and st.astimezone(N.ET).hour < 19
+        hf_under = sp_line is not None and -10 <= sp_line <= -7.5 and tl is not None
+        if not windy and not rdlt and not msw_only and not hot and not rs and not dayover and not hf_under: continue
         game = dict(event_id=ev, away=away, home=home, start_utc=start, hours_to_kickoff=round(ttk, 1), spread_home=sp_line, dog=('away' if sp_line and sp_line < 0 else None), triggers={},
                     wind=(dict(mph=wx['wind_mph'], gust=wx.get('gust_mph'), temp_f=wx.get('temp_f'), at_h=wx['hours_to_kickoff']) if wx else None), fills=[], sport='cfb')
         if rdlt:
@@ -450,6 +472,10 @@ def main():
         if rs:
             take(conn, eq, fired, fires_now, game, ev, start, away, home, 'cfb_road_streak_dog', 'spread', -sp_line, 'away', away, 0.5,
                  f"conference game, {away} on road game {rs} in a row, +{-sp_line}, total {tl}")
+        if dayover and not windy:        # 11/5 mined angle; a windy under takes the game first
+            take(conn, eq, fired, fires_now, game, ev, start, away, home, 'cfb_day_over', 'total', tl, 'over', None, 0.5, f"{st.astimezone(N.ET):%-I:%M %p} ET kickoff, total {tl}: over (mined angle)")
+        if hf_under:
+            take(conn, eq, fired, fires_now, game, ev, start, away, home, 'cfb_homefav_7510_under', 'total', tl, 'under', None, 0.5, f"home favourite {home} {sp_line}, total {tl}: under (mined angle)")
         if msw_only: game['triggers']['wind_msw_only'] = f"one source at 14+ mph but the average is {wv:.1f} mph ({wlab}); flag only"
         if not windy: view_games.append(game); continue
         why = wlab + (f", gust {wx.get('gust_mph')}, {wx.get('temp_f')}F" if wx else '')
@@ -469,7 +495,7 @@ def main():
     for ev, sport, start, away, home in conn.execute("SELECT event_id, sport, start_utc, away, home FROM events WHERE sport IN ('nhl','nba') ORDER BY start_utc").fetchall():
         st = N.parse_ts(start); ttk = (st - NOW).total_seconds() / 3600
         if not (0 < ttk <= VIEW_H): continue      # triggers visible up to a week out (like Bet Labs); fills only inside WINDOW_H (paper_fill checks)
-        ph, pa = SEA.profile(sport, home, st), SEA.profile(sport, away, st)
+        ph, pa = SEA.profile(sport, home, st, opp=away), SEA.profile(sport, away, st, opp=home)
         if ph.get('games', 0) < 1 or pa.get('games', 0) < 1: continue      # Bet Labs applies no minimum (its picks start in a team's 2nd game); 8 was ours
         eq = F.EventQuotes(conn, ev); ml_h = eq.fair('ml', None, 'home', NOW_S, home); ml_a = eq.fair('ml', None, 'away', NOW_S, away)
         p_home = ml_h.get('fair') if ml_h else None
@@ -487,16 +513,26 @@ def main():
             if am is not None and 181 <= am <= 196: trig['nhl_pl_dog_bigml'] = ('spread', dog_side, f"{dog} opened +{am:.0f} on the moneyline: +1.5 on a big dog")
             if fav == home and ph['games'] + 1 <= 24 and int(100 * pd['win_pct']) >= 51:
                 trig['nhl_early_home_fav_qual'] = ('ml', 'home', f"home favorite, game {ph['games'] + 1} of the season, opponent {away} wins {int(100 * pd['win_pct'])}% ({pd['wins']}-{pd['games'] - pd['wins']})")
-            if ph.get('loss_streak', 0) >= 3 and ph.get('over_pct') is not None and 0.40 <= ph['over_pct'] < 0.60 and ph['games'] >= 5:
-                trig['nhl_loss_streak_over'] = ('total', 'over', f"home {home} has lost {ph['loss_streak']} straight, season over rate {100 * ph['over_pct']:.0f}%: over (mined angle, paper)")
+            mined_ok = ph['games'] >= 3 and pa['games'] >= 3          # 11/5: the miner's own minimum (3 games for record features); the Bet Labs rules keep their own definitions
+            if mined_ok and ph.get('loss_streak', 0) >= 3 and ph.get('over_pct') is not None and 0.40 <= ph['over_pct'] < 0.60:
+                trig['nhl_loss_streak_over'] = ('total', 'over', f"home {home} has lost {ph['loss_streak']} straight, season over rate {100 * ph['over_pct']:.0f}%: over (mined angle)")
+            if mined_ok and ph.get('last_margin') is not None and ph['last_margin'] <= -3 and 0.50 <= ph['win_pct'] < 0.65:
+                trig['nhl_bounce_home_ml'] = ('ml', 'home', f"home {home} lost its last game by {-ph['last_margin']:.0f}, record {ph['wins']}-{ph['games'] - ph['wins']} ({100 * ph['win_pct']:.0f}%): home moneyline (mined angle)")
+            if mined_ok and pa.get('last_margin') is not None and pa['last_margin'] > 0 and ph.get('loss_streak', 0) >= 3:
+                trig['nhl_skid_fade_road'] = ('spread', 'away', f"{away} off a win, home {home} has lost {ph['loss_streak']} straight: road puck line (mined angle)")
         else:
             if int(100 * (pa.get('over_pct') or 0)) >= 71: trig['nba_1h_under_hot_over'] = ('1h_total', 'under', f"visitor {away} over rate {100 * pa['over_pct']:.0f}% this season; 1H under (regression lean)")
             # mined paper angles (11/5): ATS-hot home team on 2 days rest; big favourite over
             h_off0 = (N.et_date(st) - N.et_date(N.parse_ts(ph['last_start']))).days if ph.get('last_start') else None
-            if ph.get('ats_n', 0) >= 8 and ph.get('ats_pct') is not None and ph['ats_pct'] >= 0.60 and h_off0 == 2:
-                trig['nba_ats_hot_home'] = ('spread', 'home', f"home {home} covers {100 * ph['ats_pct']:.0f}% of spreads this season ({ph['ats_n']} games), 2 days rest: home spread (mined angle, paper)")
-            if max(p_home, 1 - p_home) >= 0.85:
-                trig['nba_bigfav_over'] = ('total', 'over', f"{fav} is {100 * max(p_home, 1 - p_home):.0f}% on the moneyline: over (mined angle, paper)")
+            mined_ok = ph['games'] >= 3 and pa['games'] >= 3          # 11/5: the miner's own minimum (3 games); ATS% still needs 8 spreads
+            if mined_ok and ph.get('ats_n', 0) >= 8 and ph.get('ats_pct') is not None and ph['ats_pct'] >= 0.60 and h_off0 == 2:
+                trig['nba_ats_hot_home'] = ('spread', 'home', f"home {home} covers {100 * ph['ats_pct']:.0f}% of spreads this season ({ph['ats_n']} games), 2 days rest: home spread (mined angle)")
+            if mined_ok and max(p_home, 1 - p_home) >= 0.85:
+                trig['nba_bigfav_over'] = ('total', 'over', f"{fav} is {100 * max(p_home, 1 - p_home):.0f}% on the moneyline: over (mined angle)")
+            if mined_ok and pa.get('margin_avg') is not None and -7 <= pa['margin_avg'] < -2 and ph.get('home_pct') is not None and ph['home_pct'] < 0.40:
+                trig['nba_badteams_under'] = ('total', 'under', f"visitor {away} season margin {pa['margin_avg']:+.1f}, home {home} wins {100 * ph['home_pct']:.0f}% at home: under (mined angle)")
+            if mined_ok and pa.get('road_streak', 0) >= 4 and pa.get('last_vs') is not None and pa['last_vs'] > 0:
+                trig['nba_roadtrip_over'] = ('total', 'over', f"{away} on road game {pa['road_streak']} in a row and won the last meeting by {pa['last_vs']:.0f}: over (mined angle)")
             # Bet Labs "days between games" = calendar-day gap (back-to-back = 1); checked on its 2026 picks 10/31
             h_off = (N.et_date(st) - N.et_date(N.parse_ts(ph['last_start']))).days if ph.get('last_start') else None
             a_off = (N.et_date(st) - N.et_date(N.parse_ts(pa['last_start']))).days if pa.get('last_start') else None
