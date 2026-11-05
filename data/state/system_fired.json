@@ -1816,5 +1816,12 @@
 "fair": 0.48736,
 "edge_pts": -2.24,
 "why": "conference game, MSU on road game 2 in a row, +13.5, total 39.5"
+},
+"401873044:wind1014_1h": {
+"tag": "wind1014_1h",
+"stacked": true,
+"market": "1h_total",
+"side": "under",
+"why": "avg 11.7 mph (Open-Meteo 13.4 at T-75h, MySportsWeather 10.0), gust 19.7, 59.0F (same bet already taken by a higher-priority rule)"
 }
 }
