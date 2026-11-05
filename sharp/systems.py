@@ -17,6 +17,10 @@ RULES = {'wind1014': dict(market='total', side='under', stake=1.0), 'wind1014_1h
          'cfb_wind14': dict(market='total', side='under', stake=1.0, sport='cfb'),
          'vrest8_1h': dict(market='1h_total', side='under', stake=0.5), 'mnf_1h': dict(market='1h_total', side='under', stake=0.5),
          'awfuldog': dict(market='spread', side='dog', stake=0.5), 'bounce15_1h': dict(market='1h_spread', side='dog', stake=0.5),
+         # 11/5 Odds API replay of six NFL seasons at Pinnacle closes (sharp/nfl_replay.py, data/research/nfl_replay.json)
+         'wind1014_cold': dict(market='total', side='under', stake=0.5), 'awfuldog_deep': dict(market='spread', side='dog', stake=0.5),
+         'nfl_home_dog_7510': dict(market='spread', side='dog', stake=0.5), 'nfl_road_dog_7510': dict(market='spread', side='dog', stake=0.5),
+         'nfl_fade_fav_bye': dict(market='spread', side='dog', stake=0.5),
          # exchange signals (docs/exchange_signals_audit_2026-10-29.md): fired inside T-1.5h, at the exchange that shows the signal
          'xch_homedog_fade': dict(market='ml|spread', side='away', stake=0.5, sport='nfl,nba,cfb,nhl,mlb', venue='Novig'),
          'nba_momentum': dict(market='ml|spread|total', side='continuation', stake=0.5, sport='nba', venue='Novig|Kalshi'),
@@ -39,9 +43,16 @@ RULES = {'wind1014': dict(market='total', side='under', stake=1.0), 'wind1014_1h
 EVIDENCE = {'wind1014': dict(tier='A', train='533-376 all-time (2003-), +13.3%', hold='positive on both halves', seasons='5 of 6', src='docs/betlabs_nfl_audit_2026-10-25.md'),
             'wind1014_1h': dict(tier='A', train='403-300 all-time, +10.4%', hold='positive on both halves', seasons='4 of 6', src='docs/betlabs_nfl_audit_2026-10-25.md'),
             'cfb_wind14': dict(tier='A', train='555-402 all-time, +12%', hold='positive on both halves', seasons='5 of 6', src='docs/betlabs_cfb_audit_2026-10-29.md'),
-            'vrest8_1h': dict(tier='B', train='454-357 all-time, +7.7%', hold='positive on both halves', seasons='5 of 6', src='docs/betlabs_nfl_audit_2026-10-25.md'),
+            'vrest8_1h': dict(tier='C', train='454-357 all-time, +7.7%', hold='Odds API full-game cousin 127-93-2 (+11.9%) but 48-49-2 since 2024', seasons='5 of 6', src='docs/betlabs_nfl_audit_2026-10-25.md'),   # 11/5: tier C, the edge is fading
             'mnf_1h': dict(tier='B', train='168-118 all-time, +12.3%', hold='positive on both halves', seasons='4 of 6', src='docs/betlabs_nfl_audit_2026-10-25.md'),
-            'awfuldog': dict(tier='B', train='203-133', hold='51-31 (+17.2% all-time)', seasons='6 of 6 (n ~15 a season)', src='docs/betlabs_nfl_audit_2026-10-25.md'),
+            # 11/5: the Odds API replay (2020-26, Pinnacle closes, results) re-banded the dog rule: season margin -7 to -13 is 91-75-5 (+5.6%, 5 of 7 seasons),
+            # -13 or worse is 14-16 (-11%). The live band moves to -7 to -13 at tier C; the deep band is paper.
+            'awfuldog': dict(tier='C', train='Bet Labs 203-133 (margin -13 or worse)', hold='Odds API 2020-26: -7 to -13 band 91-75-5, +5.6%', seasons='5 of 7', src='data/research/nfl_replay.json'),
+            'awfuldog_deep': dict(tier='P', train='Odds API 2020-26: 14-16, -11%', hold='the old live band', seasons='3 of 6', src='data/research/nfl_replay.json'),
+            'wind1014_cold': dict(tier='P', train='Odds API 2020-26: wind 10-14 at 35F or colder 27-27', hold='mild weather 133-76, +23.4%', seasons='cold band flat', src='data/research/nfl_replay.json'),
+            'nfl_home_dog_7510': dict(tier='C', train='Odds API 2020-26: home dog +7.5 to +10 47-25-1, +23%', hold='all dogs 7.5-10: 135-97-3, +10%, 6 of 7 seasons', seasons='5 of 7', src='data/research/nfl_replay.json'),
+            'nfl_road_dog_7510': dict(tier='P', train='Odds API 2020-26: road dog +7.5 to +10 88-72-2', hold='paper, the home version is the bet', seasons='4 of 7', src='data/research/nfl_replay.json'),
+            'nfl_fade_fav_bye': dict(tier='P', train='Odds API 2020-26: favourite off a bye 120-143-7 ATS (-9.9%)', hold='bet the dog: positive 6 of 7 seasons', seasons='6 of 7', src='data/research/nfl_replay.json'),
             'bounce15_1h': dict(tier='B', train='312-258', hold='117-80 (+7.5% all-time)', seasons='4 of 6', src='docs/betlabs_nfl_audit_2026-10-25.md'),
             # 11/2 (Sean): the two exchange-audit rules are paper only (tier P): both were below the audit's bar, xch_homedog_fade failed its
             # robustness check and decayed by month, nba_momentum was graded at the close while live fires come earlier; live 12-6 -0.73u and 3-9 -3.15u, both negative CLV
@@ -61,7 +72,11 @@ EVIDENCE = {'wind1014': dict(tier='A', train='533-376 all-time (2003-), +13.3%',
 # nhl_over_busy_goalie retired 10/30: positive in 2 of 7 seasons and the goalie-saves field thins to a handful of games after 2023.
 DESC = {'wind1014': 'NFL outdoor, wind 10-14 mph (average of Open-Meteo at T-24h and MySportsWeather, whole mph): full-game under', 'wind1014_1h': 'same wind, 10-13 mph: first-half under',
         'cfb_wind14': 'CFB outdoor, wind 14+ mph (same two-source average): full-game under', 'vrest8_1h': 'NFL visitor off 8-30 days: first-half under', 'mnf_1h': 'Monday night: first-half under',
-        'awfuldog': 'NFL dog with season margin -13 or worse (2+ games): full-game spread', 'bounce15_1h': 'NFL dog whose last game lost ATS by 15+: first-half spread',
+        'awfuldog': 'NFL dog with a season point margin of -7 to -13 (1+ games): full-game spread (re-banded 11/5; -13 or worse is paper)', 'bounce15_1h': 'NFL dog whose last game lost ATS by 15+: first-half spread',
+        'awfuldog_deep': 'NFL dog with a season margin worse than -13: full-game spread (paper; 14-16 in the six-season replay)',
+        'wind1014_cold': 'NFL outdoor, wind 10-14 mph but 35F or colder: full-game under (paper; the cold band was 27-27 in the replay, mild weather carries the rule)',
+        'nfl_home_dog_7510': 'NFL home dog of +7.5 to +10 at the close: home spread', 'nfl_road_dog_7510': 'NFL road dog of +7.5 to +10: road spread (paper)',
+        'nfl_fade_fav_bye': 'NFL favourite coming off a bye (8+ days): take the dog on the spread (paper)',
         'xch_homedog_fade': 'Novig home side two-sided at 20-35c inside T-90m: take the road side on Novig', 'nba_momentum': 'NBA exchange mid moved 3c+ since T-6h: continuation at that exchange',
         'nhl_pl_fav_gap': "NHL favorite -1.5 when the OPPONENT's win% is 22+ points higher than the favorite's (market rates the favorite above its record)", 'nhl_pl_fav_strong_opp': 'NHL favorite -1.5 when the opponent wins 66%+',
         'nhl_pl_dog_bigml': 'NHL dog +1.5 when the dog ML is +181 to +196', 'nba_1h_under_hot_over': 'NBA 1H under when the visitor has gone over 71%+ of the time',
@@ -88,7 +103,7 @@ WINDOW_H = tuple(float(x) for x in os.environ.get('SYSTEMS_WINDOW', '2,30').spli
 # 11/4 (Sean: "why do CFB / NFL systems need to be inside 30 hours to fire?"): only the weather rules do, because the forecast they fire on
 # is only reliable inside about a day. Every other rule bets as soon as it triggers and a book has a price (the trigger is a schedule /
 # record / line fact that is already true days out), up to a week ahead.
-WEATHER = {'wind1014', 'wind1014_1h', 'cfb_wind14', 'cfb_hot_over_low_total', 'wind_msw_only'}
+WEATHER = {'wind1014', 'wind1014_1h', 'wind1014_cold', 'cfb_wind14', 'cfb_hot_over_low_total', 'wind_msw_only'}
 EARLY_H = 7 * 24
 def max_h(tag): return WINDOW_H[1] if tag in WEATHER else EARLY_H
 VIEW_H = 8 * 24          # how far ahead a trigger is shown (Bet Labs lists current picks days ahead)
@@ -328,8 +343,9 @@ def main():
         wv, wlab = blend_wind(wx, msw)
         wr = round(wv) if wv is not None else None     # Bet Labs' wind is whole mph (checked on its 2026 picks 10/31)
         if wr is not None and 10 <= wr <= 14:
-            trig['wind1014'] = wlab + (f", gust {wx.get('gust_mph')}, {wx.get('temp_f')}F" if wx else '')
-            if wr <= 13: trig['wind1014_1h'] = trig['wind1014']      # the tested first-half screen is 10-13 mph, not 10-14
+            cold = wx is not None and wx.get('temp_f') is not None and wx['temp_f'] <= 35      # 11/5 replay: the cold band is 27-27, mild weather 133-76
+            trig['wind1014_cold' if cold else 'wind1014'] = wlab + (f", gust {wx.get('gust_mph')}, {wx.get('temp_f')}F" if wx else '')
+            if wr <= 13: trig['wind1014_1h'] = trig['wind1014_cold' if cold else 'wind1014']      # the tested first-half screen is 10-13 mph, not 10-14
         elif wr is not None and any(x is not None and 10 <= round(x) <= 14 for x in ((wx or {}).get('wind_mph'), (msw or {}).get('wind_mph'))):
             trig['wind_msw_only'] = f"one source in the 10-14 band but the average is {wv:.1f} mph ({wlab}); flag only"
         # visitor's previous game: the later of its last completed game (season log) and its last scheduled game before this one (the schedule
@@ -341,8 +357,15 @@ def main():
         if et_dow == 'Monday': trig['mnf_1h'] = 'Monday night'
         if dog and (away if dog == 'away' else home) not in pending:
             dp = pv if dog == 'away' else ph; dteam = away if dog == 'away' else home
-            if dp.get('games', 0) >= 1 and dp.get('margin_avg') is not None and dp['margin_avg'] <= -13:     # Bet Labs: no minimum (4 of its 8 2026 picks were week 2)
-                trig['awfuldog'] = f"{dteam} season margin {dp['margin_avg']:+.1f} over {dp['games']} games, dog {('+' if sp_line > 0 else '')}{sp_line if dog == 'home' else -sp_line}"
+            if dp.get('games', 0) >= 1 and dp.get('margin_avg') is not None and dp['margin_avg'] <= -7:     # Bet Labs: no minimum (4 of its 8 2026 picks were week 2)
+                trig['awfuldog' if dp['margin_avg'] > -13 else 'awfuldog_deep'] = f"{dteam} season margin {dp['margin_avg']:+.1f} over {dp['games']} games, dog {('+' if sp_line > 0 else '')}{sp_line if dog == 'home' else -sp_line}"
+            dl = sp_line if dog == 'home' else -sp_line
+            if 7.5 <= dl <= 10: trig['nfl_home_dog_7510' if dog == 'home' else 'nfl_road_dog_7510'] = f"{dteam} +{dl:g} at home" if dog == 'home' else f"{dteam} +{dl:g} on the road"
+            # favourite off a bye: the dog on the spread (paper)
+            fteam = home if dog == 'away' else away; f_prev = h_prev if dog == 'away' else v_prev; fp = ph if dog == 'away' else pv
+            fc = [t for t in (f_prev[0] if f_prev else None, N.parse_ts(fp['last_start']) if fp.get('last_start') else None) if t is not None and t < st]
+            fdays = (N.et_date(st) - N.et_date(max(fc))).days if fc else None
+            if fdays is not None and 8 <= fdays <= 30 and fteam not in pending: trig['nfl_fade_fav_bye'] = f"{fteam} (favourite) off {fdays} days: dog {dteam}"
             if dp.get('last_ats_margin') is not None and dp['last_ats_margin'] <= -15:
                 trig['bounce15_1h'] = f"{dteam} previous game ATS margin {dp['last_ats_margin']:+.1f}"
         if 'awfuldog' in trig and 'bounce15_1h' in trig: trig['awfuldog'] += ' (skipped: bounce15_1h takes the game)'; skip_awful = True
@@ -351,7 +374,7 @@ def main():
                     wind=wx and dict(mph=wx['wind_mph'], gust=wx.get('gust_mph'), temp_f=wx.get('temp_f'), at_h=wx['hours_to_kickoff'],
                                      msw=msw and dict(mph=msw['wind_mph'], gust=msw.get('gust_mph'), dir=msw.get('wind_dir'), rain=msw.get('rain_pct'))), fills=[])
         taken = {(f['market'], f['side']) for k, f in fired.items() if k.startswith(ev + ':') and f.get('fill_id') and not f.get('void')}   # one bet per game per market x side (a voided fill does not block)
-        for tag in [t for t in ('wind1014', 'wind1014_1h', 'vrest8_1h', 'mnf_1h', 'awfuldog', 'bounce15_1h') if t in trig]:   # priority order
+        for tag in [t for t in ('wind1014', 'wind1014_1h', 'vrest8_1h', 'mnf_1h', 'awfuldog', 'bounce15_1h', 'nfl_home_dog_7510', 'wind1014_cold', 'awfuldog_deep', 'nfl_road_dog_7510', 'nfl_fade_fav_bye') if t in trig]:   # priority order
             why = trig[tag]
             if tag == 'awfuldog' and skip_awful: continue
             key = f"{ev}:{tag}"

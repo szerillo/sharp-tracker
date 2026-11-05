@@ -95,6 +95,11 @@ def build():
             g['n'] += 1
             if g['ot'] is None or t < g['ot']: g['ot'], g['ob'] = t, keep(r['books'])
             if g['ct'] is None or t > g['ct']: g['ct'], g['cb'] = t, keep(r['books'])
+            # Pinnacle's first posted number per market (its totals and spreads often appear after the first snapshot: NBA totals are in
+            # only 15% of first snapshots), so the "open" for each market is the earliest snapshot that has it
+            pb = r['books'].get('pinnacle') or {}
+            for mk in ('h2h', 'sp', 'tot'):
+                if pb.get(mk) and (g.get('o_' + mk) is None or t < g['o_' + mk][0]): g['o_' + mk] = (t, pb[mk])
         for bk, e in r['books'].items():
             ml = e.get('h2h') or [None, None]; sp = e.get('sp') or [None, None, None]; tt = e.get('tot') or [None, None, None]
             Q.append((r['sport'], r.get('key'), r['id'], t, bk, ml[0], ml[1], ml[2] if len(ml) > 2 else None, sp[0], sp[1], sp[2], tt[0], tt[1], tt[2]))
@@ -107,7 +112,7 @@ def build():
         ot, ob, ct, cb = g['ot'], g['ob'], g['ct'], g['cb']
         def pin(b, f):
             return (b.get('pinnacle') or {}).get(f)
-        po, pc = pin(ob, 'h2h'), pin(cb, 'h2h')
+        po, pc = (g.get('o_h2h') or (None, None))[1], pin(cb, 'h2h')
         nvo = nv(*(po or [None, None])[:3]) if po else None; nvc = nv(*(pc or [None, None])[:3]) if pc else None
         best = {}
         for bk in US:
@@ -115,7 +120,7 @@ def build():
             if not e: continue
             for i, s in ((0, 'home'), (1, 'away')):
                 if e[i] and (s not in best or e[i] > best[s][0]): best[s] = (e[i], bk)
-        sp_o, sp_c = pin(ob, 'sp'), pin(cb, 'sp'); to_o, to_c = pin(ob, 'tot'), pin(cb, 'tot')
+        sp_o, sp_c = (g.get('o_sp') or (None, None))[1], pin(cb, 'sp'); to_o, to_c = (g.get('o_tot') or (None, None))[1], pin(cb, 'tot')
         rows.append((gid, g['sport'], g['key'], g['start'], g['home'], g['away'], g['n'], ot, ct, round((st - dt.datetime.fromisoformat(ct.replace('Z', '+00:00'))).total_seconds() / 3600, 2),
                      nvo[0] if nvo else None, nvc[0] if nvc else None, nvc[1] if nvc else None, nvc[2] if nvc and len(nvc) > 2 else None,
                      sp_o[0] if sp_o else None, sp_c[0] if sp_c else None, to_o[0] if to_o else None, to_c[0] if to_c else None,
