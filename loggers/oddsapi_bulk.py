@@ -18,20 +18,26 @@ BOOKS = 'pinnacle,draftkings,fanduel,williamhill_us,betmgm,betonlineag,lowvig,be
 D = dt.date
 PLANS = {
     # sport: (api key, markets, seasons [(first day, last day)], slots (UTC hours; <12 means next calendar day), probe days first?)
-    'nba': ('basketball_nba', 'h2h,spreads,totals', [(D(2021, 10, 19), D(2022, 6, 17)), (D(2022, 10, 18), D(2023, 6, 13)), (D(2023, 10, 24), D(2024, 6, 20)), (D(2024, 10, 22), D(2025, 6, 25)), (D(2025, 10, 21), D(2026, 6, 25))], [15, 23, 0, 1, 2, 3], False),
-    'nhl': ('icehockey_nhl', 'h2h,spreads,totals', [(D(2021, 10, 12), D(2022, 6, 27)), (D(2022, 10, 7), D(2023, 6, 14)), (D(2023, 10, 10), D(2024, 6, 25)), (D(2024, 10, 4), D(2025, 6, 20)), (D(2025, 10, 7), D(2026, 6, 20))], [15, 23, 0, 1, 2, 3], False),
-    'cbb': ('basketball_ncaab', 'h2h,spreads,totals', [(D(2021, 11, 9), D(2022, 4, 5)), (D(2022, 11, 7), D(2023, 4, 4)), (D(2023, 11, 6), D(2024, 4, 9)), (D(2024, 11, 4), D(2025, 4, 8)), (D(2025, 11, 3), D(2026, 4, 7))], [15, 23, 0, 1, 2, 3], False),
-    'nfl': ('americanfootball_nfl', 'h2h,spreads,totals', [(D(2021, 9, 8), D(2022, 2, 14)), (D(2022, 9, 7), D(2023, 2, 13)), (D(2023, 9, 6), D(2024, 2, 12)), (D(2024, 9, 4), D(2025, 2, 10)), (D(2025, 9, 3), D(2026, 2, 9))], [15, 17, 20, 0, 1], True),
-    'cfb': ('americanfootball_ncaaf', 'h2h,spreads,totals', [(D(2021, 8, 26), D(2022, 1, 11)), (D(2022, 8, 25), D(2023, 1, 10)), (D(2023, 8, 24), D(2024, 1, 9)), (D(2024, 8, 24), D(2025, 1, 21)), (D(2025, 8, 23), D(2026, 1, 20))], [15, 16, 19, 23, 0, 3], True),
+    'nba': ('basketball_nba', 'h2h,spreads,totals', [(D(2020, 12, 22), D(2021, 7, 21)), (D(2021, 10, 19), D(2022, 6, 17)), (D(2022, 10, 18), D(2023, 6, 13)), (D(2023, 10, 24), D(2024, 6, 20)), (D(2024, 10, 22), D(2025, 6, 25)), (D(2025, 10, 21), D(2026, 6, 25))], [15, 23, 0, 1, 2, 3], False),
+    'nhl': ('icehockey_nhl', 'h2h,spreads,totals', [(D(2021, 1, 13), D(2021, 7, 8)), (D(2021, 10, 12), D(2022, 6, 27)), (D(2022, 10, 7), D(2023, 6, 14)), (D(2023, 10, 10), D(2024, 6, 25)), (D(2024, 10, 4), D(2025, 6, 20)), (D(2025, 10, 7), D(2026, 6, 20))], [15, 23, 0, 1, 2, 3], False),
+    'cbb': ('basketball_ncaab', 'h2h,spreads,totals', [(D(2020, 11, 25), D(2021, 4, 6)), (D(2021, 11, 9), D(2022, 4, 5)), (D(2022, 11, 7), D(2023, 4, 4)), (D(2023, 11, 6), D(2024, 4, 9)), (D(2024, 11, 4), D(2025, 4, 8)), (D(2025, 11, 3), D(2026, 4, 7))], [15, 23, 0, 1, 2, 3], False),
+    'nfl': ('americanfootball_nfl', 'h2h,spreads,totals', [(D(2020, 9, 9), D(2021, 2, 8)), (D(2021, 9, 8), D(2022, 2, 14)), (D(2022, 9, 7), D(2023, 2, 13)), (D(2023, 9, 6), D(2024, 2, 12)), (D(2024, 9, 4), D(2025, 2, 10)), (D(2025, 9, 3), D(2026, 2, 9))], [15, 17, 20, 0, 1], True),
+    'cfb': ('americanfootball_ncaaf', 'h2h,spreads,totals', [(D(2020, 9, 3), D(2021, 1, 12)), (D(2021, 8, 26), D(2022, 1, 11)), (D(2022, 8, 25), D(2023, 1, 10)), (D(2023, 8, 24), D(2024, 1, 9)), (D(2024, 8, 24), D(2025, 1, 21)), (D(2025, 8, 23), D(2026, 1, 20))], [15, 16, 19, 23, 0, 3], True),
     'mma': ('mma_mixed_martial_arts', 'h2h,totals', [(D(2022, 1, 1), D(2025, 12, 31))], [22, 2], True),
     # phase 2 (Sean, 11/4: "if credits are left over: MLB, WNBA, futures, whatever else"; no motorsport on the API)
-    'mlb': ('baseball_mlb', 'h2h,spreads,totals', [(D(2021, 4, 1), D(2021, 11, 3)), (D(2022, 4, 7), D(2022, 11, 6)), (D(2023, 3, 30), D(2023, 11, 2)), (D(2024, 3, 20), D(2024, 10, 31)), (D(2025, 3, 27), D(2025, 11, 2))], [15, 17, 18, 22, 23, 0, 2], False),
+    'mlb': ('baseball_mlb', 'h2h,spreads,totals', [(D(2020, 7, 23), D(2020, 10, 28)), (D(2021, 4, 1), D(2021, 11, 3)), (D(2022, 4, 7), D(2022, 11, 6)), (D(2023, 3, 30), D(2023, 11, 2)), (D(2024, 3, 20), D(2024, 10, 31)), (D(2025, 3, 27), D(2025, 11, 2))], [15, 17, 18, 22, 23, 0, 2], False),
     'wnba': ('basketball_wnba', 'h2h,spreads,totals', [(D(2021, 5, 14), D(2021, 10, 18)), (D(2022, 5, 6), D(2022, 9, 19)), (D(2023, 5, 19), D(2023, 10, 19)), (D(2024, 5, 14), D(2024, 10, 21)), (D(2025, 5, 16), D(2025, 10, 18))], [15, 23, 0, 2, 3], True),
     'cfl': ('americanfootball_cfl', 'h2h,spreads,totals', [(D(2021, 8, 5), D(2021, 12, 13)), (D(2022, 6, 9), D(2022, 11, 21)), (D(2023, 6, 8), D(2023, 11, 20)), (D(2024, 6, 6), D(2024, 11, 18)), (D(2025, 6, 5), D(2025, 11, 17))], [15, 23, 0, 2], True),
     'kbo': ('baseball_kbo', 'h2h,spreads,totals', [(D(2023, 4, 1), D(2023, 11, 15)), (D(2024, 3, 23), D(2024, 11, 1)), (D(2025, 3, 22), D(2025, 11, 1))], [8, 9, 10], True),
     'npb': ('baseball_npb', 'h2h,spreads,totals', [(D(2023, 3, 30), D(2023, 11, 6)), (D(2024, 3, 29), D(2024, 11, 4)), (D(2025, 3, 28), D(2025, 11, 3))], [3, 8, 9, 10], True),
     'boxing': ('boxing_boxing', 'h2h', [(D(2022, 1, 1), D(2025, 12, 31))], [22, 2], True),
+    'wncaab': ('basketball_wncaab', 'h2h,spreads,totals', [(D(2021, 11, 9), D(2022, 4, 4)), (D(2022, 11, 7), D(2023, 4, 3)), (D(2023, 11, 6), D(2024, 4, 8)), (D(2024, 11, 4), D(2025, 4, 7)), (D(2025, 11, 3), D(2026, 4, 6))], [15, 23, 0, 1, 2, 3], True),
+    'euroleague': ('basketball_euroleague', 'h2h,spreads,totals', [(D(2021, 9, 30), D(2022, 5, 22)), (D(2022, 9, 29), D(2023, 5, 22)), (D(2023, 10, 5), D(2024, 5, 27)), (D(2024, 10, 3), D(2025, 5, 26)), (D(2025, 9, 30), D(2026, 5, 25))], [15, 17, 18, 19, 20], True),
+    'milb': ('baseball_milb', 'h2h,spreads,totals', [(D(2021, 5, 4), D(2021, 10, 3)), (D(2022, 4, 5), D(2022, 10, 2)), (D(2023, 3, 31), D(2023, 10, 1)), (D(2024, 3, 29), D(2024, 9, 29)), (D(2025, 3, 28), D(2025, 9, 28))], [15, 22, 23, 0, 2], True),
+    'ncaa_baseball': ('baseball_ncaa', 'h2h,spreads,totals', [(D(2022, 2, 18), D(2022, 6, 27)), (D(2023, 2, 17), D(2023, 6, 26)), (D(2024, 2, 16), D(2024, 6, 25)), (D(2025, 2, 14), D(2025, 6, 23))], [15, 17, 19, 22, 0, 2], True),
 }
+CUPS = {'fa_cup': 'soccer_fa_cup', 'efl_cup': 'soccer_england_efl_cup', 'copa_del_rey': 'soccer_spain_copa_del_rey', 'coppa_italia': 'soccer_italy_coppa_italia', 'dfb_pokal': 'soccer_germany_dfb_pokal',
+        'coupe_de_france': 'soccer_france_coupe_de_france', 'club_world_cup': 'soccer_fifa_club_world_cup', 'copa_america': 'soccer_conmebol_copa_america', 'euros_qual': 'soccer_uefa_champs_league_qualification'}
 SOCCER3 = {'ligue1': 'soccer_france_ligue_one', 'eredivisie': 'soccer_netherlands_eredivisie', 'portugal': 'soccer_portugal_primeira_liga', 'efl_champ': 'soccer_efl_champ',
            'libertadores': 'soccer_conmebol_copa_libertadores', 'brazil': 'soccer_brazil_campeonato', 'argentina': 'soccer_argentina_primera_division', 'turkey': 'soccer_turkey_super_league'}
 # futures: one snapshot a week (Tuesday 15:00 UTC) 2021-2026; outright markets cost 10 a snapshot
@@ -40,7 +46,7 @@ FUTURES = {'nba_champ': 'basketball_nba_championship_winner', 'nfl_sb': 'america
            'world_cup': 'soccer_fifa_world_cup_winner', 'masters': 'golf_masters_tournament_winner', 'pga': 'golf_pga_championship_winner', 'open': 'golf_the_open_championship_winner', 'us_open_golf': 'golf_us_open_winner'}
 SOCCER = {'epl': 'soccer_epl', 'laliga': 'soccer_spain_la_liga', 'seriea': 'soccer_italy_serie_a', 'ucl': 'soccer_uefa_champs_league', 'mls': 'soccer_usa_mls', 'ligamx': 'soccer_mexico_ligamx'}
 SOCCER2 = {'europa': 'soccer_uefa_europa_league', 'bundesliga': 'soccer_germany_bundesliga', 'worldcup': 'soccer_fifa_world_cup'}   # 11/4: added; own plan and file so it can run beside the first
-SOCCER_SEASONS = [(D(2021, 8, 1), D(2022, 6, 5)), (D(2022, 8, 1), D(2023, 6, 12)), (D(2023, 8, 1), D(2024, 6, 5)), (D(2024, 8, 1), D(2025, 6, 5)), (D(2025, 7, 15), D(2026, 6, 5))]
+SOCCER_SEASONS = [(D(2020, 9, 1), D(2021, 6, 5)), (D(2021, 8, 1), D(2022, 6, 5)), (D(2022, 8, 1), D(2023, 6, 12)), (D(2023, 8, 1), D(2024, 6, 5)), (D(2024, 8, 1), D(2025, 6, 5)), (D(2025, 7, 15), D(2026, 6, 5))]
 SOCCER_SLOTS = [10, 12, 14, 16, 19, 0, 2]
 # tennis: the 2026 windows from oddsapi_tennis.py, shifted a year back for 2024 and 2025 and widened a week each side (the events probe trims)
 sys.path.insert(0, HERE)
@@ -134,8 +140,8 @@ def run_plan(plan, budget):
                 for w in slot_times(day, slots):
                     if not R.snap(plan, key, markets, w): R.save_done(); print(f"[bulk {plan}] budget reached"); return
                 day += dt.timedelta(days=1)
-    elif plan in ('soccer', 'soccer2', 'soccer3'):
-        for lg, key in (SOCCER if plan == 'soccer' else SOCCER2 if plan == 'soccer2' else SOCCER3).items():
+    elif plan in ('soccer', 'soccer2', 'soccer3', 'cups'):
+        for lg, key in (SOCCER if plan == 'soccer' else SOCCER2 if plan == 'soccer2' else SOCCER3 if plan == 'soccer3' else CUPS).items():
             for a, b in ([(D(2022, 11, 18), D(2022, 12, 20))] if lg == 'worldcup' else SOCCER_SEASONS):
                 day = a
                 while day <= b:
