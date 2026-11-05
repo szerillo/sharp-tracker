@@ -1,5 +1,5 @@
 {
- "built": "2026-11-05T11:05:22Z",
+ "built": "2026-11-05T11:15:54Z",
  "rows": [
   {
    "cond": "0x43bf75f521791c9dbf8423892ee11a1cb036ace20ff03283090d79e7a4174bbe",
@@ -406,14 +406,14 @@
    "bet": "Cavaliers ML",
    "side": "Cavaliers",
    "flagged": "2026-11-04T11:46:30Z",
-   "why": "2 top-200 accounts",
+   "why": "3 top-200 accounts",
    "proven": true,
    "trigger": "proven",
-   "n_accounts": 2,
+   "n_accounts": 3,
    "best_rank": 31,
-   "usd": 833,
-   "paid": 0.496,
-   "ask": 0.35,
+   "usd": 1607,
+   "paid": 0.428,
+   "ask": 0.37,
    "status": "live",
    "link": "https://polymarket.us/event/nba-phi-cle-2026-11-06",
    "other": null,
@@ -540,9 +540,16 @@
   },
   "401909289|ml": {
    "home": {
-    "n": 2,
+    "n": 3,
     "best_rank": 31,
-    "usd": 833
+    "usd": 1607
+   }
+  },
+  "401909295|ml": {
+   "away": {
+    "n": 1,
+    "best_rank": 93,
+    "usd": 126
    }
   },
   "401858289|total": {
