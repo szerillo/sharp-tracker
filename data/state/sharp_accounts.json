@@ -1,5 +1,5 @@
 {
- "built": "2026-11-05T23:21:02Z",
+ "built": "2026-11-05T23:37:38Z",
  "rows": [
   {
    "cond": "0x43bf75f521791c9dbf8423892ee11a1cb036ace20ff03283090d79e7a4174bbe",
@@ -649,17 +649,21 @@
    "best_rank": 43,
    "usd": 1965,
    "paid": 0.488,
-   "ask": 0.5,
+   "ask": 0.49,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-orl-phx-2026-11-05",
    "other": {
-    "n_accounts": 1,
+    "n_accounts": 2,
     "best_rank": 43,
-    "usd": 12740,
+    "usd": 13223,
     "first": "2026-11-05T20:15:13Z"
    },
-   "exit_bid": 0.49,
-   "kalshi_against": null,
+   "exit_bid": 0.48,
+   "kalshi_against": {
+    "move": 4.0,
+    "now": 51.5,
+    "state": "reversed"
+   },
    "logged": true,
    "event_id": "401909936",
    "sport": "nba",
@@ -670,10 +674,13 @@
    "home_name": "Phoenix Suns",
    "game_start": "2026-11-06T02:00Z",
    "side_std": "away",
-   "money_with": false,
+   "conflict": [
+    "Kalshi move"
+   ],
+   "money_with": true,
    "grade": "A",
    "fair_board": 0.4904,
-   "inside_fair": false,
+   "inside_fair": true,
    "books": null
   },
   {
@@ -862,9 +869,9 @@
     "usd": 1965
    },
    "home": {
-    "n": 1,
+    "n": 2,
     "best_rank": 43,
-    "usd": 12740
+    "usd": 13223
    }
   },
   "401909936|total": {
