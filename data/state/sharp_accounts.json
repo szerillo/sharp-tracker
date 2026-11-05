@@ -1,5 +1,5 @@
 {
- "built": "2026-11-05T21:55:18Z",
+ "built": "2026-11-05T22:12:19Z",
  "rows": [
   {
    "cond": "0x43bf75f521791c9dbf8423892ee11a1cb036ace20ff03283090d79e7a4174bbe",
@@ -44,7 +44,7 @@
    "best_rank": 58,
    "usd": 460,
    "paid": 0.54,
-   "ask": 0.55,
+   "ask": 0.56,
    "status": "live",
    "link": "https://polymarket.us/event/cfb-utsa-flatl-2026-11-05",
    "other": null,
@@ -162,6 +162,8 @@
    "side_std": "away",
    "money_with": false,
    "grade": "B",
+   "fair_board": 0.8196,
+   "inside_fair": true,
    "books": {
     "at": "2026-11-05T19:25:40Z",
     "fair": 0.8196,
@@ -182,14 +184,14 @@
    "bet": "Hawks ML",
    "side": "Hawks",
    "flagged": "2026-11-04T11:44:10Z",
-   "why": "a top-50 account",
+   "why": "2 top-200 accounts",
    "proven": false,
-   "trigger": "top50",
-   "n_accounts": 1,
-   "best_rank": 43,
-   "usd": 1216,
-   "paid": 0.62,
-   "ask": 0.69,
+   "trigger": "two",
+   "n_accounts": 2,
+   "best_rank": 40,
+   "usd": 1429,
+   "paid": 0.633,
+   "ask": 0.73,
    "status": "live",
    "link": "https://polymarket.us/event/nba-was-atl-2026-11-06",
    "other": null,
@@ -205,7 +207,7 @@
    "game_start": "2026-11-07T00:00Z",
    "side_std": "home",
    "money_with": false,
-   "grade": "watch",
+   "grade": "B",
    "fair_board": null,
    "inside_fair": null,
    "books": {
@@ -576,7 +578,7 @@
    "best_rank": 31,
    "usd": 1715,
    "paid": 0.425,
-   "ask": 0.41,
+   "ask": 0.43,
    "status": "live",
    "link": "https://polymarket.us/event/nba-phi-cle-2026-11-06",
    "other": null,
@@ -822,9 +824,9 @@
   },
   "401909287|ml": {
    "home": {
-    "n": 1,
-    "best_rank": 43,
-    "usd": 1216
+    "n": 2,
+    "best_rank": 40,
+    "usd": 1429
    }
   },
   "401909288|ml": {
