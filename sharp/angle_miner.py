@@ -11,6 +11,7 @@ Output: data/research/angles.json (everything that passed), docs/angles_2026-11-
 import os, sys, json, collections, itertools, datetime as dt
 HERE = os.path.dirname(os.path.abspath(__file__)); ROOT = os.path.abspath(os.path.join(HERE, '..')); sys.path.insert(0, ROOT)
 from sharp.rule_replay import load, season_of, ET
+from sharp import rule_replay as RR
 OUT = os.path.join(ROOT, 'data', 'research', 'angles.json'); DOC = os.path.join(ROOT, 'docs', 'angles_2026-11-05.md')
 SPORTS = ['nfl', 'nba', 'nhl', 'cfb', 'cbb', 'mlb', 'wnba']
 TEST_FROM = {'nfl': '2024', 'cfb': '2024', 'mlb': '2024', 'wnba': '2024', 'nba': '2024-25', 'nhl': '2024-25', 'cbb': '2024-25'}
@@ -154,7 +155,15 @@ def mine(sport):
     G = load(sport)
     G = [g for g in G if g['hs'] is not None and g.get('close_h') is not None and g['close_h'] <= 6]
     if len(G) < 300: return []
+    RR.profiles(G)            # records, rest and road streaks from the complete ESPN regular-season schedule (11/5)
     profiles(G, sport)
+    for g in G:               # the schedule-based numbers override the odds-game ones where present
+        for side in ('home', 'away'):
+            P = g.get(side + '_p')
+            if P is None or g.get(side + '_games') is None: continue
+            P['games'] = g[side + '_games']; P['win_pct'] = g[side + '_win_pct'] / 100 if g[side + '_win_pct'] is not None else None
+            if g.get(side + '_last'): P['rest'] = (g['start'].astimezone(ET).date() - g[side + '_last'].astimezone(ET).date()).days
+            P['road_streak'] = g.get(side + '_road_streak', P.get('road_streak'))
     # accumulate: key (bet, filterA, filterB or None) -> season -> [n, w, l, pnl]
     acc = collections.defaultdict(lambda: collections.defaultdict(lambda: [0, 0, 0, 0.0, 0.0]))
     for g in G:
