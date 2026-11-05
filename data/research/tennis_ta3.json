@@ -1,0 +1,1079 @@
+{
+ "1 slow starters: set-1 residual beyond match residual, persistence to next season (player-seasons with 25+ matches both years)": {
+  "n_pairs": 3305,
+  "corr_set1_beyond_match": 0.065,
+  "corr_raw_set1_resid": 0.088,
+  "quintiles": {
+   "q1 (this season -9.9)": -0.98,
+   "q2 (this season -3.9)": -0.0,
+   "q3 (this season -0.6)": 0.17,
+   "q4 (this season +2.8)": -0.11,
+   "q5 (this season +8.9)": 0.49
+  }
+ },
+ "2 matches already played in the event (favourite)": {
+  "fav played 0, dog played 0": {
+   "n": 63348,
+   "fav_won": 0.653,
+   "price": 0.651,
+   "match_resid": 0.2,
+   "set1": 0.622,
+   "set1_resid": 0.2
+  },
+  "fav played 0, dog played 1": {
+   "n": 9149,
+   "fav_won": 0.664,
+   "price": 0.681,
+   "match_resid": -1.7,
+   "set1": 0.633,
+   "set1_resid": -1.2
+  },
+  "fav played 0, dog played 2": {
+   "n": 7268,
+   "fav_won": 0.65,
+   "price": 0.664,
+   "match_resid": -1.4,
+   "set1": 0.621,
+   "set1_resid": -0.9
+  },
+  "fav played 0, dog played 3": {
+   "n": 1422,
+   "fav_won": 0.674,
+   "price": 0.683,
+   "match_resid": -0.9,
+   "set1": 0.653,
+   "set1_resid": 0.6
+  },
+  "fav played 1, dog played 0": {
+   "n": 3080,
+   "fav_won": 0.665,
+   "price": 0.617,
+   "match_resid": 4.8,
+   "set1": 0.607,
+   "set1_resid": 1.5
+  },
+  "fav played 1, dog played 1": {
+   "n": 28701,
+   "fav_won": 0.639,
+   "price": 0.636,
+   "match_resid": 0.3,
+   "set1": 0.614,
+   "set1_resid": 0.7
+  },
+  "fav played 1, dog played 2": {
+   "n": 3581,
+   "fav_won": 0.637,
+   "price": 0.666,
+   "match_resid": -2.9,
+   "set1": 0.607,
+   "set1_resid": -2.5
+  },
+  "fav played 1, dog played 3": {
+   "n": 2785,
+   "fav_won": 0.653,
+   "price": 0.665,
+   "match_resid": -1.2,
+   "set1": 0.627,
+   "set1_resid": -0.4
+  },
+  "fav played 1, dog played 4+": {
+   "n": 569,
+   "fav_won": 0.678,
+   "price": 0.667,
+   "match_resid": 1.1,
+   "set1": 0.67,
+   "set1_resid": 3.7
+  },
+  "fav played 2, dog played 0": {
+   "n": 2605,
+   "fav_won": 0.658,
+   "price": 0.609,
+   "match_resid": 4.9,
+   "set1": 0.613,
+   "set1_resid": 2.8
+  },
+  "fav played 2, dog played 1": {
+   "n": 1404,
+   "fav_won": 0.671,
+   "price": 0.606,
+   "match_resid": 6.5,
+   "set1": 0.605,
+   "set1_resid": 2.1
+  },
+  "fav played 2, dog played 2": {
+   "n": 11228,
+   "fav_won": 0.615,
+   "price": 0.623,
+   "match_resid": -0.8,
+   "set1": 0.587,
+   "set1_resid": -1.0
+  },
+  "fav played 2, dog played 3": {
+   "n": 1447,
+   "fav_won": 0.569,
+   "price": 0.655,
+   "match_resid": -8.6,
+   "set1": 0.583,
+   "set1_resid": -4.0
+  },
+  "fav played 2, dog played 4+": {
+   "n": 1276,
+   "fav_won": 0.647,
+   "price": 0.651,
+   "match_resid": -0.4,
+   "set1": 0.634,
+   "set1_resid": 1.4
+  },
+  "fav played 3, dog played 0": {
+   "n": 543,
+   "fav_won": 0.632,
+   "price": 0.618,
+   "match_resid": 1.4,
+   "set1": 0.606,
+   "set1_resid": 1.4
+  },
+  "fav played 3, dog played 1": {
+   "n": 969,
+   "fav_won": 0.631,
+   "price": 0.601,
+   "match_resid": 3.0,
+   "set1": 0.591,
+   "set1_resid": 1.3
+  },
+  "fav played 3, dog played 2": {
+   "n": 707,
+   "fav_won": 0.72,
+   "price": 0.61,
+   "match_resid": 11.0,
+   "set1": 0.652,
+   "set1_resid": 6.5
+  },
+  "fav played 3, dog played 3": {
+   "n": 5126,
+   "fav_won": 0.593,
+   "price": 0.619,
+   "match_resid": -2.5,
+   "set1": 0.577,
+   "set1_resid": -1.6
+  },
+  "fav played 3, dog played 4+": {
+   "n": 1132,
+   "fav_won": 0.636,
+   "price": 0.652,
+   "match_resid": -1.6,
+   "set1": 0.623,
+   "set1_resid": 0.2
+  },
+  "fav played 4+, dog played 2": {
+   "n": 577,
+   "fav_won": 0.681,
+   "price": 0.597,
+   "match_resid": 8.4,
+   "set1": 0.607,
+   "set1_resid": 3.1
+  },
+  "fav played 4+, dog played 3": {
+   "n": 483,
+   "fav_won": 0.613,
+   "price": 0.602,
+   "match_resid": 1.1,
+   "set1": 0.563,
+   "set1_resid": -1.6
+  },
+  "fav played 4+, dog played 4+": {
+   "n": 3210,
+   "fav_won": 0.613,
+   "price": 0.621,
+   "match_resid": -0.9,
+   "set1": 0.595,
+   "set1_resid": -0.1
+  }
+ },
+ "2b favourite has played 3+ more matches than the dog in this event (qualifier)": {
+  "dog 3+ more": {
+   "n": 2368,
+   "fav_won": 0.669,
+   "price": 0.675,
+   "match_resid": -0.7,
+   "set1": 0.658,
+   "set1_resid": 1.8
+  },
+  "fav 3+ more": {
+   "n": 1025,
+   "fav_won": 0.664,
+   "price": 0.621,
+   "match_resid": 4.3,
+   "set1": 0.606,
+   "set1_resid": 1.1
+  }
+ },
+ "3 previous match games (favourite), both have a previous match": {
+  "fav prev 2 sets / dog prev 2 sets": {
+   "n": 28138,
+   "fav_won": 0.636,
+   "price": 0.635,
+   "match_resid": 0.0,
+   "set1": 0.606,
+   "set1_resid": -0.1
+  },
+  "fav prev 2 sets / dog prev 3 sets": {
+   "n": 15415,
+   "fav_won": 0.665,
+   "price": 0.639,
+   "match_resid": 2.5,
+   "set1": 0.637,
+   "set1_resid": 2.7
+  },
+  "fav prev 3 sets / dog prev 2 sets": {
+   "n": 12705,
+   "fav_won": 0.589,
+   "price": 0.626,
+   "match_resid": -3.7,
+   "set1": 0.569,
+   "set1_resid": -3.0
+  },
+  "fav prev 3 sets / dog prev 3 sets": {
+   "n": 7198,
+   "fav_won": 0.616,
+   "price": 0.628,
+   "match_resid": -1.2,
+   "set1": 0.597,
+   "set1_resid": -0.3
+  }
+ },
+ "3b previous match long (28+ games) vs short (under 20)": {
+  "dog long, fav short": {
+   "n": 6400,
+   "fav_won": 0.682,
+   "price": 0.644,
+   "match_resid": 3.8,
+   "set1": 0.651,
+   "set1_resid": 3.7
+  },
+  "fav long, dog short": {
+   "n": 4989,
+   "fav_won": 0.564,
+   "price": 0.623,
+   "match_resid": -5.8,
+   "set1": 0.553,
+   "set1_resid": -4.4
+  }
+ },
+ "3c came from a set down in the previous match": {
+  "dog came back": {
+   "n": 10125,
+   "fav_won": 0.652,
+   "price": 0.637,
+   "match_resid": 1.5,
+   "set1": 0.626,
+   "set1_resid": 1.8
+  },
+  "fav came back": {
+   "n": 8653,
+   "fav_won": 0.592,
+   "price": 0.625,
+   "match_resid": -3.3,
+   "set1": 0.574,
+   "set1_resid": -2.5
+  },
+  "neither": {
+   "n": 42581,
+   "fav_won": 0.634,
+   "price": 0.635,
+   "match_resid": -0.1,
+   "set1": 0.607,
+   "set1_resid": 0.1
+  }
+ },
+ "3d previous opponent retired (walk-through)": {
+  "dog had a retirement": {
+   "n": 1839,
+   "fav_won": 0.653,
+   "price": 0.64,
+   "match_resid": 1.2,
+   "set1": 0.618,
+   "set1_resid": 0.7
+  },
+  "fav had a retirement": {
+   "n": 1514,
+   "fav_won": 0.594,
+   "price": 0.624,
+   "match_resid": -2.9,
+   "set1": 0.575,
+   "set1_resid": -2.3
+  }
+ },
+ "4 straight sets by match probability x serve profile (the -1.5 set price)": {
+  "p 0.50 dog bigger server": {
+   "n": 11043,
+   "straight_sets": 0.312,
+   "fav_won": 0.502
+  },
+  "p 0.50 fav bigger server": {
+   "n": 12782,
+   "straight_sets": 0.363,
+   "fav_won": 0.565
+  },
+  "p 0.50 similar": {
+   "n": 9456,
+   "straight_sets": 0.321,
+   "fav_won": 0.523
+  },
+  "p 0.55 dog bigger server": {
+   "n": 8516,
+   "straight_sets": 0.356,
+   "fav_won": 0.556
+  },
+  "p 0.55 fav bigger server": {
+   "n": 13175,
+   "straight_sets": 0.4,
+   "fav_won": 0.61
+  },
+  "p 0.55 similar": {
+   "n": 8272,
+   "straight_sets": 0.374,
+   "fav_won": 0.581
+  },
+  "p 0.60 dog bigger server": {
+   "n": 5905,
+   "straight_sets": 0.379,
+   "fav_won": 0.597
+  },
+  "p 0.60 fav bigger server": {
+   "n": 11846,
+   "straight_sets": 0.459,
+   "fav_won": 0.664
+  },
+  "p 0.60 similar": {
+   "n": 6394,
+   "straight_sets": 0.428,
+   "fav_won": 0.634
+  },
+  "p 0.65 dog bigger server": {
+   "n": 3626,
+   "straight_sets": 0.433,
+   "fav_won": 0.653
+  },
+  "p 0.65 fav bigger server": {
+   "n": 9942,
+   "straight_sets": 0.506,
+   "fav_won": 0.714
+  },
+  "p 0.65 similar": {
+   "n": 4609,
+   "straight_sets": 0.453,
+   "fav_won": 0.663
+  },
+  "p 0.70 dog bigger server": {
+   "n": 865,
+   "straight_sets": 0.489,
+   "fav_won": 0.697
+  },
+  "p 0.70 fav bigger server": {
+   "n": 3311,
+   "straight_sets": 0.527,
+   "fav_won": 0.744
+  },
+  "p 0.70 similar": {
+   "n": 1332,
+   "straight_sets": 0.505,
+   "fav_won": 0.723
+  },
+  "p 0.75 dog bigger server": {
+   "n": 1646,
+   "straight_sets": 0.518,
+   "fav_won": 0.742
+  },
+  "p 0.75 fav bigger server": {
+   "n": 6992,
+   "straight_sets": 0.583,
+   "fav_won": 0.785
+  },
+  "p 0.75 similar": {
+   "n": 2432,
+   "straight_sets": 0.533,
+   "fav_won": 0.747
+  },
+  "p 0.80 dog bigger server": {
+   "n": 902,
+   "straight_sets": 0.547,
+   "fav_won": 0.769
+  },
+  "p 0.80 fav bigger server": {
+   "n": 5985,
+   "straight_sets": 0.641,
+   "fav_won": 0.835
+  },
+  "p 0.80 similar": {
+   "n": 1527,
+   "straight_sets": 0.593,
+   "fav_won": 0.802
+  },
+  "p 0.85 fav bigger server": {
+   "n": 1354,
+   "straight_sets": 0.702,
+   "fav_won": 0.891
+  },
+  "p 0.90 fav bigger server": {
+   "n": 1395,
+   "straight_sets": 0.777,
+   "fav_won": 0.93
+  }
+ },
+ "5 retirements (share of matches with a completed set 1)": {
+  "atp_chall / Clay": {
+   "n": 44303,
+   "ret": 0.0319,
+   "dog_retired_share": null
+  },
+  "atp_chall / Grass": {
+   "n": 3362,
+   "ret": 0.0164,
+   "dog_retired_share": null
+  },
+  "atp_chall / Hard": {
+   "n": 50184,
+   "ret": 0.028,
+   "dog_retired_share": null
+  },
+  "atp_itf / Clay": {
+   "n": 64882,
+   "ret": 0.0328,
+   "dog_retired_share": null
+  },
+  "atp_itf / Hard": {
+   "n": 69614,
+   "ret": 0.0324,
+   "dog_retired_share": null
+  },
+  "atp_tour / Clay": {
+   "n": 7793,
+   "ret": 0.0196,
+   "dog_retired_share": null
+  },
+  "atp_tour / Grass": {
+   "n": 1902,
+   "ret": 0.0189,
+   "dog_retired_share": null
+  },
+  "atp_tour / Hard": {
+   "n": 14709,
+   "ret": 0.0228,
+   "dog_retired_share": null
+  },
+  "atp_tour_bo5 / Clay": {
+   "n": 1650,
+   "ret": 0.0224,
+   "dog_retired_share": null
+  },
+  "atp_tour_bo5 / Grass": {
+   "n": 1249,
+   "ret": 0.0224,
+   "dog_retired_share": null
+  },
+  "atp_tour_bo5 / Hard": {
+   "n": 2979,
+   "ret": 0.0413,
+   "dog_retired_share": null
+  },
+  "fav age / 21-32": {
+   "n": 362853,
+   "ret": 0.028,
+   "dog_retired_share": null
+  },
+  "fav age / 33+": {
+   "n": 19165,
+   "ret": 0.0293,
+   "dog_retired_share": null
+  },
+  "fav age / under 21": {
+   "n": 114558,
+   "ret": 0.0263,
+   "dog_retired_share": null
+  },
+  "match price / 0.50": {
+   "n": 122228,
+   "ret": 0.0287,
+   "dog_retired_share": 0.515
+  },
+  "match price / 0.55": {
+   "n": 32926,
+   "ret": 0.0303,
+   "dog_retired_share": 0.524
+  },
+  "match price / 0.60": {
+   "n": 104515,
+   "ret": 0.0278,
+   "dog_retired_share": 0.508
+  },
+  "match price / 0.65": {
+   "n": 85986,
+   "ret": 0.0283,
+   "dog_retired_share": 0.523
+  },
+  "match price / 0.70": {
+   "n": 26944,
+   "ret": 0.0301,
+   "dog_retired_share": 0.53
+  },
+  "match price / 0.75": {
+   "n": 58378,
+   "ret": 0.0265,
+   "dog_retired_share": 0.545
+  },
+  "match price / 0.80": {
+   "n": 41783,
+   "ret": 0.0253,
+   "dog_retired_share": 0.572
+  },
+  "match price / 0.85": {
+   "n": 21086,
+   "ret": 0.0207,
+   "dog_retired_share": 0.648
+  },
+  "match price / 0.90": {
+   "n": 7361,
+   "ret": 0.0205,
+   "dog_retired_share": 0.636
+  },
+  "match price / 0.95": {
+   "n": 2615,
+   "ret": 0.0153,
+   "dog_retired_share": 0.775
+  },
+  "wta_itf / Clay": {
+   "n": 92652,
+   "ret": 0.025,
+   "dog_retired_share": null
+  },
+  "wta_itf / Grass": {
+   "n": 3785,
+   "ret": 0.0159,
+   "dog_retired_share": null
+  },
+  "wta_itf / Hard": {
+   "n": 107241,
+   "ret": 0.025,
+   "dog_retired_share": null
+  },
+  "wta_tour / Clay": {
+   "n": 7774,
+   "ret": 0.026,
+   "dog_retired_share": null
+  },
+  "wta_tour / Grass": {
+   "n": 2990,
+   "ret": 0.0224,
+   "dog_retired_share": null
+  },
+  "wta_tour / Hard": {
+   "n": 17543,
+   "ret": 0.0246,
+   "dog_retired_share": null
+  }
+ },
+ "6 lefty vs righty by surface": {
+  "Clay: both lefty": {
+   "n": 1077,
+   "fav_won": 0.638,
+   "price": 0.641,
+   "match_resid": -0.3,
+   "set1": 0.609,
+   "set1_resid": -0.2
+  },
+  "Clay: dog lefty": {
+   "n": 6603,
+   "fav_won": 0.65,
+   "price": 0.641,
+   "match_resid": 0.9,
+   "set1": 0.614,
+   "set1_resid": 0.3
+  },
+  "Clay: fav lefty": {
+   "n": 6811,
+   "fav_won": 0.64,
+   "price": 0.639,
+   "match_resid": 0.1,
+   "set1": 0.622,
+   "set1_resid": 1.2
+  },
+  "Grass: dog lefty": {
+   "n": 943,
+   "fav_won": 0.624,
+   "price": 0.626,
+   "match_resid": -0.2,
+   "set1": 0.59,
+   "set1_resid": -1.0
+  },
+  "Grass: fav lefty": {
+   "n": 880,
+   "fav_won": 0.614,
+   "price": 0.619,
+   "match_resid": -0.6,
+   "set1": 0.626,
+   "set1_resid": 3.2
+  },
+  "Hard: both lefty": {
+   "n": 1153,
+   "fav_won": 0.642,
+   "price": 0.651,
+   "match_resid": -0.9,
+   "set1": 0.6,
+   "set1_resid": -2.0
+  },
+  "Hard: dog lefty": {
+   "n": 8486,
+   "fav_won": 0.648,
+   "price": 0.648,
+   "match_resid": 0.0,
+   "set1": 0.614,
+   "set1_resid": -0.4
+  },
+  "Hard: fav lefty": {
+   "n": 8180,
+   "fav_won": 0.635,
+   "price": 0.641,
+   "match_resid": -0.6,
+   "set1": 0.604,
+   "set1_resid": -0.8
+  }
+ },
+ "7 tiebreak win rate persistence (player-seasons with 12+ tiebreaks both years)": {
+  "n_pairs": 4913,
+  "corr": 0.02,
+  "quartiles": {
+   "q1 (this season 36.8%)": 51.1,
+   "q2 (this season 48.5%)": 51.2,
+   "q3 (this season 55.8%)": 51.3,
+   "q4 (this season 66.8%)": 52.3
+  }
+ },
+ "8 altitude events: set-1 tiebreak and games": {
+  "altitude / atp / Clay": {
+   "n": 4630,
+   "set1_tiebreak": 0.176,
+   "set1_games": 9.81
+  },
+  "altitude / wta / Clay": {
+   "n": 1232,
+   "set1_tiebreak": 0.093,
+   "set1_games": 9.31
+  },
+  "sea level / atp / Clay": {
+   "n": 47466,
+   "set1_tiebreak": 0.14,
+   "set1_games": 9.62
+  },
+  "sea level / atp / Grass": {
+   "n": 5264,
+   "set1_tiebreak": 0.231,
+   "set1_games": 10.15
+  },
+  "sea level / atp / Hard": {
+   "n": 64675,
+   "set1_tiebreak": 0.183,
+   "set1_games": 9.87
+  },
+  "sea level / wta / Clay": {
+   "n": 6542,
+   "set1_tiebreak": 0.109,
+   "set1_games": 9.35
+  },
+  "sea level / wta / Grass": {
+   "n": 2990,
+   "set1_tiebreak": 0.128,
+   "set1_games": 9.57
+  },
+  "sea level / wta / Hard": {
+   "n": 17305,
+   "set1_tiebreak": 0.109,
+   "set1_games": 9.38
+  }
+ },
+ "8b altitude: favourite residuals": {
+  "altitude Clay": {
+   "n": 5862,
+   "fav_won": 0.632,
+   "price": 0.644,
+   "match_resid": -1.2,
+   "set1": 0.611,
+   "set1_resid": -0.4
+  },
+  "altitude Hard": {
+   "n": 456,
+   "fav_won": 0.59,
+   "price": 0.635,
+   "match_resid": -4.5,
+   "set1": 0.592,
+   "set1_resid": -1.5
+  },
+  "sea level Clay": {
+   "n": 54008,
+   "fav_won": 0.646,
+   "price": 0.641,
+   "match_resid": 0.4,
+   "set1": 0.616,
+   "set1_resid": 0.3
+  },
+  "sea level Grass": {
+   "n": 8254,
+   "fav_won": 0.626,
+   "price": 0.63,
+   "match_resid": -0.4,
+   "set1": 0.604,
+   "set1_resid": 0.1
+  },
+  "sea level Hard": {
+   "n": 81980,
+   "fav_won": 0.647,
+   "price": 0.649,
+   "match_resid": -0.1,
+   "set1": 0.617,
+   "set1_resid": -0.2
+  }
+ },
+ "8c altitude: big server dog at altitude": {
+  "altitude: dog bigger server": {
+   "n": 1563,
+   "fav_won": 0.57,
+   "price": 0.614,
+   "match_resid": -4.4,
+   "set1": 0.56,
+   "set1_resid": -3.0
+  },
+  "altitude: fav bigger server": {
+   "n": 2794,
+   "fav_won": 0.671,
+   "price": 0.66,
+   "match_resid": 1.0,
+   "set1": 0.645,
+   "set1_resid": 1.7
+  },
+  "altitude: similar": {
+   "n": 1437,
+   "fav_won": 0.592,
+   "price": 0.628,
+   "match_resid": -3.7,
+   "set1": 0.578,
+   "set1_resid": -2.3
+  },
+  "sea level: dog bigger server": {
+   "n": 31836,
+   "fav_won": 0.575,
+   "price": 0.609,
+   "match_resid": -3.4,
+   "set1": 0.552,
+   "set1_resid": -3.4
+  },
+  "sea level: fav bigger server": {
+   "n": 65551,
+   "fav_won": 0.682,
+   "price": 0.662,
+   "match_resid": 2.0,
+   "set1": 0.648,
+   "set1_resid": 1.9
+  },
+  "sea level: similar": {
+   "n": 33734,
+   "fav_won": 0.616,
+   "price": 0.627,
+   "match_resid": -1.2,
+   "set1": 0.591,
+   "set1_resid": -1.0
+  }
+ },
+ "9 seeds": {
+  "both seeded": {
+   "n": 13663,
+   "fav_won": 0.619,
+   "price": 0.623,
+   "match_resid": -0.5,
+   "set1": 0.593,
+   "set1_resid": -0.5
+  },
+  "dog seeded, fav not": {
+   "n": 14522,
+   "fav_won": 0.524,
+   "price": 0.584,
+   "match_resid": -6.0,
+   "set1": 0.515,
+   "set1_resid": -5.0
+  },
+  "fav seeded, dog not": {
+   "n": 68106,
+   "fav_won": 0.699,
+   "price": 0.679,
+   "match_resid": 1.9,
+   "set1": 0.659,
+   "set1_resid": 1.6
+  },
+  "neither seeded": {
+   "n": 54635,
+   "fav_won": 0.616,
+   "price": 0.623,
+   "match_resid": -0.7,
+   "set1": 0.592,
+   "set1_resid": -0.5
+  }
+ },
+ "9b top-4 seed in its first match": {
+  "fav is a top-4 seed, first match": {
+   "n": 17389,
+   "fav_won": 0.733,
+   "price": 0.709,
+   "match_resid": 2.4,
+   "set1": 0.688,
+   "set1_resid": 1.9
+  }
+ },
+ "10 home player (event country from the event name)": {
+  "both at home": {
+   "n": 3499,
+   "fav_won": 0.687,
+   "price": 0.653,
+   "match_resid": 3.4,
+   "set1": 0.64,
+   "set1_resid": 1.8
+  },
+  "dog at home, fav not": {
+   "n": 12977,
+   "fav_won": 0.679,
+   "price": 0.676,
+   "match_resid": 0.3,
+   "set1": 0.64,
+   "set1_resid": -0.0
+  },
+  "fav at home, dog not": {
+   "n": 7744,
+   "fav_won": 0.644,
+   "price": 0.637,
+   "match_resid": 0.7,
+   "set1": 0.612,
+   "set1_resid": 0.4
+  },
+  "neither": {
+   "n": 58059,
+   "fav_won": 0.637,
+   "price": 0.64,
+   "match_resid": -0.3,
+   "set1": 0.609,
+   "set1_resid": -0.2
+  }
+ },
+ "10b home player by tour": {
+  "atp: dog at home": {
+   "n": 10159,
+   "fav_won": 0.678,
+   "price": 0.678,
+   "match_resid": -0.0,
+   "set1": 0.64,
+   "set1_resid": -0.3
+  },
+  "atp: fav at home": {
+   "n": 5802,
+   "fav_won": 0.638,
+   "price": 0.631,
+   "match_resid": 0.7,
+   "set1": 0.606,
+   "set1_resid": 0.3
+  },
+  "atp: neither": {
+   "n": 38494,
+   "fav_won": 0.633,
+   "price": 0.634,
+   "match_resid": -0.2,
+   "set1": 0.604,
+   "set1_resid": -0.2
+  },
+  "wta: dog at home": {
+   "n": 2818,
+   "fav_won": 0.68,
+   "price": 0.666,
+   "match_resid": 1.4,
+   "set1": 0.643,
+   "set1_resid": 1.0
+  },
+  "wta: fav at home": {
+   "n": 1942,
+   "fav_won": 0.662,
+   "price": 0.653,
+   "match_resid": 0.9,
+   "set1": 0.631,
+   "set1_resid": 0.8
+  },
+  "wta: neither": {
+   "n": 19565,
+   "fav_won": 0.645,
+   "price": 0.652,
+   "match_resid": -0.7,
+   "set1": 0.619,
+   "set1_resid": -0.2
+  }
+ },
+ "11 serve profile by surface (SERVE_ADJ refit; set1_resid is the adjustment)": {
+  "Clay: dog": {
+   "n": 14398,
+   "fav_won": 0.585,
+   "price": 0.612,
+   "match_resid": -2.7,
+   "set1": 0.561,
+   "set1_resid": -2.6
+  },
+  "Clay: fav": {
+   "n": 25482,
+   "fav_won": 0.678,
+   "price": 0.655,
+   "match_resid": 2.3,
+   "set1": 0.644,
+   "set1_resid": 2.1
+  },
+  "Clay: similar": {
+   "n": 13959,
+   "fav_won": 0.618,
+   "price": 0.626,
+   "match_resid": -0.8,
+   "set1": 0.593,
+   "set1_resid": -0.6
+  },
+  "Grass: dog": {
+   "n": 1909,
+   "fav_won": 0.541,
+   "price": 0.598,
+   "match_resid": -5.7,
+   "set1": 0.539,
+   "set1_resid": -3.8
+  },
+  "Grass: fav": {
+   "n": 4019,
+   "fav_won": 0.678,
+   "price": 0.65,
+   "match_resid": 2.8,
+   "set1": 0.644,
+   "set1_resid": 2.4
+  },
+  "Grass: similar": {
+   "n": 1944,
+   "fav_won": 0.595,
+   "price": 0.617,
+   "match_resid": -2.2,
+   "set1": 0.579,
+   "set1_resid": -1.3
+  },
+  "Hard: dog": {
+   "n": 17023,
+   "fav_won": 0.571,
+   "price": 0.609,
+   "match_resid": -3.8,
+   "set1": 0.546,
+   "set1_resid": -3.9
+  },
+  "Hard: fav": {
+   "n": 38703,
+   "fav_won": 0.685,
+   "price": 0.668,
+   "match_resid": 1.7,
+   "set1": 0.651,
+   "set1_resid": 1.7
+  },
+  "Hard: similar": {
+   "n": 19190,
+   "fav_won": 0.615,
+   "price": 0.629,
+   "match_resid": -1.5,
+   "set1": 0.589,
+   "set1_resid": -1.3
+  }
+ },
+ "12 set 1 by 6-0/6-1 (fav), 6-0 to 6-2 (fav), 6-0 to 6-2 (dog), by tour and match probability": {
+  "atp p 0.50": {
+   "n": 30349,
+   "fav_60_61": 0.058,
+   "fav_by_4plus": 0.132,
+   "dog_by_4plus": 0.116
+  },
+  "atp p 0.55": {
+   "n": 27428,
+   "fav_60_61": 0.069,
+   "fav_by_4plus": 0.154,
+   "dog_by_4plus": 0.098
+  },
+  "atp p 0.60": {
+   "n": 22089,
+   "fav_60_61": 0.078,
+   "fav_by_4plus": 0.174,
+   "dog_by_4plus": 0.084
+  },
+  "atp p 0.65": {
+   "n": 16538,
+   "fav_60_61": 0.093,
+   "fav_by_4plus": 0.195,
+   "dog_by_4plus": 0.07
+  },
+  "atp p 0.70": {
+   "n": 2752,
+   "fav_60_61": 0.077,
+   "fav_by_4plus": 0.172,
+   "dog_by_4plus": 0.054
+  },
+  "atp p 0.75": {
+   "n": 10683,
+   "fav_60_61": 0.11,
+   "fav_by_4plus": 0.228,
+   "dog_by_4plus": 0.055
+  },
+  "atp p 0.80": {
+   "n": 9452,
+   "fav_60_61": 0.143,
+   "fav_by_4plus": 0.285,
+   "dog_by_4plus": 0.045
+  },
+  "atp p 0.90": {
+   "n": 1927,
+   "fav_60_61": 0.211,
+   "fav_by_4plus": 0.38,
+   "dog_by_4plus": 0.02
+  },
+  "wta p 0.50": {
+   "n": 5935,
+   "fav_60_61": 0.08,
+   "fav_by_4plus": 0.176,
+   "dog_by_4plus": 0.149
+  },
+  "wta p 0.55": {
+   "n": 5497,
+   "fav_60_61": 0.092,
+   "fav_by_4plus": 0.201,
+   "dog_by_4plus": 0.138
+  },
+  "wta p 0.60": {
+   "n": 4747,
+   "fav_60_61": 0.107,
+   "fav_by_4plus": 0.218,
+   "dog_by_4plus": 0.112
+  },
+  "wta p 0.65": {
+   "n": 4012,
+   "fav_60_61": 0.132,
+   "fav_by_4plus": 0.253,
+   "dog_by_4plus": 0.09
+  },
+  "wta p 0.70": {
+   "n": 3168,
+   "fav_60_61": 0.14,
+   "fav_by_4plus": 0.286,
+   "dog_by_4plus": 0.078
+  },
+  "wta p 0.75": {
+   "n": 2289,
+   "fav_60_61": 0.167,
+   "fav_by_4plus": 0.305,
+   "dog_by_4plus": 0.062
+  },
+  "wta p 0.80": {
+   "n": 1545,
+   "fav_60_61": 0.195,
+   "fav_by_4plus": 0.35,
+   "dog_by_4plus": 0.054
+  }
+ }
+}

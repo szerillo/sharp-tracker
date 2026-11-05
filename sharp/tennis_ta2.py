@@ -126,7 +126,7 @@ def annotate(M):
         r = idx.get((str(m['date']), m['w'], m['l']))
         if not r: m['tid'] = None; continue
         tid = r['tourney_id']; m['tid'] = tid; m['rnd'] = r.get('round'); m['w_entry'] = r.get('winner_entry'); m['l_entry'] = r.get('loser_entry')
-        m['w_hand'] = r.get('winner_hand'); m['l_hand'] = r.get('loser_hand'); m['score'] = r.get('score')
+        m['w_hand'] = r.get('winner_hand'); m['l_hand'] = r.get('loser_hand'); m['score'] = r.get('score'); m['tname'] = r.get('tourney_name'); m['w_seed'] = r.get('winner_seed'); m['l_seed'] = r.get('loser_seed'); m['w_ioc'] = r.get('winner_ioc'); m['l_ioc'] = r.get('loser_ioc')
         try: m['w_age'] = float(r.get('winner_age') or 0) or None; m['l_age'] = float(r.get('loser_age') or 0) or None
         except Exception: m['w_age'] = m['l_age'] = None
         m['w_first'] = m['w'] not in ev_seen[tid]; m['l_first'] = m['l'] not in ev_seen[tid]

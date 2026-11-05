@@ -15,6 +15,7 @@ import os, sys, csv, gzip, json, math, re, collections, unicodedata, datetime as
 HERE = os.path.dirname(os.path.abspath(__file__)); ROOT = os.path.abspath(os.path.join(HERE, '..')); sys.path.insert(0, ROOT)
 import sharp.tennis_ta as T
 import sharp.tennis_ta2 as T2
+import sharp.tennis_ta3 as T3
 ODDS = os.path.join(ROOT, 'data', 'tennis', 'odds'); OUT = os.path.join(ROOT, 'data', 'research', 'tennis_edge.json')
 
 
@@ -105,7 +106,7 @@ def se(p, n): return math.sqrt(max(p * (1 - p), 1e-9) / n) * 100 if n else None
 
 
 def records():
-    M = T.load(); T.elo_run(M); T.serve_profiles(M); T2.annotate(M)
+    M = T.load(); T.elo_run(M); T.serve_profiles(M); T2.annotate(M); T3.fatigue(M)
     rows = T.fav_rows(M)
     cal = collections.defaultdict(lambda: collections.defaultdict(lambda: [0, 0]))
     for r in rows: c = cal[T.grp(r)][T.binp(r['p'])]; c[0] += 1; c[1] += r['fav_won']
@@ -132,6 +133,7 @@ def records():
                       fav_first=side('first'), dog_first=oside('first'), fav_layoff=side('layoff'), dog_layoff=oside('layoff'),
                       fav_switch=side('switch'), dog_switch=oside('switch'), fav_h2h=side('h2h'), dog_h2h=oside('h2h'),
                       fav_entry=side('entry'), dog_entry=oside('entry'), fav_hand=side('hand'), dog_hand=oside('hand'),
+                      fav_prev=m.get('w_prev' if fav_is_w else 'l_prev'), dog_prev=m.get('l_prev' if fav_is_w else 'w_prev'), fav_played=m.get('w_played' if fav_is_w else 'l_played'), dog_played=m.get('l_played' if fav_is_w else 'w_played'),
                       fav_hold=(m.get('hold_w') if fav_is_w else m.get('hold_l')), dog_hold=(m.get('hold_l') if fav_is_w else m.get('hold_w')),
                       b365_fav=(o['b365w'] if fav_is_w else o['b365l']), b365_dog=(o['b365l'] if fav_is_w else o['b365w']),
                       max_fav=(o['maxw'] if fav_is_w else o['maxl']), max_dog=(o['maxl'] if fav_is_w else o['maxw'])))
@@ -205,6 +207,16 @@ def main():
     # 9. serve profiles (match market; the set-1 effect cannot be priced here)
     H = [r for r in R if r['fav_hold'] is not None and r['dog_hold'] is not None]
     cut('9 serve profile (bet the bigger server)', lambda r: ('dog holds 3%+ more' if r['dog_hold'] - r['fav_hold'] >= .03 else 'fav holds 3%+ more' if r['fav_hold'] - r['dog_hold'] >= .03 else 'similar'), lambda r: 'dog' if r['dog_hold'] > r['fav_hold'] else 'fav', H, min_n=40)
+    # 9b. fatigue from the previous match in the event (round 3 of the research: -5.8 match / -4.4 set 1 for a favourite off a long match vs a dog off a short one)
+    PV = [r for r in R if r['fav_prev'] and r['dog_prev']]
+    cut('9b previous match: long (28+ games) vs short (under 20); bet the fresher side', lambda r: ('fav long, dog short' if r['fav_prev']['games'] >= 28 and r['dog_prev']['games'] < 20 else 'dog long, fav short' if r['dog_prev']['games'] >= 28 and r['fav_prev']['games'] < 20 else None),
+        lambda r: 'dog' if r['fav_prev']['games'] >= 28 and r['dog_prev']['games'] < 20 else 'fav', PV, min_n=40)
+    cut('9c previous match: sets played; bet the fresher side', lambda r: f"fav {min(r['fav_prev']['sets'], 4)} sets / dog {min(r['dog_prev']['sets'], 4)} sets" if r['fav_prev']['sets'] != r['dog_prev']['sets'] else None,
+        lambda r: 'dog' if r['fav_prev']['sets'] > r['dog_prev']['sets'] else 'fav', PV, min_n=40)
+    cut('9d previous match: came from a set down; bet the other side', lambda r: ('fav came back, dog did not' if r['fav_prev']['came_back'] and not r['dog_prev']['came_back'] else 'dog came back, fav did not' if r['dog_prev']['came_back'] and not r['fav_prev']['came_back'] else None),
+        lambda r: 'dog' if r['fav_prev']['came_back'] else 'fav', PV, min_n=40)
+    cut('9e previous match: 5 sets (slams); bet the other side', lambda r: ('fav went 5, dog did not' if r['fav_prev']['sets'] == 5 and r['dog_prev']['sets'] <= 3 else 'dog went 5, fav did not' if r['dog_prev']['sets'] == 5 and r['fav_prev']['sets'] <= 3 else None),
+        lambda r: 'dog' if r['fav_prev']['sets'] == 5 else 'fav', PV, min_n=40)
     # 10. rounds and best-of
     cut('10 round (bet fav)', lambda r: r['rnd'] if r['rnd'] in ('F', 'SF', 'QF', 'R16', 'R32', 'R64', 'R128') else None, fav)
     cut('10b best-of-5 vs 3 (bet fav)', lambda r: f"bo{r['bo']}", fav)
