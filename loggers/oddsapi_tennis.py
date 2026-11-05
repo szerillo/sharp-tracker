@@ -71,6 +71,7 @@ def tennis(budget):
                 # only matches starting in the next 14 hours are worth a snapshot (the next one covers the rest)
                 soon = [e for e in (ev or {}).get('data') or [] if when <= dt.datetime.fromisoformat(e['commence_time'].replace('Z', '+00:00')) <= when + dt.timedelta(hours=14)]
                 if not soon:
+                    os.makedirs(os.path.dirname(p), exist_ok=True)
                     with gzip.open(p, 'wt') as fh: json.dump(dict(timestamp=None, data=[]), fh)   # remember the empty day
                     continue
                 u, _ = snap(p, key, when, 'h2h'); spent += u
