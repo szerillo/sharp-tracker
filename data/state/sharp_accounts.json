@@ -1,5 +1,5 @@
 {
- "built": "2026-11-05T22:44:43Z",
+ "built": "2026-11-05T22:24:33Z",
  "rows": [
   {
    "cond": "0x43bf75f521791c9dbf8423892ee11a1cb036ace20ff03283090d79e7a4174bbe",
@@ -71,7 +71,7 @@
    "best_rank": 58,
    "usd": 460,
    "paid": 0.54,
-   "ask": 0.56,
+   "ask": 0.55,
    "status": "live",
    "link": "https://polymarket.us/event/cfb-utsa-flatl-2026-11-05",
    "other": null,
@@ -189,7 +189,7 @@
    "side_std": "away",
    "money_with": false,
    "grade": "B",
-   "fair_board": 0.8192,
+   "fair_board": 0.8196,
    "inside_fair": true,
    "books": {
     "at": "2026-11-05T21:56:29Z",
@@ -669,6 +669,57 @@
    "fair_board": 0.4904,
    "inside_fair": false,
    "books": null
+  },
+  {
+   "cond": "0x153760e7ea5d8a07b8ceed9fe46440e44ad2d5f0028070b86acd53802329e1b3",
+   "slug": "nba-phi-cle-2026-11-06",
+   "title": "76ers vs. Cavaliers",
+   "mtype": "ml",
+   "start": "2026-11-07T00:30:00Z",
+   "bet": "Cavaliers ML",
+   "side": "Cavaliers",
+   "flagged": "2026-11-04T11:46:30Z",
+   "why": "4 top-200 accounts",
+   "proven": true,
+   "trigger": "proven",
+   "n_accounts": 4,
+   "best_rank": 31,
+   "usd": 1715,
+   "paid": 0.425,
+   "ask": 0.43,
+   "status": "live",
+   "link": "https://polymarket.us/event/nba-phi-cle-2026-11-06",
+   "other": null,
+   "kalshi_against": {
+    "move": 7.0,
+    "now": 62.0,
+    "state": "held"
+   },
+   "logged": true,
+   "event_id": "401909289",
+   "sport": "nba",
+   "league": null,
+   "away": "PHI",
+   "home": "CLE",
+   "away_name": "Philadelphia 76ers",
+   "home_name": "Cleveland Cavaliers",
+   "game_start": "2026-11-07T00:30Z",
+   "side_std": "home",
+   "conflict": [
+    "Kalshi move"
+   ],
+   "money_with": false,
+   "grade": "A",
+   "fair_board": null,
+   "inside_fair": null,
+   "books": {
+    "at": "2026-11-05T19:25:48Z",
+    "fair": null,
+    "q": {
+     "Kalshi": 0.39,
+     "DK": 0.5455
+    }
+   }
   },
   {
    "cond": "0xb9a7b47c2b3c56a902bd706745a98c3f627e6f25e3566205b362856f2804c721",
