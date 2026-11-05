@@ -15,6 +15,7 @@ from sharp import rule_replay as RR
 OUT = os.path.join(ROOT, 'data', 'research', 'angles.json'); DOC = os.path.join(ROOT, 'docs', 'angles_2026-11-05.md')
 SPORTS = ['nfl', 'nba', 'nhl', 'cfb', 'cbb', 'mlb', 'wnba']
 TEST_FROM = {'nfl': '2024', 'cfb': '2024', 'mlb': '2024', 'wnba': '2024', 'nba': '2024-25', 'nhl': '2024-25', 'cbb': '2024-25'}
+FILLER = {'neither', 'flat', '40-59', 'even', 'at pace', 'weekday', 'day', 'normal', 'in season', 'pick', '35-49', '50-64', '2 days', 'other', '40-59 at this site'}
 MIN = dict(train_n=120, train_roi=3.0, test_n=50, test_roi=0.0, consist=0.7, z=1.0, z_all=2.5)
 
 
@@ -36,6 +37,10 @@ def profiles(G, sport):
             wins = sum(x['won'] for x in L); reg = sum(1 for x in L if not x['won'] and not x.get('ot'))     # OT/SO losses are not losses (Bet Labs NHL convention)
             P['win_pct'] = wins / (wins + reg) if (wins + reg) else None
             P['margin'] = sum(x['margin'] for x in L) / n if n else None
+            P['pf'] = sum(x['pf'] for x in L) / n if n else None; P['pa'] = sum(x['pa'] for x in L) / n if n else None
+            same = [x for x in L if x['side'] == side]; P['split_pct'] = (sum(1 for x in same if x['won']) / len(same)) if len(same) >= 3 else None
+            opp = g['away'] if side == 'home' else g['home']
+            prev = [x for x in L if x['opp'] == opp]; P['h2h_last'] = prev[-1]['margin'] if prev else None
             ats = [x['ats'] for x in L if x['ats'] is not None]; P['ats_pct'] = sum(1 for a in ats if a > 0) / len(ats) if ats else None
             ou = [x['over'] for x in L if x['over'] is not None]; P['over_pct'] = sum(ou) / len(ou) if ou else None
             P['last_margin'] = L[-1]['margin'] if L else None; P['last_ats'] = L[-1]['ats'] if L else None
@@ -80,8 +85,8 @@ def profiles(G, sport):
         m = g['hs'] - g['as_']; tot = g['hs'] + g['as_']
         over = (tot > g['tot_close']) if g.get('tot_close') is not None and tot != g['tot_close'] else None
         ats_h = (m + g['sp_close']) if g.get('sp_close') is not None else None
-        H[(g['home'], sea)].append(dict(start=g['start'], won=m > 0, margin=m, ats=ats_h, over=over, side='home', ot=g.get('ot')))
-        H[(g['away'], sea)].append(dict(start=g['start'], won=m < 0, margin=-m, ats=(-ats_h if ats_h is not None else None), over=over, side='away', ot=g.get('ot')))
+        H[(g['home'], sea)].append(dict(start=g['start'], won=m > 0, margin=m, ats=ats_h, over=over, side='home', ot=g.get('ot'), pf=g['hs'], pa=g['as_'], opp=g['away']))
+        H[(g['away'], sea)].append(dict(start=g['start'], won=m < 0, margin=-m, ats=(-ats_h if ats_h is not None else None), over=over, side='away', ot=g.get('ot'), pf=g['as_'], pa=g['hs'], opp=g['home']))
 
 
 def features(g, sport):
@@ -102,6 +107,19 @@ def features(g, sport):
     if p is not None: F['ml_fav'] = band(max(p, 1 - p), [.55, .6, .65, .7, .75, .8, .85], ['50-54', '55-59', '60-64', '65-69', '70-74', '75-79', '80-84', '85+'])
     d = g['start'].astimezone(ET)
     F['day'] = 'weekend' if d.weekday() >= 5 else 'weekday'
+    # 11/5 second pass: pace vs the posted total, home/away split records, rest differential, altitude, last meeting
+    hp, ap = g.get('home_p') or {}, g.get('away_p') or {}
+    if tc is not None and hp.get('games', 0) >= 5 and ap.get('games', 0) >= 5 and hp.get('pf') is not None and ap.get('pf') is not None:
+        exp = (hp['pf'] + hp['pa'] + ap['pf'] + ap['pa']) / 2; dv = tc - exp
+        unit = 6 if sport in ('nba', 'cbb', 'wnba') else 4 if sport in ('nfl', 'cfb') else 0.5
+        F['total vs pace'] = 'market far above pace' if dv >= unit else 'above pace' if dv > unit / 3 else 'at pace' if dv >= -unit / 3 else 'below pace' if dv > -unit else 'market far below pace'
+    if hp.get('rest') is not None and ap.get('rest') is not None:
+        dr = hp['rest'] - ap['rest']; F['rest edge'] = 'home rested more' if dr >= 2 else 'away rested more' if dr <= -2 else 'even'
+    hn = (g.get('home') or '').lower()
+    if sport in ('nba', 'nhl', 'mlb', 'nfl') and any(x in hn for x in ('denver', 'colorado', 'utah')): F['altitude'] = 'home at altitude'
+    for side, P in (('home', hp), ('away', ap)):
+        if P.get('split_pct') is not None: F[side + ' split'] = band(P['split_pct'], [.4, .6], ['<40 at this site', '40-59', '60+ at this site'])
+        if P.get('h2h_last') is not None and side == 'away': F['last meeting'] = 'road team won last meeting' if P['h2h_last'] > 0 else 'road team lost last meeting'
     if g.get('conf') is not None and sport in ('cfb', 'cbb', 'wncaab'): F['conference'] = 'conference' if g['conf'] else 'non-conference'
     if g.get('neutral') and sport in ('cfb', 'cbb', 'wncaab'): F['site'] = 'neutral'
     F['night'] = 'night (7pm+ ET)' if d.hour >= 19 else 'day'
@@ -189,6 +207,9 @@ def mine(sport):
             for i in range(4): t[i] += a[i]
             t[4] += a[4]
         return tr, te
+    def z(t):          # z-score from the per-bet pnl variance (sd ~1 for a -110 spread, larger for dogs)
+        var = t[4] / t[0] - (t[3] / t[0]) ** 2
+        return (t[3] / t[0]) / ((var ** .5) / (t[0] ** .5)) if var > 0 else 0
     keys = sorted(acc, key=lambda k: k[2] is not None)        # singles first, so a pair can be checked against its parents
     for (bet, f1, f2) in keys:
         S = acc[(bet, f1, f2)]
@@ -196,10 +217,6 @@ def mine(sport):
         if tr[0] < MIN['train_n'] or te[0] < MIN['test_n']: continue
         roi_tr = 100 * tr[3] / tr[0]; roi_te = 100 * te[3] / te[0]
         if roi_tr < MIN['train_roi'] or roi_te <= MIN['test_roi']: continue
-        # z-scores from the per-bet pnl variance (sd ~1 for a -110 spread, larger for dogs): both halves must clear 1.5
-        def z(t):
-            var = t[4] / t[0] - (t[3] / t[0]) ** 2
-            return (t[3] / t[0]) / ((var ** .5) / (t[0] ** .5)) if var > 0 else 0
         z_tr, z_te = z(tr), z(te); al = [tr[i] + te[i] for i in range(5)]; z_all = z(al)
         if z_tr < MIN['z'] or z_te < MIN['z'] or z_all < MIN['z_all']: continue
         if f2 is not None and ((bet, f1) in passed_single or (bet, f2) in passed_single): continue     # the pair adds a filter to an angle that already passes on its own
@@ -211,6 +228,38 @@ def mine(sport):
                         train=dict(n=tr[0], record=f"{tr[1]}-{tr[2]}", roi=round(roi_tr, 1)), test=dict(n=te[0], record=f"{te[1]}-{te[2]}", roi=round(roi_te, 1)),
                         all=dict(n=allv[0], record=f"{allv[1]}-{allv[2]}", roi=round(100 * allv[3] / allv[0], 1)), seasons_pos=f"{sum(yrs)}/{len(yrs)}",
                         by_season={s: dict(n=a[0], record=f"{a[1]}-{a[2]}", roi=round(100 * a[3] / a[0], 1)) for s, a in sorted(S.items())}))
+    # third filter on top of each passing pair (stricter: test n >= 40, z_all >= 3, 80% of seasons), only when it beats the pair's test ROI by 5+
+    passed_pairs = [(r['bet'], tuple(r['filters'][0].split(' = ', 1)), tuple(r['filters'][1].split(' = ', 1))) for r in res if len(r['filters']) == 2]
+    if passed_pairs:
+        acc3 = collections.defaultdict(lambda: collections.defaultdict(lambda: [0, 0, 0, 0.0, 0.0]))
+        want = collections.defaultdict(list)
+        for bet, fa, fb in passed_pairs: want[bet].append((fa, fb))
+        for g in G:
+            F = features(g, sport); O = outcomes(g)
+            if not O: continue
+            sea = season_of(sport, g['start']); items = sorted(F.items())
+            for bet, (won, dec) in O.items():
+                pnl = (dec - 1) if won == 1 else -1.0 if won == 0 else 0.0
+                for fa, fb in want.get(bet, []):
+                    if F.get(fa[0]) != fa[1] or F.get(fb[0]) != fb[1]: continue
+                    for k, v in items:
+                        if k in (fa[0], fb[0]) or v in FILLER or k == 'home last meeting': continue      # a 'nothing special' value as the third filter is a random subsample
+                        a = acc3[(bet, fa, fb, (k, v))][sea]; a[0] += 1; a[1] += won == 1; a[2] += won == 0; a[3] += pnl; a[4] += pnl * pnl
+        pair_roi = {(r['bet'], tuple(r['filters'])): r['test']['roi'] for r in res if len(r['filters']) == 2}
+        for (bet, fa, fb, fc), S in acc3.items():
+            tr, te = stats(S)
+            if tr[0] < 100 or te[0] < 40: continue
+            roi_tr = 100 * tr[3] / tr[0]; roi_te = 100 * te[3] / te[0]
+            if roi_tr < MIN['train_roi'] or roi_te <= pair_roi.get((bet, (f"{fa[0]} = {fa[1]}", f"{fb[0]} = {fb[1]}")), 0) + 5: continue
+            z_tr, z_te = z(tr), z(te); al = [tr[i] + te[i] for i in range(5)]
+            if z_tr < MIN['z'] or z_te < MIN['z'] or z(al) < 3.0: continue
+            yrs = [a[3] > 0 for sea, a in S.items() if a[0] >= 12]
+            if not yrs or sum(yrs) / len(yrs) < 0.8: continue
+            allv = [sum(a[i] for a in S.values()) for i in range(4)]
+            res.append(dict(sport=sport, bet=bet, filters=[f"{fa[0]} = {fa[1]}", f"{fb[0]} = {fb[1]}", f"{fc[0]} = {fc[1]}"], z_train=round(z_tr, 2), z_test=round(z_te, 2),
+                            train=dict(n=tr[0], record=f"{tr[1]}-{tr[2]}", roi=round(roi_tr, 1)), test=dict(n=te[0], record=f"{te[1]}-{te[2]}", roi=round(roi_te, 1)),
+                            all=dict(n=allv[0], record=f"{allv[1]}-{allv[2]}", roi=round(100 * allv[3] / allv[0], 1)), seasons_pos=f"{sum(yrs)}/{len(yrs)}",
+                            by_season={s_: dict(n=a[0], record=f"{a[1]}-{a[2]}", roi=round(100 * a[3] / a[0], 1)) for s_, a in sorted(S.items())}))
     # score: test ROI weighted by sqrt(n), prefer singles
     res.sort(key=lambda r: -(r['test']['roi'] * (r['test']['n'] ** .5) * (1.3 if len(r['filters']) == 1 else 1)))
     print(f"[angles] {sport}: {len(G)} games, {len(res)} angles passed", flush=True)
