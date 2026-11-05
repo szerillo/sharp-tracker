@@ -1,5 +1,5 @@
 {
- "built": "2026-11-05T14:52:23Z",
+ "built": "2026-11-05T15:02:37Z",
  "rows": [
   {
    "cond": "0x43bf75f521791c9dbf8423892ee11a1cb036ace20ff03283090d79e7a4174bbe",
@@ -429,6 +429,53 @@
    }
   },
   {
+   "cond": "0xb9a7b47c2b3c56a902bd706745a98c3f627e6f25e3566205b362856f2804c721",
+   "slug": "nfl-buf-min-2026-11-10",
+   "title": "Bills vs. Vikings",
+   "mtype": "ml",
+   "start": "2026-11-10T01:15:00Z",
+   "bet": "Bills ML",
+   "side": "Bills",
+   "flagged": "2026-11-05T14:52:25Z",
+   "why": "a top-50 account",
+   "proven": true,
+   "trigger": "proven",
+   "n_accounts": 1,
+   "best_rank": 49,
+   "usd": 6625,
+   "paid": 0.64,
+   "ask": 0.64,
+   "status": "live",
+   "link": "https://polymarket.us/event/nfl-buf-min-2026-11-10",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401873051",
+   "sport": "nfl",
+   "league": null,
+   "away": "BUF",
+   "home": "MIN",
+   "away_name": "Buffalo Bills",
+   "home_name": "Minnesota Vikings",
+   "game_start": "2026-11-10T01:15Z",
+   "side_std": "away",
+   "conflict": [
+    "Kalshi bet back"
+   ],
+   "money_with": false,
+   "grade": "A",
+   "books": {
+    "at": "2026-11-05T03:17:46Z",
+    "fair": 0.6247,
+    "q": {
+     "Caesars": 0.6377,
+     "DK": 0.6429,
+     "FD": 0.6479,
+     "Kalshi": 0.65
+    }
+   }
+  },
+  {
    "cond": "0x153760e7ea5d8a07b8ceed9fe46440e44ad2d5f0028070b86acd53802329e1b3",
    "slug": "nba-phi-cle-2026-11-06",
    "title": "76ers vs. Cavaliers",
@@ -444,7 +491,7 @@
    "best_rank": 31,
    "usd": 1607,
    "paid": 0.428,
-   "ask": 0.35,
+   "ask": 0.36,
    "status": "live",
    "link": "https://polymarket.us/event/nba-phi-cle-2026-11-06",
    "other": null,
@@ -555,6 +602,13 @@
     "n": 1,
     "best_rank": 115,
     "usd": 5008
+   }
+  },
+  "401873051|ml": {
+   "away": {
+    "n": 1,
+    "best_rank": 49,
+    "usd": 6625
    }
   },
   "401909936|ml": {
