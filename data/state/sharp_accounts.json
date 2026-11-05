@@ -1,5 +1,5 @@
 {
- "built": "2026-11-05T15:44:00Z",
+ "built": "2026-11-05T16:10:46Z",
  "rows": [
   {
    "cond": "0x43bf75f521791c9dbf8423892ee11a1cb036ace20ff03283090d79e7a4174bbe",
@@ -17,7 +17,7 @@
    "best_rank": 197,
    "usd": 2933,
    "paid": 0.51,
-   "ask": 0.55,
+   "ask": 0.54,
    "status": "live",
    "link": "https://polymarket.us/event/nhl-utah-mon-2026-11-05",
    "other": null,
@@ -42,7 +42,7 @@
    "best_rank": 110,
    "usd": 822,
    "paid": 0.58,
-   "ask": 0.6,
+   "ask": 0.59,
    "status": "live",
    "link": "https://polymarket.us/event/cfb-jmad-soumis-2026-11-05",
    "other": null,
@@ -60,6 +60,50 @@
    "money_with": false,
    "grade": "A",
    "books": null
+  },
+  {
+   "cond": "0xa91d0d7594d984241659f6e0d7d3596d9ac4b578d0c82086ef9c1cb2631e4297",
+   "slug": "cfb-jmad-soumis-2026-11-05",
+   "title": "James Madison vs. Southern Miss",
+   "mtype": "total",
+   "start": "2026-11-06T01:00:00Z",
+   "bet": "Over 57.5",
+   "side": "Over",
+   "flagged": "2026-11-05T16:03:49Z",
+   "why": "a top-200 account also in this sport's top 50",
+   "proven": true,
+   "trigger": "proven",
+   "n_accounts": 1,
+   "best_rank": 58,
+   "usd": 470,
+   "paid": 0.53,
+   "ask": 0.53,
+   "status": "live",
+   "link": "https://polymarket.us/event/cfb-jmad-soumis-2026-11-05",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401869964",
+   "sport": "cfb",
+   "league": null,
+   "away": "JMU",
+   "home": "USM",
+   "away_name": "James Madison Dukes",
+   "home_name": "Southern Miss Golden Eagles",
+   "game_start": "2026-11-06T01:00Z",
+   "side_std": "over",
+   "money_with": false,
+   "grade": "A",
+   "books": {
+    "at": "2026-11-05T03:17:46Z",
+    "fair": 0.5032,
+    "q": {
+     "DK": 0.5238,
+     "FD": 0.5238,
+     "Kalshi": 0.53,
+     "Caesars": 0.5349
+    }
+   }
   },
   {
    "cond": "0x00f341c1ce5ac7d38b59f3606333d0db49b6a51f7cfa86c543cebc811ba46f79",
@@ -638,6 +682,13 @@
     "usd": 1216
    }
   },
+  "401909288|ml": {
+   "home": {
+    "n": 1,
+    "best_rank": 93,
+    "usd": 110
+   }
+  },
   "401909289|ml": {
    "home": {
     "n": 3,
@@ -657,6 +708,13 @@
     "n": 1,
     "best_rank": 110,
     "usd": 822
+   }
+  },
+  "401869964|total": {
+   "over": {
+    "n": 1,
+    "best_rank": 58,
+    "usd": 470
    }
   },
   "401858289|total": {
