@@ -1584,5 +1584,22 @@
 "fair": 0.4896,
 "loss": -0.0
 }
+},
+"401909924:nba_momentum:ml": {
+"tag": "nba_momentum",
+"fill_id": "a2c749e52346",
+"ts": "2026-11-05T00:18:54Z",
+"market": "ml",
+"side": "home",
+"line": null,
+"venue": "Kalshi",
+"price": -614,
+"fair": 0.84293,
+"edge_pts": -1.71,
+"why": "Kalshi ml mid 0.805 at T-6h -> 0.845 now (+4.0c); continuation (audit section 3, NBA only)",
+"now": {
+"venue": "DK",
+"price": -567
+}
 }
 }
