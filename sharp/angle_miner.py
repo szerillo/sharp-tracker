@@ -89,6 +89,8 @@ def profiles(G, sport):
         H[(g['away'], sea)].append(dict(start=g['start'], won=m < 0, margin=-m, ats=(-ats_h if ats_h is not None else None), over=over, side='away', ot=g.get('ot'), pf=g['as_'], pa=g['hs'], opp=g['home']))
 
 
+GEO = json.load(open(os.path.join(ROOT, 'data', 'state', 'team_geo.json'))) if os.path.exists(os.path.join(ROOT, 'data', 'state', 'team_geo.json')) else {}
+
 def features(g, sport):
     """One categorical value per feature for this game. Team features are given for home and away (and by role fav/dog via 'role')."""
     F = {}
@@ -123,6 +125,15 @@ def features(g, sport):
     if g.get('conf') is not None and sport in ('cfb', 'cbb', 'wncaab'): F['conference'] = 'conference' if g['conf'] else 'non-conference'
     if g.get('neutral') and sport in ('cfb', 'cbb', 'wncaab'): F['site'] = 'neutral'
     F['night'] = 'night (7pm+ ET)' if d.hour >= 19 else 'day'
+    # 11/5 (Sean): travel and body clock. Home-venue UTC offsets from data/state/team_geo.json (sharp/team_geo.py); ET is -5 standard.
+    GS = GEO.get(sport) or {}; gh, ga = GS.get(g.get('home_ab') or ''), GS.get(g.get('away_ab') or '')
+    if gh and ga and gh.get('tz') is not None and ga.get('tz') is not None and not g.get('neutral'):
+        dz = gh['tz'] - ga['tz']          # positive = the visitor travelled east (its body clock is earlier than the local clock)
+        F['travel'] = 'away 2+ zones east' if dz >= 2 else 'away 1 zone east' if dz == 1 else 'same zone' if dz == 0 else 'away 1 zone west' if dz == -1 else 'away 2+ zones west'
+        body = (d.hour + (ga['tz'] - (-5))) % 24       # the visitor's body-clock hour at tip-off / kickoff
+        F['away body clock'] = 'body before 4pm' if body < 16 else 'body 4-6pm' if body < 19 else 'body 7-9pm' if body < 22 else 'body 10pm+'
+        if ga.get('tz', 0) <= -7 and gh.get('tz', 0) >= -5: F['coast'] = 'west team in the east'
+        elif ga.get('tz', 0) >= -5 and gh.get('tz', 0) <= -7: F['coast'] = 'east team in the west'
     if g.get('sp_open') is not None and sp is not None:
         mv = sp - g['sp_open']
         F['sp_move'] = 'toward home 1.5+' if mv <= -1.5 else 'toward home 0.5-1' if mv < 0 else 'flat' if mv == 0 else 'toward away 0.5-1' if mv <= 1 else 'toward away 1.5+'

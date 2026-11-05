@@ -1,0 +1,1787 @@
+{
+"nba": {
+"ATL": {
+"lat": 33.749,
+"lon": -84.38798,
+"tz": -5,
+"city": "Atlanta",
+"state": "GA",
+"venue": "State Farm Arena",
+"indoor": true
+},
+"BOS": {
+"lat": 42.35843,
+"lon": -71.05977,
+"tz": -5,
+"city": "Boston",
+"state": "MA",
+"venue": "TD Garden",
+"indoor": true
+},
+"BKN": {
+"lat": 40.73566,
+"lon": -74.17237,
+"tz": -5,
+"city": "Newark",
+"state": "NJ",
+"venue": "Prudential Center",
+"indoor": true
+},
+"CHA": {
+"lat": 35.22709,
+"lon": -80.84313,
+"tz": -5,
+"city": "Charlotte",
+"state": "NC",
+"venue": "Spectrum Center",
+"indoor": true
+},
+"CHI": {
+"lat": 41.85003,
+"lon": -87.65005,
+"tz": -6,
+"city": "Chicago",
+"state": "IL",
+"venue": "United Center",
+"indoor": true
+},
+"CLE": {
+"lat": 41.4995,
+"lon": -81.69541,
+"tz": -5,
+"city": "Cleveland",
+"state": "OH",
+"venue": "Rocket Arena",
+"indoor": true
+},
+"DAL": {
+"lat": 32.78306,
+"lon": -96.80667,
+"tz": -6,
+"city": "Dallas",
+"state": "TX",
+"venue": "American Airlines Center",
+"indoor": true
+},
+"DEN": {
+"lat": 39.73915,
+"lon": -104.9847,
+"tz": -7,
+"city": "Denver",
+"state": "CO",
+"venue": "Ball Arena",
+"indoor": true
+},
+"GS": {
+"lat": 37.80437,
+"lon": -122.2708,
+"tz": -8,
+"city": "Oakland",
+"state": "CA",
+"venue": "Oracle Arena",
+"indoor": true
+},
+"HOU": {
+"lat": 29.76328,
+"lon": -95.36327,
+"tz": -6,
+"city": "Houston",
+"state": "TX",
+"venue": "Toyota Center (Houston)",
+"indoor": true
+},
+"IND": {
+"lat": 39.76838,
+"lon": -86.15804,
+"tz": -5,
+"city": "Indianapolis",
+"state": "IN",
+"venue": "Gainbridge Fieldhouse",
+"indoor": true
+},
+"LAC": {
+"lat": 34.05223,
+"lon": -118.24368,
+"tz": -8,
+"city": "Los Angeles",
+"state": "CA",
+"venue": "crypto.com Arena",
+"indoor": true
+},
+"LAL": {
+"lat": 34.05223,
+"lon": -118.24368,
+"tz": -8,
+"city": "Los Angeles",
+"state": "CA",
+"venue": "crypto.com Arena",
+"indoor": true
+},
+"MEM": {
+"lat": 35.14953,
+"lon": -90.04898,
+"tz": -6,
+"city": "Memphis",
+"state": "TN",
+"venue": "FedExForum",
+"indoor": true
+},
+"MIA": {
+"lat": 25.77427,
+"lon": -80.19366,
+"tz": -5,
+"city": "Miami",
+"state": "FL",
+"venue": "Kaseya Center",
+"indoor": true
+},
+"MIL": {
+"lat": 43.0389,
+"lon": -87.90647,
+"tz": -6,
+"city": "Milwaukee",
+"state": "WI",
+"venue": "BMO Harris Bradley Center",
+"indoor": true
+},
+"MIN": {
+"lat": 44.97997,
+"lon": -93.26384,
+"tz": -6,
+"city": "Minneapolis",
+"state": "MN",
+"venue": "Target Center",
+"indoor": true
+},
+"NO": {
+"lat": 29.95465,
+"lon": -90.07507,
+"tz": -6,
+"city": "New Orleans",
+"state": "LA",
+"venue": "Smoothie King Center",
+"indoor": true
+},
+"NY": {
+"lat": 40.71427,
+"lon": -74.00597,
+"tz": -5,
+"city": "New York",
+"state": "NY",
+"venue": "Madison Square Garden",
+"indoor": true
+},
+"OKC": {
+"lat": 35.46756,
+"lon": -97.51643,
+"tz": -6,
+"city": "Oklahoma City",
+"state": "OK",
+"venue": "Paycom Center",
+"indoor": true
+},
+"ORL": {
+"lat": 28.53834,
+"lon": -81.37924,
+"tz": -5,
+"city": "Orlando",
+"state": "FL",
+"venue": "Kia Center",
+"indoor": true
+},
+"PHI": {
+"lat": 39.95238,
+"lon": -75.16362,
+"tz": -5,
+"city": "Philadelphia",
+"state": "PA",
+"venue": "Xfinity Mobile Arena",
+"indoor": true
+},
+"PHX": {
+"lat": 33.44838,
+"lon": -112.07404,
+"tz": -7,
+"city": "Phoenix",
+"state": "AZ",
+"venue": "Mortgage Matchup Center",
+"indoor": true
+},
+"POR": {
+"lat": 45.52345,
+"lon": -122.67621,
+"tz": -8,
+"city": "Portland",
+"state": "OR",
+"venue": "Moda Center",
+"indoor": true
+},
+"SAC": {
+"lat": 38.58157,
+"lon": -121.4944,
+"tz": -8,
+"city": "Sacramento",
+"state": "CA",
+"venue": "Sleep Train Arena",
+"indoor": true
+},
+"SA": {
+"lat": 29.42412,
+"lon": -98.49363,
+"tz": -6,
+"city": "San Antonio",
+"state": "TX",
+"venue": "Frost Bank Center",
+"indoor": true
+},
+"TOR": {
+"lat": 43.70643,
+"lon": -79.39864,
+"tz": -5,
+"city": "Toronto",
+"state": "ON",
+"venue": "Scotiabank Arena",
+"indoor": true
+},
+"UTAH": {
+"lat": 40.76078,
+"lon": -111.89105,
+"tz": -7,
+"city": "Salt Lake City",
+"state": "UT",
+"venue": "Delta Center",
+"indoor": true
+},
+"WSH": {
+"lat": 38.89511,
+"lon": -77.03637,
+"tz": -5,
+"city": "Washington",
+"state": "DC",
+"venue": "Capital One Arena",
+"indoor": true
+},
+"DET": {
+"lat": 42.33143,
+"lon": -83.04575,
+"tz": -5,
+"city": "Detroit",
+"state": "MI",
+"venue": "Little Caesars Arena",
+"indoor": true,
+"src": "manual"
+}
+},
+"nhl": {
+"ANA": {
+"lat": 33.83529,
+"lon": -117.9145,
+"tz": -8,
+"city": "Anaheim",
+"state": "CA",
+"venue": "Honda Center",
+"indoor": true
+},
+"BOS": {
+"lat": 42.35843,
+"lon": -71.05977,
+"tz": -5,
+"city": "Boston",
+"state": "MA",
+"venue": "TD Garden",
+"indoor": true
+},
+"BUF": {
+"lat": 42.88645,
+"lon": -78.87837,
+"tz": -5,
+"city": "Buffalo",
+"state": "NY",
+"venue": "KeyBank Center",
+"indoor": true
+},
+"CGY": {
+"lat": 51.05011,
+"lon": -114.08529,
+"tz": -7,
+"city": "Calgary",
+"state": "AB",
+"venue": "Scotiabank Saddledome",
+"indoor": true
+},
+"CAR": {
+"lat": 35.7721,
+"lon": -78.63861,
+"tz": -5,
+"city": "Raleigh",
+"state": "NC",
+"venue": "Lenovo Center",
+"indoor": true
+},
+"CHI": {
+"lat": 41.85003,
+"lon": -87.65005,
+"tz": -6,
+"city": "Chicago",
+"state": "IL",
+"venue": "United Center",
+"indoor": true
+},
+"COL": {
+"lat": 39.73915,
+"lon": -104.9847,
+"tz": -7,
+"city": "Denver",
+"state": "CO",
+"venue": "Ball Arena",
+"indoor": true
+},
+"CBJ": {
+"lat": 39.96118,
+"lon": -82.99879,
+"tz": -5,
+"city": "Columbus",
+"state": "OH",
+"venue": "Nationwide Arena",
+"indoor": true
+},
+"DAL": {
+"lat": 32.78306,
+"lon": -96.80667,
+"tz": -6,
+"city": "Dallas",
+"state": "TX",
+"venue": "American Airlines Center",
+"indoor": true
+},
+"DET": {
+"lat": 42.33143,
+"lon": -83.04575,
+"tz": -5,
+"city": "Detroit",
+"state": "MI",
+"venue": "Little Caesars Arena",
+"indoor": true
+},
+"EDM": {
+"lat": 53.55014,
+"lon": -113.46871,
+"tz": -7,
+"city": "Edmonton",
+"state": "AB",
+"venue": "Rogers Place",
+"indoor": true
+},
+"FLA": {
+"lat": 26.13397,
+"lon": -80.1131,
+"tz": -5,
+"city": "Sunrise",
+"state": "FL",
+"venue": "Amerant Bank Arena",
+"indoor": true
+},
+"LA": {
+"lat": 34.05223,
+"lon": -118.24368,
+"tz": -8,
+"city": "Los Angeles",
+"state": "CA",
+"venue": "crypto.com Arena",
+"indoor": true
+},
+"MIN": {
+"lat": 44.94441,
+"lon": -93.09327,
+"tz": -6,
+"city": "Saint Paul",
+"state": "MN",
+"venue": "Grand Casino Arena",
+"indoor": true
+},
+"MTL": {
+"lat": 45.50884,
+"lon": -73.58781,
+"tz": -5,
+"city": "Montreal",
+"state": "QC",
+"venue": "Bell Centre",
+"indoor": true
+},
+"NSH": {
+"lat": 36.16589,
+"lon": -86.78444,
+"tz": -6,
+"city": "Nashville",
+"state": "TN",
+"venue": "Bridgestone Arena",
+"indoor": true
+},
+"NJ": {
+"lat": 40.83399,
+"lon": -74.09709,
+"tz": -5,
+"city": "East Rutherford",
+"state": "NJ",
+"venue": "IZOD Center",
+"indoor": false
+},
+"NYI": {
+"lat": 40.70094,
+"lon": -73.71291,
+"tz": -5,
+"city": "Elmont",
+"state": "NY",
+"venue": "UBS Arena",
+"indoor": true
+},
+"NYR": {
+"lat": 40.71427,
+"lon": -74.00597,
+"tz": -5,
+"city": "New York",
+"state": "NY",
+"venue": "Madison Square Garden",
+"indoor": true
+},
+"OTT": {
+"lat": 45.41117,
+"lon": -75.69812,
+"tz": -5,
+"city": "Ottawa",
+"state": "ON",
+"venue": "Canadian Tire Centre",
+"indoor": true
+},
+"PHI": {
+"lat": 39.95238,
+"lon": -75.16362,
+"tz": -5,
+"city": "Philadelphia",
+"state": "PA",
+"venue": "Xfinity Mobile Arena",
+"indoor": true
+},
+"PIT": {
+"lat": 40.44062,
+"lon": -79.99589,
+"tz": -5,
+"city": "Pittsburgh",
+"state": "PA",
+"venue": "PPG Paints Arena",
+"indoor": true
+},
+"SJ": {
+"lat": 37.33939,
+"lon": -121.89496,
+"tz": -8,
+"city": "San Jose",
+"state": "CA",
+"venue": "SAP Center at San Jose",
+"indoor": true
+},
+"SEA": {
+"lat": 47.60621,
+"lon": -122.33207,
+"tz": -8,
+"city": "Seattle",
+"state": "WA",
+"venue": "Climate Pledge Arena",
+"indoor": true
+},
+"STL": {
+"lat": 38.62727,
+"lon": -90.19789,
+"tz": -6,
+"city": "St. Louis",
+"state": "MO",
+"venue": "Enterprise Center",
+"indoor": true
+},
+"TB": {
+"lat": 27.94752,
+"lon": -82.45843,
+"tz": -5,
+"city": "Tampa",
+"state": "FL",
+"venue": "Benchmark International Arena",
+"indoor": true
+},
+"TOR": {
+"lat": 43.70643,
+"lon": -79.39864,
+"tz": -5,
+"city": "Toronto",
+"state": "ON",
+"venue": "Scotiabank Arena",
+"indoor": true
+},
+"UTAH": {
+"lat": 40.76078,
+"lon": -111.89105,
+"tz": -7,
+"city": "Salt Lake City",
+"state": "UT",
+"venue": "Delta Center",
+"indoor": true
+},
+"VAN": {
+"lat": 49.24966,
+"lon": -123.11934,
+"tz": -8,
+"city": "Vancouver",
+"state": "BC",
+"venue": "Rogers Arena",
+"indoor": true
+},
+"VGK": {
+"lat": 36.17497,
+"lon": -115.13722,
+"tz": -8,
+"city": "Las Vegas",
+"state": "NV",
+"venue": "T-Mobile Arena",
+"indoor": true
+},
+"WSH": {
+"lat": 38.89511,
+"lon": -77.03637,
+"tz": -5,
+"city": "Washington",
+"state": "DC",
+"venue": "Capital One Arena",
+"indoor": true
+},
+"WPG": {
+"lat": 33.749,
+"lon": -84.38798,
+"tz": -5,
+"city": "Atlanta",
+"state": "GA",
+"venue": "State Farm Arena",
+"indoor": false
+}
+},
+"nfl": {
+"ARI": {
+"lat": 33.53865,
+"lon": -112.18599,
+"tz": -7,
+"city": "Glendale",
+"state": "AZ",
+"venue": "State Farm Stadium",
+"indoor": true
+},
+"ATL": {
+"lat": 33.749,
+"lon": -84.38798,
+"tz": -5,
+"city": "Atlanta",
+"state": "GA",
+"venue": "Mercedes-Benz Stadium",
+"indoor": true
+},
+"BAL": {
+"lat": 39.29038,
+"lon": -76.61219,
+"tz": -5,
+"city": "Baltimore",
+"state": "MD",
+"venue": "M&T Bank Stadium",
+"indoor": false
+},
+"BUF": {
+"lat": 42.76756,
+"lon": -78.74392,
+"tz": -5,
+"city": "Orchard Park",
+"state": "NY",
+"venue": "Highmark Stadium (Old)",
+"indoor": false
+},
+"CAR": {
+"lat": 35.22709,
+"lon": -80.84313,
+"tz": -5,
+"city": "Charlotte",
+"state": "NC",
+"venue": "Bank of America Stadium",
+"indoor": false
+},
+"CHI": {
+"lat": 41.85003,
+"lon": -87.65005,
+"tz": -6,
+"city": "Chicago",
+"state": "IL",
+"venue": "Soldier Field",
+"indoor": false
+},
+"CIN": {
+"lat": 39.12711,
+"lon": -84.51439,
+"tz": -5,
+"city": "Cincinnati",
+"state": "OH",
+"venue": "Paycor Stadium",
+"indoor": false
+},
+"CLE": {
+"lat": 41.4995,
+"lon": -81.69541,
+"tz": -5,
+"city": "Cleveland",
+"state": "OH",
+"venue": "Huntington Bank Field",
+"indoor": false
+},
+"DAL": {
+"lat": 32.73569,
+"lon": -97.10807,
+"tz": -6,
+"city": "Arlington",
+"state": "TX",
+"venue": "AT&T Stadium",
+"indoor": true
+},
+"DEN": {
+"lat": 39.73915,
+"lon": -104.9847,
+"tz": -7,
+"city": "Denver",
+"state": "CO",
+"venue": "Empower Field at Mile High",
+"indoor": false
+},
+"DET": {
+"lat": 42.33143,
+"lon": -83.04575,
+"tz": -5,
+"city": "Detroit",
+"state": "MI",
+"venue": "Ford Field",
+"indoor": true
+},
+"GB": {
+"lat": 44.51916,
+"lon": -88.01983,
+"tz": -6,
+"city": "Green Bay",
+"state": "WI",
+"venue": "Lambeau Field",
+"indoor": false
+},
+"HOU": {
+"lat": 29.76328,
+"lon": -95.36327,
+"tz": -6,
+"city": "Houston",
+"state": "TX",
+"venue": "Reliant Stadium",
+"indoor": true
+},
+"IND": {
+"lat": 39.76838,
+"lon": -86.15804,
+"tz": -5,
+"city": "Indianapolis",
+"state": "IN",
+"venue": "Lucas Oil Stadium",
+"indoor": true
+},
+"JAX": {
+"lat": 30.33218,
+"lon": -81.65565,
+"tz": -5,
+"city": "Jacksonville",
+"state": "FL",
+"venue": "EverBank Stadium",
+"indoor": false
+},
+"KC": {
+"lat": 39.09973,
+"lon": -94.57857,
+"tz": -6,
+"city": "Kansas City",
+"state": "MO",
+"venue": "Arrowhead Stadium",
+"indoor": false
+},
+"LV": {
+"lat": 36.17497,
+"lon": -115.13722,
+"tz": -8,
+"city": "Las Vegas",
+"state": "NV",
+"venue": "Allegiant Stadium",
+"indoor": true
+},
+"LAC": {
+"lat": 33.83141,
+"lon": -118.28202,
+"tz": -8,
+"city": "Carson",
+"state": "CA",
+"venue": "Dignity Health Sports Park",
+"indoor": false
+},
+"LAR": {
+"lat": 34.05223,
+"lon": -118.24368,
+"tz": -8,
+"city": "Los Angeles",
+"state": "CA",
+"venue": "Los Angeles Memorial Coliseum",
+"indoor": false
+},
+"MIA": {
+"lat": 25.94204,
+"lon": -80.2456,
+"tz": -5,
+"city": "Miami Gardens",
+"state": "FL",
+"venue": "Hard Rock Stadium",
+"indoor": false
+},
+"MIN": {
+"lat": 44.97997,
+"lon": -93.26384,
+"tz": -6,
+"city": "Minneapolis",
+"state": "MN",
+"venue": "U.S. Bank Stadium",
+"indoor": true
+},
+"NE": {
+"lat": 42.06538,
+"lon": -71.24783,
+"tz": -5,
+"city": "Foxborough",
+"state": "MA",
+"venue": "Gillette Stadium",
+"indoor": false
+},
+"NO": {
+"lat": 29.95465,
+"lon": -90.07507,
+"tz": -6,
+"city": "New Orleans",
+"state": "LA",
+"venue": "Caesars Superdome",
+"indoor": true
+},
+"NYG": {
+"lat": 40.83399,
+"lon": -74.09709,
+"tz": -5,
+"city": "East Rutherford",
+"state": "NJ",
+"venue": "MetLife Stadium",
+"indoor": false
+},
+"NYJ": {
+"lat": 40.83399,
+"lon": -74.09709,
+"tz": -5,
+"city": "East Rutherford",
+"state": "NJ",
+"venue": "MetLife Stadium",
+"indoor": false
+},
+"PHI": {
+"lat": 39.95238,
+"lon": -75.16362,
+"tz": -5,
+"city": "Philadelphia",
+"state": "PA",
+"venue": "Lincoln Financial Field",
+"indoor": false
+},
+"PIT": {
+"lat": 40.44062,
+"lon": -79.99589,
+"tz": -5,
+"city": "Pittsburgh",
+"state": "PA",
+"venue": "Acrisure Stadium",
+"indoor": false
+},
+"SF": {
+"lat": 37.35411,
+"lon": -121.95524,
+"tz": -8,
+"city": "Santa Clara",
+"state": "CA",
+"venue": "Levi's Stadium",
+"indoor": false
+},
+"SEA": {
+"lat": 47.60621,
+"lon": -122.33207,
+"tz": -8,
+"city": "Seattle",
+"state": "WA",
+"venue": "Lumen Field",
+"indoor": false
+},
+"TB": {
+"lat": 27.94752,
+"lon": -82.45843,
+"tz": -5,
+"city": "Tampa",
+"state": "FL",
+"venue": "Raymond James Stadium",
+"indoor": false
+},
+"TEN": {
+"lat": 36.16589,
+"lon": -86.78444,
+"tz": -6,
+"city": "Nashville",
+"state": "TN",
+"venue": "Nissan Stadium",
+"indoor": false
+},
+"WSH": {
+"lat": 38.934,
+"lon": -76.89664,
+"tz": -5,
+"city": "Landover",
+"state": "MD",
+"venue": "Northwest Stadium",
+"indoor": false
+}
+},
+"mlb": {},
+"wnba": {
+"ATL": {
+"lat": 33.749,
+"lon": -84.38798,
+"tz": -5,
+"city": "Atlanta",
+"state": "GA",
+"venue": "State Farm Arena",
+"indoor": true
+},
+"CHI": {
+"lat": 41.99531,
+"lon": -87.88451,
+"tz": -6,
+"city": "Rosemont",
+"state": "IL",
+"venue": "Allstate Arena",
+"indoor": true
+},
+"CON": {
+"lat": 41.43454,
+"lon": -72.1098,
+"tz": -5,
+"city": "Uncasville",
+"state": "CT",
+"venue": "Mohegan Sun Arena",
+"indoor": true
+},
+"DAL": {
+"lat": 32.73569,
+"lon": -97.10807,
+"tz": -6,
+"city": "Arlington",
+"state": "TX",
+"venue": "College Park Center",
+"indoor": true
+},
+"GS": {
+"lat": 37.77493,
+"lon": -122.41942,
+"tz": -8,
+"city": "San Francisco",
+"state": "CA",
+"venue": "Chase Center",
+"indoor": true
+},
+"IND": {
+"lat": 39.76838,
+"lon": -86.15804,
+"tz": -5,
+"city": "Indianapolis",
+"state": "IN",
+"venue": "Gainbridge Fieldhouse",
+"indoor": true
+},
+"LV": {
+"lat": 29.42412,
+"lon": -98.49363,
+"tz": -6,
+"city": "San Antonio",
+"state": "TX",
+"venue": "Frost Bank Center",
+"indoor": true
+},
+"LA": {
+"lat": 34.05223,
+"lon": -118.24368,
+"tz": -8,
+"city": "Los Angeles",
+"state": "CA",
+"venue": "crypto.com Arena",
+"indoor": true
+},
+"MIN": {
+"lat": 44.97997,
+"lon": -93.26384,
+"tz": -6,
+"city": "Minneapolis",
+"state": "MN",
+"venue": "Target Center",
+"indoor": true
+},
+"NY": {
+"lat": 40.6501,
+"lon": -73.94958,
+"tz": -5,
+"city": "Brooklyn",
+"state": "NY",
+"venue": "Barclays Center",
+"indoor": true
+},
+"PHX": {
+"lat": 33.44838,
+"lon": -112.07404,
+"tz": -7,
+"city": "Phoenix",
+"state": "AZ",
+"venue": "Mortgage Matchup Center",
+"indoor": true
+},
+"POR": {
+"lat": 45.52345,
+"lon": -122.67621,
+"tz": -8,
+"city": "Portland",
+"state": "OR",
+"venue": "Moda Center",
+"indoor": true
+},
+"SEA": {
+"lat": 47.60621,
+"lon": -122.33207,
+"tz": -8,
+"city": "Seattle",
+"state": "WA",
+"venue": "KeyArena",
+"indoor": true
+},
+"TOR": {
+"lat": 43.70643,
+"lon": -79.39864,
+"tz": -5,
+"city": "Toronto",
+"state": "ON",
+"venue": "Coca-Cola Coliseum",
+"indoor": true
+},
+"WSH": {
+"lat": 38.89511,
+"lon": -77.03637,
+"tz": -5,
+"city": "Washington",
+"state": "DC",
+"venue": "CareFirst Arena",
+"indoor": true
+}
+},
+"cfb": {
+"AKR": {
+"lat": 41.08144,
+"lon": -81.51901,
+"tz": -5,
+"city": "Akron"
+},
+"ALA": {
+"lat": 33.20984,
+"lon": -87.56917,
+"tz": -6,
+"city": "Tuscaloosa"
+},
+"APP": {
+"lat": 36.21679,
+"lon": -81.67455,
+"tz": -5,
+"city": "Boone"
+},
+"ARIZ": {
+"lat": 32.22174,
+"lon": -110.92648,
+"tz": -7,
+"city": "Tucson"
+},
+"ARK": {
+"lat": 36.06258,
+"lon": -94.15743,
+"tz": -6,
+"city": "Fayetteville"
+},
+"ARMY": {
+"lat": 41.39148,
+"lon": -73.95597,
+"tz": -5,
+"city": "West Point"
+},
+"ARST": {
+"lat": 35.8423,
+"lon": -90.70428,
+"tz": -6,
+"city": "Jonesboro"
+},
+"ASU": {
+"lat": 33.41477,
+"lon": -111.90931,
+"tz": -7,
+"city": "Tempe"
+},
+"AUB": {
+"lat": 32.60986,
+"lon": -85.48078,
+"tz": -6,
+"city": "Auburn"
+},
+"BALL": {
+"lat": 40.19338,
+"lon": -85.38636,
+"tz": -5,
+"city": "Muncie"
+},
+"BC": {
+"lat": 42.33065,
+"lon": -71.16616,
+"tz": -5,
+"city": "Chestnut Hill"
+},
+"BGSU": {
+"lat": 41.37477,
+"lon": -83.65132,
+"tz": -5,
+"city": "Bowling Green"
+},
+"BOIS": {
+"lat": 43.6135,
+"lon": -116.20345,
+"tz": -7,
+"city": "Boise"
+},
+"BYU": {
+"lat": 40.23384,
+"lon": -111.65853,
+"tz": -7,
+"city": "Provo"
+},
+"CAL": {
+"lat": 37.87159,
+"lon": -122.27275,
+"tz": -8,
+"city": "Berkeley"
+},
+"CCU": {
+"lat": 33.836,
+"lon": -79.04781,
+"tz": -5,
+"city": "Conway"
+},
+"CIN": {
+"lat": 39.12711,
+"lon": -84.51439,
+"tz": -5,
+"city": "Cincinnati"
+},
+"CLEM": {
+"lat": 34.68344,
+"lon": -82.83737,
+"tz": -5,
+"city": "Clemson"
+},
+"CLT": {
+"lat": 35.22709,
+"lon": -80.84313,
+"tz": -5,
+"city": "Charlotte"
+},
+"CMU": {
+"lat": 43.59781,
+"lon": -84.76751,
+"tz": -5,
+"city": "Mount Pleasant"
+},
+"COLO": {
+"lat": 40.01499,
+"lon": -105.27055,
+"tz": -7,
+"city": "Boulder"
+},
+"CONN": {
+"lat": 41.78232,
+"lon": -72.61203,
+"tz": -5,
+"city": "East Hartford"
+},
+"CSU": {
+"lat": 40.58526,
+"lon": -105.08442,
+"tz": -7,
+"city": "Fort Collins"
+},
+"DEL": {
+"lat": 39.68372,
+"lon": -75.74966,
+"tz": -5,
+"city": "Newark"
+},
+"DUKE": {
+"lat": 35.99403,
+"lon": -78.89862,
+"tz": -5,
+"city": "Durham"
+},
+"ECU": {
+"lat": 35.61266,
+"lon": -77.36635,
+"tz": -5,
+"city": "Greenville"
+},
+"EMU": {
+"lat": 42.24115,
+"lon": -83.61299,
+"tz": -5,
+"city": "Ypsilanti"
+},
+"FAU": {
+"lat": 26.35869,
+"lon": -80.0831,
+"tz": -5,
+"city": "Boca Raton"
+},
+"FIU": {
+"lat": 25.77427,
+"lon": -80.19366,
+"tz": -5,
+"city": "Miami"
+},
+"FLA": {
+"lat": 29.65163,
+"lon": -82.32483,
+"tz": -5,
+"city": "Gainesville"
+},
+"FRES": {
+"lat": 36.74773,
+"lon": -119.77237,
+"tz": -8,
+"city": "Fresno"
+},
+"FSU": {
+"lat": 30.43826,
+"lon": -84.28073,
+"tz": -5,
+"city": "Tallahassee"
+},
+"GASO": {
+"lat": 32.44879,
+"lon": -81.78317,
+"tz": -5,
+"city": "Statesboro"
+},
+"GAST": {
+"lat": 33.749,
+"lon": -84.38798,
+"tz": -5,
+"city": "Atlanta"
+},
+"GT": {
+"lat": 33.749,
+"lon": -84.38798,
+"tz": -5,
+"city": "Atlanta"
+},
+"HAW": {
+"lat": 21.30694,
+"lon": -157.85834,
+"tz": -10,
+"city": "Honolulu"
+},
+"ILL": {
+"lat": 37.78402,
+"lon": -79.44282,
+"tz": -5,
+"city": "Lexington"
+},
+"IOWA": {
+"lat": 41.66113,
+"lon": -91.53017,
+"tz": -6,
+"city": "Iowa City"
+},
+"ISU": {
+"lat": 42.03471,
+"lon": -93.61994,
+"tz": -6,
+"city": "Ames"
+},
+"IU": {
+"lat": 39.16533,
+"lon": -86.52639,
+"tz": -5,
+"city": "Bloomington"
+},
+"JMU": {
+"lat": 38.44957,
+"lon": -78.86892,
+"tz": -5,
+"city": "Harrisonburg"
+},
+"JXST": {
+"lat": 33.81382,
+"lon": -85.7613,
+"tz": -6,
+"city": "Jacksonville"
+},
+"KENN": {
+"lat": 34.02343,
+"lon": -84.61549,
+"tz": -5,
+"city": "Kennesaw"
+},
+"KENT": {
+"lat": 41.15367,
+"lon": -81.35789,
+"tz": -5,
+"city": "Kent"
+},
+"KSU": {
+"lat": 39.2019,
+"lon": -96.5939,
+"tz": -6,
+"city": "Manhattan"
+},
+"KU": {
+"lat": 38.97167,
+"lon": -95.23525,
+"tz": -6,
+"city": "Lawrence"
+},
+"LIB": {
+"lat": 37.41375,
+"lon": -79.14225,
+"tz": -5,
+"city": "Lynchburg"
+},
+"LOU": {
+"lat": 38.25424,
+"lon": -85.75941,
+"tz": -5,
+"city": "Louisville"
+},
+"LSU": {
+"lat": 30.44332,
+"lon": -91.18747,
+"tz": -6,
+"city": "Baton Rouge"
+},
+"LT": {
+"lat": 32.52321,
+"lon": -92.63793,
+"tz": -6,
+"city": "Ruston"
+},
+"MASS": {
+"lat": 42.36723,
+"lon": -72.51852,
+"tz": -5,
+"city": "Amherst"
+},
+"MD": {
+"lat": 38.98067,
+"lon": -76.93692,
+"tz": -5,
+"city": "College Park"
+},
+"MEM": {
+"lat": 35.14953,
+"lon": -90.04898,
+"tz": -6,
+"city": "Memphis"
+},
+"MIA": {
+"lat": 25.94204,
+"lon": -80.2456,
+"tz": -5,
+"city": "Miami Gardens"
+},
+"MICH": {
+"lat": 42.27756,
+"lon": -83.74088,
+"tz": -5,
+"city": "Ann Arbor"
+},
+"MINN": {
+"lat": 44.97997,
+"lon": -93.26384,
+"tz": -6,
+"city": "Minneapolis"
+},
+"MISS": {
+"lat": 34.3622,
+"lon": -89.5343,
+"tz": -6,
+"city": "Oxford"
+},
+"MIZ": {
+"lat": 38.95171,
+"lon": -92.33407,
+"tz": -6,
+"city": "Columbia"
+},
+"MOST": {
+"lat": 37.21533,
+"lon": -93.29824,
+"tz": -6,
+"city": "Springfield"
+},
+"MRSH": {
+"lat": 38.41925,
+"lon": -82.44515,
+"tz": -5,
+"city": "Huntington"
+},
+"MSST": {
+"lat": 33.45049,
+"lon": -88.81961,
+"tz": -6,
+"city": "Starkville"
+},
+"MSU": {
+"lat": 42.73698,
+"lon": -84.48387,
+"tz": -5,
+"city": "East Lansing"
+},
+"MTSU": {
+"lat": 35.84562,
+"lon": -86.39027,
+"tz": -6,
+"city": "Murfreesboro"
+},
+"NAVY": {
+"lat": 38.97859,
+"lon": -76.49184,
+"tz": -5,
+"city": "Annapolis"
+},
+"NCSU": {
+"lat": 35.7721,
+"lon": -78.63861,
+"tz": -5,
+"city": "Raleigh"
+},
+"ND": {
+"lat": 41.70019,
+"lon": -86.23793,
+"tz": -5,
+"city": "Notre Dame"
+},
+"NDSU": {
+"lat": 46.87719,
+"lon": -96.7898,
+"tz": -6,
+"city": "Fargo"
+},
+"NEB": {
+"lat": 40.8,
+"lon": -96.66696,
+"tz": -6,
+"city": "Lincoln"
+},
+"NEV": {
+"lat": 39.52963,
+"lon": -119.8138,
+"tz": -8,
+"city": "Reno"
+},
+"NIU": {
+"lat": 41.92947,
+"lon": -88.75036,
+"tz": -6,
+"city": "Dekalb"
+},
+"NMSU": {
+"lat": 32.31232,
+"lon": -106.77834,
+"tz": -7,
+"city": "Las Cruces"
+},
+"NU": {
+"lat": 42.04114,
+"lon": -87.69006,
+"tz": -6,
+"city": "Evanston"
+},
+"ODU": {
+"lat": 36.84681,
+"lon": -76.28522,
+"tz": -5,
+"city": "Norfolk"
+},
+"OHIO": {
+"lat": 39.32924,
+"lon": -82.10126,
+"tz": -5,
+"city": "Athens"
+},
+"OKST": {
+"lat": 36.11561,
+"lon": -97.05837,
+"tz": -6,
+"city": "Stillwater"
+},
+"ORE": {
+"lat": 44.05207,
+"lon": -123.08675,
+"tz": -8,
+"city": "Eugene"
+},
+"ORST": {
+"lat": 44.56457,
+"lon": -123.26204,
+"tz": -8,
+"city": "Corvallis"
+},
+"OU": {
+"lat": 35.22257,
+"lon": -97.43948,
+"tz": -6,
+"city": "Norman"
+},
+"PITT": {
+"lat": 40.44062,
+"lon": -79.99589,
+"tz": -5,
+"city": "Pittsburgh"
+},
+"PSU": {
+"lat": 40.8122,
+"lon": -77.8561,
+"tz": -5,
+"city": "University Park"
+},
+"PUR": {
+"lat": 40.42587,
+"lon": -86.90807,
+"tz": -5,
+"city": "West Lafayette"
+},
+"RICE": {
+"lat": 29.76328,
+"lon": -95.36327,
+"tz": -6,
+"city": "Houston"
+},
+"RUTG": {
+"lat": 40.49927,
+"lon": -74.39904,
+"tz": -5,
+"city": "Piscataway"
+},
+"SAC": {
+"lat": 38.58157,
+"lon": -121.4944,
+"tz": -8,
+"city": "Sacramento"
+},
+"SC": {
+"lat": 34.00071,
+"lon": -81.03481,
+"tz": -5,
+"city": "Columbia"
+},
+"SDST": {
+"lat": 44.31136,
+"lon": -96.79839,
+"tz": -6,
+"city": "Brookings"
+},
+"SDSU": {
+"lat": 32.71571,
+"lon": -117.16472,
+"tz": -8,
+"city": "San Diego"
+},
+"SHSU": {
+"lat": 30.72353,
+"lon": -95.55078,
+"tz": -6,
+"city": "Huntsville"
+},
+"SJSU": {
+"lat": 37.33939,
+"lon": -121.89496,
+"tz": -8,
+"city": "San Jose"
+},
+"SMU": {
+"lat": 32.78306,
+"lon": -96.80667,
+"tz": -6,
+"city": "Dallas"
+},
+"STAN": {
+"lat": 37.42411,
+"lon": -122.16608,
+"tz": -8,
+"city": "Stanford"
+},
+"SYR": {
+"lat": 43.04812,
+"lon": -76.14742,
+"tz": -5,
+"city": "Syracuse"
+},
+"TA&M": {
+"lat": 30.62798,
+"lon": -96.33441,
+"tz": -6,
+"city": "College Station"
+},
+"TCU": {
+"lat": 32.72541,
+"lon": -97.32085,
+"tz": -6,
+"city": "Fort Worth"
+},
+"TEM": {
+"lat": 39.95238,
+"lon": -75.16362,
+"tz": -5,
+"city": "Philadelphia"
+},
+"TENN": {
+"lat": 35.96064,
+"lon": -83.92074,
+"tz": -6,
+"city": "Knoxville"
+},
+"TEX": {
+"lat": 30.26715,
+"lon": -97.74306,
+"tz": -6,
+"city": "Austin"
+},
+"TLSA": {
+"lat": 36.15398,
+"lon": -95.99277,
+"tz": -6,
+"city": "Tulsa"
+},
+"TOL": {
+"lat": 41.66394,
+"lon": -83.55521,
+"tz": -5,
+"city": "Toledo"
+},
+"TROY": {
+"lat": 31.80877,
+"lon": -85.96995,
+"tz": -6,
+"city": "Troy"
+},
+"TTU": {
+"lat": 33.57786,
+"lon": -101.85517,
+"tz": -6,
+"city": "Lubbock"
+},
+"TULN": {
+"lat": 29.95465,
+"lon": -90.07507,
+"tz": -6,
+"city": "New Orleans"
+},
+"TXST": {
+"lat": 29.88327,
+"lon": -97.94139,
+"tz": -6,
+"city": "San Marcos"
+},
+"UAB": {
+"lat": 33.52066,
+"lon": -86.80249,
+"tz": -6,
+"city": "Birmingham"
+},
+"UCF": {
+"lat": 28.53834,
+"lon": -81.37924,
+"tz": -5,
+"city": "Orlando"
+},
+"UCLA": {
+"lat": 34.14778,
+"lon": -118.14452,
+"tz": -8,
+"city": "Pasadena"
+},
+"UGA": {
+"lat": 33.96095,
+"lon": -83.37794,
+"tz": -5,
+"city": "Athens"
+},
+"UK": {
+"lat": 37.98869,
+"lon": -84.47772,
+"tz": -5,
+"city": "Lexington"
+},
+"UL": {
+"lat": 30.22409,
+"lon": -92.01984,
+"tz": -6,
+"city": "Lafayette"
+},
+"ULM": {
+"lat": 32.50931,
+"lon": -92.1193,
+"tz": -6,
+"city": "Monroe"
+},
+"UNC": {
+"lat": 35.9132,
+"lon": -79.05584,
+"tz": -5,
+"city": "Chapel Hill"
+},
+"UNLV": {
+"lat": 36.17497,
+"lon": -115.13722,
+"tz": -8,
+"city": "Las Vegas"
+},
+"UNM": {
+"lat": 35.08449,
+"lon": -106.65114,
+"tz": -7,
+"city": "Albuquerque"
+},
+"UNT": {
+"lat": 33.21484,
+"lon": -97.13307,
+"tz": -6,
+"city": "Denton"
+},
+"USA": {
+"lat": 30.69436,
+"lon": -88.04305,
+"tz": -6,
+"city": "Mobile"
+},
+"USC": {
+"lat": 34.05223,
+"lon": -118.24368,
+"tz": -8,
+"city": "Los Angeles"
+},
+"USF": {
+"lat": 27.94752,
+"lon": -82.45843,
+"tz": -5,
+"city": "Tampa"
+},
+"USM": {
+"lat": 31.32712,
+"lon": -89.29034,
+"tz": -6,
+"city": "Hattiesburg"
+},
+"USU": {
+"lat": 41.73549,
+"lon": -111.83439,
+"tz": -7,
+"city": "Logan"
+},
+"UTAH": {
+"lat": 40.76078,
+"lon": -111.89105,
+"tz": -7,
+"city": "Salt Lake City"
+},
+"UTEP": {
+"lat": 31.75872,
+"lon": -106.48693,
+"tz": -6,
+"city": "El Paso"
+},
+"UVA": {
+"lat": 38.02931,
+"lon": -78.47668,
+"tz": -5,
+"city": "Charlottesville"
+},
+"VAN": {
+"lat": 36.16589,
+"lon": -86.78444,
+"tz": -6,
+"city": "Nashville"
+},
+"VT": {
+"lat": 37.22957,
+"lon": -80.41394,
+"tz": -5,
+"city": "Blacksburg"
+},
+"WAKE": {
+"lat": 36.09986,
+"lon": -80.24422,
+"tz": -5,
+"city": "Winston-Salem"
+},
+"WASH": {
+"lat": 47.60621,
+"lon": -122.33207,
+"tz": -8,
+"city": "Seattle"
+},
+"WIS": {
+"lat": 43.07305,
+"lon": -89.40123,
+"tz": -6,
+"city": "Madison"
+},
+"WKU": {
+"lat": 36.99032,
+"lon": -86.4436,
+"tz": -5,
+"city": "Bowling Green"
+},
+"WMU": {
+"lat": 42.29171,
+"lon": -85.58723,
+"tz": -5,
+"city": "Kalamazoo"
+},
+"WSU": {
+"lat": 46.73127,
+"lon": -117.17962,
+"tz": -8,
+"city": "Pullman"
+},
+"WVU": {
+"lat": 39.62953,
+"lon": -79.9559,
+"tz": -5,
+"city": "Morgantown"
+},
+"WYO": {
+"lat": 41.31137,
+"lon": -105.5911,
+"tz": -7,
+"city": "Laramie"
+}
+}
+}
