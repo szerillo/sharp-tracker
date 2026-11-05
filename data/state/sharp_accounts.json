@@ -1,5 +1,5 @@
 {
- "built": "2026-11-05T00:18:36Z",
+ "built": "2026-11-05T00:24:14Z",
  "rows": [
   {
    "cond": "0x4e14101792372d8c16dae3092acf0f825ca206475de2d1c76c7ded8c208f9762",
@@ -140,53 +140,6 @@
    }
   },
   {
-   "cond": "0x2bba4a044b8b679166fa334c9a92c76a368e3e79ce09806fd5e8977d61b244fc",
-   "slug": "nba-ind-mem-2026-11-04",
-   "title": "Pacers vs. Grizzlies",
-   "mtype": "ml",
-   "start": "2026-11-05T01:00:00Z",
-   "bet": "Grizzlies ML",
-   "side": "Grizzlies",
-   "flagged": "2026-11-04T08:58:25Z",
-   "why": "a top-50 account",
-   "proven": false,
-   "trigger": "top50",
-   "n_accounts": 1,
-   "best_rank": 43,
-   "usd": 1716,
-   "paid": 0.7,
-   "ask": 0.69,
-   "status": "live",
-   "link": "https://polymarket.us/event/nba-ind-mem-2026-11-04",
-   "other": null,
-   "kalshi_against": null,
-   "logged": true,
-   "event_id": "401909927",
-   "sport": "nba",
-   "league": null,
-   "away": "IND",
-   "home": "MEM",
-   "away_name": "Indiana Pacers",
-   "home_name": "Memphis Grizzlies",
-   "game_start": "2026-11-05T01:00Z",
-   "side_std": "home",
-   "conflict": [
-    "Kalshi bet back"
-   ],
-   "money_with": false,
-   "grade": "watch",
-   "books": {
-    "at": "2026-11-04T22:22:36Z",
-    "fair": 0.6816,
-    "q": {
-     "FD": 0.697,
-     "Kalshi": 0.7,
-     "Caesars": 0.7015,
-     "DK": 0.7033
-    }
-   }
-  },
-  {
    "cond": "0x87c74536e0bdd3b79589f6d894a60bca4e0bbe8c201230754a6aff4b00a63fa6",
    "slug": "nhl-cal-sea-2026-11-04",
    "title": "Flames vs. Kraken",
@@ -315,7 +268,7 @@
    "best_rank": 43,
    "usd": 1216,
    "paid": 0.62,
-   "ask": 0.68,
+   "ask": 0.67,
    "status": "live",
    "link": "https://polymarket.us/event/nba-was-atl-2026-11-06",
    "other": null,
@@ -529,6 +482,50 @@
    }
   },
   {
+   "cond": "0x2bba4a044b8b679166fa334c9a92c76a368e3e79ce09806fd5e8977d61b244fc",
+   "slug": "nba-ind-mem-2026-11-04",
+   "title": "Pacers vs. Grizzlies",
+   "mtype": "ml",
+   "start": "2026-11-05T01:00:00Z",
+   "bet": "Grizzlies ML",
+   "side": "Grizzlies",
+   "flagged": "2026-11-04T08:58:25Z",
+   "why": "a top-50 account",
+   "proven": false,
+   "trigger": "top50",
+   "n_accounts": 1,
+   "best_rank": 43,
+   "usd": 1716,
+   "paid": 0.7,
+   "ask": 0.69,
+   "status": "other side",
+   "link": "https://polymarket.us/event/nba-ind-mem-2026-11-04",
+   "other": {
+    "n_accounts": 1,
+    "best_rank": 142,
+    "usd": 6400,
+    "first": "2026-11-05T00:19:19Z"
+   },
+   "exit_bid": 0.68,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401909927",
+   "sport": "nba",
+   "league": null,
+   "away": "IND",
+   "home": "MEM",
+   "away_name": "Indiana Pacers",
+   "home_name": "Memphis Grizzlies",
+   "game_start": "2026-11-05T01:00Z",
+   "side_std": "home",
+   "conflict": [
+    "Kalshi bet back"
+   ],
+   "money_with": false,
+   "grade": "watch",
+   "books": null
+  },
+  {
    "cond": "0x8c46d71e1ac2d02318e36c88763d512a25f73153f03dffa8df67212a5a922698",
    "slug": "nba-por-phx-2026-11-04",
    "title": "Trail Blazers vs. Suns",
@@ -725,6 +722,18 @@
     "best_rank": 93,
     "usd": 199
    }
+  },
+  "401909924:nba_momentum:ml": {
+   "with": {
+    "n": 5,
+    "best_rank": 4,
+    "usd": 4063
+   },
+   "against": {
+    "n": 4,
+    "best_rank": 55,
+    "usd": 16106
+   }
   }
  },
  "by_event": {
@@ -827,6 +836,11 @@
     "n": 1,
     "best_rank": 43,
     "usd": 1716
+   },
+   "away": {
+    "n": 1,
+    "best_rank": 142,
+    "usd": 6400
    }
   },
   "401909928|ml": {
