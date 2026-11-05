@@ -9,6 +9,7 @@ on:
     inputs:
       what: {description: 'kalshi, poly, or both', default: 'kalshi poly', required: false}
       months: {description: 'Polymarket months back', default: '14', required: false}
+      repair: {description: 'kalshi: re-pull trade tapes stored without prices (11/5 field rename)', default: 'yes', required: false}
 permissions:
   contents: write
 concurrency:
@@ -24,7 +25,7 @@ jobs:
         with: {python-version: '3.12'}
       - name: pull
         env: {HIST_BUDGET_S: '17000'}
-        run: python3 loggers/tennis_history.py ${{ inputs.what || 'kalshi poly' }} --months ${{ inputs.months || '14' }}
+        run: python3 loggers/tennis_history.py ${{ inputs.what || 'kalshi poly' }} --months ${{ inputs.months || '14' }} ${{ (inputs.repair || 'yes') == 'yes' && '--repair' || '' }}
       - name: commit
         if: always()
         run: |

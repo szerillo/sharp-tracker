@@ -49,11 +49,38 @@ def append(path, rows):
         for r in rows: fh.write(json.dumps(r, separators=(',', ':')) + '\n')
 
 
+def trade_row(ticker, x):
+    """Kalshi moved trade prices to *_price_dollars strings and counts to count_fp (the old fields come back null): read both."""
+    f = lambda *ks: next((float(x[k]) for k in ks if x.get(k) is not None), None)
+    return dict(ticker=ticker, ts=x.get('created_time'), yes=f('yes_price_dollars', 'yes_price'), no=f('no_price_dollars', 'no_price'), n=f('count_fp', 'count'), side=x.get('taker_side'))
+
+
+def priceless(path):
+    """Tickers whose stored tape has rows but no prices (pulled before the field rename, 11/5): re-pulled by --repair, budget permitting."""
+    bad, good = set(), set()
+    if not os.path.exists(path): return bad
+    with gzip.open(path, 'rt') as fh:
+        for l in fh:
+            try: r = json.loads(l)
+            except Exception: continue
+            if r.get('empty'): continue
+            (good if r.get('yes') is not None else bad).add(r['ticker'])
+    return bad - good
+
+
 def kalshi():
     os.makedirs(KH, exist_ok=True)
     MP, TP = os.path.join(KH, 'markets.jsonl.gz'), os.path.join(KH, 'trades.jsonl.gz')
     seen_m, seen_t = have(MP, 'ticker'), have(TP, 'ticker')
     n_new_m = n_new_t = 0
+    if '--repair' in sys.argv:
+        bad = sorted(priceless(TP)); print(f"[kalshi] {len(bad)} tapes without prices to re-pull", flush=True); fixed = 0
+        for tk in bad:
+            if time.time() - T0 > BUDGET: break
+            t = g(f"{K}/markets/trades?ticker={tk}&limit=1000"); rows = [trade_row(tk, x) for x in (t or {}).get('trades') or []]
+            if rows and rows[0].get('yes') is not None: append(TP, rows); fixed += 1
+            time.sleep(0.15)
+        print(f"[kalshi] repaired {fixed} tapes ({time.time() - T0:.0f}s)")
     for s in K_SERIES:
         cur = None; pages = 0
         while True:
@@ -66,7 +93,7 @@ def kalshi():
             for m in ms:
                 if m['ticker'] in seen_t or time.time() - T0 > BUDGET: continue
                 t = g(f"{K}/markets/trades?ticker={m['ticker']}&limit=1000")
-                rows = [dict(ticker=m['ticker'], ts=x.get('created_time'), yes=x.get('yes_price'), no=x.get('no_price'), n=x.get('count'), side=x.get('taker_side')) for x in (t or {}).get('trades') or []]
+                rows = [trade_row(m['ticker'], x) for x in (t or {}).get('trades') or []]
                 append(TP, rows if rows else [dict(ticker=m['ticker'], ts=None, empty=True)]); seen_t.add(m['ticker']); n_new_t += 1
                 time.sleep(0.15)
             cur = d.get('cursor')

@@ -48,3 +48,6 @@ playoff break. True byes only (12-20 days since the last game): favourite 70-84 
 is wider (opponent off 8-30 days, which also catches the long week after a Thursday game): 203-188 (-0.4%) since 2020 and 356-389 (-6.5%)
 in 2003-19. No edge either way; `nfl_fade_fav_bye` stays paper with the reason on the board. Also stale above: the NHL puck-line rules do
 not need a regulation-win% change; the Bet Labs match came from using regular-season records, not from excluding overtime losses.
+Same correction applied to the visitor-rest cousin: with week 1 excluded, visitor off 8-30 days (Bet Labs' definition) full-game under is
+213-162 (+10.3%), 5 of 7 seasons; the 12-20 day byes 72-54 and the 8-11 day long weeks 139-107 carry it equally. `vrest8_1h` stays tier C
+on its own first-half record (Bet Labs 4 of 7 seasons positive); the full-game cousin is now a candidate for a future paper rule.
