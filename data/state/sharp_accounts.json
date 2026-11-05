@@ -1,5 +1,5 @@
 {
- "built": "2026-11-05T00:59:48Z",
+ "built": "2026-11-05T01:05:42Z",
  "rows": [
   {
    "cond": "0x87c74536e0bdd3b79589f6d894a60bca4e0bbe8c201230754a6aff4b00a63fa6",
@@ -130,7 +130,7 @@
    "best_rank": 43,
    "usd": 1216,
    "paid": 0.62,
-   "ask": 0.69,
+   "ask": 0.68,
    "status": "live",
    "link": "https://polymarket.us/event/nba-was-atl-2026-11-06",
    "other": null,
@@ -344,50 +344,6 @@
    }
   },
   {
-   "cond": "0x2bba4a044b8b679166fa334c9a92c76a368e3e79ce09806fd5e8977d61b244fc",
-   "slug": "nba-ind-mem-2026-11-04",
-   "title": "Pacers vs. Grizzlies",
-   "mtype": "ml",
-   "start": "2026-11-05T01:00:00Z",
-   "bet": "Grizzlies ML",
-   "side": "Grizzlies",
-   "flagged": "2026-11-04T08:58:25Z",
-   "why": "a top-50 account",
-   "proven": false,
-   "trigger": "top50",
-   "n_accounts": 1,
-   "best_rank": 43,
-   "usd": 1716,
-   "paid": 0.7,
-   "ask": 0.68,
-   "status": "other side",
-   "link": "https://polymarket.us/event/nba-ind-mem-2026-11-04",
-   "other": {
-    "n_accounts": 1,
-    "best_rank": 142,
-    "usd": 7156,
-    "first": "2026-11-05T00:19:19Z"
-   },
-   "exit_bid": 0.67,
-   "kalshi_against": null,
-   "logged": true,
-   "event_id": "401909927",
-   "sport": "nba",
-   "league": null,
-   "away": "IND",
-   "home": "MEM",
-   "away_name": "Indiana Pacers",
-   "home_name": "Memphis Grizzlies",
-   "game_start": "2026-11-05T01:00Z",
-   "side_std": "home",
-   "conflict": [
-    "Kalshi bet back"
-   ],
-   "money_with": false,
-   "grade": "watch",
-   "books": null
-  },
-  {
    "cond": "0x8c46d71e1ac2d02318e36c88763d512a25f73153f03dffa8df67212a5a922698",
    "slug": "nba-por-phx-2026-11-04",
    "title": "Trail Blazers vs. Suns",
@@ -533,28 +489,12 @@
     "usd": 3554
    }
   },
-  "401909928:nba_under_good_home_over": {
-   "with": null,
-   "against": {
-    "n": 1,
-    "best_rank": 76,
-    "usd": 939
-   }
-  },
   "401873037:bounce15_1h": {
    "with": null,
    "against": {
     "n": 1,
     "best_rank": 121,
     "usd": 116
-   }
-  },
-  "401909928:nba_momentum:ml": {
-   "with": null,
-   "against": {
-    "n": 1,
-    "best_rank": 93,
-    "usd": 199
    }
   }
  },
@@ -592,39 +532,6 @@
     "n": 1,
     "best_rank": 115,
     "usd": 5008
-   }
-  },
-  "401909927|ml": {
-   "home": {
-    "n": 1,
-    "best_rank": 43,
-    "usd": 1716
-   },
-   "away": {
-    "n": 1,
-    "best_rank": 142,
-    "usd": 6400
-   }
-  },
-  "401909928|ml": {
-   "home": {
-    "n": 1,
-    "best_rank": 93,
-    "usd": 199
-   }
-  },
-  "401909928|total": {
-   "over": {
-    "n": 1,
-    "best_rank": 76,
-    "usd": 939
-   }
-  },
-  "401909929|spread": {
-   "home": {
-    "n": 1,
-    "best_rank": 110,
-    "usd": 1374
    }
   },
   "401909930|spread": {
