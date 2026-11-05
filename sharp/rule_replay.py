@@ -31,7 +31,7 @@ def load(sport):
     for row in c.execute("""SELECT g.game_id, g.start, g.home, g.away, g.open_t, g.close_t, g.close_h, g.pin_open_home, g.pin_close_home, g.pin_open_sp, g.pin_close_sp, g.pin_open_tot, g.pin_close_tot,
                                    r.home_score, r.away_score, g.best_home, g.best_away FROM games g LEFT JOIN results r ON r.game_id=g.game_id WHERE g.sport=? ORDER BY g.start""", (sport,)):
         gid, start, home, away, ot, ct, ch, poh, pch, posp, pcsp, pot, pct_, hs, as_, bh, ba = row
-        g = dict(id=gid, start=ts(start), home=home, away=away, close_h=ch, p_open=poh, p_close=pch, sp_open=posp, sp_close=pcsp, tot_open=pot, tot_close=pct_, hs=hs, as_=as_, best_home=bh, best_away=ba)
+        g = dict(id=gid, sport=sport, start=ts(start), home=home, away=away, close_h=ch, p_open=poh, p_close=pch, sp_open=posp, sp_close=pcsp, tot_open=pot, tot_close=pct_, hs=hs, as_=as_, best_home=bh, best_away=ba)
         q = c.execute("SELECT ml_home, ml_away, sp_line, sp_home, sp_away, tot_line, tot_over, tot_under FROM quotes WHERE game_id=? AND book='pinnacle' AND t=?", (gid, ct)).fetchone()
         if q: g.update(ml_home=q[0], ml_away=q[1], sp_home_dec=q[3], sp_away_dec=q[4], over_dec=q[6], under_dec=q[7])
         q0 = c.execute("SELECT ml_home, ml_away FROM quotes WHERE game_id=? AND book='pinnacle' AND t=?", (gid, ot)).fetchone()
@@ -42,10 +42,12 @@ def load(sport):
 
 def profiles(G):
     """Before each game: each team's games played, wins, over rate (vs the closing total), last start; and the away team's road streak."""
-    H = collections.defaultdict(list)
+    H = collections.defaultdict(list)          # (team, season) -> games; a season's record starts from zero (11/5 fix: it used to run on across seasons)
+    sport = G[0].get('sport') if G else None
     for g in G:
+        sea = season_of(g.get('sport') or sport or 'x', g['start'])
         for side, team in (('home', g['home']), ('away', g['away'])):
-            L = H[team]; n = len(L)
+            L = H[(team, sea)]; n = len(L)
             g[f'{side}_games'] = n; g[f'{side}_wins'] = sum(x['won'] for x in L); g[f'{side}_win_pct'] = int(100 * sum(x['won'] for x in L) / n) if n else None
             ov = [x['over'] for x in L if x['over'] is not None]
             g[f'{side}_over_pct'] = sum(ov) / len(ov) if ov else None; g[f'{side}_over_n'] = len(ov)
@@ -57,8 +59,8 @@ def profiles(G):
             g[f'{side}_road_streak'] = k
         if g['hs'] is None: continue
         tot = g['hs'] + g['as_']; over = (tot > g['tot_close']) if g['tot_close'] is not None and tot != g['tot_close'] else None
-        H[g['home']].append(dict(start=g['start'], won=g['hs'] > g['as_'], over=over, side='home'))
-        H[g['away']].append(dict(start=g['start'], won=g['as_'] > g['hs'], over=over, side='away'))
+        H[(g['home'], sea)].append(dict(start=g['start'], won=g['hs'] > g['as_'], over=over, side='home'))
+        H[(g['away'], sea)].append(dict(start=g['start'], won=g['as_'] > g['hs'], over=over, side='away'))
 
 
 def clv_ml(g, side):

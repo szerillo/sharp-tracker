@@ -1,249 +1,798 @@
 {
+ "nhl_pl_fav_gap (fav -1.5, opponent win% higher by 22+)": {
+  "2020-21": {
+   "n": 29,
+   "record": "13-16",
+   "roi_pinnacle": 30.4,
+   "roi_best_us": null,
+   "clv_open_to_close": 0.71,
+   "number_moved_for": 0.0,
+   "moved_for_share": 0.0
+  },
+  "2021-22": {
+   "n": 45,
+   "record": "17-28",
+   "roi_pinnacle": -3.6,
+   "roi_best_us": null,
+   "clv_open_to_close": 0.7,
+   "number_moved_for": 0.07,
+   "moved_for_share": 0.02
+  },
+  "2022-23": {
+   "n": 39,
+   "record": "17-22",
+   "roi_pinnacle": 6.9,
+   "roi_best_us": null,
+   "clv_open_to_close": 2.01,
+   "number_moved_for": 0.08,
+   "moved_for_share": 0.03
+  },
+  "2023-24": {
+   "n": 29,
+   "record": "11-18",
+   "roi_pinnacle": 3.1,
+   "roi_best_us": null,
+   "clv_open_to_close": 0.67,
+   "number_moved_for": 0.1,
+   "moved_for_share": 0.03
+  },
+  "2024-25": {
+   "n": 39,
+   "record": "20-19",
+   "roi_pinnacle": 38.3,
+   "roi_best_us": null,
+   "clv_open_to_close": 1.91,
+   "number_moved_for": 0.15,
+   "moved_for_share": 0.05
+  },
+  "2025-26": {
+   "n": 37,
+   "record": "12-25",
+   "roi_pinnacle": -10.0,
+   "roi_best_us": null,
+   "clv_open_to_close": 0.61,
+   "number_moved_for": 0.16,
+   "moved_for_share": 0.05
+  },
+  "2026-27": {
+   "n": 7,
+   "record": "4-3",
+   "roi_pinnacle": 71.7,
+   "roi_best_us": null,
+   "clv_open_to_close": -0.53,
+   "number_moved_for": 0.0,
+   "moved_for_share": 0.0
+  },
+  "all": {
+   "n": 225,
+   "record": "94-131",
+   "roi_pinnacle": 12.0,
+   "roi_best_us": null,
+   "clv_open_to_close": 1.08,
+   "number_moved_for": 0.09,
+   "moved_for_share": 0.03
+  }
+ },
  "nhl_pl_fav_strong_opp (fav -1.5, opponent wins 66%+)": {
+  "2020-21": {
+   "n": 53,
+   "record": "21-32",
+   "roi_pinnacle": 4.5,
+   "roi_best_us": null,
+   "clv_open_to_close": 1.31,
+   "number_moved_for": 0.11,
+   "moved_for_share": 0.04
+  },
+  "2021-22": {
+   "n": 74,
+   "record": "29-45",
+   "roi_pinnacle": 2.6,
+   "roi_best_us": null,
+   "clv_open_to_close": 0.9,
+   "number_moved_for": 0.08,
+   "moved_for_share": 0.03
+  },
+  "2022-23": {
+   "n": 56,
+   "record": "21-35",
+   "roi_pinnacle": -7.0,
+   "roi_best_us": null,
+   "clv_open_to_close": 1.85,
+   "number_moved_for": 0.05,
+   "moved_for_share": 0.02
+  },
+  "2023-24": {
+   "n": 63,
+   "record": "16-47",
+   "roi_pinnacle": -30.7,
+   "roi_best_us": null,
+   "clv_open_to_close": 0.42,
+   "number_moved_for": 0.1,
+   "moved_for_share": 0.03
+  },
+  "2024-25": {
+   "n": 66,
+   "record": "33-33",
+   "roi_pinnacle": 35.0,
+   "roi_best_us": null,
+   "clv_open_to_close": 1.35,
+   "number_moved_for": 0.09,
+   "moved_for_share": 0.03
+  },
+  "2025-26": {
+   "n": 50,
+   "record": "16-34",
+   "roi_pinnacle": -14.5,
+   "roi_best_us": null,
+   "clv_open_to_close": 0.6,
+   "number_moved_for": 0.12,
+   "moved_for_share": 0.04
+  },
   "2026-27": {
    "n": 17,
    "record": "5-12",
    "roi_pinnacle": -17.6,
    "roi_best_us": null,
-   "clv_open_to_close": 0.59,
+   "clv_open_to_close": 0.33,
    "number_moved_for": 0.0,
    "moved_for_share": 0.0
   },
   "all": {
-   "n": 17,
-   "record": "5-12",
-   "roi_pinnacle": -17.6,
+   "n": 379,
+   "record": "141-238",
+   "roi_pinnacle": -1.6,
    "roi_best_us": null,
-   "clv_open_to_close": 0.59,
-   "number_moved_for": 0.0,
-   "moved_for_share": 0.0
+   "clv_open_to_close": 1.03,
+   "number_moved_for": 0.09,
+   "moved_for_share": 0.03
   }
  },
  "nhl_early_home_fav_qual (home fav ML, game 24 or earlier, opponent 51%+)": {
+  "2020-21": {
+   "n": 41,
+   "record": "25-16",
+   "roi_pinnacle": 6.7,
+   "roi_best_us": 6.0,
+   "clv_open_to_close": 0.34,
+   "number_moved_for": null,
+   "moved_for_share": null
+  },
+  "2021-22": {
+   "n": 89,
+   "record": "59-30",
+   "roi_pinnacle": 11.4,
+   "roi_best_us": 11.6,
+   "clv_open_to_close": 0.79,
+   "number_moved_for": null,
+   "moved_for_share": null
+  },
+  "2022-23": {
+   "n": 83,
+   "record": "51-32",
+   "roi_pinnacle": 3.1,
+   "roi_best_us": 3.6,
+   "clv_open_to_close": 0.54,
+   "number_moved_for": null,
+   "moved_for_share": null
+  },
+  "2023-24": {
+   "n": 57,
+   "record": "35-22",
+   "roi_pinnacle": 1.8,
+   "roi_best_us": 1.4,
+   "clv_open_to_close": 0.29,
+   "number_moved_for": null,
+   "moved_for_share": null
+  },
+  "2024-25": {
+   "n": 57,
+   "record": "36-21",
+   "roi_pinnacle": 7.9,
+   "roi_best_us": 8.0,
+   "clv_open_to_close": 0.65,
+   "number_moved_for": null,
+   "moved_for_share": null
+  },
+  "2025-26": {
+   "n": 76,
+   "record": "51-25",
+   "roi_pinnacle": 13.0,
+   "roi_best_us": 12.4,
+   "clv_open_to_close": 0.35,
+   "number_moved_for": null,
+   "moved_for_share": null
+  },
   "2026-27": {
    "n": 21,
    "record": "12-9",
    "roi_pinnacle": -4.4,
    "roi_best_us": -5.1,
-   "clv_open_to_close": -0.16,
+   "clv_open_to_close": -0.25,
    "number_moved_for": null,
    "moved_for_share": null
   },
   "all": {
-   "n": 21,
-   "record": "12-9",
-   "roi_pinnacle": -4.4,
-   "roi_best_us": -5.1,
-   "clv_open_to_close": -0.16,
+   "n": 424,
+   "record": "269-155",
+   "roi_pinnacle": 7.1,
+   "roi_best_us": 6.9,
+   "clv_open_to_close": 0.48,
    "number_moved_for": null,
    "moved_for_share": null
   }
  },
  "nhl_pl_dog_bigml (dog +1.5 when it opened +181 to +196)": {
-  "2026-27": {
-   "n": 3,
-   "record": "1-2",
-   "roi_pinnacle": -41.0,
+  "2020-21": {
+   "n": 5,
+   "record": "4-1",
+   "roi_pinnacle": 39.8,
    "roi_best_us": null,
-   "clv_open_to_close": 1.11,
+   "clv_open_to_close": 0.14,
    "number_moved_for": 0.0,
    "moved_for_share": 0.0
   },
-  "all": {
-   "n": 3,
-   "record": "1-2",
-   "roi_pinnacle": -41.0,
-   "roi_best_us": null,
-   "clv_open_to_close": 1.11,
-   "number_moved_for": 0.0,
-   "moved_for_share": 0.0
-  }
- },
- "nhl_pl_fav_gap (fav -1.5, opponent win% higher by 22+)": {
-  "2026-27": {
-   "n": 7,
-   "record": "4-3",
-   "roi_pinnacle": 71.7,
-   "roi_best_us": null,
-   "clv_open_to_close": -0.28,
-   "number_moved_for": 0.0,
-   "moved_for_share": 0.0
-  },
-  "all": {
-   "n": 7,
-   "record": "4-3",
-   "roi_pinnacle": 71.7,
-   "roi_best_us": null,
-   "clv_open_to_close": -0.28,
-   "number_moved_for": 0.0,
-   "moved_for_share": 0.0
-  }
- },
- "nba_1h_under_hot_over, FULL-GAME cousin (visitor over 71%+: under)": {
-  "2021-22": {
-   "n": 25,
-   "record": "14-11",
-   "roi_pinnacle": 9.2,
-   "roi_best_us": null,
-   "clv_open_to_close": null,
-   "number_moved_for": 0.57,
-   "moved_for_share": 0.57
-  },
-  "all": {
-   "n": 25,
-   "record": "14-11",
-   "roi_pinnacle": 9.2,
-   "roi_best_us": null,
-   "clv_open_to_close": null,
-   "number_moved_for": 0.57,
-   "moved_for_share": 0.57
-  }
- },
- "nba under, same spot but the total did NOT drop (control)": {
   "2021-22": {
    "n": 10,
-   "record": "6-4",
-   "roi_pinnacle": 17.4,
+   "record": "5-5",
+   "roi_pinnacle": -8.1,
    "roi_best_us": null,
-   "clv_open_to_close": null,
-   "number_moved_for": -1.85,
-   "moved_for_share": 0.0
-  },
-  "all": {
-   "n": 10,
-   "record": "6-4",
-   "roi_pinnacle": 17.4,
-   "roi_best_us": null,
-   "clv_open_to_close": null,
-   "number_moved_for": -1.85,
-   "moved_for_share": 0.0
-  }
- },
- "nba_under_good_home_over (home over 58%+, rest 1-2 / 1-3, total down 0.5+)": {
-  "2021-22": {
-   "n": 8,
-   "record": "6-2",
-   "roi_pinnacle": 48.7,
-   "roi_best_us": null,
-   "clv_open_to_close": null,
-   "number_moved_for": 1.75,
-   "moved_for_share": 1.0
-  },
-  "all": {
-   "n": 8,
-   "record": "6-2",
-   "roi_pinnacle": 48.7,
-   "roi_best_us": null,
-   "clv_open_to_close": null,
-   "number_moved_for": 1.75,
-   "moved_for_share": 1.0
-  }
- },
- "cbb under, same teams but no drop (control)": {
-  "2021-22": {
-   "n": 171,
-   "record": "88-80-3",
-   "roi_pinnacle": -0.1,
-   "roi_best_us": null,
-   "clv_open_to_close": null,
-   "number_moved_for": -0.97,
+   "clv_open_to_close": -1.11,
+   "number_moved_for": 0.0,
    "moved_for_share": 0.0
   },
   "2022-23": {
-   "n": 19,
-   "record": "9-9-1",
-   "roi_pinnacle": -4.4,
+   "n": 43,
+   "record": "26-17",
+   "roi_pinnacle": 8.6,
    "roi_best_us": null,
-   "clv_open_to_close": null,
-   "number_moved_for": -1.16,
+   "clv_open_to_close": -0.75,
+   "number_moved_for": 0.0,
+   "moved_for_share": 0.0
+  },
+  "2023-24": {
+   "n": 2,
+   "record": "1-1",
+   "roi_pinnacle": -12.5,
+   "roi_best_us": null,
+   "clv_open_to_close": -0.64,
+   "number_moved_for": 0.0,
+   "moved_for_share": 0.0
+  },
+  "2024-25": {
+   "n": 6,
+   "record": "5-1",
+   "roi_pinnacle": 43.7,
+   "roi_best_us": null,
+   "clv_open_to_close": 0.54,
+   "number_moved_for": 0.0,
    "moved_for_share": 0.0
   },
   "2025-26": {
    "n": 9,
-   "record": "2-7",
-   "roi_pinnacle": -57.1,
+   "record": "4-5",
+   "roi_pinnacle": -23.8,
    "roi_best_us": null,
-   "clv_open_to_close": null,
-   "number_moved_for": -0.11,
+   "clv_open_to_close": 0.76,
+   "number_moved_for": 0.0,
+   "moved_for_share": 0.0
+  },
+  "2026-27": {
+   "n": 3,
+   "record": "1-2",
+   "roi_pinnacle": -41.0,
+   "roi_best_us": null,
+   "clv_open_to_close": 1.11,
+   "number_moved_for": 0.0,
    "moved_for_share": 0.0
   },
   "all": {
-   "n": 199,
-   "record": "99-96-4",
-   "roi_pinnacle": -3.1,
+   "n": 78,
+   "record": "46-32",
+   "roi_pinnacle": 5.0,
+   "roi_best_us": null,
+   "clv_open_to_close": -0.39,
+   "number_moved_for": 0.0,
+   "moved_for_share": 0.0
+  }
+ },
+ "nba_under_good_home_over (home over 58%+, rest 1-2 / 1-3, total down 0.5+)": {
+  "2020-21": {
+   "n": 54,
+   "record": "26-28",
+   "roi_pinnacle": -5.7,
    "roi_best_us": null,
    "clv_open_to_close": null,
-   "number_moved_for": -0.95,
+   "number_moved_for": 2.19,
+   "moved_for_share": 1.0
+  },
+  "2021-22": {
+   "n": 30,
+   "record": "16-13-1",
+   "roi_pinnacle": 8.7,
+   "roi_best_us": null,
+   "clv_open_to_close": null,
+   "number_moved_for": 1.8,
+   "moved_for_share": 1.0
+  },
+  "2022-23": {
+   "n": 63,
+   "record": "31-30-2",
+   "roi_pinnacle": -1.6,
+   "roi_best_us": null,
+   "clv_open_to_close": null,
+   "number_moved_for": 2.39,
+   "moved_for_share": 1.0
+  },
+  "2023-24": {
+   "n": 66,
+   "record": "32-34",
+   "roi_pinnacle": -5.2,
+   "roi_best_us": null,
+   "clv_open_to_close": null,
+   "number_moved_for": 1.87,
+   "moved_for_share": 1.0
+  },
+  "2024-25": {
+   "n": 92,
+   "record": "47-45",
+   "roi_pinnacle": -0.8,
+   "roi_best_us": null,
+   "clv_open_to_close": null,
+   "number_moved_for": 2.03,
+   "moved_for_share": 1.0
+  },
+  "2025-26": {
+   "n": 82,
+   "record": "44-37-1",
+   "roi_pinnacle": 5.7,
+   "roi_best_us": null,
+   "clv_open_to_close": null,
+   "number_moved_for": 2.16,
+   "moved_for_share": 1.0
+  },
+  "2026-27": {
+   "n": 5,
+   "record": "4-1",
+   "roi_pinnacle": 57.6,
+   "roi_best_us": null,
+   "clv_open_to_close": null,
+   "number_moved_for": 2.6,
+   "moved_for_share": 1.0
+  },
+  "all": {
+   "n": 392,
+   "record": "200-188-4",
+   "roi_pinnacle": 0.5,
+   "roi_best_us": null,
+   "clv_open_to_close": null,
+   "number_moved_for": 2.1,
+   "moved_for_share": 1.0
+  }
+ },
+ "nba_1h_under_hot_over, FULL-GAME cousin (visitor over 71%+: under)": {
+  "2020-21": {
+   "n": 22,
+   "record": "11-11",
+   "roi_pinnacle": -2.8,
+   "roi_best_us": null,
+   "clv_open_to_close": null,
+   "number_moved_for": 0.59,
+   "moved_for_share": 0.5
+  },
+  "2021-22": {
+   "n": 25,
+   "record": "14-11",
+   "roi_pinnacle": 9.2,
+   "roi_best_us": null,
+   "clv_open_to_close": null,
+   "number_moved_for": 0.38,
+   "moved_for_share": 0.52
+  },
+  "2022-23": {
+   "n": 37,
+   "record": "19-17-1",
+   "roi_pinnacle": 2.6,
+   "roi_best_us": null,
+   "clv_open_to_close": null,
+   "number_moved_for": 0.54,
+   "moved_for_share": 0.43
+  },
+  "2023-24": {
+   "n": 62,
+   "record": "26-34-2",
+   "roi_pinnacle": -15.2,
+   "roi_best_us": null,
+   "clv_open_to_close": null,
+   "number_moved_for": -0.03,
+   "moved_for_share": 0.44
+  },
+  "2024-25": {
+   "n": 42,
+   "record": "24-18",
+   "roi_pinnacle": 11.0,
+   "roi_best_us": null,
+   "clv_open_to_close": null,
+   "number_moved_for": -0.13,
+   "moved_for_share": 0.4
+  },
+  "2025-26": {
+   "n": 64,
+   "record": "32-32",
+   "roi_pinnacle": -2.6,
+   "roi_best_us": null,
+   "clv_open_to_close": null,
+   "number_moved_for": -0.22,
+   "moved_for_share": 0.34
+  },
+  "2026-27": {
+   "n": 12,
+   "record": "5-6-1",
+   "roi_pinnacle": -10.8,
+   "roi_best_us": null,
+   "clv_open_to_close": null,
+   "number_moved_for": 1.04,
+   "moved_for_share": 0.33
+  },
+  "all": {
+   "n": 264,
+   "record": "131-129-4",
+   "roi_pinnacle": -1.9,
+   "roi_best_us": null,
+   "clv_open_to_close": null,
+   "number_moved_for": 0.13,
+   "moved_for_share": 0.42
+  }
+ },
+ "nba under, same spot but the total did NOT drop (control)": {
+  "2020-21": {
+   "n": 96,
+   "record": "49-47",
+   "roi_pinnacle": -0.4,
+   "roi_best_us": null,
+   "clv_open_to_close": null,
+   "number_moved_for": -1.01,
+   "moved_for_share": 0.0
+  },
+  "2021-22": {
+   "n": 53,
+   "record": "25-26-2",
+   "roi_pinnacle": -4.1,
+   "roi_best_us": null,
+   "clv_open_to_close": null,
+   "number_moved_for": -0.85,
+   "moved_for_share": 0.0
+  },
+  "2022-23": {
+   "n": 71,
+   "record": "38-32-1",
+   "roi_pinnacle": 5.3,
+   "roi_best_us": null,
+   "clv_open_to_close": null,
+   "number_moved_for": -1.69,
+   "moved_for_share": 0.0
+  },
+  "2023-24": {
+   "n": 112,
+   "record": "52-55-5",
+   "roi_pinnacle": -5.2,
+   "roi_best_us": null,
+   "clv_open_to_close": null,
+   "number_moved_for": -1.52,
+   "moved_for_share": 0.0
+  },
+  "2024-25": {
+   "n": 139,
+   "record": "54-85",
+   "roi_pinnacle": -24.3,
+   "roi_best_us": null,
+   "clv_open_to_close": null,
+   "number_moved_for": -1.3,
+   "moved_for_share": 0.0
+  },
+  "2025-26": {
+   "n": 100,
+   "record": "54-45-1",
+   "roi_pinnacle": 6.5,
+   "roi_best_us": null,
+   "clv_open_to_close": null,
+   "number_moved_for": -1.66,
+   "moved_for_share": 0.0
+  },
+  "2026-27": {
+   "n": 7,
+   "record": "4-3",
+   "roi_pinnacle": 10.9,
+   "roi_best_us": null,
+   "clv_open_to_close": null,
+   "number_moved_for": -0.29,
+   "moved_for_share": 0.0
+  },
+  "all": {
+   "n": 578,
+   "record": "276-293-9",
+   "roi_pinnacle": -5.4,
+   "roi_best_us": null,
+   "clv_open_to_close": null,
+   "number_moved_for": -1.35,
    "moved_for_share": 0.0
   }
  },
  "cbb_under_good_over_drop (weekday, home over 50%+, visitor 59%+, total down 0.5+)": {
-  "2021-22": {
-   "n": 138,
-   "record": "66-71-1",
-   "roi_pinnacle": -8.0,
+  "2020-21": {
+   "n": 97,
+   "record": "63-33-1",
+   "roi_pinnacle": 25.3,
    "roi_best_us": null,
    "clv_open_to_close": null,
-   "number_moved_for": 1.72,
+   "number_moved_for": 1.91,
+   "moved_for_share": 1.0
+  },
+  "2021-22": {
+   "n": 144,
+   "record": "68-75-1",
+   "roi_pinnacle": -9.1,
+   "roi_best_us": null,
+   "clv_open_to_close": null,
+   "number_moved_for": 1.7,
    "moved_for_share": 1.0
   },
   "2022-23": {
-   "n": 15,
-   "record": "7-7-1",
-   "roi_pinnacle": -4.8,
+   "n": 135,
+   "record": "71-64",
+   "roi_pinnacle": 1.2,
    "roi_best_us": null,
    "clv_open_to_close": null,
-   "number_moved_for": 1.97,
+   "number_moved_for": 1.6,
+   "moved_for_share": 1.0
+  },
+  "2023-24": {
+   "n": 196,
+   "record": "89-104-3",
+   "roi_pinnacle": -11.9,
+   "roi_best_us": null,
+   "clv_open_to_close": null,
+   "number_moved_for": 2.21,
+   "moved_for_share": 1.0
+  },
+  "2024-25": {
+   "n": 136,
+   "record": "61-73-2",
+   "roi_pinnacle": -13.4,
+   "roi_best_us": null,
+   "clv_open_to_close": null,
+   "number_moved_for": 1.61,
+   "moved_for_share": 1.0
+  },
+  "2025-26": {
+   "n": 139,
+   "record": "70-69",
+   "roi_pinnacle": -4.7,
+   "roi_best_us": null,
+   "clv_open_to_close": null,
+   "number_moved_for": 2.11,
    "moved_for_share": 1.0
   },
   "all": {
-   "n": 153,
-   "record": "73-78-2",
-   "roi_pinnacle": -7.7,
+   "n": 847,
+   "record": "422-418-7",
+   "roi_pinnacle": -4.1,
    "roi_best_us": null,
    "clv_open_to_close": null,
-   "number_moved_for": 1.75,
+   "number_moved_for": 1.88,
    "moved_for_share": 1.0
+  }
+ },
+ "cbb under, same teams but no drop (control)": {
+  "2020-21": {
+   "n": 103,
+   "record": "57-45-1",
+   "roi_pinnacle": 6.3,
+   "roi_best_us": null,
+   "clv_open_to_close": null,
+   "number_moved_for": -1.07,
+   "moved_for_share": 0.0
+  },
+  "2021-22": {
+   "n": 176,
+   "record": "89-84-3",
+   "roi_pinnacle": -1.8,
+   "roi_best_us": null,
+   "clv_open_to_close": null,
+   "number_moved_for": -0.95,
+   "moved_for_share": 0.0
+  },
+  "2022-23": {
+   "n": 233,
+   "record": "121-110-2",
+   "roi_pinnacle": -0.5,
+   "roi_best_us": null,
+   "clv_open_to_close": null,
+   "number_moved_for": -0.95,
+   "moved_for_share": 0.0
+  },
+  "2023-24": {
+   "n": 205,
+   "record": "104-95-6",
+   "roi_pinnacle": -1.1,
+   "roi_best_us": null,
+   "clv_open_to_close": null,
+   "number_moved_for": -1.12,
+   "moved_for_share": 0.0
+  },
+  "2024-25": {
+   "n": 211,
+   "record": "112-97-2",
+   "roi_pinnacle": 1.6,
+   "roi_best_us": null,
+   "clv_open_to_close": null,
+   "number_moved_for": -1.09,
+   "moved_for_share": 0.0
+  },
+  "2025-26": {
+   "n": 194,
+   "record": "97-95-2",
+   "roi_pinnacle": -3.7,
+   "roi_best_us": null,
+   "clv_open_to_close": null,
+   "number_moved_for": -0.91,
+   "moved_for_share": 0.0
+  },
+  "all": {
+   "n": 1122,
+   "record": "580-526-16",
+   "roi_pinnacle": -0.3,
+   "roi_best_us": null,
+   "clv_open_to_close": null,
+   "number_moved_for": -1.01,
+   "moved_for_share": 0.0
   }
  },
  "cfb_road_dog_low_total (home -7 or more, total 48 or under: road dog; conference flag unavailable)": {
-  "2026": {
-   "n": 41,
-   "record": "11-29-1",
-   "roi_pinnacle": -45.6,
+  "2020": {
+   "n": 26,
+   "record": "13-13",
+   "roi_pinnacle": -3.5,
    "roi_best_us": null,
-   "clv_open_to_close": -0.06,
-   "number_moved_for": 0.1,
+   "clv_open_to_close": -0.5,
+   "number_moved_for": 0.17,
+   "moved_for_share": 0.42
+  },
+  "2021": {
+   "n": 36,
+   "record": "22-14",
+   "roi_pinnacle": 18.4,
+   "roi_best_us": null,
+   "clv_open_to_close": -0.79,
+   "number_moved_for": -0.19,
+   "moved_for_share": 0.14
+  },
+  "2022": {
+   "n": 57,
+   "record": "30-27",
+   "roi_pinnacle": 1.7,
+   "roi_best_us": null,
+   "clv_open_to_close": -1.04,
+   "number_moved_for": -0.17,
+   "moved_for_share": 0.28
+  },
+  "2023": {
+   "n": 93,
+   "record": "51-37-5",
+   "roi_pinnacle": 11.5,
+   "roi_best_us": null,
+   "clv_open_to_close": 0.04,
+   "number_moved_for": 0.23,
+   "moved_for_share": 0.47
+  },
+  "2024": {
+   "n": 87,
+   "record": "46-37-4",
+   "roi_pinnacle": 6.7,
+   "roi_best_us": null,
+   "clv_open_to_close": -0.11,
+   "number_moved_for": 0.24,
+   "moved_for_share": 0.41
+  },
+  "2025": {
+   "n": 78,
+   "record": "36-39-3",
+   "roi_pinnacle": -6.4,
+   "roi_best_us": null,
+   "clv_open_to_close": -0.7,
+   "number_moved_for": -0.17,
+   "moved_for_share": 0.24
+  },
+  "2026": {
+   "n": 43,
+   "record": "12-30-1",
+   "roi_pinnacle": -43.3,
+   "roi_best_us": null,
+   "clv_open_to_close": -0.05,
+   "number_moved_for": 0.08,
    "moved_for_share": 0.21
   },
   "all": {
-   "n": 41,
-   "record": "11-29-1",
-   "roi_pinnacle": -45.6,
+   "n": 420,
+   "record": "210-197-13",
+   "roi_pinnacle": -0.1,
    "roi_best_us": null,
-   "clv_open_to_close": -0.06,
-   "number_moved_for": 0.1,
-   "moved_for_share": 0.21
+   "clv_open_to_close": -0.39,
+   "number_moved_for": 0.05,
+   "moved_for_share": 0.33
   }
  },
  "cfb_road_streak_dog (home fav, total 54 or under, visitor on road game 2-5 in a row)": {
-  "2026": {
-   "n": 39,
-   "record": "14-23-2",
-   "roi_pinnacle": -24.7,
+  "2020": {
+   "n": 27,
+   "record": "14-13",
+   "roi_pinnacle": 0.3,
    "roi_best_us": null,
-   "clv_open_to_close": 0.07,
-   "number_moved_for": 0.03,
-   "moved_for_share": 0.16
+   "clv_open_to_close": 0.08,
+   "number_moved_for": -0.06,
+   "moved_for_share": 0.37
+  },
+  "2021": {
+   "n": 66,
+   "record": "32-34",
+   "roi_pinnacle": -5.6,
+   "roi_best_us": null,
+   "clv_open_to_close": -0.63,
+   "number_moved_for": -0.19,
+   "moved_for_share": 0.26
+  },
+  "2022": {
+   "n": 65,
+   "record": "37-28",
+   "roi_pinnacle": 10.5,
+   "roi_best_us": null,
+   "clv_open_to_close": -0.72,
+   "number_moved_for": -0.21,
+   "moved_for_share": 0.29
+  },
+  "2023": {
+   "n": 80,
+   "record": "37-40-3",
+   "roi_pinnacle": -6.9,
+   "roi_best_us": null,
+   "clv_open_to_close": 0.18,
+   "number_moved_for": 0.09,
+   "moved_for_share": 0.51
+  },
+  "2024": {
+   "n": 81,
+   "record": "35-42-4",
+   "roi_pinnacle": -11.5,
+   "roi_best_us": null,
+   "clv_open_to_close": 0.13,
+   "number_moved_for": 0.15,
+   "moved_for_share": 0.44
+  },
+  "2025": {
+   "n": 89,
+   "record": "42-47",
+   "roi_pinnacle": -8.5,
+   "roi_best_us": null,
+   "clv_open_to_close": 0.01,
+   "number_moved_for": -0.08,
+   "moved_for_share": 0.34
+  },
+  "2026": {
+   "n": 41,
+   "record": "15-24-2",
+   "roi_pinnacle": -23.4,
+   "roi_best_us": null,
+   "clv_open_to_close": 0.14,
+   "number_moved_for": 0.07,
+   "moved_for_share": 0.17
   },
   "all": {
-   "n": 39,
-   "record": "14-23-2",
-   "roi_pinnacle": -24.7,
+   "n": 449,
+   "record": "212-228-9",
+   "roi_pinnacle": -6.4,
    "roi_best_us": null,
-   "clv_open_to_close": 0.07,
-   "number_moved_for": 0.03,
-   "moved_for_share": 0.16
+   "clv_open_to_close": -0.13,
+   "number_moved_for": -0.03,
+   "moved_for_share": 0.36
   }
  }
 }

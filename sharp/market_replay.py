@@ -102,6 +102,7 @@ def main():
                         toward = 'home' if mv > 0 else 'away'; size = 'small 1-3' if abs(mv) < 3 else 'medium 3-6' if abs(mv) < 6 else 'large 6+'
                         gt = grade(g, 'ml', toward); gf2 = grade(g, 'ml', 'away' if toward == 'home' else 'home')
                         if gt: T[f'M11 ML move, FOLLOW at the close | {size}'].append((g, gt))
+                        if gt and size == 'large 6+': T[f"M11d large move FOLLOW at the close, by direction | toward the {'favourite' if (g['p_close'] >= .5) == (toward == 'home') else 'dog'}"].append((g, gt))
                         if gf2: T[f'M11b ML move, FADE at the close | {size}'].append((g, gf2))
                         # and at the OPEN price (what the mover got): bet the side the market will move toward, at its opening price
                         if gt and g.get('ml_home_open') and g.get('ml_away_open'):
@@ -130,6 +131,11 @@ def main():
                         dec = h if side == 'home' else a          # the book's own price on that number (an alternate puck line is heavily juiced)
                         gr = grade(g, 'spread', side, line=(ln if side == 'home' else -ln))
                         if gr and dec: T[f'M8 US book gives 0.5+ more than Pinnacle: take it at its price | {book}'].append((g, (gr[0], dec, None, gr[3], gr[4])))
+                        # M8c the other way round: the US book lags Pinnacle, so bet the side Pinnacle has moved toward, at Pinnacle's close
+                        other = 'away' if side == 'home' else 'home'
+                        gp = grade(g, 'spread', other)
+                        if gp: T[f'M8c a US book lags Pinnacle by 0.5+: bet the side Pinnacle favours, at Pinnacle | {book}'].append((g, gp))
+                if sport != 'mma': pass
         # fold
         S = {}
         for name, hits in T.items():
