@@ -1,5 +1,5 @@
 {
- "built": "2026-11-05T22:51:22Z",
+ "built": "2026-11-05T23:21:02Z",
  "rows": [
   {
    "cond": "0x43bf75f521791c9dbf8423892ee11a1cb036ace20ff03283090d79e7a4174bbe",
@@ -71,7 +71,7 @@
    "best_rank": 58,
    "usd": 460,
    "paid": 0.54,
-   "ask": 0.56,
+   "ask": 0.55,
    "status": "live",
    "link": "https://polymarket.us/event/cfb-utsa-flatl-2026-11-05",
    "other": null,
@@ -98,7 +98,7 @@
    "best_rank": 110,
    "usd": 822,
    "paid": 0.58,
-   "ask": 0.57,
+   "ask": 0.56,
    "status": "live",
    "link": "https://polymarket.us/event/cfb-jmad-soumis-2026-11-05",
    "other": null,
@@ -113,6 +113,9 @@
    "home_name": "Southern Miss Golden Eagles",
    "game_start": "2026-11-06T01:00Z",
    "side_std": "home",
+   "conflict": [
+    "Kalshi bet back"
+   ],
    "money_with": false,
    "grade": "A",
    "fair_board": null,
@@ -135,7 +138,7 @@
    "best_rank": 58,
    "usd": 470,
    "paid": 0.53,
-   "ask": 0.52,
+   "ask": 0.53,
    "status": "live",
    "link": "https://polymarket.us/event/cfb-jmad-soumis-2026-11-05",
    "other": null,
@@ -150,6 +153,9 @@
    "home_name": "Southern Miss Golden Eagles",
    "game_start": "2026-11-06T01:00Z",
    "side_std": "over",
+   "conflict": [
+    "big money"
+   ],
    "money_with": false,
    "grade": "A",
    "fair_board": null,
@@ -255,7 +261,7 @@
    "best_rank": 40,
    "usd": 1429,
    "paid": 0.633,
-   "ask": 0.73,
+   "ask": 0.74,
    "status": "live",
    "link": "https://polymarket.us/event/nba-was-atl-2026-11-06",
    "other": null,
@@ -496,7 +502,7 @@
    "best_rank": 137,
    "usd": 3798,
    "paid": 0.48,
-   "ask": 0.42,
+   "ask": 0.43,
    "status": "live",
    "link": "https://polymarket.us/event/cfb-mia-nd-2026-11-07",
    "other": null,
@@ -664,7 +670,7 @@
    "home_name": "Phoenix Suns",
    "game_start": "2026-11-06T02:00Z",
    "side_std": "away",
-   "money_with": true,
+   "money_with": false,
    "grade": "A",
    "fair_board": 0.4904,
    "inside_fair": false,
