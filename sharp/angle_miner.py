@@ -32,7 +32,8 @@ def profiles(G, sport):
         for side, team in (('home', g['home']), ('away', g['away'])):
             L = H[(team, sea)]; n = len(L); P = {}
             P['games'] = n
-            P['win_pct'] = sum(x['won'] for x in L) / n if n else None
+            wins = sum(x['won'] for x in L); reg = sum(1 for x in L if not x['won'] and not x.get('ot'))     # OT/SO losses are not losses (Bet Labs NHL convention)
+            P['win_pct'] = wins / (wins + reg) if (wins + reg) else None
             P['margin'] = sum(x['margin'] for x in L) / n if n else None
             ats = [x['ats'] for x in L if x['ats'] is not None]; P['ats_pct'] = sum(1 for a in ats if a > 0) / len(ats) if ats else None
             ou = [x['over'] for x in L if x['over'] is not None]; P['over_pct'] = sum(ou) / len(ou) if ou else None
@@ -78,8 +79,8 @@ def profiles(G, sport):
         m = g['hs'] - g['as_']; tot = g['hs'] + g['as_']
         over = (tot > g['tot_close']) if g.get('tot_close') is not None and tot != g['tot_close'] else None
         ats_h = (m + g['sp_close']) if g.get('sp_close') is not None else None
-        H[(g['home'], sea)].append(dict(start=g['start'], won=m > 0, margin=m, ats=ats_h, over=over, side='home'))
-        H[(g['away'], sea)].append(dict(start=g['start'], won=m < 0, margin=-m, ats=(-ats_h if ats_h is not None else None), over=over, side='away'))
+        H[(g['home'], sea)].append(dict(start=g['start'], won=m > 0, margin=m, ats=ats_h, over=over, side='home', ot=g.get('ot')))
+        H[(g['away'], sea)].append(dict(start=g['start'], won=m < 0, margin=-m, ats=(-ats_h if ats_h is not None else None), over=over, side='away', ot=g.get('ot')))
 
 
 def features(g, sport):
@@ -100,6 +101,8 @@ def features(g, sport):
     if p is not None: F['ml_fav'] = band(max(p, 1 - p), [.55, .6, .65, .7, .75, .8, .85], ['50-54', '55-59', '60-64', '65-69', '70-74', '75-79', '80-84', '85+'])
     d = g['start'].astimezone(ET)
     F['day'] = 'weekend' if d.weekday() >= 5 else 'weekday'
+    if g.get('conf') is not None and sport in ('cfb', 'cbb', 'wncaab'): F['conference'] = 'conference' if g['conf'] else 'non-conference'
+    if g.get('neutral') and sport in ('cfb', 'cbb', 'wncaab'): F['site'] = 'neutral'
     F['night'] = 'night (7pm+ ET)' if d.hour >= 19 else 'day'
     if g.get('sp_open') is not None and sp is not None:
         mv = sp - g['sp_open']

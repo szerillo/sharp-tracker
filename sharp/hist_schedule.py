@@ -36,9 +36,12 @@ def main(d0, d1, only=None):
                 c = ev['competitions'][0]; t = {k['homeAway']: k for k in c['competitors']}
                 if 'home' not in t or 'away' not in t: continue
                 stt = (c.get('status') or {}).get('type') or {}
+                det = (stt.get('detail') or stt.get('shortDetail') or '')
                 out[sp][ev['id']] = dict(start=ev['date'], away=t['away']['team'].get('abbreviation'), home=t['home']['team'].get('abbreviation'),
                                          hs=float(t['home'].get('score') or 0) if stt.get('completed') else None, as_=float(t['away'].get('score') or 0) if stt.get('completed') else None,
-                                         final=bool(stt.get('completed')), status=stt.get('name'))
+                                         final=bool(stt.get('completed')), status=stt.get('name'),
+                                         # 11/5: overtime / shootout flag (Bet Labs' NHL win% excludes OT losses), conference game and neutral site (CFB / CBB filters)
+                                         ot=('OT' in det or 'SO' in det) or None, conf=c.get('conferenceCompetition'), neutral=c.get('neutralSite') or None)
             day = end + dt.timedelta(days=1)
         print(f"[hist_schedule] {sp}: {len(out[sp])} games", flush=True)
         json.dump(out, open(OUT, 'w'), separators=(',', ':'))

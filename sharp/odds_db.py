@@ -75,7 +75,7 @@ def build():
       CREATE TABLE games(game_id TEXT PRIMARY KEY, sport TEXT, key TEXT, start TEXT, home TEXT, away TEXT, n_snaps INT, open_t TEXT, close_t TEXT, close_h REAL,
         pin_open_home REAL, pin_close_home REAL, pin_close_away REAL, pin_close_draw REAL, pin_open_sp REAL, pin_close_sp REAL, pin_open_tot REAL, pin_close_tot REAL,
         best_home REAL, best_home_book TEXT, best_away REAL, best_away_book TEXT);
-      CREATE TABLE results(game_id TEXT PRIMARY KEY, home_score REAL, away_score REAL, winner TEXT, src TEXT);""")
+      CREATE TABLE results(game_id TEXT PRIMARY KEY, home_score REAL, away_score REAL, winner TEXT, src TEXT, ot INT, conf INT, neutral INT);""")
     G = {}; Q = []; n = 0
     import itertools
     def keep(b):          # the part of a snapshot the games table needs
@@ -169,7 +169,8 @@ def results(conn):
             st = dt.datetime.fromisoformat(start.replace('Z', '+00:00'))
             for h in idx.get((ha, aa), []):
                 if abs((dt.datetime.fromisoformat(h['start'].replace('Z', '+00:00')) - st).total_seconds()) < 6 * 3600:
-                    out.append((gid, h['hs'], h['as_'], 'home' if h['hs'] > h['as_'] else 'away' if h['as_'] > h['hs'] else 'draw', 'espn')); break
+                    out.append((gid, h['hs'], h['as_'], 'home' if h['hs'] > h['as_'] else 'away' if h['as_'] > h['hs'] else 'draw', 'espn',
+                                1 if h.get('ot') else 0, None if h.get('conf') is None else int(bool(h['conf'])), 1 if h.get('neutral') else 0)); break
         print(f"[odds_db] results {hkey}: {len(out) - k0}", flush=True)
     # MMA: fighter names, fight within 2 days
     idx = collections.defaultdict(list)
@@ -183,14 +184,18 @@ def results(conn):
             if abs((dt.datetime.fromisoformat(h['start'].replace('Z', '+00:00')) - st).total_seconds()) < 48 * 3600:
                 w = E.norm(h['winner']); nh, na = E.norm(home), E.norm(away)
                 side = 'home' if w == nh else 'away' if w == na else ('home' if (w in nh or nh in w) and not (w in na or na in w) else 'away' if (w in na or na in w) else None)
-                if side: out.append((gid, 1.0 if side == 'home' else 0.0, 1.0 if side == 'away' else 0.0, side, 'espn'))
+                if side: out.append((gid, 1.0 if side == 'home' else 0.0, 1.0 if side == 'away' else 0.0, side, 'espn', 0, None, 0))
                 break
     print(f"[odds_db] results mma: {len(out) - k0}", flush=True)
-    conn.executemany("INSERT OR REPLACE INTO results VALUES (?,?,?,?,?)", out); conn.commit()
+    conn.executemany("INSERT OR REPLACE INTO results VALUES (?,?,?,?,?,?,?,?)", out); conn.commit()
     print(f"[odds_db] results joined: {len(out)}")
 
 
 if __name__ == '__main__':
     if '--results' in sys.argv:
-        c = sqlite3.connect(DB); results(c); c.close()
+        c = sqlite3.connect(DB)
+        cols = [r[1] for r in c.execute("PRAGMA table_info(results)")]
+        for col in ('ot', 'conf', 'neutral'):
+            if col not in cols: c.execute(f"ALTER TABLE results ADD COLUMN {col} INT")
+        results(c); c.close()
     else: build()

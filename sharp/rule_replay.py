@@ -28,10 +28,13 @@ def season_of(sport, d):
 def load(sport):
     c = sqlite3.connect(DB)
     G = []
-    for row in c.execute("""SELECT g.game_id, g.start, g.home, g.away, g.open_t, g.close_t, g.close_h, g.pin_open_home, g.pin_close_home, g.pin_open_sp, g.pin_close_sp, g.pin_open_tot, g.pin_close_tot,
-                                   r.home_score, r.away_score, g.best_home, g.best_away FROM games g LEFT JOIN results r ON r.game_id=g.game_id WHERE g.sport=? ORDER BY g.start""", (sport,)):
-        gid, start, home, away, ot, ct, ch, poh, pch, posp, pcsp, pot, pct_, hs, as_, bh, ba = row
-        g = dict(id=gid, sport=sport, start=ts(start), home=home, away=away, close_h=ch, p_open=poh, p_close=pch, sp_open=posp, sp_close=pcsp, tot_open=pot, tot_close=pct_, hs=hs, as_=as_, best_home=bh, best_away=ba)
+    cols = {r[1] for r in c.execute("PRAGMA table_info(results)")}
+    extra = ", r.ot, r.conf, r.neutral" if 'ot' in cols else ", NULL, NULL, NULL"
+    for row in c.execute(f"""SELECT g.game_id, g.start, g.home, g.away, g.open_t, g.close_t, g.close_h, g.pin_open_home, g.pin_close_home, g.pin_open_sp, g.pin_close_sp, g.pin_open_tot, g.pin_close_tot,
+                                   r.home_score, r.away_score, g.best_home, g.best_away{extra} FROM games g LEFT JOIN results r ON r.game_id=g.game_id WHERE g.sport=? ORDER BY g.start""", (sport,)):
+        gid, start, home, away, ot, ct, ch, poh, pch, posp, pcsp, pot, pct_, hs, as_, bh, ba, otf, conf, neutral = row
+        g = dict(id=gid, sport=sport, start=ts(start), home=home, away=away, close_h=ch, p_open=poh, p_close=pch, sp_open=posp, sp_close=pcsp, tot_open=pot, tot_close=pct_, hs=hs, as_=as_, best_home=bh, best_away=ba,
+                 ot=bool(otf), conf=conf, neutral=bool(neutral))
         q = c.execute("SELECT ml_home, ml_away, sp_line, sp_home, sp_away, tot_line, tot_over, tot_under FROM quotes WHERE game_id=? AND book='pinnacle' AND t=?", (gid, ct)).fetchone()
         if q: g.update(ml_home=q[0], ml_away=q[1], sp_home_dec=q[3], sp_away_dec=q[4], over_dec=q[6], under_dec=q[7])
         q0 = c.execute("SELECT ml_home, ml_away FROM quotes WHERE game_id=? AND book='pinnacle' AND t=?", (gid, ot)).fetchone()
@@ -48,7 +51,9 @@ def profiles(G):
         sea = season_of(g.get('sport') or sport or 'x', g['start'])
         for side, team in (('home', g['home']), ('away', g['away'])):
             L = H[(team, sea)]; n = len(L)
-            g[f'{side}_games'] = n; g[f'{side}_wins'] = sum(x['won'] for x in L); g[f'{side}_win_pct'] = int(100 * sum(x['won'] for x in L) / n) if n else None
+            g[f'{side}_games'] = n; g[f'{side}_wins'] = sum(x['won'] for x in L)
+            # win% = W / (W + regulation L): an overtime or shootout loss is not a loss (Bet Labs' NHL convention, 11/5 reconciliation); no effect elsewhere
+            reg = sum(1 for x in L if not x['won'] and not x.get('ot')); g[f'{side}_win_pct'] = int(100 * g[f'{side}_wins'] / (g[f'{side}_wins'] + reg)) if (g[f'{side}_wins'] + reg) else (None if not n else 100)
             ov = [x['over'] for x in L if x['over'] is not None]
             g[f'{side}_over_pct'] = sum(ov) / len(ov) if ov else None; g[f'{side}_over_n'] = len(ov)
             g[f'{side}_last'] = L[-1]['start'] if L else None
@@ -59,8 +64,8 @@ def profiles(G):
             g[f'{side}_road_streak'] = k
         if g['hs'] is None: continue
         tot = g['hs'] + g['as_']; over = (tot > g['tot_close']) if g['tot_close'] is not None and tot != g['tot_close'] else None
-        H[(g['home'], sea)].append(dict(start=g['start'], won=g['hs'] > g['as_'], over=over, side='home'))
-        H[(g['away'], sea)].append(dict(start=g['start'], won=g['as_'] > g['hs'], over=over, side='away'))
+        H[(g['home'], sea)].append(dict(start=g['start'], won=g['hs'] > g['as_'], over=over, side='home', ot=g.get('ot')))
+        H[(g['away'], sea)].append(dict(start=g['start'], won=g['as_'] > g['hs'], over=over, side='away', ot=g.get('ot')))
 
 
 def clv_ml(g, side):
@@ -169,7 +174,7 @@ def main():
         if g['hs'] is None or g['sp_close'] is None or g['tot_close'] is None: continue
         if g['sp_close'] <= -7 and g['tot_close'] <= 48:
             gr = grade(g, 'spread', 'away')
-            if gr: hits['cfb_road_dog_low_total (home -7 or more, total 48 or under: road dog; conference flag unavailable)'].append((g, gr))
+            if gr: hits['cfb_road_dog_low_total (home -7 or more, total 48 or under: road dog)' + (' | conference game' if g.get('conf') else ' | non-conference' if g.get('conf') is not None else ' | conference flag unavailable')].append((g, gr))
         if g['sp_close'] < 0 and g['tot_close'] <= 54 and 2 <= g['away_road_streak'] + 1 <= 5 and g['away_games'] >= 1:
             gr = grade(g, 'spread', 'away')
             if gr: hits['cfb_road_streak_dog (home fav, total 54 or under, visitor on road game 2-5 in a row)'].append((g, gr))
