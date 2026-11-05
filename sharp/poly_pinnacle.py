@@ -24,21 +24,43 @@ def nv(a, b):
     return pa / (pa + pb)
 
 
+RES = {}      # sport -> (sorted residuals actual total - closing total, sorted residuals home margin + closing home spread, pooled with their mirror)
 def index():
-    """(sport, date) -> [games] from the odds database, with lower-cased names."""
+    """(sport, date) -> [games] from the odds database, with normalised names. Also builds the residual distributions used to price a
+    Polymarket line that differs from Pinnacle's closing number."""
     I = collections.defaultdict(list)
     for sp in sorted(set(TAG.values())):
+        rt, rs = [], []
         for g in RR.load(sp):
             if g.get('hs') is None: continue
-            g['_h'] = g['home'].lower(); g['_a'] = g['away'].lower()
+            if g.get('tot_close') is not None: rt.append(g['hs'] + g['as_'] - g['tot_close'])
+            if g.get('sp_close') is not None: m = g['hs'] - g['as_'] + g['sp_close']; rs += [m, -m]
+        RES[sp] = (sorted(rt), sorted(rs))
+            g['_h'] = nz(g['home']); g['_a'] = nz(g['away'])
             for d in (-1, 0, 1): I[(sp, (g['start'] + dt.timedelta(days=d)).date())].append(g)
     return I
 
 
+def nz(x): return ''.join(ch for ch in (x or '').lower() if ch.isalnum())
+
+
+def names(c):
+    """The two team (or fighter) names of a market: the outcomes for sides, the title ("A vs. B") for totals and yes/no markets."""
+    o = c['outcomes']
+    if len(o) == 2 and not any(x.lower() in ('over', 'under', 'yes', 'no') for x in o): return nz(o[0]), nz(o[1])
+    t = c.get('title') or ''
+    if ':' in t.split(' vs')[0]: t = t.split(':', 1)[1]
+    t = t.split('(')[0]
+    parts = [x.strip() for x in t.replace(' vs. ', ' vs ').split(' vs ')]
+    if len(parts) != 2 or not all(parts): return None
+    return nz(parts[0]), nz(parts[1])
+
+
 def match(I, c, st):
-    sp = TAG.get(c['tag'])
-    if not sp or len(c['outcomes']) != 2: return None
-    o0, o1 = [o.lower() for o in c['outcomes']]; t0 = dt.datetime.fromtimestamp(st, dt.timezone.utc)
+    sp = TAG.get(c['tag']); nm = names(c)
+    if not sp or not nm: return None
+    if c['market'] == 'spread' and set(x.lower() for x in c['outcomes']) == {'yes', 'no'}: return None       # cannot tell which side the line is on
+    o0, o1 = nm; t0 = dt.datetime.fromtimestamp(st, dt.timezone.utc)
     best = None
     for g in I.get((sp, t0.date()), []):
         if abs((g['start'] - t0).total_seconds()) > 3 * 3600: continue
@@ -49,8 +71,19 @@ def match(I, c, st):
     return best
 
 
+def p_exceed(arr, x):
+    """P(residual > x) with half credit on ties, from a sorted residual list."""
+    import bisect
+    if not arr: return None
+    lo = bisect.bisect_left(arr, x); hi = bisect.bisect_right(arr, x)
+    return ((len(arr) - hi) + 0.5 * (hi - lo)) / len(arr)
+
+
+MAX_SHIFT = 3.0
 def fair(c, g, side0):
-    """Pinnacle's closing fair probability of outcome 0, or None when the market cannot be priced at Pinnacle's number."""
+    """Pinnacle's closing fair probability of outcome 0. At Pinnacle's own number the two closing prices give it (no-vig); at a different
+    Polymarket line (within 3 points) it is Pinnacle's close shifted along the sport's empirical residual distribution. fair.kind says which."""
+    fair.kind = None
     if c['market'] == 'ml':
         p = g.get('p_close')
         if p is None: return None
@@ -58,14 +91,24 @@ def fair(c, g, side0):
     if c['market'] == 'spread':
         if g.get('sp_close') is None or c.get('line') is None: return None
         ln0 = g['sp_close'] if side0 == 'home' else -g['sp_close']            # Pinnacle's closing line for outcome 0
-        if abs(float(c['line']) - ln0) > 1e-9: return None
-        p = nv(g.get('sp_home_dec'), g.get('sp_away_dec'))
-        if p is None: return None
-        return p if side0 == 'home' else 1 - p
+        l0 = float(c['line'])
+        if abs(l0 - ln0) <= 1e-9:
+            p = nv(g.get('sp_home_dec'), g.get('sp_away_dec'))
+            if p is None: return None
+            fair.kind = 'exact'; return p if side0 == 'home' else 1 - p
+        if abs(l0 - ln0) > MAX_SHIFT: return None
+        # outcome 0 covers l0 when margin0 + l0 > 0; margin0 = -ln0 + residual, so covers when residual > ln0 - l0
+        p = p_exceed(RES[g['sport']][1], ln0 - l0); fair.kind = 'shifted'; return p
     if c['market'] == 'total':
-        if g.get('tot_close') is None or c.get('line') is None or abs(float(c['line']) - g['tot_close']) > 1e-9: return None
-        p = nv(g.get('over_dec'), g.get('under_dec'))
-        if p is None: return None
+        if g.get('tot_close') is None or c.get('line') is None: return None
+        L = float(c['line'])
+        if abs(L - g['tot_close']) <= 1e-9:
+            p = nv(g.get('over_dec'), g.get('under_dec'))
+            if p is None: return None
+            fair.kind = 'exact'
+        else:
+            if abs(L - g['tot_close']) > MAX_SHIFT: return None
+            p = p_exceed(RES[g['sport']][0], L - g['tot_close']); fair.kind = 'shifted'        # P(actual total > L)
         return p if o_is_over(c) else 1 - p
     return None
 
@@ -98,7 +141,7 @@ def main():
         if not m: stats['unmatched ' + c['tag']] += 1; continue
         g, side0 = m; fp = fair(c, g, side0)
         if fp is None: stats['no pinnacle price ' + c['market']] += 1; continue
-        stats['scored ' + c['market']] += 1
+        stats['scored ' + c['market'] + ' ' + (fair.kind or '')] += 1
         L = V.poly_trades(c, st)
         if len(L) < 5: continue
         P = Px([x[:4] for x in L]); cl = P.at(st); ry = 1 if c['winner'] == c['outcomes'][0] else 0; mv = move(c, g, side0)
@@ -112,7 +155,7 @@ def main():
                 if clv_poly is not None: x['poly'] += clv_poly; x['n_poly'] += 1
             else:
                 F.append(dict(w=w, clv_pin=clv_pin, clv_poly=clv_poly, roi=roi, price=price, fair=fair_side, mv=(mv if d > 0 else -mv) if mv is not None else None,
-                              mkt=c['market'], sport=c['tag'], fav=fair_side >= 0.5, inside=price < fair_side, t_to=st - t))
+                              mkt=c['market'], sport=c['tag'], fav=fair_side >= 0.5, inside=price < fair_side, t_to=st - t, kind=fair.kind))
     print('markets', dict(stats), 'train accounts', len(W), 'test fills', len(F), flush=True)
     sc = {w: x for w, x in W.items() if x['n'] >= 30 and len(x['games']) >= 15 and x['n_poly'] >= 30}
     for x in sc.values(): x['pin_m'] = x['pin'] / x['n']; x['poly_m'] = x['poly'] / x['n_poly']; x['roi_m'] = x['roi'] / x['n']
@@ -149,6 +192,7 @@ def main():
         C['inside fair AND with the move'] = follow(S, 'both', [f for f in R if f['inside'] and f['mv'] is not None and f['mv'] > 0])
         C['outside fair AND against the move'] = follow(S, 'neither', [f for f in R if not f['inside'] and f['mv'] is not None and f['mv'] < 0])
         for mk in ('ml', 'spread', 'total'): C[f'market {mk}'] = follow(S, mk, [f for f in R if f['mkt'] == mk])
+        for kd in ('exact', 'shifted'): C[f'priced at Pinnacle number: {kd}'] = follow(S, kd, [f for f in R if f['kind'] == kd])
         for spt in sorted({f['sport'] for f in R}): C[f'sport {spt}'] = follow(S, spt, [f for f in R if f['sport'] == spt])
         C['inside the last hour'] = follow(S, 'late', [f for f in R if f['t_to'] <= 3600]); C['earlier than 6h out'] = follow(S, 'early', [f for f in R if f['t_to'] > 6 * 3600])
         combos[name] = C

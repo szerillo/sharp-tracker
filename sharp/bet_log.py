@@ -240,6 +240,22 @@ def main():
             if fa is not None: b['fair_at_flag'] = round(fa, 4); b['fair_src'] = fsrc; b['edge'] = round(100 * (fa - b['price']), 2)
             d_ = T.depth(key, t0)
             if d_: b['depth'] = d_
+            # market move from our first tape point to the flag, toward (+) or away from (-) the side taken. 11/5 Polymarket re-score at
+            # Pinnacle's close (data/research/poly_pinnacle.json): top-200 fills WITH Pinnacle's move +5.5% out of sample, AGAINST it -8.4%.
+            try:
+                mv = None
+                if base in ('spread', 'total') and b['line'] is not None and not (base == 'spread' and b['sport'] in ('nhl', 'mlb')):
+                    LL = [x for v in T.lines.get((b['event_id'], b['market'], b['side']), {}).values() for x in v if x[1] is not None]
+                    if LL:
+                        t_first = min(x[0] for x in LL); ol0, _ = T.main_line(b['event_id'], b['market'], b['side'], t_first + 1); lf, _ = T.main_line(b['event_id'], b['market'], b['side'], t0)
+                        if ol0 is not None and lf is not None: mv = round((lf - ol0) if (base == 'total' and b['side'] == 'over') else (ol0 - lf), 1)
+                else:
+                    PP_ = T.raw.get(key, {}).get('Pinnacle', [])
+                    if PP_:
+                        nv0_, _ = T.novig_pin(key, PP_[0][0] + 1); nvf_, _ = T.novig_pin(key, t0)
+                        if nv0_ is not None and nvf_ is not None: mv = round(100 * (nvf_ - nv0_), 1)
+                if mv is not None: b['move_at_flag'] = dict(pts=mv, dir='with' if mv > 0 else 'against' if mv < 0 else 'flat', unit='pts' if base == 'ml' or base.endswith('ml') else UNIT.get(b['sport'], 'points'))
+            except Exception: pass
             # line movement in points / runs / goals, against the main line at the close (consensus, else Pinnacle)
             base = re.sub(r'^(1h|1q|1p)_', '', b['market'])
             if base in ('spread', 'total') and b['line'] is not None and not (base == 'spread' and b['sport'] in ('nhl', 'mlb')):   # puck / run lines sit at 1.5: the price moves, not the number

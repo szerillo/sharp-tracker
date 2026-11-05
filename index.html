@@ -1053,6 +1053,7 @@ function blCorr(b) {
   if (b.corr_opp) s += `<div class="stat stat-held">Opposes ${b.corr_opp.length} other bet${b.corr_opp.length === 1 ? '' : 's'}</div>`;
   if (b.opp) s += `<div class="stat ${b.opp.when === 'after' ? 'stat-lapsed' : 'stat-held'}">${b.opp.when === 'after' ? 'Sharps came in against later' : 'Sharps against at the flag'}: ${b.opp.n} account${b.opp.n === 1 ? '' : 's'}, $${(b.opp.usd || 0).toLocaleString()}, best rank ${b.opp.best_rank}${b.opp.when === 'after' ? `, ${mins(b.opp.min_before_start)} before the start` : ''}</div>`;
   if (b.with) s += `<div class="stat stat-fit">${b.with.when === 'after' ? 'Sharps joined later' : 'Sharps with it at the flag'}: ${b.with.n} account${b.with.n === 1 ? '' : 's'}, $${(b.with.usd || 0).toLocaleString()}, best rank ${b.with.best_rank}</div>`;
+  if (b.move_at_flag && b.move_at_flag.dir !== 'flat') s += `<div class="stat ${b.move_at_flag.dir === 'with' ? 'stat-fit' : 'stat-held'}">Market had moved ${b.move_at_flag.dir === 'with' ? 'toward' : 'against'} this side before the flag (${Math.abs(b.move_at_flag.pts)} ${esc(b.move_at_flag.unit)}); sharp fills against Pinnacle's move lost 8% out of sample</div>`;
   if (b.also && b.also.length) s += `<div class="stat stat-fit">Also flagged as ${b.also.map(a => `${esc(a.cat || a.src)}${a.rule ? ' (' + esc(String(a.rule).split(' | ')[0]).slice(0, 60) + ')' : ''}`).join('; ')}</div>`;
   return s;
 }
@@ -1103,7 +1104,7 @@ function renderBetLog() {
   const cats = ['all', 'system A', 'system B', 'lean C', 'sharp A', 'sharp B', 'tennis', 'sharp watch', 'paper P', 'watch'].filter(c => c === 'all' || BL.rows.some(b => b.cat === c));
   window._lo = window._lo || 'all';
   const OPPF = {all: ['Any', () => true], at_flag: ['Sharps against at the flag', b => (b.opp || {}).when === 'at_flag'], after: ['Sharps came in against later', b => (b.opp || {}).when === 'after'], none: ['No sharps against', b => !b.opp],
-    withs: ['Sharps with it', b => !!b.with], also: ['Flagged by a system AND a sharp signal', b => !!(b.also && b.also.length)]};
+    withs: ['Sharps with it', b => !!b.with], against_move: ['Flagged against the market move', b => !!(b.move_at_flag && b.move_at_flag.dir === 'against')], also: ['Flagged by a system AND a sharp signal', b => !!(b.also && b.also.length)]};
   const inC = inW.filter(b => (_lc === 'all' ? b.cat !== 'watch' : b.cat === _lc) && OPPF[_lo][1](b));
   const sports = [...new Set(BL.rows.map(b => b.sport).filter(Boolean))].sort();
   const rows = inC.filter(b => _ls === 'all' || b.sport === _ls);
