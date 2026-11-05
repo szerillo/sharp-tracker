@@ -125,7 +125,7 @@
   .facts{display:grid;grid-template-columns:140px 1fr;gap:4px 14px;margin:0;max-width:960px} .facts dt{color:var(--muted)} .facts dd{margin:0}
   .show-m{display:none}
   .stat{display:inline-block;margin-top:5px;padding:2px 9px;border-radius:6px;font:600 12px Poppins,sans-serif;line-height:1.5}
-  .stat-held{background:var(--badbg);color:var(--badink);box-shadow:inset 0 0 0 1px var(--badbd)} .stat-gone{background:var(--gonebg);color:var(--goneink);box-shadow:inset 0 0 0 1px var(--gonebd)}
+  .stat-held{background:var(--badbg);color:var(--badink);box-shadow:inset 0 0 0 1px var(--badbd)} .stat-fit{background:var(--okbg,#e8f5ec);color:var(--greenink);box-shadow:inset 0 0 0 1px var(--greenink)} .stat-gone{background:var(--gonebg);color:var(--goneink);box-shadow:inset 0 0 0 1px var(--gonebd)}
   .stat-lapsed{background:var(--warnbg);color:var(--warnink);box-shadow:inset 0 0 0 1px var(--warnbd)}
   @media (max-width:760px){.slipt thead,.slipt .c-game,.slipt .c-why,.slipt .c-rec{display:none} .show-m{display:block}
     .slipt,.slipt tbody{display:block} .slipt tr.erow{display:grid;grid-template-columns:1fr auto;grid-template-areas:"bet price" "when size";gap:4px 12px;padding:11px 12px;border-top:1px solid var(--border)}
@@ -455,7 +455,10 @@ function sysRow({g, f, tag}) {
   const sa = (t && t.against) || sharpAgainst(g.event_id, f.market, f.side);
   const held = !!sa || !!f._conf;
   const per = /^(1h|1q|1p)_/.test(f.market) ? '1st half' : 'Full game', gone = f.lapsed || f.now === null || held;
-  const sp = t ? [t.with ? `<span class="tag-with">${t.with.n} sharp account${t.with.n === 1 ? '' : 's'} with</span>` : '', t.against ? `<span class="tag-against">${t.against.n} sharp account${t.against.n === 1 ? '' : 's'} against</span>` : ''].filter(Boolean).join(' · ') : '';
+  // 11/5 (Sean): a system bet that a graded sharp signal also landed on is annotated here (and the sharp row says "with your system bet")
+  const sm = (window._strongMap || {})[`${g.event_id}|${(f.market || '').replace(/^(1h|1q|1p)_/, '')}|${f.side}`];
+  const sp = [t && t.with ? `<span class="tag-with">${t.with.n} sharp account${t.with.n === 1 ? '' : 's'} with</span>` : '', t && t.against ? `<span class="tag-against">${t.against.n} sharp account${t.against.n === 1 ? '' : 's'} against</span>` : '',
+    sm ? `<span class="tag-with">also a Grade ${sm.grade} sharp signal (${esc(sm.parts)})</span>` : ''].filter(Boolean).join(' · ');
   const trk = fmtRec(x) || `none graded${x && x.n ? ` (${x.n} open)` : ''}`;
   return sRow({id: `s|${g.event_id}|${tag}|${f.market}`, start: g.start_utc, sportLabel: SPORT_LABEL[g.sport] || g.sport, game: `${esc(g.away_name || g.away)} @ ${esc(g.home_name || g.home)}`,
     bet: esc(betText(f, g)), sub: `${per} · tier ${e.tier || '?'}`,
@@ -635,6 +638,10 @@ function renderToday() {
   // move added nothing (+0.10), and 3 of 3 was no better than accounts alone (+0.02). So: accounts + money first, then by game time.
   const keepG = r => keep({sport: r.g.sport, league: r.g.league, start: r.g.start});
   const strongAll = wrows.filter(r => r.strong);
+  window._strongMap = {};
+  for (const r of strongAll) { if (r.mixed || !r.rest.length) continue; const y = r.rest[0]; const k = `${r.g.ev}|${(y.market || '').replace(/^(1h|1q|1p)_/, '')}|${y.side}`;
+    const parts = [r.flagged || (r.acct && r.acct.with) ? 'sharp accounts' : '', r.fam.money ? 'big money' : '', r.fam.price ? 'price move' : ''].filter(Boolean).join(', ');
+    if (!window._strongMap[k] || r.grade < window._strongMap[k].grade) window._strongMap[k] = {grade: r.grade, parts}; }
   const strong = strongAll.filter(keepG).sort((x, y) => (x.grade < y.grade ? -1 : x.grade > y.grade ? 1 : 0) || ((y.fam.money ? 1 : 0) - (x.fam.money ? 1 : 0)) || ((y.flagged ? 1 : 0) - (x.flagged ? 1 : 0)) || (x.g.start < y.g.start ? -1 : 1)), othersAll = wrows.filter(r => !r.strong && (r.flagged || (r.acct && (r.acct.with || r.acct.against)) || r.g.sport === 'mma' || r.g.sport === 'cbb')), others = othersAll.filter(keepG)   // MMA has no sharp-account list (UFC tested negative): its price and money rows stay on watch
     .sort((x, y) => _ws === 'vol' ? (y.vol - x.vol) || (x.g.start < y.g.start ? -1 : 1) : (x.g.start < y.g.start ? -1 : 1));
   const yn = s => { const m = /^Will (.+?) win on [\d-]+\??: (Yes|No)$/.exec(s || ''); return m ? (m[2] === 'Yes' ? `${m[1]} to win` : `${m[1]} not to win (draw or loss)`) : s; };
@@ -1042,10 +1049,11 @@ const sgn = (x, d = 1) => `${x > 0 ? '+' : ''}${x.toFixed(d)}`;
 const unitName = b => b.unit_name || (b.sport === 'mlb' ? 'runs' : (b.sport === 'nhl' || b.sport === 'soccer') ? 'goals' : 'pts');
 function blCorr(b) {
   let s = '';
-  if (b.also) s += `<div class="small"><b>Also flagged by:</b> ${b.also.map(esc).join(', ')}</div>`;
   if (b.corr_same) s += `<div class="stat stat-lapsed">Same position as ${b.corr_same.length} other bet${b.corr_same.length === 1 ? '' : 's'}</div>`;
   if (b.corr_opp) s += `<div class="stat stat-held">Opposes ${b.corr_opp.length} other bet${b.corr_opp.length === 1 ? '' : 's'}</div>`;
   if (b.opp) s += `<div class="stat ${b.opp.when === 'after' ? 'stat-lapsed' : 'stat-held'}">${b.opp.when === 'after' ? 'Sharps came in against later' : 'Sharps against at the flag'}: ${b.opp.n} account${b.opp.n === 1 ? '' : 's'}, $${(b.opp.usd || 0).toLocaleString()}, best rank ${b.opp.best_rank}${b.opp.when === 'after' ? `, ${mins(b.opp.min_before_start)} before the start` : ''}</div>`;
+  if (b.with) s += `<div class="stat stat-fit">${b.with.when === 'after' ? 'Sharps joined later' : 'Sharps with it at the flag'}: ${b.with.n} account${b.with.n === 1 ? '' : 's'}, $${(b.with.usd || 0).toLocaleString()}, best rank ${b.with.best_rank}</div>`;
+  if (b.also && b.also.length) s += `<div class="stat stat-fit">Also flagged as ${b.also.map(a => `${esc(a.cat || a.src)}${a.rule ? ' (' + esc(String(a.rule).split(' | ')[0]).slice(0, 60) + ')' : ''}`).join('; ')}</div>`;
   return s;
 }
 function blFlagExtra(b) {
@@ -1094,7 +1102,8 @@ function renderBetLog() {
   const inW = BL.rows.filter(BLW[_lw][1]);
   const cats = ['all', 'system A', 'system B', 'lean C', 'sharp A', 'sharp B', 'tennis', 'sharp watch', 'paper P', 'watch'].filter(c => c === 'all' || BL.rows.some(b => b.cat === c));
   window._lo = window._lo || 'all';
-  const OPPF = {all: ['Any', () => true], at_flag: ['Sharps against at the flag', b => (b.opp || {}).when === 'at_flag'], after: ['Sharps came in against later', b => (b.opp || {}).when === 'after'], none: ['No sharps against', b => !b.opp]};
+  const OPPF = {all: ['Any', () => true], at_flag: ['Sharps against at the flag', b => (b.opp || {}).when === 'at_flag'], after: ['Sharps came in against later', b => (b.opp || {}).when === 'after'], none: ['No sharps against', b => !b.opp],
+    withs: ['Sharps with it', b => !!b.with], also: ['Flagged by a system AND a sharp signal', b => !!(b.also && b.also.length)]};
   const inC = inW.filter(b => (_lc === 'all' ? b.cat !== 'watch' : b.cat === _lc) && OPPF[_lo][1](b));
   const sports = [...new Set(BL.rows.map(b => b.sport).filter(Boolean))].sort();
   const rows = inC.filter(b => _ls === 'all' || b.sport === _ls);

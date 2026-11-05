@@ -201,7 +201,7 @@ def main():
             p = json.loads(l); g_ = G2.get(p['event_id'])
             live = rule == 'tennis_hot_fav' and p.get('level') in TOUR and bool((p.get('settled') or {}).get('ok'))   # 11/5: settled favourites only
             side = p.get('side') or p['fav']; pick = p.get('pick_name') or p.get('fav_name')
-            bets.append(dict(id=f"{'th' if rule == 'tennis_hot_fav' else 'td'}:{p['event_id']}", src='tennis', cat='system B' if live else 'paper P', rule=rule,   # 11/5 (Sean): settled favourites are tier B, 0.5u sport='tennis', event_id=p['event_id'],
+            bets.append(dict(id=f"{'th' if rule == 'tennis_hot_fav' else 'td'}:{p['event_id']}", src='tennis', cat='system B' if live else 'paper P', rule=rule, sport='tennis', event_id=p['event_id'],   # 11/5 (Sean): settled favourites are tier B, 0.5u
                              game=f"{p.get('fav_name')} vs {p.get('opp_name')}", start=p['start'], market='ml', side=side, line=None, flagged=p['ts'], venue=p['venue'], price=p['price'],
                              won=None if not g_ else (1 if g_['won'] else 0), bet=f"{pick} to win"))
     # ---- MMA steam favourite (11/5, tier C 0.25u): sharp/mma_steam.py paper log, graded from ESPN
@@ -215,7 +215,7 @@ def main():
     # ---- price paths
     by = collections.defaultdict(list)
     for b in bets:
-        if b['sport'] and b['event_id'] and b['side']: by[b['sport']].append(b)
+        if b.get('sport') and b.get('event_id') and b.get('side'): by[b['sport']].append(b)
     for sp, L in by.items():
         days = sorted({(ts(b['start']) + dt.timedelta(days=i)).astimezone(dt.timezone(dt.timedelta(hours=-5))).date().isoformat() for b in L for i in (-2, -1, 0)})
         T = Tape(sp, {b['event_id'] for b in L}, days)
@@ -287,12 +287,13 @@ def main():
             if same: b['corr_same'] = same
             if opp: b['corr_opp'] = opp
     # the same bet (game, market, side, number) flagged by more than one rule or source: each stays (different reasons), noted on each
+    # 11/5 (Sean): cross-reference by game x market family x side (any period or number), systems and sharp signals both ways; watch rows excluded
     sameb = collections.defaultdict(list)
     for b in bets:
-        if b['event_id'] and b['side'] and b['src'] != 'tennis': sameb[(b['event_id'], b['market'], b['side'], None if b['line'] is None else float(b['line']))].append(b)
+        if b.get('event_id') and b.get('side') and b['src'] != 'tennis' and b.get('cat') != 'watch': sameb[(b['event_id'], re.sub(r'^(1h|1q|1p)_', '', b['market'] or ''), b['side'])].append(b)
     for L in sameb.values():
         if len(L) > 1:
-            for b in L: b['also'] = [f"{x['cat']}" + (f" ({x['rule']})" if x['src'] == 'system' else '') for x in L if x is not b]
+            for b in L: b['also'] = [dict(src=x['src'], cat=x['cat'], rule=(x.get('rule') or '').split(' | ')[0][:60], flagged=x.get('flagged')) for x in L if x is not b]
     # what else was on the board when the bet flagged: snapped the first time this log sees a bet within an hour of its flag
     try: SA = json.load(open(os.path.join(SD, 'sharp_accounts.json')))
     except Exception: SA = {}
@@ -380,14 +381,20 @@ def sharps_against(bets, S):
         if not a_ or not h_: continue
         base = re.sub(r'^(1h|1q|1p)_', '', b['market']); fam = ('total',) if base == 'total' else ('ml', 'spread')
         t_flag = ts(b['flagged']).timestamp(); t_start = ts(b['start']).timestamp()
-        W = {}
+        W = {}; WITH = {}
         for x in byday.get(b['start'][:10], []):
             t = (x.get('title') or '').lower()
             if a_ not in t or h_ not in t or x.get('mtype') not in fam or x['ts'] >= t_start: continue
             bt = (x.get('bet') or '').lower()
             xs = (bt.split()[0] if bt else None) if base == 'total' else ('away' if a_ in bt else 'home' if h_ in bt else None)
-            if xs is None or xs == b['side']: continue
-            w = W.setdefault(x['w'], dict(first=x['ts'], usd=0.0, rank=x['rank'])); w['first'] = min(w['first'], x['ts']); w['usd'] += x.get('usd') or 0
+            if xs is None: continue
+            D = W if xs != b['side'] else WITH
+            w = D.setdefault(x['w'], dict(first=x['ts'], usd=0.0, rank=x['rank'])); w['first'] = min(w['first'], x['ts']); w['usd'] += x.get('usd') or 0
+        # 11/5 (Sean): also note the sharps WITH the bet (same side), so a system bet that sharp money joined is labelled too
+        if WITH and b['src'] not in ('sharp', 'watch'):
+            first = min(w['first'] for w in WITH.values())
+            b['with'] = dict(n=len(WITH), usd=round(sum(w['usd'] for w in WITH.values())), best_rank=min(w['rank'] for w in WITH.values()),
+                             first=dt.datetime.fromtimestamp(first, dt.timezone.utc).strftime('%Y-%m-%dT%H:%M:%SZ'), when='at_flag' if first <= t_flag else 'after')
         if not W: continue
         first = min(w['first'] for w in W.values())
         b['opp'] = dict(n=len(W), usd=round(sum(w['usd'] for w in W.values())), best_rank=min(w['rank'] for w in W.values()),
