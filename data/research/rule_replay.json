@@ -4,13 +4,19 @@
    "n": 17,
    "record": "5-12",
    "roi_pinnacle": -17.6,
-   "roi_best_us": null
+   "roi_best_us": null,
+   "clv_open_to_close": 0.59,
+   "number_moved_for": 0.0,
+   "moved_for_share": 0.0
   },
   "all": {
    "n": 17,
    "record": "5-12",
    "roi_pinnacle": -17.6,
-   "roi_best_us": null
+   "roi_best_us": null,
+   "clv_open_to_close": 0.59,
+   "number_moved_for": 0.0,
+   "moved_for_share": 0.0
   }
  },
  "nhl_early_home_fav_qual (home fav ML, game 24 or earlier, opponent 51%+)": {
@@ -18,13 +24,19 @@
    "n": 21,
    "record": "12-9",
    "roi_pinnacle": -4.4,
-   "roi_best_us": -5.1
+   "roi_best_us": -5.1,
+   "clv_open_to_close": -0.16,
+   "number_moved_for": null,
+   "moved_for_share": null
   },
   "all": {
    "n": 21,
    "record": "12-9",
    "roi_pinnacle": -4.4,
-   "roi_best_us": -5.1
+   "roi_best_us": -5.1,
+   "clv_open_to_close": -0.16,
+   "number_moved_for": null,
+   "moved_for_share": null
   }
  },
  "nhl_pl_dog_bigml (dog +1.5 when it opened +181 to +196)": {
@@ -32,13 +44,19 @@
    "n": 3,
    "record": "1-2",
    "roi_pinnacle": -41.0,
-   "roi_best_us": null
+   "roi_best_us": null,
+   "clv_open_to_close": 1.11,
+   "number_moved_for": 0.0,
+   "moved_for_share": 0.0
   },
   "all": {
    "n": 3,
    "record": "1-2",
    "roi_pinnacle": -41.0,
-   "roi_best_us": null
+   "roi_best_us": null,
+   "clv_open_to_close": 1.11,
+   "number_moved_for": 0.0,
+   "moved_for_share": 0.0
   }
  },
  "nhl_pl_fav_gap (fav -1.5, opponent win% higher by 22+)": {
@@ -46,13 +64,19 @@
    "n": 7,
    "record": "4-3",
    "roi_pinnacle": 71.7,
-   "roi_best_us": null
+   "roi_best_us": null,
+   "clv_open_to_close": -0.28,
+   "number_moved_for": 0.0,
+   "moved_for_share": 0.0
   },
   "all": {
    "n": 7,
    "record": "4-3",
    "roi_pinnacle": 71.7,
-   "roi_best_us": null
+   "roi_best_us": null,
+   "clv_open_to_close": -0.28,
+   "number_moved_for": 0.0,
+   "moved_for_share": 0.0
   }
  },
  "nba_1h_under_hot_over, FULL-GAME cousin (visitor over 71%+: under)": {
@@ -60,13 +84,19 @@
    "n": 25,
    "record": "14-11",
    "roi_pinnacle": 9.2,
-   "roi_best_us": null
+   "roi_best_us": null,
+   "clv_open_to_close": null,
+   "number_moved_for": 0.57,
+   "moved_for_share": 0.57
   },
   "all": {
    "n": 25,
    "record": "14-11",
    "roi_pinnacle": 9.2,
-   "roi_best_us": null
+   "roi_best_us": null,
+   "clv_open_to_close": null,
+   "number_moved_for": 0.57,
+   "moved_for_share": 0.57
   }
  },
  "nba under, same spot but the total did NOT drop (control)": {
@@ -74,13 +104,19 @@
    "n": 10,
    "record": "6-4",
    "roi_pinnacle": 17.4,
-   "roi_best_us": null
+   "roi_best_us": null,
+   "clv_open_to_close": null,
+   "number_moved_for": -1.85,
+   "moved_for_share": 0.0
   },
   "all": {
    "n": 10,
    "record": "6-4",
    "roi_pinnacle": 17.4,
-   "roi_best_us": null
+   "roi_best_us": null,
+   "clv_open_to_close": null,
+   "number_moved_for": -1.85,
+   "moved_for_share": 0.0
   }
  },
  "nba_under_good_home_over (home over 58%+, rest 1-2 / 1-3, total down 0.5+)": {
@@ -88,13 +124,19 @@
    "n": 8,
    "record": "6-2",
    "roi_pinnacle": 48.7,
-   "roi_best_us": null
+   "roi_best_us": null,
+   "clv_open_to_close": null,
+   "number_moved_for": 1.75,
+   "moved_for_share": 1.0
   },
   "all": {
    "n": 8,
    "record": "6-2",
    "roi_pinnacle": 48.7,
-   "roi_best_us": null
+   "roi_best_us": null,
+   "clv_open_to_close": null,
+   "number_moved_for": 1.75,
+   "moved_for_share": 1.0
   }
  },
  "cbb under, same teams but no drop (control)": {
@@ -102,25 +144,37 @@
    "n": 171,
    "record": "88-80-3",
    "roi_pinnacle": -0.1,
-   "roi_best_us": null
+   "roi_best_us": null,
+   "clv_open_to_close": null,
+   "number_moved_for": -0.97,
+   "moved_for_share": 0.0
   },
   "2022-23": {
    "n": 19,
    "record": "9-9-1",
    "roi_pinnacle": -4.4,
-   "roi_best_us": null
+   "roi_best_us": null,
+   "clv_open_to_close": null,
+   "number_moved_for": -1.16,
+   "moved_for_share": 0.0
   },
   "2025-26": {
    "n": 9,
    "record": "2-7",
    "roi_pinnacle": -57.1,
-   "roi_best_us": null
+   "roi_best_us": null,
+   "clv_open_to_close": null,
+   "number_moved_for": -0.11,
+   "moved_for_share": 0.0
   },
   "all": {
    "n": 199,
    "record": "99-96-4",
    "roi_pinnacle": -3.1,
-   "roi_best_us": null
+   "roi_best_us": null,
+   "clv_open_to_close": null,
+   "number_moved_for": -0.95,
+   "moved_for_share": 0.0
   }
  },
  "cbb_under_good_over_drop (weekday, home over 50%+, visitor 59%+, total down 0.5+)": {
@@ -128,19 +182,28 @@
    "n": 138,
    "record": "66-71-1",
    "roi_pinnacle": -8.0,
-   "roi_best_us": null
+   "roi_best_us": null,
+   "clv_open_to_close": null,
+   "number_moved_for": 1.72,
+   "moved_for_share": 1.0
   },
   "2022-23": {
    "n": 15,
    "record": "7-7-1",
    "roi_pinnacle": -4.8,
-   "roi_best_us": null
+   "roi_best_us": null,
+   "clv_open_to_close": null,
+   "number_moved_for": 1.97,
+   "moved_for_share": 1.0
   },
   "all": {
    "n": 153,
    "record": "73-78-2",
    "roi_pinnacle": -7.7,
-   "roi_best_us": null
+   "roi_best_us": null,
+   "clv_open_to_close": null,
+   "number_moved_for": 1.75,
+   "moved_for_share": 1.0
   }
  },
  "cfb_road_dog_low_total (home -7 or more, total 48 or under: road dog; conference flag unavailable)": {
@@ -148,13 +211,19 @@
    "n": 41,
    "record": "11-29-1",
    "roi_pinnacle": -45.6,
-   "roi_best_us": null
+   "roi_best_us": null,
+   "clv_open_to_close": -0.06,
+   "number_moved_for": 0.1,
+   "moved_for_share": 0.21
   },
   "all": {
    "n": 41,
    "record": "11-29-1",
    "roi_pinnacle": -45.6,
-   "roi_best_us": null
+   "roi_best_us": null,
+   "clv_open_to_close": -0.06,
+   "number_moved_for": 0.1,
+   "moved_for_share": 0.21
   }
  },
  "cfb_road_streak_dog (home fav, total 54 or under, visitor on road game 2-5 in a row)": {
@@ -162,13 +231,19 @@
    "n": 39,
    "record": "14-23-2",
    "roi_pinnacle": -24.7,
-   "roi_best_us": null
+   "roi_best_us": null,
+   "clv_open_to_close": 0.07,
+   "number_moved_for": 0.03,
+   "moved_for_share": 0.16
   },
   "all": {
    "n": 39,
    "record": "14-23-2",
    "roi_pinnacle": -24.7,
-   "roi_best_us": null
+   "roi_best_us": null,
+   "clv_open_to_close": 0.07,
+   "number_moved_for": 0.03,
+   "moved_for_share": 0.16
   }
  }
 }

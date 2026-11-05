@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Item 1 (Sean, 11/5): every rule replayed on the odds database and graded on RESULTS at Pinnacle's closing price, season by season.
-Not CLV: did the bet win, and what did it return flat at the close (and at the best US book). The replay uses only what the rule used
+Graded on results first (Sean, 11/5: CLV is not the performance metric here): did the bet win, and what did it return flat at the close
+(and at the best US book). CLV open-to-close and the number movement are reported beside it, as context only. The replay uses only what the rule used
 at the time: season records and over rates rebuilt from scores and closing totals in the database itself, the opener and the close
 from the snapshots, days off from the schedule.
 
@@ -60,14 +61,21 @@ def profiles(G):
         H[g['away']].append(dict(start=g['start'], won=g['as_'] > g['hs'], over=over, side='away'))
 
 
+def clv_ml(g, side):
+    """Open-to-close CLV on a moneyline side, in points of no-vig probability (what a bet at the opener would have earned against the close)."""
+    o = g.get('p_open'); c = g.get('p_close')
+    if o is None or c is None: return None
+    return 100 * ((c - o) if side == 'home' else (o - c))
+
+
 def grade(g, market, side, line=None):
-    """-> (won: 1/0/0.5, decimal at Pinnacle close, decimal at the best US book or None)"""
+    """-> (won: 1/0/0.5, decimal at Pinnacle close, decimal at the best US book or None, clv: open->close in points, line_move: number moved toward the side (+) or away (-))"""
     if g['hs'] is None: return None
     if market == 'ml':
         dec = g.get('ml_home') if side == 'home' else g.get('ml_away'); best = g.get('best_home') if side == 'home' else g.get('best_away')
         if not dec: return None
         won = 1 if (g['hs'] > g['as_']) == (side == 'home') else 0
-        return won, dec, best
+        return won, dec, best, clv_ml(g, side), None
     if market == 'spread':
         if g.get('sp_close') is None: return None
         ln = line if line is not None else (g['sp_close'] if side == 'home' else -g['sp_close'])
@@ -75,26 +83,35 @@ def grade(g, market, side, line=None):
         if line is not None and abs(abs(line) - abs(g['sp_close'])) > 1e-9: dec = 1.91     # puck line at -1.5/+1.5 is Pinnacle's main NHL spread; price taken as quoted, else standard
         if not dec: return None
         m = ((g['hs'] - g['as_']) if side == 'home' else (g['as_'] - g['hs'])) + ln
-        return (1 if m > 0 else 0 if m < 0 else 0.5), dec, None
+        # number movement open -> close for the side taken (a +7 that closes +6.5 moved against the dog; a -7 that closes -7.5 moved for the fav)
+        lm = None
+        if g.get('sp_open') is not None and g.get('sp_close') is not None: lm = (g['sp_close'] - g['sp_open']) if side == 'away' else (g['sp_open'] - g['sp_close'])
+        return (1 if m > 0 else 0 if m < 0 else 0.5), dec, None, clv_ml(g, 'home' if (side == 'home') else 'away'), lm
     if market == 'total':
         if g.get('tot_close') is None: return None
         dec = g.get('over_dec') if side == 'over' else g.get('under_dec')
         if not dec: return None
         tot = g['hs'] + g['as_']
-        return (0.5 if tot == g['tot_close'] else 1 if (tot > g['tot_close']) == (side == 'over') else 0), dec, None
+        lm = None
+        if g.get('tot_open') is not None: lm = (g['tot_open'] - g['tot_close']) if side == 'under' else (g['tot_close'] - g['tot_open'])
+        return (0.5 if tot == g['tot_close'] else 1 if (tot > g['tot_close']) == (side == 'over') else 0), dec, None, None, lm
 
 
 def main():
     R = {}
     def rec(name, sport, hits):
-        by = collections.defaultdict(lambda: dict(n=0, w=0, l=0, p=0, pnl=0.0, pnl_best=0.0, n_best=0))
+        by = collections.defaultdict(lambda: dict(n=0, w=0, l=0, p=0, pnl=0.0, pnl_best=0.0, n_best=0, clv=[], lm=[]))
         for g, gr in hits:
-            won, dec, best = gr; s = by[season_of(sport, g['start'])]; a = by['all']
+            won, dec, best, clv, lm = gr; s = by[season_of(sport, g['start'])]; a = by['all']
             for t in (s, a):
                 t['n'] += 1; t['w'] += won == 1; t['l'] += won == 0; t['p'] += won == 0.5
                 t['pnl'] += (dec - 1) if won == 1 else -1 if won == 0 else 0
                 if best: t['pnl_best'] += (best - 1) if won == 1 else -1 if won == 0 else 0; t['n_best'] += 1
-        R[name] = {k: dict(n=v['n'], record=f"{v['w']}-{v['l']}" + (f"-{v['p']}" if v['p'] else ''), roi_pinnacle=round(100 * v['pnl'] / v['n'], 1), roi_best_us=round(100 * v['pnl_best'] / v['n_best'], 1) if v['n_best'] else None) for k, v in sorted(by.items())}
+                if clv is not None: t['clv'].append(clv)
+                if lm is not None: t['lm'].append(lm)
+        R[name] = {k: dict(n=v['n'], record=f"{v['w']}-{v['l']}" + (f"-{v['p']}" if v['p'] else ''), roi_pinnacle=round(100 * v['pnl'] / v['n'], 1), roi_best_us=round(100 * v['pnl_best'] / v['n_best'], 1) if v['n_best'] else None,
+                          clv_open_to_close=round(sum(v['clv']) / len(v['clv']), 2) if v['clv'] else None, number_moved_for=round(sum(v['lm']) / len(v['lm']), 2) if v['lm'] else None, moved_for_share=round(sum(1 for x in v['lm'] if x > 0) / len(v['lm']), 2) if v['lm'] else None)
+                   for k, v in sorted(by.items())}
     days_off = lambda g, side: (g['start'].astimezone(ET).date() - g[f'{side}_last'].astimezone(ET).date()).days if g.get(f'{side}_last') else None
     # ---- NHL
     G = load('nhl'); profiles(G); G = [g for g in G if g['p_close'] is not None and g['close_h'] is not None and g['close_h'] <= 6]
@@ -158,7 +175,7 @@ def main():
     json.dump(R, open(OUT, 'w'), indent=1)
     for k, v in R.items():
         print(f"\n== {k}")
-        for s, x in v.items(): print(f"  {s:8} n={x['n']:5} {x['record']:12} ROI Pinnacle {x['roi_pinnacle']:+6.1f}" + (f"  best US {x['roi_best_us']:+6.1f}" if x['roi_best_us'] is not None else ''))
+        for s, x in v.items(): print(f"  {s:8} n={x['n']:5} {x['record']:12} ROI Pinnacle {x['roi_pinnacle']:+6.1f}" + (f"  best US {x['roi_best_us']:+6.1f}" if x['roi_best_us'] is not None else '') + (f"  CLV open->close {x['clv_open_to_close']:+5.2f}" if x['clv_open_to_close'] is not None else '') + (f"  number moved for {x['number_moved_for']:+5.2f} ({100 * x['moved_for_share']:.0f}% of games)" if x['number_moved_for'] is not None else ''))
 
 
 if __name__ == '__main__':
