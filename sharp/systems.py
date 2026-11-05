@@ -69,7 +69,7 @@ EVIDENCE = {'wind1014': dict(tier='A', train='533-376 all-time (2003-), +13.3%',
             'nba_bigfav_over': dict(tier='P', train='miner 2020-23: 154-114 (+11.3%)', hold='2024-26: 118-86 (+10.5%); 272-202 overall; flat in 2021-22, -8% road-trip variant in 2022-23', seasons='6 of 7', labs_check='Bet Labs since 8/2020: home fav -650+ 335-300 (+1.0%), visitor fav 59-46; the backtest pair included a filler filter', src='docs/angles_2026-11-05.md'),
             'nba_roadtrip_over': dict(tier='P', train='miner 2020-23: 126-99 (+8%)', hold='2024-26: 64-32 (+28.9%); 190-131 overall; 2023-24 only +2%', seasons='6 of 6', labs_check='Bet Labs: 4th+ road game alone 519-550 (-6.9%) since 2020; the last-meeting split carried the backtest', src='docs/angles_2026-11-05.md'),
             'nhl_skid_fade_road': dict(tier='C', train='miner 2020-23: 132-100 (+19.9%)', hold='2024-26: 64-45 (+20.8%); 196-145 overall at the puck line; 2020-21 -6%', seasons='5 of 6', labs_check='Bet Labs since 8/2020: 284-264 (+5.6%) at the puck line', src='docs/angles_2026-11-05.md'),
-            'cfb_day_over': dict(tier='C', train='miner 2020-23: 242-193 (+7.0%)', hold='2024-26: 263-202 (+8.7%); 505-395 overall; 2021 -9%', seasons='6 of 7', labs_check='Bet Labs since 8/2020: 482-395 (+5.0%)', src='docs/angles_2026-11-05.md'),
+            'cfb_day_over': dict(tier='C', train='2020-23 afternoon (2-7pm ET) kickoffs: 155-112 (+11.7%)', hold='2024-26: 156-109 (+13.1%); noon kickoffs dropped 11/5 (-0.9% / +2.8%)', seasons='7 of 7', labs_check='Bet Labs 2-7pm ET since 8/2020: 301-233-5 (+7.7%), 5 of 7 seasons (2020 -5.6, 2026 -5.6); all-time since 2005 flat (886-853), so a since-2020 angle', src='docs/angles_2026-11-05.md'),
             'cfb_homefav_7510_under': dict(tier='B', train='miner 2020-23: 98-74 (+9.7%)', hold='2024-26: 90-56 (+18.2%); 188-130 overall; 2023 -14%', seasons='6 of 7', labs_check='Bet Labs: 611-523 (+4.1%) all-time, 194-138 (+11.4%) since 2020', src='docs/angles_2026-11-05.md'),
             'nfl_fade_fav_bye': dict(tier='P', train='Odds API 2020-26: favourite off a bye 120-143-7 ATS (-9.9%)', hold='bet the dog: positive 6 of 7 seasons', seasons='6 of 7', src='data/research/nfl_replay.json'),
             'bounce15_1h': dict(tier='B', train='312-258', hold='117-80 (+7.5% all-time)', seasons='4 of 6', src='docs/betlabs_nfl_audit_2026-10-25.md'),
@@ -103,7 +103,7 @@ DESC = {'wind1014': 'NFL outdoor, wind 10-14 mph (average of Open-Meteo at T-24h
         'nba_roadtrip_over': 'NBA visitor on its 4th+ straight road game that won the last meeting with this opponent: over (mined 11/5)',
         'nhl_bounce_home_ml': 'NHL home team off a loss by 3+ goals with a 50-64% record (8+ games): home moneyline (mined 11/5)',
         'nhl_skid_fade_road': 'NHL road team off a win against a home team that has lost 3+ straight: road puck line (mined 11/5)',
-        'cfb_day_over': 'CFB game kicking off before 7pm ET with a total of 45-51.5: over (mined 11/5)',
+        'cfb_day_over': 'CFB game kicking off 2-7pm ET with a total of 45-51.5: over (mined 11/5; noon kickoffs dropped, they carried nothing)',
         'cfb_homefav_7510_under': 'CFB home favourite of 7.5 to 10: under (mined 11/5)',
         'mlb_road_over_under': 'MLB road team whose games have gone over 60%+ this season (15+ games): under (mined 11/5; fires in season)',
         'xch_homedog_fade': 'Novig home side two-sided at 20-35c inside T-90m: take the road side on Novig', 'nba_momentum': 'NBA exchange mid moved 3c+ since T-6h: continuation at that exchange',
@@ -133,7 +133,7 @@ LABS = {'wind1014': (1772775, 'Tested: NFL Wind 10-14 Under'), 'wind1014_1h': (7
         'nfl_home_dog_7510': (1799433, 'Tracked: NFL Home Dog 7.5 to 10 ATS'), 'nfl_road_dog_7510': (1799434, 'Tracked: NFL Road Dog 7.5 to 10 ATS'),
         'nfl_fade_fav_bye': (1799435, 'Tracked: NFL Dog vs Favorite Off Bye ATS'), 'nba_bigfav_over': (1799443, 'Tracked: NBA Big Home Fav 85 Pct Over (visitor: 1799444)'),
         'nba_roadtrip_over': (1799438, 'Tracked: NBA Visitor 4th Plus Straight Road Game Over'), 'nba_badteams_under': (1799442, 'Tracked: NBA Weak Visitor at Home Team Under 40 Pct Under (approx)'),
-        'cfb_day_over': (1799439, 'Tracked: CFB Day Game Total 45 to 51.5 Over'), 'cfb_homefav_7510_under': (1799440, 'Tracked: CFB Home Fav 7.5 to 10 Under'),
+        'cfb_day_over': (1799439, 'Tracked: CFB Afternoon Game 2-7pm ET Total 45 to 51.5 Over'), 'cfb_homefav_7510_under': (1799440, 'Tracked: CFB Home Fav 7.5 to 10 Under'),
         'mlb_road_over_under': (1799441, 'Tracked: MLB Visitor Over 60 Pct Under')}
 LATE_H = (0.1, 1.5)   # exchange rules fire in the last 90 minutes (the audit priced them at the close)
 WINDOW_H = tuple(float(x) for x in os.environ.get('SYSTEMS_WINDOW', '2,30').split(','))
@@ -460,7 +460,7 @@ def main():
         if rec_s.get('conf') and sp_line is not None and sp_line < 0 and tl is not None and tl <= 54:
             k_, n_ = road_streak('cfb', away, st)
             if n_ >= 1 and 2 <= k_ <= 5: rs = k_
-        dayover = tl is not None and 45 <= tl <= 51.5 and st.astimezone(N.ET).hour < 19
+        dayover = tl is not None and 45 <= tl <= 51.5 and 14 <= st.astimezone(N.ET).hour < 19     # 11/5 (Sean, cut the noise): noon kickoffs were -0.9% / +2.8% train / test; 2-7pm ET +11.7% / +13.1%, 7 of 7 seasons
         hf_under = sp_line is not None and -10 <= sp_line <= -7.5 and tl is not None
         if not windy and not rdlt and not msw_only and not hot and not rs and not dayover and not hf_under: continue
         game = dict(event_id=ev, away=away, home=home, start_utc=start, hours_to_kickoff=round(ttk, 1), spread_home=sp_line, dog=('away' if sp_line and sp_line < 0 else None), triggers={},
