@@ -1,0 +1,39 @@
+name: tennis market history (Kalshi + Polymarket)
+# Sean, 11/4: settled Kalshi tennis markets (match, set, totals, spreads) with their trade tapes, and closed Polymarket tennis events
+# with their taker-fill tapes (which wallets, which side, what price). Resumable and append-only: each run adds what is new.
+# Weekly, plus on demand. The first run backfills ~14 months of Polymarket and ~2 months of Kalshi (all it keeps).
+on:
+  schedule:
+    - cron: '17 7 * * 1'      # Mondays 2:17 AM ET
+  workflow_dispatch:
+    inputs:
+      what: {description: 'kalshi, poly, or both', default: 'kalshi poly', required: false}
+      months: {description: 'Polymarket months back', default: '14', required: false}
+permissions:
+  contents: write
+concurrency:
+  group: tennis-history
+  cancel-in-progress: false
+jobs:
+  pull:
+    runs-on: ubuntu-latest
+    timeout-minutes: 330
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.12'}
+      - name: pull
+        env: {HIST_BUDGET_S: '17000'}
+        run: python3 loggers/tennis_history.py ${{ inputs.what || 'kalshi poly' }} --months ${{ inputs.months || '14' }}
+      - name: commit
+        if: always()
+        run: |
+          git config user.name "tracker-bot"; git config user.email "actions@users.noreply.github.com"
+          git add -A data/tennis/kalshi_hist data/tennis/poly_hist
+          git commit -q -m "tennis market history $(date -u +%Y-%m-%dT%H:%M)" || exit 0
+          for i in 1 2 3 4 5; do
+            if git pull -q --rebase -X theirs && git push -q; then exit 0; fi
+            git rebase --abort 2>/dev/null || true
+            sleep $((RANDOM % 15 + 5))
+          done
+          exit 1
