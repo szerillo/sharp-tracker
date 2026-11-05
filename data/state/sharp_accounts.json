@@ -1,5 +1,5 @@
 {
- "built": "2026-11-05T00:00:53Z",
+ "built": "2026-11-04T23:54:55Z",
  "rows": [
   {
    "cond": "0x4e14101792372d8c16dae3092acf0f825ca206475de2d1c76c7ded8c208f9762",
@@ -532,6 +532,54 @@
    }
   },
   {
+   "cond": "0x8f097e91950aedef3070948ea5a777474f1d1f78e82796b3fe4b34afe0eb53f3",
+   "slug": "nba-atl-was-2026-11-04",
+   "title": "Hawks vs. Wizards",
+   "mtype": "ml",
+   "start": "2026-11-05T00:00:00Z",
+   "bet": "Hawks ML",
+   "side": "Hawks",
+   "flagged": "2026-11-03T13:11:31Z",
+   "why": "4 top-200 accounts",
+   "proven": true,
+   "trigger": "two",
+   "n_accounts": 4,
+   "best_rank": 23,
+   "usd": 8052,
+   "paid": 0.551,
+   "ask": 0.55,
+   "status": "other side",
+   "link": "https://polymarket.us/event/nba-atl-was-2026-11-04",
+   "other": {
+    "n_accounts": 2,
+    "best_rank": 23,
+    "usd": 49498,
+    "first": "2026-11-04T23:00:06Z"
+   },
+   "exit_bid": 0.54,
+   "kalshi_against": {
+    "move": 5.5,
+    "now": 44.5,
+    "state": "reversed"
+   },
+   "logged": true,
+   "event_id": "401909923",
+   "sport": "nba",
+   "league": null,
+   "away": "ATL",
+   "home": "WSH",
+   "away_name": "Atlanta Hawks",
+   "home_name": "Washington Wizards",
+   "game_start": "2026-11-05T00:00Z",
+   "side_std": "away",
+   "conflict": [
+    "Kalshi move"
+   ],
+   "money_with": false,
+   "grade": "A",
+   "books": null
+  },
+  {
    "cond": "0x8c46d71e1ac2d02318e36c88763d512a25f73153f03dffa8df67212a5a922698",
    "slug": "nba-por-phx-2026-11-04",
    "title": "Trail Blazers vs. Suns",
@@ -728,6 +776,18 @@
     "best_rank": 93,
     "usd": 199
    }
+  },
+  "401909923:nba_momentum:spread": {
+   "with": {
+    "n": 3,
+    "best_rank": 12,
+    "usd": 16311
+   },
+   "against": {
+    "n": 1,
+    "best_rank": 112,
+    "usd": 3670
+   }
   }
  },
  "by_event": {
@@ -764,6 +824,58 @@
     "n": 1,
     "best_rank": 115,
     "usd": 5008
+   }
+  },
+  "401909922|ml": {
+   "home": {
+    "n": 3,
+    "best_rank": 58,
+    "usd": 990
+   }
+  },
+  "401909922|spread": {
+   "home": {
+    "n": 1,
+    "best_rank": 119,
+    "usd": 1447
+   }
+  },
+  "401909922|total": {
+   "over": {
+    "n": 1,
+    "best_rank": 132,
+    "usd": 234
+   }
+  },
+  "401909923|ml": {
+   "away": {
+    "n": 4,
+    "best_rank": 23,
+    "usd": 8052
+   },
+   "home": {
+    "n": 2,
+    "best_rank": 23,
+    "usd": 12556
+   }
+  },
+  "401909923|total": {
+   "under": {
+    "n": 1,
+    "best_rank": 132,
+    "usd": 1322
+   }
+  },
+  "401909923|spread": {
+   "home": {
+    "n": 3,
+    "best_rank": 12,
+    "usd": 16311
+   },
+   "away": {
+    "n": 1,
+    "best_rank": 112,
+    "usd": 3670
    }
   },
   "401909924|ml": {

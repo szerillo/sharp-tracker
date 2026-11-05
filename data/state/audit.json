@@ -1,18 +1,18 @@
 {
- "built": "2026-11-04T23:44:33Z",
+ "built": "2026-11-05T00:06:14Z",
  "ok": true,
  "checks": [
   {
    "name": "fresh: sharp signals (5-minute job)",
    "ok": true,
    "level": "error",
-   "detail": "last built 13 min ago (allowed 20)"
+   "detail": "last built 11 min ago (allowed 20)"
   },
   {
    "name": "fresh: big money / Kalshi moves (20-minute job)",
    "ok": true,
    "level": "error",
-   "detail": "last built 10 min ago (allowed 60)"
+   "detail": "last built 13 min ago (allowed 60)"
   },
   {
    "name": "fresh: tennis watch (20-minute job)",
@@ -30,19 +30,19 @@
    "name": "fresh: system bets (3 runs a day)",
    "ok": true,
    "level": "error",
-   "detail": "last built 40 min ago (allowed 300)"
+   "detail": "last built 62 min ago (allowed 300)"
   },
   {
    "name": "sharp feed: Polymarket fills arriving",
    "ok": true,
    "level": "warn",
-   "detail": "newest sharp fill 0.5 h ago"
+   "detail": "newest sharp fill 0.4 h ago"
   },
   {
    "name": "open system bets all on the board",
    "ok": true,
    "level": "error",
-   "detail": "13 open, 0 missing"
+   "detail": "12 open, 0 missing"
   },
   {
    "name": "no duplicate bets in the records",
