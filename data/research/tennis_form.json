@@ -1,68 +1,76 @@
 {
- "n": 3332,
+ "n": 6782,
  "years": {
-  "2022": 238,
-  "2023": 298,
-  "2024": 352,
-  "2025": 1128,
+  "2022": 751,
+  "2023": 966,
+  "2024": 1372,
+  "2025": 2377,
   "2026": 1316
  },
  "0 baseline: form gap, by year (bet the hotter side; fav 60-85% for hot fav)": {
   "2022 hot dog": {
-   "n": 24,
-   "win": 0.292,
-   "price": 0.356,
-   "edge": -6.5,
-   "se": 9.8,
-   "roi": -33.1
+   "n": 82,
+   "win": 0.402,
+   "price": 0.363,
+   "edge": 3.9,
+   "se": 5.3,
+   "roi": 1.0
+  },
+  "2022 hot fav": {
+   "n": 75,
+   "win": 0.733,
+   "price": 0.744,
+   "edge": -1.1,
+   "se": 5.0,
+   "roi": -4.9
   },
   "2023 hot dog": {
-   "n": 42,
-   "win": 0.19,
-   "price": 0.363,
-   "edge": -17.2,
-   "se": 7.4,
-   "roi": -56.5
+   "n": 114,
+   "win": 0.263,
+   "price": 0.351,
+   "edge": -8.8,
+   "se": 4.5,
+   "roi": -30.1
   },
   "2023 hot fav": {
-   "n": 32,
-   "win": 0.844,
-   "price": 0.71,
-   "edge": 13.4,
-   "se": 8.0,
-   "roi": 17.0
+   "n": 91,
+   "win": 0.791,
+   "price": 0.734,
+   "edge": 5.7,
+   "se": 4.6,
+   "roi": 5.1
   },
   "2024 hot dog": {
-   "n": 25,
-   "win": 0.32,
-   "price": 0.332,
-   "edge": -1.2,
-   "se": 9.4,
-   "roi": -8.5
+   "n": 128,
+   "win": 0.359,
+   "price": 0.352,
+   "edge": 0.7,
+   "se": 4.2,
+   "roi": 0.4
   },
   "2024 hot fav": {
-   "n": 31,
-   "win": 0.806,
-   "price": 0.765,
-   "edge": 4.1,
-   "se": 7.6,
-   "roi": 2.5
+   "n": 119,
+   "win": 0.79,
+   "price": 0.739,
+   "edge": 5.1,
+   "se": 4.0,
+   "roi": 4.4
   },
   "2025 hot dog": {
-   "n": 113,
-   "win": 0.372,
-   "price": 0.386,
-   "edge": -1.4,
-   "se": 4.6,
-   "roi": -8.5
+   "n": 265,
+   "win": 0.37,
+   "price": 0.377,
+   "edge": -0.7,
+   "se": 3.0,
+   "roi": -3.7
   },
   "2025 hot fav": {
-   "n": 121,
-   "win": 0.702,
-   "price": 0.722,
-   "edge": -1.9,
-   "se": 4.1,
-   "roi": -5.8
+   "n": 209,
+   "win": 0.699,
+   "price": 0.727,
+   "edge": -2.9,
+   "se": 3.1,
+   "roi": -7.1
   },
   "2026 hot dog": {
    "n": 158,
@@ -83,246 +91,310 @@
  },
  "1a hot favourite (all years)": {
   "hot fav 60-85%": {
-   "n": 310,
-   "win": 0.765,
-   "price": 0.732,
-   "edge": 3.2,
-   "se": 2.5,
-   "roi": 1.1
+   "n": 601,
+   "win": 0.754,
+   "price": 0.735,
+   "edge": 1.9,
+   "se": 1.8,
+   "roi": -0.6
   }
  },
  "1b hot dog (all years)": {
   "hot dog": {
-   "n": 362,
-   "win": 0.373,
-   "price": 0.374,
-   "edge": -0.1,
-   "se": 2.5,
-   "roi": -5.3
+   "n": 747,
+   "win": 0.371,
+   "price": 0.368,
+   "edge": 0.3,
+   "se": 1.8,
+   "roi": -2.5
   }
  },
  "2a hot fav by where the form came from (fav last 10 on this surface)": {
-  "mostly this surface (7+ of 10)": {
-   "n": 263,
-   "win": 0.764,
+  "mixed (4-6 of 10)": {
+   "n": 77,
+   "win": 0.831,
    "price": 0.735,
-   "edge": 2.9,
-   "se": 2.7,
+   "edge": 9.7,
+   "se": 5.0,
+   "roi": 9.9
+  },
+  "mostly other surfaces (0-3 of 10)": {
+   "n": 89,
+   "win": 0.629,
+   "price": 0.728,
+   "edge": -9.9,
+   "se": 4.7,
+   "roi": -17.0
+  },
+  "mostly this surface (7+ of 10)": {
+   "n": 435,
+   "win": 0.766,
+   "price": 0.736,
+   "edge": 3.0,
+   "se": 2.1,
    "roi": 0.9
   }
  },
  "2b hot fav: fav previous event on the same surface vs a switch": {
   "same surface": {
-   "n": 292,
-   "win": 0.767,
-   "price": 0.732,
-   "edge": 3.5,
-   "se": 2.6,
-   "roi": 1.6
+   "n": 548,
+   "win": 0.765,
+   "price": 0.734,
+   "edge": 3.1,
+   "se": 1.9,
+   "roi": 0.9
+  },
+  "switched surface": {
+   "n": 53,
+   "win": 0.642,
+   "price": 0.741,
+   "edge": -10.0,
+   "se": 6.0,
+   "roi": -16.5
   }
  },
  "2c hot fav: is the fav also hotter on THIS surface (same-surface last 10, 5+)?": {
   "also hotter on this surface by 20%+": {
-   "n": 259,
-   "win": 0.772,
-   "price": 0.736,
-   "edge": 3.6,
-   "se": 2.7,
-   "roi": 2.0
+   "n": 436,
+   "win": 0.764,
+   "price": 0.738,
+   "edge": 2.6,
+   "se": 2.1,
+   "roi": 0.3
   },
   "not hotter on this surface": {
-   "n": 51,
-   "win": 0.725,
-   "price": 0.715,
-   "edge": 1.0,
-   "se": 6.3,
-   "roi": -3.6
+   "n": 156,
+   "win": 0.718,
+   "price": 0.722,
+   "edge": -0.4,
+   "se": 3.6,
+   "roi": -4.0
   }
  },
  "2d same-surface form gap alone (fav 60-85%), bet the hotter side": {
   "dog hotter on surface 10-30%": {
-   "n": 189,
-   "win": 0.339,
-   "price": 0.312,
-   "edge": 2.7,
-   "se": 3.4,
+   "n": 404,
+   "win": 0.322,
+   "price": 0.303,
+   "edge": 1.9,
+   "se": 2.3,
    "roi": 3.2
   },
   "fav hotter on surface 30%+": {
-   "n": 317,
-   "win": 0.748,
-   "price": 0.727,
-   "edge": 2.1,
-   "se": 2.5,
-   "roi": -0.3
+   "n": 586,
+   "win": 0.732,
+   "price": 0.733,
+   "edge": -0.1,
+   "se": 1.8,
+   "roi": -3.2
   }
  },
  "2e hot dog by where the dog's form came from": {
   "mixed (4-6 of 10)": {
-   "n": 41,
-   "win": 0.293,
-   "price": 0.37,
-   "edge": -7.7,
-   "se": 7.5,
-   "roi": -29.9
+   "n": 114,
+   "win": 0.377,
+   "price": 0.367,
+   "edge": 1.0,
+   "se": 4.5,
+   "roi": -0.6
   },
   "mostly other surfaces (0-3 of 10)": {
-   "n": 43,
-   "win": 0.209,
-   "price": 0.366,
-   "edge": -15.6,
-   "se": 7.3,
-   "roi": -47.0
+   "n": 153,
+   "win": 0.301,
+   "price": 0.358,
+   "edge": -5.8,
+   "se": 3.9,
+   "roi": -16.9
   },
   "mostly this surface (7+ of 10)": {
-   "n": 278,
-   "win": 0.41,
-   "price": 0.376,
-   "edge": 3.4,
-   "se": 2.9,
-   "roi": 4.7
+   "n": 480,
+   "win": 0.392,
+   "price": 0.371,
+   "edge": 2.1,
+   "se": 2.2,
+   "roi": 1.7
   }
  },
  "2f hot dog: dog previous event same surface vs switch": {
   "same surface": {
-   "n": 325,
-   "win": 0.4,
-   "price": 0.377,
-   "edge": 2.3,
-   "se": 2.7,
-   "roi": 1.6
+   "n": 657,
+   "win": 0.387,
+   "price": 0.369,
+   "edge": 1.8,
+   "se": 1.9,
+   "roi": 0.6
   },
   "switched surface": {
-   "n": 37,
-   "win": 0.135,
-   "price": 0.348,
-   "edge": -21.3,
-   "se": 7.8,
-   "roi": -65.8
+   "n": 90,
+   "win": 0.256,
+   "price": 0.361,
+   "edge": -10.5,
+   "se": 5.1,
+   "roi": -25.3
   }
  },
  "3a hot fav: first event of the year (off-season) vs in season": {
   "in season": {
-   "n": 304,
-   "win": 0.766,
-   "price": 0.733,
-   "edge": 3.3,
-   "se": 2.5,
-   "roi": 1.3
+   "n": 594,
+   "win": 0.754,
+   "price": 0.735,
+   "edge": 1.9,
+   "se": 1.8,
+   "roi": -0.5
   }
  },
  "4a hot fav by the fav's rest": {
+  "28+ days (layoff)": {
+   "n": 28,
+   "win": 0.5,
+   "price": 0.729,
+   "edge": -22.9,
+   "se": 8.4,
+   "roi": -35.5
+  },
   "8-27 days": {
-   "n": 121,
-   "win": 0.818,
-   "price": 0.723,
-   "edge": 9.5,
-   "se": 4.1,
-   "roi": 10.5
+   "n": 209,
+   "win": 0.809,
+   "price": 0.732,
+   "edge": 7.6,
+   "se": 3.1,
+   "roi": 7.4
   },
   "in event (already played here)": {
-   "n": 123,
-   "win": 0.756,
-   "price": 0.743,
-   "edge": 1.3,
-   "se": 3.9,
-   "roi": -2.2
+   "n": 236,
+   "win": 0.763,
+   "price": 0.737,
+   "edge": 2.6,
+   "se": 2.9,
+   "roi": -0.1
   },
   "quick turnaround (next event, under 8 days)": {
-   "n": 56,
-   "win": 0.714,
-   "price": 0.733,
-   "edge": -1.9,
-   "se": 5.9,
-   "roi": -5.4
+   "n": 128,
+   "win": 0.703,
+   "price": 0.736,
+   "edge": -3.3,
+   "se": 3.9,
+   "roi": -6.9
   }
  },
  "4b hot fav by the dog's rest": {
+  "28+ days (layoff)": {
+   "n": 25,
+   "win": 0.64,
+   "price": 0.707,
+   "edge": -6.7,
+   "se": 9.1,
+   "roi": -12.0
+  },
   "8-27 days": {
-   "n": 88,
-   "win": 0.682,
-   "price": 0.691,
-   "edge": -0.9,
-   "se": 4.9,
-   "roi": -4.4
+   "n": 151,
+   "win": 0.709,
+   "price": 0.714,
+   "edge": -0.5,
+   "se": 3.7,
+   "roi": -3.6
   },
   "in event (already played here)": {
-   "n": 153,
-   "win": 0.797,
-   "price": 0.756,
-   "edge": 4.1,
-   "se": 3.5,
-   "roi": 2.1
+   "n": 277,
+   "win": 0.787,
+   "price": 0.749,
+   "edge": 3.8,
+   "se": 2.6,
+   "roi": 1.9
   },
   "quick turnaround (next event, under 8 days)": {
-   "n": 59,
-   "win": 0.797,
-   "price": 0.736,
-   "edge": 6.1,
-   "se": 5.7,
-   "roi": 5.1
+   "n": 148,
+   "win": 0.757,
+   "price": 0.734,
+   "edge": 2.3,
+   "se": 3.6,
+   "roi": -0.2
   }
  },
  "4c hot dog by the dog's rest": {
+  "28+ days (layoff)": {
+   "n": 34,
+   "win": 0.294,
+   "price": 0.363,
+   "edge": -6.9,
+   "se": 8.2,
+   "roi": -22.3
+  },
   "8-27 days": {
-   "n": 73,
-   "win": 0.37,
-   "price": 0.376,
-   "edge": -0.6,
-   "se": 5.7,
-   "roi": -5.2
+   "n": 169,
+   "win": 0.373,
+   "price": 0.363,
+   "edge": 1.0,
+   "se": 3.7,
+   "roi": -1.3
   },
   "in event (already played here)": {
-   "n": 223,
-   "win": 0.413,
-   "price": 0.377,
-   "edge": 3.6,
-   "se": 3.2,
-   "roi": 4.8
+   "n": 416,
+   "win": 0.382,
+   "price": 0.367,
+   "edge": 1.5,
+   "se": 2.4,
+   "roi": 1.7
   },
   "quick turnaround (next event, under 8 days)": {
-   "n": 46,
-   "win": 0.217,
-   "price": 0.369,
-   "edge": -15.2,
-   "se": 7.1,
-   "roi": -44.3
+   "n": 128,
+   "win": 0.352,
+   "price": 0.377,
+   "edge": -2.6,
+   "se": 4.3,
+   "roi": -12.4
   }
  },
  "4d hot fav x surface continuity x rest": {
   "same surface / 8+ days": {
-   "n": 117,
-   "win": 0.812,
-   "price": 0.721,
-   "edge": 9.1,
-   "se": 4.1,
-   "roi": 9.8
+   "n": 206,
+   "win": 0.801,
+   "price": 0.732,
+   "edge": 6.9,
+   "se": 3.1,
+   "roi": 6.2
   },
   "same surface / in event or under 8 days": {
-   "n": 175,
-   "win": 0.737,
-   "price": 0.739,
-   "edge": -0.2,
-   "se": 3.3,
-   "roi": -3.9
+   "n": 342,
+   "win": 0.743,
+   "price": 0.735,
+   "edge": 0.8,
+   "se": 2.4,
+   "roi": -2.2
+  },
+  "switched / 8+ days": {
+   "n": 32,
+   "win": 0.594,
+   "price": 0.729,
+   "edge": -13.5,
+   "se": 7.9,
+   "roi": -22.0
   }
  },
  "5 by surface (hot fav)": {
   "Clay": {
-   "n": 132,
-   "win": 0.758,
-   "price": 0.727,
-   "edge": 3.1,
-   "se": 3.9,
-   "roi": 0.7
+   "n": 175,
+   "win": 0.777,
+   "price": 0.729,
+   "edge": 4.8,
+   "se": 3.4,
+   "roi": 3.0
+  },
+  "Grass": {
+   "n": 94,
+   "win": 0.798,
+   "price": 0.745,
+   "edge": 5.2,
+   "se": 4.5,
+   "roi": 4.9
   },
   "Hard": {
-   "n": 178,
-   "win": 0.77,
-   "price": 0.737,
-   "edge": 3.3,
-   "se": 3.3,
-   "roi": 1.3
+   "n": 332,
+   "win": 0.729,
+   "price": 0.734,
+   "edge": -0.5,
+   "se": 2.4,
+   "roi": -4.1
   }
  }
 }
