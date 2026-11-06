@@ -8,7 +8,7 @@ DK / Pinnacle-matching price at that line.
 Rules:
   cbb_1h_total_curve   CBB first-half total, gap 7+ points, either side (backtest 313-231, +9.7%, 3 of 3 seasons). Tier C, 0.25u.
   cfb_q1_under_curve   CFB first-quarter total UNDER, gap 5+ points (at kickoff 242-176, +8.8%; 2 hours out 296-189, +15.0%, every season). Tier A (Sean, 11/6), 0.5u.
-  cfb_tt_under_curve   CFB team-total UNDER, gap 5+ points (backtest 210-176, +7.3%; 2025 -4.5%). Paper.
+  cfb_tt_under_curve   CFB team-total UNDER, gap 5+ points (backtest 210-176, +7.3%; 2025 -4.5%). Tier C 0.25u from 11/6 (Sean).
 Writes data/state/curve_live.json (board) and data/state/curve_paper.jsonl (every fire, graded on ESPN period scores).
 Usage: ODDS_API_KEY=... python3 sharp/curve_live.py"""
 import os, sys, json, gzip, bisect, re, time, urllib.request, urllib.error, unicodedata, datetime as dt
@@ -21,10 +21,10 @@ RULES = {
     'cbb_1h_total_curve': dict(sport='cbb', key='basketball_ncaab', mk='totals_h1', per=(0, 1), gap=0.07, sides=('over', 'under'), tier='C', stake=0.25),
     'cfb_q1_under_curve': dict(sport='cfb', key='americanfootball_ncaaf', mk='totals_q1', per=(0, 1), gap=0.05, sides=('under',), tier='A', stake=0.5),    # 11/6: B after the T-2h test (296-189, +15.0%; every season +10 to +19); A on Sean's call
     # 11/6 paper: NHL period markets off the curve at kickoff (validate at 6 hours before the start when that pull lands)
-    'nhl_p1_spread_curve': dict(sport='nhl', key='icehockey_nhl', mk='spreads_p1', per=(0, 1), gap=0.07, sides=('home', 'away'), kind='spread', tier='P', stake=0.0),
+    'nhl_p1_spread_curve': dict(sport='nhl', key='icehockey_nhl', mk='spreads_p1', per=(0, 1), gap=0.07, sides=('home', 'away'), kind='spread', tier='C', stake=0.25),
     # 11/6 9am: B after the 6-hours-before test: 243-185, +13.3%, every season (+19.7 / +5.3 / +17.9); kickoff 241-194, +10.9%
     'nhl_p3_under_curve': dict(sport='nhl', key='icehockey_nhl', mk='totals_p3', per=(2, 1), gap=0.07, sides=('under',), tier='B', stake=0.5),
-    'cfb_tt_under_curve': dict(sport='cfb', key='americanfootball_ncaaf', mk='team_totals', per=None, gap=0.05, sides=('under',), tier='P', stake=0.0),
+    'cfb_tt_under_curve': dict(sport='cfb', key='americanfootball_ncaaf', mk='team_totals', per=None, gap=0.05, sides=('under',), tier='C', stake=0.25),
 }
 PAPER = os.path.join(ROOT, 'data', 'state', 'curve_paper.jsonl'); OUT = os.path.join(ROOT, 'data', 'state', 'curve_live.json')
 QPER = {'cbb': 2, 'cfb': 4}

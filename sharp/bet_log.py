@@ -233,8 +233,8 @@ def main():
     pp_ = os.path.join(SD, 'props_paper.jsonl')
     if os.path.exists(pp_):
         for l in open(pp_):
-            p = json.loads(l); live = p['sport'] == 'nba' and p['market'] == 'player_threes'
-            bets.append(dict(id=f"pr:{p['key']}", src='props', cat='lean C' if live else 'paper P', rule='nba_threes_under_gap' if live else f"{p['sport']}_prop_under_gap", sport=p['sport'],
+            p = json.loads(l); live = (p['sport'] == 'nba' and p['market'] == 'player_threes') or (p['sport'] == 'nhl' and p.get('flagged', '') >= '2026-11-06T23:00')   # 11/6 (Sean): NHL saves / shots unders to tier C
+            bets.append(dict(id=f"pr:{p['key']}", src='props', cat='lean C' if live else 'paper P', rule=f"{p['sport']}_prop_under_gap" if p['sport'] != 'nba' else ('nba_threes_under_gap' if live else 'nba_prop_under_gap'), sport=p['sport'],
                              event_id=p.get('espn') or p['key'], game=p['game'], start=p['start'], market='prop_' + p['market'].replace('player_', ''), side='under', line=p['line'],
                              flagged=p['flagged'], venue=p['book'], price=round(1 / p['price'], 4), won=W_(p.get('won')), bet=f"{p['player']} under {p['line']} {p['market'].replace('player_', '').replace('_', ' ')}"))
     sp_ = os.path.join(SD, 'stale_paper.jsonl')

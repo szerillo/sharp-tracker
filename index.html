@@ -791,7 +791,7 @@ function renderToday() {
   const PLN = {player_threes: '3-pointers', player_total_saves: 'saves', player_shots_on_goal: 'shots on goal'};
   // 11/6: NBA threes unders are tier C (0.25u): 1087-938, +8.2% at the best of FD/Caesars/DK, every season positive, monotone in the
   // edge; the NHL ones stay paper (small samples)
-  const plLive = r => r.sport === 'nba' && r.market === 'player_threes';
+  const plLive = r => (r.sport === 'nba' && r.market === 'player_threes') || (r.sport === 'nhl' && (r.flagged || '') >= '2026-11-06T23:00');   // 11/6 (Sean): NHL saves / shots unders tier C
   const plRow = r => { const PLr = window._PL && window._PL.record;
     return sRow({id: `pl|${r.key}`, start: r.start, sportLabel: (r.sport || '').toUpperCase(), game: esc(r.game), bet: `${esc(r.player)} under ${r.line} ${PLN[r.market] || r.market}`, sub: `Player prop · price gap at ${VS(r.book)}, ${plLive(r) ? 'tier C' : 'paper'}`,
       gone: !plLive(r), status: plLive(r) ? null : ['gone', 'Paper: prop price-gap lean, no units until it has a forward record'], size: plLive(r) ? unitText(SLIP.small, 1 / r.price) : '', price: `<b>${toAm(1 / r.price)}</b> <span class="small dim">${VS(r.book)}</span>`, link: '',
@@ -802,8 +802,8 @@ function renderToday() {
   // Derivatives off the curve (sharp/curve_live.py, 11/6). Tier C: CBB first-half totals (gap 7+), CFB first-quarter unders (gap 5+); paper: CFB team-total unders.
   const CVN = {cbb_1h_total_curve: ['First-half total off the curve', 'CBB 2023-26 at Pinnacle: 323-238, +9.8%, 3 of 3 seasons; at FD/Caesars/DK +3.5%'],
     cfb_q1_under_curve: ['First-quarter under off the curve', 'CFB 2023-25, 2 hours out: 296-189, +15.0% at Pinnacle, +19.8% at FD/Caesars/DK; every season +10% or better'],
-    cfb_tt_under_curve: ['Team-total under off the curve', 'CFB 2023-25: 210-176, +7.3%; 2025 -4.5% (paper)'],
-    nhl_p1_spread_curve: ['First-period puck line off the curve', 'NHL at kickoff 161-107, +10.2%; 6 hours out +9.1% at US books but 2023 -2.7% (paper)'],
+    cfb_tt_under_curve: ['Team-total under off the curve', 'CFB 2023-25: 210-176, +7.3%; 2025 -4.5% (tier C from 11/6)'],
+    nhl_p1_spread_curve: ['First-period puck line off the curve', 'NHL at kickoff 161-107, +10.2%; 6 hours out +9.1% at US books but 2023 -2.7% (tier C from 11/6)'],
     nhl_p3_under_curve: ['Third-period under off the curve', 'NHL 2023-26, 6 hours out: 243-185, +13.3%, every season positive (+19.7 / +5.3 / +17.9); at kickoff +10.9%']};
   const cvRow = r => { const CVr = window._CV && window._CV.record && window._CV.record[r.rule]; const live = r.tier !== 'P'; const pr = r.price || r.pin_price;
     const what = r.market === 'totals_h1' ? '1H total' : r.market === 'totals_q1' ? '1Q total' : r.market === 'totals_p3' ? '3rd-period total' : r.market === 'spreads_p1' ? '1st period' : `${esc(r.team_name || '')} team total`;
