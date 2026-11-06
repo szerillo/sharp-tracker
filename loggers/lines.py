@@ -126,18 +126,20 @@ class Matcher:
 
 
 # ----------------------------------------------------------------- ticks ----
-ROWS = []; UNMATCHED = collections.Counter(); STARTS = {}; AN_LINKS = {}   # AN_LINKS: event_id -> Action Network game page (every book's bet button)   # event_id -> kickoff (UTC); filled by Matcher from the schedule
+ROWS = []; LIVE = []; UNMATCHED = collections.Counter(); STARTS = {}; AN_LINKS = {}   # AN_LINKS: event_id -> Action Network game page (every book's bet button)   # event_id -> kickoff (UTC); filled by Matcher from the schedule
 
 
 def tick(event_id, market, side, venue, feed, line=None, participant=None, player=None, american=None, bid=None, ask=None, last=None, vol=None,
          limit=None, flags=None, extra=None):
     if not event_id: return
     st = STARTS.get(event_id)
-    if st is not None and st <= NOW: STATS['live_dropped'] += 1; return     # pregame only: a started game is closed at its last pregame quote
+    live = st is not None and st <= NOW            # pregame tape only: a started game is closed at its last pregame quote
+    if live and (market.startswith('prop_') or st < NOW - dt.timedelta(hours=5)): STATS['live_dropped'] += 1; return
     r = dict(ts=TS, event_id=event_id, market=market, side=side, venue=venue, feed=feed)
     for k, v in (('line', line), ('participant', participant), ('player', player), ('american', american), ('bid', bid), ('ask', ask), ('last', last),
                  ('vol', vol), ('limit', limit), ('flags', flags), ('extra', extra)):
         if v is not None and v != [] and v != {}: r[k] = v
+    if live: LIVE.append(r); STATS['live_kept'] += 1; return     # 11/6 (Sean: "pregame or live"): in-game quotes go to data/<sport>/live/, never the pregame tape
     ROWS.append(r)
 
 
@@ -595,6 +597,10 @@ def main():
         cur.update(AN_LINKS); json.dump(cur, open(pth, 'w'), separators=(',', ':'))
     with gzip.open(os.path.join(TD, f"{et_date(NOW).isoformat()}.jsonl.gz"), 'at') as f:
         for r in rows: f.write(json.dumps(r, separators=(',', ':')) + '\n')
+    if LIVE:
+        LD = os.path.join(TD, '..', 'live'); os.makedirs(LD, exist_ok=True)
+        with gzip.open(os.path.join(LD, f"{et_date(NOW).isoformat()}.jsonl.gz"), 'at') as f:
+            for r in LIVE: f.write(json.dumps(r, separators=(',', ':')) + '\n')
     byv = collections.Counter(r['venue'] for r in rows); nev = len({r['event_id'] for r in rows})
     print(f"[lines {SPORT}] {len(rows)} ticks ({len(ROWS)} raw) on {nev} events in {round(time.time() - T0)}s; {dict(byv)}; sources {counts}; http {dict(STATS)}"
           + (f"; unmatched {dict(M.unmatched.most_common(5))}" if M.unmatched else ''))
