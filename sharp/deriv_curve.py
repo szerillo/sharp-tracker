@@ -15,8 +15,8 @@ from sharp.gzlines import lines
 NICE = dict(pinnacle='Pinnacle', draftkings='DK', fanduel='FD', williamhill_us='Caesars', betrivers='BetRivers', betonlineag='BetOnline', lowvig='LowVig',
             circasports='Circa', bovada='Bovada', betmgm='BetMGM')
 # periods counted by each market: (first period index, number of periods) in the ESPN linescore
-PER = {'nba': dict(h1=(0, 2), q1=(0, 1)), 'nfl': dict(h1=(0, 2), q1=(0, 1)), 'cfb': dict(h1=(0, 2), q1=(0, 1)), 'wnba': dict(h1=(0, 2), q1=(0, 1)),
-       'cbb': dict(h1=(0, 1)), 'nhl': dict(p1=(0, 1), p2=(1, 1), p3=(2, 1)),
+PER = {'nba': dict(h1=(0, 2), q1=(0, 1), q2=(1, 1), q3=(2, 1), q4=(3, 1), h2=(2, 2)), 'nfl': dict(h1=(0, 2), q1=(0, 1), q2=(1, 1), q3=(2, 1), q4=(3, 1), h2=(2, 2)), 'cfb': dict(h1=(0, 2), q1=(0, 1), q2=(1, 1), q3=(2, 1), q4=(3, 1), h2=(2, 2)), 'wnba': dict(h1=(0, 2), q1=(0, 1), q2=(1, 1), q3=(2, 1), q4=(3, 1), h2=(2, 2)),
+       'cbb': dict(h1=(0, 1), h2=(1, 1)), 'nhl': dict(p1=(0, 1), p2=(1, 1), p3=(2, 1)),
        'mlb': {'1st_5_innings': (0, 5), '1st_1_innings': (0, 1), '1st_3_innings': (0, 3)}}
 EV_MIN = 0.03
 

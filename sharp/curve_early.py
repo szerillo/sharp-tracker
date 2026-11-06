@@ -28,7 +28,11 @@ def main():
         eid, hs, as_ = RES[d['game_id']]; ls = LS.get(str(eid))
         if hs is None or not ls or not ls['h'] or not ls['a']: continue
         B = {b['key']: {m['key']: m['outcomes'] for m in b['markets']} for b in d['bookmakers']}
-        pin = B.get('pinnacle') or {}
+        pin = dict(B.get('pinnacle') or {})
+        # 11/6: Pinnacle does not hang every quarter; for a derivative it lacks, the reference is FD's (then DK's) own no-vig price
+        for ref in ('fanduel', 'draftkings'):
+            for mk_, outs_ in (B.get(ref) or {}).items():
+                if mk_ not in pin and mk_ not in ('totals', 'spreads'): pin[mk_] = outs_
         T = next((o['point'] for o in pin.get('totals', []) if o['name'] == 'Over'), None)
         S = next((o['point'] for o in pin.get('spreads', []) if o['name'] == d['home']), None)
         if T is None or S is None:          # 10-minute files carry no full-game market: Pinnacle's close from odds.sqlite (10-15 minutes later at most)
