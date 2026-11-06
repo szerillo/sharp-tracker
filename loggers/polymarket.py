@@ -60,7 +60,9 @@ def snap_market(args):
                            bid_depth3=depth3(bids, bb, True) if bb is not None else None, ask_depth3=depth3(asks, ba, False) if ba is not None else None,
                            last=float(b['last_trade_price']) if b.get('last_trade_price') not in (None, '') else None)
     cid = m.get('conditionId'); new = []
-    tr = polydata.trades(condition=cid, limit=200) if cid else []
+    # 11/6: no per-market trade pull for the line-only leagues (CFB alone is ~5,500 alt-line markets; the trade calls pushed the job
+    # past its 15-minute limit and the snapshot step never committed). Their prices still come from the batched books.
+    tr = polydata.trades(condition=cid, limit=200) if cid and e['_league'] not in LINES_ONLY else []
     lt = last_ts.get(cid, 0)
     for t in tr:
         if t.get('timestamp', 0) > lt: new.append(dict(ts=t['timestamp'], side=t.get('side'), outcome=t.get('outcome'), p=t.get('price'), size=t.get('size'), w=t.get('proxyWallet')))
