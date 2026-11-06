@@ -1,5 +1,5 @@
 {
- "built": "2026-11-06T15:12:55Z",
+ "built": "2026-11-06T15:30:05Z",
  "rows": [
   {
    "cond": "0x81b63770a7d779d9d73737f06a0e6f974c78f8dfd5695f7d13ca8f30a5994270",
@@ -186,6 +186,46 @@
    }
   },
   {
+   "cond": "0xadf95854a69a4543114a30307ae3cb1dd1a0a8726556610c5bfb104945451369",
+   "slug": "nba-uta-dal-2026-11-06",
+   "title": "Jazz vs. Mavericks",
+   "mtype": "total",
+   "start": "2026-11-07T01:00:00Z",
+   "bet": "Over 227.5",
+   "side": "Over",
+   "flagged": "2026-11-06T15:16:52Z",
+   "why": "2 top-200 accounts",
+   "proven": false,
+   "trigger": "two",
+   "n_accounts": 2,
+   "best_rank": 58,
+   "usd": 8067,
+   "paid": 0.481,
+   "ask": 0.48,
+   "status": "live",
+   "link": "https://polymarket.us/event/nba-uta-dal-2026-11-06",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401909290",
+   "sport": "nba",
+   "league": null,
+   "away": "UTAH",
+   "home": "DAL",
+   "away_name": "Utah Jazz",
+   "home_name": "Dallas Mavericks",
+   "game_start": "2026-11-07T01:00Z",
+   "side_std": "over",
+   "conflict": [
+    "big money"
+   ],
+   "money_with": false,
+   "grade": "B",
+   "fair_board": null,
+   "inside_fair": null,
+   "books": null
+  },
+  {
    "cond": "0xf1cfe5a749e08ebfc14d79cdd6b487a29d2f996f0ae1e75579643745a8f227b1",
    "slug": "cfb-nebr-ill-2026-11-06",
    "title": "Nebraska vs. Illinois",
@@ -260,6 +300,43 @@
    "books": null
   },
   {
+   "cond": "0x10f4836a3b8dab09aa15fb16ba131a57296fa9b3f666865264a3aa9be24af09a",
+   "slug": "cfb-txam-sc-2026-11-07",
+   "title": "Texas A&M vs. South Carolina",
+   "mtype": "total",
+   "start": "2026-11-07T20:00:00Z",
+   "bet": "Over 51.5",
+   "side": "Over",
+   "flagged": "2026-11-06T15:27:54Z",
+   "why": "a top-200 account also in this sport's top 50",
+   "proven": true,
+   "trigger": "proven",
+   "n_accounts": 1,
+   "best_rank": 61,
+   "usd": 500,
+   "paid": 0.5,
+   "ask": 0.53,
+   "status": "live",
+   "link": "https://polymarket.us/event/cfb-txam-sc-2026-11-07",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401856744",
+   "sport": "cfb",
+   "league": null,
+   "away": "TA&M",
+   "home": "SC",
+   "away_name": "Texas A&M Aggies",
+   "home_name": "South Carolina Gamecocks",
+   "game_start": "2026-11-07T20:00Z",
+   "side_std": "over",
+   "money_with": false,
+   "grade": "A",
+   "fair_board": null,
+   "inside_fair": null,
+   "books": null
+  },
+  {
    "cond": "0x420aed52fb1560c0a6c033c271afa01532786963267264f2ceb123e70b41d1f4",
    "slug": "cfb-ala-lsu-2026-11-07",
    "title": "Alabama vs. LSU",
@@ -275,7 +352,7 @@
    "best_rank": 116,
    "usd": 1505,
    "paid": 0.45,
-   "ask": 0.47,
+   "ask": 0.46,
    "status": "live",
    "link": "https://polymarket.us/event/cfb-ala-lsu-2026-11-07",
    "other": null,
@@ -294,6 +371,43 @@
     "big money"
    ],
    "money_with": false,
+   "grade": "A",
+   "fair_board": null,
+   "inside_fair": null,
+   "books": null
+  },
+  {
+   "cond": "0x85f2725b66a298fd5dbc59de813ac7a3875d937ce3ea42efee3b2ca2a0a2f394",
+   "slug": "cfb-cin-hou-2026-11-07",
+   "title": "Cincinnati vs. Houston",
+   "mtype": "total",
+   "start": "2026-11-07T20:30:00Z",
+   "bet": "Under 63.5",
+   "side": "Under",
+   "flagged": "2026-11-06T15:19:19Z",
+   "why": "a top-200 account also in this sport's top 50",
+   "proven": true,
+   "trigger": "proven",
+   "n_accounts": 1,
+   "best_rank": 110,
+   "usd": 2202,
+   "paid": 0.54,
+   "ask": 0.55,
+   "status": "live",
+   "link": "https://polymarket.us/event/cfb-cin-hou-2026-11-07",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401856851",
+   "sport": "cfb",
+   "league": null,
+   "away": "CIN",
+   "home": "HOU",
+   "away_name": "Cincinnati Bearcats",
+   "home_name": "Houston Cougars",
+   "game_start": "2026-11-07T20:30Z",
+   "side_std": "under",
+   "money_with": true,
    "grade": "A",
    "fair_board": null,
    "inside_fair": null,
@@ -684,6 +798,14 @@
    },
    "against": null
   },
+  "401856744:cfb_day_over": {
+   "with": {
+    "n": 1,
+    "best_rank": 61,
+    "usd": 500
+   },
+   "against": null
+  },
   "401909295:nba_bigfav_over": {
    "with": null,
    "against": {
@@ -787,9 +909,9 @@
   },
   "401909290|total": {
    "over": {
-    "n": 1,
-    "best_rank": 143,
-    "usd": 220
+    "n": 2,
+    "best_rank": 58,
+    "usd": 720
    }
   },
   "401909291|ml": {
@@ -804,6 +926,13 @@
     "n": 1,
     "best_rank": 58,
     "usd": 500
+   }
+  },
+  "401909291|total": {
+   "under": {
+    "n": 1,
+    "best_rank": 58,
+    "usd": 490
    }
   },
   "401909292|spread": {
@@ -883,11 +1012,25 @@
     "usd": 470
    }
   },
+  "401856851|total": {
+   "under": {
+    "n": 1,
+    "best_rank": 110,
+    "usd": 2202
+   }
+  },
   "401858289|total": {
    "over": {
     "n": 1,
     "best_rank": 12,
     "usd": 224
+   }
+  },
+  "401856744|total": {
+   "over": {
+    "n": 1,
+    "best_rank": 61,
+    "usd": 500
    }
   },
   "401856740|total": {
