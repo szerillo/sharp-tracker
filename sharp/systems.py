@@ -243,6 +243,31 @@ def open_ml(conn, ev, side):
     return r[0] if r else None
 
 
+_FILLS_BY_ID = None
+def fill_header(ev, f):
+    """(sport, start_utc, away, home) for a fill whose event is no longer in the events table: start from fills.jsonl, names from the
+    complete ESPN schedule (data/state/hist_schedule.json + espn_teams.json)."""
+    global _FILLS_BY_ID
+    if _FILLS_BY_ID is None:
+        _FILLS_BY_ID = {}
+        try:
+            for l in open(os.path.join(SD, 'fills.jsonl')):
+                r = json.loads(l); _FILLS_BY_ID[r['fill_id']] = r
+        except Exception: pass
+    fr = _FILLS_BY_ID.get(f.get('fill_id')) or {}
+    start = fr.get('start_utc')
+    if not start: return None
+    try: H = json.load(open(os.path.join(SD, 'hist_schedule.json'))); T = json.load(open(os.path.join(SD, 'espn_teams.json')))
+    except Exception: H, T = {}, {}
+    for sp, games in H.items():
+        g = games.get(str(ev))
+        if g:
+            nm = lambda ab: (T.get(sp, {}).get(ab) or {}).get('name') or ab
+            return (sp, start, nm(g.get('away')), nm(g.get('home')))
+    sp = (f.get('tag') or '').split('_')[0]
+    return (sp if sp in ('nba', 'nhl', 'cfb', 'nfl', 'cbb', 'mlb', 'wnba') else 'nfl', start, fr.get('participant') or '?', '?')
+
+
 def sched_rec(sport, ev):
     p = os.path.join(ROOT, 'data', sport, 'schedule.json'); s = SCHED_CACHE.get(sport)
     if s is None: s = SCHED_CACHE[sport] = json.load(open(p)) if os.path.exists(p) else {}
@@ -663,6 +688,7 @@ def main():
         if not isinstance(f, dict) or not f.get('fill_id') or f.get('void') or f.get('stacked') or f['fill_id'] in shown: continue
         ev_ = k.split(':')[0]
         row = conn.execute("SELECT sport, start_utc, away, home FROM events WHERE event_id=?", (ev_,)).fetchone()
+        if not row: row = fill_header(ev_, f)        # 11/5 late: the events table drops games once they start (the schedule logger prunes them); fall back to the fill + ESPN schedule
         if not row or N.parse_ts(row[1]) <= NOW - dt.timedelta(hours=4): continue      # 11/5 (Sean): placed bets stay on the board 4h into the game, shown as In progress
         g = byev.get(ev_)
         if g is None:
