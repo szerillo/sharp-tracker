@@ -1,5 +1,5 @@
 {
- "built": "2026-11-06T20:06:12Z",
+ "built": "2026-11-06T20:13:04Z",
  "rows": [
   {
    "cond": "0x3677c251947318cc64698988355cb2bbb5fe9a20f8c18c9e614cacc719026338",
@@ -372,6 +372,43 @@
      "DK": 0.9219
     }
    }
+  },
+  {
+   "cond": "0x49158b5f973dcaeaf06f78a21c2f7f98017c6efd187b72bd149270ac26312ae8",
+   "slug": "bun-mai-bay-2026-11-07-more-markets",
+   "title": "1. FSV Mainz 05 vs. FC Bayern M\u00fcnchen - More Markets",
+   "mtype": "total",
+   "start": "2026-11-07T14:30:00Z",
+   "bet": "Under 3.5",
+   "side": "Under",
+   "flagged": "2026-11-06T20:12:27Z",
+   "why": "a top-200 account also in this sport's top 50",
+   "proven": true,
+   "trigger": "proven",
+   "n_accounts": 1,
+   "best_rank": 132,
+   "usd": 167,
+   "paid": 0.42,
+   "ask": 0.44,
+   "status": "live",
+   "link": "https://polymarket.us/event/bun-mai-bay-2026-11-07-more-markets",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401884740",
+   "sport": "soccer",
+   "league": "bundesliga",
+   "away": "MUN",
+   "home": "M05",
+   "away_name": "Bayern Munich",
+   "home_name": "Mainz",
+   "game_start": "2026-11-07T14:30Z",
+   "side_std": "under",
+   "money_with": false,
+   "grade": "A",
+   "fair_board": null,
+   "inside_fair": null,
+   "books": null
   },
   {
    "cond": "0x5a4f48f65db8bb0de7274a91d32ae7abafaf1aae7e67322744658be0e0e73abb",
@@ -1337,6 +1374,13 @@
     "n": 1,
     "best_rank": 137,
     "usd": 3798
+   }
+  },
+  "401884740|total": {
+   "under": {
+    "n": 1,
+    "best_rank": 132,
+    "usd": 167
    }
   },
   "761945|total": {
