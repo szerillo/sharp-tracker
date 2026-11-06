@@ -41,3 +41,14 @@ Pinnacle derivative prices about 10 minutes before the start (mid-2023 to 2025-2
 No split clears the bar (every season positive, 100+ bets). The derivatives follow the full game: where the full-game rule works, its splits are weaker; where it does not, the splits do not rescue it. Splitting is not a source of extra edge.
 
 The flag: `nba_1h_under_hot_over` (tier C, sized 0.5u by Sean) is the 1H under itself, and on real Pinnacle 1H lines it is 77-85, -7.8%, negative every season. Bet Labs' visitor over% may be defined differently, so this needs the same game-by-game reconciliation before the next fire.
+
+## nba_1h_under_hot_over: Bet Labs picks pulled and reconciled (evening)
+
+Bet Labs ScreenId 1784158 picks, 2023-24 on (199), saved to `data/research/betlabs/nba_1h_under_1784158.txt`; `sharp/nba_1h_reconcile.py`.
+- Our data agrees with Bet Labs: 198 of 199 games matched, 1H scores identical on all of them, visitor over% identical on 152 of 178, Pinnacle's 1H line within half a point on 153.
+- Bet Labs' own record on these picks, at its own lines: 103-96, -1.2%. At Pinnacle's 1H line: 85-90, -5.9%. By season at Pinnacle: 2023-24 -22.4%, 2024-25 +8.7%, 2025-26 -1.6%.
+- Our replay of the filter: 83-86, -4.8% (165 of its 169 games are Bet Labs picks).
+- Split: picks where the visitor is 100% over (its first game or two) went 24-36 (-22.9%); 71-99% went 61-54 (+3.0%).
+- Every NBA 1H under at Pinnacle is -3.2% over the same window.
+
+The rule's headline record comes from before 2023. Over the last three seasons it has no edge at Bet Labs' own prices. Recommendation: paper.
