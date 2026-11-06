@@ -2437,7 +2437,9 @@
 "price": -113,
 "fair": 0.5,
 "edge_pts": -3.0,
-"why": "home favorite, game 18 of the season, opponent UTA wins 62% (10-6)"
+"why": "home favorite, game 18 of the season, opponent UTA wins 62% (10-6)",
+"void": true,
+"void_why": "trigger no longer holds on current season records (2026-11-06T17:05:39Z)"
 },
 "401892671:nhl_bounce_home_ml": {
 "tag": "nhl_bounce_home_ml",
@@ -2450,7 +2452,9 @@
 "price": -213,
 "fair": 0.65,
 "edge_pts": -3.0,
-"why": "home COL lost its last game by 5, record 9-7 (56%): home moneyline (mined angle)"
+"why": "home COL lost its last game by 5, record 9-7 (56%): home moneyline (mined angle)",
+"void": true,
+"void_why": "trigger no longer holds on current season records (2026-11-06T17:05:39Z)"
 },
 "401909293:nba_ats_hot_home": {
 "tag": "nba_ats_hot_home",
@@ -2649,5 +2653,83 @@
 "fair": 0.5,
 "edge_pts": -2.38,
 "why": "home MIL over rate 62%, days since last game: home 2, visitor 2; total 231.5 -> 230.5"
+},
+"401862820:cfb_wind14": {
+"tag": "cfb_wind14",
+"fill_id": "093e6ab56fcc",
+"ts": "2026-11-06T17:05:39Z",
+"market": "total",
+"side": "under",
+"line": 54.5,
+"venue": "Novig",
+"price": 102,
+"fair": 0.49633,
+"edge_pts": 0.13,
+"why": "avg 13.6 mph (Open-Meteo 13.2 at T-28h, MySportsWeather 14.0), gust 23.3, 57.1F"
+},
+"401871075:cfb_road_dog_low_total": {
+"tag": "cfb_road_dog_low_total",
+"fill_id": "6021c9956746",
+"ts": "2026-11-06T17:05:39Z",
+"market": "spread",
+"side": "away",
+"line": 17.5,
+"venue": "FD",
+"price": -114,
+"fair": 0.51371,
+"edge_pts": -1.9,
+"why": "conference game, SHSU +17.5 on the road, total 46.5"
+},
+"401866462:cfb_road_dog_low_total": {
+"tag": "cfb_road_dog_low_total",
+"fill_id": "99652cbe6d1b",
+"ts": "2026-11-06T17:05:39Z",
+"market": "spread",
+"side": "away",
+"line": 7.5,
+"venue": "Novig",
+"price": -106,
+"fair": null,
+"edge_pts": null,
+"why": "conference game, SAC +7.5 on the road, total 35.5"
+},
+"401866462:cfb_homefav_7510_under": {
+"tag": "cfb_homefav_7510_under",
+"fill_id": "d7b3730ea9ac",
+"ts": "2026-11-06T17:05:39Z",
+"market": "total",
+"side": "under",
+"line": 35.5,
+"venue": "Novig",
+"price": 127,
+"fair": null,
+"edge_pts": null,
+"why": "home favourite CMU -7.5, total 35.5: under (mined angle)"
+},
+"401892669:nhl_pl_dog_bigml": {
+"tag": "nhl_pl_dog_bigml",
+"fill_id": "e73a74d397f3",
+"ts": "2026-11-06T17:05:39Z",
+"market": "spread",
+"side": "away",
+"line": 1.5,
+"venue": "Kalshi",
+"price": -113,
+"fair": 0.495,
+"edge_pts": -3.5,
+"why": "SJ opened +190 on the moneyline: +1.5 on a big dog"
+},
+"401892674:nhl_early_home_fav_qual": {
+"tag": "nhl_early_home_fav_qual",
+"fill_id": "3fe91bd16d95",
+"ts": "2026-11-06T17:05:39Z",
+"market": "ml",
+"side": "home",
+"line": null,
+"venue": "Polymarket",
+"price": -133,
+"fair": 0.57024,
+"edge_pts": 0.02,
+"why": "home favorite, game 18 of the season, opponent FLA wins 56% (9-7)"
 }
 }
