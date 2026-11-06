@@ -1,0 +1,39 @@
+name: derivatives history (The Odds API)
+# Sean, 11/5: one pregame snapshot of every period and team market per game since 2023-05, all sports (loggers/oddsapi_derivs.py --full).
+# One job per sport, resumable (games already in data/oddsapi/derivs/<sport>_full.jsonl.gz are skipped), commits progress every 30
+# minutes and at the end; re-dispatch to continue. Key in the ODDS_API_KEY secret; stops at a 3M credit floor.
+on:
+  workflow_dispatch:
+    inputs:
+      sports: {description: 'space-separated sports', default: 'nba nhl mlb cbb cfb nfl wnba soccer tennis', required: false}
+permissions:
+  contents: write
+jobs:
+  pull:
+    runs-on: ubuntu-latest
+    timeout-minutes: 355
+    strategy:
+      fail-fast: false
+      matrix:
+        sport: [nba, nhl, mlb, cbb, cfb, nfl, wnba, soccer, tennis]
+    steps:
+      - uses: actions/checkout@v4
+      - name: pull, committing every 30 minutes
+        if: contains(format(' {0} ', inputs.sports), format(' {0} ', matrix.sport))
+        env: {ODDS_API_KEY: '${{ secrets.ODDS_API_KEY }}'}
+        run: |
+          git config user.name "tracker-bot"; git config user.email "actions@users.noreply.github.com"
+          push() {
+            git add data/oddsapi/derivs/${{ matrix.sport }}_full.jsonl.gz
+            git commit -q -m "derivatives: ${{ matrix.sport }} $(date -u +%Y-%m-%dT%H:%M)" || return 0
+            for i in 1 2 3 4 5 6 7 8; do
+              if git pull -q --rebase -X theirs && git push -q; then return 0; fi
+              git rebase --abort 2>/dev/null || true; sleep $((RANDOM % 20 + 5))
+            done
+          }
+          end=$(( $(date +%s) + 20400 ))
+          while [ $(date +%s) -lt $end ]; do
+            timeout 1800 python3 loggers/oddsapi_derivs.py ${{ matrix.sport }} --full --newest-first --floor 3000000; rc=$?
+            push
+            [ $rc -eq 124 ] || break        # finished (not a timeout): stop
+          done

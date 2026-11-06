@@ -47,7 +47,7 @@ def get(url):
 def main():
     if not KEY: raise SystemExit('ODDS_API_KEY not set')
     floor = int(arg('--floor', '12000')); sports = [a for a in sys.argv[1:] if a in PLAN]; suffix = '_full' if '--full' in sys.argv else ''
-    os.makedirs(OUTD, exist_ok=True); conn = sqlite3.connect(DB)
+    os.makedirs(OUTD, exist_ok=True); conn = sqlite3.connect(DB) if os.path.exists(DB) else None
     now = dt.datetime.now(dt.timezone.utc).strftime('%Y-%m-%dT%H:%M:%SZ')
     for sp in sports:
         path = os.path.join(OUTD, f'{sp}{suffix}.jsonl.gz'); done = set()
@@ -56,7 +56,11 @@ def main():
                 for l in gzip.open(path, 'rt'): done.add(json.loads(l)['game_id'])
             except (EOFError, OSError): pass
         order = 'DESC' if '--newest-first' in sys.argv else 'ASC'
-        G = conn.execute(f"SELECT game_id, key, start, home, away FROM games WHERE sport=? AND start>=? AND start<? AND key LIKE '%\\_%' ESCAPE '\\' ORDER BY start {order}", (sp, SINCE, now)).fetchall()   # Odds API ids only (live-logger rows carry ESPN ids)
+        if conn is not None:
+            G = conn.execute(f"SELECT game_id, key, start, home, away FROM games WHERE sport=? AND start>=? AND start<? AND key LIKE '%\\_%' ESCAPE '\\' ORDER BY start {order}", (sp, SINCE, now)).fetchall()   # Odds API ids only (live-logger rows carry ESPN ids)
+        else:      # GitHub runners have no odds.sqlite: the exported list data/oddsapi/derivs/_games.json.gz
+            G = [(g['game_id'], g['key'], g['start'], g['home'], g['away']) for g in json.load(gzip.open(os.path.join(OUTD, '_games.json.gz'), 'rt')) if g['sport'] == sp and SINCE <= g['start'] < now]
+            G.sort(key=lambda x: x[2], reverse=(order == 'DESC'))
         todo = [g for g in G if g[0] not in done]
         print(f'[derivs] {sp}: {len(G)} games since {SINCE}, {len(done)} done, {len(todo)} to pull ({PLAN[sp]})', flush=True)
         n = spent = fails = 0; left = None
