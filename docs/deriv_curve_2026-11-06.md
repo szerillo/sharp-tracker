@@ -95,3 +95,20 @@ New candidates (paper in `sharp/curve_live.py`, waiting for the 6-hour-before pu
   totals pregame, so where to bet it is the open question.
 Not pockets: NBA first-quarter spreads (2025 -5.8%), NFL first-quarter spreads (+5.7%, small), CBB first-half spreads (-1% / +3.6%),
 NHL second-period totals (curve says over, loses), CFB first-quarter spreads (-0.7%).
+
+## Early snapshots scored (11/6, 9am)
+`sharp/curve_early.py` on the pulls made N minutes before every start, with that moment's full-game numbers:
+- **NHL third-period under (6 hours out): 243-185, +13.3%; 2023 +19.7, 2024 +5.3, 2025 +17.9** (at kickoff 241-194, +10.9%). Holds at
+  both times. **Tier B, 0.5u**, only when FD/Caesars/DK hang the third-period total (35-14, +19.8% on the few they did); a fire with no
+  US book price is recorded as paper.
+- NHL first-period puck line (6 hours out): 140-94, +9.1% at US books but 2023 -2.7%. Stays paper.
+- CBB first-half total (2 hours out, full pull): gap 7+ 2023 +8.7, 2024 +32.8, 2025 -6.2; +17.2% at US books (70-43). Pinnacle's own
+  weight is zero at that hour (its early first-half lines carry no information), the curve's z +3.9. 2025 negative: stays tier C.
+- CFB (2 hours out, all markets): first-quarter unders confirmed; first-half totals at 4-7 points +8.5% at US books (small); quarter and
+  half spreads nothing.
+- NBA (6 hours out), NFL (24 hours out), WNBA (2 hours out): on the curve; nothing that holds by season.
+Rule now in force: every curve fire without an FD/Caesars/DK price at Pinnacle's line is paper (no units), whatever the rule's tier.
+
+## MLB props (11/6, 9am)
+`sharp/props_test.py mlb` on 7,111 games (ESPN box scores; no total bases in the box): nothing. Price-gap unders +0.1% (n 3,362),
+overs -8.9%; pitcher strikeouts -0.3%; home-run props lose 9%.
