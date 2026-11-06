@@ -1,0 +1,36 @@
+name: box scores (ESPN player stats for props)
+# Sean 11/6: player box scores to grade the props pull. One job per sport, resumable, commits every pass.
+on:
+  workflow_dispatch:
+    inputs:
+      sports: {description: 'space-separated sports', default: 'nfl nba nhl wnba', required: false}
+permissions:
+  contents: write
+jobs:
+  pull:
+    runs-on: ubuntu-latest
+    timeout-minutes: 300
+    strategy:
+      fail-fast: false
+      matrix:
+        sport: [nfl, nba, nhl, wnba, mlb]
+    steps:
+      - uses: actions/checkout@v4
+      - name: pull, committing every 25 minutes
+        if: contains(format(' {0} ', inputs.sports), format(' {0} ', matrix.sport))
+        shell: bash {0}
+        run: |
+          git config user.name "tracker-bot"; git config user.email "actions@users.noreply.github.com"
+          push() {
+            git add data/boxscores/${{ matrix.sport }}.jsonl.gz
+            git commit -q -m "box scores: ${{ matrix.sport }} $(date -u +%Y-%m-%dT%H:%M)" || return 0
+            for i in 1 2 3 4 5 6 7 8; do
+              if git pull -q --rebase -X theirs && git push -q; then return 0; fi
+              git rebase --abort 2>/dev/null || true; sleep $((RANDOM % 20 + 5))
+            done
+          }
+          for pass in 1 2 3 4 5 6 7 8 9 10; do
+            out=$(python3 loggers/box_scores.py ${{ matrix.sport }} --max-s 1500 2>&1); echo "$out"
+            push
+            echo "$out" | grep -q "to pull" && echo "$out" | grep -qE "0 to pull|wrote 0$" && break
+          done
