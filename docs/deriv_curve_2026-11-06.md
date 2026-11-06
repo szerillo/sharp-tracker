@@ -129,8 +129,10 @@ candidate does not repeat 2 hours out.
 
 ## Tennis first set (11/6, 1:30pm) — inconclusive
 - Odds API: first-set lines exist only from 2026 and Pinnacle does not hang them; 129 off-curve bets, -10%. Too little to test.
-- Kalshi history (repaired tapes, 968 matches with a set-1 market): backing the match favourite (0.60+) on set 1 15 minutes before the
-  ESPN start looks like +20-30% (train 80 bets, test 24). It fails a timing check: in the matches whose set-1 market ever reached a
-  decided price, that happened a median 17 hours BEFORE the ESPN start time, i.e. ESPN's start times are often not the real start, so
-  "15 minutes before" can be in-play and the result is contaminated. Not usable until each match has a reliable start (next: take the
-  start from the Kalshi match market's own trading pattern or the Odds API commence time).
+- Kalshi history (repaired tapes, 968 matches with a set-1 market): backing the match favourite (0.60+) on set 1, 15 minutes before
+  the start, shows +20-30% (train 80 bets, test 24). Correction to the first note: the "decided 17 hours early" check was wrong (a heavy
+  favourite's set-1 price is 0.95+ pregame, which is not a decided set); the build uses pregame trades only.
+- But our own tape (11/1-11/6, 181 matches with Pinnacle match and set-1 prices) does not show it: Kalshi's set-1 favourite costs MORE
+  than Pinnacle's no-vig (0.584 vs 0.540, 0.663 vs 0.624, 0.777 vs 0.739 by match-price band), and favourites win set 1 at about
+  Pinnacle's price (0.569, 0.627, 0.822). The historical result rests on thin, stale Kalshi set-1 prints (4-50 trades a market). Not a
+  rule. The tape keeps both venues every 20 minutes; rerun in a month for a live sample.
