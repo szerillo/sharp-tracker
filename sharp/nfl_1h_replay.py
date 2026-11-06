@@ -48,13 +48,14 @@ def main():
     G = [g for g in G if g['hs'] is not None and g['hab'] and g['aab'] and g['hab'] not in ('AFC', 'NFC')]
     G.sort(key=lambda g: g['start']); hist = collections.defaultdict(list)
     for g in G:          # rest days and last-game ATS margin from the full history (2020 on), before this game
+        sn = RR.season_of('nfl', g['start'] - dt.timedelta(days=60))      # 11/6 audit: per season (week 1 read last season's final game and 200+ days of rest)
         for side, team in (('home', g['hab']), ('away', g['aab'])):
-            L = hist[team]
+            L = hist[(team, sn)]
             g[f'{side}_days'] = (g['start'].astimezone(ET).date() - L[-1]['start'].astimezone(ET).date()).days if L else None
             g[f'{side}_last_ats'] = L[-1]['ats'] if L else None
         if g.get('sp_close') is not None:
-            hist[g['hab']].append(dict(start=g['start'], ats=(g['hs'] - g['as_']) + g['sp_close']))
-            hist[g['aab']].append(dict(start=g['start'], ats=(g['as_'] - g['hs']) - g['sp_close']))
+            hist[(g['hab'], sn)].append(dict(start=g['start'], ats=(g['hs'] - g['as_']) + g['sp_close']))
+            hist[(g['aab'], sn)].append(dict(start=g['start'], ats=(g['as_'] - g['hs']) - g['sp_close']))
     rows = []
     for g in G:
         d = D.get(g['id']); ls = LS.get(str(ESPN.get(g['id'])))

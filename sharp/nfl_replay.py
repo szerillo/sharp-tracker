@@ -65,14 +65,15 @@ def main():
     print(f"NFL games with a close and a result: {len(G)} ({min(g['start'] for g in G):%Y-%m-%d} to {max(g['start'] for g in G):%Y-%m-%d})")
     # season margins and last ATS margin per team (what awfuldog / bounce need), from scores and closing spreads
     hist = collections.defaultdict(list)
-    for g in G:
+    for g in G:          # 11/6 audit: keyed by (team, season). It was keyed by team alone, so season margins ran across seasons and every week-1 game read as 'off a bye'
+        sn = RR.season_of('nfl', g['start'] - dt.timedelta(days=60))       # Jan/Feb playoff games belong to the previous season
         for side, team in (('home', g['hab']), ('away', g['aab'])):
-            L = hist[team]; g[f'{side}_margin_avg'] = sum(x['margin'] for x in L) / len(L) if L else None; g[f'{side}_n'] = len(L)
+            L = hist[(team, sn)]; g[f'{side}_margin_avg'] = sum(x['margin'] for x in L) / len(L) if L else None; g[f'{side}_n'] = len(L)
             g[f'{side}_last_ats'] = L[-1]['ats'] if L else None
             g[f'{side}_bye'] = (g['start'].astimezone(ET).date() - L[-1]['start'].astimezone(ET).date()).days >= 12 if L else False
         if g['sp_close'] is not None:
-            hist[g['hab']].append(dict(start=g['start'], margin=g['hs'] - g['as_'], ats=(g['hs'] - g['as_']) + g['sp_close']))
-            hist[g['aab']].append(dict(start=g['start'], margin=g['as_'] - g['hs'], ats=(g['as_'] - g['hs']) - g['sp_close']))
+            hist[(g['hab'], sn)].append(dict(start=g['start'], margin=g['hs'] - g['as_'], ats=(g['hs'] - g['as_']) + g['sp_close']))
+            hist[(g['aab'], sn)].append(dict(start=g['start'], margin=g['as_'] - g['hs'], ats=(g['as_'] - g['hs']) - g['sp_close']))
     # weather for outdoor games
     nwx = 0
     for g in G:

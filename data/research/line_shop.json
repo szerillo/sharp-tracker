@@ -1,0 +1,894 @@
+{
+ "gain": {
+  "best4 minus DK": {
+   "n": 30748,
+   "mean_units_per_bet": 0.0101
+  },
+  "best4 minus Pinnacle": {
+   "n": 30748,
+   "mean_units_per_bet": -0.0035
+  }
+ },
+ "rules": {
+  "ALL generic bets": {
+   "Pinnacle": {
+    "n": 27204,
+    "record": "13527-13189",
+    "roi": -1.7
+   },
+   "one book (DK)": {
+    "n": 27204,
+    "record": "13605-13241",
+    "roi": -3.2
+   },
+   "best of 4 US": {
+    "n": 27204,
+    "record": "13748-13152",
+    "roi": -2.2
+   },
+   "best of 7 (with offshore)": {
+    "n": 27204,
+    "record": "13782-13058",
+    "roi": -1.4
+   }
+  },
+  "ALL live rules": {
+   "Pinnacle": {
+    "n": 3544,
+    "record": "1871-1622",
+    "roi": 1.6
+   },
+   "one book (DK)": {
+    "n": 3544,
+    "record": "1887-1620",
+    "roi": 0.9
+   },
+   "best of 4 US": {
+    "n": 3544,
+    "record": "1919-1603",
+    "roi": 2.2
+   },
+   "best of 7 (with offshore)": {
+    "n": 3544,
+    "record": "1920-1600",
+    "roi": 2.6
+   }
+  },
+  "A1 wind1014 and its neighbours: UNDER by kickoff wind (Open-Meteo archive, 3h avg) | wind 10-14 (the rule)": {
+   "Pinnacle": {
+    "n": 267,
+    "record": "161-103",
+    "roi": 18.1
+   },
+   "one book (DK)": {
+    "n": 267,
+    "record": "160-104",
+    "roi": 15.7
+   },
+   "best of 4 US": {
+    "n": 267,
+    "record": "162-102",
+    "roi": 16.7
+   },
+   "best of 7 (with offshore)": {
+    "n": 267,
+    "record": "163-102",
+    "roi": 17.5
+   }
+  },
+  "A2 awfuldog and neighbours: DOG ATS by its season margin | -13 or worse (the rule)": {
+   "Pinnacle": {
+    "n": 30,
+    "record": "14-16",
+    "roi": -11.3
+   },
+   "one book (DK)": {
+    "n": 30,
+    "record": "14-16",
+    "roi": -11.1
+   },
+   "best of 4 US": {
+    "n": 30,
+    "record": "14-16",
+    "roi": -11.0
+   },
+   "best of 7 (with offshore)": {
+    "n": 30,
+    "record": "14-16",
+    "roi": -11.5
+   }
+  },
+  "A4 vrest8 (full game): UNDER when the visitor is off a bye | visitor off 8+ days": {
+   "Pinnacle": {
+    "n": 227,
+    "record": "132-93",
+    "roi": 13.7
+   },
+   "one book (DK)": {
+    "n": 227,
+    "record": "133-94",
+    "roi": 11.9
+   },
+   "best of 4 US": {
+    "n": 227,
+    "record": "134-93",
+    "roi": 12.6
+   },
+   "best of 7 (with offshore)": {
+    "n": 227,
+    "record": "134-93",
+    "roi": 12.9
+   }
+  },
+  "A5 mnf (full game): Monday night UNDER": {
+   "Pinnacle": {
+    "n": 130,
+    "record": "72-56",
+    "roi": 8.8
+   },
+   "one book (DK)": {
+    "n": 130,
+    "record": "72-56",
+    "roi": 7.6
+   },
+   "best of 4 US": {
+    "n": 130,
+    "record": "74-55",
+    "roi": 9.5
+   },
+   "best of 7 (with offshore)": {
+    "n": 130,
+    "record": "74-55",
+    "roi": 9.6
+   }
+  },
+  "cbb_under_good_over_drop (weekday, home over 50%+, visitor 59%+, total down 0.5+)": {
+   "Pinnacle": {
+    "n": 955,
+    "record": "466-478",
+    "roi": -5.9
+   },
+   "one book (DK)": {
+    "n": 955,
+    "record": "473-475",
+    "roi": -4.8
+   },
+   "best of 4 US": {
+    "n": 955,
+    "record": "478-469",
+    "roi": -3.7
+   },
+   "best of 7 (with offshore)": {
+    "n": 955,
+    "record": "478-467",
+    "roi": -3.4
+   }
+  },
+  "cfb_road_dog_low_total (home -7 or more, total 48 or under: road dog) | conference game": {
+   "Pinnacle": {
+    "n": 243,
+    "record": "127-108",
+    "roi": 4.7
+   },
+   "one book (DK)": {
+    "n": 243,
+    "record": "131-107",
+    "roi": 4.8
+   },
+   "best of 4 US": {
+    "n": 243,
+    "record": "132-106",
+    "roi": 5.5
+   },
+   "best of 7 (with offshore)": {
+    "n": 243,
+    "record": "132-106",
+    "roi": 6.2
+   }
+  },
+  "cfb_road_dog_low_total (home -7 or more, total 48 or under: road dog) | non-conference": {
+   "Pinnacle": {
+    "n": 174,
+    "record": "83-87",
+    "roi": -5.7
+   },
+   "one book (DK)": {
+    "n": 174,
+    "record": "82-88",
+    "roi": -7.8
+   },
+   "best of 4 US": {
+    "n": 174,
+    "record": "86-88",
+    "roi": -5.9
+   },
+   "best of 7 (with offshore)": {
+    "n": 174,
+    "record": "86-87",
+    "roi": -5.2
+   }
+  },
+  "cfb_road_streak_dog (home fav, total 54 or under, visitor on road game 2-5 in a row)": {
+   "Pinnacle": {
+    "n": 424,
+    "record": "211-203",
+    "roi": -1.1
+   },
+   "one book (DK)": {
+    "n": 424,
+    "record": "213-202",
+    "roi": -1.9
+   },
+   "best of 4 US": {
+    "n": 424,
+    "record": "222-200",
+    "roi": 0.2
+   },
+   "best of 7 (with offshore)": {
+    "n": 424,
+    "record": "222-200",
+    "roi": 0.1
+   }
+  },
+  "generic: A1 wind1014 and its neighbours: UNDER by kickoff wind (Open-": {
+   "Pinnacle": {
+    "n": 820,
+    "record": "394-412",
+    "roi": -4.9
+   },
+   "one book (DK)": {
+    "n": 820,
+    "record": "399-410",
+    "roi": -5.8
+   },
+   "best of 4 US": {
+    "n": 820,
+    "record": "405-410",
+    "roi": -5.0
+   },
+   "best of 7 (with offshore)": {
+    "n": 820,
+    "record": "405-409",
+    "roi": -4.5
+   }
+  },
+  "generic: A1c wind 10-14 under": {
+   "Pinnacle": {
+    "n": 267,
+    "record": "161-103",
+    "roi": 18.1
+   },
+   "one book (DK)": {
+    "n": 267,
+    "record": "160-104",
+    "roi": 15.7
+   },
+   "best of 4 US": {
+    "n": 267,
+    "record": "162-102",
+    "roi": 16.7
+   },
+   "best of 7 (with offshore)": {
+    "n": 267,
+    "record": "163-102",
+    "roi": 17.5
+   }
+  },
+  "generic: A1d wind 10-14 under": {
+   "Pinnacle": {
+    "n": 267,
+    "record": "161-103",
+    "roi": 18.1
+   },
+   "one book (DK)": {
+    "n": 267,
+    "record": "160-104",
+    "roi": 15.7
+   },
+   "best of 4 US": {
+    "n": 267,
+    "record": "162-102",
+    "roi": 16.7
+   },
+   "best of 7 (with offshore)": {
+    "n": 267,
+    "record": "163-102",
+    "roi": 17.5
+   }
+  },
+  "generic: A2 awfuldog and neighbours: DOG ATS by its season margin": {
+   "Pinnacle": {
+    "n": 1658,
+    "record": "834-782",
+    "roi": -0.2
+   },
+   "one book (DK)": {
+    "n": 1658,
+    "record": "837-791",
+    "roi": -1.7
+   },
+   "best of 4 US": {
+    "n": 1658,
+    "record": "845-785",
+    "roi": -1.0
+   },
+   "best of 7 (with offshore)": {
+    "n": 1658,
+    "record": "848-777",
+    "roi": -0.2
+   }
+  },
+  "generic: A3 bounce (full game): DOG ATS by its previous ATS margin": {
+   "Pinnacle": {
+    "n": 1703,
+    "record": "857-804",
+    "roi": -0.2
+   },
+   "one book (DK)": {
+    "n": 1703,
+    "record": "860-813",
+    "roi": -1.7
+   },
+   "best of 4 US": {
+    "n": 1703,
+    "record": "868-807",
+    "roi": -1.0
+   },
+   "best of 7 (with offshore)": {
+    "n": 1703,
+    "record": "871-798",
+    "roi": -0.2
+   }
+  },
+  "generic: A4 vrest8 (full game): UNDER when the visitor is off a bye": {
+   "Pinnacle": {
+    "n": 1491,
+    "record": "718-750",
+    "roi": -4.9
+   },
+   "one book (DK)": {
+    "n": 1491,
+    "record": "725-747",
+    "roi": -5.9
+   },
+   "best of 4 US": {
+    "n": 1491,
+    "record": "735-746",
+    "roi": -5.2
+   },
+   "best of 7 (with offshore)": {
+    "n": 1491,
+    "record": "738-741",
+    "roi": -4.3
+   }
+  },
+  "generic: A5b Thursday night UNDER": {
+   "Pinnacle": {
+    "n": 116,
+    "record": "59-57",
+    "roi": -0.9
+   },
+   "one book (DK)": {
+    "n": 116,
+    "record": "59-57",
+    "roi": -2.7
+   },
+   "best of 4 US": {
+    "n": 116,
+    "record": "59-57",
+    "roi": -2.8
+   },
+   "best of 7 (with offshore)": {
+    "n": 116,
+    "record": "59-56",
+    "roi": -1.3
+   }
+  },
+  "generic: A5c Sunday night UNDER": {
+   "Pinnacle": {
+    "n": 108,
+    "record": "60-46",
+    "roi": 10.2
+   },
+   "one book (DK)": {
+    "n": 108,
+    "record": "61-44",
+    "roi": 10.9
+   },
+   "best of 4 US": {
+    "n": 108,
+    "record": "62-44",
+    "roi": 12.0
+   },
+   "best of 7 (with offshore)": {
+    "n": 108,
+    "record": "63-44",
+    "roi": 13.3
+   }
+  },
+  "generic: B1 moneyline favourite by Pinnacle band": {
+   "Pinnacle": {
+    "n": 1717,
+    "record": "1141-576",
+    "roi": -2.5
+   },
+   "one book (DK)": {
+    "n": 1717,
+    "record": "1141-576",
+    "roi": -3.5
+   },
+   "best of 4 US": {
+    "n": 1717,
+    "record": "1141-576",
+    "roi": -2.6
+   },
+   "best of 7 (with offshore)": {
+    "n": 1717,
+    "record": "1141-576",
+    "roi": -2.3
+   }
+  },
+  "generic: B1b moneyline dog by band": {
+   "Pinnacle": {
+    "n": 1717,
+    "record": "576-1141",
+    "roi": -4.3
+   },
+   "one book (DK)": {
+    "n": 1717,
+    "record": "576-1141",
+    "roi": -5.8
+   },
+   "best of 4 US": {
+    "n": 1717,
+    "record": "576-1141",
+    "roi": -3.4
+   },
+   "best of 7 (with offshore)": {
+    "n": 1717,
+    "record": "576-1141",
+    "roi": -2.6
+   }
+  },
+  "generic: B2 home ATS by spread size": {
+   "Pinnacle": {
+    "n": 1718,
+    "record": "826-849",
+    "roi": -3.6
+   },
+   "one book (DK)": {
+    "n": 1718,
+    "record": "839-848",
+    "roi": -5.1
+   },
+   "best of 4 US": {
+    "n": 1718,
+    "record": "849-839",
+    "roi": -4.1
+   },
+   "best of 7 (with offshore)": {
+    "n": 1718,
+    "record": "850-834",
+    "roi": -3.4
+   }
+  },
+  "generic: B2b DOG ATS by spread size": {
+   "Pinnacle": {
+    "n": 1718,
+    "record": "863-812",
+    "roi": -0.4
+   },
+   "one book (DK)": {
+    "n": 1718,
+    "record": "866-821",
+    "roi": -1.9
+   },
+   "best of 4 US": {
+    "n": 1718,
+    "record": "874-815",
+    "roi": -1.1
+   },
+   "best of 7 (with offshore)": {
+    "n": 1718,
+    "record": "877-806",
+    "roi": -0.3
+   }
+  },
+  "generic: B3 FOLLOW the open-to-close spread move (bet the side the nu": {
+   "Pinnacle": {
+    "n": 1479,
+    "record": "716-728",
+    "roi": -2.6
+   },
+   "one book (DK)": {
+    "n": 1479,
+    "record": "729-724",
+    "roi": -4.3
+   },
+   "best of 4 US": {
+    "n": 1479,
+    "record": "737-716",
+    "roi": -3.3
+   },
+   "best of 7 (with offshore)": {
+    "n": 1479,
+    "record": "737-710",
+    "roi": -2.7
+   }
+  },
+  "generic: B3b FADE the move (take the side the number moved against, a": {
+   "Pinnacle": {
+    "n": 1479,
+    "record": "728-716",
+    "roi": -2.4
+   },
+   "one book (DK)": {
+    "n": 1479,
+    "record": "724-729",
+    "roi": -4.8
+   },
+   "best of 4 US": {
+    "n": 1479,
+    "record": "737-718",
+    "roi": -3.3
+   },
+   "best of 7 (with offshore)": {
+    "n": 1479,
+    "record": "740-710",
+    "roi": -2.3
+   }
+  },
+  "generic: B3c follow the move, crossed a key number": {
+   "Pinnacle": {
+    "n": 1479,
+    "record": "716-728",
+    "roi": -2.6
+   },
+   "one book (DK)": {
+    "n": 1479,
+    "record": "729-724",
+    "roi": -4.3
+   },
+   "best of 4 US": {
+    "n": 1479,
+    "record": "737-716",
+    "roi": -3.3
+   },
+   "best of 7 (with offshore)": {
+    "n": 1479,
+    "record": "737-710",
+    "roi": -2.7
+   }
+  },
+  "generic: B4 divisional game: DOG ATS": {
+   "Pinnacle": {
+    "n": 600,
+    "record": "313-273",
+    "roi": 3.5
+   },
+   "one book (DK)": {
+    "n": 600,
+    "record": "313-279",
+    "roi": 1.2
+   },
+   "best of 4 US": {
+    "n": 600,
+    "record": "316-278",
+    "roi": 1.6
+   },
+   "best of 7 (with offshore)": {
+    "n": 600,
+    "record": "318-274",
+    "roi": 2.8
+   }
+  },
+  "generic: B4b primetime: DOG ATS": {
+   "Pinnacle": {
+    "n": 354,
+    "record": "183-162",
+    "roi": 2.7
+   },
+   "one book (DK)": {
+    "n": 354,
+    "record": "186-164",
+    "roi": 1.8
+   },
+   "best of 4 US": {
+    "n": 354,
+    "record": "189-163",
+    "roi": 2.6
+   },
+   "best of 7 (with offshore)": {
+    "n": 354,
+    "record": "189-160",
+    "roi": 3.5
+   }
+  },
+  "generic: B4c DOG ATS by season phase": {
+   "Pinnacle": {
+    "n": 1718,
+    "record": "863-812",
+    "roi": -0.4
+   },
+   "one book (DK)": {
+    "n": 1718,
+    "record": "866-821",
+    "roi": -1.9
+   },
+   "best of 4 US": {
+    "n": 1718,
+    "record": "874-815",
+    "roi": -1.1
+   },
+   "best of 7 (with offshore)": {
+    "n": 1718,
+    "record": "877-806",
+    "roi": -0.3
+   }
+  },
+  "generic: B4d dog off a bye: DOG ATS": {
+   "Pinnacle": {
+    "n": 223,
+    "record": "115-104",
+    "roi": 1.4
+   },
+   "one book (DK)": {
+    "n": 223,
+    "record": "117-104",
+    "roi": 1.5
+   },
+   "best of 4 US": {
+    "n": 223,
+    "record": "118-103",
+    "roi": 2.2
+   },
+   "best of 7 (with offshore)": {
+    "n": 223,
+    "record": "118-102",
+    "roi": 2.8
+   }
+  },
+  "generic: B4e favourite off a bye: FAV ATS": {
+   "Pinnacle": {
+    "n": 276,
+    "record": "124-145",
+    "roi": -9.0
+   },
+   "one book (DK)": {
+    "n": 276,
+    "record": "125-147",
+    "roi": -12.3
+   },
+   "best of 4 US": {
+    "n": 276,
+    "record": "126-146",
+    "roi": -11.8
+   },
+   "best of 7 (with offshore)": {
+    "n": 276,
+    "record": "126-144",
+    "roi": -10.2
+   }
+  },
+  "generic: B5 UNDER by closing total": {
+   "Pinnacle": {
+    "n": 1718,
+    "record": "850-843",
+    "roi": -2.5
+   },
+   "one book (DK)": {
+    "n": 1718,
+    "record": "858-841",
+    "roi": -3.5
+   },
+   "best of 4 US": {
+    "n": 1718,
+    "record": "869-839",
+    "roi": -2.8
+   },
+   "best of 7 (with offshore)": {
+    "n": 1718,
+    "record": "872-834",
+    "roi": -2.0
+   }
+  },
+  "generic: B6 total moved UP open-to-close: follow (OVER)": {
+   "Pinnacle": {
+    "n": 617,
+    "record": "314-298",
+    "roi": -0.3
+   },
+   "one book (DK)": {
+    "n": 617,
+    "record": "312-297",
+    "roi": -2.2
+   },
+   "best of 4 US": {
+    "n": 617,
+    "record": "315-295",
+    "roi": -1.4
+   },
+   "best of 7 (with offshore)": {
+    "n": 617,
+    "record": "315-291",
+    "roi": -0.2
+   }
+  },
+  "generic: B6b total moved UP: fade (UNDER)": {
+   "Pinnacle": {
+    "n": 617,
+    "record": "298-314",
+    "roi": -5.6
+   },
+   "one book (DK)": {
+    "n": 617,
+    "record": "297-312",
+    "roi": -6.9
+   },
+   "best of 4 US": {
+    "n": 617,
+    "record": "303-312",
+    "roi": -5.9
+   },
+   "best of 7 (with offshore)": {
+    "n": 617,
+    "record": "304-308",
+    "roi": -4.7
+   }
+  },
+  "generic: B6c total moved DOWN: follow (UNDER)": {
+   "Pinnacle": {
+    "n": 925,
+    "record": "454-452",
+    "roi": -2.5
+   },
+   "one book (DK)": {
+    "n": 925,
+    "record": "463-451",
+    "roi": -3.2
+   },
+   "best of 4 US": {
+    "n": 925,
+    "record": "467-450",
+    "roi": -2.7
+   },
+   "best of 7 (with offshore)": {
+    "n": 925,
+    "record": "469-449",
+    "roi": -2.1
+   }
+  },
+  "generic: B6d total moved DOWN: fade (OVER)": {
+   "Pinnacle": {
+    "n": 925,
+    "record": "452-454",
+    "roi": -3.1
+   },
+   "one book (DK)": {
+    "n": 925,
+    "record": "451-463",
+    "roi": -5.7
+   },
+   "best of 4 US": {
+    "n": 925,
+    "record": "461-455",
+    "roi": -3.9
+   },
+   "best of 7 (with offshore)": {
+    "n": 925,
+    "record": "462-454",
+    "roi": -3.3
+   }
+  },
+  "generic: cbb under, same teams but no drop (control)": {
+   "Pinnacle": {
+    "n": 961,
+    "record": "494-454",
+    "roi": -0.9
+   },
+   "one book (DK)": {
+    "n": 961,
+    "record": "494-458",
+    "roi": -0.9
+   },
+   "best of 4 US": {
+    "n": 961,
+    "record": "501-453",
+    "roi": 0.4
+   },
+   "best of 7 (with offshore)": {
+    "n": 961,
+    "record": "503-452",
+    "roi": 1.0
+   }
+  },
+  "generic: nba under, same spot but the total did NOT drop (control)": {
+   "Pinnacle": {
+    "n": 533,
+    "record": "257-271",
+    "roi": -5.0
+   },
+   "one book (DK)": {
+    "n": 533,
+    "record": "258-271",
+    "roi": -6.8
+   },
+   "best of 4 US": {
+    "n": 533,
+    "record": "260-269",
+    "roi": -5.9
+   },
+   "best of 7 (with offshore)": {
+    "n": 533,
+    "record": "261-268",
+    "roi": -5.1
+   }
+  },
+  "nba_1h_under_hot_over, FULL-GAME cousin (visitor over 71%+: under)": {
+   "Pinnacle": {
+    "n": 265,
+    "record": "132-129",
+    "roi": -1.6
+   },
+   "one book (DK)": {
+    "n": 265,
+    "record": "132-130",
+    "roi": -3.7
+   },
+   "best of 4 US": {
+    "n": 265,
+    "record": "136-128",
+    "roi": -1.6
+   },
+   "best of 7 (with offshore)": {
+    "n": 265,
+    "record": "136-128",
+    "roi": -1.2
+   }
+  },
+  "nba_under_good_home_over (home over 58%+, rest 1-2 / 1-3, total down 0.5+)": {
+   "Pinnacle": {
+    "n": 432,
+    "record": "215-210",
+    "roi": -1.3
+   },
+   "one book (DK)": {
+    "n": 432,
+    "record": "219-209",
+    "roi": -2.4
+   },
+   "best of 4 US": {
+    "n": 432,
+    "record": "223-207",
+    "roi": -1.1
+   },
+   "best of 7 (with offshore)": {
+    "n": 432,
+    "record": "223-207",
+    "roi": -0.6
+   }
+  },
+  "nhl_early_home_fav_qual (home fav ML, game 24 or earlier, opponent 51%+)": {
+   "Pinnacle": {
+    "n": 397,
+    "record": "258-139",
+    "roi": 9.4
+   },
+   "one book (DK)": {
+    "n": 397,
+    "record": "258-139",
+    "roi": 8.0
+   },
+   "best of 4 US": {
+    "n": 397,
+    "record": "258-139",
+    "roi": 9.2
+   },
+   "best of 7 (with offshore)": {
+    "n": 397,
+    "record": "258-139",
+    "roi": 9.9
+   }
+  }
+ }
+}

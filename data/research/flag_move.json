@@ -1,0 +1,123 @@
+{
+ "all": {
+  "n": 73,
+  "move_open_to_close_pts": 1.16,
+  "before_flag_pts": 0.45,
+  "after_flag_pts": 0.71,
+  "share_after_flag": 0.61,
+  "flagged_side_already_moved_up_share": 0.16,
+  "record": "42-31",
+  "roi_at_poly_price": 6.2,
+  "clv_vs_pinnacle_close_pts": 0.51
+ },
+ "sport cfb": {
+  "n": 14,
+  "move_open_to_close_pts": 0.67,
+  "before_flag_pts": 0.35,
+  "after_flag_pts": 0.32,
+  "share_after_flag": 0.48,
+  "flagged_side_already_moved_up_share": 0.21,
+  "record": "5-9",
+  "roi_at_poly_price": -28.1,
+  "clv_vs_pinnacle_close_pts": 1.0
+ },
+ "sport nba": {
+  "n": 11,
+  "move_open_to_close_pts": -0.26,
+  "before_flag_pts": 0.14,
+  "after_flag_pts": -0.4,
+  "share_after_flag": 1.52,
+  "flagged_side_already_moved_up_share": 0.09,
+  "record": "9-2",
+  "roi_at_poly_price": 26.9,
+  "clv_vs_pinnacle_close_pts": -0.44
+ },
+ "sport nfl": {
+  "n": 34,
+  "move_open_to_close_pts": 1.78,
+  "before_flag_pts": 0.6,
+  "after_flag_pts": 1.18,
+  "share_after_flag": 0.66,
+  "flagged_side_already_moved_up_share": 0.21,
+  "record": "19-15",
+  "roi_at_poly_price": -0.1,
+  "clv_vs_pinnacle_close_pts": 0.38
+ },
+ "sport nhl": {
+  "n": 14,
+  "move_open_to_close_pts": 1.27,
+  "before_flag_pts": 0.44,
+  "after_flag_pts": 0.83,
+  "share_after_flag": 0.65,
+  "flagged_side_already_moved_up_share": 0.07,
+  "record": "9-5",
+  "roi_at_poly_price": 39.6,
+  "clv_vs_pinnacle_close_pts": 1.06
+ },
+ "lead 24h+": {
+  "n": 11,
+  "move_open_to_close_pts": 3.04,
+  "before_flag_pts": 0.48,
+  "after_flag_pts": 2.56,
+  "share_after_flag": 0.84,
+  "flagged_side_already_moved_up_share": 0.09,
+  "record": "7-4",
+  "roi_at_poly_price": 23.9,
+  "clv_vs_pinnacle_close_pts": 1.18
+ },
+ "lead 6-24h": {
+  "n": 25,
+  "move_open_to_close_pts": 1.13,
+  "before_flag_pts": 0.35,
+  "after_flag_pts": 0.78,
+  "share_after_flag": 0.69,
+  "flagged_side_already_moved_up_share": 0.12,
+  "record": "17-8",
+  "roi_at_poly_price": 20.4,
+  "clv_vs_pinnacle_close_pts": 0.33
+ },
+ "lead 1-6h": {
+  "n": 15,
+  "move_open_to_close_pts": 0.41,
+  "before_flag_pts": 0.33,
+  "after_flag_pts": 0.07,
+  "share_after_flag": 0.18,
+  "flagged_side_already_moved_up_share": 0.2,
+  "record": "9-6",
+  "roi_at_poly_price": 10.9,
+  "clv_vs_pinnacle_close_pts": 0.34
+ },
+ "lead under 1h": {
+  "n": 22,
+  "move_open_to_close_pts": 0.78,
+  "before_flag_pts": 0.64,
+  "after_flag_pts": 0.14,
+  "share_after_flag": 0.18,
+  "flagged_side_already_moved_up_share": 0.23,
+  "record": "9-13",
+  "roi_at_poly_price": -21.9,
+  "clv_vs_pinnacle_close_pts": 0.48
+ },
+ "Pinnacle had already moved 1+ pt toward the side before the flag": {
+  "n": 12,
+  "move_open_to_close_pts": 3.29,
+  "before_flag_pts": 2.57,
+  "after_flag_pts": 0.72,
+  "share_after_flag": 0.22,
+  "flagged_side_already_moved_up_share": 1.0,
+  "record": "6-6",
+  "roi_at_poly_price": -6.3,
+  "clv_vs_pinnacle_close_pts": 0.76
+ },
+ "Pinnacle had not moved toward the side (flag first)": {
+  "n": 61,
+  "move_open_to_close_pts": 0.74,
+  "before_flag_pts": 0.03,
+  "after_flag_pts": 0.71,
+  "share_after_flag": 0.95,
+  "flagged_side_already_moved_up_share": 0.0,
+  "record": "36-25",
+  "roi_at_poly_price": 8.7,
+  "clv_vs_pinnacle_close_pts": 0.46
+ }
+}
