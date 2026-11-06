@@ -16,12 +16,14 @@ NICE = dict(pinnacle='Pinnacle', draftkings='DK', fanduel='FD', williamhill_us='
             circasports='Circa', bovada='Bovada', betmgm='BetMGM')
 # periods counted by each market: (first period index, number of periods) in the ESPN linescore
 PER = {'nba': dict(h1=(0, 2), q1=(0, 1)), 'nfl': dict(h1=(0, 2), q1=(0, 1)), 'cfb': dict(h1=(0, 2), q1=(0, 1)), 'wnba': dict(h1=(0, 2), q1=(0, 1)),
-       'cbb': dict(h1=(0, 1)), 'nhl': dict(p1=(0, 1), p2=(1, 1), p3=(2, 1))}
+       'cbb': dict(h1=(0, 1)), 'nhl': dict(p1=(0, 1), p2=(1, 1), p3=(2, 1)),
+       'mlb': {'1st_5_innings': (0, 5), '1st_1_innings': (0, 1), '1st_3_innings': (0, 3)}}
 EV_MIN = 0.03
 
 
 def season(sp, s):
     y, m = int(s[:4]), int(s[5:7])
+    if sp == 'mlb': return str(y)
     return str(y) if sp in ('nfl', 'cfb', 'wnba') and m >= 3 else str(y - 1) if sp in ('nfl', 'cfb') else (str(y) if m >= 8 else str(y - 1))
 
 
@@ -91,7 +93,7 @@ def main():
                 if imp_x <= 0 or imp_g <= 0: continue
                 v = v * imp_g / imp_x
             elif kind in ('spread', 'ml'):
-                frac = 1.0 if per is None else (PER[sp][per][1] / (4 if sp in ('nba', 'nfl', 'cfb', 'wnba') else 2 if sp == 'cbb' else 3))
+                frac = 1.0 if per is None else (PER[sp][per][1] / (4 if sp in ('nba', 'nfl', 'cfb', 'wnba') else 2 if sp == 'cbb' else 9 if sp == 'mlb' else 3))
                 v = v + (x['S'] - g['S']) * frac          # shift the period margin by the difference in full-game spread, scaled to the period
             vals.append(v)
         vals.sort(); cache[key] = vals

@@ -68,3 +68,9 @@ the derivative line. The live code replayed on the backtest data (leave-one-seas
   **Tier C, 0.25u.**
 - **cfb_tt_under_curve** (gap 5+, unders): stays paper (2025 -4.5%).
 - CFB first-half totals are not a rule: off the curve they were +1.2% at a 5-point gap and 2024 was -7.6%.
+
+## MLB (partial pull, 11/6 5am: 2,246 games of 7,111)
+First five innings (total, run line, moneyline), first inning, first three and team totals priced from the full-game total and run line:
+on the curve everywhere (curve weight z between -1.4 and +0.4; every off-curve slice -4% to -9%). As expected: the first five depends on
+the starters and the market prices them; the full-game number alone cannot see that. The MLB test that matters is the first five vs
+the full game WITH starter and bullpen quality (Bartolo's pitcher data), not the curve alone.

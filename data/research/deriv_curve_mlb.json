@@ -1,0 +1,452 @@
+{
+ "games": 2246,
+ "calibration": {
+  "spreads_1st_5_innings": {
+   "n": 1880,
+   "logloss_curve": 0.6975,
+   "logloss_pinnacle": 0.6751
+  },
+  "team_totals": {
+   "n": 4480,
+   "logloss_curve": 0.6948,
+   "logloss_pinnacle": 0.6885
+  },
+  "totals_1st_1_innings": {
+   "n": 2237,
+   "logloss_curve": 0.6955,
+   "logloss_pinnacle": 0.6898
+  },
+  "totals_1st_5_innings": {
+   "n": 2097,
+   "logloss_curve": 0.6977,
+   "logloss_pinnacle": 0.693
+  }
+ },
+ "blend": {
+  "spreads_1st_5_innings": {
+   "n": 1880,
+   "b_pinnacle": 1.111,
+   "c_curve": -0.094,
+   "z_curve": -0.77
+  },
+  "team_totals": {
+   "n": 4480,
+   "b_pinnacle": 1.273,
+   "c_curve": -0.02,
+   "z_curve": -0.15
+  },
+  "totals_1st_1_innings": {
+   "n": 2237,
+   "b_pinnacle": 1.537,
+   "c_curve": -0.416,
+   "z_curve": -1.38
+  },
+  "totals_1st_5_innings": {
+   "n": 2097,
+   "b_pinnacle": 0.505,
+   "c_curve": 0.108,
+   "z_curve": 0.44
+  }
+ },
+ "bets": {
+  "all": {
+   "n": 36915,
+   "w": 16690,
+   "l": 18496,
+   "roi": -6.5,
+   "ev": 10.4
+  },
+  "market h2h_1st_5_innings": {
+   "n": 7853,
+   "w": 3133,
+   "l": 3545,
+   "roi": -7.5,
+   "ev": 13.4
+  },
+  "book DK": {
+   "n": 3278,
+   "w": 1474,
+   "l": 1585,
+   "roi": -8.0,
+   "ev": 11.1
+  },
+  "edge 10%+": {
+   "n": 14648,
+   "w": 6137,
+   "l": 7584,
+   "roi": -6.9,
+   "ev": 17.2
+  },
+  "market h2h_1st_5_innings | book DK": {
+   "n": 1460,
+   "w": 580,
+   "l": 661,
+   "roi": -8.1,
+   "ev": 13.5
+  },
+  "market h2h_1st_5_innings | season 2025": {
+   "n": 7853,
+   "w": 3133,
+   "l": 3545,
+   "roi": -7.5,
+   "ev": 13.4
+  },
+  "longer price": {
+   "n": 10796,
+   "w": 4637,
+   "l": 5647,
+   "roi": -7.4,
+   "ev": 12.0
+  },
+  "book FD": {
+   "n": 5398,
+   "w": 2480,
+   "l": 2693,
+   "roi": -7.5,
+   "ev": 9.9
+  },
+  "market h2h_1st_5_innings | book FD": {
+   "n": 1566,
+   "w": 627,
+   "l": 714,
+   "roi": -7.9,
+   "ev": 13.3
+  },
+  "book BetRivers": {
+   "n": 7038,
+   "w": 3258,
+   "l": 3549,
+   "roi": -4.7,
+   "ev": 10.6
+  },
+  "market h2h_1st_5_innings | book BetRivers": {
+   "n": 1516,
+   "w": 604,
+   "l": 681,
+   "roi": -7.8,
+   "ev": 12.9
+  },
+  "main-ish price (1.70-2.30)": {
+   "n": 26119,
+   "w": 12053,
+   "l": 12849,
+   "roi": -6.1,
+   "ev": 9.8
+  },
+  "book BetOnline": {
+   "n": 6077,
+   "w": 2718,
+   "l": 3000,
+   "roi": -5.9,
+   "ev": 10.9
+  },
+  "market h2h_1st_5_innings | book BetOnline": {
+   "n": 1717,
+   "w": 679,
+   "l": 774,
+   "roi": -6.6,
+   "ev": 14.3
+  },
+  "book Caesars": {
+   "n": 4309,
+   "w": 1823,
+   "l": 2456,
+   "roi": -9.3,
+   "ev": 9.6
+  },
+  "market h2h_1st_5_innings | book Caesars": {
+   "n": 128,
+   "w": 55,
+   "l": 53,
+   "roi": -2.3,
+   "ev": 11.7
+  },
+  "market totals_1st_1_innings": {
+   "n": 2245,
+   "w": 1054,
+   "l": 1191,
+   "roi": -9.3,
+   "ev": 6.3
+  },
+  "edge 3-6%": {
+   "n": 11900,
+   "w": 5755,
+   "l": 5809,
+   "roi": -6.1,
+   "ev": 4.4
+  },
+  "market totals_1st_1_innings | book Caesars": {
+   "n": 317,
+   "w": 139,
+   "l": 178,
+   "roi": -13.0,
+   "ev": 6.1
+  },
+  "market totals_1st_1_innings | season 2025": {
+   "n": 2245,
+   "w": 1054,
+   "l": 1191,
+   "roi": -9.3,
+   "ev": 6.3
+  },
+  "book Bovada": {
+   "n": 4845,
+   "w": 2182,
+   "l": 2351,
+   "roi": -8.0,
+   "ev": 10.1
+  },
+  "market h2h_1st_5_innings | book Bovada": {
+   "n": 1466,
+   "w": 588,
+   "l": 662,
+   "roi": -7.8,
+   "ev": 13.0
+  },
+  "market spreads_1st_5_innings": {
+   "n": 4767,
+   "w": 2083,
+   "l": 2415,
+   "roi": -6.7,
+   "ev": 11.9
+  },
+  "market spreads_1st_5_innings | book Bovada": {
+   "n": 684,
+   "w": 301,
+   "l": 364,
+   "roi": -12.2,
+   "ev": 9.5
+  },
+  "market spreads_1st_5_innings | season 2025": {
+   "n": 4767,
+   "w": 2083,
+   "l": 2415,
+   "roi": -6.7,
+   "ev": 11.9
+  },
+  "book Pinnacle": {
+   "n": 5970,
+   "w": 2755,
+   "l": 2862,
+   "roi": -4.1,
+   "ev": 10.6
+  },
+  "market spreads_1st_5_innings | book Pinnacle": {
+   "n": 1720,
+   "w": 698,
+   "l": 772,
+   "roi": -4.7,
+   "ev": 14.8
+  },
+  "market totals_1st_1_innings | book Pinnacle": {
+   "n": 787,
+   "w": 366,
+   "l": 421,
+   "roi": -8.7,
+   "ev": 6.0
+  },
+  "market totals_1st_5_innings": {
+   "n": 3076,
+   "w": 1370,
+   "l": 1421,
+   "roi": -5.7,
+   "ev": 8.6
+  },
+  "market totals_1st_5_innings | book Pinnacle": {
+   "n": 1127,
+   "w": 513,
+   "l": 511,
+   "roi": -2.9,
+   "ev": 8.9
+  },
+  "market totals_1st_5_innings | season 2025": {
+   "n": 3076,
+   "w": 1370,
+   "l": 1421,
+   "roi": -5.7,
+   "ev": 8.6
+  },
+  "market team_totals": {
+   "n": 18368,
+   "w": 8746,
+   "l": 9622,
+   "roi": -5.9,
+   "ev": 9.7
+  },
+  "market team_totals | book DK": {
+   "n": 1818,
+   "w": 894,
+   "l": 924,
+   "roi": -7.9,
+   "ev": 9.2
+  },
+  "market team_totals | season 2025": {
+   "n": 18368,
+   "w": 8746,
+   "l": 9622,
+   "roi": -5.9,
+   "ev": 9.7
+  },
+  "edge 6-10%": {
+   "n": 10367,
+   "w": 4798,
+   "l": 5103,
+   "roi": -6.2,
+   "ev": 7.8
+  },
+  "market team_totals | book BetRivers": {
+   "n": 5174,
+   "w": 2472,
+   "l": 2702,
+   "roi": -4.1,
+   "ev": 10.2
+  },
+  "market team_totals | book BetOnline": {
+   "n": 1735,
+   "w": 866,
+   "l": 869,
+   "roi": -6.2,
+   "ev": 9.2
+  },
+  "market totals_1st_5_innings | book BetOnline": {
+   "n": 963,
+   "w": 433,
+   "l": 435,
+   "roi": -3.7,
+   "ev": 9.0
+  },
+  "market team_totals | book Pinnacle": {
+   "n": 2336,
+   "w": 1178,
+   "l": 1158,
+   "roi": -2.8,
+   "ev": 9.9
+  },
+  "market team_totals | book Bovada": {
+   "n": 1724,
+   "w": 864,
+   "l": 860,
+   "roi": -4.0,
+   "ev": 9.2
+  },
+  "market spreads_1st_5_innings | book FD": {
+   "n": 950,
+   "w": 455,
+   "l": 495,
+   "roi": -7.8,
+   "ev": 9.7
+  },
+  "market team_totals | book FD": {
+   "n": 1888,
+   "w": 914,
+   "l": 974,
+   "roi": -7.9,
+   "ev": 9.1
+  },
+  "market spreads_1st_5_innings | book Caesars": {
+   "n": 90,
+   "w": 43,
+   "l": 47,
+   "roi": 0.5,
+   "ev": 11.3
+  },
+  "market team_totals | book Caesars": {
+   "n": 3693,
+   "w": 1558,
+   "l": 2135,
+   "roi": -9.1,
+   "ev": 9.8
+  },
+  "market totals_1st_5_innings | book Caesars": {
+   "n": 59,
+   "w": 22,
+   "l": 27,
+   "roi": -15.9,
+   "ev": 10.6
+  },
+  "market spreads_1st_5_innings | book BetOnline": {
+   "n": 1323,
+   "w": 586,
+   "l": 737,
+   "roi": -5.9,
+   "ev": 11.1
+  },
+  "market totals_1st_5_innings | book Bovada": {
+   "n": 722,
+   "w": 310,
+   "l": 335,
+   "roi": -9.5,
+   "ev": 8.1
+  },
+  "market totals_1st_3_innings": {
+   "n": 606,
+   "w": 304,
+   "l": 302,
+   "roi": -4.7,
+   "ev": 6.2
+  },
+  "market totals_1st_3_innings | book FD": {
+   "n": 424,
+   "w": 221,
+   "l": 203,
+   "roi": -1.2,
+   "ev": 6.1
+  },
+  "market totals_1st_3_innings | season 2025": {
+   "n": 606,
+   "w": 304,
+   "l": 302,
+   "roi": -4.7,
+   "ev": 6.2
+  },
+  "market totals_1st_5_innings | book FD": {
+   "n": 205,
+   "w": 92,
+   "l": 113,
+   "roi": -13.8,
+   "ev": 6.5
+  },
+  "market totals_1st_1_innings | book FD": {
+   "n": 365,
+   "w": 171,
+   "l": 194,
+   "roi": -7.1,
+   "ev": 6.2
+  },
+  "market totals_1st_3_innings | book Caesars": {
+   "n": 22,
+   "w": 6,
+   "l": 16,
+   "roi": -50.1,
+   "ev": 9.7
+  },
+  "market totals_1st_1_innings | book BetOnline": {
+   "n": 339,
+   "w": 154,
+   "l": 185,
+   "roi": -7.0,
+   "ev": 7.1
+  },
+  "market totals_1st_1_innings | book Bovada": {
+   "n": 249,
+   "w": 119,
+   "l": 130,
+   "roi": -21.0,
+   "ev": 7.3
+  },
+  "market totals_1st_1_innings | book BetRivers": {
+   "n": 188,
+   "w": 105,
+   "l": 83,
+   "roi": 1.9,
+   "ev": 5.6
+  },
+  "market totals_1st_3_innings | book BetRivers": {
+   "n": 160,
+   "w": 77,
+   "l": 83,
+   "roi": -7.9,
+   "ev": 6.0
+  }
+ }
+}
