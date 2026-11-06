@@ -379,8 +379,8 @@ def main():
     # ---- summaries
     def summ(L):
         G_ = [b for b in L if b['won'] is not None]; cl = [b['clv'] for b in L if b.get('clv') is not None]
-        gain = [100 * (b['price'] - b['best']) for b in L if b.get('best') is not None]
-        later = [b for b in L if b.get('best') is not None and 100 * (b['price'] - b['best']) >= 1]
+        gain = [100 * (b['price'] - b['best']) for b in L if b.get('best') is not None and b.get('price') is not None]
+        later = [b for b in L if b.get('best') is not None and b.get('price') is not None and 100 * (b['price'] - b['best']) >= 1]
         nvc = [b['clv_nv'] for b in L if b.get('clv_nv') is not None]; lv = [b['line_value'] for b in L if b.get('line_value') is not None]; ed = [b['edge'] for b in L if b.get('edge') is not None]
         return dict(positions=len({b.get('position') or b['id'] for b in L}), clv_nv=round(sum(nvc) / len(nvc), 2) if nvc else None, clv_nv_n=len(nvc),
                     line_value=round(sum(lv) / len(lv), 2) if lv else None, edge=round(sum(ed) / len(ed), 2) if ed else None, n=len(L), graded=len(G_), w=sum(1 for b in G_ if b['won'] == 1), l=sum(1 for b in G_ if b['won'] == 0), p=sum(1 for b in G_ if b['won'] == 0.5),
