@@ -1,5 +1,5 @@
 {
- "built": "2026-11-06T23:33:30Z",
+ "built": "2026-11-06T23:40:24Z",
  "rows": [
   {
    "cond": "0x3677c251947318cc64698988355cb2bbb5fe9a20f8c18c9e614cacc719026338",
@@ -133,7 +133,7 @@
    "best_rank": 40,
    "usd": 349,
    "paid": 0.53,
-   "ask": 0.62,
+   "ask": 0.67,
    "status": "live",
    "link": "https://polymarket.us/event/nba-tor-mil-2026-11-06",
    "other": null,
@@ -166,14 +166,14 @@
    "bet": "Bucks ML",
    "side": "Bucks",
    "flagged": "2026-11-06T01:15:07Z",
-   "why": "2 top-200 accounts",
-   "proven": false,
+   "why": "3 top-200 accounts",
+   "proven": true,
    "trigger": "two",
-   "n_accounts": 2,
-   "best_rank": 40,
-   "usd": 807,
-   "paid": 0.28,
-   "ask": 0.37,
+   "n_accounts": 3,
+   "best_rank": 23,
+   "usd": 5693,
+   "paid": 0.382,
+   "ask": 0.4,
    "status": "live",
    "link": "https://polymarket.us/event/nba-tor-mil-2026-11-06",
    "other": null,
@@ -189,9 +189,9 @@
    "game_start": "2026-11-07T01:00Z",
    "side_std": "home",
    "money_with": false,
-   "grade": "B",
+   "grade": "A",
    "inside_fair": true,
-   "fair_board": 0.3144,
+   "fair_board": 0.3721,
    "books": {
     "at": "2026-11-06T22:57:38Z",
     "fair": 0.3721,
@@ -1210,7 +1210,7 @@
    "best_rank": 49,
    "usd": 22693,
    "paid": 0.529,
-   "ask": 0.54,
+   "ask": 0.53,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-was-atl-2026-11-06",
    "other": {
@@ -1219,7 +1219,7 @@
     "usd": 56962,
     "first": "2026-11-06T22:30:06Z"
    },
-   "exit_bid": 0.53,
+   "exit_bid": 0.51,
    "kalshi_against": null,
    "logged": true,
    "event_id": "401909287",
@@ -1644,9 +1644,9 @@
   },
   "401909292|ml": {
    "home": {
-    "n": 2,
-    "best_rank": 40,
-    "usd": 807
+    "n": 3,
+    "best_rank": 23,
+    "usd": 5693
    }
   },
   "401909293|ml": {
