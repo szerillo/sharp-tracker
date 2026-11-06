@@ -35,6 +35,13 @@ PROPS = {'nfl': 'player_pass_yds,player_pass_tds,player_pass_completions,player_
 # 11/6: --early N pulls the same markets N minutes before the start instead of 10 (does an off-curve edge exist when the live rules fire?)
 EARLY = int(sys.argv[sys.argv.index('--early') + 1]) if '--early' in sys.argv else None
 CURVE = {'cbb': 'totals,spreads,totals_h1', 'cfb': 'totals,spreads,totals_q1,team_totals', 'nhl': 'totals,spreads,totals_p3,spreads_p1'}
+# 11/6: the other quarters and the second half (books post them pregame; the CFB first-quarter edge suggests they are derived too)
+QUARTERS = {'nfl': 'totals,spreads,totals_q2,totals_q3,totals_q4,spreads_q2,spreads_q3,spreads_q4,totals_h2,spreads_h2',
+            'cfb': 'totals,spreads,totals_q2,totals_q3,totals_q4,spreads_q2,spreads_q3,spreads_q4,totals_h2,spreads_h2',
+            'nba': 'totals,spreads,totals_q2,totals_q3,totals_q4,spreads_q2,spreads_q3,spreads_q4,totals_h2,spreads_h2',
+            'wnba': 'totals,spreads,totals_q2,totals_q3,totals_q4,totals_h2',
+            'cbb': 'totals,spreads,totals_h2,spreads_h2'}
+if '--quarters' in sys.argv: PLAN = QUARTERS
 if '--curve' in sys.argv: PLAN = CURVE
 if '--full' in sys.argv: PLAN = FULL
 if '--props' in sys.argv: PLAN = PROPS
@@ -62,7 +69,7 @@ def get(url):
 
 def main():
     if not KEY: raise SystemExit('ODDS_API_KEY not set')
-    floor = int(arg('--floor', '12000')); sports = [a for a in sys.argv[1:] if a in PLAN]; suffix = '_full' if '--full' in sys.argv else '_props' if '--props' in sys.argv else '_curve' if '--curve' in sys.argv else ''
+    floor = int(arg('--floor', '12000')); sports = [a for a in sys.argv[1:] if a in PLAN]; suffix = '_full' if '--full' in sys.argv else '_props' if '--props' in sys.argv else '_curve' if '--curve' in sys.argv else '_quarters' if '--quarters' in sys.argv else ''
     if EARLY:      # 11/6: an early snapshot also carries the full-game total and spread of that moment (the curve is built from them)
         suffix = f'_early{EARLY}' if suffix == '_full' else suffix + f'_t{EARLY}m'
         if '--full' in sys.argv: PLAN.update({k: 'totals,spreads,' + v for k, v in PLAN.items() if not v.startswith('totals,spreads')})
