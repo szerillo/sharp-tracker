@@ -663,7 +663,7 @@ def main():
         if not isinstance(f, dict) or not f.get('fill_id') or f.get('void') or f.get('stacked') or f['fill_id'] in shown: continue
         ev_ = k.split(':')[0]
         row = conn.execute("SELECT sport, start_utc, away, home FROM events WHERE event_id=?", (ev_,)).fetchone()
-        if not row or N.parse_ts(row[1]) <= NOW: continue
+        if not row or N.parse_ts(row[1]) <= NOW - dt.timedelta(hours=4): continue      # 11/5 (Sean): placed bets stay on the board 4h into the game, shown as In progress
         g = byev.get(ev_)
         if g is None:
             g = dict(event_id=ev_, away=row[2], home=row[3], start_utc=row[1], hours_to_kickoff=round((N.parse_ts(row[1]) - NOW).total_seconds() / 3600, 1),
