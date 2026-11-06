@@ -1,5 +1,5 @@
 {
- "built": "2026-11-06T00:23:12Z",
+ "built": "2026-11-06T00:29:36Z",
  "rows": [
   {
    "cond": "0x0b5d6a629f7efadf848bab61ce565c54a7f25c3a058d864010c83809ab190021",
@@ -17,7 +17,7 @@
    "best_rank": 58,
    "usd": 460,
    "paid": 0.54,
-   "ask": 0.55,
+   "ask": 0.56,
    "status": "live",
    "link": "https://polymarket.us/event/cfb-utsa-flatl-2026-11-05",
    "other": null,
@@ -192,6 +192,43 @@
    "home_name": "Baltimore Ravens",
    "game_start": "2026-11-06T01:15Z",
    "side_std": "under",
+   "money_with": true,
+   "grade": "A",
+   "fair_board": null,
+   "inside_fair": null,
+   "books": null
+  },
+  {
+   "cond": "0x87c947c00afd510ebd276ada65e38cca370671584e93cf49864635083341eed8",
+   "slug": "nfl-jax-bal-2026-11-06",
+   "title": "Jaguars vs. Ravens",
+   "mtype": "spread",
+   "start": "2026-11-06T01:15:00Z",
+   "bet": "Ravens +3.5",
+   "side": "Ravens",
+   "flagged": "2026-11-06T00:25:21Z",
+   "why": "a top-200 account also in this sport's top 50",
+   "proven": true,
+   "trigger": "proven",
+   "n_accounts": 1,
+   "best_rank": 143,
+   "usd": 9740,
+   "paid": 0.28,
+   "ask": 0.29,
+   "status": "live",
+   "link": "https://polymarket.us/event/nfl-jax-bal-2026-11-06",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401873037",
+   "sport": "nfl",
+   "league": null,
+   "away": "JAX",
+   "home": "BAL",
+   "away_name": "Jacksonville Jaguars",
+   "home_name": "Baltimore Ravens",
+   "game_start": "2026-11-06T01:15Z",
+   "side_std": "home",
    "money_with": true,
    "grade": "A",
    "fair_board": null,
@@ -725,9 +762,9 @@
  "sys_tags": {
   "401873037:bounce15_1h": {
    "with": {
-    "n": 1,
-    "best_rank": 182,
-    "usd": 296
+    "n": 2,
+    "best_rank": 143,
+    "usd": 10036
    },
    "against": {
     "n": 1,
@@ -737,9 +774,9 @@
   },
   "401873037:nfl_home_dog_7510": {
    "with": {
-    "n": 1,
-    "best_rank": 182,
-    "usd": 296
+    "n": 2,
+    "best_rank": 143,
+    "usd": 10036
    },
    "against": {
     "n": 1,
@@ -779,9 +816,9 @@
     "usd": 116
    },
    "home": {
-    "n": 1,
-    "best_rank": 182,
-    "usd": 296
+    "n": 2,
+    "best_rank": 143,
+    "usd": 10036
    }
   },
   "401873037|total": {
