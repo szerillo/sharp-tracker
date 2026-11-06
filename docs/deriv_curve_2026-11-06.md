@@ -1,0 +1,32 @@
+# Derivatives on the curve (11/6/2026)
+
+Sean: assume markets are efficient; look for spots where derivative prices sit off the curve implied by the full-game numbers, the
+way the tennis first-set work did. Script `sharp/deriv_curve.py`, results `data/research/deriv_curve_<sport>.json`.
+
+## Method
+For each game, every derivative outcome (first-half / first-quarter / period totals and spreads, period moneylines, team totals, every
+line offered, Pinnacle and the US books, 10 minutes before the start) is priced from Pinnacle's FULL-GAME close alone: the outcome among
+past games with a similar full-game total and spread, scaled to this game's numbers, leave-one-season-out. Then two questions:
+1. Does that curve price add anything to Pinnacle's own derivative price? Logistic blend on Pinnacle's two-sided lines:
+   logit(result) ~ Pinnacle + curve. A curve weight reliably above zero means the derivative is mispriced relative to the full game.
+2. Graded bets where a book is 3%+ better than the curve price.
+
+## Result: derivatives are on the curve almost everywhere
+- Pinnacle's derivative prices beat the curve on log loss in every market of every sport (NFL, NBA, NHL, CFB, CBB, WNBA). The books
+  know more about how a game splits than the full-game number does, so the books' prices off our curve are mostly our curve's error:
+  "3%+ better than the curve" bets lose 3-7% everywhere.
+- Curve weight in the blend is indistinguishable from zero (|z| under 1.6) in 27 of 28 markets.
+- The one exception: **CFB team totals** (curve weight +0.40, z +3.0, n 4,340; Pinnacle's own weight only +0.42). Betting the side the
+  curve prefers when it disagrees with Pinnacle's no-vig team total by 5+ points: 844-756, +3.6% at Pinnacle's own price (n 1,600;
+  2023 +7.0%, 2024 +5.7%, 2025 -0.3%). Gap 8+: unders 194-154 (+7.7%).
+- NFL team totals point the same way (curve weight +0.35, z +1.6): gap 8+ points 165-119, +14.3% (n 284; 2023 +19%, 2024 +32%,
+  2025 flat), almost all overs.
+
+## Reading
+Mechanism for the football exception: team totals are derived from the spread and total, but football team scoring is lumpy (3s and
+7s, key totals at 17, 20, 24, 27), so a derived team total can sit off the real distribution in a way a points-share model does not.
+Every other derivative tracks the full game as well as the full game itself is priced. Next:
+- Paper: CFB and NFL team totals where the curve disagrees with Pinnacle by 5+ (CFB) / 8+ (NFL) points, best price at the US books.
+- A better curve before calling anything else efficient: more seasons (ESPN period scores back to 2020 for the curve history only),
+  and key-number aware scoring distributions for football.
+- The earlier-snapshot pull (research agenda section 4): derivatives may sit off the curve hours before the start and be fixed by kickoff.
