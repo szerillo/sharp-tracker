@@ -33,18 +33,36 @@ def g(u, tries=6):
     return None
 
 
+def shards(path):
+    """11/6: trades.jsonl.gz plus trades_2.jsonl.gz ... (the repair grew the single file to 129 MB, over GitHub's 100 MB limit, and the push failed)"""
+    import glob
+    b = path[:-len('.jsonl.gz')]
+    return [p for p in [path] + sorted(glob.glob(b + '_*.jsonl.gz'), key=lambda x: int(x[len(b) + 1:-len('.jsonl.gz')])) if os.path.exists(p)]
+
+
+def shard_for_append(path, limit=80e6):
+    S = shards(path)
+    if not S: return path
+    last = S[-1]
+    if os.path.getsize(last) < limit: return last
+    b = path[:-len('.jsonl.gz')]; return f"{b}_{len(S) + 1}.jsonl.gz"
+
+
 def have(path, key):
     s = set()
-    if os.path.exists(path):
-        with gzip.open(path, 'rt') as fh:
-            for l in fh:
-                try: s.add(json.loads(l)[key])
-                except Exception: pass
+    for p in shards(path):
+        try:
+            with gzip.open(p, 'rt') as fh:
+                for l in fh:
+                    try: s.add(json.loads(l)[key])
+                    except Exception: pass
+        except (EOFError, OSError): pass
     return s
 
 
 def append(path, rows):
     if not rows: return
+    path = shard_for_append(path) if path.endswith('trades.jsonl.gz') else path
     with gzip.open(path, 'at') as fh:
         for r in rows: fh.write(json.dumps(r, separators=(',', ':')) + '\n')
 
@@ -58,13 +76,13 @@ def trade_row(ticker, x):
 def priceless(path):
     """Tickers whose stored tape has rows but no prices (pulled before the field rename, 11/5): re-pulled by --repair, budget permitting."""
     bad, good = set(), set()
-    if not os.path.exists(path): return bad
-    with gzip.open(path, 'rt') as fh:
-        for l in fh:
-            try: r = json.loads(l)
-            except Exception: continue
-            if r.get('empty'): continue
-            (good if r.get('yes') is not None else bad).add(r['ticker'])
+    for p in shards(path):
+        with gzip.open(p, 'rt') as fh:
+            for l in fh:
+                try: r = json.loads(l)
+                except Exception: continue
+                if r.get('empty'): continue
+                (good if r.get('yes') is not None else bad).add(r['ticker'])
     return bad - good
 
 
