@@ -34,6 +34,9 @@ def stat(sp, mk, p):
             gl, a = g('forwards.goals', 'defenses.goals'), g('forwards.assists', 'defenses.assists')
             return None if gl is None or a is None else gl + a
         return M.get(mk)
+    if sp == 'soccer':
+        if not p.get('appearances'): return None          # did not play: void
+        return {'player_goal_scorer_anytime': g('totalGoals'), 'player_shots_on_target': g('shotsOnTarget'), 'player_shots': g('totalShots'), 'player_assists': g('goalAssists')}.get(mk)
     if sp == 'nfl':
         cmp_ = str(p.get('passing.completions/passingAttempts', '')).split('/')
         M = {'player_pass_yds': g('passing.passingYards'), 'player_pass_tds': g('passing.passingTouchdowns'), 'player_pass_interceptions': g('passing.interceptions'),
@@ -53,6 +56,23 @@ def nm(s):
     s = re.sub(r'\b(jr|sr|ii|iii|iv)\b', '', s); return re.sub(r'[^a-z]', '', s)
 
 
+def toks(s):
+    s = unicodedata.normalize('NFKD', s or '').encode('ascii', 'ignore').decode().lower()
+    return [t for t in re.findall(r'[a-z]+', s) if t not in ('jr', 'sr', 'ii', 'iii', 'iv', 'de', 'da', 'van', 'der', 'dos', 'del')]
+
+
+def fuzzy(box, name):
+    """Vendor names carry full legal names ('Martin Zubimendi Ibanez'); ESPN uses the common one. Match when every ESPN token is in the
+    vendor name, or surname + first initial match; only when exactly one player fits."""
+    if not name: return None
+    vt = toks(name)
+    if not vt: return None
+    c = [v for v in box.values() if toks(v.get('_name')) and set(toks(v['_name'])) <= set(vt)]
+    if len(c) == 1: return c[0]
+    c = [v for v in box.values() if toks(v.get('_name')) and toks(v['_name'])[-1] in vt and toks(v['_name'])[0][0] == vt[0][0]]
+    return c[0] if len(c) == 1 else None
+
+
 def main():
     sp = sys.argv[1]; path = sys.argv[2] if len(sys.argv) > 2 else os.path.join(ROOT, 'data', 'oddsapi', 'derivs', f'{sp}_props.jsonl.gz')
     conn = sqlite3.connect(os.path.join(ROOT, 'data', 'oddsapi', 'odds.sqlite'))
@@ -61,7 +81,7 @@ def main():
     for l in lines(os.path.join(ROOT, 'data', 'boxscores', f'{sp}.jsonl.gz')):
         try: d = json.loads(l)
         except Exception: continue
-        BOX[str(d['event_id'])] = {nm(k): v for k, v in d['players'].items()}
+        BOX[str(d['event_id'])] = {nm(k): dict(v, _name=k) for k, v in d['players'].items()}
     H = collections.defaultdict(list); nb = collections.Counter()
     for l in lines(path):
         try: d = json.loads(l)
@@ -69,15 +89,19 @@ def main():
         box = BOX.get(ESPN.get(d['game_id'], ''))
         if not box or not d.get('bookmakers'): nb['no box'] += 1; continue
         season = d['start'][:4]
-        Q = collections.defaultdict(dict)          # (market, player) -> book -> {(side, line): price}
+        Q = collections.defaultdict(dict); desc = {}          # (market, player) -> book -> {(side, line): price}
         for b in d['bookmakers']:
             for m in b['markets']:
                 for o in m['outcomes']:
+                    if m['key'] == 'player_goal_scorer_anytime' and o['name'] in ('Yes', 'No'):       # anytime scorer = over / under 0.5 goals
+                        o = dict(o, name='Over' if o['name'] == 'Yes' else 'Under', point=0.5)
                     if o.get('point') is None or o['name'] not in ('Over', 'Under'): continue
+                    desc[(m['key'], nm(o.get('description')))] = o.get('description')
                     Q[(m['key'], nm(o.get('description')))][b['key']] = Q[(m['key'], nm(o.get('description')))].get(b['key'], {})
                     Q[(m['key'], nm(o.get('description')))][b['key']][(o['name'].lower(), o['point'])] = o['price']
         for (mk, pl), books in Q.items():
             p = box.get(pl)
+            if p is None: p = fuzzy(box, desc.get((mk, pl)))
             if p is None: nb['player not in box'] += 1; continue
             v = stat(sp, mk, p)
             if v is None: nb['no stat ' + mk] += 1; continue
