@@ -339,6 +339,18 @@ def main():
                               logged=dt.datetime.fromtimestamp(NOW, dt.timezone.utc).strftime('%Y-%m-%dT%H:%M:%SZ'), price=a, why=row['why'], best_rank=row['best_rank'],
                               kalshi_against=bool(row['kalshi_against'])))
             logged.add(cond); row['logged'] = True
+    # 11/6 (Sean): a logged flag that later grades higher (more accounts pile in, a sport-proven account joins) shows on the board at the new
+    # grade and size, so the record takes it at that grade too, at the ask when the upgrade is first seen (the first ask is kept)
+    RK = {'A': 0, 'B': 1, 'watch': 2}; PP = {p['cond']: p for p in paper}
+    up = [r for r in rows if r['cond'] in PP and not PP[r['cond']].get('result') and epoch(r['start']) > NOW and r.get('ask')]
+    if up:
+        map_rows(up); conflicts(up)
+        for r in up:
+            p = PP[r['cond']]
+            if RK.get(r.get('grade'), 9) < RK.get(p.get('grade'), 9):
+                p.setdefault('first', dict(grade=p.get('grade'), price=p['price'], logged=p['logged'], why=p.get('why')))
+                p.update(grade=r['grade'], price=r['ask'], why=r['why'], logged=dt.datetime.fromtimestamp(NOW, dt.timezone.utc).strftime('%Y-%m-%dT%H:%M:%SZ'), venues=venue_prices(r))
+                print(f"[sharp_live] upgraded {p['slug']} {p['bet']}: {p['first']['grade']} -> {p['grade']} at {r['ask']}")
     # grade paper rows after the game: result from Gamma, CLV vs Polymarket's two-sided close
     for p in paper:
         if p.get('result') or epoch(p['start']) > NOW - 3 * 3600: continue
