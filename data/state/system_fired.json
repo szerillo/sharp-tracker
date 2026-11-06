@@ -2422,7 +2422,9 @@
 "price": 117,
 "fair": 0.43,
 "edge_pts": -3.0,
-"why": "home NYI lost its last game by 4, record 7-7 (50%): home moneyline (mined angle)"
+"why": "home NYI lost its last game by 4, record 7-7 (50%): home moneyline (mined angle)",
+"void": true,
+"void_why": "trigger no longer holds on current season records (2026-11-06T03:11:11Z)"
 },
 "401892666:nhl_early_home_fav_qual": {
 "tag": "nhl_early_home_fav_qual",
@@ -2608,5 +2610,44 @@
 "fair": 0.415,
 "loss": 0.0009
 }
+},
+"401909290:nba_ats_hot_home": {
+"tag": "nba_ats_hot_home",
+"fill_id": "030155cd3271",
+"ts": "2026-11-06T03:11:11Z",
+"market": "spread",
+"side": "home",
+"line": -6.5,
+"venue": "FD",
+"price": -115,
+"fair": 0.51609,
+"edge_pts": -1.88,
+"why": "home DAL covers 62% of spreads this season (8 games), 2 days rest: home spread (mined angle)"
+},
+"401909291:nba_ats_hot_home": {
+"tag": "nba_ats_hot_home",
+"fill_id": "9e2522308336",
+"ts": "2026-11-06T03:11:11Z",
+"market": "spread",
+"side": "home",
+"line": 3.5,
+"venue": "FD",
+"price": -102,
+"fair": 0.48771,
+"edge_pts": -1.72,
+"why": "home MEM covers 75% of spreads this season (8 games), 2 days rest: home spread (mined angle)"
+},
+"401909292:nba_under_good_home_over": {
+"tag": "nba_under_good_home_over",
+"fill_id": "6128e4a1a95a",
+"ts": "2026-11-06T03:11:11Z",
+"market": "total",
+"side": "under",
+"line": 230.5,
+"venue": "FD",
+"price": -110,
+"fair": 0.5,
+"edge_pts": -2.38,
+"why": "home MIL over rate 62%, days since last game: home 2, visitor 2; total 231.5 -> 230.5"
 }
 }
