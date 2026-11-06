@@ -1,5 +1,5 @@
 {
- "built": "2026-11-06T20:53:45Z",
+ "built": "2026-11-06T21:01:13Z",
  "rows": [
   {
    "cond": "0x3677c251947318cc64698988355cb2bbb5fe9a20f8c18c9e614cacc719026338",
@@ -260,7 +260,7 @@
    "best_rank": 58,
    "usd": 470,
    "paid": 0.53,
-   "ask": 0.53,
+   "ask": 0.55,
    "status": "live",
    "link": "https://polymarket.us/event/cfb-nebr-ill-2026-11-06",
    "other": null,
@@ -454,7 +454,7 @@
    "best_rank": 116,
    "usd": 1505,
    "paid": 0.45,
-   "ask": 0.47,
+   "ask": 0.46,
    "status": "live",
    "link": "https://polymarket.us/event/cfb-ala-lsu-2026-11-07",
    "other": null,
@@ -892,7 +892,7 @@
    "best_rank": 43,
    "usd": 402,
    "paid": 0.37,
-   "ask": 0.4,
+   "ask": 0.41,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-min-nop-2026-11-06",
    "other": {
@@ -901,7 +901,7 @@
     "usd": 424,
     "first": "2026-11-06T20:33:18Z"
    },
-   "exit_bid": 0.39,
+   "exit_bid": 0.4,
    "kalshi_against": null,
    "logged": true,
    "event_id": "401909293",
@@ -916,7 +916,7 @@
    "money_with": false,
    "grade": "watch",
    "fair_board": 0.4011,
-   "inside_fair": true,
+   "inside_fair": false,
    "books": null
   },
   {
@@ -1100,6 +1100,22 @@
     "usd": 689
    }
   },
+  "401892662:nhl_early_home_fav_qual": {
+   "with": null,
+   "against": {
+    "n": 1,
+    "best_rank": 132,
+    "usd": 179
+   }
+  },
+  "401909290:nba_ats_hot_home": {
+   "with": null,
+   "against": {
+    "n": 1,
+    "best_rank": 112,
+    "usd": 8219
+   }
+  },
   "401909291:nba_ats_hot_home": {
    "with": null,
    "against": {
@@ -1233,6 +1249,13 @@
     "usd": 846
    }
   },
+  "401909290|spread": {
+   "away": {
+    "n": 1,
+    "best_rank": 112,
+    "usd": 8219
+   }
+  },
   "401909291|ml": {
    "away": {
     "n": 3,
@@ -1334,6 +1357,13 @@
     "n": 1,
     "best_rank": 132,
     "usd": 130
+   }
+  },
+  "401892662|ml": {
+   "away": {
+    "n": 1,
+    "best_rank": 132,
+    "usd": 179
    }
   },
   "401858510|total": {
