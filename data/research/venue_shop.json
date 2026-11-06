@@ -1,0 +1,93 @@
+{
+ "n": 1008,
+ "ev_by_venue": {
+  "Novig": {
+   "n": 776,
+   "ev": -0.45
+  },
+  "Kalshi": {
+   "n": 880,
+   "ev": -4.8
+  },
+  "Polymarket": {
+   "n": 0,
+   "ev": null
+  },
+  "FD": {
+   "n": 770,
+   "ev": -4.44
+  },
+  "Caesars": {
+   "n": 650,
+   "ev": -4.53
+  },
+  "DK": {
+   "n": 806,
+   "ev": -4.37
+  }
+ },
+ "best_venue_share": {
+  "Novig": 73.2,
+  "Kalshi": 4.2,
+  "Polymarket": 0.0,
+  "FD": 8.8,
+  "Caesars": 6.5,
+  "DK": 7.2
+ },
+ "same_sides": {
+  "n": 786,
+  "best_of_all": -1.02,
+  "best_of_books": -3.43,
+  "novig_only": -0.46,
+  "dk_only": -4.36,
+  "best_exchange": -1.41
+ },
+ "best_venue_share ml": {
+  "Novig": 75.8,
+  "Kalshi": 3.8,
+  "Polymarket": 0.0,
+  "FD": 8.9,
+  "Caesars": 6.2,
+  "DK": 5.3
+ },
+ "ev_by_venue ml": {
+  "Novig": 0.07,
+  "Kalshi": -4.66,
+  "Polymarket": null,
+  "FD": -4.14,
+  "Caesars": -4.48,
+  "DK": -4.34
+ },
+ "best_venue_share spread": {
+  "Novig": 67.8,
+  "Kalshi": 3.9,
+  "Polymarket": 0.0,
+  "FD": 8.4,
+  "Caesars": 8.7,
+  "DK": 11.1
+ },
+ "ev_by_venue spread": {
+  "Novig": -0.8,
+  "Kalshi": -4.92,
+  "Polymarket": null,
+  "FD": -4.82,
+  "Caesars": -4.49,
+  "DK": -4.37
+ },
+ "best_venue_share total": {
+  "Novig": 76.0,
+  "Kalshi": 5.0,
+  "Polymarket": 0.0,
+  "FD": 9.3,
+  "Caesars": 4.3,
+  "DK": 5.4
+ },
+ "ev_by_venue total": {
+  "Novig": -0.92,
+  "Kalshi": -4.9,
+  "Polymarket": null,
+  "FD": -4.58,
+  "Caesars": -4.65,
+  "DK": -4.45
+ }
+}
