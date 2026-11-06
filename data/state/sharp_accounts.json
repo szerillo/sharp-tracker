@@ -1,5 +1,5 @@
 {
- "built": "2026-11-06T16:27:25Z",
+ "built": "2026-11-06T16:34:27Z",
  "rows": [
   {
    "cond": "0x81b63770a7d779d9d73737f06a0e6f974c78f8dfd5695f7d13ca8f30a5994270",
@@ -186,6 +186,55 @@
    }
   },
   {
+   "cond": "0x8bb93663412ba530909d0ea856db4a7fa15ad0524a5eb20622f1b0a2ea75a7d0",
+   "slug": "nba-uta-dal-2026-11-06",
+   "title": "Jazz vs. Mavericks",
+   "mtype": "total",
+   "start": "2026-11-07T01:00:00Z",
+   "bet": "Over 226.5",
+   "side": "Over",
+   "flagged": "2026-11-06T16:29:48Z",
+   "why": "2 top-200 accounts",
+   "proven": false,
+   "trigger": "two",
+   "n_accounts": 2,
+   "best_rank": 115,
+   "usd": 1851,
+   "paid": 0.509,
+   "ask": 0.5,
+   "status": "live",
+   "link": "https://polymarket.us/event/nba-uta-dal-2026-11-06",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401909290",
+   "sport": "nba",
+   "league": null,
+   "away": "UTAH",
+   "home": "DAL",
+   "away_name": "Utah Jazz",
+   "home_name": "Dallas Mavericks",
+   "game_start": "2026-11-07T01:00Z",
+   "side_std": "over",
+   "conflict": [
+    "Kalshi bet back",
+    "Kalshi move",
+    "big money"
+   ],
+   "money_with": false,
+   "grade": "B",
+   "fair_board": null,
+   "inside_fair": null,
+   "books": {
+    "at": "2026-11-06T03:44:54Z",
+    "fair": null,
+    "q": {
+     "DK": 0.5327,
+     "FD": 0.5327
+    }
+   }
+  },
+  {
    "cond": "0xadf95854a69a4543114a30307ae3cb1dd1a0a8726556610c5bfb104945451369",
    "slug": "nba-uta-dal-2026-11-06",
    "title": "Jazz vs. Mavericks",
@@ -201,7 +250,7 @@
    "best_rank": 58,
    "usd": 8067,
    "paid": 0.481,
-   "ask": 0.47,
+   "ask": 0.46,
    "status": "live",
    "link": "https://polymarket.us/event/nba-uta-dal-2026-11-06",
    "other": null,
@@ -911,9 +960,9 @@
   },
   "401909290|total": {
    "over": {
-    "n": 2,
+    "n": 3,
     "best_rank": 58,
-    "usd": 720
+    "usd": 846
    }
   },
   "401909291|ml": {
