@@ -7,7 +7,7 @@ import os, sys, json, time, sqlite3, urllib.request, collections, datetime as dt
 from zoneinfo import ZoneInfo
 HERE = os.path.dirname(os.path.abspath(__file__)); ROOT = os.path.abspath(os.path.join(HERE, '..'))
 DB = os.path.join(ROOT, 'data', 'oddsapi', 'odds.sqlite'); OUT = os.path.join(ROOT, 'data', 'state', 'linescores.json')
-LG = {'nfl': 'football/nfl', 'nba': 'basketball/nba', 'cfb': 'football/college-football', 'nhl': 'hockey/nhl', 'cbb': 'basketball/mens-college-basketball', 'mlb': 'baseball/mlb'}
+LG = {'nfl': 'football/nfl', 'nba': 'basketball/nba', 'cfb': 'football/college-football', 'nhl': 'hockey/nhl', 'cbb': 'basketball/mens-college-basketball', 'mlb': 'baseball/mlb', 'wnba': 'basketball/wnba'}
 ET = ZoneInfo('America/New_York')
 
 
