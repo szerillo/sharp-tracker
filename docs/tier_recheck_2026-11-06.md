@@ -59,3 +59,8 @@ partly fits. Added 11/6: an edge that exists only at its exact thresholds is at 
 - Paper to C at 0.25u: nba_badteams_under, nba_ats_hot_home, nba_bigfav_over, nhl_skid_fade_road. All are positive in 5 or 6 of 6 seasons since 2020 and hold at neighbouring thresholds; none has support before 2020 at Bet Labs, so none goes to B.
 - cfb_day_over: the best numbers of any paper rule (7 of 7, +14%), held back only by the missing mechanism.
 - Nothing earns tier A beyond the two wind rules and CFB Q1 unders. nhl_early_home_fav_qual is the next in line (robust, 6 of 6) but its all-time Bet Labs record is only +3.0%.
+
+## Applied (Sean, 6:17 PM)
+- nba_badteams_under, nba_ats_hot_home, nba_bigfav_over, nhl_skid_fade_road: paper to tier C, 0.25u. Their Bet Labs screens renamed from Tracked: to Tested: (1799442, 1799432, 1799443 and the visitor copy 1799444, 1799431).
+- cfb_day_over stays paper. Its pre-2020 Bet Labs sample is about 585-620 (2005-19, the 2-7pm cut), and all-time 886-853 is flat: the edge exists only since 2020.
+- Everything else on paper stays paper.
