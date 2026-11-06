@@ -1,5 +1,5 @@
 {
- "built": "2026-11-06T17:03:11Z",
+ "built": "2026-11-06T17:11:20Z",
  "rows": [
   {
    "cond": "0x81b63770a7d779d9d73737f06a0e6f974c78f8dfd5695f7d13ca8f30a5994270",
@@ -841,6 +841,14 @@
   "clv_poly_same": -1.81
  },
  "sys_tags": {
+  "401873042:awfuldog": {
+   "with": {
+    "n": 1,
+    "best_rank": 58,
+    "usd": 440
+   },
+   "against": null
+  },
   "401858289:cfb_day_over": {
    "with": {
     "n": 1,
@@ -880,6 +888,13 @@
     "n": 1,
     "best_rank": 137,
     "usd": 150
+   }
+  },
+  "401873042|spread": {
+   "home": {
+    "n": 1,
+    "best_rank": 58,
+    "usd": 440
    }
   },
   "401873043|ml": {
