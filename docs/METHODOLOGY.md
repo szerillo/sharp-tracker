@@ -4,7 +4,7 @@ The standing process for the sharp tracker (szerillo/sharp-tracker). This is the
 tests behind each line. Updated when a rule or gate changes, with the date.
 
 ## 1. Sizing and tiers
-- Unit $500. Tier A and B systems and sharp flags 0.5u; tier C leans 0.25u (including NBA threes unders at a 2%+ price gap to Pinnacle, and CBB first-half totals off the full-game curve, 11/6); CFB first-quarter unders off the curve are tier B (0.5u, 11/6); tennis settled hot favourite is tier B (0.5u); MMA steam
+- Unit $500. Tier A and B systems and sharp flags 0.5u; tier C leans 0.25u (including NBA threes unders at a 2%+ price gap to Pinnacle, and CBB first-half totals off the full-game curve, 11/6); CFB first-quarter unders off the curve are tier A (0.5u; Sean's call 11/6 on 3 seasons, 2023-25, every one +10% or better); tennis settled hot favourite is tier B (0.5u); MMA steam
   tier C. Paper (P) rows are logged and graded at 0 units.
 - Tier A: a Bet Labs rule with a long positive history (2003-on), positive on both Bet Labs halves and 5+ of 6 recent seasons, and a
   stated reason (weather). Tier B: positive in Bet Labs' 2003-19 window AND in 2020-26 at Pinnacle's close, plus a reason. Tier C: a

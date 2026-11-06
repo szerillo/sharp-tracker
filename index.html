@@ -804,7 +804,7 @@ function renderToday() {
     const what = r.market === 'totals_h1' ? '1H total' : r.market === 'totals_q1' ? '1Q total' : `${esc(r.team_name || '')} team total`;
     return sRow({id: `cv|${r.key}`, start: r.start, sportLabel: (r.sport || '').toUpperCase(), game: esc(r.game), bet: `${r.side === 'over' ? 'Over' : 'Under'} ${r.line} ${what}`,
       sub: `${(CVN[r.rule] || [r.rule])[0]} · ${live ? 'tier ' + r.tier : 'paper'}`, gone: !live, status: live ? null : ['gone', 'Paper: no units until it has a forward record'],
-      size: live ? unitText(r.tier === 'B' ? SLIP.big : SLIP.small, 1 / pr) : '', price: `<b>${toAm(1 / pr)}</b> <span class="small dim">${r.book ? VS(r.book) : 'Pinnacle'}</span>`, link: r.book ? betLink(r.book, r.espn, 'total') : '',
+      size: live ? unitText(['A', 'B'].includes(r.tier) ? SLIP.big : SLIP.small, 1 / pr) : '', price: `<b>${toAm(1 / pr)}</b> <span class="small dim">${r.book ? VS(r.book) : 'Pinnacle'}</span>`, link: r.book ? betLink(r.book, r.espn, 'total') : '',
       why: `The full game (total ${r.full_total}, home ${r.full_spread > 0 ? '+' : ''}${r.full_spread}) puts the ${r.side} at ${(100 * r.curve).toFixed(1)}%; Pinnacle's no-vig is ${(100 * r.pin_fair).toFixed(1)}% (${r.gap} points off the curve)`,
       rec: lbl('Backtest', (CVN[r.rule] || ['', ''])[1]) + ' ' + lbl('Tracker', CVr && CVr.n ? `${CVr.won}-${CVr.lost}, ${CVr.units > 0 ? '+' : ''}${CVr.units}u` : 'no graded picks yet'),
       detail: facts([['Rule', 'Derivatives off the curve (docs/deriv_curve_2026-11-06.md): past games with a similar full-game total and spread, scaled to this game, price the period / team total; a bet when Pinnacle\'s no-vig on that line is off by the rule\'s gap, on the side the curve prefers, inside 3 hours of the start.']])}); };
@@ -820,7 +820,7 @@ function renderToday() {
       detail: facts([['Rule', 'Stale-book lean (docs/stale_books_2026-11-06.md): a bettable venue (Novig, Kalshi with fee, Polymarket, FD, Caesars, DK) 2%+ better than Pinnacle\'s no-vig fair at the same number, right after Pinnacle moved 1+ point toward the side, price under +200; one lean per side at the best venue. Paper until it has a forward record.']])}); };
   const SL = (window._SL && window._SL.rows || []).filter(r => future(r.start) && passW(r.start) && passS(r.sport, r.sport));
   const paperOnlyExtra = [...KF.map(kRow), ...SL.map(slRow), ...PL.filter(r => !plLive(r)).map(plRow), ...CV.filter(r => r.tier === 'P').map(cvRow)];
-  const sysRows = [...vet.map(sysRow), ...THb.map(hRow), ...CV.filter(r => r.tier === 'B').map(cvRow)];
+  const sysRows = [...vet.map(sysRow), ...THb.map(hRow), ...CV.filter(r => ['A', 'B'].includes(r.tier)).map(cvRow)];
   const H = (t, meta) => `<div class="hdr2"><h2>${t}</h2><span class="meta">${meta}</span></div>`;
   window._sec = window._sec || 'all';
   const secBar = `<span class="tabs inline">${[['all', 'All'], ['sharp', 'Sharp'], ['systems', 'Systems']].map(([k, l]) => `<button class="${_sec === k ? 'on' : ''}" onclick="_sec='${k}';draw()">${l}</button>`).join('')}</span>`;

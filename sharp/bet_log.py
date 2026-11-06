@@ -226,7 +226,7 @@ def main():
     if os.path.exists(cp):
         for l in open(cp):
             p = json.loads(l); mk = {'totals_h1': '1h_total', 'totals_q1': '1q_total'}.get(p['market']) or ('tt_' + (p.get('team') or 'home'))
-            bets.append(dict(id=f"cv:{p['key']}", src='curve', cat={'B': 'system B', 'C': 'lean C'}.get(p.get('tier'), 'paper P'), rule=p['rule'], sport=p['sport'], event_id=p.get('espn') or p['key'],
+            bets.append(dict(id=f"cv:{p['key']}", src='curve', cat={'A': 'system A', 'B': 'system B', 'C': 'lean C'}.get(p.get('tier'), 'paper P'), rule=p['rule'], sport=p['sport'], event_id=p.get('espn') or p['key'],
                              game=p['game'], start=p['start'], market=mk, side=p['side'], line=p['line'], flagged=p['flagged'], venue=p.get('book') or 'Pinnacle',
                              price=round(1 / (p.get('price') or p['pin_price']), 4), won=W_(p.get('won')),
                              bet=f"{p['side'].title()} {p['line']} {({'1h_total': '1H total', '1q_total': '1Q total'}.get(mk) or ((p.get('team_name') or '') + ' team total'))}"))

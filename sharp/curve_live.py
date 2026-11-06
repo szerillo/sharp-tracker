@@ -7,7 +7,7 @@ Pinnacle's no-vig on the same line. A bet when they differ by the rule's gap, on
 DK / Pinnacle-matching price at that line.
 Rules:
   cbb_1h_total_curve   CBB first-half total, gap 7+ points, either side (backtest 313-231, +9.7%, 3 of 3 seasons). Tier C, 0.25u.
-  cfb_q1_under_curve   CFB first-quarter total UNDER, gap 5+ points (at kickoff 242-176, +8.8%; 2 hours out 296-189, +15.0%, every season). Tier B, 0.5u.
+  cfb_q1_under_curve   CFB first-quarter total UNDER, gap 5+ points (at kickoff 242-176, +8.8%; 2 hours out 296-189, +15.0%, every season). Tier A (Sean, 11/6), 0.5u.
   cfb_tt_under_curve   CFB team-total UNDER, gap 5+ points (backtest 210-176, +7.3%; 2025 -4.5%). Paper.
 Writes data/state/curve_live.json (board) and data/state/curve_paper.jsonl (every fire, graded on ESPN period scores).
 Usage: ODDS_API_KEY=... python3 sharp/curve_live.py"""
@@ -19,7 +19,7 @@ HORIZON_H = float(os.environ.get('CURVE_H', 3))
 BOOKS = {'fanduel': 'FD', 'williamhill_us': 'Caesars', 'draftkings': 'DK'}
 RULES = {
     'cbb_1h_total_curve': dict(sport='cbb', key='basketball_ncaab', mk='totals_h1', per=(0, 1), gap=0.07, sides=('over', 'under'), tier='C', stake=0.25),
-    'cfb_q1_under_curve': dict(sport='cfb', key='americanfootball_ncaaf', mk='totals_q1', per=(0, 1), gap=0.05, sides=('under',), tier='B', stake=0.5),    # 11/6: B after the T-2h test (296-189, +15.0%; every season +10 to +19)
+    'cfb_q1_under_curve': dict(sport='cfb', key='americanfootball_ncaaf', mk='totals_q1', per=(0, 1), gap=0.05, sides=('under',), tier='A', stake=0.5),    # 11/6: B after the T-2h test (296-189, +15.0%; every season +10 to +19); A on Sean's call
     'cfb_tt_under_curve': dict(sport='cfb', key='americanfootball_ncaaf', mk='team_totals', per=None, gap=0.05, sides=('under',), tier='P', stake=0.0),
 }
 PAPER = os.path.join(ROOT, 'data', 'state', 'curve_paper.jsonl'); OUT = os.path.join(ROOT, 'data', 'state', 'curve_live.json')
