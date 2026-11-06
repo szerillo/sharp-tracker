@@ -470,6 +470,85 @@ def novig(M):
     return len(evs), n
 
 
+# ----------------------------------------------------------------- Polymarket (11/6) ----
+POLY_TAG = {'nfl': 'nfl', 'nba': 'nba', 'nhl': 'nhl', 'cfb': 'cfb', 'cbb': 'ncaa-basketball', 'wnba': 'wnba'}
+POLY_TYPES = {'moneyline': ('', 'ml'), 'spreads': ('', 'spread'), 'totals': ('', 'total'),
+              'first_half_moneyline': ('1h_', 'ml'), 'first_half_spreads': ('1h_', 'spread'), 'first_half_totals': ('1h_', 'total')}
+
+
+def polymarket(M):
+    """Polymarket game lines (Sean 11/6: line shopping across Novig, Kalshi, Polymarket and the books). Gamma events for the sport's tag
+    ordered by end date, the CLOB books in batches of 100; bid/ask per outcome. No fee on Polymarket sports markets."""
+    tag = POLY_TAG.get(SPORT)
+    if not tag or FAST: return 0          # the 20-minute job only (the 5-minute tape has a 50s budget)
+    G = "https://gamma-api.polymarket.com"; CL = "https://clob.polymarket.com"
+    emin = (NOW - dt.timedelta(hours=4)).strftime('%Y-%m-%dT%H:%M:%SZ'); emax = NOW + dt.timedelta(days=CFG['horizon_days'] + 1)
+    evs = []
+    for off in range(0, 1500, 100):
+        if over_budget(): break
+        page = g(f"{G}/events?tag_slug={tag}&active=true&closed=false&limit=100&offset={off}&order=endDate&ascending=true&end_date_min={emin}") or []
+        evs += page
+        try: le = parse_ts(page[-1]['endDate']) if page else None
+        except Exception: le = None
+        if len(page) < 100 or (le and le > emax): break
+    todo = []
+    for e in evs:
+        t = (e.get('title') or '').replace(' vs ', ' vs. ')
+        if ' vs. ' not in t: continue
+        n1, n2 = [x.strip() for x in t.split(' vs. ', 1)]
+        a, h = M.teams.code(n1), M.teams.code(n2)
+        if not a or not h: continue
+        for m in e.get('markets') or []:
+            if m.get('sportsMarketType') not in POLY_TYPES or not m.get('gameStartTime'): continue
+            try: st = parse_ts(m['gameStartTime'].replace(' ', 'T').replace('+00', '+00:00'))
+            except Exception: continue
+            if st < NOW or st > emax: continue
+            ev = M.match(et_date(st), a, h, st) or M.match(et_date(st), h, a, st)
+            if not ev: continue
+            try: toks = json.loads(m.get('clobTokenIds') or '[]'); outs = json.loads(m.get('outcomes') or '[]')
+            except Exception: continue
+            if len(toks) != 2 or len(outs) != 2: continue
+            todo.append((ev, m, toks, outs))
+    books = {}
+    allt = [t for _, _, toks, _ in todo for t in toks]
+    for i in range(0, len(allt), 100):
+        if over_budget(): break
+        try:
+            req = urllib.request.Request(f"{CL}/books", data=json.dumps([{'token_id': x} for x in allt[i:i + 100]]).encode(), headers={'Content-Type': 'application/json', 'User-Agent': 'Mozilla/5.0'})
+            for b in json.load(urllib.request.urlopen(req, timeout=30)): books[b.get('asset_id')] = b
+            STATS['ok'] += 1
+        except Exception as ex_: STATS['poly_' + type(ex_).__name__] += 1
+    n = 0
+    for ev, m, toks, outs in todo:
+        e = M.sched.get(ev) or {}; aw, hm = e.get('away'), e.get('home')
+        per, mk = POLY_TYPES[m['sportsMarketType']]
+        q = {}
+        for tok, nm in zip(toks, outs):
+            b = books.get(tok) or {}
+            bids = [float(x['price']) for x in b.get('bids') or []]; asks = [float(x['price']) for x in b.get('asks') or []]
+            q[nm] = (max(bids) if bids else None, min(asks) if asks else None)
+        line = m.get('line')
+        for nm, (bid, ask) in q.items():
+            if ask is None or not 0.02 <= ask <= 0.98: continue
+            flags = ['wide'] if bid is not None and ask - bid > 0.04 else (['oneside'] if bid is None else None)
+            if mk == 'total':
+                side = nm.lower()
+                if side not in ('over', 'under') or line is None: continue
+                tick(ev, per + 'total', side, 'Polymarket', 'polymarket_api', line=float(line), bid=bid, ask=ask, flags=flags, extra=dict(cond=m.get('conditionId')))
+            else:
+                t = M.teams.code(nm); side = 'home' if t == hm else 'away' if t == aw else None
+                if not side: continue
+                ln = None
+                if mk == 'spread':
+                    if line is None: continue
+                    q1 = re.search(r'Spread:\s*(.*?)\s*\(', m.get('question') or '')           # the line belongs to the team named in the question
+                    t1 = M.teams.code(q1.group(1)) if q1 else M.teams.code(outs[0])
+                    ln = float(line) if t == t1 else -float(line)
+                tick(ev, per + mk, side, 'Polymarket', 'polymarket_api', line=ln, participant=t, bid=bid, ask=ask, flags=flags, extra=dict(cond=m.get('conditionId')))
+            n += 1
+    return n
+
+
 PROP_LADDER = 3   # prop strikes kept per venue x player x stat x side: the ones whose price is nearest 50% (the main line and its neighbours)
 
 
@@ -499,8 +578,8 @@ def main():
         if over_budget(): break
         CFG.update({'code_fix': None, **lg}); CFG['league_key'] = None if lk == '_' else lk      # each league its own code_fix (was inherited from the previous league)
         sched = espn_schedule(); M = Matcher(sched)
-        for name, fn in (('pinnacle', pinnacle), ('kalshi', kalshi), ('action_network', action_network), ('novig', novig)):
-            if CFG.get({'pinnacle': 'pinnacle', 'kalshi': 'kalshi', 'action_network': 'an', 'novig': 'novig'}[name]) is None: continue
+        for name, fn in (('pinnacle', pinnacle), ('kalshi', kalshi), ('action_network', action_network), ('novig', novig), ('polymarket', polymarket)):
+            if name != 'polymarket' and CFG.get({'pinnacle': 'pinnacle', 'kalshi': 'kalshi', 'action_network': 'an', 'novig': 'novig'}[name]) is None: continue
             t = time.time()
             try:
                 c = fn(M); counts[name] += (c if isinstance(c, int) else sum(x for x in c if isinstance(x, int)))
