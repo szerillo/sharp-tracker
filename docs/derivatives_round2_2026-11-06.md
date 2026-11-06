@@ -29,3 +29,14 @@ At kickoff, off-number US lines lose 2-9% in every sport and market (NFL, CFB, W
 (team totals at Pinnacle's number with a better price: 55-36, +17.6%) does not replicate: CFB 50-47 (-0.2%), NBA 29-29 (-1.5%), CBB 87-91
 (-3.7%). Retired as noise. The derivative markets are efficient at the close; the remaining derivative test is the earlier snapshot
 (research agenda section 4), when books are slower.
+
+## Exchange and book derivatives vs Pinnacle on our tape (11/6, 6am; `sharp/exch_deriv.py`)
+9 days of our 20-minute tape, last 12 hours before the start, every derivative line Pinnacle hangs (halves, quarters, periods, team
+totals); a venue 2%+ better than Pinnacle's no-vig at the same line, first time per game / market / side / venue. 166 bets.
+- The prices are real value: +2.0% EV against Pinnacle's last pregame fair (they hold to the close); results 77-89 vs 82.3 expected.
+  Too few to grade a ROI (-3.9%).
+- Novig supplies most of them (109; +2.0% EV at the close), then FD (31), DK (16), Kalshi (6).
+- Stale derivatives (Pinnacle's full game moved toward the side in the previous 20-45 minutes): only 15 cases, 7-8. Nothing to read yet.
+- 4%+ edges: 12-8, +5.3% EV at the close.
+Keeps collecting on the tape; rerun weekly. The earlier-snapshot pulls (NBA/NHL 6 hours, NFL 24 hours before the start) were dispatched
+11/6 to test the same question over three seasons.

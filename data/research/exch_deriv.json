@@ -1,0 +1,274 @@
+{
+ "results": {
+  "all": {
+   "n": 166,
+   "w": 77,
+   "l": 89,
+   "roi": -3.9,
+   "edge": 3.0,
+   "ev_close": 2.0,
+   "exp_wins": 82.3
+  },
+  "venue Kalshi": {
+   "n": 6,
+   "w": 4,
+   "l": 2,
+   "roi": 36.2,
+   "edge": 3.4,
+   "ev_close": 3.6,
+   "exp_wins": 3.1
+  },
+  "venue Novig": {
+   "n": 109,
+   "w": 42,
+   "l": 67,
+   "roi": -18.9,
+   "edge": 3.1,
+   "ev_close": 2.0,
+   "exp_wins": 53.3
+  },
+  "venue FD": {
+   "n": 31,
+   "w": 19,
+   "l": 12,
+   "roi": 24.6,
+   "edge": 2.6,
+   "ev_close": 2.1,
+   "exp_wins": 15.8
+  },
+  "venue Caesars": {
+   "n": 4,
+   "w": 3,
+   "l": 1,
+   "roi": 49.1,
+   "edge": 2.9,
+   "ev_close": 2.4,
+   "exp_wins": 2.1
+  },
+  "venue DK": {
+   "n": 16,
+   "w": 9,
+   "l": 7,
+   "roi": 14.4,
+   "edge": 2.7,
+   "ev_close": 1.7,
+   "exp_wins": 8.1
+  },
+  "market 1h_spread": {
+   "n": 19,
+   "w": 10,
+   "l": 9,
+   "roi": 6.9,
+   "edge": 2.9,
+   "ev_close": 1.9,
+   "exp_wins": 9.5
+  },
+  "market 1h_total": {
+   "n": 26,
+   "w": 14,
+   "l": 12,
+   "roi": 8.0,
+   "edge": 3.0,
+   "ev_close": 2.2,
+   "exp_wins": 13.2
+  },
+  "market 1p_spread": {
+   "n": 1,
+   "w": 1,
+   "l": 0,
+   "roi": 156.0,
+   "edge": 2.4,
+   "ev_close": 1.5,
+   "exp_wins": 0.4
+  },
+  "market 1q_spread": {
+   "n": 4,
+   "w": 1,
+   "l": 3,
+   "roi": -50.0,
+   "edge": 2.3,
+   "ev_close": 3.1,
+   "exp_wins": 2.1
+  },
+  "market 1q_total": {
+   "n": 2,
+   "w": 0,
+   "l": 2,
+   "roi": -100.0,
+   "edge": 2.1,
+   "ev_close": 0.0,
+   "exp_wins": 1.0
+  },
+  "market tt_away": {
+   "n": 58,
+   "w": 26,
+   "l": 32,
+   "roi": -7.1,
+   "edge": 3.0,
+   "ev_close": 1.7,
+   "exp_wins": 28.6
+  },
+  "market tt_home": {
+   "n": 56,
+   "w": 25,
+   "l": 31,
+   "roi": -6.0,
+   "edge": 3.0,
+   "ev_close": 2.4,
+   "exp_wins": 27.6
+  },
+  "sport nba": {
+   "n": 44,
+   "w": 22,
+   "l": 22,
+   "roi": 0.2,
+   "edge": 2.9,
+   "ev_close": 2.4,
+   "exp_wins": 22.5
+  },
+  "sport nfl": {
+   "n": 21,
+   "w": 9,
+   "l": 12,
+   "roi": -10.1,
+   "edge": 2.5,
+   "ev_close": 0.9,
+   "exp_wins": 10.2
+  },
+  "sport nhl": {
+   "n": 45,
+   "w": 17,
+   "l": 28,
+   "roi": -18.4,
+   "edge": 2.9,
+   "ev_close": 2.0,
+   "exp_wins": 21.6
+  },
+  "sport cfb": {
+   "n": 44,
+   "w": 23,
+   "l": 21,
+   "roi": 6.8,
+   "edge": 2.8,
+   "ev_close": 1.6,
+   "exp_wins": 21.9
+  },
+  "sport cbb": {
+   "n": 12,
+   "w": 6,
+   "l": 6,
+   "roi": 6.9,
+   "edge": 4.9,
+   "ev_close": 4.7,
+   "exp_wins": 6.1
+  },
+  "B: full game moved toward the side first (stale derivative)": {
+   "n": 15,
+   "w": 7,
+   "l": 8,
+   "roi": -7.1,
+   "edge": 2.6,
+   "ev_close": 2.6,
+   "exp_wins": 7.6
+  },
+  "B: full game flat": {
+   "n": 121,
+   "w": 54,
+   "l": 67,
+   "roi": -7.3,
+   "edge": 3.0,
+   "ev_close": 2.3,
+   "exp_wins": 60.1
+  },
+  "B stale | venue Kalshi": {
+   "n": 1,
+   "w": 0,
+   "l": 1,
+   "roi": -100.0,
+   "edge": 2.3,
+   "ev_close": 2.3,
+   "exp_wins": 0.5
+  },
+  "B stale | venue Novig": {
+   "n": 5,
+   "w": 2,
+   "l": 3,
+   "roi": -18.2,
+   "edge": 2.9,
+   "ev_close": 4.7,
+   "exp_wins": 2.4
+  },
+  "B stale | venue FD": {
+   "n": 5,
+   "w": 4,
+   "l": 1,
+   "roi": 57.3,
+   "edge": 2.8,
+   "ev_close": 2.0,
+   "exp_wins": 2.6
+  },
+  "B stale | venue DK": {
+   "n": 4,
+   "w": 1,
+   "l": 3,
+   "roi": -50.5,
+   "edge": 2.2,
+   "ev_close": 0.9,
+   "exp_wins": 2.1
+  },
+  "edge 2-4%": {
+   "n": 146,
+   "w": 65,
+   "l": 81,
+   "roi": -8.6,
+   "edge": 2.6,
+   "ev_close": 1.5,
+   "exp_wins": 72.3
+  },
+  "edge 4-8%": {
+   "n": 18,
+   "w": 10,
+   "l": 8,
+   "roi": 19.7,
+   "edge": 5.2,
+   "ev_close": 5.3,
+   "exp_wins": 9.0
+  },
+  "edge 8%+": {
+   "n": 2,
+   "w": 2,
+   "l": 0,
+   "roi": 124.7,
+   "edge": 10.6,
+   "ev_close": 11.3,
+   "exp_wins": 1.0
+  },
+  "timing 6-12h out": {
+   "n": 50,
+   "w": 23,
+   "l": 27,
+   "roi": -7.2,
+   "edge": 2.9,
+   "ev_close": 1.5,
+   "exp_wins": 24.9
+  },
+  "timing 1-6h": {
+   "n": 85,
+   "w": 42,
+   "l": 43,
+   "roi": 3.2,
+   "edge": 3.0,
+   "ev_close": 2.3,
+   "exp_wins": 42.1
+  },
+  "timing inside 1h": {
+   "n": 31,
+   "w": 12,
+   "l": 19,
+   "roi": -18.3,
+   "edge": 2.9,
+   "ev_close": 2.3,
+   "exp_wins": 15.3
+  }
+ }
+}
