@@ -1,33 +1,6 @@
 {
- "built": "2026-11-06T04:12:45Z",
+ "built": "2026-11-06T04:35:21Z",
  "rows": [
-  {
-   "cond": "0x0b5d6a629f7efadf848bab61ce565c54a7f25c3a058d864010c83809ab190021",
-   "slug": "cfb-utsa-flatl-2026-11-05",
-   "title": "UTSA vs. Florida Atlantic",
-   "mtype": "total",
-   "start": "2026-11-06T00:30:00Z",
-   "bet": "Under 73.5",
-   "side": "Under",
-   "flagged": "2026-11-05T16:23:18Z",
-   "why": "a top-200 account also in this sport's top 50",
-   "proven": true,
-   "trigger": "proven",
-   "n_accounts": 1,
-   "best_rank": 58,
-   "usd": 460,
-   "paid": 0.54,
-   "ask": null,
-   "status": "live",
-   "link": "https://polymarket.us/event/cfb-utsa-flatl-2026-11-05",
-   "other": null,
-   "kalshi_against": null,
-   "logged": true,
-   "grade": "A",
-   "fair_board": null,
-   "inside_fair": null,
-   "books": null
-  },
   {
    "cond": "0x090edfbd2c83252acea7f8af328f8fcb9c39e4f1f455d174a5b0bbd5cb2f7178",
    "slug": "cfb-jmad-soumis-2026-11-05",
@@ -364,7 +337,7 @@
    "best_rank": 40,
    "usd": 807,
    "paid": 0.28,
-   "ask": 0.29,
+   "ask": 0.3,
    "status": "live",
    "link": "https://polymarket.us/event/nba-tor-mil-2026-11-06",
    "other": null,
@@ -741,7 +714,7 @@
    "best_rank": 40,
    "usd": 1429,
    "paid": 0.633,
-   "ask": 0.7,
+   "ask": 0.69,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-was-atl-2026-11-06",
    "other": {
@@ -817,21 +790,21 @@
  ],
  "record": {
   "by_fair": {},
-  "n": 48,
-  "won": 20,
-  "units": -5.21,
+  "n": 52,
+  "won": 22,
+  "units": -5.1,
   "by_grade": {
    "A": {
-    "n": 26,
-    "won": 12,
-    "units": -2.6,
-    "clv": 0.29
+    "n": 29,
+    "won": 14,
+    "units": -2.1,
+    "clv": 0.22
    },
    "B": {
-    "n": 12,
+    "n": 13,
     "won": 4,
-    "units": -1.38,
-    "clv": -1.93
+    "units": -1.77,
+    "clv": -1.79
    },
    "watch": {
     "n": 10,
@@ -840,12 +813,12 @@
     "clv": -1.75
    }
   },
-  "units_1u": -11.3,
-  "clv": -0.69,
-  "n_venue": 24,
-  "units_venue": -3.89,
-  "clv_venue": 0.28,
-  "clv_poly_same": -1.94
+  "units_1u": -12.16,
+  "clv": -0.64,
+  "n_venue": 26,
+  "units_venue": -2.89,
+  "clv_venue": 0.23,
+  "clv_poly_same": -1.81
  },
  "sys_tags": {
   "401858289:cfb_day_over": {
