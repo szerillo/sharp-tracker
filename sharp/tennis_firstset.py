@@ -34,8 +34,16 @@ def norm(s):
 def sur(n): t = norm(n); return t[-1] if t else ''
 
 
+TH = os.path.join(ROOT, 'data', 'tennis', 'kalshi_hist')     # 11/6: the repaired tennis history (loggers/tennis_history.py), the larger set
+
+
 def load_markets():
     M = {}
+    if os.path.exists(os.path.join(TH, 'markets.jsonl.gz')):
+        for l in gzip.open(os.path.join(TH, 'markets.jsonl.gz'), 'rt'):
+            try: r = json.loads(l)
+            except Exception: continue
+            if r.get('series') in MATCH + SETS: M[r['ticker']] = r
     for f in glob.glob(os.path.join(KH, 'markets-*.jsonl')) + [os.path.join(KH, 'markets.jsonl')]:
         if not os.path.exists(f): continue
         for l in open(f):
@@ -44,8 +52,29 @@ def load_markets():
     return M
 
 
+_HT = None
+def hist_trades():
+    global _HT
+    if _HT is None:
+        import glob as _g
+        _HT = collections.defaultdict(list)
+        for f in sorted(_g.glob(os.path.join(TH, 'trades*.jsonl.gz'))):
+            try:
+                for l in gzip.open(f, 'rt'):
+                    try: r = json.loads(l)
+                    except Exception: continue
+                    if r.get('empty') or r.get('yes') is None or not r.get('ts') or not r.get('n'): continue
+                    _HT[r['ticker']].append((ts(r['ts']), r['yes'], r['n'] * min(r['yes'], 1 - r['yes']), 1 if r.get('side') == 'yes' else -1))
+            except (EOFError, OSError): pass
+        for k in _HT: _HT[k] = sorted(set(_HT[k]))
+    return _HT
+
+
 def load_trades(series):
     T = collections.defaultdict(list); f = os.path.join(KH, 'trades', f'{series}.jsonl.gz')
+    H_ = hist_trades()
+    for k, v in H_.items():
+        if k.startswith(series + '-'): T[k] = list(v)
     if not os.path.exists(f): return T
     try:
         for l in gzip.open(f, 'rt'):
@@ -197,6 +226,14 @@ def main():
             B[x['split']].append(bet(x['r'], d, x['r']['start'] - ENTRY, entry))
         out[f'T2_{entry}'] = {k: stats(v) for k, v in B.items()}
         print(f"  rule from train (bet the set-1 side the train buckets say is under-priced by 2+ pts), entry at {entry}: train {stats(B['train'])}  TEST {stats(B['test'])}")
+    # T2b (11/6): the plain version of T2 on the repaired history: back the match favourite to win set 1, by match-price band
+    for lo, hi in ((0.5, 0.6), (0.6, 0.75), (0.75, 1.0), (0.6, 1.0)):
+        for entry in ('mid', 'ask'):
+            B = {'train': [], 'test': []}
+            for x in t2rows:
+                if lo <= x['pm'] < hi: B[x['split']].append(bet(x['r'], x['fav'], x['r']['start'] - ENTRY, entry))
+            out[f'T2b_{lo}_{hi}_{entry}'] = {k: stats(v) for k, v in B.items()}
+            print(f"  T2b back the match favourite ({lo:.2f}-{hi:.2f}) on set 1, entry {entry}: train {stats(B['train'])}  TEST {stats(B['test'])}")
     # T3 big vs small
     print("\nT3  big vs small money on set 1 before T-15m (risk-equivalent)")
     for th in (250, 500, 1000):

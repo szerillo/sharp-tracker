@@ -126,3 +126,11 @@ candidate does not repeat 2 hours out.
 - NHL third-period unders: few third-period totals are posted a day ahead (824 lines of 1,920 games); +1.6% on what there is. The rule's
   window (inside 3 hours; validated 6 hours out and at the start) stands.
 - NHL first-period puck line 24 hours out: on the curve (z +0.4). Stays paper.
+
+## Tennis first set (11/6, 1:30pm) — inconclusive
+- Odds API: first-set lines exist only from 2026 and Pinnacle does not hang them; 129 off-curve bets, -10%. Too little to test.
+- Kalshi history (repaired tapes, 968 matches with a set-1 market): backing the match favourite (0.60+) on set 1 15 minutes before the
+  ESPN start looks like +20-30% (train 80 bets, test 24). It fails a timing check: in the matches whose set-1 market ever reached a
+  decided price, that happened a median 17 hours BEFORE the ESPN start time, i.e. ESPN's start times are often not the real start, so
+  "15 minutes before" can be in-play and the result is contaminated. Not usable until each match has a reliable start (next: take the
+  start from the Kalshi match market's own trading pattern or the Odds API commence time).
