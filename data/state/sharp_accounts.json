@@ -1,5 +1,5 @@
 {
- "built": "2026-11-06T01:17:21Z",
+ "built": "2026-11-06T01:55:58Z",
  "rows": [
   {
    "cond": "0x43bf75f521791c9dbf8423892ee11a1cb036ace20ff03283090d79e7a4174bbe",
@@ -299,7 +299,7 @@
    "best_rank": 40,
    "usd": 1429,
    "paid": 0.633,
-   "ask": 0.72,
+   "ask": 0.71,
    "status": "live",
    "link": "https://polymarket.us/event/nba-was-atl-2026-11-06",
    "other": null,
@@ -433,7 +433,7 @@
    "best_rank": 40,
    "usd": 349,
    "paid": 0.53,
-   "ask": 0.53,
+   "ask": 0.57,
    "status": "live",
    "link": "https://polymarket.us/event/nba-tor-mil-2026-11-06",
    "other": null,
@@ -470,7 +470,7 @@
    "best_rank": 40,
    "usd": 807,
    "paid": 0.28,
-   "ask": 0.28,
+   "ask": 0.29,
    "status": "live",
    "link": "https://polymarket.us/event/nba-tor-mil-2026-11-06",
    "other": null,
@@ -804,7 +804,7 @@
    "conflict": [
     "Kalshi move"
    ],
-   "money_with": false,
+   "money_with": true,
    "grade": "A",
    "fair_board": 0.4864,
    "inside_fair": true,
@@ -913,6 +913,18 @@
     "usd": 584
    },
    "against": null
+  },
+  "401909937:nba_momentum:spread": {
+   "with": {
+    "n": 1,
+    "best_rank": 154,
+    "usd": 977
+   },
+   "against": {
+    "n": 2,
+    "best_rank": 116,
+    "usd": 1264
+   }
   }
  },
  "by_event": {
@@ -968,9 +980,9 @@
     "usd": 4387
    },
    "away": {
-    "n": 1,
+    "n": 2,
     "best_rank": 154,
-    "usd": 939
+    "usd": 1051
    }
   },
   "401909937|total": {
