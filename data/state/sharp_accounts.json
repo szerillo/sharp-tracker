@@ -1,5 +1,5 @@
 {
- "built": "2026-11-06T17:55:27Z",
+ "built": "2026-11-06T18:02:49Z",
  "rows": [
   {
    "cond": "0x81b63770a7d779d9d73737f06a0e6f974c78f8dfd5695f7d13ca8f30a5994270",
@@ -142,14 +142,14 @@
    "bet": "Thunder ML",
    "side": "Thunder",
    "flagged": "2026-11-06T13:50:42Z",
-   "why": "2 top-200 accounts",
+   "why": "3 top-200 accounts",
    "proven": false,
    "trigger": "two",
-   "n_accounts": 2,
+   "n_accounts": 3,
    "best_rank": 95,
-   "usd": 1323,
+   "usd": 2173,
    "paid": 0.599,
-   "ask": 0.6,
+   "ask": 0.61,
    "status": "live",
    "link": "https://polymarket.us/event/nba-okc-mem-2026-11-06",
    "other": null,
@@ -390,7 +390,7 @@
    "best_rank": 116,
    "usd": 1505,
    "paid": 0.45,
-   "ask": 0.46,
+   "ask": 0.47,
    "status": "live",
    "link": "https://polymarket.us/event/cfb-ala-lsu-2026-11-07",
    "other": null,
@@ -678,7 +678,7 @@
    "best_rank": 40,
    "usd": 1429,
    "paid": 0.633,
-   "ask": 0.73,
+   "ask": 0.72,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-was-atl-2026-11-06",
    "other": {
@@ -687,7 +687,7 @@
     "usd": 254,
     "first": "2026-11-06T02:07:52Z"
    },
-   "exit_bid": 0.72,
+   "exit_bid": 0.71,
    "kalshi_against": null,
    "logged": true,
    "event_id": "401909287",
@@ -702,7 +702,7 @@
    "money_with": false,
    "grade": "B",
    "fair_board": 0.7286,
-   "inside_fair": false,
+   "inside_fair": true,
    "books": null
   },
   {
@@ -974,9 +974,9 @@
   },
   "401909291|ml": {
    "away": {
-    "n": 2,
+    "n": 3,
     "best_rank": 95,
-    "usd": 1323
+    "usd": 2173
    }
   },
   "401909291|spread": {
