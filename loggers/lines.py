@@ -520,6 +520,19 @@ def polymarket(M):
             for b in json.load(urllib.request.urlopen(req, timeout=30)): books[b.get('asset_id')] = b
             STATS['ok'] += 1
         except Exception as ex_: STATS['poly_' + type(ex_).__name__] += 1
+    # 11/6: keep only each game's main spread / total per period (the pair priced closest to 50/50); CFB alone has thousands of alt
+    # lines, which swelled the tape and the tracker's price-database build
+    def mid(tok):
+        b = books.get(tok) or {}; a = [float(x['price']) for x in b.get('asks') or []]; return min(a) if a else None
+    best = {}
+    for ev, m, toks, outs in todo:
+        if m['sportsMarketType'] in ('moneyline', 'first_half_moneyline'): continue
+        a0 = mid(toks[0])
+        if a0 is None: continue
+        k = (ev, m['sportsMarketType'])
+        if k not in best or abs(a0 - 0.5) < best[k][0]: best[k] = (abs(a0 - 0.5), m.get('conditionId'))
+    keep = {v[1] for v in best.values()}
+    todo = [t for t in todo if t[1]['sportsMarketType'] in ('moneyline', 'first_half_moneyline') or t[1].get('conditionId') in keep]
     n = 0
     for ev, m, toks, outs in todo:
         e = M.sched.get(ev) or {}; aw, hm = e.get('away'), e.get('home')
