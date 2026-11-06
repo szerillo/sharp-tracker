@@ -1195,7 +1195,7 @@ const BLW = {all: ['All dates', () => true], live: ['In progress', b => ['live',
 const BLG = {all: 'All bets', systems: 'Systems', sharp: 'Sharp', paper: 'Paper rules'};
 const blGroup = b => b.cat === 'paper P' ? 'paper' : /^sharp/.test(b.cat) ? 'sharp' : ['system A', 'system B', 'lean C', 'tennis'].includes(b.cat) ? 'systems' : 'watch';
 const blRule = b => b.rule ? String(b.rule).split(' | ')[0] : (b.cat === 'tennis' ? 'tennis_hot_fav' : null);
-const RULE_NAME = {wind1014: 'NFL wind 10-14 under', wind1014_1h: 'NFL wind 10-14 1H under', cfb_wind14: 'CFB wind 14+ under', vrest8_1h: 'NFL visitor off long rest 1H under',
+const RULE_NAME = {cbb_1h_total_curve: 'CBB 1H total off the curve', cfb_q1_under_curve: 'CFB 1Q under off the curve', cfb_tt_under_curve: 'CFB team-total under off the curve', nba_threes_under_gap: 'NBA threes under, price gap', nhl_prop_under_gap: 'NHL prop under, price gap', stale_book: 'Stale book after a Pinnacle move', wind1014: 'NFL wind 10-14 under', wind1014_1h: 'NFL wind 10-14 1H under', cfb_wind14: 'CFB wind 14+ under', vrest8_1h: 'NFL visitor off long rest 1H under',
   mnf_1h: 'MNF 1H under', awfuldog: 'NFL fade bad-margin dogs', bounce15_1h: 'NFL bounce after 15+ loss 1H', nfl_home_dog_7510: 'NFL home dog 7.5-10',
   nhl_bounce_home_ml: 'NHL home bounce ML', nhl_pl_fav_gap: 'NHL PL fav, win% gap', nhl_pl_fav_strong_opp: 'NHL PL fav vs strong opp', nhl_pl_dog_bigml: 'NHL PL dog, big ML',
   nba_1h_under_hot_over: 'NBA 1H under, hot-over teams', nhl_early_home_fav_qual: 'NHL early-season home fav', nba_under_good_home_over: 'NBA under, good home over team',

@@ -220,6 +220,30 @@ def main():
             bets.append(dict(id=f"kf:{p['event_id']}:{p['market']}:{p.get('line')}", src='paper', cat='paper P', rule='kalshi_nhl_flow', sport='nhl', event_id=str(p['event_id']), game=p.get('game') or '',
                              start=p['start'].replace('Z', ':00Z') if len(p['start']) == 17 else p['start'], market=p['market'], side=p['side'], line=p.get('line'), flagged=p['logged'], venue='Kalshi', price=p['price'],
                              won=p.get('won') if p.get('won') in (0, 1) else None, bet=p.get('bet') or f"{p['side']} {p.get('line') or ''}".strip()))
+    # ---- 11/6 leans with their own logs: derivatives off the curve, prop price gaps, stale books (graded in their own logs)
+    W_ = lambda w: w if w in (0, 0.5, 1) else None
+    cp = os.path.join(SD, 'curve_paper.jsonl')
+    if os.path.exists(cp):
+        for l in open(cp):
+            p = json.loads(l); mk = {'totals_h1': '1h_total', 'totals_q1': '1q_total'}.get(p['market']) or ('tt_' + (p.get('team') or 'home'))
+            bets.append(dict(id=f"cv:{p['key']}", src='curve', cat='lean C' if p.get('tier') == 'C' else 'paper P', rule=p['rule'], sport=p['sport'], event_id=p.get('espn') or p['key'],
+                             game=p['game'], start=p['start'], market=mk, side=p['side'], line=p['line'], flagged=p['flagged'], venue=p.get('book') or 'Pinnacle',
+                             price=round(1 / (p.get('price') or p['pin_price']), 4), won=W_(p.get('won')),
+                             bet=f"{p['side'].title()} {p['line']} {({'1h_total': '1H total', '1q_total': '1Q total'}.get(mk) or ((p.get('team_name') or '') + ' team total'))}"))
+    pp_ = os.path.join(SD, 'props_paper.jsonl')
+    if os.path.exists(pp_):
+        for l in open(pp_):
+            p = json.loads(l); live = p['sport'] == 'nba' and p['market'] == 'player_threes'
+            bets.append(dict(id=f"pr:{p['key']}", src='props', cat='lean C' if live else 'paper P', rule='nba_threes_under_gap' if live else f"{p['sport']}_prop_under_gap", sport=p['sport'],
+                             event_id=p.get('espn') or p['key'], game=p['game'], start=p['start'], market='prop_' + p['market'].replace('player_', ''), side='under', line=p['line'],
+                             flagged=p['flagged'], venue=p['book'], price=round(1 / p['price'], 4), won=W_(p.get('won')), bet=f"{p['player']} under {p['line']} {p['market'].replace('player_', '').replace('_', ' ')}"))
+    sp_ = os.path.join(SD, 'stale_paper.jsonl')
+    if os.path.exists(sp_):
+        for l in open(sp_):
+            p = json.loads(l)
+            bets.append(dict(id=f"sb:{p['key']}", src='paper', cat='paper P', rule='stale_book', sport=p['sport'], event_id=p['event_id'], game=p['game'],
+                             start=p['start'].replace('Z', ':00Z') if len(p['start']) == 17 else p['start'], market=p['market'], side=p['side'], line=p.get('line'), flagged=p['flagged'],
+                             venue=p['venue'], price=p['price'], won=W_(p.get('won'))))
     # ---- price paths
     by = collections.defaultdict(list)
     for b in bets:
@@ -289,7 +313,7 @@ def main():
             if r.get('status') == 'final' and r.get('home_score') is not None: RES[r['event_id']] = r
     for b in bets:
         r = RES.get(b['event_id']); m = b['market']
-        if not r or b['sport'] == 'tennis' or not b['side']: continue
+        if not r or b['sport'] == 'tennis' or not b['side'] or m.startswith(('1q_', 'tt_', 'prop_')): continue      # no quarter / team / player scores in results.jsonl
         h_, a_ = (r.get('f5_home'), r.get('f5_away')) if m.startswith('1h_') else (r['home_score'], r['away_score'])
         if h_ is None: continue
         base = re.sub(r'^(1h|1q|1p)_', '', m); L = float(b['line'] or 0)
