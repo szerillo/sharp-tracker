@@ -1,4 +1,4 @@
-# Action Winners Circle: methodology (as of 11/6/2026, early morning)
+# Action Winners Circle: methodology (as of 11/6/2026)
 
 The standing process for the sharp tracker (szerillo/sharp-tracker). This is the document of record; dated docs under `docs/` hold the
 tests behind each line. Updated when a rule or gate changes, with the date.
@@ -63,8 +63,9 @@ tests behind each line. Updated when a rule or gate changes, with the date.
 ## 5. Record keeping
 - Every record reads the same way everywhere: label, W-L, win %, ROI. Labels: "WC backtest <years>" (our database at Pinnacle's close),
   "Bet Labs 2003-26", "Bet Labs since 2021", "Tracker" (our flagged prices). Sharp rows show that sport's sharp record, not the overall one.
-- Never both sides of one game: among counted bets, a later bet on the other side of the same market, or a moneyline on one team with the
-  other team laying points, is listed but not counted. A moneyline with the other team taking points is a middle and both count.
+- Never both sides of one market: a later bet on the other side of the SAME market stays on the tracker with no units and a note on what
+  it conflicted with; the earlier bet counts. A spread on one side with the moneyline on the other is a middle (or reverse middle): both
+  count, and both rows are labelled. The tracker has a filter for conflicts and middles (Sean, 11/6).
 - The tracker is organised sport first, then Systems / Sharp / Paper rules, then that sport's rules or grades.
 
 ## 6. Board rules
@@ -72,16 +73,26 @@ tests behind each line. Updated when a rule or gate changes, with the date.
 - Order: Sharp signals, System bets (coming weather fires in the open), Leans (rules firing on 4+ games grouped), Paper rules
   (collapsed). In-progress games stay four hours, listed below the upcoming ones in each section.
 - No bet against the Polymarket sharps: a system bet or lean with sharps on the other side at the flag is held (greyed, no units,
-  Held note) and still graded; the tracker's "sharps against" line is the test of this rule (next to be re-tested on the full history).
+  Held note) and still graded. Full-history test (11/6, docs/list_items_2026-11-06.md): opposition does not predict a system bet losing
+  (honest test backed -12.5%, no view +6.9%, opposed -20.1% on n 139; with today's list opposed +7.4% vs backed +1.7% on n 458). The
+  rule stays as the board's standing rule; it does not earn ROI on this evidence.
 - Cross-annotation: a bet both a system and a sharp signal land on shows the badge in both sections and in the tracker
   ("Flagged by a system AND a sharp signal").
 - BetMGM never bettable. No duplicate bets on one market; stacked fires on the same side are one bet.
 - Tracker filters: window, category, bet type (ML / spread / over / under / 1H), rule (systems and paper rules separately), sharps on the
   other side, sport.
 
+## 6b. Execution findings (11/6)
+- Line shopping: the best of DK, FD, Caesars and BetRivers is worth +1.0% ROI over one book on every rule replayed 2020-26 (n 30,748),
+  and lands within 0.4% of Pinnacle's closing price. Shop all four on every bet.
+- Stale books: a US book 2%+ better than Pinnacle's no-vig fair at the same number holds +3-4% EV at the close; the cleanest slice is a book
+  lagging a Pinnacle move (+15.8%, n 71, small). Paper until it grades forward.
+- Sharp flag timing: flags 6h+ out precede most of Pinnacle's move; flags after Pinnacle already moved a point for the side are chasing
+  (n 73, small).
+- Replays key team histories by season (a cross-season bug was found and fixed in the NFL replays 11/6; awfuldog now 50-37-1, +10.2%).
+
 ## 7. Open items
 - NBA 1H under rule once the NBA 1H pull finishes; CFB 1H, MLB first five, MLB 2026 and soccer when credits are added.
-- System-vs-sharp hold rule: full-history test (same method as the flag test).
 - Weather fire window 30h vs 48h: re-ask at 50 games of our forecast ladder.
 - Tennis Challenger settled rule and set-1 vs Kalshi once the Kalshi tape has prices.
 - CBB mining once the sharp accounts bet it (2003-19 gate from the start).

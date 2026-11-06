@@ -38,3 +38,26 @@ ATS margin in week 1 came from last season, and every week-1 game read as "off a
 - bounce full game (lost ATS by 15+): +5.5% -> +4.3%. 1H bounce15: 52-59. Favourite off a bye ATS: -11.9%.
 - Checked clean: rule_replay (records reset each season from the ESPN schedule), cfb_replay (weather only), systems.py live CBB (current
   season schedule only).
+
+## 6. Per-sport full-game mining
+NHL (`sharp/nhl_mine.py`, `data/research/nhl_mine.json`)
+- nhl_early_home_fav_qual is positive in every full season (+6.6% to +15.0%). The mechanism shows in the splits: the edge is largest when
+  the opponent has played under 8 games (+14.3%), then 8-15 (+10.3%), then 16+ (+6.4%). The market leans on small-sample road records.
+  Best price band -149 to -120 (+18.3%); near pick'em (-119 to -100) only +1.9%.
+- Broader cousin: home favourite vs a 61%+ opponent, all season: 343-206, +8.6%, but 2022-23 and 2023-24 were slightly negative. Paper
+  at best.
+- Overtime: favourites win 54.6% of OT games vs 59.6% expected. OT is close to a coin flip, which is what a regulation-only price would
+  avoid; no historical 60-minute prices to test it.
+
+NFL key numbers (from the corrected nfl_replay)
+- Dogs of +7.5 to +10: 136-97-3, +10.3%, positive in 6 of 7 seasons; home dogs in that band 47-25, +23.0%. Candidate: a favourite has to
+  clear the 7 and win by 8+. Needs the Bet Labs two-window gate before it goes on paper.
+- Dogs at exactly 3 and 7: flat (-0.6%, -4.7%). Following moves that crossed 3 or 7: -3.3%.
+- Wind 10-14 under by total: 44 or under +24.4%, 44.5-48 +5.5%, 48.5+ +20.3%. Not a clean pattern; the rule stays as is.
+
+NBA rest pairs: nothing beyond +3.4% (home 2+ days rest, visitor on 1 day: visitor ATS, 5 of 6 seasons). Rest is priced.
+
+CBB early season and conference: every split sits at -2% to -6% (the vig) at Pinnacle's close, games 0-3, 4-10 and 11+, conference and
+non-conference. Big dogs (15+) after game 10: +2.4%, 4 of 6 seasons. CBB full-game lines are efficient on these features.
+
+Not run yet: tennis Challenger (waiting on the Kalshi price repair), MMA opening-favourite rule, soccer (backfill still pulling).
