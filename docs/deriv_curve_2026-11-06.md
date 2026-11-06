@@ -38,3 +38,13 @@ ESPN period scores pulled back to 2020 for NFL, CFB and WNBA, so the curve uses 
   curve is 5+ points lower: 210-176, +7.3% (2023 +10.6%, 2024 +15.4%, 2025 -4.5%); team totals 27.5+ 121-92, +13.1%.
 - CFB first-quarter totals: curve 5+ points lower than Pinnacle: unders 222-171, +6.2%, every season positive (+11.0, +6.8, +0.9).
 - Paper candidates: CFB Q1 total under and CFB team total under when off the curve. Live needs the curve computed per game on our tape.
+
+## Soccer on the curve (`sharp/soccer_curve.py`, `data/research/soccer_curve.json`)
+Pinnacle's full-game close (1X2 no-vig and the main total, asian lines settled properly) fitted to two Poisson goal rates per game; both
+teams to score, draw no bet, team totals and alternate totals priced from those rates (2,305 games, 2023-26).
+- The curve ties Pinnacle on log loss in every market (BTTS 0.6794 vs 0.6784, team totals 0.6751 vs 0.6751, alternate totals 0.6393 vs
+  0.6395). Blend weights +0.2 to +0.6, z under 1.6. Soccer derivatives are on the curve.
+- Draw no bet off the curve loses 27%: plain Poisson under-counts draws, the known flaw; nothing to bet there.
+- The one pocket: alternate-total UNDERS priced 6%+ above the curve: n 343, +18.0% (2023 +1.1%, 2024 +38.0%, 2025 +14.5%), positive at
+  every line from 1.5 to 3.5 and at Pinnacle itself (n 207, +15.2%). Correlated rows (several books on one game) and long prices, so
+  smaller than it looks. Paper candidate; recheck when the 2026-27 soccer backfill lands.
