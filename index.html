@@ -785,7 +785,16 @@ function renderToday() {
     const rec = fmtRec(x) ? ` · record ${fmtRec(x)}` : ' · no graded fires yet';
     return `<details class="how" ${window['_lb_' + tag] ? 'open' : ''} ontoggle="window['_lb_${tag}']=this.open"><summary>${esc(r.desc || tag)} (${L.length} games, tier ${(r.evidence || {}).tier || '?'}, 0.25u each${rec}) · broad rule, grouped</summary>${sTable(L.map(sysRow))}</details>`; }).join('');
   const leanRows = [...leanOne.map(sysRow), ...TWk.map(tRow), ...THc.map(hRow), ...TD.map(dRow), ...TV.map(vRow), ...MS.map(mRow)];
-  const paperOnlyExtra = KF.map(kRow);
+  // Stale-book lean (sharp/stale_live.py, 11/6): paper. A venue Sean bets 2%+ better than Pinnacle's no-vig fair right after Pinnacle moved 1+ point toward the side.
+  const slRow = r => { const SLr = window._SL && window._SL.record; const ML = {ml: 'Moneyline', spread: 'Spread', total: 'Total'};
+    const bet = r.market === 'total' ? `${r.side === 'over' ? 'Over' : 'Under'} ${r.line}` : `${esc(r.team || r.side)}${r.market === 'spread' ? ` ${r.line > 0 ? '+' : ''}${r.line}` : ' ML'}`;
+    return sRow({id: `sl|${r.key}`, start: r.start, sportLabel: (r.sport || '').toUpperCase(), game: esc(r.game), bet, sub: `${ML[r.market] || r.market} · stale price at ${VS(r.venue)}, paper`,
+      gone: true, status: ['gone', 'Paper: stale-book lean, no units until it has a forward record'], size: '', price: `<b>${toAm(r.price)}</b> <span class="small dim">${VS(r.venue)}</span>`, link: betLink(r.venue, r.event_id, r.market),
+      why: `Pinnacle moved ${r.move} points toward this side in the last 20-45 minutes; ${VS(r.venue)} still prices it ${r.ev}% better than Pinnacle's fair (${(100 * r.fair).toFixed(1)}%)`,
+      rec: lbl('Backtest', 'our tape 10/29-11/6: 30-41, +15.8%, EV at the close +4.0% (n 71)') + ' ' + lbl('Tracker', SLr && SLr.n ? `${SLr.won}-${SLr.lost}, ${SLr.units > 0 ? '+' : ''}${SLr.units}u` : 'no graded picks yet'),
+      detail: facts([['Rule', 'Stale-book lean (docs/stale_books_2026-11-06.md): a bettable venue (Novig, Kalshi with fee, Polymarket, FD, Caesars, DK) 2%+ better than Pinnacle\'s no-vig fair at the same number, right after Pinnacle moved 1+ point toward the side, price under +200; one lean per side at the best venue. Paper until it has a forward record.']])}); };
+  const SL = (window._SL && window._SL.rows || []).filter(r => future(r.start) && passW(r.start) && passS(r.sport, r.sport));
+  const paperOnlyExtra = [...KF.map(kRow), ...SL.map(slRow)];
   const sysRows = [...vet.map(sysRow), ...THb.map(hRow)];
   const H = (t, meta) => `<div class="hdr2"><h2>${t}</h2><span class="meta">${meta}</span></div>`;
   window._sec = window._sec || 'all';
@@ -1282,6 +1291,7 @@ async function load() {
     try { TW = await (await fetch('data/state/tennis_watch.json', {cache: 'no-store'})).json(); } catch (e) { TW = null; }
     try { window._MS = await (await fetch('data/state/mma_steam.json', {cache: 'no-store'})).json(); } catch (e) { window._MS = null; }
     try { window._KF = await (await fetch('data/state/kalshi_flow.json', {cache: 'no-store'})).json(); } catch (e) { window._KF = null; }
+    try { window._SL = await (await fetch('data/state/stale_live.json', {cache: 'no-store'})).json(); } catch (e) { window._SL = null; }
     try { window._PP = await (await fetch('data/research/poly_pinnacle.json', {cache: 'no-store'})).json(); } catch (e) { window._PP = null; }
     let TH = null; try { TH = await (await fetch('data/state/tape_health.json', {cache: 'no-store'})).json(); } catch (e) { TH = null; }
     window._TH = TH;
