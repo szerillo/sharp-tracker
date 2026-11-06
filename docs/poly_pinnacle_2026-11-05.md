@@ -86,3 +86,19 @@ Reading:
 - MLB and WNBA 2026 markets are unmatched until the odds tables cover 2026 (credits). Soccer is unmatched (3-way markets, partial tables).
 - "ROI at fill" is the account's price, not ours. The tracker's own `clv`/`clv_nv` on sharp rows remains the test that matters for the board.
 - The residual-shift pricing for off-number lines is an approximation (the shift uses the sport's whole-history residuals, not the game's).
+
+## When does the other sharp come in, and should a flag be dropped for it? (Sean, 11/5 evening)
+Script `/scratchpad/opp_timing.py` -> `data/research/opp_timing.json`. On the full Polymarket history (2024-26), the first $100+ fill by
+one of the current top-200 accounts on each settled game market, 12,051 of them, and whether another top-200 account later took the
+other side (2,750, 23%).
+- Timing of the opposition before the start: inside 1h 22%, 1-3h 16%, 3-6h 14%, 6-12h 25%, 12h+ 23% (median 5.8h out, 7.0h after the
+  first fill). It comes at every hour; there is no window after which a flag is safe, so waiting to act does not avoid it.
+- Results following the first fill at its price: never opposed +3.5% (n 9,301); opposed later +4.1% (n 2,750); opposed by 2+ accounts
+  +2.8%. By when the opposition came: inside 1h +5.6%, 1-6h out -2.9%, 6h+ out +7.8%.
+- "Wait until T-1h and only take what is still clean": clean +4.3% vs already-opposed +3.7%. No separation.
+Reading: the first sharp in is the one to follow; a second sharp on the other side is not information that the first was wrong. The
+live tracker's own 17 opposed flags (5-10) are too few to override 2,750. Change: a logged flag that a sharp later opposes stays in
+Sharp signals with a "sharp took the other side since · hold" tag instead of moving to the dropped list. Accounts on both sides before
+any flag still means no flag (that head-to-head test had no edge either way), and the Kalshi 4-point veto is unchanged. The
+system-vs-sharp hold (a system bet held when sharps are on the other side) is a separate rule and is unchanged tonight; the tracker's
+"sharps against" line is the test for it.
