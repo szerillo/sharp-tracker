@@ -2734,19 +2734,41 @@
 },
 "401909288:xch_homedog_fade:ml": {
 "tag": "xch_homedog_fade",
-"fill_id": "596c8b566ca4",
-"ts": "2026-11-06T22:39:07Z",
+"fill_id": "7dfa060d063c",
+"ts": "2026-11-06T22:53:39Z",
 "market": "ml",
 "side": "away",
 "line": null,
 "venue": "Novig",
 "price": -365,
-"fair": 0.78181,
-"edge_pts": -0.32,
-"why": "Novig home side mid 0.220 inside T-1.3h; audit band 20-35c",
-"now": {
+"fair": 0.78408,
+"edge_pts": -0.09,
+"why": "Novig home side mid 0.217 inside T-1.1h; audit band 20-35c"
+},
+"401909288:nba_momentum:ml": {
+"tag": "nba_momentum",
+"fill_id": "4589964bbf34",
+"ts": "2026-11-06T22:53:39Z",
+"market": "ml",
+"side": "away",
+"line": null,
+"venue": "Kalshi",
+"price": -426,
+"fair": 0.78408,
+"edge_pts": -2.59,
+"why": "Kalshi ml mid 0.245 at T-6h -> 0.215 now (-3.0c); continuation (audit section 3, NBA only)"
+},
+"401909288:nba_momentum:spread": {
+"tag": "nba_momentum",
+"fill_id": "1b61b3c34932",
+"ts": "2026-11-06T22:53:39Z",
+"market": "spread",
+"side": "away",
+"line": -10.5,
 "venue": "Novig",
-"price": -365
-}
+"price": 104,
+"fair": 0.48944,
+"edge_pts": -0.06,
+"why": "Novig spread mid 0.555 at T-6h -> 0.512 now (-4.3c); continuation (audit section 3, NBA only)"
 }
 }
