@@ -1,5 +1,5 @@
 {
- "built": "2026-11-06T19:12:58Z",
+ "built": "2026-11-06T19:19:21Z",
  "rows": [
   {
    "cond": "0x3677c251947318cc64698988355cb2bbb5fe9a20f8c18c9e614cacc719026338",
@@ -130,7 +130,7 @@
    "best_rank": 40,
    "usd": 807,
    "paid": 0.28,
-   "ask": 0.37,
+   "ask": 0.38,
    "status": "live",
    "link": "https://polymarket.us/event/nba-tor-mil-2026-11-06",
    "other": null,
@@ -264,7 +264,7 @@
    "best_rank": 58,
    "usd": 8067,
    "paid": 0.481,
-   "ask": 0.47,
+   "ask": 0.46,
    "status": "live",
    "link": "https://polymarket.us/event/nba-uta-dal-2026-11-06",
    "other": null,
@@ -766,8 +766,8 @@
    "home_name": "New Orleans Saints",
    "game_start": "2026-11-08T18:00Z",
    "side_std": "away",
-   "money_with": false,
-   "grade": "B",
+   "money_with": true,
+   "grade": "A",
    "fair_board": null,
    "inside_fair": null,
    "books": null
@@ -815,7 +815,7 @@
    "best_rank": 40,
    "usd": 1429,
    "paid": 0.633,
-   "ask": 0.72,
+   "ask": 0.73,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-was-atl-2026-11-06",
    "other": {
@@ -824,7 +824,7 @@
     "usd": 254,
     "first": "2026-11-06T02:07:52Z"
    },
-   "exit_bid": 0.71,
+   "exit_bid": 0.72,
    "kalshi_against": null,
    "logged": true,
    "event_id": "401909287",
@@ -839,7 +839,7 @@
    "money_with": false,
    "grade": "B",
    "fair_board": 0.7286,
-   "inside_fair": true,
+   "inside_fair": false,
    "books": null
   },
   {
@@ -1214,6 +1214,13 @@
     "n": 1,
     "best_rank": 93,
     "usd": 177
+   }
+  },
+  "401892659|spread": {
+   "home": {
+    "n": 1,
+    "best_rank": 132,
+    "usd": 161
    }
   },
   "401892660|spread": {
