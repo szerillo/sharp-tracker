@@ -1,5 +1,5 @@
 {
- "built": "2026-11-06T23:05:59Z",
+ "built": "2026-11-06T23:12:46Z",
  "rows": [
   {
    "cond": "0x3677c251947318cc64698988355cb2bbb5fe9a20f8c18c9e614cacc719026338",
@@ -64,9 +64,18 @@
    ],
    "money_with": false,
    "grade": "B",
-   "fair_board": null,
-   "inside_fair": null,
-   "books": null
+   "fair_board": 0.495,
+   "inside_fair": false,
+   "books": {
+    "at": "2026-11-06T22:57:38Z",
+    "fair": 0.495,
+    "q": {
+     "Novig": 0.495,
+     "Polymarket": 0.5,
+     "DK": 0.5192,
+     "Kalshi": 0.52
+    }
+   }
   },
   {
    "cond": "0x9ab73c8f7e867267d125326b8ab78ac381ea10c82b7ad54e50421500869afdf7",
@@ -106,16 +115,7 @@
    "grade": "B",
    "inside_fair": false,
    "fair_board": 0.5009,
-   "books": {
-    "at": "2026-11-06T21:20:39Z",
-    "fair": 0.5009,
-    "q": {
-     "Novig": 0.51,
-     "Polymarket": 0.51,
-     "FD": 0.5192,
-     "Caesars": 0.5238
-    }
-   }
+   "books": null
   },
   {
    "cond": "0x022c797a4e6781bc7f79f3ce5fb524a95f944b4673abea062d611b022f800893",
@@ -193,13 +193,13 @@
    "inside_fair": true,
    "fair_board": 0.3144,
    "books": {
-    "at": "2026-11-06T21:20:39Z",
-    "fair": 0.3742,
+    "at": "2026-11-06T22:57:38Z",
+    "fair": 0.3721,
     "q": {
-     "Novig": 0.38,
+     "Novig": 0.375,
      "Polymarket": 0.38,
-     "Caesars": 0.3876,
-     "FD": 0.3876
+     "FD": 0.3876,
+     "DK": 0.3937
     }
    }
   },
@@ -239,10 +239,10 @@
    "inside_fair": true,
    "fair_board": 0.6125,
    "books": {
-    "at": "2026-11-06T21:20:39Z",
-    "fair": 0.6147,
+    "at": "2026-11-06T22:57:38Z",
+    "fair": 0.6178,
     "q": {
-     "Novig": 0.615,
+     "Novig": 0.62,
      "Polymarket": 0.62,
      "DK": 0.6337,
      "Kalshi": 0.64
@@ -386,7 +386,7 @@
    "best_rank": 4,
    "usd": 150,
    "paid": 0.48,
-   "ask": 0.5,
+   "ask": 0.51,
    "status": "live",
    "link": "https://polymarket.us/event/cbb-stmn-minnst-2026-11-06",
    "other": null,
@@ -443,8 +443,8 @@
    "inside_fair": true,
    "fair_board": 0.9044,
    "books": {
-    "at": "2026-11-06T21:20:39Z",
-    "fair": 0.9073,
+    "at": "2026-11-06T22:57:38Z",
+    "fair": 0.9065,
     "q": {
      "Polymarket": 0.9,
      "Novig": 0.905,
@@ -486,15 +486,15 @@
    "side_std": "under",
    "money_with": false,
    "grade": "A",
-   "fair_board": 0.4337,
+   "fair_board": 0.4244,
    "inside_fair": false,
    "books": {
-    "at": "2026-11-06T21:20:39Z",
-    "fair": 0.4337,
+    "at": "2026-11-06T22:57:38Z",
+    "fair": 0.4244,
     "q": {
+     "FD": 0.4348,
      "Novig": 0.44,
-     "DK": 0.4545,
-     "FD": 0.4717
+     "DK": 0.4545
     }
    }
   },
@@ -625,13 +625,13 @@
    "inside_fair": false,
    "fair_board": 0.6335,
    "books": {
-    "at": "2026-11-06T21:20:39Z",
-    "fair": 0.6335,
+    "at": "2026-11-06T22:57:38Z",
+    "fair": 0.6391,
     "q": {
      "Caesars": 0.6296,
-     "Novig": 0.64,
+     "Novig": 0.65,
      "Kalshi": 0.66,
-     "FD": 0.6825
+     "FD": 0.697
     }
    }
   },
@@ -826,7 +826,7 @@
    "fair_board": null,
    "inside_fair": null,
    "books": {
-    "at": "2026-11-06T21:20:39Z",
+    "at": "2026-11-06T22:57:38Z",
     "fair": null,
     "q": {
      "Kalshi": 0.45
@@ -869,10 +869,10 @@
    "fair_board": null,
    "inside_fair": null,
    "books": {
-    "at": "2026-11-06T21:20:39Z",
+    "at": "2026-11-06T22:57:38Z",
     "fair": null,
     "q": {
-     "Polymarket": 0.32,
+     "Polymarket": 0.31,
      "Kalshi": 0.35
     }
    }
@@ -991,18 +991,9 @@
    "side_std": "over",
    "money_with": false,
    "grade": "A",
-   "fair_board": 0.4901,
-   "inside_fair": true,
-   "books": {
-    "at": "2026-11-06T21:20:39Z",
-    "fair": 0.4901,
-    "q": {
-     "Novig": 0.495,
-     "Kalshi": 0.51,
-     "FD": 0.5122,
-     "Caesars": 0.5146
-    }
-   }
+   "fair_board": null,
+   "inside_fair": null,
+   "books": null
   },
   {
    "cond": "0x57ed7b794b573b0b204a91ca6e2235f229530ba0116d43777040e20a02038130",
@@ -1077,23 +1068,23 @@
    "bet": "Hawks ML",
    "side": "Hawks",
    "flagged": "2026-11-04T11:44:10Z",
-   "why": "3 top-200 accounts",
+   "why": "4 top-200 accounts",
    "proven": false,
    "trigger": "two",
-   "n_accounts": 3,
+   "n_accounts": 4,
    "best_rank": 40,
-   "usd": 5357,
-   "paid": 0.704,
-   "ask": 0.75,
+   "usd": 5482,
+   "paid": 0.705,
+   "ask": 0.74,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-was-atl-2026-11-06",
    "other": {
-    "n_accounts": 5,
+    "n_accounts": 6,
     "best_rank": 31,
-    "usd": 2585,
+    "usd": 4570,
     "first": "2026-11-06T02:07:52Z"
    },
-   "exit_bid": 0.74,
+   "exit_bid": 0.73,
    "kalshi_against": null,
    "logged": true,
    "event_id": "401909287",
@@ -1107,7 +1098,7 @@
    "side_std": "home",
    "money_with": false,
    "grade": "B",
-   "fair_board": 0.7388,
+   "fair_board": 0.7116,
    "inside_fair": false,
    "books": null
   },
@@ -1153,8 +1144,8 @@
    ],
    "money_with": false,
    "grade": "B",
-   "fair_board": null,
-   "inside_fair": null,
+   "fair_board": 0.5078,
+   "inside_fair": true,
    "books": null
   },
   {
@@ -1219,7 +1210,7 @@
    "best_rank": 49,
    "usd": 22693,
    "paid": 0.529,
-   "ask": 0.53,
+   "ask": 0.54,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-was-atl-2026-11-06",
    "other": {
@@ -1228,7 +1219,7 @@
     "usd": 56962,
     "first": "2026-11-06T22:30:06Z"
    },
-   "exit_bid": 0.52,
+   "exit_bid": 0.53,
    "kalshi_against": null,
    "logged": true,
    "event_id": "401909287",
@@ -1295,8 +1286,8 @@
    ],
    "money_with": false,
    "grade": "A",
-   "fair_board": 0.4216,
-   "inside_fair": true,
+   "fair_board": 0.4163,
+   "inside_fair": false,
    "books": null
   },
   {
@@ -1338,7 +1329,7 @@
    "side_std": "home",
    "money_with": false,
    "grade": "watch",
-   "fair_board": 0.399,
+   "fair_board": 0.4018,
    "inside_fair": false,
    "books": null
   },
@@ -1385,8 +1376,8 @@
    "inside_fair": true,
    "fair_board": 0.3912,
    "books": {
-    "at": "2026-11-06T21:20:39Z",
-    "fair": 0.3946,
+    "at": "2026-11-06T22:57:38Z",
+    "fair": 0.3951,
     "q": {
      "Novig": 0.4,
      "Caesars": 0.4,
@@ -1437,7 +1428,7 @@
    ],
    "money_with": false,
    "grade": "A",
-   "fair_board": 0.6167,
+   "fair_board": 0.6171,
    "inside_fair": false,
    "books": null
   }
@@ -1474,96 +1465,7 @@
   "clv_venue": 0.23,
   "clv_poly_same": -1.81
  },
- "sys_tags": {
-  "401873039:bounce15_1h": {
-   "with": {
-    "n": 1,
-    "best_rank": 4,
-    "usd": 153
-   },
-   "against": null
-  },
-  "401873042:awfuldog": {
-   "with": {
-    "n": 1,
-    "best_rank": 58,
-    "usd": 440
-   },
-   "against": null
-  },
-  "401873039:nfl_fade_fav_bye": {
-   "with": {
-    "n": 1,
-    "best_rank": 4,
-    "usd": 153
-   },
-   "against": null
-  },
-  "401858289:cfb_day_over": {
-   "with": {
-    "n": 1,
-    "best_rank": 12,
-    "usd": 224
-   },
-   "against": null
-  },
-  "401856744:cfb_day_over": {
-   "with": {
-    "n": 1,
-    "best_rank": 61,
-    "usd": 500
-   },
-   "against": null
-  },
-  "401909295:nba_bigfav_over": {
-   "with": null,
-   "against": {
-    "n": 1,
-    "best_rank": 132,
-    "usd": 689
-   }
-  },
-  "401892662:nhl_early_home_fav_qual": {
-   "with": null,
-   "against": {
-    "n": 1,
-    "best_rank": 132,
-    "usd": 179
-   }
-  },
-  "401909290:nba_ats_hot_home": {
-   "with": {
-    "n": 1,
-    "best_rank": 112,
-    "usd": 9200
-   },
-   "against": {
-    "n": 1,
-    "best_rank": 112,
-    "usd": 8219
-   }
-  },
-  "401909291:nba_ats_hot_home": {
-   "with": null,
-   "against": {
-    "n": 1,
-    "best_rank": 58,
-    "usd": 500
-   }
-  },
-  "401909288:xch_homedog_fade:ml": {
-   "with": {
-    "n": 1,
-    "best_rank": 55,
-    "usd": 209
-   },
-   "against": {
-    "n": 1,
-    "best_rank": 93,
-    "usd": 110
-   }
-  }
- },
+ "sys_tags": {},
  "by_event": {
   "401873042|total": {
    "over": {
@@ -1614,14 +1516,14 @@
   },
   "401909287|ml": {
    "home": {
-    "n": 3,
+    "n": 4,
     "best_rank": 40,
-    "usd": 5357
+    "usd": 5482
    },
    "away": {
-    "n": 5,
+    "n": 6,
     "best_rank": 31,
-    "usd": 2335
+    "usd": 4321
    }
   },
   "401909287|total": {
