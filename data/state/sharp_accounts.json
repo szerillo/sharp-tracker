@@ -1,5 +1,5 @@
 {
- "built": "2026-11-06T13:45:35Z",
+ "built": "2026-11-06T13:55:17Z",
  "rows": [
   {
    "cond": "0x81b63770a7d779d9d73737f06a0e6f974c78f8dfd5695f7d13ca8f30a5994270",
@@ -133,6 +133,52 @@
      "DK": 0.3165,
      "Kalshi": 0.32,
      "Caesars": 0.3226
+    }
+   }
+  },
+  {
+   "cond": "0x0807bc1fb7e6d616f72b1ffd6158f17448df90223dbdd357281ccb7641b2fdbc",
+   "slug": "nba-okc-mem-2026-11-06",
+   "title": "Thunder vs. Grizzlies",
+   "mtype": "ml",
+   "start": "2026-11-07T01:00:00Z",
+   "bet": "Thunder ML",
+   "side": "Thunder",
+   "flagged": "2026-11-06T13:50:42Z",
+   "why": "2 top-200 accounts",
+   "proven": false,
+   "trigger": "two",
+   "n_accounts": 2,
+   "best_rank": 95,
+   "usd": 1323,
+   "paid": 0.599,
+   "ask": 0.6,
+   "status": "live",
+   "link": "https://polymarket.us/event/nba-okc-mem-2026-11-06",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401909291",
+   "sport": "nba",
+   "league": null,
+   "away": "OKC",
+   "home": "MEM",
+   "away_name": "Oklahoma City Thunder",
+   "home_name": "Memphis Grizzlies",
+   "game_start": "2026-11-07T01:00Z",
+   "side_std": "away",
+   "money_with": false,
+   "grade": "B",
+   "fair_board": 0.6125,
+   "inside_fair": true,
+   "books": {
+    "at": "2026-11-06T03:44:54Z",
+    "fair": 0.6125,
+    "q": {
+     "DK": 0.6226,
+     "Caesars": 0.6296,
+     "FD": 0.635,
+     "Kalshi": 0.64
     }
    }
   },
@@ -597,6 +643,14 @@
     "usd": 224
    },
    "against": null
+  },
+  "401909291:nba_ats_hot_home": {
+   "with": null,
+   "against": {
+    "n": 1,
+    "best_rank": 58,
+    "usd": 500
+   }
   }
  },
  "by_event": {
@@ -692,9 +746,16 @@
   },
   "401909291|ml": {
    "away": {
+    "n": 2,
+    "best_rank": 95,
+    "usd": 1323
+   }
+  },
+  "401909291|spread": {
+   "away": {
     "n": 1,
-    "best_rank": 142,
-    "usd": 1190
+    "best_rank": 58,
+    "usd": 500
    }
   },
   "401909292|spread": {
