@@ -2766,9 +2766,279 @@
 "side": "away",
 "line": -10.5,
 "venue": "Novig",
-"price": 104,
-"fair": 0.48944,
+"price": -365
+}
+},
+"401909287:nba_momentum:spread": {
+"tag": "nba_momentum",
+"fill_id": "0efb5436c6ba",
+"ts": "2026-11-06T23:01:43Z",
+"market": "spread",
+"side": "home",
+"line": -7.5,
+"venue": "Novig",
+"price": -120,
+"fair": 0.52558,
+"edge_pts": -1.94,
+"why": "Novig spread mid 0.510 at T-6h -> 0.540 now (+3.0c); continuation (audit section 3, NBA only)",
+"now": {
+"venue": "Polymarket",
+"price": -100
+},
+"ladder": [
+{
+"line": -5.5,
+"steps": -4,
+"venue": "Novig",
+"price": -160,
+"cost": 0.615,
+"fair": 0.612,
+"loss": -0.0169
+},
+{
+"line": -6.5,
+"steps": -2,
+"venue": "Novig",
+"price": -138,
+"cost": 0.58,
+"fair": 0.577,
+"loss": -0.0169
+},
+{
+"line": -7.0,
+"steps": -1,
+"venue": "Caesars",
+"price": -110,
+"cost": 0.5238,
+"fair": 0.5,
+"loss": 0.0039
+},
+{
+"line": -7.5,
+"steps": 0,
+"venue": "Polymarket",
+"price": -100,
+"cost": 0.5,
+"fair": 0.5256,
+"loss": -0.0455
+},
+{
+"line": -8.0,
+"steps": 1,
+"venue": "Caesars",
+"price": -115,
+"cost": 0.5349,
+"fair": null,
+"loss": null
+},
+{
+"line": -8.5,
+"steps": 2,
+"venue": "Novig",
+"price": -102,
+"cost": 0.505,
+"fair": 0.5024,
+"loss": -0.0173
+},
+{
+"line": -9.5,
+"steps": 4,
+"venue": "Novig",
+"price": 113,
+"cost": 0.47,
+"fair": 0.4705,
+"loss": -0.0204
+}
+],
+"bet_to": {
+"line": -9.5,
+"steps": 4,
+"venue": "Novig",
+"price": 113,
+"cost": 0.47,
+"fair": 0.4705,
+"loss": -0.0204
+}
+},
+"401909287:nba_momentum:total": {
+"tag": "nba_momentum",
+"fill_id": "cd4f26167c6b",
+"ts": "2026-11-06T23:01:43Z",
+"market": "total",
+"side": "under",
+"line": 227.5,
+"venue": "Novig",
+"price": 102,
+"fair": 0.49444,
 "edge_pts": -0.06,
-"why": "Novig spread mid 0.555 at T-6h -> 0.512 now (-4.3c); continuation (audit section 3, NBA only)"
+"why": "Novig total mid 0.540 at T-6h -> 0.510 now (-3.0c); continuation (audit section 3, NBA only)",
+"now": {
+"venue": "Novig",
+"price": 102
+},
+"ladder": [
+{
+"line": 229.5,
+"steps": -4,
+"venue": "Polymarket",
+"price": -104,
+"cost": 0.51,
+"fair": 0.5375,
+"loss": -0.0281
+},
+{
+"line": 228.5,
+"steps": -2,
+"venue": "Novig",
+"price": -106,
+"cost": 0.515,
+"fair": 0.5084,
+"loss": 0.006
+},
+{
+"line": 228.0,
+"steps": -1,
+"venue": "Caesars",
+"price": -110,
+"cost": 0.5238,
+"fair": 0.5,
+"loss": 0.0232
+},
+{
+"line": 227.5,
+"steps": 0,
+"venue": "Novig",
+"price": 102,
+"cost": 0.495,
+"fair": 0.4944,
+"loss": -0.0
+},
+{
+"line": 226.5,
+"steps": 2,
+"venue": "Novig",
+"price": 115,
+"cost": 0.465,
+"fair": 0.46,
+"loss": 0.0044
+},
+{
+"line": 225.5,
+"steps": 4,
+"venue": "Novig",
+"price": 125,
+"cost": 0.445,
+"fair": 0.4375,
+"loss": 0.0069
+}
+],
+"bet_to": {
+"line": 225.5,
+"steps": 4,
+"venue": "Novig",
+"price": 125,
+"cost": 0.445,
+"fair": 0.4375,
+"loss": 0.0069
+}
+},
+"401909288:nba_momentum:ml": {
+"tag": "nba_momentum",
+"fill_id": "0545ad9a9078",
+"ts": "2026-11-06T23:01:43Z",
+"market": "ml",
+"side": "away",
+"line": null,
+"venue": "Kalshi",
+"price": -426,
+"fair": 0.78588,
+"edge_pts": -2.41,
+"why": "Kalshi ml mid 0.245 at T-6h -> 0.215 now (-3.0c); continuation (audit section 3, NBA only)",
+"now": {
+"venue": "Novig",
+"price": -365
+}
+},
+"401909288:nba_momentum:spread": {
+"tag": "nba_momentum",
+"fill_id": "4c0568a616dd",
+"ts": "2026-11-06T23:01:43Z",
+"market": "spread",
+"side": "away",
+"line": -10.5,
+"venue": "Novig",
+"price": 104,
+"fair": 0.48959,
+"edge_pts": -0.04,
+"why": "Novig spread mid 0.555 at T-6h -> 0.512 now (-4.3c); continuation (audit section 3, NBA only)",
+"now": {
+"venue": "Novig",
+"price": 104
+},
+"ladder": [
+{
+"line": -8.5,
+"steps": -4,
+"venue": "Novig",
+"price": -130,
+"cost": 0.565,
+"fair": 0.5635,
+"loss": 0.0009
+},
+{
+"line": -9.5,
+"steps": -2,
+"venue": "Novig",
+"price": -111,
+"cost": 0.525,
+"fair": 0.5218,
+"loss": 0.0026
+},
+{
+"line": -10.0,
+"steps": -1,
+"venue": "Caesars",
+"price": -115,
+"cost": 0.5349,
+"fair": 0.5096,
+"loss": 0.0246
+},
+{
+"line": -10.5,
+"steps": 0,
+"venue": "Novig",
+"price": 104,
+"cost": 0.49,
+"fair": 0.4896,
+"loss": -0.0002
+},
+{
+"line": -11.5,
+"steps": 2,
+"venue": "Novig",
+"price": 117,
+"cost": 0.46,
+"fair": 0.4515,
+"loss": 0.0079
+},
+{
+"line": -12.5,
+"steps": 4,
+"venue": "Novig",
+"price": 135,
+"cost": 0.425,
+"fair": 0.4185,
+"loss": 0.0059
+}
+],
+"bet_to": {
+"line": -12.5,
+"steps": 4,
+"venue": "Novig",
+"price": 135,
+"cost": 0.425,
+"fair": 0.4185,
+"loss": 0.0059
+}
 }
 }
