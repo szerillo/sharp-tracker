@@ -74,3 +74,12 @@ First five innings (total, run line, moneyline), first inning, first three and t
 on the curve everywhere (curve weight z between -1.4 and +0.4; every off-curve slice -4% to -9%). As expected: the first five depends on
 the starters and the market prices them; the full-game number alone cannot see that. The MLB test that matters is the first five vs
 the full game WITH starter and bullpen quality (Bartolo's pitcher data), not the curve alone.
+
+## 2 hours before the start (11/6, 6am): CFB first-quarter unders promoted to tier B
+Same markets pulled 2 hours before every start (`*_curve_t120m`), the curve built from THAT snapshot's Pinnacle full-game total and
+spread, graded on period scores:
+- **cfb_q1_under_curve: 296-189, +15.0% at Pinnacle; 213-124, +19.8% at the best of FD/Caesars/DK; 2023 +16.5, 2024 +18.7, 2025
+  +10.0.** Stronger than at kickoff (+8.8%): the first-quarter line is softer early. **Tier B, 0.5u** (System bets on the board).
+- cfb_tt_under_curve: 198-180, +2.5% (2023 -1.0, 2025 -2.0). Stays paper.
+- cbb_1h_total_curve: Pinnacle rarely has a CBB first-half line 2 hours out (19 fires in the 2,080 games pulled so far, 12-7). Rescore
+  when the CBB pull finishes; stays tier C.
