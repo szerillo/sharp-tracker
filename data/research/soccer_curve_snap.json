@@ -1,0 +1,554 @@
+{
+ "games": 2463,
+ "blend": {
+  "alternate_totals": {
+   "n": 5545,
+   "w_pin": -0.69,
+   "w_curve": 1.73,
+   "z_curve": 1.27,
+   "ll_curve": 0.6386,
+   "ll_pin": 0.6389
+  },
+  "btts": {
+   "n": 2129,
+   "w_pin": -1.16,
+   "w_curve": 2.15,
+   "z_curve": 1.98,
+   "ll_curve": 0.6779,
+   "ll_pin": 0.6784
+  },
+  "draw_no_bet": {
+   "n": 1606,
+   "w_pin": 1.53,
+   "w_curve": -0.37,
+   "z_curve": -0.3,
+   "ll_curve": 0.5455,
+   "ll_pin": 0.5442
+  },
+  "team_totals": {
+   "n": 4260,
+   "w_pin": 0.3,
+   "w_curve": 0.62,
+   "z_curve": 1.15,
+   "ll_curve": 0.6744,
+   "ll_pin": 0.6746
+  }
+ },
+ "bets": {
+  "all": {
+   "n": 666,
+   "roi": 6.4,
+   "ev": 8.6
+  },
+  "alternate_totals": {
+   "n": 332,
+   "roi": 15.6,
+   "ev": 5.7
+  },
+  "btts": {
+   "n": 63,
+   "roi": 13.3,
+   "ev": 15.3
+  },
+  "draw_no_bet": {
+   "n": 254,
+   "roi": -8.6,
+   "ev": 9.9
+  },
+  "team_totals": {
+   "n": 17,
+   "roi": 25.7,
+   "ev": 21.6
+  },
+  "ALT UNDER 6%+ | book BetRivers": {
+   "n": 12,
+   "roi": 11.7,
+   "ev": 6.7
+  },
+  "ALT UNDER 6%+ | book Bovada": {
+   "n": 16,
+   "roi": -50.2,
+   "ev": 10.8
+  },
+  "ALT UNDER 6%+ | book FD": {
+   "n": 2,
+   "roi": -100.0,
+   "ev": 7.7
+  },
+  "ALT UNDER 6%+ | book Pinnacle": {
+   "n": 2,
+   "roi": -100.0,
+   "ev": 17.8
+  },
+  "ALT UNDER 6%+ | line 1.5": {
+   "n": 16,
+   "roi": 3.1,
+   "ev": 7.9
+  },
+  "ALT UNDER 6%+ | line 1.75": {
+   "n": 3,
+   "roi": -83.3,
+   "ev": 12.3
+  },
+  "ALT UNDER 6%+ | line 2.0": {
+   "n": 3,
+   "roi": -66.7,
+   "ev": 11.9
+  },
+  "ALT UNDER 6%+ | line 2.25": {
+   "n": 2,
+   "roi": -18.8,
+   "ev": 11.2
+  },
+  "ALT UNDER 6%+ | line 2.5": {
+   "n": 1,
+   "roi": -100.0,
+   "ev": 6.2
+  },
+  "ALT UNDER 6%+ | line 2.75": {
+   "n": 2,
+   "roi": -13.0,
+   "ev": 8.4
+  },
+  "ALT UNDER 6%+ | line 3.0": {
+   "n": 1,
+   "roi": -100.0,
+   "ev": 9.0
+  },
+  "ALT UNDER 6%+ | line 3.25": {
+   "n": 1,
+   "roi": -100.0,
+   "ev": 8.0
+  },
+  "ALT UNDER 6%+ | line 3.5": {
+   "n": 2,
+   "roi": -100.0,
+   "ev": 15.5
+  },
+  "ALT UNDER 6%+ | line 3.75": {
+   "n": 1,
+   "roi": -100.0,
+   "ev": 11.4
+  },
+  "ALT UNDER 6%+ | season 2023": {
+   "n": 2,
+   "roi": -100.0,
+   "ev": 17.8
+  },
+  "ALT UNDER 6%+ | season 2024": {
+   "n": 12,
+   "roi": -25.8,
+   "ev": 6.8
+  },
+  "ALT UNDER 6%+ | season 2025": {
+   "n": 18,
+   "roi": -30.8,
+   "ev": 10.3
+  },
+  "alternate_totals | over": {
+   "n": 200,
+   "roi": 20.9,
+   "ev": 5.9
+  },
+  "alternate_totals | under": {
+   "n": 132,
+   "roi": 7.7,
+   "ev": 5.4
+  },
+  "btts | no": {
+   "n": 57,
+   "roi": 4.0,
+   "ev": 6.0
+  },
+  "btts | yes": {
+   "n": 6,
+   "roi": 101.7,
+   "ev": 104.0
+  },
+  "draw_no_bet | away": {
+   "n": 170,
+   "roi": 4.3,
+   "ev": 6.9
+  },
+  "draw_no_bet | home": {
+   "n": 84,
+   "roi": -34.9,
+   "ev": 15.9
+  },
+  "team_totals | over": {
+   "n": 8,
+   "roi": 32.5,
+   "ev": 21.9
+  },
+  "team_totals | under": {
+   "n": 9,
+   "roi": 19.7,
+   "ev": 21.4
+  },
+  "alternate_totals | over | book BetRivers": {
+   "n": 158,
+   "roi": 6.8,
+   "ev": 5.4
+  },
+  "alternate_totals | over | book Bovada": {
+   "n": 20,
+   "roi": 61.3,
+   "ev": 4.5
+  },
+  "alternate_totals | over | book FD": {
+   "n": 16,
+   "roi": 42.5,
+   "ev": 6.9
+  },
+  "alternate_totals | over | book Pinnacle": {
+   "n": 6,
+   "roi": 199.3,
+   "ev": 20.3
+  },
+  "alternate_totals | over | edge 3-6%": {
+   "n": 145,
+   "roi": 44.8,
+   "ev": 4.3
+  },
+  "alternate_totals | over | edge 6%+": {
+   "n": 55,
+   "roi": -42.0,
+   "ev": 10.0
+  },
+  "alternate_totals | over | season 2023": {
+   "n": 19,
+   "roi": 35.1,
+   "ev": 11.7
+  },
+  "alternate_totals | over | season 2024": {
+   "n": 166,
+   "roi": 13.5,
+   "ev": 5.3
+  },
+  "alternate_totals | over | season 2025": {
+   "n": 15,
+   "roi": 85.0,
+   "ev": 4.6
+  },
+  "alternate_totals | under | book BetOnline": {
+   "n": 5,
+   "roi": -30.0,
+   "ev": 4.0
+  },
+  "alternate_totals | under | book BetRivers": {
+   "n": 87,
+   "roi": 16.1,
+   "ev": 4.5
+  },
+  "alternate_totals | under | book Bovada": {
+   "n": 29,
+   "roi": -14.5,
+   "ev": 7.9
+  },
+  "alternate_totals | under | book FD": {
+   "n": 9,
+   "roi": 42.2,
+   "ev": 4.4
+  },
+  "alternate_totals | under | book Pinnacle": {
+   "n": 2,
+   "roi": -100.0,
+   "ev": 17.8
+  },
+  "alternate_totals | under | edge 3-6%": {
+   "n": 100,
+   "roi": 20.8,
+   "ev": 4.1
+  },
+  "alternate_totals | under | edge 6%+": {
+   "n": 32,
+   "roi": -33.2,
+   "ev": 9.5
+  },
+  "alternate_totals | under | season 2023": {
+   "n": 9,
+   "roi": -8.3,
+   "ev": 6.9
+  },
+  "alternate_totals | under | season 2024": {
+   "n": 80,
+   "roi": -9.8,
+   "ev": 4.5
+  },
+  "alternate_totals | under | season 2025": {
+   "n": 43,
+   "roi": 43.5,
+   "ev": 6.7
+  },
+  "btts | no | book BetOnline": {
+   "n": 6,
+   "roi": 47.5,
+   "ev": 3.8
+  },
+  "btts | no | book BetRivers": {
+   "n": 4,
+   "roi": 85.8,
+   "ev": 4.0
+  },
+  "btts | no | book Bovada": {
+   "n": 4,
+   "roi": -100.0,
+   "ev": 5.3
+  },
+  "btts | no | book DK": {
+   "n": 8,
+   "roi": 10.0,
+   "ev": 3.7
+  },
+  "btts | no | book FD": {
+   "n": 11,
+   "roi": 8.5,
+   "ev": 4.2
+  },
+  "btts | no | book Pinnacle": {
+   "n": 24,
+   "roi": -7.3,
+   "ev": 8.5
+  },
+  "btts | no | edge 3-6%": {
+   "n": 51,
+   "roi": 7.9,
+   "ev": 3.7
+  },
+  "btts | no | edge 6%+": {
+   "n": 6,
+   "roi": -29.5,
+   "ev": 25.0
+  },
+  "btts | no | season 2023": {
+   "n": 24,
+   "roi": 47.8,
+   "ev": 8.6
+  },
+  "btts | no | season 2024": {
+   "n": 28,
+   "roi": -21.8,
+   "ev": 3.8
+  },
+  "btts | no | season 2025": {
+   "n": 5,
+   "roi": -61.6,
+   "ev": 5.4
+  },
+  "btts | yes | book BetOnline": {
+   "n": 1,
+   "roi": 87.0,
+   "ev": 3.7
+  },
+  "btts | yes | book Caesars": {
+   "n": 3,
+   "roi": 83.3,
+   "ev": 165.7
+  },
+  "btts | yes | book FD": {
+   "n": 1,
+   "roi": 91.0,
+   "ev": 6.6
+  },
+  "btts | yes | book Pinnacle": {
+   "n": 1,
+   "roi": 182.0,
+   "ev": 116.4
+  },
+  "btts | yes | edge 3-6%": {
+   "n": 1,
+   "roi": 87.0,
+   "ev": 3.7
+  },
+  "btts | yes | edge 6%+": {
+   "n": 5,
+   "roi": 104.6,
+   "ev": 124.0
+  },
+  "btts | yes | season 2023": {
+   "n": 6,
+   "roi": 101.7,
+   "ev": 104.0
+  },
+  "draw_no_bet | away | book BetOnline": {
+   "n": 7,
+   "roi": -0.7,
+   "ev": 4.5
+  },
+  "draw_no_bet | away | book BetRivers": {
+   "n": 10,
+   "roi": -67.0,
+   "ev": 4.8
+  },
+  "draw_no_bet | away | book Caesars": {
+   "n": 1,
+   "roi": 210.0,
+   "ev": 3.7
+  },
+  "draw_no_bet | away | book DK": {
+   "n": 2,
+   "roi": -100.0,
+   "ev": 4.9
+  },
+  "draw_no_bet | away | book FD": {
+   "n": 95,
+   "roi": 15.5,
+   "ev": 6.8
+  },
+  "draw_no_bet | away | book Pinnacle": {
+   "n": 55,
+   "roi": -1.3,
+   "ev": 7.8
+  },
+  "draw_no_bet | away | edge 3-6%": {
+   "n": 116,
+   "roi": 12.4,
+   "ev": 4.1
+  },
+  "draw_no_bet | away | edge 6%+": {
+   "n": 54,
+   "roi": -12.9,
+   "ev": 12.9
+  },
+  "draw_no_bet | away | season 2023": {
+   "n": 77,
+   "roi": -10.8,
+   "ev": 8.2
+  },
+  "draw_no_bet | away | season 2024": {
+   "n": 61,
+   "roi": 37.5,
+   "ev": 5.2
+  },
+  "draw_no_bet | away | season 2025": {
+   "n": 32,
+   "roi": -22.5,
+   "ev": 6.8
+  },
+  "draw_no_bet | home | book BetOnline": {
+   "n": 4,
+   "roi": 125.0,
+   "ev": 11.6
+  },
+  "draw_no_bet | home | book BetRivers": {
+   "n": 5,
+   "roi": -100.0,
+   "ev": 4.8
+  },
+  "draw_no_bet | home | book Bovada": {
+   "n": 4,
+   "roi": -50.0,
+   "ev": 5.5
+  },
+  "draw_no_bet | home | book Caesars": {
+   "n": 5,
+   "roi": -12.0,
+   "ev": 21.2
+  },
+  "draw_no_bet | home | book FD": {
+   "n": 45,
+   "roi": -46.1,
+   "ev": 23.2
+  },
+  "draw_no_bet | home | book Pinnacle": {
+   "n": 21,
+   "roi": -28.5,
+   "ev": 4.4
+  },
+  "draw_no_bet | home | edge 3-6%": {
+   "n": 58,
+   "roi": -39.0,
+   "ev": 3.9
+  },
+  "draw_no_bet | home | edge 6%+": {
+   "n": 26,
+   "roi": -25.8,
+   "ev": 42.7
+  },
+  "draw_no_bet | home | season 2023": {
+   "n": 39,
+   "roi": -27.6,
+   "ev": 28.8
+  },
+  "draw_no_bet | home | season 2024": {
+   "n": 33,
+   "roi": -33.1,
+   "ev": 4.8
+  },
+  "draw_no_bet | home | season 2025": {
+   "n": 12,
+   "roi": -63.8,
+   "ev": 4.4
+  },
+  "team_totals | over | book Bovada": {
+   "n": 6,
+   "roi": 0.8,
+   "ev": 4.7
+  },
+  "team_totals | over | book Pinnacle": {
+   "n": 2,
+   "roi": 127.5,
+   "ev": 73.4
+  },
+  "team_totals | over | edge 3-6%": {
+   "n": 5,
+   "roi": 21.0,
+   "ev": 4.4
+  },
+  "team_totals | over | edge 6%+": {
+   "n": 3,
+   "roi": 51.7,
+   "ev": 51.0
+  },
+  "team_totals | over | season 2023": {
+   "n": 4,
+   "roi": 13.8,
+   "ev": 39.7
+  },
+  "team_totals | over | season 2024": {
+   "n": 4,
+   "roi": 51.2,
+   "ev": 4.1
+  },
+  "team_totals | under | book BetOnline": {
+   "n": 1,
+   "roi": 186.0,
+   "ev": 3.1
+  },
+  "team_totals | under | book Bovada": {
+   "n": 2,
+   "roi": -100.0,
+   "ev": 4.7
+  },
+  "team_totals | under | book Pinnacle": {
+   "n": 6,
+   "roi": 31.8,
+   "ev": 30.0
+  },
+  "team_totals | under | edge 3-6%": {
+   "n": 5,
+   "roi": 41.2,
+   "ev": 3.1
+  },
+  "team_totals | under | edge 6%+": {
+   "n": 4,
+   "roi": -7.3,
+   "ev": 44.3
+  },
+  "team_totals | under | season 2023": {
+   "n": 5,
+   "roi": 15.0,
+   "ev": 35.4
+  },
+  "team_totals | under | season 2024": {
+   "n": 2,
+   "roi": -100.0,
+   "ev": 4.7
+  },
+  "team_totals | under | season 2025": {
+   "n": 2,
+   "roi": 151.0,
+   "ev": 3.1
+  }
+ }
+}

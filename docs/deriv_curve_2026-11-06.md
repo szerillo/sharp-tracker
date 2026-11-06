@@ -112,3 +112,9 @@ Rule now in force: every curve fire without an FD/Caesars/DK price at Pinnacle's
 ## MLB props (11/6, 9am)
 `sharp/props_test.py mlb` on 7,111 games (ESPN box scores; no total bases in the box): nothing. Price-gap unders +0.1% (n 3,362),
 overs -8.9%; pitcher strikeouts -0.3%; home-run props lose 9%.
+
+## Soccer 2 hours out (11/6, 11am)
+Poisson rates fitted on that snapshot's Pinnacle asian handicap and total (`SOCCER_SNAP=1 sharp/soccer_curve.py`, 2,463 games): still on
+the curve (blend z 1.0-2.0, log loss equal to Pinnacle's). Alternate totals off the curve +15.6% (n 332) but it is mostly BetRivers alt
+lines in 2024 (166 of 200 overs) and the unders swing by season (-8.3 / -9.8 / +43.5). Nothing to bet; the 10-minute "alt-total unders"
+candidate does not repeat 2 hours out.

@@ -20,6 +20,21 @@ P_AWAY_LT = np.concatenate([np.zeros((len(LAM), 1)), CDF_H[:, :-1]], axis=1)    
 PH = PMF @ P_AWAY_LT.T                       # [lam_h, lam_a]
 PA = (PMF @ P_AWAY_LT.T).T
 SUMLAM = LAM[:, None] + LAM[None, :]
+# goal-difference distribution on the grid: DIFF[i, j, k + K - 1] = P(home - away = k)   (11/6: early snapshots fit on the asian handicap)
+DIFF = np.zeros((len(LAM), len(LAM), 2 * K - 1))
+for a_ in range(K):
+    for b_ in range(K): DIFF[:, :, a_ - b_ + K - 1] += PMF[:, a_][:, None] * PMF[:, b_][None, :]
+KS = np.arange(-(K - 1), K)
+
+
+def ah_ev_grid(line, dec):
+    """expected net return of the HOME asian handicap at `line` and decimal `dec`, over the whole grid"""
+    halves = [line - 0.25, line + 0.25] if abs(line * 4 - round(line * 4)) < 1e-9 and abs(line * 2 - round(line * 2)) > 1e-9 else [line]
+    out = 0
+    for h in halves:
+        win = DIFF[:, :, KS + h > 0].sum(axis=2); push = DIFF[:, :, KS + h == 0].sum(axis=2)
+        out = out + (win * dec + push - 1)
+    return out / len(halves)
 
 
 def ptot_over(mu, line):
@@ -65,8 +80,22 @@ def main():
         try: d = json.loads(l)
         except Exception: continue
         gid = d['game_id']
-        if gid not in RES or gid not in CLOSE or not d.get('bookmakers'): continue
-        hs, as_ = RES[gid]; mh, ma, md, tl, to, tu = CLOSE[gid]
+        if gid not in RES or (gid not in CLOSE and not os.environ.get('SOCCER_SNAP')) or not d.get('bookmakers'): continue
+        hs, as_ = RES[gid]; SNAP = None
+        if os.environ.get('SOCCER_SNAP'):       # fit on THIS snapshot's Pinnacle asian handicap and total (no 1X2 in the early pulls)
+            pz = next((b for b in d['bookmakers'] if b['key'] == 'pinnacle'), None); mz = {m['key']: m['outcomes'] for m in (pz or {}).get('markets', [])}
+            sh = {o['name']: o for o in mz.get('spreads', [])}; st_ = {o['name']: o for o in mz.get('totals', [])}
+            if d['home'] not in sh or d['away'] not in sh or 'Over' not in st_ or 'Under' not in st_: continue
+            ho, ao = sh[d['home']], sh[d['away']]; qa_h = (1 / ho['price']) / (1 / ho['price'] + 1 / ao['price'])
+            tl = st_['Over']['point']; qo = (1 / st_['Over']['price']) / (1 / st_['Over']['price'] + 1 / st_['Under']['price'])
+            mus = np.round(SUMLAM, 2); EVO = {}
+            for m in np.unique(mus):
+                dist = [math.exp(-m) * m ** t / math.factorial(t) for t in range(2 * K)]; EVO[m] = settle_probs(dist, tl, True)(1 / qo)
+            SNAP = (ah_ev_grid(ho['point'], 1 / qa_h) / 2) ** 2 + (np.vectorize(lambda m: EVO[m])(mus) / 2) ** 2
+            mh = ma = md = 2.0; to = tu = 1.9
+        else:
+            if gid not in CLOSE: continue
+            mh, ma, md, tl, to, tu = CLOSE[gid]
         s = 1 / mh + 1 / ma + 1 / md; qh, qa = (1 / mh) / s, (1 / ma) / s; qo = (1 / to) / (1 / to + 1 / tu)
         mus = np.round(SUMLAM, 2); EVO = {}
         for m in np.unique(mus):
@@ -74,6 +103,8 @@ def main():
             EVO[m] = settle_probs(dist, tl, True)(1 / qo)          # the over's expected return at Pinnacle's no-vig price: zero on the curve
         PO = np.vectorize(lambda m: EVO[m])(mus)
         loss = (PH - qh) ** 2 + (PA - qa) ** 2 + (PO / 2) ** 2
+        if SNAP is not None:
+            loss = SNAP
         i, j = np.unravel_index(np.argmin(loss), loss.shape)
         if loss[i, j] > 0.002: fitbad += 1; continue
         lh, la = LAM[i], LAM[j]; ph_, pa_ = PMF[i], PMF[j]; n += 1
@@ -144,7 +175,7 @@ def main():
         L = G[k]; w = sum(1 for b in L if b['pieces'] == [1] or (len(b['pieces']) == 2 and sum(b['pieces']) >= 1.5)); pl = sum(pnl(b['pieces'], b['price']) for b in L)
         R['bets'][k] = dict(n=len(L), roi=round(100 * pl / len(L), 1), ev=round(100 * sum(b['ev'] for b in L) / len(L), 1))
         if (len(L) >= 80 and (k.count('|') <= 1 or R['bets'][k]['roi'] > 3)) or (k.startswith('ALT') and len(L) >= 20): print(f"   {k:48s} n={len(L):6d} ROI {R['bets'][k]['roi']:+.1f}%  curve EV {R['bets'][k]['ev']:+.1f}%")
-    json.dump(R, open(os.path.join(ROOT, 'data', 'research', 'soccer_curve.json'), 'w'), indent=1)
+    json.dump(R, open(os.path.join(ROOT, 'data', 'research', 'soccer_curve' + ('_snap' if os.environ.get('SOCCER_SNAP') else '') + '.json'), 'w'), indent=1)
 
 
 if __name__ == '__main__':
