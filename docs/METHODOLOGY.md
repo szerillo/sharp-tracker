@@ -1,0 +1,72 @@
+# Action Winners Circle: methodology (as of 11/5/2026, evening)
+
+The standing process for the sharp tracker (szerillo/sharp-tracker). This is the document of record; dated docs under `docs/` hold the
+tests behind each line. Updated when a rule or gate changes, with the date.
+
+## 1. Sizing and tiers
+- Unit $500. Tier A and B systems and sharp flags 0.5u; tier C leans 0.25u; tennis settled hot favourite is tier B (0.5u); MMA steam
+  tier C. Paper (P) rows are logged and graded at 0 units.
+- Tier A: a Bet Labs rule with a long positive history (2003-on), positive on both Bet Labs halves and 5+ of 6 recent seasons, and a
+  stated reason (weather). Tier B: positive in Bet Labs' 2003-19 window AND in 2020-26 at Pinnacle's close, plus a reason. Tier C: a
+  rule whose two tests disagree, or positive only at Bet Labs' price. P: everything else, with the reason shown on the board
+  (`paper_why`).
+- Promotion is on forward record only: a paper rule needs 50+ graded fires, positive, plus the long-window and reason gates, to become
+  a bet; C to B needs the same forward evidence; B to A needs a full season.
+- Demotion never happens on CLV alone and promotion never on CLV alone. CLV is diagnostic; ROI across a holdout decides (11/5).
+
+## 2. Data of record
+- Odds API history 2020-26 (`data/oddsapi/odds.sqlite`): full-game moneyline, spread and total only (no derivatives). Market open =
+  first snapshot where two or more books post the number (06:00 and 12:00 UTC snapshots added for NBA/NHL/CBB/CFB/MLB); Pinnacle
+  close and prices; results from ESPN (regular season, OT, conference, neutral flags). Team records from the complete ESPN schedule
+  (preseason excluded). Snapshots oriented to the first-seen home/away.
+- Live: the tracker's own tape (Pinnacle, DK, FD, Caesars, BetRivers, Fanatics, theScore, Kalshi, Novig, Polymarket) at 5 and 20 minute
+  cadence; weather from Open-Meteo forecasts and MySportsWeather; Polymarket fills by account.
+- Not in the history: first-half, second-half and team-total lines (every 1H rule rests on Bet Labs plus its full-game cousin in our
+  data); props; soccer beyond a few leagues; MLB 2026; Challenger tennis prices (Kalshi tape re-pull in progress).
+
+## 3. Testing standard for a rule
+1. Bet Labs rule: pull Bet Labs' own pick list for the screen and grade it at Pinnacle's closing line and price (our replay of their
+   filter is the second test, not the first; replays get opens, OT and conference subtly wrong).
+2. Any rule: 2003-19 window in Bet Labs must not be negative; 2020-26 at Pinnacle's close positive; 5+ of 7 seasons positive;
+   train (to 2023) and test (2024-26) both positive for mined angles; a stated mechanism before it is a bet at any tier.
+3. Miner (`sharp/angle_miner.py`): singles, pairs and triples over team form, rest, streaks, line and total bands, pace, conference,
+   neutral, altitude, travel/body clock, CFB weather; filler-value combinations excluded; z and consistency bars. Everything it finds
+   starts as paper until (2) is met; most of what it finds is a since-2020 pattern and fails the long window.
+4. Weather: NFL wind from Open-Meteo agrees with Bet Labs' venue wind (their picks 160-101 at our close); CFB does not (reanalysis
+   flat, their picks 135-96), so the CFB rule fires only with MySportsWeather in the blend. Bets fire inside 30h of kickoff; 48h
+   triggers are listed in the open as "Coming".
+5. Every system has a Bet Labs tracking screen ("Tracked: ...") and the tracker grades every fire at the price it flagged, with CLV
+   against Pinnacle's close.
+
+## 4. Sharp money (Polymarket accounts)
+- Accounts ranked by CLV against Polymarket's close (top 200; sport-proven = also in that sport's top 50). Selection by CLV, evaluation
+  by ROI: ranking by past ROI loses (-15% out of sample, 11/5); ranking by Pinnacle CLV is worse than the live method.
+- Flag: first fill by a sport-proven account, or two top-200 accounts on a side, with no top-200 account on the other side yet.
+  Grade A = sport-proven account or big money behind it; B = any other flag; C = accounts plus money or price, no flag. NBA single-account
+  flags are watch only.
+- A flag a sharp later opposes stays a signal (hold): 12,051 first fills, opposed later +4.1% vs never opposed +3.5%; opposition arrives
+  at every hour before the start, so there is no window to wait for (11/5). Accounts on both sides before any flag: no flag. Kalshi
+  4-point move against a moneyline flag: dropped.
+- Annotations on every flag: priced inside / above the Pinnacle-based fair (held out +9.3% vs +3.8%); market moved toward or against the
+  side before the flag; "also flagged by a system"; sharps with / against.
+- Market-only signals (Kalshi price moves, bet backs, big money, sharp moves) are watch only: 392 graded, none positive at any meaningful z.
+  Kalshi NHL late taker flow (30%+ one way on $500+ in the last 6h) is a paper lean. Novig and Kalshi have no account-level flow;
+  Novig's leaderboard is in-app only.
+
+## 5. Board rules
+- Order: Sharp signals, System bets (coming weather fires in the open), Leans (rules firing on 4+ games grouped), Paper rules
+  (collapsed). In-progress games stay four hours, listed below the upcoming ones in each section.
+- No bet against the Polymarket sharps: a system bet or lean with sharps on the other side at the flag is held (greyed, no units,
+  Held note) and still graded; the tracker's "sharps against" line is the test of this rule (next to be re-tested on the full history).
+- Cross-annotation: a bet both a system and a sharp signal land on shows the badge in both sections and in the tracker
+  ("Flagged by a system AND a sharp signal").
+- BetMGM never bettable. No duplicate bets on one market; stacked fires on the same side are one bet.
+- Tracker filters: window, category, bet type (ML / spread / over / under / 1H), rule (systems and paper rules separately), sharps on the
+  other side, sport.
+
+## 6. Open items
+- Derivatives history (1H, team totals) and MLB 2026 odds when Odds API credits reset; soccer leagues likewise.
+- System-vs-sharp hold rule: full-history test (same method as the flag test).
+- Weather fire window 30h vs 48h: re-ask at 50 games of our forecast ladder.
+- Tennis Challenger settled rule and set-1 vs Kalshi once the Kalshi tape has prices.
+- CBB mining once the sharp accounts bet it (2003-19 gate from the start).
