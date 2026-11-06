@@ -96,3 +96,13 @@ tests behind each line. Updated when a rule or gate changes, with the date.
 - Weather fire window 30h vs 48h: re-ask at 50 games of our forecast ladder.
 - Tennis Challenger settled rule and set-1 vs Kalshi once the Kalshi tape has prices.
 - CBB mining once the sharp accounts bet it (2003-19 gate from the start).
+
+## Tier review, 11/6
+
+Rule used: a rule keeps tier B only if our own replay at Pinnacle's close is positive, and only if the edge is not confined to one era when the older era has enough bets to tell (several hundred).
+- wind1014_1h: B -> C. Bet Labs +9.0% all-time, but our 1H replay is 55-51 (+0.4%).
+- bounce15_1h: C -> paper. Our replay is 54-61 (-10.5%), negative every season, no better than all 1H dogs.
+- cfb_homefav_7510_under: B -> C. 2003-19 is 417-385 (+1.1%) on 802 bets; the edge is 2020 on only.
+- Held: nfl_home_dog_7510 at B (its 2003-19 sample is only 136 bets, too small to say either way); nhl_early_home_fav_qual at B (6 of 6 seasons in our replay); nba_under_good_home_over and nhl_bounce_home_ml at C.
+- Forward tracker records (2-5 bets per rule) are too small to move any tier.
+Sizing stays flat by tier. Tier A and B are both 0.5u, so an A label carries no extra stake today.
