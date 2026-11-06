@@ -1,5 +1,5 @@
 {
- "built": "2026-11-06T22:20:48Z",
+ "built": "2026-11-06T22:39:26Z",
  "record": {
   "cbb_1h_total_curve": {
    "n": 0,
@@ -57,6 +57,31 @@
    "book": null,
    "price": null,
    "flagged": "2026-11-06T21:22:20Z"
+  },
+  {
+   "key": "cbb_1h_total_curve|5cc75838352c70a016b68ce71bafe2c6||over",
+   "rule": "cbb_1h_total_curve",
+   "tier": "C",
+   "stake": 0.25,
+   "sport": "cbb",
+   "odds_id": "5cc75838352c70a016b68ce71bafe2c6",
+   "espn": "401920726",
+   "game": "Eastern Illinois Panthers @ Iowa Hawkeyes",
+   "start": "2026-11-07T01:30:00Z",
+   "market": "totals_h1",
+   "team": null,
+   "team_name": null,
+   "side": "over",
+   "line": 63.5,
+   "curve": 0.586,
+   "pin_fair": 0.5,
+   "gap": 8.6,
+   "full_total": 136.0,
+   "full_spread": -35.0,
+   "pin_price": 1.91,
+   "book": "DK",
+   "price": 1.87,
+   "flagged": "2026-11-06T22:39:26Z"
   }
  ]
 }
