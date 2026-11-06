@@ -1,5 +1,5 @@
 {
- "built": "2026-11-06T21:48:56Z",
+ "built": "2026-11-06T22:02:28Z",
  "rows": [
   {
    "cond": "0x3677c251947318cc64698988355cb2bbb5fe9a20f8c18c9e614cacc719026338",
@@ -24,6 +24,134 @@
    "kalshi_against": null,
    "logged": true,
    "grade": "A",
+   "fair_board": null,
+   "inside_fair": null,
+   "books": null
+  },
+  {
+   "cond": "0x3cf225dc86a038b348ad526a1d9409ed828e1ac085721f1fba5734405915cc26",
+   "slug": "nba-was-atl-2026-11-06",
+   "title": "Wizards vs. Hawks",
+   "mtype": "spread",
+   "start": "2026-11-07T00:00:00Z",
+   "bet": "Wizards +7.5",
+   "side": "Wizards",
+   "flagged": "2026-11-06T22:01:27Z",
+   "why": "2 top-200 accounts",
+   "proven": false,
+   "trigger": "two",
+   "n_accounts": 2,
+   "best_rank": 110,
+   "usd": 5881,
+   "paid": 0.481,
+   "ask": 0.5,
+   "status": "live",
+   "link": "https://polymarket.us/event/nba-was-atl-2026-11-06",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401909287",
+   "sport": "nba",
+   "league": null,
+   "away": "WSH",
+   "home": "ATL",
+   "away_name": "Washington Wizards",
+   "home_name": "Atlanta Hawks",
+   "game_start": "2026-11-07T00:00Z",
+   "side_std": "away",
+   "conflict": [
+    "Kalshi move"
+   ],
+   "money_with": false,
+   "grade": "B",
+   "fair_board": null,
+   "inside_fair": null,
+   "books": {
+    "at": "2026-11-06T21:20:39Z",
+    "fair": null,
+    "q": {
+     "Novig": 0.47,
+     "Kalshi": 0.5,
+     "DK": 0.5122
+    }
+   }
+  },
+  {
+   "cond": "0xb1b7fa8ed4997260039c80d3ec215e683712581cc3a0b1e96da812ebae650210",
+   "slug": "nba-was-atl-2026-11-06",
+   "title": "Wizards vs. Hawks",
+   "mtype": "spread",
+   "start": "2026-11-07T00:00:00Z",
+   "bet": "Wizards +9.5",
+   "side": "Wizards",
+   "flagged": "2026-11-06T22:01:04Z",
+   "why": "2 top-200 accounts",
+   "proven": false,
+   "trigger": "two",
+   "n_accounts": 2,
+   "best_rank": 110,
+   "usd": 5108,
+   "paid": 0.559,
+   "ask": 0.58,
+   "status": "live",
+   "link": "https://polymarket.us/event/nba-was-atl-2026-11-06",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401909287",
+   "sport": "nba",
+   "league": null,
+   "away": "WSH",
+   "home": "ATL",
+   "away_name": "Washington Wizards",
+   "home_name": "Atlanta Hawks",
+   "game_start": "2026-11-07T00:00Z",
+   "side_std": "away",
+   "conflict": [
+    "Kalshi move"
+   ],
+   "money_with": false,
+   "grade": "B",
+   "fair_board": null,
+   "inside_fair": null,
+   "books": null
+  },
+  {
+   "cond": "0x1b2d74392d9422bd165586c9634b8f28f13a44b0c08e064bb25e07320da635d6",
+   "slug": "nba-was-atl-2026-11-06",
+   "title": "Wizards vs. Hawks",
+   "mtype": "spread",
+   "start": "2026-11-07T00:00:00Z",
+   "bet": "Wizards +8.5",
+   "side": "Wizards",
+   "flagged": "2026-11-06T22:00:52Z",
+   "why": "3 top-200 accounts",
+   "proven": false,
+   "trigger": "two",
+   "n_accounts": 3,
+   "best_rank": 49,
+   "usd": 21716,
+   "paid": 0.529,
+   "ask": 0.55,
+   "status": "live",
+   "link": "https://polymarket.us/event/nba-was-atl-2026-11-06",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401909287",
+   "sport": "nba",
+   "league": null,
+   "away": "WSH",
+   "home": "ATL",
+   "away_name": "Washington Wizards",
+   "home_name": "Atlanta Hawks",
+   "game_start": "2026-11-07T00:00Z",
+   "side_std": "away",
+   "conflict": [
+    "Kalshi move"
+   ],
+   "money_with": false,
+   "grade": "B",
    "fair_board": null,
    "inside_fair": null,
    "books": null
@@ -516,7 +644,7 @@
    "best_rank": 61,
    "usd": 500,
    "paid": 0.5,
-   "ask": 0.54,
+   "ask": 0.55,
    "status": "live",
    "link": "https://polymarket.us/event/cfb-txam-sc-2026-11-07",
    "other": null,
@@ -553,7 +681,7 @@
    "best_rank": 116,
    "usd": 1505,
    "paid": 0.45,
-   "ask": 0.47,
+   "ask": 0.46,
    "status": "live",
    "link": "https://polymarket.us/event/cfb-ala-lsu-2026-11-07",
    "other": null,
@@ -905,16 +1033,16 @@
    "best_rank": 40,
    "usd": 1429,
    "paid": 0.633,
-   "ask": 0.74,
+   "ask": 0.72,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-was-atl-2026-11-06",
    "other": {
-    "n_accounts": 2,
+    "n_accounts": 5,
     "best_rank": 31,
-    "usd": 254,
+    "usd": 2335,
     "first": "2026-11-06T02:07:52Z"
    },
-   "exit_bid": 0.73,
+   "exit_bid": 0.71,
    "kalshi_against": null,
    "logged": true,
    "event_id": "401909287",
@@ -929,7 +1057,7 @@
    "money_with": false,
    "grade": "B",
    "fair_board": 0.7388,
-   "inside_fair": false,
+   "inside_fair": true,
    "books": null
   },
   {
@@ -1279,9 +1407,9 @@
     "usd": 1429
    },
    "away": {
-    "n": 2,
+    "n": 5,
     "best_rank": 31,
-    "usd": 254
+    "usd": 2335
    }
   },
   "401909287|total": {
@@ -1296,6 +1424,11 @@
     "n": 1,
     "best_rank": 58,
     "usd": 184
+   },
+   "away": {
+    "n": 4,
+    "best_rank": 49,
+    "usd": 13454
    }
   },
   "401909288|ml": {
