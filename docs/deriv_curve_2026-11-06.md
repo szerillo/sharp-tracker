@@ -118,3 +118,11 @@ Poisson rates fitted on that snapshot's Pinnacle asian handicap and total (`SOCC
 the curve (blend z 1.0-2.0, log loss equal to Pinnacle's). Alternate totals off the curve +15.6% (n 332) but it is mostly BetRivers alt
 lines in 2024 (166 of 200 overs) and the unders swing by season (-8.3 / -9.8 / +43.5). Nothing to bet; the 10-minute "alt-total unders"
 candidate does not repeat 2 hours out.
+
+## 24 hours before the start (11/6, noon): when to bet
+- CFB first-quarter unders, gap 5+: 24 hours out the edge is smaller (gap 4-7 unders 262-195, +8.0%; gap 7+ +6.4%, 2023 -3.8%) than
+  2 hours out (+15.0%, every season) or at kickoff (+8.8%). The quarter line is softest a couple of hours before kickoff; the live rule
+  already fires inside 3 hours. No change.
+- NHL third-period unders: few third-period totals are posted a day ahead (824 lines of 1,920 games); +1.6% on what there is. The rule's
+  window (inside 3 hours; validated 6 hours out and at the start) stands.
+- NHL first-period puck line 24 hours out: on the curve (z +0.4). Stays paper.
