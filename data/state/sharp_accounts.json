@@ -1,5 +1,5 @@
 {
- "built": "2026-11-06T19:46:21Z",
+ "built": "2026-11-06T19:53:11Z",
  "rows": [
   {
    "cond": "0x3677c251947318cc64698988355cb2bbb5fe9a20f8c18c9e614cacc719026338",
@@ -815,7 +815,7 @@
    "best_rank": 40,
    "usd": 1429,
    "paid": 0.633,
-   "ask": 0.73,
+   "ask": 0.74,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-was-atl-2026-11-06",
    "other": {
@@ -824,7 +824,7 @@
     "usd": 254,
     "first": "2026-11-06T02:07:52Z"
    },
-   "exit_bid": 0.72,
+   "exit_bid": 0.73,
    "kalshi_against": null,
    "logged": true,
    "event_id": "401909287",
@@ -884,6 +884,59 @@
    "fair_board": 0.42,
    "inside_fair": false,
    "books": null
+  },
+  {
+   "cond": "0x3dd5a9a57210560fe11f668ead4f31156443ce848c58135413a15d77d70e2a1b",
+   "slug": "nfl-nyg-phi-2026-11-08",
+   "title": "Giants vs. Eagles",
+   "mtype": "ml",
+   "start": "2026-11-08T18:00:00Z",
+   "bet": "Eagles ML",
+   "side": "Eagles",
+   "flagged": "2026-11-06T19:48:13Z",
+   "why": "a top-50 account",
+   "proven": false,
+   "trigger": "top50",
+   "n_accounts": 1,
+   "best_rank": 4,
+   "usd": 2242,
+   "paid": 0.39,
+   "ask": 0.39,
+   "status": "live",
+   "link": "https://polymarket.us/event/nfl-nyg-phi-2026-11-08",
+   "other": null,
+   "kalshi_against": {
+    "move": 6.5,
+    "now": 61.5,
+    "state": "reversed"
+   },
+   "logged": true,
+   "event_id": "401873044",
+   "sport": "nfl",
+   "league": null,
+   "away": "NYG",
+   "home": "PHI",
+   "away_name": "New York Giants",
+   "home_name": "Philadelphia Eagles",
+   "game_start": "2026-11-08T18:00Z",
+   "side_std": "home",
+   "conflict": [
+    "Kalshi move"
+   ],
+   "money_with": false,
+   "grade": "B",
+   "fair_board": 0.3912,
+   "inside_fair": true,
+   "books": {
+    "at": "2026-11-06T17:08:06Z",
+    "fair": 0.3912,
+    "q": {
+     "Novig": 0.395,
+     "Caesars": 0.4,
+     "Kalshi": 0.41,
+     "FD": 0.4132
+    }
+   }
   },
   {
    "cond": "0xb9a7b47c2b3c56a902bd706745a98c3f627e6f25e3566205b362856f2804c721",
@@ -1044,6 +1097,13 @@
     "usd": 153
    }
   },
+  "401873044|ml": {
+   "home": {
+    "n": 1,
+    "best_rank": 4,
+    "usd": 2242
+   }
+  },
   "401873043|ml": {
    "home": {
     "n": 1,
@@ -1099,6 +1159,13 @@
     "n": 1,
     "best_rank": 55,
     "usd": 209
+   }
+  },
+  "401909288|total": {
+   "under": {
+    "n": 1,
+    "best_rank": 58,
+    "usd": 490
    }
   },
   "401909289|ml": {
