@@ -7,8 +7,12 @@ Plans (sport: markets):  nfl: spreads_h1,totals_h1,team_totals   nba: totals_h1
 Snapshot = start - 10 minutes (the API returns the latest snapshot at or before that time). Raw bookmaker payloads are appended to
 data/oddsapi/derivs/<sport>.jsonl.gz, one line per game; reruns skip games already pulled. Stops when credits remaining < --floor.
 Usage: ODDS_API_KEY=... python3 loggers/oddsapi_derivs.py nfl nba [--floor 12000] [--newest-first]"""
-import os, sys, json, gzip, time, sqlite3, urllib.request, urllib.error, datetime as dt
-HERE = os.path.dirname(os.path.abspath(__file__)); ROOT = os.path.abspath(os.path.join(HERE, '..'))
+import os, sys, json, gzip, time, signal, sqlite3, urllib.request, urllib.error, datetime as dt
+HERE = os.path.dirname(os.path.abspath(__file__)); ROOT = os.path.abspath(os.path.join(HERE, '..')); sys.path.insert(0, ROOT)
+from sharp.gzlines import lines as gz_lines
+# 11/6: the 30-minute `timeout` SIGTERM killed the process mid-member, leaving a truncated gzip member; the next pass appended after it and
+# gzip readers stop at the break. Exit cleanly on SIGTERM so the open member is closed, and read the done set member by member.
+signal.signal(signal.SIGTERM, lambda *a: sys.exit(124))
 DB = os.path.join(ROOT, 'data', 'oddsapi', 'odds.sqlite'); OUTD = os.path.join(ROOT, 'data', 'oddsapi', 'derivs')
 API = 'https://api.the-odds-api.com/v4'; KEY = os.environ.get('ODDS_API_KEY')
 BOOKS = 'pinnacle,draftkings,fanduel,williamhill_us,betonlineag,lowvig,betrivers,bovada,circasports,betmgm'
@@ -60,9 +64,9 @@ def main():
     for sp in sports:
         path = os.path.join(OUTD, f'{sp}{suffix}.jsonl.gz'); done = set()
         if os.path.exists(path):
-            try:
-                for l in gzip.open(path, 'rt'): done.add(json.loads(l)['game_id'])
-            except (EOFError, OSError): pass
+            for l in gz_lines(path):
+                try: done.add(json.loads(l)['game_id'])
+                except Exception: pass
         order = 'DESC' if '--newest-first' in sys.argv else 'ASC'
         if conn is not None:
             G = conn.execute(f"SELECT game_id, key, start, home, away FROM games WHERE sport=? AND start>=? AND start<? AND key LIKE '%\\_%' ESCAPE '\\' ORDER BY start {order}", (sp, SINCE, now)).fetchall()   # Odds API ids only (live-logger rows carry ESPN ids)
