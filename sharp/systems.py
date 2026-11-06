@@ -54,7 +54,7 @@ EVIDENCE = {'wind1014': dict(tier='A', train='Bet Labs 533-376 all-time (2003-),
             'mnf_1h': dict(tier='B', train='168-118 all-time, +12.3%', hold='positive on both halves', seasons='4 of 6', src='docs/betlabs_nfl_audit_2026-10-25.md'),
             # 11/5: the Odds API replay (2020-26, Pinnacle closes, results) re-banded the dog rule: season margin -7 to -13 is 91-75-5 (+5.6%, 5 of 7 seasons),
             # -13 or worse is 14-16 (-11%). The live band moves to -7 to -13 at tier C; the deep band is paper.
-            'awfuldog': dict(tier='C', train='Bet Labs 203-133 (margin -13 or worse)', hold='Odds API 2020-26: -7 to -13 band 91-75-5, +5.6%', seasons='5 of 7', src='data/research/nfl_replay.json'),
+            'awfuldog': dict(tier='B', train='Bet Labs (season margin -13 or worse, dog): 2003-Feb 2021 203-133 (+16.8%), since Mar 2021 51-31 (+18.6%); its own picks since 2020 60-40 (+15.1%)', hold='WC 2020-26 with season margins reset each season: 61-50 (+5.5%), 6 of 7 seasons; 3+ games 37-27 (+11.2%). The 11/5 -7 to -13 re-band came from a replay that averaged margins across seasons; that band is +0.7%. C -> B 11/6', seasons='6 of 7', src='docs/systems_test_2026-11-05.md'),
             'awfuldog_deep': dict(tier='P', train='Odds API 2020-26: 14-16, -11%', hold='the old live band', seasons='3 of 6', paper_why='margin -13 or worse was 14-16; waiting on sample', src='data/research/nfl_replay.json'),
             'wind1014_cold': dict(tier='P', train='Odds API 2020-26: wind 10-14 at 35F or colder 27-27', hold='mild weather 133-76, +23.4%', seasons='cold band flat', paper_why='the cold band was 27-27; mild weather carries the wind rule', src='data/research/nfl_replay.json'),
             'nfl_home_dog_7510': dict(tier='B', train='Odds API 2020-26: home dog +7.5 to +10 47-25-1, +23%', hold='all dogs 7.5-10: 135-97-3, +10%, 6 of 7 seasons', seasons='5 of 7', labs_check='Bet Labs: 119-84-2 (+11.2%) all-time, 46-21-1 (+30%) since 2020', alltime='Bet Labs 2003-19: 73-63 (+1.8%); 2020-: 46-21 (+30%); all-time 119-84 (+11.2%). Positive in both eras; stays B', src='data/research/nfl_replay.json'),
@@ -91,7 +91,7 @@ EVIDENCE = {'wind1014': dict(tier='A', train='Bet Labs 533-376 all-time (2003-),
 # nhl_over_busy_goalie retired 10/30: positive in 2 of 7 seasons and the goalie-saves field thins to a handful of games after 2023.
 DESC = {'wind1014': 'NFL outdoor, wind 10-14 mph (average of Open-Meteo at T-24h and MySportsWeather, whole mph): full-game under', 'wind1014_1h': 'same wind, 10-13 mph: first-half under',
         'cfb_wind14': 'CFB outdoor, wind 14+ mph (same two-source average): full-game under', 'vrest8_1h': 'NFL visitor off 8-30 days: first-half under', 'mnf_1h': 'Monday night: first-half under',
-        'awfuldog': 'NFL dog with a season point margin of -7 to -13 (1+ games): full-game spread (re-banded 11/5; -13 or worse is paper)', 'bounce15_1h': 'NFL dog whose last game lost ATS by 15+: first-half spread',
+        'awfuldog': 'NFL dog whose season point margin is -13 or worse (1+ games): full-game spread (Bet Labs definition; restored 11/6)', 'bounce15_1h': 'NFL dog whose last game lost ATS by 15+: first-half spread',
         'awfuldog_deep': 'NFL dog with a season margin worse than -13: full-game spread (paper; 14-16 in the six-season replay)',
         'wind1014_cold': 'NFL outdoor, wind 10-14 mph but 35F or colder: full-game under (paper; the cold band was 27-27 in the replay, mild weather carries the rule)',
         'nfl_home_dog_7510': 'NFL home dog of +7.5 to +10 at the close: home spread', 'nfl_road_dog_7510': 'NFL road dog of +7.5 to +10: road spread (paper)',
@@ -250,7 +250,7 @@ WC = {
     'wind1014': ('2020-26', 161, 103, 18.1, None), 'cfb_wind14': ('2020-26', 135, 96, 12.3, "Bet Labs' picks at Pinnacle's close"),
     'vrest8_1h': ('2023-26', 100, 87, 4.4, '1H at Pinnacle; all 1H unders -9.6%'), 'mnf_1h': ('2023-26', 33, 28, 6.4, '1H at Pinnacle; all 1H unders -9.6%'), 'bounce15_1h': ('2023-26', 54, 61, -10.5, '1H at Pinnacle'),
     'wind1014_1h': ('2023-26', 55, 51, 0.4, '1H at Pinnacle; all 1H unders -9.6%'),
-    'awfuldog': ('2020-26', 91, 75, 5.6, None), 'awfuldog_deep': ('2020-26', 14, 16, -11.0, None), 'wind1014_cold': ('2020-26', 27, 27, None, None),
+    'awfuldog': ('2020-26', 61, 50, 5.5, 'season margins reset each season'), 'wind1014_cold': ('2020-26', 27, 27, None, None),
     'nfl_home_dog_7510': ('2020-26', 47, 25, 23.0, None), 'nfl_road_dog_7510': ('2020-26', 88, 72, None, None), 'nfl_fade_fav_bye': ('2020-26', 84, 70, 5.4, None),
     'nba_ats_hot_home': ('2020-26', 311, 228, 12.4, None), 'nba_badteams_under': ('2020-26', 153, 95, 20.6, None), 'nhl_loss_streak_over': ('2020-26', 385, 290, 10.3, None),
     'nhl_bounce_home_ml': ('2020-26', 337, 197, 10.1, None), 'mlb_road_over_under': ('2020-25', 342, 246, 12.1, None), 'nba_bigfav_over': ('2020-26', 272, 202, 10.9, None),
@@ -440,8 +440,8 @@ def main():
         if et_dow == 'Monday': trig['mnf_1h'] = 'Monday night'
         if dog and (away if dog == 'away' else home) not in pending:
             dp = pv if dog == 'away' else ph; dteam = away if dog == 'away' else home
-            if dp.get('games', 0) >= 1 and dp.get('margin_avg') is not None and dp['margin_avg'] <= -7:     # Bet Labs: no minimum (4 of its 8 2026 picks were week 2)
-                trig['awfuldog' if dp['margin_avg'] > -13 else 'awfuldog_deep'] = f"{dteam} season margin {dp['margin_avg']:+.1f} over {dp['games']} games, dog {('+' if sp_line > 0 else '')}{sp_line if dog == 'home' else -sp_line}"
+            if dp.get('games', 0) >= 1 and dp.get('margin_avg') is not None and dp['margin_avg'] <= -13:     # 11/6: back to Bet Labs' -13 or worse (the 11/5 re-band came from a replay bug)
+                trig['awfuldog'] = f"{dteam} season margin {dp['margin_avg']:+.1f} over {dp['games']} games, dog {('+' if sp_line > 0 else '')}{sp_line if dog == 'home' else -sp_line}"
             dl = sp_line if dog == 'home' else -sp_line
             if 7.5 <= dl <= 10: trig['nfl_home_dog_7510' if dog == 'home' else 'nfl_road_dog_7510'] = f"{dteam} +{dl:g} at home" if dog == 'home' else f"{dteam} +{dl:g} on the road"
             # favourite off a bye: the dog on the spread (paper)

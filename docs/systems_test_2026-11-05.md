@@ -51,3 +51,13 @@ not need a regulation-win% change; the Bet Labs match came from using regular-se
 Same correction applied to the visitor-rest cousin: with week 1 excluded, visitor off 8-30 days (Bet Labs' definition) full-game under is
 213-162 (+10.3%), 5 of 7 seasons; the 12-20 day byes 72-54 and the 8-11 day long weeks 139-107 carry it equally. `vrest8_1h` stays tier C
 on its own first-half record (Bet Labs 4 of 7 seasons positive); the full-game cousin is now a candidate for a future paper rule.
+
+## 11/6: awful-team dog restored to Bet Labs' definition, tier B
+The 11/5 re-band (margin -7 to -13, tier C; -13 or worse to paper on 14-16) came from `nfl_replay.py` averaging each team's margin across
+every game since 2020 instead of resetting each season, so almost no team qualified at -13. With the season reset: -13 or worse 61-50
+(+5.5%), 6 of 7 seasons; 3+ games played 37-27 (+11.2%); the -7 to -13 band +0.7%. Bet Labs' own picks since 2020: 60-40 (+15.1%), and
+the rule holds in every slice of its history (2003-Feb 2021 +16.8%, since Mar 2021 +18.6%, September and later, -13 to -17 and -17 or
+worse). Live rule back to -13 or worse, tier B (0.5u). The deep-band paper rule is retired. Reason: the market prices awful teams off
+their scoreboard margin and the public will not back them; the number overshoots.
+Caution for every other replay built in `nfl_replay.py` the same way: the season-margin features there were all career-to-date.
+`bounce15_1h` uses the last game only (unaffected); nothing else live used the margin.
