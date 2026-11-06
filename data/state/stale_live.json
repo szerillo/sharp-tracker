@@ -1,5 +1,5 @@
 {
- "built": "2026-11-06T19:24:46Z",
+ "built": "2026-11-06T19:43:34Z",
  "record": {
   "n": 0,
   "won": 0,
@@ -177,6 +177,40 @@
    "move": 1.6,
    "flagged": "2026-11-06T19:24:46Z",
    "team": "UGA"
+  },
+  {
+   "key": "401858285|spread|home",
+   "sport": "cfb",
+   "event_id": "401858285",
+   "game": "CLEM @ SYR",
+   "start": "2026-11-07T17:00Z",
+   "market": "spread",
+   "side": "home",
+   "line": 2.5,
+   "venue": "Novig",
+   "price": 0.495,
+   "fair": 0.5056,
+   "ev": 2.1,
+   "move": 1.2,
+   "flagged": "2026-11-06T19:43:34Z",
+   "team": "SYR"
+  },
+  {
+   "key": "401906780|spread|away",
+   "sport": "cbb",
+   "event_id": "401906780",
+   "game": "PRES @ UGA",
+   "start": "2026-11-07T00:00Z",
+   "market": "spread",
+   "side": "away",
+   "line": 24.5,
+   "venue": "Novig",
+   "price": 0.5,
+   "fair": 0.5108,
+   "ev": 2.2,
+   "move": 2.7,
+   "flagged": "2026-11-06T19:43:34Z",
+   "team": "PRES"
   }
  ]
 }
