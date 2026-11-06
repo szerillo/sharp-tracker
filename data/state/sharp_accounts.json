@@ -1,5 +1,5 @@
 {
- "built": "2026-11-06T19:05:34Z",
+ "built": "2026-11-06T19:12:58Z",
  "rows": [
   {
    "cond": "0x3677c251947318cc64698988355cb2bbb5fe9a20f8c18c9e614cacc719026338",
@@ -326,6 +326,52 @@
    "fair_board": null,
    "inside_fair": null,
    "books": null
+  },
+  {
+   "cond": "0xcd4e5842ed6bfd511ee064ab6636e21b0fe469e913b67f5f7f82537e311a8b83",
+   "slug": "nba-sas-sac-2026-11-06",
+   "title": "Spurs vs. Kings",
+   "mtype": "ml",
+   "start": "2026-11-07T03:00:00Z",
+   "bet": "Spurs ML",
+   "side": "Spurs",
+   "flagged": "2026-11-06T19:11:46Z",
+   "why": "2 top-200 accounts",
+   "proven": false,
+   "trigger": "two",
+   "n_accounts": 2,
+   "best_rank": 93,
+   "usd": 286,
+   "paid": 0.882,
+   "ask": 0.9,
+   "status": "live",
+   "link": "https://polymarket.us/event/nba-sas-sac-2026-11-06",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401909295",
+   "sport": "nba",
+   "league": null,
+   "away": "SA",
+   "home": "SAC",
+   "away_name": "San Antonio Spurs",
+   "home_name": "Sacramento Kings",
+   "game_start": "2026-11-07T03:00Z",
+   "side_std": "away",
+   "money_with": false,
+   "grade": "B",
+   "fair_board": 0.9044,
+   "inside_fair": true,
+   "books": {
+    "at": "2026-11-06T17:08:06Z",
+    "fair": 0.9044,
+    "q": {
+     "Polymarket": 0.9,
+     "Novig": 0.905,
+     "Kalshi": 0.91,
+     "Caesars": 0.9167
+    }
+   }
   },
   {
    "cond": "0x5a4f48f65db8bb0de7274a91d32ae7abafaf1aae7e67322744658be0e0e73abb",
@@ -690,6 +736,43 @@
    }
   },
   {
+   "cond": "0x57ed7b794b573b0b204a91ca6e2235f229530ba0116d43777040e20a02038130",
+   "slug": "nfl-cle-no-2026-11-08",
+   "title": "Browns vs. Saints",
+   "mtype": "spread",
+   "start": "2026-11-08T18:00:00Z",
+   "bet": "Browns +9.5",
+   "side": "Browns",
+   "flagged": "2026-11-06T19:10:06Z",
+   "why": "a top-50 account",
+   "proven": false,
+   "trigger": "top50",
+   "n_accounts": 1,
+   "best_rank": 4,
+   "usd": 153,
+   "paid": 0.72,
+   "ask": 0.73,
+   "status": "live",
+   "link": "https://polymarket.us/event/nfl-cle-no-2026-11-08",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401873039",
+   "sport": "nfl",
+   "league": null,
+   "away": "CLE",
+   "home": "NO",
+   "away_name": "Cleveland Browns",
+   "home_name": "New Orleans Saints",
+   "game_start": "2026-11-08T18:00Z",
+   "side_std": "away",
+   "money_with": false,
+   "grade": "B",
+   "fair_board": null,
+   "inside_fair": null,
+   "books": null
+  },
+  {
    "cond": "0xfc2ab1795b24239c2bdd73f59abd913b83ba1b39f8d77890a3d009f0e662081f",
    "slug": "bun-hof-s04-2026-11-08",
    "title": "TSG 1899 Hoffenheim vs. FC Schalke 04",
@@ -882,11 +965,27 @@
   "clv_poly_same": -1.81
  },
  "sys_tags": {
+  "401873039:bounce15_1h": {
+   "with": {
+    "n": 1,
+    "best_rank": 4,
+    "usd": 153
+   },
+   "against": null
+  },
   "401873042:awfuldog": {
    "with": {
     "n": 1,
     "best_rank": 58,
     "usd": 440
+   },
+   "against": null
+  },
+  "401873039:nfl_fade_fav_bye": {
+   "with": {
+    "n": 1,
+    "best_rank": 4,
+    "usd": 153
    },
    "against": null
   },
@@ -936,6 +1035,13 @@
     "n": 1,
     "best_rank": 58,
     "usd": 440
+   }
+  },
+  "401873039|spread": {
+   "away": {
+    "n": 1,
+    "best_rank": 4,
+    "usd": 153
    }
   },
   "401873043|ml": {
@@ -1084,9 +1190,9 @@
   },
   "401909295|ml": {
    "away": {
-    "n": 1,
+    "n": 2,
     "best_rank": 93,
-    "usd": 126
+    "usd": 286
    }
   },
   "401909295|spread": {
