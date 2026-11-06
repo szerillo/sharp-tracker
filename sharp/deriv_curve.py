@@ -162,7 +162,7 @@ def main():
             q = (1 / price) / (1 / price + 1 / o2[0])
             pc = rec['pw'] / max(1e-9, 1 - rec['pp'])          # curve win probability given no push
             pc = min(max(pc, 0.02), 0.98); q = min(max(q, 0.02), 0.98); y = rec['won']
-            CALROWS.append((mk, q, pc, y)); DUMP.append(dict(mk=mk, q=q, pc=pc, y=y, side=rec['side'], line=rec['line'], price=price, oprice=o2[0], season=rec['season'], team=team)); x = cal[mk]; x[0] += 1; x[1] += -(y * math.log(pc) + (1 - y) * math.log(1 - pc)); x[2] += -(y * math.log(q) + (1 - y) * math.log(1 - q))
+            CALROWS.append((mk, q, pc, y)); DUMP.append(dict(mk=mk, q=q, pc=pc, y=y, side=rec['side'], line=rec['line'], price=price, oprice=o2[0], season=rec['season'], team=team, g=rec['g'])); x = cal[mk]; x[0] += 1; x[1] += -(y * math.log(pc) + (1 - y) * math.log(1 - pc)); x[2] += -(y * math.log(q) + (1 - y) * math.log(1 - q))
 
     def rec_(L):
         w = sum(1 for b in L if b['won'] == 1); l = sum(1 for b in L if b['won'] == 0)
