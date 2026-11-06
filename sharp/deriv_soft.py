@@ -38,7 +38,9 @@ def main_pair(outs, key):
 
 def main():
     sp = sys.argv[1] if len(sys.argv) > 1 else 'nfl'
-    D = [json.loads(l) for l in gzip.open(os.path.join(ROOT, 'data', 'oddsapi', 'derivs', f'{sp}.jsonl.gz'), 'rt')]
+    from sharp.gzlines import lines
+    path = sys.argv[2] if len(sys.argv) > 2 else os.path.join(ROOT, 'data', 'oddsapi', 'derivs', f'{sp}_full.jsonl.gz')     # 11/6: the full pull (every period and team market)
+    D = [json.loads(l) for l in lines(path)]
     LS = json.load(open(os.path.join(ROOT, 'data', 'state', 'linescores.json'))).get(sp, {})
     conn = sqlite3.connect(os.path.join(ROOT, 'data', 'oddsapi', 'odds.sqlite'))
     RES = {r[0]: r[1:] for r in conn.execute("SELECT game_id, espn_id, home_score, away_score FROM results")}
@@ -47,7 +49,8 @@ def main():
         if not d['bookmakers'] or d['game_id'] not in RES: continue
         eid, hs, as_ = RES[d['game_id']]; ls = LS.get(str(eid))
         if hs is None: continue
-        h1 = (sum(ls['h'][:2]), sum(ls['a'][:2])) if ls and len(ls.get('h', [])) >= 2 else None
+        NP = 1 if sp in ('cbb',) else 2         # CBB halves are the first linescore period
+        h1 = (sum(ls['h'][:NP]), sum(ls['a'][:NP])) if ls and len(ls.get('h', [])) >= NP and len(ls.get('a', [])) >= NP else None
         B = {b['key']: {m['key']: m['outcomes'] for m in b['markets']} for b in d['bookmakers']}
         if 'pinnacle' not in B: continue
         for mk in ('totals_h1', 'spreads_h1', 'team_totals'):
