@@ -371,6 +371,30 @@ def main():
             groups['|'.join(k)].append(b)
     opp_summ = {k: summ([b for b in bets if (b.get('opp') or {}).get('when') == k and b['src'] != 'paper']) for k in ('at_flag', 'after')}
     opp_summ['none'] = summ([b for b in bets if b['event_id'] and b['side'] and not b.get('opp') and b['src'] in ('system', 'sharp')])
+    # 11/5 (Sean): never count both sides of one game. Among counted bets (systems, leans, sharp A/B, tennis), a later bet on the other
+    # team (moneyline or spread) or the other side of the total is kept on the list but not counted (counted=False, conflict_with=id)
+    COUNTED = ('system A', 'system B', 'lean C', 'sharp A', 'sharp B', 'tennis')
+    # Middles are not conflicts: a moneyline on one team and the other team TAKING points can both win, so both count. A conflict is the
+    # other side of the same market, or a moneyline on one team with the other team LAYING points (both can lose).
+    per_ = lambda b: '1h' if b['market'].startswith(('1h_', '1p_', '1s_')) else 'fg'
+    fam_ = lambda b: 'total' if 'total' in b['market'] else 'side'
+    def clash(a, b):
+        if a['side'] == b['side']: return False
+        if a['market'] == b['market']: return True
+        if fam_(a) == 'total': return True
+        sp = a if 'spread' in a['market'] else b if 'spread' in b['market'] else None
+        if sp is None: return True
+        return (sp.get('line') or 0) < 0          # laying points against the other team's moneyline
+    grp_ = collections.defaultdict(list)
+    for b in bets:
+        if b['cat'] in COUNTED and b.get('event_id'): grp_[(str(b['event_id']), per_(b), fam_(b))].append(b)
+    for L_ in grp_.values():
+        L_.sort(key=lambda b: b.get('flagged') or '')
+        kept = []
+        for b in L_:
+            hit = next((k for k in kept if clash(k, b)), None)
+            if hit: b['counted'] = False; b['conflict_with'] = hit['id']; b['conflict_desc'] = f"{hit['cat']} {hit.get('bet') or hit['side']}"
+            else: kept.append(b)
     # 11/5 (Sean): the watch-only market signals (Kalshi move, bet back, big money, sharp move) graded by kind, so the board can show
     # whether they are doing anything; flat ROI at the flagged price and mean no-vig CLV
     wk = {}
