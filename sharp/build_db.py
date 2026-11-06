@@ -114,6 +114,12 @@ class Ticks:
     def __init__(self):
         self.rows = []; self.seen = set()
 
+    def flush(self, conn):
+        """11/6: write and drop the accumulated rows (holding every sport's ticks in memory at once ran past 6 GB and the runner was
+        killed). Dedupe keys carry the event id, so clearing between sports loses nothing."""
+        if self.rows: conn.executemany("INSERT INTO ticks VALUES (" + ','.join('?' * 26) + ")", self.rows)
+        self.rows = []; self.seen = set()
+
     def add(self, ts, event_id, start, market, side, venue, feed, src, participant=None, player_name=None, line=None,
             american=None, bid=None, ask=None, last=None, volume=None, limit=None, flags=None, extra=None, vendor_ts=None, sport='mlb', mclass=None):
         if event_id is None: return
@@ -512,6 +518,7 @@ def load_sport(sport):
         pre = tuple(f'"{eid}"' for eid in soon)
     for f in sorted(glob.glob(os.path.join(sd, 'ticks', '*.jsonl.gz')) + glob.glob(os.path.join(sd, 'ticks', '*.jsonl'))):
         if cut and os.path.basename(f)[:10] < cut: continue        # BUILD_DAYS (11/4): the live tracker only needs recent days; the full build took 27 min
+        if getattr(T, 'conn', None) is not None: T.flush(T.conn)          # one day of ticks in memory at a time (11/6)
         src = f"{sport}/ticks/{os.path.basename(f)}"
         opener = gzip.open if f.endswith('.gz') else open
         with opener(f, 'rt') as fh:
@@ -565,12 +572,12 @@ def main():
     for r in T.rows:
         if r[7] == 'prop' and r[8]:
             e = EV.ev.get(r[4]); pe.setdefault((e['et_date'], r[8]), r[4]) if e else None
-    counts['pinnacle_props'] = load_pinnacle_props(pe)
-    for sp in SP.SPORTS: counts[sp] = load_sport(sp)
+    counts['pinnacle_props'] = load_pinnacle_props(pe); T.flush(conn); T.conn = conn
+    for sp in SP.SPORTS: counts[sp] = load_sport(sp); T.flush(conn)
     for pk, e in EV.ev.items():
         e['venue_ids'] = json.dumps({k: sorted(v) for k, v in EV.vids.get(pk, {}).items()})
     conn.executemany("INSERT OR REPLACE INTO events VALUES (:event_id,:sport,:league,:et_date,:start_utc,:away,:home,:status,:venue_ids)", list(EV.ev.values()))
-    conn.executemany("INSERT INTO ticks VALUES (" + ','.join('?' * 26) + ")", T.rows)
+    T.flush(conn)
     conn.execute("UPDATE ticks SET start_utc = (SELECT start_utc FROM events e WHERE e.event_id = ticks.event_id)")
     flag_opens_and_pulls(conn)
     conn.execute("DELETE FROM log_health")
