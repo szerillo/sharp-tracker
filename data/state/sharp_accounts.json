@@ -1,5 +1,5 @@
 {
- "built": "2026-11-06T01:23:32Z",
+ "built": "2026-11-06T01:17:21Z",
  "rows": [
   {
    "cond": "0x43bf75f521791c9dbf8423892ee11a1cb036ace20ff03283090d79e7a4174bbe",
@@ -194,8 +194,8 @@
    "home_name": "Baltimore Ravens",
    "game_start": "2026-11-06T01:15Z",
    "side_std": "away",
-   "money_with": true,
-   "grade": "A",
+   "money_with": false,
+   "grade": "B",
    "fair_board": 0.8155,
    "inside_fair": null,
    "books": {
@@ -240,8 +240,8 @@
    "home_name": "Baltimore Ravens",
    "game_start": "2026-11-06T01:15Z",
    "side_std": "under",
-   "money_with": true,
-   "grade": "A",
+   "money_with": false,
+   "grade": "B",
    "fair_board": null,
    "inside_fair": null,
    "books": null
@@ -277,7 +277,7 @@
    "home_name": "Baltimore Ravens",
    "game_start": "2026-11-06T01:15Z",
    "side_std": "home",
-   "money_with": true,
+   "money_with": false,
    "grade": "A",
    "fair_board": null,
    "inside_fair": null,
@@ -299,7 +299,7 @@
    "best_rank": 40,
    "usd": 1429,
    "paid": 0.633,
-   "ask": 0.73,
+   "ask": 0.72,
    "status": "live",
    "link": "https://polymarket.us/event/nba-was-atl-2026-11-06",
    "other": null,
@@ -433,7 +433,7 @@
    "best_rank": 40,
    "usd": 349,
    "paid": 0.53,
-   "ask": 0.57,
+   "ask": 0.53,
    "status": "live",
    "link": "https://polymarket.us/event/nba-tor-mil-2026-11-06",
    "other": null,
@@ -470,7 +470,7 @@
    "best_rank": 40,
    "usd": 807,
    "paid": 0.28,
-   "ask": 0.29,
+   "ask": 0.28,
    "status": "live",
    "link": "https://polymarket.us/event/nba-tor-mil-2026-11-06",
    "other": null,
@@ -487,8 +487,8 @@
    "side_std": "home",
    "money_with": false,
    "grade": "B",
-   "fair_board": 0.3144,
    "inside_fair": true,
+   "fair_board": 0.3144,
    "books": {
     "at": "2026-11-06T00:06:14Z",
     "fair": 0.3144,
@@ -787,8 +787,8 @@
    },
    "exit_bid": 0.47,
    "kalshi_against": {
-    "move": 4.0,
-    "now": 51.5,
+    "move": 5.0,
+    "now": 52.5,
     "state": "reversed"
    },
    "logged": true,
@@ -804,7 +804,7 @@
    "conflict": [
     "Kalshi move"
    ],
-   "money_with": true,
+   "money_with": false,
    "grade": "A",
    "fair_board": 0.4864,
    "inside_fair": true,
