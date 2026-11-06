@@ -61,3 +61,14 @@ CBB early season and conference: every split sits at -2% to -6% (the vig) at Pin
 non-conference. Big dogs (15+) after game 10: +2.4%, 4 of 6 seasons. CBB full-game lines are efficient on these features.
 
 Not run yet: tennis Challenger (waiting on the Kalshi price repair), MMA opening-favourite rule, soccer (backfill still pulling).
+
+## MMA steam favourite, as bet live (11/6, later)
+The rule as documented (favourite at the close 6+ points above Pinnacle's open) on the larger database now: 209-87, +3.5% at Pinnacle's
+close (was +6.6% on 1,457 fights); 2025 -8.9%. Bet the way the board fires it (first snapshot the favourite is 6+ points above the
+open, best of DK/FD/Caesars/BetRivers then): 229-105, +2.7%. Moves still 6+ at the close +4.9%; moves that faded by the close 22-17,
+-14.0%. The board already greys a fight when the move drops under 6 points; that is the right behaviour. Stays tier C (0.25u); the edge is
+thinner than first measured.
+
+## Later on 11/6
+- Stale-book lean is live as a paper rule (signals job, every 20 minutes; Paper rules on the board; one lean per side at the best venue).
+- ESPN player box scores pulling on GitHub (NFL, NBA, NHL, WNBA; MLB last) for grading the props.
