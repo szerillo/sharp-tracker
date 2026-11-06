@@ -784,7 +784,19 @@ function renderToday() {
   const bulkBlocks = Object.entries(leanBulk).map(([tag, L]) => { const r = (SY.rules || {})[tag] || {}, x = (SY.record || {})[tag];
     const rec = fmtRec(x) ? ` · record ${fmtRec(x)}` : ' · no graded fires yet';
     return `<details class="how" ${window['_lb_' + tag] ? 'open' : ''} ontoggle="window['_lb_${tag}']=this.open"><summary>${esc(r.desc || tag)} (${L.length} games, tier ${(r.evidence || {}).tier || '?'}, 0.25u each${rec}) · broad rule, grouped</summary>${sTable(L.map(sysRow))}</details>`; }).join('');
-  const leanRows = [...leanOne.map(sysRow), ...TWk.map(tRow), ...THc.map(hRow), ...TD.map(dRow), ...TV.map(vRow), ...MS.map(mRow)];
+  // Prop price-gap leans (sharp/props_live.py, 11/6): paper. A US book prices a prop under 2%+ better than Pinnacle's no-vig at the same line.
+  const PLN = {player_threes: '3-pointers', player_total_saves: 'saves', player_shots_on_goal: 'shots on goal'};
+  // 11/6: NBA threes unders are tier C (0.25u): 1087-938, +8.2% at the best of FD/Caesars/DK, every season positive, monotone in the
+  // edge; the NHL ones stay paper (small samples)
+  const plLive = r => r.sport === 'nba' && r.market === 'player_threes';
+  const plRow = r => { const PLr = window._PL && window._PL.record;
+    return sRow({id: `pl|${r.key}`, start: r.start, sportLabel: (r.sport || '').toUpperCase(), game: esc(r.game), bet: `${esc(r.player)} under ${r.line} ${PLN[r.market] || r.market}`, sub: `Player prop · price gap at ${VS(r.book)}, ${plLive(r) ? 'tier C' : 'paper'}`,
+      gone: !plLive(r), status: plLive(r) ? null : ['gone', 'Paper: prop price-gap lean, no units until it has a forward record'], size: plLive(r) ? unitText(SLIP.small, 1 / r.price) : '', price: `<b>${toAm(1 / r.price)}</b> <span class="small dim">${VS(r.book)}</span>`, link: '',
+      why: `${VS(r.book)} under ${toAm(1 / r.price)} vs Pinnacle's no-vig ${(100 * r.fair).toFixed(1)}% (${r.ev > 0 ? '+' : ''}${r.ev}% EV); Pinnacle under ${toAm(1 / r.pin_under)}`,
+      rec: lbl('Backtest', r.sport === 'nba' ? 'NBA threes unders at FD/Caesars/DK 2023-26: 1087-938, +8.2%, 4 of 4 seasons' : 'NHL saves unders 99-54 (+24.9%); shots unders 1098-1075 (+5.3%)') + ' ' + lbl('Tracker', PLr && PLr.n ? `${PLr.won}-${PLr.lost}, ${PLr.units > 0 ? '+' : ''}${PLr.units}u` : 'no graded picks yet'),
+      detail: facts([['Rule', 'Prop price gap (docs/props_2026-11-06.md): FD, Caesars or DK price the under 2%+ better than Pinnacle\'s no-vig fair at the same line, inside 3 hours of the start; first time per player and line. Paper until it has a forward record.']])}); };
+  const PL = (window._PL && window._PL.rows || []).filter(r => future(r.start) && passW(r.start) && passS(r.sport, r.sport));
+  const leanRows = [...leanOne.map(sysRow), ...TWk.map(tRow), ...THc.map(hRow), ...TD.map(dRow), ...TV.map(vRow), ...MS.map(mRow), ...PL.filter(plLive).map(plRow)];
   // Stale-book lean (sharp/stale_live.py, 11/6): paper. A venue Sean bets 2%+ better than Pinnacle's no-vig fair right after Pinnacle moved 1+ point toward the side.
   const slRow = r => { const SLr = window._SL && window._SL.record; const ML = {ml: 'Moneyline', spread: 'Spread', total: 'Total'};
     const bet = r.market === 'total' ? `${r.side === 'over' ? 'Over' : 'Under'} ${r.line}` : `${esc(r.team || r.side)}${r.market === 'spread' ? ` ${r.line > 0 ? '+' : ''}${r.line}` : ' ML'}`;
@@ -794,16 +806,7 @@ function renderToday() {
       rec: lbl('Backtest', 'our tape 10/29-11/6: 30-41, +15.8%, EV at the close +4.0% (n 71)') + ' ' + lbl('Tracker', SLr && SLr.n ? `${SLr.won}-${SLr.lost}, ${SLr.units > 0 ? '+' : ''}${SLr.units}u` : 'no graded picks yet'),
       detail: facts([['Rule', 'Stale-book lean (docs/stale_books_2026-11-06.md): a bettable venue (Novig, Kalshi with fee, Polymarket, FD, Caesars, DK) 2%+ better than Pinnacle\'s no-vig fair at the same number, right after Pinnacle moved 1+ point toward the side, price under +200; one lean per side at the best venue. Paper until it has a forward record.']])}); };
   const SL = (window._SL && window._SL.rows || []).filter(r => future(r.start) && passW(r.start) && passS(r.sport, r.sport));
-  // Prop price-gap leans (sharp/props_live.py, 11/6): paper. A US book prices a prop under 2%+ better than Pinnacle's no-vig at the same line.
-  const PLN = {player_threes: '3-pointers', player_total_saves: 'saves', player_shots_on_goal: 'shots on goal'};
-  const plRow = r => { const PLr = window._PL && window._PL.record;
-    return sRow({id: `pl|${r.key}`, start: r.start, sportLabel: (r.sport || '').toUpperCase(), game: esc(r.game), bet: `${esc(r.player)} under ${r.line} ${PLN[r.market] || r.market}`, sub: `Player prop · price gap at ${VS(r.book)}, paper`,
-      gone: true, status: ['gone', 'Paper: prop price-gap lean, no units until it has a forward record'], size: '', price: `<b>${toAm(1 / r.price)}</b> <span class="small dim">${VS(r.book)}</span>`, link: '',
-      why: `${VS(r.book)} under ${toAm(1 / r.price)} vs Pinnacle's no-vig ${(100 * r.fair).toFixed(1)}% (${r.ev > 0 ? '+' : ''}${r.ev}% EV); Pinnacle under ${toAm(1 / r.pin_under)}`,
-      rec: lbl('Backtest', r.sport === 'nba' ? 'NBA threes unders 2023-26: 2453-2198, +7.9%, 4 of 4 seasons' : 'NHL saves unders 99-54 (+24.9%); shots unders 1098-1075 (+5.3%)') + ' ' + lbl('Tracker', PLr && PLr.n ? `${PLr.won}-${PLr.lost}, ${PLr.units > 0 ? '+' : ''}${PLr.units}u` : 'no graded picks yet'),
-      detail: facts([['Rule', 'Prop price gap (docs/props_2026-11-06.md): FD, Caesars or DK price the under 2%+ better than Pinnacle\'s no-vig fair at the same line, inside 3 hours of the start; first time per player and line. Paper until it has a forward record.']])}); };
-  const PL = (window._PL && window._PL.rows || []).filter(r => future(r.start) && passW(r.start) && passS(r.sport, r.sport));
-  const paperOnlyExtra = [...KF.map(kRow), ...SL.map(slRow), ...PL.map(plRow)];
+  const paperOnlyExtra = [...KF.map(kRow), ...SL.map(slRow), ...PL.filter(r => !plLive(r)).map(plRow)];
   const sysRows = [...vet.map(sysRow), ...THb.map(hRow)];
   const H = (t, meta) => `<div class="hdr2"><h2>${t}</h2><span class="meta">${meta}</span></div>`;
   window._sec = window._sec || 'all';
