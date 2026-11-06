@@ -23,6 +23,7 @@ jobs:
       - name: pull, committing every 30 minutes
         if: contains(format(' {0} ', inputs.sports), format(' {0} ', matrix.sport))
         env: {ODDS_API_KEY: '${{ secrets.ODDS_API_KEY }}'}
+        shell: bash {0}
         run: |
           git config user.name "tracker-bot"; git config user.email "actions@users.noreply.github.com"
           push() {
@@ -35,7 +36,7 @@ jobs:
           }
           end=$(( $(date +%s) + 20400 ))
           while [ $(date +%s) -lt $end ]; do
-            timeout 1800 python3 loggers/oddsapi_derivs.py ${{ matrix.sport }} --${{ inputs.mode || 'full' }} --newest-first --floor 3000000; rc=$?
+            rc=0; timeout 1800 python3 loggers/oddsapi_derivs.py ${{ matrix.sport }} --${{ inputs.mode || 'full' }} --newest-first --floor 3000000 || rc=$?     # || keeps bash -e from aborting before the commit (11/6: lost a checkpoint)
             push
             [ $rc -eq 124 ] || break        # finished (not a timeout): stop
           done
