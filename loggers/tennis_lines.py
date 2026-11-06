@@ -238,8 +238,10 @@ def novig(R, meta):
                 try: st, r = NA.request('GET', '/v3/catalog' + path, query, timeout=30)
                 except Exception as e: st, r = type(e).__name__, None
                 if st == 200: return r
-                STATS[f'novig_http_{st}'] += 1; time.sleep(3 * (i + 1) + random.random() * 2)
-            return {}
+                STATS[f'novig_http_{st}'] += 1
+                if st in (401, 403): break          # 11/6: signed key rejected since 11/4; use the public API
+                time.sleep(3 * (i + 1) + random.random() * 2)
+            else: return {}
         return g(f"{NOVP}{path}?{query}")
     todo = []
     for lg in ('ATP', 'WTA'):

@@ -364,18 +364,21 @@ def novig(M):
     try:
         from sharp import novig_auth as NA; signed = NA.available()
     except Exception: signed = False
+    auth = dict(signed=signed)
     def nv(path, query=''):
-        if signed:
+        if auth['signed']:
             for i in range(4):          # the fast jobs hit Novig at the same second; about 1 run in 6 lost a whole sport to 429 with one retry
                 try: st, r = NA.request('GET', path, query, timeout=30)
                 except Exception as e: st, r = type(e).__name__, None
                 STATS['novig_signed'] += 1
                 if st == 200: return r
                 STATS[f'novig_http_{st}'] += 1
+                if st in (401, 403):        # 11/6: the signed key started returning 401 on 11/4 ~09:00 UTC and Novig vanished from the tape; fall back to the public API
+                    auth['signed'] = False; STATS['novig_public_fallback'] += 1; break
                 if st != 429 and not (isinstance(st, int) and st >= 500) and isinstance(st, int): return {}
                 time.sleep(3 * (i + 1) + (time.time() * 1000 % 2000) / 1000)
-            return {}
-        return g(f"{NOV}{path}" + (('?' + query) if query else ''))
+            if auth['signed']: return {}
+        return g(f"{NOV}{path.replace('/v3/catalog', '/catalog', 1)}" + (('?' + query) if query else ''))     # public base is /v3/public/catalog/... (the old join gave /v3/public/v3/catalog: 401)
     evs = [e for e in (nv('/v3/catalog/events', f"league={urllib.parse.quote(CFG['novig'])}&status=OPEN_PREGAME&limit=500") or {}).get('items', [])
            if '@' in e.get('description', '') and 0 < e['startsTs'] / 1000 - NOW.timestamp() < CFG['horizon_days'] * 86400]
     types = set(S.NOVIG_GAME) | (set() if FAST else set(S.NOVIG_PROPS[SPORT])); todo = []
