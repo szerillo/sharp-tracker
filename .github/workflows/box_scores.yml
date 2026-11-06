@@ -32,5 +32,5 @@ jobs:
           for pass in 1 2 3 4 5 6 7 8 9 10; do
             out=$(python3 loggers/box_scores.py ${{ matrix.sport }} --max-s 1500 2>&1); echo "$out"
             push
-            echo "$out" | grep -q "to pull" && echo "$out" | grep -qE "0 to pull|wrote 0$" && break
+            echo "$out" | grep -qE " 0 to pull|wrote 0$" && break
           done
