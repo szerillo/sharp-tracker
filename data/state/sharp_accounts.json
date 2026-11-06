@@ -1,5 +1,5 @@
 {
- "built": "2026-11-06T21:48:56Z",
+ "built": "2026-11-06T21:56:11Z",
  "rows": [
   {
    "cond": "0x3677c251947318cc64698988355cb2bbb5fe9a20f8c18c9e614cacc719026338",
@@ -297,7 +297,7 @@
    "best_rank": 4,
    "usd": 150,
    "paid": 0.48,
-   "ask": 0.5,
+   "ask": 0.51,
    "status": "live",
    "link": "https://polymarket.us/event/cbb-stmn-minnst-2026-11-06",
    "other": null,
@@ -408,6 +408,33 @@
      "FD": 0.4717
     }
    }
+  },
+  {
+   "cond": "0x73aafa07f8206eb35c0b0ed4ee0e3968a243d30cbee1eedafb8ea7b6f78068bb",
+   "slug": "bun-mai-bay-2026-11-07",
+   "title": "1. FSV Mainz 05 vs. FC Bayern M\u00fcnchen",
+   "mtype": "ml",
+   "start": "2026-11-07T14:30:00Z",
+   "bet": "Will FC Bayern M\u00fcnchen win on 2026-11-07: No",
+   "side": "No",
+   "flagged": "2026-11-06T21:49:36Z",
+   "why": "a top-200 account also in this sport's top 50",
+   "proven": true,
+   "trigger": "proven",
+   "n_accounts": 1,
+   "best_rank": 132,
+   "usd": 278,
+   "paid": 0.26,
+   "ask": 0.26,
+   "status": "live",
+   "link": "https://polymarket.us/event/bun-mai-bay-2026-11-07",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "grade": "A",
+   "fair_board": null,
+   "inside_fair": null,
+   "books": null
   },
   {
    "cond": "0x5a4f48f65db8bb0de7274a91d32ae7abafaf1aae7e67322744658be0e0e73abb",
@@ -559,14 +586,14 @@
    "bet": "Under 63.5",
    "side": "Under",
    "flagged": "2026-11-06T15:19:19Z",
-   "why": "a top-200 account also in this sport's top 50",
+   "why": "2 top-200 accounts",
    "proven": true,
    "trigger": "proven",
-   "n_accounts": 1,
-   "best_rank": 110,
-   "usd": 2202,
-   "paid": 0.54,
-   "ask": 0.56,
+   "n_accounts": 2,
+   "best_rank": 12,
+   "usd": 2437,
+   "paid": 0.542,
+   "ask": 0.58,
    "status": "live",
    "link": "https://polymarket.us/event/cfb-cin-hou-2026-11-07",
    "other": null,
@@ -1459,9 +1486,9 @@
   },
   "401856851|total": {
    "under": {
-    "n": 1,
-    "best_rank": 110,
-    "usd": 2202
+    "n": 2,
+    "best_rank": 12,
+    "usd": 2437
    }
   },
   "401858289|total": {
