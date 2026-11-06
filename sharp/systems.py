@@ -36,7 +36,7 @@ RULES = {'wind1014': dict(market='total', side='under', stake=1.0), 'wind1014_1h
          'nhl_pl_dog_bigml': dict(market='spread', side='dog', stake=0.5, sport='nhl'),
          'nba_1h_under_hot_over': dict(market='1h_total', side='under', stake=0.5, sport='nba'),
          # Bet Labs round 3 watch tier (docs/betlabs_account_systems_audit_2026-10-30.md), paper only
-         'nhl_early_home_fav_qual': dict(market='ml', side='home', stake=0.5, sport='nhl'), 'nba_under_good_home_over': dict(market='total', side='under', stake=0.5, sport='nba'),
+         'nhl_early_home_fav_qual': dict(market='ml', side='home', stake=0.5, sport='nhl'), 'nba_under_good_home_over': dict(market='total', side='under', stake=0.5, sport='nba'), 'nba_under_good_home_over_small': dict(market='total', side='under', stake=0.5, sport='nba'),
          'cfb_road_dog_low_total': dict(market='spread', side='away', stake=0.5, sport='cfb'),
          'cbb_bigloss_vs_top5': dict(market='spread', side='team', stake=0.5, sport='cbb'),
          # rescued variants of failed account systems (docs/betlabs_rescue_2026-11-01.md), paper only
@@ -82,7 +82,8 @@ EVIDENCE = {'wind1014': dict(tier='A', train='Bet Labs 533-376 all-time (2003-),
             'nhl_pl_dog_bigml': dict(tier='C', train='Bet Labs 810, +6.0%', hold='Odds API 2020-26: 46-32 at +1.5, +5.0%', seasons='4 of 7', src='data/research/rule_replay.json'),
             'nba_1h_under_hot_over': dict(tier='B', train='508, +8.4%', hold='257, +6.1%', seasons='see audit', src='docs/betlabs_segments_audit_2026-10-30.md'),
             'nhl_early_home_fav_qual': dict(tier='B', train='Bet Labs 1,459, +3.0%', hold='corrected replay 2020-26: 258-139 ML, +9.4% at Pinnacle, +9.3% at the best US book, 6 of 6 full seasons', seasons='6 of 6', src='docs/systems_test_2026-11-05.md'),   # 11/5: the best-replicating rule
-            'nba_under_good_home_over': dict(tier='C', train='Bet Labs 978, +10.9%', hold="Bet Labs' own picks at Pinnacle's close: 392, +7.8%; our replication with real market opens: 215-210-7, -1.3% (the two filter sets still differ on ~90 games)", seasons='3 of 7 (ours)', src='docs/systems_test_2026-11-05.md'),   # 11/5 pm: tier C, the two tests disagree
+            'nba_under_good_home_over_small': dict(tier='P', train='same rule with the total down only 0.5-1.0 from the open', hold='our replay: drop 0.5+ is 215-210 (-1.4%); the games Bet Labs and we disagree on (borderline drop or over%) went 59-83', seasons='n/a', src='docs/deriv_split_2026-11-06.md'),   # 11/6 (Sean): paper below a 1.5 drop
+            'nba_under_good_home_over': dict(tier='C', train='Bet Labs 978, +10.9%', hold="Bet Labs' own picks at Pinnacle's close: 392, +7.8%; our replication with real market opens: 215-210-7, -1.3% (the two filter sets still differ on ~90 games)", seasons='3 of 7 (ours)', labs_check="11/6 reconciliation (docs/deriv_split_2026-11-06.md): Bet Labs' own picks at Pinnacle's close 213-174 (+7.4%); our extra borderline games 59-83. Neighbouring thresholds about break-even; total down 1.5+ is the steady part: 171-141 (+6.8%) on our data. From 11/6 the rule fires only on a 1.5+ drop; 0.5-1.0 drops go to paper (nba_under_good_home_over_small)", src='docs/systems_test_2026-11-05.md'),   # 11/5 pm: tier C, the two tests disagree; 11/6 drop 1.5+ only
             'cfb_road_dog_low_total': dict(tier='B', train='Bet Labs 645, +14.9%', hold="corrected replay (conference games): 132-113-10, +4.4%, 5 of 6 full seasons; Bet Labs' own picks 153-117; non-conference version -7.2%", seasons='5 of 6', src='docs/systems_test_2026-11-05.md'),
             'cbb_bigloss_vs_top5': dict(tier='C', train='177, +23.1%', hold='66, +13.0%', seasons='thin (about 12 a season)', src='docs/betlabs_account_systems_audit_2026-10-30.md'),
             'cfb_hot_over_low_total': dict(tier='B', train='Bet Labs 203, +16.4% (to 2021); hold 92, +10.1%', hold='Odds API 2020-26 with NASA POWER kickoff temperature: non-conference 117-71-3 (+19.5%), 6 of 6 seasons; the conference version is 37-38', seasons='6 of 6', labs_check='two independent tests agree; mechanism: heat wears out thinner non-conference defences, low totals price it least; to B 11/5', src='docs/cfb_weather_2026-11-05.md'),
@@ -109,7 +110,7 @@ DESC = {'wind1014': 'NFL outdoor, wind 10-14 mph (average of Open-Meteo at T-24h
         'xch_homedog_fade': 'Novig home side two-sided at 20-35c inside T-90m: take the road side on Novig', 'nba_momentum': 'NBA exchange mid moved 3c+ since T-6h: continuation at that exchange',
         'nhl_pl_fav_gap': "NHL favorite -1.5 when the OPPONENT's win% is 22+ points higher than the favorite's (market rates the favorite above its record)", 'nhl_pl_fav_strong_opp': 'NHL favorite -1.5 when the opponent wins 66%+',
         'nhl_pl_dog_bigml': 'NHL dog +1.5 when the dog ML is +181 to +196', 'nba_1h_under_hot_over': 'NBA 1H under when the visitor has gone over 71%+ of the time',
-        'nhl_early_home_fav_qual': 'NHL home favorite, game 24 or earlier, vs an opponent winning 51%+: moneyline', 'nba_under_good_home_over': 'NBA under: home team over 58%+, home 1-2 days off, visitor 1-3, total down 0.5+ from open',
+        'nhl_early_home_fav_qual': 'NHL home favorite, game 24 or earlier, vs an opponent winning 51%+: moneyline', 'nba_under_good_home_over': 'NBA under: home team over 58%+, home 1-2 days off, visitor 1-3, total down 1.5+ from open (11/6: was 0.5+)', 'nba_under_good_home_over_small': 'Same NBA under spot with the total down only 0.5-1.0 from open: paper (11/6)',
         'cfb_road_dog_low_total': 'CFB conference game, road dog of 7+ with a total of 48 or less: road spread',
         'cbb_bigloss_vs_top5': 'CBB regular-season conference game: unranked team off a 14-45 point loss vs a top-5 opponent: that team on the spread',
         'cfb_hot_over_low_total': 'CFB non-conference game, 85F+ and wind 10 mph or less, total 55 or lower: over (heat wears defences down; low totals price it least)',
@@ -302,7 +303,7 @@ def public(conn, ev, market, side):
     return json.loads(r[0]) if r else {}
 
 
-LEAN_TAGS = {'nhl_pl_fav_gap', 'nhl_pl_fav_strong_opp', 'nhl_pl_dog_bigml', 'nba_1h_under_hot_over', 'nhl_early_home_fav_qual', 'nba_under_good_home_over', 'nba_ats_hot_home', 'nba_bigfav_over', 'nhl_loss_streak_over', 'nba_badteams_under', 'nba_roadtrip_over', 'nhl_bounce_home_ml', 'nhl_skid_fade_road'}
+LEAN_TAGS = {'nhl_pl_fav_gap', 'nhl_pl_fav_strong_opp', 'nhl_pl_dog_bigml', 'nba_1h_under_hot_over', 'nhl_early_home_fav_qual', 'nba_under_good_home_over', 'nba_under_good_home_over_small', 'nba_ats_hot_home', 'nba_bigfav_over', 'nhl_loss_streak_over', 'nba_badteams_under', 'nba_roadtrip_over', 'nhl_bounce_home_ml', 'nhl_skid_fade_road'}
 
 
 def void_fill(fired, key, why):
@@ -593,7 +594,7 @@ def main():
             if int(100 * (ph.get('over_pct') or 0)) >= 58 and h_off is not None and a_off is not None and 1 <= h_off <= 2 and 1 <= a_off <= 3:
                 tl, _n = main_line(eq, 'total', None); op = open_line(conn, ev, 'total')
                 if tl is not None and op is not None and op - tl >= 0.5:
-                    trig['nba_under_good_home_over'] = ('total', 'under', f"home {home} over rate {int(100 * ph['over_pct'])}%, days since last game: home {h_off}, visitor {a_off}; total {op} -> {tl}")
+                    trig['nba_under_good_home_over' if op - tl >= 1.5 else 'nba_under_good_home_over_small'] = ('total', 'under', f"home {home} over rate {int(100 * ph['over_pct'])}%, days since last game: home {h_off}, visitor {a_off}; total {op} -> {tl}")
         # A fired bet whose trigger no longer holds on corrected inputs (e.g. a late-arriving result changed a record) is voided before kickoff.
         for key_ in [k for k in fired if k.startswith(ev + ':') and k.split(':')[1] in LEAN_TAGS and k.split(':')[1] not in trig and not fired[k].get('void')]:
             void_fill(fired, key_, f"trigger no longer holds on current season records ({NOW_S})")
