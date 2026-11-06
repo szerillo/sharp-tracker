@@ -382,7 +382,7 @@ def main():
     alerts(rows)
     BE = by_event(F)
     rows.sort(key=lambda r: (r['status'] != 'live' or bool(r.get('kalshi_against')), r['start']))
-    json.dump(dict(built=dt.datetime.fromtimestamp(NOW, dt.timezone.utc).strftime('%Y-%m-%dT%H:%M:%SZ'), rows=[r for r in rows if epoch(r['start']) > NOW],
+    json.dump(dict(built=dt.datetime.fromtimestamp(NOW, dt.timezone.utc).strftime('%Y-%m-%dT%H:%M:%SZ'), rows=[r for r in rows if epoch(r['start']) > NOW - 4 * 3600],     # 11/5 (Sean): started games stay on the board 4h, marked In progress
                    record=rec, sys_tags=sys_tags(BE), by_event=BE, rule=f'top-{TOP_RANK} account, a top-200 account that is also in the sport top 50, or {TWO}+ top-200 accounts on one side, none on the other'), open(OUT, 'w'), indent=1)
     print(f"[sharp_live] {sum(epoch(r['start']) > NOW for r in rows)} upcoming flagged markets ({sum(r['status'] == 'other side' for r in rows)} with a sharp on the other side since); paper {rec}")
 

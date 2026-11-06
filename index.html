@@ -299,7 +299,7 @@ function moveText(m, betLabel) {
 // A notable move: it started at Pinnacle, or $1k+ Kalshi fills went in the same direction. Same rule on every page.
 const STEAM_TAG = {fresh: '<span class="badge b-prior">Fresh steam</span><br><span class="dim">wait, do not chase</span>', held: '<span class="badge b-sport">Held 1h+</span><br><span class="dim">do not fade</span>', reversed: '<span class="badge b-prior">Gave back 40%+</span><br><span class="dim">see bet-back list</span>', drift: '<span class="dim">Drift (no steam)</span>'};
 const isNotable = m => m.origin === 'Pinnacle' || !!(m.kalshi && m.kalshi.big_n && m.kalshi.big_net > 0);
-const until = iso => { const m = Math.round((new Date(iso) - Date.now()) / 60000); if (m <= 0) return 'started'; const h = Math.floor(m / 60); return h ? `in ${h}h ${m % 60}m` : `in ${m}m`; };
+const until = iso => { const m = Math.round((new Date(iso) - Date.now()) / 60000); if (m <= 0) return `<span class="stat stat-lapsed" style="margin:0">In progress</span>`; const h = Math.floor(m / 60); return h ? `in ${h}h ${m % 60}m` : `in ${m}m`; };
 const prob = a => a == null ? null : (a > 0 ? 100 / (a + 100) : -a / (-a + 100));
 function betText(f, g) {
   const per = /^(1h|1q|1p)_/.exec(f.market); const pre = per ? ({'1h': '1st half ', '1q': '1st quarter ', '1p': '1st period '}[per[1]]) : '';
@@ -454,7 +454,7 @@ function sysRow({g, f, tag}) {
   // (first-half leans against the full-game market); whether leans and sharps add up is graded later from sys_sharp_tags.jsonl
   const sa = (t && t.against) || sharpAgainst(g.event_id, f.market, f.side);
   const held = !!sa || !!f._conf;
-  const per = /^(1h|1q|1p)_/.test(f.market) ? '1st half' : 'Full game', gone = f.lapsed || f.now === null || held;
+  const per = /^(1h|1q|1p)_/.test(f.market) ? '1st half' : 'Full game', gone = f.lapsed || f.now === null;     // 11/5 (Sean): a held bet stays in full colour with its Held note; only lapsed / no-price rows grey out
   // 11/5 (Sean): a system bet that a graded sharp signal also landed on is annotated here (and the sharp row says "with your system bet")
   const sm = (window._strongMap || {})[`${g.event_id}|${(f.market || '').replace(/^(1h|1q|1p)_/, '')}|${f.side}`];
   const sp = [t && t.with ? `<span class="tag-with">${t.with.n} sharp account${t.with.n === 1 ? '' : 's'} with</span>` : '', t && t.against ? `<span class="tag-against">${t.against.n} sharp account${t.against.n === 1 ? '' : 's'} against</span>` : '',
@@ -488,7 +488,7 @@ function sharpAcctExplain() {
 }
 function renderToday() {
   if (!SY) return '<div class="banner">Loading…</div>';
-  const now = Date.now(); const future = iso => new Date(iso) > now;
+  const now = Date.now(); const future = iso => new Date(iso) > now - 4 * 3.6e6;     // 11/5 (Sean): games stay on the board until 4h after the start, marked In progress, instead of vanishing at tip-off
   // ---- 1. system bets (cards), keyed by game
   const bets = [];
   for (const g of SY.games || []) { if (!future(g.start_utc)) continue;
@@ -777,7 +777,7 @@ function renderToday() {
         + (NB.length ? `<details class="how"><summary>Triggered without a bet (${NB.length})</summary>${tbl(NB)}</details>` : ''); })()}
     ${H('Leans', 'Tier C and tennis · 0.25u · thin samples or paper rules · held when sharp accounts are on the other side')}
     ${leanRows.length ? sTable(leanRows) : (bulkBlocks ? '' : emptyNote('leans', [...bets.filter(it => tierOf(it) === 'C'), ...tw].filter(x => passS(x.sport, x.league))))}${bulkBlocks}
-    ${paperOnly.length || paperOnlyExtra.length ? `<details class="how" ${window._popen == null ? 'open' : (window._popen ? 'open' : '')} ontoggle="window._popen=this.open"><summary>Paper-only rules (${paperOnly.length + paperOnlyExtra.length}): logged and graded, not bets. Click a row for why it is paper (no mechanism, since-2020 only, or thin)</summary>${sTable([...paperOnly.map(sysRow), ...paperOnlyExtra])}</details>` : ''}
+    ${paperOnly.length || paperOnlyExtra.length ? `<details class="how" ${window._popen ? 'open' : ''} ontoggle="window._popen=this.open"><summary>Paper-only rules (${paperOnly.length + paperOnlyExtra.length}): logged and graded, not bets. Click a row for why it is paper (no mechanism, since-2020 only, or thin)</summary>${sTable([...paperOnly.map(sysRow), ...paperOnlyExtra])}</details>` : ''}
     <div class="small dim" style="margin:6px 0">Bets already started or graded are on the <a href="#" onclick="tab='tracker';_lw='d1';draw();return false">Bet tracker</a> (In progress, Past 24 hours).</div>
     <details class="how"><summary>How to read this page</summary><div class="explain">
       <p><b>Every row</b> reads the same way: start time (ET), game, the bet, size in units ($500 unit; to win when laying juice, to risk on plus money), the flagged price and whether it is still there, why it flagged, and its record. Click a row for the full rule, the trigger in this game and the backtest detail.</p>
