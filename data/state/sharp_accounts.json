@@ -1,5 +1,5 @@
 {
- "built": "2026-11-06T14:56:15Z",
+ "built": "2026-11-06T15:05:59Z",
  "rows": [
   {
    "cond": "0x81b63770a7d779d9d73737f06a0e6f974c78f8dfd5695f7d13ca8f30a5994270",
@@ -183,6 +183,43 @@
    }
   },
   {
+   "cond": "0xf1cfe5a749e08ebfc14d79cdd6b487a29d2f996f0ae1e75579643745a8f227b1",
+   "slug": "cfb-nebr-ill-2026-11-06",
+   "title": "Nebraska vs. Illinois",
+   "mtype": "total",
+   "start": "2026-11-07T01:00:00Z",
+   "bet": "Over 49.5",
+   "side": "Over",
+   "flagged": "2026-11-06T14:57:49Z",
+   "why": "a top-200 account also in this sport's top 50",
+   "proven": true,
+   "trigger": "proven",
+   "n_accounts": 1,
+   "best_rank": 58,
+   "usd": 470,
+   "paid": 0.53,
+   "ask": 0.53,
+   "status": "live",
+   "link": "https://polymarket.us/event/cfb-nebr-ill-2026-11-06",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401858510",
+   "sport": "cfb",
+   "league": null,
+   "away": "NEB",
+   "home": "ILL",
+   "away_name": "Nebraska Cornhuskers",
+   "home_name": "Illinois Fighting Illini",
+   "game_start": "2026-11-07T01:00Z",
+   "side_std": "over",
+   "money_with": true,
+   "grade": "A",
+   "fair_board": null,
+   "inside_fair": null,
+   "books": null
+  },
+  {
    "cond": "0x5a4f48f65db8bb0de7274a91d32ae7abafaf1aae7e67322744658be0e0e73abb",
    "slug": "cfb-flst-boscol-2026-11-07",
    "title": "Florida State vs. Boston College",
@@ -235,7 +272,7 @@
    "best_rank": 116,
    "usd": 1505,
    "paid": 0.45,
-   "ask": 0.46,
+   "ask": 0.47,
    "status": "live",
    "link": "https://polymarket.us/event/cfb-ala-lsu-2026-11-07",
    "other": null,
@@ -486,7 +523,7 @@
    "best_rank": 40,
    "usd": 1429,
    "paid": 0.633,
-   "ask": 0.72,
+   "ask": 0.73,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-was-atl-2026-11-06",
    "other": {
@@ -495,7 +532,7 @@
     "usd": 254,
     "first": "2026-11-06T02:07:52Z"
    },
-   "exit_bid": 0.71,
+   "exit_bid": 0.72,
    "kalshi_against": null,
    "logged": true,
    "event_id": "401909287",
@@ -643,6 +680,14 @@
     "usd": 224
    },
    "against": null
+  },
+  "401909295:nba_bigfav_over": {
+   "with": null,
+   "against": {
+    "n": 1,
+    "best_rank": 132,
+    "usd": 689
+   }
   },
   "401909291:nba_ats_hot_home": {
    "with": null,
@@ -807,6 +852,13 @@
     "usd": 1265
    }
   },
+  "401909295|total": {
+   "under": {
+    "n": 1,
+    "best_rank": 132,
+    "usd": 689
+   }
+  },
   "401909940|ml": {
    "home": {
     "n": 1,
@@ -819,6 +871,13 @@
     "n": 1,
     "best_rank": 132,
     "usd": 130
+   }
+  },
+  "401858510|total": {
+   "over": {
+    "n": 1,
+    "best_rank": 58,
+    "usd": 470
    }
   },
   "401858289|total": {
