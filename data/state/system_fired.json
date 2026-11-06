@@ -2462,5 +2462,69 @@
 "fair": 0.5,
 "edge_pts": -2.38,
 "why": "home NO covers 75% of spreads this season (8 games), 2 days rest: home spread (mined angle)"
+},
+"401909936:nba_momentum:total": {
+"tag": "nba_momentum",
+"fill_id": "d2aa9e354557",
+"ts": "2026-11-06T00:39:55Z",
+"market": "total",
+"side": "over",
+"line": 222.5,
+"venue": "Kalshi",
+"price": -113,
+"fair": 0.50217,
+"edge_pts": -2.78,
+"why": "Kalshi total mid 0.475 at T-6h -> 0.505 now (+3.0c); continuation (audit section 3, NBA only)",
+"now": {
+"venue": "FD",
+"price": -106
+},
+"ladder": [
+{
+"line": 220.5,
+"steps": -4,
+"venue": "Kalshi",
+"price": -138,
+"cost": 0.58,
+"fair": 0.555,
+"loss": -0.0033
+},
+{
+"line": 222.5,
+"steps": 0,
+"venue": "FD",
+"price": -106,
+"cost": 0.5146,
+"fair": 0.5022,
+"loss": -0.016
+},
+{
+"line": 223.0,
+"steps": 1,
+"venue": "Caesars",
+"price": -110,
+"cost": 0.5238,
+"fair": 0.5,
+"loss": -0.0045
+},
+{
+"line": 224.5,
+"steps": 4,
+"venue": "Kalshi",
+"price": 113,
+"cost": 0.47,
+"fair": 0.445,
+"loss": -0.0033
+}
+],
+"bet_to": {
+"line": 224.5,
+"steps": 4,
+"venue": "Kalshi",
+"price": 113,
+"cost": 0.47,
+"fair": 0.445,
+"loss": -0.0033
+}
 }
 }
