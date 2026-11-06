@@ -796,7 +796,20 @@ function renderToday() {
       rec: lbl('Backtest', r.sport === 'nba' ? 'NBA threes unders at FD/Caesars/DK 2023-26: 1087-938, +8.2%, 4 of 4 seasons' : 'NHL saves unders 99-54 (+24.9%); shots unders 1098-1075 (+5.3%)') + ' ' + lbl('Tracker', PLr && PLr.n ? `${PLr.won}-${PLr.lost}, ${PLr.units > 0 ? '+' : ''}${PLr.units}u` : 'no graded picks yet'),
       detail: facts([['Rule', 'Prop price gap (docs/props_2026-11-06.md): FD, Caesars or DK price the under 2%+ better than Pinnacle\'s no-vig fair at the same line, inside 3 hours of the start; first time per player and line. Paper until it has a forward record.']])}); };
   const PL = (window._PL && window._PL.rows || []).filter(r => future(r.start) && passW(r.start) && passS(r.sport, r.sport));
-  const leanRows = [...leanOne.map(sysRow), ...TWk.map(tRow), ...THc.map(hRow), ...TD.map(dRow), ...TV.map(vRow), ...MS.map(mRow), ...PL.filter(plLive).map(plRow)];
+  // Derivatives off the curve (sharp/curve_live.py, 11/6). Tier C: CBB first-half totals (gap 7+), CFB first-quarter unders (gap 5+); paper: CFB team-total unders.
+  const CVN = {cbb_1h_total_curve: ['First-half total off the curve', 'CBB 2023-26 at Pinnacle: 323-238, +9.8%, 3 of 3 seasons; at FD/Caesars/DK +3.5%'],
+    cfb_q1_under_curve: ['First-quarter under off the curve', 'CFB 2023-25 at Pinnacle: 242-176, +8.8%, 3 of 3 seasons; at FD/Caesars/DK +18.4%'],
+    cfb_tt_under_curve: ['Team-total under off the curve', 'CFB 2023-25: 210-176, +7.3%; 2025 -4.5% (paper)']};
+  const cvRow = r => { const CVr = window._CV && window._CV.record && window._CV.record[r.rule]; const live = r.tier !== 'P'; const pr = r.price || r.pin_price;
+    const what = r.market === 'totals_h1' ? '1H total' : r.market === 'totals_q1' ? '1Q total' : `${esc(r.team_name || '')} team total`;
+    return sRow({id: `cv|${r.key}`, start: r.start, sportLabel: (r.sport || '').toUpperCase(), game: esc(r.game), bet: `${r.side === 'over' ? 'Over' : 'Under'} ${r.line} ${what}`,
+      sub: `${(CVN[r.rule] || [r.rule])[0]} · ${live ? 'tier C' : 'paper'}`, gone: !live, status: live ? null : ['gone', 'Paper: no units until it has a forward record'],
+      size: live ? unitText(SLIP.small, 1 / pr) : '', price: `<b>${toAm(1 / pr)}</b> <span class="small dim">${r.book ? VS(r.book) : 'Pinnacle'}</span>`, link: r.book ? betLink(r.book, r.espn, 'total') : '',
+      why: `The full game (total ${r.full_total}, home ${r.full_spread > 0 ? '+' : ''}${r.full_spread}) puts the ${r.side} at ${(100 * r.curve).toFixed(1)}%; Pinnacle's no-vig is ${(100 * r.pin_fair).toFixed(1)}% (${r.gap} points off the curve)`,
+      rec: lbl('Backtest', (CVN[r.rule] || ['', ''])[1]) + ' ' + lbl('Tracker', CVr && CVr.n ? `${CVr.won}-${CVr.lost}, ${CVr.units > 0 ? '+' : ''}${CVr.units}u` : 'no graded picks yet'),
+      detail: facts([['Rule', 'Derivatives off the curve (docs/deriv_curve_2026-11-06.md): past games with a similar full-game total and spread, scaled to this game, price the period / team total; a bet when Pinnacle\'s no-vig on that line is off by the rule\'s gap, on the side the curve prefers, inside 3 hours of the start.']])}); };
+  const CV = (window._CV && window._CV.rows || []).filter(r => future(r.start) && passW(r.start) && passS(r.sport, r.sport));
+  const leanRows = [...leanOne.map(sysRow), ...TWk.map(tRow), ...THc.map(hRow), ...TD.map(dRow), ...TV.map(vRow), ...MS.map(mRow), ...PL.filter(plLive).map(plRow), ...CV.filter(r => r.tier !== 'P').map(cvRow)];
   // Stale-book lean (sharp/stale_live.py, 11/6): paper. A venue Sean bets 2%+ better than Pinnacle's no-vig fair right after Pinnacle moved 1+ point toward the side.
   const slRow = r => { const SLr = window._SL && window._SL.record; const ML = {ml: 'Moneyline', spread: 'Spread', total: 'Total'};
     const bet = r.market === 'total' ? `${r.side === 'over' ? 'Over' : 'Under'} ${r.line}` : `${esc(r.team || r.side)}${r.market === 'spread' ? ` ${r.line > 0 ? '+' : ''}${r.line}` : ' ML'}`;
@@ -806,7 +819,7 @@ function renderToday() {
       rec: lbl('Backtest', 'our tape 10/29-11/6: 30-41, +15.8%, EV at the close +4.0% (n 71)') + ' ' + lbl('Tracker', SLr && SLr.n ? `${SLr.won}-${SLr.lost}, ${SLr.units > 0 ? '+' : ''}${SLr.units}u` : 'no graded picks yet'),
       detail: facts([['Rule', 'Stale-book lean (docs/stale_books_2026-11-06.md): a bettable venue (Novig, Kalshi with fee, Polymarket, FD, Caesars, DK) 2%+ better than Pinnacle\'s no-vig fair at the same number, right after Pinnacle moved 1+ point toward the side, price under +200; one lean per side at the best venue. Paper until it has a forward record.']])}); };
   const SL = (window._SL && window._SL.rows || []).filter(r => future(r.start) && passW(r.start) && passS(r.sport, r.sport));
-  const paperOnlyExtra = [...KF.map(kRow), ...SL.map(slRow), ...PL.filter(r => !plLive(r)).map(plRow)];
+  const paperOnlyExtra = [...KF.map(kRow), ...SL.map(slRow), ...PL.filter(r => !plLive(r)).map(plRow), ...CV.filter(r => r.tier === 'P').map(cvRow)];
   const sysRows = [...vet.map(sysRow), ...THb.map(hRow)];
   const H = (t, meta) => `<div class="hdr2"><h2>${t}</h2><span class="meta">${meta}</span></div>`;
   window._sec = window._sec || 'all';
@@ -1305,6 +1318,7 @@ async function load() {
     try { window._KF = await (await fetch('data/state/kalshi_flow.json', {cache: 'no-store'})).json(); } catch (e) { window._KF = null; }
     try { window._SL = await (await fetch('data/state/stale_live.json', {cache: 'no-store'})).json(); } catch (e) { window._SL = null; }
     try { window._PL = await (await fetch('data/state/props_live.json', {cache: 'no-store'})).json(); } catch (e) { window._PL = null; }
+    try { window._CV = await (await fetch('data/state/curve_live.json', {cache: 'no-store'})).json(); } catch (e) { window._CV = null; }
     try { window._PP = await (await fetch('data/research/poly_pinnacle.json', {cache: 'no-store'})).json(); } catch (e) { window._PP = null; }
     let TH = null; try { TH = await (await fetch('data/state/tape_health.json', {cache: 'no-store'})).json(); } catch (e) { TH = null; }
     window._TH = TH;

@@ -57,3 +57,14 @@ teams to score, draw no bet, team totals and alternate totals priced from those 
 - First-half spreads and team totals: the information is there but it does not survive the price (about -1% to +2%).
 - The same shape as CFB (first-quarter and team-total unders off the curve): derived period totals that sit above what the full game
   implies go under. Paper candidate; going live needs the curve computed per game from our tape.
+
+## Live (11/6, 5am): `sharp/curve_live.py`, tier C
+Runs in the 20-minute signals job. For games inside 3 hours: the Odds API's current odds (the backtest's source), Pinnacle's full-game
+total and spread, the curve from `data/research/curve_pool_<sport>.json.gz` (every past game with period scores), Pinnacle's no-vig on
+the derivative line. The live code replayed on the backtest data (leave-one-season-out pools) reproduces the result:
+- **cbb_1h_total_curve** (gap 7+, either side): 323-238, +9.8% at Pinnacle; 2023 +14.2, 2024 +10.7, 2025 +4.1. At the best of
+  FD/Caesars/DK when they hang the same line: 162-133, +3.5% (Pinnacle on the same bets +5.3%). **Tier C, 0.25u.**
+- **cfb_q1_under_curve** (gap 5+, unders): 242-176, +8.8%; 2023 +14.6, 2024 +9.3, 2025 +3.0. At FD/Caesars/DK: 170-102, +18.4%.
+  **Tier C, 0.25u.**
+- **cfb_tt_under_curve** (gap 5+, unders): stays paper (2025 -4.5%).
+- CFB first-half totals are not a rule: off the curve they were +1.2% at a 5-point gap and 2024 was -7.6%.
