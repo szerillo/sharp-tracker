@@ -454,7 +454,7 @@ function sysRow({g, f, tag}) {
   // (first-half leans against the full-game market); whether leans and sharps add up is graded later from sys_sharp_tags.jsonl
   const sa = (t && t.against) || sharpAgainst(g.event_id, f.market, f.side);
   const held = !!sa || !!f._conf;
-  const per = /^(1h|1q|1p)_/.test(f.market) ? '1st half' : 'Full game', gone = f.lapsed || f.now === null;     // 11/5 (Sean): a held bet stays in full colour with its Held note; only lapsed / no-price rows grey out
+  const per = /^(1h|1q|1p)_/.test(f.market) ? '1st half' : 'Full game', gone = f.lapsed || f.now === null || held;     // 11/5 (Sean): held bets stay on the board, greyed, with the Held note
   // 11/5 (Sean): a system bet that a graded sharp signal also landed on is annotated here (and the sharp row says "with your system bet")
   const sm = (window._strongMap || {})[`${g.event_id}|${(f.market || '').replace(/^(1h|1q|1p)_/, '')}|${f.side}`];
   const sp = [t && t.with ? `<span class="tag-with">${t.with.n} sharp account${t.with.n === 1 ? '' : 's'} with</span>` : '', t && t.against ? `<span class="tag-against">${t.against.n} sharp account${t.against.n === 1 ? '' : 's'} against</span>` : '',
@@ -1125,7 +1125,17 @@ function renderBetLog() {
   window._lo = window._lo || 'all';
   const OPPF = {all: ['Any', () => true], at_flag: ['Sharps against at the flag', b => (b.opp || {}).when === 'at_flag'], after: ['Sharps came in against later', b => (b.opp || {}).when === 'after'], none: ['No sharps against', b => !b.opp],
     withs: ['Sharps with it', b => !!b.with], against_move: ['Flagged against the market move', b => !!(b.move_at_flag && b.move_at_flag.dir === 'against')], also: ['Flagged by a system AND a sharp signal', b => !!(b.also && b.also.length)]};
-  const inC = inW.filter(b => (_lc === 'all' ? b.cat !== 'watch' : b.cat === _lc) && OPPF[_lo][1](b));
+  // 11/5 (Sean): filter by rule (regular systems and paper rules listed separately, each clickable) and by bet type / side
+  window._lr = window._lr || 'all'; window._lm = window._lm || 'all';
+  const isSys = b => b.src === 'system' || b.src === 'paper' || b.src === 'mma' || b.src === 'tennis';
+  const ruleOf = b => (isSys(b) && b.rule ? String(b.rule).split(' | ')[0] : null);
+  const ruleTier = r => (((SY && SY.rules || {})[r] || {}).evidence || {}).tier || (BL.rows.find(b => ruleOf(b) === r && b.cat === 'paper P') ? 'P' : '?');
+  const allRules = [...new Set(BL.rows.map(ruleOf).filter(Boolean))];
+  const sysRules = allRules.filter(r => ['A', 'B', 'C'].includes(ruleTier(r))).sort(), paperRules = allRules.filter(r => !['A', 'B', 'C'].includes(ruleTier(r))).sort();
+  const MF = {all: ['All', () => true], ml: ['Moneyline', b => /ml$/.test(b.bet_type || '')], spread: ['Spread', b => /spread$/.test(b.bet_type || '')],
+    over: ['Over', b => /total$/.test(b.bet_type || '') && b.side === 'over'], under: ['Under', b => /total$/.test(b.bet_type || '') && b.side === 'under'],
+    fh: ['First half', b => /^1h_/.test(b.bet_type || '')]};
+  const inC = inW.filter(b => (_lc === 'all' ? b.cat !== 'watch' : b.cat === _lc) && OPPF[_lo][1](b) && (_lr === 'all' || ruleOf(b) === _lr) && MF[_lm][1](b));
   const sports = [...new Set(BL.rows.map(b => b.sport).filter(Boolean))].sort();
   const rows = inC.filter(b => _ls === 'all' || b.sport === _ls);
   const by = {}; for (const b of rows) { for (const k of [`${b.sport}|all`, `${b.sport}|${b.bet_type}`]) (by[k] = by[k] || []).push(b); }
@@ -1136,6 +1146,9 @@ function renderBetLog() {
   const tot = blSumm(rows);
   return `<div class="controls"><span class="tabs inline">${Object.entries(BLW).map(([k, [l, f]]) => chip(_lw === k, `${l} <span class="small">${BL.rows.filter(b => f(b) && (_lc === 'all' ? b.cat !== 'watch' : b.cat === _lc)).length}</span>`, `_lw='${k}'`)).join('')}</span></div>
     <div class="controls"><span class="tabs inline">${cats.map(c => chip(_lc === c, c === 'all' ? 'All categories' : c, `_lc='${c}'`)).join('')}</span></div>
+    <div class="controls"><span class="small dim">Bet type</span><span class="tabs inline">${Object.entries(MF).map(([k, [l, f]]) => chip(_lm === k, `${l} <span class="small">${inW.filter(b => (_lc === 'all' ? b.cat !== 'watch' : b.cat === _lc) && f(b)).length}</span>`, `_lm='${k}'`)).join('')}</span></div>
+    <div class="controls"><span class="small dim">Systems</span><span class="tabs inline">${chip(_lr === 'all', 'Any rule', `_lr='all'`)}${sysRules.map(r => { const n = inW.filter(b => ruleOf(b) === r).length, x = (SY && SY.record || {})[r]; return chip(_lr === r, `${esc(r)} <span class="small">${ruleTier(r)} · ${n}${fmtRec(x) ? ' · ' + fmtRec(x).replace(/<[^>]+>/g, '') : ''}</span>`, `_lr='${r}'`); }).join('')}</span></div>
+    <div class="controls"><span class="small dim">Paper rules</span><span class="tabs inline">${paperRules.map(r => { const n = inW.filter(b => ruleOf(b) === r).length, x = (SY && SY.record || {})[r]; return chip(_lr === r, `${esc(r)} <span class="small">${n}${fmtRec(x) ? ' · ' + fmtRec(x).replace(/<[^>]+>/g, '') : ''}</span>`, `_lr='${r}'`); }).join('')}</span></div>
     <div class="controls"><span class="small dim">Sharps on the other side</span><span class="tabs inline">${Object.entries(OPPF).map(([k, [l, f]]) => chip(_lo === k, `${l} <span class="small">${inW.filter(b => (_lc === 'all' ? b.cat !== 'watch' : b.cat === _lc) && f(b)).length}</span>`, `_lo='${k}'`)).join('')}</span></div>
     ${BL.opposed ? `<div class="small" style="margin:2px 0 8px">Every bet, systems and sharp flags: <b>no sharps against</b> ${blRec(BL.opposed.none)}, ${blU(BL.opposed.none.units)}, no-vig CLV ${blPts(BL.opposed.none.clv_nv)}% · <b>sharps against at the flag</b> (today's board holds these) ${blRec(BL.opposed.at_flag)}, ${blU(BL.opposed.at_flag.units)}, CLV ${blPts(BL.opposed.at_flag.clv_nv)}% · <b>sharps came in against later</b> (greyed out after you bet) ${blRec(BL.opposed.after)}, ${blU(BL.opposed.after.units)}, CLV ${blPts(BL.opposed.after.clv_nv)}%</div>` : ''}
     <div class="controls"><span class="tabs inline">${['all', ...sports].map(s => chip(_ls === s, s === 'all' ? 'All sports' : (SPORT_LABEL[s] || s), `_ls='${s}'`)).join('')}</span></div>
