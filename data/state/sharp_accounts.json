@@ -1,5 +1,5 @@
 {
- "built": "2026-11-06T22:41:02Z",
+ "built": "2026-11-06T22:47:36Z",
  "rows": [
   {
    "cond": "0x3677c251947318cc64698988355cb2bbb5fe9a20f8c18c9e614cacc719026338",
@@ -590,6 +590,52 @@
    "books": null
   },
   {
+   "cond": "0xa0612e2516c4fdfad74bffedaac5e98732954b8b20204e9cf8e2d0cf5feda864",
+   "slug": "bun-stu-wer-2026-11-07-more-markets",
+   "title": "VfB Stuttgart vs. SV Werder Bremen - More Markets",
+   "mtype": "spread",
+   "start": "2026-11-07T17:30:00Z",
+   "bet": "SV Werder Bremen +1.5",
+   "side": "SV Werder Bremen",
+   "flagged": "2026-11-06T22:41:37Z",
+   "why": "a top-200 account also in this sport's top 50",
+   "proven": true,
+   "trigger": "proven",
+   "n_accounts": 1,
+   "best_rank": 132,
+   "usd": 344,
+   "paid": 0.64,
+   "ask": 0.65,
+   "status": "live",
+   "link": "https://polymarket.us/event/bun-stu-wer-2026-11-07-more-markets",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401884743",
+   "sport": "soccer",
+   "league": "bundesliga",
+   "away": "SVW",
+   "home": "VFB",
+   "away_name": "Werder Bremen",
+   "home_name": "VfB Stuttgart",
+   "game_start": "2026-11-07T17:30Z",
+   "side_std": "away",
+   "money_with": false,
+   "grade": "A",
+   "fair_board": 0.6335,
+   "inside_fair": false,
+   "books": {
+    "at": "2026-11-06T21:20:39Z",
+    "fair": 0.6335,
+    "q": {
+     "Caesars": 0.6296,
+     "Novig": 0.64,
+     "Kalshi": 0.66,
+     "FD": 0.6825
+    }
+   }
+  },
+  {
    "cond": "0x10f4836a3b8dab09aa15fb16ba131a57296fa9b3f666865264a3aa9be24af09a",
    "slug": "cfb-txam-sc-2026-11-07",
    "title": "Texas A&M vs. South Carolina",
@@ -1074,14 +1120,14 @@
    "bet": "Wizards +7.5",
    "side": "Wizards",
    "flagged": "2026-11-06T22:01:27Z",
-   "why": "3 top-200 accounts",
+   "why": "4 top-200 accounts",
    "proven": false,
    "trigger": "two",
-   "n_accounts": 3,
-   "best_rank": 110,
-   "usd": 6131,
-   "paid": 0.481,
-   "ask": 0.46,
+   "n_accounts": 4,
+   "best_rank": 43,
+   "usd": 6607,
+   "paid": 0.48,
+   "ask": 0.47,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-was-atl-2026-11-06",
    "other": {
@@ -1576,9 +1622,9 @@
     "usd": 26031
    },
    "away": {
-    "n": 6,
-    "best_rank": 49,
-    "usd": 14681
+    "n": 7,
+    "best_rank": 43,
+    "usd": 15157
    }
   },
   "401909288|ml": {
@@ -1833,6 +1879,13 @@
     "n": 1,
     "best_rank": 132,
     "usd": 167
+   }
+  },
+  "401884743|spread": {
+   "away": {
+    "n": 1,
+    "best_rank": 132,
+    "usd": 344
    }
   },
   "761945|total": {
