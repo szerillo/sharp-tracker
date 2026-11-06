@@ -1,0 +1,2886 @@
+{
+ "generated": "2026-11-06T23:05Z",
+ "method": "Each rule is replayed on the odds database at its exact definition, then with each threshold moved one or two notches either way.\nEvery cell is graded on results at Pinnacle's close, flat 1 unit at Pinnacle's price (rule_replay.grade). A rule whose edge only shows at\nits exact numbers and fades at the neighbours is over-fitted; a real edge should survive small changes. Baseline = every game with the\nsame market and side and the rule's non-threshold filters.",
+ "skipped": [
+  "cbb_bigloss_vs_top5 (no historical AP ranks)",
+  "weather rules"
+ ],
+ "rules": [
+  {
+   "rule": "nhl_pl_fav_gap",
+   "sport": "nhl",
+   "note": "opponent win% minus favourite win%, whole percents",
+   "axes": {
+    "gap": [
+     16,
+     19,
+     22,
+     25,
+     28
+    ]
+   },
+   "exact_params": {
+    "gap": 22
+   },
+   "exact": {
+    "2020-21": {
+     "n": 14,
+     "record": "1-13",
+     "roi": -79.0
+    },
+    "2021-22": {
+     "n": 50,
+     "record": "19-31",
+     "roi": -3.4
+    },
+    "2022-23": {
+     "n": 39,
+     "record": "18-21",
+     "roi": 12.6
+    },
+    "2023-24": {
+     "n": 26,
+     "record": "8-18",
+     "roi": -16.8
+    },
+    "2024-25": {
+     "n": 34,
+     "record": "17-17",
+     "roi": 34.2
+    },
+    "2025-26": {
+     "n": 36,
+     "record": "13-23",
+     "roi": 1.5
+    },
+    "2026-27": {
+     "n": 6,
+     "record": "3-3",
+     "roi": 52.0
+    },
+    "all": {
+     "n": 205,
+     "record": "79-126",
+     "roi": 1.5
+    },
+    "seasons_pos": 3,
+    "seasons_full": 6
+   },
+   "baseline": {
+    "n": 7394,
+    "record": "2851-4543",
+    "roi": -4.9
+   },
+   "baseline_seasons": "1 of 6",
+   "cells": [
+    {
+     "params": {
+      "gap": 16
+     },
+     "dist": 2,
+     "n": 329,
+     "record": "120-209",
+     "roi": -2.6,
+     "seasons_pos": 2,
+     "seasons_full": 6
+    },
+    {
+     "params": {
+      "gap": 19
+     },
+     "dist": 1,
+     "n": 258,
+     "record": "101-157",
+     "roi": 5.0,
+     "seasons_pos": 2,
+     "seasons_full": 6
+    },
+    {
+     "params": {
+      "gap": 22
+     },
+     "dist": 0,
+     "n": 205,
+     "record": "79-126",
+     "roi": 1.5,
+     "seasons_pos": 3,
+     "seasons_full": 6
+    },
+    {
+     "params": {
+      "gap": 25
+     },
+     "dist": 1,
+     "n": 171,
+     "record": "68-103",
+     "roi": 4.3,
+     "seasons_pos": 3,
+     "seasons_full": 6
+    },
+    {
+     "params": {
+      "gap": 28
+     },
+     "dist": 2,
+     "n": 137,
+     "record": "53-84",
+     "roi": 1.9,
+     "seasons_pos": 3,
+     "seasons_full": 6
+    }
+   ],
+   "neighbour_1notch_median": 4.7,
+   "neighbour_1notch_range": [
+    4.3,
+    5.0
+   ],
+   "neighbour_range": [
+    -2.6,
+    5.0
+   ],
+   "verdict": "NO EDGE",
+   "current_tier": "C",
+   "suggested_tier": "paper"
+  },
+  {
+   "rule": "nhl_pl_fav_strong_opp",
+   "sport": "nhl",
+   "note": "opponent win%, whole percents",
+   "axes": {
+    "opp": [
+     60,
+     63,
+     66,
+     69,
+     72
+    ]
+   },
+   "exact_params": {
+    "opp": 66
+   },
+   "exact": {
+    "2020-21": {
+     "n": 18,
+     "record": "9-9",
+     "roi": 15.6
+    },
+    "2021-22": {
+     "n": 77,
+     "record": "32-45",
+     "roi": 6.5
+    },
+    "2022-23": {
+     "n": 65,
+     "record": "26-39",
+     "roi": -0.1
+    },
+    "2023-24": {
+     "n": 63,
+     "record": "14-49",
+     "roi": -35.5
+    },
+    "2024-25": {
+     "n": 71,
+     "record": "33-38",
+     "roi": 25.5
+    },
+    "2025-26": {
+     "n": 48,
+     "record": "17-31",
+     "roi": -4.2
+    },
+    "2026-27": {
+     "n": 16,
+     "record": "5-11",
+     "roi": -10.4
+    },
+    "all": {
+     "n": 358,
+     "record": "136-222",
+     "roi": -0.1
+    },
+    "seasons_pos": 3,
+    "seasons_full": 6
+   },
+   "baseline": {
+    "n": 7394,
+    "record": "2851-4543",
+    "roi": -4.9
+   },
+   "baseline_seasons": "1 of 6",
+   "cells": [
+    {
+     "params": {
+      "opp": 60
+     },
+     "dist": 2,
+     "n": 936,
+     "record": "353-583",
+     "roi": -0.1,
+     "seasons_pos": 3,
+     "seasons_full": 6
+    },
+    {
+     "params": {
+      "opp": 63
+     },
+     "dist": 1,
+     "n": 578,
+     "record": "219-359",
+     "roi": 1.3,
+     "seasons_pos": 4,
+     "seasons_full": 6
+    },
+    {
+     "params": {
+      "opp": 66
+     },
+     "dist": 0,
+     "n": 358,
+     "record": "136-222",
+     "roi": -0.1,
+     "seasons_pos": 3,
+     "seasons_full": 6
+    },
+    {
+     "params": {
+      "opp": 69
+     },
+     "dist": 1,
+     "n": 190,
+     "record": "68-122",
+     "roi": -7.7,
+     "seasons_pos": 1,
+     "seasons_full": 6
+    },
+    {
+     "params": {
+      "opp": 72
+     },
+     "dist": 2,
+     "n": 139,
+     "record": "51-88",
+     "roi": -5.5,
+     "seasons_pos": 3,
+     "seasons_full": 6
+    }
+   ],
+   "neighbour_1notch_median": -3.2,
+   "neighbour_1notch_range": [
+    -7.7,
+    1.3
+   ],
+   "neighbour_range": [
+    -7.7,
+    1.3
+   ],
+   "verdict": "NO EDGE",
+   "current_tier": "C",
+   "suggested_tier": "paper"
+  },
+  {
+   "rule": "nhl_pl_dog_bigml",
+   "sport": "nhl",
+   "note": "opening dog ML, American",
+   "axes": {
+    "lo": [
+     161,
+     171,
+     181,
+     191
+    ],
+    "hi": [
+     186,
+     196,
+     206,
+     216
+    ]
+   },
+   "exact_params": {
+    "lo": 181,
+    "hi": 196
+   },
+   "exact": {
+    "2020-21": {
+     "n": 2,
+     "record": "1-1",
+     "roi": -12.0
+    },
+    "2021-22": {
+     "n": 5,
+     "record": "3-2",
+     "roi": 8.6
+    },
+    "2022-23": {
+     "n": 38,
+     "record": "25-13",
+     "roi": 19.1
+    },
+    "2023-24": {
+     "n": 2,
+     "record": "1-1",
+     "roi": -12.5
+    },
+    "2024-25": {
+     "n": 6,
+     "record": "5-1",
+     "roi": 43.7
+    },
+    "2025-26": {
+     "n": 8,
+     "record": "4-4",
+     "roi": -14.3
+    },
+    "2026-27": {
+     "n": 3,
+     "record": "1-2",
+     "roi": -41.0
+    },
+    "all": {
+     "n": 64,
+     "record": "40-24",
+     "roi": 11.6
+    },
+    "seasons_pos": 3,
+    "seasons_full": 6
+   },
+   "baseline": {
+    "n": 7394,
+    "record": "4543-2851",
+    "roi": 3.0
+   },
+   "baseline_seasons": "5 of 6",
+   "cells": [
+    {
+     "params": {
+      "lo": 161,
+      "hi": 186
+     },
+     "dist": 2,
+     "n": 126,
+     "record": "81-45",
+     "roi": 10.2,
+     "seasons_pos": 3,
+     "seasons_full": 6
+    },
+    {
+     "params": {
+      "lo": 161,
+      "hi": 196
+     },
+     "dist": 2,
+     "n": 161,
+     "record": "103-58",
+     "roi": 10.8,
+     "seasons_pos": 3,
+     "seasons_full": 6
+    },
+    {
+     "params": {
+      "lo": 161,
+      "hi": 206
+     },
+     "dist": 2,
+     "n": 198,
+     "record": "122-76",
+     "roi": 7.6,
+     "seasons_pos": 3,
+     "seasons_full": 6
+    },
+    {
+     "params": {
+      "lo": 161,
+      "hi": 216
+     },
+     "dist": 2,
+     "n": 214,
+     "record": "131-83",
+     "roi": 7.6,
+     "seasons_pos": 5,
+     "seasons_full": 6
+    },
+    {
+     "params": {
+      "lo": 171,
+      "hi": 186
+     },
+     "dist": 1,
+     "n": 77,
+     "record": "49-28",
+     "roi": 10.1,
+     "seasons_pos": 5,
+     "seasons_full": 6
+    },
+    {
+     "params": {
+      "lo": 171,
+      "hi": 196
+     },
+     "dist": 1,
+     "n": 112,
+     "record": "71-41",
+     "roi": 11.0,
+     "seasons_pos": 5,
+     "seasons_full": 6
+    },
+    {
+     "params": {
+      "lo": 171,
+      "hi": 206
+     },
+     "dist": 1,
+     "n": 149,
+     "record": "90-59",
+     "roi": 6.7,
+     "seasons_pos": 4,
+     "seasons_full": 6
+    },
+    {
+     "params": {
+      "lo": 171,
+      "hi": 216
+     },
+     "dist": 2,
+     "n": 165,
+     "record": "99-66",
+     "roi": 6.7,
+     "seasons_pos": 4,
+     "seasons_full": 6
+    },
+    {
+     "params": {
+      "lo": 181,
+      "hi": 186
+     },
+     "dist": 1,
+     "n": 29,
+     "record": "18-11",
+     "roi": 9.9,
+     "seasons_pos": 2,
+     "seasons_full": 5
+    },
+    {
+     "params": {
+      "lo": 181,
+      "hi": 196
+     },
+     "dist": 0,
+     "n": 64,
+     "record": "40-24",
+     "roi": 11.6,
+     "seasons_pos": 3,
+     "seasons_full": 6
+    },
+    {
+     "params": {
+      "lo": 181,
+      "hi": 206
+     },
+     "dist": 1,
+     "n": 101,
+     "record": "59-42",
+     "roi": 5.1,
+     "seasons_pos": 2,
+     "seasons_full": 6
+    },
+    {
+     "params": {
+      "lo": 181,
+      "hi": 216
+     },
+     "dist": 2,
+     "n": 117,
+     "record": "68-49",
+     "roi": 5.3,
+     "seasons_pos": 4,
+     "seasons_full": 6
+    },
+    {
+     "params": {
+      "lo": 191,
+      "hi": 196
+     },
+     "dist": 1,
+     "n": 20,
+     "record": "13-7",
+     "roi": 17.4,
+     "seasons_pos": 4,
+     "seasons_full": 5
+    },
+    {
+     "params": {
+      "lo": 191,
+      "hi": 206
+     },
+     "dist": 1,
+     "n": 57,
+     "record": "32-25",
+     "roi": 2.1,
+     "seasons_pos": 1,
+     "seasons_full": 6
+    },
+    {
+     "params": {
+      "lo": 191,
+      "hi": 216
+     },
+     "dist": 2,
+     "n": 73,
+     "record": "41-32",
+     "roi": 3.1,
+     "seasons_pos": 4,
+     "seasons_full": 6
+    }
+   ],
+   "neighbour_1notch_median": 9.9,
+   "neighbour_1notch_range": [
+    2.1,
+    17.4
+   ],
+   "neighbour_range": [
+    2.1,
+    17.4
+   ],
+   "verdict": "ROBUST",
+   "current_tier": "C",
+   "suggested_tier": "C"
+  },
+  {
+   "rule": "nhl_early_home_fav_qual",
+   "sport": "nhl",
+   "note": "home game number (this game) and opponent win%",
+   "axes": {
+    "maxgame": [
+     16,
+     20,
+     24,
+     28,
+     32
+    ],
+    "opp": [
+     45,
+     48,
+     51,
+     54,
+     57
+    ]
+   },
+   "exact_params": {
+    "maxgame": 24,
+    "opp": 51
+   },
+   "exact": {
+    "2020-21": {
+     "n": 22,
+     "record": "16-6",
+     "roi": 26.3
+    },
+    "2021-22": {
+     "n": 87,
+     "record": "59-28",
+     "roi": 13.8
+    },
+    "2022-23": {
+     "n": 82,
+     "record": "52-30",
+     "roi": 5.9
+    },
+    "2023-24": {
+     "n": 56,
+     "record": "37-19",
+     "roi": 10.2
+    },
+    "2024-25": {
+     "n": 59,
+     "record": "37-22",
+     "roi": 6.6
+    },
+    "2025-26": {
+     "n": 72,
+     "record": "49-23",
+     "roi": 14.6
+    },
+    "2026-27": {
+     "n": 19,
+     "record": "8-11",
+     "roi": -28.0
+    },
+    "all": {
+     "n": 397,
+     "record": "258-139",
+     "roi": 9.4
+    },
+    "seasons_pos": 6,
+    "seasons_full": 6
+   },
+   "baseline": {
+    "n": 4568,
+    "record": "2822-1746",
+    "roi": -1.3
+   },
+   "baseline_seasons": "3 of 6",
+   "cells": [
+    {
+     "params": {
+      "maxgame": 16,
+      "opp": 45
+     },
+     "dist": 2,
+     "n": 417,
+     "record": "258-159",
+     "roi": 2.5,
+     "seasons_pos": 4,
+     "seasons_full": 6
+    },
+    {
+     "params": {
+      "maxgame": 16,
+      "opp": 48
+     },
+     "dist": 2,
+     "n": 372,
+     "record": "235-137",
+     "roi": 4.7,
+     "seasons_pos": 4,
+     "seasons_full": 6
+    },
+    {
+     "params": {
+      "maxgame": 16,
+      "opp": 51
+     },
+     "dist": 2,
+     "n": 251,
+     "record": "164-87",
+     "roi": 8.9,
+     "seasons_pos": 5,
+     "seasons_full": 6
+    },
+    {
+     "params": {
+      "maxgame": 16,
+      "opp": 54
+     },
+     "dist": 2,
+     "n": 234,
+     "record": "153-81",
+     "roi": 9.1,
+     "seasons_pos": 5,
+     "seasons_full": 6
+    },
+    {
+     "params": {
+      "maxgame": 16,
+      "opp": 57
+     },
+     "dist": 2,
+     "n": 208,
+     "record": "137-71",
+     "roi": 10.1,
+     "seasons_pos": 6,
+     "seasons_full": 6
+    },
+    {
+     "params": {
+      "maxgame": 20,
+      "opp": 45
+     },
+     "dist": 2,
+     "n": 534,
+     "record": "331-203",
+     "roi": 3.2,
+     "seasons_pos": 5,
+     "seasons_full": 6
+    },
+    {
+     "params": {
+      "maxgame": 20,
+      "opp": 48
+     },
+     "dist": 1,
+     "n": 471,
+     "record": "296-175",
+     "roi": 4.7,
+     "seasons_pos": 5,
+     "seasons_full": 6
+    },
+    {
+     "params": {
+      "maxgame": 20,
+      "opp": 51
+     },
+     "dist": 1,
+     "n": 329,
+     "record": "214-115",
+     "roi": 9.1,
+     "seasons_pos": 6,
+     "seasons_full": 6
+    },
+    {
+     "params": {
+      "maxgame": 20,
+      "opp": 54
+     },
+     "dist": 1,
+     "n": 302,
+     "record": "196-106",
+     "roi": 9.0,
+     "seasons_pos": 6,
+     "seasons_full": 6
+    },
+    {
+     "params": {
+      "maxgame": 20,
+      "opp": 57
+     },
+     "dist": 2,
+     "n": 257,
+     "record": "168-89",
+     "roi": 10.0,
+     "seasons_pos": 6,
+     "seasons_full": 6
+    },
+    {
+     "params": {
+      "maxgame": 24,
+      "opp": 45
+     },
+     "dist": 2,
+     "n": 635,
+     "record": "392-243",
+     "roi": 2.9,
+     "seasons_pos": 4,
+     "seasons_full": 6
+    },
+    {
+     "params": {
+      "maxgame": 24,
+      "opp": 48
+     },
+     "dist": 1,
+     "n": 556,
+     "record": "348-208",
+     "roi": 4.6,
+     "seasons_pos": 5,
+     "seasons_full": 6
+    },
+    {
+     "params": {
+      "maxgame": 24,
+      "opp": 51
+     },
+     "dist": 0,
+     "n": 397,
+     "record": "258-139",
+     "roi": 9.4,
+     "seasons_pos": 6,
+     "seasons_full": 6
+    },
+    {
+     "params": {
+      "maxgame": 24,
+      "opp": 54
+     },
+     "dist": 1,
+     "n": 357,
+     "record": "230-127",
+     "roi": 8.5,
+     "seasons_pos": 6,
+     "seasons_full": 6
+    },
+    {
+     "params": {
+      "maxgame": 24,
+      "opp": 57
+     },
+     "dist": 2,
+     "n": 297,
+     "record": "195-102",
+     "roi": 10.9,
+     "seasons_pos": 6,
+     "seasons_full": 6
+    },
+    {
+     "params": {
+      "maxgame": 28,
+      "opp": 45
+     },
+     "dist": 2,
+     "n": 762,
+     "record": "460-302",
+     "roi": 0.5,
+     "seasons_pos": 4,
+     "seasons_full": 6
+    },
+    {
+     "params": {
+      "maxgame": 28,
+      "opp": 48
+     },
+     "dist": 1,
+     "n": 661,
+     "record": "403-258",
+     "roi": 1.6,
+     "seasons_pos": 4,
+     "seasons_full": 6
+    },
+    {
+     "params": {
+      "maxgame": 28,
+      "opp": 51
+     },
+     "dist": 1,
+     "n": 476,
+     "record": "298-178",
+     "roi": 5.3,
+     "seasons_pos": 6,
+     "seasons_full": 6
+    },
+    {
+     "params": {
+      "maxgame": 28,
+      "opp": 54
+     },
+     "dist": 1,
+     "n": 412,
+     "record": "258-154",
+     "roi": 5.6,
+     "seasons_pos": 6,
+     "seasons_full": 6
+    },
+    {
+     "params": {
+      "maxgame": 28,
+      "opp": 57
+     },
+     "dist": 2,
+     "n": 338,
+     "record": "213-125",
+     "roi": 6.5,
+     "seasons_pos": 6,
+     "seasons_full": 6
+    },
+    {
+     "params": {
+      "maxgame": 32,
+      "opp": 45
+     },
+     "dist": 2,
+     "n": 882,
+     "record": "534-348",
+     "roi": 0.7,
+     "seasons_pos": 5,
+     "seasons_full": 6
+    },
+    {
+     "params": {
+      "maxgame": 32,
+      "opp": 48
+     },
+     "dist": 2,
+     "n": 749,
+     "record": "457-292",
+     "roi": 1.8,
+     "seasons_pos": 4,
+     "seasons_full": 6
+    },
+    {
+     "params": {
+      "maxgame": 32,
+      "opp": 51
+     },
+     "dist": 2,
+     "n": 547,
+     "record": "339-208",
+     "roi": 4.3,
+     "seasons_pos": 6,
+     "seasons_full": 6
+    },
+    {
+     "params": {
+      "maxgame": 32,
+      "opp": 54
+     },
+     "dist": 2,
+     "n": 468,
+     "record": "288-180",
+     "roi": 3.8,
+     "seasons_pos": 6,
+     "seasons_full": 6
+    },
+    {
+     "params": {
+      "maxgame": 32,
+      "opp": 57
+     },
+     "dist": 2,
+     "n": 379,
+     "record": "236-143",
+     "roi": 5.3,
+     "seasons_pos": 5,
+     "seasons_full": 6
+    }
+   ],
+   "neighbour_1notch_median": 5.4,
+   "neighbour_1notch_range": [
+    1.6,
+    9.1
+   ],
+   "neighbour_range": [
+    0.5,
+    10.9
+   ],
+   "verdict": "ROBUST",
+   "current_tier": "B",
+   "suggested_tier": "B"
+  },
+  {
+   "rule": "nhl_bounce_home_ml",
+   "sport": "nhl",
+   "note": "live filter (sharp/systems.py): both teams 3+ games, home lost last game by 3+, home win% 50 to under 65",
+   "axes": {
+    "loss": [
+     2,
+     3,
+     4
+    ],
+    "lo": [
+     40,
+     45,
+     50,
+     55
+    ],
+    "hi": [
+     60,
+     65,
+     70,
+     75
+    ]
+   },
+   "exact_params": {
+    "loss": 3,
+    "lo": 50,
+    "hi": 65
+   },
+   "exact": {
+    "2020-21": {
+     "n": 43,
+     "record": "26-17",
+     "roi": 6.3
+    },
+    "2021-22": {
+     "n": 96,
+     "record": "66-30",
+     "roi": 18.1
+    },
+    "2022-23": {
+     "n": 83,
+     "record": "43-40",
+     "roi": -15.7
+    },
+    "2023-24": {
+     "n": 113,
+     "record": "71-42",
+     "roi": 9.0
+    },
+    "2024-25": {
+     "n": 103,
+     "record": "67-36",
+     "roi": 14.4
+    },
+    "2025-26": {
+     "n": 82,
+     "record": "52-30",
+     "roi": 15.4
+    },
+    "2026-27": {
+     "n": 9,
+     "record": "7-2",
+     "roi": 44.0
+    },
+    "all": {
+     "n": 529,
+     "record": "332-197",
+     "roi": 9.2
+    },
+    "seasons_pos": 5,
+    "seasons_full": 6
+   },
+   "baseline": {
+    "n": 7219,
+    "record": "3872-3347",
+    "roi": -2.5
+   },
+   "baseline_seasons": "2 of 6",
+   "cells": [
+    {
+     "params": {
+      "loss": 2,
+      "lo": 40,
+      "hi": 60
+     },
+     "dist": 2,
+     "n": 1172,
+     "record": "633-539",
+     "roi": -0.1,
+     "seasons_pos": 2,
+     "seasons_full": 6
+    },
+    {
+     "params": {
+      "loss": 2,
+      "lo": 40,
+      "hi": 65
+     },
+     "dist": 2,
+     "n": 1380,
+     "record": "760-620",
+     "roi": -0.1,
+     "seasons_pos": 3,
+     "seasons_full": 6
+    },
+    {
+     "params": {
+      "loss": 2,
+      "lo": 40,
+      "hi": 70
+     },
+     "dist": 2,
+     "n": 1473,
+     "record": "820-653",
+     "roi": 0.1,
+     "seasons_pos": 3,
+     "seasons_full": 6
+    },
+    {
+     "params": {
+      "loss": 2,
+      "lo": 40,
+      "hi": 75
+     },
+     "dist": 2,
+     "n": 1501,
+     "record": "837-664",
+     "roi": -0.0,
+     "seasons_pos": 3,
+     "seasons_full": 6
+    },
+    {
+     "params": {
+      "loss": 2,
+      "lo": 45,
+      "hi": 60
+     },
+     "dist": 1,
+     "n": 878,
+     "record": "486-392",
+     "roi": 0.5,
+     "seasons_pos": 3,
+     "seasons_full": 6
+    },
+    {
+     "params": {
+      "loss": 2,
+      "lo": 45,
+      "hi": 65
+     },
+     "dist": 1,
+     "n": 1086,
+     "record": "613-473",
+     "roi": 0.4,
+     "seasons_pos": 3,
+     "seasons_full": 6
+    },
+    {
+     "params": {
+      "loss": 2,
+      "lo": 45,
+      "hi": 70
+     },
+     "dist": 1,
+     "n": 1179,
+     "record": "673-506",
+     "roi": 0.5,
+     "seasons_pos": 4,
+     "seasons_full": 6
+    },
+    {
+     "params": {
+      "loss": 2,
+      "lo": 45,
+      "hi": 75
+     },
+     "dist": 2,
+     "n": 1207,
+     "record": "690-517",
+     "roi": 0.4,
+     "seasons_pos": 4,
+     "seasons_full": 6
+    },
+    {
+     "params": {
+      "loss": 2,
+      "lo": 50,
+      "hi": 60
+     },
+     "dist": 1,
+     "n": 605,
+     "record": "356-249",
+     "roi": 3.5,
+     "seasons_pos": 4,
+     "seasons_full": 6
+    },
+    {
+     "params": {
+      "loss": 2,
+      "lo": 50,
+      "hi": 65
+     },
+     "dist": 1,
+     "n": 813,
+     "record": "483-330",
+     "roi": 2.6,
+     "seasons_pos": 4,
+     "seasons_full": 6
+    },
+    {
+     "params": {
+      "loss": 2,
+      "lo": 50,
+      "hi": 70
+     },
+     "dist": 1,
+     "n": 906,
+     "record": "543-363",
+     "roi": 2.5,
+     "seasons_pos": 4,
+     "seasons_full": 6
+    },
+    {
+     "params": {
+      "loss": 2,
+      "lo": 50,
+      "hi": 75
+     },
+     "dist": 2,
+     "n": 934,
+     "record": "560-374",
+     "roi": 2.3,
+     "seasons_pos": 4,
+     "seasons_full": 6
+    },
+    {
+     "params": {
+      "loss": 2,
+      "lo": 55,
+      "hi": 60
+     },
+     "dist": 1,
+     "n": 273,
+     "record": "168-105",
+     "roi": 5.4,
+     "seasons_pos": 4,
+     "seasons_full": 6
+    },
+    {
+     "params": {
+      "loss": 2,
+      "lo": 55,
+      "hi": 65
+     },
+     "dist": 1,
+     "n": 481,
+     "record": "295-186",
+     "roi": 3.1,
+     "seasons_pos": 3,
+     "seasons_full": 6
+    },
+    {
+     "params": {
+      "loss": 2,
+      "lo": 55,
+      "hi": 70
+     },
+     "dist": 1,
+     "n": 574,
+     "record": "355-219",
+     "roi": 2.8,
+     "seasons_pos": 5,
+     "seasons_full": 6
+    },
+    {
+     "params": {
+      "loss": 2,
+      "lo": 55,
+      "hi": 75
+     },
+     "dist": 2,
+     "n": 602,
+     "record": "372-230",
+     "roi": 2.5,
+     "seasons_pos": 5,
+     "seasons_full": 6
+    },
+    {
+     "params": {
+      "loss": 3,
+      "lo": 40,
+      "hi": 60
+     },
+     "dist": 2,
+     "n": 751,
+     "record": "413-338",
+     "roi": 2.7,
+     "seasons_pos": 4,
+     "seasons_full": 6
+    },
+    {
+     "params": {
+      "loss": 3,
+      "lo": 40,
+      "hi": 65
+     },
+     "dist": 2,
+     "n": 892,
+     "record": "508-384",
+     "roi": 4.2,
+     "seasons_pos": 4,
+     "seasons_full": 6
+    },
+    {
+     "params": {
+      "loss": 3,
+      "lo": 40,
+      "hi": 70
+     },
+     "dist": 2,
+     "n": 957,
+     "record": "552-405",
+     "roi": 4.3,
+     "seasons_pos": 4,
+     "seasons_full": 6
+    },
+    {
+     "params": {
+      "loss": 3,
+      "lo": 40,
+      "hi": 75
+     },
+     "dist": 2,
+     "n": 975,
+     "record": "563-412",
+     "roi": 4.3,
+     "seasons_pos": 4,
+     "seasons_full": 6
+    },
+    {
+     "params": {
+      "loss": 3,
+      "lo": 45,
+      "hi": 60
+     },
+     "dist": 1,
+     "n": 564,
+     "record": "322-242",
+     "roi": 4.3,
+     "seasons_pos": 5,
+     "seasons_full": 6
+    },
+    {
+     "params": {
+      "loss": 3,
+      "lo": 45,
+      "hi": 65
+     },
+     "dist": 1,
+     "n": 705,
+     "record": "417-288",
+     "roi": 5.9,
+     "seasons_pos": 5,
+     "seasons_full": 6
+    },
+    {
+     "params": {
+      "loss": 3,
+      "lo": 45,
+      "hi": 70
+     },
+     "dist": 1,
+     "n": 770,
+     "record": "461-309",
+     "roi": 5.9,
+     "seasons_pos": 5,
+     "seasons_full": 6
+    },
+    {
+     "params": {
+      "loss": 3,
+      "lo": 45,
+      "hi": 75
+     },
+     "dist": 2,
+     "n": 788,
+     "record": "472-316",
+     "roi": 5.8,
+     "seasons_pos": 5,
+     "seasons_full": 6
+    },
+    {
+     "params": {
+      "loss": 3,
+      "lo": 50,
+      "hi": 60
+     },
+     "dist": 1,
+     "n": 388,
+     "record": "237-151",
+     "roi": 8.0,
+     "seasons_pos": 5,
+     "seasons_full": 6
+    },
+    {
+     "params": {
+      "loss": 3,
+      "lo": 50,
+      "hi": 65
+     },
+     "dist": 0,
+     "n": 529,
+     "record": "332-197",
+     "roi": 9.2,
+     "seasons_pos": 5,
+     "seasons_full": 6
+    },
+    {
+     "params": {
+      "loss": 3,
+      "lo": 50,
+      "hi": 70
+     },
+     "dist": 1,
+     "n": 594,
+     "record": "376-218",
+     "roi": 8.9,
+     "seasons_pos": 5,
+     "seasons_full": 6
+    },
+    {
+     "params": {
+      "loss": 3,
+      "lo": 50,
+      "hi": 75
+     },
+     "dist": 2,
+     "n": 612,
+     "record": "387-225",
+     "roi": 8.6,
+     "seasons_pos": 5,
+     "seasons_full": 6
+    },
+    {
+     "params": {
+      "loss": 3,
+      "lo": 55,
+      "hi": 60
+     },
+     "dist": 1,
+     "n": 171,
+     "record": "116-55",
+     "roi": 16.2,
+     "seasons_pos": 5,
+     "seasons_full": 6
+    },
+    {
+     "params": {
+      "loss": 3,
+      "lo": 55,
+      "hi": 65
+     },
+     "dist": 1,
+     "n": 312,
+     "record": "211-101",
+     "roi": 14.5,
+     "seasons_pos": 4,
+     "seasons_full": 6
+    },
+    {
+     "params": {
+      "loss": 3,
+      "lo": 55,
+      "hi": 70
+     },
+     "dist": 1,
+     "n": 377,
+     "record": "255-122",
+     "roi": 13.1,
+     "seasons_pos": 5,
+     "seasons_full": 6
+    },
+    {
+     "params": {
+      "loss": 3,
+      "lo": 55,
+      "hi": 75
+     },
+     "dist": 2,
+     "n": 395,
+     "record": "266-129",
+     "roi": 12.5,
+     "seasons_pos": 5,
+     "seasons_full": 6
+    },
+    {
+     "params": {
+      "loss": 4,
+      "lo": 40,
+      "hi": 60
+     },
+     "dist": 2,
+     "n": 343,
+     "record": "195-148",
+     "roi": 8.7,
+     "seasons_pos": 4,
+     "seasons_full": 6
+    },
+    {
+     "params": {
+      "loss": 4,
+      "lo": 40,
+      "hi": 65
+     },
+     "dist": 2,
+     "n": 402,
+     "record": "232-170",
+     "roi": 8.7,
+     "seasons_pos": 4,
+     "seasons_full": 6
+    },
+    {
+     "params": {
+      "loss": 4,
+      "lo": 40,
+      "hi": 70
+     },
+     "dist": 2,
+     "n": 426,
+     "record": "247-179",
+     "roi": 8.0,
+     "seasons_pos": 4,
+     "seasons_full": 6
+    },
+    {
+     "params": {
+      "loss": 4,
+      "lo": 40,
+      "hi": 75
+     },
+     "dist": 2,
+     "n": 436,
+     "record": "253-183",
+     "roi": 7.6,
+     "seasons_pos": 4,
+     "seasons_full": 6
+    },
+    {
+     "params": {
+      "loss": 4,
+      "lo": 45,
+      "hi": 60
+     },
+     "dist": 1,
+     "n": 264,
+     "record": "153-111",
+     "roi": 8.9,
+     "seasons_pos": 5,
+     "seasons_full": 6
+    },
+    {
+     "params": {
+      "loss": 4,
+      "lo": 45,
+      "hi": 65
+     },
+     "dist": 1,
+     "n": 323,
+     "record": "190-133",
+     "roi": 8.8,
+     "seasons_pos": 5,
+     "seasons_full": 6
+    },
+    {
+     "params": {
+      "loss": 4,
+      "lo": 45,
+      "hi": 70
+     },
+     "dist": 1,
+     "n": 347,
+     "record": "205-142",
+     "roi": 8.0,
+     "seasons_pos": 5,
+     "seasons_full": 6
+    },
+    {
+     "params": {
+      "loss": 4,
+      "lo": 45,
+      "hi": 75
+     },
+     "dist": 2,
+     "n": 357,
+     "record": "211-146",
+     "roi": 7.6,
+     "seasons_pos": 5,
+     "seasons_full": 6
+    },
+    {
+     "params": {
+      "loss": 4,
+      "lo": 50,
+      "hi": 60
+     },
+     "dist": 1,
+     "n": 185,
+     "record": "114-71",
+     "roi": 10.6,
+     "seasons_pos": 4,
+     "seasons_full": 6
+    },
+    {
+     "params": {
+      "loss": 4,
+      "lo": 50,
+      "hi": 65
+     },
+     "dist": 1,
+     "n": 244,
+     "record": "151-93",
+     "roi": 10.1,
+     "seasons_pos": 4,
+     "seasons_full": 6
+    },
+    {
+     "params": {
+      "loss": 4,
+      "lo": 50,
+      "hi": 70
+     },
+     "dist": 1,
+     "n": 268,
+     "record": "166-102",
+     "roi": 8.9,
+     "seasons_pos": 5,
+     "seasons_full": 6
+    },
+    {
+     "params": {
+      "loss": 4,
+      "lo": 50,
+      "hi": 75
+     },
+     "dist": 2,
+     "n": 278,
+     "record": "172-106",
+     "roi": 8.3,
+     "seasons_pos": 5,
+     "seasons_full": 6
+    },
+    {
+     "params": {
+      "loss": 4,
+      "lo": 55,
+      "hi": 60
+     },
+     "dist": 1,
+     "n": 91,
+     "record": "61-30",
+     "roi": 16.7,
+     "seasons_pos": 5,
+     "seasons_full": 6
+    },
+    {
+     "params": {
+      "loss": 4,
+      "lo": 55,
+      "hi": 65
+     },
+     "dist": 1,
+     "n": 150,
+     "record": "98-52",
+     "roi": 13.5,
+     "seasons_pos": 4,
+     "seasons_full": 6
+    },
+    {
+     "params": {
+      "loss": 4,
+      "lo": 55,
+      "hi": 70
+     },
+     "dist": 1,
+     "n": 174,
+     "record": "113-61",
+     "roi": 11.3,
+     "seasons_pos": 5,
+     "seasons_full": 6
+    },
+    {
+     "params": {
+      "loss": 4,
+      "lo": 55,
+      "hi": 75
+     },
+     "dist": 2,
+     "n": 184,
+     "record": "119-65",
+     "roi": 10.2,
+     "seasons_pos": 5,
+     "seasons_full": 6
+    }
+   ],
+   "neighbour_1notch_median": 8.0,
+   "neighbour_1notch_range": [
+    0.4,
+    16.7
+   ],
+   "neighbour_range": [
+    -0.1,
+    16.7
+   ],
+   "verdict": "ROBUST",
+   "current_tier": "C",
+   "suggested_tier": "C",
+   "extra": {
+    "min games 3": {
+     "n": 529,
+     "record": "332-197",
+     "roi": 9.2
+    },
+    "min games 8": {
+     "n": 501,
+     "record": "317-184",
+     "roi": 9.6
+    },
+    "min games 15": {
+     "n": 463,
+     "record": "295-168",
+     "roi": 10.2
+    }
+   }
+  },
+  {
+   "rule": "cfb_road_dog_low_total",
+   "sport": "cfb",
+   "note": "conference games; road dog of at least X, total at most Y",
+   "axes": {
+    "dog": [
+     6,
+     6.5,
+     7,
+     7.5,
+     8
+    ],
+    "tot": [
+     44,
+     46,
+     48,
+     50,
+     52
+    ]
+   },
+   "exact_params": {
+    "dog": 7,
+    "tot": 48
+   },
+   "exact": {
+    "2020": {
+     "n": 20,
+     "record": "11-9",
+     "roi": 6.6
+    },
+    "2021": {
+     "n": 27,
+     "record": "17-10",
+     "roi": 22.0
+    },
+    "2022": {
+     "n": 37,
+     "record": "20-17",
+     "roi": 4.7
+    },
+    "2023": {
+     "n": 51,
+     "record": "28-20-3",
+     "roi": 12.5
+    },
+    "2024": {
+     "n": 46,
+     "record": "24-19-3",
+     "roi": 8.0
+    },
+    "2025": {
+     "n": 52,
+     "record": "25-24-3",
+     "roi": -1.0
+    },
+    "2026": {
+     "n": 22,
+     "record": "7-14-1",
+     "roi": -33.3
+    },
+    "all": {
+     "n": 255,
+     "record": "132-113-10",
+     "roi": 4.4
+    },
+    "seasons_pos": 5,
+    "seasons_full": 6
+   },
+   "baseline": {
+    "n": 1764,
+    "record": "865-855-44",
+    "roi": -2.4
+   },
+   "baseline_seasons": "2 of 6",
+   "cells": [
+    {
+     "params": {
+      "dog": 6,
+      "tot": 44
+     },
+     "dist": 2,
+     "n": 112,
+     "record": "49-58-5",
+     "roi": -10.9,
+     "seasons_pos": 2,
+     "seasons_full": 6
+    },
+    {
+     "params": {
+      "dog": 6,
+      "tot": 46
+     },
+     "dist": 2,
+     "n": 203,
+     "record": "104-91-8",
+     "roi": 3.2,
+     "seasons_pos": 3,
+     "seasons_full": 6
+    },
+    {
+     "params": {
+      "dog": 6,
+      "tot": 48
+     },
+     "dist": 2,
+     "n": 291,
+     "record": "151-130-10",
+     "roi": 4.2,
+     "seasons_pos": 6,
+     "seasons_full": 6
+    },
+    {
+     "params": {
+      "dog": 6,
+      "tot": 50
+     },
+     "dist": 2,
+     "n": 394,
+     "record": "208-172-14",
+     "roi": 6.1,
+     "seasons_pos": 6,
+     "seasons_full": 6
+    },
+    {
+     "params": {
+      "dog": 6,
+      "tot": 52
+     },
+     "dist": 2,
+     "n": 503,
+     "record": "260-228-15",
+     "roi": 3.4,
+     "seasons_pos": 4,
+     "seasons_full": 6
+    },
+    {
+     "params": {
+      "dog": 6.5,
+      "tot": 44
+     },
+     "dist": 2,
+     "n": 105,
+     "record": "47-53-5",
+     "roi": -8.6,
+     "seasons_pos": 3,
+     "seasons_full": 6
+    },
+    {
+     "params": {
+      "dog": 6.5,
+      "tot": 46
+     },
+     "dist": 1,
+     "n": 191,
+     "record": "101-82-8",
+     "roi": 6.7,
+     "seasons_pos": 5,
+     "seasons_full": 6
+    },
+    {
+     "params": {
+      "dog": 6.5,
+      "tot": 48
+     },
+     "dist": 1,
+     "n": 273,
+     "record": "147-116-10",
+     "roi": 8.2,
+     "seasons_pos": 6,
+     "seasons_full": 6
+    },
+    {
+     "params": {
+      "dog": 6.5,
+      "tot": 50
+     },
+     "dist": 1,
+     "n": 373,
+     "record": "202-157-14",
+     "roi": 8.9,
+     "seasons_pos": 6,
+     "seasons_full": 6
+    },
+    {
+     "params": {
+      "dog": 6.5,
+      "tot": 52
+     },
+     "dist": 2,
+     "n": 480,
+     "record": "253-212-15",
+     "roi": 5.5,
+     "seasons_pos": 5,
+     "seasons_full": 6
+    },
+    {
+     "params": {
+      "dog": 7,
+      "tot": 44
+     },
+     "dist": 2,
+     "n": 98,
+     "record": "41-52-5",
+     "roi": -14.1,
+     "seasons_pos": 2,
+     "seasons_full": 6
+    },
+    {
+     "params": {
+      "dog": 7,
+      "tot": 46
+     },
+     "dist": 1,
+     "n": 177,
+     "record": "89-80-8",
+     "roi": 2.0,
+     "seasons_pos": 5,
+     "seasons_full": 6
+    },
+    {
+     "params": {
+      "dog": 7,
+      "tot": 48
+     },
+     "dist": 0,
+     "n": 255,
+     "record": "132-113-10",
+     "roi": 4.4,
+     "seasons_pos": 5,
+     "seasons_full": 6
+    },
+    {
+     "params": {
+      "dog": 7,
+      "tot": 50
+     },
+     "dist": 1,
+     "n": 345,
+     "record": "183-148-14",
+     "roi": 7.0,
+     "seasons_pos": 6,
+     "seasons_full": 6
+    },
+    {
+     "params": {
+      "dog": 7,
+      "tot": 52
+     },
+     "dist": 2,
+     "n": 446,
+     "record": "231-200-15",
+     "roi": 3.9,
+     "seasons_pos": 5,
+     "seasons_full": 6
+    },
+    {
+     "params": {
+      "dog": 7.5,
+      "tot": 44
+     },
+     "dist": 2,
+     "n": 90,
+     "record": "40-47-3",
+     "roi": -10.8,
+     "seasons_pos": 3,
+     "seasons_full": 6
+    },
+    {
+     "params": {
+      "dog": 7.5,
+      "tot": 46
+     },
+     "dist": 1,
+     "n": 163,
+     "record": "86-73-4",
+     "roi": 4.8,
+     "seasons_pos": 5,
+     "seasons_full": 6
+    },
+    {
+     "params": {
+      "dog": 7.5,
+      "tot": 48
+     },
+     "dist": 1,
+     "n": 237,
+     "record": "128-104-5",
+     "roi": 6.9,
+     "seasons_pos": 5,
+     "seasons_full": 6
+    },
+    {
+     "params": {
+      "dog": 7.5,
+      "tot": 50
+     },
+     "dist": 1,
+     "n": 322,
+     "record": "177-137-8",
+     "roi": 9.2,
+     "seasons_pos": 6,
+     "seasons_full": 6
+    },
+    {
+     "params": {
+      "dog": 7.5,
+      "tot": 52
+     },
+     "dist": 2,
+     "n": 417,
+     "record": "223-185-9",
+     "roi": 6.0,
+     "seasons_pos": 6,
+     "seasons_full": 6
+    },
+    {
+     "params": {
+      "dog": 8,
+      "tot": 44
+     },
+     "dist": 2,
+     "n": 78,
+     "record": "36-39-3",
+     "roi": -6.9,
+     "seasons_pos": 3,
+     "seasons_full": 6
+    },
+    {
+     "params": {
+      "dog": 8,
+      "tot": 46
+     },
+     "dist": 2,
+     "n": 147,
+     "record": "80-63-4",
+     "roi": 8.3,
+     "seasons_pos": 5,
+     "seasons_full": 6
+    },
+    {
+     "params": {
+      "dog": 8,
+      "tot": 48
+     },
+     "dist": 2,
+     "n": 217,
+     "record": "119-93-5",
+     "roi": 8.8,
+     "seasons_pos": 6,
+     "seasons_full": 6
+    },
+    {
+     "params": {
+      "dog": 8,
+      "tot": 50
+     },
+     "dist": 2,
+     "n": 297,
+     "record": "165-124-8",
+     "roi": 10.5,
+     "seasons_pos": 6,
+     "seasons_full": 6
+    },
+    {
+     "params": {
+      "dog": 8,
+      "tot": 52
+     },
+     "dist": 2,
+     "n": 387,
+     "record": "208-170-9",
+     "roi": 6.7,
+     "seasons_pos": 6,
+     "seasons_full": 6
+    }
+   ],
+   "neighbour_1notch_median": 7.0,
+   "neighbour_1notch_range": [
+    2.0,
+    9.2
+   ],
+   "neighbour_range": [
+    -14.1,
+    10.5
+   ],
+   "verdict": "ROBUST",
+   "current_tier": "B",
+   "suggested_tier": "C"
+  },
+  {
+   "rule": "cfb_homefav_7510_under",
+   "sport": "cfb",
+   "note": "home favourite of lo to hi at the close",
+   "axes": {
+    "lo": [
+     6.5,
+     7,
+     7.5,
+     8
+    ],
+    "hi": [
+     9.5,
+     10,
+     10.5,
+     11
+    ]
+   },
+   "exact_params": {
+    "lo": 7.5,
+    "hi": 10
+   },
+   "exact": {
+    "2020": {
+     "n": 26,
+     "record": "18-8",
+     "roi": 33.9
+    },
+    "2021": {
+     "n": 38,
+     "record": "21-16-1",
+     "roi": 8.8
+    },
+    "2022": {
+     "n": 60,
+     "record": "37-23",
+     "roi": 18.8
+    },
+    "2023": {
+     "n": 50,
+     "record": "22-28",
+     "roi": -15.2
+    },
+    "2024": {
+     "n": 56,
+     "record": "31-24-1",
+     "roi": 8.0
+    },
+    "2025": {
+     "n": 58,
+     "record": "36-22",
+     "roi": 19.7
+    },
+    "2026": {
+     "n": 34,
+     "record": "23-9-2",
+     "roi": 35.9
+    },
+    "all": {
+     "n": 322,
+     "record": "188-130-4",
+     "roi": 13.7
+    },
+    "seasons_pos": 5,
+    "seasons_full": 6
+   },
+   "baseline": {
+    "n": 3190,
+    "record": "1585-1571-34",
+    "roi": -3.3
+   },
+   "baseline_seasons": "2 of 6",
+   "cells": [
+    {
+     "params": {
+      "lo": 6.5,
+      "hi": 9.5
+     },
+     "dist": 2,
+     "n": 465,
+     "record": "258-203-4",
+     "roi": 7.8,
+     "seasons_pos": 3,
+     "seasons_full": 6
+    },
+    {
+     "params": {
+      "lo": 6.5,
+      "hi": 10
+     },
+     "dist": 2,
+     "n": 547,
+     "record": "312-229-6",
+     "roi": 11.0,
+     "seasons_pos": 5,
+     "seasons_full": 6
+    },
+    {
+     "params": {
+      "lo": 6.5,
+      "hi": 10.5
+     },
+     "dist": 2,
+     "n": 610,
+     "record": "337-267-6",
+     "roi": 7.4,
+     "seasons_pos": 3,
+     "seasons_full": 6
+    },
+    {
+     "params": {
+      "lo": 6.5,
+      "hi": 11
+     },
+     "dist": 2,
+     "n": 649,
+     "record": "355-288-6",
+     "roi": 6.2,
+     "seasons_pos": 3,
+     "seasons_full": 6
+    },
+    {
+     "params": {
+      "lo": 7,
+      "hi": 9.5
+     },
+     "dist": 1,
+     "n": 350,
+     "record": "190-157-3",
+     "roi": 5.4,
+     "seasons_pos": 4,
+     "seasons_full": 6
+    },
+    {
+     "params": {
+      "lo": 7,
+      "hi": 10
+     },
+     "dist": 1,
+     "n": 432,
+     "record": "244-183-5",
+     "roi": 9.9,
+     "seasons_pos": 5,
+     "seasons_full": 6
+    },
+    {
+     "params": {
+      "lo": 7,
+      "hi": 10.5
+     },
+     "dist": 1,
+     "n": 495,
+     "record": "269-221-5",
+     "roi": 5.6,
+     "seasons_pos": 3,
+     "seasons_full": 6
+    },
+    {
+     "params": {
+      "lo": 7,
+      "hi": 11
+     },
+     "dist": 2,
+     "n": 534,
+     "record": "287-242-5",
+     "roi": 4.3,
+     "seasons_pos": 3,
+     "seasons_full": 6
+    },
+    {
+     "params": {
+      "lo": 7.5,
+      "hi": 9.5
+     },
+     "dist": 1,
+     "n": 240,
+     "record": "134-104-2",
+     "roi": 8.3,
+     "seasons_pos": 4,
+     "seasons_full": 6
+    },
+    {
+     "params": {
+      "lo": 7.5,
+      "hi": 10
+     },
+     "dist": 0,
+     "n": 322,
+     "record": "188-130-4",
+     "roi": 13.7,
+     "seasons_pos": 5,
+     "seasons_full": 6
+    },
+    {
+     "params": {
+      "lo": 7.5,
+      "hi": 10.5
+     },
+     "dist": 1,
+     "n": 385,
+     "record": "213-168-4",
+     "roi": 7.5,
+     "seasons_pos": 3,
+     "seasons_full": 6
+    },
+    {
+     "params": {
+      "lo": 7.5,
+      "hi": 11
+     },
+     "dist": 2,
+     "n": 424,
+     "record": "231-189-4",
+     "roi": 5.7,
+     "seasons_pos": 3,
+     "seasons_full": 6
+    },
+    {
+     "params": {
+      "lo": 8,
+      "hi": 9.5
+     },
+     "dist": 1,
+     "n": 143,
+     "record": "79-63-1",
+     "roi": 7.0,
+     "seasons_pos": 5,
+     "seasons_full": 6
+    },
+    {
+     "params": {
+      "lo": 8,
+      "hi": 10
+     },
+     "dist": 1,
+     "n": 225,
+     "record": "133-89-3",
+     "roi": 15.2,
+     "seasons_pos": 5,
+     "seasons_full": 6
+    },
+    {
+     "params": {
+      "lo": 8,
+      "hi": 10.5
+     },
+     "dist": 1,
+     "n": 288,
+     "record": "158-127-3",
+     "roi": 6.6,
+     "seasons_pos": 3,
+     "seasons_full": 6
+    },
+    {
+     "params": {
+      "lo": 8,
+      "hi": 11
+     },
+     "dist": 2,
+     "n": 327,
+     "record": "176-148-3",
+     "roi": 4.4,
+     "seasons_pos": 2,
+     "seasons_full": 6
+    }
+   ],
+   "neighbour_1notch_median": 7.2,
+   "neighbour_1notch_range": [
+    5.4,
+    15.2
+   ],
+   "neighbour_range": [
+    4.3,
+    15.2
+   ],
+   "verdict": "ROBUST",
+   "current_tier": "C",
+   "suggested_tier": "C"
+  },
+  {
+   "rule": "nfl_home_dog_7510",
+   "sport": "nfl",
+   "note": "home dog of lo to hi at the close",
+   "axes": {
+    "lo": [
+     6.5,
+     7,
+     7.5,
+     8
+    ],
+    "hi": [
+     9.5,
+     10,
+     10.5,
+     11
+    ]
+   },
+   "exact_params": {
+    "lo": 7.5,
+    "hi": 10
+   },
+   "exact": {
+    "2020": {
+     "n": 15,
+     "record": "11-4",
+     "roi": 39.9
+    },
+    "2021": {
+     "n": 11,
+     "record": "5-6",
+     "roi": -12.1
+    },
+    "2022": {
+     "n": 13,
+     "record": "8-5",
+     "roi": 15.8
+    },
+    "2023": {
+     "n": 9,
+     "record": "5-3-1",
+     "roi": 13.7
+    },
+    "2024": {
+     "n": 7,
+     "record": "6-1",
+     "roi": 61.6
+    },
+    "2025": {
+     "n": 16,
+     "record": "11-5",
+     "roi": 29.6
+    },
+    "2026": {
+     "n": 2,
+     "record": "1-1",
+     "roi": -8.5
+    },
+    "all": {
+     "n": 73,
+     "record": "47-25-1",
+     "roi": 23.0
+    },
+    "seasons_pos": 5,
+    "seasons_full": 6
+   },
+   "baseline": {
+    "n": 672,
+    "record": "333-319-20",
+    "roi": -1.2
+   },
+   "baseline_seasons": "2 of 6",
+   "cells": [
+    {
+     "params": {
+      "lo": 6.5,
+      "hi": 9.5
+     },
+     "dist": 2,
+     "n": 121,
+     "record": "72-48-1",
+     "roi": 14.5,
+     "seasons_pos": 5,
+     "seasons_full": 6
+    },
+    {
+     "params": {
+      "lo": 6.5,
+      "hi": 10
+     },
+     "dist": 2,
+     "n": 135,
+     "record": "80-53-2",
+     "roi": 14.4,
+     "seasons_pos": 5,
+     "seasons_full": 6
+    },
+    {
+     "params": {
+      "lo": 6.5,
+      "hi": 10.5
+     },
+     "dist": 2,
+     "n": 141,
+     "record": "83-56-2",
+     "roi": 13.5,
+     "seasons_pos": 5,
+     "seasons_full": 6
+    },
+    {
+     "params": {
+      "lo": 6.5,
+      "hi": 11
+     },
+     "dist": 2,
+     "n": 148,
+     "record": "88-58-2",
+     "roi": 14.5,
+     "seasons_pos": 5,
+     "seasons_full": 6
+    },
+    {
+     "params": {
+      "lo": 7,
+      "hi": 9.5
+     },
+     "dist": 1,
+     "n": 90,
+     "record": "53-36-1",
+     "roi": 13.1,
+     "seasons_pos": 5,
+     "seasons_full": 6
+    },
+    {
+     "params": {
+      "lo": 7,
+      "hi": 10
+     },
+     "dist": 1,
+     "n": 104,
+     "record": "61-41-2",
+     "roi": 13.1,
+     "seasons_pos": 5,
+     "seasons_full": 6
+    },
+    {
+     "params": {
+      "lo": 7,
+      "hi": 10.5
+     },
+     "dist": 1,
+     "n": 110,
+     "record": "64-44-2",
+     "roi": 12.1,
+     "seasons_pos": 5,
+     "seasons_full": 6
+    },
+    {
+     "params": {
+      "lo": 7,
+      "hi": 11
+     },
+     "dist": 2,
+     "n": 117,
+     "record": "69-46-2",
+     "roi": 13.5,
+     "seasons_pos": 5,
+     "seasons_full": 6
+    },
+    {
+     "params": {
+      "lo": 7.5,
+      "hi": 9.5
+     },
+     "dist": 1,
+     "n": 59,
+     "record": "39-20",
+     "roi": 25.3,
+     "seasons_pos": 5,
+     "seasons_full": 6
+    },
+    {
+     "params": {
+      "lo": 7.5,
+      "hi": 10
+     },
+     "dist": 0,
+     "n": 73,
+     "record": "47-25-1",
+     "roi": 23.0,
+     "seasons_pos": 5,
+     "seasons_full": 6
+    },
+    {
+     "params": {
+      "lo": 7.5,
+      "hi": 10.5
+     },
+     "dist": 1,
+     "n": 79,
+     "record": "50-28-1",
+     "roi": 20.8,
+     "seasons_pos": 5,
+     "seasons_full": 6
+    },
+    {
+     "params": {
+      "lo": 7.5,
+      "hi": 11
+     },
+     "dist": 2,
+     "n": 86,
+     "record": "55-30-1",
+     "roi": 22.0,
+     "seasons_pos": 5,
+     "seasons_full": 6
+    },
+    {
+     "params": {
+      "lo": 8,
+      "hi": 9.5
+     },
+     "dist": 1,
+     "n": 23,
+     "record": "15-8",
+     "roi": 25.1,
+     "seasons_pos": 4,
+     "seasons_full": 6
+    },
+    {
+     "params": {
+      "lo": 8,
+      "hi": 10
+     },
+     "dist": 1,
+     "n": 37,
+     "record": "23-13-1",
+     "roi": 20.6,
+     "seasons_pos": 6,
+     "seasons_full": 6
+    },
+    {
+     "params": {
+      "lo": 8,
+      "hi": 10.5
+     },
+     "dist": 1,
+     "n": 43,
+     "record": "26-16-1",
+     "roi": 16.9,
+     "seasons_pos": 6,
+     "seasons_full": 6
+    },
+    {
+     "params": {
+      "lo": 8,
+      "hi": 11
+     },
+     "dist": 2,
+     "n": 50,
+     "record": "31-18-1",
+     "roi": 19.5,
+     "seasons_pos": 6,
+     "seasons_full": 6
+    }
+   ],
+   "neighbour_1notch_median": 18.8,
+   "neighbour_1notch_range": [
+    12.1,
+    25.3
+   ],
+   "neighbour_range": [
+    12.1,
+    25.3
+   ],
+   "verdict": "ROBUST",
+   "current_tier": "B",
+   "suggested_tier": "C"
+  },
+  {
+   "rule": "awfuldog",
+   "sport": "nfl",
+   "note": "dog season point margin per game (this season) at most X, after Y+ games",
+   "axes": {
+    "margin": [
+     -9,
+     -11,
+     -13,
+     -15,
+     -17
+    ],
+    "ming": [
+     1,
+     2,
+     3
+    ]
+   },
+   "exact_params": {
+    "margin": -13,
+    "ming": 1
+   },
+   "exact": {
+    "2020": {
+     "n": 19,
+     "record": "10-9",
+     "roi": -0.5
+    },
+    "2021": {
+     "n": 28,
+     "record": "14-14",
+     "roi": -4.0
+    },
+    "2022": {
+     "n": 4,
+     "record": "4-0",
+     "roi": 92.0
+    },
+    "2023": {
+     "n": 16,
+     "record": "8-6-2",
+     "roi": 7.7
+    },
+    "2024": {
+     "n": 17,
+     "record": "10-7",
+     "roi": 15.2
+    },
+    "2025": {
+     "n": 17,
+     "record": "12-5",
+     "roi": 34.1
+    },
+    "2026": {
+     "n": 8,
+     "record": "5-3",
+     "roi": 18.8
+    },
+    "all": {
+     "n": 109,
+     "record": "63-44-2",
+     "roi": 12.4
+    },
+    "seasons_pos": 4,
+    "seasons_full": 6
+   },
+   "baseline": {
+    "n": 1609,
+    "record": "809-758-42",
+    "roi": -0.2
+   },
+   "baseline_seasons": "3 of 6",
+   "cells": [
+    {
+     "params": {
+      "margin": -9,
+      "ming": 1
+     },
+     "dist": 2,
+     "n": 287,
+     "record": "155-122-10",
+     "roi": 7.1,
+     "seasons_pos": 4,
+     "seasons_full": 6
+    },
+    {
+     "params": {
+      "margin": -9,
+      "ming": 2
+     },
+     "dist": 2,
+     "n": 259,
+     "record": "137-113-9",
+     "roi": 5.0,
+     "seasons_pos": 3,
+     "seasons_full": 6
+    },
+    {
+     "params": {
+      "margin": -9,
+      "ming": 3
+     },
+     "dist": 2,
+     "n": 224,
+     "record": "113-102-9",
+     "roi": 0.8,
+     "seasons_pos": 3,
+     "seasons_full": 6
+    },
+    {
+     "params": {
+      "margin": -11,
+      "ming": 1
+     },
+     "dist": 1,
+     "n": 167,
+     "record": "92-68-7",
+     "roi": 9.7,
+     "seasons_pos": 5,
+     "seasons_full": 6
+    },
+    {
+     "params": {
+      "margin": -11,
+      "ming": 2
+     },
+     "dist": 1,
+     "n": 144,
+     "record": "77-61-6",
+     "roi": 6.8,
+     "seasons_pos": 5,
+     "seasons_full": 6
+    },
+    {
+     "params": {
+      "margin": -11,
+      "ming": 3
+     },
+     "dist": 2,
+     "n": 118,
+     "record": "60-52-6",
+     "roi": 2.4,
+     "seasons_pos": 4,
+     "seasons_full": 6
+    },
+    {
+     "params": {
+      "margin": -13,
+      "ming": 1
+     },
+     "dist": 0,
+     "n": 109,
+     "record": "63-44-2",
+     "roi": 12.4,
+     "seasons_pos": 4,
+     "seasons_full": 6
+    },
+    {
+     "params": {
+      "margin": -13,
+      "ming": 2
+     },
+     "dist": 1,
+     "n": 88,
+     "record": "50-37-1",
+     "roi": 10.2,
+     "seasons_pos": 5,
+     "seasons_full": 6
+    },
+    {
+     "params": {
+      "margin": -13,
+      "ming": 3
+     },
+     "dist": 2,
+     "n": 70,
+     "record": "38-31-1",
+     "roi": 5.2,
+     "seasons_pos": 4,
+     "seasons_full": 5
+    },
+    {
+     "params": {
+      "margin": -15,
+      "ming": 1
+     },
+     "dist": 1,
+     "n": 60,
+     "record": "37-22-1",
+     "roi": 20.2,
+     "seasons_pos": 3,
+     "seasons_full": 6
+    },
+    {
+     "params": {
+      "margin": -15,
+      "ming": 2
+     },
+     "dist": 1,
+     "n": 44,
+     "record": "26-17-1",
+     "roi": 16.4,
+     "seasons_pos": 4,
+     "seasons_full": 6
+    },
+    {
+     "params": {
+      "margin": -15,
+      "ming": 3
+     },
+     "dist": 2,
+     "n": 33,
+     "record": "18-14-1",
+     "roi": 7.4,
+     "seasons_pos": 3,
+     "seasons_full": 5
+    },
+    {
+     "params": {
+      "margin": -17,
+      "ming": 1
+     },
+     "dist": 2,
+     "n": 30,
+     "record": "19-10-1",
+     "roi": 26.4,
+     "seasons_pos": 4,
+     "seasons_full": 6
+    },
+    {
+     "params": {
+      "margin": -17,
+      "ming": 2
+     },
+     "dist": 2,
+     "n": 20,
+     "record": "13-6-1",
+     "roi": 32.4,
+     "seasons_pos": 5,
+     "seasons_full": 6
+    },
+    {
+     "params": {
+      "margin": -17,
+      "ming": 3
+     },
+     "dist": 2,
+     "n": 11,
+     "record": "6-4-1",
+     "roi": 14.8,
+     "seasons_pos": 3,
+     "seasons_full": 5
+    }
+   ],
+   "neighbour_1notch_median": 10.2,
+   "neighbour_1notch_range": [
+    6.8,
+    20.2
+   ],
+   "neighbour_range": [
+    0.8,
+    32.4
+   ],
+   "verdict": "ROBUST",
+   "current_tier": "B",
+   "suggested_tier": "C"
+  }
+ ]
+}
