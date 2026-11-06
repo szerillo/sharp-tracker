@@ -243,6 +243,25 @@ def open_ml(conn, ev, side):
     return r[0] if r else None
 
 
+# 11/5 (Sean): structured backtest numbers for the record column. WC backtest = the Winners Circle database (Odds API 2020-26) at
+# Pinnacle's closing price; 'cousin' marks a full-game stand-in for a first-half rule (1H history pull under way). Bet Labs windows come
+# from data/research/betlabs_windows.json (all years, to Feb 2021, Mar 2021 on).
+WC = {
+    'wind1014': ('2020-26', 161, 103, 18.1, None), 'cfb_wind14': ('2020-26', 135, 96, 12.3, "Bet Labs' picks at Pinnacle's close"),
+    'vrest8_1h': ('2020-26', 127, 93, 11.9, 'full-game cousin'), 'mnf_1h': ('2020-26', 72, 56, 8.8, 'full-game cousin'), 'bounce15_1h': ('2020-26', 125, 104, 5.5, 'full-game cousin'),
+    'awfuldog': ('2020-26', 91, 75, 5.6, None), 'awfuldog_deep': ('2020-26', 14, 16, -11.0, None), 'wind1014_cold': ('2020-26', 27, 27, None, None),
+    'nfl_home_dog_7510': ('2020-26', 47, 25, 23.0, None), 'nfl_road_dog_7510': ('2020-26', 88, 72, None, None), 'nfl_fade_fav_bye': ('2020-26', 84, 70, 5.4, None),
+    'nba_ats_hot_home': ('2020-26', 311, 228, 12.4, None), 'nba_badteams_under': ('2020-26', 153, 95, 20.6, None), 'nhl_loss_streak_over': ('2020-26', 385, 290, 10.3, None),
+    'nhl_bounce_home_ml': ('2020-26', 337, 197, 10.1, None), 'mlb_road_over_under': ('2020-25', 342, 246, 12.1, None), 'nba_bigfav_over': ('2020-26', 272, 202, 10.9, None),
+    'nba_roadtrip_over': ('2020-26', 190, 131, 14.2, None), 'nhl_skid_fade_road': ('2020-26', 196, 145, 20.2, None), 'cfb_day_over': ('2020-26', 311, 221, 12.4, None),
+    'cfb_homefav_7510_under': ('2020-26', 188, 130, 13.6, None), 'nhl_pl_fav_gap': ('2020-26', 79, 126, 1.5, None), 'nhl_pl_fav_strong_opp': ('2020-26', 136, 222, -0.1, None),
+    'nhl_pl_dog_bigml': ('2020-26', 46, 32, 5.0, None), 'nhl_early_home_fav_qual': ('2020-26', 258, 139, 9.4, None), 'nba_under_good_home_over': ('2020-26', 215, 210, -1.3, None),
+    'cfb_road_dog_low_total': ('2020-26', 132, 113, 4.4, None), 'cfb_hot_over_low_total': ('2020-26', 88, 55, 18.4, None), 'cfb_road_streak_dog': ('2020-26', 212, 228, -6.4, None),
+    'cbb_under_good_over_drop': ('2020-26', 495, 498, -5.0, None), 'mma_steam_fav': ('2022-26', 136, 53, 6.6, None)}
+try: LABW = json.load(open(os.path.join(ROOT, 'data', 'research', 'betlabs_windows.json')))['rules']
+except Exception: LABW = {}
+
+
 _FILLS_BY_ID = None
 def fill_header(ev, f):
     """(sport, start_utc, away, home) for a fill whose event is no longer in the events table: start from fills.jsonl, names from the
@@ -705,7 +724,7 @@ def main():
         g['fills'] = [f for f in g.get('fills', []) if not f.get('void')]
         refresh_fills(conn, g)
     view_games = [g for g in view_games if g['triggers'] or any(f.get('fill_id') for f in g.get('fills', []))]      # a lapsed bet keeps its game on the board
-    json.dump(dict(built=NOW_S, window_h=WINDOW_H, rules={k: dict(v, tag=k, max_h=max_h(k), desc=DESC.get(k, ''), evidence=EVIDENCE.get(k), labs=(dict(id=LABS[k][0], name=LABS[k][1]) if k in LABS else None)) for k, v in RULES.items()}, games=view_games, fired_now=fires_now, record=dict(rec)),
+    json.dump(dict(built=NOW_S, window_h=WINDOW_H, rules={k: dict(v, tag=k, max_h=max_h(k), desc=DESC.get(k, ''), evidence=EVIDENCE.get(k), labs=(dict(id=LABS[k][0], name=LABS[k][1]) if k in LABS else None), wc=(dict(zip(('years', 'w', 'l', 'roi', 'note'), WC[k])) if k in WC else None), labsw=LABW.get(k)) for k, v in RULES.items()}, games=view_games, fired_now=fires_now, record=dict(rec)),
               open(VIEW, 'w'), default=str, separators=(',', ':'))
     print(f"[systems] {len(view_games)} games with triggers (shown up to {VIEW_H}h out, filled {WINDOW_H[0]}-{WINDOW_H[1]}h); {len(fires_now)} new paper fills; tags on file {dict((k, v['n']) for k, v in rec.items())}")
     conn.close()
