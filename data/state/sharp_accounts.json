@@ -1,5 +1,5 @@
 {
- "built": "2026-11-06T01:55:58Z",
+ "built": "2026-11-06T02:02:04Z",
  "rows": [
   {
    "cond": "0x43bf75f521791c9dbf8423892ee11a1cb036ace20ff03283090d79e7a4174bbe",
@@ -299,7 +299,7 @@
    "best_rank": 40,
    "usd": 1429,
    "paid": 0.633,
-   "ask": 0.71,
+   "ask": 0.7,
    "status": "live",
    "link": "https://polymarket.us/event/nba-was-atl-2026-11-06",
    "other": null,
@@ -776,7 +776,7 @@
    "best_rank": 43,
    "usd": 1965,
    "paid": 0.488,
-   "ask": 0.48,
+   "ask": null,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-orl-phx-2026-11-05",
    "other": {
@@ -785,7 +785,7 @@
     "usd": 13223,
     "first": "2026-11-05T20:15:13Z"
    },
-   "exit_bid": 0.47,
+   "exit_bid": null,
    "kalshi_against": {
     "move": 5.0,
     "now": 52.5,
@@ -807,7 +807,7 @@
    "money_with": true,
    "grade": "A",
    "fair_board": 0.4864,
-   "inside_fair": true,
+   "inside_fair": null,
    "books": null
   },
   {
@@ -898,22 +898,6 @@
    },
    "against": null
   },
-  "401909936:nba_under_good_home_over": {
-   "with": null,
-   "against": {
-    "n": 1,
-    "best_rank": 132,
-    "usd": 584
-   }
-  },
-  "401909936:nba_momentum:total": {
-   "with": {
-    "n": 1,
-    "best_rank": 132,
-    "usd": 584
-   },
-   "against": null
-  },
   "401909937:nba_momentum:spread": {
    "with": {
     "n": 1,
@@ -921,9 +905,9 @@
     "usd": 977
    },
    "against": {
-    "n": 2,
+    "n": 3,
     "best_rank": 116,
-    "usd": 1264
+    "usd": 1456
    }
   }
  },
@@ -954,25 +938,6 @@
     "usd": 6921
    }
   },
-  "401909936|ml": {
-   "away": {
-    "n": 4,
-    "best_rank": 43,
-    "usd": 1965
-   },
-   "home": {
-    "n": 2,
-    "best_rank": 43,
-    "usd": 13223
-   }
-  },
-  "401909936|total": {
-   "over": {
-    "n": 1,
-    "best_rank": 132,
-    "usd": 584
-   }
-  },
   "401909937|ml": {
    "home": {
     "n": 3,
@@ -999,9 +964,9 @@
     "usd": 977
    },
    "home": {
-    "n": 2,
+    "n": 3,
     "best_rank": 116,
-    "usd": 1264
+    "usd": 1456
    }
   },
   "401909287|ml": {
