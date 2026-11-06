@@ -1,417 +1,445 @@
 {
- "games": 6771,
+ "games": 15754,
  "calibration": {
   "h2h_h1": {
-   "n": 6029,
-   "logloss_curve": 0.6174,
-   "logloss_pinnacle": 0.6162
+   "n": 14559,
+   "logloss_curve": 0.603,
+   "logloss_pinnacle": 0.6019
   },
   "team_totals": {
-   "n": 13472,
-   "logloss_curve": 0.6942,
-   "logloss_pinnacle": 0.6922
+   "n": 31394,
+   "logloss_curve": 0.6929,
+   "logloss_pinnacle": 0.6924
   },
   "totals_h1": {
-   "n": 6527,
-   "logloss_curve": 0.694,
-   "logloss_pinnacle": 0.6932
+   "n": 15337,
+   "logloss_curve": 0.6926,
+   "logloss_pinnacle": 0.693
   },
   "spreads_h1": {
-   "n": 6507,
-   "logloss_curve": 0.6931,
+   "n": 15274,
+   "logloss_curve": 0.6929,
    "logloss_pinnacle": 0.6927
   }
  },
  "blend": {
   "h2h_h1": {
-   "n": 6029,
-   "b_pinnacle": 1.175,
-   "c_curve": -0.072,
-   "z_curve": -0.29
+   "n": 14559,
+   "b_pinnacle": 1.158,
+   "c_curve": -0.058,
+   "z_curve": -0.36
   },
   "spreads_h1": {
-   "n": 6507,
-   "b_pinnacle": 1.354,
-   "c_curve": 0.368,
-   "z_curve": 1.61
+   "n": 15274,
+   "b_pinnacle": 1.152,
+   "c_curve": 0.458,
+   "z_curve": 3.44
   },
   "team_totals": {
-   "n": 13472,
-   "b_pinnacle": 1.502,
-   "c_curve": -0.013,
-   "z_curve": -0.1
+   "n": 31394,
+   "b_pinnacle": 1.106,
+   "c_curve": 0.26,
+   "z_curve": 3.02
   },
   "totals_h1": {
-   "n": 6527,
-   "b_pinnacle": 0.109,
-   "c_curve": 0.252,
-   "z_curve": 1.29
+   "n": 15337,
+   "b_pinnacle": 0.433,
+   "c_curve": 0.613,
+   "z_curve": 4.86
   }
  },
  "bets": {
   "all": {
-   "n": 21780,
-   "w": 10406,
-   "l": 11079,
-   "roi": -4.6,
+   "n": 53702,
+   "w": 25907,
+   "l": 26998,
+   "roi": -2.8,
    "ev": 6.8
   },
   "market h2h_h1": {
-   "n": 3271,
-   "w": 1109,
-   "l": 1981,
-   "roi": -8.3,
-   "ev": 8.4
-  },
-  "book FD": {
-   "n": 4684,
-   "w": 2127,
-   "l": 2503,
-   "roi": -5.5,
-   "ev": 7.4
-  },
-  "edge 3-6%": {
-   "n": 12702,
-   "w": 6148,
-   "l": 6389,
-   "roi": -3.9,
-   "ev": 4.3
-  },
-  "market h2h_h1 | book FD": {
-   "n": 1004,
-   "w": 286,
-   "l": 664,
-   "roi": -6.8,
-   "ev": 10.1
-  },
-  "market h2h_h1 | season 2025": {
-   "n": 2427,
-   "w": 860,
-   "l": 1433,
-   "roi": -2.2,
-   "ev": 7.9
-  },
-  "longer price": {
-   "n": 2329,
-   "w": 670,
-   "l": 1518,
-   "roi": -10.1,
-   "ev": 9.4
+   "n": 8410,
+   "w": 2650,
+   "l": 5404,
+   "roi": -11.4,
+   "ev": 8.8
   },
   "book BetOnline": {
-   "n": 2117,
-   "w": 1052,
-   "l": 1020,
-   "roi": -1.7,
+   "n": 4782,
+   "w": 2429,
+   "l": 2254,
+   "roi": 0.1,
    "ev": 6.2
   },
   "edge 6-10%": {
-   "n": 6223,
-   "w": 2929,
-   "l": 3215,
-   "roi": -6.0,
+   "n": 15722,
+   "w": 7566,
+   "l": 7910,
+   "roi": -2.5,
    "ev": 7.6
   },
   "market h2h_h1 | book BetOnline": {
-   "n": 89,
-   "w": 29,
-   "l": 55,
-   "roi": -17.2,
+   "n": 96,
+   "w": 32,
+   "l": 60,
+   "roi": -16.4,
    "ev": 5.8
+  },
+  "market h2h_h1 | season 2025": {
+   "n": 2444,
+   "w": 865,
+   "l": 1448,
+   "roi": -3.4,
+   "ev": 7.9
+  },
+  "longer price": {
+   "n": 6369,
+   "w": 1695,
+   "l": 4400,
+   "roi": -13.3,
+   "ev": 9.8
   },
   "market spreads_h1": {
-   "n": 3972,
-   "w": 2001,
-   "l": 1927,
-   "roi": -2.6,
-   "ev": 6.0
+   "n": 12878,
+   "w": 6557,
+   "l": 6124,
+   "roi": -1.2,
+   "ev": 6.5
+  },
+  "edge 3-6%": {
+   "n": 31081,
+   "w": 15145,
+   "l": 15491,
+   "roi": -2.9,
+   "ev": 4.3
   },
   "market spreads_h1 | book BetOnline": {
-   "n": 756,
-   "w": 373,
-   "l": 364,
-   "roi": -2.5,
-   "ev": 5.8
+   "n": 1823,
+   "w": 909,
+   "l": 868,
+   "roi": -1.4,
+   "ev": 6.2
   },
   "market spreads_h1 | season 2025": {
-   "n": 2854,
-   "w": 1489,
-   "l": 1328,
-   "roi": 1.0,
+   "n": 2944,
+   "w": 1539,
+   "l": 1368,
+   "roi": 1.1,
    "ev": 6.1
   },
   "main-ish price (1.70-2.30)": {
-   "n": 19451,
-   "w": 9736,
-   "l": 9561,
-   "roi": -3.9,
+   "n": 47333,
+   "w": 24212,
+   "l": 22598,
+   "roi": -1.5,
    "ev": 6.5
-  },
-  "book Pinnacle": {
-   "n": 5875,
-   "w": 2876,
-   "l": 2923,
-   "roi": -3.7,
-   "ev": 6.6
-  },
-  "market h2h_h1 | book Pinnacle": {
-   "n": 680,
-   "w": 257,
-   "l": 382,
-   "roi": -7.8,
-   "ev": 6.2
   },
   "book Caesars": {
-   "n": 2128,
-   "w": 1024,
-   "l": 1095,
-   "roi": -6.2,
-   "ev": 6.7
-  },
-  "market h2h_h1 | book Caesars": {
-   "n": 160,
-   "w": 52,
-   "l": 102,
-   "roi": -18.2,
-   "ev": 5.5
-  },
-  "book Bovada": {
-   "n": 3231,
-   "w": 1537,
-   "l": 1612,
-   "roi": -1.7,
+   "n": 7151,
+   "w": 3426,
+   "l": 3611,
+   "roi": -3.1,
    "ev": 6.5
   },
+  "market h2h_h1 | book Caesars": {
+   "n": 1141,
+   "w": 368,
+   "l": 731,
+   "roi": -13.4,
+   "ev": 6.2
+  },
+  "book Bovada": {
+   "n": 8358,
+   "w": 4018,
+   "l": 4135,
+   "roi": -0.5,
+   "ev": 6.8
+  },
   "market h2h_h1 | book Bovada": {
-   "n": 880,
-   "w": 339,
-   "l": 495,
-   "roi": -3.5,
-   "ev": 7.1
+   "n": 2087,
+   "w": 757,
+   "l": 1237,
+   "roi": -6.0,
+   "ev": 7.7
   },
   "market totals_h1": {
-   "n": 6104,
-   "w": 3120,
-   "l": 2917,
-   "roi": -1.6,
-   "ev": 6.4
+   "n": 16872,
+   "w": 8771,
+   "l": 7863,
+   "roi": 0.4,
+   "ev": 6.3
   },
   "market totals_h1 | book Bovada": {
-   "n": 1424,
-   "w": 717,
-   "l": 682,
-   "roi": -2.0,
+   "n": 3592,
+   "w": 1869,
+   "l": 1661,
+   "roi": 1.3,
    "ev": 6.4
   },
   "market totals_h1 | season 2025": {
-   "n": 4294,
-   "w": 2224,
-   "l": 2020,
-   "roi": -0.2,
+   "n": 4296,
+   "w": 2218,
+   "l": 2029,
+   "roi": -0.5,
    "ev": 6.5
   },
   "market totals_h1 | book Caesars": {
-   "n": 180,
-   "w": 94,
-   "l": 83,
-   "roi": 0.7,
-   "ev": 6.6
-  },
-  "market totals_h1 | book BetOnline": {
-   "n": 1209,
-   "w": 625,
-   "l": 566,
-   "roi": 0.8,
+   "n": 1934,
+   "w": 1005,
+   "l": 890,
+   "roi": 1.5,
    "ev": 6.4
   },
+  "market totals_h1 | book BetOnline": {
+   "n": 2791,
+   "w": 1460,
+   "l": 1286,
+   "roi": 2.1,
+   "ev": 6.2
+  },
   "market team_totals": {
-   "n": 8433,
-   "w": 4176,
-   "l": 4254,
-   "roi": -6.2,
-   "ev": 6.9
+   "n": 15542,
+   "w": 7929,
+   "l": 7607,
+   "roi": -3.2,
+   "ev": 6.7
+  },
+  "book Pinnacle": {
+   "n": 13938,
+   "w": 6997,
+   "l": 6774,
+   "roi": -1.1,
+   "ev": 6.6
   },
   "market team_totals | book Pinnacle": {
-   "n": 2923,
-   "w": 1453,
-   "l": 1470,
-   "roi": -5.6,
-   "ev": 7.2
+   "n": 6530,
+   "w": 3384,
+   "l": 3146,
+   "roi": -1.4,
+   "ev": 6.9
   },
   "market team_totals | season 2025": {
-   "n": 7215,
-   "w": 3562,
-   "l": 3652,
-   "roi": -6.5,
+   "n": 7234,
+   "w": 3570,
+   "l": 3663,
+   "roi": -6.6,
    "ev": 7.0
   },
   "market totals_h1 | book Pinnacle": {
-   "n": 1318,
-   "w": 687,
-   "l": 610,
-   "roi": 1.4,
+   "n": 3293,
+   "w": 1742,
+   "l": 1497,
+   "roi": 2.9,
    "ev": 6.2
   },
   "market team_totals | book Caesars": {
-   "n": 1593,
-   "w": 783,
-   "l": 810,
-   "roi": -5.8,
-   "ev": 6.8
+   "n": 2364,
+   "w": 1197,
+   "l": 1165,
+   "roi": -2.8,
+   "ev": 6.5
+  },
+  "book FD": {
+   "n": 8755,
+   "w": 3979,
+   "l": 4696,
+   "roi": -5.7,
+   "ev": 7.7
   },
   "market totals_h1 | book FD": {
-   "n": 1059,
-   "w": 546,
-   "l": 513,
-   "roi": -2.7,
-   "ev": 6.4
+   "n": 2065,
+   "w": 1066,
+   "l": 999,
+   "roi": -2.5,
+   "ev": 6.3
   },
-  "market spreads_h1 | book Pinnacle": {
-   "n": 954,
-   "w": 479,
-   "l": 461,
-   "roi": -2.2,
-   "ev": 5.8
+  "market h2h_h1 | book FD": {
+   "n": 1952,
+   "w": 521,
+   "l": 1351,
+   "roi": -13.2,
+   "ev": 11.8
   },
-  "book DK": {
-   "n": 2848,
-   "w": 1349,
-   "l": 1479,
-   "roi": -8.8,
-   "ev": 7.8
-  },
-  "market h2h_h1 | book DK": {
-   "n": 321,
-   "w": 104,
-   "l": 197,
-   "roi": -18.1,
-   "ev": 14.5
-  },
-  "market team_totals | book BetOnline": {
-   "n": 63,
-   "w": 25,
-   "l": 35,
-   "roi": -21.4,
-   "ev": 6.7
-  },
-  "market team_totals | book DK": {
-   "n": 1456,
-   "w": 702,
-   "l": 754,
-   "roi": -9.7,
-   "ev": 7.1
-  },
-  "edge 10%+": {
-   "n": 2855,
-   "w": 1329,
-   "l": 1475,
-   "roi": -4.3,
-   "ev": 16.4
-  },
-  "market team_totals | book FD": {
-   "n": 1962,
-   "w": 964,
-   "l": 998,
-   "roi": -6.8,
+  "market h2h_h1 | book Pinnacle": {
+   "n": 1485,
+   "w": 524,
+   "l": 893,
+   "roi": -10.9,
    "ev": 6.8
   },
-  "market totals_h1 | book DK": {
-   "n": 702,
-   "w": 354,
-   "l": 348,
-   "roi": -5.7,
+  "market spreads_h1 | book Pinnacle": {
+   "n": 2630,
+   "w": 1347,
+   "l": 1238,
+   "roi": -0.2,
+   "ev": 6.3
+  },
+  "market team_totals | book BetOnline": {
+   "n": 72,
+   "w": 28,
+   "l": 40,
+   "roi": -22.2,
    "ev": 6.7
   },
+  "book DK": {
+   "n": 6737,
+   "w": 3263,
+   "l": 3404,
+   "roi": -6.0,
+   "ev": 7.2
+  },
+  "market h2h_h1 | book DK": {
+   "n": 760,
+   "w": 241,
+   "l": 485,
+   "roi": -16.6,
+   "ev": 11.9
+  },
+  "market team_totals | book DK": {
+   "n": 3040,
+   "w": 1523,
+   "l": 1517,
+   "roi": -6.2,
+   "ev": 6.6
+  },
+  "edge 10%+": {
+   "n": 6899,
+   "w": 3196,
+   "l": 3597,
+   "roi": -3.3,
+   "ev": 16.6
+  },
+  "market team_totals | book FD": {
+   "n": 3101,
+   "w": 1548,
+   "l": 1553,
+   "roi": -5.2,
+   "ev": 6.6
+  },
+  "market totals_h1 | book DK": {
+   "n": 1739,
+   "w": 885,
+   "l": 832,
+   "roi": -3.5,
+   "ev": 6.2
+  },
   "market spreads_h1 | book Bovada": {
-   "n": 927,
-   "w": 481,
-   "l": 435,
-   "roi": 0.5,
-   "ev": 5.9
+   "n": 2679,
+   "w": 1392,
+   "l": 1237,
+   "roi": 1.3,
+   "ev": 6.5
   },
   "market spreads_h1 | book DK": {
-   "n": 369,
-   "w": 189,
-   "l": 180,
-   "roi": -3.9,
+   "n": 1198,
+   "w": 614,
+   "l": 570,
+   "roi": -2.7,
    "ev": 6.9
   },
   "market spreads_h1 | book FD": {
-   "n": 659,
-   "w": 331,
-   "l": 328,
-   "roi": -4.6,
-   "ev": 6.5
+   "n": 1637,
+   "w": 844,
+   "l": 793,
+   "roi": -1.9,
+   "ev": 6.8
   },
   "market spreads_h1 | book Caesars": {
-   "n": 195,
-   "w": 95,
-   "l": 100,
-   "roi": -6.0,
-   "ev": 6.3
+   "n": 1712,
+   "w": 856,
+   "l": 825,
+   "roi": -1.9,
+   "ev": 6.8
   },
   "book BetRivers": {
-   "n": 897,
-   "w": 441,
-   "l": 447,
-   "roi": -4.0,
-   "ev": 5.8
+   "n": 3981,
+   "w": 1795,
+   "l": 2124,
+   "roi": -5.0,
+   "ev": 6.8
   },
   "market team_totals | book BetRivers": {
-   "n": 436,
+   "n": 435,
    "w": 249,
-   "l": 187,
-   "roi": 4.4,
+   "l": 186,
+   "roi": 4.7,
    "ev": 5.7
   },
   "market h2h_h1 | book BetRivers": {
-   "n": 137,
-   "w": 42,
-   "l": 86,
-   "roi": -11.8,
-   "ev": 6.1
+   "n": 889,
+   "w": 207,
+   "l": 647,
+   "roi": -12.8,
+   "ev": 8.8
   },
   "market totals_h1 | season 2024": {
-   "n": 1810,
-   "w": 896,
-   "l": 897,
-   "roi": -4.9,
+   "n": 5899,
+   "w": 3128,
+   "l": 2707,
+   "roi": 2.0,
    "ev": 6.2
   },
   "market h2h_h1 | season 2024": {
-   "n": 844,
-   "w": 249,
-   "l": 548,
-   "roi": -25.8,
-   "ev": 10.0
+   "n": 2677,
+   "w": 932,
+   "l": 1652,
+   "roi": -13.2,
+   "ev": 8.6
   },
   "market spreads_h1 | season 2024": {
-   "n": 1118,
-   "w": 512,
-   "l": 599,
-   "roi": -11.7,
-   "ev": 5.9
+   "n": 5128,
+   "w": 2628,
+   "l": 2430,
+   "roi": -0.6,
+   "ev": 6.6
   },
   "market team_totals | season 2024": {
-   "n": 1218,
-   "w": 614,
-   "l": 602,
-   "roi": -4.3,
+   "n": 4354,
+   "w": 2258,
+   "l": 2094,
+   "roi": -1.8,
    "ev": 6.5
   },
   "market totals_h1 | book BetRivers": {
-   "n": 212,
-   "w": 97,
-   "l": 115,
-   "roi": -13.7,
-   "ev": 6.0
+   "n": 1458,
+   "w": 744,
+   "l": 698,
+   "roi": -3.0,
+   "ev": 6.1
   },
   "market spreads_h1 | book BetRivers": {
-   "n": 112,
-   "w": 53,
-   "l": 59,
-   "roi": -9.5,
-   "ev": 5.2
+   "n": 1199,
+   "w": 595,
+   "l": 593,
+   "roi": -5.3,
+   "ev": 6.5
+  },
+  "market team_totals | season 2023": {
+   "n": 3954,
+   "w": 2101,
+   "l": 1850,
+   "roi": 1.3,
+   "ev": 6.4
+  },
+  "market totals_h1 | season 2023": {
+   "n": 6677,
+   "w": 3425,
+   "l": 3127,
+   "roi": -0.3,
+   "ev": 6.2
+  },
+  "market h2h_h1 | season 2023": {
+   "n": 3289,
+   "w": 853,
+   "l": 2304,
+   "roi": -15.6,
+   "ev": 9.5
+  },
+  "market spreads_h1 | season 2023": {
+   "n": 4806,
+   "w": 2390,
+   "l": 2326,
+   "roi": -3.3,
+   "ev": 6.7
   }
  }
 }

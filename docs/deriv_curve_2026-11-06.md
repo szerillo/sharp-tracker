@@ -48,3 +48,12 @@ teams to score, draw no bet, team totals and alternate totals priced from those 
 - The one pocket: alternate-total UNDERS priced 6%+ above the curve: n 343, +18.0% (2023 +1.1%, 2024 +38.0%, 2025 +14.5%), positive at
   every line from 1.5 to 3.5 and at Pinnacle itself (n 207, +15.2%). Correlated rows (several books on one game) and long prices, so
   smaller than it looks. Paper candidate; recheck when the 2026-27 soccer backfill lands.
+
+## CBB with the full pull (11/6, 4:30am)
+15,754 games. Unlike the other sports, the curve adds real information to Pinnacle's CBB derivatives: first-half totals (curve weight
++0.61, z +4.9), first-half spreads (z +3.4), team totals (z +3.0).
+- First-half totals where the curve disagrees with Pinnacle's no-vig by 7+ points: 313-231, +9.7% at Pinnacle's price, every season
+  positive (+14.9, +11.3, +2.7); mostly unders (227-161, +11.6%). At 4+ points: +1.5%.
+- First-half spreads and team totals: the information is there but it does not survive the price (about -1% to +2%).
+- The same shape as CFB (first-quarter and team-total unders off the curve): derived period totals that sit above what the full game
+  implies go under. Paper candidate; going live needs the curve computed per game from our tape.
