@@ -7,7 +7,8 @@ on:
   workflow_dispatch:
     inputs:
       sports: {description: 'space-separated sports', default: 'nba nhl mlb cbb cfb nfl wnba soccer tennis', required: false}
-      mode: {description: 'full (period and team markets) or props (player props)', default: 'full', required: false}
+      mode: {description: 'full (period and team markets), props (player props) or curve (full game + the curve-rule markets)', default: 'full', required: false}
+      early: {description: 'minutes before the start for the snapshot (blank = 10)', default: '', required: false}
 permissions:
   contents: write
 jobs:
@@ -27,7 +28,7 @@ jobs:
         run: |
           git config user.name "tracker-bot"; git config user.email "actions@users.noreply.github.com"
           push() {
-            git add data/oddsapi/derivs/${{ matrix.sport }}_${{ inputs.mode || 'full' }}.jsonl.gz
+            git add data/oddsapi/derivs/${{ matrix.sport }}_*.jsonl.gz
             git commit -q -m "derivatives (${{ inputs.mode || 'full' }}): ${{ matrix.sport }} $(date -u +%Y-%m-%dT%H:%M)" || return 0
             for i in 1 2 3 4 5 6 7 8; do
               if git pull -q --rebase -X theirs && git push -q; then return 0; fi
@@ -36,7 +37,7 @@ jobs:
           }
           end=$(( $(date +%s) + 20400 ))
           while [ $(date +%s) -lt $end ]; do
-            rc=0; timeout 1800 python3 loggers/oddsapi_derivs.py ${{ matrix.sport }} --${{ inputs.mode || 'full' }} --newest-first --floor 3000000 || rc=$?     # || keeps bash -e from aborting before the commit (11/6: lost a checkpoint)
+            rc=0; timeout 1800 python3 loggers/oddsapi_derivs.py ${{ matrix.sport }} --${{ inputs.mode || 'full' }} ${{ inputs.early && format('--early {0}', inputs.early) || '' }} --newest-first --floor 3000000 || rc=$?     # || keeps bash -e from aborting before the commit (11/6: lost a checkpoint)
             push
             [ $rc -eq 124 ] || break        # finished (not a timeout): stop
           done

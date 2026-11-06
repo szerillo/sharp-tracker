@@ -32,6 +32,10 @@ PROPS = {'nfl': 'player_pass_yds,player_pass_tds,player_pass_completions,player_
          'mlb': 'batter_hits,batter_total_bases,batter_home_runs,batter_rbis,batter_runs_scored,batter_hits_runs_rbis,batter_walks,pitcher_strikeouts,pitcher_hits_allowed,pitcher_walks,pitcher_earned_runs,pitcher_outs,pitcher_record_a_win',
          'wnba': 'player_points,player_rebounds,player_assists,player_threes,player_points_rebounds_assists',
          'soccer': 'player_goal_scorer_anytime,player_first_goal_scorer,player_shots_on_target,player_shots,player_assists'}
+# 11/6: --early N pulls the same markets N minutes before the start instead of 10 (does an off-curve edge exist when the live rules fire?)
+EARLY = int(sys.argv[sys.argv.index('--early') + 1]) if '--early' in sys.argv else None
+CURVE = {'cbb': 'totals,spreads,totals_h1', 'cfb': 'totals,spreads,totals_q1,team_totals'}
+if '--curve' in sys.argv: PLAN = CURVE
 if '--full' in sys.argv: PLAN = FULL
 if '--props' in sys.argv: PLAN = PROPS
 SINCE = '2023-05-03'
@@ -58,7 +62,8 @@ def get(url):
 
 def main():
     if not KEY: raise SystemExit('ODDS_API_KEY not set')
-    floor = int(arg('--floor', '12000')); sports = [a for a in sys.argv[1:] if a in PLAN]; suffix = '_full' if '--full' in sys.argv else '_props' if '--props' in sys.argv else ''
+    floor = int(arg('--floor', '12000')); sports = [a for a in sys.argv[1:] if a in PLAN]; suffix = '_full' if '--full' in sys.argv else '_props' if '--props' in sys.argv else '_curve' if '--curve' in sys.argv else ''
+    if EARLY: suffix += f'_t{EARLY}m'
     os.makedirs(OUTD, exist_ok=True); conn = sqlite3.connect(DB) if os.path.exists(DB) else None
     now = dt.datetime.now(dt.timezone.utc).strftime('%Y-%m-%dT%H:%M:%SZ')
     for sp in sports:
@@ -78,7 +83,7 @@ def main():
         n = spent = fails = 0; left = None
         with gzip.open(path, 'at') as out:
             for gid, key, start, home, away in todo:
-                when = (dt.datetime.fromisoformat(start.replace('Z', '+00:00')) - dt.timedelta(minutes=10)).strftime('%Y-%m-%dT%H:%M:%SZ')
+                when = (dt.datetime.fromisoformat(start.replace('Z', '+00:00')) - dt.timedelta(minutes=EARLY or 10)).strftime('%Y-%m-%dT%H:%M:%SZ')
                 d, cost, rem, status = get(f"{API}/historical/sports/{key}/events/{gid}/odds?apiKey={KEY}&bookmakers={BOOKS}&markets={PLAN[sp]}&oddsFormat=decimal&date={when}")
                 spent += cost; left = rem if rem is not None else left
                 if status == 'fail': fails += 1; continue          # not recorded, so a rerun retries it
