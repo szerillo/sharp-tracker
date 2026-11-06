@@ -23,8 +23,12 @@ jobs:
       - run: python3 loggers/mlb/an_props.py || true
       - run: python3 loggers/mlb/pinnacle_props.py || true
       - name: Polymarket (Gamma + CLOB books + public trades; every sport tag, games inside 36h)
+        timeout-minutes: 5          # 11/6: a slow step must never keep the commit from running
+        continue-on-error: true
         run: python3 loggers/polymarket.py || true
       - name: Novig catalog snapshot (every league; makes the public tape decodable)
+        timeout-minutes: 3
+        continue-on-error: true
         run: python3 loggers/novig_catalog.py || true
       - name: NFL kickoff weather forecasts (Open-Meteo; pre-registered wind 10-14 under tests)
         run: |
@@ -33,6 +37,8 @@ jobs:
           python3 loggers/msw_weather.py --sport nfl || true
           python3 loggers/msw_weather.py --sport cfb || true
       - name: tennis lines (Pinnacle, Kalshi, Novig; match, first set, games)
+        timeout-minutes: 3
+        continue-on-error: true
         env:
           NOVIG_KEY_ID: ${{ secrets.NOVIG_KEY_ID }}
           NOVIG_PRIVATE_KEY: ${{ secrets.NOVIG_PRIVATE_KEY }}
@@ -40,6 +46,7 @@ jobs:
           pip install -q cryptography || true
           python3 loggers/tennis_lines.py || true
       - name: commit
+        if: always()
         run: |
           git config user.name "prices-bot"; git config user.email "actions@users.noreply.github.com"
           git add data/mlb data/novig/catalog data/polymarket data/tennis data/kalshi/fast_meta_tennis.json data/nfl/weather data/cfb/weather && git commit -m "prices $(date -u +%Y-%m-%dT%H:%M)" || exit 0
@@ -68,6 +75,7 @@ jobs:
           NOVIG_PRIVATE_KEY: ${{ secrets.NOVIG_PRIVATE_KEY }}
         run: pip install -q cryptography && python3 loggers/lines.py --sport ${{ matrix.sport }} || true
       - name: commit
+        if: always()
         run: |
           git config user.name "prices-bot"; git config user.email "actions@users.noreply.github.com"
           git add data/${{ matrix.sport }} && git commit -m "lines ${{ matrix.sport }} $(date -u +%Y-%m-%dT%H:%M)" || exit 0
