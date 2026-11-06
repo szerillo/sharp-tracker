@@ -34,7 +34,7 @@ PROPS = {'nfl': 'player_pass_yds,player_pass_tds,player_pass_completions,player_
          'soccer': 'player_goal_scorer_anytime,player_first_goal_scorer,player_shots_on_target,player_shots,player_assists'}
 # 11/6: --early N pulls the same markets N minutes before the start instead of 10 (does an off-curve edge exist when the live rules fire?)
 EARLY = int(sys.argv[sys.argv.index('--early') + 1]) if '--early' in sys.argv else None
-CURVE = {'cbb': 'totals,spreads,totals_h1', 'cfb': 'totals,spreads,totals_q1,team_totals'}
+CURVE = {'cbb': 'totals,spreads,totals_h1', 'cfb': 'totals,spreads,totals_q1,team_totals', 'nhl': 'totals,spreads,totals_p3,spreads_p1'}
 if '--curve' in sys.argv: PLAN = CURVE
 if '--full' in sys.argv: PLAN = FULL
 if '--props' in sys.argv: PLAN = PROPS
