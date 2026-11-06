@@ -1310,24 +1310,18 @@ function draw() {
 async function load() {
   let u = new URLSearchParams(location.search).get('data') || 'data/state/dashboard.json';
   try {
-    D = await (await fetch(u, {cache: 'no-store'})).json();
-    try { E = await (await fetch('data/state/edges.json', {cache: 'no-store'})).json(); } catch (e) { E = null; }
-    try { MV = await (await fetch('data/state/moves.json', {cache: 'no-store'})).json(); } catch (e) { MV = null; }
-    try { SY = await (await fetch('data/state/system_fires.json', {cache: 'no-store'})).json(); } catch (e) { SY = null; }
-    try { FL = await (await fetch('data/state/flow_live.json', {cache: 'no-store'})).json(); } catch (e) { FL = null; }
-    try { TW = await (await fetch('data/state/tennis_watch.json', {cache: 'no-store'})).json(); } catch (e) { TW = null; }
-    try { window._MS = await (await fetch('data/state/mma_steam.json', {cache: 'no-store'})).json(); } catch (e) { window._MS = null; }
-    try { window._KF = await (await fetch('data/state/kalshi_flow.json', {cache: 'no-store'})).json(); } catch (e) { window._KF = null; }
-    try { window._SL = await (await fetch('data/state/stale_live.json', {cache: 'no-store'})).json(); } catch (e) { window._SL = null; }
-    try { window._PL = await (await fetch('data/state/props_live.json', {cache: 'no-store'})).json(); } catch (e) { window._PL = null; }
-    try { window._CV = await (await fetch('data/state/curve_live.json', {cache: 'no-store'})).json(); } catch (e) { window._CV = null; }
-    try { window._PP = await (await fetch('data/research/poly_pinnacle.json', {cache: 'no-store'})).json(); } catch (e) { window._PP = null; }
-    let TH = null; try { TH = await (await fetch('data/state/tape_health.json', {cache: 'no-store'})).json(); } catch (e) { TH = null; }
-    window._TH = TH;
-    try { SN = await (await fetch('data/state/signal_snap.json', {cache: 'no-store'})).json(); } catch (e) { SN = null; }
-    try { SA = await (await fetch('data/state/sharp_accounts.json', {cache: 'no-store'})).json(); } catch (e) { SA = null; }
-    try { BL = await (await fetch('data/state/bet_log.json', {cache: 'no-store'})).json(); } catch (e) { BL = null; }
-    try { AU = await (await fetch('data/state/audit.json', {cache: 'no-store'})).json(); } catch (e) { AU = null; }
+    // 11/6: every side file in parallel (they were fetched one after another, 18 round trips), and kept for 2 minutes so switching
+    // sports only fetches the sport's own dashboard
+    const J = p => fetch(p, {cache: 'no-store'}).then(r => r.ok ? r.json() : null).catch(() => null);
+    const SIDE = ['data/state/edges.json', 'data/state/moves.json', 'data/state/system_fires.json', 'data/state/flow_live.json', 'data/state/tennis_watch.json',
+      'data/state/mma_steam.json', 'data/state/kalshi_flow.json', 'data/state/stale_live.json', 'data/state/props_live.json', 'data/state/curve_live.json',
+      'data/research/poly_pinnacle.json', 'data/state/tape_health.json', 'data/state/signal_snap.json', 'data/state/sharp_accounts.json', 'data/state/bet_log.json', 'data/state/audit.json'];
+    const fresh = window._SIDE && Date.now() - window._SIDE.t < 120000;
+    const [d0, side] = await Promise.all([J(u), fresh ? Promise.resolve(window._SIDE.v) : Promise.all(SIDE.map(J))]);
+    if (!fresh) window._SIDE = {t: Date.now(), v: side};
+    if (!d0) throw new Error('no data');
+    D = d0;
+    [E, MV, SY, FL, TW, window._MS, window._KF, window._SL, window._PL, window._CV, window._PP, window._TH, SN, SA, BL, AU] = side;
     const idx = D.index;
     if (idx && idx.sports && idx.sports.length) {
       if (!SPORT) SPORT = idx.sports[0].sport;
