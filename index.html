@@ -117,7 +117,7 @@
   .gone td{opacity:.42} .gone td.c-bet{opacity:1} .gone td.c-bet .small{opacity:.5}
   /* the one row shape (11/2): compact table for bets, leans and signals */
   .slipt td{vertical-align:top;padding:9px 10px} .slipt th{padding:7px 10px}
-  .slipt .c-when{white-space:nowrap;width:92px} .slipt .c-game{width:210px} .slipt .c-size{white-space:nowrap;width:64px} .slipt .c-price{white-space:nowrap;width:150px}
+  .slipt .c-when{white-space:nowrap;width:92px} .slipt .c-game{width:210px} .slipt .c-size{white-space:nowrap;width:64px} .slipt .c-price{width:260px;font-size:14px}
   .slipt .c-bet .bet{font:700 15px Poppins,sans-serif} .slipt .c-why{font-size:13px;color:var(--muted);max-width:330px} .slipt .c-rec{white-space:nowrap;font-size:12.5px;width:170px}
   .why2{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
   .go{margin-top:5px} .lbl{display:inline-block;min-width:60px;margin-right:6px;color:var(--faint);font-size:11.5px;white-space:nowrap}
@@ -431,23 +431,23 @@ const VS = v => v === 'DK' ? 'DK (low limits)' : esc(v);
 const lbl = (k, v) => `<div><span class="lbl">${k}</span>${v}</div>`;
 const facts = L => `<dl class="facts">${L.filter(x => x && x[1]).map(([k, v]) => `<dt>${k}</dt><dd>${v}</dd>`).join('')}</dl>`;
 // one row shape for every bet, lean and signal (Sean, 11/2): when, game, bet, size, price, why it flagged, record; click for the details
-const SHEAD = `<thead><tr><th>Start</th><th class="c-game">Game</th><th>Bet</th><th>Size</th><th>Price</th><th class="c-why">Why it flagged</th><th class="c-rec">Record</th></tr></thead>`;
+const SHEAD = `<thead><tr><th>Start</th><th>Bet</th><th>Size</th><th>Price</th></tr></thead>`;
 function sRow(o) {
+  // 11/6 (Sean): main table is Start / Bet / Size / Price; why it flagged, the record and the rule details open on click
   const id = String(o.id).replace(/['"\\]/g, ''), open = window._wo[id];
   const started = o.start && new Date(o.start) <= Date.now();
-  const head = `<tr class="erow${o.gone ? ' gone' : ''}${o.detail ? ' click' : ''}"${started ? ' data-live="1"' : ''}${o.detail ? ` onclick="_wo['${id}']=!_wo['${id}'];draw()"` : ''}>
+  const more = !!(o.detail || o.why || o.rec);
+  const head = `<tr class="erow${o.gone ? ' gone' : ''}${more ? ' click' : ''}"${started ? ' data-live="1"' : ''}${more ? ` onclick="_wo['${id}']=!_wo['${id}'];draw()"` : ''}>
     <td class="c-when"><b>${TM(o.start)}</b><div class="small dim">${until(o.start)}</div></td>
-    <td class="c-game"><span class="badge b-sport">${esc(o.sportLabel)}</span> <span class="small">${o.game}</span></td>
-    <td class="c-bet">${o.detail ? `<span class="chev">${open ? '▾' : '▸'}</span>` : ''}<span class="bet">${o.bet}</span><div class="small dim">${o.sub || ''}</div>${o.status ? `<div class="stat stat-${o.status[0]}">${o.status[1]}</div>` : ''}<div class="small dim show-m">${esc(o.sportLabel)} · ${o.game}</div></td>
+    <td class="c-bet">${more ? `<span class="chev">${open ? '▾' : '▸'}</span>` : ''}<span class="bet">${o.bet}</span> <span class="small dim">${o.sub || ''}</span>${o.status ? ` <div class="stat stat-${o.status[0]}" style="margin-left:6px">${o.status[1]}</div>` : ''}<div class="small dim"><span class="badge b-sport">${esc(o.sportLabel)}</span> ${o.game}</div></td>
     <td class="c-size">${o.size || '<span class="dim">—</span>'}</td>
-    <td class="c-price">${o.price || '<span class="dim">—</span>'}${o.link ? `<div class="go">${o.link}</div>` : ''}</td>
-    <td class="c-why"><div class="why2">${o.why || ''}</div></td>
-    <td class="c-rec">${o.rec || ''}</td></tr>`;
-  return open && o.detail ? head + `<tr class="det"><td colspan="7">${o.detail}</td></tr>` : head;
+    <td class="c-price">${o.price || '<span class="dim">—</span>'}${o.link ? `<div class="go">${o.link}</div>` : ''}</td></tr>`;
+  const det = `${o.why ? `<div style="margin-bottom:6px"><b>Why it flagged:</b> ${o.why}</div>` : ''}${o.rec ? `<div style="margin-bottom:6px">${o.rec}</div>` : ''}${o.detail || ''}`;
+  return open && more ? head + `<tr class="det"><td colspan="4">${det}</td></tr>` : head;
 }
 // 11/5 (Sean): in-progress games stay in every section, listed below the upcoming ones
 const sTable = rows => { const up = rows.filter(r => !r.startsWith('<tr class="erow') || !/^<tr[^>]*data-live="1"/.test(r)), live = rows.filter(r => /^<tr[^>]*data-live="1"/.test(r));
-  return `<div class="sec"><table class="slipt">${SHEAD}<tbody>${up.join('')}${live.length ? `<tr><td colspan="7" class="small dim" style="padding:8px 6px 2px;border-top:1px solid var(--line)">In progress (${live.length})</td></tr>` : ''}${live.join('')}</tbody></table></div>`; };
+  return `<div class="sec"><table class="slipt">${SHEAD}<tbody>${up.join('')}${live.length ? `<tr><td colspan="4" class="small dim" style="padding:8px 6px 2px;border-top:1px solid var(--line)">In progress (${live.length})</td></tr>` : ''}${live.join('')}</tbody></table></div>`; };
 function priceOf(f, g) {
   const fl = `<b>${am(f.price)}</b> <span class="small dim">${VS(f.venue)}</span>`;
   const atL = (L, p, v) => `${esc(betText({...f, line: L}, g || {}))} ${am(p)} ${VS(v)}`;
@@ -694,8 +694,7 @@ function renderToday() {
       size: r.strong && x ? unitText(r.grade === 'A' && g.sport !== 'soccer' ? SLIP.big : SLIP.small, x.p) : '', price: (() => { if (!x || x.p == null) return ''; const q = {[x.venue]: x.p, ...((r.fl && r.fl.books && r.fl.books.q) || {})};
         const bv = Object.keys(q).filter(v => v !== 'DK').sort((a, b) => q[a] - q[b])[0] || x.venue;
         const fl = r.fl, pd = fl && fl.paid != null && fl.ask != null ? 100 * (fl.ask - fl.paid) : null;
-        const was = fl && fl.paid != null ? `<div class="small">sharps paid ${fl.market === 'total' || fl.market === 'spread' ? esc(fl.bet) + ' ' : ''}<b>${toAm(fl.paid)}</b>${fl.flagged ? ` <span class="dim">${DAYT(fl.flagged)}</span>` : ''}</div>` +
-          (pd == null ? '' : pd >= 2 ? `<div class="small tag-against">now ${toAm(fl.ask)} Polymarket: the market moved ${pd.toFixed(0)}% toward the sharps; you pay more than they did${pd >= 5 ? ', most of the edge is gone' : ''}</div>` : pd <= -2 ? `<div class="small tag-with">now ${toAm(fl.ask)} Polymarket: the market moved ${(-pd).toFixed(0)}% against the sharps; you get a better price than they did</div>` : `<div class="small dim">now ${toAm(fl.ask)} Polymarket: about the sharps' price</div>`) : '';
+        const was = fl && fl.paid != null ? `<div class="small" title="What the flagging sharp accounts paid on Polymarket, and the Polymarket price now. Red: the market has moved the sharps' way since, so you pay more than they did. Green: it moved against them, so you get a better number.">sharps ${fl.market === 'total' || fl.market === 'spread' ? esc(fl.bet) + ' ' : ''}<b>${toAm(fl.paid)}</b> → ${pd == null ? '' : pd >= 2 ? `<span class="tag-against">${toAm(fl.ask)} (${pd.toFixed(0)}% their way${pd >= 5 ? ', edge mostly gone' : ''})</span>` : pd <= -2 ? `<span class="tag-with">${toAm(fl.ask)} (${(-pd).toFixed(0)}% against them)</span>` : `${toAm(fl.ask)}`}</div>` : '';
         return `<b>${toAm(q[bv])}</b> <span class="small dim">${VS(bv)}</span>${bv !== x.venue ? `<div class="small dim">${VS(x.venue)} ${toAm(x.p)}</div>` : ''}${was}`; })(), link,
       why: parts.join(' + ') + (r.tag ? `<div>${r.tag}</div>` : ''),
       rec: sharpRec(g.sport),
@@ -829,8 +828,8 @@ function renderToday() {
     const vs = r.rest.filter(y => y.side !== f.side).map(y => `${({acct: 'sharp accounts', big: 'big money', move: 'sharp move', kmove: 'Kalshi move', back: 'Kalshi bet back'})[y.kind] || y.kind} on ${esc(y.bet)}`);
     const pd = f.paid != null && f.ask != null ? 100 * (f.ask - f.paid) : null;
     return sRow({id: 'wc|' + r.id, start: g.start, sportLabel: SPORT_LABEL[g.sport] || g.sport, game: `${esc(g.away_name || g.away)} @ ${esc(g.home_name || g.home)}`, bet: esc(f.bet),
-      sub: `${f.grade && f.grade !== 'watch' ? `Grade ${f.grade} flag` : 'Sharp flag'} <span class="stat stat-held" style="margin:2px 0 0;white-space:nowrap">Signal against</span>`, status: ['held', 'No size: ' + (vs.join(', ') || 'a signal on the other side')], size: '',
-      price: f.paid != null ? `<div class="small">sharps paid <b>${toAm(f.paid)}</b>${f.flagged ? ` <span class="dim">${DAYT(f.flagged)}</span>` : ''}</div>${f.ask != null ? `<div class="small dim">now ${toAm(f.ask)} Polymarket</div>` : ''}` : '',
+      sub: `${f.grade && f.grade !== 'watch' ? `Grade ${f.grade} flag` : 'Sharp flag'}`, status: ['held', 'No size: ' + ([...new Set(r.rest.filter(y => y.side !== f.side).map(y => ({acct: 'sharps', big: 'big money', move: 'sharp move', kmove: 'Kalshi move', back: 'Kalshi bet back'})[y.kind] || y.kind))].join(', ') || 'signal') + ' against'], size: '',
+      price: f.paid != null ? `<div class="small">sharps ${f.market === 'total' || f.market === 'spread' ? esc(f.bet) + ' ' : ''}<b>${toAm(f.paid)}</b>${f.ask != null ? ` → ${toAm(f.ask)}` : ''}</div><div class="small dim">${DAYT(f.flagged)}</div>` : '',
       link: f.link ? `<a class="betbtn" target="_blank" rel="noopener" onclick="event.stopPropagation()" href="${f.link}">Polymarket ↗</a>` : '',
       why: `${f.n || 1} sharp account${(f.n || 1) === 1 ? '' : 's'} on ${esc(f.bet)}${f.status === 'other side' && f.other ? ` · <span class="tag-against">${f.other.n_accounts} took the other side ${f.other.first ? DAYT(f.other.first) : ''}${f.other.usd ? ` ($${Math.round(f.other.usd).toLocaleString()})` : ''}</span>` : ''} · <span class="tag-against">against: ${vs.join(', ')}</span>`,
       rec: sharpRec(g.sport), detail: r.rest.map(y => `<div><b>${KIND[y.kind]} → ${esc(y.bet)}:</b> ${y.why}</div>`).join(''), gone: true}); });
