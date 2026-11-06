@@ -63,7 +63,9 @@ def get(url):
 def main():
     if not KEY: raise SystemExit('ODDS_API_KEY not set')
     floor = int(arg('--floor', '12000')); sports = [a for a in sys.argv[1:] if a in PLAN]; suffix = '_full' if '--full' in sys.argv else '_props' if '--props' in sys.argv else '_curve' if '--curve' in sys.argv else ''
-    if EARLY: suffix += f'_t{EARLY}m'
+    if EARLY:      # 11/6: an early snapshot also carries the full-game total and spread of that moment (the curve is built from them)
+        suffix = f'_early{EARLY}' if suffix == '_full' else suffix + f'_t{EARLY}m'
+        if '--full' in sys.argv: PLAN.update({k: 'totals,spreads,' + v for k, v in PLAN.items() if not v.startswith('totals,spreads')})
     os.makedirs(OUTD, exist_ok=True); conn = sqlite3.connect(DB) if os.path.exists(DB) else None
     now = dt.datetime.now(dt.timezone.utc).strftime('%Y-%m-%dT%H:%M:%SZ')
     for sp in sports:
