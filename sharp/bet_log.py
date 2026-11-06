@@ -374,27 +374,25 @@ def main():
     # 11/5 (Sean): never count both sides of one game. Among counted bets (systems, leans, sharp A/B, tennis), a later bet on the other
     # team (moneyline or spread) or the other side of the total is kept on the list but not counted (counted=False, conflict_with=id)
     COUNTED = ('system A', 'system B', 'lean C', 'sharp A', 'sharp B', 'tennis')
-    # Middles are not conflicts: a moneyline on one team and the other team TAKING points can both win, so both count. A conflict is the
-    # other side of the same market, or a moneyline on one team with the other team LAYING points (both can lose).
+    # 11/5 (Sean): only the other side of the SAME market cancels: the later bet stays listed, not counted, no units, with a note. A spread on
+    # one team and a moneyline on the other always both count; they are labelled as a middle (both can win) or a reverse middle (both can lose).
     per_ = lambda b: '1h' if b['market'].startswith(('1h_', '1p_', '1s_')) else 'fg'
-    fam_ = lambda b: 'total' if 'total' in b['market'] else 'side'
-    def clash(a, b):
-        if a['side'] == b['side']: return False
-        if a['market'] == b['market']: return True
-        if fam_(a) == 'total': return True
-        sp = a if 'spread' in a['market'] else b if 'spread' in b['market'] else None
-        if sp is None: return True
-        return (sp.get('line') or 0) < 0          # laying points against the other team's moneyline
     grp_ = collections.defaultdict(list)
     for b in bets:
-        if b['cat'] in COUNTED and b.get('event_id'): grp_[(str(b['event_id']), per_(b), fam_(b))].append(b)
+        if b['cat'] in COUNTED and b.get('event_id'): grp_[(str(b['event_id']), per_(b))].append(b)
+    desc_ = lambda x: f"{x['cat']} {x.get('bet') or x['side']}"
     for L_ in grp_.values():
         L_.sort(key=lambda b: b.get('flagged') or '')
-        kept = []
-        for b in L_:
-            hit = next((k for k in kept if clash(k, b)), None)
-            if hit: b['counted'] = False; b['conflict_with'] = hit['id']; b['conflict_desc'] = f"{hit['cat']} {hit.get('bet') or hit['side']}"
-            else: kept.append(b)
+        for i, b in enumerate(L_):
+            for k in L_[:i]:
+                if k.get('counted') is False or k['side'] == b['side']: continue
+                if k['market'] == b['market'] and b.get('counted') is not False:
+                    b['counted'] = False; b['conflict_with'] = k['id']; b['conflict_desc'] = desc_(k); b['units_raw'] = b.get('units'); b['units'] = None
+                    k.setdefault('cancelled_later', []).append(desc_(b))
+                elif {k['market'].replace('1h_', ''), b['market'].replace('1h_', '')} == {'ml', 'spread'}:
+                    sp = k if 'spread' in k['market'] else b
+                    kind = 'middle' if (sp.get('line') or 0) > 0 else 'reverse middle'
+                    b.setdefault('middle', []).append(dict(kind=kind, with_=desc_(k))); k.setdefault('middle', []).append(dict(kind=kind, with_=desc_(b)))
     # 11/5 (Sean): the watch-only market signals (Kalshi move, bet back, big money, sharp move) graded by kind, so the board can show
     # whether they are doing anything; flat ROI at the flagged price and mean no-vig CLV
     wk = {}

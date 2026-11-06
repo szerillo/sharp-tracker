@@ -1134,14 +1134,22 @@ function blMargin(b) {
   if (b.margin == null) return '';
   return `<div class="small dim">${b.margin === 0 ? 'on the number' : 'by ' + Math.abs(b.margin) + ' ' + unitName(b)}</div>`;
 }
+// 11/5 (Sean): what happened when two counted bets met on one game
+function blConflict(b) {
+  let s = '';
+  if (b.counted === false) s += `<div class="stat stat-held">Not counted: the other side of ${esc(b.conflict_desc || 'an earlier bet')}, flagged earlier on this market. No units.${b.units_raw != null ? ` (Would have been ${b.units_raw > 0 ? '+' : ''}${b.units_raw.toFixed(2)}u.)` : ''}</div>`;
+  if (b.cancelled_later) s += `<div class="stat stat-held">Later flagged the other way: ${b.cancelled_later.map(esc).join(', ')} (not counted).</div>`;
+  if (b.middle) s += b.middle.map(m => `<div class="stat ${m.kind === 'middle' ? 'stat-fit' : 'stat-lapsed'}">${m.kind === 'middle' ? 'Middle' : 'Reverse middle (both can lose)'} with ${esc(m.with_)}. Both count.</div>`).join('');
+  return s;
+}
 function blRow(b) {
   const st = blState(b);
   return `<tr${b.counted === false ? ' class="notcounted" title="Not counted: opposite side of an earlier bet on this game"' : ''}><td class="small"><b>${DAYT(b.start)}</b></td><td class="small"><span class="badge b-sport">${esc((SPORT_LABEL[b.sport] || b.sport || '?').toString())}</span> ${esc(b.game || '')}</td>
-    <td><b>${esc(blSide(b))}</b><div class="small dim">${esc(BT[b.bet_type] || b.bet_type)} · ${esc(b.cat)}${b.rule && b.src === 'system' ? ' · ' + esc(b.rule) : ''}</div>${blCorr(b)}</td>
+    <td><b>${esc(blSide(b))}</b><div class="small dim">${esc(BT[b.bet_type] || b.bet_type)} · ${esc(b.cat)}${b.rule && b.src === 'system' ? ' · ' + esc(b.rule) : ''}</div>${blCorr(b)}${blConflict(b)}</td>
     <td class="small"><b>${toAm(b.price)}</b> ${esc(b.venue)}<div class="dim">${ET(b.flagged)} · ${b.lead_h}h out</div>${blFlagExtra(b)}</td>
     <td class="small">${b.best != null ? `<b>${toAm(b.best)}</b> ${esc(b.best_venue)}<div class="dim">${b.best_after_min ? mins(b.best_after_min) + ' after the flag' : 'at the flag'} · ${mins(b.best_before_start_min)} before start</div>` : '<span class="dim">no tape</span>'}</td>
     <td class="small">${blClose(b)}</td>
-    <td class="num">${b.won == null ? (st === 'live' ? '<span class="stat stat-lapsed" style="margin:0;white-space:nowrap">In progress</span>' : st === 'awaiting' ? '<span class="stat stat-gone" style="margin:0;white-space:nowrap">Awaiting result</span>' : '<span class="dim">upcoming</span>') : b.won === 1 ? '<b class="pos">W</b>' : b.won === 0 ? '<b class="neg">L</b>' : 'P'}<div class="small">${b.cat === 'watch' ? 'watch' : b.size + 'u'}</div>${blMargin(b)}</td><td class="num">${blU(b.units)}<div class="small dim">risk ${blRisk(b).toFixed(2)}u</div></td></tr>`;
+    <td class="num">${b.won == null ? (st === 'live' ? '<span class="stat stat-lapsed" style="margin:0;white-space:nowrap">In progress</span>' : st === 'awaiting' ? '<span class="stat stat-gone" style="margin:0;white-space:nowrap">Awaiting result</span>' : '<span class="dim">upcoming</span>') : b.won === 1 ? '<b class="pos">W</b>' : b.won === 0 ? '<b class="neg">L</b>' : 'P'}<div class="small">${b.cat === 'watch' ? 'watch' : b.counted === false ? 'not counted' : b.size + 'u'}</div>${blMargin(b)}</td><td class="num">${blU(b.units)}<div class="small dim">risk ${blRisk(b).toFixed(2)}u</div></td></tr>`;
 }
 const BLHEAD = `<thead><tr><th>Start</th><th>Game</th><th>Bet</th><th>Flagged</th><th>Best price before the start</th><th>Close and CLV</th><th class="num">Result</th><th class="num">Units</th></tr></thead>`;
 // windows (Sean, 11/2): in progress (started, not graded), past 24 hours (started), yesterday (ET day), upcoming, all
@@ -1176,7 +1184,8 @@ function renderBetLog() {
   const MF = {all: ['Any bet type', () => true], ml: ['Moneyline', b => /ml$/.test(b.bet_type || '')], spread: ['Spread', b => /spread$/.test(b.bet_type || '')],
     over: ['Over', b => /total$/.test(b.bet_type || '') && b.side === 'over'], under: ['Under', b => /total$/.test(b.bet_type || '') && b.side === 'under'], fh: ['First half', b => /^1h_/.test(b.bet_type || '')]};
   const OPPF = {all: ['Any sharp context', () => true], none: ['No sharps against', b => !b.opp], at_flag: ['Sharps against at the flag', b => (b.opp || {}).when === 'at_flag'], after: ['Sharps against later', b => (b.opp || {}).when === 'after'],
-    withs: ['Sharps with it', b => !!b.with], also: ['System and sharp agree', b => !!(b.also && b.also.length)], against_move: ['Against the market move', b => !!(b.move_at_flag && b.move_at_flag.dir === 'against')]};
+    withs: ['Sharps with it', b => !!b.with], also: ['System and sharp agree', b => !!(b.also && b.also.length)], against_move: ['Against the market move', b => !!(b.move_at_flag && b.move_at_flag.dir === 'against')],
+    noconf: ['Hide cancelled bets', b => b.counted !== false], conf: ['Only cancelled or cancelling bets', b => b.counted === false || !!b.cancelled_later], mid: ['Only middles', b => !!b.middle]};
   const base = BL.rows.filter(b => blGroup(b) !== 'watch');
   const inW = base.filter(b => BLW[_lw][1](b) && MF[_lm][1](b) && OPPF[_lo][1](b));
   const inS = inW.filter(b => _ls === 'all' || b.sport === _ls);
