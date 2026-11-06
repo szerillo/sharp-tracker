@@ -20,6 +20,9 @@ BOOKS = {'fanduel': 'FD', 'williamhill_us': 'Caesars', 'draftkings': 'DK'}
 RULES = {
     'cbb_1h_total_curve': dict(sport='cbb', key='basketball_ncaab', mk='totals_h1', per=(0, 1), gap=0.07, sides=('over', 'under'), tier='C', stake=0.25),
     'cfb_q1_under_curve': dict(sport='cfb', key='americanfootball_ncaaf', mk='totals_q1', per=(0, 1), gap=0.05, sides=('under',), tier='A', stake=0.5),    # 11/6: B after the T-2h test (296-189, +15.0%; every season +10 to +19); A on Sean's call
+    # 11/6 paper: NHL period markets off the curve at kickoff (validate at 6 hours before the start when that pull lands)
+    'nhl_p1_spread_curve': dict(sport='nhl', key='icehockey_nhl', mk='spreads_p1', per=(0, 1), gap=0.07, sides=('home', 'away'), kind='spread', tier='P', stake=0.0),
+    'nhl_p3_under_curve': dict(sport='nhl', key='icehockey_nhl', mk='totals_p3', per=(2, 1), gap=0.07, sides=('under',), tier='P', stake=0.0),
     'cfb_tt_under_curve': dict(sport='cfb', key='americanfootball_ncaaf', mk='team_totals', per=None, gap=0.05, sides=('under',), tier='P', stake=0.0),
 }
 PAPER = os.path.join(ROOT, 'data', 'state', 'curve_paper.jsonl'); OUT = os.path.join(ROOT, 'data', 'state', 'curve_live.json')
@@ -62,6 +65,11 @@ def curve(sp, T, S, kind, per, team=None):
             i0, n = per
             if len(lh) < i0 + n or len(la) < i0 + n: continue
             vals.append((sum(lh[i0:i0 + n]) + sum(la[i0:i0 + n])) * T / Tx)
+        elif kind == 'spread':              # home margin over the period, shifted by the full-game spread difference scaled to the period
+            i0, n = per
+            if len(lh) < i0 + n or len(la) < i0 + n: continue
+            frac = n / {'nba': 4, 'nfl': 4, 'cfb': 4, 'wnba': 4, 'cbb': 2, 'nhl': 3, 'mlb': 9}.get(sp, 4)
+            vals.append((sum(lh[i0:i0 + n]) - sum(la[i0:i0 + n])) + (Sx - S) * frac)
         else:
             imp_g = T / 2 + (-S if team == 'home' else S) / 2; imp_x = Tx / 2 + (-Sx if team == 'home' else Sx) / 2
             if imp_x <= 0 or imp_g <= 0: continue
@@ -113,6 +121,27 @@ def main():
                 if T is None or S is None: continue
                 for tag, R in rules.items():
                     outs = pin.get(R['mk']) or []
+                    if R.get('kind') == 'spread':       # period spread: P(home covers) from the curve of period margins
+                        P2 = {o['name']: o for o in outs if o.get('point') is not None}
+                        ho, ao = P2.get(e['home_team']), P2.get(e['away_team'])
+                        if not ho or not ao or ho['point'] != -ao['point']: continue
+                        vals = curve(sp, T, S, 'spread', R['per'])
+                        if len(vals) < 100: continue
+                        ln = ho['point']; lo = bisect.bisect_left(vals, -ln); hi = bisect.bisect_right(vals, -ln); N_ = len(vals)
+                        ph = ((N_ - hi) / N_) / max(1e-9, 1 - (hi - lo) / N_); qh = (1 / ho['price']) / (1 / ho['price'] + 1 / ao['price'])
+                        for side, pc, q, pp_ in (('home', ph, qh, ho['price']), ('away', 1 - ph, 1 - qh, ao['price'])):
+                            if side not in R['sides'] or pc - q < R['gap']: continue
+                            nm_ = e['home_team'] if side == 'home' else e['away_team']; sl = ln if side == 'home' else -ln
+                            us = [(nice, o['price']) for bk, nice in BOOKS.items() for o in (B.get(bk) or {}).get(R['mk'], []) if o['name'] == nm_ and o.get('point') == sl]
+                            book, price = max(us, key=lambda c: c[1]) if us else (None, None)
+                            key = f"{tag}|{e['id']}||{side}"
+                            if key in seen: continue
+                            seen.add(key); new += 1
+                            rows.append(dict(key=key, rule=tag, tier=R['tier'], stake=R['stake'], sport=sp, odds_id=e['id'], espn=espn_event(sp, e['home_team'], e['away_team'], st),
+                                             game=f"{e['away_team']} @ {e['home_team']}", start=e['commence_time'], market=R['mk'], team=None, team_name=nm_, side=side, line=sl,
+                                             curve=round(pc, 3), pin_fair=round(q, 3), gap=round(100 * (pc - q), 1), full_total=T, full_spread=S,
+                                             pin_price=pp_, book=book, price=price, flagged=NOW.strftime('%Y-%m-%dT%H:%M:%SZ')))
+                        continue
                     groups = {}
                     for o in outs:
                         if o['name'] not in ('Over', 'Under') or o.get('point') is None: continue
@@ -154,6 +183,12 @@ def main():
         e = S_[sp].get(r['espn'])
         if not e or not e.get('completed'): continue
         R = RULES[r['rule']]
+        if R.get('kind') == 'spread':
+            ls = e.get('linescores') or {}; i0, n = R['per']; lh, la = ls.get('home') or [], ls.get('away') or []
+            if len(lh) < i0 + n or len(la) < i0 + n: continue
+            m = sum(lh[i0:i0 + n]) - sum(la[i0:i0 + n]); c = (m if r['side'] == 'home' else -m) + r['line']
+            won = 0.5 if c == 0 else 1 if c > 0 else 0; pr = r['price'] or r['pin_price']
+            r['won'] = won; r['actual'] = m; r['units'] = round((r['stake'] or 0.25) * ((pr - 1) if won == 1 else -1 if won == 0 else 0), 3); continue
         try:
             if R['per'] is None:
                 v = float((e['home_team'] if r['team'] == 'home' else e['away_team'])['score'])

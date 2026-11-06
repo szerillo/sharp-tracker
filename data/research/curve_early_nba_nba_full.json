@@ -1,0 +1,427 @@
+{
+ "games": 3944,
+ "blend": {
+  "spreads_h1": {
+   "n": 3814,
+   "w_pin": 0.91,
+   "w_curve": -0.3,
+   "z": -1.23
+  },
+  "spreads_q1": {
+   "n": 3799,
+   "w_pin": 0.29,
+   "w_curve": 0.28,
+   "z": 1.47
+  },
+  "team_totals": {
+   "n": 7561,
+   "w_pin": 2.25,
+   "w_curve": -0.0,
+   "z": -0.0
+  },
+  "totals_h1": {
+   "n": 3820,
+   "w_pin": 1.99,
+   "w_curve": 0.06,
+   "z": 0.7
+  },
+  "totals_q1": {
+   "n": 3784,
+   "w_pin": 1.89,
+   "w_curve": 0.09,
+   "z": 0.91
+  }
+ },
+ "bets": {
+  "spreads_h1 | gap 4-7": {
+   "w": 354,
+   "l": 348,
+   "roi": -1.5
+  },
+  "spreads_h1 | gap 4-7 | 2022": {
+   "w": 2,
+   "l": 6,
+   "roi": -50.5
+  },
+  "spreads_h1 | gap 4-7 | 2023": {
+   "w": 121,
+   "l": 127,
+   "roi": -4.4
+  },
+  "spreads_h1 | gap 4-7 | 2024": {
+   "w": 106,
+   "l": 94,
+   "roi": 3.4
+  },
+  "spreads_h1 | gap 4-7 | 2025": {
+   "w": 125,
+   "l": 121,
+   "roi": -1.0
+  },
+  "spreads_h1 | gap 4-7 | at best of FD/Caesars/DK": {
+   "w": 268,
+   "l": 239,
+   "roi": 1.7
+  },
+  "spreads_h1 | gap 4-7 | away": {
+   "w": 215,
+   "l": 200,
+   "roi": 1.3
+  },
+  "spreads_h1 | gap 4-7 | home": {
+   "w": 139,
+   "l": 148,
+   "roi": -5.5
+  },
+  "spreads_h1 | gap 7+": {
+   "w": 51,
+   "l": 69,
+   "roi": -17.0
+  },
+  "spreads_h1 | gap 7+ | 2022": {
+   "w": 1,
+   "l": 0,
+   "roi": 93.0
+  },
+  "spreads_h1 | gap 7+ | 2023": {
+   "w": 21,
+   "l": 27,
+   "roi": -14.3
+  },
+  "spreads_h1 | gap 7+ | 2024": {
+   "w": 14,
+   "l": 21,
+   "roi": -22.1
+  },
+  "spreads_h1 | gap 7+ | 2025": {
+   "w": 15,
+   "l": 21,
+   "roi": -18.8
+  },
+  "spreads_h1 | gap 7+ | at best of FD/Caesars/DK": {
+   "w": 39,
+   "l": 51,
+   "roi": -16.4
+  },
+  "spreads_h1 | gap 7+ | away": {
+   "w": 29,
+   "l": 50,
+   "roi": -28.0
+  },
+  "spreads_h1 | gap 7+ | home": {
+   "w": 22,
+   "l": 19,
+   "roi": 4.0
+  },
+  "spreads_q1 | gap 4-7": {
+   "w": 505,
+   "l": 446,
+   "roi": 3.4
+  },
+  "spreads_q1 | gap 4-7 | 2022": {
+   "w": 7,
+   "l": 2,
+   "roi": 52.3
+  },
+  "spreads_q1 | gap 4-7 | 2023": {
+   "w": 208,
+   "l": 173,
+   "roi": 6.5
+  },
+  "spreads_q1 | gap 4-7 | 2024": {
+   "w": 152,
+   "l": 125,
+   "roi": 7.1
+  },
+  "spreads_q1 | gap 4-7 | 2025": {
+   "w": 138,
+   "l": 146,
+   "roi": -5.8
+  },
+  "spreads_q1 | gap 4-7 | at best of FD/Caesars/DK": {
+   "w": 381,
+   "l": 332,
+   "roi": 2.5
+  },
+  "spreads_q1 | gap 4-7 | away": {
+   "w": 257,
+   "l": 229,
+   "roi": 3.2
+  },
+  "spreads_q1 | gap 4-7 | home": {
+   "w": 248,
+   "l": 217,
+   "roi": 3.7
+  },
+  "spreads_q1 | gap 7+": {
+   "w": 201,
+   "l": 186,
+   "roi": 1.1
+  },
+  "spreads_q1 | gap 7+ | 2022": {
+   "w": 3,
+   "l": 2,
+   "roi": 18.0
+  },
+  "spreads_q1 | gap 7+ | 2023": {
+   "w": 96,
+   "l": 94,
+   "roi": -1.6
+  },
+  "spreads_q1 | gap 7+ | 2024": {
+   "w": 40,
+   "l": 36,
+   "roi": 2.7
+  },
+  "spreads_q1 | gap 7+ | 2025": {
+   "w": 62,
+   "l": 54,
+   "roi": 3.5
+  },
+  "spreads_q1 | gap 7+ | at best of FD/Caesars/DK": {
+   "w": 147,
+   "l": 147,
+   "roi": -4.4
+  },
+  "spreads_q1 | gap 7+ | away": {
+   "w": 81,
+   "l": 84,
+   "roi": -4.4
+  },
+  "spreads_q1 | gap 7+ | home": {
+   "w": 120,
+   "l": 102,
+   "roi": 5.1
+  },
+  "team_totals | gap 4-7": {
+   "w": 690,
+   "l": 730,
+   "roi": -6.0
+  },
+  "team_totals | gap 4-7 | 2023": {
+   "w": 246,
+   "l": 283,
+   "roi": -9.9
+  },
+  "team_totals | gap 4-7 | 2024": {
+   "w": 220,
+   "l": 240,
+   "roi": -7.3
+  },
+  "team_totals | gap 4-7 | 2025": {
+   "w": 224,
+   "l": 207,
+   "roi": 0.2
+  },
+  "team_totals | gap 4-7 | at best of FD/Caesars/DK": {
+   "w": 531,
+   "l": 547,
+   "roi": -5.9
+  },
+  "team_totals | gap 4-7 | over": {
+   "w": 416,
+   "l": 447,
+   "roi": -7.0
+  },
+  "team_totals | gap 4-7 | under": {
+   "w": 274,
+   "l": 283,
+   "roi": -4.3
+  },
+  "team_totals | gap 7+": {
+   "w": 144,
+   "l": 135,
+   "roi": 0.7
+  },
+  "team_totals | gap 7+ | 2023": {
+   "w": 59,
+   "l": 50,
+   "roi": 5.2
+  },
+  "team_totals | gap 7+ | 2024": {
+   "w": 35,
+   "l": 37,
+   "roi": -5.6
+  },
+  "team_totals | gap 7+ | 2025": {
+   "w": 50,
+   "l": 48,
+   "roi": 0.3
+  },
+  "team_totals | gap 7+ | at best of FD/Caesars/DK": {
+   "w": 103,
+   "l": 98,
+   "roi": -2.0
+  },
+  "team_totals | gap 7+ | over": {
+   "w": 81,
+   "l": 84,
+   "roi": -4.3
+  },
+  "team_totals | gap 7+ | under": {
+   "w": 63,
+   "l": 51,
+   "roi": 7.8
+  },
+  "totals_h1 | gap 4-7": {
+   "w": 421,
+   "l": 428,
+   "roi": -3.8
+  },
+  "totals_h1 | gap 4-7 | 2022": {
+   "w": 3,
+   "l": 3,
+   "roi": -2.8
+  },
+  "totals_h1 | gap 4-7 | 2023": {
+   "w": 152,
+   "l": 144,
+   "roi": -0.3
+  },
+  "totals_h1 | gap 4-7 | 2024": {
+   "w": 148,
+   "l": 146,
+   "roi": -2.3
+  },
+  "totals_h1 | gap 4-7 | 2025": {
+   "w": 118,
+   "l": 135,
+   "roi": -9.7
+  },
+  "totals_h1 | gap 4-7 | at best of FD/Caesars/DK": {
+   "w": 305,
+   "l": 286,
+   "roi": -0.9
+  },
+  "totals_h1 | gap 4-7 | over": {
+   "w": 142,
+   "l": 131,
+   "roi": 0.5
+  },
+  "totals_h1 | gap 4-7 | under": {
+   "w": 279,
+   "l": 297,
+   "roi": -5.8
+  },
+  "totals_h1 | gap 7+": {
+   "w": 1344,
+   "l": 1301,
+   "roi": -1.3
+  },
+  "totals_h1 | gap 7+ | 2022": {
+   "w": 6,
+   "l": 7,
+   "roi": -10.9
+  },
+  "totals_h1 | gap 7+ | 2023": {
+   "w": 410,
+   "l": 422,
+   "roi": -4.1
+  },
+  "totals_h1 | gap 7+ | 2024": {
+   "w": 420,
+   "l": 423,
+   "roi": -3.0
+  },
+  "totals_h1 | gap 7+ | 2025": {
+   "w": 508,
+   "l": 449,
+   "roi": 2.9
+  },
+  "totals_h1 | gap 7+ | at best of FD/Caesars/DK": {
+   "w": 905,
+   "l": 890,
+   "roi": -3.1
+  },
+  "totals_h1 | gap 7+ | over": {
+   "w": 666,
+   "l": 653,
+   "roi": -2.1
+  },
+  "totals_h1 | gap 7+ | under": {
+   "w": 678,
+   "l": 648,
+   "roi": -0.5
+  },
+  "totals_q1 | gap 4-7": {
+   "w": 560,
+   "l": 527,
+   "roi": -0.0
+  },
+  "totals_q1 | gap 4-7 | 2022": {
+   "w": 3,
+   "l": 9,
+   "roi": -51.8
+  },
+  "totals_q1 | gap 4-7 | 2023": {
+   "w": 243,
+   "l": 201,
+   "roi": 6.4
+  },
+  "totals_q1 | gap 4-7 | 2024": {
+   "w": 199,
+   "l": 211,
+   "roi": -5.2
+  },
+  "totals_q1 | gap 4-7 | 2025": {
+   "w": 115,
+   "l": 106,
+   "roi": -0.6
+  },
+  "totals_q1 | gap 4-7 | at best of FD/Caesars/DK": {
+   "w": 385,
+   "l": 353,
+   "roi": -0.4
+  },
+  "totals_q1 | gap 4-7 | over": {
+   "w": 259,
+   "l": 249,
+   "roi": -1.6
+  },
+  "totals_q1 | gap 4-7 | under": {
+   "w": 301,
+   "l": 278,
+   "roi": 1.3
+  },
+  "totals_q1 | gap 7+": {
+   "w": 906,
+   "l": 885,
+   "roi": -2.1
+  },
+  "totals_q1 | gap 7+ | 2022": {
+   "w": 4,
+   "l": 5,
+   "roi": -14.1
+  },
+  "totals_q1 | gap 7+ | 2023": {
+   "w": 229,
+   "l": 240,
+   "roi": -5.1
+  },
+  "totals_q1 | gap 7+ | 2024": {
+   "w": 276,
+   "l": 284,
+   "roi": -4.4
+  },
+  "totals_q1 | gap 7+ | 2025": {
+   "w": 397,
+   "l": 356,
+   "roi": 1.5
+  },
+  "totals_q1 | gap 7+ | at best of FD/Caesars/DK": {
+   "w": 587,
+   "l": 571,
+   "roi": -3.5
+  },
+  "totals_q1 | gap 7+ | over": {
+   "w": 340,
+   "l": 357,
+   "roi": -5.9
+  },
+  "totals_q1 | gap 7+ | under": {
+   "w": 566,
+   "l": 528,
+   "roi": 0.3
+  }
+ }
+}

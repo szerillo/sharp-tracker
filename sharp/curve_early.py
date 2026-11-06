@@ -18,6 +18,7 @@ def main():
     c = sqlite3.connect(os.path.join(ROOT, 'data', 'oddsapi', 'odds.sqlite'))
     LS = json.load(open(os.path.join(ROOT, 'data', 'state', 'linescores.json'))).get(sp, {})
     RES = {r[0]: r[1:] for r in c.execute("SELECT game_id, espn_id, home_score, away_score FROM results")}
+    FULL = {r[0]: r[1:] for r in c.execute("SELECT game_id, pin_close_tot, pin_close_sp FROM games WHERE sport=?", (sp,))}
     full = CL.pool(sp); bys = {se: [p for p in full[0] if p[0] != se] for se in {p[0] for p in full[0]}}
     H = collections.defaultdict(lambda: [0, 0, 0.0]); CAL = []; n = 0
     for l in lines(path):
@@ -30,11 +31,43 @@ def main():
         pin = B.get('pinnacle') or {}
         T = next((o['point'] for o in pin.get('totals', []) if o['name'] == 'Over'), None)
         S = next((o['point'] for o in pin.get('spreads', []) if o['name'] == d['home']), None)
+        if T is None or S is None:          # 10-minute files carry no full-game market: Pinnacle's close from odds.sqlite (10-15 minutes later at most)
+            T, S = FULL.get(d['game_id'], (None, None))
         if T is None or S is None: continue
         n += 1; se = season(sp, d['start'])
         for mk, outs in pin.items():
             kind, per = parse_mk(mk)
-            if kind not in ('total', 'team') or mk in ('totals',): continue
+            if kind not in ('total', 'team', 'spread') or mk in ('totals', 'spreads'): continue
+            if kind == 'spread':
+                if per not in PER.get(sp, {}): continue
+                prd = PER[sp][per]
+                CL._POOL[sp] = (bys.get(se, full[0]), full[1], full[2]); vals = CL.curve(sp, T, S, 'spread', prd); CL._POOL[sp] = full
+                if len(vals) < 100: continue
+                i0, k = prd
+                if len(ls['h']) < i0 + k or len(ls['a']) < i0 + k: continue
+                marg = sum(ls['h'][i0:i0 + k]) - sum(ls['a'][i0:i0 + k])
+                P2 = {o['name']: o for o in outs if o.get('point') is not None}
+                ho, ao = P2.get(d['home']), P2.get(d['away'])
+                if not ho or not ao or ho['point'] != -ao['point']: continue
+                ln = ho['point']; thr = -ln
+                import bisect
+                lo_, hi_ = bisect.bisect_left(vals, thr), bisect.bisect_right(vals, thr); N_ = len(vals)
+                p_home = ((N_ - hi_) / N_) / max(1e-9, 1 - (hi_ - lo_) / N_)
+                q_home = (1 / ho['price']) / (1 / ho['price'] + 1 / ao['price'])
+                c_ = marg + ln
+                if c_ != 0: CAL.append((mk, min(max(q_home, .02), .98), min(max(p_home, .02), .98), 1 if c_ > 0 else 0))
+                for side, pc, q, price in (('home', p_home, q_home, ho['price']), ('away', 1 - p_home, 1 - q_home, ao['price'])):
+                    gap = pc - q
+                    if gap < 0.04: continue
+                    won = 0.5 if c_ == 0 else 1 if (c_ > 0) == (side == 'home') else 0
+                    band = 'gap 7+' if gap >= 0.07 else 'gap 4-7'
+                    for k_ in (f'{mk} | {band}', f'{mk} | {band} | {side}', f'{mk} | {band} | {se}'):
+                        x = H[k_]; x[0] += won == 1; x[1] += won == 0; x[2] += (price - 1) if won == 1 else -1 if won == 0 else 0
+                    nm_ = d['home'] if side == 'home' else d['away']; sl = ln if side == 'home' else -ln
+                    us = [o['price'] for b in US for o in (B.get(b) or {}).get(mk, []) if o['name'] == nm_ and o.get('point') == sl]
+                    if us:
+                        x = H[f'{mk} | {band} | at best of FD/Caesars/DK']; bp = max(us); x[0] += won == 1; x[1] += won == 0; x[2] += (bp - 1) if won == 1 else -1 if won == 0 else 0
+                continue
             if kind == 'total' and per not in PER.get(sp, {}): continue
             prd = PER[sp][per] if per else None
             if kind == 'team' and per is not None: continue          # full-game team totals only

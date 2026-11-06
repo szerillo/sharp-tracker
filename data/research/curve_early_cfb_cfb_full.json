@@ -1,0 +1,387 @@
+{
+ "games": 2329,
+ "blend": {
+  "spreads_h1": {
+   "n": 2164,
+   "w_pin": 0.61,
+   "w_curve": 0.2,
+   "z": 0.65
+  },
+  "spreads_q1": {
+   "n": 2141,
+   "w_pin": 1.67,
+   "w_curve": 0.29,
+   "z": 1.47
+  },
+  "team_totals": {
+   "n": 4340,
+   "w_pin": 0.38,
+   "w_curve": 0.44,
+   "z": 2.54
+  },
+  "totals_h1": {
+   "n": 2138,
+   "w_pin": 0.31,
+   "w_curve": 0.42,
+   "z": 1.41
+  },
+  "totals_q1": {
+   "n": 2105,
+   "w_pin": 0.77,
+   "w_curve": 0.57,
+   "z": 2.14
+  }
+ },
+ "bets": {
+  "spreads_h1 | gap 4-7": {
+   "w": 257,
+   "l": 233,
+   "roi": 2.8
+  },
+  "spreads_h1 | gap 4-7 | 2023": {
+   "w": 83,
+   "l": 76,
+   "roi": 2.9
+  },
+  "spreads_h1 | gap 4-7 | 2024": {
+   "w": 95,
+   "l": 95,
+   "roi": -2.1
+  },
+  "spreads_h1 | gap 4-7 | 2025": {
+   "w": 79,
+   "l": 62,
+   "roi": 9.2
+  },
+  "spreads_h1 | gap 4-7 | at best of FD/Caesars/DK": {
+   "w": 133,
+   "l": 107,
+   "roi": 7.8
+  },
+  "spreads_h1 | gap 4-7 | away": {
+   "w": 169,
+   "l": 155,
+   "roi": 1.9
+  },
+  "spreads_h1 | gap 4-7 | home": {
+   "w": 88,
+   "l": 78,
+   "roi": 4.5
+  },
+  "spreads_h1 | gap 7+": {
+   "w": 60,
+   "l": 58,
+   "roi": 0.6
+  },
+  "spreads_h1 | gap 7+ | 2023": {
+   "w": 14,
+   "l": 15,
+   "roi": -5.3
+  },
+  "spreads_h1 | gap 7+ | 2024": {
+   "w": 18,
+   "l": 21,
+   "roi": -8.1
+  },
+  "spreads_h1 | gap 7+ | 2025": {
+   "w": 28,
+   "l": 22,
+   "roi": 10.8
+  },
+  "spreads_h1 | gap 7+ | at best of FD/Caesars/DK": {
+   "w": 33,
+   "l": 28,
+   "roi": 5.7
+  },
+  "spreads_h1 | gap 7+ | away": {
+   "w": 42,
+   "l": 44,
+   "roi": -3.5
+  },
+  "spreads_h1 | gap 7+ | home": {
+   "w": 18,
+   "l": 14,
+   "roi": 11.5
+  },
+  "spreads_q1 | gap 4-7": {
+   "w": 315,
+   "l": 332,
+   "roi": -4.6
+  },
+  "spreads_q1 | gap 4-7 | 2023": {
+   "w": 86,
+   "l": 99,
+   "roi": -8.8
+  },
+  "spreads_q1 | gap 4-7 | 2024": {
+   "w": 125,
+   "l": 132,
+   "roi": -5.1
+  },
+  "spreads_q1 | gap 4-7 | 2025": {
+   "w": 104,
+   "l": 101,
+   "roi": -0.3
+  },
+  "spreads_q1 | gap 4-7 | at best of FD/Caesars/DK": {
+   "w": 216,
+   "l": 242,
+   "roi": -6.3
+  },
+  "spreads_q1 | gap 4-7 | away": {
+   "w": 165,
+   "l": 171,
+   "roi": -4.1
+  },
+  "spreads_q1 | gap 4-7 | home": {
+   "w": 150,
+   "l": 161,
+   "roi": -5.2
+  },
+  "spreads_q1 | gap 7+": {
+   "w": 250,
+   "l": 245,
+   "roi": -0.7
+  },
+  "spreads_q1 | gap 7+ | 2023": {
+   "w": 72,
+   "l": 85,
+   "roi": -10.8
+  },
+  "spreads_q1 | gap 7+ | 2024": {
+   "w": 88,
+   "l": 82,
+   "roi": 2.0
+  },
+  "spreads_q1 | gap 7+ | 2025": {
+   "w": 90,
+   "l": 78,
+   "roi": 5.9
+  },
+  "spreads_q1 | gap 7+ | at best of FD/Caesars/DK": {
+   "w": 172,
+   "l": 184,
+   "roi": -4.0
+  },
+  "spreads_q1 | gap 7+ | away": {
+   "w": 129,
+   "l": 130,
+   "roi": -3.2
+  },
+  "spreads_q1 | gap 7+ | home": {
+   "w": 121,
+   "l": 115,
+   "roi": 2.0
+  },
+  "team_totals | gap 4-7": {
+   "w": 525,
+   "l": 519,
+   "roi": -0.9
+  },
+  "team_totals | gap 4-7 | 2023": {
+   "w": 174,
+   "l": 140,
+   "roi": 8.4
+  },
+  "team_totals | gap 4-7 | 2024": {
+   "w": 176,
+   "l": 178,
+   "roi": -1.6
+  },
+  "team_totals | gap 4-7 | 2025": {
+   "w": 175,
+   "l": 201,
+   "roi": -8.0
+  },
+  "team_totals | gap 4-7 | at best of FD/Caesars/DK": {
+   "w": 342,
+   "l": 316,
+   "roi": -0.9
+  },
+  "team_totals | gap 4-7 | over": {
+   "w": 261,
+   "l": 272,
+   "roi": -2.7
+  },
+  "team_totals | gap 4-7 | under": {
+   "w": 264,
+   "l": 247,
+   "roi": 1.0
+  },
+  "team_totals | gap 7+": {
+   "w": 177,
+   "l": 147,
+   "roi": 9.4
+  },
+  "team_totals | gap 7+ | 2023": {
+   "w": 46,
+   "l": 44,
+   "roi": 1.1
+  },
+  "team_totals | gap 7+ | 2024": {
+   "w": 67,
+   "l": 50,
+   "roi": 13.8
+  },
+  "team_totals | gap 7+ | 2025": {
+   "w": 64,
+   "l": 53,
+   "roi": 11.4
+  },
+  "team_totals | gap 7+ | at best of FD/Caesars/DK": {
+   "w": 84,
+   "l": 79,
+   "roi": -1.7
+  },
+  "team_totals | gap 7+ | over": {
+   "w": 104,
+   "l": 99,
+   "roi": 2.9
+  },
+  "team_totals | gap 7+ | under": {
+   "w": 73,
+   "l": 48,
+   "roi": 20.3
+  },
+  "totals_h1 | gap 4-7": {
+   "w": 228,
+   "l": 214,
+   "roi": -0.7
+  },
+  "totals_h1 | gap 4-7 | 2023": {
+   "w": 78,
+   "l": 69,
+   "roi": 2.2
+  },
+  "totals_h1 | gap 4-7 | 2024": {
+   "w": 83,
+   "l": 67,
+   "roi": 6.2
+  },
+  "totals_h1 | gap 4-7 | 2025": {
+   "w": 67,
+   "l": 78,
+   "roi": -10.7
+  },
+  "totals_h1 | gap 4-7 | at best of FD/Caesars/DK": {
+   "w": 94,
+   "l": 95,
+   "roi": -4.0
+  },
+  "totals_h1 | gap 4-7 | over": {
+   "w": 95,
+   "l": 85,
+   "roi": 1.0
+  },
+  "totals_h1 | gap 4-7 | under": {
+   "w": 133,
+   "l": 129,
+   "roi": -1.8
+  },
+  "totals_h1 | gap 7+": {
+   "w": 63,
+   "l": 61,
+   "roi": -1.4
+  },
+  "totals_h1 | gap 7+ | 2023": {
+   "w": 27,
+   "l": 22,
+   "roi": 7.1
+  },
+  "totals_h1 | gap 7+ | 2024": {
+   "w": 14,
+   "l": 23,
+   "roi": -26.5
+  },
+  "totals_h1 | gap 7+ | 2025": {
+   "w": 22,
+   "l": 16,
+   "roi": 12.2
+  },
+  "totals_h1 | gap 7+ | at best of FD/Caesars/DK": {
+   "w": 29,
+   "l": 27,
+   "roi": -0.0
+  },
+  "totals_h1 | gap 7+ | over": {
+   "w": 12,
+   "l": 20,
+   "roi": -27.6
+  },
+  "totals_h1 | gap 7+ | under": {
+   "w": 51,
+   "l": 41,
+   "roi": 7.8
+  },
+  "totals_q1 | gap 4-7": {
+   "w": 296,
+   "l": 212,
+   "roi": 10.5
+  },
+  "totals_q1 | gap 4-7 | 2023": {
+   "w": 89,
+   "l": 66,
+   "roi": 8.8
+  },
+  "totals_q1 | gap 4-7 | 2024": {
+   "w": 117,
+   "l": 66,
+   "roi": 21.5
+  },
+  "totals_q1 | gap 4-7 | 2025": {
+   "w": 90,
+   "l": 80,
+   "roi": 0.2
+  },
+  "totals_q1 | gap 4-7 | at best of FD/Caesars/DK": {
+   "w": 180,
+   "l": 119,
+   "roi": 15.5
+  },
+  "totals_q1 | gap 4-7 | over": {
+   "w": 77,
+   "l": 55,
+   "roi": 13.0
+  },
+  "totals_q1 | gap 4-7 | under": {
+   "w": 219,
+   "l": 157,
+   "roi": 9.6
+  },
+  "totals_q1 | gap 7+": {
+   "w": 132,
+   "l": 106,
+   "roi": 4.1
+  },
+  "totals_q1 | gap 7+ | 2023": {
+   "w": 45,
+   "l": 32,
+   "roi": 10.4
+  },
+  "totals_q1 | gap 7+ | 2024": {
+   "w": 47,
+   "l": 44,
+   "roi": -3.5
+  },
+  "totals_q1 | gap 7+ | 2025": {
+   "w": 40,
+   "l": 30,
+   "roi": 7.1
+  },
+  "totals_q1 | gap 7+ | at best of FD/Caesars/DK": {
+   "w": 86,
+   "l": 52,
+   "roi": 18.1
+  },
+  "totals_q1 | gap 7+ | over": {
+   "w": 27,
+   "l": 23,
+   "roi": 1.2
+  },
+  "totals_q1 | gap 7+ | under": {
+   "w": 105,
+   "l": 83,
+   "roi": 4.9
+  }
+ }
+}

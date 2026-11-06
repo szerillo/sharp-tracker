@@ -83,3 +83,15 @@ spread, graded on period scores:
 - cfb_tt_under_curve: 198-180, +2.5% (2023 -1.0, 2025 -2.0). Stays paper.
 - cbb_1h_total_curve: Pinnacle rarely has a CBB first-half line 2 hours out (19 fires in the 2,080 games pulled so far, 12-7). Rescore
   when the CBB pull finishes; stays tier C.
+
+## Scan of every sport's derivatives off the curve (11/6, 7am)
+Every market, both gap bands (4-7 and 7+ points), each side, at Pinnacle's price and the best of FD/Caesars/DK. Many slices, three
+seasons each, so a pocket counts only with a mechanism and every season positive. Sanity check on the CFB rule: ALL CFB first-quarter
+unders at Pinnacle 2 hours out are 1157-1054, -1.6% (the vig); the curve picks out the profitable ones, it is not a blanket under lean.
+New candidates (paper in `sharp/curve_live.py`, waiting for the 6-hour-before pull to confirm):
+- **NHL first-period puck line (spreads_p1), gap 7+:** 161-107, +10.2% at Pinnacle, +10.4% at FD/Caesars/DK (2023 +3.8, 2024 +19.4,
+  2025 +2.8 on 31). Curve weight z +2.4.
+- **NHL third-period total UNDER, gap 7+:** 241-194, +10.9%, every season positive (+17.3, +4.7, +10.3). Few US books hang third-period
+  totals pregame, so where to bet it is the open question.
+Not pockets: NBA first-quarter spreads (2025 -5.8%), NFL first-quarter spreads (+5.7%, small), CBB first-half spreads (-1% / +3.6%),
+NHL second-period totals (curve says over, loses), CFB first-quarter spreads (-0.7%).

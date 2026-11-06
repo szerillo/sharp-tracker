@@ -225,7 +225,7 @@ def main():
     cp = os.path.join(SD, 'curve_paper.jsonl')
     if os.path.exists(cp):
         for l in open(cp):
-            p = json.loads(l); mk = {'totals_h1': '1h_total', 'totals_q1': '1q_total'}.get(p['market']) or ('tt_' + (p.get('team') or 'home'))
+            p = json.loads(l); mk = {'totals_h1': '1h_total', 'totals_q1': '1q_total', 'totals_p3': '3p_total', 'spreads_p1': '1p_spread'}.get(p['market']) or ('tt_' + (p.get('team') or 'home'))
             bets.append(dict(id=f"cv:{p['key']}", src='curve', cat={'A': 'system A', 'B': 'system B', 'C': 'lean C'}.get(p.get('tier'), 'paper P'), rule=p['rule'], sport=p['sport'], event_id=p.get('espn') or p['key'],
                              game=p['game'], start=p['start'], market=mk, side=p['side'], line=p['line'], flagged=p['flagged'], venue=p.get('book') or 'Pinnacle',
                              price=round(1 / (p.get('price') or p['pin_price']), 4), won=W_(p.get('won')),

@@ -799,10 +799,12 @@ function renderToday() {
   // Derivatives off the curve (sharp/curve_live.py, 11/6). Tier C: CBB first-half totals (gap 7+), CFB first-quarter unders (gap 5+); paper: CFB team-total unders.
   const CVN = {cbb_1h_total_curve: ['First-half total off the curve', 'CBB 2023-26 at Pinnacle: 323-238, +9.8%, 3 of 3 seasons; at FD/Caesars/DK +3.5%'],
     cfb_q1_under_curve: ['First-quarter under off the curve', 'CFB 2023-25, 2 hours out: 296-189, +15.0% at Pinnacle, +19.8% at FD/Caesars/DK; every season +10% or better'],
-    cfb_tt_under_curve: ['Team-total under off the curve', 'CFB 2023-25: 210-176, +7.3%; 2025 -4.5% (paper)']};
+    cfb_tt_under_curve: ['Team-total under off the curve', 'CFB 2023-25: 210-176, +7.3%; 2025 -4.5% (paper)'],
+    nhl_p1_spread_curve: ['First-period puck line off the curve', 'NHL 2023-26 at kickoff, gap 7+: 161-107, +10.2% at Pinnacle, +10.4% at FD/Caesars/DK (paper)'],
+    nhl_p3_under_curve: ['Third-period under off the curve', 'NHL 2023-26 at kickoff, gap 7+: 241-194, +10.9%, every season positive (paper)']};
   const cvRow = r => { const CVr = window._CV && window._CV.record && window._CV.record[r.rule]; const live = r.tier !== 'P'; const pr = r.price || r.pin_price;
-    const what = r.market === 'totals_h1' ? '1H total' : r.market === 'totals_q1' ? '1Q total' : `${esc(r.team_name || '')} team total`;
-    return sRow({id: `cv|${r.key}`, start: r.start, sportLabel: (r.sport || '').toUpperCase(), game: esc(r.game), bet: `${r.side === 'over' ? 'Over' : 'Under'} ${r.line} ${what}`,
+    const what = r.market === 'totals_h1' ? '1H total' : r.market === 'totals_q1' ? '1Q total' : r.market === 'totals_p3' ? '3rd-period total' : r.market === 'spreads_p1' ? '1st period' : `${esc(r.team_name || '')} team total`;
+    return sRow({id: `cv|${r.key}`, start: r.start, sportLabel: (r.sport || '').toUpperCase(), game: esc(r.game), bet: r.market.startsWith('spreads') ? `${esc(r.team_name || r.side)} ${r.line > 0 ? '+' : ''}${r.line} ${what}` : `${r.side === 'over' ? 'Over' : 'Under'} ${r.line} ${what}`,
       sub: `${(CVN[r.rule] || [r.rule])[0]} · ${live ? 'tier ' + r.tier : 'paper'}`, gone: !live, status: live ? null : ['gone', 'Paper: no units until it has a forward record'],
       size: live ? unitText(['A', 'B'].includes(r.tier) ? SLIP.big : SLIP.small, 1 / pr) : '', price: `<b>${toAm(1 / pr)}</b> <span class="small dim">${r.book ? VS(r.book) : 'Pinnacle'}</span>`, link: r.book ? betLink(r.book, r.espn, 'total') : '',
       why: `The full game (total ${r.full_total}, home ${r.full_spread > 0 ? '+' : ''}${r.full_spread}) puts the ${r.side} at ${(100 * r.curve).toFixed(1)}%; Pinnacle's no-vig is ${(100 * r.pin_fair).toFixed(1)}% (${r.gap} points off the curve)`,
