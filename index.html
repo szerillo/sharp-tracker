@@ -415,7 +415,8 @@ const facts = L => `<dl class="facts">${L.filter(x => x && x[1]).map(([k, v]) =>
 const SHEAD = `<thead><tr><th>Start</th><th class="c-game">Game</th><th>Bet</th><th>Size</th><th>Price</th><th class="c-why">Why it flagged</th><th class="c-rec">Record</th></tr></thead>`;
 function sRow(o) {
   const id = String(o.id).replace(/['"\\]/g, ''), open = window._wo[id];
-  const head = `<tr class="erow${o.gone ? ' gone' : ''}${o.detail ? ' click' : ''}"${o.detail ? ` onclick="_wo['${id}']=!_wo['${id}'];draw()"` : ''}>
+  const started = o.start && new Date(o.start) <= Date.now();
+  const head = `<tr class="erow${o.gone ? ' gone' : ''}${o.detail ? ' click' : ''}"${started ? ' data-live="1"' : ''}${o.detail ? ` onclick="_wo['${id}']=!_wo['${id}'];draw()"` : ''}>
     <td class="c-when"><b>${TM(o.start)}</b><div class="small dim">${until(o.start)}</div></td>
     <td class="c-game"><span class="badge b-sport">${esc(o.sportLabel)}</span> <span class="small">${o.game}</span></td>
     <td class="c-bet">${o.detail ? `<span class="chev">${open ? '▾' : '▸'}</span>` : ''}<span class="bet">${o.bet}</span><div class="small dim">${o.sub || ''}</div>${o.status ? `<div class="stat stat-${o.status[0]}">${o.status[1]}</div>` : ''}<div class="small dim show-m">${esc(o.sportLabel)} · ${o.game}</div></td>
@@ -425,7 +426,9 @@ function sRow(o) {
     <td class="c-rec">${o.rec || ''}</td></tr>`;
   return open && o.detail ? head + `<tr class="det"><td colspan="7">${o.detail}</td></tr>` : head;
 }
-const sTable = rows => `<div class="sec"><table class="slipt">${SHEAD}<tbody>${rows.join('')}</tbody></table></div>`;
+// 11/5 (Sean): in-progress games stay in every section, listed below the upcoming ones
+const sTable = rows => { const up = rows.filter(r => !r.startsWith('<tr class="erow') || !/^<tr[^>]*data-live="1"/.test(r)), live = rows.filter(r => /^<tr[^>]*data-live="1"/.test(r));
+  return `<div class="sec"><table class="slipt">${SHEAD}<tbody>${up.join('')}${live.length ? `<tr><td colspan="7" class="small dim" style="padding:8px 6px 2px;border-top:1px solid var(--line)">In progress (${live.length})</td></tr>` : ''}${live.join('')}</tbody></table></div>`; };
 function priceOf(f, g) {
   const fl = `<b>${am(f.price)}</b> <span class="small dim">${VS(f.venue)}</span>`;
   const atL = (L, p, v) => `${esc(betText({...f, line: L}, g || {}))} ${am(p)} ${VS(v)}`;
