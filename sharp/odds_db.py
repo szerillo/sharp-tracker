@@ -31,10 +31,10 @@ def raw_rows():
         for r in compact(sport, key, d): yield r
 
 
-def compact_rows():
+def compact_rows(plans=None):
     for f in sorted(glob.glob(os.path.join(OA, 'compact', '*.jsonl.gz'))):
         plan = os.path.basename(f).split('.')[0]
-        if plan == 'futures': continue
+        if plan == 'futures' or (plans and plan not in plans): continue
         try:
             with gzip.open(f, 'rt') as fh:
                 for l in fh:
@@ -61,14 +61,16 @@ def flip(B):
     return out
 
 
-def build():
+def build(plans=None, since=None):
     """Streaming: one pass over the compact files, quotes inserted as they come (unique on game, time, book), and per game only the first and
     last pre-start snapshot kept in memory (the 11/5 full backfill is ~2 GB of snapshots; the old all-in-memory build was OOM-killed)."""
     t0 = time.time()
     sys.path.insert(0, os.path.join(ROOT, 'loggers'))
-    if os.path.exists(DB): os.remove(DB)
+    inc = plans is not None          # 11/6: --add PLAN[,PLAN] --since DATE appends new games to the existing database (a full rebuild needs ~4 GB free)
+    if os.path.exists(DB) and not inc: os.remove(DB)
     conn = sqlite3.connect(DB)
-    conn.executescript("""
+    have = {r[0] for r in conn.execute("SELECT game_id FROM games")} if inc else set()
+    if not inc: conn.executescript("""
       PRAGMA journal_mode=OFF; PRAGMA synchronous=OFF;
       CREATE TABLE quotes(sport TEXT, key TEXT, game_id TEXT, t TEXT, book TEXT, ml_home REAL, ml_away REAL, ml_draw REAL, sp_line REAL, sp_home REAL, sp_away REAL, tot_line REAL, tot_over REAL, tot_under REAL);
       CREATE UNIQUE INDEX q_uni ON quotes(game_id, t, book);
@@ -80,9 +82,10 @@ def build():
     import itertools
     def keep(b):          # the part of a snapshot the games table needs
         return {k: v for k, v in b.items() if k == 'pinnacle' or k in US}
-    for r in itertools.chain(compact_rows(), raw_rows()):
+    for r in (compact_rows(plans) if inc else itertools.chain(compact_rows(), raw_rows())):
         t = r['t']
         if not t: continue
+        if inc and (r['id'] in have or (since and r['start'] < since)): continue
         n += 1
         g = G.get(r['id'])
         if g is None: g = G[r['id']] = dict(sport=r['sport'], key=r.get('key'), start=r['start'], home=r['home'], away=r['away'], n=0, ot=None, ob=None, ct=None, cb=None)
@@ -132,7 +135,7 @@ def build():
                      *(best.get('home') or (None, None)), *(best.get('away') or (None, None)),
                      (g.get('m_sp') or (None, None))[1], (g.get('m_tot') or (None, None))[1], (g.get('m_tot') or g.get('m_sp') or (None, None))[0]))
     conn.executemany("INSERT OR REPLACE INTO games VALUES (" + ','.join('?' * 25) + ")", rows)
-    conn.execute("CREATE INDEX q_game ON quotes(game_id, t)"); conn.execute("CREATE INDEX g_sport ON games(sport, start)")
+    conn.execute("CREATE INDEX IF NOT EXISTS q_game ON quotes(game_id, t)"); conn.execute("CREATE INDEX IF NOT EXISTS g_sport ON games(sport, start)")
     conn.commit()
     print(f"[odds_db] {n} snapshot rows, {len(rows)} games, by sport: {dict(collections.Counter(r[1] for r in rows))} in {time.time() - t0:.0f}s", flush=True)
     results(conn)
@@ -204,4 +207,6 @@ if __name__ == '__main__':
         for col in ('ot', 'conf', 'neutral', 'home_ab', 'away_ab', 'espn_id'):
             if col not in cols: c.execute(f"ALTER TABLE results ADD COLUMN {col} {'TEXT' if col.endswith(('_ab', '_id')) else 'INT'}")
         results(c); c.close()
+    elif '--add' in sys.argv:
+        build(plans=sys.argv[sys.argv.index('--add') + 1].split(','), since=sys.argv[sys.argv.index('--since') + 1] if '--since' in sys.argv else None)
     else: build()
