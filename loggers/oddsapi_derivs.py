@@ -21,7 +21,15 @@ FULL = {'nfl': 'spreads_h1,totals_h1,h2h_h1,team_totals,totals_q1,spreads_q1,tea
         'cbb': 'totals_h1,spreads_h1,h2h_h1,team_totals', 'cfb': 'totals_h1,spreads_h1,h2h_h1,team_totals,totals_q1,spreads_q1',
         'wnba': 'totals_h1,spreads_h1,team_totals,totals_q1', 'soccer': 'totals_h1,spreads_h1,h2h_h1,btts,draw_no_bet,team_totals,alternate_totals',
         'tennis': 'h2h_s1'}
+# 11/6 (Sean: "props too?"): player props, same snapshot, -> <sport>_props. Markets probed 11/6; CBB/CFB skipped (1-2 markets, no Pinnacle).
+PROPS = {'nfl': 'player_pass_yds,player_pass_tds,player_pass_completions,player_pass_attempts,player_pass_interceptions,player_rush_yds,player_rush_attempts,player_receptions,player_reception_yds,player_anytime_td,player_rush_reception_yds,player_pass_rush_yds',
+         'nba': 'player_points,player_rebounds,player_assists,player_threes,player_points_rebounds_assists,player_blocks,player_steals,player_points_rebounds,player_points_assists,player_rebounds_assists,player_double_double',
+         'nhl': 'player_points,player_goal_scorer_anytime,player_shots_on_goal,player_assists,player_blocked_shots,player_total_saves,player_power_play_points',
+         'mlb': 'batter_hits,batter_total_bases,batter_home_runs,batter_rbis,batter_runs_scored,batter_hits_runs_rbis,batter_walks,pitcher_strikeouts,pitcher_hits_allowed,pitcher_walks,pitcher_earned_runs,pitcher_outs,pitcher_record_a_win',
+         'wnba': 'player_points,player_rebounds,player_assists,player_threes,player_points_rebounds_assists',
+         'soccer': 'player_goal_scorer_anytime,player_first_goal_scorer,player_shots_on_target,player_shots,player_assists'}
 if '--full' in sys.argv: PLAN = FULL
+if '--props' in sys.argv: PLAN = PROPS
 SINCE = '2023-05-03'
 
 
@@ -46,7 +54,7 @@ def get(url):
 
 def main():
     if not KEY: raise SystemExit('ODDS_API_KEY not set')
-    floor = int(arg('--floor', '12000')); sports = [a for a in sys.argv[1:] if a in PLAN]; suffix = '_full' if '--full' in sys.argv else ''
+    floor = int(arg('--floor', '12000')); sports = [a for a in sys.argv[1:] if a in PLAN]; suffix = '_full' if '--full' in sys.argv else '_props' if '--props' in sys.argv else ''
     os.makedirs(OUTD, exist_ok=True); conn = sqlite3.connect(DB) if os.path.exists(DB) else None
     now = dt.datetime.now(dt.timezone.utc).strftime('%Y-%m-%dT%H:%M:%SZ')
     for sp in sports:
