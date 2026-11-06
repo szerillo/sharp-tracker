@@ -30,3 +30,11 @@ Every other derivative tracks the full game as well as the full game itself is p
 - A better curve before calling anything else efficient: more seasons (ESPN period scores back to 2020 for the curve history only),
   and key-number aware scoring distributions for football.
 - The earlier-snapshot pull (research agenda section 4): derivatives may sit off the curve hours before the start and be fixed by kickoff.
+
+## Update (11/6, 3am): curve history back to 2020
+ESPN period scores pulled back to 2020 for NFL, CFB and WNBA, so the curve uses every past season (NFL 1,781 games, CFB 4,861).
+- NFL team totals: the curve signal disappears (curve weight -0.19, z -0.7). The +14% from the 2023-25-only curve was noise.
+- CFB team totals hold (curve weight +0.45, z +2.6). With the better curve, the edge is in UNDERS: Pinnacle team-total unders where the
+  curve is 5+ points lower: 210-176, +7.3% (2023 +10.6%, 2024 +15.4%, 2025 -4.5%); team totals 27.5+ 121-92, +13.1%.
+- CFB first-quarter totals: curve 5+ points lower than Pinnacle: unders 222-171, +6.2%, every season positive (+11.0, +6.8, +0.9).
+- Paper candidates: CFB Q1 total under and CFB team total under when off the curve. Live needs the curve computed per game on our tape.

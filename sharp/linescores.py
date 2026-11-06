@@ -23,7 +23,7 @@ def main():
     conn = sqlite3.connect(DB)
     for sp in [a for a in sys.argv[1:] if a in LG]:
         have = S.setdefault(sp, {})
-        rows = conn.execute("SELECT r.espn_id, g.start FROM games g JOIN results r USING(game_id) WHERE g.sport=? AND g.start>='2023-05-03' AND r.espn_id IS NOT NULL", (sp,)).fetchall()
+        rows = conn.execute("SELECT r.espn_id, g.start FROM games g JOIN results r USING(game_id) WHERE g.sport=? AND g.start>=? AND r.espn_id IS NOT NULL", (sp, os.environ.get('LS_SINCE', '2023-05-03'))).fetchall()
         need = collections.defaultdict(set)
         for eid, start in rows:
             if str(eid) in have: continue

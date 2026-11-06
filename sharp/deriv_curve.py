@@ -48,7 +48,13 @@ def main():
         ls = LS.get(str(eid))
         if hs is None or T is None or S is None or not ls: continue
         G.append(dict(id=d['game_id'], season=season(sp, d['start']), home=d['home'], away=d['away'], T=T, S=S, hs=hs, as_=as_, ls=ls, books=d['bookmakers']))
-    print(f'{sp}: {len(G)} games with derivatives, full-game close, scores and period lines', flush=True)
+    # 11/6: the curve's history is every game with a full-game close and period scores (back to 2020 where ESPN period scores were pulled),
+    # not only the games with derivative prices; a game is still never priced with its own season
+    POOL = []
+    for gid, start, T, S, eid, hs, as_ in conn.execute("SELECT g.game_id, g.start, g.pin_close_tot, g.pin_close_sp, r.espn_id, r.home_score, r.away_score FROM games g JOIN results r USING(game_id) WHERE g.sport=? AND g.pin_close_tot IS NOT NULL AND g.pin_close_sp IS NOT NULL AND r.home_score IS NOT NULL", (sp,)):
+        ls = LS.get(str(eid))
+        if ls: POOL.append(dict(id=gid, season=season(sp, start), T=T, S=S, hs=hs, as_=as_, ls=ls))
+    print(f'{sp}: {len(G)} games with derivatives, full-game close, scores and period lines; curve history {len(POOL)} games', flush=True)
 
     def outcome_val(g, kind, per, team=None):
         """the realised quantity: total points / home margin / team points over the period (per None = full game)"""
@@ -72,7 +78,7 @@ def main():
     def curve(g, kind, per, team=None):
         key = (g['id'], kind, per, team)
         if key in cache: return cache[key]
-        tr = [x for x in G if x['season'] != g['season']]
+        tr = [x for x in POOL if x['season'] != g['season']]
         tr.sort(key=lambda x: ((x['T'] - g['T']) / Tsd) ** 2 + ((x['S'] - g['S']) / Ssd) ** 2)
         nb = tr[:max(150, len(tr) // 12)]
         vals = []
