@@ -22,7 +22,8 @@ RULES = {
     'cfb_q1_under_curve': dict(sport='cfb', key='americanfootball_ncaaf', mk='totals_q1', per=(0, 1), gap=0.05, sides=('under',), tier='A', stake=0.5),    # 11/6: B after the T-2h test (296-189, +15.0%; every season +10 to +19); A on Sean's call
     # 11/6 paper: NHL period markets off the curve at kickoff (validate at 6 hours before the start when that pull lands)
     'nhl_p1_spread_curve': dict(sport='nhl', key='icehockey_nhl', mk='spreads_p1', per=(0, 1), gap=0.07, sides=('home', 'away'), kind='spread', tier='P', stake=0.0),
-    'nhl_p3_under_curve': dict(sport='nhl', key='icehockey_nhl', mk='totals_p3', per=(2, 1), gap=0.07, sides=('under',), tier='P', stake=0.0),
+    # 11/6 9am: B after the 6-hours-before test: 243-185, +13.3%, every season (+19.7 / +5.3 / +17.9); kickoff 241-194, +10.9%
+    'nhl_p3_under_curve': dict(sport='nhl', key='icehockey_nhl', mk='totals_p3', per=(2, 1), gap=0.07, sides=('under',), tier='B', stake=0.5),
     'cfb_tt_under_curve': dict(sport='cfb', key='americanfootball_ncaaf', mk='team_totals', per=None, gap=0.05, sides=('under',), tier='P', stake=0.0),
 }
 PAPER = os.path.join(ROOT, 'data', 'state', 'curve_paper.jsonl'); OUT = os.path.join(ROOT, 'data', 'state', 'curve_live.json')
@@ -137,7 +138,7 @@ def main():
                             key = f"{tag}|{e['id']}||{side}"
                             if key in seen: continue
                             seen.add(key); new += 1
-                            rows.append(dict(key=key, rule=tag, tier=R['tier'], stake=R['stake'], sport=sp, odds_id=e['id'], espn=espn_event(sp, e['home_team'], e['away_team'], st),
+                            rows.append(dict(key=key, rule=tag, tier=R['tier'] if book else 'P', stake=R['stake'] if book else 0.0, sport=sp, odds_id=e['id'], espn=espn_event(sp, e['home_team'], e['away_team'], st),
                                              game=f"{e['away_team']} @ {e['home_team']}", start=e['commence_time'], market=R['mk'], team=None, team_name=nm_, side=side, line=sl,
                                              curve=round(pc, 3), pin_fair=round(q, 3), gap=round(100 * (pc - q), 1), full_total=T, full_spread=S,
                                              pin_price=pp_, book=book, price=price, flagged=NOW.strftime('%Y-%m-%dT%H:%M:%SZ')))
@@ -167,7 +168,7 @@ def main():
                             key = f"{tag}|{e['id']}|{team or ''}|{side}"
                             if key in seen: continue
                             seen.add(key); new += 1
-                            rows.append(dict(key=key, rule=tag, tier=R['tier'], stake=R['stake'], sport=sp, odds_id=e['id'], espn=espn_event(sp, e['home_team'], e['away_team'], st),
+                            rows.append(dict(key=key, rule=tag, tier=R['tier'] if book else 'P', stake=R['stake'] if book else 0.0, sport=sp, odds_id=e['id'], espn=espn_event(sp, e['home_team'], e['away_team'], st),      # no FD/Caesars/DK price at the line: paper
                                              game=f"{e['away_team']} @ {e['home_team']}", start=e['commence_time'], market=R['mk'], team=team,
                                              team_name=(e['home_team'] if team == 'home' else e['away_team']) if team else None, side=side, line=ln,
                                              curve=round(pc, 3), pin_fair=round(q, 3), gap=round(100 * (pc - q), 1), full_total=T, full_spread=S,

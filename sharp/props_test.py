@@ -34,6 +34,17 @@ def stat(sp, mk, p):
             gl, a = g('forwards.goals', 'defenses.goals'), g('forwards.assists', 'defenses.assists')
             return None if gl is None or a is None else gl + a
         return M.get(mk)
+    if sp == 'mlb':      # ESPN MLB box: batters carry atBats, pitchers carry innings ('fullInnings.partInnings'); no doubles/triples, so no total bases
+        pit = 'fullInnings.partInnings' in p; bat = 'atBats' in p
+        if mk.startswith('pitcher_'):
+            if not pit: return None
+            if mk == 'pitcher_outs':
+                w, _, f = str(p['fullInnings.partInnings']).partition('.'); return 3 * int(w or 0) + int(f or 0)
+            return {'pitcher_strikeouts': g('strikeouts'), 'pitcher_hits_allowed': g('hits'), 'pitcher_walks': g('walks'), 'pitcher_earned_runs': g('earnedRuns')}.get(mk)
+        if not bat or pit: return None
+        h, r_, rbi = g('hits'), g('runs'), g('RBIs')
+        if mk == 'batter_hits_runs_rbis': return None if None in (h, r_, rbi) else h + r_ + rbi
+        return {'batter_hits': h, 'batter_home_runs': g('homeRuns'), 'batter_rbis': rbi, 'batter_runs_scored': r_, 'batter_walks': g('walks')}.get(mk)
     if sp == 'soccer':
         if not p.get('appearances'): return None          # did not play: void
         return {'player_goal_scorer_anytime': g('totalGoals'), 'player_shots_on_target': g('shotsOnTarget'), 'player_shots': g('totalShots'), 'player_assists': g('goalAssists')}.get(mk)
