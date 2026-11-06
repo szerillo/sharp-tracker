@@ -1,5 +1,5 @@
 {
- "built": "2026-11-06T02:02:04Z",
+ "built": "2026-11-06T02:08:06Z",
  "rows": [
   {
    "cond": "0x43bf75f521791c9dbf8423892ee11a1cb036ace20ff03283090d79e7a4174bbe",
@@ -282,49 +282,6 @@
    "fair_board": null,
    "inside_fair": null,
    "books": null
-  },
-  {
-   "cond": "0xaad81cd350ffef5f0b3ded21bc89537c81aa880921993e3b32826c48b606df0e",
-   "slug": "nba-was-atl-2026-11-06",
-   "title": "Wizards vs. Hawks",
-   "mtype": "ml",
-   "start": "2026-11-07T00:00:00Z",
-   "bet": "Hawks ML",
-   "side": "Hawks",
-   "flagged": "2026-11-04T11:44:10Z",
-   "why": "2 top-200 accounts",
-   "proven": false,
-   "trigger": "two",
-   "n_accounts": 2,
-   "best_rank": 40,
-   "usd": 1429,
-   "paid": 0.633,
-   "ask": 0.7,
-   "status": "live",
-   "link": "https://polymarket.us/event/nba-was-atl-2026-11-06",
-   "other": null,
-   "kalshi_against": null,
-   "logged": true,
-   "event_id": "401909287",
-   "sport": "nba",
-   "league": null,
-   "away": "WSH",
-   "home": "ATL",
-   "away_name": "Washington Wizards",
-   "home_name": "Atlanta Hawks",
-   "game_start": "2026-11-07T00:00Z",
-   "side_std": "home",
-   "money_with": false,
-   "grade": "B",
-   "fair_board": null,
-   "inside_fair": null,
-   "books": {
-    "at": "2026-11-06T00:06:14Z",
-    "fair": null,
-    "q": {
-     "Kalshi": 0.75
-    }
-   }
   },
   {
    "cond": "0x153760e7ea5d8a07b8ceed9fe46440e44ad2d5f0028070b86acd53802329e1b3",
@@ -811,6 +768,49 @@
    "books": null
   },
   {
+   "cond": "0xaad81cd350ffef5f0b3ded21bc89537c81aa880921993e3b32826c48b606df0e",
+   "slug": "nba-was-atl-2026-11-06",
+   "title": "Wizards vs. Hawks",
+   "mtype": "ml",
+   "start": "2026-11-07T00:00:00Z",
+   "bet": "Hawks ML",
+   "side": "Hawks",
+   "flagged": "2026-11-04T11:44:10Z",
+   "why": "2 top-200 accounts",
+   "proven": false,
+   "trigger": "two",
+   "n_accounts": 2,
+   "best_rank": 40,
+   "usd": 1429,
+   "paid": 0.633,
+   "ask": 0.7,
+   "status": "other side",
+   "link": "https://polymarket.us/event/nba-was-atl-2026-11-06",
+   "other": {
+    "n_accounts": 1,
+    "best_rank": 55,
+    "usd": 110,
+    "first": "2026-11-06T02:07:52Z"
+   },
+   "exit_bid": 0.69,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401909287",
+   "sport": "nba",
+   "league": null,
+   "away": "WSH",
+   "home": "ATL",
+   "away_name": "Washington Wizards",
+   "home_name": "Atlanta Hawks",
+   "game_start": "2026-11-07T00:00Z",
+   "side_std": "home",
+   "money_with": false,
+   "grade": "B",
+   "fair_board": null,
+   "inside_fair": null,
+   "books": null
+  },
+  {
    "cond": "0xb9a7b47c2b3c56a902bd706745a98c3f627e6f25e3566205b362856f2804c721",
    "slug": "nfl-buf-min-2026-11-10",
    "title": "Bills vs. Vikings",
@@ -974,6 +974,11 @@
     "n": 2,
     "best_rank": 40,
     "usd": 1429
+   },
+   "away": {
+    "n": 1,
+    "best_rank": 55,
+    "usd": 110
    }
   },
   "401909288|ml": {
