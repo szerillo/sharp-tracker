@@ -1,5 +1,5 @@
 {
- "built": "2026-11-06T00:42:06Z",
+ "built": "2026-11-06T00:48:25Z",
  "rows": [
   {
    "cond": "0x090edfbd2c83252acea7f8af328f8fcb9c39e4f1f455d174a5b0bbd5cb2f7178",
@@ -104,7 +104,7 @@
    "best_rank": 21,
    "usd": 1064,
    "paid": 0.512,
-   "ask": 0.79,
+   "ask": 0.78,
    "status": "live",
    "link": "https://polymarket.us/event/nfl-jax-bal-2026-11-06",
    "other": null,
@@ -629,11 +629,7 @@
     "first": "2026-11-05T20:15:13Z"
    },
    "exit_bid": 0.48,
-   "kalshi_against": {
-    "move": 4.0,
-    "now": 51.5,
-    "state": "reversed"
-   },
+   "kalshi_against": null,
    "logged": true,
    "event_id": "401909936",
    "sport": "nba",
@@ -644,10 +640,7 @@
    "home_name": "Phoenix Suns",
    "game_start": "2026-11-06T02:00Z",
    "side_std": "away",
-   "conflict": [
-    "Kalshi move"
-   ],
-   "money_with": false,
+   "money_with": true,
    "grade": "A",
    "fair_board": 0.4864,
    "inside_fair": false,
@@ -772,6 +765,14 @@
     "best_rank": 132,
     "usd": 584
    }
+  },
+  "401909936:nba_momentum:total": {
+   "with": {
+    "n": 1,
+    "best_rank": 132,
+    "usd": 584
+   },
+   "against": null
   }
  },
  "by_event": {
