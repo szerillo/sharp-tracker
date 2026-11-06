@@ -33,6 +33,7 @@ jobs:
           mkdir -p _site/data/state
           cp index.html _site/
           cp data/state/*.json _site/data/state/ 2>/dev/null || true
+          mkdir -p _site/data/research && cp data/research/poly_pinnacle.json _site/data/research/ 2>/dev/null || true     # the sharp backtest line on the board
           cp -r docs _site/docs
           ls -la _site _site/data/state
       - uses: actions/upload-pages-artifact@v3
