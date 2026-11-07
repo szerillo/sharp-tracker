@@ -41,6 +41,19 @@ jobs:
       - uses: actions/upload-pages-artifact@v3
         with: {path: _site}
       - id: deployment
+        continue-on-error: true
+        uses: actions/deploy-pages@v4
+      # 11/7: a deploy that timed out can stay 'in progress' on GitHub's side and block every later deploy ("Please cancel <sha> first").
+      # Pages deployment ids are commit shas, so cancel any still-open one among the recent commits, then deploy again.
+      - name: clear a stuck deployment and retry
+        if: steps.deployment.outcome == 'failure'
+        env: {GH_TOKEN: '${{ github.token }}'}
+        run: |
+          for s in $(gh api "repos/${{ github.repository }}/commits?per_page=40" -q '.[].sha'); do
+            gh api -X POST "repos/${{ github.repository }}/pages/deployments/$s/cancel" >/dev/null 2>&1 && echo "cancelled stuck deployment $s"
+          done; true
+      - id: deployment2
+        if: steps.deployment.outcome == 'failure'
         uses: actions/deploy-pages@v4
   # 11/6 (Sean: "Why do we keep having things that aren't showing up on the board? We can't have that."): after every publish, open the
   # live page in a real browser and check every sized open bet in the tracker has a visible row; a phone alert and a red run if not.
