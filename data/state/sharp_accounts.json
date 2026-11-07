@@ -1,5 +1,5 @@
 {
- "built": "2026-11-07T00:50:02Z",
+ "built": "2026-11-07T00:56:58Z",
  "rows": [
   {
    "cond": "0x89b352113e523a8dff5556e0880d9f258821fed7caee81b050951f9bf294b9f4",
@@ -230,8 +230,7 @@
    "side_std": "over",
    "conflict": [
     "Kalshi bet back",
-    "Kalshi move",
-    "big money"
+    "Kalshi move"
    ],
    "money_with": false,
    "grade": "B",
@@ -281,8 +280,7 @@
    "side_std": "over",
    "conflict": [
     "Kalshi bet back",
-    "Kalshi move",
-    "big money"
+    "Kalshi move"
    ],
    "money_with": false,
    "grade": "B",
@@ -323,8 +321,7 @@
    "side_std": "over",
    "conflict": [
     "Kalshi bet back",
-    "Kalshi move",
-    "big money"
+    "Kalshi move"
    ],
    "money_with": false,
    "grade": "B",
@@ -348,7 +345,7 @@
    "best_rank": 58,
    "usd": 470,
    "paid": 0.53,
-   "ask": 0.6,
+   "ask": 0.61,
    "status": "live",
    "link": "https://polymarket.us/event/cfb-nebr-ill-2026-11-06",
    "other": null,
@@ -1320,11 +1317,7 @@
     "first": "2026-11-06T08:25:33Z"
    },
    "exit_bid": null,
-   "kalshi_against": {
-    "move": 4.5,
-    "now": 59.5,
-    "state": "held"
-   },
+   "kalshi_against": null,
    "logged": true,
    "event_id": "401909289",
    "sport": "nba",
@@ -1335,9 +1328,6 @@
    "home_name": "Cleveland Cavaliers",
    "game_start": "2026-11-07T00:30Z",
    "side_std": "home",
-   "conflict": [
-    "Kalshi move"
-   ],
    "money_with": false,
    "grade": "A",
    "fair_board": 0.4179,
@@ -1360,7 +1350,7 @@
    "best_rank": 43,
    "usd": 402,
    "paid": 0.37,
-   "ask": 0.39,
+   "ask": 0.4,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-min-nop-2026-11-06",
    "other": {
@@ -1369,7 +1359,7 @@
     "usd": 793,
     "first": "2026-11-06T20:33:18Z"
    },
-   "exit_bid": 0.38,
+   "exit_bid": 0.39,
    "kalshi_against": null,
    "logged": true,
    "event_id": "401909293",
