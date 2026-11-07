@@ -503,7 +503,7 @@ function sysRow({g, f, tag}) {
   // 11/7 (Sean): market signals around the bet from the tracker's tags (big money, Kalshi move, bet back, sharp move), with or against;
   // a Kalshi move against has been the worst tag in every group so far (7-26 combined)
   if (!window._BLT || window._BLT_built !== (BL && BL.built)) { window._BLT = Object.fromEntries(((BL && BL.rows) || []).map(b => [b.id, b.tags || []])); window._BLT_built = BL && BL.built; }
-  const mk = (window._BLT[`s:${f.fill_id}`] || []).filter(x => /^(big money|Kalshi move|bet back|sharp move) /.test(x));
+  const mk = (window._BLT[`s:${f.fill_id}`] || []).filter(x => /^(big money|Kalshi move|bet back|sharp move|sharp flag|system) /.test(x));
   // 11/7 (Sean: "we want systems & leans without a signal against it. And sharp action without signals against it"): any market signal
   // against (big money, Kalshi move, bet back, sharp move) holds the bet too, like sharp accounts against already did. Shown, graded, no size.
   const mkAgainst = mk.filter(x => x.endsWith('against')).map(x => x.replace(/ against$/, ''));
@@ -729,9 +729,10 @@ function renderToday() {
     // 11/7: market signals against, from the tracker's tags (they keep signals the live feed has dropped, e.g. FSU/BC: a Kalshi move to the
     // under first seen 11/4, no longer a live move, so the flag had shown clean)
     if (!window._BLS || window._BLS_built !== (BL && BL.built)) { window._BLS = {}; for (const b of ((BL && BL.rows) || [])) if (b.src === 'sharp' && b.event_id && b.side) {
-      const k = `${b.event_id}|${/total/.test(b.market) ? 'total' : 'side'}|${b.side}`; window._BLS[k] = [...new Set([...(window._BLS[k] || []), ...(b.tags || [])])]; } window._BLS_built = BL && BL.built; }
-    const sTags = r.mixed ? [] : (window._BLS[`${g.ev}|${/total/.test(r.rest[0].market || '') ? 'total' : 'side'}|${r.rest[0].side_std || r.rest[0].side}`] || []);
-    const sMkt = sTags.filter(x => /^(big money|Kalshi move|bet back|sharp move) against$/.test(x)).map(x => x.replace(/ against$/, ''));
+      const k = `${b.event_id}|${/total|^tt_/.test(b.market) ? 'total' : 'side'}|${b.side}`; window._BLS[k] = [...new Set([...(window._BLS[k] || []), ...(b.tags || [])])]; } window._BLS_built = BL && BL.built; }
+    const sTags = r.mixed ? [] : (window._BLS[`${g.ev}|${/total|^tt_/.test(r.rest[0].market || '') ? 'total' : 'side'}|${r.rest[0].side_std || r.rest[0].side}`] || []);
+    // 11/7 (Sean, Hawks -6.5 with a top-50 account on the Nets): sharp accounts, a sharp flag or a system bet on the other side hold it too
+    const sMkt = sTags.filter(x => /^(big money|Kalshi move|bet back|sharp move|sharp accts|sharp flag|system) against$/.test(x)).map(x => x.replace(/ against$/, '').replace(/^sharp accts$/, 'sharp accounts'));
     const sharpHeld = !r.mixed && r.strong && ((r.fl && r.fl.status === 'other side') || !!(r.acct && r.acct.against) || sMkt.length > 0);
     // bought out: the market has moved 5%+ the sharps' way since they bet, so most of the edge is gone at today's price
     const pdx = r.fl && r.fl.paid != null && r.fl.ask != null ? 100 * (r.fl.ask - r.fl.paid) : null, boughtOut = !r.mixed && r.strong && !sharpHeld && pdx != null && pdx >= 5;
