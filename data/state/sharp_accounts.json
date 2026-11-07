@@ -1,5 +1,5 @@
 {
- "built": "2026-11-07T00:16:12Z",
+ "built": "2026-11-07T00:29:45Z",
  "rows": [
   {
    "cond": "0x89b352113e523a8dff5556e0880d9f258821fed7caee81b050951f9bf294b9f4",
@@ -216,7 +216,7 @@
    "best_rank": 119,
    "usd": 3150,
    "paid": 0.511,
-   "ask": 0.52,
+   "ask": 0.53,
    "status": "live",
    "link": "https://polymarket.us/event/nba-uta-dal-2026-11-06",
    "other": null,
@@ -238,8 +238,8 @@
    ],
    "money_with": false,
    "grade": "B",
-   "fair_board": 0.5084,
    "inside_fair": false,
+   "fair_board": 0.5084,
    "books": {
     "at": "2026-11-07T00:03:23Z",
     "fair": 0.5084,
@@ -388,7 +388,7 @@
    "best_rank": 4,
    "usd": 150,
    "paid": 0.48,
-   "ask": 0.5,
+   "ask": 0.52,
    "status": "live",
    "link": "https://polymarket.us/event/cbb-stmn-minnst-2026-11-06",
    "other": null,
@@ -425,7 +425,7 @@
    "best_rank": 4,
    "usd": 427,
    "paid": 0.52,
-   "ask": 0.53,
+   "ask": 0.52,
    "status": "live",
    "link": "https://polymarket.us/event/cbb-south-tcu-2026-11-06",
    "other": null,
@@ -462,7 +462,7 @@
    "best_rank": 93,
    "usd": 286,
    "paid": 0.882,
-   "ask": 0.9,
+   "ask": 0.91,
    "status": "live",
    "link": "https://polymarket.us/event/nba-sas-sac-2026-11-06",
    "other": null,
@@ -580,7 +580,7 @@
    "best_rank": 132,
    "usd": 113,
    "paid": 0.041,
-   "ask": 0.041,
+   "ask": 0.042,
    "status": "live",
    "link": "https://polymarket.us/event/epl-ars-hul-2026-11-07",
    "other": null,
@@ -1322,7 +1322,7 @@
    "best_rank": 31,
    "usd": 1715,
    "paid": 0.425,
-   "ask": 0.42,
+   "ask": 0.43,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-phi-cle-2026-11-06",
    "other": {
@@ -1331,7 +1331,7 @@
     "usd": 9516,
     "first": "2026-11-06T08:25:33Z"
    },
-   "exit_bid": 0.41,
+   "exit_bid": 0.42,
    "kalshi_against": {
     "move": 4.5,
     "now": 59.5,
@@ -1353,7 +1353,7 @@
    "money_with": false,
    "grade": "A",
    "fair_board": 0.4179,
-   "inside_fair": true,
+   "inside_fair": false,
    "books": null
   },
   {
@@ -1650,26 +1650,6 @@
     "best_rank": 58,
     "usd": 500
    }
-  },
-  "401909292:nba_momentum:ml": {
-   "with": {
-    "n": 3,
-    "best_rank": 23,
-    "usd": 5693
-   },
-   "against": {
-    "n": 1,
-    "best_rank": 55,
-    "usd": 1474
-   }
-  },
-  "401909292:nba_momentum:spread": {
-   "with": {
-    "n": 2,
-    "best_rank": 40,
-    "usd": 537
-   },
-   "against": null
   }
  },
  "by_event": {
