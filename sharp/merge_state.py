@@ -3,7 +3,8 @@
 The tracker job and the signals job both write data/state/fills.jsonl and data/state/system_fired.json. Each used to commit its own
 copy whole, so whichever finished second erased the other's new bets (11/6: a Georgia Southern under and an exchange fill vanished
 this way). Run after `git fetch origin main`: every record on either side is kept, keyed by fill id / fire key. When both sides have the
-same record, the more advanced one wins (graded beats ungraded, void beats live), else this job's copy.
+same record, a graded copy wins; between ungraded copies the later-written one wins (so a re-fill after a void is not overwritten by the
+old void, and a void written after a fill is not overwritten by the old fill); a tie keeps this job's copy.
 Usage: python3 sharp/merge_state.py [ref]   (default origin/main)"""
 import json, subprocess, sys, os
 
@@ -17,7 +18,9 @@ def remote(path):
 
 
 def rank(rec):
-    return (1 if rec.get('void') or rec.get('result') == 'void' else 0) + (2 if rec.get('result') not in (None, 'void') else 0)
+    graded = rec.get('result') not in (None, 'void')
+    stamp = rec.get('void_at') or rec.get('ts_utc') or rec.get('ts') or ''
+    return (1 if graded else 0, stamp)
 
 
 def merge_fills(path='data/state/fills.jsonl'):

@@ -211,7 +211,7 @@ def main_line(eq, market, home):
 def take(conn, eq, fired, fires_now, game, ev, start, away, home, tag, market, line, side, part, stake, why):
     """One paper fill per game per tag; appends to the game view either way."""
     key = f"{ev}:{tag}"; game['triggers'][tag] = why
-    if key in fired: game['fills'].append(fired[key]); return
+    if key in fired and not fired[key].get('void'): game['fills'].append(fired[key]); return
     if line is None: return
     row = paper_fill(conn, eq, ev, start, market, line, side, part, tag, stake, why)
     if not row: return
@@ -311,12 +311,12 @@ CFB_LINE_TAGS = {'cfb_road_dog_low_total', 'cfb_road_streak_dog', 'cfb_day_over'
 
 def void_fill(fired, key, why):
     """Mark a flagged bet void (not graded, no P&L) and keep the record of why."""
-    rec = fired[key]; rec['void'] = True; rec['void_why'] = why
+    rec = fired[key]; rec['void'] = True; rec['void_why'] = why; rec['void_at'] = NOW_S     # void_at: the merge keeps the later record
     if rec.get('fill_id'):
         rows = FI.load()
         for r in rows:
             if r['fill_id'] == rec['fill_id'] and r.get('result') is None:
-                r['result'] = 'void'; r['pnl_units'] = 0.0; r['note'] = (r.get('note') or '') + f' | VOID: {why}'
+                r['result'] = 'void'; r['pnl_units'] = 0.0; r['void_at'] = NOW_S; r['note'] = (r.get('note') or '') + f' | VOID: {why}'
         FI.save(rows)
     print(f"[systems] voided {key}: {why}")
 
@@ -332,6 +332,11 @@ def paper_fill(conn, eq, ev, start, market, line, side, part, tag, stake, note, 
     if not best: return None
     b = best[0]; fr = eq.fair(market, line, side, NOW_S, part)
     imp = b['cost']; price = N.prob_to_american(imp)
+    # 11/7: a main spread / total never prices past -150 / +150 at a book; days out the only quote can be a thin exchange order (Novig 75c
+    # on a CFB total a week ahead, Kalshi 98c). Refuse those and fill later at a real price. Puck lines / run lines (+-1.5) are exempt.
+    puck = market == 'spread' and line is not None and abs(line) == 1.5
+    if market in ('spread', 'total', '1h_spread', '1h_total') and not puck and not (0.40 <= imp <= 0.60): return None
+    if fr.get('fair') is not None and imp - fr['fair'] > 0.08 and not puck: return None
     row = dict(fill_id=uuid.uuid4().hex[:12], ts_utc=NOW_S, event_id=ev, start_utc=start, market=market, mclass='game', participant=part, player_name=None,
                line=line, side=side, venue=b['venue'], price_american=price, price_decimal=round(1 / imp, 4), implied=round(imp, 5), stake=stake,
                rule_tag=f'paper:{tag}', fair_at_fill=round(fr['fair'], 5) if fr['fair'] is not None else None, fair_at_fill_status=fr['status'],
@@ -523,7 +528,7 @@ def main():
                     wind=(dict(mph=wx['wind_mph'], gust=wx.get('gust_mph'), temp_f=wx.get('temp_f'), at_h=wx['hours_to_kickoff']) if wx else None), fills=[], sport='cfb')
         if rdlt:
             why2 = f"conference game, {away} +{-sp_line} on the road, total {tl}"; game['triggers']['cfb_road_dog_low_total'] = why2; key2 = f"{ev}:cfb_road_dog_low_total"
-            if key2 in fired: game['fills'].append(fired[key2])
+            if key2 in fired and not fired[key2].get('void'): game['fills'].append(fired[key2])
             else:
                 row = paper_fill(conn, eq, ev, start, 'spread', -sp_line, 'away', away, 'cfb_road_dog_low_total', 0.5, why2)
                 if row:

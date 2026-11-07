@@ -431,12 +431,63 @@ def main():
         if S_: wk[kind] = dict(n=len(S_), w=sum(1 for b in S_ if b['won'] == 1), l=sum(1 for b in S_ if b['won'] == 0),
                                 roi=round(sum((1 / b['price'] - 1) if b['won'] == 1 else -1 if b['won'] == 0 else 0 for b in S_) / len(S_) * 100, 1),
                                 clv_nv=round(sum(c_) / len(c_), 2) if c_ else None, clv_n=len(c_))
-    out = dict(built=NOW.strftime('%Y-%m-%dT%H:%M:%SZ'), venues=list(VENUES), opposed=opp_summ, watch_kinds=wk,
+    tag_stats = tag_bets(bets)
+    out = dict(built=NOW.strftime('%Y-%m-%dT%H:%M:%SZ'), venues=list(VENUES), opposed=opp_summ, watch_kinds=wk, tag_stats=tag_stats,
                summary={k: summ(v) for k, v in sorted(groups.items())},
                rows=sorted(bets, key=lambda b: b['start'], reverse=True))
     json.dump(out, open(OUT, 'w'), separators=(',', ':'), default=str)
     s = out['summary'].get('all|all|all', {})
     print(f"[bet_log] {len(bets)} flagged bets ({s.get('graded')} graded, {s.get('units')}u, CLV {s.get('clv')} on {s.get('clv_n')}); {sum(1 for b in bets if b.get('best') is not None)} with a price path")
+
+
+TAG_ORDER = ['sharp accts with', 'sharp accts against', 'big money with', 'big money against', 'Kalshi move with', 'Kalshi move against',
+             'bet back with', 'bet back against', 'sharp move with', 'sharp move against', 'any signal against', 'no signal against',
+             'system also', 'sharp flag also', 'same-market conflict', 'middle']
+
+
+def tag_bets(bets):
+    """11/7 (Sean: "lets track all aspects of these plays and backtest the sample we have"): tag every non-watch bet with the signals
+    around it, then grade the sample by tag. Market signals (big money, Kalshi move, bet back, sharp move) come from the tracker's watch
+    rows on the same game and market family (totals with totals; spread and moneyline together), first seen before the start. Sharp
+    accounts come from the with / against annotation. A sharp flag also landing on a system bet's side (or the reverse) is tagged too.
+    Flat 1 unit at the flagged price; pushes count as no result."""
+    fam = lambda m: 'total' if re.sub(r'^(1h|1q|1p)_', '', m or '') == 'total' else 'side'
+    W = collections.defaultdict(list)
+    for w in bets:
+        if w['cat'] == 'watch' and w.get('event_id') and w.get('side'): W[(str(w['event_id']), fam(w['market']))].append(w)
+    S_side = collections.defaultdict(set)
+    for b in bets:
+        if b['cat'] != 'watch' and b.get('event_id') and b.get('side'):
+            S_side[(str(b['event_id']), fam(b['market']), b['side'])].add('sharp' if b['src'] == 'sharp' else 'system')
+    for b in bets:
+        if b['cat'] == 'watch' or not b.get('event_id') or not b.get('side') or str(b.get('market', '')).startswith('prop'): continue
+        t = []
+        if b.get('with'): t.append('sharp accts with')
+        if b.get('opp'): t.append('sharp accts against')
+        f_ = fam(b['market'])
+        for w in W.get((str(b['event_id']), f_), []):
+            if (w.get('flagged') or '9') >= (b.get('start') or ''): continue
+            t.append(f"{w['rule']} {'with' if w['side'] == b['side'] else 'against'}")
+        if any(x.endswith('against') for x in t): t.append('any signal against')
+        else: t.append('no signal against')
+        others = S_side.get((str(b['event_id']), f_, b['side']), set())
+        if b['src'] == 'sharp' and 'system' in others: t.append('system also')
+        if b['src'] != 'sharp' and 'sharp' in others: t.append('sharp flag also')
+        if b.get('counted') is False: t.append('same-market conflict')
+        if b.get('middle'): t.append('middle')
+        b['tags'] = sorted(set(t), key=lambda x: TAG_ORDER.index(x) if x in TAG_ORDER else 99)
+    # the backtest of the sample: graded bets by group (systems and leans / sharp flags / everything) and tag
+    groups = {'systems and leans': lambda b: b['src'] in ('system', 'curve', 'props', 'mma', 'tennis') and b['cat'] in ('system A', 'system B', 'lean C', 'tennis'),
+              'paper rules': lambda b: b['cat'] == 'paper P', 'sharp flags': lambda b: b['src'] == 'sharp' and b['cat'] in ('sharp A', 'sharp B', 'sharp C')}
+    out = {}
+    for gname, gf in groups.items():
+        G_ = [b for b in bets if b.get('tags') is not None and gf(b) and b.get('won') is not None and b.get('price')]
+        def rec(L):
+            w = sum(1 for b in L if b['won'] == 1); l = sum(1 for b in L if b['won'] == 0)
+            u = sum((1 / b['price'] - 1) if b['won'] == 1 else -1 if b['won'] == 0 else 0 for b in L)
+            return dict(n=w + l, w=w, l=l, roi=round(100 * u / max(1, w + l), 1))
+        out[gname] = dict(all=rec(G_), tags={tg: rec([b for b in G_ if tg in b['tags']]) for tg in TAG_ORDER if any(tg in b['tags'] for b in G_)})
+    return out
 
 
 def sharps_against(bets, S):
