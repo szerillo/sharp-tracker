@@ -125,6 +125,8 @@
   .facts{display:grid;grid-template-columns:140px 1fr;gap:4px 14px;margin:0;max-width:960px} .facts dt{color:var(--muted)} .facts dd{margin:0}
   .show-m{display:none}
   .stat{display:inline-block;margin-top:5px;padding:2px 9px;border-radius:6px;font:600 12px Poppins,sans-serif;line-height:1.5}
+  .cardgrid{display:grid;grid-template-columns:1fr 1fr;gap:14px;align-items:start} @media (max-width:1150px){.cardgrid{grid-template-columns:1fr}}
+  .cardcol{font-weight:700;font-size:15px;margin:2px 0 6px}
   .act{display:inline-block;margin-top:4px;padding:1px 7px;border-radius:999px;font-size:11px;font-weight:700;letter-spacing:.02em;white-space:nowrap}
   .act-bet{background:var(--green,#16a34a);color:#fff} .act-hold{background:var(--badbg);color:var(--badink);box-shadow:inset 0 0 0 1px var(--badbd)}
   .act-pass{background:var(--line);color:var(--ink2,#555)} .act-watch{background:transparent;color:var(--ink2,#666);box-shadow:inset 0 0 0 1px var(--line)}
@@ -869,13 +871,21 @@ function renderToday() {
   const paperOnlyExtra = [...KF.map(kRow), ...SL.map(slRow), ...PL.filter(r => !plLive(r)).map(plRow), ...CV.filter(r => r.tier === 'P').map(cvRow)];
   const sysRows = [...vet.map(sysRow), ...THb.map(hRow), ...CV.filter(r => ['A', 'B'].includes(r.tier)).map(cvRow)];
   const H = (t, meta) => `<div class="hdr2"><h2>${t}</h2><span class="meta">${meta}</span></div>`;
+  // 11/7 (Sean: "systems are the star and are buried ... a side by side of all unopposed systems and sharp ... can mix A, B, C"): the Card is
+  // every row labelled BET (sized, live, nothing against it), systems / leans / curve / props on the left and sharp flags on the right, by
+  // game time. The same rows stay in their sections below with the HOLD and PASS rows around them.
+  const isBet = r => /data-rank="0"/.test(r) && !/data-live="1"/.test(r);
+  const cardSys = [...sysRows, ...leanRows].filter(isBet), cardSharp = [...strong.map(wtr), ...conflictedFlags].filter(isBet);
+  const cardHtml = cardSys.length || cardSharp.length ? `${H('Card', `every bet to make right now, nothing against it · systems ${cardSys.length} · sharp ${cardSharp.length} · by game time · the same rows are in their sections below`)}
+    <div class="cardgrid"><div><div class="cardcol">Systems <span class="small dim">tiers A, B, C, curve and prop rules</span></div>${cardSys.length ? sTable(cardSys) : '<div class="small dim">No system bet to make right now.</div>'}</div>
+    <div><div class="cardcol">Sharp <span class="small dim">grades A, B, C with nothing against</span></div>${cardSharp.length ? sTable(cardSharp) : '<div class="small dim">No sharp flag to bet right now.</div>'}</div></div>` : '';
   window._sec = window._sec || 'all';
   const secBar = `<span class="tabs inline">${[['all', 'All'], ['sharp', 'Sharp'], ['systems', 'Systems']].map(([k, l]) => `<button class="${_sec === k ? 'on' : ''}" onclick="_sec='${k}';draw()">${l}</button>`).join('')}</span>`;
   const secFilter = h => _sec === 'sharp' ? h.replace(/<!--SY-->[\s\S]*?<!--\/SY-->/, '') : _sec === 'systems' ? h.replace(/<!--SH-->[\s\S]*?<!--\/SH-->/, '') : h;
   return secFilter(`<div class="controls topbar">${whenBar(inSport)} ${sportBar(inWhen)} ${secBar}</div>${summary.replace('__NSIG__', `${strong.length} sharp signal${strong.length === 1 ? '' : 's'}`)}
+    ${cardHtml}
     <!--SH-->    ${H('Sharp signals', `Grade A: a sport-proven sharp account or sharps + big money · B: other sharp flags · C: sharps + another signal · A 0.5u (soccer 0.25u), B and C 0.25u · paper ${SAREC}${SA && SA.record && SA.record.clv != null ? ` · CLV ${SA.record.clv > 0 ? '+' : ''}${SA.record.clv}% at Polymarket` : ''}${SA && SA.record && SA.record.n_venue ? `, ${SA.record.clv_venue > 0 ? '+' : ''}${SA.record.clv_venue} at your books (${SA.record.n_venue} flags, ${SA.record.units_venue > 0 ? '+' : ''}${SA.record.units_venue}u)` : ''}`)}
-    ${strong.length ? sTable(strong.map(wtr)) : (wrows.length ? '<div class="small dim">No market has sharp accounts on it with nothing against, right now.</div>' : emptyNote('sharp-money signals', sig.filter(x => passS(x.sport, x.league))))}
-    ${conflictedFlags.length ? `<div class="small" style="margin:10px 0 4px"><b>Sharp flags with a signal against them</b> <span class="dim">· no size until the conflict clears</span></div>${sTable(conflictedFlags)}` : ''}
+    ${strong.length || conflictedFlags.length ? sTable([...strong.map(wtr), ...conflictedFlags]) : (wrows.length ? '<div class="small dim">No market has sharp accounts on it with nothing against, right now.</div>' : emptyNote('sharp-money signals', sig.filter(x => passS(x.sport, x.league))))}
     ${others.length ? `<details class="how" ${window._wopen || (_tf.sport && !vet.length && !lean.length && !TWk.length && !strong.length) ? 'open' : ''} ontoggle="window._wopen=this.open"><summary>Other signals (${others.length}): conflicts, NBA single accounts, accounts below flag level, MMA price and money moves. Watch only.${BL && BL.watch_kinds ? ` <span class="small dim">Market-only signals graded so far: ${Object.entries(BL.watch_kinds).map(([k, v]) => `${k} ${v.w}-${v.l} (${v.roi > 0 ? '+' : ''}${v.roi}%, CLV ${v.clv_nv > 0 ? '+' : ''}${v.clv_nv})`).join(' · ')}. None has positive CLV; they stay watch-only.</span>` : ''}</summary>
       <div class="controls"><span>Sort</span><span class="tabs inline"><button class="${_ws === 'vol' ? 'on' : ''}" onclick="_ws='vol';window._wopen=true;draw()">Volume</button><button class="${_ws === 'time' ? 'on' : ''}" onclick="_ws='time';window._wopen=true;draw()">Game time</button></span></div>
       ${sTable(others.map(wtr))}</details>` : ''}
