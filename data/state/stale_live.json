@@ -1,5 +1,5 @@
 {
- "built": "2026-11-07T14:01:28Z",
+ "built": "2026-11-07T14:20:32Z",
  "record": {
   "n": 13,
   "won": 4,
@@ -194,6 +194,40 @@
    "move": 1.6,
    "flagged": "2026-11-07T14:01:28Z",
    "team": "CLE"
+  },
+  {
+   "key": "401873044|ml|home",
+   "sport": "nfl",
+   "event_id": "401873044",
+   "game": "NYG @ PHI",
+   "start": "2026-11-08T18:00Z",
+   "market": "ml",
+   "side": "home",
+   "line": null,
+   "venue": "Novig",
+   "price": 0.405,
+   "fair": 0.4187,
+   "ev": 3.4,
+   "move": 2.6,
+   "flagged": "2026-11-07T14:20:32Z",
+   "team": "PHI"
+  },
+  {
+   "key": "401873044|spread|home",
+   "sport": "nfl",
+   "event_id": "401873044",
+   "game": "NYG @ PHI",
+   "start": "2026-11-08T18:00Z",
+   "market": "spread",
+   "side": "home",
+   "line": 3,
+   "venue": "FD",
+   "price": 0.5,
+   "fair": 0.5115,
+   "ev": 2.3,
+   "move": 2.3,
+   "flagged": "2026-11-07T14:20:32Z",
+   "team": "PHI"
   }
  ]
 }
