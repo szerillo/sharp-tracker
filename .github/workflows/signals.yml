@@ -20,25 +20,23 @@ jobs:
       - uses: actions/setup-python@v5
         with: {python-version: '3.12'}
       - run: pip install -q numpy pandas
-      - name: live big-money vs small-money split on the exchanges (watch signal)
-        run: python3 sharp/flow_live.py || true
-      - name: move tape (last 3 days of the 5-minute tape; settled moves persist)
-        env: {MOVES_DAYS: '3'}
-        run: python3 sharp/moves.py || true
-      - name: missed-run check on the 5-minute tape
-        run: python3 sharp/tape_health.py || true
-      - name: tennis schedule and set-by-set results (ESPN) for grading
-        run: python3 loggers/tennis_scores.py --days-back 2 || true
-      - name: tennis set-1 watch list + paper log
-        run: python3 sharp/tennis_watch.py || true
-      - name: MMA steam favourite (Odds API current odds + Pinnacle opens)
-        env: {ODDS_API_KEY: '${{ secrets.ODDS_API_KEY }}'}
-        run: python3 sharp/mma_steam.py || true
       - name: read the latest system-bet files from main (owned by the tracker job; this checkout may predate its last commit)
         run: git fetch -q origin main && git checkout -q origin/main -- data/state/system_fires.json data/state/system_fired.json data/state/fills.jsonl data/state/sharp_accounts.json data/state/sharp_paper.jsonl || true
-      - name: late pass (Sean, 11/4) - small price database of the games starting in the next 2.5 hours, the T-90m exchange rules, fresh Price / Bet to on their fills
-        env: {BUILD_DB: data/state/soon.sqlite, BUILD_SOON_H: '2.5'}
-        run: python3 sharp/build_db.py && python3 sharp/late_pass.py || true
+      # 11/7 (Sean: "have it update quicker"): these steps read different inputs and write different files, so they run at the same time
+      # (was one after another: about 7 minutes of a 20-minute run; now about as long as the slowest, the move tape). Each one's output is
+      # printed after, in order; a failure in one never stops the others (each was '|| true' before too).
+      - name: exchange money split, move tape, tape check, tennis, MMA steam and the late pass, in parallel
+        env: {MOVES_DAYS: '3', ODDS_API_KEY: '${{ secrets.ODDS_API_KEY }}'}
+        run: |
+          mkdir -p /tmp/par
+          ( python3 sharp/flow_live.py ) > /tmp/par/1_flow.log 2>&1 &
+          ( python3 sharp/moves.py ) > /tmp/par/2_moves.log 2>&1 &
+          ( python3 sharp/tape_health.py ) > /tmp/par/3_tape.log 2>&1 &
+          ( python3 loggers/tennis_scores.py --days-back 2 && python3 sharp/tennis_watch.py ) > /tmp/par/4_tennis.log 2>&1 &
+          ( python3 sharp/mma_steam.py ) > /tmp/par/5_mma.log 2>&1 &
+          ( BUILD_DB=data/state/soon.sqlite BUILD_SOON_H=2.5 python3 sharp/build_db.py && python3 sharp/late_pass.py ) > /tmp/par/6_late.log 2>&1 &
+          wait
+          for f in /tmp/par/*.log; do echo "::group::$(basename $f)"; cat "$f"; echo "::endgroup::"; done
       - name: remove duplicate bets from the records
         run: python3 sharp/dedupe_fills.py || true
       - name: stale-book paper lean (a bettable venue 2%+ better than Pinnacle's fair right after Pinnacle moved toward the side; 11/6)
