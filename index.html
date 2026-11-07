@@ -782,8 +782,8 @@ function renderToday() {
   // 11/5 (Sean): broad rules that fire on a big slice of a slate (4+ games in view) are grouped into one collapsed block per rule so the
   // Leans table shows the one-off leans; the grouped leans are still bets at 0.25u and still in the record
   const leanCount = {}; for (const it of lean) leanCount[it.tag] = (leanCount[it.tag] || 0) + 1;
-  const leanOne = lean.filter(it => leanCount[it.tag] < 4), leanBulk = {};
-  for (const it of lean) if (leanCount[it.tag] >= 4) (leanBulk[it.tag] = leanBulk[it.tag] || []).push(it);
+  // 11/6 (Sean): nothing actionable in dropdowns: every lean shows in the Leans table, grouped rules included
+  const leanOne = lean, leanBulk = {};
   const bulkBlocks = Object.entries(leanBulk).map(([tag, L]) => { const r = (SY.rules || {})[tag] || {}, x = (SY.record || {})[tag];
     const rec = fmtRec(x) ? ` · record ${fmtRec(x)}` : ' · no graded fires yet';
     return `<details class="how" ${window['_lb_' + tag] ? 'open' : ''} ontoggle="window['_lb_${tag}']=this.open"><summary>${esc(r.desc || tag)} (${L.length} games, tier ${(r.evidence || {}).tier || '?'}, 0.25u each${rec}) · broad rule, grouped</summary>${sTable(L.map(sysRow))}</details>`; }).join('');
