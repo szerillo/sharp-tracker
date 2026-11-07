@@ -38,7 +38,12 @@ jobs:
       - name: season logs (ESPN scores + DK close) for the systems engine
         run: python3 -m sharp.season nfl nhl nba cfb cbb || true
       - name: systems engine (pre-registered rules -> paper fills)
-        run: python3 sharp/systems.py || true
+        env: {NTFY_TOPIC: '${{ secrets.NTFY_TOPIC }}'}
+        run: |     # 11/6: a crash used to pass silently; now it alerts, and the job still commits everything else
+          if ! python3 sharp/systems.py; then
+            echo "::error::Systems engine failed"
+            [ -n "$NTFY_TOPIC" ] && curl -s -H "Title: Systems engine failed" -H "Priority: high" -d "Systems engine crashed in run $GITHUB_RUN_ID; the board keeps the previous build" "https://ntfy.sh/$NTFY_TOPIC" >/dev/null || true
+          fi
       - name: import real fills from the exchanges (Novig / Kalshi keys; skips without them)
         env:
           NOVIG_KEY_ID: ${{ secrets.NOVIG_KEY_ID }}

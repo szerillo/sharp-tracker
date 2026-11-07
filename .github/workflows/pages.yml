@@ -40,3 +40,19 @@ jobs:
         with: {path: _site}
       - id: deployment
         uses: actions/deploy-pages@v4
+  # 11/6 (Sean: "Why do we keep having things that aren't showing up on the board? We can't have that."): after every publish, open the
+  # live page in a real browser and check every sized open bet in the tracker has a visible row; a phone alert and a red run if not.
+  check:
+    needs: deploy
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with: {sparse-checkout: sharp/board_check.js, sparse-checkout-cone-mode: false}
+      - uses: actions/setup-node@v4
+        with: {node-version: '20'}
+      - name: install the browser
+        run: npm i --no-save playwright@1.48.2 && npx playwright install --with-deps chromium
+      - name: board check (every sized open bet visible on the live page)
+        env: {NTFY_TOPIC: '${{ secrets.NTFY_TOPIC }}'}
+        run: sleep 45 && node sharp/board_check.js "${{ needs.deploy.outputs.page_url || 'https://szerillo.github.io/sharp-tracker/' }}"

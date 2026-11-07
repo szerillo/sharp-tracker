@@ -437,7 +437,8 @@ function sRow(o) {
   const id = String(o.id).replace(/['"\\]/g, ''), open = window._wo[id];
   const started = o.start && new Date(o.start) <= Date.now();
   const more = !!(o.detail || o.why || o.rec);
-  const head = `<tr class="erow${o.gone ? ' gone' : ''}${more ? ' click' : ''}"${started ? ' data-live="1"' : ''}${more ? ` onclick="_wo['${id}']=!_wo['${id}'];draw()"` : ''}>
+  const tagA = o.ev ? ` data-ev="${esc(String(o.ev))}" data-side="${esc(String(o.side || ''))}" data-sized="${o.size ? 1 : 0}"` : '';   // 11/6: read by the board check (sharp/board_check.js)
+  const head = `<tr class="erow${o.gone ? ' gone' : ''}${more ? ' click' : ''}"${tagA}${started ? ' data-live="1"' : ''}${more ? ` onclick="_wo['${id}']=!_wo['${id}'];draw()"` : ''}>
     <td class="c-when"><b>${TM(o.start)}</b><div class="small dim">${until(o.start)}</div></td>
     <td class="c-bet">${more ? `<span class="chev">${open ? '▾' : '▸'}</span>` : ''}<span class="bet">${o.bet}</span> <span class="small dim">${o.sub || ''}</span>${o.status ? ` <div class="stat stat-${o.status[0]}" style="margin-left:6px">${o.status[1]}</div>` : ''}<div class="small dim"><span class="badge b-sport">${esc(o.sportLabel)}</span> ${o.game}</div></td>
     <td class="c-size">${o.size || '<span class="dim">—</span>'}</td>
@@ -482,7 +483,7 @@ function sysRow({g, f, tag}) {
   const sp = [t && t.with ? `<span class="tag-with">${t.with.n} sharp account${t.with.n === 1 ? '' : 's'} with</span>` : '', t && t.against ? `<span class="tag-against">${t.against.n} sharp account${t.against.n === 1 ? '' : 's'} against</span>` : '',
     sm ? `<span class="tag-with">also a Grade ${sm.grade} sharp signal (${esc(sm.parts)})</span>` : ''].filter(Boolean).join(' · ');
   const trk = fmtRec(x) || `none graded${x && x.n ? ` (${x.n} open)` : ''}`;
-  return sRow({id: `s|${g.event_id}|${tag}|${f.market}`, start: g.start_utc, sportLabel: SPORT_LABEL[g.sport] || g.sport, game: `${esc(g.away_name || g.away)} @ ${esc(g.home_name || g.home)}`,
+  return sRow({id: `s|${g.event_id}|${tag}|${f.market}`, ev: g.event_id, side: f.side, start: g.start_utc, sportLabel: SPORT_LABEL[g.sport] || g.sport, game: `${esc(g.away_name || g.away)} @ ${esc(g.home_name || g.home)}`,
     bet: esc(betText(f, g)), sub: `${per} · tier ${e.tier || '?'}`,
     status: sa ? ['held', `Held: Polymarket sharps on the other side (${sa.n} account${sa.n === 1 ? '' : 's'})`] : f._conf ? ['held', 'Held: a stronger rule is on the other side']
       : f.lapsed ? ['lapsed', 'Trigger no longer met'] : f.now === null ? ['gone', 'Price gone: no bettable price'] : e.tier === 'P' ? ['gone', `Paper: ${e.paper_why || 'thin or untested forward'}`] : null,
@@ -688,7 +689,7 @@ function renderToday() {
     const lv = r.mixed ? null : (r.rest.find(y => y.kind === 'kmove' || y.kind === 'back') ? 'Kalshi' : 'AN');
     const link = r.mixed ? '' : (lv === 'Kalshi' ? betLink('Kalshi', g.ev, r.rest[0].market) : r.fl && r.fl.link ? `<a class="betbtn" target="_blank" rel="noopener" onclick="event.stopPropagation()" href="${r.fl.link}">Bet at Polymarket ↗</a>` : betLink('FD', g.ev, r.rest[0].market, 'Game page'));
     const sn = SN && SN[r.id] && SN[r.id].signals, fs = sn ? r.rest.map(y => sn[y.kind] && sn[y.kind].side === y.side && sn[y.kind].first).filter(Boolean).sort()[0] : null;
-    return sRow({id: 'w|' + r.id, start: g.start, sportLabel: SPORT_LABEL[g.sport] || g.sport, game: `${esc(g.away_name || g.away)} @ ${esc(g.home_name || g.home)}`,
+    return sRow({id: 'w|' + r.id, ev: g.ev, side: r.mixed ? '' : (r.rest[0].side_std || r.rest[0].side), start: g.start, sportLabel: SPORT_LABEL[g.sport] || g.sport, game: `${esc(g.away_name || g.away)} @ ${esc(g.home_name || g.home)}`,
       bet: r.mixed ? '<span class="mixed">Mixed, no lean</span>' : esc(yn(r.rest[0].bet)), sub: r.mixed ? [...new Set(r.rest.map(y => esc(y.bet)))].join(' vs ') : (r.strong ? `<span class="badge ${r.grade === 'A' ? 'b-fit' : r.grade === 'B' ? 'b-prior' : 'b-gate'}" style="margin-left:0">Grade ${r.grade}</span> <span class="small dim">${r.grade === 'A' ? (r.fl && (r.fl.proven || r.fl.trigger === 'proven') ? 'sport-proven sharp' : 'sharps + big money') : r.grade === 'B' ? ((r.fl && r.fl.n >= 2) ? `${r.fl.n} sharp accounts` : 'one top-50 sharp') : 'sharps + market move, no flag'}</span>${(() => { const n = r.fl && r.fl.status === 'other side' ? ((r.fl.other && r.fl.other.n_accounts) || 1) : r.acct && r.acct.against ? r.acct.against.n : 0;
       return n ? ` <span class="stat stat-held" style="margin:2px 0 0;white-space:nowrap" title="Sharp accounts have bet the opposite side of this market">${n} sharp${n === 1 ? '' : 's'} on the other side</span>` : ''; })()}` : 'Watch only'), status: r.strong || r.mixed ? null : ['gone', r.nbaSingle ? 'Watch only: NBA single account' : r.acct && r.acct.against ? 'Watch only: sharps on both sides' : r.g.sport === 'mma' ? 'Watch only: UFC has no sharp-account list' : 'Watch only: below flag level'],
       size: r.strong && x ? unitText(r.grade === 'A' && g.sport !== 'soccer' ? SLIP.big : SLIP.small, x.p) : '', price: (() => { if (!x || x.p == null) return ''; const q = {[x.venue]: x.p, ...((r.fl && r.fl.books && r.fl.books.q) || {})};
@@ -793,7 +794,7 @@ function renderToday() {
   // edge; the NHL ones stay paper (small samples)
   const plLive = r => (r.sport === 'nba' && r.market === 'player_threes') || (r.sport === 'nhl' && (r.flagged || '') >= '2026-11-06T23:00');   // 11/6 (Sean): NHL saves / shots unders tier C
   const plRow = r => { const PLr = window._PL && window._PL.record;
-    return sRow({id: `pl|${r.key}`, start: r.start, sportLabel: (r.sport || '').toUpperCase(), game: esc(r.game), bet: `${esc(r.player)} under ${r.line} ${PLN[r.market] || r.market}`, sub: `Player prop · price gap at ${VS(r.book)}, ${plLive(r) ? 'tier C' : 'paper'}`,
+    return sRow({id: `pl|${r.key}`, ev: r.espn, side: 'under', start: r.start, sportLabel: (r.sport || '').toUpperCase(), game: esc(r.game), bet: `${esc(r.player)} under ${r.line} ${PLN[r.market] || r.market}`, sub: `Player prop · price gap at ${VS(r.book)}, ${plLive(r) ? 'tier C' : 'paper'}`,
       gone: !plLive(r), status: plLive(r) ? null : ['gone', 'Paper: prop price-gap lean, no units until it has a forward record'], size: plLive(r) ? unitText(SLIP.small, 1 / r.price) : '', price: `<b>${toAm(1 / r.price)}</b> <span class="small dim">${VS(r.book)}</span>`, link: '',
       why: `${VS(r.book)} under ${toAm(1 / r.price)} vs Pinnacle's no-vig ${(100 * r.fair).toFixed(1)}% (${r.ev > 0 ? '+' : ''}${r.ev}% EV); Pinnacle under ${toAm(1 / r.pin_under)}`,
       rec: lbl('Backtest', r.sport === 'nba' ? 'NBA threes unders at FD/Caesars/DK 2023-26: 1087-938, +8.2%, 4 of 4 seasons' : 'NHL saves unders 99-54 (+24.9%); shots unders 1098-1075 (+5.3%)') + ' ' + lbl('Tracker', PLr && PLr.n ? `${PLr.won}-${PLr.lost}, ${PLr.units > 0 ? '+' : ''}${PLr.units}u` : 'no graded picks yet'),
@@ -807,7 +808,7 @@ function renderToday() {
     nhl_p3_under_curve: ['Third-period under off the curve', 'NHL 2023-26, 6 hours out: 243-185, +13.3%, every season positive (+19.7 / +5.3 / +17.9); at kickoff +10.9%']};
   const cvRow = r => { const CVr = window._CV && window._CV.record && window._CV.record[r.rule]; const live = r.tier !== 'P'; const pr = r.price || r.pin_price;
     const what = r.market === 'totals_h1' ? '1H total' : r.market === 'totals_q1' ? '1Q total' : r.market === 'totals_p3' ? '3rd-period total' : r.market === 'spreads_p1' ? '1st period' : `${esc(r.team_name || '')} team total`;
-    return sRow({id: `cv|${r.key}`, start: r.start, sportLabel: (r.sport || '').toUpperCase(), game: esc(r.game), bet: r.market.startsWith('spreads') ? `${esc(r.team_name || r.side)} ${r.line > 0 ? '+' : ''}${r.line} ${what}` : `${r.side === 'over' ? 'Over' : 'Under'} ${r.line} ${what}`,
+    return sRow({id: `cv|${r.key}`, ev: r.espn, side: r.side, start: r.start, sportLabel: (r.sport || '').toUpperCase(), game: esc(r.game), bet: r.market.startsWith('spreads') ? `${esc(r.team_name || r.side)} ${r.line > 0 ? '+' : ''}${r.line} ${what}` : `${r.side === 'over' ? 'Over' : 'Under'} ${r.line} ${what}`,
       sub: `${(CVN[r.rule] || [r.rule])[0]} · ${live ? 'tier ' + r.tier : 'paper'}`, gone: !live, status: live ? null : ['gone', 'Paper: no units until it has a forward record'],
       size: live ? unitText(['A', 'B'].includes(r.tier) ? SLIP.big : SLIP.small, 1 / pr) : '', price: `<b>${toAm(1 / pr)}</b> <span class="small dim">${r.book ? VS(r.book) : 'Pinnacle'}</span>`, link: r.book ? betLink(r.book, r.espn, 'total') : '',
       why: `The full game (total ${r.full_total}, home ${r.full_spread > 0 ? '+' : ''}${r.full_spread}) puts the ${r.side} at ${(100 * r.curve).toFixed(1)}%; Pinnacle's no-vig is ${(100 * r.pin_fair).toFixed(1)}% (${r.gap} points off the curve)`,
@@ -827,7 +828,7 @@ function renderToday() {
   const conflictedFlags = others.filter(r => r.mixed && r.rest.some(y => y.kind === 'acct')).map(r => { const g = r.g, f = r.rest.find(y => y.kind === 'acct');
     const vs = r.rest.filter(y => y.side !== f.side).map(y => `${({acct: 'sharp accounts', big: 'big money', move: 'sharp move', kmove: 'Kalshi move', back: 'Kalshi bet back'})[y.kind] || y.kind} on ${esc(y.bet)}`);
     const pd = f.paid != null && f.ask != null ? 100 * (f.ask - f.paid) : null;
-    return sRow({id: 'wc|' + r.id, start: g.start, sportLabel: SPORT_LABEL[g.sport] || g.sport, game: `${esc(g.away_name || g.away)} @ ${esc(g.home_name || g.home)}`, bet: esc(f.bet),
+    return sRow({id: 'wc|' + r.id, ev: g.ev, side: f.side, start: g.start, sportLabel: SPORT_LABEL[g.sport] || g.sport, game: `${esc(g.away_name || g.away)} @ ${esc(g.home_name || g.home)}`, bet: esc(f.bet),
       sub: `${f.grade && f.grade !== 'watch' ? `Grade ${f.grade} flag` : 'Sharp flag'}`, status: ['held', 'No size: ' + ([...new Set(r.rest.filter(y => y.side !== f.side).map(y => ({acct: 'sharps', big: 'big money', move: 'sharp move', kmove: 'Kalshi move', back: 'Kalshi bet back'})[y.kind] || y.kind))].join(', ') || 'signal') + ' against'], size: '',
       price: f.paid != null ? `<div class="small">sharps ${f.market === 'total' || f.market === 'spread' ? esc(f.bet) + ' ' : ''}<b>${toAm(f.paid)}</b>${f.ask != null ? ` → ${toAm(f.ask)}` : ''}</div><div class="small dim">${DAYT(f.flagged)}</div>` : '',
       link: f.link ? `<a class="betbtn" target="_blank" rel="noopener" onclick="event.stopPropagation()" href="${f.link}">Polymarket ↗</a>` : '',

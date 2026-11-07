@@ -1,0 +1,69 @@
+#!/usr/bin/env node
+// Board check (Sean, 11/6: "Why do we keep having things that aren't showing up on the board? We can't have that.")
+// Opens the PUBLISHED page in a real browser, exactly as Sean sees it on load (default filters, every dropdown closed), and checks that
+// every sized open bet in the bet tracker (system A/B, lean C, sharp A/B/C; systems, sharp flags, curve and prop rules) that starts
+// between now and the board's default window end has a VISIBLE row on the page (same game and side). A bet shown greyed with no size
+// (held, conflicted) counts as shown and is listed separately. Also checks that the system-bet file was rebuilt by the last tracker run.
+// Exit 1 and a phone alert (NTFY_TOPIC) when anything is missing. Writes board_check.json next to it.
+// Usage: node sharp/board_check.js [https://szerillo.github.io/sharp-tracker/]
+const { chromium } = require('playwright');
+const fs = require('fs');
+const SITE = (process.argv[2] || 'https://szerillo.github.io/sharp-tracker/').replace(/\/?$/, '/');
+const SIZED = new Set(['system A', 'system B', 'lean C', 'sharp A', 'sharp B', 'sharp C']);
+const SRC = new Set(['system', 'sharp', 'curve', 'props']);
+
+(async () => {
+  const bust = `?v=${Date.now()}`;
+  const get = async u => (await fetch(SITE + u + bust, { headers: { 'cache-control': 'no-cache' } })).json();
+  const BL = await get('data/state/bet_log.json');
+  const SY = await get('data/state/system_fires.json');
+  const now = Date.now();
+  // the board's default window is "Through 6 AM ET": everything starting before the next 6 AM in New York
+  const et = new Date(new Date().toLocaleString('en-US', { timeZone: 'America/New_York' }));
+  const end = new Date(et); end.setHours(6, 0, 0, 0); if (et.getHours() >= 6) end.setDate(end.getDate() + 1);
+  const endMs = now + (end - et);
+  const want = (BL.rows || []).filter(b => SRC.has(b.src) && SIZED.has(b.cat) && b.won == null && b.event_id && b.side
+    && Date.parse(b.start) > now + 5 * 60e3 && Date.parse(b.start) < endMs);
+
+  const browser = await chromium.launch();
+  const page = await browser.newPage({ viewport: { width: 1400, height: 1000 } });
+  const errors = [];
+  page.on('pageerror', e => errors.push(e.message));
+  await page.goto(SITE + bust, { waitUntil: 'networkidle', timeout: 120000 });
+  await page.waitForTimeout(8000);
+  const shown = await page.evaluate(() => [...document.querySelectorAll('tr.erow[data-ev]')].map(tr => {
+    const r = tr.getBoundingClientRect(); const closed = tr.closest('details:not([open])');
+    return { ev: tr.dataset.ev, side: tr.dataset.side, sized: tr.dataset.sized === '1', visible: !closed && r.width > 0 && r.height > 0,
+             text: tr.innerText.replace(/\s+/g, ' ').slice(0, 90) };
+  }));
+  await browser.close();
+
+  const vis = shown.filter(x => x.visible);
+  const missing = [], held = [];
+  for (const b of want) {
+    const hit = vis.filter(x => String(x.ev) === String(b.event_id) && x.side === b.side);
+    if (!hit.length) missing.push(b);
+    else if (!hit.some(x => x.sized)) held.push(b);
+  }
+  const hidden = shown.filter(x => !x.visible && x.sized);
+  // the system-bet file must have been rebuilt within the tracker's schedule (3 runs a day, longest gap about 17 hours overnight)
+  const sysAgeH = (now - Date.parse(SY.built || 0)) / 3600e3;
+  const stale = sysAgeH > 18;
+  const fmt = b => `${b.sport} ${b.game} ${b.market} ${b.side}${b.line != null ? ' ' + b.line : ''} (${b.cat}, ${b.rule || b.src})`;
+  const out = { checked: new Date().toISOString(), site: SITE, bets_in_window: want.length, rows_visible: vis.length,
+                missing: missing.map(fmt), held_unsized: held.map(fmt), sized_rows_hidden_in_dropdowns: hidden.map(x => x.text),
+                system_file_age_h: +sysAgeH.toFixed(1), page_errors: errors, ok: !missing.length && !hidden.length && !stale && !errors.length };
+  fs.writeFileSync('board_check.json', JSON.stringify(out, null, 1));
+  console.log(`[board check] ${want.length} sized open bets in the window; ${vis.length} rows visible; missing ${missing.length}; held (shown, no size) ${held.length}; sized rows inside closed dropdowns ${hidden.length}; system file ${sysAgeH.toFixed(1)}h old; page errors ${errors.length}`);
+  for (const m of out.missing) console.log('  MISSING  ' + m);
+  for (const h of out.sized_rows_hidden_in_dropdowns) console.log('  HIDDEN   ' + h);
+  if (stale) console.log(`  STALE    system-bet file built ${SY.built}`);
+  for (const e of errors) console.log('  PAGE ERROR ' + e);
+  if (!out.ok && process.env.NTFY_TOPIC) {
+    const msg = [missing.length && `${missing.length} bet(s) not on the board: ${out.missing.slice(0, 3).join('; ')}`,
+                 hidden.length && `${hidden.length} sized row(s) inside a closed dropdown`, stale && `system bets ${sysAgeH.toFixed(0)}h old`,
+                 errors.length && `page error: ${errors[0]}`].filter(Boolean).join(' | ');
+    await fetch(`https://ntfy.sh/${process.env.NTFY_TOPIC}`, { method: 'POST', headers: { Title: 'Board check failed', Priority: 'high' }, body: msg }).catch(() => {});
+  }
+  process.exit(out.ok ? 0 : 1);
+})().catch(e => { console.error(e); process.exit(2); });

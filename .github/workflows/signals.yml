@@ -50,7 +50,12 @@ jobs:
         env: {ODDS_API_KEY: '${{ secrets.ODDS_API_KEY }}'}
         run: python3 sharp/curve_live.py || true
       - name: bet tracker
-        run: python3 sharp/bet_log.py || true
+        env: {NTFY_TOPIC: '${{ secrets.NTFY_TOPIC }}'}
+        run: |     # 11/6: a crash used to pass silently; now it alerts, and the job still commits everything else
+          if ! python3 sharp/bet_log.py; then
+            echo "::error::Bet tracker failed"
+            [ -n "$NTFY_TOPIC" ] && curl -s -H "Title: Bet tracker failed" -H "Priority: high" -d "Bet tracker crashed in run $GITHUB_RUN_ID; the board keeps the previous build" "https://ntfy.sh/$NTFY_TOPIC" >/dev/null || true
+          fi
       - name: board audit (open bets on the board, freshness, duplicates, feeds; red banner + phone alert on a new failure)
         env: {NTFY_TOPIC: '${{ secrets.NTFY_TOPIC }}'}
         run: python3 sharp/audit.py || true
