@@ -2134,7 +2134,10 @@
 "price": -104,
 "fair": null,
 "edge_pts": null,
-"why": "home favourite NAVY -7.5, total 54.5: under (mined angle)"
+"why": "home favourite NAVY -7.5, total 54.5: under (mined angle)",
+"void": true,
+"void_why": "rule no longer holds on the current line: home spread -7.0, total 54.5 (2026-11-07T14:51:20Z)",
+"void_at": "2026-11-07T14:51:20Z"
 },
 "401858514:cfb_day_over": {
 "tag": "cfb_day_over",
@@ -3310,5 +3313,70 @@
 "fair": null,
 "edge_pts": null,
 "why": "home SJ has lost 4 straight, season over rate 44%: over (mined angle)"
+},
+"401873044:wind1014": {
+"tag": "wind1014",
+"fill_id": "d9a280e728d5",
+"ts": "2026-11-07T14:51:20Z",
+"market": "total",
+"side": "under",
+"line": 38.5,
+"venue": "Novig",
+"price": -102,
+"fair": 0.49741,
+"edge_pts": -0.76,
+"why": "avg 10.3 mph (Open-Meteo 10.7 at T-27h, MySportsWeather 10.0), gust 18.3, 55.9F"
+},
+"401873043:wind1014": {
+"tag": "wind1014",
+"fill_id": "b214d9fedefd",
+"ts": "2026-11-07T14:51:20Z",
+"market": "total",
+"side": "under",
+"line": 47.5,
+"venue": "Novig",
+"price": 106,
+"fair": 0.48523,
+"edge_pts": 0.02,
+"why": "avg 10.9 mph (Open-Meteo 9.9 at T-27h, MySportsWeather 12.0), gust 17.9, 59.2F"
+},
+"401873043:wind1014_1h": {
+"tag": "wind1014_1h",
+"fill_id": "baecdbc26820",
+"ts": "2026-11-07T14:51:20Z",
+"market": "1h_total",
+"side": "under",
+"line": 23.5,
+"venue": "Novig",
+"price": -104,
+"fair": 0.49824,
+"edge_pts": -1.18,
+"why": "avg 10.9 mph (Open-Meteo 9.9 at T-27h, MySportsWeather 12.0), gust 17.9, 59.2F"
+},
+"401873040:wind1014": {
+"tag": "wind1014",
+"fill_id": "ae8b738e8f78",
+"ts": "2026-11-07T14:51:20Z",
+"market": "total",
+"side": "under",
+"line": 51.5,
+"venue": "Novig",
+"price": -100,
+"fair": 0.49488,
+"edge_pts": -0.51,
+"why": "MySportsWeather 12.0 mph (Open-Meteo n/a)"
+},
+"401873040:wind1014_1h": {
+"tag": "wind1014_1h",
+"fill_id": "9441e872f108",
+"ts": "2026-11-07T14:51:20Z",
+"market": "1h_total",
+"side": "under",
+"line": 26.5,
+"venue": "Novig",
+"price": -106,
+"fair": 0.4992,
+"edge_pts": -1.58,
+"why": "MySportsWeather 12.0 mph (Open-Meteo n/a)"
 }
 }
