@@ -1,12 +1,12 @@
 {
- "built": "2026-11-07T07:11:17Z",
+ "built": "2026-11-07T07:17:58Z",
  "ok": true,
  "checks": [
   {
    "name": "open system bets all on the board",
    "ok": true,
    "level": "error",
-   "detail": "63 open, 0 missing"
+   "detail": "51 open, 0 missing"
   },
   {
    "name": "no duplicate bets in the records",
@@ -24,7 +24,7 @@
    "name": "bet tracker has every flagged bet",
    "ok": true,
    "level": "warn",
-   "detail": "288 in the records, 0 missing from the tracker"
+   "detail": "276 in the records, 0 missing from the tracker"
   }
  ]
 }
