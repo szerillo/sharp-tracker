@@ -57,6 +57,19 @@ jobs:
       - name: commit
         run: |
           git config user.name "tracker-bot"; git config user.email "actions@users.noreply.github.com"
+          # 11/6: the tracker job owns system_fires.json / system_fired.json. If it committed a newer build while this job ran, take its
+          # files instead of this job's (older) copies; the late pass redoes its small edits on the next run 20 minutes later.
+          git fetch -q origin main && python3 - <<'PY' || true
+          import json, subprocess
+          def built(txt):
+              try: return json.loads(txt).get('built') or ''
+              except Exception: return ''
+          remote = subprocess.run(['git', 'show', 'origin/main:data/state/system_fires.json'], capture_output=True, text=True).stdout
+          local = open('data/state/system_fires.json').read()
+          if built(remote) > built(local):
+              print(f"[commit] tracker build {built(remote)} on main is newer than this job's {built(local)}: keeping main's system files")
+              subprocess.run(['git', 'checkout', '-q', 'origin/main', '--', 'data/state/system_fires.json', 'data/state/system_fired.json'])
+          PY
           for f in data/state/flow_live.json data/state/moves.json data/state/moves.jsonl.gz data/state/moves_novig_flow.json data/state/tape_health.json \
                    data/state/system_fired.json data/state/system_fires.json data/state/fills.jsonl data/state/tennis_watch.json data/tennis/fs_paper.jsonl data/tennis/fs_graded.json data/tennis/hot_paper.jsonl data/tennis/hot_graded.json data/tennis/serve_paper.jsonl data/tennis/serve_graded.json data/tennis/hotdog_paper.jsonl data/tennis/hotdog_graded.json data/state/mma_steam.json data/mma/oddsapi_live.jsonl data/mma/oddsapi_open.json data/mma/steam_paper.jsonl data/mma/steam_graded.json data/tennis/results.jsonl data/tennis/schedule.json data/state/bet_log.json data/state/audit.json \
                    data/kalshi/steam_rev_paper.jsonl data/kalshi/steam_rev_results.json data/state/stale_paper.jsonl data/state/stale_live.json data/state/props_paper.jsonl data/state/props_live.json data/state/curve_paper.jsonl data/state/curve_live.json; do [ -e "$f" ] && git add -A "$f"; done
