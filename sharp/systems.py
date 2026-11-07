@@ -306,6 +306,9 @@ def public(conn, ev, market, side):
 LEAN_TAGS = {'nhl_pl_fav_gap', 'nhl_pl_fav_strong_opp', 'nhl_pl_dog_bigml', 'nba_1h_under_hot_over', 'nhl_early_home_fav_qual', 'nba_under_good_home_over', 'nba_under_good_home_over_small', 'nba_ats_hot_home', 'nba_bigfav_over', 'nhl_loss_streak_over', 'nba_badteams_under', 'nba_roadtrip_over', 'nhl_bounce_home_ml', 'nhl_skid_fade_road'}
 
 
+CFB_LINE_TAGS = {'cfb_road_dog_low_total', 'cfb_road_streak_dog', 'cfb_day_over', 'cfb_homefav_7510_under', 'cfb_hot_over_low_total'}   # rules defined on the closing line
+
+
 def void_fill(fired, key, why):
     """Mark a flagged bet void (not graded, no P&L) and keep the record of why."""
     rec = fired[key]; rec['void'] = True; rec['void_why'] = why
@@ -509,6 +512,12 @@ def main():
             if n_ >= 1 and 2 <= k_ <= 5: rs = k_
         dayover = tl is not None and 45 <= tl <= 51.5 and 14 <= st.astimezone(N.ET).hour < 19     # 11/5 (Sean, cut the noise): noon kickoffs were -0.9% / +2.8% train / test; 2-7pm ET +11.7% / +13.1%, 7 of 7 seasons
         hf_under = sp_line is not None and -10 <= sp_line <= -7.5 and tl is not None
+        # 11/7 (Sean's Bet Labs comparison): a logged CFB bet whose rule no longer holds on the current line before kickoff (the spread left
+        # the band, the total moved past the cap) is voided, as the NBA / NHL leans already are. Only when both lines are known now.
+        if sp_line is not None and tl is not None and ttk > 0:
+            now_cfb = {t for t, ok in (('cfb_road_dog_low_total', rdlt), ('cfb_road_streak_dog', rs), ('cfb_day_over', dayover), ('cfb_homefav_7510_under', hf_under), ('cfb_hot_over_low_total', hot)) if ok}
+            for key_ in [k for k in fired if k.startswith(ev + ':') and k.split(':')[1] in CFB_LINE_TAGS and k.split(':')[1] not in now_cfb and not fired[k].get('void')]:
+                void_fill(fired, key_, f"rule no longer holds on the current line: home spread {sp_line}, total {tl} ({NOW_S})")
         if not windy and not rdlt and not msw_only and not hot and not rs and not dayover and not hf_under: continue
         game = dict(event_id=ev, away=away, home=home, start_utc=start, hours_to_kickoff=round(ttk, 1), spread_home=sp_line, dog=('away' if sp_line and sp_line < 0 else None), triggers={},
                     wind=(dict(mph=wx['wind_mph'], gust=wx.get('gust_mph'), temp_f=wx.get('temp_f'), at_h=wx['hours_to_kickoff']) if wx else None), fills=[], sport='cfb')
