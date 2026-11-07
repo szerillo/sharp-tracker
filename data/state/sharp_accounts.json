@@ -1,5 +1,5 @@
 {
- "built": "2026-11-07T00:56:58Z",
+ "built": "2026-11-07T01:03:35Z",
  "rows": [
   {
    "cond": "0x89b352113e523a8dff5556e0880d9f258821fed7caee81b050951f9bf294b9f4",
@@ -127,7 +127,7 @@
    "best_rank": 40,
    "usd": 349,
    "paid": 0.53,
-   "ask": 0.68,
+   "ask": null,
    "status": "live",
    "link": "https://polymarket.us/event/nba-tor-mil-2026-11-06",
    "other": null,
@@ -164,7 +164,7 @@
    "best_rank": 95,
    "usd": 2173,
    "paid": 0.599,
-   "ask": 0.6,
+   "ask": null,
    "status": "live",
    "link": "https://polymarket.us/event/nba-okc-mem-2026-11-06",
    "other": null,
@@ -213,7 +213,7 @@
    "best_rank": 119,
    "usd": 3150,
    "paid": 0.511,
-   "ask": 0.53,
+   "ask": null,
    "status": "live",
    "link": "https://polymarket.us/event/nba-uta-dal-2026-11-06",
    "other": null,
@@ -263,7 +263,7 @@
    "best_rank": 115,
    "usd": 1851,
    "paid": 0.509,
-   "ask": 0.51,
+   "ask": null,
    "status": "live",
    "link": "https://polymarket.us/event/nba-uta-dal-2026-11-06",
    "other": null,
@@ -304,7 +304,7 @@
    "best_rank": 58,
    "usd": 8067,
    "paid": 0.481,
-   "ask": 0.47,
+   "ask": null,
    "status": "live",
    "link": "https://polymarket.us/event/nba-uta-dal-2026-11-06",
    "other": null,
@@ -345,7 +345,7 @@
    "best_rank": 58,
    "usd": 470,
    "paid": 0.53,
-   "ask": 0.61,
+   "ask": null,
    "status": "live",
    "link": "https://polymarket.us/event/cfb-nebr-ill-2026-11-06",
    "other": null,
@@ -382,7 +382,7 @@
    "best_rank": 4,
    "usd": 150,
    "paid": 0.48,
-   "ask": 0.52,
+   "ask": null,
    "status": "live",
    "link": "https://polymarket.us/event/cbb-stmn-minnst-2026-11-06",
    "other": null,
@@ -419,7 +419,7 @@
    "best_rank": 4,
    "usd": 427,
    "paid": 0.52,
-   "ask": 0.52,
+   "ask": null,
    "status": "live",
    "link": "https://polymarket.us/event/cbb-south-tcu-2026-11-06",
    "other": null,
@@ -1350,7 +1350,7 @@
    "best_rank": 43,
    "usd": 402,
    "paid": 0.37,
-   "ask": 0.4,
+   "ask": null,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-min-nop-2026-11-06",
    "other": {
@@ -1359,7 +1359,7 @@
     "usd": 793,
     "first": "2026-11-06T20:33:18Z"
    },
-   "exit_bid": 0.39,
+   "exit_bid": null,
    "kalshi_against": null,
    "logged": true,
    "event_id": "401909293",
@@ -1374,7 +1374,7 @@
    "money_with": false,
    "grade": "watch",
    "fair_board": 0.4012,
-   "inside_fair": true,
+   "inside_fair": null,
    "books": null
   },
   {
@@ -1393,16 +1393,16 @@
    "best_rank": 23,
    "usd": 5693,
    "paid": 0.382,
-   "ask": 0.41,
+   "ask": null,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-tor-mil-2026-11-06",
    "other": {
     "n_accounts": 2,
     "best_rank": 23,
-    "usd": 23766,
+    "usd": 27662,
     "first": "2026-11-06T23:59:16Z"
    },
-   "exit_bid": 0.4,
+   "exit_bid": null,
    "kalshi_against": null,
    "logged": true,
    "event_id": "401909292",
@@ -1608,26 +1608,6 @@
     "best_rank": 132,
     "usd": 179
    }
-  },
-  "401909290:nba_ats_hot_home": {
-   "with": {
-    "n": 1,
-    "best_rank": 112,
-    "usd": 9200
-   },
-   "against": {
-    "n": 1,
-    "best_rank": 112,
-    "usd": 8219
-   }
-  },
-  "401909291:nba_ats_hot_home": {
-   "with": null,
-   "against": {
-    "n": 1,
-    "best_rank": 58,
-    "usd": 500
-   }
   }
  },
  "by_event": {
@@ -1678,84 +1658,6 @@
     "usd": 6921
    }
   },
-  "401909290|total": {
-   "over": {
-    "n": 4,
-    "best_rank": 58,
-    "usd": 3776
-   }
-  },
-  "401909290|spread": {
-   "away": {
-    "n": 1,
-    "best_rank": 112,
-    "usd": 8219
-   },
-   "home": {
-    "n": 1,
-    "best_rank": 112,
-    "usd": 9200
-   }
-  },
-  "401909291|ml": {
-   "away": {
-    "n": 3,
-    "best_rank": 95,
-    "usd": 2173
-   }
-  },
-  "401909291|spread": {
-   "away": {
-    "n": 1,
-    "best_rank": 58,
-    "usd": 500
-   }
-  },
-  "401909291|total": {
-   "under": {
-    "n": 1,
-    "best_rank": 58,
-    "usd": 490
-   }
-  },
-  "401909292|spread": {
-   "home": {
-    "n": 2,
-    "best_rank": 40,
-    "usd": 537
-   }
-  },
-  "401909292|ml": {
-   "home": {
-    "n": 3,
-    "best_rank": 23,
-    "usd": 5693
-   },
-   "away": {
-    "n": 2,
-    "best_rank": 23,
-    "usd": 23766
-   }
-  },
-  "401909293|ml": {
-   "home": {
-    "n": 1,
-    "best_rank": 43,
-    "usd": 402
-   },
-   "away": {
-    "n": 2,
-    "best_rank": 31,
-    "usd": 793
-   }
-  },
-  "401909293|total": {
-   "over": {
-    "n": 1,
-    "best_rank": 76,
-    "usd": 172
-   }
-  },
   "401909294|ml": {
    "away": {
     "n": 1,
@@ -1803,25 +1705,11 @@
     "usd": 239
    }
   },
-  "401892660|spread": {
-   "home": {
-    "n": 1,
-    "best_rank": 132,
-    "usd": 130
-   }
-  },
   "401892662|ml": {
    "away": {
     "n": 1,
     "best_rank": 132,
     "usd": 179
-   }
-  },
-  "401858510|total": {
-   "over": {
-    "n": 1,
-    "best_rank": 58,
-    "usd": 470
    }
   },
   "401856851|total": {
@@ -1862,27 +1750,6 @@
     "n": 1,
     "best_rank": 95,
     "usd": 113
-   }
-  },
-  "401928622|total": {
-   "under": {
-    "n": 1,
-    "best_rank": 4,
-    "usd": 150
-   }
-  },
-  "401919048|total": {
-   "over": {
-    "n": 1,
-    "best_rank": 4,
-    "usd": 427
-   }
-  },
-  "401916304|total": {
-   "under": {
-    "n": 1,
-    "best_rank": 4,
-    "usd": 150
    }
   },
   "401884740|total": {
