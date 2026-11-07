@@ -31,7 +31,8 @@ const SRC = new Set(['system', 'sharp', 'curve', 'props']);
   const want = cand.filter((b, i) => inView[i]);
   const shown = await page.evaluate(() => [...document.querySelectorAll('tr.erow[data-ev]')].map(tr => {
     const r = tr.getBoundingClientRect(); const closed = tr.closest('details:not([open])');
-    return { ev: tr.dataset.ev, side: tr.dataset.side, sized: tr.dataset.sized === '1', visible: !closed && r.width > 0 && r.height > 0,
+    // 11/7: a BET row (rank 0) is what must never sit in a closed dropdown; held / dropped rows keep their size text but are not bets
+    return { ev: tr.dataset.ev, side: tr.dataset.side, sized: tr.dataset.sized === '1' && tr.dataset.rank === '0', visible: !closed && r.width > 0 && r.height > 0,
              text: tr.innerText.replace(/\s+/g, ' ').slice(0, 90) };
   }));
   await browser.close();
