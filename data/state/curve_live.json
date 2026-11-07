@@ -1,5 +1,5 @@
 {
- "built": "2026-11-07T20:46:07Z",
+ "built": "2026-11-07T21:00:56Z",
  "record": {
   "cbb_1h_total_curve": {
    "n": 1,
@@ -33,31 +33,6 @@
   }
  },
  "rows": [
-  {
-   "key": "cfb_q1_under_curve|43a67a478177d0dc6ef141aacf2bfd2a||under",
-   "rule": "cfb_q1_under_curve",
-   "tier": "A",
-   "stake": 0.5,
-   "sport": "cfb",
-   "odds_id": "43a67a478177d0dc6ef141aacf2bfd2a",
-   "espn": "401856743",
-   "game": "Texas Longhorns @ Missouri Tigers",
-   "start": "2026-11-07T17:00:00Z",
-   "market": "totals_q1",
-   "team": null,
-   "team_name": null,
-   "side": "under",
-   "line": 9.5,
-   "curve": 0.593,
-   "pin_fair": 0.512,
-   "gap": 8.1,
-   "full_total": 42.5,
-   "full_spread": 2.5,
-   "pin_price": 1.86,
-   "book": "FD",
-   "price": 1.88,
-   "flagged": "2026-11-07T14:02:06Z"
-  },
   {
    "key": "cfb_tt_under_curve|f3d964c6b45c36f9e6009c47e64f96db|away|under",
    "rule": "cfb_tt_under_curve",
@@ -517,7 +492,7 @@
    "odds_id": "028ce5ee2c58281cf935f06edc90d671",
    "espn": "401856742",
    "game": "Vanderbilt Commodores @ Mississippi State Bulldogs",
-   "start": "2026-11-07T21:15:00Z",
+   "start": "2026-11-07T21:25:00Z",
    "market": "team_totals",
    "team": "away",
    "team_name": "Vanderbilt Commodores",
@@ -535,7 +510,7 @@
    "book_fair": 0.5185,
    "fair_gap": -1.2,
    "ev_curve": 1.6,
-   "flagged": "2026-11-07T20:46:07Z"
+   "flagged": "2026-11-07T21:00:56Z"
   }
  ]
 }

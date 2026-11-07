@@ -1,5 +1,5 @@
 {
- "built": "2026-11-07T20:56:22Z",
+ "built": "2026-11-07T20:35:48Z",
  "rows": [
   {
    "cond": "0x5a4f48f65db8bb0de7274a91d32ae7abafaf1aae7e67322744658be0e0e73abb",
@@ -2223,21 +2223,21 @@
     "clv": 0.0
    },
    "outside": {
-    "n": 7,
+    "n": 5,
     "won": 1,
-    "units": -2.08,
-    "clv": 0.79
+    "units": -1.08,
+    "clv": 1.1
    }
   },
-  "n": 88,
+  "n": 85,
   "won": 37,
-  "units": -8.65,
+  "units": -7.06,
   "by_grade": {
    "A": {
-    "n": 49,
+    "n": 46,
     "won": 19,
-    "units": -6.65,
-    "clv": 0.13
+    "units": -5.06,
+    "clv": 0.14
    },
    "B": {
     "n": 26,
@@ -2252,12 +2252,12 @@
     "clv": -1.75
    }
   },
-  "units_1u": -19.83,
-  "clv": -0.38,
-  "n_venue": 42,
-  "units_venue": -4.47,
-  "clv_venue": 0.46,
-  "clv_poly_same": -0.99
+  "units_1u": -16.83,
+  "clv": -0.4,
+  "n_venue": 40,
+  "units_venue": -3.47,
+  "clv_venue": 0.38,
+  "clv_poly_same": -1.06
  },
  "sys_tags": {
   "401873039:bounce15_1h": {
@@ -2303,6 +2303,14 @@
     "usd": 153
    },
    "against": null
+  },
+  "401858514:cfb_homefav_7510_under": {
+   "with": null,
+   "against": {
+    "n": 1,
+    "best_rank": 182,
+    "usd": 296
+   }
   },
   "401871098:xch_homedog_fade:ml": {
    "with": {
@@ -2538,13 +2546,6 @@
     "n": 1,
     "best_rank": 132,
     "usd": 245
-   }
-  },
-  "401871074|spread": {
-   "away": {
-    "n": 2,
-    "best_rank": 115,
-    "usd": 792
    }
   },
   "401871098|ml": {
