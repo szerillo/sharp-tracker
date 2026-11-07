@@ -3552,10 +3552,36 @@
 "edge_pts": -2.21,
 "why": "Kalshi spread mid 0.550 at T-6h -> 0.515 now (-3.5c); continuation (audit section 3, NBA only)"
 },
+"401909949:nba_bigfav_over": {
+"tag": "nba_bigfav_over",
+"fill_id": "18df1d342c74",
+"ts": "2026-11-07T23:51:02Z",
+"market": "total",
+"side": "over",
+"line": 223.5,
+"venue": "FD",
+"price": -110,
+"fair": 0.5,
+"edge_pts": -2.38,
+"why": "BOS is 86% on the moneyline: over (mined angle)"
+},
+"401909951:nba_badteams_under": {
+"tag": "nba_badteams_under",
+"fill_id": "83a5cb7599af",
+"ts": "2026-11-07T23:51:02Z",
+"market": "total",
+"side": "under",
+"line": 240.5,
+"venue": "FD",
+"price": -115,
+"fair": 0.5116,
+"edge_pts": -2.33,
+"why": "visitor MIA season margin -6.6, home SAC wins 0% at home: under (mined angle)"
+},
 "401909941:nba_momentum:spread": {
 "tag": "nba_momentum",
-"fill_id": "e1e6c0f9a264",
-"ts": "2026-11-07T23:36:05Z",
+"fill_id": "789a181bbbd9",
+"ts": "2026-11-07T23:51:02Z",
 "market": "spread",
 "side": "away",
 "line": 11.5,
@@ -3563,66 +3589,6 @@
 "price": -111,
 "fair": 0.51684,
 "edge_pts": -0.82,
-"why": "Novig spread mid 0.518 at T-6h -> 0.480 now (-3.8c); continuation (audit section 3, NBA only)",
-"now": {
-"venue": "Polymarket",
-"price": -108
-},
-"ladder": [
-{
-"line": 13.5,
-"steps": -4,
-"venue": "Novig",
-"price": -147,
-"cost": 0.595,
-"fair": 0.5845,
-"loss": 0.0013
-},
-{
-"line": 12.5,
-"steps": -2,
-"venue": "Novig",
-"price": -127,
-"cost": 0.56,
-"fair": 0.553,
-"loss": -0.0022
-},
-{
-"line": 11.5,
-"steps": 0,
-"venue": "Polymarket",
-"price": -108,
-"cost": 0.52,
-"fair": 0.5168,
-"loss": -0.0061
-},
-{
-"line": 10.5,
-"steps": 2,
-"venue": "Novig",
-"price": 106,
-"cost": 0.485,
-"fair": 0.4765,
-"loss": -0.0007
-},
-{
-"line": 9.5,
-"steps": 4,
-"venue": "Novig",
-"price": 125,
-"cost": 0.445,
-"fair": 0.4325,
-"loss": 0.0033
-}
-],
-"bet_to": {
-"line": 9.5,
-"steps": 4,
-"venue": "Novig",
-"price": 125,
-"cost": 0.445,
-"fair": 0.4325,
-"loss": 0.0033
-}
+"why": "Novig spread mid 0.518 at T-6h -> 0.480 now (-3.8c); continuation (audit section 3, NBA only)"
 }
 }
