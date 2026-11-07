@@ -1,5 +1,5 @@
 {
- "built": "2026-11-07T21:49:21Z",
+ "built": "2026-11-07T21:56:06Z",
  "rows": [
   {
    "cond": "0x02bfed7d87a3195e4938740bebb776048fc33b4c455423f9daefca42d864cfca",
@@ -1305,6 +1305,47 @@
    "books": null
   },
   {
+   "cond": "0xd0fa5b6ab1fff2d75a66477ca7f3145ffa244596ae66e7d430299461e1f1d7dc",
+   "slug": "nfl-cle-no-2026-11-08",
+   "title": "Browns vs. Saints",
+   "mtype": "spread",
+   "start": "2026-11-08T18:00:00Z",
+   "bet": "Saints -10.5",
+   "side": "Saints",
+   "flagged": "2026-11-07T21:55:25Z",
+   "why": "a top-200 account also in this sport's top 50",
+   "proven": true,
+   "trigger": "proven",
+   "n_accounts": 1,
+   "best_rank": 143,
+   "usd": 9826,
+   "paid": 0.24,
+   "ask": 0.25,
+   "status": "live",
+   "link": "https://polymarket.us/event/nfl-cle-no-2026-11-08",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401873039",
+   "sport": "nfl",
+   "league": null,
+   "away": "CLE",
+   "home": "NO",
+   "away_name": "Cleveland Browns",
+   "home_name": "New Orleans Saints",
+   "game_start": "2026-11-08T18:00Z",
+   "side_std": "home",
+   "conflict": [
+    "Kalshi bet back",
+    "big money"
+   ],
+   "money_with": false,
+   "grade": "A",
+   "fair_board": null,
+   "inside_fair": null,
+   "books": null
+  },
+  {
    "cond": "0xfc2ab1795b24239c2bdd73f59abd913b83ba1b39f8d77890a3d009f0e662081f",
    "slug": "bun-hof-s04-2026-11-08",
    "title": "TSG 1899 Hoffenheim vs. FC Schalke 04",
@@ -2022,7 +2063,11 @@
     "best_rank": 4,
     "usd": 153
    },
-   "against": null
+   "against": {
+    "n": 1,
+    "best_rank": 143,
+    "usd": 9826
+   }
   },
   "401873040:bounce15_1h": {
    "with": {
@@ -2058,7 +2103,11 @@
     "best_rank": 4,
     "usd": 153
    },
-   "against": null
+   "against": {
+    "n": 1,
+    "best_rank": 143,
+    "usd": 9826
+   }
   }
  },
  "by_event": {
@@ -2093,6 +2142,11 @@
     "n": 1,
     "best_rank": 4,
     "usd": 153
+   },
+   "home": {
+    "n": 1,
+    "best_rank": 143,
+    "usd": 9826
    }
   },
   "401873044|ml": {
