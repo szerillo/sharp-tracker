@@ -3469,8 +3469,8 @@
 },
 "401909938:xch_homedog_fade:ml": {
 "tag": "xch_homedog_fade",
-"fill_id": "0bab506f2245",
-"ts": "2026-11-07T20:45:17Z",
+"fill_id": "effd16f8a7c4",
+"ts": "2026-11-07T20:55:18Z",
 "market": "ml",
 "side": "away",
 "line": null,
@@ -3478,92 +3478,19 @@
 "price": -285,
 "fair": 0.74035,
 "edge_pts": 0.03,
-"why": "Novig home side mid 0.263 inside T-1.2h; audit band 20-35c",
-"now": {
-"venue": "Polymarket",
-"price": -285
-}
+"why": "Novig home side mid 0.263 inside T-1.1h; audit band 20-35c"
 },
 "401909938:nba_momentum:spread": {
 "tag": "nba_momentum",
-"fill_id": "1ad84af48c03",
-"ts": "2026-11-07T20:45:17Z",
+"fill_id": "d7f87830b475",
+"ts": "2026-11-07T20:55:18Z",
 "market": "spread",
 "side": "away",
 "line": -7.5,
 "venue": "Novig",
 "price": -111,
-"fair": 0.52021,
-"edge_pts": -0.48,
-"why": "Novig spread mid 0.508 at T-6h -> 0.477 now (-3.0c); continuation (audit section 3, NBA only)",
-"now": {
-"venue": "Novig",
-"price": -111
-},
-"ladder": [
-{
-"line": -5.5,
-"steps": -4,
-"venue": "Novig",
-"price": -153,
-"cost": 0.605,
-"fair": 0.598,
-"loss": 0.0011
-},
-{
-"line": -6.5,
-"steps": -2,
-"venue": "Novig",
-"price": -133,
-"cost": 0.57,
-"fair": 0.565,
-"loss": -0.0009
-},
-{
-"line": -7.5,
-"steps": 0,
-"venue": "Novig",
-"price": -111,
-"cost": 0.525,
-"fair": 0.5202,
-"loss": -0.0011
-},
-{
-"line": -8.0,
-"steps": 1,
-"venue": "Caesars",
-"price": -115,
-"cost": 0.5349,
-"fair": 0.5078,
-"loss": 0.0212
-},
-{
-"line": -8.5,
-"steps": 2,
-"venue": "Novig",
-"price": 106,
-"cost": 0.485,
-"fair": 0.4787,
-"loss": 0.0004
-},
-{
-"line": -9.5,
-"steps": 4,
-"venue": "Novig",
-"price": 122,
-"cost": 0.45,
-"fair": 0.443,
-"loss": 0.0011
-}
-],
-"bet_to": {
-"line": -9.5,
-"steps": 4,
-"venue": "Novig",
-"price": 122,
-"cost": 0.45,
-"fair": 0.443,
-"loss": 0.0011
-}
+"fair": 0.52073,
+"edge_pts": -0.43,
+"why": "Novig spread mid 0.508 at T-6h -> 0.477 now (-3.0c); continuation (audit section 3, NBA only)"
 }
 }
