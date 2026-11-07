@@ -1,5 +1,5 @@
 {
- "built": "2026-11-07T20:35:48Z",
+ "built": "2026-11-07T20:42:39Z",
  "rows": [
   {
    "cond": "0x5a4f48f65db8bb0de7274a91d32ae7abafaf1aae7e67322744658be0e0e73abb",
@@ -853,6 +853,43 @@
      "FD": 0.6
     }
    }
+  },
+  {
+   "cond": "0x58c99de3d51c8c5f1c3f00c09f33887246d9d8e6f31f43ac27ddebc6851e2d91",
+   "slug": "cfb-msrst-flint-2026-11-07",
+   "title": "Missouri State vs. Florida International",
+   "mtype": "spread",
+   "start": "2026-11-07T21:00:00Z",
+   "bet": "Missouri State +5.5",
+   "side": "Missouri State",
+   "flagged": "2026-11-07T20:38:54Z",
+   "why": "a top-200 account also in this sport's top 50",
+   "proven": true,
+   "trigger": "proven",
+   "n_accounts": 1,
+   "best_rank": 115,
+   "usd": 530,
+   "paid": 0.51,
+   "ask": 0.52,
+   "status": "live",
+   "link": "https://polymarket.us/event/cfb-msrst-flint-2026-11-07",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401871074",
+   "sport": "cfb",
+   "league": null,
+   "away": "MOST",
+   "home": "FIU",
+   "away_name": "Missouri State Bears",
+   "home_name": "Florida International Panthers",
+   "game_start": "2026-11-07T21:00Z",
+   "side_std": "away",
+   "money_with": false,
+   "grade": "A",
+   "fair_board": null,
+   "inside_fair": null,
+   "books": null
   },
   {
    "cond": "0x07de85d6a00260bb3548af18e299a3af4ecaff94ea7bae2073f3b26f46717e53",
@@ -2140,21 +2177,21 @@
     "clv": 0.0
    },
    "outside": {
-    "n": 5,
+    "n": 7,
     "won": 1,
-    "units": -1.08,
-    "clv": 1.1
+    "units": -2.08,
+    "clv": 0.79
    }
   },
-  "n": 85,
+  "n": 87,
   "won": 37,
-  "units": -7.06,
+  "units": -8.06,
   "by_grade": {
    "A": {
-    "n": 46,
+    "n": 48,
     "won": 19,
-    "units": -5.06,
-    "clv": 0.14
+    "units": -6.06,
+    "clv": 0.13
    },
    "B": {
     "n": 26,
@@ -2169,12 +2206,12 @@
     "clv": -1.75
    }
   },
-  "units_1u": -16.83,
-  "clv": -0.4,
-  "n_venue": 40,
-  "units_venue": -3.47,
-  "clv_venue": 0.38,
-  "clv_poly_same": -1.06
+  "units_1u": -18.83,
+  "clv": -0.39,
+  "n_venue": 42,
+  "units_venue": -4.47,
+  "clv_venue": 0.46,
+  "clv_poly_same": -0.99
  },
  "sys_tags": {
   "401873039:bounce15_1h": {
@@ -2220,14 +2257,6 @@
     "usd": 153
    },
    "against": null
-  },
-  "401858514:cfb_homefav_7510_under": {
-   "with": null,
-   "against": {
-    "n": 1,
-    "best_rank": 182,
-    "usd": 296
-   }
   },
   "401871098:xch_homedog_fade:ml": {
    "with": {
@@ -2463,6 +2492,13 @@
     "n": 1,
     "best_rank": 132,
     "usd": 245
+   }
+  },
+  "401871074|spread": {
+   "away": {
+    "n": 1,
+    "best_rank": 115,
+    "usd": 530
    }
   },
   "401871098|ml": {
