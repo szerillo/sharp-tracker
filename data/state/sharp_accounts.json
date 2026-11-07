@@ -1,5 +1,5 @@
 {
- "built": "2026-11-07T21:22:40Z",
+ "built": "2026-11-07T21:29:32Z",
  "rows": [
   {
    "cond": "0xa0612e2516c4fdfad74bffedaac5e98732954b8b20204e9cf8e2d0cf5feda864",
@@ -1023,7 +1023,7 @@
    "best_rank": 132,
    "usd": 6003,
    "paid": 0.5,
-   "ask": 0.51,
+   "ask": 0.52,
    "status": "live",
    "link": "https://polymarket.us/event/nba-sas-por-2026-11-07",
    "other": null,
@@ -2037,10 +2037,10 @@
  "record": {
   "by_fair": {
    "inside": {
-    "n": 3,
+    "n": 4,
     "won": 2,
-    "units": 0.0,
-    "clv": 0.0
+    "units": -0.59,
+    "clv": -0.17
    },
    "outside": {
     "n": 8,
@@ -2049,15 +2049,15 @@
     "clv": 0.62
    }
   },
-  "n": 91,
+  "n": 92,
   "won": 39,
-  "units": -8.2,
+  "units": -8.79,
   "by_grade": {
    "A": {
-    "n": 51,
+    "n": 52,
     "won": 20,
-    "units": -6.65,
-    "clv": 0.08
+    "units": -7.24,
+    "clv": 0.07
    },
    "B": {
     "n": 27,
@@ -2072,12 +2072,12 @@
     "clv": -1.75
    }
   },
-  "units_1u": -18.27,
+  "units_1u": -19.27,
   "clv": -0.4,
-  "n_venue": 43,
-  "units_venue": -4.03,
-  "clv_venue": 0.41,
-  "clv_poly_same": -0.97
+  "n_venue": 44,
+  "units_venue": -5.1,
+  "clv_venue": -0.07,
+  "clv_poly_same": -0.96
  },
  "sys_tags": {
   "401873039:bounce15_1h": {
