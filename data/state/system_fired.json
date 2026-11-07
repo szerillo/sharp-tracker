@@ -2966,5 +2966,78 @@
 "fair": 0.65093,
 "edge_pts": -0.41,
 "why": "Novig home side mid 0.350 inside T-1.0h; audit band 20-35c"
+},
+"401909289:nba_momentum:total": {
+"tag": "nba_momentum",
+"fill_id": "1c705403bc49",
+"ts": "2026-11-07T00:23:39Z",
+"market": "total",
+"side": "over",
+"line": 232.5,
+"venue": "Kalshi",
+"price": -104,
+"fair": 0.48403,
+"edge_pts": -2.6,
+"why": "Kalshi total mid 0.445 at T-6h -> 0.480 now (+3.5c); continuation (audit section 3, NBA only)",
+"now": {
+"venue": "Novig",
+"price": 106
+},
+"ladder": [
+{
+"line": 230.5,
+"steps": -4,
+"venue": "Novig",
+"price": -113,
+"cost": 0.53,
+"fair": 0.5305,
+"loss": -0.0263
+},
+{
+"line": 231.5,
+"steps": -2,
+"venue": "Novig",
+"price": -100,
+"cost": 0.5,
+"fair": 0.5003,
+"loss": -0.0261
+},
+{
+"line": 232.5,
+"steps": 0,
+"venue": "Novig",
+"price": 106,
+"cost": 0.485,
+"fair": 0.484,
+"loss": -0.0248
+},
+{
+"line": 233.5,
+"steps": 2,
+"venue": "Novig",
+"price": 117,
+"cost": 0.46,
+"fair": 0.4575,
+"loss": -0.0233
+},
+{
+"line": 234.5,
+"steps": 4,
+"venue": "Novig",
+"price": 127,
+"cost": 0.44,
+"fair": 0.4385,
+"loss": -0.0243
+}
+],
+"bet_to": {
+"line": 234.5,
+"steps": 4,
+"venue": "Novig",
+"price": 127,
+"cost": 0.44,
+"fair": 0.4385,
+"loss": -0.0243
+}
 }
 }
