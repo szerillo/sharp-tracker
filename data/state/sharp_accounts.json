@@ -1,5 +1,5 @@
 {
- "built": "2026-11-07T23:09:48Z",
+ "built": "2026-11-07T23:16:45Z",
  "rows": [
   {
    "cond": "0x8ad55f7e0bd9bc4f386325526710254c6cae284236781127ea7bcc5247a29e95",
@@ -542,6 +542,52 @@
    "fair_board": null,
    "inside_fair": null,
    "books": null
+  },
+  {
+   "cond": "0x9aee8f77c57ff9eb76052a474f48d5ddffb82585d00f5f7be41e1d1af3672c49",
+   "slug": "mls-dal-col-2026-11-07",
+   "title": "FC Dallas vs. Colorado Rapids SC",
+   "mtype": "ml",
+   "start": "2026-11-08T00:00:00Z",
+   "bet": "Will FC Dallas win on 2026-11-07: Yes",
+   "side": "Yes",
+   "flagged": "2026-11-07T23:10:16Z",
+   "why": "a top-200 account also in this sport's top 50",
+   "proven": true,
+   "trigger": "proven",
+   "n_accounts": 1,
+   "best_rank": 132,
+   "usd": 1842,
+   "paid": 0.51,
+   "ask": 0.52,
+   "status": "live",
+   "link": "https://polymarket.us/event/mls-dal-col-2026-11-07",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "761943",
+   "sport": "soccer",
+   "league": "mls",
+   "away": "COL",
+   "home": "DAL",
+   "away_name": "Colorado Rapids",
+   "home_name": "FC Dallas",
+   "game_start": "2026-11-08T00:00Z",
+   "side_std": "home",
+   "money_with": false,
+   "grade": "A",
+   "fair_board": 0.4927,
+   "inside_fair": false,
+   "books": {
+    "at": "2026-11-07T22:57:54Z",
+    "fair": 0.4927,
+    "q": {
+     "Caesars": 0.495,
+     "Novig": 0.5,
+     "FD": 0.5122,
+     "Kalshi": 0.52
+    }
+   }
   },
   {
    "cond": "0xc9d9cae40bec805456896cb5b06526a95c99410fe479c791b2a43344e1087c04",
@@ -1436,50 +1482,6 @@
    }
   },
   {
-   "cond": "0x2c4bfe202662b7e2b300f97b0811708cade3fa89998cd8bbac233f0b2e77747f",
-   "slug": "nba-uta-min-2026-11-08",
-   "title": "Jazz vs. Timberwolves",
-   "mtype": "ml",
-   "start": "2026-11-09T00:00:00Z",
-   "bet": "Timberwolves ML",
-   "side": "Timberwolves",
-   "flagged": "2026-11-07T23:00:06Z",
-   "why": "a top-50 account",
-   "proven": false,
-   "trigger": "top50",
-   "n_accounts": 1,
-   "best_rank": 40,
-   "usd": 206,
-   "paid": 0.836,
-   "ask": 0.82,
-   "status": "live",
-   "link": "https://polymarket.us/event/nba-uta-min-2026-11-08",
-   "other": null,
-   "kalshi_against": null,
-   "logged": true,
-   "event_id": "401909947",
-   "sport": "nba",
-   "league": null,
-   "away": "UTAH",
-   "home": "MIN",
-   "away_name": "Utah Jazz",
-   "home_name": "Minnesota Timberwolves",
-   "game_start": "2026-11-09T00:00Z",
-   "side_std": "home",
-   "money_with": false,
-   "grade": "watch",
-   "fair_board": null,
-   "inside_fair": null,
-   "books": {
-    "at": "2026-11-07T21:57:31Z",
-    "fair": null,
-    "q": {
-     "Polymarket": 0.81,
-     "Kalshi": 0.84
-    }
-   }
-  },
-  {
    "cond": "0xc2c8c1692b4f29d36ca4b0763046f46b4c1606cdb9355d5d466ea1730c265ab9",
    "slug": "nba-bos-mil-2026-11-08",
    "title": "Celtics vs. Bucks",
@@ -1944,7 +1946,7 @@
    "best_rank": 42,
    "usd": 140,
    "paid": 0.47,
-   "ask": 0.4,
+   "ask": 0.39,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-lal-det-2026-11-08",
    "other": {
@@ -1953,7 +1955,7 @@
     "usd": 1320,
     "first": "2026-11-07T22:00:06Z"
    },
-   "exit_bid": 0.39,
+   "exit_bid": 0.38,
    "kalshi_against": {
     "move": 5.0,
     "now": 61.5,
