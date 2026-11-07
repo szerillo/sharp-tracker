@@ -1,5 +1,5 @@
 {
- "built": "2026-11-07T16:30:25Z",
+ "built": "2026-11-07T16:37:08Z",
  "rows": [
   {
    "cond": "0x49158b5f973dcaeaf06f78a21c2f7f98017c6efd187b72bd149270ac26312ae8",
@@ -299,6 +299,43 @@
    }
   },
   {
+   "cond": "0x4373b8a96375ed8830c92cd09bfe312c0c3bce66f93e9367ad54c4397848a1f5",
+   "slug": "cfb-ucla-minnst-2026-11-07",
+   "title": "UCLA vs. Minnesota",
+   "mtype": "total",
+   "start": "2026-11-07T17:00:00Z",
+   "bet": "Under 39.5",
+   "side": "Under",
+   "flagged": "2026-11-07T16:30:22Z",
+   "why": "a top-200 account also in this sport's top 50",
+   "proven": true,
+   "trigger": "proven",
+   "n_accounts": 1,
+   "best_rank": 58,
+   "usd": 460,
+   "paid": 0.54,
+   "ask": 0.54,
+   "status": "live",
+   "link": "https://polymarket.us/event/cfb-ucla-minnst-2026-11-07",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401858512",
+   "sport": "cfb",
+   "league": null,
+   "away": "UCLA",
+   "home": "MINN",
+   "away_name": "UCLA Bruins",
+   "home_name": "Minnesota Golden Gophers",
+   "game_start": "2026-11-07T17:00Z",
+   "side_std": "under",
+   "money_with": false,
+   "grade": "A",
+   "fair_board": null,
+   "inside_fair": null,
+   "books": null
+  },
+  {
    "cond": "0xa0612e2516c4fdfad74bffedaac5e98732954b8b20204e9cf8e2d0cf5feda864",
    "slug": "bun-stu-wer-2026-11-07-more-markets",
    "title": "VfB Stuttgart vs. SV Werder Bremen - More Markets",
@@ -314,7 +351,7 @@
    "best_rank": 132,
    "usd": 344,
    "paid": 0.64,
-   "ask": 0.7,
+   "ask": 0.69,
    "status": "live",
    "link": "https://polymarket.us/event/bun-stu-wer-2026-11-07-more-markets",
    "other": null,
@@ -588,7 +625,7 @@
    "best_rank": 116,
    "usd": 1505,
    "paid": 0.45,
-   "ask": 0.47,
+   "ask": 0.46,
    "status": "live",
    "link": "https://polymarket.us/event/cfb-ala-lsu-2026-11-07",
    "other": null,
@@ -643,7 +680,7 @@
    "home_name": "Houston Cougars",
    "game_start": "2026-11-07T20:30Z",
    "side_std": "under",
-   "money_with": false,
+   "money_with": true,
    "grade": "A",
    "fair_board": null,
    "inside_fair": null,
@@ -725,7 +762,7 @@
    "home_name": "CF Montr\u00e9al",
    "game_start": "2026-11-07T21:00Z",
    "side_std": "over",
-   "money_with": true,
+   "money_with": false,
    "grade": "A",
    "fair_board": null,
    "inside_fair": null,
@@ -1864,6 +1901,13 @@
     "usd": 6003
    }
   },
+  "401909944|total": {
+   "under": {
+    "n": 1,
+    "best_rank": 132,
+    "usd": 102
+   }
+  },
   "401909945|ml": {
    "home": {
     "n": 1,
@@ -1925,6 +1969,13 @@
     "n": 1,
     "best_rank": 132,
     "usd": 245
+   }
+  },
+  "401858512|total": {
+   "under": {
+    "n": 1,
+    "best_rank": 58,
+    "usd": 460
    }
   },
   "401856851|total": {
