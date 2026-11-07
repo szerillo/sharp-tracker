@@ -2319,19 +2319,16 @@
 },
 "401858291:cfb_homefav_7510_under": {
 "tag": "cfb_homefav_7510_under",
-"fill_id": "592ae818b6af",
-"ts": "2026-11-05T20:13:53Z",
+"fill_id": "45d2df0cd92e",
+"ts": "2026-11-07T15:50:37Z",
 "market": "total",
 "side": "under",
-"line": 55.5,
-"venue": "DK",
-"price": -115,
-"fair": null,
-"edge_pts": null,
-"why": "home favourite ND -7.5, total 55.5: under (mined angle)",
-"void": true,
-"void_why": "rule no longer holds on the current line: home spread -7.0, total 54.5 (2026-11-07T07:54:51Z)",
-"void_at": "2026-11-07T07:54:51Z"
+"line": 54.5,
+"venue": "Caesars",
+"price": -107,
+"fair": 0.49684,
+"edge_pts": -2.01,
+"why": "home favourite ND -7.5, total 54.5: under (mined angle)"
 },
 "401866459:cfb_road_streak_dog": {
 "tag": "cfb_road_streak_dog",
@@ -3379,10 +3376,36 @@
 "edge_pts": -1.58,
 "why": "MySportsWeather 12.0 mph (Open-Meteo n/a)"
 },
+"401873048:wind1014": {
+"tag": "wind1014",
+"fill_id": "2c2110afeed3",
+"ts": "2026-11-07T15:50:37Z",
+"market": "total",
+"side": "under",
+"line": 39.5,
+"venue": "Caesars",
+"price": -106,
+"fair": 0.50937,
+"edge_pts": -0.52,
+"why": "avg 10.1 mph (Open-Meteo 10.1 at T-30h, MySportsWeather 10.0), gust 19.5, 53.6F"
+},
+"401873048:wind1014_1h": {
+"tag": "wind1014_1h",
+"fill_id": "02c2b9998a6d",
+"ts": "2026-11-07T15:50:37Z",
+"market": "1h_total",
+"side": "under",
+"line": 19.5,
+"venue": "Caesars",
+"price": 108,
+"fair": 0.46624,
+"edge_pts": -1.45,
+"why": "avg 10.1 mph (Open-Meteo 10.1 at T-30h, MySportsWeather 10.0), gust 19.5, 53.6F"
+},
 "401858289:xch_homedog_fade:ml": {
 "tag": "xch_homedog_fade",
-"fill_id": "89986d1d2754",
-"ts": "2026-11-07T15:42:15Z",
+"fill_id": "92abb2fab9cf",
+"ts": "2026-11-07T15:50:37Z",
 "market": "ml",
 "side": "away",
 "line": null,
@@ -3390,10 +3413,6 @@
 "price": -208,
 "fair": 0.67345,
 "edge_pts": -0.16,
-"why": "Novig home side mid 0.328 inside T-1.3h; audit band 20-35c",
-"now": {
-"venue": "Novig",
-"price": -208
-}
+"why": "Novig home side mid 0.328 inside T-1.2h; audit band 20-35c"
 }
 }
