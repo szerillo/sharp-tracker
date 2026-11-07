@@ -1,5 +1,5 @@
 {
- "built": "2026-11-07T00:29:45Z",
+ "built": "2026-11-07T00:36:59Z",
  "rows": [
   {
    "cond": "0x89b352113e523a8dff5556e0880d9f258821fed7caee81b050951f9bf294b9f4",
@@ -32,11 +32,8 @@
    "home_name": "Atlanta Hawks",
    "game_start": "2026-11-07T00:00Z",
    "side_std": "under",
-   "conflict": [
-    "Kalshi bet back"
-   ],
-   "money_with": true,
-   "grade": "A",
+   "money_with": false,
+   "grade": "B",
    "fair_board": 0.5016,
    "inside_fair": null,
    "books": {
@@ -81,11 +78,8 @@
    "home_name": "Atlanta Hawks",
    "game_start": "2026-11-07T00:00Z",
    "side_std": "under",
-   "conflict": [
-    "Kalshi bet back"
-   ],
-   "money_with": true,
-   "grade": "A",
+   "money_with": false,
+   "grade": "B",
    "inside_fair": false,
    "fair_board": null,
    "books": null
@@ -133,7 +127,7 @@
    "best_rank": 40,
    "usd": 349,
    "paid": 0.53,
-   "ask": 0.68,
+   "ask": 0.67,
    "status": "live",
    "link": "https://polymarket.us/event/nba-tor-mil-2026-11-06",
    "other": null,
@@ -185,6 +179,9 @@
    "home_name": "Memphis Grizzlies",
    "game_start": "2026-11-07T01:00Z",
    "side_std": "away",
+   "conflict": [
+    "big money"
+   ],
    "money_with": false,
    "grade": "B",
    "inside_fair": true,
@@ -366,7 +363,7 @@
    "home_name": "Illinois Fighting Illini",
    "game_start": "2026-11-07T01:00Z",
    "side_std": "over",
-   "money_with": false,
+   "money_with": true,
    "grade": "A",
    "fair_board": null,
    "inside_fair": null,
@@ -915,7 +912,7 @@
    "best_rank": 43,
    "usd": 121,
    "paid": 0.31,
-   "ask": 0.31,
+   "ask": 0.32,
    "status": "live",
    "link": "https://polymarket.us/event/nba-bkn-atl-2026-11-07",
    "other": null,
@@ -1205,9 +1202,6 @@
    "home_name": "Atlanta Hawks",
    "game_start": "2026-11-07T00:00Z",
    "side_std": "away",
-   "conflict": [
-    "Kalshi move"
-   ],
    "money_with": false,
    "grade": "B",
    "fair_board": 0.4875,
@@ -1251,9 +1245,6 @@
    "home_name": "Atlanta Hawks",
    "game_start": "2026-11-07T00:00Z",
    "side_std": "away",
-   "conflict": [
-    "Kalshi move"
-   ],
    "money_with": false,
    "grade": "B",
    "fair_board": null,
@@ -1297,9 +1288,6 @@
    "home_name": "Atlanta Hawks",
    "game_start": "2026-11-07T00:00Z",
    "side_std": "away",
-   "conflict": [
-    "Kalshi move"
-   ],
    "money_with": false,
    "grade": "B",
    "fair_board": null,
@@ -1322,7 +1310,7 @@
    "best_rank": 31,
    "usd": 1715,
    "paid": 0.425,
-   "ask": 0.43,
+   "ask": null,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-phi-cle-2026-11-06",
    "other": {
@@ -1331,7 +1319,7 @@
     "usd": 9516,
     "first": "2026-11-06T08:25:33Z"
    },
-   "exit_bid": 0.42,
+   "exit_bid": null,
    "kalshi_against": {
     "move": 4.5,
     "now": 59.5,
@@ -1353,7 +1341,7 @@
    "money_with": false,
    "grade": "A",
    "fair_board": 0.4179,
-   "inside_fair": false,
+   "inside_fair": null,
    "books": null
   },
   {
@@ -1415,7 +1403,7 @@
    "best_rank": 23,
    "usd": 5693,
    "paid": 0.382,
-   "ask": 0.41,
+   "ask": 0.42,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-tor-mil-2026-11-06",
    "other": {
@@ -1424,7 +1412,7 @@
     "usd": 1474,
     "first": "2026-11-06T23:59:16Z"
    },
-   "exit_bid": 0.4,
+   "exit_bid": 0.41,
    "kalshi_against": null,
    "logged": true,
    "event_id": "401909292",
@@ -1511,7 +1499,7 @@
    "best_rank": 49,
    "usd": 6625,
    "paid": 0.64,
-   "ask": 0.63,
+   "ask": 0.62,
    "status": "other side",
    "link": "https://polymarket.us/event/nfl-buf-min-2026-11-10",
    "other": {
@@ -1520,7 +1508,7 @@
     "usd": 6921,
     "first": "2026-11-05T15:36:49Z"
    },
-   "exit_bid": 0.62,
+   "exit_bid": 0.61,
    "kalshi_against": null,
    "logged": true,
    "event_id": "401873051",
@@ -1698,30 +1686,6 @@
     "n": 1,
     "best_rank": 49,
     "usd": 6921
-   }
-  },
-  "401909289|ml": {
-   "home": {
-    "n": 4,
-    "best_rank": 31,
-    "usd": 1715
-   },
-   "away": {
-    "n": 2,
-    "best_rank": 31,
-    "usd": 5741
-   }
-  },
-  "401909289|total": {
-   "under": {
-    "n": 1,
-    "best_rank": 76,
-    "usd": 1503
-   },
-   "over": {
-    "n": 2,
-    "best_rank": 58,
-    "usd": 1524
    }
   },
   "401909290|total": {
