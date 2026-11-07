@@ -1,5 +1,5 @@
 {
- "built": "2026-11-07T22:16:41Z",
+ "built": "2026-11-07T22:23:30Z",
  "rows": [
   {
    "cond": "0x8ad55f7e0bd9bc4f386325526710254c6cae284236781127ea7bcc5247a29e95",
@@ -919,6 +919,43 @@
    "books": null
   },
   {
+   "cond": "0x50d65c600519194a43397e69a1ea366cca2b6762f22b6a06b437b2913d2d211a",
+   "slug": "nfl-cin-atl-2026-11-08",
+   "title": "Bengals vs. Falcons",
+   "mtype": "spread",
+   "start": "2026-11-08T14:30:00Z",
+   "bet": "Falcons -3.5",
+   "side": "Falcons",
+   "flagged": "2026-11-07T22:19:10Z",
+   "why": "a top-200 account also in this sport's top 50",
+   "proven": true,
+   "trigger": "proven",
+   "n_accounts": 1,
+   "best_rank": 143,
+   "usd": 3045,
+   "paid": 0.25,
+   "ask": 0.26,
+   "status": "live",
+   "link": "https://polymarket.us/event/nfl-cin-atl-2026-11-08",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401873038",
+   "sport": "nfl",
+   "league": null,
+   "away": "CIN",
+   "home": "ATL",
+   "away_name": "Cincinnati Bengals",
+   "home_name": "Atlanta Falcons",
+   "game_start": "2026-11-08T14:30Z",
+   "side_std": "home",
+   "money_with": false,
+   "grade": "A",
+   "fair_board": null,
+   "inside_fair": null,
+   "books": null
+  },
+  {
    "cond": "0x4482ea8fcedde0dfe70a6793f45114b74b40eb73e16bc1c25fe51a999a0ed1b7",
    "slug": "nfl-det-mia-2026-11-08",
    "title": "Lions vs. Dolphins",
@@ -1286,7 +1323,7 @@
    "best_rank": 43,
    "usd": 248,
    "paid": 0.181,
-   "ask": 0.23,
+   "ask": 0.24,
    "status": "live",
    "link": "https://polymarket.us/event/nba-phi-chi-2026-11-08",
    "other": null,
@@ -1952,6 +1989,13 @@
   }
  },
  "by_event": {
+  "401873038|spread": {
+   "home": {
+    "n": 1,
+    "best_rank": 143,
+    "usd": 3045
+   }
+  },
   "401873040|spread": {
    "home": {
     "n": 4,
