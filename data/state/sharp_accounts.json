@@ -1,5 +1,5 @@
 {
- "built": "2026-11-07T23:31:10Z",
+ "built": "2026-11-07T23:38:23Z",
  "rows": [
   {
    "cond": "0x10f4836a3b8dab09aa15fb16ba131a57296fa9b3f666865264a3aa9be24af09a",
@@ -542,8 +542,8 @@
    "inside_fair": false,
    "fair_board": 0.4927,
    "books": {
-    "at": "2026-11-07T22:57:54Z",
-    "fair": 0.4927,
+    "at": "2026-11-07T23:20:46Z",
+    "fair": 0.4942,
     "q": {
      "Caesars": 0.495,
      "Novig": 0.5,
@@ -591,7 +591,7 @@
    "fair_board": null,
    "inside_fair": null,
    "books": {
-    "at": "2026-11-07T22:57:54Z",
+    "at": "2026-11-07T23:20:46Z",
     "fair": null,
     "q": {
      "Kalshi": 0.45
@@ -637,12 +637,12 @@
    "inside_fair": false,
    "fair_board": 0.5121,
    "books": {
-    "at": "2026-11-07T22:57:54Z",
-    "fair": 0.5117,
+    "at": "2026-11-07T23:20:46Z",
+    "fair": 0.5121,
     "q": {
      "Polymarket": 0.51,
      "Novig": 0.515,
-     "Caesars": 0.5238,
+     "Caesars": 0.5349,
      "DK": 0.537
     }
    }
@@ -663,7 +663,7 @@
    "best_rank": 58,
    "usd": 430,
    "paid": 0.57,
-   "ask": 0.59,
+   "ask": 0.58,
    "status": "live",
    "link": "https://polymarket.us/event/cfb-airf-army-2026-11-07",
    "other": null,
@@ -720,11 +720,11 @@
    "inside_fair": false,
    "fair_board": 0.2683,
    "books": {
-    "at": "2026-11-07T22:57:54Z",
-    "fair": 0.2698,
+    "at": "2026-11-07T23:20:46Z",
+    "fair": 0.2668,
     "q": {
      "Polymarket": 0.27,
-     "Novig": 0.275,
+     "Novig": 0.27,
      "Caesars": 0.2899,
      "FD": 0.2899
     }
@@ -769,7 +769,7 @@
    "inside_fair": false,
    "fair_board": 0.4971,
    "books": {
-    "at": "2026-11-07T22:57:54Z",
+    "at": "2026-11-07T23:20:46Z",
     "fair": 0.4957,
     "q": {
      "Novig": 0.49,
@@ -795,7 +795,7 @@
    "best_rank": 42,
    "usd": 205,
    "paid": 0.83,
-   "ask": 0.85,
+   "ask": 0.83,
    "status": "live",
    "link": "https://polymarket.us/event/nba-was-okc-2026-11-07",
    "other": null,
@@ -812,11 +812,11 @@
    "side_std": "home",
    "money_with": false,
    "grade": "watch",
-   "fair_board": 0.8288,
+   "fair_board": 0.8274,
    "inside_fair": false,
    "books": {
-    "at": "2026-11-07T22:57:54Z",
-    "fair": 0.8288,
+    "at": "2026-11-07T23:20:46Z",
+    "fair": 0.8274,
     "q": {
      "Polymarket": 0.83,
      "Novig": 0.83,
@@ -864,8 +864,8 @@
    "inside_fair": false,
    "fair_board": 0.5007,
    "books": {
-    "at": "2026-11-07T22:57:54Z",
-    "fair": 0.5108,
+    "at": "2026-11-07T23:20:46Z",
+    "fair": 0.5107,
     "q": {
      "Novig": 0.515,
      "Polymarket": 0.52,
@@ -913,7 +913,7 @@
    "inside_fair": false,
    "fair_board": 0.4852,
    "books": {
-    "at": "2026-11-07T22:57:54Z",
+    "at": "2026-11-07T23:20:46Z",
     "fair": 0.484,
     "q": {
      "Novig": 0.485,
@@ -956,14 +956,14 @@
    "side_std": "away",
    "money_with": false,
    "grade": "A",
-   "fair_board": 0.5103,
+   "fair_board": 0.5117,
    "inside_fair": false,
    "books": {
-    "at": "2026-11-07T22:57:54Z",
-    "fair": 0.5103,
+    "at": "2026-11-07T23:20:46Z",
+    "fair": 0.5117,
     "q": {
-     "Novig": 0.515,
      "DK": 0.5238,
+     "Novig": 0.525,
      "Caesars": 0.5283,
      "FD": 0.5349
     }
@@ -1153,8 +1153,8 @@
    "inside_fair": false,
    "fair_board": 0.5072,
    "books": {
-    "at": "2026-11-07T22:57:54Z",
-    "fair": 0.5298,
+    "at": "2026-11-07T23:20:46Z",
+    "fair": 0.5288,
     "q": {
      "DK": 0.5349,
      "Novig": 0.535,
@@ -1314,6 +1314,43 @@
    "books": null
   },
   {
+   "cond": "0x57b5dd86e38006b1c60867da145db14ec79bea0163c865ba1e12540f0a483c6c",
+   "slug": "nfl-det-mia-2026-11-08",
+   "title": "Lions vs. Dolphins",
+   "mtype": "spread",
+   "start": "2026-11-08T18:00:00Z",
+   "bet": "Dolphins -3.5",
+   "side": "Dolphins",
+   "flagged": "2026-11-07T23:37:21Z",
+   "why": "a top-200 account also in this sport's top 50",
+   "proven": true,
+   "trigger": "proven",
+   "n_accounts": 1,
+   "best_rank": 143,
+   "usd": 3181,
+   "paid": 0.16,
+   "ask": 0.17,
+   "status": "live",
+   "link": "https://polymarket.us/event/nfl-det-mia-2026-11-08",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401873042",
+   "sport": "nfl",
+   "league": null,
+   "away": "DET",
+   "home": "MIA",
+   "away_name": "Detroit Lions",
+   "home_name": "Miami Dolphins",
+   "game_start": "2026-11-08T18:00Z",
+   "side_std": "home",
+   "money_with": true,
+   "grade": "A",
+   "fair_board": null,
+   "inside_fair": null,
+   "books": null
+  },
+  {
    "cond": "0xfc2ab1795b24239c2bdd73f59abd913b83ba1b39f8d77890a3d009f0e662081f",
    "slug": "bun-hof-s04-2026-11-08",
    "title": "TSG 1899 Hoffenheim vs. FC Schalke 04",
@@ -1386,7 +1423,7 @@
    "fair_board": 0.5019,
    "inside_fair": false,
    "books": {
-    "at": "2026-11-07T22:57:54Z",
+    "at": "2026-11-07T23:20:46Z",
     "fair": 0.5019,
     "q": {
      "FD": 0.5098,
@@ -1429,14 +1466,14 @@
    "side_std": "home",
    "money_with": false,
    "grade": "watch",
-   "fair_board": 0.2377,
+   "fair_board": 0.2347,
    "inside_fair": false,
    "books": {
-    "at": "2026-11-07T22:57:54Z",
-    "fair": 0.2377,
+    "at": "2026-11-07T23:20:46Z",
+    "fair": 0.2347,
     "q": {
+     "Novig": 0.235,
      "Polymarket": 0.24,
-     "Novig": 0.245,
      "Kalshi": 0.25,
      "FD": 0.274
     }
@@ -1478,13 +1515,13 @@
    "inside_fair": false,
    "fair_board": 0.8078,
    "books": {
-    "at": "2026-11-07T22:57:54Z",
-    "fair": 0.8078,
+    "at": "2026-11-07T23:20:46Z",
+    "fair": 0.8099,
     "q": {
      "Polymarket": 0.81,
      "FD": 0.8214,
-     "Kalshi": 0.84,
-     "Novig": 0.84
+     "Caesars": 0.8276,
+     "DK": 0.8294
     }
    }
   },
@@ -1524,7 +1561,7 @@
    "fair_board": null,
    "inside_fair": null,
    "books": {
-    "at": "2026-11-07T22:57:54Z",
+    "at": "2026-11-07T23:20:46Z",
     "fair": null,
     "q": {
      "Polymarket": 0.84,
@@ -1671,7 +1708,7 @@
    "best_rank": 43,
    "usd": 121,
    "paid": 0.31,
-   "ask": 0.29,
+   "ask": 0.3,
    "status": "live",
    "link": "https://polymarket.us/event/nba-bkn-atl-2026-11-07",
    "other": null,
@@ -1695,14 +1732,14 @@
    ],
    "money_with": true,
    "grade": "watch",
-   "fair_board": 0.281,
+   "fair_board": 0.2867,
    "inside_fair": false,
    "books": {
-    "at": "2026-11-07T22:57:54Z",
-    "fair": 0.281,
+    "at": "2026-11-07T23:20:46Z",
+    "fair": 0.2867,
     "q": {
-     "Novig": 0.28,
      "Polymarket": 0.29,
+     "Novig": 0.29,
      "DK": 0.3021,
      "Kalshi": 0.31
     }
@@ -1790,7 +1827,7 @@
    "side_std": "home",
    "money_with": false,
    "grade": "A",
-   "fair_board": 0.5195,
+   "fair_board": 0.5186,
    "inside_fair": false,
    "books": null
   },
@@ -1880,7 +1917,7 @@
    "inside_fair": true,
    "fair_board": 0.3912,
    "books": {
-    "at": "2026-11-07T22:57:54Z",
+    "at": "2026-11-07T23:20:46Z",
     "fair": 0.3968,
     "q": {
      "Novig": 0.4,
@@ -1984,8 +2021,8 @@
    ],
    "money_with": false,
    "grade": "watch",
-   "fair_board": 0.4026,
-   "inside_fair": true,
+   "fair_board": 0.3819,
+   "inside_fair": false,
    "books": null
   },
   {
@@ -2107,9 +2144,9 @@
   },
   "401873042:awfuldog": {
    "with": {
-    "n": 1,
+    "n": 2,
     "best_rank": 58,
-    "usd": 440
+    "usd": 3621
    },
    "against": null
   },
@@ -2183,9 +2220,9 @@
   },
   "401873042|spread": {
    "home": {
-    "n": 1,
+    "n": 2,
     "best_rank": 58,
-    "usd": 440
+    "usd": 3621
    }
   },
   "401873039|spread": {
@@ -2290,6 +2327,11 @@
     "n": 1,
     "best_rank": 112,
     "usd": 4792
+   },
+   "away": {
+    "n": 1,
+    "best_rank": 112,
+    "usd": 1280
    }
   },
   "401909941|ml": {
