@@ -1,5 +1,5 @@
 {
- "built": "2026-11-07T15:50:00Z",
+ "built": "2026-11-07T15:56:55Z",
  "rows": [
   {
    "cond": "0xb041c7548e77c7e9918c322e9546f9d05bd260108205850e032d6698a406bcfe",
@@ -379,13 +379,13 @@
    "game_start": "2026-11-07T17:00Z",
    "side_std": "home",
    "conflict": [
-    "Kalshi bet back",
+    "Kalshi move",
     "big money"
    ],
    "money_with": false,
    "grade": "A",
-   "fair_board": 0.4777,
    "inside_fair": false,
+   "fair_board": 0.4777,
    "books": {
     "at": "2026-11-07T14:54:51Z",
     "fair": 0.4777,
@@ -444,6 +444,46 @@
    }
   },
   {
+   "cond": "0xe4cdefe2aeaedb2a929f3512620cc5e62d7df8369691c12d493b1c8ee4d66320",
+   "slug": "cfb-mary-pur-2026-11-07",
+   "title": "Maryland vs. Purdue",
+   "mtype": "spread",
+   "start": "2026-11-07T17:30:00Z",
+   "bet": "Purdue -5.5",
+   "side": "Purdue",
+   "flagged": "2026-11-07T15:50:12Z",
+   "why": "a top-200 account also in this sport's top 50",
+   "proven": true,
+   "trigger": "proven",
+   "n_accounts": 1,
+   "best_rank": 115,
+   "usd": 103,
+   "paid": 0.49,
+   "ask": 0.5,
+   "status": "live",
+   "link": "https://polymarket.us/event/cfb-mary-pur-2026-11-07",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401858515",
+   "sport": "cfb",
+   "league": null,
+   "away": "MD",
+   "home": "PUR",
+   "away_name": "Maryland Terrapins",
+   "home_name": "Purdue Boilermakers",
+   "game_start": "2026-11-07T17:30Z",
+   "side_std": "home",
+   "conflict": [
+    "Kalshi move"
+   ],
+   "money_with": false,
+   "grade": "A",
+   "fair_board": null,
+   "inside_fair": null,
+   "books": null
+  },
+  {
    "cond": "0x02bfed7d87a3195e4938740bebb776048fc33b4c455423f9daefca42d864cfca",
    "slug": "cfb-morgst-delst-2026-11-07",
    "title": "Morgan State vs. Delaware State",
@@ -495,6 +535,79 @@
    "grade": "A",
    "inside_fair": true,
    "fair_board": 0.6812,
+   "books": null
+  },
+  {
+   "cond": "0xd287ab74d36c4f3971fa3cb69c54ef28e50d9414c77edf0f669dd5c8c7fcce29",
+   "slug": "cfb-old-coast-2026-11-07",
+   "title": "Old Dominion vs. Coastal Carolina",
+   "mtype": "spread",
+   "start": "2026-11-07T18:00:00Z",
+   "bet": "Old Dominion +6.5",
+   "side": "Old Dominion",
+   "flagged": "2026-11-07T15:54:48Z",
+   "why": "a top-200 account also in this sport's top 50",
+   "proven": true,
+   "trigger": "proven",
+   "n_accounts": 1,
+   "best_rank": 115,
+   "usd": 12528,
+   "paid": 0.48,
+   "ask": 0.49,
+   "status": "live",
+   "link": "https://polymarket.us/event/cfb-old-coast-2026-11-07",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401869945",
+   "sport": "cfb",
+   "league": null,
+   "away": "ODU",
+   "home": "CCU",
+   "away_name": "Old Dominion Monarchs",
+   "home_name": "Coastal Carolina Chanticleers",
+   "game_start": "2026-11-07T18:00Z",
+   "side_std": "away",
+   "money_with": false,
+   "grade": "A",
+   "fair_board": 0.4851,
+   "inside_fair": false,
+   "books": {
+    "at": "2026-11-07T14:54:51Z",
+    "fair": 0.4851,
+    "q": {
+     "Novig": 0.485,
+     "FD": 0.505,
+     "Caesars": 0.5098,
+     "DK": 0.5122
+    }
+   }
+  },
+  {
+   "cond": "0x8ad55f7e0bd9bc4f386325526710254c6cae284236781127ea7bcc5247a29e95",
+   "slug": "cfb-gast-applst-2026-11-07",
+   "title": "Georgia State vs. Appalachian State",
+   "mtype": "spread",
+   "start": "2026-11-07T19:30:00Z",
+   "bet": "Georgia State +6.5",
+   "side": "Georgia State",
+   "flagged": "2026-11-07T15:56:19Z",
+   "why": "a top-200 account also in this sport's top 50",
+   "proven": true,
+   "trigger": "proven",
+   "n_accounts": 1,
+   "best_rank": 115,
+   "usd": 521,
+   "paid": 0.49,
+   "ask": 0.5,
+   "status": "live",
+   "link": "https://polymarket.us/event/cfb-gast-applst-2026-11-07",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "grade": "A",
+   "fair_board": null,
+   "inside_fair": null,
    "books": null
   },
   {
@@ -687,7 +800,7 @@
    "home_name": "CF Montr\u00e9al",
    "game_start": "2026-11-07T21:00Z",
    "side_std": "over",
-   "money_with": true,
+   "money_with": false,
    "grade": "A",
    "fair_board": null,
    "inside_fair": null,
@@ -1908,6 +2021,20 @@
     "n": 1,
     "best_rank": 115,
     "usd": 179
+   }
+  },
+  "401858515|spread": {
+   "home": {
+    "n": 1,
+    "best_rank": 115,
+    "usd": 103
+   }
+  },
+  "401869945|spread": {
+   "away": {
+    "n": 1,
+    "best_rank": 115,
+    "usd": 12528
    }
   },
   "401856744|total": {
