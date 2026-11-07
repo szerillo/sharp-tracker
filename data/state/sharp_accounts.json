@@ -1,5 +1,5 @@
 {
- "built": "2026-11-07T20:08:24Z",
+ "built": "2026-11-07T20:15:09Z",
  "rows": [
   {
    "cond": "0x5a4f48f65db8bb0de7274a91d32ae7abafaf1aae7e67322744658be0e0e73abb",
@@ -510,9 +510,6 @@
    "home_name": "App State Mountaineers",
    "game_start": "2026-11-07T19:30Z",
    "side_std": "away",
-   "conflict": [
-    "Kalshi move"
-   ],
    "money_with": false,
    "grade": "A",
    "fair_board": 0.4947,
@@ -693,46 +690,6 @@
    }
   },
   {
-   "cond": "0x420aed52fb1560c0a6c033c271afa01532786963267264f2ceb123e70b41d1f4",
-   "slug": "cfb-ala-lsu-2026-11-07",
-   "title": "Alabama vs. LSU",
-   "mtype": "total",
-   "start": "2026-11-07T20:30:00Z",
-   "bet": "Over 54.5",
-   "side": "Over",
-   "flagged": "2026-11-03T15:16:51Z",
-   "why": "a top-200 account also in this sport's top 50",
-   "proven": true,
-   "trigger": "proven",
-   "n_accounts": 1,
-   "best_rank": 116,
-   "usd": 1505,
-   "paid": 0.45,
-   "ask": 0.49,
-   "status": "live",
-   "link": "https://polymarket.us/event/cfb-ala-lsu-2026-11-07",
-   "other": null,
-   "kalshi_against": null,
-   "logged": true,
-   "event_id": "401856740",
-   "sport": "cfb",
-   "league": null,
-   "away": "ALA",
-   "home": "LSU",
-   "away_name": "Alabama Crimson Tide",
-   "home_name": "LSU Tigers",
-   "game_start": "2026-11-07T20:30Z",
-   "side_std": "over",
-   "conflict": [
-    "big money"
-   ],
-   "money_with": false,
-   "grade": "A",
-   "fair_board": null,
-   "inside_fair": null,
-   "books": null
-  },
-  {
    "cond": "0x85f2725b66a298fd5dbc59de813ac7a3875d937ce3ea42efee3b2ca2a0a2f394",
    "slug": "cfb-cin-hou-2026-11-07",
    "title": "Cincinnati vs. Houston",
@@ -763,7 +720,7 @@
    "home_name": "Houston Cougars",
    "game_start": "2026-11-07T20:30Z",
    "side_std": "under",
-   "money_with": false,
+   "money_with": true,
    "grade": "A",
    "fair_board": null,
    "inside_fair": null,
@@ -785,7 +742,7 @@
    "best_rank": 132,
    "usd": 1363,
    "paid": 0.507,
-   "ask": 0.53,
+   "ask": 0.58,
    "status": "live",
    "link": "https://polymarket.us/event/mls-dcu-nyc-2026-11-07-more-markets",
    "other": null,
@@ -830,7 +787,7 @@
    "best_rank": 132,
    "usd": 810,
    "paid": 0.44,
-   "ask": 0.41,
+   "ask": 0.4,
    "status": "live",
    "link": "https://polymarket.us/event/mls-mim-vwh-2026-11-07-more-markets",
    "other": null,
@@ -1072,7 +1029,7 @@
    "best_rank": 58,
    "usd": 430,
    "paid": 0.57,
-   "ask": 0.58,
+   "ask": 0.59,
    "status": "live",
    "link": "https://polymarket.us/event/cfb-airf-army-2026-11-07",
    "other": null,
@@ -1087,9 +1044,6 @@
    "home_name": "Army Black Knights",
    "game_start": "2026-11-08T00:30Z",
    "side_std": "under",
-   "conflict": [
-    "Kalshi bet back"
-   ],
    "money_with": false,
    "grade": "A",
    "fair_board": null,
@@ -1801,6 +1755,52 @@
    "books": null
   },
   {
+   "cond": "0x420aed52fb1560c0a6c033c271afa01532786963267264f2ceb123e70b41d1f4",
+   "slug": "cfb-ala-lsu-2026-11-07",
+   "title": "Alabama vs. LSU",
+   "mtype": "total",
+   "start": "2026-11-07T20:30:00Z",
+   "bet": "Over 54.5",
+   "side": "Over",
+   "flagged": "2026-11-03T15:16:51Z",
+   "why": "a top-200 account also in this sport's top 50",
+   "proven": true,
+   "trigger": "proven",
+   "n_accounts": 1,
+   "best_rank": 116,
+   "usd": 1505,
+   "paid": 0.45,
+   "ask": 0.49,
+   "status": "other side",
+   "link": "https://polymarket.us/event/cfb-ala-lsu-2026-11-07",
+   "other": {
+    "n_accounts": 1,
+    "best_rank": 58,
+    "usd": 480,
+    "first": "2026-11-07T20:08:22Z"
+   },
+   "exit_bid": 0.48,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401856740",
+   "sport": "cfb",
+   "league": null,
+   "away": "ALA",
+   "home": "LSU",
+   "away_name": "Alabama Crimson Tide",
+   "home_name": "LSU Tigers",
+   "game_start": "2026-11-07T20:30Z",
+   "side_std": "over",
+   "conflict": [
+    "big money"
+   ],
+   "money_with": false,
+   "grade": "A",
+   "fair_board": null,
+   "inside_fair": null,
+   "books": null
+  },
+  {
    "cond": "0xd709c4c03dde4a05b4f89442c91c47ec7f11037b984067551ecf5da542e1dd26",
    "slug": "cfb-ala-lsu-2026-11-07",
    "title": "Alabama vs. LSU",
@@ -1867,8 +1867,8 @@
    "link": "https://polymarket.us/event/nba-bkn-atl-2026-11-07",
    "other": null,
    "kalshi_against": {
-    "move": 8.0,
-    "now": 73.5,
+    "move": 6.0,
+    "now": 71.5,
     "state": "drift"
    },
    "logged": true,
@@ -2469,6 +2469,11 @@
     "n": 1,
     "best_rank": 116,
     "usd": 1505
+   },
+   "under": {
+    "n": 1,
+    "best_rank": 58,
+    "usd": 480
    }
   },
   "401856740|spread": {
@@ -2481,6 +2486,20 @@
     "n": 1,
     "best_rank": 4,
     "usd": 500
+   }
+  },
+  "401862820|spread": {
+   "home": {
+    "n": 1,
+    "best_rank": 182,
+    "usd": 284
+   }
+  },
+  "401862820|ml": {
+   "home": {
+    "n": 1,
+    "best_rank": 182,
+    "usd": 110
    }
   },
   "401871098|ml": {
