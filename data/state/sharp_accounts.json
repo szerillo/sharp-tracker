@@ -1,5 +1,5 @@
 {
- "built": "2026-11-07T17:09:48Z",
+ "built": "2026-11-07T17:17:03Z",
  "rows": [
   {
    "cond": "0x49158b5f973dcaeaf06f78a21c2f7f98017c6efd187b72bd149270ac26312ae8",
@@ -127,16 +127,7 @@
    "grade": "A",
    "inside_fair": false,
    "fair_board": 0.4023,
-   "books": {
-    "at": "2026-11-07T14:42:34Z",
-    "fair": 0.4493,
-    "q": {
-     "Caesars": 0.4484,
-     "Novig": 0.455,
-     "Kalshi": 0.47,
-     "DK": 0.4762
-    }
-   }
+   "books": null
   },
   {
    "cond": "0x5a4f48f65db8bb0de7274a91d32ae7abafaf1aae7e67322744658be0e0e73abb",
@@ -171,9 +162,18 @@
    "side_std": "over",
    "money_with": false,
    "grade": "B",
-   "fair_board": null,
+   "fair_board": 0.5013,
    "inside_fair": null,
-   "books": null
+   "books": {
+    "at": "2026-11-07T16:23:48Z",
+    "fair": 0.5013,
+    "q": {
+     "Novig": 0.505,
+     "Caesars": 0.5146,
+     "DK": 0.5192,
+     "FD": 0.5238
+    }
+   }
   },
   {
    "cond": "0xf9d41bce64f0a560ee61ade7b9424c801c4474926dac8a921340210625d9d35a",
@@ -238,13 +238,13 @@
    "inside_fair": false,
    "fair_board": 0.4574,
    "books": {
-    "at": "2026-11-07T15:53:37Z",
-    "fair": 0.4672,
+    "at": "2026-11-07T16:23:48Z",
+    "fair": 0.4782,
     "q": {
-     "Novig": 0.47,
      "Caesars": 0.4831,
-     "Kalshi": 0.49,
-     "FD": 0.4902
+     "Novig": 0.485,
+     "DK": 0.495,
+     "FD": 0.495
     }
    }
   },
@@ -287,13 +287,13 @@
    "inside_fair": false,
    "fair_board": 0.4777,
    "books": {
-    "at": "2026-11-07T15:53:37Z",
-    "fair": 0.4735,
+    "at": "2026-11-07T16:23:48Z",
+    "fair": 0.4716,
     "q": {
-     "Novig": 0.47,
+     "Novig": 0.475,
      "Kalshi": 0.49,
-     "FD": 0.505,
-     "Caesars": 0.5074
+     "FD": 0.495,
+     "DK": 0.5
     }
    }
   },
@@ -328,6 +328,9 @@
    "home_name": "Minnesota Golden Gophers",
    "game_start": "2026-11-07T17:00Z",
    "side_std": "under",
+   "conflict": [
+    "big money"
+   ],
    "money_with": false,
    "grade": "A",
    "fair_board": null,
@@ -390,7 +393,7 @@
    "best_rank": 132,
    "usd": 344,
    "paid": 0.64,
-   "ask": 0.7,
+   "ask": 0.69,
    "status": "live",
    "link": "https://polymarket.us/event/bun-stu-wer-2026-11-07-more-markets",
    "other": null,
@@ -410,12 +413,12 @@
    "inside_fair": false,
    "fair_board": 0.6335,
    "books": {
-    "at": "2026-11-07T15:53:37Z",
-    "fair": 0.7013,
+    "at": "2026-11-07T17:00:03Z",
+    "fair": 0.6966,
     "q": {
      "Caesars": 0.6296,
-     "Novig": 0.71,
-     "Kalshi": 0.73,
+     "Novig": 0.7,
+     "Kalshi": 0.72,
      "FD": 0.7561
     }
    }
@@ -490,16 +493,16 @@
    "side_std": "away",
    "money_with": false,
    "grade": "B",
-   "fair_board": 0.3577,
    "inside_fair": false,
+   "fair_board": 0.3577,
    "books": {
-    "at": "2026-11-07T15:53:37Z",
-    "fair": 0.3577,
+    "at": "2026-11-07T17:00:03Z",
+    "fair": 0.3554,
     "q": {
+     "Novig": 0.36,
      "Caesars": 0.365,
-     "Novig": 0.365,
      "DK": 0.3704,
-     "Kalshi": 0.39
+     "Kalshi": 0.38
     }
    }
   },
@@ -593,7 +596,7 @@
    "inside_fair": false,
    "fair_board": 0.4866,
    "books": {
-    "at": "2026-11-07T15:53:37Z",
+    "at": "2026-11-07T17:00:03Z",
     "fair": 0.4866,
     "q": {
      "Novig": 0.49,
@@ -652,10 +655,32 @@
    "other": null,
    "kalshi_against": null,
    "logged": true,
+   "event_id": "401869927",
+   "sport": "cfb",
+   "league": null,
+   "away": "GAST",
+   "home": "APP",
+   "away_name": "Georgia State Panthers",
+   "home_name": "App State Mountaineers",
+   "game_start": "2026-11-07T19:30Z",
+   "side_std": "away",
+   "conflict": [
+    "Kalshi move"
+   ],
+   "money_with": false,
    "grade": "A",
-   "fair_board": null,
-   "inside_fair": null,
-   "books": null
+   "fair_board": 0.4978,
+   "inside_fair": false,
+   "books": {
+    "at": "2026-11-07T17:00:03Z",
+    "fair": 0.4978,
+    "q": {
+     "DK": 0.5192,
+     "Kalshi": 0.52,
+     "FD": 0.5238,
+     "Caesars": 0.5305
+    }
+   }
   },
   {
    "cond": "0x10f4836a3b8dab09aa15fb16ba131a57296fa9b3f666865264a3aa9be24af09a",
@@ -807,11 +832,11 @@
    "inside_fair": false,
    "fair_board": 0.4996,
    "books": {
-    "at": "2026-11-07T15:53:37Z",
-    "fair": 0.5258,
+    "at": "2026-11-07T17:00:03Z",
+    "fair": 0.5329,
     "q": {
-     "DK": 0.5455,
      "FD": 0.5495,
+     "DK": 0.5556,
      "Caesars": 0.6139
     }
    }
@@ -832,7 +857,7 @@
    "best_rank": 132,
    "usd": 810,
    "paid": 0.44,
-   "ask": 0.43,
+   "ask": 0.42,
    "status": "live",
    "link": "https://polymarket.us/event/mls-mim-vwh-2026-11-07-more-markets",
    "other": null,
@@ -929,7 +954,7 @@
    "fair_board": null,
    "inside_fair": null,
    "books": {
-    "at": "2026-11-07T15:53:37Z",
+    "at": "2026-11-07T17:00:03Z",
     "fair": null,
     "q": {
      "Kalshi": 0.45
@@ -972,7 +997,7 @@
    "inside_fair": false,
    "fair_board": 0.2683,
    "books": {
-    "at": "2026-11-07T15:53:37Z",
+    "at": "2026-11-07T17:00:03Z",
     "fair": 0.2695,
     "q": {
      "Polymarket": 0.27,
@@ -1021,13 +1046,13 @@
    "inside_fair": false,
    "fair_board": 0.5007,
    "books": {
-    "at": "2026-11-07T15:53:37Z",
-    "fair": 0.4976,
+    "at": "2026-11-07T17:00:03Z",
+    "fair": 0.5047,
     "q": {
-     "Novig": 0.5,
+     "Novig": 0.51,
      "Polymarket": 0.51,
      "DK": 0.5192,
-     "Kalshi": 0.52
+     "FD": 0.5238
     }
    }
   },
@@ -1222,11 +1247,11 @@
    "inside_fair": false,
    "fair_board": 0.5072,
    "books": {
-    "at": "2026-11-07T15:53:37Z",
-    "fair": 0.5282,
+    "at": "2026-11-07T17:00:03Z",
+    "fair": 0.5297,
     "q": {
      "FD": 0.5349,
-     "Novig": 0.535,
+     "Novig": 0.54,
      "Kalshi": 0.55
     }
    }
@@ -1306,6 +1331,43 @@
    "books": null
   },
   {
+   "cond": "0x9422a3f1450c572793f2e5ec4407c6c580be195c20916da9007045e936786aba",
+   "slug": "nfl-dal-ind-2026-11-08",
+   "title": "Cowboys vs. Colts",
+   "mtype": "spread",
+   "start": "2026-11-08T18:00:00Z",
+   "bet": "Colts +9.5",
+   "side": "Colts",
+   "flagged": "2026-11-07T17:11:19Z",
+   "why": "2 top-200 accounts",
+   "proven": false,
+   "trigger": "two",
+   "n_accounts": 2,
+   "best_rank": 11,
+   "usd": 2612,
+   "paid": 0.65,
+   "ask": 0.65,
+   "status": "live",
+   "link": "https://polymarket.us/event/nfl-dal-ind-2026-11-08",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401873040",
+   "sport": "nfl",
+   "league": null,
+   "away": "DAL",
+   "home": "IND",
+   "away_name": "Dallas Cowboys",
+   "home_name": "Indianapolis Colts",
+   "game_start": "2026-11-08T18:00Z",
+   "side_std": "home",
+   "money_with": true,
+   "grade": "A",
+   "fair_board": null,
+   "inside_fair": null,
+   "books": null
+  },
+  {
    "cond": "0xfc2ab1795b24239c2bdd73f59abd913b83ba1b39f8d77890a3d009f0e662081f",
    "slug": "bun-hof-s04-2026-11-08",
    "title": "TSG 1899 Hoffenheim vs. FC Schalke 04",
@@ -1368,7 +1430,7 @@
    "fair_board": null,
    "inside_fair": null,
    "books": {
-    "at": "2026-11-07T15:53:37Z",
+    "at": "2026-11-07T17:00:03Z",
     "fair": null,
     "q": {
      "Polymarket": 0.51,
@@ -1412,7 +1474,7 @@
    "fair_board": null,
    "inside_fair": null,
    "books": {
-    "at": "2026-11-07T15:53:37Z",
+    "at": "2026-11-07T17:00:03Z",
     "fair": null,
     "q": {
      "Polymarket": 0.23,
@@ -1456,10 +1518,10 @@
    "fair_board": null,
    "inside_fair": null,
    "books": {
-    "at": "2026-11-07T15:53:37Z",
+    "at": "2026-11-07T17:00:03Z",
     "fair": null,
     "q": {
-     "Polymarket": 0.82,
+     "Polymarket": 0.83,
      "Kalshi": 0.85
     }
    }
@@ -1574,14 +1636,14 @@
    ],
    "money_with": false,
    "grade": "watch",
-   "fair_board": 0.2899,
+   "fair_board": 0.2871,
    "inside_fair": false,
    "books": {
-    "at": "2026-11-07T15:53:37Z",
-    "fair": 0.2899,
+    "at": "2026-11-07T17:00:03Z",
+    "fair": 0.2871,
     "q": {
      "Polymarket": 0.29,
-     "Novig": 0.295,
+     "Novig": 0.29,
      "Kalshi": 0.31,
      "Caesars": 0.3106
     }
@@ -1663,7 +1725,7 @@
    "inside_fair": true,
    "fair_board": 0.3912,
    "books": {
-    "at": "2026-11-07T15:53:37Z",
+    "at": "2026-11-07T17:00:03Z",
     "fair": 0.3988,
     "q": {
      "Novig": 0.405,
@@ -1822,9 +1884,9 @@
   },
   "401873040:bounce15_1h": {
    "with": {
-    "n": 2,
+    "n": 3,
     "best_rank": 4,
-    "usd": 5083
+    "usd": 5605
    },
    "against": {
     "n": 1,
@@ -1868,9 +1930,9 @@
  "by_event": {
   "401873040|spread": {
    "home": {
-    "n": 2,
+    "n": 3,
     "best_rank": 4,
-    "usd": 5083
+    "usd": 5605
    },
    "away": {
     "n": 1,
@@ -2087,6 +2149,13 @@
     "n": 1,
     "best_rank": 115,
     "usd": 12528
+   }
+  },
+  "401869927|spread": {
+   "away": {
+    "n": 1,
+    "best_rank": 115,
+    "usd": 521
    }
   },
   "401856744|total": {
