@@ -329,7 +329,7 @@ def main():
         if b['src'] == 'watch' and b['won'] is None and b.get('margin') is not None and (base != 'total' and base != 'spread' or b['line'] is not None):
             b['won'] = 1 if b['margin'] > 0 else 0 if b['margin'] < 0 else 0.5
     # correlation (Sean, 11/2): bets on one game in one family (the team side: moneyline / spread, any period; or the total, any period)
-    fam = lambda m: 'total' if 'total' in m else ('side' if re.sub(r'^(1h|1q|1p)_', '', m) in ('ml', 'spread') else None)
+    fam = lambda m: 'total' if ('total' in m or re.sub(r'^(1h|1q|1p)_', '', m).startswith('tt_')) else ('side' if re.sub(r'^(1h|1q|1p)_', '', m) in ('ml', 'spread') else None)
     grp = collections.defaultdict(list)
     for b in bets:
         if b['event_id'] and b['side'] and fam(b['market']) and b['cat'] != 'paper P': grp[(b['event_id'], fam(b['market']))].append(b)
@@ -451,7 +451,9 @@ def tag_bets(bets):
     rows on the same game and market family (totals with totals; spread and moneyline together), first seen before the start. Sharp
     accounts come from the with / against annotation. A sharp flag also landing on a system bet's side (or the reverse) is tagged too.
     Flat 1 unit at the flagged price; pushes count as no result."""
-    fam = lambda m: 'total' if re.sub(r'^(1h|1q|1p)_', '', m or '') == 'total' else 'side'
+    # 11/7 (Sean: team totals "may conflict with full game totals"): a team total is a total, so it is compared with the game total's
+    # signals and bets (over vs under), never with the spread or moneyline
+    fam = lambda m: 'total' if re.sub(r'^(1h|1q|1p)_', '', m or '') in ('total', 'tt_home', 'tt_away') else 'side'
     W = collections.defaultdict(list)
     for w in bets:
         if w['cat'] == 'watch' and w.get('event_id') and w.get('side'): W[(str(w['event_id']), fam(w['market']))].append(w)

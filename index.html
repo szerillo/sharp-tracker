@@ -854,9 +854,13 @@ function renderToday() {
     nhl_p3_under_curve: ['Third-period under off the curve', 'NHL 2023-26, 6 hours out: 243-185, +13.3%, every season positive (+19.7 / +5.3 / +17.9); at kickoff +10.9%']};
   const cvRow = r => { const CVr = window._CV && window._CV.record && window._CV.record[r.rule]; const live = r.tier !== 'P'; const pr = r.price || r.pin_price;
     const what = r.market === 'totals_h1' ? '1H total' : r.market === 'totals_q1' ? '1Q total' : r.market === 'totals_p3' ? '3rd-period total' : r.market === 'spreads_p1' ? '1st period' : `${esc(r.team_name || '')} team total`;
-    return sRow({id: `cv|${r.key}`, mk: r.market, tier: r.tier, flagged: r.flagged || r.ts, ev: r.espn, side: r.side, start: r.start, sportLabel: (r.sport || '').toUpperCase(), game: esc(r.game), bet: r.market.startsWith('spreads') ? `${esc(r.team_name || r.side)} ${r.line > 0 ? '+' : ''}${r.line} ${what}` : `${r.side === 'over' ? 'Over' : 'Under'} ${r.line} ${what}`,
-      sub: `${(CVN[r.rule] || [r.rule])[0]} · ${live ? 'tier ' + r.tier : 'paper'}`, gone: !live, status: live ? null : ['gone', 'Paper: no units until it has a forward record'],
-      size: live ? unitText(['A', 'B'].includes(r.tier) ? SLIP.big : SLIP.small, 1 / pr) : '', price: `<b>${toAm(1 / pr)}</b> <span class="small dim">${r.book ? VS(r.book) : 'Pinnacle'}</span>`, link: r.book ? betLink(r.book, r.espn, 'total') : '',
+    // 11/7: same market name as the bet log (team totals tt_home / tt_away, 1h_total ...), and the bet log's opposition tags hold it
+    const cmk = ({totals_h1: '1h_total', totals_q1: '1q_total', totals_p3: '3p_total', spreads_p1: '1p_spread'})[r.market] || ('tt_' + (r.team || 'home'));
+    const ctags = (window._BLT || {})[`cv:${r.key}`] || [], cAg = live && ctags.includes('any signal against');
+    const cAgW = ctags.filter(t => t.endsWith('against') && t !== 'any signal against');
+    return sRow({id: `cv|${r.key}`, mk: cmk, tier: r.tier, gone: !live || cAg, why: cAg ? `<span class="tag-against">Against: ${esc(cAgW.map(t => t.replace(/ against$/, '')).join(', '))}</span>` : undefined, flagged: r.flagged || r.ts, ev: r.espn, side: r.side, start: r.start, sportLabel: (r.sport || '').toUpperCase(), game: esc(r.game), bet: r.market.startsWith('spreads') ? `${esc(r.team_name || r.side)} ${r.line > 0 ? '+' : ''}${r.line} ${what}` : `${r.side === 'over' ? 'Over' : 'Under'} ${r.line} ${what}`,
+      sub: `${(CVN[r.rule] || [r.rule])[0]} · ${live ? 'tier ' + r.tier : 'paper'}`, status: !live ? ['gone', 'Paper: no units until it has a forward record'] : cAg ? ['held', `Held: ${cAgW.map(t => t.replace(/ against$/, '')).join(', ')} on the other side`] : null,
+      size: live && !cAg ? unitText(['A', 'B'].includes(r.tier) ? SLIP.big : SLIP.small, 1 / pr) : '', price: `<b>${toAm(1 / pr)}</b> <span class="small dim">${r.book ? VS(r.book) : 'Pinnacle'}</span>`, link: r.book ? betLink(r.book, r.espn, 'total') : '',
       why: `The full game (total ${r.full_total}, home ${r.full_spread > 0 ? '+' : ''}${r.full_spread}) puts the ${r.side} at ${(100 * r.curve).toFixed(1)}%; Pinnacle's no-vig is ${(100 * r.pin_fair).toFixed(1)}% (${r.gap} points off the curve)`,
       rec: lbl('Backtest', (CVN[r.rule] || ['', ''])[1]) + ' ' + lbl('Tracker', CVr && CVr.n ? `${CVr.won}-${CVr.lost}, ${CVr.units > 0 ? '+' : ''}${CVr.units}u` : 'no graded picks yet'),
       detail: facts([['Rule', 'Derivatives off the curve (docs/deriv_curve_2026-11-06.md): past games with a similar full-game total and spread, scaled to this game, price the period / team total; a bet when Pinnacle\'s no-vig on that line is off by the rule\'s gap, on the side the curve prefers, inside 3 hours of the start.']])}); };
@@ -922,7 +926,8 @@ function renderToday() {
     // or the other side of the total
     const backed = x => ['both', 'sys', 'sharp', 'opposed'].includes(x);
     const per = (mk || '').match(/^(1h|1q|1p)_/) ? mk.match(/^(1h|1q|1p)_/)[0] : '', base = (mk || '').replace(/^(1h|1q|1p)_/, '');
-    const oks = !sd || !OPP[sd] ? [] : base === 'total' ? [`${ev}|${mk}|${OPP[sd]}`] : (['spread', 'ml'].includes(base) ? ['spread', 'ml'].map(m => `${ev}|${per}${m}|${OPP[sd]}`) : [`${ev}|${mk}|${OPP[sd]}`]);
+    // a team total sits with the game total: an over anywhere in the game's totals (game or either team) opposes an under (11/7)
+    const oks = !sd || !OPP[sd] ? [] : ['total', 'tt_home', 'tt_away'].includes(base) ? ['total', 'tt_home', 'tt_away'].map(m => `${ev}|${per}${m}|${OPP[sd]}`) : (['spread', 'ml'].includes(base) ? ['spread', 'ml'].map(m => `${ev}|${per}${m}|${OPP[sd]}`) : [`${ev}|${mk}|${OPP[sd]}`]);
     const oLs = oks.filter(k2 => groups.has(k2) && !done.has(k2) && backed(bucketOf(groups.get(k2))));
     const oL = oLs.length ? oLs.flatMap(k2 => groups.get(k2)) : null;
     if (oL && backed(b)) {     // both sides of the game have support: one row, labelled conflict
