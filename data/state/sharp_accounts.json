@@ -1,5 +1,5 @@
 {
- "built": "2026-11-07T19:47:58Z",
+ "built": "2026-11-07T19:54:57Z",
  "rows": [
   {
    "cond": "0x5a4f48f65db8bb0de7274a91d32ae7abafaf1aae7e67322744658be0e0e73abb",
@@ -635,7 +635,7 @@
    "best_rank": 65,
    "usd": 191,
    "paid": 0.54,
-   "ask": 0.59,
+   "ask": 0.58,
    "status": "live",
    "link": "https://polymarket.us/event/cfb-alaam-pvam-2026-11-07",
    "other": null,
@@ -672,6 +672,52 @@
    "fair_board": null,
    "inside_fair": null,
    "books": null
+  },
+  {
+   "cond": "0x303579ac8c58e2a46f71eef09a7f16b32f5b569d43d4d7ec70c751487ee828a2",
+   "slug": "cfb-lamon-arkst-2026-11-07",
+   "title": "Louisiana-Monroe vs. Arkansas State",
+   "mtype": "spread",
+   "start": "2026-11-07T20:00:00Z",
+   "bet": "Louisiana-Monroe +14.5",
+   "side": "Louisiana-Monroe",
+   "flagged": "2026-11-07T19:51:28Z",
+   "why": "2 top-200 accounts",
+   "proven": true,
+   "trigger": "proven",
+   "n_accounts": 2,
+   "best_rank": 58,
+   "usd": 753,
+   "paid": 0.52,
+   "ask": 0.53,
+   "status": "live",
+   "link": "https://polymarket.us/event/cfb-lamon-arkst-2026-11-07",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401869936",
+   "sport": "cfb",
+   "league": null,
+   "away": "ULM",
+   "home": "ARST",
+   "away_name": "UL Monroe Warhawks",
+   "home_name": "Arkansas State Red Wolves",
+   "game_start": "2026-11-07T20:00Z",
+   "side_std": "away",
+   "money_with": false,
+   "grade": "A",
+   "fair_board": 0.4954,
+   "inside_fair": false,
+   "books": {
+    "at": "2026-11-07T18:01:57Z",
+    "fair": 0.4954,
+    "q": {
+     "Novig": 0.495,
+     "Kalshi": 0.51,
+     "Caesars": 0.5238,
+     "DK": 0.5238
+    }
+   }
   },
   {
    "cond": "0x420aed52fb1560c0a6c033c271afa01532786963267264f2ceb123e70b41d1f4",
@@ -1004,7 +1050,7 @@
    "best_rank": 43,
    "usd": 11776,
    "paid": 0.52,
-   "ask": 0.52,
+   "ask": 0.51,
    "status": "live",
    "link": "https://polymarket.us/event/nba-bkn-atl-2026-11-07",
    "other": null,
@@ -1053,7 +1099,7 @@
    "best_rank": 58,
    "usd": 430,
    "paid": 0.57,
-   "ask": 0.59,
+   "ask": 0.6,
    "status": "live",
    "link": "https://polymarket.us/event/cfb-airf-army-2026-11-07",
    "other": null,
@@ -1673,7 +1719,7 @@
    "best_rank": 43,
    "usd": 112,
    "paid": 0.8,
-   "ask": 0.83,
+   "ask": 0.84,
    "status": "live",
    "link": "https://polymarket.us/event/nba-bos-mil-2026-11-08",
    "other": null,
@@ -1775,6 +1821,52 @@
    "home_name": "VfB Stuttgart",
    "game_start": "2026-11-07T17:30Z",
    "side_std": "not_home",
+   "money_with": false,
+   "grade": "A",
+   "fair_board": null,
+   "inside_fair": null,
+   "books": null
+  },
+  {
+   "cond": "0xd709c4c03dde4a05b4f89442c91c47ec7f11037b984067551ecf5da542e1dd26",
+   "slug": "cfb-ala-lsu-2026-11-07",
+   "title": "Alabama vs. LSU",
+   "mtype": "spread",
+   "start": "2026-11-07T20:30:00Z",
+   "bet": "Alabama +5.5",
+   "side": "Alabama",
+   "flagged": "2026-11-07T19:49:34Z",
+   "why": "a top-200 account also in this sport's top 50",
+   "proven": true,
+   "trigger": "proven",
+   "n_accounts": 1,
+   "best_rank": 115,
+   "usd": 19625,
+   "paid": 0.5,
+   "ask": 0.51,
+   "status": "other side",
+   "link": "https://polymarket.us/event/cfb-ala-lsu-2026-11-07",
+   "other": {
+    "n_accounts": 1,
+    "best_rank": 4,
+    "usd": 4779,
+    "first": "2026-11-07T19:51:06Z"
+   },
+   "exit_bid": 0.5,
+   "kalshi_against": null,
+   "logged": false,
+   "event_id": "401856740",
+   "sport": "cfb",
+   "league": null,
+   "away": "ALA",
+   "home": "LSU",
+   "away_name": "Alabama Crimson Tide",
+   "home_name": "LSU Tigers",
+   "game_start": "2026-11-07T20:30Z",
+   "side_std": "away",
+   "conflict": [
+    "Kalshi move"
+   ],
    "money_with": false,
    "grade": "A",
    "fair_board": null,
@@ -2398,11 +2490,30 @@
     "usd": 500
    }
   },
+  "401869936|spread": {
+   "away": {
+    "n": 2,
+    "best_rank": 58,
+    "usd": 753
+   }
+  },
   "401856740|total": {
    "over": {
     "n": 1,
     "best_rank": 116,
     "usd": 1505
+   }
+  },
+  "401856740|spread": {
+   "away": {
+    "n": 1,
+    "best_rank": 115,
+    "usd": 19625
+   },
+   "home": {
+    "n": 1,
+    "best_rank": 4,
+    "usd": 500
    }
   },
   "401871098|ml": {
