@@ -1,5 +1,5 @@
 {
- "built": "2026-11-07T18:29:50Z",
+ "built": "2026-11-07T18:48:40Z",
  "record": {
   "cbb_1h_total_curve": {
    "n": 1,
@@ -107,6 +107,31 @@
    "book": null,
    "price": null,
    "flagged": "2026-11-07T16:22:49Z"
+  },
+  {
+   "key": "cfb_tt_under_curve|5304671601ad3064a66a332cbb09313f|away|under",
+   "rule": "cfb_tt_under_curve",
+   "tier": "P",
+   "stake": 0.0,
+   "sport": "cfb",
+   "odds_id": "5304671601ad3064a66a332cbb09313f",
+   "espn": null,
+   "game": "Georgia State Panthers @ Appalachian State Mountaineers",
+   "start": "2026-11-07T19:30:00Z",
+   "market": "team_totals",
+   "team": "away",
+   "team_name": "Georgia State Panthers",
+   "side": "under",
+   "line": 26.5,
+   "curve": 0.622,
+   "pin_fair": 0.571,
+   "gap": 5.1,
+   "full_total": 54.5,
+   "full_spread": -6.5,
+   "pin_price": 1.68,
+   "book": null,
+   "price": null,
+   "flagged": "2026-11-07T17:21:37Z"
   },
   {
    "key": "cfb_q1_under_curve|42e27947d5bad1a1aa037cccf557e9fe||under",
@@ -407,6 +432,31 @@
    "book": null,
    "price": null,
    "flagged": "2026-11-07T18:29:50Z"
+  },
+  {
+   "key": "cfb_tt_under_curve|42e27947d5bad1a1aa037cccf557e9fe|home|under",
+   "rule": "cfb_tt_under_curve",
+   "tier": "P",
+   "stake": 0.0,
+   "sport": "cfb",
+   "odds_id": "42e27947d5bad1a1aa037cccf557e9fe",
+   "espn": "401871073",
+   "game": "Delaware Blue Hens @ Kennesaw State Owls",
+   "start": "2026-11-07T20:00:00Z",
+   "market": "team_totals",
+   "team": "home",
+   "team_name": "Kennesaw State Owls",
+   "side": "under",
+   "line": 27.5,
+   "curve": 0.528,
+   "pin_fair": 0.474,
+   "gap": 5.4,
+   "full_total": 57.0,
+   "full_spread": 1.0,
+   "pin_price": 2.03,
+   "book": null,
+   "price": null,
+   "flagged": "2026-11-07T18:48:40Z"
   }
  ]
 }
