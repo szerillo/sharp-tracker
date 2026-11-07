@@ -85,7 +85,7 @@ class Tape:
                 for v in D_[k]: D_[k][v].sort(key=lambda x: x[0])
 
     def last(self, L, t, age=MAX_AGE):
-        i = bisect.bisect_right([x[0] for x in L], t) - 1
+        i = bisect.bisect_right(L, t, key=lambda x: x[0]) - 1     # 11/7: was building the whole time list on every lookup (the job's slow step)
         return L[i] if i >= 0 and t - L[i][0] <= age else None
 
     def novig_pin(self, key, t):
@@ -551,4 +551,9 @@ def sharps_against(bets, S):
 
 
 if __name__ == '__main__':
-    main()
+    if os.environ.get('BL_PROFILE'):          # 11/7: where the signals job's slowest step spends its time (top 25 by cumulative time)
+        import cProfile, pstats
+        pr = cProfile.Profile(); pr.enable(); main(); pr.disable()
+        pstats.Stats(pr).sort_stats('cumulative').print_stats(25)
+    else:
+        main()

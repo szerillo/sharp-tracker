@@ -61,7 +61,7 @@ jobs:
             [ -n "$NTFY_TOPIC" ] && curl -s -H "Title: Curve feed failed" -H "Priority: default" -d "Curve feed crashed in run $GITHUB_RUN_ID; its flags did not update" "https://ntfy.sh/$NTFY_TOPIC" >/dev/null || true
           fi
       - name: bet tracker
-        env: {NTFY_TOPIC: '${{ secrets.NTFY_TOPIC }}'}
+        env: {NTFY_TOPIC: '${{ secrets.NTFY_TOPIC }}', BL_PROFILE: '1'}
         run: |     # 11/6: a crash used to pass silently; now it alerts, and the job still commits everything else
           if ! python3 sharp/bet_log.py; then
             echo "::error::Bet tracker failed"
