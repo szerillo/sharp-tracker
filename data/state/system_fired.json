@@ -2940,5 +2940,31 @@
 "fair": 0.4375,
 "loss": 0.0069
 }
+},
+"401869951:cfb_homefav_7510_under": {
+"tag": "cfb_homefav_7510_under",
+"fill_id": "c2d08afbb603",
+"ts": "2026-11-06T23:59:12Z",
+"market": "total",
+"side": "under",
+"line": 54.5,
+"venue": "Novig",
+"price": -102,
+"fair": 0.49241,
+"edge_pts": -1.26,
+"why": "home favourite GASO -8.5, total 54.5: under (mined angle)"
+},
+"401892661:xch_homedog_fade:spread": {
+"tag": "xch_homedog_fade",
+"fill_id": "85219fabdb28",
+"ts": "2026-11-06T23:59:12Z",
+"market": "spread",
+"side": "away",
+"line": 1.5,
+"venue": "Novig",
+"price": -190,
+"fair": 0.65093,
+"edge_pts": -0.41,
+"why": "Novig home side mid 0.350 inside T-1.0h; audit band 20-35c"
 }
 }
