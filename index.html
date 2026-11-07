@@ -125,6 +125,9 @@
   .facts{display:grid;grid-template-columns:140px 1fr;gap:4px 14px;margin:0;max-width:960px} .facts dt{color:var(--muted)} .facts dd{margin:0}
   .show-m{display:none}
   .stat{display:inline-block;margin-top:5px;padding:2px 9px;border-radius:6px;font:600 12px Poppins,sans-serif;line-height:1.5}
+  .act{display:inline-block;margin-top:4px;padding:1px 7px;border-radius:999px;font-size:11px;font-weight:700;letter-spacing:.02em;white-space:nowrap}
+  .act-bet{background:var(--green,#16a34a);color:#fff} .act-hold{background:var(--badbg);color:var(--badink);box-shadow:inset 0 0 0 1px var(--badbd)}
+  .act-pass{background:var(--line);color:var(--ink2,#555)} .act-watch{background:transparent;color:var(--ink2,#666);box-shadow:inset 0 0 0 1px var(--line)}
   .stat-held{background:var(--badbg);color:var(--badink);box-shadow:inset 0 0 0 1px var(--badbd)} .stat-fit{background:var(--okbg,#e8f5ec);color:var(--greenink);box-shadow:inset 0 0 0 1px var(--greenink)} .stat-gone{background:var(--gonebg);color:var(--goneink);box-shadow:inset 0 0 0 1px var(--gonebd)}
   .stat-lapsed{background:var(--warnbg);color:var(--warnink);box-shadow:inset 0 0 0 1px var(--warnbd)}
   @media (max-width:760px){.slipt thead,.slipt .c-game,.slipt .c-why,.slipt .c-rec{display:none} .show-m{display:block}
@@ -437,9 +440,15 @@ function sRow(o) {
   const id = String(o.id).replace(/['"\\]/g, ''), open = window._wo[id];
   const started = o.start && new Date(o.start) <= Date.now();
   const more = !!(o.detail || o.why || o.rec);
-  const tagA = o.ev ? ` data-ev="${esc(String(o.ev))}" data-side="${esc(String(o.side || ''))}" data-sized="${o.size ? 1 : 0}"` : '';   // 11/6: read by the board check (sharp/board_check.js)
+  // 11/7 (Sean): an action under the start time. BET = sized and live; HOLD = a signal against (it can come back); PASS = price gone,
+  // bought out, lapsed, or paper; WATCH = shown for information, no size by design. Live bets sort first in every table.
+  const st0 = o.status && o.status[0];
+  const act = o.action || (st0 === 'held' ? ['hold', o.status[1]] : (st0 === 'gone' || st0 === 'lapsed' || (o.gone && !o.size)) ? ['pass', o.status ? o.status[1] : 'no bettable price'] : o.size ? ['bet', ''] : ['watch', '']);
+  const rank = {bet: 0, watch: 1, hold: 2, pass: 3}[act[0]];
+  const actHtml = `<div><span class="act act-${act[0]}" title="${esc(String(act[1] || '').replace(/<[^>]+>/g, ''))}">${act[0].toUpperCase()}</span></div>`;
+  const tagA = ` data-rank="${rank}" data-t="${o.start ? Date.parse(o.start) || 0 : 0}"` + (o.ev ? ` data-ev="${esc(String(o.ev))}" data-side="${esc(String(o.side || ''))}" data-sized="${o.size ? 1 : 0}"` : '');   // 11/6: read by the board check (sharp/board_check.js)
   const head = `<tr class="erow${o.gone ? ' gone' : ''}${more ? ' click' : ''}"${tagA}${started ? ' data-live="1"' : ''}${more ? ` onclick="_wo['${id}']=!_wo['${id}'];draw()"` : ''}>
-    <td class="c-when"><b>${TM(o.start)}</b><div class="small dim">${until(o.start)}</div></td>
+    <td class="c-when"><b>${TM(o.start)}</b><div class="small dim">${until(o.start)}</div>${actHtml}</td>
     <td class="c-bet">${more ? `<span class="chev">${open ? '▾' : '▸'}</span>` : ''}<span class="bet">${o.bet}</span> <span class="small dim">${o.sub || ''}</span>${o.status ? ` <div class="stat stat-${o.status[0]}" style="margin-left:6px">${o.status[1]}</div>` : ''}<div class="small dim"><span class="badge b-sport">${esc(o.sportLabel)}</span> ${o.game}</div></td>
     <td class="c-size">${o.size || '<span class="dim">—</span>'}</td>
     <td class="c-price">${o.price || '<span class="dim">—</span>'}${o.link ? `<div class="go">${o.link}</div>` : ''}</td></tr>`;
@@ -447,7 +456,9 @@ function sRow(o) {
   return open && more ? head + `<tr class="det"><td colspan="4">${det}</td></tr>` : head;
 }
 // 11/5 (Sean): in-progress games stay in every section, listed below the upcoming ones
-const sTable = rows => { const up = rows.filter(r => !r.startsWith('<tr class="erow') || !/^<tr[^>]*data-live="1"/.test(r)), live = rows.filter(r => /^<tr[^>]*data-live="1"/.test(r));
+const rowKey = r => { const a = /data-rank="(\d)"/.exec(r), t = /data-t="(\d+)"/.exec(r); return [a ? +a[1] : 9, t ? +t[1] : 0]; };
+const byAction = (x, y) => { const a = rowKey(x), b = rowKey(y); return a[0] - b[0] || a[1] - b[1]; };    // 11/7 (Sean): BET first, then by start time
+const sTable = rows => { const up = rows.filter(r => !r.startsWith('<tr class="erow') || !/^<tr[^>]*data-live="1"/.test(r)).sort(byAction), live = rows.filter(r => /^<tr[^>]*data-live="1"/.test(r)).sort(byAction);
   return `<div class="sec"><table class="slipt">${SHEAD}<tbody>${up.join('')}${live.length ? `<tr><td colspan="4" class="small dim" style="padding:8px 6px 2px;border-top:1px solid var(--line)">In progress (${live.length})</td></tr>` : ''}${live.join('')}</tbody></table></div>`; };
 function priceOf(f, g) {
   const fl = `<b>${am(f.price)}</b> <span class="small dim">${VS(f.venue)}</span>`;
@@ -700,11 +711,19 @@ function renderToday() {
     const link = r.mixed ? '' : (lv === 'Kalshi' ? betLink('Kalshi', g.ev, r.rest[0].market) : r.fl && r.fl.link ? `<a class="betbtn" target="_blank" rel="noopener" onclick="event.stopPropagation()" href="${r.fl.link}">Bet at Polymarket ↗</a>` : betLink('FD', g.ev, r.rest[0].market, 'Game page'));
     const sn = SN && SN[r.id] && SN[r.id].signals, fs = sn ? r.rest.map(y => sn[y.kind] && sn[y.kind].side === y.side && sn[y.kind].first).filter(Boolean).sort()[0] : null;
     // 11/7 (Sean): sharp action is bet only without signals against it: sharp accounts on the other side now hold the flag (no size)
-    const sharpHeld = !r.mixed && r.strong && ((r.fl && r.fl.status === 'other side') || !!(r.acct && r.acct.against));
-    return sRow({id: 'w|' + r.id, gone: sharpHeld, ev: g.ev, side: r.mixed ? '' : (r.rest[0].side_std || r.rest[0].side), start: g.start, sportLabel: SPORT_LABEL[g.sport] || g.sport, game: `${esc(g.away_name || g.away)} @ ${esc(g.home_name || g.home)}`,
+    // 11/7: market signals against, from the tracker's tags (they keep signals the live feed has dropped, e.g. FSU/BC: a Kalshi move to the
+    // under first seen 11/4, no longer a live move, so the flag had shown clean)
+    if (!window._BLS || window._BLS_built !== (BL && BL.built)) { window._BLS = {}; for (const b of ((BL && BL.rows) || [])) if (b.src === 'sharp' && b.event_id && b.side) {
+      const k = `${b.event_id}|${/total/.test(b.market) ? 'total' : 'side'}|${b.side}`; window._BLS[k] = [...new Set([...(window._BLS[k] || []), ...(b.tags || [])])]; } window._BLS_built = BL && BL.built; }
+    const sTags = r.mixed ? [] : (window._BLS[`${g.ev}|${/total/.test(r.rest[0].market || '') ? 'total' : 'side'}|${r.rest[0].side_std || r.rest[0].side}`] || []);
+    const sMkt = sTags.filter(x => /^(big money|Kalshi move|bet back|sharp move) against$/.test(x)).map(x => x.replace(/ against$/, ''));
+    const sharpHeld = !r.mixed && r.strong && ((r.fl && r.fl.status === 'other side') || !!(r.acct && r.acct.against) || sMkt.length > 0);
+    // bought out: the market has moved 5%+ the sharps' way since they bet, so most of the edge is gone at today's price
+    const pdx = r.fl && r.fl.paid != null && r.fl.ask != null ? 100 * (r.fl.ask - r.fl.paid) : null, boughtOut = !r.mixed && r.strong && !sharpHeld && pdx != null && pdx >= 5;
+    return sRow({id: 'w|' + r.id, gone: sharpHeld || boughtOut, action: boughtOut ? ['pass', `Bought out: the price has moved ${pdx.toFixed(0)}% the sharps' way since they bet`] : null, ev: g.ev, side: r.mixed ? '' : (r.rest[0].side_std || r.rest[0].side), start: g.start, sportLabel: SPORT_LABEL[g.sport] || g.sport, game: `${esc(g.away_name || g.away)} @ ${esc(g.home_name || g.home)}`,
       bet: r.mixed ? '<span class="mixed">Mixed, no lean</span>' : esc(yn(r.rest[0].bet)), sub: r.mixed ? [...new Set(r.rest.map(y => esc(y.bet)))].join(' vs ') : (r.strong ? `<span class="badge ${r.grade === 'A' ? 'b-fit' : r.grade === 'B' ? 'b-prior' : 'b-gate'}" style="margin-left:0">Grade ${r.grade}</span> <span class="small dim">${r.grade === 'A' ? (r.fl && (r.fl.proven || r.fl.trigger === 'proven') ? 'sport-proven sharp' : 'sharps + big money') : r.grade === 'B' ? ((r.fl && r.fl.n >= 2) ? `${r.fl.n} sharp accounts` : 'one top-50 sharp') : 'sharps + market move, no flag'}</span>${(() => { const n = r.fl && r.fl.status === 'other side' ? ((r.fl.other && r.fl.other.n_accounts) || 1) : r.acct && r.acct.against ? r.acct.against.n : 0;
-      return n ? ` <span class="stat stat-held" style="margin:2px 0 0;white-space:nowrap" title="Sharp accounts have bet the opposite side of this market">${n} sharp${n === 1 ? '' : 's'} on the other side</span>` : ''; })()}` : 'Watch only'), status: sharpHeld ? ['held', 'Held: sharp accounts on the other side (no size)'] : r.strong || r.mixed ? null : ['gone', r.nbaSingle ? 'Watch only: NBA single account' : r.acct && r.acct.against ? 'Watch only: sharps on both sides' : r.g.sport === 'mma' ? 'Watch only: UFC has no sharp-account list' : 'Watch only: below flag level'],
-      size: r.strong && x && !sharpHeld ? unitText(r.grade === 'A' && g.sport !== 'soccer' ? SLIP.big : SLIP.small, x.p) : '', price: (() => { if (!x || x.p == null) return ''; const q = {[x.venue]: x.p, ...((r.fl && r.fl.books && r.fl.books.q) || {})};
+      return n ? ` <span class="stat stat-held" style="margin:2px 0 0;white-space:nowrap" title="Sharp accounts have bet the opposite side of this market">${n} sharp${n === 1 ? '' : 's'} on the other side</span>` : ''; })()}` : 'Watch only'), status: sharpHeld ? ['held', `Held: ${[...((r.fl && r.fl.status === 'other side') || (r.acct && r.acct.against) ? ['sharp accounts'] : []), ...sMkt].join(', ')} on the other side`] : r.strong || r.mixed ? null : ['gone', r.nbaSingle ? 'Watch only: NBA single account' : r.acct && r.acct.against ? 'Watch only: sharps on both sides' : r.g.sport === 'mma' ? 'Watch only: UFC has no sharp-account list' : 'Watch only: below flag level'],
+      size: r.strong && x && !sharpHeld && !boughtOut ? unitText(r.grade === 'A' && g.sport !== 'soccer' ? SLIP.big : SLIP.small, x.p) : '', price: (() => { if (!x || x.p == null) return ''; const q = {[x.venue]: x.p, ...((r.fl && r.fl.books && r.fl.books.q) || {})};
         const bv = Object.keys(q).filter(v => v !== 'DK').sort((a, b) => q[a] - q[b])[0] || x.venue;
         const fl = r.fl, pd = fl && fl.paid != null && fl.ask != null ? 100 * (fl.ask - fl.paid) : null;
         const was = fl && fl.paid != null ? `<div class="small" title="What the flagging sharp accounts paid on Polymarket, and the Polymarket price now. Red: the market has moved the sharps' way since, so you pay more than they did. Green: it moved against them, so you get a better number.">sharps ${fl.market === 'total' || fl.market === 'spread' ? esc(fl.bet) + ' ' : ''}<b>${toAm(fl.paid)}</b> → ${pd == null ? '' : pd >= 2 ? `<span class="tag-against">${toAm(fl.ask)} (${pd.toFixed(0)}% their way${pd >= 5 ? ', edge mostly gone' : ''})</span>` : pd <= -2 ? `<span class="tag-with">${toAm(fl.ask)} (${(-pd).toFixed(0)}% against them)</span>` : `${toAm(fl.ask)}`}</div>` : '';
