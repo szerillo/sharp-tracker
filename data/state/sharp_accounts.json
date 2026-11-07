@@ -1,5 +1,5 @@
 {
- "built": "2026-11-07T12:16:29Z",
+ "built": "2026-11-07T12:26:45Z",
  "rows": [
   {
    "cond": "0xb041c7548e77c7e9918c322e9546f9d05bd260108205850e032d6698a406bcfe",
@@ -17,7 +17,7 @@
    "best_rank": 132,
    "usd": 4118,
    "paid": 0.49,
-   "ask": 0.49,
+   "ask": 0.5,
    "status": "live",
    "link": "https://polymarket.us/event/epl-lee-tot-2026-11-07-more-markets",
    "other": null,
@@ -63,7 +63,7 @@
    "best_rank": 149,
    "usd": 6421,
    "paid": 0.62,
-   "ask": 0.63,
+   "ask": 0.62,
    "status": "live",
    "link": "https://polymarket.us/event/epl-lee-tot-2026-11-07",
    "other": null,
@@ -161,7 +161,7 @@
    "best_rank": 132,
    "usd": 278,
    "paid": 0.26,
-   "ask": 0.24,
+   "ask": 0.23,
    "status": "live",
    "link": "https://polymarket.us/event/bun-mai-bay-2026-11-07",
    "other": null,
@@ -963,6 +963,43 @@
    }
   },
   {
+   "cond": "0xa2c9baa34d97d73556cc8da7eda7f7acf07616ccbe3212999b039e7308737da9",
+   "slug": "nfl-den-car-2026-11-08",
+   "title": "Broncos vs. Panthers",
+   "mtype": "spread",
+   "start": "2026-11-08T18:00:00Z",
+   "bet": "Panthers -3.5",
+   "side": "Panthers",
+   "flagged": "2026-11-07T12:20:54Z",
+   "why": "a top-50 account",
+   "proven": false,
+   "trigger": "top50",
+   "n_accounts": 1,
+   "best_rank": 12,
+   "usd": 270,
+   "paid": 0.27,
+   "ask": 0.27,
+   "status": "live",
+   "link": "https://polymarket.us/event/nfl-den-car-2026-11-08",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401873041",
+   "sport": "nfl",
+   "league": null,
+   "away": "DEN",
+   "home": "CAR",
+   "away_name": "Denver Broncos",
+   "home_name": "Carolina Panthers",
+   "game_start": "2026-11-08T18:00Z",
+   "side_std": "home",
+   "money_with": false,
+   "grade": "B",
+   "fair_board": null,
+   "inside_fair": null,
+   "books": null
+  },
+  {
    "cond": "0xfc2ab1795b24239c2bdd73f59abd913b83ba1b39f8d77890a3d009f0e662081f",
    "slug": "bun-hof-s04-2026-11-08",
    "title": "TSG 1899 Hoffenheim vs. FC Schalke 04",
@@ -1130,7 +1167,7 @@
    "best_rank": 43,
    "usd": 110,
    "paid": 0.495,
-   "ask": 0.54,
+   "ask": 0.53,
    "status": "live",
    "link": "https://polymarket.us/event/nba-lal-atl-2026-11-09",
    "other": null,
@@ -1520,6 +1557,13 @@
     "n": 1,
     "best_rank": 115,
     "usd": 5008
+   }
+  },
+  "401873041|spread": {
+   "home": {
+    "n": 1,
+    "best_rank": 12,
+    "usd": 270
    }
   },
   "401873051|ml": {
