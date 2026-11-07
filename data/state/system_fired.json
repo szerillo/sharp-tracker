@@ -3551,5 +3551,78 @@
 "fair": 0.48792,
 "edge_pts": -2.21,
 "why": "Kalshi spread mid 0.550 at T-6h -> 0.515 now (-3.5c); continuation (audit section 3, NBA only)"
+},
+"401909941:nba_momentum:spread": {
+"tag": "nba_momentum",
+"fill_id": "e1e6c0f9a264",
+"ts": "2026-11-07T23:36:05Z",
+"market": "spread",
+"side": "away",
+"line": 11.5,
+"venue": "Novig",
+"price": -111,
+"fair": 0.51684,
+"edge_pts": -0.82,
+"why": "Novig spread mid 0.518 at T-6h -> 0.480 now (-3.8c); continuation (audit section 3, NBA only)",
+"now": {
+"venue": "Polymarket",
+"price": -108
+},
+"ladder": [
+{
+"line": 13.5,
+"steps": -4,
+"venue": "Novig",
+"price": -147,
+"cost": 0.595,
+"fair": 0.5845,
+"loss": 0.0013
+},
+{
+"line": 12.5,
+"steps": -2,
+"venue": "Novig",
+"price": -127,
+"cost": 0.56,
+"fair": 0.553,
+"loss": -0.0022
+},
+{
+"line": 11.5,
+"steps": 0,
+"venue": "Polymarket",
+"price": -108,
+"cost": 0.52,
+"fair": 0.5168,
+"loss": -0.0061
+},
+{
+"line": 10.5,
+"steps": 2,
+"venue": "Novig",
+"price": 106,
+"cost": 0.485,
+"fair": 0.4765,
+"loss": -0.0007
+},
+{
+"line": 9.5,
+"steps": 4,
+"venue": "Novig",
+"price": 125,
+"cost": 0.445,
+"fair": 0.4325,
+"loss": 0.0033
+}
+],
+"bet_to": {
+"line": 9.5,
+"steps": 4,
+"venue": "Novig",
+"price": 125,
+"cost": 0.445,
+"fair": 0.4325,
+"loss": 0.0033
+}
 }
 }
