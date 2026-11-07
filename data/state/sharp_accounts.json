@@ -1,5 +1,5 @@
 {
- "built": "2026-11-07T17:30:40Z",
+ "built": "2026-11-07T17:37:27Z",
  "rows": [
   {
    "cond": "0x49158b5f973dcaeaf06f78a21c2f7f98017c6efd187b72bd149270ac26312ae8",
@@ -279,9 +279,6 @@
    "home_name": "Tulane Green Wave",
    "game_start": "2026-11-07T17:00Z",
    "side_std": "home",
-   "conflict": [
-    "Kalshi move"
-   ],
    "money_with": false,
    "grade": "A",
    "inside_fair": false,
@@ -328,9 +325,6 @@
    "home_name": "Minnesota Golden Gophers",
    "game_start": "2026-11-07T17:00Z",
    "side_std": "under",
-   "conflict": [
-    "big money"
-   ],
    "money_with": false,
    "grade": "A",
    "fair_board": null,
@@ -368,9 +362,6 @@
    "home_name": "Baylor Bears",
    "game_start": "2026-11-07T17:00Z",
    "side_std": "away",
-   "conflict": [
-    "big money"
-   ],
    "money_with": false,
    "grade": "B",
    "fair_board": null,
@@ -491,8 +482,8 @@
    "home_name": "Purdue Boilermakers",
    "game_start": "2026-11-07T17:30Z",
    "side_std": "away",
-   "money_with": false,
-   "grade": "B",
+   "money_with": true,
+   "grade": "A",
    "inside_fair": false,
    "fair_board": 0.3577,
    "books": {
@@ -2009,9 +2000,9 @@
   },
   "401909940|ml": {
    "home": {
-    "n": 1,
-    "best_rank": 93,
-    "usd": 177
+    "n": 2,
+    "best_rank": 43,
+    "usd": 551
    },
    "away": {
     "n": 1,
