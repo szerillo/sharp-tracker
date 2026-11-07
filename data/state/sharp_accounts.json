@@ -1,5 +1,5 @@
 {
- "built": "2026-11-07T22:23:30Z",
+ "built": "2026-11-07T22:30:25Z",
  "rows": [
   {
    "cond": "0x8ad55f7e0bd9bc4f386325526710254c6cae284236781127ea7bcc5247a29e95",
@@ -818,7 +818,8 @@
    "game_start": "2026-11-08T03:30Z",
    "side_std": "home",
    "conflict": [
-    "Kalshi move"
+    "Kalshi move",
+    "big money"
    ],
    "money_with": false,
    "grade": "A",
@@ -1023,8 +1024,8 @@
    "home_name": "New Orleans Saints",
    "game_start": "2026-11-08T18:00Z",
    "side_std": "away",
-   "money_with": false,
-   "grade": "B",
+   "money_with": true,
+   "grade": "A",
    "fair_board": null,
    "inside_fair": null,
    "books": null
@@ -1216,7 +1217,8 @@
    "game_start": "2026-11-08T18:00Z",
    "side_std": "home",
    "conflict": [
-    "Kalshi bet back"
+    "Kalshi bet back",
+    "big money"
    ],
    "money_with": false,
    "grade": "A",
@@ -1636,7 +1638,7 @@
    "other": {
     "n_accounts": 1,
     "best_rank": 132,
-    "usd": 284,
+    "usd": 21844,
     "first": "2026-11-07T13:23:43Z"
    },
    "exit_bid": 0.52,
@@ -1769,7 +1771,7 @@
    "best_rank": 143,
    "usd": 107,
    "paid": 0.85,
-   "ask": 0.82,
+   "ask": 0.8,
    "status": "other side",
    "link": "https://polymarket.us/event/nfl-dal-ind-2026-11-08",
    "other": {
@@ -1778,7 +1780,7 @@
     "usd": 2625,
     "first": "2026-11-07T01:15:12Z"
    },
-   "exit_bid": 0.81,
+   "exit_bid": 0.79,
    "kalshi_against": null,
    "logged": false,
    "event_id": "401873040",
@@ -1836,6 +1838,10 @@
    "home_name": "Detroit Pistons",
    "game_start": "2026-11-08T23:00Z",
    "side_std": "away",
+   "conflict": [
+    "Kalshi bet back",
+    "big money"
+   ],
    "money_with": false,
    "grade": "watch",
    "fair_board": 0.4643,
