@@ -1,5 +1,5 @@
 {
- "built": "2026-11-07T01:49:20Z",
+ "built": "2026-11-07T01:55:50Z",
  "rows": [
   {
    "cond": "0x89b352113e523a8dff5556e0880d9f258821fed7caee81b050951f9bf294b9f4",
@@ -608,6 +608,33 @@
    "books": null
   },
   {
+   "cond": "0xf9d41bce64f0a560ee61ade7b9424c801c4474926dac8a921340210625d9d35a",
+   "slug": "cfb-valp-day-2026-11-07",
+   "title": "Valparaiso vs. Dayton",
+   "mtype": "total",
+   "start": "2026-11-07T17:00:00Z",
+   "bet": "Under 49.5",
+   "side": "Under",
+   "flagged": "2026-11-07T01:54:12Z",
+   "why": "a top-50 account",
+   "proven": true,
+   "trigger": "proven",
+   "n_accounts": 1,
+   "best_rank": 49,
+   "usd": 930,
+   "paid": 0.465,
+   "ask": 0.53,
+   "status": "live",
+   "link": "https://polymarket.us/event/cfb-valp-day-2026-11-07",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "grade": "A",
+   "fair_board": null,
+   "inside_fair": null,
+   "books": null
+  },
+  {
    "cond": "0xab85331c04a02b759a2f5f4c2987a2cde8073981b62ede070c0df9a4c3d836ae",
    "slug": "bun-stu-wer-2026-11-07",
    "title": "VfB Stuttgart vs. SV Werder Bremen",
@@ -679,6 +706,43 @@
      "FD": 0.697
     }
    }
+  },
+  {
+   "cond": "0x02bfed7d87a3195e4938740bebb776048fc33b4c455423f9daefca42d864cfca",
+   "slug": "cfb-morgst-delst-2026-11-07",
+   "title": "Morgan State vs. Delaware State",
+   "mtype": "total",
+   "start": "2026-11-07T18:00:00Z",
+   "bet": "Over 51.5",
+   "side": "Over",
+   "flagged": "2026-11-07T01:55:39Z",
+   "why": "a top-50 account",
+   "proven": true,
+   "trigger": "proven",
+   "n_accounts": 1,
+   "best_rank": 49,
+   "usd": 1671,
+   "paid": 0.519,
+   "ask": 0.52,
+   "status": "live",
+   "link": "https://polymarket.us/event/cfb-morgst-delst-2026-11-07",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401856854",
+   "sport": "cfb",
+   "league": null,
+   "away": "OKST",
+   "home": "KSU",
+   "away_name": "Oklahoma State Cowboys",
+   "home_name": "Kansas State Wildcats",
+   "game_start": "2026-11-07T18:00Z",
+   "side_std": "over",
+   "money_with": false,
+   "grade": "A",
+   "fair_board": null,
+   "inside_fair": null,
+   "books": null
   },
   {
    "cond": "0x10f4836a3b8dab09aa15fb16ba131a57296fa9b3f666865264a3aa9be24af09a",
@@ -1818,6 +1882,13 @@
     "n": 2,
     "best_rank": 12,
     "usd": 2437
+   }
+  },
+  "401856854|total": {
+   "over": {
+    "n": 1,
+    "best_rank": 49,
+    "usd": 1671
    }
   },
   "401858289|total": {
