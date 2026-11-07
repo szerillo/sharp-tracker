@@ -729,7 +729,12 @@ def main():
         if g is None:
             g = dict(event_id=ev_, away=row[2], home=row[3], start_utc=row[1], hours_to_kickoff=round((N.parse_ts(row[1]) - NOW).total_seconds() / 3600, 1),
                      spread_home=None, dog=None, triggers={}, fills=[], sport=row[0]); view_games.append(g); byev[ev_] = g
-        g['fills'].append(f); g['triggers'].setdefault(f['tag'], f.get('why') or '')
+        # 11/7: a weather bet that reaches this catch-all was not re-fired by its own loop, so its forecast no longer meets the rule
+        # (Navy: average 13.4 mph). Show it as lapsed, not as a live play.
+        if f['tag'] in WEATHER and N.parse_ts(row[1]) > NOW:
+            g['fills'].append(dict(f, lapsed=True)); g['triggers'][f['tag']] = 'the latest forecast no longer meets the wind rule (see the wind reading on this game)'
+        else:
+            g['fills'].append(f); g['triggers'].setdefault(f['tag'], f.get('why') or '')
     for g in view_games:
         r_ = sched_rec(g.get('sport', 'nfl'), g['event_id']); g['away_name'] = (r_.get('away_team') or {}).get('displayName') or g['away']; g['home_name'] = (r_.get('home_team') or {}).get('displayName') or g['home']
         g.setdefault('sport', 'nfl'); g['league'] = sched_rec(g['sport'], g['event_id']).get('league')
