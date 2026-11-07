@@ -1,5 +1,5 @@
 {
- "built": "2026-11-07T21:42:22Z",
+ "built": "2026-11-07T21:49:21Z",
  "rows": [
   {
    "cond": "0x02bfed7d87a3195e4938740bebb776048fc33b4c455423f9daefca42d864cfca",
@@ -826,7 +826,7 @@
    "best_rank": 58,
    "usd": 430,
    "paid": 0.57,
-   "ask": 0.59,
+   "ask": 0.58,
    "status": "live",
    "link": "https://polymarket.us/event/cfb-airf-army-2026-11-07",
    "other": null,
@@ -939,6 +939,55 @@
      "Polymarket": 0.52,
      "FD": 0.5283,
      "Kalshi": 0.53
+    }
+   }
+  },
+  {
+   "cond": "0xa6fd22cab7ee394d02240c6fab700c02ce5a66fc283221a0f77e1a7d929b65c2",
+   "slug": "cfb-wyom-unlv-2026-11-07",
+   "title": "Wyoming vs. UNLV",
+   "mtype": "spread",
+   "start": "2026-11-08T03:30:00Z",
+   "bet": "UNLV -3.5",
+   "side": "UNLV",
+   "flagged": "2026-11-07T21:43:07Z",
+   "why": "a top-200 account also in this sport's top 50",
+   "proven": true,
+   "trigger": "proven",
+   "n_accounts": 1,
+   "best_rank": 115,
+   "usd": 3480,
+   "paid": 0.48,
+   "ask": 0.49,
+   "status": "live",
+   "link": "https://polymarket.us/event/cfb-wyom-unlv-2026-11-07",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401864535",
+   "sport": "cfb",
+   "league": null,
+   "away": "WYO",
+   "home": "UNLV",
+   "away_name": "Wyoming Cowboys",
+   "home_name": "UNLV Rebels",
+   "game_start": "2026-11-08T03:30Z",
+   "side_std": "home",
+   "conflict": [
+    "Kalshi move"
+   ],
+   "money_with": false,
+   "grade": "A",
+   "fair_board": 0.4852,
+   "inside_fair": false,
+   "books": {
+    "at": "2026-11-07T20:59:38Z",
+    "fair": 0.4852,
+    "q": {
+     "Novig": 0.485,
+     "Kalshi": 0.51,
+     "DK": 0.5122,
+     "FD": 0.5122
     }
    }
   },
@@ -1093,8 +1142,8 @@
    "home_name": "New Orleans Saints",
    "game_start": "2026-11-08T18:00Z",
    "side_std": "away",
-   "money_with": false,
-   "grade": "B",
+   "money_with": true,
+   "grade": "A",
    "fair_board": null,
    "inside_fair": null,
    "books": null
@@ -1383,6 +1432,50 @@
    }
   },
   {
+   "cond": "0x86ced242518f12a9168a7b47e5a57fc0ac4e12e3bcb4981d560abe6b161fb696",
+   "slug": "nba-lal-det-2026-11-08",
+   "title": "Lakers vs. Pistons",
+   "mtype": "ml",
+   "start": "2026-11-08T23:00:00Z",
+   "bet": "Lakers ML",
+   "side": "Lakers",
+   "flagged": "2026-11-07T21:45:18Z",
+   "why": "a top-50 account",
+   "proven": false,
+   "trigger": "top50",
+   "n_accounts": 1,
+   "best_rank": 42,
+   "usd": 140,
+   "paid": 0.47,
+   "ask": 0.48,
+   "status": "live",
+   "link": "https://polymarket.us/event/nba-lal-det-2026-11-08",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401909946",
+   "sport": "nba",
+   "league": null,
+   "away": "LAL",
+   "home": "DET",
+   "away_name": "Los Angeles Lakers",
+   "home_name": "Detroit Pistons",
+   "game_start": "2026-11-08T23:00Z",
+   "side_std": "away",
+   "money_with": false,
+   "grade": "watch",
+   "fair_board": null,
+   "inside_fair": null,
+   "books": {
+    "at": "2026-11-07T20:59:38Z",
+    "fair": null,
+    "q": {
+     "Polymarket": 0.47,
+     "Kalshi": 0.51
+    }
+   }
+  },
+  {
    "cond": "0xc2c8c1692b4f29d36ca4b0763046f46b4c1606cdb9355d5d466ea1730c265ab9",
    "slug": "nba-bos-mil-2026-11-08",
    "title": "Celtics vs. Bucks",
@@ -1618,7 +1711,7 @@
    "best_rank": 31,
    "usd": 4137,
    "paid": 0.708,
-   "ask": 0.72,
+   "ask": 0.73,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-orl-gsw-2026-11-07",
    "other": {
@@ -1627,7 +1720,7 @@
     "usd": 481,
     "first": "2026-11-07T21:01:22Z"
    },
-   "exit_bid": 0.71,
+   "exit_bid": 0.72,
    "kalshi_against": null,
    "logged": true,
    "event_id": "401909942",
@@ -1886,20 +1979,20 @@
     "clv": -0.17
    },
    "outside": {
-    "n": 8,
-    "won": 2,
-    "units": -1.64,
-    "clv": 0.62
+    "n": 9,
+    "won": 3,
+    "units": -1.12,
+    "clv": 0.56
    }
   },
-  "n": 92,
-  "won": 39,
-  "units": -8.79,
+  "n": 94,
+  "won": 40,
+  "units": -8.81,
   "by_grade": {
    "A": {
-    "n": 52,
-    "won": 20,
-    "units": -7.24,
+    "n": 54,
+    "won": 21,
+    "units": -7.26,
     "clv": 0.07
    },
    "B": {
@@ -1915,12 +2008,12 @@
     "clv": -1.75
    }
   },
-  "units_1u": -19.27,
-  "clv": -0.4,
-  "n_venue": 44,
-  "units_venue": -5.1,
+  "units_1u": -19.22,
+  "clv": -0.39,
+  "n_venue": 45,
+  "units_venue": -4.58,
   "clv_venue": -0.07,
-  "clv_poly_same": -0.96
+  "clv_poly_same": -0.93
  },
  "sys_tags": {
   "401873039:bounce15_1h": {
@@ -2144,6 +2237,13 @@
     "usd": 248
    }
   },
+  "401909946|ml": {
+   "away": {
+    "n": 1,
+    "best_rank": 42,
+    "usd": 140
+   }
+  },
   "401909948|ml": {
    "away": {
     "n": 1,
@@ -2224,6 +2324,13 @@
     "n": 1,
     "best_rank": 182,
     "usd": 273
+   }
+  },
+  "401864535|spread": {
+   "home": {
+    "n": 1,
+    "best_rank": 115,
+    "usd": 3480
    }
   },
   "401926112|total": {
