@@ -8,6 +8,7 @@ on:
   workflow_dispatch: {}
 permissions:
   contents: read
+  deployments: read
   pages: write
   id-token: write
 concurrency:
@@ -49,7 +50,8 @@ jobs:
         if: steps.deployment.outcome == 'failure'
         env: {GH_TOKEN: '${{ github.token }}'}
         run: |
-          for s in $(gh api "repos/${{ github.repository }}/commits?per_page=40" -q '.[].sha'); do
+          # the stuck one can be a commit later rebased off main, so also take the shas GitHub recorded for recent github-pages deployments
+          for s in $( (gh api "repos/${{ github.repository }}/deployments?environment=github-pages&per_page=30" -q '.[].sha'; gh api "repos/${{ github.repository }}/commits?per_page=40" -q '.[].sha') | sort -u); do
             gh api -X POST "repos/${{ github.repository }}/pages/deployments/$s/cancel" >/dev/null 2>&1 && echo "cancelled stuck deployment $s"
           done; true
       - id: deployment2
