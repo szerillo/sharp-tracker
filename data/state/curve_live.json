@@ -1,5 +1,5 @@
 {
- "built": "2026-11-07T13:42:42Z",
+ "built": "2026-11-07T14:02:06Z",
  "record": {
   "cbb_1h_total_curve": {
    "n": 1,
@@ -32,5 +32,56 @@
    "units": -0.25
   }
  },
- "rows": []
+ "rows": [
+  {
+   "key": "cfb_q1_under_curve|43a67a478177d0dc6ef141aacf2bfd2a||under",
+   "rule": "cfb_q1_under_curve",
+   "tier": "A",
+   "stake": 0.5,
+   "sport": "cfb",
+   "odds_id": "43a67a478177d0dc6ef141aacf2bfd2a",
+   "espn": "401856743",
+   "game": "Texas Longhorns @ Missouri Tigers",
+   "start": "2026-11-07T17:00:00Z",
+   "market": "totals_q1",
+   "team": null,
+   "team_name": null,
+   "side": "under",
+   "line": 9.5,
+   "curve": 0.593,
+   "pin_fair": 0.512,
+   "gap": 8.1,
+   "full_total": 42.5,
+   "full_spread": 2.5,
+   "pin_price": 1.86,
+   "book": "FD",
+   "price": 1.88,
+   "flagged": "2026-11-07T14:02:06Z"
+  },
+  {
+   "key": "cfb_q1_under_curve|3582b30b32fb23939161eb280cc5ca97||under",
+   "rule": "cfb_q1_under_curve",
+   "tier": "A",
+   "stake": 0.5,
+   "sport": "cfb",
+   "odds_id": "3582b30b32fb23939161eb280cc5ca97",
+   "espn": "401858292",
+   "game": "North Carolina Tar Heels @ UConn Huskies",
+   "start": "2026-11-07T17:00:00Z",
+   "market": "totals_q1",
+   "team": null,
+   "team_name": null,
+   "side": "under",
+   "line": 11.5,
+   "curve": 0.556,
+   "pin_fair": 0.497,
+   "gap": 5.8,
+   "full_total": 54.5,
+   "full_spread": 7.5,
+   "pin_price": 1.92,
+   "book": "Caesars",
+   "price": 1.85,
+   "flagged": "2026-11-07T14:02:06Z"
+  }
+ ]
 }
