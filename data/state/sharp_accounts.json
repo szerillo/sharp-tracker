@@ -1,5 +1,5 @@
 {
- "built": "2026-11-06T23:47:51Z",
+ "built": "2026-11-06T23:55:33Z",
  "rows": [
   {
    "cond": "0x3677c251947318cc64698988355cb2bbb5fe9a20f8c18c9e614cacc719026338",
@@ -106,6 +106,33 @@
    "grade": "A",
    "inside_fair": false,
    "fair_board": null,
+   "books": null
+  },
+  {
+   "cond": "0x96d1b03e0c54e105995e1dec3f67437f90aabeed3f5480509bde0fa44ce1d9c1",
+   "slug": "cbb-bostu-brown-2026-11-06",
+   "title": "Boston Terriers vs. Brown Bears",
+   "mtype": "total",
+   "start": "2026-11-07T00:00:00Z",
+   "bet": "Under 144.5",
+   "side": "Under",
+   "flagged": "2026-11-06T23:50:07Z",
+   "why": "a top-50 account",
+   "proven": false,
+   "trigger": "top50",
+   "n_accounts": 1,
+   "best_rank": 4,
+   "usd": 274,
+   "paid": 0.51,
+   "ask": 0.53,
+   "status": "live",
+   "link": "https://polymarket.us/event/cbb-bostu-brown-2026-11-06",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "grade": "B",
+   "fair_board": null,
+   "inside_fair": null,
    "books": null
   },
   {
@@ -1456,7 +1483,136 @@
   "clv_venue": 0.23,
   "clv_poly_same": -1.81
  },
- "sys_tags": {},
+ "sys_tags": {
+  "401873039:bounce15_1h": {
+   "with": {
+    "n": 1,
+    "best_rank": 4,
+    "usd": 153
+   },
+   "against": null
+  },
+  "401873042:awfuldog": {
+   "with": {
+    "n": 1,
+    "best_rank": 58,
+    "usd": 440
+   },
+   "against": null
+  },
+  "401873039:nfl_fade_fav_bye": {
+   "with": {
+    "n": 1,
+    "best_rank": 4,
+    "usd": 153
+   },
+   "against": null
+  },
+  "401858289:cfb_day_over": {
+   "with": {
+    "n": 1,
+    "best_rank": 12,
+    "usd": 224
+   },
+   "against": null
+  },
+  "401856744:cfb_day_over": {
+   "with": {
+    "n": 1,
+    "best_rank": 61,
+    "usd": 500
+   },
+   "against": null
+  },
+  "401909295:nba_bigfav_over": {
+   "with": null,
+   "against": {
+    "n": 1,
+    "best_rank": 132,
+    "usd": 689
+   }
+  },
+  "401892662:nhl_early_home_fav_qual": {
+   "with": null,
+   "against": {
+    "n": 1,
+    "best_rank": 132,
+    "usd": 179
+   }
+  },
+  "401909290:nba_ats_hot_home": {
+   "with": {
+    "n": 1,
+    "best_rank": 112,
+    "usd": 9200
+   },
+   "against": {
+    "n": 1,
+    "best_rank": 112,
+    "usd": 8219
+   }
+  },
+  "401909291:nba_ats_hot_home": {
+   "with": null,
+   "against": {
+    "n": 1,
+    "best_rank": 58,
+    "usd": 500
+   }
+  },
+  "401909288:xch_homedog_fade:ml": {
+   "with": {
+    "n": 1,
+    "best_rank": 55,
+    "usd": 209
+   },
+   "against": {
+    "n": 1,
+    "best_rank": 93,
+    "usd": 110
+   }
+  },
+  "401909288:nba_momentum:ml": {
+   "with": {
+    "n": 1,
+    "best_rank": 55,
+    "usd": 209
+   },
+   "against": {
+    "n": 1,
+    "best_rank": 93,
+    "usd": 110
+   }
+  },
+  "401909288:nba_momentum:spread": {
+   "with": null,
+   "against": {
+    "n": 1,
+    "best_rank": 132,
+    "usd": 293
+   }
+  },
+  "401909287:nba_momentum:spread": {
+   "with": {
+    "n": 6,
+    "best_rank": 12,
+    "usd": 26031
+   },
+   "against": {
+    "n": 7,
+    "best_rank": 43,
+    "usd": 15157
+   }
+  },
+  "401909287:nba_momentum:total": {
+   "with": {
+    "n": 2,
+    "best_rank": 132,
+    "usd": 1627
+   },
+   "against": null
+  }
+ },
  "by_event": {
   "401873042|total": {
    "over": {
