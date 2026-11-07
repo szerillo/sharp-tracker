@@ -1,5 +1,5 @@
 {
- "built": "2026-11-07T16:43:47Z",
+ "built": "2026-11-07T16:50:36Z",
  "rows": [
   {
    "cond": "0x49158b5f973dcaeaf06f78a21c2f7f98017c6efd187b72bd149270ac26312ae8",
@@ -154,7 +154,7 @@
    "best_rank": 12,
    "usd": 224,
    "paid": 0.46,
-   "ask": 0.5,
+   "ask": 0.51,
    "status": "live",
    "link": "https://polymarket.us/event/cfb-flst-boscol-2026-11-07",
    "other": null,
@@ -280,8 +280,7 @@
    "game_start": "2026-11-07T17:00Z",
    "side_std": "home",
    "conflict": [
-    "Kalshi move",
-    "big money"
+    "Kalshi move"
    ],
    "money_with": false,
    "grade": "A",
@@ -625,7 +624,7 @@
    "best_rank": 116,
    "usd": 1505,
    "paid": 0.45,
-   "ask": 0.46,
+   "ask": 0.47,
    "status": "live",
    "link": "https://polymarket.us/event/cfb-ala-lsu-2026-11-07",
    "other": null,
@@ -680,7 +679,7 @@
    "home_name": "Houston Cougars",
    "game_start": "2026-11-07T20:30Z",
    "side_std": "under",
-   "money_with": true,
+   "money_with": false,
    "grade": "A",
    "fair_board": null,
    "inside_fair": null,
@@ -762,7 +761,7 @@
    "home_name": "CF Montr\u00e9al",
    "game_start": "2026-11-07T21:00Z",
    "side_std": "over",
-   "money_with": false,
+   "money_with": true,
    "grade": "A",
    "fair_board": null,
    "inside_fair": null,
@@ -1892,6 +1891,11 @@
     "n": 1,
     "best_rank": 142,
     "usd": 245
+   },
+   "home": {
+    "n": 1,
+    "best_rank": 143,
+    "usd": 507
    }
   },
   "401909944|spread": {
