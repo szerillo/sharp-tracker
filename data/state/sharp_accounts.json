@@ -1,33 +1,6 @@
 {
- "built": "2026-11-06T23:55:33Z",
+ "built": "2026-11-07T00:02:25Z",
  "rows": [
-  {
-   "cond": "0x3677c251947318cc64698988355cb2bbb5fe9a20f8c18c9e614cacc719026338",
-   "slug": "epl-eve-cov-2026-11-06",
-   "title": "Everton FC vs. Coventry City FC",
-   "mtype": "ml",
-   "start": "2026-11-06T20:00:00Z",
-   "bet": "Will Everton FC win on 2026-11-06: No",
-   "side": "No",
-   "flagged": "2026-11-06T18:49:25Z",
-   "why": "a top-200 account also in this sport's top 50",
-   "proven": true,
-   "trigger": "proven",
-   "n_accounts": 1,
-   "best_rank": 149,
-   "usd": 173,
-   "paid": 0.42,
-   "ask": null,
-   "status": "live",
-   "link": "https://polymarket.us/event/epl-eve-cov-2026-11-06",
-   "other": null,
-   "kalshi_against": null,
-   "logged": true,
-   "grade": "A",
-   "fair_board": null,
-   "inside_fair": null,
-   "books": null
-  },
   {
    "cond": "0x89b352113e523a8dff5556e0880d9f258821fed7caee81b050951f9bf294b9f4",
    "slug": "nba-was-atl-2026-11-06",
@@ -44,7 +17,7 @@
    "best_rank": 132,
    "usd": 1627,
    "paid": 0.499,
-   "ask": 0.51,
+   "ask": null,
    "status": "live",
    "link": "https://polymarket.us/event/nba-was-atl-2026-11-06",
    "other": null,
@@ -84,7 +57,7 @@
    "best_rank": 132,
    "usd": 2711,
    "paid": 0.522,
-   "ask": 0.53,
+   "ask": null,
    "status": "live",
    "link": "https://polymarket.us/event/nba-was-atl-2026-11-06",
    "other": null,
@@ -124,12 +97,12 @@
    "best_rank": 4,
    "usd": 274,
    "paid": 0.51,
-   "ask": 0.53,
+   "ask": null,
    "status": "live",
    "link": "https://polymarket.us/event/cbb-bostu-brown-2026-11-06",
    "other": null,
    "kalshi_against": null,
-   "logged": true,
+   "logged": false,
    "grade": "B",
    "fair_board": null,
    "inside_fair": null,
@@ -151,7 +124,7 @@
    "best_rank": 40,
    "usd": 349,
    "paid": 0.53,
-   "ask": 0.67,
+   "ask": 0.68,
    "status": "live",
    "link": "https://polymarket.us/event/nba-tor-mil-2026-11-06",
    "other": null,
@@ -174,52 +147,6 @@
    "fair_board": null,
    "inside_fair": null,
    "books": null
-  },
-  {
-   "cond": "0x79ebb36fa1dae08c5da6d2fea3aed7d572bfb0b266910afb7aaa4f750f966fef",
-   "slug": "nba-tor-mil-2026-11-06",
-   "title": "Raptors vs. Bucks",
-   "mtype": "ml",
-   "start": "2026-11-07T01:00:00Z",
-   "bet": "Bucks ML",
-   "side": "Bucks",
-   "flagged": "2026-11-06T01:15:07Z",
-   "why": "3 top-200 accounts",
-   "proven": true,
-   "trigger": "two",
-   "n_accounts": 3,
-   "best_rank": 23,
-   "usd": 5693,
-   "paid": 0.382,
-   "ask": 0.41,
-   "status": "live",
-   "link": "https://polymarket.us/event/nba-tor-mil-2026-11-06",
-   "other": null,
-   "kalshi_against": null,
-   "logged": true,
-   "event_id": "401909292",
-   "sport": "nba",
-   "league": null,
-   "away": "TOR",
-   "home": "MIL",
-   "away_name": "Toronto Raptors",
-   "home_name": "Milwaukee Bucks",
-   "game_start": "2026-11-07T01:00Z",
-   "side_std": "home",
-   "money_with": false,
-   "grade": "A",
-   "inside_fair": true,
-   "fair_board": 0.366,
-   "books": {
-    "at": "2026-11-06T23:36:36Z",
-    "fair": 0.366,
-    "q": {
-     "Novig": 0.37,
-     "Polymarket": 0.37,
-     "Caesars": 0.3876,
-     "FD": 0.3876
-    }
-   }
   },
   {
    "cond": "0x0807bc1fb7e6d616f72b1ffd6158f17448df90223dbdd357281ccb7641b2fdbc",
@@ -419,6 +346,43 @@
    "home_name": "Missouri State Bears",
    "game_start": "2026-11-07T01:00Z",
    "side_std": "under",
+   "money_with": false,
+   "grade": "B",
+   "fair_board": null,
+   "inside_fair": null,
+   "books": null
+  },
+  {
+   "cond": "0xda1173dff49a5f0da08b3269bedc48297cf56d0b97abebc7f4c8700ceb1b7d2a",
+   "slug": "cbb-south-tcu-2026-11-06",
+   "title": "Southern Jaguars vs. TCU Horned Frogs",
+   "mtype": "total",
+   "start": "2026-11-07T01:00:00Z",
+   "bet": "Over 152.5",
+   "side": "Over",
+   "flagged": "2026-11-06T23:58:01Z",
+   "why": "a top-50 account",
+   "proven": false,
+   "trigger": "top50",
+   "n_accounts": 1,
+   "best_rank": 4,
+   "usd": 427,
+   "paid": 0.52,
+   "ask": 0.53,
+   "status": "live",
+   "link": "https://polymarket.us/event/cbb-south-tcu-2026-11-06",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401919048",
+   "sport": "cbb",
+   "league": null,
+   "away": "SOU",
+   "home": "TCU",
+   "away_name": "Southern Jaguars",
+   "home_name": "TCU Horned Frogs",
+   "game_start": "2026-11-07T01:00Z",
+   "side_std": "over",
    "money_with": false,
    "grade": "B",
    "fair_board": null,
@@ -1093,7 +1057,7 @@
    "best_rank": 40,
    "usd": 5482,
    "paid": 0.705,
-   "ask": 0.73,
+   "ask": null,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-was-atl-2026-11-06",
    "other": {
@@ -1102,7 +1066,7 @@
     "usd": 4570,
     "first": "2026-11-06T02:07:52Z"
    },
-   "exit_bid": 0.72,
+   "exit_bid": null,
    "kalshi_against": null,
    "logged": true,
    "event_id": "401909287",
@@ -1117,7 +1081,7 @@
    "money_with": false,
    "grade": "B",
    "fair_board": 0.7404,
-   "inside_fair": true,
+   "inside_fair": null,
    "books": null
   },
   {
@@ -1136,7 +1100,7 @@
    "best_rank": 43,
    "usd": 6607,
    "paid": 0.48,
-   "ask": 0.49,
+   "ask": null,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-was-atl-2026-11-06",
    "other": {
@@ -1145,7 +1109,7 @@
     "usd": 22412,
     "first": "2026-11-06T22:30:06Z"
    },
-   "exit_bid": 0.48,
+   "exit_bid": null,
    "kalshi_against": null,
    "logged": true,
    "event_id": "401909287",
@@ -1163,7 +1127,7 @@
    "money_with": false,
    "grade": "B",
    "fair_board": 0.4828,
-   "inside_fair": false,
+   "inside_fair": null,
    "books": null
   },
   {
@@ -1182,7 +1146,7 @@
    "best_rank": 110,
    "usd": 5108,
    "paid": 0.559,
-   "ask": 0.57,
+   "ask": null,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-was-atl-2026-11-06",
    "other": {
@@ -1191,7 +1155,7 @@
     "usd": 542,
     "first": "2026-11-06T22:30:06Z"
    },
-   "exit_bid": 0.56,
+   "exit_bid": null,
    "kalshi_against": null,
    "logged": true,
    "event_id": "401909287",
@@ -1228,7 +1192,7 @@
    "best_rank": 49,
    "usd": 22693,
    "paid": 0.529,
-   "ask": 0.53,
+   "ask": null,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-was-atl-2026-11-06",
    "other": {
@@ -1237,7 +1201,7 @@
     "usd": 56962,
     "first": "2026-11-06T22:30:06Z"
    },
-   "exit_bid": 0.52,
+   "exit_bid": null,
    "kalshi_against": null,
    "logged": true,
    "event_id": "401909287",
@@ -1349,6 +1313,49 @@
    "grade": "watch",
    "fair_board": 0.4012,
    "inside_fair": false,
+   "books": null
+  },
+  {
+   "cond": "0x79ebb36fa1dae08c5da6d2fea3aed7d572bfb0b266910afb7aaa4f750f966fef",
+   "slug": "nba-tor-mil-2026-11-06",
+   "title": "Raptors vs. Bucks",
+   "mtype": "ml",
+   "start": "2026-11-07T01:00:00Z",
+   "bet": "Bucks ML",
+   "side": "Bucks",
+   "flagged": "2026-11-06T01:15:07Z",
+   "why": "3 top-200 accounts",
+   "proven": true,
+   "trigger": "two",
+   "n_accounts": 3,
+   "best_rank": 23,
+   "usd": 5693,
+   "paid": 0.382,
+   "ask": 0.41,
+   "status": "other side",
+   "link": "https://polymarket.us/event/nba-tor-mil-2026-11-06",
+   "other": {
+    "n_accounts": 1,
+    "best_rank": 55,
+    "usd": 1474,
+    "first": "2026-11-06T23:59:16Z"
+   },
+   "exit_bid": 0.4,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401909292",
+   "sport": "nba",
+   "league": null,
+   "away": "TOR",
+   "home": "MIL",
+   "away_name": "Toronto Raptors",
+   "home_name": "Milwaukee Bucks",
+   "game_start": "2026-11-07T01:00Z",
+   "side_std": "home",
+   "money_with": false,
+   "grade": "A",
+   "inside_fair": true,
+   "fair_board": 0.366,
    "books": null
   },
   {
@@ -1559,58 +1566,6 @@
     "best_rank": 58,
     "usd": 500
    }
-  },
-  "401909288:xch_homedog_fade:ml": {
-   "with": {
-    "n": 1,
-    "best_rank": 55,
-    "usd": 209
-   },
-   "against": {
-    "n": 1,
-    "best_rank": 93,
-    "usd": 110
-   }
-  },
-  "401909288:nba_momentum:ml": {
-   "with": {
-    "n": 1,
-    "best_rank": 55,
-    "usd": 209
-   },
-   "against": {
-    "n": 1,
-    "best_rank": 93,
-    "usd": 110
-   }
-  },
-  "401909288:nba_momentum:spread": {
-   "with": null,
-   "against": {
-    "n": 1,
-    "best_rank": 132,
-    "usd": 293
-   }
-  },
-  "401909287:nba_momentum:spread": {
-   "with": {
-    "n": 6,
-    "best_rank": 12,
-    "usd": 26031
-   },
-   "against": {
-    "n": 7,
-    "best_rank": 43,
-    "usd": 15157
-   }
-  },
-  "401909287:nba_momentum:total": {
-   "with": {
-    "n": 2,
-    "best_rank": 132,
-    "usd": 1627
-   },
-   "against": null
   }
  },
  "by_event": {
@@ -1659,63 +1614,6 @@
     "n": 1,
     "best_rank": 49,
     "usd": 6921
-   }
-  },
-  "401909287|ml": {
-   "home": {
-    "n": 4,
-    "best_rank": 40,
-    "usd": 5482
-   },
-   "away": {
-    "n": 6,
-    "best_rank": 31,
-    "usd": 4321
-   }
-  },
-  "401909287|total": {
-   "under": {
-    "n": 2,
-    "best_rank": 132,
-    "usd": 1627
-   }
-  },
-  "401909287|spread": {
-   "home": {
-    "n": 6,
-    "best_rank": 12,
-    "usd": 26031
-   },
-   "away": {
-    "n": 7,
-    "best_rank": 43,
-    "usd": 15157
-   }
-  },
-  "401909288|ml": {
-   "home": {
-    "n": 1,
-    "best_rank": 93,
-    "usd": 110
-   },
-   "away": {
-    "n": 1,
-    "best_rank": 55,
-    "usd": 209
-   }
-  },
-  "401909288|total": {
-   "under": {
-    "n": 1,
-    "best_rank": 58,
-    "usd": 490
-   }
-  },
-  "401909288|spread": {
-   "home": {
-    "n": 1,
-    "best_rank": 132,
-    "usd": 293
    }
   },
   "401909289|ml": {
@@ -1794,6 +1692,11 @@
     "n": 3,
     "best_rank": 23,
     "usd": 5693
+   },
+   "away": {
+    "n": 1,
+    "best_rank": 55,
+    "usd": 1474
    }
   },
   "401909293|ml": {
@@ -1862,13 +1765,6 @@
     "usd": 239
    }
   },
-  "401892659|spread": {
-   "home": {
-    "n": 1,
-    "best_rank": 132,
-    "usd": 161
-   }
-  },
   "401892660|spread": {
    "home": {
     "n": 1,
@@ -1935,6 +1831,13 @@
     "n": 1,
     "best_rank": 4,
     "usd": 150
+   }
+  },
+  "401919048|total": {
+   "over": {
+    "n": 1,
+    "best_rank": 4,
+    "usd": 427
    }
   },
   "401916304|total": {
