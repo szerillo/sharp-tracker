@@ -1,5 +1,5 @@
 {
- "built": "2026-11-07T07:07:01Z",
+ "built": "2026-11-07T07:21:23Z",
  "record": {
   "n": 13,
   "won": 4,
@@ -74,6 +74,40 @@
    "ev": 2.3,
    "move": 1.6,
    "flagged": "2026-11-07T06:12:55Z",
+   "team": null
+  },
+  {
+   "key": "401926112|ml|away",
+   "sport": "cbb",
+   "event_id": "401926112",
+   "game": "UNI @ FUR",
+   "start": "2026-11-07T22:00Z",
+   "market": "ml",
+   "side": "away",
+   "line": null,
+   "venue": "Novig",
+   "price": 0.385,
+   "fair": 0.3927,
+   "ev": 2.0,
+   "move": 1.4,
+   "flagged": "2026-11-07T07:21:23Z",
+   "team": "UNI"
+  },
+  {
+   "key": "401920435|total|under",
+   "sport": "cbb",
+   "event_id": "401920435",
+   "game": "UVU @ WEB",
+   "start": "2026-11-08T02:00Z",
+   "market": "total",
+   "side": "under",
+   "line": 155.5,
+   "venue": "Novig",
+   "price": 0.5,
+   "fair": 0.5128,
+   "ev": 2.6,
+   "move": 1.7,
+   "flagged": "2026-11-07T07:21:23Z",
    "team": null
   }
  ]
