@@ -1,5 +1,5 @@
 {
- "built": "2026-11-07T01:10:19Z",
+ "built": "2026-11-07T01:17:07Z",
  "rows": [
   {
    "cond": "0x89b352113e523a8dff5556e0880d9f258821fed7caee81b050951f9bf294b9f4",
@@ -1520,6 +1520,52 @@
    }
   },
   {
+   "cond": "0x125e57b440776fc52784aabcf7c6054ad917235a7b740722f684f73168fa7ec3",
+   "slug": "nfl-dal-ind-2026-11-08",
+   "title": "Cowboys vs. Colts",
+   "mtype": "spread",
+   "start": "2026-11-08T18:00:00Z",
+   "bet": "Cowboys +3.5",
+   "side": "Cowboys",
+   "flagged": "2026-11-07T01:15:03Z",
+   "why": "a top-200 account also in this sport's top 50",
+   "proven": true,
+   "trigger": "proven",
+   "n_accounts": 1,
+   "best_rank": 143,
+   "usd": 107,
+   "paid": 0.85,
+   "ask": 0.85,
+   "status": "other side",
+   "link": "https://polymarket.us/event/nfl-dal-ind-2026-11-08",
+   "other": {
+    "n_accounts": 1,
+    "best_rank": 4,
+    "usd": 725,
+    "first": "2026-11-07T01:15:12Z"
+   },
+   "exit_bid": 0.84,
+   "kalshi_against": null,
+   "logged": false,
+   "event_id": "401873040",
+   "sport": "nfl",
+   "league": null,
+   "away": "DAL",
+   "home": "IND",
+   "away_name": "Dallas Cowboys",
+   "home_name": "Indianapolis Colts",
+   "game_start": "2026-11-08T18:00Z",
+   "side_std": "away",
+   "conflict": [
+    "big money"
+   ],
+   "money_with": false,
+   "grade": "A",
+   "fair_board": null,
+   "inside_fair": null,
+   "books": null
+  },
+  {
    "cond": "0xb9a7b47c2b3c56a902bd706745a98c3f627e6f25e3566205b362856f2804c721",
    "slug": "nfl-buf-min-2026-11-10",
    "title": "Bills vs. Vikings",
@@ -1613,7 +1659,11 @@
     "best_rank": 4,
     "usd": 2993
    },
-   "against": null
+   "against": {
+    "n": 1,
+    "best_rank": 143,
+    "usd": 107
+   }
   },
   "401873042:awfuldog": {
    "with": {
@@ -1670,6 +1720,11 @@
     "n": 1,
     "best_rank": 4,
     "usd": 2993
+   },
+   "away": {
+    "n": 1,
+    "best_rank": 143,
+    "usd": 107
    }
   },
   "401873042|total": {
