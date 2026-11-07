@@ -208,8 +208,12 @@ def main():
     mp = os.path.join(ROOT, 'data', 'mma', 'steam_paper.jsonl'); mg = os.path.join(ROOT, 'data', 'mma', 'steam_graded.json')
     if os.path.exists(mp):
         G3 = {g['key']: g for g in (json.load(open(mg)) if os.path.exists(mg) else [])}
+        seen_ms = set()    # 11/7: the same fight was logged under two key formats (an older hash and the ESPN id): one bet per fight and pick
         for l in open(mp):
             p = json.loads(l); g_ = G3.get(p['key'])
+            fk = (p['start'][:10], p['fav_name'], p['dog_name'], p.get('espn_side') or 'home')
+            if fk in seen_ms: continue
+            seen_ms.add(fk)
             bets.append(dict(id=f"ms:{p['key']}", src='mma', cat='lean C', rule='mma_steam_fav', sport='mma', event_id=p.get('espn') or p['key'], game=f"{p['fav_name']} vs {p['dog_name']}", start=p['start'],
                              market='ml', side=p.get('espn_side') or 'home', line=None, flagged=p['ts'], venue=p['venue'], price=p['price'], won=None if not g_ else (1 if g_['won'] else 0), bet=f"{p['fav_name']} to win"))
     # ---- Kalshi NHL late-flow paper lean (sharp/kalshi_flow.py), tier P

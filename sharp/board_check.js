@@ -18,12 +18,7 @@ const SRC = new Set(['system', 'sharp', 'curve', 'props']);
   const BL = await get('data/state/bet_log.json');
   const SY = await get('data/state/system_fires.json');
   const now = Date.now();
-  // the board's default window is "Through 6 AM ET": everything starting before the next 6 AM in New York
-  const et = new Date(new Date().toLocaleString('en-US', { timeZone: 'America/New_York' }));
-  const end = new Date(et); end.setHours(6, 0, 0, 0); if (et.getHours() >= 6) end.setDate(end.getDate() + 1);
-  const endMs = now + (end - et);
-  const want = (BL.rows || []).filter(b => SRC.has(b.src) && SIZED.has(b.cat) && b.won == null && b.event_id && b.side
-    && Date.parse(b.start) > now + 5 * 60e3 && Date.parse(b.start) < endMs);
+  const cand = (BL.rows || []).filter(b => SRC.has(b.src) && SIZED.has(b.cat) && b.won == null && b.event_id && b.side && Date.parse(b.start) > now + 5 * 60e3);
 
   const browser = await chromium.launch();
   const page = await browser.newPage({ viewport: { width: 1400, height: 1000 } });
@@ -31,6 +26,9 @@ const SRC = new Set(['system', 'sharp', 'curve', 'props']);
   page.on('pageerror', e => errors.push(e.message));
   await page.goto(SITE + bust, { waitUntil: 'networkidle', timeout: 120000 });
   await page.waitForTimeout(8000);
+  // the default window is whatever the page itself counts as 'today' (its whenOf), so the check and the board can never disagree
+  const inView = await page.evaluate(starts => starts.map(s => whenOf(s) === 'today'), cand.map(b => b.start));
+  const want = cand.filter((b, i) => inView[i]);
   const shown = await page.evaluate(() => [...document.querySelectorAll('tr.erow[data-ev]')].map(tr => {
     const r = tr.getBoundingClientRect(); const closed = tr.closest('details:not([open])');
     return { ev: tr.dataset.ev, side: tr.dataset.side, sized: tr.dataset.sized === '1', visible: !closed && r.width > 0 && r.height > 0,
