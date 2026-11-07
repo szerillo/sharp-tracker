@@ -3056,5 +3056,72 @@
 "venue": "Novig",
 "price": -365
 }
+},
+"401909292:nba_momentum:ml": {
+"tag": "nba_momentum",
+"fill_id": "81e6856662c2",
+"ts": "2026-11-07T00:04:49Z",
+"market": "ml",
+"side": "home",
+"line": null,
+"venue": "Kalshi",
+"price": 133,
+"fair": 0.3972,
+"edge_pts": -3.28,
+"why": "Kalshi ml mid 0.375 at T-6h -> 0.405 now (+3.0c); continuation (audit section 3, NBA only)",
+"restored": true
+},
+"401909292:nba_momentum:spread": {
+"tag": "nba_momentum",
+"fill_id": "f17b58c3cf95",
+"ts": "2026-11-07T00:04:49Z",
+"market": "spread",
+"side": "home",
+"line": 4.5,
+"venue": "Novig",
+"price": -117,
+"fair": 0.5257,
+"edge_pts": -1.43,
+"why": "Novig spread mid 0.492 at T-6h -> 0.538 now (+4.5c); continuation (audit section 3, NBA only)",
+"restored": true
+},
+"401858526:cfb_road_dog_low_total": {
+"tag": "cfb_road_dog_low_total",
+"fill_id": "2a22d04f8558",
+"ts": "2026-11-07T02:30:40Z",
+"market": "spread",
+"side": "away",
+"line": 10.5,
+"venue": "Novig",
+"price": -300,
+"fair": null,
+"edge_pts": null,
+"why": "conference game, ILL +10.5 on the road, total 47.5"
+},
+"401858526:cfb_road_streak_dog": {
+"tag": "cfb_road_streak_dog",
+"fill_id": "72cb6a48b578",
+"ts": "2026-11-07T02:30:40Z",
+"market": "spread",
+"side": "away",
+"line": 10.5,
+"venue": "Novig",
+"price": -300,
+"fair": null,
+"edge_pts": null,
+"why": "conference game, ILL on road game 2 in a row, +10.5, total 47.5"
+},
+"401909942:nba_ats_hot_home": {
+"tag": "nba_ats_hot_home",
+"fill_id": "f057c27a24fb",
+"ts": "2026-11-07T02:30:40Z",
+"market": "spread",
+"side": "home",
+"line": -6.5,
+"venue": "FD",
+"price": -105,
+"fair": 0.49855,
+"edge_pts": -1.36,
+"why": "home GS covers 78% of spreads this season (9 games), 2 days rest: home spread (mined angle)"
 }
 }
