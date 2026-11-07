@@ -1,11 +1,11 @@
 {
- "built": "2026-11-07T23:00:57Z",
+ "built": "2026-11-07T23:19:38Z",
  "record": {
-  "n": 18,
-  "won": 7,
-  "lost": 11,
-  "units": -0.55,
-  "roi": -12.3
+  "n": 20,
+  "won": 8,
+  "lost": 12,
+  "units": -0.63,
+  "roi": -12.5
  },
  "rows": [
   {
@@ -111,23 +111,6 @@
    "team": "GS"
   },
   {
-   "key": "401909760|ml|away",
-   "sport": "cbb",
-   "event_id": "401909760",
-   "game": "SDSU @ COLO",
-   "start": "2026-11-07T20:30Z",
-   "market": "ml",
-   "side": "away",
-   "line": null,
-   "venue": "Novig",
-   "price": 0.585,
-   "fair": 0.6001,
-   "ev": 2.6,
-   "move": 3.2,
-   "flagged": "2026-11-07T13:18:05Z",
-   "team": "SDSU"
-  },
-  {
    "key": "401873039|ml|away",
    "sport": "nfl",
    "event_id": "401873039",
@@ -177,23 +160,6 @@
    "move": 2.3,
    "flagged": "2026-11-07T14:20:32Z",
    "team": "PHI"
-  },
-  {
-   "key": "401909760|ml|home",
-   "sport": "cbb",
-   "event_id": "401909760",
-   "game": "SDSU @ COLO",
-   "start": "2026-11-07T20:30Z",
-   "market": "ml",
-   "side": "home",
-   "line": null,
-   "venue": "Novig",
-   "price": 0.405,
-   "fair": 0.4132,
-   "ev": 2.0,
-   "move": 1.8,
-   "flagged": "2026-11-07T15:42:19Z",
-   "team": "COLO"
   },
   {
    "key": "401858513|ml|away",
@@ -302,6 +268,26 @@
    "move": 1.0,
    "flagged": "2026-11-07T22:39:02Z",
    "team": "COL"
+  },
+  {
+   "key": "401909940|ml|home",
+   "sport": "nba",
+   "event_id": "401909940",
+   "game": "NY @ CLE",
+   "start": "2026-11-08T01:00Z",
+   "market": "ml",
+   "side": "home",
+   "line": null,
+   "venue": "Novig",
+   "price": 0.36,
+   "fair": 0.3676,
+   "fair_power": 0.3624,
+   "venue_fair": 0.3582,
+   "fair_gap": 0.9,
+   "ev": 2.1,
+   "move": 1.4,
+   "flagged": "2026-11-07T23:19:38Z",
+   "team": "CLE"
   }
  ]
 }
