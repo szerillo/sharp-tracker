@@ -1,5 +1,5 @@
 {
- "built": "2026-11-07T17:23:46Z",
+ "built": "2026-11-07T17:30:40Z",
  "rows": [
   {
    "cond": "0x49158b5f973dcaeaf06f78a21c2f7f98017c6efd187b72bd149270ac26312ae8",
@@ -393,7 +393,7 @@
    "best_rank": 132,
    "usd": 344,
    "paid": 0.64,
-   "ask": 0.69,
+   "ask": null,
    "status": "live",
    "link": "https://polymarket.us/event/bun-stu-wer-2026-11-07-more-markets",
    "other": null,
@@ -439,7 +439,7 @@
    "best_rank": 115,
    "usd": 103,
    "paid": 0.49,
-   "ask": 0.5,
+   "ask": null,
    "status": "live",
    "link": "https://polymarket.us/event/cfb-mary-pur-2026-11-07",
    "other": null,
@@ -476,7 +476,7 @@
    "best_rank": 157,
    "usd": 2000,
    "paid": 0.36,
-   "ask": 0.36,
+   "ask": null,
    "status": "live",
    "link": "https://polymarket.us/event/cfb-mary-pur-2026-11-07",
    "other": null,
@@ -1579,7 +1579,7 @@
    "best_rank": 132,
    "usd": 427,
    "paid": 0.43,
-   "ask": 0.47,
+   "ask": null,
    "status": "other side",
    "link": "https://polymarket.us/event/bun-stu-wer-2026-11-07",
    "other": {
@@ -1588,7 +1588,7 @@
     "usd": 10105,
     "first": "2026-11-07T08:22:46Z"
    },
-   "exit_bid": 0.46,
+   "exit_bid": null,
    "kalshi_against": null,
    "logged": true,
    "grade": "A",
@@ -1843,15 +1843,15 @@
     "clv": -0.17
    }
   },
-  "n": 77,
-  "won": 34,
-  "units": -6.36,
+  "n": 79,
+  "won": 35,
+  "units": -6.29,
   "by_grade": {
    "A": {
-    "n": 39,
-    "won": 17,
-    "units": -4.07,
-    "clv": 0.16
+    "n": 41,
+    "won": 18,
+    "units": -4.0,
+    "clv": -0.15
    },
    "B": {
     "n": 25,
@@ -1866,8 +1866,8 @@
     "clv": -1.75
    }
   },
-  "units_1u": -14.81,
-  "clv": -0.59,
+  "units_1u": -14.54,
+  "clv": -0.74,
   "n_venue": 38,
   "units_venue": -3.47,
   "clv_venue": 0.05,
@@ -1917,14 +1917,6 @@
     "usd": 153
    },
    "against": null
-  },
-  "401892662:nhl_early_home_fav_qual": {
-   "with": null,
-   "against": {
-    "n": 1,
-    "best_rank": 132,
-    "usd": 179
-   }
   }
  },
  "by_event": {
@@ -2088,20 +2080,6 @@
     "usd": 257
    }
   },
-  "401892662|ml": {
-   "away": {
-    "n": 1,
-    "best_rank": 132,
-    "usd": 179
-   }
-  },
-  "401892662|total": {
-   "under": {
-    "n": 1,
-    "best_rank": 58,
-    "usd": 460
-   }
-  },
   "401892669|ml": {
    "away": {
     "n": 1,
@@ -2128,20 +2106,6 @@
     "n": 2,
     "best_rank": 12,
     "usd": 2437
-   }
-  },
-  "401858515|spread": {
-   "home": {
-    "n": 1,
-    "best_rank": 115,
-    "usd": 103
-   }
-  },
-  "401858515|ml": {
-   "away": {
-    "n": 2,
-    "best_rank": 157,
-    "usd": 2000
    }
   },
   "401869945|spread": {
@@ -2203,13 +2167,6 @@
     "n": 1,
     "best_rank": 132,
     "usd": 161
-   }
-  },
-  "401884743|spread": {
-   "away": {
-    "n": 1,
-    "best_rank": 132,
-    "usd": 344
    }
   },
   "761934|total": {
