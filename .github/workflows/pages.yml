@@ -12,7 +12,9 @@ permissions:
   id-token: write
 concurrency:
   group: pages
-  cancel-in-progress: true
+  # 11/7: never cancel a deploy mid-sync. Cancelling left GitHub's side 'syncing' and the next deploys timed out (12:06-12:44 PM ET, the
+  # board went stale). A running deploy finishes; only the newest waiting run is kept behind it.
+  cancel-in-progress: false
 jobs:
   deploy:
     runs-on: ubuntu-latest
