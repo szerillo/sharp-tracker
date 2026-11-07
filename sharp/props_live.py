@@ -9,6 +9,7 @@ Writes data/state/props_live.json (board) and data/state/props_paper.jsonl (reco
 import os, sys, json, re, time, urllib.request, datetime as dt, unicodedata
 HERE = os.path.dirname(os.path.abspath(__file__)); ROOT = os.path.abspath(os.path.join(HERE, '..')); sys.path.insert(0, ROOT)
 from sharp.props_test import stat, nm
+from sharp.fairprice import check as fair_check   # 11/7: power + proportional Pinnacle fair, the book's own fair, Pinnacle freshness
 KEY = os.environ.get('ODDS_API_KEY'); API = 'https://api.the-odds-api.com/v4'
 PLAN = {'nba': ('basketball_nba', 'player_threes', 'basketball/nba'), 'nhl': ('icehockey_nhl', 'player_total_saves,player_shots_on_goal', 'hockey/nhl')}
 BOOKS = {'fanduel': 'FD', 'williamhill_us': 'Caesars', 'draftkings': 'DK'}
@@ -60,7 +61,8 @@ def main():
                     for m in b['markets']:
                         for o in m['outcomes']:
                             if o.get('point') is None or o['name'] not in ('Over', 'Under'): continue
-                            Q.setdefault((m['key'], o.get('description'), o['point']), {}).setdefault(b['key'], {})[o['name'].lower()] = o['price']
+                            q_ = Q.setdefault((m['key'], o.get('description'), o['point']), {}).setdefault(b['key'], {})
+                            q_[o['name'].lower()] = o['price']; q_['ts'] = m.get('last_update') or b.get('last_update')
                 for (mk, player, ln), B in Q.items():
                     P = B.get('pinnacle')
                     if not P or 'over' not in P or 'under' not in P: continue
@@ -69,10 +71,16 @@ def main():
                     if not best or fu * best[1] - 1 < EV_MIN: continue
                     key = f"{e['id']}|{mk}|{player}|{ln}"
                     if key in seen: continue
+                    bv = B[best[0]]
+                    fc = fair_check(P['under'], P['over'], best[1], bv.get('under'), bv.get('over'), P.get('ts'), bv.get('ts'), NOW)
+                    if not fc['ok']:
+                        print(f"[props_live] skip {player} {mk} u{ln} {BOOKS[best[0]]} {best[1]}: {fc['stale_why'] or 'no edge on the power-devig fair'} ({fc['ev_strict']}%)"); continue
                     seen.add(key); new += 1
                     rows.append(dict(key=key, sport=sp, odds_id=e['id'], espn=espn_event(sp, e['home_team'], e['away_team'], st), game=f"{e['away_team']} @ {e['home_team']}",
                                      start=e['commence_time'], market=mk, player=player, line=ln, side='under', book=BOOKS[best[0]], price=best[1], fair=round(fu, 4),
-                                     ev=round(100 * (fu * best[1] - 1), 1), pin_under=P['under'], flagged=NOW.strftime('%Y-%m-%dT%H:%M:%SZ')))
+                                     ev=round(100 * (fu * best[1] - 1), 1), pin_under=P['under'], pin_over=P['over'], book_over=bv.get('over'),
+                                     fair_power=fc['pin_fair_power'], book_fair=fc['book_fair'], fair_gap=fc['fair_gap'], ev_strict=fc['ev_strict'],
+                                     pin_ts=P.get('ts'), book_ts=bv.get('ts'), flagged=NOW.strftime('%Y-%m-%dT%H:%M:%SZ')))
     # grade on the ESPN box score
     box = {}
     for r in rows:

@@ -13,6 +13,7 @@ Writes data/state/curve_live.json (board) and data/state/curve_paper.jsonl (ever
 Usage: ODDS_API_KEY=... python3 sharp/curve_live.py"""
 import os, sys, json, gzip, bisect, re, time, urllib.request, urllib.error, unicodedata, datetime as dt
 HERE = os.path.dirname(os.path.abspath(__file__)); ROOT = os.path.abspath(os.path.join(HERE, '..')); sys.path.insert(0, ROOT)
+from sharp.fairprice import check as fair_check   # 11/7: Pinnacle freshness + the book's own fair next to Pinnacle's
 KEY = os.environ.get('ODDS_API_KEY'); API = 'https://api.the-odds-api.com/v4'
 NOW = dt.datetime.fromisoformat(os.environ['CURVE_NOW']) if os.environ.get('CURVE_NOW') else dt.datetime.now(dt.timezone.utc)
 HORIZON_H = float(os.environ.get('CURVE_H', 3))
@@ -116,6 +117,9 @@ def main():
                 d = get(f"{API}/sports/{sk}/events/{e['id']}/odds?apiKey={KEY}&regions=us,eu&markets={mks}&bookmakers=pinnacle,{','.join(BOOKS)}&oddsFormat=decimal")
                 if not d: continue
                 B = {b['key']: {m['key']: m['outcomes'] for m in b['markets']} for b in d.get('bookmakers') or []}
+                # 11/7: each book's quote time per market (Pinnacle freshness check in sharp/fairprice.py)
+                TS = {(b['key'], m['key']): m.get('last_update') or b.get('last_update') for b in d.get('bookmakers') or [] for m in b['markets']}
+                NICE = {v: k for k, v in BOOKS.items()}
                 pin = B.get('pinnacle') or {}
                 T = next((o['point'] for o in pin.get('totals', []) if o['name'] == 'Over'), None)
                 S = next((o['point'] for o in pin.get('spreads', []) if o['name'] == e['home_team']), None)
@@ -137,11 +141,19 @@ def main():
                             book, price = max(us, key=lambda c: c[1]) if us else (None, None)
                             key = f"{tag}|{e['id']}||{side}"
                             if key in seen: continue
+                            fc = None
+                            if book:
+                                oth = e['away_team'] if side == 'home' else e['home_team']
+                                bo = next((o['price'] for o in (B.get(NICE[book]) or {}).get(R['mk'], []) if o['name'] == oth and o.get('point') == -sl), None)
+                                fc = fair_check(pp_, ao['price'] if side == 'home' else ho['price'], price, price, bo, TS.get(('pinnacle', R['mk'])), TS.get((NICE[book], R['mk'])), NOW)
+                                if not fc['fresh']: print(f"[curve_live] skip {tag} {e['id']} {side}: {fc['stale_why']}"); continue
+                                fc['ev_curve'] = round(100 * ((pc if R.get('kind') != 'spread' else (ph if side == 'home' else 1 - ph)) * price - 1), 1)   # the rule's edge is the curve's, not Pinnacle's
                             seen.add(key); new += 1
                             rows.append(dict(key=key, rule=tag, tier=R['tier'] if book else 'P', stake=R['stake'] if book else 0.0, sport=sp, odds_id=e['id'], espn=espn_event(sp, e['home_team'], e['away_team'], st),
                                              game=f"{e['away_team']} @ {e['home_team']}", start=e['commence_time'], market=R['mk'], team=None, team_name=nm_, side=side, line=sl,
                                              curve=round(pc, 3), pin_fair=round(q, 3), gap=round(100 * (pc - q), 1), full_total=T, full_spread=S,
-                                             pin_price=pp_, book=book, price=price, flagged=NOW.strftime('%Y-%m-%dT%H:%M:%SZ')))
+                                             pin_price=pp_, book=book, price=price, **({k: fc[k] for k in ('pin_fair_power', 'book_fair', 'fair_gap', 'ev_curve')} if fc else {}),
+                                             flagged=NOW.strftime('%Y-%m-%dT%H:%M:%SZ')))
                         continue
                     groups = {}
                     for o in outs:
@@ -167,12 +179,20 @@ def main():
                             book, price = max(us, key=lambda c: c[1]) if us else (None, None)
                             key = f"{tag}|{e['id']}|{team or ''}|{side}"
                             if key in seen: continue
+                            fc = None
+                            if book:
+                                oside = 'under' if side == 'over' else 'over'
+                                bo = next((o['price'] for o in (B.get(NICE[book]) or {}).get(R['mk'], []) if o['name'].lower() == oside and o.get('point') == ln and (not team or o.get('description') == (e['home_team'] if team == 'home' else e['away_team']))), None)
+                                fc = fair_check(pr[side], pr[oside], price, price, bo, TS.get(('pinnacle', R['mk'])), TS.get((NICE[book], R['mk'])), NOW)
+                                if not fc['fresh']: print(f"[curve_live] skip {tag} {e['id']} {team or ''} {side}: {fc['stale_why']}"); continue
+                                fc['ev_curve'] = round(100 * ((pc if R.get('kind') != 'spread' else (ph if side == 'home' else 1 - ph)) * price - 1), 1)   # the rule's edge is the curve's, not Pinnacle's
                             seen.add(key); new += 1
                             rows.append(dict(key=key, rule=tag, tier=R['tier'] if book else 'P', stake=R['stake'] if book else 0.0, sport=sp, odds_id=e['id'], espn=espn_event(sp, e['home_team'], e['away_team'], st),      # no FD/Caesars/DK price at the line: paper
                                              game=f"{e['away_team']} @ {e['home_team']}", start=e['commence_time'], market=R['mk'], team=team,
                                              team_name=(e['home_team'] if team == 'home' else e['away_team']) if team else None, side=side, line=ln,
                                              curve=round(pc, 3), pin_fair=round(q, 3), gap=round(100 * (pc - q), 1), full_total=T, full_spread=S,
-                                             pin_price=pr[side], book=book, price=price, flagged=NOW.strftime('%Y-%m-%dT%H:%M:%SZ')))
+                                             pin_price=pr[side], book=book, price=price, **({k: fc[k] for k in ('pin_fair_power', 'book_fair', 'fair_gap', 'ev_curve')} if fc else {}),
+                                             flagged=NOW.strftime('%Y-%m-%dT%H:%M:%SZ')))
     # grade on ESPN period scores (schedule.json linescores) or the final
     S_ = {}
     for r in rows:

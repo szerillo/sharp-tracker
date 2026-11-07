@@ -6,6 +6,7 @@ Appends to data/state/stale_paper.jsonl, grades on the schedule's finals, writes
 Usage: python3 sharp/stale_live.py"""
 import os, sys, json, gzip, glob, math, collections, datetime as dt
 HERE = os.path.dirname(os.path.abspath(__file__)); ROOT = os.path.abspath(os.path.join(HERE, '..')); sys.path.insert(0, ROOT)
+from sharp.devig import devig_pair
 from sharp.gzlines import lines
 VEN = ('Novig', 'Kalshi', 'Polymarket', 'FD', 'Caesars', 'DK')
 PAPER = os.path.join(ROOT, 'data', 'state', 'stale_paper.jsonl'); OUT = os.path.join(ROOT, 'data', 'state', 'stale_live.json')
@@ -67,7 +68,9 @@ def main():
             if not prev: continue
             latest = {}
             for r in L:
-                if r['venue'] in VEN and t_now - dt.timedelta(minutes=25) <= ts(r['ts']) <= t_now + dt.timedelta(minutes=25): latest[(r['venue'], r['side'], r.get('line'))] = r
+                # 11/7 (Sean: "anything that flags late relative to Pinnacle"): the venue's quote within 10 min of Pinnacle's snapshot either way
+                # (was 25), so a venue that has already moved is never compared with an older Pinnacle number
+                if r['venue'] in VEN and abs((ts(r['ts']) - t_now).total_seconds()) <= 600: latest[(r['venue'], r['side'], r.get('line'))] = r
             cand = {}
             for (v, side, ln), r in latest.items():
                 if side not in fair: continue
@@ -79,11 +82,24 @@ def main():
                 if not c or 1 / c >= DEC_MAX: continue
                 ev_ = p / c - 1
                 if ev_ < EV_MIN: continue
+                # the stricter Pinnacle fair (power devig weights the vig toward the longshot) must still show an edge; the venue's own
+                # two-way no-vig is stored next to Pinnacle's (fair-to-fair gap)
+                pa_, pb_ = [cost(x) for x in P.values()] if len(P) == 2 else (None, None)
+                p_pow = p
+                try:
+                    ca_ = next(cost(x) for x in P.values() if x['side'] == side); cb_ = next(cost(x) for x in P.values() if x['side'] != side)
+                    p_pow = devig_pair(ca_, cb_, 'power')
+                except Exception: pass
+                if min(p, p_pow) / c - 1 <= 0: continue
+                OS = {'home': 'away', 'away': 'home', 'over': 'under', 'under': 'over'}.get(side)
+                ro = next((x for (v2, s2, l2), x in latest.items() if v2 == v and s2 == OS and (mk == 'ml' or l2 == (-ln if mk == 'spread' else ln))), None)
+                vf = (c / (c + cost(ro))) if ro and cost(ro) else None
                 key = f'{ev}|{mk}|{side}'           # one lean per side (the best venue), so the record counts each bet once
                 if key in seen: continue
                 e = sched[ev]
                 cand[key] = max(cand.get(key, {'ev': -1}), dict(key=key, sport=sp, event_id=ev, game=f"{e.get('away')} @ {e.get('home')}", start=e['start'], market=mk, side=side, line=ln, venue=v,
-                                price=round(c, 4), fair=round(p, 4), ev=round(100 * ev_, 1), move=round(100 * (p - q[0]), 1), flagged=NOW.strftime('%Y-%m-%dT%H:%M:%SZ'),
+                                price=round(c, 4), fair=round(p, 4), fair_power=round(p_pow, 4), venue_fair=round(vf, 4) if vf else None, fair_gap=round(100 * (p - vf), 1) if vf else None,
+                                ev=round(100 * ev_, 1), move=round(100 * (p - q[0]), 1), flagged=NOW.strftime('%Y-%m-%dT%H:%M:%SZ'),
                                 team=(e.get('home') if side == 'home' else e.get('away') if side == 'away' else None)), key=lambda x: x['ev'])
             for k_, x in cand.items(): seen.add(k_); new.append(x)
     rows = old + new
