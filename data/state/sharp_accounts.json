@@ -1,5 +1,5 @@
 {
- "built": "2026-11-07T05:11:48Z",
+ "built": "2026-11-07T05:18:30Z",
  "rows": [
   {
    "cond": "0xcd4e5842ed6bfd511ee064ab6636e21b0fe469e913b67f5f7f82537e311a8b83",
@@ -199,7 +199,7 @@
    "best_rank": 49,
    "usd": 930,
    "paid": 0.465,
-   "ask": 0.48,
+   "ask": 0.49,
    "status": "live",
    "link": "https://polymarket.us/event/cfb-valp-day-2026-11-07",
    "other": null,
@@ -253,7 +253,7 @@
    "best_rank": 132,
    "usd": 344,
    "paid": 0.64,
-   "ask": 0.68,
+   "ask": 0.69,
    "status": "live",
    "link": "https://polymarket.us/event/bun-stu-wer-2026-11-07-more-markets",
    "other": null,
@@ -314,6 +314,9 @@
    "home_name": "Kansas State Wildcats",
    "game_start": "2026-11-07T18:00Z",
    "side_std": "over",
+   "conflict": [
+    "big money"
+   ],
    "money_with": false,
    "grade": "A",
    "fair_board": null,
@@ -1173,6 +1176,13 @@
     "n": 1,
     "best_rank": 43,
     "usd": 239
+   }
+  },
+  "401909944|ml": {
+   "away": {
+    "n": 1,
+    "best_rank": 142,
+    "usd": 245
    }
   },
   "401892662|ml": {
