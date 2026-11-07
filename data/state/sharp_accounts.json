@@ -1,5 +1,5 @@
 {
- "built": "2026-11-07T17:57:58Z",
+ "built": "2026-11-07T18:04:43Z",
  "rows": [
   {
    "cond": "0x49158b5f973dcaeaf06f78a21c2f7f98017c6efd187b72bd149270ac26312ae8",
@@ -513,7 +513,7 @@
    "best_rank": 49,
    "usd": 1671,
    "paid": 0.519,
-   "ask": 0.56,
+   "ask": null,
    "status": "live",
    "link": "https://polymarket.us/event/cfb-morgst-delst-2026-11-07",
    "other": null,
@@ -540,7 +540,7 @@
    "best_rank": 49,
    "usd": 312,
    "paid": 0.516,
-   "ask": 0.54,
+   "ask": null,
    "status": "live",
    "link": "https://polymarket.us/event/cfb-stet-dav-2026-11-07",
    "other": null,
@@ -567,7 +567,7 @@
    "best_rank": 115,
    "usd": 12528,
    "paid": 0.48,
-   "ask": 0.5,
+   "ask": null,
    "status": "live",
    "link": "https://polymarket.us/event/cfb-old-coast-2026-11-07",
    "other": null,
@@ -613,12 +613,49 @@
    "best_rank": 110,
    "usd": 520,
    "paid": 0.55,
-   "ask": 0.56,
+   "ask": null,
    "status": "live",
    "link": "https://polymarket.us/event/cfb-usd-drake-2026-11-07",
    "other": null,
    "kalshi_against": null,
    "logged": true,
+   "grade": "A",
+   "fair_board": null,
+   "inside_fair": null,
+   "books": null
+  },
+  {
+   "cond": "0xcb020c83eeb1ade4fad1cdb16bf80f65db8c43b385aaa38c8124c5dd60fb97cf",
+   "slug": "cfb-old-coast-2026-11-07",
+   "title": "Old Dominion vs. Coastal Carolina",
+   "mtype": "total",
+   "start": "2026-11-07T18:00:00Z",
+   "bet": "Over 43.5",
+   "side": "Over",
+   "flagged": "2026-11-07T17:57:57Z",
+   "why": "a top-200 account also in this sport's top 50",
+   "proven": true,
+   "trigger": "proven",
+   "n_accounts": 1,
+   "best_rank": 58,
+   "usd": 470,
+   "paid": 0.53,
+   "ask": null,
+   "status": "live",
+   "link": "https://polymarket.us/event/cfb-old-coast-2026-11-07",
+   "other": null,
+   "kalshi_against": null,
+   "logged": false,
+   "event_id": "401869945",
+   "sport": "cfb",
+   "league": null,
+   "away": "ODU",
+   "home": "CCU",
+   "away_name": "Old Dominion Monarchs",
+   "home_name": "Coastal Carolina Chanticleers",
+   "game_start": "2026-11-07T18:00Z",
+   "side_std": "over",
+   "money_with": false,
    "grade": "A",
    "fair_board": null,
    "inside_fair": null,
@@ -753,7 +790,7 @@
    "best_rank": 65,
    "usd": 191,
    "paid": 0.54,
-   "ask": 0.59,
+   "ask": 0.58,
    "status": "live",
    "link": "https://polymarket.us/event/cfb-alaam-pvam-2026-11-07",
    "other": null,
@@ -1061,6 +1098,52 @@
    }
   },
   {
+   "cond": "0x619c0b9ea7fa6523fd1aa67bd43a4495205e3fd01a1fd87d8315edecd96caca7",
+   "slug": "nba-bkn-atl-2026-11-07",
+   "title": "Nets vs. Hawks",
+   "mtype": "spread",
+   "start": "2026-11-08T00:30:00Z",
+   "bet": "Hawks -6.5",
+   "side": "Hawks",
+   "flagged": "2026-11-07T18:00:28Z",
+   "why": "3 top-200 accounts",
+   "proven": false,
+   "trigger": "two",
+   "n_accounts": 3,
+   "best_rank": 43,
+   "usd": 11776,
+   "paid": 0.52,
+   "ask": 0.55,
+   "status": "live",
+   "link": "https://polymarket.us/event/nba-bkn-atl-2026-11-07",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401909939",
+   "sport": "nba",
+   "league": null,
+   "away": "BKN",
+   "home": "ATL",
+   "away_name": "Brooklyn Nets",
+   "home_name": "Atlanta Hawks",
+   "game_start": "2026-11-08T00:30Z",
+   "side_std": "home",
+   "money_with": false,
+   "grade": "B",
+   "fair_board": 0.5126,
+   "inside_fair": false,
+   "books": {
+    "at": "2026-11-07T17:00:03Z",
+    "fair": 0.5126,
+    "q": {
+     "Novig": 0.515,
+     "Polymarket": 0.52,
+     "Caesars": 0.5349,
+     "DK": 0.5349
+    }
+   }
+  },
+  {
    "cond": "0xcd48a8667261423ae46fd451a190769105f200540388e427f9707c1a30e3cdf3",
    "slug": "nhl-sj-dal-2026-11-07",
    "title": "Sharks vs. Stars",
@@ -1198,7 +1281,7 @@
    "best_rank": 132,
    "usd": 441,
    "paid": 0.51,
-   "ask": 0.51,
+   "ask": 0.52,
    "status": "live",
    "link": "https://polymarket.us/event/epl-sun-che-2026-11-08",
    "other": null,
@@ -1711,7 +1794,7 @@
    "best_rank": 43,
    "usd": 121,
    "paid": 0.31,
-   "ask": 0.29,
+   "ask": 0.27,
    "status": "live",
    "link": "https://polymarket.us/event/nba-bkn-atl-2026-11-07",
    "other": null,
@@ -1736,7 +1819,7 @@
    "money_with": false,
    "grade": "watch",
    "fair_board": 0.2871,
-   "inside_fair": false,
+   "inside_fair": true,
    "books": {
     "at": "2026-11-07T17:00:03Z",
     "fair": 0.2871,
@@ -1936,21 +2019,21 @@
     "clv": 0.0
    },
    "outside": {
-    "n": 3,
+    "n": 4,
     "won": 0,
-    "units": -1.08,
-    "clv": -0.17
+    "units": -1.33,
+    "clv": 0.5
    }
   },
-  "n": 79,
+  "n": 81,
   "won": 35,
-  "units": -6.29,
+  "units": -6.79,
   "by_grade": {
    "A": {
-    "n": 41,
+    "n": 43,
     "won": 18,
-    "units": -4.0,
-    "clv": -0.15
+    "units": -4.5,
+    "clv": -0.07
    },
    "B": {
     "n": 25,
@@ -1965,12 +2048,12 @@
     "clv": -1.75
    }
   },
-  "units_1u": -14.54,
-  "clv": -0.74,
-  "n_venue": 38,
-  "units_venue": -3.47,
-  "clv_venue": 0.05,
-  "clv_poly_same": -1.39
+  "units_1u": -16.54,
+  "clv": -0.67,
+  "n_venue": 39,
+  "units_venue": -3.72,
+  "clv_venue": 0.18,
+  "clv_poly_same": -1.24
  },
  "sys_tags": {
   "401873039:bounce15_1h": {
@@ -2106,6 +2189,13 @@
     "usd": 132
    }
   },
+  "401909939|spread": {
+   "home": {
+    "n": 3,
+    "best_rank": 43,
+    "usd": 11776
+   }
+  },
   "401909940|ml": {
    "home": {
     "n": 2,
@@ -2212,13 +2302,6 @@
     "n": 2,
     "best_rank": 12,
     "usd": 2437
-   }
-  },
-  "401869945|spread": {
-   "away": {
-    "n": 1,
-    "best_rank": 115,
-    "usd": 12528
    }
   },
   "401869927|spread": {
