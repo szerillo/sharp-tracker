@@ -1,5 +1,5 @@
 {
- "built": "2026-11-07T06:44:19Z",
+ "built": "2026-11-07T06:57:50Z",
  "rows": [
   {
    "cond": "0xcd4e5842ed6bfd511ee064ab6636e21b0fe469e913b67f5f7f82537e311a8b83",
@@ -37,6 +37,52 @@
    "inside_fair": true,
    "fair_board": 0.9044,
    "books": null
+  },
+  {
+   "cond": "0xb041c7548e77c7e9918c322e9546f9d05bd260108205850e032d6698a406bcfe",
+   "slug": "epl-lee-tot-2026-11-07-more-markets",
+   "title": "Leeds United FC vs. Tottenham Hotspur FC - More Markets",
+   "mtype": "total",
+   "start": "2026-11-07T12:30:00Z",
+   "bet": "Over 2.5",
+   "side": "Over",
+   "flagged": "2026-11-07T06:56:15Z",
+   "why": "a top-200 account also in this sport's top 50",
+   "proven": true,
+   "trigger": "proven",
+   "n_accounts": 1,
+   "best_rank": 132,
+   "usd": 4118,
+   "paid": 0.49,
+   "ask": 0.5,
+   "status": "live",
+   "link": "https://polymarket.us/event/epl-lee-tot-2026-11-07-more-markets",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401878758",
+   "sport": "soccer",
+   "league": "epl",
+   "away": "TOT",
+   "home": "LEE",
+   "away_name": "Tottenham Hotspur",
+   "home_name": "Leeds United",
+   "game_start": "2026-11-07T12:30Z",
+   "side_std": "over",
+   "money_with": false,
+   "grade": "A",
+   "fair_board": 0.4851,
+   "inside_fair": false,
+   "books": {
+    "at": "2026-11-07T05:26:43Z",
+    "fair": 0.4851,
+    "q": {
+     "Novig": 0.495,
+     "DK": 0.5,
+     "FD": 0.5098,
+     "Kalshi": 0.51
+    }
+   }
   },
   {
    "cond": "0x49158b5f973dcaeaf06f78a21c2f7f98017c6efd187b72bd149270ac26312ae8",
@@ -136,6 +182,52 @@
    "fair_board": null,
    "inside_fair": null,
    "books": null
+  },
+  {
+   "cond": "0x2b09cd5279fb0a1b2d258cf08e4acb8803896b1ef2d32b3b0e058ebd63a3efb4",
+   "slug": "epl-ars-hul-2026-11-07-more-markets",
+   "title": "Arsenal FC vs. Hull City AFC - More Markets",
+   "mtype": "total",
+   "start": "2026-11-07T15:00:00Z",
+   "bet": "Over 3.5",
+   "side": "Over",
+   "flagged": "2026-11-07T06:55:45Z",
+   "why": "a top-200 account also in this sport's top 50",
+   "proven": true,
+   "trigger": "proven",
+   "n_accounts": 1,
+   "best_rank": 149,
+   "usd": 4251,
+   "paid": 0.41,
+   "ask": 0.42,
+   "status": "live",
+   "link": "https://polymarket.us/event/epl-ars-hul-2026-11-07-more-markets",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401878760",
+   "sport": "soccer",
+   "league": "epl",
+   "away": "HUL",
+   "home": "ARS",
+   "away_name": "Hull City",
+   "home_name": "Arsenal",
+   "game_start": "2026-11-07T15:00Z",
+   "side_std": "over",
+   "money_with": false,
+   "grade": "A",
+   "fair_board": 0.4023,
+   "inside_fair": false,
+   "books": {
+    "at": "2026-11-07T05:26:43Z",
+    "fair": 0.4023,
+    "q": {
+     "Novig": 0.41,
+     "Kalshi": 0.42,
+     "DK": 0.4255,
+     "FD": 0.4348
+    }
+   }
   },
   {
    "cond": "0x5a4f48f65db8bb0de7274a91d32ae7abafaf1aae7e67322744658be0e0e73abb",
@@ -1190,6 +1282,20 @@
     "n": 1,
     "best_rank": 95,
     "usd": 113
+   }
+  },
+  "401878758|total": {
+   "over": {
+    "n": 1,
+    "best_rank": 132,
+    "usd": 4118
+   }
+  },
+  "401878760|total": {
+   "over": {
+    "n": 1,
+    "best_rank": 149,
+    "usd": 4251
    }
   },
   "401884740|total": {
