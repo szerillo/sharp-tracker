@@ -3492,5 +3492,38 @@
 "fair": 0.52073,
 "edge_pts": -0.43,
 "why": "Novig spread mid 0.508 at T-6h -> 0.477 now (-3.0c); continuation (audit section 3, NBA only)"
+},
+"401873049:wind1014": {
+"tag": "wind1014",
+"fill_id": "b30177942abf",
+"ts": "2026-11-07T21:53:28Z",
+"market": "total",
+"side": "under",
+"line": 44.5,
+"venue": "Novig",
+"price": 102,
+"fair": 0.48926,
+"edge_pts": -0.57,
+"why": "avg 10.3 mph (Open-Meteo 7.6 at T-24h, MySportsWeather 13.0), gust 22.6, 48.7F"
+},
+"401873049:wind1014_1h": {
+"tag": "wind1014_1h",
+"stacked": true,
+"market": "1h_total",
+"side": "under",
+"why": "avg 10.3 mph (Open-Meteo 7.6 at T-24h, MySportsWeather 13.0), gust 22.6, 48.7F (same bet already taken by a higher-priority rule)"
+},
+"401909947:nba_ats_hot_home": {
+"tag": "nba_ats_hot_home",
+"fill_id": "65640e71e863",
+"ts": "2026-11-07T21:53:28Z",
+"market": "spread",
+"side": "home",
+"line": -12.5,
+"venue": "Polymarket",
+"price": -113,
+"fair": null,
+"edge_pts": null,
+"why": "home MIN covers 90% of spreads this season (10 games), 2 days rest: home spread (mined angle)"
 }
 }
