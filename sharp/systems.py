@@ -439,7 +439,8 @@ def main():
             trig['wind1014_cold' if cold else 'wind1014'] = wlab + (f", gust {wx.get('gust_mph')}, {wx.get('temp_f')}F" if wx else '')
             if wr <= 13: trig['wind1014_1h'] = trig['wind1014_cold' if cold else 'wind1014']      # the tested first-half screen is 10-13 mph, not 10-14
         elif wr is not None and any(x is not None and 10 <= round(x) <= 14 for x in ((wx or {}).get('wind_mph'), (msw or {}).get('wind_mph'))):
-            trig['wind_msw_only'] = f"one source in the 10-14 band but the average is {wv:.1f} mph ({wlab}); flag only"
+            trig['wind_msw_only'] = (f"one source in the 10-14 band but the average is {wv:.1f} mph ({wlab}); flag only" if wv is not None
+                                     else f"one source in the 10-14 band ({wlab}); flag only")
         # visitor's previous game: the later of its last completed game (season log) and its last scheduled game before this one (the schedule
         # file only keeps a rolling window, the season log only has finished games); calendar days, as Bet Labs counts
         cand = [t for t in (v_prev[0] if v_prev else None, N.parse_ts(pv['last_start']) if pv.get('last_start') else None) if t is not None and t < st]
@@ -545,7 +546,8 @@ def main():
             take(conn, eq, fired, fires_now, game, ev, start, away, home, 'cfb_day_over', 'total', tl, 'over', None, 0.5, f"{st.astimezone(N.ET):%-I:%M %p} ET kickoff, total {tl}: over (mined angle)")
         if hf_under:
             take(conn, eq, fired, fires_now, game, ev, start, away, home, 'cfb_homefav_7510_under', 'total', tl, 'under', None, 0.5, f"home favourite {home} {sp_line}, total {tl}: under (mined angle)")
-        if msw_only: game['triggers']['wind_msw_only'] = f"one source at 14+ mph but the average is {wv:.1f} mph ({wlab}); flag only"
+        if msw_only: game['triggers']['wind_msw_only'] = (f"one source at 14+ mph but the average is {wv:.1f} mph ({wlab}); flag only" if wv is not None
+                                                          else f"one source at 14+ mph ({wlab}); the rule needs both sources, so flag only")   # 11/7 crash: only one source in
         if not windy: view_games.append(game); continue
         why = wlab + (f", gust {wx.get('gust_mph')}, {wx.get('temp_f')}F" if wx else '')
         game['triggers']['cfb_wind14'] = why
