@@ -1,5 +1,5 @@
 {
- "built": "2026-11-07T00:09:05Z",
+ "built": "2026-11-07T00:16:12Z",
  "rows": [
   {
    "cond": "0x89b352113e523a8dff5556e0880d9f258821fed7caee81b050951f9bf294b9f4",
@@ -37,9 +37,18 @@
    ],
    "money_with": true,
    "grade": "A",
-   "fair_board": null,
+   "fair_board": 0.5016,
    "inside_fair": null,
-   "books": null
+   "books": {
+    "at": "2026-11-06T23:23:24Z",
+    "fair": 0.5016,
+    "q": {
+     "Novig": 0.505,
+     "Polymarket": 0.51,
+     "DK": 0.5192,
+     "FD": 0.5192
+    }
+   }
   },
   {
    "cond": "0x9ab73c8f7e867267d125326b8ab78ac381ea10c82b7ad54e50421500869afdf7",
@@ -139,9 +148,6 @@
    "home_name": "Milwaukee Bucks",
    "game_start": "2026-11-07T01:00Z",
    "side_std": "home",
-   "conflict": [
-    "Kalshi bet back"
-   ],
    "money_with": false,
    "grade": "watch",
    "fair_board": null,
@@ -184,13 +190,64 @@
    "inside_fair": true,
    "fair_board": 0.6125,
    "books": {
-    "at": "2026-11-06T23:36:36Z",
-    "fair": 0.6163,
+    "at": "2026-11-07T00:03:23Z",
+    "fair": 0.6162,
     "q": {
      "Novig": 0.62,
      "Polymarket": 0.62,
      "DK": 0.6337,
      "Kalshi": 0.64
+    }
+   }
+  },
+  {
+   "cond": "0x8a38bff139d19d28ed7cc993bd7f3edf4f69bc8bb49b24eb56ee01f5f6f4ecb6",
+   "slug": "nba-uta-dal-2026-11-06",
+   "title": "Jazz vs. Mavericks",
+   "mtype": "total",
+   "start": "2026-11-07T01:00:00Z",
+   "bet": "Over 225.5",
+   "side": "Over",
+   "flagged": "2026-11-07T00:11:12Z",
+   "why": "2 top-200 accounts",
+   "proven": false,
+   "trigger": "two",
+   "n_accounts": 2,
+   "best_rank": 119,
+   "usd": 3150,
+   "paid": 0.511,
+   "ask": 0.52,
+   "status": "live",
+   "link": "https://polymarket.us/event/nba-uta-dal-2026-11-06",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401909290",
+   "sport": "nba",
+   "league": null,
+   "away": "UTAH",
+   "home": "DAL",
+   "away_name": "Utah Jazz",
+   "home_name": "Dallas Mavericks",
+   "game_start": "2026-11-07T01:00Z",
+   "side_std": "over",
+   "conflict": [
+    "Kalshi bet back",
+    "Kalshi move",
+    "big money"
+   ],
+   "money_with": false,
+   "grade": "B",
+   "fair_board": 0.5084,
+   "inside_fair": false,
+   "books": {
+    "at": "2026-11-07T00:03:23Z",
+    "fair": 0.5084,
+    "q": {
+     "Novig": 0.515,
+     "DK": 0.5238,
+     "Caesars": 0.5238,
+     "Kalshi": 0.53
     }
    }
   },
@@ -252,7 +309,7 @@
    "best_rank": 58,
    "usd": 8067,
    "paid": 0.481,
-   "ask": 0.46,
+   "ask": 0.47,
    "status": "live",
    "link": "https://polymarket.us/event/nba-uta-dal-2026-11-06",
    "other": null,
@@ -294,7 +351,7 @@
    "best_rank": 58,
    "usd": 470,
    "paid": 0.53,
-   "ask": 0.59,
+   "ask": 0.6,
    "status": "live",
    "link": "https://polymarket.us/event/cfb-nebr-ill-2026-11-06",
    "other": null,
@@ -309,7 +366,7 @@
    "home_name": "Illinois Fighting Illini",
    "game_start": "2026-11-07T01:00Z",
    "side_std": "over",
-   "money_with": true,
+   "money_with": false,
    "grade": "A",
    "fair_board": null,
    "inside_fair": null,
@@ -425,7 +482,7 @@
    "inside_fair": true,
    "fair_board": 0.9044,
    "books": {
-    "at": "2026-11-06T23:36:36Z",
+    "at": "2026-11-07T00:03:23Z",
     "fair": 0.9065,
     "q": {
      "Polymarket": 0.9,
@@ -471,7 +528,7 @@
    "fair_board": 0.4237,
    "inside_fair": false,
    "books": {
-    "at": "2026-11-06T23:36:36Z",
+    "at": "2026-11-07T00:03:23Z",
     "fair": 0.4237,
     "q": {
      "FD": 0.431,
@@ -607,7 +664,7 @@
    "inside_fair": false,
    "fair_board": 0.6335,
    "books": {
-    "at": "2026-11-06T23:36:36Z",
+    "at": "2026-11-07T00:03:23Z",
     "fair": 0.6475,
     "q": {
      "Caesars": 0.6296,
@@ -808,7 +865,7 @@
    "fair_board": null,
    "inside_fair": null,
    "books": {
-    "at": "2026-11-06T23:36:36Z",
+    "at": "2026-11-07T00:03:23Z",
     "fair": null,
     "q": {
      "Kalshi": 0.45
@@ -851,7 +908,7 @@
    "fair_board": null,
    "inside_fair": null,
    "books": {
-    "at": "2026-11-06T23:36:36Z",
+    "at": "2026-11-07T00:03:23Z",
     "fair": null,
     "q": {
      "Polymarket": 0.31,
@@ -1080,7 +1137,7 @@
    "side_std": "home",
    "money_with": false,
    "grade": "B",
-   "fair_board": 0.7404,
+   "fair_board": 0.734,
    "inside_fair": null,
    "books": null
   },
@@ -1126,7 +1183,7 @@
    ],
    "money_with": false,
    "grade": "B",
-   "fair_board": 0.4828,
+   "fair_board": 0.4875,
    "inside_fair": null,
    "books": null
   },
@@ -1268,7 +1325,7 @@
    ],
    "money_with": false,
    "grade": "A",
-   "fair_board": 0.4161,
+   "fair_board": 0.4179,
    "inside_fair": true,
    "books": null
   },
@@ -1288,7 +1345,7 @@
    "best_rank": 43,
    "usd": 402,
    "paid": 0.37,
-   "ask": 0.4,
+   "ask": 0.39,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-min-nop-2026-11-06",
    "other": {
@@ -1297,7 +1354,7 @@
     "usd": 793,
     "first": "2026-11-06T20:33:18Z"
    },
-   "exit_bid": 0.39,
+   "exit_bid": 0.38,
    "kalshi_against": null,
    "logged": true,
    "event_id": "401909293",
@@ -1313,49 +1370,6 @@
    "grade": "watch",
    "fair_board": 0.4012,
    "inside_fair": true,
-   "books": null
-  },
-  {
-   "cond": "0x79ebb36fa1dae08c5da6d2fea3aed7d572bfb0b266910afb7aaa4f750f966fef",
-   "slug": "nba-tor-mil-2026-11-06",
-   "title": "Raptors vs. Bucks",
-   "mtype": "ml",
-   "start": "2026-11-07T01:00:00Z",
-   "bet": "Bucks ML",
-   "side": "Bucks",
-   "flagged": "2026-11-06T01:15:07Z",
-   "why": "3 top-200 accounts",
-   "proven": true,
-   "trigger": "two",
-   "n_accounts": 3,
-   "best_rank": 23,
-   "usd": 5693,
-   "paid": 0.382,
-   "ask": 0.41,
-   "status": "other side",
-   "link": "https://polymarket.us/event/nba-tor-mil-2026-11-06",
-   "other": {
-    "n_accounts": 1,
-    "best_rank": 55,
-    "usd": 1474,
-    "first": "2026-11-06T23:59:16Z"
-   },
-   "exit_bid": 0.4,
-   "kalshi_against": null,
-   "logged": true,
-   "event_id": "401909292",
-   "sport": "nba",
-   "league": null,
-   "away": "TOR",
-   "home": "MIL",
-   "away_name": "Toronto Raptors",
-   "home_name": "Milwaukee Bucks",
-   "game_start": "2026-11-07T01:00Z",
-   "side_std": "home",
-   "money_with": false,
-   "grade": "A",
-   "inside_fair": true,
-   "fair_board": 0.366,
    "books": null
   },
   {
@@ -1444,7 +1458,7 @@
    "inside_fair": true,
    "fair_board": 0.3912,
    "books": {
-    "at": "2026-11-06T23:36:36Z",
+    "at": "2026-11-07T00:03:23Z",
     "fair": 0.3946,
     "q": {
      "Novig": 0.4,
@@ -1609,6 +1623,26 @@
     "best_rank": 58,
     "usd": 500
    }
+  },
+  "401909292:nba_momentum:ml": {
+   "with": {
+    "n": 3,
+    "best_rank": 23,
+    "usd": 5693
+   },
+   "against": {
+    "n": 1,
+    "best_rank": 55,
+    "usd": 1474
+   }
+  },
+  "401909292:nba_momentum:spread": {
+   "with": {
+    "n": 2,
+    "best_rank": 40,
+    "usd": 537
+   },
+   "against": null
   }
  },
  "by_event": {
@@ -1685,9 +1719,9 @@
   },
   "401909290|total": {
    "over": {
-    "n": 3,
+    "n": 4,
     "best_rank": 58,
-    "usd": 846
+    "usd": 3776
    }
   },
   "401909290|spread": {
