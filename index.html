@@ -951,14 +951,30 @@ function renderToday() {
   const W = SY.window_h || [1, 30], soon = x => (new Date(x.g.start_utc) - Date.now()) / 3.6e6 <= (((SY.rules || {})[x.tag] || {}).max_h || W[1]);
   const COM = FLG.filter(x => !soon(x) && x.tag !== 'wind_msw_only'), NB = FLG.filter(x => soon(x) || x.tag === 'wind_msw_only');
   const ftbl = L => `<div class="sec"><table><thead><tr><th>Start</th><th>Game</th><th>Rule · trigger</th><th>Why no bet</th></tr></thead><tbody>${L.sort((a, b) => a.start < b.start ? -1 : 1).map(x => `<tr><td class="small"><span class="badge b-sport">${SPORT_LABEL[x.g.sport] || x.g.sport}</span> <b>${TM(x.g.start_utc)}</b></td><td class="small">${esc(x.g.away_name || x.g.away)} @ ${esc(x.g.home_name || x.g.home)}</td><td class="small"><span class="mono">${esc(x.tag)}</span><br><span class="dim">${esc(x.why)}</span></td><td class="small">${esc(x.reason)}</td></tr>`).join('')}</tbody></table></div>`;
-  const nOther = placed.other.length + NB.length;
+  // 11/7 (Sean: "a lot of subsections that could be consolidated"): below the Card, ONE list of everything not being bet, each row with
+  // its reason, split by filter chips: Hold (backed and opposed, or a sharp flag dropped after something went against it), Watch / passed
+  // (market-only signals, bought-out or gone prices), Paper (logged, no units), Not met (a rule hit part of its trigger, e.g. one wind source).
+  const lab = (r, w, cls) => r.replace(/<span class="act act-\w+"[^>]*>[A-Z ]+<\/span>/, `<span class="act act-${cls}">${w}</span>`);
+  const ruleRow = (x, why) => lab(sRow({id: `nb|${x.g.event_id}|${x.tag}`, start: x.g.start_utc, sportLabel: SPORT_LABEL[x.g.sport] || x.g.sport,
+      game: `${esc(x.g.away_name || x.g.away)} @ ${esc(x.g.home_name || x.g.home)}`, bet: x.tag === 'wind_msw_only' || /wind/.test(x.tag) ? 'Under (wind rule)' : esc((SY.rules && SY.rules[x.tag] && SY.rules[x.tag].name) || x.tag), sub: 'rule trigger',
+      status: ['gone', why], gone: true, why: esc(x.why), detail: `<div>${esc(x.reason || '')}</div>`}), 'NOT MET', 'pass');
+  const NOT = {
+    hold: [...placed.opposed, ...placed.other.filter(r => kindOf(r) === 'dropped')],
+    watch: placed.other.filter(r => kindOf(r) !== 'dropped'),
+    paper: placed.paper,
+    notmet: [...NB.map(x => ruleRow(x, x.tag === 'wind_msw_only' ? 'Not met: the two wind forecasts disagree' : 'Not met: ' + (x.reason || 'outside the rule'))),
+             ...COM.map(x => lab(ruleRow(x, `Coming: fires inside ${W[1]}h of kickoff once the forecast is firm`), 'COMING', 'watch'))]};
+  const NL = {hold: ['Hold', 'backed, but something is against it; can come back'], watch: ['Watch / passed', 'market-only signals, bought-out or gone prices'],
+              paper: ['Paper', 'rules logged and graded with no units'], notmet: ['Not met', 'a rule hit part of its trigger; coming weather bets']};
+  if (!NL[window._nb]) window._nb = 'hold';
+  const nAll = Object.values(NOT).reduce((a, L) => a + L.length, 0);
+  const nbChips = `<span class="tabs inline">${Object.keys(NL).map(k => `<button class="${_nb === k ? 'on' : ''}" onclick="_nb='${k}';draw()">${NL[k][0]} ${NOT[k].length}</button>`).join('')}</span>`;
+  const notHtml = `${H('Not betting right now', `${nAll} rows · each game and side once · the reason is on every row`)}
+    <div class="controls" style="margin:0 0 6px">${nbChips} <span class="small dim">${NL[_nb][1]}</span></div>
+    ${NOT[_nb].length ? sTable(NOT[_nb]) : `<div class="small dim">Nothing here right now.</div>`}`;
   return secFilter(`<div class="controls topbar">${whenBar(inSport)} ${sportBar(inWhen)} ${secBar}</div>${summary.replace('__NSIG__', `${strong.length} sharp signal${strong.length === 1 ? '' : 's'}`)}
     ${cardHtml}
-    ${H('Supported and opposed', `HOLD: something backs it and something is against it · no size until the opposition clears · a game with both sides backed shows once, labelled conflict${SA && SA.record && SA.record.clv != null ? ` · sharp paper ${SAREC}` : ''}`)}
-    ${placed.opposed.length ? sTable(placed.opposed) : '<div class="small dim">Nothing backed and opposed right now.</div>'}
-    ${COM.length ? `<div class="hdr2"><h3 style="margin:10px 0 2px">Coming: weather systems that will fire later (${COM.length})</h3><span class="meta">the bet fires inside ${W[1]}h of kickoff, once the forecast is firm</span></div>${ftbl(COM)}` : ''}
-    ${placed.paper.length ? `<details class="how" ${window._popen ? 'open' : ''} ontoggle="window._popen=this.open"><summary>Paper rules (${placed.paper.length}): logged and graded, not bets; a paper rule on a game with a bet is listed on that bet's row instead</summary>${sTable(placed.paper)}</details>` : ''}
-    ${nOther ? `<details class="how" ${window._wopen ? 'open' : ''} ontoggle="window._wopen=this.open"><summary>Watch, passed and dropped (${nOther}): market-only signals, bought-out or gone prices, sharp flags since dropped, rules triggered without a bet</summary>${placed.other.length ? sTable(placed.other) : ''}${NB.length ? `<div class="small dim" style="margin:8px 0 2px">Rules triggered without a bet (${NB.length})</div>${ftbl(NB)}` : ''}</details>` : ''}
+    ${notHtml}
        <div class="small dim" style="margin:6px 0">Bets already started or graded are on the <a href="#" onclick="tab='tracker';_lw='d1';draw();return false">Bet tracker</a> (In progress, Past 24 hours).</div>
     <details class="how"><summary>How to read this page</summary><div class="explain">
       <p><b>Every row</b> reads the same way: start time (ET), game, the bet, size in units ($500 unit; to win when laying juice, to risk on plus money), the flagged price and whether it is still there, why it flagged, and its record. Click a row for the full rule, the trigger in this game and the backtest detail.</p>
