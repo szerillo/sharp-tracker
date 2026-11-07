@@ -20,6 +20,9 @@ const SRC = new Set(['system', 'sharp', 'curve', 'props']);
   const now = Date.now();
   const cand = (BL.rows || []).filter(b => SRC.has(b.src) && SIZED.has(b.cat) && b.won == null && b.event_id && b.side && Date.parse(b.start) > now + 5 * 60e3);
 
+  // 11/7: a sized bet that matched no schedule game gets no opposing market signals (Georgia State +6.5 showed clean with a Kalshi move
+  // against it). Listed every run; FCS games have no schedule, so those are expected and say 'only sharp accounts checked' on the board.
+  const unmatched = (BL.rows || []).filter(b => SRC.has(b.src) && SIZED.has(b.cat) && b.won == null && !b.event_id && Date.parse(b.start) > now);
   const browser = await chromium.launch();
   const page = await browser.newPage({ viewport: { width: 1400, height: 1000 } });
   const errors = [];
@@ -51,13 +54,14 @@ const SRC = new Set(['system', 'sharp', 'curve', 'props']);
   const fmt = b => `${b.sport} ${b.game} ${b.market} ${b.side}${b.line != null ? ' ' + b.line : ''} (${b.cat}, ${b.rule || b.src})`;
   const out = { checked: new Date().toISOString(), site: SITE, bets_in_window: want.length, rows_visible: vis.length,
                 missing: missing.map(fmt), held_unsized: held.map(fmt), sized_rows_hidden_in_dropdowns: hidden.map(x => x.text),
-                system_file_age_h: +sysAgeH.toFixed(1), page_errors: errors, ok: !missing.length && !hidden.length && !stale && !errors.length };
+                system_file_age_h: +sysAgeH.toFixed(1), unmatched: unmatched.map(u => `${u.game} ${u.bet || ''}`), page_errors: errors, ok: !missing.length && !hidden.length && !stale && !errors.length };
   fs.writeFileSync('board_check.json', JSON.stringify(out, null, 1));
   console.log(`[board check] ${want.length} sized open bets in the window; ${vis.length} rows visible; missing ${missing.length}; held (shown, no size) ${held.length}; sized rows inside closed dropdowns ${hidden.length}; system file ${sysAgeH.toFixed(1)}h old; page errors ${errors.length}`);
   for (const m of out.missing) console.log('  MISSING  ' + m);
   for (const h of out.sized_rows_hidden_in_dropdowns) console.log('  HIDDEN   ' + h);
   if (stale) console.log(`  STALE    system-bet file built ${SY.built}`);
   for (const e of errors) console.log('  PAGE ERROR ' + e);
+  for (const u of unmatched) console.log(`  NO GAME MATCH (opposition not checked) ${u.game} ${u.bet || u.side || ''} (${u.cat})`);
   if (!out.ok && process.env.NTFY_TOPIC) {
     const msg = [missing.length && `${missing.length} bet(s) not on the board: ${out.missing.slice(0, 3).join('; ')}`,
                  hidden.length && `${hidden.length} sized row(s) inside a closed dropdown`, stale && `system bets ${sysAgeH.toFixed(0)}h old`,
