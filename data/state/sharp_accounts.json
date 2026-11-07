@@ -1,5 +1,5 @@
 {
- "built": "2026-11-07T01:49:20Z",
+ "built": "2026-11-07T02:02:33Z",
  "rows": [
   {
    "cond": "0x89b352113e523a8dff5556e0880d9f258821fed7caee81b050951f9bf294b9f4",
@@ -623,7 +623,7 @@
    "best_rank": 49,
    "usd": 930,
    "paid": 0.465,
-   "ask": 0.53,
+   "ask": 0.5,
    "status": "live",
    "link": "https://polymarket.us/event/cfb-valp-day-2026-11-07",
    "other": null,
@@ -723,7 +723,7 @@
    "best_rank": 49,
    "usd": 1671,
    "paid": 0.519,
-   "ask": 0.52,
+   "ask": 0.59,
    "status": "live",
    "link": "https://polymarket.us/event/cfb-morgst-delst-2026-11-07",
    "other": null,
@@ -743,6 +743,52 @@
    "fair_board": null,
    "inside_fair": null,
    "books": null
+  },
+  {
+   "cond": "0xebc74bb608d270c9bb1c7a679413bf4df9bfd83f5fbb5a4ac8aab6ef095327bd",
+   "slug": "cfb-stet-dav-2026-11-07",
+   "title": "Stetson vs. Davidson",
+   "mtype": "ml",
+   "start": "2026-11-07T18:00:00Z",
+   "bet": "Stetson ML",
+   "side": "Stetson",
+   "flagged": "2026-11-07T01:57:22Z",
+   "why": "a top-50 account",
+   "proven": true,
+   "trigger": "proven",
+   "n_accounts": 1,
+   "best_rank": 49,
+   "usd": 312,
+   "paid": 0.516,
+   "ask": 0.54,
+   "status": "live",
+   "link": "https://polymarket.us/event/cfb-stet-dav-2026-11-07",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401856854",
+   "sport": "cfb",
+   "league": null,
+   "away": "OKST",
+   "home": "KSU",
+   "away_name": "Oklahoma State Cowboys",
+   "home_name": "Kansas State Wildcats",
+   "game_start": "2026-11-07T18:00Z",
+   "side_std": "away",
+   "money_with": false,
+   "grade": "A",
+   "fair_board": 0.6812,
+   "inside_fair": true,
+   "books": {
+    "at": "2026-11-07T00:03:23Z",
+    "fair": 0.6812,
+    "q": {
+     "Novig": 0.68,
+     "Caesars": 0.697,
+     "DK": 0.697,
+     "Kalshi": 0.71
+    }
+   }
   },
   {
    "cond": "0x10f4836a3b8dab09aa15fb16ba131a57296fa9b3f666865264a3aa9be24af09a",
@@ -1889,6 +1935,13 @@
     "n": 1,
     "best_rank": 49,
     "usd": 1671
+   }
+  },
+  "401856854|ml": {
+   "away": {
+    "n": 1,
+    "best_rank": 49,
+    "usd": 312
    }
   },
   "401858289|total": {
