@@ -137,7 +137,7 @@ LABS = {'wind1014': (1772775, 'Tested: NFL Wind 10-14 Under'), 'wind1014_1h': (7
         'cfb_day_over': (1799439, 'Tracked: CFB Afternoon Game 2-7pm ET Total 45 to 51.5 Over'), 'cfb_homefav_7510_under': (1799440, 'Tracked: CFB Home Fav 7.5 to 10 Under'),
         'mlb_road_over_under': (1799441, 'Tracked: MLB Visitor Over 60 Pct Under')}
 LATE_H = (0.1, 1.5)   # exchange rules fire in the last 90 minutes (the audit priced them at the close)
-WINDOW_H = tuple(float(x) for x in os.environ.get('SYSTEMS_WINDOW', '2,30').split(','))
+WINDOW_H = tuple(float(x) for x in os.environ.get('SYSTEMS_WINDOW', '1,30').split(','))   # 11/7 (Sean): fire up to 60 min before the start (was 2 h)
 # 11/4 (Sean: "why do CFB / NFL systems need to be inside 30 hours to fire?"): only the weather rules do, because the forecast they fire on
 # is only reliable inside about a day. Every other rule bets as soon as it triggers and a book has a price (the trigger is a schedule /
 # record / line fact that is already true days out), up to a week ahead.

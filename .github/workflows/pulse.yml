@@ -38,9 +38,10 @@ jobs:
               10|11|12|13|14) fire signals.yml ;;    # 11/4 (Sean): market / sharp board every 20 minutes; systems only a few times a day
               15|16|17|18|19) fire pages.yml ;;     # workflow_run does not fire for runs started with GITHUB_TOKEN, so publish from here
             esac
-            # full tracker (price database + systems engine): 10:40 AM, 2:40 PM and 5:40 PM ET (systems fill 2-30 h before the start)
-            mm=$((10#$(TZ=America/New_York date +%M)))
-            if { [ $h -eq 10 ] || [ $h -eq 14 ] || [ $h -eq 17 ]; } && [ $mm -ge 40 ] && [ $mm -lt 45 ]; then fire tracker.yml; fi
+            # full tracker (price database + systems engine): every hour at :40, 9:40 AM to 9:40 PM ET (Sean, 11/7: lines that move into a
+            # system's range late in the day were missed with three runs a day; systems now fill 1-30 h before the start)
+            mm=$((10#$(TZ=America/New_York date +%M))); hh=$((10#$h))
+            if [ $hh -ge 9 ] && [ $hh -le 21 ] && [ $mm -ge 40 ] && [ $mm -lt 45 ]; then fire tracker.yml; fi
             sleep 300
           done
           fire pulse.yml

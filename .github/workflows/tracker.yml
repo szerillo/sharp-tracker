@@ -1,6 +1,6 @@
 name: tracker (fold, grade, export)
 # Rebuilds the tracker view from the price logs, pulls results, grades fills, refits weights (gated), exports data/state/dashboard.json.
-# 11/4: three times a day (10:40 AM, 2:40 PM, 5:40 PM ET). The live market / sharp / tennis board and the bet tracker refresh every
+# 11/7: hourly at :40 from 9:40 AM to 9:40 PM ET, dispatched by pulse.yml (11/4 to 11/6: three times a day). The live market / sharp / tennis board and the bet tracker refresh every
 # 20 minutes in signals.yml, without the price-database rebuild.
 on:
   schedule:
