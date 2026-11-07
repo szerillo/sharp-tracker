@@ -53,7 +53,8 @@ def main():
             evs = get(f"{API}/sports/{sk}/events?apiKey={KEY}") or []
             for e in evs:
                 st = ts(e['commence_time']); h = (st - NOW).total_seconds() / 3600
-                if not 0.15 < h <= float(os.environ.get('PROPS_H', 3)): continue
+                # 11/7 (Sean): the backtest priced every prop 10-14 min before tip; flag only inside the last hour (was 3 h)
+                if not 0.15 < h <= float(os.environ.get('PROPS_H', 1)): continue
                 d = get(f"{API}/sports/{sk}/events/{e['id']}/odds?apiKey={KEY}&regions=us,eu&markets={markets}&bookmakers=pinnacle,{','.join(BOOKS)}&oddsFormat=decimal")
                 if not d: continue
                 Q = {}
@@ -72,9 +73,13 @@ def main():
                     key = f"{e['id']}|{mk}|{player}|{ln}"
                     if key in seen: continue
                     bv = B[best[0]]
-                    fc = fair_check(P['under'], P['over'], best[1], bv.get('under'), bv.get('over'), P.get('ts'), bv.get('ts'), NOW)
+                    # 11/7 backtest (props grid, 2023-26): a Pinnacle quote 5+ min old lost (NBA 14-19, NHL 7-9); NBA threes only when the book's
+                    # own no-vig is 4+ points below Pinnacle's (1,655 bets +9.8%, 4/4 seasons; 2-4 points was 357 bets -1.7%). NHL keeps the 2% rule.
+                    fc = fair_check(P['under'], P['over'], best[1], bv.get('under'), bv.get('over'), P.get('ts'), bv.get('ts'), NOW, max_age=5)
                     if not fc['ok']:
                         print(f"[props_live] skip {player} {mk} u{ln} {BOOKS[best[0]]} {best[1]}: {fc['stale_why'] or 'no edge on the power-devig fair'} ({fc['ev_strict']}%)"); continue
+                    if mk == 'player_threes' and (fc['fair_gap'] is None or fc['fair_gap'] < 4):
+                        print(f"[props_live] skip {player} threes u{ln} {BOOKS[best[0]]} {best[1]}: book fair only {fc['fair_gap']} pts under Pinnacle's (need 4)"); continue
                     seen.add(key); new += 1
                     rows.append(dict(key=key, sport=sp, odds_id=e['id'], espn=espn_event(sp, e['home_team'], e['away_team'], st), game=f"{e['away_team']} @ {e['home_team']}",
                                      start=e['commence_time'], market=mk, player=player, line=ln, side='under', book=BOOKS[best[0]], price=best[1], fair=round(fu, 4),

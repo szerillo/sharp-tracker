@@ -34,22 +34,22 @@ def book_fair(dec_side, dec_other):
     return a / (a + b)
 
 
-def fresh(pin_ts, book_ts=None, now=None):
+def fresh(pin_ts, book_ts=None, now=None, max_age=None):
     now = now or dt.datetime.now(dt.timezone.utc); p, b = _ts(pin_ts), _ts(book_ts)
     if p is None: return True, 'no Pinnacle timestamp'            # the source gave none; do not block on it
     age = (now - p).total_seconds() / 60
-    if age > MAX_PIN_AGE_MIN: return False, f'Pinnacle quote {age:.0f} min old'
+    if age > (max_age or MAX_PIN_AGE_MIN): return False, f'Pinnacle quote {age:.0f} min old'
     if b is not None and (b - p).total_seconds() / 60 > MAX_PIN_LAG_MIN:
         return False, f"Pinnacle quote {(b - p).total_seconds() / 60:.0f} min older than the book's"
     return True, ''
 
 
-def check(pin_side, pin_other, price, book_side=None, book_other=None, pin_ts=None, book_ts=None, now=None):
+def check(pin_side, pin_other, price, book_side=None, book_other=None, pin_ts=None, book_ts=None, now=None, max_age=None):
     """price = decimal price you can get on the side. Returns the fields to store on a flag; ok=False when the edge is not there on the
     stricter Pinnacle fair or Pinnacle's quote is stale."""
     pf = pin_fair(pin_side, pin_other); fair_strict = min(pf['prop'], pf['power'])
     bf = book_fair(book_side, book_other)
-    ok_f, why = fresh(pin_ts, book_ts, now)
+    ok_f, why = fresh(pin_ts, book_ts, now, max_age)
     ev = fair_strict * price - 1
     return dict(pin_fair=round(pf['prop'], 4), pin_fair_power=round(pf['power'], 4), book_fair=round(bf, 4) if bf is not None else None,
                 fair_gap=round(100 * (pf['prop'] - bf), 1) if bf is not None else None, ev_strict=round(100 * ev, 1),
