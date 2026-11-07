@@ -1,5 +1,5 @@
 {
- "built": "2026-11-07T09:15:25Z",
+ "built": "2026-11-07T09:25:14Z",
  "rows": [
   {
    "cond": "0xb041c7548e77c7e9918c322e9546f9d05bd260108205850e032d6698a406bcfe",
@@ -636,6 +636,52 @@
    }
   },
   {
+   "cond": "0xcd48a8667261423ae46fd451a190769105f200540388e427f9707c1a30e3cdf3",
+   "slug": "nhl-sj-dal-2026-11-07",
+   "title": "Sharks vs. Stars",
+   "mtype": "ml",
+   "start": "2026-11-08T01:00:00Z",
+   "bet": "Sharks ML",
+   "side": "Sharks",
+   "flagged": "2026-11-07T09:20:39Z",
+   "why": "a top-200 account also in this sport's top 50",
+   "proven": true,
+   "trigger": "proven",
+   "n_accounts": 1,
+   "best_rank": 197,
+   "usd": 540,
+   "paid": 0.27,
+   "ask": 0.27,
+   "status": "live",
+   "link": "https://polymarket.us/event/nhl-sj-dal-2026-11-07",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401892669",
+   "sport": "nhl",
+   "league": null,
+   "away": "SJ",
+   "home": "DAL",
+   "away_name": "San Jose Sharks",
+   "home_name": "Dallas Stars",
+   "game_start": "2026-11-08T01:00Z",
+   "side_std": "away",
+   "money_with": false,
+   "grade": "A",
+   "fair_board": 0.2683,
+   "inside_fair": false,
+   "books": {
+    "at": "2026-11-07T07:58:04Z",
+    "fair": 0.2683,
+    "q": {
+     "Polymarket": 0.27,
+     "Novig": 0.27,
+     "Caesars": 0.2941,
+     "FD": 0.2985
+    }
+   }
+  },
+  {
    "cond": "0x6d6ae0aa68a1fa18d02432651325dd8cfdc589f125b50f48ab863ec17df16da6",
    "slug": "epl-bri-bre-2026-11-08",
    "title": "Brighton & Hove Albion FC vs. Brentford FC",
@@ -708,6 +754,33 @@
    "ask": 0.52,
    "status": "live",
    "link": "https://polymarket.us/event/epl-sun-che-2026-11-08",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "grade": "A",
+   "fair_board": null,
+   "inside_fair": null,
+   "books": null
+  },
+  {
+   "cond": "0x24a5b445555143bb5886853164be2c4982246143a2884091d489da931b227cd4",
+   "slug": "epl-cry-liv-2026-11-08",
+   "title": "Crystal Palace FC vs. Liverpool FC",
+   "mtype": "ml",
+   "start": "2026-11-08T14:00:00Z",
+   "bet": "Will Liverpool FC win on 2026-11-08: Yes",
+   "side": "Yes",
+   "flagged": "2026-11-07T09:24:37Z",
+   "why": "a top-200 account also in this sport's top 50",
+   "proven": true,
+   "trigger": "proven",
+   "n_accounts": 1,
+   "best_rank": 100,
+   "usd": 3161,
+   "paid": 0.62,
+   "ask": 0.63,
+   "status": "live",
+   "link": "https://polymarket.us/event/epl-cry-liv-2026-11-08",
    "other": null,
    "kalshi_against": null,
    "logged": true,
@@ -861,6 +934,50 @@
    "fair_board": null,
    "inside_fair": null,
    "books": null
+  },
+  {
+   "cond": "0xd473df71870912bc0a4120c5fffc4f59cb4c26d59f8a421dbe441bbd640593cd",
+   "slug": "nhl-las-buf-2026-11-08",
+   "title": "Golden Knights vs. Sabres",
+   "mtype": "ml",
+   "start": "2026-11-08T20:30:00Z",
+   "bet": "Sabres ML",
+   "side": "Sabres",
+   "flagged": "2026-11-07T09:15:49Z",
+   "why": "a top-200 account also in this sport's top 50",
+   "proven": true,
+   "trigger": "proven",
+   "n_accounts": 1,
+   "best_rank": 197,
+   "usd": 530,
+   "paid": 0.5,
+   "ask": 0.51,
+   "status": "live",
+   "link": "https://polymarket.us/event/nhl-las-buf-2026-11-08",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401892675",
+   "sport": "nhl",
+   "league": null,
+   "away": "VGK",
+   "home": "BUF",
+   "away_name": "Vegas Golden Knights",
+   "home_name": "Buffalo Sabres",
+   "game_start": "2026-11-08T20:30Z",
+   "side_std": "home",
+   "money_with": false,
+   "grade": "A",
+   "fair_board": null,
+   "inside_fair": null,
+   "books": {
+    "at": "2026-11-07T07:58:04Z",
+    "fair": null,
+    "q": {
+     "Polymarket": 0.49,
+     "Kalshi": 0.52
+    }
+   }
   },
   {
    "cond": "0xc2c8c1692b4f29d36ca4b0763046f46b4c1606cdb9355d5d466ea1730c265ab9",
@@ -1327,6 +1444,20 @@
     "n": 1,
     "best_rank": 132,
     "usd": 179
+   }
+  },
+  "401892669|ml": {
+   "away": {
+    "n": 1,
+    "best_rank": 197,
+    "usd": 540
+   }
+  },
+  "401892675|ml": {
+   "home": {
+    "n": 1,
+    "best_rank": 197,
+    "usd": 530
    }
   },
   "401856851|total": {
