@@ -2994,7 +2994,10 @@
 "price": -102,
 "fair": 0.49241,
 "edge_pts": -1.26,
-"why": "home favourite GASO -8.5, total 54.5: under (mined angle)"
+"why": "home favourite GASO -8.5, total 54.5: under (mined angle)",
+"void": true,
+"void_why": "rule no longer holds on the current line: home spread -7.0, total 54.5 (2026-11-07T19:50:12Z)",
+"void_at": "2026-11-07T19:50:12Z"
 },
 "401892661:xch_homedog_fade:spread": {
 "tag": "xch_homedog_fade",
@@ -3450,5 +3453,18 @@
 "fair": 0.69415,
 "edge_pts": -0.58,
 "why": "Novig home side mid 0.305 inside T-1.1h; audit band 20-35c"
+},
+"401871098:xch_homedog_fade:ml": {
+"tag": "xch_homedog_fade",
+"fill_id": "c75151b5433f",
+"ts": "2026-11-07T19:50:12Z",
+"market": "ml",
+"side": "away",
+"line": null,
+"venue": "Novig",
+"price": -251,
+"fair": 0.70781,
+"edge_pts": -0.72,
+"why": "Novig home side mid 0.290 inside T-1.2h; audit band 20-35c"
 }
 }
