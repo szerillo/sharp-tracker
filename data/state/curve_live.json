@@ -1,5 +1,5 @@
 {
- "built": "2026-11-07T20:05:04Z",
+ "built": "2026-11-07T20:46:07Z",
  "record": {
   "cbb_1h_total_curve": {
    "n": 1,
@@ -8,10 +8,10 @@
    "units": -0.25
   },
   "cfb_q1_under_curve": {
-   "n": 0,
-   "won": 0,
+   "n": 1,
+   "won": 1,
    "lost": 0,
-   "units": 0
+   "units": 0.42
   },
   "nhl_p1_spread_curve": {
    "n": 0,
@@ -56,31 +56,6 @@
    "pin_price": 1.86,
    "book": "FD",
    "price": 1.88,
-   "flagged": "2026-11-07T14:02:06Z"
-  },
-  {
-   "key": "cfb_q1_under_curve|3582b30b32fb23939161eb280cc5ca97||under",
-   "rule": "cfb_q1_under_curve",
-   "tier": "A",
-   "stake": 0.5,
-   "sport": "cfb",
-   "odds_id": "3582b30b32fb23939161eb280cc5ca97",
-   "espn": "401858292",
-   "game": "North Carolina Tar Heels @ UConn Huskies",
-   "start": "2026-11-07T17:00:00Z",
-   "market": "totals_q1",
-   "team": null,
-   "team_name": null,
-   "side": "under",
-   "line": 11.5,
-   "curve": 0.556,
-   "pin_fair": 0.497,
-   "gap": 5.8,
-   "full_total": 54.5,
-   "full_spread": 7.5,
-   "pin_price": 1.92,
-   "book": "Caesars",
-   "price": 1.85,
    "flagged": "2026-11-07T14:02:06Z"
   },
   {
@@ -532,6 +507,35 @@
    "book": null,
    "price": null,
    "flagged": "2026-11-07T19:23:31Z"
+  },
+  {
+   "key": "cfb_tt_under_curve|028ce5ee2c58281cf935f06edc90d671|away|under",
+   "rule": "cfb_tt_under_curve",
+   "tier": "C",
+   "stake": 0.25,
+   "sport": "cfb",
+   "odds_id": "028ce5ee2c58281cf935f06edc90d671",
+   "espn": "401856742",
+   "game": "Vanderbilt Commodores @ Mississippi State Bulldogs",
+   "start": "2026-11-07T21:15:00Z",
+   "market": "team_totals",
+   "team": "away",
+   "team_name": "Vanderbilt Commodores",
+   "side": "under",
+   "line": 23.5,
+   "curve": 0.558,
+   "pin_fair": 0.506,
+   "gap": 5.2,
+   "full_total": 48.5,
+   "full_spread": -3.0,
+   "pin_price": 1.9,
+   "book": "FD",
+   "price": 1.82,
+   "pin_fair_power": 0.5069,
+   "book_fair": 0.5185,
+   "fair_gap": -1.2,
+   "ev_curve": 1.6,
+   "flagged": "2026-11-07T20:46:07Z"
   }
  ]
 }
