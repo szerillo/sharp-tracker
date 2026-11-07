@@ -1,5 +1,5 @@
 {
- "built": "2026-11-07T19:00:04Z",
+ "built": "2026-11-07T19:06:49Z",
  "rows": [
   {
    "cond": "0x5a4f48f65db8bb0de7274a91d32ae7abafaf1aae7e67322744658be0e0e73abb",
@@ -833,6 +833,52 @@
    "books": null
   },
   {
+   "cond": "0x61fbe20372f72ffc5270726384d87731b8ddd5b206d348b8664c66b019866fa6",
+   "slug": "mls-mia-clt-2026-11-07-more-markets",
+   "title": "Inter Miami CF vs. Charlotte FC - More Markets",
+   "mtype": "total",
+   "start": "2026-11-07T21:00:00Z",
+   "bet": "Under 4.5",
+   "side": "Under",
+   "flagged": "2026-11-07T19:01:28Z",
+   "why": "a top-200 account also in this sport's top 50",
+   "proven": true,
+   "trigger": "proven",
+   "n_accounts": 1,
+   "best_rank": 132,
+   "usd": 158,
+   "paid": 0.58,
+   "ask": 0.58,
+   "status": "live",
+   "link": "https://polymarket.us/event/mls-mia-clt-2026-11-07-more-markets",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "761938",
+   "sport": "soccer",
+   "league": "mls",
+   "away": "CLT",
+   "home": "MIA",
+   "away_name": "Charlotte FC",
+   "home_name": "Inter Miami CF",
+   "game_start": "2026-11-07T21:00Z",
+   "side_std": "under",
+   "money_with": false,
+   "grade": "A",
+   "fair_board": 0.5679,
+   "inside_fair": false,
+   "books": {
+    "at": "2026-11-07T18:01:57Z",
+    "fair": 0.5679,
+    "q": {
+     "Novig": 0.57,
+     "Kalshi": 0.59,
+     "DK": 0.5918,
+     "FD": 0.5968
+    }
+   }
+  },
+  {
    "cond": "0x07de85d6a00260bb3548af18e299a3af4ecaff94ea7bae2073f3b26f46717e53",
    "slug": "mls-min-sje-2026-11-07-more-markets",
    "title": "Minnesota United FC vs. San Jose Earthquakes - More Markets",
@@ -885,7 +931,7 @@
    "best_rank": 65,
    "usd": 108,
    "paid": 0.5,
-   "ask": 0.52,
+   "ask": 0.51,
    "status": "live",
    "link": "https://polymarket.us/event/cfb-incar-selou-2026-11-07",
    "other": null,
@@ -1274,8 +1320,8 @@
    "home_name": "New Orleans Saints",
    "game_start": "2026-11-08T18:00Z",
    "side_std": "away",
-   "money_with": false,
-   "grade": "B",
+   "money_with": true,
+   "grade": "A",
    "fair_board": null,
    "inside_fair": null,
    "books": null
@@ -1702,7 +1748,7 @@
    "best_rank": 43,
    "usd": 121,
    "paid": 0.31,
-   "ask": 0.28,
+   "ask": 0.29,
    "status": "live",
    "link": "https://polymarket.us/event/nba-bkn-atl-2026-11-07",
    "other": null,
@@ -1727,7 +1773,7 @@
    "money_with": false,
    "grade": "watch",
    "fair_board": 0.2885,
-   "inside_fair": true,
+   "inside_fair": false,
    "books": {
     "at": "2026-11-07T18:01:57Z",
     "fair": 0.2885,
@@ -2362,6 +2408,13 @@
     "n": 1,
     "best_rank": 132,
     "usd": 1363
+   }
+  },
+  "761938|total": {
+   "under": {
+    "n": 1,
+    "best_rank": 132,
+    "usd": 158
    }
   },
   "761945|total": {
