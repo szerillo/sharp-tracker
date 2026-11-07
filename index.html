@@ -918,15 +918,20 @@ function renderToday() {
   for (const [k, L] of groups) {
     if (done.has(k)) continue; done.add(k);
     let b = bucketOf(L); const [ev, mk, sd] = k.startsWith('solo') ? [] : k.split('|');
-    const ok = sd && OPP[sd] ? `${ev}|${mk}|${OPP[sd]}` : null, oL = ok && !done.has(ok) ? groups.get(ok) : null, ob = oL ? bucketOf(oL) : null;
+    // 11/7 (Sean: "Maryland ML should be opposite of Purdue"): the other side is the other team in the spread OR the moneyline (same period),
+    // or the other side of the total
     const backed = x => ['both', 'sys', 'sharp', 'opposed'].includes(x);
-    if (oL && backed(b) && backed(ob)) {     // both sides of the same market have support: one row, labelled conflict
-      done.add(ok); const prim = pickPrimary([...L, ...oL].filter(backer), 'opposed') || pickPrimary(L, b);
+    const per = (mk || '').match(/^(1h|1q|1p)_/) ? mk.match(/^(1h|1q|1p)_/)[0] : '', base = (mk || '').replace(/^(1h|1q|1p)_/, '');
+    const oks = !sd || !OPP[sd] ? [] : base === 'total' ? [`${ev}|${mk}|${OPP[sd]}`] : (['spread', 'ml'].includes(base) ? ['spread', 'ml'].map(m => `${ev}|${per}${m}|${OPP[sd]}`) : [`${ev}|${mk}|${OPP[sd]}`]);
+    const oLs = oks.filter(k2 => groups.has(k2) && !done.has(k2) && backed(bucketOf(groups.get(k2))));
+    const oL = oLs.length ? oLs.flatMap(k2 => groups.get(k2)) : null;
+    if (oL && backed(b)) {     // both sides of the game have support: one row, labelled conflict
+      oLs.forEach(k2 => done.add(k2)); const prim = pickPrimary([...L, ...oL].filter(backer), 'opposed') || pickPrimary(L, b);
       const mine = (L.includes(prim) ? L : oL).filter(r => r !== prim), theirs = L.includes(prim) ? oL : L;
       placed.opposed.push(prim.replace('<!--ALSO-->', `<div class="small"><span class="tag-against">Conflict: the other side is backed too</span></div>${alsoLine(theirs, 'Other side')}${alsoLine(mine, 'Also')}`)
-        .replace(/<span class="act act-(bet|watch|pass)"[^>]*>[A-Z]+<\/span>/, '<span class="act act-hold">HOLD</span>').replace(/data-rank="\d"/, 'data-rank="2"'));
+        .replace(/<span class="act act-(bet|watch|pass)"[^>]*>[A-Z]+<\/span>/, '<span class="act act-hold">HOLD</span>').replace(/data-rank="\d"/, 'data-rank="2"')
+        .replace(/data-sized="1"/, 'data-sized="0"').replace(/<td class="c-size">[\s\S]*?<\/td>/, '<td class="c-size"><span class="dim">—</span></td>'));   // no size on a conflict
       continue; }
-    if (oL && ob === 'opposed' && b !== 'opposed') { /* the other side is listed on its own row; this one goes by its own status */ }
     const prim = pickPrimary(L, b), rest = L.filter(r => r !== prim);
     // paper rules and dropped flags carry no size, so they read PAPER / DROPPED rather than HOLD or PASS
     const relabel = r => kindOf(r) === 'paper' ? r.replace(/<span class="act act-\w+"[^>]*>[A-Z]+<\/span>/, '<span class="act act-pass">PAPER</span>')

@@ -441,7 +441,7 @@ def main():
 
 
 TAG_ORDER = ['sharp accts with', 'sharp accts against', 'big money with', 'big money against', 'Kalshi move with', 'Kalshi move against',
-             'bet back with', 'bet back against', 'sharp move with', 'sharp move against', 'any signal against', 'no signal against',
+             'bet back with', 'bet back against', 'sharp move with', 'sharp move against', 'sharp flag against', 'system against', 'any signal against', 'no signal against',
              'system also', 'sharp flag also', 'same-market conflict', 'middle']
 
 
@@ -458,7 +458,7 @@ def tag_bets(bets):
     S_side = collections.defaultdict(set)
     for b in bets:
         if b['cat'] != 'watch' and b.get('event_id') and b.get('side'):
-            S_side[(str(b['event_id']), fam(b['market']), b['side'])].add('sharp' if b['src'] == 'sharp' else 'system')
+            S_side[(str(b['event_id']), fam(b['market']), b['side'])].add('sharp' if b['src'] == 'sharp' else 'paper' if b['cat'] == 'paper P' else 'system')
     for b in bets:
         if b['cat'] == 'watch' or not b.get('event_id') or not b.get('side') or str(b.get('market', '')).startswith('prop'): continue
         t = []
@@ -468,6 +468,12 @@ def tag_bets(bets):
         for w in W.get((str(b['event_id']), f_), []):
             if (w.get('flagged') or '9') >= (b.get('start') or ''): continue
             t.append(f"{w['rule']} {'with' if w['side'] == b['side'] else 'against'}")
+        # 11/7 (Sean: "Maryland ML should be opposite of Purdue"): a sized sharp flag or system bet on the other team, in the spread or the
+        # moneyline, is opposition too (paper rules never count)
+        OPPS = {'home': 'away', 'away': 'home', 'over': 'under', 'under': 'over'}
+        opp_k = S_side.get((str(b['event_id']), f_, OPPS.get(b['side'], '')), set())
+        if 'sharp' in opp_k: t.append('sharp flag against')
+        if 'system' in opp_k: t.append('system against')
         if any(x.endswith('against') for x in t): t.append('any signal against')
         else: t.append('no signal against')
         others = S_side.get((str(b['event_id']), f_, b['side']), set())
