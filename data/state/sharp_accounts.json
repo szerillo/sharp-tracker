@@ -1,5 +1,5 @@
 {
- "built": "2026-11-07T13:22:08Z",
+ "built": "2026-11-07T13:31:59Z",
  "rows": [
   {
    "cond": "0xb041c7548e77c7e9918c322e9546f9d05bd260108205850e032d6698a406bcfe",
@@ -298,7 +298,7 @@
    "best_rank": 49,
    "usd": 930,
    "paid": 0.465,
-   "ask": 0.5,
+   "ask": 0.48,
    "status": "live",
    "link": "https://polymarket.us/event/cfb-valp-day-2026-11-07",
    "other": null,
@@ -371,7 +371,7 @@
    "best_rank": 49,
    "usd": 1671,
    "paid": 0.519,
-   "ask": 0.57,
+   "ask": 0.56,
    "status": "live",
    "link": "https://polymarket.us/event/cfb-morgst-delst-2026-11-07",
    "other": null,
@@ -734,33 +734,6 @@
      "FD": 0.2985
     }
    }
-  },
-  {
-   "cond": "0x6d6ae0aa68a1fa18d02432651325dd8cfdc589f125b50f48ab863ec17df16da6",
-   "slug": "epl-bri-bre-2026-11-08",
-   "title": "Brighton & Hove Albion FC vs. Brentford FC",
-   "mtype": "ml",
-   "start": "2026-11-08T14:00:00Z",
-   "bet": "Will Brighton & Hove Albion FC win on 2026-11-08: Yes",
-   "side": "Yes",
-   "flagged": "2026-11-05T05:05:31Z",
-   "why": "a top-200 account also in this sport's top 50",
-   "proven": true,
-   "trigger": "proven",
-   "n_accounts": 1,
-   "best_rank": 71,
-   "usd": 387,
-   "paid": 0.51,
-   "ask": 0.53,
-   "status": "live",
-   "link": "https://polymarket.us/event/epl-bri-bre-2026-11-08",
-   "other": null,
-   "kalshi_against": null,
-   "logged": true,
-   "grade": "A",
-   "fair_board": null,
-   "inside_fair": null,
-   "books": null
   },
   {
    "cond": "0x2992326e6e51bbbfcea34ca609e83388352f1a5674d411c13ac0ec4911870f7f",
@@ -1275,6 +1248,39 @@
    }
   },
   {
+   "cond": "0x6d6ae0aa68a1fa18d02432651325dd8cfdc589f125b50f48ab863ec17df16da6",
+   "slug": "epl-bri-bre-2026-11-08",
+   "title": "Brighton & Hove Albion FC vs. Brentford FC",
+   "mtype": "ml",
+   "start": "2026-11-08T14:00:00Z",
+   "bet": "Will Brighton & Hove Albion FC win on 2026-11-08: Yes",
+   "side": "Yes",
+   "flagged": "2026-11-05T05:05:31Z",
+   "why": "a top-200 account also in this sport's top 50",
+   "proven": true,
+   "trigger": "proven",
+   "n_accounts": 1,
+   "best_rank": 71,
+   "usd": 387,
+   "paid": 0.51,
+   "ask": 0.53,
+   "status": "other side",
+   "link": "https://polymarket.us/event/epl-bri-bre-2026-11-08",
+   "other": {
+    "n_accounts": 1,
+    "best_rank": 132,
+    "usd": 284,
+    "first": "2026-11-07T13:23:43Z"
+   },
+   "exit_bid": 0.52,
+   "kalshi_against": null,
+   "logged": true,
+   "grade": "A",
+   "fair_board": null,
+   "inside_fair": null,
+   "books": null
+  },
+  {
    "cond": "0x3dd5a9a57210560fe11f668ead4f31156443ce848c58135413a15d77d70e2a1b",
    "slug": "nfl-nyg-phi-2026-11-08",
    "title": "Giants vs. Eagles",
@@ -1602,6 +1608,13 @@
     "n": 1,
     "best_rank": 43,
     "usd": 239
+   }
+  },
+  "401909943|spread": {
+   "home": {
+    "n": 1,
+    "best_rank": 110,
+    "usd": 262
    }
   },
   "401909944|ml": {
