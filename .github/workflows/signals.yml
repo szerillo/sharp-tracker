@@ -42,13 +42,26 @@ jobs:
       - name: remove duplicate bets from the records
         run: python3 sharp/dedupe_fills.py || true
       - name: stale-book paper lean (a bettable venue 2%+ better than Pinnacle's fair right after Pinnacle moved toward the side; 11/6)
-        run: python3 sharp/stale_live.py || true
+        env: {NTFY_TOPIC: '${{ secrets.NTFY_TOPIC }}'}
+        run: |
+          if ! python3 sharp/stale_live.py; then
+            echo "::error::Stale-book feed failed"
+            [ -n "$NTFY_TOPIC" ] && curl -s -H "Title: Stale-book feed failed" -H "Priority: default" -d "Stale-book feed crashed in run $GITHUB_RUN_ID; its flags did not update" "https://ntfy.sh/$NTFY_TOPIC" >/dev/null || true
+          fi
       - name: prop price-gap paper leans (NBA threes / NHL saves and shots unders where FD, Caesars or DK beat Pinnacle's no-vig by 2%+; 11/6)
-        env: {ODDS_API_KEY: '${{ secrets.ODDS_API_KEY }}'}
-        run: python3 sharp/props_live.py || true
+        env: {NTFY_TOPIC: '${{ secrets.NTFY_TOPIC }}', ODDS_API_KEY: '${{ secrets.ODDS_API_KEY }}'}
+        run: |
+          if ! python3 sharp/props_live.py; then
+            echo "::error::Props feed failed"
+            [ -n "$NTFY_TOPIC" ] && curl -s -H "Title: Props feed failed" -H "Priority: default" -d "Props feed crashed in run $GITHUB_RUN_ID; its flags did not update" "https://ntfy.sh/$NTFY_TOPIC" >/dev/null || true
+          fi
       - name: derivatives off the curve (CBB first-half totals, CFB first-quarter and team-total unders; 11/6)
-        env: {ODDS_API_KEY: '${{ secrets.ODDS_API_KEY }}'}
-        run: python3 sharp/curve_live.py || true
+        env: {NTFY_TOPIC: '${{ secrets.NTFY_TOPIC }}', ODDS_API_KEY: '${{ secrets.ODDS_API_KEY }}'}
+        run: |
+          if ! python3 sharp/curve_live.py; then
+            echo "::error::Curve feed failed"
+            [ -n "$NTFY_TOPIC" ] && curl -s -H "Title: Curve feed failed" -H "Priority: default" -d "Curve feed crashed in run $GITHUB_RUN_ID; its flags did not update" "https://ntfy.sh/$NTFY_TOPIC" >/dev/null || true
+          fi
       - name: bet tracker
         env: {NTFY_TOPIC: '${{ secrets.NTFY_TOPIC }}'}
         run: |     # 11/6: a crash used to pass silently; now it alerts, and the job still commits everything else
