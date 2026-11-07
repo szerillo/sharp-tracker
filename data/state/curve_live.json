@@ -1,5 +1,5 @@
 {
- "built": "2026-11-07T16:40:46Z",
+ "built": "2026-11-07T17:06:46Z",
  "record": {
   "cbb_1h_total_curve": {
    "n": 1,
@@ -107,6 +107,31 @@
    "book": null,
    "price": null,
    "flagged": "2026-11-07T16:22:49Z"
+  },
+  {
+   "key": "cfb_q1_under_curve|42e27947d5bad1a1aa037cccf557e9fe||under",
+   "rule": "cfb_q1_under_curve",
+   "tier": "A",
+   "stake": 0.5,
+   "sport": "cfb",
+   "odds_id": "42e27947d5bad1a1aa037cccf557e9fe",
+   "espn": "401871073",
+   "game": "Delaware Blue Hens @ Kennesaw State Owls",
+   "start": "2026-11-07T20:00:00Z",
+   "market": "totals_q1",
+   "team": null,
+   "team_name": null,
+   "side": "under",
+   "line": 13.5,
+   "curve": 0.585,
+   "pin_fair": 0.512,
+   "gap": 7.3,
+   "full_total": 57.0,
+   "full_spread": 1.0,
+   "pin_price": 1.86,
+   "book": "DK",
+   "price": 1.87,
+   "flagged": "2026-11-07T17:06:46Z"
   }
  ]
 }
