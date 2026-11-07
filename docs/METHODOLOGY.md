@@ -106,3 +106,15 @@ Rule used: a rule keeps tier B only if our own replay at Pinnacle's close is pos
 - Held: nfl_home_dog_7510 at B (its 2003-19 sample is only 136 bets, too small to say either way); nhl_early_home_fav_qual at B (6 of 6 seasons in our replay); nba_under_good_home_over and nhl_bounce_home_ml at C.
 - Forward tracker records (2-5 bets per rule) are too small to move any tier.
 Sizing stays flat by tier. Tier A and B are both 0.5u, so an A label carries no extra stake today.
+
+## Sizing rule: no signal against (11/7)
+
+Sean: "we want systems & leans without a signal against it. And sharp action without signals against it."
+- A system bet or lean with any signal on the other side is held: shown greyed with the reason, graded in the tracker, no size. Signals are
+  Polymarket sharp accounts, big money, a Kalshi move, a bet back, or a sharp move on the same game and market family (totals with totals;
+  spread and moneyline together), first seen before the start.
+- A sharp flag is held the same way: market signals against already sent it to "Sharp flags with a signal against them"; sharp accounts on
+  the other side now hold it too (previously held but still sized, per the 11/5 test on account opposition alone).
+- Evidence so far (forward tracker, 11/7): systems and leans with any signal against 5-7 (-10.6%) vs none 37-26 (+4.0%); sharp flags fully
+  unopposed 6-5 (-5.9%) vs opposed 12-21; a Kalshi move against went 7-26 across systems, paper rules and sharp flags. Small samples: the
+  tracker's tag filter keeps scoring both sides of the rule, so it can be loosened if the held group starts winning.

@@ -476,14 +476,17 @@ function sysRow({g, f, tag}) {
   // 11/2 (Sean): a tier C lean is held (not bet) when Polymarket sharp accounts are on the other side of the same game x market
   // (first-half leans against the full-game market); whether leans and sharps add up is graded later from sys_sharp_tags.jsonl
   const sa = (t && t.against) || sharpAgainst(g.event_id, f.market, f.side);
-  const held = !!sa || !!f._conf;
-  const per = /^(1h|1q|1p)_/.test(f.market) ? '1st half' : 'Full game', gone = f.lapsed || f.now === null || held;     // 11/5 (Sean): held bets stay on the board, greyed, with the Held note
-  // 11/5 (Sean): a system bet that a graded sharp signal also landed on is annotated here (and the sharp row says "with your system bet")
-  const sm = (window._strongMap || {})[`${g.event_id}|${(f.market || '').replace(/^(1h|1q|1p)_/, '')}|${f.side}`];
   // 11/7 (Sean): market signals around the bet from the tracker's tags (big money, Kalshi move, bet back, sharp move), with or against;
   // a Kalshi move against has been the worst tag in every group so far (7-26 combined)
   if (!window._BLT || window._BLT_built !== (BL && BL.built)) { window._BLT = Object.fromEntries(((BL && BL.rows) || []).map(b => [b.id, b.tags || []])); window._BLT_built = BL && BL.built; }
   const mk = (window._BLT[`s:${f.fill_id}`] || []).filter(x => /^(big money|Kalshi move|bet back|sharp move) /.test(x));
+  // 11/7 (Sean: "we want systems & leans without a signal against it. And sharp action without signals against it"): any market signal
+  // against (big money, Kalshi move, bet back, sharp move) holds the bet too, like sharp accounts against already did. Shown, graded, no size.
+  const mkAgainst = mk.filter(x => x.endsWith('against')).map(x => x.replace(/ against$/, ''));
+  const held = !!sa || !!f._conf || mkAgainst.length > 0;
+  const per = /^(1h|1q|1p)_/.test(f.market) ? '1st half' : 'Full game', gone = f.lapsed || f.now === null || held;     // 11/5 (Sean): held bets stay on the board, greyed, with the Held note
+  // 11/5 (Sean): a system bet that a graded sharp signal also landed on is annotated here (and the sharp row says "with your system bet")
+  const sm = (window._strongMap || {})[`${g.event_id}|${(f.market || '').replace(/^(1h|1q|1p)_/, '')}|${f.side}`];
   const sp = [t && t.with ? `<span class="tag-with">${t.with.n} sharp account${t.with.n === 1 ? '' : 's'} with</span>` : '', t && t.against ? `<span class="tag-against">${t.against.n} sharp account${t.against.n === 1 ? '' : 's'} against</span>` : '',
     sm ? `<span class="tag-with">also a Grade ${sm.grade} sharp signal (${esc(sm.parts)})</span>` : '',
     ...mk.map(x => `<span class="${x.endsWith('against') ? 'tag-against' : 'tag-with'}">${esc(x)}</span>`)].filter(Boolean).join(' · ');
@@ -492,6 +495,7 @@ function sysRow({g, f, tag}) {
     bet: esc(betText(f, g)), sub: `${per} · tier ${e.tier || '?'}${(() => { const ag = [...(t && t.against ? [`${t.against.n} sharp acct${t.against.n === 1 ? '' : 's'}`] : []), ...mk.filter(x => x.endsWith('against')).map(x => x.replace(/ against$/, ''))];
       return ag.length ? ` <span class="stat stat-held" style="margin:2px 0 0 6px;white-space:nowrap" title="Signals on the other side of this bet; open the row for detail">Against: ${esc(ag.join(', '))}</span>` : ''; })()}`,
     status: sa ? ['held', `Held: Polymarket sharps on the other side (${sa.n} account${sa.n === 1 ? '' : 's'})`] : f._conf ? ['held', 'Held: a stronger rule is on the other side']
+      : mkAgainst.length ? ['held', `Held: ${mkAgainst.join(', ')} on the other side`]
       : f.lapsed ? ['lapsed', 'Trigger no longer met'] : f.now === null ? ['gone', 'Price gone: no bettable price'] : e.tier === 'P' ? ['gone', `Paper: ${e.paper_why || 'thin or untested forward'}`] : null,
     size: held || e.tier === 'P' ? '' : unitText(['A', 'B'].includes(e.tier) || HALF_U.has(tag) ? SLIP.big : SLIP.small, amProb(f.now ? f.now.price : f.price)),
     price: priceOf(f, g), link: gone || e.tier === 'P' ? '' : betLink((f.now && f.now.venue) || f.venue, g.event_id, f.market),
@@ -695,10 +699,12 @@ function renderToday() {
     const lv = r.mixed ? null : (r.rest.find(y => y.kind === 'kmove' || y.kind === 'back') ? 'Kalshi' : 'AN');
     const link = r.mixed ? '' : (lv === 'Kalshi' ? betLink('Kalshi', g.ev, r.rest[0].market) : r.fl && r.fl.link ? `<a class="betbtn" target="_blank" rel="noopener" onclick="event.stopPropagation()" href="${r.fl.link}">Bet at Polymarket ↗</a>` : betLink('FD', g.ev, r.rest[0].market, 'Game page'));
     const sn = SN && SN[r.id] && SN[r.id].signals, fs = sn ? r.rest.map(y => sn[y.kind] && sn[y.kind].side === y.side && sn[y.kind].first).filter(Boolean).sort()[0] : null;
-    return sRow({id: 'w|' + r.id, ev: g.ev, side: r.mixed ? '' : (r.rest[0].side_std || r.rest[0].side), start: g.start, sportLabel: SPORT_LABEL[g.sport] || g.sport, game: `${esc(g.away_name || g.away)} @ ${esc(g.home_name || g.home)}`,
+    // 11/7 (Sean): sharp action is bet only without signals against it: sharp accounts on the other side now hold the flag (no size)
+    const sharpHeld = !r.mixed && r.strong && ((r.fl && r.fl.status === 'other side') || !!(r.acct && r.acct.against));
+    return sRow({id: 'w|' + r.id, gone: sharpHeld, ev: g.ev, side: r.mixed ? '' : (r.rest[0].side_std || r.rest[0].side), start: g.start, sportLabel: SPORT_LABEL[g.sport] || g.sport, game: `${esc(g.away_name || g.away)} @ ${esc(g.home_name || g.home)}`,
       bet: r.mixed ? '<span class="mixed">Mixed, no lean</span>' : esc(yn(r.rest[0].bet)), sub: r.mixed ? [...new Set(r.rest.map(y => esc(y.bet)))].join(' vs ') : (r.strong ? `<span class="badge ${r.grade === 'A' ? 'b-fit' : r.grade === 'B' ? 'b-prior' : 'b-gate'}" style="margin-left:0">Grade ${r.grade}</span> <span class="small dim">${r.grade === 'A' ? (r.fl && (r.fl.proven || r.fl.trigger === 'proven') ? 'sport-proven sharp' : 'sharps + big money') : r.grade === 'B' ? ((r.fl && r.fl.n >= 2) ? `${r.fl.n} sharp accounts` : 'one top-50 sharp') : 'sharps + market move, no flag'}</span>${(() => { const n = r.fl && r.fl.status === 'other side' ? ((r.fl.other && r.fl.other.n_accounts) || 1) : r.acct && r.acct.against ? r.acct.against.n : 0;
-      return n ? ` <span class="stat stat-held" style="margin:2px 0 0;white-space:nowrap" title="Sharp accounts have bet the opposite side of this market">${n} sharp${n === 1 ? '' : 's'} on the other side</span>` : ''; })()}` : 'Watch only'), status: r.strong || r.mixed ? null : ['gone', r.nbaSingle ? 'Watch only: NBA single account' : r.acct && r.acct.against ? 'Watch only: sharps on both sides' : r.g.sport === 'mma' ? 'Watch only: UFC has no sharp-account list' : 'Watch only: below flag level'],
-      size: r.strong && x ? unitText(r.grade === 'A' && g.sport !== 'soccer' ? SLIP.big : SLIP.small, x.p) : '', price: (() => { if (!x || x.p == null) return ''; const q = {[x.venue]: x.p, ...((r.fl && r.fl.books && r.fl.books.q) || {})};
+      return n ? ` <span class="stat stat-held" style="margin:2px 0 0;white-space:nowrap" title="Sharp accounts have bet the opposite side of this market">${n} sharp${n === 1 ? '' : 's'} on the other side</span>` : ''; })()}` : 'Watch only'), status: sharpHeld ? ['held', 'Held: sharp accounts on the other side (no size)'] : r.strong || r.mixed ? null : ['gone', r.nbaSingle ? 'Watch only: NBA single account' : r.acct && r.acct.against ? 'Watch only: sharps on both sides' : r.g.sport === 'mma' ? 'Watch only: UFC has no sharp-account list' : 'Watch only: below flag level'],
+      size: r.strong && x && !sharpHeld ? unitText(r.grade === 'A' && g.sport !== 'soccer' ? SLIP.big : SLIP.small, x.p) : '', price: (() => { if (!x || x.p == null) return ''; const q = {[x.venue]: x.p, ...((r.fl && r.fl.books && r.fl.books.q) || {})};
         const bv = Object.keys(q).filter(v => v !== 'DK').sort((a, b) => q[a] - q[b])[0] || x.venue;
         const fl = r.fl, pd = fl && fl.paid != null && fl.ask != null ? 100 * (fl.ask - fl.paid) : null;
         const was = fl && fl.paid != null ? `<div class="small" title="What the flagging sharp accounts paid on Polymarket, and the Polymarket price now. Red: the market has moved the sharps' way since, so you pay more than they did. Green: it moved against them, so you get a better number.">sharps ${fl.market === 'total' || fl.market === 'spread' ? esc(fl.bet) + ' ' : ''}<b>${toAm(fl.paid)}</b> → ${pd == null ? '' : pd >= 2 ? `<span class="tag-against">${toAm(fl.ask)} (${pd.toFixed(0)}% their way${pd >= 5 ? ', edge mostly gone' : ''})</span>` : pd <= -2 ? `<span class="tag-with">${toAm(fl.ask)} (${(-pd).toFixed(0)}% against them)</span>` : `${toAm(fl.ask)}`}</div>` : '';
