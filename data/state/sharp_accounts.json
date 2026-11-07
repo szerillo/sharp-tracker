@@ -1,5 +1,5 @@
 {
- "built": "2026-11-07T15:09:49Z",
+ "built": "2026-11-07T15:23:20Z",
  "rows": [
   {
    "cond": "0xb041c7548e77c7e9918c322e9546f9d05bd260108205850e032d6698a406bcfe",
@@ -290,7 +290,7 @@
    "best_rank": 12,
    "usd": 1260,
    "paid": 0.469,
-   "ask": 0.52,
+   "ask": 0.53,
    "status": "live",
    "link": "https://polymarket.us/event/cfb-valp-day-2026-11-07",
    "other": null,
@@ -576,7 +576,7 @@
    "best_rank": 132,
    "usd": 810,
    "paid": 0.44,
-   "ask": 0.45,
+   "ask": 0.44,
    "status": "live",
    "link": "https://polymarket.us/event/mls-mim-vwh-2026-11-07-more-markets",
    "other": null,
@@ -724,6 +724,55 @@
      "Novig": 0.275,
      "DK": 0.2899,
      "Caesars": 0.2941
+    }
+   }
+  },
+  {
+   "cond": "0x3d631d77668cbb691ae5c9acebfc4787a3e68f5d02db0c5af9cbe3749ca77947",
+   "slug": "nba-sas-por-2026-11-07",
+   "title": "Spurs vs. Trail Blazers",
+   "mtype": "spread",
+   "start": "2026-11-08T03:00:00Z",
+   "bet": "Trail Blazers +5.5",
+   "side": "Trail Blazers",
+   "flagged": "2026-11-07T15:23:06Z",
+   "why": "2 top-200 accounts",
+   "proven": false,
+   "trigger": "two",
+   "n_accounts": 2,
+   "best_rank": 132,
+   "usd": 6003,
+   "paid": 0.5,
+   "ask": 0.51,
+   "status": "live",
+   "link": "https://polymarket.us/event/nba-sas-por-2026-11-07",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401909944",
+   "sport": "nba",
+   "league": null,
+   "away": "SA",
+   "home": "POR",
+   "away_name": "San Antonio Spurs",
+   "home_name": "Portland Trail Blazers",
+   "game_start": "2026-11-08T03:00Z",
+   "side_std": "home",
+   "conflict": [
+    "Kalshi move"
+   ],
+   "money_with": false,
+   "grade": "B",
+   "fair_board": 0.5007,
+   "inside_fair": false,
+   "books": {
+    "at": "2026-11-07T14:54:51Z",
+    "fair": 0.5007,
+    "q": {
+     "Novig": 0.505,
+     "Polymarket": 0.51,
+     "DK": 0.5192,
+     "Kalshi": 0.52
     }
    }
   },
@@ -1677,9 +1726,9 @@
   },
   "401909944|spread": {
    "home": {
-    "n": 1,
+    "n": 2,
     "best_rank": 132,
-    "usd": 243
+    "usd": 6003
    }
   },
   "401909945|ml": {
@@ -1776,6 +1825,13 @@
     "n": 1,
     "best_rank": 95,
     "usd": 113
+   }
+  },
+  "401856739|spread": {
+   "away": {
+    "n": 1,
+    "best_rank": 182,
+    "usd": 273
    }
   },
   "401926112|total": {
