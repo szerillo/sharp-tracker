@@ -14,6 +14,7 @@ not on that tape, so a Polymarket flag's path starts from the books.
 Writes data/state/bet_log.json (rows + summaries by category x sport x bet type). Usage: python3 sharp/bet_log.py"""
 import os, sys, re, json, gzip, glob, math, bisect, collections, datetime as dt
 HERE = os.path.dirname(os.path.abspath(__file__)); ROOT = os.path.abspath(os.path.join(HERE, '..')); sys.path.insert(0, ROOT)
+from sharp.teammatch import hit as team_hit, side as team_side   # 11/7: whole-name team matching (the 'St' bug)
 SD = os.path.join(ROOT, 'data', 'state'); OUT = os.path.join(SD, 'bet_log.json')
 SPORTS = ('nfl', 'nba', 'nhl', 'cfb', 'cbb', 'soccer', 'mlb', 'wnba', 'mma', 'tennis')
 VENUES = ('Novig', 'Kalshi', 'FD', 'Caesars', 'DK'); REF = ('Pinnacle', 'AN_Consensus')
@@ -460,16 +461,16 @@ def sharps_against(bets, S):
         if b['src'] == 'tennis' or not b.get('event_id') or not b.get('side'): continue
         e = raw.get(b['event_id'])
         if not e: continue
-        a_, h_ = nick(e.get('away_team')), nick(e.get('home_team'))
-        if not a_ or not h_: continue
+        A_, H_ = e.get('away_team'), e.get('home_team')
+        if not A_ or not H_: continue
         base = re.sub(r'^(1h|1q|1p)_', '', b['market']); fam = ('total',) if base == 'total' else ('ml', 'spread')
         t_flag = ts(b['flagged']).timestamp(); t_start = ts(b['start']).timestamp()
         W = {}; WITH = {}
         for x in byday.get(b['start'][:10], []):
             t = (x.get('title') or '').lower()
-            if a_ not in t or h_ not in t or x.get('mtype') not in fam or x['ts'] >= t_start: continue
+            if not team_hit(A_, t) or not team_hit(H_, t) or x.get('mtype') not in fam or x['ts'] >= t_start: continue
             bt = (x.get('bet') or '').lower()
-            xs = (bt.split()[0] if bt else None) if base == 'total' else ('away' if a_ in bt else 'home' if h_ in bt else None)
+            xs = (bt.split()[0] if bt else None) if base == 'total' else team_side(A_, H_, bt)
             if xs is None: continue
             D = W if xs != b['side'] else WITH
             w = D.setdefault(x['w'], dict(first=x['ts'], usd=0.0, rank=x['rank'])); w['first'] = min(w['first'], x['ts']); w['usd'] += x.get('usd') or 0

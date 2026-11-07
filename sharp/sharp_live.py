@@ -20,6 +20,7 @@ Usage: python3 sharp/sharp_live.py"""
 import os, sys, re, json, time, math, datetime as dt, urllib.request, collections
 HERE = os.path.dirname(os.path.abspath(__file__)); ROOT = os.path.abspath(os.path.join(HERE, '..')); sys.path.insert(0, ROOT); sys.path.insert(0, os.path.join(ROOT, 'loggers'))
 import polydata                      # Data API v2 (v1 retired 11/2)
+from sharp.teammatch import hit as team_hit, side as team_side   # 11/7: whole-name team matching (the 'St' bug)
 FILLS = os.path.join(ROOT, 'data', 'polymarket', 'sharp_fills.jsonl'); OUT = os.path.join(ROOT, 'data', 'state', 'sharp_accounts.json')
 PAPER = os.path.join(ROOT, 'data', 'state', 'sharp_paper.jsonl'); META = os.path.join(ROOT, 'data', 'polymarket', '_sharp_meta.json')
 NOW = time.time(); TOP_RANK = 50; TWO = 2
@@ -128,16 +129,16 @@ def by_event(F):
         try: st = epoch(e['start'].replace('Z', '+00:00'))
         except Exception: continue
         if st <= NOW: continue
-        a, h = nick(e.get('away_team')), nick(e.get('home_team'))
-        if not a or not h: continue
+        A, H = e.get('away_team'), e.get('home_team')
+        if not A or not H: continue
         D = collections.defaultdict(lambda: collections.defaultdict(dict))
         for k in (round(st / 900) - 1, round(st / 900), round(st / 900) + 1):
             for L in idx.get(k, []):
                 r0 = L[0]; t = (r0.get('title') or '').lower()
-                if abs(epoch(r0['start']) - st) > 900 or a not in t or h not in t: continue
+                if abs(epoch(r0['start']) - st) > 900 or not team_hit(A, t) or not team_hit(H, t): continue
                 for r in L:
                     b = r['bet'].lower()
-                    side = b if r0['mtype'] == 'total' else ('away' if a in b else 'home' if h in b else None)
+                    side = b if r0['mtype'] == 'total' else team_side(A, H, b)
                     if side in ('home', 'away', 'over', 'under') and r.get('rank') is not None: D[r0['mtype']][side].setdefault(r['w'], r)   # top-200 only: specialists are logged, never counted (11/4)
         for mk, sides in D.items():
             out[f"{ev}|{mk}"] = {sd: dict(n=len(W), best_rank=min(r['rank'] for r in W.values()), usd=round(sum(r['usd'] for r in W.values()))) for sd, W in sides.items()}
@@ -262,9 +263,9 @@ def map_rows(rows):
             try:
                 if abs(epoch(e['start'].replace('Z', '+00:00')) - st) > 900: continue
             except Exception: continue
-            a, h = nick(e.get('away_team')), nick(e.get('home_team'))
-            if not a or not h or a not in t or h not in t: continue
-            side = b if r['mtype'] == 'total' else ('away' if a in b else 'home' if h in b else None)
+            A, H = e.get('away_team'), e.get('home_team')
+            if not A or not H or not team_hit(A, t) or not team_hit(H, t): continue
+            side = b if r['mtype'] == 'total' else team_side(A, H, b)
             if side not in ('home', 'away', 'over', 'under'): break
             r.update(event_id=ev, sport=e['sport'], league=e.get('league'), away=e['away'], home=e['home'], away_name=(e.get('away_team') or {}).get('displayName'),
                      home_name=(e.get('home_team') or {}).get('displayName'), game_start=e['start'], side_std=side)
