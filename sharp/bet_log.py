@@ -250,9 +250,20 @@ def main():
                              start=p['start'].replace('Z', ':00Z') if len(p['start']) == 17 else p['start'], market=p['market'], side=p['side'], line=p.get('line'), flagged=p['flagged'],
                              venue=p['venue'], price=p['price'], won=W_(p.get('won'))))
     # ---- price paths
-    by = collections.defaultdict(list)
+    # 11/7 (Sean: "have it update quicker"): the tape is the slow part (43.7M tick lines a run, 95% of this step). A game 12+ hours past its
+    # start has a final close, CLV and line movement, so those fields are kept in data/state/bet_paths.json and its tape is not read again.
+    PATHS_F = os.path.join(SD, 'bet_paths.json')
+    try: PATHS = json.load(open(PATHS_F))
+    except Exception: PATHS = {}
+    FROZEN_BEFORE = (NOW_ if 'NOW_' in globals() else dt.datetime.now(dt.timezone.utc)).timestamp() - 12 * 3600
+    by = collections.defaultdict(list); snap0 = {}
     for b in bets:
-        if b.get('sport') and b.get('event_id') and b.get('side'): by[b['sport']].append(b)
+        if not (b.get('sport') and b.get('event_id') and b.get('side')): continue
+        try: done_ = ts(b['start']).timestamp() < FROZEN_BEFORE
+        except Exception: done_ = False
+        pk = f"{b['id']}|{b.get('flagged')}"
+        if done_ and pk in PATHS: b.update(PATHS[pk]); continue
+        snap0[id(b)] = (pk, done_, dict(b)); by[b['sport']].append(b)
     for sp, L in by.items():
         days = sorted({(ts(b['start']) + dt.timedelta(days=i)).astimezone(dt.timezone(dt.timedelta(hours=-5))).date().isoformat() for b in L for i in (-2, -1, 0)})
         T = Tape(sp, {b['event_id'] for b in L}, days)
@@ -308,6 +319,13 @@ def main():
                     ks = KEYS.get((b['sport'], base)) or []
                     lo, hi = sorted([abs(ref), abs(cl)]) if base == 'spread' else sorted([ref, cl])
                     b['keys_crossed'] = [k for k in ks if lo <= k <= hi and lo != hi]     # moving onto or off a key number counts (-3 to -3.5 crosses 3)
+    for L in by.values():
+        for b in L:
+            pk, done_, b0 = snap0[id(b)]
+            if done_: PATHS[pk] = {k: v for k, v in b.items() if k not in b0 or b0[k] != v}
+    try: json.dump(PATHS, open(PATHS_F, 'w'), separators=(',', ':'))
+    except Exception as e: print(f'[bet_log] path cache not saved: {e}')
+    print(f"[bet_log] price paths: {sum(len(L) for L in by.values())} bets read from the tape, {len(PATHS)} frozen in the cache")
     # margin against the number, from final scores (data/state/results.jsonl; 1H from the half-time fields)
     RES = {}
     rp = os.path.join(SD, 'results.jsonl')
