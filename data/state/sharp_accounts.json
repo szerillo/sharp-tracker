@@ -1,5 +1,5 @@
 {
- "built": "2026-11-07T15:29:56Z",
+ "built": "2026-11-07T15:43:23Z",
  "rows": [
   {
    "cond": "0xb041c7548e77c7e9918c322e9546f9d05bd260108205850e032d6698a406bcfe",
@@ -348,6 +348,56 @@
    }
   },
   {
+   "cond": "0xd66c88f208ff66aa5d8616e38dd1d3e5a42c783da97e93440c7dd233a7176acf",
+   "slug": "cfb-tulsa-tulane-2026-11-07",
+   "title": "Tulsa vs. Tulane",
+   "mtype": "spread",
+   "start": "2026-11-07T17:00:00Z",
+   "bet": "Tulane +2.5",
+   "side": "Tulane",
+   "flagged": "2026-11-07T15:38:52Z",
+   "why": "a top-200 account also in this sport's top 50",
+   "proven": true,
+   "trigger": "proven",
+   "n_accounts": 1,
+   "best_rank": 115,
+   "usd": 179,
+   "paid": 0.47,
+   "ask": 0.48,
+   "status": "live",
+   "link": "https://polymarket.us/event/cfb-tulsa-tulane-2026-11-07",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401862822",
+   "sport": "cfb",
+   "league": null,
+   "away": "TLSA",
+   "home": "TULN",
+   "away_name": "Tulsa Golden Hurricane",
+   "home_name": "Tulane Green Wave",
+   "game_start": "2026-11-07T17:00Z",
+   "side_std": "home",
+   "conflict": [
+    "Kalshi bet back",
+    "big money"
+   ],
+   "money_with": false,
+   "grade": "A",
+   "fair_board": 0.4777,
+   "inside_fair": false,
+   "books": {
+    "at": "2026-11-07T14:54:51Z",
+    "fair": 0.4777,
+    "q": {
+     "Novig": 0.47,
+     "Kalshi": 0.5,
+     "FD": 0.505,
+     "Caesars": 0.5074
+    }
+   }
+  },
+  {
    "cond": "0xa0612e2516c4fdfad74bffedaac5e98732954b8b20204e9cf8e2d0cf5feda864",
    "slug": "bun-stu-wer-2026-11-07-more-markets",
    "title": "VfB Stuttgart vs. SV Werder Bremen - More Markets",
@@ -363,7 +413,7 @@
    "best_rank": 132,
    "usd": 344,
    "paid": 0.64,
-   "ask": 0.71,
+   "ask": 0.7,
    "status": "live",
    "link": "https://polymarket.us/event/bun-stu-wer-2026-11-07-more-markets",
    "other": null,
@@ -409,7 +459,7 @@
    "best_rank": 49,
    "usd": 1671,
    "paid": 0.519,
-   "ask": 0.57,
+   "ask": 0.56,
    "status": "live",
    "link": "https://polymarket.us/event/cfb-morgst-delst-2026-11-07",
    "other": null,
@@ -1851,6 +1901,13 @@
     "n": 1,
     "best_rank": 12,
     "usd": 224
+   }
+  },
+  "401862822|spread": {
+   "home": {
+    "n": 1,
+    "best_rank": 115,
+    "usd": 179
    }
   },
   "401856744|total": {
