@@ -1,5 +1,5 @@
 {
- "built": "2026-11-07T21:37:10Z",
+ "built": "2026-11-07T22:00:22Z",
  "record": {
   "cbb_1h_total_curve": {
    "n": 1,
@@ -26,38 +26,13 @@
    "units": 0
   },
   "cfb_tt_under_curve": {
-   "n": 1,
+   "n": 2,
    "won": 0,
-   "lost": 1,
-   "units": -0.25
+   "lost": 2,
+   "units": -0.5
   }
  },
  "rows": [
-  {
-   "key": "cfb_tt_under_curve|f3d964c6b45c36f9e6009c47e64f96db|away|under",
-   "rule": "cfb_tt_under_curve",
-   "tier": "P",
-   "stake": 0.0,
-   "sport": "cfb",
-   "odds_id": "f3d964c6b45c36f9e6009c47e64f96db",
-   "espn": "401856854",
-   "game": "Oklahoma State Cowboys @ Kansas State Wildcats",
-   "start": "2026-11-07T18:00:00Z",
-   "market": "team_totals",
-   "team": "away",
-   "team_name": "Oklahoma State Cowboys",
-   "side": "under",
-   "line": 33.5,
-   "curve": 0.484,
-   "pin_fair": 0.43,
-   "gap": 5.4,
-   "full_total": 64.0,
-   "full_spread": 6.5,
-   "pin_price": 2.24,
-   "book": null,
-   "price": null,
-   "flagged": "2026-11-07T16:22:49Z"
-  },
   {
    "key": "cfb_tt_under_curve|5304671601ad3064a66a332cbb09313f|away|under",
    "rule": "cfb_tt_under_curve",
@@ -619,6 +594,35 @@
    "fair_gap": 1.6,
    "ev_curve": 11.5,
    "flagged": "2026-11-07T21:37:10Z"
+  },
+  {
+   "key": "cfb_q1_under_curve|2dd995baa931f5b063cb50ddbe821d74||under",
+   "rule": "cfb_q1_under_curve",
+   "tier": "A",
+   "stake": 0.5,
+   "sport": "cfb",
+   "odds_id": "2dd995baa931f5b063cb50ddbe821d74",
+   "espn": "401870795",
+   "game": "Liberty Flames @ New Mexico State Aggies",
+   "start": "2026-11-08T01:00:00Z",
+   "market": "totals_q1",
+   "team": null,
+   "team_name": null,
+   "side": "under",
+   "line": 9.5,
+   "curve": 0.519,
+   "pin_fair": 0.443,
+   "gap": 7.6,
+   "full_total": 46.5,
+   "full_spread": 15.0,
+   "pin_price": 2.15,
+   "book": "FD",
+   "price": 2.12,
+   "pin_fair_power": 0.4387,
+   "book_fair": 0.4508,
+   "fair_gap": -0.8,
+   "ev_curve": 9.9,
+   "flagged": "2026-11-07T22:00:22Z"
   }
  ]
 }
