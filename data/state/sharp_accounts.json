@@ -1,5 +1,5 @@
 {
- "built": "2026-11-07T05:50:29Z",
+ "built": "2026-11-07T06:03:50Z",
  "rows": [
   {
    "cond": "0xcd4e5842ed6bfd511ee064ab6636e21b0fe469e913b67f5f7f82537e311a8b83",
@@ -54,7 +54,7 @@
    "best_rank": 132,
    "usd": 167,
    "paid": 0.42,
-   "ask": 0.43,
+   "ask": 0.42,
    "status": "live",
    "link": "https://polymarket.us/event/bun-mai-bay-2026-11-07-more-markets",
    "other": null,
@@ -72,7 +72,7 @@
    "money_with": false,
    "grade": "A",
    "fair_board": 0.4206,
-   "inside_fair": false,
+   "inside_fair": true,
    "books": {
     "at": "2026-11-07T05:26:43Z",
     "fair": 0.4206,
@@ -296,19 +296,6 @@
    "other": null,
    "kalshi_against": null,
    "logged": true,
-   "event_id": "401856854",
-   "sport": "cfb",
-   "league": null,
-   "away": "OKST",
-   "home": "KSU",
-   "away_name": "Oklahoma State Cowboys",
-   "home_name": "Kansas State Wildcats",
-   "game_start": "2026-11-07T18:00Z",
-   "side_std": "over",
-   "conflict": [
-    "big money"
-   ],
-   "money_with": false,
    "grade": "A",
    "fair_board": null,
    "inside_fair": null,
@@ -968,10 +955,10 @@
  "record": {
   "by_fair": {
    "inside": {
-    "n": 2,
-    "won": 1,
-    "units": -0.25,
-    "clv": -0.5
+    "n": 3,
+    "won": 2,
+    "units": 0.0,
+    "clv": 0.0
    },
    "outside": {
     "n": 2,
@@ -980,9 +967,9 @@
     "clv": 0.0
    }
   },
-  "n": 73,
-  "won": 31,
-  "units": -7.07,
+  "n": 74,
+  "won": 32,
+  "units": -6.82,
   "by_grade": {
    "A": {
     "n": 36,
@@ -991,10 +978,10 @@
     "clv": 0.3
    },
    "B": {
-    "n": 24,
-    "won": 12,
-    "units": -0.53,
-    "clv": -1.44
+    "n": 25,
+    "won": 13,
+    "units": -0.28,
+    "clv": -1.34
    },
    "watch": {
     "n": 13,
@@ -1003,12 +990,12 @@
     "clv": -1.75
    }
   },
-  "units_1u": -16.37,
-  "clv": -0.59,
-  "n_venue": 36,
-  "units_venue": -3.47,
-  "clv_venue": 0.03,
-  "clv_poly_same": -1.51
+  "units_1u": -16.26,
+  "clv": -0.57,
+  "n_venue": 37,
+  "units_venue": -3.22,
+  "clv_venue": 0.05,
+  "clv_poly_same": -1.42
  },
  "sys_tags": {
   "401873039:bounce15_1h": {
