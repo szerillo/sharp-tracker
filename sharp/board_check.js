@@ -32,18 +32,25 @@ const SRC = new Set(['system', 'sharp', 'curve', 'props']);
   // the default window is whatever the page itself counts as 'today' (its whenOf), so the check and the board can never disagree
   const inView = await page.evaluate(starts => starts.map(s => whenOf(s) === 'today'), cand.map(b => b.start));
   const want = cand.filter((b, i) => inView[i]);
-  const shown = await page.evaluate(() => [...document.querySelectorAll('tr.erow[data-ev]')].map(tr => {
-    const r = tr.getBoundingClientRect(); const closed = tr.closest('details:not([open])');
-    // 11/7: a BET row (rank 0) is what must never sit in a closed dropdown; held / dropped rows keep their size text but are not bets
-    return { ev: tr.dataset.ev, side: tr.dataset.side, sized: tr.dataset.sized === '1' && tr.dataset.rank === '0', visible: !closed && r.width > 0 && r.height > 0,
-             text: tr.innerText.replace(/\s+/g, ' ').slice(0, 90) };
-  }));
+  // 11/7: the 'Not betting right now' list shows one reason at a time (Hold / Watch / Paper / Not met); a bought-out flag under Watch / passed
+  // is on the board, one click away. Collect rows under every chip. A conflict row stands for both sides (data-oside).
+  const chips = await page.evaluate(() => typeof _nb === 'undefined' ? [null] : ['hold', 'watch', 'paper', 'notmet']);
+  const shown = [];
+  for (const k of chips) {
+    if (k) { await page.evaluate(k => { _nb = k; draw(); }, k); await page.waitForTimeout(300); }
+    shown.push(...await page.evaluate(() => [...document.querySelectorAll('tr.erow[data-ev]')].map(tr => {
+      const r = tr.getBoundingClientRect(); const closed = tr.closest('details:not([open])');
+      // a BET row (rank 0) is what must never sit in a closed dropdown; held / dropped rows keep their size text but are not bets
+      return { ev: tr.dataset.ev, side: tr.dataset.side, oside: tr.dataset.oside || '', sized: tr.dataset.sized === '1' && tr.dataset.rank === '0',
+               visible: !closed && r.width > 0 && r.height > 0, text: tr.innerText.replace(/\s+/g, ' ').slice(0, 90) };
+    })));
+  }
   await browser.close();
 
   const vis = shown.filter(x => x.visible);
   const missing = [], held = [];
   for (const b of want) {
-    const hit = vis.filter(x => String(x.ev) === String(b.event_id) && x.side === b.side);
+    const hit = vis.filter(x => String(x.ev) === String(b.event_id) && (x.side === b.side || x.oside === b.side));
     if (!hit.length) missing.push(b);
     else if (!hit.some(x => x.sized)) held.push(b);
   }

@@ -662,7 +662,9 @@ function renderToday() {
     for (const [mkt, items] of byM) {
       const backs = items.filter(x => x.kind === 'back');
       const folded = items.filter(x => x.kind === 'kmove' && x.state === 'reversed' && backs.length);   // same Kalshi ticker, same story: never two votes
-      const rest = items.filter(x => !folded.includes(x)); const sides = [...new Set(rest.map(x => x.side))]; const mixed = sides.length > 1;
+      // 11/7: a soccer 'not to win' flag (not_home / not_away) points the same way as money on the other team
+      const sideN = x => /^not_/.test(x.side || '') ? ({home: 'away', away: 'home'})[x.side.slice(4)] : x.side;
+      const rest = items.filter(x => !folded.includes(x)); const sides = [...new Set(rest.map(sideN))]; const mixed = sides.length > 1;
       const kinds = [...new Set(rest.map(x => x.kind))]; const tag = mixed ? '' : sysTag(L[0].ev, rest[0].market, rest[0].side);
       // two evidence families: PRICE (sharp move, Kalshi move, bet back: where the line went; one vote however many) and MONEY
       // (big vs small: who bet it). Strong = both families on the same side, or any signal on one of your system bets.
@@ -933,7 +935,8 @@ function renderToday() {
     if (oL && backed(b)) {     // both sides of the game have support: one row, labelled conflict
       oLs.forEach(k2 => done.add(k2)); const prim = pickPrimary([...L, ...oL].filter(backer), 'opposed') || pickPrimary(L, b);
       const mine = (L.includes(prim) ? L : oL).filter(r => r !== prim), theirs = L.includes(prim) ? oL : L;
-      placed.opposed.push(prim.replace('<!--ALSO-->', `<div class="small"><span class="tag-against">Conflict: the other side is backed too</span></div>${alsoLine(theirs, 'Other side')}${alsoLine(mine, 'Also')}`)
+      const oside = AT(theirs[0] || '', 'side');   // the board check counts a conflict row as showing both sides' bets
+      placed.opposed.push(prim.replace(/^<tr class="erow([^"]*)"/, `<tr class="erow$1" data-oside="${oside}"`).replace('<!--ALSO-->', `<div class="small"><span class="tag-against">Conflict: the other side is backed too</span></div>${alsoLine(theirs, 'Other side')}${alsoLine(mine, 'Also')}`)
         .replace(/<span class="act act-(bet|watch|pass)"[^>]*>[A-Z]+<\/span>/, '<span class="act act-hold">HOLD</span>').replace(/data-rank="\d"/, 'data-rank="2"')
         .replace(/data-sized="1"/, 'data-sized="0"').replace(/<td class="c-size">[\s\S]*?<\/td>/, '<td class="c-size"><span class="dim">—</span></td>'));   // no size on a conflict
       continue; }

@@ -266,7 +266,13 @@ def map_rows(rows):
             A, H = e.get('away_team'), e.get('home_team')
             if not A or not H or not team_hit(A, t) or not team_hit(H, t): continue
             side = b if r['mtype'] == 'total' else team_side(A, H, b)
-            if side not in ('home', 'away', 'over', 'under'): break
+            if b in ('yes', 'no'):
+                # 11/7: soccer "Will Brighton & Hove Albion FC win on ...?": Yes / No. The team is in the question; Yes = that team's side,
+                # No (draw or loss) = 'not_home' / 'not_away', which money on that team opposes (bet_log tags)
+                mq = re.match(r'^will (.+?) win', (r.get('q') or r.get('bet') or '').lower())
+                ts = team_side(A, H, mq.group(1)) if mq else None
+                side = (ts if b == 'yes' else 'not_' + ts) if ts else None
+            if side not in ('home', 'away', 'over', 'under', 'not_home', 'not_away'): break
             r.update(event_id=ev, sport=e['sport'], league=e.get('league'), away=e['away'], home=e['home'], away_name=(e.get('away_team') or {}).get('displayName'),
                      home_name=(e.get('home_team') or {}).get('displayName'), game_start=e['start'], side_std=side)
             break

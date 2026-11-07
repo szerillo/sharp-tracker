@@ -469,11 +469,14 @@ def tag_bets(bets):
         f_ = fam(b['market'])
         for w in W.get((str(b['event_id']), f_), []):
             if (w.get('flagged') or '9') >= (b.get('start') or ''): continue
-            t.append(f"{w['rule']} {'with' if w['side'] == b['side'] else 'against'}")
+            # a soccer 'not to win' bet (not_home / not_away): money on that team is against it, money on the other team is with it
+            ws = b['side'][4:] if str(b['side']).startswith('not_') else None
+            t.append(f"{w['rule']} {('against' if w['side'] == ws else 'with') if ws else ('with' if w['side'] == b['side'] else 'against')}")
         # 11/7 (Sean: "Maryland ML should be opposite of Purdue"): a sized sharp flag or system bet on the other team, in the spread or the
         # moneyline, is opposition too (paper rules never count)
-        OPPS = {'home': 'away', 'away': 'home', 'over': 'under', 'under': 'over'}
-        opp_k = S_side.get((str(b['event_id']), f_, OPPS.get(b['side'], '')), set())
+        OPPS = {'home': 'away', 'away': 'home', 'over': 'under', 'under': 'over', 'not_home': 'home', 'not_away': 'away'}
+        opp_k = set(S_side.get((str(b['event_id']), f_, OPPS.get(b['side'], '')), set()))
+        if b['side'] in ('home', 'away'): opp_k |= S_side.get((str(b['event_id']), f_, 'not_' + b['side']), set())   # a 'not to win' flag on this team
         if 'sharp' in opp_k: t.append('sharp flag against')
         if 'system' in opp_k: t.append('system against')
         if any(x.endswith('against') for x in t): t.append('any signal against')
