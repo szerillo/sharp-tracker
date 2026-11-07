@@ -1,5 +1,5 @@
 {
- "built": "2026-11-07T20:35:48Z",
+ "built": "2026-11-07T20:49:30Z",
  "rows": [
   {
    "cond": "0x5a4f48f65db8bb0de7274a91d32ae7abafaf1aae7e67322744658be0e0e73abb",
@@ -890,6 +890,52 @@
    "fair_board": null,
    "inside_fair": null,
    "books": null
+  },
+  {
+   "cond": "0x976516ec1a9c79964576574c738fc8ddb98e9074705bca61d0c6f339869cf86f",
+   "slug": "mls-phi-tor-2026-11-07-more-markets",
+   "title": "Philadelphia Union vs. Toronto FC - More Markets",
+   "mtype": "total",
+   "start": "2026-11-07T21:00:00Z",
+   "bet": "Over 3.5",
+   "side": "Over",
+   "flagged": "2026-11-07T20:41:57Z",
+   "why": "a top-200 account also in this sport's top 50",
+   "proven": true,
+   "trigger": "proven",
+   "n_accounts": 1,
+   "best_rank": 132,
+   "usd": 277,
+   "paid": 0.54,
+   "ask": 0.55,
+   "status": "live",
+   "link": "https://polymarket.us/event/mls-phi-tor-2026-11-07-more-markets",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "761941",
+   "sport": "soccer",
+   "league": "mls",
+   "away": "TOR",
+   "home": "PHI",
+   "away_name": "Toronto FC",
+   "home_name": "Philadelphia Union",
+   "game_start": "2026-11-07T21:00Z",
+   "side_std": "over",
+   "money_with": false,
+   "grade": "A",
+   "fair_board": 0.4615,
+   "inside_fair": false,
+   "books": {
+    "at": "2026-11-07T19:23:17Z",
+    "fair": 0.4615,
+    "q": {
+     "Novig": 0.465,
+     "DK": 0.4878,
+     "Kalshi": 0.49,
+     "FD": 0.4902
+    }
+   }
   },
   {
    "cond": "0x07de85d6a00260bb3548af18e299a3af4ecaff94ea7bae2073f3b26f46717e53",
@@ -2177,21 +2223,21 @@
     "clv": 0.0
    },
    "outside": {
-    "n": 5,
+    "n": 7,
     "won": 1,
-    "units": -1.08,
-    "clv": 1.1
+    "units": -2.08,
+    "clv": 0.79
    }
   },
-  "n": 85,
+  "n": 88,
   "won": 37,
-  "units": -7.06,
+  "units": -8.65,
   "by_grade": {
    "A": {
-    "n": 46,
+    "n": 49,
     "won": 19,
-    "units": -5.06,
-    "clv": 0.14
+    "units": -6.65,
+    "clv": 0.13
    },
    "B": {
     "n": 26,
@@ -2206,12 +2252,12 @@
     "clv": -1.75
    }
   },
-  "units_1u": -16.83,
-  "clv": -0.4,
-  "n_venue": 40,
-  "units_venue": -3.47,
-  "clv_venue": 0.38,
-  "clv_poly_same": -1.06
+  "units_1u": -19.83,
+  "clv": -0.38,
+  "n_venue": 42,
+  "units_venue": -4.47,
+  "clv_venue": 0.46,
+  "clv_poly_same": -0.99
  },
  "sys_tags": {
   "401873039:bounce15_1h": {
@@ -2257,14 +2303,6 @@
     "usd": 153
    },
    "against": null
-  },
-  "401858514:cfb_homefav_7510_under": {
-   "with": null,
-   "against": {
-    "n": 1,
-    "best_rank": 182,
-    "usd": 296
-   }
   },
   "401871098:xch_homedog_fade:ml": {
    "with": {
@@ -2502,6 +2540,13 @@
     "usd": 245
    }
   },
+  "401871074|spread": {
+   "away": {
+    "n": 1,
+    "best_rank": 115,
+    "usd": 530
+   }
+  },
   "401871098|ml": {
    "away": {
     "n": 1,
@@ -2561,6 +2606,13 @@
     "n": 1,
     "best_rank": 132,
     "usd": 158
+   }
+  },
+  "761941|total": {
+   "over": {
+    "n": 1,
+    "best_rank": 132,
+    "usd": 277
    }
   },
   "761945|total": {
