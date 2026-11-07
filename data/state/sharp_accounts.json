@@ -1,5 +1,5 @@
 {
- "built": "2026-11-07T15:29:56Z",
+ "built": "2026-11-07T15:37:02Z",
  "rows": [
   {
    "cond": "0xb041c7548e77c7e9918c322e9546f9d05bd260108205850e032d6698a406bcfe",
@@ -302,6 +302,52 @@
    "books": null
   },
   {
+   "cond": "0xca9660f9021c33457b796162145d7b992449f8e9371690f2906298a56579208c",
+   "slug": "cfb-clmsn-syra-2026-11-07",
+   "title": "Clemson vs. Syracuse",
+   "mtype": "ml",
+   "start": "2026-11-07T17:00:00Z",
+   "bet": "Syracuse ML",
+   "side": "Syracuse",
+   "flagged": "2026-11-07T15:33:27Z",
+   "why": "a top-200 account also in this sport's top 50",
+   "proven": true,
+   "trigger": "proven",
+   "n_accounts": 1,
+   "best_rank": 115,
+   "usd": 1915,
+   "paid": 0.47,
+   "ask": 0.48,
+   "status": "live",
+   "link": "https://polymarket.us/event/cfb-clmsn-syra-2026-11-07",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401858285",
+   "sport": "cfb",
+   "league": null,
+   "away": "CLEM",
+   "home": "SYR",
+   "away_name": "Clemson Tigers",
+   "home_name": "Syracuse Orange",
+   "game_start": "2026-11-07T17:00Z",
+   "side_std": "home",
+   "money_with": false,
+   "grade": "A",
+   "fair_board": 0.4574,
+   "inside_fair": false,
+   "books": {
+    "at": "2026-11-07T14:54:51Z",
+    "fair": 0.4574,
+    "q": {
+     "Novig": 0.46,
+     "Caesars": 0.4717,
+     "DK": 0.4762,
+     "Kalshi": 0.48
+    }
+   }
+  },
+  {
    "cond": "0xa0612e2516c4fdfad74bffedaac5e98732954b8b20204e9cf8e2d0cf5feda864",
    "slug": "bun-stu-wer-2026-11-07-more-markets",
    "title": "VfB Stuttgart vs. SV Werder Bremen - More Markets",
@@ -591,7 +637,7 @@
    "home_name": "CF Montr\u00e9al",
    "game_start": "2026-11-07T21:00Z",
    "side_std": "over",
-   "money_with": false,
+   "money_with": true,
    "grade": "A",
    "fair_board": null,
    "inside_fair": null,
@@ -666,8 +712,7 @@
    "game_start": "2026-11-08T00:30Z",
    "side_std": "away",
    "conflict": [
-    "Kalshi move",
-    "big money"
+    "Kalshi move"
    ],
    "money_with": false,
    "grade": "A",
@@ -763,8 +808,8 @@
    ],
    "money_with": false,
    "grade": "B",
-   "fair_board": 0.5007,
    "inside_fair": false,
+   "fair_board": 0.5007,
    "books": {
     "at": "2026-11-07T14:54:51Z",
     "fair": 0.5007,
@@ -1520,21 +1565,21 @@
     "clv": 0.0
    },
    "outside": {
-    "n": 2,
+    "n": 3,
     "won": 0,
-    "units": -0.83,
-    "clv": 0.0
+    "units": -1.08,
+    "clv": -0.17
    }
   },
-  "n": 74,
-  "won": 32,
-  "units": -6.82,
+  "n": 77,
+  "won": 34,
+  "units": -6.36,
   "by_grade": {
    "A": {
-    "n": 36,
-    "won": 15,
-    "units": -4.53,
-    "clv": 0.3
+    "n": 39,
+    "won": 17,
+    "units": -4.07,
+    "clv": 0.16
    },
    "B": {
     "n": 25,
@@ -1549,12 +1594,12 @@
     "clv": -1.75
    }
   },
-  "units_1u": -16.26,
-  "clv": -0.57,
-  "n_venue": 37,
-  "units_venue": -3.22,
+  "units_1u": -14.81,
+  "clv": -0.59,
+  "n_venue": 38,
+  "units_venue": -3.47,
   "clv_venue": 0.05,
-  "clv_poly_same": -1.42
+  "clv_poly_same": -1.39
  },
  "sys_tags": {
   "401873039:bounce15_1h": {
@@ -1794,6 +1839,13 @@
     "usd": 2437
    }
   },
+  "401858285|ml": {
+   "home": {
+    "n": 1,
+    "best_rank": 115,
+    "usd": 1915
+   }
+  },
   "401858289|total": {
    "over": {
     "n": 1,
@@ -1832,6 +1884,13 @@
     "n": 1,
     "best_rank": 182,
     "usd": 273
+   }
+  },
+  "401909760|total": {
+   "under": {
+    "n": 1,
+    "best_rank": 110,
+    "usd": 829
    }
   },
   "401926112|total": {
