@@ -248,21 +248,31 @@ def venue_prices(r, board=None):
     return None
 
 
+_SCHED = None
+
+
 def map_rows(rows):
     """Attach our schedule's game (event_id, sport, teams, start) and side (home / away / over / under) to each flag, the same way
     by_event matches (start within 15 min, team nicknames in the Polymarket title), so the page can merge flags into the watch."""
-    sched = {}
-    for sp in ('nfl', 'nba', 'nhl', 'cfb', 'cbb', 'soccer', 'mlb', 'wnba'):
-        try:
-            for k, v in json.load(open(os.path.join(ROOT, 'data', sp, 'schedule.json'))).items(): sched[k] = dict(v, sport=sp)
-        except Exception: pass
+    # 11/7: the schedules are loaded and their start times parsed once per process (the bet tracker calls this once per flag, and
+    # reloading every sport's schedule each time pushed the signals job past its 20-minute limit)
+    global _SCHED
+    if _SCHED is None or _SCHED[0] != ROOT:
+        sc = {}
+        for sp in ('nfl', 'nba', 'nhl', 'cfb', 'cbb', 'soccer', 'mlb', 'wnba'):
+            try:
+                for k, v in json.load(open(os.path.join(ROOT, 'data', sp, 'schedule.json'))).items():
+                    try: t0 = epoch(v['start'].replace('Z', '+00:00'))
+                    except Exception: continue
+                    sc[k] = dict(v, sport=sp, _t=t0)
+            except Exception: pass
+        _SCHED = (ROOT, sc)
+    sched = _SCHED[1]
     nick = lambda t: (((t or {}).get('shortDisplayName') or (t or {}).get('name') or (t or {}).get('displayName') or '').lower().split() or [''])[-1]
     for r in rows:
         st = epoch(r['start']); t = (r.get('title') or '').lower(); b = (r.get('side') or '').lower()
         for ev, e in sched.items():
-            try:
-                if abs(epoch(e['start'].replace('Z', '+00:00')) - st) > 900: continue
-            except Exception: continue
+            if abs(e['_t'] - st) > 900: continue
             A, H = e.get('away_team'), e.get('home_team')
             if not A or not H or not team_hit(A, t) or not team_hit(H, t): continue
             side = b if r['mtype'] == 'total' else team_side(A, H, b)

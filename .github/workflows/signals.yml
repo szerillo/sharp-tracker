@@ -14,7 +14,7 @@ concurrency:
 jobs:
   signals:
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 30   # 11/7: runs reached 20 min and were cut off before the commit (no board update 2:10-3:30 PM ET)
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
