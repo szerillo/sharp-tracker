@@ -1,5 +1,5 @@
 {
- "built": "2026-11-07T00:02:25Z",
+ "built": "2026-11-06T23:55:33Z",
  "rows": [
   {
    "cond": "0x89b352113e523a8dff5556e0880d9f258821fed7caee81b050951f9bf294b9f4",
@@ -97,12 +97,12 @@
    "best_rank": 4,
    "usd": 274,
    "paid": 0.51,
-   "ask": null,
+   "ask": 0.53,
    "status": "live",
    "link": "https://polymarket.us/event/cbb-bostu-brown-2026-11-06",
    "other": null,
    "kalshi_against": null,
-   "logged": false,
+   "logged": true,
    "grade": "B",
    "fair_board": null,
    "inside_fair": null,
@@ -1566,6 +1566,58 @@
     "best_rank": 58,
     "usd": 500
    }
+  },
+  "401909288:xch_homedog_fade:ml": {
+   "with": {
+    "n": 1,
+    "best_rank": 55,
+    "usd": 209
+   },
+   "against": {
+    "n": 1,
+    "best_rank": 93,
+    "usd": 110
+   }
+  },
+  "401909288:nba_momentum:ml": {
+   "with": {
+    "n": 1,
+    "best_rank": 55,
+    "usd": 209
+   },
+   "against": {
+    "n": 1,
+    "best_rank": 93,
+    "usd": 110
+   }
+  },
+  "401909288:nba_momentum:spread": {
+   "with": null,
+   "against": {
+    "n": 1,
+    "best_rank": 132,
+    "usd": 293
+   }
+  },
+  "401909287:nba_momentum:spread": {
+   "with": {
+    "n": 6,
+    "best_rank": 12,
+    "usd": 26031
+   },
+   "against": {
+    "n": 7,
+    "best_rank": 43,
+    "usd": 15157
+   }
+  },
+  "401909287:nba_momentum:total": {
+   "with": {
+    "n": 2,
+    "best_rank": 132,
+    "usd": 1627
+   },
+   "against": null
   }
  },
  "by_event": {

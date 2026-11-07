@@ -2941,30 +2941,103 @@
 "loss": 0.0069
 }
 },
-"401869951:cfb_homefav_7510_under": {
-"tag": "cfb_homefav_7510_under",
-"fill_id": "c2d08afbb603",
-"ts": "2026-11-06T23:59:12Z",
-"market": "total",
-"side": "under",
-"line": 54.5,
-"venue": "Novig",
-"price": -102,
-"fair": 0.49241,
-"edge_pts": -1.26,
-"why": "home favourite GASO -8.5, total 54.5: under (mined angle)"
+"401909292:nba_momentum:ml": {
+"tag": "nba_momentum",
+"fill_id": "81e6856662c2",
+"ts": "2026-11-07T00:04:49Z",
+"market": "ml",
+"side": "home",
+"line": null,
+"venue": "Kalshi",
+"price": 133,
+"fair": 0.3972,
+"edge_pts": -3.28,
+"why": "Kalshi ml mid 0.375 at T-6h -> 0.405 now (+3.0c); continuation (audit section 3, NBA only)",
+"now": {
+"venue": "DK",
+"price": 160
+}
 },
-"401892661:xch_homedog_fade:spread": {
-"tag": "xch_homedog_fade",
-"fill_id": "85219fabdb28",
-"ts": "2026-11-06T23:59:12Z",
+"401909292:nba_momentum:spread": {
+"tag": "nba_momentum",
+"fill_id": "f17b58c3cf95",
+"ts": "2026-11-07T00:04:49Z",
 "market": "spread",
-"side": "away",
-"line": 1.5,
+"side": "home",
+"line": 4.5,
 "venue": "Novig",
-"price": -190,
-"fair": 0.65093,
-"edge_pts": -0.41,
-"why": "Novig home side mid 0.350 inside T-1.0h; audit band 20-35c"
+"price": -117,
+"fair": 0.5257,
+"edge_pts": -1.43,
+"why": "Novig spread mid 0.492 at T-6h -> 0.538 now (+4.5c); continuation (audit section 3, NBA only)",
+"now": {
+"venue": "Polymarket",
+"price": 104
+},
+"ladder": [
+{
+"line": 6.5,
+"steps": -4,
+"venue": "Novig",
+"price": -156,
+"cost": 0.61,
+"fair": 0.605,
+"loss": -0.0085
+},
+{
+"line": 5.5,
+"steps": -2,
+"venue": "Novig",
+"price": -138,
+"cost": 0.58,
+"fair": 0.577,
+"loss": -0.0105
+},
+{
+"line": 5.0,
+"steps": -1,
+"venue": "Caesars",
+"price": -110,
+"cost": 0.5238,
+"fair": 0.5029,
+"loss": 0.0075
+},
+{
+"line": 4.5,
+"steps": 0,
+"venue": "Polymarket",
+"price": 104,
+"cost": 0.49,
+"fair": 0.5257,
+"loss": -0.0492
+},
+{
+"line": 3.5,
+"steps": 2,
+"venue": "Novig",
+"price": -100,
+"cost": 0.5,
+"fair": 0.4969,
+"loss": -0.0104
+},
+{
+"line": 2.5,
+"steps": 4,
+"venue": "Novig",
+"price": 108,
+"cost": 0.48,
+"fair": 0.465,
+"loss": 0.0015
+}
+],
+"bet_to": {
+"line": 2.5,
+"steps": 4,
+"venue": "Novig",
+"price": 108,
+"cost": 0.48,
+"fair": 0.465,
+"loss": 0.0015
+}
 }
 }
