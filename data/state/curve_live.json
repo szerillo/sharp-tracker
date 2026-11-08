@@ -1,5 +1,5 @@
 {
- "built": "2026-11-08T05:58:46Z",
+ "built": "2026-11-08T06:22:13Z",
  "record": {
   "cbb_1h_total_curve": {
    "n": 1,
@@ -14,16 +14,16 @@
    "units": -0.98
   },
   "nhl_p1_spread_curve": {
-   "n": 2,
-   "won": 0,
+   "n": 3,
+   "won": 1,
    "lost": 2,
-   "units": -0.5
+   "units": -0.29
   },
   "nhl_p3_under_curve": {
-   "n": 4,
+   "n": 5,
    "won": 0,
-   "lost": 4,
-   "units": -1.0
+   "lost": 5,
+   "units": -1.5
   },
   "cfb_tt_under_curve": {
    "n": 14,
@@ -57,64 +57,6 @@
    "book": null,
    "price": null,
    "flagged": "2026-11-07T23:40:31Z"
-  },
-  {
-   "key": "nhl_p1_spread_curve|8fe46a5692910faf8de7ac94676f4029||away",
-   "rule": "nhl_p1_spread_curve",
-   "tier": "C",
-   "stake": 0.25,
-   "sport": "nhl",
-   "odds_id": "8fe46a5692910faf8de7ac94676f4029",
-   "espn": "401892673",
-   "game": "Vancouver Canucks @ Edmonton Oilers",
-   "start": "2026-11-08T03:10:00Z",
-   "market": "spreads_p1",
-   "team": null,
-   "team_name": "Vancouver Canucks",
-   "side": "away",
-   "line": 0.5,
-   "curve": 0.603,
-   "pin_fair": 0.504,
-   "gap": 10.0,
-   "full_total": 7.0,
-   "full_spread": -2.5,
-   "pin_price": 1.91,
-   "book": "DK",
-   "price": 1.83,
-   "pin_fair_power": 0.5041,
-   "book_fair": 0.5107,
-   "fair_gap": -0.7,
-   "ev_curve": 10.4,
-   "flagged": "2026-11-08T00:19:28Z"
-  },
-  {
-   "key": "nhl_p3_under_curve|8fe46a5692910faf8de7ac94676f4029||under",
-   "rule": "nhl_p3_under_curve",
-   "tier": "B",
-   "stake": 0.5,
-   "sport": "nhl",
-   "odds_id": "8fe46a5692910faf8de7ac94676f4029",
-   "espn": "401892673",
-   "game": "Vancouver Canucks @ Edmonton Oilers",
-   "start": "2026-11-08T03:10:00Z",
-   "market": "totals_p3",
-   "team": null,
-   "team_name": null,
-   "side": "under",
-   "line": 2.5,
-   "curve": 0.618,
-   "pin_fair": 0.548,
-   "gap": 7.0,
-   "full_total": 7.0,
-   "full_spread": -2.5,
-   "pin_price": 1.76,
-   "book": "FD",
-   "price": 1.74,
-   "pin_fair_power": 0.5502,
-   "book_fair": 0.5445,
-   "fair_gap": 0.3,
-   "ev_curve": 7.5,
-   "flagged": "2026-11-08T00:19:28Z"
   },
   {
    "key": "cfb_tt_under_curve|d4334cec8f2060f3b8491ca9c7325892|away|under",
