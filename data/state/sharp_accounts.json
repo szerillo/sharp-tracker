@@ -1,5 +1,5 @@
 {
- "built": "2026-11-08T21:46:29Z",
+ "built": "2026-11-08T21:53:36Z",
  "rows": [
   {
    "cond": "0x4482ea8fcedde0dfe70a6793f45114b74b40eb73e16bc1c25fe51a999a0ed1b7",
@@ -914,7 +914,7 @@
    "best_rank": 112,
    "usd": 8008,
    "paid": 0.43,
-   "ask": 0.48,
+   "ask": 0.49,
    "status": "live",
    "link": "https://polymarket.us/event/nba-lal-det-2026-11-08",
    "other": null,
@@ -932,7 +932,7 @@
    "money_with": false,
    "grade": "B",
    "fair_board": 0.4886,
-   "inside_fair": true,
+   "inside_fair": false,
    "books": {
     "at": "2026-11-08T20:52:54Z",
     "fair": 0.4886,
@@ -1522,7 +1522,7 @@
    "best_rank": 43,
    "usd": 257,
    "paid": 0.509,
-   "ask": 0.46,
+   "ask": 0.43,
    "status": "live",
    "link": "https://polymarket.us/event/nba-lal-atl-2026-11-09",
    "other": null,
@@ -1613,21 +1613,21 @@
     "clv": 0.0
    },
    "outside": {
-    "n": 26,
-    "won": 12,
-    "units": -0.8,
-    "clv": 0.1
+    "n": 28,
+    "won": 14,
+    "units": 0.2,
+    "clv": 0.23
    }
   },
-  "n": 141,
-  "won": 61,
-  "units": -11.8,
+  "n": 148,
+  "won": 66,
+  "units": -10.3,
   "by_grade": {
    "A": {
-    "n": 97,
-    "won": 40,
-    "units": -10.24,
-    "clv": -0.14
+    "n": 104,
+    "won": 45,
+    "units": -8.74,
+    "clv": -0.03
    },
    "B": {
     "n": 30,
@@ -1642,12 +1642,12 @@
     "clv": -1.75
    }
   },
-  "units_1u": -25.61,
-  "clv": -0.4,
-  "n_venue": 66,
-  "units_venue": -5.82,
-  "clv_venue": 0.33,
-  "clv_poly_same": -0.75
+  "units_1u": -24.86,
+  "clv": -0.31,
+  "n_venue": 68,
+  "units_venue": -4.82,
+  "clv_venue": 0.46,
+  "clv_poly_same": -0.66
  },
  "sys_tags": {
   "401909947:nba_ats_hot_home": {
