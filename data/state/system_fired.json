@@ -3225,19 +3225,16 @@
 },
 "401856858:cfb_homefav_7510_under": {
 "tag": "cfb_homefav_7510_under",
-"fill_id": "c12ba67ee32d",
-"ts": "2026-11-07T05:24:15Z",
+"fill_id": "ac5aaa282c99",
+"ts": "2026-11-08T20:50:33Z",
 "market": "total",
 "side": "under",
-"line": 47.5,
-"venue": "Novig",
-"price": -300,
-"fair": null,
-"edge_pts": null,
-"why": "home favourite BYU -7.5, total 47.5: under (mined angle)",
-"void": true,
-"void_why": "price was a thin exchange placeholder (no book priced the game yet); re-fills at a real price",
-"void_at": "2026-11-07T06:34:42Z"
+"line": 48.5,
+"venue": "FD",
+"price": -106,
+"fair": 0.49443,
+"edge_pts": -2.01,
+"why": "home favourite BYU -7.5, total 48.5: under (mined angle)"
 },
 "401856883:cfb_road_dog_low_total": {
 "tag": "cfb_road_dog_low_total",
@@ -4316,7 +4313,10 @@
 "price": -110,
 "fair": 0.5,
 "edge_pts": -2.38,
-"why": "home favourite BOIS -9.5, total 62.5: under (mined angle)"
+"why": "home favourite BOIS -9.5, total 62.5: under (mined angle)",
+"void": true,
+"void_why": "rule no longer holds on the current line: home spread -10.5, total 65.5 (2026-11-08T20:50:33Z)",
+"void_at": "2026-11-08T20:50:33Z"
 },
 "401858524:cfb_homefav_7510_under": {
 "tag": "cfb_homefav_7510_under",
@@ -4676,7 +4676,10 @@
 "price": -112,
 "fair": 0.50557,
 "edge_pts": -2.27,
-"why": "6:15 PM ET kickoff, total 51.5: over (mined angle)"
+"why": "6:15 PM ET kickoff, total 51.5: over (mined angle)",
+"void": true,
+"void_why": "rule no longer holds on the current line: home spread -3.5, total 52.5 (2026-11-08T20:50:33Z)",
+"void_at": "2026-11-08T20:50:33Z"
 },
 "401864538:cfb_road_dog_low_total": {
 "tag": "cfb_road_dog_low_total",
@@ -4716,5 +4719,32 @@
 "fair": 0.67474,
 "edge_pts": -0.03,
 "why": "Novig home side mid 0.328 inside T-0.9h; audit band 20-35c"
+},
+"401909945:nba_momentum:total": {
+"tag": "nba_momentum",
+"fill_id": "debe471f2ef5",
+"ts": "2026-11-08T20:14:45Z",
+"market": "total",
+"side": "over",
+"line": 237.5,
+"venue": "Kalshi",
+"price": -122,
+"fair": 0.52122,
+"edge_pts": -2.88,
+"why": "Kalshi total mid 0.495 at T-6h -> 0.525 now (+3.0c); continuation (audit section 3, NBA only)",
+"restored": true
+},
+"401909959:nba_ats_hot_home": {
+"tag": "nba_ats_hot_home",
+"fill_id": "900cc9d39fdc",
+"ts": "2026-11-08T20:50:33Z",
+"market": "spread",
+"side": "home",
+"line": -10.5,
+"venue": "Polymarket",
+"price": -133,
+"fair": null,
+"edge_pts": null,
+"why": "home GS covers 70% of spreads this season (10 games), 2 days rest: home spread (mined angle)"
 }
 }
