@@ -4664,8 +4664,8 @@
 },
 "401856884:cfb_day_over": {
 "tag": "cfb_day_over",
-"fill_id": "451f2048ff13",
-"ts": "2026-11-08T20:13:16Z",
+"fill_id": "effaa95d6bbd",
+"ts": "2026-11-08T19:53:25Z",
 "market": "total",
 "side": "over",
 "line": 51.5,
@@ -4674,9 +4674,10 @@
 "fair": 0.50557,
 "edge_pts": -2.27,
 "why": "6:15 PM ET kickoff, total 51.5: over (mined angle)",
+"restored": true,
 "void": true,
-"void_why": "rule no longer holds on the current line: home spread -3.5, total 52.5 (2026-11-08T20:50:33Z)",
-"void_at": "2026-11-08T20:50:33Z"
+"void_why": "rule no longer holds on the current line: home spread -3.0, total 52.5 (2026-11-08T22:53:39Z)",
+"void_at": "2026-11-08T22:53:39Z"
 },
 "401864538:cfb_road_dog_low_total": {
 "tag": "cfb_road_dog_low_total",
@@ -4937,5 +4938,18 @@
 "fair": 0.4435,
 "loss": -0.0013
 }
+},
+"401856858:cfb_day_over": {
+"tag": "cfb_day_over",
+"fill_id": "0d1da01ee015",
+"ts": "2026-11-08T22:53:39Z",
+"market": "total",
+"side": "over",
+"line": 48.5,
+"venue": "DK",
+"price": -110,
+"fair": 0.503,
+"edge_pts": -2.08,
+"why": "3:30 PM ET kickoff, total 48.5: over (mined angle)"
 }
 }
