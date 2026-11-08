@@ -1,5 +1,5 @@
 {
- "built": "2026-11-08T01:19:09Z",
+ "built": "2026-11-08T01:26:05Z",
  "rows": [
   {
    "cond": "0x07de85d6a00260bb3548af18e299a3af4ecaff94ea7bae2073f3b26f46717e53",
@@ -397,6 +397,43 @@
    }
   },
   {
+   "cond": "0x56aabf6a4776c1804d3ca35b96ad4fdd428a321a0bce76d46aabb4624ca62631",
+   "slug": "cfb-frest-utahst-2026-11-07",
+   "title": "Fresno State vs. Utah State",
+   "mtype": "total",
+   "start": "2026-11-08T02:30:00Z",
+   "bet": "Over 45.5",
+   "side": "Over",
+   "flagged": "2026-11-08T01:22:24Z",
+   "why": "a top-50 account",
+   "proven": false,
+   "trigger": "top50",
+   "n_accounts": 1,
+   "best_rank": 3,
+   "usd": 3825,
+   "paid": 0.45,
+   "ask": 0.49,
+   "status": "live",
+   "link": "https://polymarket.us/event/cfb-frest-utahst-2026-11-07",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401860913",
+   "sport": "cfb",
+   "league": null,
+   "away": "FRES",
+   "home": "USU",
+   "away_name": "Fresno State Bulldogs",
+   "home_name": "Utah State Aggies",
+   "game_start": "2026-11-08T02:30Z",
+   "side_std": "over",
+   "money_with": false,
+   "grade": "B",
+   "fair_board": null,
+   "inside_fair": null,
+   "books": null
+  },
+  {
    "cond": "0x3d631d77668cbb691ae5c9acebfc4787a3e68f5d02db0c5af9cbe3749ca77947",
    "slug": "nba-sas-por-2026-11-07",
    "title": "Spurs vs. Trail Blazers",
@@ -461,7 +498,7 @@
    "best_rank": 115,
    "usd": 3480,
    "paid": 0.48,
-   "ask": 0.49,
+   "ask": 0.47,
    "status": "live",
    "link": "https://polymarket.us/event/cfb-wyom-unlv-2026-11-07",
    "other": null,
@@ -1917,6 +1954,13 @@
     "n": 1,
     "best_rank": 132,
     "usd": 245
+   }
+  },
+  "401860913|total": {
+   "over": {
+    "n": 1,
+    "best_rank": 3,
+    "usd": 3825
    }
   },
   "401864535|spread": {
