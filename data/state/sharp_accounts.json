@@ -1,5 +1,5 @@
 {
- "built": "2026-11-08T17:28:22Z",
+ "built": "2026-11-08T17:35:18Z",
  "rows": [
   {
    "cond": "0x2992326e6e51bbbfcea34ca609e83388352f1a5674d411c13ac0ec4911870f7f",
@@ -847,7 +847,7 @@
    "best_rank": 143,
    "usd": 4982,
    "paid": 0.58,
-   "ask": 0.64,
+   "ask": 0.63,
    "status": "live",
    "link": "https://polymarket.us/event/nfl-cle-no-2026-11-08",
    "other": null,
@@ -963,14 +963,14 @@
    "bet": "Saints ML",
    "side": "Saints",
    "flagged": "2026-11-08T17:05:18Z",
-   "why": "a top-200 account also in this sport's top 50",
+   "why": "2 top-200 accounts",
    "proven": true,
    "trigger": "proven",
-   "n_accounts": 1,
-   "best_rank": 143,
-   "usd": 24188,
-   "paid": 0.64,
-   "ask": 0.68,
+   "n_accounts": 2,
+   "best_rank": 58,
+   "usd": 24508,
+   "paid": 0.641,
+   "ask": 0.69,
    "status": "live",
    "link": "https://polymarket.us/event/nfl-cle-no-2026-11-08",
    "other": null,
@@ -1019,7 +1019,7 @@
    "best_rank": 132,
    "usd": 430,
    "paid": 0.4,
-   "ask": 0.39,
+   "ask": 0.38,
    "status": "live",
    "link": "https://polymarket.us/event/bun-hof-s04-2026-11-08",
    "other": null,
@@ -1271,7 +1271,7 @@
    "best_rank": 4,
    "usd": 130,
    "paid": 0.52,
-   "ask": 0.63,
+   "ask": 0.64,
    "status": "live",
    "link": "https://polymarket.us/event/cbb-ndkst-csu-2026-11-08",
    "other": null,
@@ -1796,7 +1796,7 @@
    "best_rank": 143,
    "usd": 107,
    "paid": 0.85,
-   "ask": 0.8,
+   "ask": 0.79,
    "status": "other side",
    "link": "https://polymarket.us/event/nfl-dal-ind-2026-11-08",
    "other": {
@@ -1805,7 +1805,7 @@
     "usd": 6486,
     "first": "2026-11-07T01:15:12Z"
    },
-   "exit_bid": 0.79,
+   "exit_bid": 0.78,
    "kalshi_against": null,
    "logged": false,
    "event_id": "401873040",
@@ -1847,9 +1847,9 @@
    "status": "other side",
    "link": "https://polymarket.us/event/nba-lal-det-2026-11-08",
    "other": {
-    "n_accounts": 1,
+    "n_accounts": 2,
     "best_rank": 40,
-    "usd": 1320,
+    "usd": 1436,
     "first": "2026-11-07T22:00:06Z"
    },
    "exit_bid": 0.37,
@@ -2014,6 +2014,14 @@
   "clv_poly_same": -0.83
  },
  "sys_tags": {
+  "401873044:vrest8_1h": {
+   "with": {
+    "n": 1,
+    "best_rank": 58,
+    "usd": 450
+   },
+   "against": null
+  },
   "401873039:bounce15_1h": {
    "with": {
     "n": 1,
@@ -2109,6 +2117,14 @@
     "best_rank": 116,
     "usd": 1140
    }
+  },
+  "401873044:wind1014": {
+   "with": {
+    "n": 1,
+    "best_rank": 58,
+    "usd": 450
+   },
+   "against": null
   },
   "401873049:wind1014": {
    "with": {
@@ -2229,9 +2245,9 @@
   },
   "401873039|ml": {
    "home": {
-    "n": 1,
-    "best_rank": 143,
-    "usd": 24188
+    "n": 2,
+    "best_rank": 58,
+    "usd": 24508
    }
   },
   "401873044|ml": {
@@ -2251,6 +2267,13 @@
     "n": 1,
     "best_rank": 4,
     "usd": 985
+   }
+  },
+  "401873044|total": {
+   "under": {
+    "n": 1,
+    "best_rank": 58,
+    "usd": 450
    }
   },
   "401873043|ml": {
@@ -2356,9 +2379,9 @@
     "usd": 140
    },
    "home": {
-    "n": 1,
+    "n": 2,
     "best_rank": 40,
-    "usd": 1320
+    "usd": 1436
    }
   },
   "401909946|total": {
