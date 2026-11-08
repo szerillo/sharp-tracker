@@ -1,5 +1,5 @@
 {
- "built": "2026-11-08T19:42:25Z",
+ "built": "2026-11-08T19:49:13Z",
  "rows": [
   {
    "cond": "0x7ef37ab1c5a9aa47e03e9ca4fbc77aa2511c9275b8a064802a44f2461c1f691a",
@@ -862,55 +862,6 @@
    }
   },
   {
-   "cond": "0xab51f54175130112a7303a235dc4a5b84860ffe7f39c40937c0f6825f85cd5c8",
-   "slug": "nba-phi-chi-2026-11-08",
-   "title": "76ers vs. Bulls",
-   "mtype": "spread",
-   "start": "2026-11-08T20:30:00Z",
-   "bet": "Bulls +9.5",
-   "side": "Bulls",
-   "flagged": "2026-11-08T16:59:48Z",
-   "why": "2 top-200 accounts",
-   "proven": false,
-   "trigger": "two",
-   "n_accounts": 2,
-   "best_rank": 119,
-   "usd": 2835,
-   "paid": 0.511,
-   "ask": 0.51,
-   "status": "live",
-   "link": "https://polymarket.us/event/nba-phi-chi-2026-11-08",
-   "other": null,
-   "kalshi_against": null,
-   "logged": true,
-   "event_id": "401909945",
-   "sport": "nba",
-   "league": null,
-   "away": "PHI",
-   "home": "CHI",
-   "away_name": "Philadelphia 76ers",
-   "home_name": "Chicago Bulls",
-   "game_start": "2026-11-08T20:30Z",
-   "side_std": "home",
-   "conflict": [
-    "Kalshi move"
-   ],
-   "money_with": false,
-   "grade": "B",
-   "inside_fair": false,
-   "fair_board": 0.5124,
-   "books": {
-    "at": "2026-11-08T19:00:11Z",
-    "fair": 0.5157,
-    "q": {
-     "Novig": 0.52,
-     "Polymarket": 0.52,
-     "FD": 0.5327,
-     "DK": 0.5349
-    }
-   }
-  },
-  {
    "cond": "0x12fe66309ecbcceab016e901e25a0bcc355f2a07f646c94dc110a9c411e14b9e",
    "slug": "nfl-hou-lac-2026-11-08",
    "title": "Texans vs. Chargers",
@@ -1409,6 +1360,52 @@
    "books": null
   },
   {
+   "cond": "0xab51f54175130112a7303a235dc4a5b84860ffe7f39c40937c0f6825f85cd5c8",
+   "slug": "nba-phi-chi-2026-11-08",
+   "title": "76ers vs. Bulls",
+   "mtype": "spread",
+   "start": "2026-11-08T20:30:00Z",
+   "bet": "Bulls +9.5",
+   "side": "Bulls",
+   "flagged": "2026-11-08T16:59:48Z",
+   "why": "2 top-200 accounts",
+   "proven": false,
+   "trigger": "two",
+   "n_accounts": 2,
+   "best_rank": 119,
+   "usd": 2835,
+   "paid": 0.511,
+   "ask": 0.51,
+   "status": "other side",
+   "link": "https://polymarket.us/event/nba-phi-chi-2026-11-08",
+   "other": {
+    "n_accounts": 1,
+    "best_rank": 194,
+    "usd": 250,
+    "first": "2026-11-08T19:46:27Z"
+   },
+   "exit_bid": 0.5,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401909945",
+   "sport": "nba",
+   "league": null,
+   "away": "PHI",
+   "home": "CHI",
+   "away_name": "Philadelphia 76ers",
+   "home_name": "Chicago Bulls",
+   "game_start": "2026-11-08T20:30Z",
+   "side_std": "home",
+   "conflict": [
+    "Kalshi move"
+   ],
+   "money_with": false,
+   "grade": "B",
+   "inside_fair": false,
+   "fair_board": 0.5124,
+   "books": null
+  },
+  {
    "cond": "0x86ced242518f12a9168a7b47e5a57fc0ac4e12e3bcb4981d560abe6b161fb696",
    "slug": "nba-lal-det-2026-11-08",
    "title": "Lakers vs. Pistons",
@@ -1774,7 +1771,11 @@
    }
   },
   "401909945:nba_momentum:spread": {
-   "with": null,
+   "with": {
+    "n": 1,
+    "best_rank": 194,
+    "usd": 250
+   },
    "against": {
     "n": 2,
     "best_rank": 119,
@@ -1854,6 +1855,11 @@
     "n": 2,
     "best_rank": 119,
     "usd": 2835
+   },
+   "away": {
+    "n": 1,
+    "best_rank": 194,
+    "usd": 250
    }
   },
   "401909946|ml": {
