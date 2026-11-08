@@ -1,5 +1,5 @@
 {
- "built": "2026-11-08T17:14:47Z",
+ "built": "2026-11-08T17:07:37Z",
  "rows": [
   {
    "cond": "0x2992326e6e51bbbfcea34ca609e83388352f1a5674d411c13ac0ec4911870f7f",
@@ -878,6 +878,52 @@
    }
   },
   {
+   "cond": "0x09e1c7de244a66e32824f4588f24fc25cefd1f92b34f1424a635fc37d6102218",
+   "slug": "nfl-cle-no-2026-11-08",
+   "title": "Browns vs. Saints",
+   "mtype": "spread",
+   "start": "2026-11-08T18:00:00Z",
+   "bet": "Saints -3.5",
+   "side": "Saints",
+   "flagged": "2026-11-08T17:05:34Z",
+   "why": "2 top-200 accounts",
+   "proven": true,
+   "trigger": "proven",
+   "n_accounts": 2,
+   "best_rank": 143,
+   "usd": 12233,
+   "paid": 0.52,
+   "ask": 0.53,
+   "status": "live",
+   "link": "https://polymarket.us/event/nfl-cle-no-2026-11-08",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401873039",
+   "sport": "nfl",
+   "league": null,
+   "away": "CLE",
+   "home": "NO",
+   "away_name": "Cleveland Browns",
+   "home_name": "New Orleans Saints",
+   "game_start": "2026-11-08T18:00Z",
+   "side_std": "home",
+   "money_with": false,
+   "grade": "A",
+   "fair_board": 0.5016,
+   "inside_fair": false,
+   "books": {
+    "at": "2026-11-08T15:57:14Z",
+    "fair": 0.5016,
+    "q": {
+     "Caesars": 0.5098,
+     "Novig": 0.51,
+     "FD": 0.5122,
+     "Kalshi": 0.52
+    }
+   }
+  },
+  {
    "cond": "0x41fb65a8ba10274a67772c7ac917619c5391cbe6d5b25ca8aca8052ae03fc92e",
    "slug": "nfl-cle-no-2026-11-08",
    "title": "Browns vs. Saints",
@@ -893,7 +939,7 @@
    "best_rank": 143,
    "usd": 4982,
    "paid": 0.58,
-   "ask": 0.62,
+   "ask": 0.61,
    "status": "live",
    "link": "https://polymarket.us/event/nfl-cle-no-2026-11-08",
    "other": null,
@@ -1046,6 +1092,55 @@
      "Kalshi": 0.64,
      "FD": 0.6429,
      "Caesars": 0.6454
+    }
+   }
+  },
+  {
+   "cond": "0x62e01f20b8345769f914d06b7c695e40b57e7857226c3fe327ea20316ce91fb1",
+   "slug": "nfl-cle-no-2026-11-08",
+   "title": "Browns vs. Saints",
+   "mtype": "ml",
+   "start": "2026-11-08T18:00:00Z",
+   "bet": "Saints ML",
+   "side": "Saints",
+   "flagged": "2026-11-08T17:05:18Z",
+   "why": "a top-200 account also in this sport's top 50",
+   "proven": true,
+   "trigger": "proven",
+   "n_accounts": 1,
+   "best_rank": 143,
+   "usd": 24188,
+   "paid": 0.64,
+   "ask": 0.65,
+   "status": "live",
+   "link": "https://polymarket.us/event/nfl-cle-no-2026-11-08",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401873039",
+   "sport": "nfl",
+   "league": null,
+   "away": "CLE",
+   "home": "NO",
+   "away_name": "Cleveland Browns",
+   "home_name": "New Orleans Saints",
+   "game_start": "2026-11-08T18:00Z",
+   "side_std": "home",
+   "conflict": [
+    "Kalshi bet back"
+   ],
+   "money_with": true,
+   "grade": "A",
+   "fair_board": 0.621,
+   "inside_fair": false,
+   "books": {
+    "at": "2026-11-08T15:57:14Z",
+    "fair": 0.621,
+    "q": {
+     "DK": 0.6296,
+     "Novig": 0.63,
+     "Caesars": 0.6337,
+     "FD": 0.635
     }
    }
   },
