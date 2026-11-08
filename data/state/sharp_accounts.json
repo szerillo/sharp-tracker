@@ -1,5 +1,5 @@
 {
- "built": "2026-11-08T22:01:00Z",
+ "built": "2026-11-08T22:08:07Z",
  "rows": [
   {
    "cond": "0xfc2ab1795b24239c2bdd73f59abd913b83ba1b39f8d77890a3d009f0e662081f",
@@ -211,7 +211,7 @@
    "best_rank": 112,
    "usd": 8008,
    "paid": 0.43,
-   "ask": 0.49,
+   "ask": 0.5,
    "status": "live",
    "link": "https://polymarket.us/event/nba-lal-det-2026-11-08",
    "other": null,
@@ -228,7 +228,7 @@
    "side_std": "home",
    "money_with": false,
    "grade": "B",
-   "inside_fair": true,
+   "inside_fair": false,
    "fair_board": 0.4886,
    "books": {
     "at": "2026-11-08T20:52:54Z",
@@ -294,7 +294,7 @@
    "best_rank": 40,
    "usd": 206,
    "paid": 0.836,
-   "ask": 0.85,
+   "ask": 0.84,
    "status": "live",
    "link": "https://polymarket.us/event/nba-uta-min-2026-11-08",
    "other": null,
@@ -312,7 +312,7 @@
    "money_with": false,
    "grade": "watch",
    "fair_board": 0.8469,
-   "inside_fair": false,
+   "inside_fair": true,
    "books": {
     "at": "2026-11-08T20:52:54Z",
     "fair": 0.8469,
@@ -377,14 +377,14 @@
    "bet": "Bears -14.5",
    "side": "Bears",
    "flagged": "2026-11-08T04:21:54Z",
-   "why": "a top-200 account also in this sport's top 50",
+   "why": "2 top-200 accounts",
    "proven": true,
    "trigger": "proven",
-   "n_accounts": 1,
-   "best_rank": 143,
-   "usd": 8953,
+   "n_accounts": 2,
+   "best_rank": 12,
+   "usd": 9070,
    "paid": 0.22,
-   "ask": 0.23,
+   "ask": 0.25,
    "status": "live",
    "link": "https://polymarket.us/event/nfl-tb-chi-2026-11-09",
    "other": null,
@@ -553,7 +553,7 @@
    "best_rank": 42,
    "usd": 605,
    "paid": 0.332,
-   "ask": 0.31,
+   "ask": 0.3,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-lal-det-2026-11-08",
    "other": {
@@ -562,7 +562,7 @@
     "usd": 39104,
     "first": "2026-11-07T22:00:06Z"
    },
-   "exit_bid": 0.3,
+   "exit_bid": 0.29,
    "kalshi_against": {
     "move": 13.0,
     "now": 69.5,
@@ -585,7 +585,7 @@
    "money_with": false,
    "grade": "B",
    "fair_board": 0.3024,
-   "inside_fair": false,
+   "inside_fair": true,
    "books": null
   },
   {
@@ -640,14 +640,14 @@
    "bet": "Pistons -6.5",
    "side": "Pistons",
    "flagged": "2026-11-08T18:11:13Z",
-   "why": "2 top-200 accounts",
+   "why": "3 top-200 accounts",
    "proven": false,
    "trigger": "two",
-   "n_accounts": 2,
+   "n_accounts": 3,
    "best_rank": 12,
-   "usd": 9386,
-   "paid": 0.473,
-   "ask": 0.53,
+   "usd": 9558,
+   "paid": 0.474,
+   "ask": 0.54,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-lal-det-2026-11-08",
    "other": {
@@ -656,7 +656,7 @@
     "usd": 817,
     "first": "2026-11-08T18:11:52Z"
    },
-   "exit_bid": 0.52,
+   "exit_bid": 0.53,
    "kalshi_against": null,
    "logged": false,
    "event_id": "401909946",
@@ -964,9 +964,9 @@
  "by_event": {
   "401873050|spread": {
    "home": {
-    "n": 1,
-    "best_rank": 143,
-    "usd": 8953
+    "n": 2,
+    "best_rank": 12,
+    "usd": 9070
    }
   },
   "401873051|ml": {
@@ -1123,6 +1123,13 @@
     "n": 1,
     "best_rank": 93,
     "usd": 394
+   }
+  },
+  "401909964|ml": {
+   "home": {
+    "n": 1,
+    "best_rank": 93,
+    "usd": 133
    }
   },
   "401892677|ml": {
