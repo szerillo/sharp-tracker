@@ -1,5 +1,5 @@
 {
- "built": "2026-11-08T13:24:28Z",
+ "built": "2026-11-08T13:34:35Z",
  "rows": [
   {
    "cond": "0x2992326e6e51bbbfcea34ca609e83388352f1a5674d411c13ac0ec4911870f7f",
@@ -687,7 +687,7 @@
    "best_rank": 132,
    "usd": 430,
    "paid": 0.4,
-   "ask": 0.39,
+   "ask": 0.4,
    "status": "live",
    "link": "https://polymarket.us/event/bun-hof-s04-2026-11-08",
    "other": null,
@@ -799,6 +799,43 @@
      "Kalshi": 0.26
     }
    }
+  },
+  {
+   "cond": "0x12fe66309ecbcceab016e901e25a0bcc355f2a07f646c94dc110a9c411e14b9e",
+   "slug": "nfl-hou-lac-2026-11-08",
+   "title": "Texans vs. Chargers",
+   "mtype": "spread",
+   "start": "2026-11-08T21:05:00Z",
+   "bet": "Chargers -3.5",
+   "side": "Chargers",
+   "flagged": "2026-11-08T13:32:39Z",
+   "why": "a top-200 account also in this sport's top 50",
+   "proven": true,
+   "trigger": "proven",
+   "n_accounts": 1,
+   "best_rank": 143,
+   "usd": 4200,
+   "paid": 0.21,
+   "ask": 0.22,
+   "status": "live",
+   "link": "https://polymarket.us/event/nfl-hou-lac-2026-11-08",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401873046",
+   "sport": "nfl",
+   "league": null,
+   "away": "HOU",
+   "home": "LAC",
+   "away_name": "Houston Texans",
+   "home_name": "Los Angeles Chargers",
+   "game_start": "2026-11-08T21:05Z",
+   "side_std": "home",
+   "money_with": false,
+   "grade": "A",
+   "fair_board": null,
+   "inside_fair": null,
+   "books": null
   },
   {
    "cond": "0x2707632f16b45f85d48b48f25eb3c681fb480cdbdee534ccd36a341b2b4cfadf",
@@ -1570,9 +1607,9 @@
   },
   "401873046:awfuldog": {
    "with": {
-    "n": 1,
-    "best_rank": 182,
-    "usd": 284
+    "n": 2,
+    "best_rank": 143,
+    "usd": 4484
    },
    "against": null
   },
@@ -1724,9 +1761,9 @@
   },
   "401873046|spread": {
    "home": {
-    "n": 1,
-    "best_rank": 182,
-    "usd": 284
+    "n": 2,
+    "best_rank": 143,
+    "usd": 4484
    }
   },
   "401873046|ml": {
