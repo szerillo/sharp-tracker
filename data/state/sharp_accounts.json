@@ -1,5 +1,5 @@
 {
- "built": "2026-11-08T19:27:14Z",
+ "built": "2026-11-08T19:34:22Z",
  "rows": [
   {
    "cond": "0x7ef37ab1c5a9aa47e03e9ca4fbc77aa2511c9275b8a064802a44f2461c1f691a",
@@ -892,6 +892,9 @@
    "home_name": "Chicago Bulls",
    "game_start": "2026-11-08T20:30Z",
    "side_std": "home",
+   "conflict": [
+    "Kalshi move"
+   ],
    "money_with": false,
    "grade": "B",
    "inside_fair": false,
@@ -1378,16 +1381,16 @@
    "best_rank": 43,
    "usd": 248,
    "paid": 0.181,
-   "ask": 0.21,
+   "ask": 0.2,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-phi-chi-2026-11-08",
    "other": {
-    "n_accounts": 1,
+    "n_accounts": 2,
     "best_rank": 43,
-    "usd": 1968,
+    "usd": 3137,
     "first": "2026-11-08T18:48:37Z"
    },
-   "exit_bid": 0.2,
+   "exit_bid": 0.19,
    "kalshi_against": null,
    "logged": true,
    "event_id": "401909945",
@@ -1641,20 +1644,20 @@
     "clv": -0.17
    },
    "outside": {
-    "n": 24,
+    "n": 25,
     "won": 12,
-    "units": -0.05,
+    "units": -0.3,
     "clv": 0.17
    }
   },
-  "n": 130,
+  "n": 131,
   "won": 60,
-  "units": -7.33,
+  "units": -7.58,
   "by_grade": {
    "A": {
-    "n": 87,
+    "n": 88,
     "won": 40,
-    "units": -5.52,
+    "units": -5.77,
     "clv": -0.12
    },
    "B": {
@@ -1670,10 +1673,10 @@
     "clv": -1.75
    }
   },
-  "units_1u": -16.49,
+  "units_1u": -17.49,
   "clv": -0.4,
-  "n_venue": 62,
-  "units_venue": -4.07,
+  "n_venue": 63,
+  "units_venue": -4.32,
   "clv_venue": 0.32,
   "clv_poly_same": -0.83
  },
@@ -1757,6 +1760,26 @@
     "best_rank": 49,
     "usd": 10734
    }
+  },
+  "401909945:xch_homedog_fade:ml": {
+   "with": {
+    "n": 2,
+    "best_rank": 43,
+    "usd": 3137
+   },
+   "against": {
+    "n": 1,
+    "best_rank": 43,
+    "usd": 248
+   }
+  },
+  "401909945:nba_momentum:spread": {
+   "with": null,
+   "against": {
+    "n": 2,
+    "best_rank": 119,
+    "usd": 2835
+   }
   }
  },
  "by_event": {
@@ -1821,9 +1844,9 @@
     "usd": 248
    },
    "away": {
-    "n": 1,
+    "n": 2,
     "best_rank": 43,
-    "usd": 1968
+    "usd": 3137
    }
   },
   "401909945|spread": {
