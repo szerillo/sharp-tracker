@@ -1,5 +1,5 @@
 {
- "built": "2026-11-08T05:02:35Z",
+ "built": "2026-11-08T05:18:30Z",
  "rows": [
   {
    "cond": "0x56aabf6a4776c1804d3ca35b96ad4fdd428a321a0bce76d46aabb4624ca62631",
@@ -192,7 +192,7 @@
    "best_rank": 132,
    "usd": 441,
    "paid": 0.51,
-   "ask": 0.52,
+   "ask": 0.53,
    "status": "live",
    "link": "https://polymarket.us/event/epl-sun-che-2026-11-08",
    "other": null,
@@ -212,6 +212,52 @@
    "fair_board": null,
    "inside_fair": null,
    "books": null
+  },
+  {
+   "cond": "0xe075a8c5512a624a0da27f357b0b2e62a9691f2c0ae3c7d399de4755d49816d1",
+   "slug": "epl-cry-liv-2026-11-08-more-markets",
+   "title": "Crystal Palace FC vs. Liverpool FC - More Markets",
+   "mtype": "total",
+   "start": "2026-11-08T14:00:00Z",
+   "bet": "Over 3.5",
+   "side": "Over",
+   "flagged": "2026-11-08T05:11:21Z",
+   "why": "a top-200 account also in this sport's top 50",
+   "proven": true,
+   "trigger": "proven",
+   "n_accounts": 1,
+   "best_rank": 132,
+   "usd": 4633,
+   "paid": 0.409,
+   "ask": 0.43,
+   "status": "live",
+   "link": "https://polymarket.us/event/epl-cry-liv-2026-11-08-more-markets",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401879243",
+   "sport": "soccer",
+   "league": "epl",
+   "away": "LIV",
+   "home": "CRY",
+   "away_name": "Liverpool",
+   "home_name": "Crystal Palace",
+   "game_start": "2026-11-08T14:00Z",
+   "side_std": "over",
+   "money_with": false,
+   "grade": "A",
+   "fair_board": 0.3905,
+   "inside_fair": false,
+   "books": {
+    "at": "2026-11-08T02:50:54Z",
+    "fair": 0.3905,
+    "q": {
+     "Novig": 0.4,
+     "Kalshi": 0.41,
+     "FD": 0.4132,
+     "DK": 0.4167
+    }
+   }
   },
   {
    "cond": "0x50d65c600519194a43397e69a1ea366cca2b6762f22b6a06b437b2913d2d211a",
@@ -1263,8 +1309,8 @@
    },
    "exit_bid": 0.36,
    "kalshi_against": {
-    "move": 7.0,
-    "now": 63.5,
+    "move": 6.0,
+    "now": 62.5,
     "state": "reversed"
    },
    "logged": true,
@@ -1681,6 +1727,13 @@
     "n": 1,
     "best_rank": 132,
     "usd": 166
+   }
+  },
+  "401879243|total": {
+   "over": {
+    "n": 1,
+    "best_rank": 132,
+    "usd": 4633
    }
   }
  },
