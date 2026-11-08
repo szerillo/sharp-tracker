@@ -4571,5 +4571,95 @@
 "fair": 0.505,
 "edge_pts": -1.88,
 "why": "home favourite WSU -7.5, total 63.5: under (mined angle)"
+},
+"401909945:xch_homedog_fade:ml": {
+"tag": "xch_homedog_fade",
+"fill_id": "864ff83231c2",
+"ts": "2026-11-08T19:19:07Z",
+"market": "ml",
+"side": "away",
+"line": null,
+"venue": "Novig",
+"price": -400,
+"fair": 0.7955,
+"edge_pts": -0.45,
+"why": "Novig home side mid 0.205 inside T-1.2h; audit band 20-35c",
+"now": {
+"venue": "Polymarket",
+"price": -400
+}
+},
+"401909945:nba_momentum:spread": {
+"tag": "nba_momentum",
+"fill_id": "ad5763e92236",
+"ts": "2026-11-08T19:19:07Z",
+"market": "spread",
+"side": "away",
+"line": -9.5,
+"venue": "Novig",
+"price": -104,
+"fair": 0.50502,
+"edge_pts": -0.5,
+"why": "Novig spread mid 0.525 at T-6h -> 0.492 now (-3.3c); continuation (audit section 3, NBA only)",
+"now": {
+"venue": "Novig",
+"price": -104
+},
+"ladder": [
+{
+"line": -7.5,
+"steps": -4,
+"venue": "Novig",
+"price": -138,
+"cost": 0.58,
+"fair": 0.579,
+"loss": -0.0038
+},
+{
+"line": -8.5,
+"steps": -2,
+"venue": "Novig",
+"price": -125,
+"cost": 0.555,
+"fair": 0.55,
+"loss": 0.0002
+},
+{
+"line": -9.5,
+"steps": 0,
+"venue": "Novig",
+"price": -104,
+"cost": 0.51,
+"fair": 0.505,
+"loss": 0.0002
+},
+{
+"line": -10.5,
+"steps": 2,
+"venue": "Novig",
+"price": 113,
+"cost": 0.47,
+"fair": 0.4685,
+"loss": -0.0033
+},
+{
+"line": -11.5,
+"steps": 4,
+"venue": "Novig",
+"price": 130,
+"cost": 0.435,
+"fair": 0.4335,
+"loss": -0.0033
+}
+],
+"bet_to": {
+"line": -11.5,
+"steps": 4,
+"venue": "Novig",
+"price": 130,
+"cost": 0.435,
+"fair": 0.4335,
+"loss": -0.0033
+}
 }
 }
