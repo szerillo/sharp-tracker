@@ -1,5 +1,5 @@
 {
- "built": "2026-11-08T20:16:34Z",
+ "built": "2026-11-08T20:23:10Z",
  "rows": [
   {
    "cond": "0x7ef37ab1c5a9aa47e03e9ca4fbc77aa2511c9275b8a064802a44f2461c1f691a",
@@ -831,7 +831,7 @@
    "best_rank": 197,
    "usd": 530,
    "paid": 0.5,
-   "ask": 0.5,
+   "ask": 0.49,
    "status": "live",
    "link": "https://polymarket.us/event/nhl-las-buf-2026-11-08",
    "other": null,
@@ -848,16 +848,16 @@
    "side_std": "home",
    "money_with": true,
    "grade": "A",
-   "fair_board": 0.4939,
-   "inside_fair": false,
+   "fair_board": 0.4909,
+   "inside_fair": true,
    "books": {
-    "at": "2026-11-08T19:56:39Z",
-    "fair": 0.4939,
+    "at": "2026-11-08T20:15:23Z",
+    "fair": 0.4909,
     "q": {
-     "Novig": 0.495,
+     "Novig": 0.49,
      "Polymarket": 0.5,
      "FD": 0.5146,
-     "Caesars": 0.5192
+     "Caesars": 0.5169
     }
    }
   },
@@ -1048,58 +1048,13 @@
    "fair_board": 0.8468,
    "inside_fair": false,
    "books": {
-    "at": "2026-11-08T19:56:39Z",
+    "at": "2026-11-08T20:15:23Z",
     "fair": 0.8468,
     "q": {
      "Polymarket": 0.85,
      "Novig": 0.85,
      "Kalshi": 0.86,
      "FD": 0.8667
-    }
-   }
-  },
-  {
-   "cond": "0x582f870a547f6b85cbe8d6e066b5d7c0842ebbe02f1d4e1a815b567bd24456ec",
-   "slug": "nba-uta-min-2026-11-08",
-   "title": "Jazz vs. Timberwolves",
-   "mtype": "spread",
-   "start": "2026-11-09T00:00:00Z",
-   "bet": "Timberwolves -11.5",
-   "side": "Timberwolves",
-   "flagged": "2026-11-08T16:15:49Z",
-   "why": "a top-50 account",
-   "proven": false,
-   "trigger": "top50",
-   "n_accounts": 1,
-   "best_rank": 43,
-   "usd": 362,
-   "paid": 0.51,
-   "ask": 0.53,
-   "status": "live",
-   "link": "https://polymarket.us/event/nba-uta-min-2026-11-08",
-   "other": null,
-   "kalshi_against": null,
-   "logged": true,
-   "event_id": "401909947",
-   "sport": "nba",
-   "league": null,
-   "away": "UTAH",
-   "home": "MIN",
-   "away_name": "Utah Jazz",
-   "home_name": "Minnesota Timberwolves",
-   "game_start": "2026-11-09T00:00Z",
-   "side_std": "home",
-   "money_with": false,
-   "grade": "watch",
-   "inside_fair": false,
-   "fair_board": 0.4816,
-   "books": {
-    "at": "2026-11-08T19:56:39Z",
-    "fair": 0.5159,
-    "q": {
-     "Novig": 0.52,
-     "DK": 0.5349,
-     "Kalshi": 0.54
     }
    }
   },
@@ -1139,10 +1094,10 @@
    "inside_fair": false,
    "fair_board": 0.529,
    "books": {
-    "at": "2026-11-08T19:56:39Z",
+    "at": "2026-11-08T20:15:23Z",
     "fair": null,
     "q": {
-     "Novig": 0.55,
+     "Novig": 0.555,
      "Kalshi": 0.57
     }
    }
@@ -1220,7 +1175,7 @@
    "fair_board": null,
    "inside_fair": null,
    "books": {
-    "at": "2026-11-08T19:56:39Z",
+    "at": "2026-11-08T20:15:23Z",
     "fair": null,
     "q": {
      "Polymarket": 0.49,
@@ -1261,11 +1216,11 @@
    "side_std": "away",
    "money_with": false,
    "grade": "A",
-   "fair_board": 0.5559,
+   "fair_board": 0.5541,
    "inside_fair": false,
    "books": {
-    "at": "2026-11-08T19:56:39Z",
-    "fair": 0.5559,
+    "at": "2026-11-08T20:15:23Z",
+    "fair": 0.5541,
     "q": {
      "Caesars": 0.5652,
      "DK": 0.5652,
@@ -1356,7 +1311,7 @@
    "side_std": "home",
    "money_with": false,
    "grade": "watch",
-   "fair_board": 0.1956,
+   "fair_board": 0.2077,
    "inside_fair": false,
    "books": null
   },
@@ -1419,7 +1374,7 @@
    "best_rank": 42,
    "usd": 605,
    "paid": 0.332,
-   "ask": 0.31,
+   "ask": 0.32,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-lal-det-2026-11-08",
    "other": {
@@ -1428,7 +1383,7 @@
     "usd": 39104,
     "first": "2026-11-07T22:00:06Z"
    },
-   "exit_bid": 0.3,
+   "exit_bid": 0.31,
    "kalshi_against": {
     "move": 13.0,
     "now": 69.5,
@@ -1450,7 +1405,7 @@
    ],
    "money_with": false,
    "grade": "B",
-   "fair_board": 0.2985,
+   "fair_board": 0.3015,
    "inside_fair": false,
    "books": null
   },
@@ -1538,6 +1493,49 @@
    "grade": "B",
    "fair_board": null,
    "inside_fair": null,
+   "books": null
+  },
+  {
+   "cond": "0x582f870a547f6b85cbe8d6e066b5d7c0842ebbe02f1d4e1a815b567bd24456ec",
+   "slug": "nba-uta-min-2026-11-08",
+   "title": "Jazz vs. Timberwolves",
+   "mtype": "spread",
+   "start": "2026-11-09T00:00:00Z",
+   "bet": "Timberwolves -11.5",
+   "side": "Timberwolves",
+   "flagged": "2026-11-08T16:15:49Z",
+   "why": "a top-50 account",
+   "proven": false,
+   "trigger": "top50",
+   "n_accounts": 1,
+   "best_rank": 43,
+   "usd": 362,
+   "paid": 0.51,
+   "ask": 0.53,
+   "status": "other side",
+   "link": "https://polymarket.us/event/nba-uta-min-2026-11-08",
+   "other": {
+    "n_accounts": 1,
+    "best_rank": 43,
+    "usd": 565,
+    "first": "2026-11-08T20:21:48Z"
+   },
+   "exit_bid": 0.51,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401909947",
+   "sport": "nba",
+   "league": null,
+   "away": "UTAH",
+   "home": "MIN",
+   "away_name": "Utah Jazz",
+   "home_name": "Minnesota Timberwolves",
+   "game_start": "2026-11-09T00:00Z",
+   "side_std": "home",
+   "money_with": false,
+   "grade": "watch",
+   "inside_fair": false,
+   "fair_board": 0.4816,
    "books": null
   },
   {
@@ -1722,7 +1720,11 @@
     "best_rank": 43,
     "usd": 362
    },
-   "against": null
+   "against": {
+    "n": 1,
+    "best_rank": 43,
+    "usd": 565
+   }
   },
   "401909949:nba_bigfav_over": {
    "with": {
@@ -1916,6 +1918,11 @@
     "n": 1,
     "best_rank": 43,
     "usd": 362
+   },
+   "away": {
+    "n": 1,
+    "best_rank": 43,
+    "usd": 565
    }
   },
   "401909948|ml": {
