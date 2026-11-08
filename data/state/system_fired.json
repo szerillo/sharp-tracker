@@ -3537,7 +3537,10 @@
 "price": -104,
 "fair": 0.50186,
 "edge_pts": -0.79,
-"why": "home favorite, game 17 of the season, opponent VGK wins 61% (11-7)"
+"why": "home favorite, game 17 of the season, opponent VGK wins 61% (11-7)",
+"void": true,
+"void_why": "trigger no longer holds on current season records (2026-11-08T00:56:32Z)",
+"void_at": "2026-11-08T00:56:32Z"
 },
 "401909939:nba_momentum:spread": {
 "tag": "nba_momentum",
@@ -3960,5 +3963,18 @@
 "venue": "Novig",
 "price": -228
 }
+},
+"401909951:nba_under_good_home_over": {
+"tag": "nba_under_good_home_over",
+"fill_id": "f80d7d05f0ef",
+"ts": "2026-11-08T00:56:32Z",
+"market": "total",
+"side": "under",
+"line": 238.5,
+"venue": "DK",
+"price": -106,
+"fair": 0.49443,
+"edge_pts": -2.01,
+"why": "home SAC over rate 66%, days since last game: home 2, visitor 3; total 240.5 -> 238.5"
 }
 }
