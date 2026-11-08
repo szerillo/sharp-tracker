@@ -1,5 +1,5 @@
 {
- "built": "2026-11-08T01:21:45Z",
+ "built": "2026-11-08T01:42:52Z",
  "record": {
   "cbb_1h_total_curve": {
    "n": 1,
@@ -8,10 +8,10 @@
    "units": -0.25
   },
   "cfb_q1_under_curve": {
-   "n": 6,
+   "n": 7,
    "won": 3,
-   "lost": 3,
-   "units": 0.07
+   "lost": 4,
+   "units": -0.43
   },
   "nhl_p1_spread_curve": {
    "n": 0,
@@ -26,63 +26,13 @@
    "units": -0.25
   },
   "cfb_tt_under_curve": {
-   "n": 12,
-   "won": 3,
+   "n": 13,
+   "won": 4,
    "lost": 9,
-   "units": -1.55
+   "units": -1.34
   }
  },
  "rows": [
-  {
-   "key": "cfb_q1_under_curve|fed311ed6cdb4803798f548f3d867226||under",
-   "rule": "cfb_q1_under_curve",
-   "tier": "A",
-   "stake": 0.5,
-   "sport": "cfb",
-   "odds_id": "fed311ed6cdb4803798f548f3d867226",
-   "espn": "401869968",
-   "game": "South Alabama Jaguars @ Louisiana Ragin Cajuns",
-   "start": "2026-11-07T22:00:00Z",
-   "market": "totals_q1",
-   "team": null,
-   "team_name": null,
-   "side": "under",
-   "line": 13.5,
-   "curve": 0.56,
-   "pin_fair": 0.488,
-   "gap": 7.2,
-   "full_total": 57.5,
-   "full_spread": -7.0,
-   "pin_price": 1.95,
-   "book": "Caesars",
-   "price": 1.91,
-   "flagged": "2026-11-07T19:23:31Z"
-  },
-  {
-   "key": "cfb_tt_under_curve|fed311ed6cdb4803798f548f3d867226|home|under",
-   "rule": "cfb_tt_under_curve",
-   "tier": "P",
-   "stake": 0.0,
-   "sport": "cfb",
-   "odds_id": "fed311ed6cdb4803798f548f3d867226",
-   "espn": "401869968",
-   "game": "South Alabama Jaguars @ Louisiana Ragin Cajuns",
-   "start": "2026-11-07T22:00:00Z",
-   "market": "team_totals",
-   "team": "home",
-   "team_name": "Louisiana Ragin Cajuns",
-   "side": "under",
-   "line": 33.5,
-   "curve": 0.58,
-   "pin_fair": 0.526,
-   "gap": 5.4,
-   "full_total": 57.5,
-   "full_spread": -7.0,
-   "pin_price": 1.83,
-   "book": null,
-   "price": null,
-   "flagged": "2026-11-07T19:23:31Z"
-  },
   {
    "key": "nhl_p3_under_curve|b7da08b293b1ae703c71b26ad69eb52b||under",
    "rule": "nhl_p3_under_curve",
