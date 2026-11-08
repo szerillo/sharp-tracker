@@ -1,5 +1,5 @@
 {
- "built": "2026-11-08T03:37:41Z",
+ "built": "2026-11-08T03:58:42Z",
  "record": {
   "cbb_1h_total_curve": {
    "n": 1,
@@ -14,10 +14,10 @@
    "units": -0.43
   },
   "nhl_p1_spread_curve": {
-   "n": 0,
+   "n": 2,
    "won": 0,
-   "lost": 0,
-   "units": 0
+   "lost": 2,
+   "units": -0.5
   },
   "nhl_p3_under_curve": {
    "n": 3,
@@ -119,64 +119,6 @@
    "fair_gap": -0.8,
    "ev_curve": 9.9,
    "flagged": "2026-11-07T22:00:22Z"
-  },
-  {
-   "key": "nhl_p1_spread_curve|08d54b8e2b0d49e172fd8d2087576066||away",
-   "rule": "nhl_p1_spread_curve",
-   "tier": "C",
-   "stake": 0.25,
-   "sport": "nhl",
-   "odds_id": "08d54b8e2b0d49e172fd8d2087576066",
-   "espn": "401892668",
-   "game": "Chicago Blackhawks @ Carolina Hurricanes",
-   "start": "2026-11-08T01:10:00Z",
-   "market": "spreads_p1",
-   "team": null,
-   "team_name": "Chicago Blackhawks",
-   "side": "away",
-   "line": 0.5,
-   "curve": 0.581,
-   "pin_fair": 0.496,
-   "gap": 8.5,
-   "full_total": 6.5,
-   "full_spread": -2.5,
-   "pin_price": 1.94,
-   "book": "FD",
-   "price": 1.89,
-   "pin_fair_power": 0.4959,
-   "book_fair": 0.5,
-   "fair_gap": -0.4,
-   "ev_curve": 9.8,
-   "flagged": "2026-11-07T22:21:32Z"
-  },
-  {
-   "key": "nhl_p1_spread_curve|1f21bf798afede04880e7a391f3990ed||away",
-   "rule": "nhl_p1_spread_curve",
-   "tier": "C",
-   "stake": 0.25,
-   "sport": "nhl",
-   "odds_id": "1f21bf798afede04880e7a391f3990ed",
-   "espn": "401892669",
-   "game": "San Jose Sharks @ Dallas Stars",
-   "start": "2026-11-08T01:10:00Z",
-   "market": "spreads_p1",
-   "team": null,
-   "team_name": "San Jose Sharks",
-   "side": "away",
-   "line": 0.5,
-   "curve": 0.635,
-   "pin_fair": 0.546,
-   "gap": 8.8,
-   "full_total": 6.0,
-   "full_spread": -1.5,
-   "pin_price": 1.76,
-   "book": "DK",
-   "price": 1.71,
-   "pin_fair_power": 0.5492,
-   "book_fair": 0.5512,
-   "fair_gap": -0.5,
-   "ev_curve": 8.5,
-   "flagged": "2026-11-07T22:21:32Z"
   },
   {
    "key": "nhl_p3_under_curve|b5934d2ce05af5dac632f1e8b7ce5fb6||under",
