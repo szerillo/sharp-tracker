@@ -3132,19 +3132,16 @@
 },
 "401858526:cfb_road_dog_low_total": {
 "tag": "cfb_road_dog_low_total",
-"fill_id": "2a22d04f8558",
-"ts": "2026-11-07T02:30:40Z",
+"fill_id": "80aaeb908f5b",
+"ts": "2026-11-08T02:48:50Z",
 "market": "spread",
 "side": "away",
-"line": 10.5,
-"venue": "Novig",
-"price": -300,
+"line": 9.5,
+"venue": "Kalshi",
+"price": -127,
 "fair": null,
 "edge_pts": null,
-"why": "conference game, ILL +10.5 on the road, total 47.5",
-"void": true,
-"void_why": "price was a thin exchange placeholder (no book priced the game yet); re-fills at a real price",
-"void_at": "2026-11-07T06:34:42Z"
+"why": "conference game, ILL +9.5 on the road, total 47.5"
 },
 "401858526:cfb_road_streak_dog": {
 "tag": "cfb_road_streak_dog",
@@ -3190,19 +3187,16 @@
 },
 "401856858:cfb_road_dog_low_total": {
 "tag": "cfb_road_dog_low_total",
-"fill_id": "df14555c0660",
-"ts": "2026-11-07T05:24:15Z",
+"fill_id": "f3b8b84fc1cf",
+"ts": "2026-11-08T02:48:50Z",
 "market": "spread",
 "side": "away",
 "line": 7.5,
 "venue": "Novig",
-"price": -300,
+"price": -150,
 "fair": null,
 "edge_pts": null,
-"why": "conference game, BAY +7.5 on the road, total 47.5",
-"void": true,
-"void_why": "price was a thin exchange placeholder (no book priced the game yet); re-fills at a real price",
-"void_at": "2026-11-07T06:34:42Z"
+"why": "conference game, BAY +7.5 on the road, total 47.5"
 },
 "401856858:cfb_road_streak_dog": {
 "tag": "cfb_road_streak_dog",
@@ -3238,19 +3232,16 @@
 },
 "401856883:cfb_road_dog_low_total": {
 "tag": "cfb_road_dog_low_total",
-"fill_id": "c6e3b3a39767",
-"ts": "2026-11-07T05:24:15Z",
+"fill_id": "5697fd0f08c7",
+"ts": "2026-11-08T02:48:50Z",
 "market": "spread",
 "side": "away",
 "line": 12.5,
 "venue": "Novig",
-"price": -300,
+"price": -150,
 "fair": null,
 "edge_pts": null,
-"why": "conference game, MIZ +12.5 on the road, total 46.5",
-"void": true,
-"void_why": "price was a thin exchange placeholder (no book priced the game yet); re-fills at a real price",
-"void_at": "2026-11-07T06:34:42Z"
+"why": "conference game, MIZ +12.5 on the road, total 46.5"
 },
 "401856883:cfb_road_streak_dog": {
 "tag": "cfb_road_streak_dog",
@@ -3990,5 +3981,57 @@
 "fair": 0.65801,
 "edge_pts": -0.2,
 "why": "Novig home side mid 0.345 inside T-1.0h; audit band 20-35c"
+},
+"401858526:cfb_homefav_7510_under": {
+"tag": "cfb_homefav_7510_under",
+"fill_id": "e8e3aaf9a6fa",
+"ts": "2026-11-08T02:48:50Z",
+"market": "total",
+"side": "under",
+"line": 47.5,
+"venue": "Novig",
+"price": -108,
+"fair": null,
+"edge_pts": null,
+"why": "home favourite UCLA -9.5, total 47.5: under (mined angle)"
+},
+"401856885:cfb_road_streak_dog": {
+"tag": "cfb_road_streak_dog",
+"fill_id": "0b02565d8d83",
+"ts": "2026-11-08T02:48:50Z",
+"market": "spread",
+"side": "away",
+"line": 5.5,
+"venue": "Novig",
+"price": -147,
+"fair": null,
+"edge_pts": null,
+"why": "conference game, TEX on road game 2 in a row, +5.5, total 45.5"
+},
+"401858522:cfb_road_streak_dog": {
+"tag": "cfb_road_streak_dog",
+"fill_id": "177d08d8787d",
+"ts": "2026-11-08T02:48:50Z",
+"market": "spread",
+"side": "away",
+"line": 10.5,
+"venue": "Novig",
+"price": -150,
+"fair": null,
+"edge_pts": null,
+"why": "conference game, NU on road game 2 in a row, +10.5, total 48.5"
+},
+"401858518:cfb_day_over": {
+"tag": "cfb_day_over",
+"fill_id": "7b5bdb93039f",
+"ts": "2026-11-08T02:48:50Z",
+"market": "total",
+"side": "over",
+"line": 49.5,
+"venue": "Novig",
+"price": -138,
+"fair": null,
+"edge_pts": null,
+"why": "3:30 PM ET kickoff, total 49.5: over (mined angle)"
 }
 }
