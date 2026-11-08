@@ -1,5 +1,5 @@
 {
- "built": "2026-11-08T07:37:31Z",
+ "built": "2026-11-08T07:46:48Z",
  "rows": [
   {
    "cond": "0x2992326e6e51bbbfcea34ca609e83388352f1a5674d411c13ac0ec4911870f7f",
@@ -83,52 +83,6 @@
    "fair_board": null,
    "inside_fair": null,
    "books": null
-  },
-  {
-   "cond": "0xe075a8c5512a624a0da27f357b0b2e62a9691f2c0ae3c7d399de4755d49816d1",
-   "slug": "epl-cry-liv-2026-11-08-more-markets",
-   "title": "Crystal Palace FC vs. Liverpool FC - More Markets",
-   "mtype": "total",
-   "start": "2026-11-08T14:00:00Z",
-   "bet": "Over 3.5",
-   "side": "Over",
-   "flagged": "2026-11-08T05:11:21Z",
-   "why": "a top-200 account also in this sport's top 50",
-   "proven": true,
-   "trigger": "proven",
-   "n_accounts": 1,
-   "best_rank": 132,
-   "usd": 4633,
-   "paid": 0.409,
-   "ask": 0.44,
-   "status": "live",
-   "link": "https://polymarket.us/event/epl-cry-liv-2026-11-08-more-markets",
-   "other": null,
-   "kalshi_against": null,
-   "logged": true,
-   "event_id": "401879243",
-   "sport": "soccer",
-   "league": "epl",
-   "away": "LIV",
-   "home": "CRY",
-   "away_name": "Liverpool",
-   "home_name": "Crystal Palace",
-   "game_start": "2026-11-08T14:00Z",
-   "side_std": "over",
-   "money_with": false,
-   "grade": "A",
-   "inside_fair": false,
-   "fair_board": 0.3905,
-   "books": {
-    "at": "2026-11-08T02:50:54Z",
-    "fair": 0.3905,
-    "q": {
-     "Novig": 0.4,
-     "Kalshi": 0.41,
-     "FD": 0.4132,
-     "DK": 0.4167
-    }
-   }
   },
   {
    "cond": "0x9bba574f3b74838deebb1089512f128f6ee4614a433a135c40cfec1ce5f25168",
@@ -1011,6 +965,49 @@
    "books": null
   },
   {
+   "cond": "0xe075a8c5512a624a0da27f357b0b2e62a9691f2c0ae3c7d399de4755d49816d1",
+   "slug": "epl-cry-liv-2026-11-08-more-markets",
+   "title": "Crystal Palace FC vs. Liverpool FC - More Markets",
+   "mtype": "total",
+   "start": "2026-11-08T14:00:00Z",
+   "bet": "Over 3.5",
+   "side": "Over",
+   "flagged": "2026-11-08T05:11:21Z",
+   "why": "a top-200 account also in this sport's top 50",
+   "proven": true,
+   "trigger": "proven",
+   "n_accounts": 1,
+   "best_rank": 132,
+   "usd": 4633,
+   "paid": 0.409,
+   "ask": 0.43,
+   "status": "other side",
+   "link": "https://polymarket.us/event/epl-cry-liv-2026-11-08-more-markets",
+   "other": {
+    "n_accounts": 1,
+    "best_rank": 149,
+    "usd": 2532,
+    "first": "2026-11-08T07:43:03Z"
+   },
+   "exit_bid": 0.42,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401879243",
+   "sport": "soccer",
+   "league": "epl",
+   "away": "LIV",
+   "home": "CRY",
+   "away_name": "Liverpool",
+   "home_name": "Crystal Palace",
+   "game_start": "2026-11-08T14:00Z",
+   "side_std": "over",
+   "money_with": false,
+   "grade": "A",
+   "inside_fair": false,
+   "fair_board": 0.3905,
+   "books": null
+  },
+  {
    "cond": "0x3dd5a9a57210560fe11f668ead4f31156443ce848c58135413a15d77d70e2a1b",
    "slug": "nfl-nyg-phi-2026-11-08",
    "title": "Giants vs. Eagles",
@@ -1616,6 +1613,11 @@
     "n": 1,
     "best_rank": 132,
     "usd": 4633
+   },
+   "under": {
+    "n": 1,
+    "best_rank": 149,
+    "usd": 2532
    }
   }
  },
