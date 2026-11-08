@@ -1,5 +1,5 @@
 {
- "built": "2026-11-08T22:50:13Z",
+ "built": "2026-11-08T22:57:33Z",
  "rows": [
   {
    "cond": "0xd473df71870912bc0a4120c5fffc4f59cb4c26d59f8a421dbe441bbd640593cd",
@@ -682,14 +682,14 @@
    "bet": "Nets +8.5",
    "side": "Nets",
    "flagged": "2026-11-08T16:19:01Z",
-   "why": "a top-50 account",
+   "why": "2 top-200 accounts",
    "proven": false,
-   "trigger": "top50",
-   "n_accounts": 1,
+   "trigger": "two",
+   "n_accounts": 2,
    "best_rank": 49,
-   "usd": 10734,
-   "paid": 0.533,
-   "ask": 0.54,
+   "usd": 20086,
+   "paid": 0.536,
+   "ask": 0.55,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-bkn-dal-2026-11-08",
    "other": {
@@ -698,7 +698,7 @@
     "usd": 34407,
     "first": "2026-11-08T22:45:03Z"
    },
-   "exit_bid": 0.53,
+   "exit_bid": 0.54,
    "kalshi_against": null,
    "logged": true,
    "event_id": "401909948",
@@ -711,9 +711,9 @@
    "game_start": "2026-11-09T00:30Z",
    "side_std": "away",
    "money_with": false,
-   "grade": "watch",
+   "grade": "B",
    "inside_fair": false,
-   "fair_board": 0.529,
+   "fair_board": null,
    "books": null
   },
   {
@@ -875,10 +875,16 @@
    "best_rank": 23,
    "usd": 1512,
    "paid": 0.635,
-   "ask": 0.74,
-   "status": "live",
+   "ask": 0.76,
+   "status": "other side",
    "link": "https://polymarket.us/event/nba-den-hou-2026-11-09",
-   "other": null,
+   "other": {
+    "n_accounts": 1,
+    "best_rank": 142,
+    "usd": 269,
+    "first": "2026-11-08T22:52:33Z"
+   },
+   "exit_bid": 0.75,
    "kalshi_against": {
     "move": 4.0,
     "now": 39.5,
@@ -901,16 +907,7 @@
    "grade": "A",
    "inside_fair": false,
    "fair_board": 0.6181,
-   "books": {
-    "at": "2026-11-08T21:56:26Z",
-    "fair": 0.6181,
-    "q": {
-     "DK": 0.6241,
-     "Polymarket": 0.63,
-     "Novig": 0.63,
-     "FD": 0.635
-    }
-   }
+   "books": null
   }
  ],
  "record": {
@@ -1002,9 +999,9 @@
     "usd": 34407
    },
    "against": {
-    "n": 2,
+    "n": 3,
     "best_rank": 49,
-    "usd": 10968
+    "usd": 20320
    }
   },
   "401909946:nba_momentum:ml": {
@@ -1135,9 +1132,9 @@
   },
   "401909948|spread": {
    "away": {
-    "n": 2,
+    "n": 3,
     "best_rank": 49,
-    "usd": 10968
+    "usd": 20320
    },
    "home": {
     "n": 1,
@@ -1202,6 +1199,11 @@
     "n": 3,
     "best_rank": 23,
     "usd": 1512
+   },
+   "away": {
+    "n": 1,
+    "best_rank": 142,
+    "usd": 269
    }
   },
   "401909958|ml": {
