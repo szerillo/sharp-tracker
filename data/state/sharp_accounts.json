@@ -1,5 +1,5 @@
 {
- "built": "2026-11-08T22:43:10Z",
+ "built": "2026-11-08T22:50:13Z",
  "rows": [
   {
    "cond": "0xd473df71870912bc0a4120c5fffc4f59cb4c26d59f8a421dbe441bbd640593cd",
@@ -180,9 +180,6 @@
    "home_name": "Detroit Pistons",
    "game_start": "2026-11-08T23:00Z",
    "side_std": "home",
-   "conflict": [
-    "big money"
-   ],
    "money_with": false,
    "grade": "B",
    "fair_board": null,
@@ -236,50 +233,6 @@
    }
   },
   {
-   "cond": "0x347e6e1fdf8c4cd959a05ea42aa9c7ce2f5d69708b42d56595eab832d9bf5b41",
-   "slug": "nba-bkn-dal-2026-11-08",
-   "title": "Nets vs. Mavericks",
-   "mtype": "spread",
-   "start": "2026-11-09T00:30:00Z",
-   "bet": "Nets +8.5",
-   "side": "Nets",
-   "flagged": "2026-11-08T16:19:01Z",
-   "why": "a top-50 account",
-   "proven": false,
-   "trigger": "top50",
-   "n_accounts": 1,
-   "best_rank": 49,
-   "usd": 10734,
-   "paid": 0.533,
-   "ask": 0.56,
-   "status": "live",
-   "link": "https://polymarket.us/event/nba-bkn-dal-2026-11-08",
-   "other": null,
-   "kalshi_against": null,
-   "logged": true,
-   "event_id": "401909948",
-   "sport": "nba",
-   "league": null,
-   "away": "BKN",
-   "home": "DAL",
-   "away_name": "Brooklyn Nets",
-   "home_name": "Dallas Mavericks",
-   "game_start": "2026-11-09T00:30Z",
-   "side_std": "away",
-   "money_with": true,
-   "grade": "watch",
-   "inside_fair": false,
-   "fair_board": 0.529,
-   "books": {
-    "at": "2026-11-08T21:56:26Z",
-    "fair": null,
-    "q": {
-     "Novig": 0.555,
-     "Kalshi": 0.57
-    }
-   }
-  },
-  {
    "cond": "0x8a7e1452bda9f224ee3aaf004668164bd6a4226a7b496ea407eaf8c4e00b97c6",
    "slug": "nfl-tb-chi-2026-11-09",
    "title": "Buccaneers vs. Bears",
@@ -310,6 +263,9 @@
    "home_name": "Chicago Bears",
    "game_start": "2026-11-09T01:20Z",
    "side_std": "home",
+   "conflict": [
+    "big money"
+   ],
    "money_with": false,
    "grade": "A",
    "fair_board": null,
@@ -317,48 +273,47 @@
    "books": null
   },
   {
-   "cond": "0x976e35b2d3bf476e3fd84a4162a831a613a7102dd156b85d964f47e9302df828",
-   "slug": "nba-den-hou-2026-11-09",
-   "title": "Nuggets vs. Rockets",
-   "mtype": "ml",
-   "start": "2026-11-10T01:30:00Z",
-   "bet": "Rockets ML",
-   "side": "Rockets",
-   "flagged": "2026-11-08T22:30:06Z",
-   "why": "3 top-200 accounts",
-   "proven": true,
-   "trigger": "two",
-   "n_accounts": 3,
-   "best_rank": 23,
-   "usd": 1512,
-   "paid": 0.635,
-   "ask": 0.75,
+   "cond": "0xb34d5e6566b34f45a80b388fdb8d728d579a5a3b64848bf7692113e4da7da0c8",
+   "slug": "nba-mia-sac-2026-11-08",
+   "title": "Heat vs. Kings",
+   "mtype": "spread",
+   "start": "2026-11-09T02:00:00Z",
+   "bet": "Heat -9.5",
+   "side": "Heat",
+   "flagged": "2026-11-08T22:45:40Z",
+   "why": "a top-50 account",
+   "proven": false,
+   "trigger": "top50",
+   "n_accounts": 1,
+   "best_rank": 49,
+   "usd": 1970,
+   "paid": 0.539,
+   "ask": 0.55,
    "status": "live",
-   "link": "https://polymarket.us/event/nba-den-hou-2026-11-09",
+   "link": "https://polymarket.us/event/nba-mia-sac-2026-11-08",
    "other": null,
    "kalshi_against": null,
    "logged": true,
-   "event_id": "401909957",
+   "event_id": "401909951",
    "sport": "nba",
    "league": null,
-   "away": "DEN",
-   "home": "HOU",
-   "away_name": "Denver Nuggets",
-   "home_name": "Houston Rockets",
-   "game_start": "2026-11-10T01:30Z",
-   "side_std": "home",
+   "away": "MIA",
+   "home": "SAC",
+   "away_name": "Miami Heat",
+   "home_name": "Sacramento Kings",
+   "game_start": "2026-11-09T02:00Z",
+   "side_std": "away",
    "money_with": false,
-   "grade": "A",
-   "fair_board": 0.6181,
+   "grade": "watch",
+   "fair_board": 0.5193,
    "inside_fair": false,
    "books": {
     "at": "2026-11-08T21:56:26Z",
-    "fair": 0.6181,
+    "fair": 0.5193,
     "q": {
-     "DK": 0.6241,
-     "Polymarket": 0.63,
-     "Novig": 0.63,
-     "FD": 0.635
+     "Novig": 0.525,
+     "FD": 0.5349,
+     "Kalshi": 0.55
     }
    }
   },
@@ -583,9 +538,6 @@
    "home_name": "Detroit Pistons",
    "game_start": "2026-11-08T23:00Z",
    "side_std": "home",
-   "conflict": [
-    "big money"
-   ],
    "money_with": false,
    "grade": "B",
    "fair_board": null,
@@ -629,9 +581,6 @@
    "home_name": "Detroit Pistons",
    "game_start": "2026-11-08T23:00Z",
    "side_std": "home",
-   "conflict": [
-    "big money"
-   ],
    "money_with": false,
    "grade": "B",
    "fair_board": null,
@@ -654,7 +603,7 @@
    "best_rank": 112,
    "usd": 8008,
    "paid": 0.43,
-   "ask": 0.49,
+   "ask": 0.5,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-lal-det-2026-11-08",
    "other": {
@@ -663,7 +612,7 @@
     "usd": 7348,
     "first": "2026-11-08T22:08:43Z"
    },
-   "exit_bid": 0.48,
+   "exit_bid": 0.49,
    "kalshi_against": null,
    "logged": true,
    "event_id": "401909946",
@@ -675,9 +624,6 @@
    "home_name": "Detroit Pistons",
    "game_start": "2026-11-08T23:00Z",
    "side_std": "home",
-   "conflict": [
-    "big money"
-   ],
    "money_with": false,
    "grade": "B",
    "inside_fair": false,
@@ -728,6 +674,49 @@
    "books": null
   },
   {
+   "cond": "0x347e6e1fdf8c4cd959a05ea42aa9c7ce2f5d69708b42d56595eab832d9bf5b41",
+   "slug": "nba-bkn-dal-2026-11-08",
+   "title": "Nets vs. Mavericks",
+   "mtype": "spread",
+   "start": "2026-11-09T00:30:00Z",
+   "bet": "Nets +8.5",
+   "side": "Nets",
+   "flagged": "2026-11-08T16:19:01Z",
+   "why": "a top-50 account",
+   "proven": false,
+   "trigger": "top50",
+   "n_accounts": 1,
+   "best_rank": 49,
+   "usd": 10734,
+   "paid": 0.533,
+   "ask": 0.54,
+   "status": "other side",
+   "link": "https://polymarket.us/event/nba-bkn-dal-2026-11-08",
+   "other": {
+    "n_accounts": 1,
+    "best_rank": 112,
+    "usd": 34407,
+    "first": "2026-11-08T22:45:03Z"
+   },
+   "exit_bid": 0.53,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401909948",
+   "sport": "nba",
+   "league": null,
+   "away": "BKN",
+   "home": "DAL",
+   "away_name": "Brooklyn Nets",
+   "home_name": "Dallas Mavericks",
+   "game_start": "2026-11-09T00:30Z",
+   "side_std": "away",
+   "money_with": false,
+   "grade": "watch",
+   "inside_fair": false,
+   "fair_board": 0.529,
+   "books": null
+  },
+  {
    "cond": "0xc2c8c1692b4f29d36ca4b0763046f46b4c1606cdb9355d5d466ea1730c265ab9",
    "slug": "nba-bos-mil-2026-11-08",
    "title": "Celtics vs. Bucks",
@@ -764,6 +753,9 @@
    "home_name": "Milwaukee Bucks",
    "game_start": "2026-11-09T01:00Z",
    "side_std": "away",
+   "conflict": [
+    "big money"
+   ],
    "money_with": false,
    "grade": "watch",
    "fair_board": 0.8598,
@@ -791,8 +783,8 @@
    "link": "https://polymarket.us/event/nba-lal-atl-2026-11-09",
    "other": null,
    "kalshi_against": {
-    "move": 7.5,
-    "now": 57.0,
+    "move": 7.0,
+    "now": 56.5,
     "state": "held"
    },
    "logged": true,
@@ -866,6 +858,59 @@
    "fair_board": 0.6158,
    "inside_fair": false,
    "books": null
+  },
+  {
+   "cond": "0x976e35b2d3bf476e3fd84a4162a831a613a7102dd156b85d964f47e9302df828",
+   "slug": "nba-den-hou-2026-11-09",
+   "title": "Nuggets vs. Rockets",
+   "mtype": "ml",
+   "start": "2026-11-10T01:30:00Z",
+   "bet": "Rockets ML",
+   "side": "Rockets",
+   "flagged": "2026-11-08T22:30:06Z",
+   "why": "3 top-200 accounts",
+   "proven": true,
+   "trigger": "two",
+   "n_accounts": 3,
+   "best_rank": 23,
+   "usd": 1512,
+   "paid": 0.635,
+   "ask": 0.74,
+   "status": "live",
+   "link": "https://polymarket.us/event/nba-den-hou-2026-11-09",
+   "other": null,
+   "kalshi_against": {
+    "move": 4.0,
+    "now": 39.5,
+    "state": "drift"
+   },
+   "logged": true,
+   "event_id": "401909957",
+   "sport": "nba",
+   "league": null,
+   "away": "DEN",
+   "home": "HOU",
+   "away_name": "Denver Nuggets",
+   "home_name": "Houston Rockets",
+   "game_start": "2026-11-10T01:30Z",
+   "side_std": "home",
+   "conflict": [
+    "Kalshi move"
+   ],
+   "money_with": false,
+   "grade": "A",
+   "inside_fair": false,
+   "fair_board": 0.6181,
+   "books": {
+    "at": "2026-11-08T21:56:26Z",
+    "fair": 0.6181,
+    "q": {
+     "DK": 0.6241,
+     "Polymarket": 0.63,
+     "Novig": 0.63,
+     "FD": 0.635
+    }
+   }
   }
  ],
  "record": {
@@ -951,7 +996,11 @@
    }
   },
   "401909948:nba_ats_hot_home": {
-   "with": null,
+   "with": {
+    "n": 1,
+    "best_rank": 112,
+    "usd": 34407
+   },
    "against": {
     "n": 2,
     "best_rank": 49,
@@ -1089,6 +1138,11 @@
     "n": 2,
     "best_rank": 49,
     "usd": 10968
+   },
+   "home": {
+    "n": 1,
+    "best_rank": 112,
+    "usd": 34407
    }
   },
   "401909949|ml": {
@@ -1122,6 +1176,11 @@
     "n": 1,
     "best_rank": 119,
     "usd": 1011
+   },
+   "away": {
+    "n": 2,
+    "best_rank": 49,
+    "usd": 3758
    }
   },
   "401909952|ml": {
