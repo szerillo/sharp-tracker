@@ -1,5 +1,5 @@
 {
- "built": "2026-11-08T02:57:35Z",
+ "built": "2026-11-08T03:17:00Z",
  "record": {
   "cbb_1h_total_curve": {
    "n": 1,
@@ -20,10 +20,10 @@
    "units": 0
   },
   "nhl_p3_under_curve": {
-   "n": 2,
+   "n": 3,
    "won": 0,
-   "lost": 2,
-   "units": -0.5
+   "lost": 3,
+   "units": -0.75
   },
   "cfb_tt_under_curve": {
    "n": 13,
@@ -33,31 +33,6 @@
   }
  },
  "rows": [
-  {
-   "key": "nhl_p3_under_curve|8cc95915d5faf0205f042002d771ad88||under",
-   "rule": "nhl_p3_under_curve",
-   "tier": "P",
-   "stake": 0.0,
-   "sport": "nhl",
-   "odds_id": "8cc95915d5faf0205f042002d771ad88",
-   "espn": "401892666",
-   "game": "Utah Mammoth @ Ottawa Senators",
-   "start": "2026-11-08T00:10:00Z",
-   "market": "totals_p3",
-   "team": null,
-   "team_name": null,
-   "side": "under",
-   "line": 2.0,
-   "curve": 0.547,
-   "pin_fair": 0.446,
-   "gap": 10.1,
-   "full_total": 6.5,
-   "full_spread": 1.5,
-   "pin_price": 2.16,
-   "book": null,
-   "price": null,
-   "flagged": "2026-11-07T21:19:31Z"
-  },
   {
    "key": "cfb_q1_under_curve|0842fcd69fdf5061f6751f876ead09f2||under",
    "rule": "cfb_q1_under_curve",
