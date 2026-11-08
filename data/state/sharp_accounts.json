@@ -1,5 +1,5 @@
 {
- "built": "2026-11-08T16:03:21Z",
+ "built": "2026-11-08T16:10:24Z",
  "rows": [
   {
    "cond": "0x2992326e6e51bbbfcea34ca609e83388352f1a5674d411c13ac0ec4911870f7f",
@@ -34,18 +34,9 @@
    "side_std": "away",
    "money_with": false,
    "grade": "A",
-   "fair_board": 0.486,
+   "fair_board": null,
    "inside_fair": null,
-   "books": {
-    "at": "2026-11-08T13:44:09Z",
-    "fair": 0.486,
-    "q": {
-     "Novig": 0.49,
-     "DK": 0.5,
-     "Kalshi": 0.51,
-     "FD": 0.5122
-    }
-   }
+   "books": null
   },
   {
    "cond": "0x9bba574f3b74838deebb1089512f128f6ee4614a433a135c40cfec1ce5f25168",
@@ -82,16 +73,7 @@
    "grade": "A",
    "inside_fair": false,
    "fair_board": 0.255,
-   "books": {
-    "at": "2026-11-08T13:44:09Z",
-    "fair": 0.2994,
-    "q": {
-     "Caesars": 0.2817,
-     "DK": 0.2941,
-     "Novig": 0.31,
-     "FD": 0.3125
-    }
-   }
+   "books": null
   },
   {
    "cond": "0xb30a85f10d4cb2af6ed64c0d89f9a951c1496371ada5ec075c9425ad5087f7bd",
@@ -128,16 +110,7 @@
    "grade": "A",
    "inside_fair": false,
    "fair_board": 0.4665,
-   "books": {
-    "at": "2026-11-08T13:44:09Z",
-    "fair": 0.4943,
-    "q": {
-     "Novig": 0.5,
-     "Caesars": 0.5074,
-     "FD": 0.5146,
-     "DK": 0.5238
-    }
-   }
+   "books": null
   },
   {
    "cond": "0xd00af717f526ee0f28de6e1eb420edd5c19ae426fa0f9796638b20bbedce23e5",
@@ -174,14 +147,7 @@
    "grade": "A",
    "fair_board": null,
    "inside_fair": null,
-   "books": {
-    "at": "2026-11-08T13:44:09Z",
-    "fair": null,
-    "q": {
-     "Novig": 0.205,
-     "FD": 0.2273
-    }
-   }
+   "books": null
   },
   {
    "cond": "0x50d65c600519194a43397e69a1ea366cca2b6762f22b6a06b437b2913d2d211a",
@@ -253,17 +219,9 @@
    "side_std": "away",
    "money_with": false,
    "grade": "B",
-   "fair_board": 0.4814,
+   "fair_board": null,
    "inside_fair": null,
-   "books": {
-    "at": "2026-11-08T14:22:11Z",
-    "fair": 0.4814,
-    "q": {
-     "Novig": 0.49,
-     "Kalshi": 0.5,
-     "FD": 0.5
-    }
-   }
+   "books": null
   },
   {
    "cond": "0x7ef37ab1c5a9aa47e03e9ca4fbc77aa2511c9275b8a064802a44f2461c1f691a",
@@ -281,7 +239,7 @@
    "best_rank": 149,
    "usd": 2735,
    "paid": 0.46,
-   "ask": 0.48,
+   "ask": 0.49,
    "status": "live",
    "link": "https://polymarket.us/event/epl-mun-ast-2026-11-08",
    "other": null,
@@ -301,10 +259,10 @@
    "inside_fair": false,
    "fair_board": 0.4382,
    "books": {
-    "at": "2026-11-08T14:53:27Z",
-    "fair": 0.4382,
+    "at": "2026-11-08T15:57:14Z",
+    "fair": 0.4538,
     "q": {
-     "Novig": 0.44,
+     "Novig": 0.465,
      "Kalshi": 0.47
     }
    }
@@ -342,9 +300,18 @@
    "side_std": "over",
    "money_with": false,
    "grade": "A",
-   "fair_board": null,
-   "inside_fair": null,
-   "books": null
+   "fair_board": 0.4958,
+   "inside_fair": false,
+   "books": {
+    "at": "2026-11-08T15:57:14Z",
+    "fair": 0.4958,
+    "q": {
+     "Novig": 0.5,
+     "Kalshi": 0.51,
+     "Caesars": 0.5169,
+     "DK": 0.5238
+    }
+   }
   },
   {
    "cond": "0x57ed7b794b573b0b204a91ca6e2235f229530ba0116d43777040e20a02038130",
@@ -362,7 +329,7 @@
    "best_rank": 4,
    "usd": 153,
    "paid": 0.72,
-   "ask": 0.72,
+   "ask": 0.71,
    "status": "live",
    "link": "https://polymarket.us/event/nfl-cle-no-2026-11-08",
    "other": null,
@@ -422,11 +389,10 @@
    "inside_fair": false,
    "fair_board": 0.5072,
    "books": {
-    "at": "2026-11-08T14:53:27Z",
-    "fair": 0.5343,
+    "at": "2026-11-08T15:57:14Z",
+    "fair": 0.5358,
     "q": {
-     "DK": 0.5349,
-     "Novig": 0.535,
+     "Novig": 0.54,
      "Kalshi": 0.56
     }
    }
@@ -874,13 +840,13 @@
    "side_std": "home",
    "money_with": false,
    "grade": "A",
-   "fair_board": 0.4952,
+   "fair_board": 0.4958,
    "inside_fair": false,
    "books": {
-    "at": "2026-11-08T14:53:27Z",
-    "fair": 0.4952,
+    "at": "2026-11-08T15:57:14Z",
+    "fair": 0.4958,
     "q": {
-     "Novig": 0.495,
+     "Novig": 0.5,
      "Polymarket": 0.51,
      "FD": 0.5146,
      "Caesars": 0.5192
@@ -920,16 +886,16 @@
    "side_std": "home",
    "money_with": false,
    "grade": "watch",
-   "fair_board": 0.2235,
-   "inside_fair": true,
+   "fair_board": 0.2118,
+   "inside_fair": false,
    "books": {
-    "at": "2026-11-08T14:53:27Z",
-    "fair": 0.2235,
+    "at": "2026-11-08T15:57:14Z",
+    "fair": 0.2118,
     "q": {
-     "Novig": 0.23,
-     "Polymarket": 0.23,
-     "DK": 0.2387,
-     "Kalshi": 0.24
+     "Novig": 0.215,
+     "Polymarket": 0.22,
+     "DK": 0.2331,
+     "Caesars": 0.2381
     }
    }
   },
@@ -1080,16 +1046,16 @@
    "side_std": "home",
    "money_with": false,
    "grade": "watch",
-   "fair_board": 0.8342,
+   "fair_board": 0.8321,
    "inside_fair": false,
    "books": {
-    "at": "2026-11-08T14:53:27Z",
-    "fair": 0.8342,
+    "at": "2026-11-08T15:57:14Z",
+    "fair": 0.8321,
     "q": {
      "Novig": 0.835,
+     "FD": 0.8361,
      "Polymarket": 0.84,
-     "Caesars": 0.8462,
-     "FD": 0.8485
+     "Caesars": 0.8462
     }
    }
   },
@@ -1166,7 +1132,7 @@
    "fair_board": null,
    "inside_fair": null,
    "books": {
-    "at": "2026-11-08T14:53:27Z",
+    "at": "2026-11-08T15:57:14Z",
     "fair": null,
     "q": {
      "Polymarket": 0.51,
@@ -1210,7 +1176,7 @@
    "fair_board": null,
    "inside_fair": null,
    "books": {
-    "at": "2026-11-08T14:53:27Z",
+    "at": "2026-11-08T15:57:14Z",
     "fair": null,
     "q": {
      "Polymarket": 0.57,
@@ -1257,7 +1223,7 @@
    "side_std": "home",
    "money_with": false,
    "grade": "A",
-   "fair_board": 0.5214,
+   "fair_board": null,
    "inside_fair": null,
    "books": null
   },
@@ -1343,7 +1309,7 @@
    "side_std": "away",
    "money_with": false,
    "grade": "A",
-   "fair_board": 0.6305,
+   "fair_board": null,
    "inside_fair": null,
    "books": null
   },
@@ -1433,13 +1399,13 @@
    "inside_fair": true,
    "fair_board": 0.3968,
    "books": {
-    "at": "2026-11-08T14:53:27Z",
-    "fair": 0.4036,
+    "at": "2026-11-08T15:57:14Z",
+    "fair": 0.4062,
     "q": {
      "Novig": 0.41,
-     "FD": 0.4132,
      "Kalshi": 0.42,
-     "DK": 0.4237
+     "Caesars": 0.4255,
+     "FD": 0.4274
     }
    }
   },
@@ -1536,7 +1502,7 @@
    ],
    "money_with": false,
    "grade": "watch",
-   "fair_board": 0.3824,
+   "fair_board": 0.3713,
    "inside_fair": true,
    "books": null
   },
@@ -1579,7 +1545,7 @@
    "side_std": "away",
    "money_with": false,
    "grade": "watch",
-   "fair_board": 0.863,
+   "fair_board": 0.8622,
    "inside_fair": false,
    "books": null
   },
@@ -1625,7 +1591,7 @@
    ],
    "money_with": false,
    "grade": "A",
-   "fair_board": 0.6137,
+   "fair_board": 0.6139,
    "inside_fair": false,
    "books": null
   }
