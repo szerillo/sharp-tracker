@@ -1,5 +1,5 @@
 {
- "built": "2026-11-08T23:46:26Z",
+ "built": "2026-11-08T23:53:06Z",
  "rows": [
   {
    "cond": "0xd473df71870912bc0a4120c5fffc4f59cb4c26d59f8a421dbe441bbd640593cd",
@@ -263,9 +263,6 @@
    "home_name": "Chicago Bears",
    "game_start": "2026-11-09T01:20Z",
    "side_std": "home",
-   "conflict": [
-    "big money"
-   ],
    "money_with": false,
    "grade": "A",
    "fair_board": null,
@@ -642,9 +639,9 @@
    "status": "other side",
    "link": "https://polymarket.us/event/nba-uta-min-2026-11-08",
    "other": {
-    "n_accounts": 1,
+    "n_accounts": 2,
     "best_rank": 43,
-    "usd": 565,
+    "usd": 6554,
     "first": "2026-11-08T20:21:48Z"
    },
    "exit_bid": 0.53,
@@ -745,6 +742,9 @@
    "home_name": "Milwaukee Bucks",
    "game_start": "2026-11-09T01:00Z",
    "side_std": "away",
+   "conflict": [
+    "big money"
+   ],
    "money_with": false,
    "grade": "watch",
    "fair_board": 0.8607,
@@ -767,7 +767,7 @@
    "best_rank": 43,
    "usd": 257,
    "paid": 0.509,
-   "ask": 0.44,
+   "ask": 0.43,
    "status": "live",
    "link": "https://polymarket.us/event/nba-lal-atl-2026-11-09",
    "other": null,
@@ -945,9 +945,9 @@
     "usd": 362
    },
    "against": {
-    "n": 1,
+    "n": 2,
     "best_rank": 43,
-    "usd": 565
+    "usd": 6554
    }
   },
   "401909949:nba_bigfav_over": {
@@ -1025,9 +1025,9 @@
     "usd": 362
    },
    "away": {
-    "n": 1,
+    "n": 2,
     "best_rank": 43,
-    "usd": 565
+    "usd": 6554
    }
   },
   "401909948|ml": {
