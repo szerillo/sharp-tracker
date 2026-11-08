@@ -1,5 +1,5 @@
 {
- "built": "2026-11-08T21:31:41Z",
+ "built": "2026-11-08T21:38:39Z",
  "rows": [
   {
    "cond": "0x4482ea8fcedde0dfe70a6793f45114b74b40eb73e16bc1c25fe51a999a0ed1b7",
@@ -1562,10 +1562,10 @@
  "record": {
   "by_fair": {
    "inside": {
-    "n": 4,
+    "n": 5,
     "won": 2,
-    "units": -0.59,
-    "clv": -0.17
+    "units": -1.09,
+    "clv": 0.0
    },
    "outside": {
     "n": 26,
@@ -1574,21 +1574,21 @@
     "clv": 0.1
    }
   },
-  "n": 137,
-  "won": 60,
-  "units": -10.33,
+  "n": 141,
+  "won": 61,
+  "units": -11.8,
   "by_grade": {
    "A": {
-    "n": 94,
+    "n": 97,
     "won": 40,
-    "units": -8.52,
-    "clv": -0.18
+    "units": -10.24,
+    "clv": -0.14
    },
    "B": {
-    "n": 29,
-    "won": 16,
-    "units": 0.45,
-    "clv": -0.89
+    "n": 30,
+    "won": 17,
+    "units": 0.7,
+    "clv": -0.87
    },
    "watch": {
     "n": 14,
@@ -1597,12 +1597,12 @@
     "clv": -1.75
    }
   },
-  "units_1u": -23.49,
-  "clv": -0.43,
-  "n_venue": 65,
-  "units_venue": -5.32,
-  "clv_venue": 0.3,
-  "clv_poly_same": -0.78
+  "units_1u": -25.61,
+  "clv": -0.4,
+  "n_venue": 66,
+  "units_venue": -5.82,
+  "clv_venue": 0.33,
+  "clv_poly_same": -0.75
  },
  "sys_tags": {
   "401909947:nba_ats_hot_home": {
