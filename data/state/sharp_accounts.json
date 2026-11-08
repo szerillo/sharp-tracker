@@ -1,5 +1,5 @@
 {
- "built": "2026-11-08T18:02:49Z",
+ "built": "2026-11-08T18:09:35Z",
  "rows": [
   {
    "cond": "0x50d65c600519194a43397e69a1ea366cca2b6762f22b6a06b437b2913d2d211a",
@@ -110,14 +110,7 @@
    "grade": "A",
    "inside_fair": false,
    "fair_board": 0.4382,
-   "books": {
-    "at": "2026-11-08T16:23:36Z",
-    "fair": 0.4829,
-    "q": {
-     "Novig": 0.495,
-     "Kalshi": 0.51
-    }
-   }
+   "books": null
   },
   {
    "cond": "0xd394ba0afb91c8a0482955ee964aacc1036ff1cb55db0e789ed998360076ef35",
@@ -152,18 +145,9 @@
    "side_std": "under",
    "money_with": false,
    "grade": "A",
-   "fair_board": 0.4306,
+   "fair_board": null,
    "inside_fair": null,
-   "books": {
-    "at": "2026-11-08T16:23:36Z",
-    "fair": 0.4306,
-    "q": {
-     "Caesars": 0.4329,
-     "Novig": 0.435,
-     "FD": 0.4587,
-     "DK": 0.4651
-    }
-   }
+   "books": null
   },
   {
    "cond": "0x4482ea8fcedde0dfe70a6793f45114b74b40eb73e16bc1c25fe51a999a0ed1b7",
@@ -198,13 +182,13 @@
    "side_std": "over",
    "money_with": false,
    "grade": "A",
-   "fair_board": 0.4947,
+   "fair_board": 0.4968,
    "inside_fair": null,
    "books": {
-    "at": "2026-11-08T16:58:30Z",
-    "fair": 0.4947,
+    "at": "2026-11-08T17:58:42Z",
+    "fair": 0.4968,
     "q": {
-     "Novig": 0.495,
+     "Novig": 0.5,
      "Kalshi": 0.52,
      "DK": 0.5238,
      "FD": 0.5238
@@ -252,6 +236,52 @@
    "books": null
   },
   {
+   "cond": "0x3dd5a9a57210560fe11f668ead4f31156443ce848c58135413a15d77d70e2a1b",
+   "slug": "nfl-nyg-phi-2026-11-08",
+   "title": "Giants vs. Eagles",
+   "mtype": "ml",
+   "start": "2026-11-08T18:00:00Z",
+   "bet": "Eagles ML",
+   "side": "Eagles",
+   "flagged": "2026-11-06T19:48:13Z",
+   "why": "2 top-200 accounts",
+   "proven": false,
+   "trigger": "two",
+   "n_accounts": 2,
+   "best_rank": 4,
+   "usd": 2537,
+   "paid": 0.393,
+   "ask": null,
+   "status": "live",
+   "link": "https://polymarket.us/event/nfl-nyg-phi-2026-11-08",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401873044",
+   "sport": "nfl",
+   "league": null,
+   "away": "NYG",
+   "home": "PHI",
+   "away_name": "New York Giants",
+   "home_name": "Philadelphia Eagles",
+   "game_start": "2026-11-08T18:00Z",
+   "side_std": "home",
+   "money_with": true,
+   "grade": "A",
+   "inside_fair": true,
+   "fair_board": 0.3968,
+   "books": {
+    "at": "2026-11-08T17:58:42Z",
+    "fair": 0.409,
+    "q": {
+     "Novig": 0.415,
+     "DK": 0.4237,
+     "FD": 0.4237,
+     "Caesars": 0.4255
+    }
+   }
+  },
+  {
    "cond": "0x9a9115324b0e5126619904e0f27f8ac8110d60035f37f15467c504fcac1d3de8",
    "slug": "nfl-dal-ind-2026-11-08",
    "title": "Cowboys vs. Colts",
@@ -287,10 +317,10 @@
    "inside_fair": false,
    "fair_board": 0.5072,
    "books": {
-    "at": "2026-11-08T16:58:30Z",
-    "fair": null,
+    "at": "2026-11-08T17:58:42Z",
+    "fair": 0.5457,
     "q": {
-     "Novig": 0.535,
+     "Novig": 0.55,
      "Kalshi": 0.56
     }
    }
@@ -627,13 +657,13 @@
    "inside_fair": false,
    "fair_board": 0.5006,
    "books": {
-    "at": "2026-11-08T16:58:30Z",
-    "fair": 0.5006,
+    "at": "2026-11-08T17:58:42Z",
+    "fair": 0.5259,
     "q": {
-     "Novig": 0.51,
-     "DK": 0.5122,
-     "FD": 0.5122,
-     "Caesars": 0.5146
+     "DK": 0.5349,
+     "Caesars": 0.5349,
+     "FD": 0.5349,
+     "Novig": 0.535
     }
    }
   },
@@ -673,13 +703,13 @@
    "inside_fair": false,
    "fair_board": 0.5016,
    "books": {
-    "at": "2026-11-08T16:58:30Z",
-    "fair": 0.4997,
+    "at": "2026-11-08T17:58:42Z",
+    "fair": 0.5451,
     "q": {
-     "Novig": 0.51,
-     "FD": 0.5122,
-     "Caesars": 0.5192,
-     "DK": 0.5238
+     "DK": 0.5238,
+     "FD": 0.5238,
+     "Caesars": 0.5305,
+     "Novig": 0.55
     }
    }
   },
@@ -751,9 +781,6 @@
    "home_name": "Philadelphia Eagles",
    "game_start": "2026-11-08T18:00Z",
    "side_std": "away",
-   "conflict": [
-    "Kalshi move"
-   ],
    "money_with": false,
    "grade": "B",
    "fair_board": null,
@@ -796,10 +823,10 @@
    "inside_fair": false,
    "fair_board": 0.2649,
    "books": {
-    "at": "2026-11-08T16:58:30Z",
-    "fair": 0.2631,
+    "at": "2026-11-08T17:58:42Z",
+    "fair": 0.262,
     "q": {
-     "Novig": 0.27,
+     "Novig": 0.265,
      "FD": 0.2857,
      "Caesars": 0.2899,
      "DK": 0.2899
@@ -845,13 +872,13 @@
    "inside_fair": false,
    "fair_board": 0.621,
    "books": {
-    "at": "2026-11-08T16:58:30Z",
-    "fair": 0.627,
+    "at": "2026-11-08T17:58:42Z",
+    "fair": 0.6707,
     "q": {
-     "Novig": 0.63,
-     "Kalshi": 0.64,
-     "FD": 0.6429,
-     "Caesars": 0.6454
+     "FD": 0.6644,
+     "Caesars": 0.6764,
+     "Novig": 0.68,
+     "DK": 0.6855
     }
    }
   },
@@ -960,15 +987,15 @@
    "home_name": "Buffalo Sabres",
    "game_start": "2026-11-08T20:30Z",
    "side_std": "home",
-   "money_with": false,
+   "money_with": true,
    "grade": "A",
-   "fair_board": 0.4979,
+   "fair_board": 0.4948,
    "inside_fair": false,
    "books": {
-    "at": "2026-11-08T16:58:30Z",
-    "fair": 0.4979,
+    "at": "2026-11-08T17:58:42Z",
+    "fair": 0.4948,
     "q": {
-     "Novig": 0.5,
+     "Novig": 0.495,
      "Polymarket": 0.51,
      "FD": 0.5146,
      "Caesars": 0.5192
@@ -1008,11 +1035,11 @@
    "side_std": "home",
    "money_with": false,
    "grade": "watch",
-   "fair_board": 0.2158,
+   "fair_board": 0.2142,
    "inside_fair": false,
    "books": {
-    "at": "2026-11-08T16:58:30Z",
-    "fair": 0.2158,
+    "at": "2026-11-08T17:58:42Z",
+    "fair": 0.2142,
     "q": {
      "Novig": 0.22,
      "Polymarket": 0.22,
@@ -1057,13 +1084,13 @@
    "inside_fair": false,
    "fair_board": 0.5124,
    "books": {
-    "at": "2026-11-08T16:58:30Z",
-    "fair": 0.5125,
+    "at": "2026-11-08T17:58:42Z",
+    "fair": 0.5124,
     "q": {
      "Novig": 0.52,
      "Polymarket": 0.52,
-     "Caesars": 0.5238,
-     "Kalshi": 0.53
+     "Kalshi": 0.53,
+     "FD": 0.5327
     }
    }
   },
@@ -1214,16 +1241,16 @@
    "side_std": "home",
    "money_with": false,
    "grade": "watch",
-   "fair_board": 0.8439,
+   "fair_board": 0.8484,
    "inside_fair": false,
    "books": {
-    "at": "2026-11-08T16:58:30Z",
-    "fair": 0.8439,
+    "at": "2026-11-08T17:58:42Z",
+    "fair": 0.8484,
     "q": {
-     "FD": 0.8361,
-     "Caesars": 0.8462,
      "Polymarket": 0.85,
-     "Novig": 0.85
+     "Novig": 0.85,
+     "Kalshi": 0.86,
+     "Caesars": 0.8667
     }
    }
   },
@@ -1263,13 +1290,11 @@
    "inside_fair": false,
    "fair_board": 0.4816,
    "books": {
-    "at": "2026-11-08T16:58:30Z",
-    "fair": 0.5081,
+    "at": "2026-11-08T17:58:42Z",
+    "fair": null,
     "q": {
-     "Polymarket": 0.48,
-     "Caesars": 0.5122,
-     "FD": 0.5122,
-     "DK": 0.5146
+     "Novig": 0.52,
+     "Kalshi": 0.55
     }
    }
   },
@@ -1309,11 +1334,10 @@
    "inside_fair": false,
    "fair_board": 0.529,
    "books": {
-    "at": "2026-11-08T16:58:30Z",
+    "at": "2026-11-08T17:58:42Z",
     "fair": null,
     "q": {
      "Novig": 0.53,
-     "Polymarket": 0.53,
      "Kalshi": 0.56
     }
    }
@@ -1391,11 +1415,11 @@
    "fair_board": null,
    "inside_fair": null,
    "books": {
-    "at": "2026-11-08T16:58:30Z",
+    "at": "2026-11-08T17:58:42Z",
     "fair": null,
     "q": {
-     "Polymarket": 0.51,
-     "Kalshi": 0.52
+     "Kalshi": 0.52,
+     "Polymarket": 0.52
     }
    }
   },
@@ -1432,68 +1456,16 @@
    "side_std": "away",
    "money_with": false,
    "grade": "A",
-   "fair_board": 0.5555,
+   "fair_board": 0.5525,
    "inside_fair": false,
    "books": {
-    "at": "2026-11-08T16:58:30Z",
-    "fair": 0.5555,
+    "at": "2026-11-08T17:58:42Z",
+    "fair": 0.5525,
     "q": {
+     "Caesars": 0.5652,
+     "DK": 0.5652,
      "FD": 0.569,
-     "Polymarket": 0.57,
-     "Kalshi": 0.58
-    }
-   }
-  },
-  {
-   "cond": "0x3dd5a9a57210560fe11f668ead4f31156443ce848c58135413a15d77d70e2a1b",
-   "slug": "nfl-nyg-phi-2026-11-08",
-   "title": "Giants vs. Eagles",
-   "mtype": "ml",
-   "start": "2026-11-08T18:00:00Z",
-   "bet": "Eagles ML",
-   "side": "Eagles",
-   "flagged": "2026-11-06T19:48:13Z",
-   "why": "2 top-200 accounts",
-   "proven": false,
-   "trigger": "two",
-   "n_accounts": 2,
-   "best_rank": 4,
-   "usd": 2537,
-   "paid": 0.393,
-   "ask": null,
-   "status": "live",
-   "link": "https://polymarket.us/event/nfl-nyg-phi-2026-11-08",
-   "other": null,
-   "kalshi_against": {
-    "move": 4.5,
-    "now": 59.5,
-    "state": "reversed"
-   },
-   "logged": true,
-   "event_id": "401873044",
-   "sport": "nfl",
-   "league": null,
-   "away": "NYG",
-   "home": "PHI",
-   "away_name": "New York Giants",
-   "home_name": "Philadelphia Eagles",
-   "game_start": "2026-11-08T18:00Z",
-   "side_std": "home",
-   "conflict": [
-    "Kalshi move"
-   ],
-   "money_with": true,
-   "grade": "A",
-   "inside_fair": true,
-   "fair_board": 0.3968,
-   "books": {
-    "at": "2026-11-08T16:58:30Z",
-    "fair": 0.4085,
-    "q": {
-     "Novig": 0.415,
-     "Kalshi": 0.42,
-     "FD": 0.4202,
-     "Caesars": 0.4255
+     "Polymarket": 0.57
     }
    }
   },
@@ -1591,7 +1563,7 @@
    ],
    "money_with": false,
    "grade": "watch",
-   "fair_board": 0.3693,
+   "fair_board": 0.3663,
    "inside_fair": false,
    "books": null
   },
@@ -1634,8 +1606,8 @@
    "side_std": "away",
    "money_with": false,
    "grade": "watch",
-   "fair_board": 0.8636,
-   "inside_fair": true,
+   "fair_board": 0.8582,
+   "inside_fair": false,
    "books": null
   },
   {
