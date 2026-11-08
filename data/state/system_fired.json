@@ -3528,8 +3528,8 @@
 },
 "401892675:nhl_early_home_fav_qual": {
 "tag": "nhl_early_home_fav_qual",
-"fill_id": "0b0dbcd1e189",
-"ts": "2026-11-07T23:16:56Z",
+"fill_id": "4da5680db759",
+"ts": "2026-11-07T22:54:12Z",
 "market": "ml",
 "side": "home",
 "line": null,
@@ -3538,9 +3538,10 @@
 "fair": 0.50186,
 "edge_pts": -0.79,
 "why": "home favorite, game 17 of the season, opponent VGK wins 61% (11-7)",
+"restored": true,
 "void": true,
-"void_why": "trigger no longer holds on current season records (2026-11-08T00:56:32Z)",
-"void_at": "2026-11-08T00:56:32Z"
+"void_why": "trigger no longer holds on current season records (2026-11-08T01:57:12Z)",
+"void_at": "2026-11-08T01:57:12Z"
 },
 "401909939:nba_momentum:spread": {
 "tag": "nba_momentum",
@@ -3979,8 +3980,8 @@
 },
 "401909944:xch_homedog_fade:ml": {
 "tag": "xch_homedog_fade",
-"fill_id": "57632bf42e89",
-"ts": "2026-11-08T01:37:43Z",
+"fill_id": "32625f6c5a8b",
+"ts": "2026-11-08T01:57:12Z",
 "market": "ml",
 "side": "away",
 "line": null,
@@ -3988,10 +3989,6 @@
 "price": -194,
 "fair": 0.65801,
 "edge_pts": -0.2,
-"why": "Novig home side mid 0.345 inside T-1.4h; audit band 20-35c",
-"now": {
-"venue": "Novig",
-"price": -194
-}
+"why": "Novig home side mid 0.345 inside T-1.0h; audit band 20-35c"
 }
 }
