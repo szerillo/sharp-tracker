@@ -52,7 +52,8 @@ const SRC = new Set(['system', 'sharp', 'curve', 'props']);
   for (const b of want) {
     // 11/8: a soccer 'not to win' flag and a win flag on the other team show as one row (Chelsea not to win + Sunderland to win)
     const N = s => /^not_/.test(s || '') ? ({home: 'away', away: 'home'})[s.slice(4)] : s;
-    const hit = vis.filter(x => String(x.ev) === String(b.event_id) && (x.side === b.side || x.oside === b.side || (N(x.side) === N(b.side) && N(b.side))));
+    // a 'Mixed, no lean' row (sharps on both sides of the game) shows every flag in it, with no side of its own (11/8: Saints -10.5 / -2.5)
+    const hit = vis.filter(x => String(x.ev) === String(b.event_id) && (x.side === b.side || x.oside === b.side || (N(x.side) === N(b.side) && N(b.side)) || (!x.side && /Mixed, no lean/.test(x.text))));
     if (!hit.length) missing.push(b);
     else if (!hit.some(x => x.sized)) held.push(b);
   }
