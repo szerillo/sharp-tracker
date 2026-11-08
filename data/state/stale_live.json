@@ -1,5 +1,5 @@
 {
- "built": "2026-11-08T15:39:12Z",
+ "built": "2026-11-08T15:58:46Z",
  "record": {
   "n": 35,
   "won": 12,
@@ -158,6 +158,46 @@
    "move": 2.2,
    "flagged": "2026-11-08T15:39:12Z",
    "team": "LEH"
+  },
+  {
+   "key": "401911238|total|over",
+   "sport": "cbb",
+   "event_id": "401911238",
+   "game": "RICH @ TEM",
+   "start": "2026-11-08T22:00Z",
+   "market": "total",
+   "side": "over",
+   "line": 152.5,
+   "venue": "Novig",
+   "price": 0.495,
+   "fair": 0.5054,
+   "fair_power": 0.5058,
+   "venue_fair": 0.4877,
+   "fair_gap": 1.8,
+   "ev": 2.1,
+   "move": 1.8,
+   "flagged": "2026-11-08T15:58:46Z",
+   "team": null
+  },
+  {
+   "key": "401911306|ml|away",
+   "sport": "cbb",
+   "event_id": "401911306",
+   "game": "BRWN @ LEH",
+   "start": "2026-11-08T19:00Z",
+   "market": "ml",
+   "side": "away",
+   "line": null,
+   "venue": "Novig",
+   "price": 0.335,
+   "fair": 0.3488,
+   "fair_power": 0.34,
+   "venue_fair": 0.3333,
+   "fair_gap": 1.5,
+   "ev": 4.1,
+   "move": 1.8,
+   "flagged": "2026-11-08T15:58:46Z",
+   "team": "BRWN"
   }
  ]
 }
