@@ -1,5 +1,5 @@
 {
- "built": "2026-11-08T16:53:44Z",
+ "built": "2026-11-08T17:00:44Z",
  "rows": [
   {
    "cond": "0x2992326e6e51bbbfcea34ca609e83388352f1a5674d411c13ac0ec4911870f7f",
@@ -533,7 +533,7 @@
    "best_rank": 11,
    "usd": 2612,
    "paid": 0.65,
-   "ask": 0.66,
+   "ask": 0.67,
    "status": "live",
    "link": "https://polymarket.us/event/nfl-dal-ind-2026-11-08",
    "other": null,
@@ -1038,6 +1038,52 @@
    }
   },
   {
+   "cond": "0xab51f54175130112a7303a235dc4a5b84860ffe7f39c40937c0f6825f85cd5c8",
+   "slug": "nba-phi-chi-2026-11-08",
+   "title": "76ers vs. Bulls",
+   "mtype": "spread",
+   "start": "2026-11-08T20:30:00Z",
+   "bet": "Bulls +9.5",
+   "side": "Bulls",
+   "flagged": "2026-11-08T16:59:48Z",
+   "why": "2 top-200 accounts",
+   "proven": false,
+   "trigger": "two",
+   "n_accounts": 2,
+   "best_rank": 119,
+   "usd": 2835,
+   "paid": 0.511,
+   "ask": 0.52,
+   "status": "live",
+   "link": "https://polymarket.us/event/nba-phi-chi-2026-11-08",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401909945",
+   "sport": "nba",
+   "league": null,
+   "away": "PHI",
+   "home": "CHI",
+   "away_name": "Philadelphia 76ers",
+   "home_name": "Chicago Bulls",
+   "game_start": "2026-11-08T20:30Z",
+   "side_std": "home",
+   "money_with": false,
+   "grade": "B",
+   "fair_board": 0.5124,
+   "inside_fair": false,
+   "books": {
+    "at": "2026-11-08T15:57:14Z",
+    "fair": 0.5124,
+    "q": {
+     "Novig": 0.515,
+     "Polymarket": 0.52,
+     "Caesars": 0.5238,
+     "FD": 0.5327
+    }
+   }
+  },
+  {
    "cond": "0x12fe66309ecbcceab016e901e25a0bcc355f2a07f646c94dc110a9c411e14b9e",
    "slug": "nfl-hou-lac-2026-11-08",
    "title": "Texans vs. Chargers",
@@ -1130,7 +1176,7 @@
    "best_rank": 4,
    "usd": 130,
    "paid": 0.52,
-   "ask": 0.63,
+   "ask": 0.64,
    "status": "live",
    "link": "https://polymarket.us/event/cbb-ndkst-csu-2026-11-08",
    "other": null,
@@ -1700,7 +1746,7 @@
    "best_rank": 42,
    "usd": 140,
    "paid": 0.47,
-   "ask": 0.37,
+   "ask": 0.38,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-lal-det-2026-11-08",
    "other": {
@@ -1709,7 +1755,7 @@
     "usd": 1320,
     "first": "2026-11-07T22:00:06Z"
    },
-   "exit_bid": 0.36,
+   "exit_bid": 0.37,
    "kalshi_against": {
     "move": 6.0,
     "now": 62.5,
@@ -1732,7 +1778,7 @@
    "money_with": false,
    "grade": "watch",
    "fair_board": 0.3713,
-   "inside_fair": true,
+   "inside_fair": false,
    "books": null
   },
   {
@@ -1751,7 +1797,7 @@
    "best_rank": 43,
    "usd": 112,
    "paid": 0.8,
-   "ask": 0.87,
+   "ask": 0.86,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-bos-mil-2026-11-08",
    "other": {
@@ -1760,7 +1806,7 @@
     "usd": 124,
     "first": "2026-11-08T07:02:10Z"
    },
-   "exit_bid": 0.86,
+   "exit_bid": 0.85,
    "kalshi_against": null,
    "logged": true,
    "event_id": "401909949",
@@ -1775,7 +1821,7 @@
    "money_with": false,
    "grade": "watch",
    "fair_board": 0.8622,
-   "inside_fair": false,
+   "inside_fair": true,
    "books": null
   },
   {
@@ -1834,21 +1880,21 @@
     "clv": -0.17
    },
    "outside": {
-    "n": 21,
-    "won": 9,
-    "units": -1.29,
-    "clv": 0.07
+    "n": 24,
+    "won": 12,
+    "units": -0.05,
+    "clv": 0.17
    }
   },
-  "n": 122,
-  "won": 53,
-  "units": -9.07,
+  "n": 129,
+  "won": 60,
+  "units": -6.83,
   "by_grade": {
    "A": {
-    "n": 79,
-    "won": 33,
-    "units": -7.25,
-    "clv": -0.19
+    "n": 86,
+    "won": 40,
+    "units": -5.02,
+    "clv": -0.12
    },
    "B": {
     "n": 29,
@@ -1863,12 +1909,12 @@
     "clv": -1.75
    }
   },
-  "units_1u": -23.94,
-  "clv": -0.47,
-  "n_venue": 59,
-  "units_venue": -5.44,
-  "clv_venue": 0.13,
-  "clv_poly_same": -0.95
+  "units_1u": -15.49,
+  "clv": -0.4,
+  "n_venue": 62,
+  "units_venue": -4.07,
+  "clv_venue": 0.32,
+  "clv_poly_same": -0.83
  },
  "sys_tags": {
   "401873039:bounce15_1h": {
@@ -2194,9 +2240,9 @@
   },
   "401909945|spread": {
    "home": {
-    "n": 1,
+    "n": 2,
     "best_rank": 119,
-    "usd": 2595
+    "usd": 2835
    }
   },
   "401909946|ml": {
