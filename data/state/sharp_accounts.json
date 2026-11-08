@@ -1,5 +1,5 @@
 {
- "built": "2026-11-08T16:10:24Z",
+ "built": "2026-11-08T16:17:30Z",
  "rows": [
   {
    "cond": "0x2992326e6e51bbbfcea34ca609e83388352f1a5674d411c13ac0ec4911870f7f",
@@ -1029,7 +1029,7 @@
    "best_rank": 40,
    "usd": 206,
    "paid": 0.836,
-   "ask": 0.84,
+   "ask": 0.85,
    "status": "live",
    "link": "https://polymarket.us/event/nba-uta-min-2026-11-08",
    "other": null,
@@ -1056,6 +1056,52 @@
      "FD": 0.8361,
      "Polymarket": 0.84,
      "Caesars": 0.8462
+    }
+   }
+  },
+  {
+   "cond": "0x582f870a547f6b85cbe8d6e066b5d7c0842ebbe02f1d4e1a815b567bd24456ec",
+   "slug": "nba-uta-min-2026-11-08",
+   "title": "Jazz vs. Timberwolves",
+   "mtype": "spread",
+   "start": "2026-11-09T00:00:00Z",
+   "bet": "Timberwolves -11.5",
+   "side": "Timberwolves",
+   "flagged": "2026-11-08T16:15:49Z",
+   "why": "a top-50 account",
+   "proven": false,
+   "trigger": "top50",
+   "n_accounts": 1,
+   "best_rank": 43,
+   "usd": 362,
+   "paid": 0.51,
+   "ask": 0.53,
+   "status": "live",
+   "link": "https://polymarket.us/event/nba-uta-min-2026-11-08",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401909947",
+   "sport": "nba",
+   "league": null,
+   "away": "UTAH",
+   "home": "MIN",
+   "away_name": "Utah Jazz",
+   "home_name": "Minnesota Timberwolves",
+   "game_start": "2026-11-09T00:00Z",
+   "side_std": "home",
+   "money_with": true,
+   "grade": "watch",
+   "fair_board": 0.4816,
+   "inside_fair": false,
+   "books": {
+    "at": "2026-11-08T15:57:14Z",
+    "fair": 0.4816,
+    "q": {
+     "Novig": 0.48,
+     "Polymarket": 0.49,
+     "Kalshi": 0.51,
+     "FD": 0.5122
     }
    }
   },
@@ -1746,6 +1792,14 @@
    },
    "against": null
   },
+  "401909947:nba_ats_hot_home": {
+   "with": {
+    "n": 1,
+    "best_rank": 43,
+    "usd": 362
+   },
+   "against": null
+  },
   "401909951:nba_badteams_under": {
    "with": null,
    "against": {
@@ -1955,6 +2009,13 @@
     "n": 1,
     "best_rank": 40,
     "usd": 206
+   }
+  },
+  "401909947|spread": {
+   "home": {
+    "n": 1,
+    "best_rank": 43,
+    "usd": 362
    }
   },
   "401909948|ml": {
