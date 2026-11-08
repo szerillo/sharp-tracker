@@ -4855,5 +4855,87 @@
 "fair": 0.412,
 "loss": 0.003
 }
+},
+"401909946:nba_momentum:total": {
+"tag": "nba_momentum",
+"fill_id": "727e005ce86a",
+"ts": "2026-11-08T22:16:13Z",
+"market": "total",
+"side": "under",
+"line": 216.5,
+"venue": "Novig",
+"price": 102,
+"fair": 0.49224,
+"edge_pts": -0.28,
+"why": "Novig total mid 0.605 at T-6h -> 0.508 now (-9.7c); continuation (audit section 3, NBA only)",
+"now": {
+"venue": "Novig",
+"price": 102
+},
+"ladder": [
+{
+"line": 218.5,
+"steps": -4,
+"venue": "Novig",
+"price": -120,
+"cost": 0.545,
+"fair": 0.542,
+"loss": 0.0002
+},
+{
+"line": 217.5,
+"steps": -2,
+"venue": "Polymarket",
+"price": -104,
+"cost": 0.51,
+"fair": 0.5075,
+"loss": -0.0003
+},
+{
+"line": 217.0,
+"steps": -1,
+"venue": "Caesars",
+"price": -110,
+"cost": 0.5238,
+"fair": 0.5043,
+"loss": 0.0167
+},
+{
+"line": 216.5,
+"steps": 0,
+"venue": "Novig",
+"price": 102,
+"cost": 0.495,
+"fair": 0.4922,
+"loss": -0.0001
+},
+{
+"line": 215.5,
+"steps": 2,
+"venue": "Novig",
+"price": 111,
+"cost": 0.475,
+"fair": 0.4675,
+"loss": 0.0047
+},
+{
+"line": 214.5,
+"steps": 4,
+"venue": "Novig",
+"price": 125,
+"cost": 0.445,
+"fair": 0.4435,
+"loss": -0.0013
+}
+],
+"bet_to": {
+"line": 214.5,
+"steps": 4,
+"venue": "Novig",
+"price": 125,
+"cost": 0.445,
+"fair": 0.4435,
+"loss": -0.0013
+}
 }
 }
