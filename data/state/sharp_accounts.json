@@ -1,5 +1,5 @@
 {
- "built": "2026-11-07T23:51:05Z",
+ "built": "2026-11-07T23:57:56Z",
  "rows": [
   {
    "cond": "0x10f4836a3b8dab09aa15fb16ba131a57296fa9b3f666865264a3aa9be24af09a",
@@ -495,7 +495,7 @@
    "best_rank": 132,
    "usd": 137,
    "paid": 0.52,
-   "ask": 0.54,
+   "ask": 0.55,
    "status": "live",
    "link": "https://polymarket.us/event/mls-sea-laf-2026-11-07",
    "other": null,
@@ -1354,6 +1354,43 @@
    "books": null
   },
   {
+   "cond": "0x9728e87811fcaef8ca22981ffcd92790b2d2c7a58ee6791f9b454d43af5739f0",
+   "slug": "nfl-nyg-phi-2026-11-08",
+   "title": "Giants vs. Eagles",
+   "mtype": "spread",
+   "start": "2026-11-08T18:00:00Z",
+   "bet": "Eagles +5.5",
+   "side": "Eagles",
+   "flagged": "2026-11-07T23:53:45Z",
+   "why": "a top-50 account",
+   "proven": false,
+   "trigger": "top50",
+   "n_accounts": 1,
+   "best_rank": 4,
+   "usd": 1619,
+   "paid": 0.59,
+   "ask": 0.59,
+   "status": "live",
+   "link": "https://polymarket.us/event/nfl-nyg-phi-2026-11-08",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401873044",
+   "sport": "nfl",
+   "league": null,
+   "away": "NYG",
+   "home": "PHI",
+   "away_name": "New York Giants",
+   "home_name": "Philadelphia Eagles",
+   "game_start": "2026-11-08T18:00Z",
+   "side_std": "home",
+   "money_with": true,
+   "grade": "A",
+   "fair_board": null,
+   "inside_fair": null,
+   "books": null
+  },
+  {
    "cond": "0xfc2ab1795b24239c2bdd73f59abd913b83ba1b39f8d77890a3d009f0e662081f",
    "slug": "bun-hof-s04-2026-11-08",
    "title": "TSG 1899 Hoffenheim vs. FC Schalke 04",
@@ -1893,7 +1930,7 @@
    "best_rank": 4,
    "usd": 2242,
    "paid": 0.39,
-   "ask": 0.4,
+   "ask": 0.41,
    "status": "live",
    "link": "https://polymarket.us/event/nfl-nyg-phi-2026-11-08",
    "other": null,
@@ -2091,15 +2128,15 @@
     "clv": 0.45
    }
   },
-  "n": 99,
-  "won": 44,
-  "units": -7.36,
+  "n": 100,
+  "won": 45,
+  "units": -6.86,
   "by_grade": {
    "A": {
-    "n": 59,
-    "won": 25,
-    "units": -5.8,
-    "clv": -0.07
+    "n": 60,
+    "won": 26,
+    "units": -5.3,
+    "clv": -0.09
    },
    "B": {
     "n": 27,
@@ -2114,8 +2151,8 @@
     "clv": -1.75
    }
   },
-  "units_1u": -16.56,
-  "clv": -0.45,
+  "units_1u": -15.74,
+  "clv": -0.46,
   "n_venue": 46,
   "units_venue": -4.07,
   "clv_venue": 0.02,
@@ -2156,9 +2193,9 @@
   },
   "401873044:awfuldog": {
    "with": {
-    "n": 1,
-    "best_rank": 143,
-    "usd": 3439
+    "n": 2,
+    "best_rank": 4,
+    "usd": 5058
    },
    "against": null
   },
@@ -2262,9 +2299,9 @@
   },
   "401873044|spread": {
    "home": {
-    "n": 1,
-    "best_rank": 143,
-    "usd": 3439
+    "n": 2,
+    "best_rank": 4,
+    "usd": 5058
    }
   },
   "401873043|ml": {
