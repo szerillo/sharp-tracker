@@ -1,43 +1,6 @@
 {
- "built": "2026-11-08T00:24:08Z",
+ "built": "2026-11-08T00:31:14Z",
  "rows": [
-  {
-   "cond": "0x85f2725b66a298fd5dbc59de813ac7a3875d937ce3ea42efee3b2ca2a0a2f394",
-   "slug": "cfb-cin-hou-2026-11-07",
-   "title": "Cincinnati vs. Houston",
-   "mtype": "total",
-   "start": "2026-11-07T20:30:00Z",
-   "bet": "Under 63.5",
-   "side": "Under",
-   "flagged": "2026-11-06T15:19:19Z",
-   "why": "2 top-200 accounts",
-   "proven": true,
-   "trigger": "proven",
-   "n_accounts": 2,
-   "best_rank": 12,
-   "usd": 2437,
-   "paid": 0.542,
-   "ask": null,
-   "status": "live",
-   "link": "https://polymarket.us/event/cfb-cin-hou-2026-11-07",
-   "other": null,
-   "kalshi_against": null,
-   "logged": true,
-   "event_id": "401856851",
-   "sport": "cfb",
-   "league": null,
-   "away": "CIN",
-   "home": "HOU",
-   "away_name": "Cincinnati Bearcats",
-   "home_name": "Houston Cougars",
-   "game_start": "2026-11-07T20:30Z",
-   "side_std": "under",
-   "money_with": false,
-   "grade": "A",
-   "fair_board": null,
-   "inside_fair": null,
-   "books": null
-  },
   {
    "cond": "0x16a9cc31ed8b836fb9aa606c892acd937e02440c5dc26afc3bb0e5003606d139",
    "slug": "mls-dcu-nyc-2026-11-07-more-markets",
@@ -413,7 +376,7 @@
    "best_rank": 137,
    "usd": 3798,
    "paid": 0.48,
-   "ask": 0.42,
+   "ask": null,
    "status": "live",
    "link": "https://polymarket.us/event/cfb-mia-nd-2026-11-07",
    "other": null,
@@ -445,55 +408,6 @@
    }
   },
   {
-   "cond": "0x619c0b9ea7fa6523fd1aa67bd43a4495205e3fd01a1fd87d8315edecd96caca7",
-   "slug": "nba-bkn-atl-2026-11-07",
-   "title": "Nets vs. Hawks",
-   "mtype": "spread",
-   "start": "2026-11-08T00:30:00Z",
-   "bet": "Hawks -6.5",
-   "side": "Hawks",
-   "flagged": "2026-11-07T18:00:28Z",
-   "why": "3 top-200 accounts",
-   "proven": false,
-   "trigger": "two",
-   "n_accounts": 3,
-   "best_rank": 43,
-   "usd": 11776,
-   "paid": 0.52,
-   "ask": 0.51,
-   "status": "live",
-   "link": "https://polymarket.us/event/nba-bkn-atl-2026-11-07",
-   "other": null,
-   "kalshi_against": null,
-   "logged": true,
-   "event_id": "401909939",
-   "sport": "nba",
-   "league": null,
-   "away": "BKN",
-   "home": "ATL",
-   "away_name": "Brooklyn Nets",
-   "home_name": "Atlanta Hawks",
-   "game_start": "2026-11-08T00:30Z",
-   "side_std": "home",
-   "conflict": [
-    "Kalshi bet back"
-   ],
-   "money_with": false,
-   "grade": "B",
-   "inside_fair": false,
-   "fair_board": 0.5121,
-   "books": {
-    "at": "2026-11-07T23:53:50Z",
-    "fair": 0.5121,
-    "q": {
-     "Polymarket": 0.51,
-     "Novig": 0.515,
-     "Caesars": 0.5349,
-     "DK": 0.537
-    }
-   }
-  },
-  {
    "cond": "0x2150f8e671e817bccf27a7202e3362e1bc8fc7f3c3cee9e38caf5c0baac8ad47",
    "slug": "cfb-airf-army-2026-11-07",
    "title": "Air Force vs. Army",
@@ -509,7 +423,7 @@
    "best_rank": 58,
    "usd": 430,
    "paid": 0.57,
-   "ask": 0.59,
+   "ask": null,
    "status": "live",
    "link": "https://polymarket.us/event/cfb-airf-army-2026-11-07",
    "other": null,
@@ -1024,7 +938,7 @@
    "best_rank": 12,
    "usd": 270,
    "paid": 0.27,
-   "ask": 0.29,
+   "ask": 0.28,
    "status": "live",
    "link": "https://polymarket.us/event/nfl-den-car-2026-11-08",
    "other": null,
@@ -1491,92 +1405,6 @@
    "books": null
   },
   {
-   "cond": "0x420aed52fb1560c0a6c033c271afa01532786963267264f2ceb123e70b41d1f4",
-   "slug": "cfb-ala-lsu-2026-11-07",
-   "title": "Alabama vs. LSU",
-   "mtype": "total",
-   "start": "2026-11-07T20:30:00Z",
-   "bet": "Over 54.5",
-   "side": "Over",
-   "flagged": "2026-11-03T15:16:51Z",
-   "why": "a top-200 account also in this sport's top 50",
-   "proven": true,
-   "trigger": "proven",
-   "n_accounts": 1,
-   "best_rank": 116,
-   "usd": 1505,
-   "paid": 0.45,
-   "ask": null,
-   "status": "other side",
-   "link": "https://polymarket.us/event/cfb-ala-lsu-2026-11-07",
-   "other": {
-    "n_accounts": 1,
-    "best_rank": 58,
-    "usd": 480,
-    "first": "2026-11-07T20:08:22Z"
-   },
-   "exit_bid": null,
-   "kalshi_against": null,
-   "logged": true,
-   "event_id": "401856740",
-   "sport": "cfb",
-   "league": null,
-   "away": "ALA",
-   "home": "LSU",
-   "away_name": "Alabama Crimson Tide",
-   "home_name": "LSU Tigers",
-   "game_start": "2026-11-07T20:30Z",
-   "side_std": "over",
-   "money_with": false,
-   "grade": "A",
-   "fair_board": null,
-   "inside_fair": null,
-   "books": null
-  },
-  {
-   "cond": "0xd709c4c03dde4a05b4f89442c91c47ec7f11037b984067551ecf5da542e1dd26",
-   "slug": "cfb-ala-lsu-2026-11-07",
-   "title": "Alabama vs. LSU",
-   "mtype": "spread",
-   "start": "2026-11-07T20:30:00Z",
-   "bet": "Alabama +5.5",
-   "side": "Alabama",
-   "flagged": "2026-11-07T19:49:34Z",
-   "why": "a top-200 account also in this sport's top 50",
-   "proven": true,
-   "trigger": "proven",
-   "n_accounts": 1,
-   "best_rank": 115,
-   "usd": 19625,
-   "paid": 0.5,
-   "ask": null,
-   "status": "other side",
-   "link": "https://polymarket.us/event/cfb-ala-lsu-2026-11-07",
-   "other": {
-    "n_accounts": 1,
-    "best_rank": 4,
-    "usd": 8352,
-    "first": "2026-11-07T19:51:06Z"
-   },
-   "exit_bid": null,
-   "kalshi_against": null,
-   "logged": false,
-   "event_id": "401856740",
-   "sport": "cfb",
-   "league": null,
-   "away": "ALA",
-   "home": "LSU",
-   "away_name": "Alabama Crimson Tide",
-   "home_name": "LSU Tigers",
-   "game_start": "2026-11-07T20:30Z",
-   "side_std": "away",
-   "money_with": false,
-   "grade": "A",
-   "fair_board": null,
-   "inside_fair": null,
-   "books": null
-  },
-  {
    "cond": "0xc3a51e1d780d4860b1a49e5309c1dc7c71401c3c1eaf65f1cb491ce584cd26ce",
    "slug": "nba-bkn-atl-2026-11-07",
    "title": "Nets vs. Hawks",
@@ -1592,7 +1420,7 @@
    "best_rank": 43,
    "usd": 121,
    "paid": 0.31,
-   "ask": 0.31,
+   "ask": null,
    "status": "live",
    "link": "https://polymarket.us/event/nba-bkn-atl-2026-11-07",
    "other": null,
@@ -1617,7 +1445,7 @@
    "money_with": true,
    "grade": "watch",
    "fair_board": 0.2854,
-   "inside_fair": false,
+   "inside_fair": null,
    "books": {
     "at": "2026-11-07T23:53:50Z",
     "fair": 0.2854,
@@ -1628,6 +1456,52 @@
      "FD": 0.303
     }
    }
+  },
+  {
+   "cond": "0x619c0b9ea7fa6523fd1aa67bd43a4495205e3fd01a1fd87d8315edecd96caca7",
+   "slug": "nba-bkn-atl-2026-11-07",
+   "title": "Nets vs. Hawks",
+   "mtype": "spread",
+   "start": "2026-11-08T00:30:00Z",
+   "bet": "Hawks -6.5",
+   "side": "Hawks",
+   "flagged": "2026-11-07T18:00:28Z",
+   "why": "3 top-200 accounts",
+   "proven": false,
+   "trigger": "two",
+   "n_accounts": 3,
+   "best_rank": 43,
+   "usd": 11776,
+   "paid": 0.52,
+   "ask": null,
+   "status": "other side",
+   "link": "https://polymarket.us/event/nba-bkn-atl-2026-11-07",
+   "other": {
+    "n_accounts": 1,
+    "best_rank": 43,
+    "usd": 9206,
+    "first": "2026-11-08T00:29:37Z"
+   },
+   "exit_bid": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401909939",
+   "sport": "nba",
+   "league": null,
+   "away": "BKN",
+   "home": "ATL",
+   "away_name": "Brooklyn Nets",
+   "home_name": "Atlanta Hawks",
+   "game_start": "2026-11-08T00:30Z",
+   "side_std": "home",
+   "conflict": [
+    "Kalshi bet back"
+   ],
+   "money_with": false,
+   "grade": "B",
+   "inside_fair": false,
+   "fair_board": 0.5121,
+   "books": null
   },
   {
    "cond": "0x3937bae65b8a97293442b3b253a699103dc403b3d3790f5e354d1c378a1514e6",
@@ -2078,18 +1952,6 @@
    },
    "against": null
   },
-  "401909939:nba_momentum:spread": {
-   "with": {
-    "n": 1,
-    "best_rank": 119,
-    "usd": 198
-   },
-   "against": {
-    "n": 3,
-    "best_rank": 43,
-    "usd": 11776
-   }
-  },
   "401909941:nba_momentum:spread": {
    "with": {
     "n": 1,
@@ -2210,32 +2072,6 @@
     "n": 1,
     "best_rank": 49,
     "usd": 6921
-   }
-  },
-  "401909939|ml": {
-   "away": {
-    "n": 1,
-    "best_rank": 43,
-    "usd": 121
-   }
-  },
-  "401909939|total": {
-   "under": {
-    "n": 1,
-    "best_rank": 132,
-    "usd": 132
-   }
-  },
-  "401909939|spread": {
-   "home": {
-    "n": 3,
-    "best_rank": 43,
-    "usd": 11776
-   },
-   "away": {
-    "n": 1,
-    "best_rank": 119,
-    "usd": 198
    }
   },
   "401909940|ml": {
@@ -2406,25 +2242,6 @@
     "n": 1,
     "best_rank": 132,
     "usd": 245
-   }
-  },
-  "401858291|spread": {
-   "away": {
-    "n": 1,
-    "best_rank": 137,
-    "usd": 3798
-   },
-   "home": {
-    "n": 1,
-    "best_rank": 95,
-    "usd": 113
-   }
-  },
-  "401862823|total": {
-   "under": {
-    "n": 1,
-    "best_rank": 58,
-    "usd": 430
    }
   },
   "401856739|spread": {
