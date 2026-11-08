@@ -1,5 +1,5 @@
 {
- "built": "2026-11-08T01:47:10Z",
+ "built": "2026-11-08T01:54:03Z",
  "rows": [
   {
    "cond": "0x07de85d6a00260bb3548af18e299a3af4ecaff94ea7bae2073f3b26f46717e53",
@@ -409,7 +409,7 @@
    "best_rank": 3,
    "usd": 3825,
    "paid": 0.45,
-   "ask": 0.5,
+   "ask": 0.49,
    "status": "live",
    "link": "https://polymarket.us/event/cfb-frest-utahst-2026-11-07",
    "other": null,
@@ -424,8 +424,8 @@
    "home_name": "Utah State Aggies",
    "game_start": "2026-11-08T02:30Z",
    "side_std": "over",
-   "money_with": false,
-   "grade": "B",
+   "money_with": true,
+   "grade": "A",
    "fair_board": null,
    "inside_fair": null,
    "books": null
@@ -1733,6 +1733,18 @@
     "usd": 499
    },
    "against": null
+  },
+  "401909944:xch_homedog_fade:ml": {
+   "with": {
+    "n": 1,
+    "best_rank": 142,
+    "usd": 245
+   },
+   "against": {
+    "n": 1,
+    "best_rank": 143,
+    "usd": 507
+   }
   }
  },
  "by_event": {
