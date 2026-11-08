@@ -1,5 +1,5 @@
 {
- "built": "2026-11-08T07:20:21Z",
+ "built": "2026-11-08T07:40:29Z",
  "record": {
   "cbb_1h_total_curve": {
    "n": 1,
@@ -8,10 +8,10 @@
    "units": -0.25
   },
   "cfb_q1_under_curve": {
-   "n": 10,
+   "n": 11,
    "won": 4,
-   "lost": 6,
-   "units": -0.98
+   "lost": 7,
+   "units": -1.48
   },
   "nhl_p1_spread_curve": {
    "n": 3,
@@ -26,66 +26,11 @@
    "units": -1.5
   },
   "cfb_tt_under_curve": {
-   "n": 15,
+   "n": 16,
    "won": 5,
-   "lost": 10,
-   "units": -1.43
+   "lost": 11,
+   "units": -1.68
   }
  },
- "rows": [
-  {
-   "key": "cfb_tt_under_curve|d4334cec8f2060f3b8491ca9c7325892|away|under",
-   "rule": "cfb_tt_under_curve",
-   "tier": "P",
-   "stake": 0.0,
-   "sport": "cfb",
-   "odds_id": "d4334cec8f2060f3b8491ca9c7325892",
-   "espn": "401860912",
-   "game": "Texas State Bobcats @ Oregon State Beavers",
-   "start": "2026-11-08T03:30:00Z",
-   "market": "team_totals",
-   "team": "away",
-   "team_name": "Texas State Bobcats",
-   "side": "under",
-   "line": 30.5,
-   "curve": 0.491,
-   "pin_fair": 0.413,
-   "gap": 7.8,
-   "full_total": 71.0,
-   "full_spread": -5.5,
-   "pin_price": 2.33,
-   "book": null,
-   "price": null,
-   "flagged": "2026-11-08T00:40:29Z"
-  },
-  {
-   "key": "cfb_q1_under_curve|6ce85b1067e9e85cd0d8b3242905ecd7||under",
-   "rule": "cfb_q1_under_curve",
-   "tier": "A",
-   "stake": 0.5,
-   "sport": "cfb",
-   "odds_id": "6ce85b1067e9e85cd0d8b3242905ecd7",
-   "espn": "401864535",
-   "game": "Wyoming Cowboys @ UNLV Rebels",
-   "start": "2026-11-08T03:30:00Z",
-   "market": "totals_q1",
-   "team": null,
-   "team_name": null,
-   "side": "under",
-   "line": 9.5,
-   "curve": 0.494,
-   "pin_fair": 0.439,
-   "gap": 5.5,
-   "full_total": 49.0,
-   "full_spread": -3.5,
-   "pin_price": 2.17,
-   "book": "FD",
-   "price": 2.14,
-   "pin_fair_power": 0.4348,
-   "book_fair": 0.4442,
-   "fair_gap": -0.5,
-   "ev_curve": 5.7,
-   "flagged": "2026-11-08T00:40:29Z"
-  }
- ]
+ "rows": []
 }
