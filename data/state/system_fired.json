@@ -4275,19 +4275,16 @@
 },
 "401858297:cfb_road_dog_low_total": {
 "tag": "cfb_road_dog_low_total",
-"fill_id": "a898dea0409a",
-"ts": "2026-11-08T15:54:01Z",
+"fill_id": "c38d2a08da3a",
+"ts": "2026-11-08T21:53:05Z",
 "market": "spread",
 "side": "away",
 "line": 13.5,
-"venue": "FD",
-"price": -114,
-"fair": 0.51879,
-"edge_pts": -1.39,
-"why": "conference game, GT +13.5 on the road, total 47.5",
-"void": true,
-"void_why": "rule no longer holds on the current line: home spread -13.5, total 48.5 (2026-11-08T20:13:16Z)",
-"void_at": "2026-11-08T20:13:16Z"
+"venue": "DK",
+"price": -110,
+"fair": 0.51128,
+"edge_pts": -1.25,
+"why": "conference game, GT +13.5 on the road, total 47.5"
 },
 "401860916:cfb_homefav_7510_under": {
 "tag": "cfb_homefav_7510_under",
@@ -4763,6 +4760,19 @@
 "venue": "Polymarket",
 "price": -223
 }
+},
+"401873061:nfl_home_dog_7510": {
+"tag": "nfl_home_dog_7510",
+"fill_id": "3c00c30ae67b",
+"ts": "2026-11-08T21:53:05Z",
+"market": "spread",
+"side": "home",
+"line": 7.5,
+"venue": "Novig",
+"price": -111,
+"fair": null,
+"edge_pts": null,
+"why": "ARI +7.5 at home"
 },
 "401909946:nba_momentum:spread": {
 "tag": "nba_momentum",
