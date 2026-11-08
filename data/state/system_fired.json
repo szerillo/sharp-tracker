@@ -4287,7 +4287,10 @@
 "price": -114,
 "fair": 0.51879,
 "edge_pts": -1.39,
-"why": "conference game, GT +13.5 on the road, total 47.5"
+"why": "conference game, GT +13.5 on the road, total 47.5",
+"void": true,
+"void_why": "rule no longer holds on the current line: home spread -13.5, total 48.5 (2026-11-08T19:53:25Z)",
+"void_at": "2026-11-08T19:53:25Z"
 },
 "401860916:cfb_homefav_7510_under": {
 "tag": "cfb_homefav_7510_under",
@@ -4661,6 +4664,32 @@
 "fair": 0.4335,
 "loss": -0.0033
 }
+},
+"401856884:cfb_day_over": {
+"tag": "cfb_day_over",
+"fill_id": "effaa95d6bbd",
+"ts": "2026-11-08T19:53:25Z",
+"market": "total",
+"side": "over",
+"line": 51.5,
+"venue": "Caesars",
+"price": -112,
+"fair": 0.50557,
+"edge_pts": -2.27,
+"why": "6:15 PM ET kickoff, total 51.5: over (mined angle)"
+},
+"401864538:cfb_road_dog_low_total": {
+"tag": "cfb_road_dog_low_total",
+"fill_id": "64058e21a829",
+"ts": "2026-11-08T19:53:25Z",
+"market": "spread",
+"side": "away",
+"line": 11.5,
+"venue": "DK",
+"price": -110,
+"fair": 0.5,
+"edge_pts": -2.38,
+"why": "conference game, SJSU +11.5 on the road, total 47.5"
 },
 "401873046:xch_homedog_fade:ml": {
 "tag": "xch_homedog_fade",
