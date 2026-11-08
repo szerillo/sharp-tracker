@@ -1,5 +1,5 @@
 {
- "built": "2026-11-08T21:03:45Z",
+ "built": "2026-11-08T21:10:25Z",
  "rows": [
   {
    "cond": "0x4482ea8fcedde0dfe70a6793f45114b74b40eb73e16bc1c25fe51a999a0ed1b7",
@@ -803,7 +803,7 @@
    "best_rank": 143,
    "usd": 4200,
    "paid": 0.21,
-   "ask": 0.21,
+   "ask": null,
    "status": "live",
    "link": "https://polymarket.us/event/nfl-hou-lac-2026-11-08",
    "other": null,
@@ -1560,21 +1560,21 @@
     "clv": -0.17
    },
    "outside": {
-    "n": 25,
+    "n": 26,
     "won": 12,
-    "units": -0.3,
-    "clv": 0.17
+    "units": -0.8,
+    "clv": 0.1
    }
   },
-  "n": 131,
+  "n": 134,
   "won": 60,
-  "units": -7.58,
+  "units": -9.08,
   "by_grade": {
    "A": {
-    "n": 88,
+    "n": 91,
     "won": 40,
-    "units": -5.77,
-    "clv": -0.12
+    "units": -7.27,
+    "clv": -0.11
    },
    "B": {
     "n": 29,
@@ -1589,12 +1589,12 @@
     "clv": -1.75
    }
   },
-  "units_1u": -17.49,
-  "clv": -0.4,
-  "n_venue": 63,
-  "units_venue": -4.32,
-  "clv_venue": 0.32,
-  "clv_poly_same": -0.83
+  "units_1u": -20.49,
+  "clv": -0.38,
+  "n_venue": 65,
+  "units_venue": -5.32,
+  "clv_venue": 0.3,
+  "clv_poly_same": -0.78
  },
  "sys_tags": {
   "401873049:vrest8_1h": {
@@ -1602,14 +1602,6 @@
     "n": 1,
     "best_rank": 132,
     "usd": 499
-   },
-   "against": null
-  },
-  "401873046:awfuldog": {
-   "with": {
-    "n": 2,
-    "best_rank": 143,
-    "usd": 4484
    },
    "against": null
   },
@@ -1680,31 +1672,9 @@
     "best_rank": 49,
     "usd": 10734
    }
-  },
-  "401873046:xch_homedog_fade:ml": {
-   "with": null,
-   "against": {
-    "n": 1,
-    "best_rank": 182,
-    "usd": 294
-   }
   }
  },
  "by_event": {
-  "401873046|spread": {
-   "home": {
-    "n": 2,
-    "best_rank": 143,
-    "usd": 4484
-   }
-  },
-  "401873046|ml": {
-   "home": {
-    "n": 1,
-    "best_rank": 182,
-    "usd": 294
-   }
-  },
   "401873049|total": {
    "under": {
     "n": 1,
