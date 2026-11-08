@@ -1,5 +1,5 @@
 {
- "built": "2026-11-08T16:40:05Z",
+ "built": "2026-11-08T16:46:50Z",
  "rows": [
   {
    "cond": "0x2992326e6e51bbbfcea34ca609e83388352f1a5674d411c13ac0ec4911870f7f",
@@ -533,7 +533,7 @@
    "best_rank": 11,
    "usd": 2612,
    "paid": 0.65,
-   "ask": 0.65,
+   "ask": 0.66,
    "status": "live",
    "link": "https://polymarket.us/event/nfl-dal-ind-2026-11-08",
    "other": null,
@@ -895,8 +895,8 @@
    "side_std": "home",
    "money_with": false,
    "grade": "A",
-   "fair_board": 0.2649,
    "inside_fair": false,
+   "fair_board": 0.2649,
    "books": {
     "at": "2026-11-08T15:57:14Z",
     "fair": 0.2649,
@@ -1711,8 +1711,8 @@
    },
    "exit_bid": 0.36,
    "kalshi_against": {
-    "move": 6.5,
-    "now": 63.0,
+    "move": 6.0,
+    "now": 62.5,
     "state": "reversed"
    },
    "logged": true,
@@ -2005,6 +2005,22 @@
     "n": 1,
     "best_rank": 49,
     "usd": 10734
+   }
+  },
+  "401873042:xch_homedog_fade:ml": {
+   "with": null,
+   "against": {
+    "n": 1,
+    "best_rank": 143,
+    "usd": 257
+   }
+  },
+  "401873043:xch_homedog_fade:ml": {
+   "with": null,
+   "against": {
+    "n": 1,
+    "best_rank": 115,
+    "usd": 5008
    }
   }
  },
