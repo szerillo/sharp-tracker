@@ -1,5 +1,5 @@
 {
- "built": "2026-11-08T18:58:13Z",
+ "built": "2026-11-08T19:05:12Z",
  "rows": [
   {
    "cond": "0x7ef37ab1c5a9aa47e03e9ca4fbc77aa2511c9275b8a064802a44f2461c1f691a",
@@ -938,7 +938,7 @@
    "best_rank": 119,
    "usd": 2835,
    "paid": 0.511,
-   "ask": 0.51,
+   "ask": 0.5,
    "status": "live",
    "link": "https://polymarket.us/event/nba-phi-chi-2026-11-08",
    "other": null,
@@ -1039,7 +1039,7 @@
    "conflict": [
     "Kalshi bet back"
    ],
-   "money_with": false,
+   "money_with": true,
    "grade": "A",
    "fair_board": null,
    "inside_fair": null,
@@ -1061,7 +1061,7 @@
    "best_rank": 4,
    "usd": 130,
    "paid": 0.52,
-   "ask": 0.63,
+   "ask": 0.64,
    "status": "live",
    "link": "https://polymarket.us/event/cbb-ndkst-csu-2026-11-08",
    "other": null,
@@ -1787,6 +1787,14 @@
    },
    "against": null
   },
+  "401909949:nba_bigfav_over": {
+   "with": {
+    "n": 1,
+    "best_rank": 132,
+    "usd": 377
+   },
+   "against": null
+  },
   "401909951:nba_badteams_under": {
    "with": null,
    "against": {
@@ -1969,6 +1977,13 @@
     "usd": 124
    }
   },
+  "401909949|total": {
+   "over": {
+    "n": 1,
+    "best_rank": 132,
+    "usd": 377
+   }
+  },
   "401909951|total": {
    "over": {
     "n": 1,
@@ -2037,13 +2052,6 @@
     "n": 1,
     "best_rank": 197,
     "usd": 460
-   }
-  },
-  "401920843|spread": {
-   "home": {
-    "n": 1,
-    "best_rank": 132,
-    "usd": 166
    }
   },
   "401920134|total": {
