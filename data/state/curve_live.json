@@ -1,5 +1,5 @@
 {
- "built": "2026-11-08T04:16:46Z",
+ "built": "2026-11-08T04:38:56Z",
  "record": {
   "cbb_1h_total_curve": {
    "n": 1,
@@ -8,10 +8,10 @@
    "units": -0.25
   },
   "cfb_q1_under_curve": {
-   "n": 7,
-   "won": 3,
-   "lost": 4,
-   "units": -0.43
+   "n": 9,
+   "won": 4,
+   "lost": 5,
+   "units": -0.48
   },
   "nhl_p1_spread_curve": {
    "n": 2,
@@ -26,71 +26,13 @@
    "units": -1.0
   },
   "cfb_tt_under_curve": {
-   "n": 13,
-   "won": 4,
+   "n": 14,
+   "won": 5,
    "lost": 9,
-   "units": -1.34
+   "units": -1.18
   }
  },
  "rows": [
-  {
-   "key": "cfb_q1_under_curve|0842fcd69fdf5061f6751f876ead09f2||under",
-   "rule": "cfb_q1_under_curve",
-   "tier": "A",
-   "stake": 0.5,
-   "sport": "cfb",
-   "odds_id": "0842fcd69fdf5061f6751f876ead09f2",
-   "espn": "401856741",
-   "game": "Georgia Bulldogs @ Ole Miss Rebels",
-   "start": "2026-11-08T00:30:00Z",
-   "market": "totals_q1",
-   "team": null,
-   "team_name": null,
-   "side": "under",
-   "line": 12.5,
-   "curve": 0.556,
-   "pin_fair": 0.487,
-   "gap": 6.9,
-   "full_total": 56.5,
-   "full_spread": 3.5,
-   "pin_price": 1.96,
-   "book": "FD",
-   "price": 2.0,
-   "pin_fair_power": 0.486,
-   "book_fair": 0.4764,
-   "fair_gap": 1.0,
-   "ev_curve": 11.1,
-   "flagged": "2026-11-07T21:37:10Z"
-  },
-  {
-   "key": "cfb_q1_under_curve|61cf0b043d9d95f0a73d0838ff08a24b||under",
-   "rule": "cfb_q1_under_curve",
-   "tier": "A",
-   "stake": 0.5,
-   "sport": "cfb",
-   "odds_id": "61cf0b043d9d95f0a73d0838ff08a24b",
-   "espn": "401858513",
-   "game": "Iowa Hawkeyes @ Northwestern Wildcats",
-   "start": "2026-11-08T00:30:00Z",
-   "market": "totals_q1",
-   "team": null,
-   "team_name": null,
-   "side": "under",
-   "line": 9.5,
-   "curve": 0.59,
-   "pin_fair": 0.521,
-   "gap": 6.9,
-   "full_total": 42.5,
-   "full_spread": 3.0,
-   "pin_price": 1.83,
-   "book": "FD",
-   "price": 1.89,
-   "pin_fair_power": 0.5225,
-   "book_fair": 0.5052,
-   "fair_gap": 1.6,
-   "ev_curve": 11.5,
-   "flagged": "2026-11-07T21:37:10Z"
-  },
   {
    "key": "cfb_q1_under_curve|2dd995baa931f5b063cb50ddbe821d74||under",
    "rule": "cfb_q1_under_curve",
@@ -119,31 +61,6 @@
    "fair_gap": -0.8,
    "ev_curve": 9.9,
    "flagged": "2026-11-07T22:00:22Z"
-  },
-  {
-   "key": "cfb_tt_under_curve|4aac00e6cc06b8905659f911419540d2|away|under",
-   "rule": "cfb_tt_under_curve",
-   "tier": "P",
-   "stake": 0.0,
-   "sport": "cfb",
-   "odds_id": "4aac00e6cc06b8905659f911419540d2",
-   "espn": "401858291",
-   "game": "Miami Hurricanes @ Notre Dame Fighting Irish",
-   "start": "2026-11-08T00:30:00Z",
-   "market": "team_totals",
-   "team": "away",
-   "team_name": "Miami Hurricanes",
-   "side": "under",
-   "line": 26.5,
-   "curve": 0.635,
-   "pin_fair": 0.582,
-   "gap": 5.2,
-   "full_total": 54.0,
-   "full_spread": -7.5,
-   "pin_price": 1.65,
-   "book": null,
-   "price": null,
-   "flagged": "2026-11-07T23:40:31Z"
   },
   {
    "key": "cfb_tt_under_curve|6bfae12b9d44d12ca7dde4f4f4aedc7d|away|under",
