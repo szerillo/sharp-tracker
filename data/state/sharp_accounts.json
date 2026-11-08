@@ -1,43 +1,6 @@
 {
- "built": "2026-11-08T22:29:17Z",
+ "built": "2026-11-08T22:36:22Z",
  "rows": [
-  {
-   "cond": "0xfc2ab1795b24239c2bdd73f59abd913b83ba1b39f8d77890a3d009f0e662081f",
-   "slug": "bun-hof-s04-2026-11-08",
-   "title": "TSG 1899 Hoffenheim vs. FC Schalke 04",
-   "mtype": "ml",
-   "start": "2026-11-08T18:30:00Z",
-   "bet": "Will TSG 1899 Hoffenheim win on 2026-11-08: No",
-   "side": "No",
-   "flagged": "2026-11-06T18:53:31Z",
-   "why": "a top-200 account also in this sport's top 50",
-   "proven": true,
-   "trigger": "proven",
-   "n_accounts": 1,
-   "best_rank": 132,
-   "usd": 430,
-   "paid": 0.4,
-   "ask": null,
-   "status": "live",
-   "link": "https://polymarket.us/event/bun-hof-s04-2026-11-08",
-   "other": null,
-   "kalshi_against": null,
-   "logged": true,
-   "event_id": "401884742",
-   "sport": "soccer",
-   "league": "bundesliga",
-   "away": "S04",
-   "home": "TSG",
-   "away_name": "Schalke 04",
-   "home_name": "TSG Hoffenheim",
-   "game_start": "2026-11-08T18:30Z",
-   "side_std": "not_home",
-   "money_with": false,
-   "grade": "A",
-   "fair_board": null,
-   "inside_fair": null,
-   "books": null
-  },
   {
    "cond": "0xd473df71870912bc0a4120c5fffc4f59cb4c26d59f8a421dbe441bbd640593cd",
    "slug": "nhl-las-buf-2026-11-08",
@@ -354,6 +317,52 @@
    "books": null
   },
   {
+   "cond": "0x976e35b2d3bf476e3fd84a4162a831a613a7102dd156b85d964f47e9302df828",
+   "slug": "nba-den-hou-2026-11-09",
+   "title": "Nuggets vs. Rockets",
+   "mtype": "ml",
+   "start": "2026-11-10T01:30:00Z",
+   "bet": "Rockets ML",
+   "side": "Rockets",
+   "flagged": "2026-11-08T22:30:06Z",
+   "why": "3 top-200 accounts",
+   "proven": true,
+   "trigger": "two",
+   "n_accounts": 3,
+   "best_rank": 23,
+   "usd": 1512,
+   "paid": 0.635,
+   "ask": 0.72,
+   "status": "live",
+   "link": "https://polymarket.us/event/nba-den-hou-2026-11-09",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401909957",
+   "sport": "nba",
+   "league": null,
+   "away": "DEN",
+   "home": "HOU",
+   "away_name": "Denver Nuggets",
+   "home_name": "Houston Rockets",
+   "game_start": "2026-11-10T01:30Z",
+   "side_std": "home",
+   "money_with": false,
+   "grade": "A",
+   "fair_board": 0.6181,
+   "inside_fair": false,
+   "books": {
+    "at": "2026-11-08T21:56:26Z",
+    "fair": 0.6181,
+    "q": {
+     "DK": 0.6241,
+     "Polymarket": 0.63,
+     "Novig": 0.63,
+     "FD": 0.635
+    }
+   }
+  },
+  {
    "cond": "0x372ef9fd2ef5d6e26caa63a85da27ffaf9f6e5d0f10d6e4598c772e7b570093c",
    "slug": "nhl-nyi-sj-2026-11-09",
    "title": "Islanders vs. Sharks",
@@ -553,7 +562,7 @@
    "best_rank": 112,
    "usd": 9316,
    "paid": 0.554,
-   "ask": 0.6,
+   "ask": 0.61,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-lal-det-2026-11-08",
    "other": {
@@ -562,7 +571,7 @@
     "usd": 237,
     "first": "2026-11-08T18:12:25Z"
    },
-   "exit_bid": 0.59,
+   "exit_bid": 0.6,
    "kalshi_against": null,
    "logged": false,
    "event_id": "401909946",
@@ -1127,6 +1136,13 @@
     "n": 1,
     "best_rank": 93,
     "usd": 266
+   }
+  },
+  "401909957|ml": {
+   "home": {
+    "n": 3,
+    "best_rank": 23,
+    "usd": 1512
    }
   },
   "401909958|ml": {
