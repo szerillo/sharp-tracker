@@ -1,5 +1,5 @@
 {
- "built": "2026-11-08T17:21:33Z",
+ "built": "2026-11-08T17:28:22Z",
  "rows": [
   {
    "cond": "0x2992326e6e51bbbfcea34ca609e83388352f1a5674d411c13ac0ec4911870f7f",
@@ -375,7 +375,7 @@
    "best_rank": 4,
    "usd": 153,
    "paid": 0.72,
-   "ask": 0.69,
+   "ask": 0.67,
    "status": "live",
    "link": "https://polymarket.us/event/nfl-cle-no-2026-11-08",
    "other": null,
@@ -430,8 +430,8 @@
    "home_name": "Indianapolis Colts",
    "game_start": "2026-11-08T18:00Z",
    "side_std": "home",
-   "money_with": false,
-   "grade": "B",
+   "money_with": true,
+   "grade": "A",
    "inside_fair": false,
    "fair_board": 0.5072,
    "books": {
@@ -548,8 +548,8 @@
    "home_name": "Indianapolis Colts",
    "game_start": "2026-11-08T18:00Z",
    "side_std": "home",
-   "money_with": false,
-   "grade": "B",
+   "money_with": true,
+   "grade": "A",
    "fair_board": null,
    "inside_fair": null,
    "books": null
@@ -644,7 +644,7 @@
    "best_rank": 4,
    "usd": 1619,
    "paid": 0.59,
-   "ask": 0.61,
+   "ask": 0.62,
    "status": "live",
    "link": "https://polymarket.us/event/nfl-nyg-phi-2026-11-08",
    "other": null,
@@ -770,10 +770,10 @@
    "home_name": "Indianapolis Colts",
    "game_start": "2026-11-08T18:00Z",
    "side_std": "home",
-   "money_with": false,
-   "grade": "B",
+   "money_with": true,
+   "grade": "A",
    "inside_fair": false,
-   "fair_board": 0.5035,
+   "fair_board": 0.5006,
    "books": {
     "at": "2026-11-08T16:58:30Z",
     "fair": 0.5006,
@@ -847,7 +847,7 @@
    "best_rank": 143,
    "usd": 4982,
    "paid": 0.58,
-   "ask": 0.62,
+   "ask": 0.64,
    "status": "live",
    "link": "https://polymarket.us/event/nfl-cle-no-2026-11-08",
    "other": null,
@@ -1817,6 +1817,10 @@
    "home_name": "Indianapolis Colts",
    "game_start": "2026-11-08T18:00Z",
    "side_std": "away",
+   "conflict": [
+    "Kalshi move",
+    "big money"
+   ],
    "money_with": false,
    "grade": "A",
    "fair_board": null,
@@ -1850,8 +1854,8 @@
    },
    "exit_bid": 0.37,
    "kalshi_against": {
-    "move": 6.5,
-    "now": 63.0,
+    "move": 7.0,
+    "now": 63.5,
     "state": "reversed"
    },
    "logged": true,
