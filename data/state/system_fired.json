@@ -4389,5 +4389,70 @@
 "venue": "Novig",
 "price": -190
 }
+},
+"401862828:cfb_day_over": {
+"tag": "cfb_day_over",
+"fill_id": "12f837e11171",
+"ts": "2026-11-08T16:55:00Z",
+"market": "total",
+"side": "over",
+"line": 46.5,
+"venue": "DK",
+"price": -110,
+"fair": 0.5,
+"edge_pts": -2.38,
+"why": "2:00 PM ET kickoff, total 46.5: over (mined angle)"
+},
+"401870796:cfb_day_over": {
+"tag": "cfb_day_over",
+"fill_id": "5d6b7dd20e33",
+"ts": "2026-11-08T16:55:00Z",
+"market": "total",
+"side": "over",
+"line": 50.5,
+"venue": "Novig",
+"price": -106,
+"fair": 0.5,
+"edge_pts": -1.5,
+"why": "3:00 PM ET kickoff, total 50.5: over (mined angle)"
+},
+"401858518:cfb_homefav_7510_under": {
+"tag": "cfb_homefav_7510_under",
+"fill_id": "d78d99ed6d94",
+"ts": "2026-11-08T16:55:00Z",
+"market": "total",
+"side": "under",
+"line": 49.5,
+"venue": "DK",
+"price": -110,
+"fair": 0.5,
+"edge_pts": -2.38,
+"why": "home favourite IU -7.5, total 49.5: under (mined angle)"
+},
+"401864536:cfb_day_over": {
+"tag": "cfb_day_over",
+"fill_id": "27484103e7cb",
+"ts": "2026-11-08T16:55:00Z",
+"market": "total",
+"side": "over",
+"line": 46.5,
+"venue": "DK",
+"price": -110,
+"fair": 0.5,
+"edge_pts": -2.38,
+"why": "3:30 PM ET kickoff, total 46.5: over (mined angle)"
+},
+"401864539:cfb_road_dog_low_total": {
+"tag": "cfb_road_dog_low_total",
+"fill_id": "21162297c4c5",
+"ts": "2026-11-08T16:55:00Z",
+"market": "spread",
+"side": "away",
+"line": 13.5,
+"venue": "FD",
+"price": -100,
+"fair": 0.48118,
+"edge_pts": -1.88,
+"why": "conference game, UNLV +13.5 on the road, total 47.5"
 }
 }
