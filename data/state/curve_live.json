@@ -1,5 +1,5 @@
 {
- "built": "2026-11-08T03:58:42Z",
+ "built": "2026-11-08T04:16:46Z",
  "record": {
   "cbb_1h_total_curve": {
    "n": 1,
@@ -20,10 +20,10 @@
    "units": -0.5
   },
   "nhl_p3_under_curve": {
-   "n": 3,
+   "n": 4,
    "won": 0,
-   "lost": 3,
-   "units": -0.75
+   "lost": 4,
+   "units": -1.0
   },
   "cfb_tt_under_curve": {
    "n": 13,
@@ -119,31 +119,6 @@
    "fair_gap": -0.8,
    "ev_curve": 9.9,
    "flagged": "2026-11-07T22:00:22Z"
-  },
-  {
-   "key": "nhl_p3_under_curve|b5934d2ce05af5dac632f1e8b7ce5fb6||under",
-   "rule": "nhl_p3_under_curve",
-   "tier": "P",
-   "stake": 0.0,
-   "sport": "nhl",
-   "odds_id": "b5934d2ce05af5dac632f1e8b7ce5fb6",
-   "espn": "401892670",
-   "game": "Tampa Bay Lightning @ Minnesota Wild",
-   "start": "2026-11-08T01:10:00Z",
-   "market": "totals_p3",
-   "team": null,
-   "team_name": null,
-   "side": "under",
-   "line": 2.0,
-   "curve": 0.547,
-   "pin_fair": 0.44,
-   "gap": 10.7,
-   "full_total": 6.5,
-   "full_spread": 1.5,
-   "pin_price": 2.19,
-   "book": null,
-   "price": null,
-   "flagged": "2026-11-07T22:21:32Z"
   },
   {
    "key": "cfb_tt_under_curve|4aac00e6cc06b8905659f911419540d2|away|under",
