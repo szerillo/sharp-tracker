@@ -1,5 +1,5 @@
 {
- "built": "2026-11-08T13:44:20Z",
+ "built": "2026-11-08T13:54:57Z",
  "rows": [
   {
    "cond": "0x2992326e6e51bbbfcea34ca609e83388352f1a5674d411c13ac0ec4911870f7f",
@@ -109,7 +109,7 @@
    "best_rank": 132,
    "usd": 149,
    "paid": 0.48,
-   "ask": 0.49,
+   "ask": 0.5,
    "status": "live",
    "link": "https://polymarket.us/event/epl-sun-che-2026-11-08-more-markets",
    "other": null,
@@ -499,7 +499,7 @@
    "best_rank": 4,
    "usd": 1619,
    "paid": 0.59,
-   "ask": 0.6,
+   "ask": 0.61,
    "status": "live",
    "link": "https://polymarket.us/event/nfl-nyg-phi-2026-11-08",
    "other": null,
@@ -770,7 +770,7 @@
    "best_rank": 43,
    "usd": 248,
    "paid": 0.181,
-   "ask": 0.22,
+   "ask": 0.23,
    "status": "live",
    "link": "https://polymarket.us/event/nba-phi-chi-2026-11-08",
    "other": null,
@@ -788,7 +788,7 @@
    "money_with": false,
    "grade": "watch",
    "fair_board": 0.23,
-   "inside_fair": true,
+   "inside_fair": false,
    "books": {
     "at": "2026-11-08T02:50:54Z",
     "fair": 0.23,
@@ -1091,7 +1091,7 @@
    "best_rank": 71,
    "usd": 387,
    "paid": 0.51,
-   "ask": 0.53,
+   "ask": 0.54,
    "status": "other side",
    "link": "https://polymarket.us/event/epl-bri-bre-2026-11-08",
    "other": {
@@ -1100,7 +1100,7 @@
     "usd": 115295,
     "first": "2026-11-07T13:23:43Z"
    },
-   "exit_bid": 0.52,
+   "exit_bid": 0.53,
    "kalshi_against": null,
    "logged": true,
    "event_id": "401879244",
@@ -1134,7 +1134,7 @@
    "best_rank": 115,
    "usd": 8925,
    "paid": 0.537,
-   "ask": 0.58,
+   "ask": 0.59,
    "status": "other side",
    "link": "https://polymarket.us/event/epl-sun-che-2026-11-08",
    "other": {
@@ -1143,7 +1143,7 @@
     "usd": 2495,
     "first": "2026-11-08T09:58:34Z"
    },
-   "exit_bid": 0.57,
+   "exit_bid": 0.58,
    "kalshi_against": null,
    "logged": true,
    "event_id": "401879239",
@@ -1177,7 +1177,7 @@
    "best_rank": 100,
    "usd": 3161,
    "paid": 0.62,
-   "ask": 0.63,
+   "ask": 0.64,
    "status": "other side",
    "link": "https://polymarket.us/event/epl-cry-liv-2026-11-08",
    "other": {
@@ -1186,7 +1186,7 @@
     "usd": 37748,
     "first": "2026-11-07T18:52:15Z"
    },
-   "exit_bid": 0.62,
+   "exit_bid": 0.63,
    "kalshi_against": null,
    "logged": true,
    "event_id": "401879243",
@@ -1966,6 +1966,13 @@
     "n": 1,
     "best_rank": 149,
     "usd": 2532
+   }
+  },
+  "401878759|total": {
+   "over": {
+    "n": 1,
+    "best_rank": 98,
+    "usd": 252
    }
   },
   "401879239|total": {
