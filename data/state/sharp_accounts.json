@@ -1,5 +1,5 @@
 {
- "built": "2026-11-08T21:38:39Z",
+ "built": "2026-11-08T21:46:29Z",
  "rows": [
   {
    "cond": "0x4482ea8fcedde0dfe70a6793f45114b74b40eb73e16bc1c25fe51a999a0ed1b7",
@@ -855,7 +855,7 @@
    "home_name": "San Francisco 49ers",
    "game_start": "2026-11-08T21:25Z",
    "side_std": "away",
-   "money_with": true,
+   "money_with": false,
    "grade": "A",
    "fair_board": null,
    "inside_fair": null,
@@ -897,6 +897,52 @@
    "fair_board": null,
    "inside_fair": null,
    "books": null
+  },
+  {
+   "cond": "0x51ff8fbcb59cc90d0e82b3be89c42065cc03f766a8817e76b97518f568a652cf",
+   "slug": "nba-lal-det-2026-11-08",
+   "title": "Lakers vs. Pistons",
+   "mtype": "spread",
+   "start": "2026-11-08T23:00:00Z",
+   "bet": "Pistons -7.5",
+   "side": "Pistons",
+   "flagged": "2026-11-08T21:42:36Z",
+   "why": "2 top-200 accounts",
+   "proven": false,
+   "trigger": "two",
+   "n_accounts": 2,
+   "best_rank": 112,
+   "usd": 8008,
+   "paid": 0.43,
+   "ask": 0.48,
+   "status": "live",
+   "link": "https://polymarket.us/event/nba-lal-det-2026-11-08",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401909946",
+   "sport": "nba",
+   "league": null,
+   "away": "LAL",
+   "home": "DET",
+   "away_name": "Los Angeles Lakers",
+   "home_name": "Detroit Pistons",
+   "game_start": "2026-11-08T23:00Z",
+   "side_std": "home",
+   "money_with": false,
+   "grade": "B",
+   "fair_board": 0.4886,
+   "inside_fair": true,
+   "books": {
+    "at": "2026-11-08T20:52:54Z",
+    "fair": 0.4886,
+    "q": {
+     "Polymarket": 0.48,
+     "Novig": 0.49,
+     "Kalshi": 0.52,
+     "DK": 0.5238
+    }
+   }
   },
   {
    "cond": "0x6d7f46dea2a4d59b9b7d130885ba41a8f6139a6318b2ede64b65e02f3172109b",
@@ -1280,8 +1326,7 @@
    "side_std": "away",
    "conflict": [
     "Kalshi bet back",
-    "Kalshi move",
-    "big money"
+    "Kalshi move"
    ],
    "money_with": false,
    "grade": "B",
@@ -1482,8 +1527,8 @@
    "link": "https://polymarket.us/event/nba-lal-atl-2026-11-09",
    "other": null,
    "kalshi_against": {
-    "move": 6.0,
-    "now": 55.5,
+    "move": 6.5,
+    "now": 56.0,
     "state": "fresh"
    },
    "logged": true,
@@ -1648,6 +1693,18 @@
     "best_rank": 49,
     "usd": 10734
    }
+  },
+  "401909946:nba_momentum:ml": {
+   "with": {
+    "n": 3,
+    "best_rank": 40,
+    "usd": 19261
+   },
+   "against": {
+    "n": 2,
+    "best_rank": 42,
+    "usd": 605
+   }
   }
  },
  "by_event": {
@@ -1696,9 +1753,9 @@
   },
   "401909946|spread": {
    "home": {
-    "n": 4,
+    "n": 5,
     "best_rank": 12,
-    "usd": 10560
+    "usd": 10800
    },
    "away": {
     "n": 1,
