@@ -1,5 +1,5 @@
 {
- "built": "2026-11-08T01:26:05Z",
+ "built": "2026-11-08T01:33:11Z",
  "rows": [
   {
    "cond": "0x07de85d6a00260bb3548af18e299a3af4ecaff94ea7bae2073f3b26f46717e53",
@@ -332,9 +332,6 @@
    "home_name": "New Mexico State Aggies",
    "game_start": "2026-11-08T01:00Z",
    "side_std": "away",
-   "conflict": [
-    "Kalshi move"
-   ],
    "money_with": false,
    "grade": "A",
    "inside_fair": false,
@@ -1312,7 +1309,7 @@
    "best_rank": 31,
    "usd": 4137,
    "paid": 0.708,
-   "ask": 0.74,
+   "ask": null,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-orl-gsw-2026-11-07",
    "other": {
@@ -1321,7 +1318,7 @@
     "usd": 481,
     "first": "2026-11-07T21:01:22Z"
    },
-   "exit_bid": 0.73,
+   "exit_bid": null,
    "kalshi_against": null,
    "logged": true,
    "event_id": "401909942",
@@ -1829,18 +1826,6 @@
     "n": 1,
     "best_rank": 49,
     "usd": 6921
-   }
-  },
-  "401909942|ml": {
-   "home": {
-    "n": 3,
-    "best_rank": 31,
-    "usd": 4137
-   },
-   "away": {
-    "n": 1,
-    "best_rank": 43,
-    "usd": 481
    }
   },
   "401909943|spread": {
