@@ -4289,8 +4289,8 @@
 "edge_pts": -1.39,
 "why": "conference game, GT +13.5 on the road, total 47.5",
 "void": true,
-"void_why": "rule no longer holds on the current line: home spread -13.5, total 48.5 (2026-11-08T19:53:25Z)",
-"void_at": "2026-11-08T19:53:25Z"
+"void_why": "rule no longer holds on the current line: home spread -13.5, total 48.5 (2026-11-08T20:13:16Z)",
+"void_at": "2026-11-08T20:13:16Z"
 },
 "401860916:cfb_homefav_7510_under": {
 "tag": "cfb_homefav_7510_under",
@@ -4667,8 +4667,8 @@
 },
 "401856884:cfb_day_over": {
 "tag": "cfb_day_over",
-"fill_id": "effaa95d6bbd",
-"ts": "2026-11-08T19:53:25Z",
+"fill_id": "451f2048ff13",
+"ts": "2026-11-08T20:13:16Z",
 "market": "total",
 "side": "over",
 "line": 51.5,
@@ -4680,8 +4680,8 @@
 },
 "401864538:cfb_road_dog_low_total": {
 "tag": "cfb_road_dog_low_total",
-"fill_id": "64058e21a829",
-"ts": "2026-11-08T19:53:25Z",
+"fill_id": "f4a7fa6b692b",
+"ts": "2026-11-08T20:13:16Z",
 "market": "spread",
 "side": "away",
 "line": 11.5,
@@ -4691,10 +4691,23 @@
 "edge_pts": -2.38,
 "why": "conference game, SJSU +11.5 on the road, total 47.5"
 },
+"401909957:nba_ats_hot_home": {
+"tag": "nba_ats_hot_home",
+"fill_id": "538952b4add0",
+"ts": "2026-11-08T20:13:16Z",
+"market": "spread",
+"side": "home",
+"line": -4.5,
+"venue": "Novig",
+"price": -106,
+"fair": 0.5,
+"edge_pts": -1.5,
+"why": "home HOU covers 70% of spreads this season (10 games), 2 days rest: home spread (mined angle)"
+},
 "401873046:xch_homedog_fade:ml": {
 "tag": "xch_homedog_fade",
-"fill_id": "463ee310d2ab",
-"ts": "2026-11-08T19:54:02Z",
+"fill_id": "805c460c52f4",
+"ts": "2026-11-08T20:13:16Z",
 "market": "ml",
 "side": "away",
 "line": null,
@@ -4702,10 +4715,6 @@
 "price": -208,
 "fair": 0.67474,
 "edge_pts": -0.03,
-"why": "Novig home side mid 0.328 inside T-1.2h; audit band 20-35c",
-"now": {
-"venue": "Polymarket",
-"price": -203
-}
+"why": "Novig home side mid 0.328 inside T-0.9h; audit band 20-35c"
 }
 }
