@@ -1,5 +1,5 @@
 {
- "built": "2026-11-08T13:14:26Z",
+ "built": "2026-11-08T13:24:28Z",
  "rows": [
   {
    "cond": "0x2992326e6e51bbbfcea34ca609e83388352f1a5674d411c13ac0ec4911870f7f",
@@ -63,7 +63,7 @@
    "best_rank": 149,
    "usd": 466,
    "paid": 0.27,
-   "ask": 0.28,
+   "ask": 0.29,
    "status": "live",
    "link": "https://polymarket.us/event/epl-sun-che-2026-11-08",
    "other": null,
@@ -109,7 +109,7 @@
    "best_rank": 132,
    "usd": 149,
    "paid": 0.48,
-   "ask": 0.5,
+   "ask": 0.49,
    "status": "live",
    "link": "https://polymarket.us/event/epl-sun-che-2026-11-08-more-markets",
    "other": null,
@@ -192,7 +192,7 @@
    "best_rank": 137,
    "usd": 150,
    "paid": 0.48,
-   "ask": 0.49,
+   "ask": 0.5,
    "status": "live",
    "link": "https://polymarket.us/event/nfl-det-mia-2026-11-08",
    "other": null,
@@ -244,6 +244,9 @@
    "home_name": "New Orleans Saints",
    "game_start": "2026-11-08T18:00Z",
    "side_std": "away",
+   "conflict": [
+    "Kalshi move"
+   ],
    "money_with": false,
    "grade": "B",
    "fair_board": null,
@@ -348,7 +351,7 @@
    "best_rank": 143,
    "usd": 3439,
    "paid": 0.26,
-   "ask": 0.28,
+   "ask": 0.29,
    "status": "live",
    "link": "https://polymarket.us/event/nfl-nyg-phi-2026-11-08",
    "other": null,
@@ -422,7 +425,7 @@
    "best_rank": 143,
    "usd": 9826,
    "paid": 0.24,
-   "ask": 0.25,
+   "ask": 0.27,
    "status": "live",
    "link": "https://polymarket.us/event/nfl-cle-no-2026-11-08",
    "other": null,
@@ -437,9 +440,6 @@
    "home_name": "New Orleans Saints",
    "game_start": "2026-11-08T18:00Z",
    "side_std": "home",
-   "conflict": [
-    "Kalshi bet back"
-   ],
    "money_with": false,
    "grade": "A",
    "fair_board": null,
@@ -625,11 +625,48 @@
    "home_name": "New Orleans Saints",
    "game_start": "2026-11-08T18:00Z",
    "side_std": "home",
-   "conflict": [
-    "Kalshi bet back"
-   ],
    "money_with": false,
    "grade": "A",
+   "fair_board": null,
+   "inside_fair": null,
+   "books": null
+  },
+  {
+   "cond": "0xe9d4fe9dc8dcae7a8fc8f8e232a07cd2491c5a6450f85b75ba2263121c1b68ad",
+   "slug": "nfl-nyg-phi-2026-11-08",
+   "title": "Giants vs. Eagles",
+   "mtype": "spread",
+   "start": "2026-11-08T18:00:00Z",
+   "bet": "Giants -2.5",
+   "side": "Giants",
+   "flagged": "2026-11-08T13:16:31Z",
+   "why": "a top-50 account",
+   "proven": false,
+   "trigger": "top50",
+   "n_accounts": 1,
+   "best_rank": 4,
+   "usd": 985,
+   "paid": 0.53,
+   "ask": 0.53,
+   "status": "live",
+   "link": "https://polymarket.us/event/nfl-nyg-phi-2026-11-08",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401873044",
+   "sport": "nfl",
+   "league": null,
+   "away": "NYG",
+   "home": "PHI",
+   "away_name": "New York Giants",
+   "home_name": "Philadelphia Eagles",
+   "game_start": "2026-11-08T18:00Z",
+   "side_std": "away",
+   "conflict": [
+    "Kalshi move"
+   ],
+   "money_with": false,
+   "grade": "B",
    "fair_board": null,
    "inside_fair": null,
    "books": null
@@ -800,6 +837,43 @@
    ],
    "money_with": false,
    "grade": "A",
+   "fair_board": null,
+   "inside_fair": null,
+   "books": null
+  },
+  {
+   "cond": "0x38e2e42733c4910869776852bf5d7e3033c9b0936bd1e98069def7ed4070babb",
+   "slug": "cbb-ndkst-csu-2026-11-08",
+   "title": "North Dakota State Bison vs. Bakersfield Roadrunners",
+   "mtype": "total",
+   "start": "2026-11-08T23:00:00Z",
+   "bet": "Under 157.5",
+   "side": "Under",
+   "flagged": "2026-11-08T13:21:25Z",
+   "why": "a top-50 account",
+   "proven": false,
+   "trigger": "top50",
+   "n_accounts": 1,
+   "best_rank": 4,
+   "usd": 130,
+   "paid": 0.52,
+   "ask": 0.61,
+   "status": "live",
+   "link": "https://polymarket.us/event/cbb-ndkst-csu-2026-11-08",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401920134",
+   "sport": "cbb",
+   "league": null,
+   "away": "NDSU",
+   "home": "CSUB",
+   "away_name": "North Dakota State Bison",
+   "home_name": "Cal State Bakersfield Roadrunners",
+   "game_start": "2026-11-08T23:00Z",
+   "side_std": "under",
+   "money_with": false,
+   "grade": "B",
    "fair_board": null,
    "inside_fair": null,
    "books": null
@@ -1023,7 +1097,7 @@
    "best_rank": 115,
    "usd": 8925,
    "paid": 0.537,
-   "ask": 0.55,
+   "ask": 0.58,
    "status": "other side",
    "link": "https://polymarket.us/event/epl-sun-che-2026-11-08",
    "other": {
@@ -1032,7 +1106,7 @@
     "usd": 2495,
     "first": "2026-11-08T09:58:34Z"
    },
-   "exit_bid": 0.54,
+   "exit_bid": 0.57,
    "kalshi_against": null,
    "logged": true,
    "event_id": "401879239",
@@ -1109,7 +1183,7 @@
    "best_rank": 132,
    "usd": 4633,
    "paid": 0.409,
-   "ask": 0.43,
+   "ask": 0.44,
    "status": "other side",
    "link": "https://polymarket.us/event/epl-cry-liv-2026-11-08-more-markets",
    "other": {
@@ -1118,7 +1192,7 @@
     "usd": 2532,
     "first": "2026-11-08T07:43:03Z"
    },
-   "exit_bid": 0.42,
+   "exit_bid": 0.43,
    "kalshi_against": null,
    "logged": true,
    "event_id": "401879243",
@@ -1145,14 +1219,14 @@
    "bet": "Eagles ML",
    "side": "Eagles",
    "flagged": "2026-11-06T19:48:13Z",
-   "why": "a top-50 account",
+   "why": "2 top-200 accounts",
    "proven": false,
-   "trigger": "top50",
-   "n_accounts": 1,
+   "trigger": "two",
+   "n_accounts": 2,
    "best_rank": 4,
-   "usd": 2242,
-   "paid": 0.39,
-   "ask": 0.4,
+   "usd": 2537,
+   "paid": 0.393,
+   "ask": 0.42,
    "status": "live",
    "link": "https://polymarket.us/event/nfl-nyg-phi-2026-11-08",
    "other": null,
@@ -1174,8 +1248,8 @@
    "conflict": [
     "Kalshi move"
    ],
-   "money_with": true,
-   "grade": "A",
+   "money_with": false,
+   "grade": "B",
    "inside_fair": true,
    "fair_board": 0.3968,
    "books": {
@@ -1476,7 +1550,11 @@
     "best_rank": 4,
     "usd": 5058
    },
-   "against": null
+   "against": {
+    "n": 1,
+    "best_rank": 4,
+    "usd": 985
+   }
   },
   "401873039:nfl_fade_fav_bye": {
    "with": {
@@ -1606,9 +1684,9 @@
   },
   "401873044|ml": {
    "home": {
-    "n": 1,
+    "n": 2,
     "best_rank": 4,
-    "usd": 2242
+    "usd": 2537
    }
   },
   "401873044|spread": {
@@ -1616,6 +1694,11 @@
     "n": 2,
     "best_rank": 4,
     "usd": 5058
+   },
+   "away": {
+    "n": 1,
+    "best_rank": 4,
+    "usd": 985
    }
   },
   "401873043|ml": {
@@ -1827,6 +1910,13 @@
     "n": 1,
     "best_rank": 132,
     "usd": 166
+   }
+  },
+  "401920134|total": {
+   "under": {
+    "n": 1,
+    "best_rank": 4,
+    "usd": 130
    }
   },
   "401879243|total": {
