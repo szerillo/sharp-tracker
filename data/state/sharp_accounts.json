@@ -1,5 +1,5 @@
 {
- "built": "2026-11-08T18:09:35Z",
+ "built": "2026-11-08T18:16:20Z",
  "rows": [
   {
    "cond": "0x50d65c600519194a43397e69a1ea366cca2b6762f22b6a06b437b2913d2d211a",
@@ -1187,7 +1187,7 @@
    "best_rank": 4,
    "usd": 130,
    "paid": 0.52,
-   "ask": 0.64,
+   "ask": 0.63,
    "status": "live",
    "link": "https://polymarket.us/event/cbb-ndkst-csu-2026-11-08",
    "other": null,
@@ -1202,6 +1202,43 @@
    "home_name": "Cal State Bakersfield Roadrunners",
    "game_start": "2026-11-08T23:00Z",
    "side_std": "under",
+   "money_with": false,
+   "grade": "B",
+   "fair_board": null,
+   "inside_fair": null,
+   "books": null
+  },
+  {
+   "cond": "0x6d7f46dea2a4d59b9b7d130885ba41a8f6139a6318b2ede64b65e02f3172109b",
+   "slug": "nba-lal-det-2026-11-08",
+   "title": "Lakers vs. Pistons",
+   "mtype": "spread",
+   "start": "2026-11-08T23:00:00Z",
+   "bet": "Pistons -5.5",
+   "side": "Pistons",
+   "flagged": "2026-11-08T18:11:03Z",
+   "why": "2 top-200 accounts",
+   "proven": false,
+   "trigger": "two",
+   "n_accounts": 2,
+   "best_rank": 49,
+   "usd": 9850,
+   "paid": 0.51,
+   "ask": 0.58,
+   "status": "live",
+   "link": "https://polymarket.us/event/nba-lal-det-2026-11-08",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401909946",
+   "sport": "nba",
+   "league": null,
+   "away": "LAL",
+   "home": "DET",
+   "away_name": "Los Angeles Lakers",
+   "home_name": "Detroit Pistons",
+   "game_start": "2026-11-08T23:00Z",
+   "side_std": "home",
    "money_with": false,
    "grade": "B",
    "fair_board": null,
@@ -1395,7 +1432,7 @@
    "best_rank": 43,
    "usd": 257,
    "paid": 0.509,
-   "ask": 0.52,
+   "ask": 0.51,
    "status": "live",
    "link": "https://polymarket.us/event/nba-lal-atl-2026-11-09",
    "other": null,
@@ -1532,16 +1569,16 @@
    "best_rank": 42,
    "usd": 140,
    "paid": 0.47,
-   "ask": 0.37,
+   "ask": 0.29,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-lal-det-2026-11-08",
    "other": {
-    "n_accounts": 2,
+    "n_accounts": 3,
     "best_rank": 40,
-    "usd": 1436,
+    "usd": 39104,
     "first": "2026-11-07T22:00:06Z"
    },
-   "exit_bid": 0.36,
+   "exit_bid": 0.28,
    "kalshi_against": {
     "move": 7.0,
     "now": 63.5,
@@ -1564,7 +1601,93 @@
    "money_with": false,
    "grade": "watch",
    "fair_board": 0.3663,
+   "inside_fair": true,
+   "books": null
+  },
+  {
+   "cond": "0xd13ba85b9884161036278e34e28b374876417a2ee9e2b267fe9645f28fe79e07",
+   "slug": "nba-lal-det-2026-11-08",
+   "title": "Lakers vs. Pistons",
+   "mtype": "spread",
+   "start": "2026-11-08T23:00:00Z",
+   "bet": "Pistons -4.5",
+   "side": "Pistons",
+   "flagged": "2026-11-08T18:09:55Z",
+   "why": "2 top-200 accounts",
+   "proven": false,
+   "trigger": "two",
+   "n_accounts": 2,
+   "best_rank": 112,
+   "usd": 9316,
+   "paid": 0.554,
+   "ask": 0.59,
+   "status": "other side",
+   "link": "https://polymarket.us/event/nba-lal-det-2026-11-08",
+   "other": {
+    "n_accounts": 1,
+    "best_rank": 112,
+    "usd": 237,
+    "first": "2026-11-08T18:12:25Z"
+   },
+   "exit_bid": 0.58,
+   "kalshi_against": null,
+   "logged": false,
+   "event_id": "401909946",
+   "sport": "nba",
+   "league": null,
+   "away": "LAL",
+   "home": "DET",
+   "away_name": "Los Angeles Lakers",
+   "home_name": "Detroit Pistons",
+   "game_start": "2026-11-08T23:00Z",
+   "side_std": "home",
+   "money_with": false,
+   "grade": "B",
+   "fair_board": 0.5245,
    "inside_fair": false,
+   "books": null
+  },
+  {
+   "cond": "0xa9f0267ad3233fa955caaa5d30ac56e08230f0f4ed89390deedde9a809d7670f",
+   "slug": "nba-lal-det-2026-11-08",
+   "title": "Lakers vs. Pistons",
+   "mtype": "spread",
+   "start": "2026-11-08T23:00:00Z",
+   "bet": "Pistons -6.5",
+   "side": "Pistons",
+   "flagged": "2026-11-08T18:11:13Z",
+   "why": "2 top-200 accounts",
+   "proven": false,
+   "trigger": "two",
+   "n_accounts": 2,
+   "best_rank": 12,
+   "usd": 9386,
+   "paid": 0.473,
+   "ask": 0.53,
+   "status": "other side",
+   "link": "https://polymarket.us/event/nba-lal-det-2026-11-08",
+   "other": {
+    "n_accounts": 1,
+    "best_rank": 112,
+    "usd": 416,
+    "first": "2026-11-08T18:11:52Z"
+   },
+   "exit_bid": 0.52,
+   "kalshi_against": null,
+   "logged": false,
+   "event_id": "401909946",
+   "sport": "nba",
+   "league": null,
+   "away": "LAL",
+   "home": "DET",
+   "away_name": "Los Angeles Lakers",
+   "home_name": "Detroit Pistons",
+   "game_start": "2026-11-08T23:00Z",
+   "side_std": "home",
+   "money_with": false,
+   "grade": "B",
+   "fair_board": null,
+   "inside_fair": null,
    "books": null
   },
   {
@@ -1721,9 +1844,9 @@
   },
   "401873047:nfl_road_dog_7510": {
    "with": {
-    "n": 1,
+    "n": 2,
     "best_rank": 143,
-    "usd": 4547
+    "usd": 4820
    },
    "against": null
   },
@@ -1800,9 +1923,9 @@
   },
   "401873047|spread": {
    "away": {
-    "n": 1,
+    "n": 2,
     "best_rank": 143,
-    "usd": 4547
+    "usd": 4820
    }
   },
   "401873048|spread": {
@@ -1852,9 +1975,9 @@
     "usd": 140
    },
    "home": {
-    "n": 2,
+    "n": 3,
     "best_rank": 40,
-    "usd": 1436
+    "usd": 19261
    }
   },
   "401909946|total": {
@@ -1862,13 +1985,23 @@
     "n": 1,
     "best_rank": 58,
     "usd": 392
+   },
+   "under": {
+    "n": 1,
+    "best_rank": 132,
+    "usd": 307
    }
   },
   "401909946|spread": {
    "home": {
+    "n": 4,
+    "best_rank": 12,
+    "usd": 10560
+   },
+   "away": {
     "n": 1,
-    "best_rank": 132,
-    "usd": 225
+    "best_rank": 112,
+    "usd": 237
    }
   },
   "401909947|ml": {
