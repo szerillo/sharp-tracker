@@ -1,5 +1,5 @@
 {
- "built": "2026-11-08T23:25:20Z",
+ "built": "2026-11-08T23:32:36Z",
  "rows": [
   {
    "cond": "0xd473df71870912bc0a4120c5fffc4f59cb4c26d59f8a421dbe441bbd640593cd",
@@ -180,9 +180,6 @@
    "home_name": "Detroit Pistons",
    "game_start": "2026-11-08T23:00Z",
    "side_std": "home",
-   "conflict": [
-    "big money"
-   ],
    "money_with": false,
    "grade": "B",
    "fair_board": null,
@@ -266,6 +263,9 @@
    "home_name": "Chicago Bears",
    "game_start": "2026-11-09T01:20Z",
    "side_std": "home",
+   "conflict": [
+    "big money"
+   ],
    "money_with": false,
    "grade": "A",
    "fair_board": null,
@@ -476,11 +476,7 @@
     "first": "2026-11-07T22:00:06Z"
    },
    "exit_bid": null,
-   "kalshi_against": {
-    "move": 14.0,
-    "now": 70.5,
-    "state": "reversed"
-   },
+   "kalshi_against": null,
    "logged": true,
    "event_id": "401909946",
    "sport": "nba",
@@ -491,11 +487,6 @@
    "home_name": "Detroit Pistons",
    "game_start": "2026-11-08T23:00Z",
    "side_std": "away",
-   "conflict": [
-    "Kalshi bet back",
-    "Kalshi move",
-    "big money"
-   ],
    "money_with": false,
    "grade": "B",
    "fair_board": 0.2958,
@@ -539,9 +530,6 @@
    "home_name": "Detroit Pistons",
    "game_start": "2026-11-08T23:00Z",
    "side_std": "home",
-   "conflict": [
-    "big money"
-   ],
    "money_with": false,
    "grade": "B",
    "fair_board": null,
@@ -585,9 +573,6 @@
    "home_name": "Detroit Pistons",
    "game_start": "2026-11-08T23:00Z",
    "side_std": "home",
-   "conflict": [
-    "big money"
-   ],
    "money_with": false,
    "grade": "B",
    "fair_board": null,
@@ -631,9 +616,6 @@
    "home_name": "Detroit Pistons",
    "game_start": "2026-11-08T23:00Z",
    "side_std": "home",
-   "conflict": [
-    "big money"
-   ],
    "money_with": false,
    "grade": "B",
    "inside_fair": false,
@@ -763,9 +745,6 @@
    "home_name": "Milwaukee Bucks",
    "game_start": "2026-11-09T01:00Z",
    "side_std": "away",
-   "conflict": [
-    "big money"
-   ],
    "money_with": false,
    "grade": "watch",
    "fair_board": 0.8607,
@@ -793,8 +772,8 @@
    "link": "https://polymarket.us/event/nba-lal-atl-2026-11-09",
    "other": null,
    "kalshi_against": {
-    "move": 6.5,
-    "now": 56.0,
+    "move": 7.5,
+    "now": 57.0,
     "state": "held"
    },
    "logged": true,
@@ -922,41 +901,41 @@
     "clv": 0.0
    },
    "outside": {
-    "n": 30,
-    "won": 15,
-    "units": 0.13,
-    "clv": 0.46
+    "n": 31,
+    "won": 16,
+    "units": 0.38,
+    "clv": 0.43
    }
   },
-  "n": 151,
-  "won": 67,
-  "units": -11.09,
+  "n": 154,
+  "won": 68,
+  "units": -11.61,
   "by_grade": {
    "A": {
-    "n": 107,
+    "n": 108,
     "won": 46,
-    "units": -9.52,
-    "clv": 0.11
+    "units": -10.04,
+    "clv": 0.08
    },
    "B": {
-    "n": 30,
-    "won": 17,
-    "units": 0.7,
-    "clv": -0.87
+    "n": 31,
+    "won": 18,
+    "units": 0.95,
+    "clv": -0.86
    },
    "watch": {
-    "n": 14,
+    "n": 15,
     "won": 4,
-    "units": -2.26,
+    "units": -2.51,
     "clv": -1.75
    }
   },
-  "units_1u": -25.94,
-  "clv": -0.2,
-  "n_venue": 70,
-  "units_venue": -4.84,
-  "clv_venue": 0.62,
-  "clv_poly_same": -0.5
+  "units_1u": -27.02,
+  "clv": -0.22,
+  "n_venue": 73,
+  "units_venue": -5.34,
+  "clv_venue": 0.59,
+  "clv_poly_same": -0.54
  },
  "sys_tags": {
   "401909947:nba_ats_hot_home": {
@@ -977,7 +956,11 @@
     "best_rank": 132,
     "usd": 377
    },
-   "against": null
+   "against": {
+    "n": 1,
+    "best_rank": 132,
+    "usd": 187
+   }
   },
   "401909951:nba_badteams_under": {
    "with": null,
@@ -1090,6 +1073,11 @@
     "n": 1,
     "best_rank": 132,
     "usd": 377
+   },
+   "under": {
+    "n": 1,
+    "best_rank": 132,
+    "usd": 187
    }
   },
   "401909951|total": {
