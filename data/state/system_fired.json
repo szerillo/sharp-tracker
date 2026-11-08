@@ -4951,5 +4951,22 @@
 "fair": 0.503,
 "edge_pts": -2.08,
 "why": "3:30 PM ET kickoff, total 48.5: over (mined angle)"
+},
+"401892679:xch_homedog_fade:spread": {
+"tag": "xch_homedog_fade",
+"fill_id": "6951d00c7dce",
+"ts": "2026-11-08T23:34:24Z",
+"market": "spread",
+"side": "away",
+"line": 1.5,
+"venue": "Novig",
+"price": -217,
+"fair": 0.68307,
+"edge_pts": -0.19,
+"why": "Novig home side mid 0.318 inside T-1.4h; audit band 20-35c",
+"now": {
+"venue": "Novig",
+"price": -217
+}
 }
 }
