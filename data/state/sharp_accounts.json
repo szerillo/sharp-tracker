@@ -1,5 +1,5 @@
 {
- "built": "2026-11-08T00:03:50Z",
+ "built": "2026-11-08T00:11:00Z",
  "rows": [
   {
    "cond": "0x85f2725b66a298fd5dbc59de813ac7a3875d937ce3ea42efee3b2ca2a0a2f394",
@@ -607,8 +607,7 @@
    "game_start": "2026-11-08T01:00Z",
    "side_std": "away",
    "conflict": [
-    "Kalshi move",
-    "big money"
+    "Kalshi move"
    ],
    "money_with": false,
    "grade": "A",
@@ -752,8 +751,7 @@
    "game_start": "2026-11-08T03:30Z",
    "side_std": "home",
    "conflict": [
-    "Kalshi move",
-    "big money"
+    "Kalshi move"
    ],
    "money_with": false,
    "grade": "A",
@@ -958,8 +956,8 @@
    "home_name": "New Orleans Saints",
    "game_start": "2026-11-08T18:00Z",
    "side_std": "away",
-   "money_with": true,
-   "grade": "A",
+   "money_with": false,
+   "grade": "B",
    "fair_board": null,
    "inside_fair": null,
    "books": null
@@ -1152,8 +1150,7 @@
    "game_start": "2026-11-08T18:00Z",
    "side_std": "home",
    "conflict": [
-    "Kalshi bet back",
-    "big money"
+    "Kalshi bet back"
    ],
    "money_with": false,
    "grade": "A",
@@ -1426,7 +1423,7 @@
    "best_rank": 43,
    "usd": 112,
    "paid": 0.8,
-   "ask": 0.86,
+   "ask": 0.85,
    "status": "live",
    "link": "https://polymarket.us/event/nba-bos-mil-2026-11-08",
    "other": null,
@@ -1444,7 +1441,7 @@
    "money_with": false,
    "grade": "watch",
    "fair_board": 0.8576,
-   "inside_fair": false,
+   "inside_fair": true,
    "books": {
     "at": "2026-11-07T23:53:50Z",
     "fair": 0.8576,
@@ -1599,8 +1596,8 @@
    "link": "https://polymarket.us/event/nba-bkn-atl-2026-11-07",
    "other": null,
    "kalshi_against": {
-    "move": 6.0,
-    "now": 71.5,
+    "move": 5.0,
+    "now": 70.5,
     "state": "drift"
    },
    "logged": true,
@@ -1903,8 +1900,7 @@
    "side_std": "away",
    "conflict": [
     "Kalshi bet back",
-    "Kalshi move",
-    "big money"
+    "Kalshi move"
    ],
    "money_with": false,
    "grade": "watch",
