@@ -1,5 +1,5 @@
 {
- "built": "2026-11-08T00:17:49Z",
+ "built": "2026-11-08T00:24:08Z",
  "rows": [
   {
    "cond": "0x85f2725b66a298fd5dbc59de813ac7a3875d937ce3ea42efee3b2ca2a0a2f394",
@@ -429,7 +429,8 @@
    "game_start": "2026-11-08T00:30Z",
    "side_std": "away",
    "conflict": [
-    "Kalshi move"
+    "Kalshi move",
+    "big money"
    ],
    "money_with": false,
    "grade": "A",
@@ -1778,8 +1779,8 @@
    "link": "https://polymarket.us/event/nfl-nyg-phi-2026-11-08",
    "other": null,
    "kalshi_against": {
-    "move": 6.5,
-    "now": 61.5,
+    "move": 5.5,
+    "now": 60.5,
     "state": "reversed"
    },
    "logged": true,
@@ -1795,10 +1796,10 @@
    "conflict": [
     "Kalshi move"
    ],
-   "money_with": false,
-   "grade": "B",
+   "money_with": true,
+   "grade": "A",
    "inside_fair": true,
-   "fair_board": 0.3912,
+   "fair_board": 0.3968,
    "books": {
     "at": "2026-11-07T23:53:50Z",
     "fair": 0.3968,
@@ -1970,15 +1971,15 @@
     "clv": 0.38
    }
   },
-  "n": 104,
+  "n": 105,
   "won": 46,
-  "units": -7.49,
+  "units": -7.99,
   "by_grade": {
    "A": {
-    "n": 64,
+    "n": 65,
     "won": 27,
-    "units": -5.94,
-    "clv": -0.2
+    "units": -6.44,
+    "clv": -0.12
    },
    "B": {
     "n": 27,
@@ -1993,8 +1994,8 @@
     "clv": -1.75
    }
   },
-  "units_1u": -17.96,
-  "clv": -0.51,
+  "units_1u": -18.96,
+  "clv": -0.46,
   "n_venue": 49,
   "units_venue": -4.38,
   "clv_venue": 0.4,
@@ -2025,6 +2026,14 @@
     "usd": 107
    }
   },
+  "401873049:vrest8_1h": {
+   "with": {
+    "n": 1,
+    "best_rank": 132,
+    "usd": 499
+   },
+   "against": null
+  },
   "401873042:awfuldog": {
    "with": {
     "n": 2,
@@ -2052,6 +2061,14 @@
     "best_rank": 143,
     "usd": 9826
    }
+  },
+  "401873049:wind1014": {
+   "with": {
+    "n": 1,
+    "best_rank": 132,
+    "usd": 499
+   },
+   "against": null
   },
   "401892675:nhl_early_home_fav_qual": {
    "with": {
@@ -2084,6 +2101,22 @@
     "best_rank": 112,
     "usd": 4792
    }
+  },
+  "401909939:nba_momentum:ml": {
+   "with": {
+    "n": 1,
+    "best_rank": 43,
+    "usd": 121
+   },
+   "against": null
+  },
+  "401909939:nba_momentum:total": {
+   "with": {
+    "n": 1,
+    "best_rank": 132,
+    "usd": 132
+   },
+   "against": null
   }
  },
  "by_event": {
@@ -2158,6 +2191,13 @@
     "n": 1,
     "best_rank": 12,
     "usd": 270
+   }
+  },
+  "401873049|total": {
+   "under": {
+    "n": 1,
+    "best_rank": 132,
+    "usd": 499
    }
   },
   "401873051|ml": {
