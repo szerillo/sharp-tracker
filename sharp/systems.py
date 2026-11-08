@@ -90,7 +90,7 @@ EVIDENCE = {'wind1014': dict(tier='A', train='Bet Labs 533-376 all-time (2003-),
             'cfb_road_streak_dog': dict(tier='P', train='Bet Labs 214, +20.7%', hold='Odds API 2020-26: 212-228-9, -6.4%', seasons='2 of 7', paper_why='Bet Labs uses a bet-volume filter we cannot see; -2% in our replay', src='data/research/rule_replay.json'),   # 11/5: paper
             'cbb_under_good_over_drop': dict(tier='P', train='Bet Labs 949, +7.6%', hold="Bet Labs' own picks +3.5% (3 of the last 4 seasons negative); ours with real opens 495-498-11, -5.0%", seasons='1 of 6 (ours)', paper_why='1 of 6 seasons positive in our replay; Bet Labs 3 of last 4 negative', src='docs/systems_test_2026-11-05.md')}   # 11/5 pm: paper
 # nhl_over_busy_goalie retired 10/30: positive in 2 of 7 seasons and the goalie-saves field thins to a handful of games after 2023.
-DESC = {'wind1014': 'NFL outdoor, wind 10-14 mph (average of Open-Meteo at T-24h and MySportsWeather, whole mph): full-game under', 'wind1014_1h': 'same wind, 10-13 mph: first-half under',
+DESC = {'wind1014': 'NFL outdoor, wind 10-14 mph (average of the latest Open-Meteo and MySportsWeather forecasts, whole mph): full-game under', 'wind1014_1h': 'same wind, 10-13 mph: first-half under',
         'cfb_wind14': 'CFB outdoor, wind 14+ mph (same two-source average): full-game under', 'vrest8_1h': 'NFL visitor off 8-30 days: first-half under', 'mnf_1h': 'Monday night: first-half under',
         'awfuldog': 'NFL dog whose season point margin is -13 or worse (1+ games): full-game spread (Bet Labs definition; restored 11/6)', 'bounce15_1h': 'NFL dog whose last game lost ATS by 15+: first-half spread',
         'awfuldog_deep': 'NFL dog with a season margin worse than -13: full-game spread (paper; 14-16 in the six-season replay)',
@@ -159,7 +159,8 @@ def msw_latest(sport, event_id):
 
 
 def weather_t24(event_id, path=None):
-    """The forecast row for this game nearest 24h before kickoff (18-30h tolerance), else the latest row."""
+    """The latest pre-kickoff forecast row for this game (11/8, Sean: the wind should update. It was the row nearest 24h before kickoff,
+    so a forecast that rose or fell on game day never changed the call). Open-Meteo is logged about every 20 minutes."""
     rows = []; path = path or WX
     if os.path.exists(path):
         for l in open(path):
@@ -167,12 +168,12 @@ def weather_t24(event_id, path=None):
             except Exception: continue
             if r.get('espn_id') == event_id and r.get('wind_mph') is not None: rows.append(r)
     if not rows: return None
-    t24 = [r for r in rows if 18 <= r['hours_to_kickoff'] <= 30]
-    return min(t24, key=lambda r: abs(r['hours_to_kickoff'] - 24)) if t24 else rows[-1]
+    pre = [r for r in rows if r['hours_to_kickoff'] > 0]
+    return min(pre, key=lambda r: r['hours_to_kickoff']) if pre else rows[-1]
 
 
 def blend_wind(wx, msw, need_both=False):
-    """Wind the rules fire on: the average of Open-Meteo (T-24h) and MySportsWeather (latest) when both exist, else whichever exists.
+    """Wind the rules fire on: the average of the latest Open-Meteo and MySportsWeather forecasts when both exist, else whichever exists.
     Bet Labs' own wind sits between the two (11/1: LAC@LAR 14 vs 12.7 / 15, NE@MIA 10 vs 10.2 / 13, IND@JAX 11 vs 9.4 / 15, ATL@TB 11 vs
     8.9 / 12; the average matched all four in-band calls and the out-of-band KC@DEN). Returns (mph or None, label)."""
     o = wx.get('wind_mph') if wx and not wx.get('indoor') else None
