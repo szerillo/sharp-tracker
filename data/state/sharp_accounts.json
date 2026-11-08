@@ -1,5 +1,5 @@
 {
- "built": "2026-11-08T21:17:17Z",
+ "built": "2026-11-08T21:24:27Z",
  "rows": [
   {
    "cond": "0x4482ea8fcedde0dfe70a6793f45114b74b40eb73e16bc1c25fe51a999a0ed1b7",
@@ -818,7 +818,7 @@
    "home_name": "Los Angeles Chargers",
    "game_start": "2026-11-08T21:05Z",
    "side_std": "home",
-   "money_with": true,
+   "money_with": false,
    "grade": "A",
    "fair_board": null,
    "inside_fair": null,
@@ -1063,50 +1063,6 @@
    "books": null
   },
   {
-   "cond": "0x3fc1b3baed516c3f03aef0435531f6945e26c2bdfaa2fdc5f125de5709004aea",
-   "slug": "nba-lal-atl-2026-11-09",
-   "title": "Lakers vs. Hawks",
-   "mtype": "ml",
-   "start": "2026-11-10T00:00:00Z",
-   "bet": "Hawks ML",
-   "side": "Hawks",
-   "flagged": "2026-11-07T11:31:12Z",
-   "why": "2 top-200 accounts",
-   "proven": false,
-   "trigger": "two",
-   "n_accounts": 2,
-   "best_rank": 43,
-   "usd": 257,
-   "paid": 0.509,
-   "ask": 0.46,
-   "status": "live",
-   "link": "https://polymarket.us/event/nba-lal-atl-2026-11-09",
-   "other": null,
-   "kalshi_against": null,
-   "logged": true,
-   "event_id": "401909952",
-   "sport": "nba",
-   "league": null,
-   "away": "LAL",
-   "home": "ATL",
-   "away_name": "Los Angeles Lakers",
-   "home_name": "Atlanta Hawks",
-   "game_start": "2026-11-10T00:00Z",
-   "side_std": "home",
-   "money_with": false,
-   "grade": "B",
-   "fair_board": null,
-   "inside_fair": null,
-   "books": {
-    "at": "2026-11-08T20:52:54Z",
-    "fair": null,
-    "q": {
-     "Polymarket": 0.49,
-     "Kalshi": 0.52
-    }
-   }
-  },
-  {
    "cond": "0x372ef9fd2ef5d6e26caa63a85da27ffaf9f6e5d0f10d6e4598c772e7b570093c",
    "slug": "nhl-nyi-sj-2026-11-09",
    "title": "Islanders vs. Sharks",
@@ -1324,7 +1280,8 @@
    "side_std": "away",
    "conflict": [
     "Kalshi bet back",
-    "Kalshi move"
+    "Kalshi move",
+    "big money"
    ],
    "money_with": false,
    "grade": "B",
@@ -1505,6 +1462,57 @@
    "books": null
   },
   {
+   "cond": "0x3fc1b3baed516c3f03aef0435531f6945e26c2bdfaa2fdc5f125de5709004aea",
+   "slug": "nba-lal-atl-2026-11-09",
+   "title": "Lakers vs. Hawks",
+   "mtype": "ml",
+   "start": "2026-11-10T00:00:00Z",
+   "bet": "Hawks ML",
+   "side": "Hawks",
+   "flagged": "2026-11-07T11:31:12Z",
+   "why": "2 top-200 accounts",
+   "proven": false,
+   "trigger": "two",
+   "n_accounts": 2,
+   "best_rank": 43,
+   "usd": 257,
+   "paid": 0.509,
+   "ask": 0.46,
+   "status": "live",
+   "link": "https://polymarket.us/event/nba-lal-atl-2026-11-09",
+   "other": null,
+   "kalshi_against": {
+    "move": 6.0,
+    "now": 55.5,
+    "state": "fresh"
+   },
+   "logged": true,
+   "event_id": "401909952",
+   "sport": "nba",
+   "league": null,
+   "away": "LAL",
+   "home": "ATL",
+   "away_name": "Los Angeles Lakers",
+   "home_name": "Atlanta Hawks",
+   "game_start": "2026-11-10T00:00Z",
+   "side_std": "home",
+   "conflict": [
+    "Kalshi move"
+   ],
+   "money_with": false,
+   "grade": "B",
+   "fair_board": null,
+   "inside_fair": null,
+   "books": {
+    "at": "2026-11-08T20:52:54Z",
+    "fair": null,
+    "q": {
+     "Polymarket": 0.49,
+     "Kalshi": 0.52
+    }
+   }
+  },
+  {
    "cond": "0xb9a7b47c2b3c56a902bd706745a98c3f627e6f25e3566205b362856f2804c721",
    "slug": "nfl-buf-min-2026-11-10",
    "title": "Bills vs. Vikings",
@@ -1566,15 +1574,15 @@
     "clv": 0.1
    }
   },
-  "n": 134,
+  "n": 135,
   "won": 60,
-  "units": -9.08,
+  "units": -9.58,
   "by_grade": {
    "A": {
-    "n": 91,
+    "n": 92,
     "won": 40,
-    "units": -7.27,
-    "clv": -0.11
+    "units": -7.77,
+    "clv": -0.13
    },
    "B": {
     "n": 29,
@@ -1589,8 +1597,8 @@
     "clv": -1.75
    }
   },
-  "units_1u": -20.49,
-  "clv": -0.38,
+  "units_1u": -21.49,
+  "clv": -0.4,
   "n_venue": 65,
   "units_venue": -5.32,
   "clv_venue": 0.3,
