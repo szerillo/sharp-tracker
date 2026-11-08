@@ -1,5 +1,5 @@
 {
- "built": "2026-11-08T16:25:28Z",
+ "built": "2026-11-08T16:33:15Z",
  "rows": [
   {
    "cond": "0x2992326e6e51bbbfcea34ca609e83388352f1a5674d411c13ac0ec4911870f7f",
@@ -239,7 +239,7 @@
    "best_rank": 149,
    "usd": 2735,
    "paid": 0.46,
-   "ask": 0.49,
+   "ask": null,
    "status": "live",
    "link": "https://polymarket.us/event/epl-mun-ast-2026-11-08",
    "other": null,
@@ -264,6 +264,52 @@
     "q": {
      "Novig": 0.465,
      "Kalshi": 0.47
+    }
+   }
+  },
+  {
+   "cond": "0xd394ba0afb91c8a0482955ee964aacc1036ff1cb55db0e789ed998360076ef35",
+   "slug": "bun-fre-uni-2026-11-08-more-markets",
+   "title": "SC Freiburg vs. 1. FC Union Berlin - More Markets",
+   "mtype": "total",
+   "start": "2026-11-08T16:30:00Z",
+   "bet": "Under 2.5",
+   "side": "Under",
+   "flagged": "2026-11-08T16:28:43Z",
+   "why": "a top-200 account also in this sport's top 50",
+   "proven": true,
+   "trigger": "proven",
+   "n_accounts": 1,
+   "best_rank": 132,
+   "usd": 835,
+   "paid": 0.42,
+   "ask": null,
+   "status": "live",
+   "link": "https://polymarket.us/event/bun-fre-uni-2026-11-08-more-markets",
+   "other": null,
+   "kalshi_against": null,
+   "logged": false,
+   "event_id": "401884741",
+   "sport": "soccer",
+   "league": "bundesliga",
+   "away": "FCU",
+   "home": "SCF",
+   "away_name": "1. FC Union Berlin",
+   "home_name": "SC Freiburg",
+   "game_start": "2026-11-08T16:30Z",
+   "side_std": "under",
+   "money_with": false,
+   "grade": "A",
+   "fair_board": 0.4332,
+   "inside_fair": null,
+   "books": {
+    "at": "2026-11-08T15:57:14Z",
+    "fair": 0.4332,
+    "q": {
+     "Caesars": 0.4329,
+     "Novig": 0.44,
+     "FD": 0.4545,
+     "DK": 0.4651
     }
    }
   },
@@ -771,6 +817,52 @@
    "books": null
   },
   {
+   "cond": "0xef96bd5e7cf502e392a078cc7bb84e6aef1f405e8351141ca5788b2c73a81480",
+   "slug": "nfl-det-mia-2026-11-08",
+   "title": "Lions vs. Dolphins",
+   "mtype": "ml",
+   "start": "2026-11-08T18:00:00Z",
+   "bet": "Dolphins ML",
+   "side": "Dolphins",
+   "flagged": "2026-11-08T16:25:42Z",
+   "why": "a top-200 account also in this sport's top 50",
+   "proven": true,
+   "trigger": "proven",
+   "n_accounts": 1,
+   "best_rank": 143,
+   "usd": 257,
+   "paid": 0.26,
+   "ask": 0.27,
+   "status": "live",
+   "link": "https://polymarket.us/event/nfl-det-mia-2026-11-08",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401873042",
+   "sport": "nfl",
+   "league": null,
+   "away": "DET",
+   "home": "MIA",
+   "away_name": "Detroit Lions",
+   "home_name": "Miami Dolphins",
+   "game_start": "2026-11-08T18:00Z",
+   "side_std": "home",
+   "money_with": false,
+   "grade": "A",
+   "fair_board": 0.2649,
+   "inside_fair": false,
+   "books": {
+    "at": "2026-11-08T15:57:14Z",
+    "fair": 0.2649,
+    "q": {
+     "Novig": 0.27,
+     "Caesars": 0.2899,
+     "DK": 0.2899,
+     "Kalshi": 0.29
+    }
+   }
+  },
+  {
    "cond": "0xfc2ab1795b24239c2bdd73f59abd913b83ba1b39f8d77890a3d009f0e662081f",
    "slug": "bun-hof-s04-2026-11-08",
    "title": "TSG 1899 Hoffenheim vs. FC Schalke 04",
@@ -1092,8 +1184,8 @@
    "side_std": "home",
    "money_with": false,
    "grade": "watch",
-   "fair_board": 0.4816,
    "inside_fair": false,
+   "fair_board": 0.4816,
    "books": {
     "at": "2026-11-08T15:57:14Z",
     "fair": 0.4816,
@@ -1203,7 +1295,7 @@
    "best_rank": 43,
    "usd": 257,
    "paid": 0.509,
-   "ask": 0.51,
+   "ask": 0.52,
    "status": "live",
    "link": "https://polymarket.us/event/nba-lal-atl-2026-11-09",
    "other": null,
@@ -1902,6 +1994,13 @@
     "n": 2,
     "best_rank": 58,
     "usd": 3621
+   }
+  },
+  "401873042|ml": {
+   "home": {
+    "n": 1,
+    "best_rank": 143,
+    "usd": 257
    }
   },
   "401873039|spread": {
