@@ -4746,5 +4746,22 @@
 "fair": null,
 "edge_pts": null,
 "why": "home GS covers 70% of spreads this season (10 games), 2 days rest: home spread (mined angle)"
+},
+"401909946:nba_momentum:ml": {
+"tag": "nba_momentum",
+"fill_id": "879dd3e6f5bb",
+"ts": "2026-11-08T21:35:12Z",
+"market": "ml",
+"side": "home",
+"line": null,
+"venue": "Novig",
+"price": -233,
+"fair": 0.69762,
+"edge_pts": -0.24,
+"why": "Novig ml mid 0.627 at T-6h -> 0.698 now (+7.0c); continuation (audit section 3, NBA only)",
+"now": {
+"venue": "Polymarket",
+"price": -223
+}
 }
 }
