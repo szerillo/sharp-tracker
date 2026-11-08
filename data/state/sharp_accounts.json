@@ -1,5 +1,5 @@
 {
- "built": "2026-11-08T13:54:57Z",
+ "built": "2026-11-08T14:04:38Z",
  "rows": [
   {
    "cond": "0x2992326e6e51bbbfcea34ca609e83388352f1a5674d411c13ac0ec4911870f7f",
@@ -17,7 +17,7 @@
    "best_rank": 71,
    "usd": 400,
    "paid": 0.5,
-   "ask": 0.49,
+   "ask": null,
    "status": "live",
    "link": "https://polymarket.us/event/epl-ips-bou-2026-11-08",
    "other": null,
@@ -35,7 +35,7 @@
    "money_with": false,
    "grade": "A",
    "fair_board": 0.512,
-   "inside_fair": true,
+   "inside_fair": null,
    "books": {
     "at": "2026-11-08T02:50:54Z",
     "fair": 0.512,
@@ -63,7 +63,7 @@
    "best_rank": 149,
    "usd": 466,
    "paid": 0.27,
-   "ask": 0.31,
+   "ask": null,
    "status": "live",
    "link": "https://polymarket.us/event/epl-sun-che-2026-11-08",
    "other": null,
@@ -109,7 +109,7 @@
    "best_rank": 132,
    "usd": 149,
    "paid": 0.48,
-   "ask": 0.5,
+   "ask": null,
    "status": "live",
    "link": "https://polymarket.us/event/epl-sun-che-2026-11-08-more-markets",
    "other": null,
@@ -136,6 +136,50 @@
      "DK": 0.4878,
      "FD": 0.4902,
      "Caesars": 0.5074
+    }
+   }
+  },
+  {
+   "cond": "0xd00af717f526ee0f28de6e1eb420edd5c19ae426fa0f9796638b20bbedce23e5",
+   "slug": "epl-sun-che-2026-11-08-more-markets",
+   "title": "Sunderland AFC vs. Chelsea FC - More Markets",
+   "mtype": "spread",
+   "start": "2026-11-08T14:00:00Z",
+   "bet": "Chelsea FC -1.5",
+   "side": "Chelsea FC",
+   "flagged": "2026-11-08T13:56:55Z",
+   "why": "a top-200 account also in this sport's top 50",
+   "proven": true,
+   "trigger": "proven",
+   "n_accounts": 1,
+   "best_rank": 132,
+   "usd": 106,
+   "paid": 0.2,
+   "ask": null,
+   "status": "live",
+   "link": "https://polymarket.us/event/epl-sun-che-2026-11-08-more-markets",
+   "other": null,
+   "kalshi_against": null,
+   "logged": false,
+   "event_id": "401879239",
+   "sport": "soccer",
+   "league": "epl",
+   "away": "CHE",
+   "home": "SUN",
+   "away_name": "Chelsea",
+   "home_name": "Sunderland",
+   "game_start": "2026-11-08T14:00Z",
+   "side_std": "away",
+   "money_with": false,
+   "grade": "A",
+   "fair_board": null,
+   "inside_fair": null,
+   "books": {
+    "at": "2026-11-08T02:50:54Z",
+    "fair": null,
+    "q": {
+     "FD": 0.2632,
+     "Novig": 0.265
     }
    }
   },
@@ -894,7 +938,7 @@
    "best_rank": 4,
    "usd": 130,
    "paid": 0.52,
-   "ask": 0.6,
+   "ask": 0.61,
    "status": "live",
    "link": "https://polymarket.us/event/cbb-ndkst-csu-2026-11-08",
    "other": null,
@@ -1091,7 +1135,7 @@
    "best_rank": 71,
    "usd": 387,
    "paid": 0.51,
-   "ask": 0.54,
+   "ask": null,
    "status": "other side",
    "link": "https://polymarket.us/event/epl-bri-bre-2026-11-08",
    "other": {
@@ -1100,7 +1144,7 @@
     "usd": 115295,
     "first": "2026-11-07T13:23:43Z"
    },
-   "exit_bid": 0.53,
+   "exit_bid": null,
    "kalshi_against": null,
    "logged": true,
    "event_id": "401879244",
@@ -1115,7 +1159,7 @@
    "money_with": false,
    "grade": "A",
    "fair_board": 0.518,
-   "inside_fair": false,
+   "inside_fair": null,
    "books": null
   },
   {
@@ -1134,7 +1178,7 @@
    "best_rank": 115,
    "usd": 8925,
    "paid": 0.537,
-   "ask": 0.59,
+   "ask": null,
    "status": "other side",
    "link": "https://polymarket.us/event/epl-sun-che-2026-11-08",
    "other": {
@@ -1143,7 +1187,7 @@
     "usd": 2495,
     "first": "2026-11-08T09:58:34Z"
    },
-   "exit_bid": 0.58,
+   "exit_bid": null,
    "kalshi_against": null,
    "logged": true,
    "event_id": "401879239",
@@ -1177,7 +1221,7 @@
    "best_rank": 100,
    "usd": 3161,
    "paid": 0.62,
-   "ask": 0.64,
+   "ask": null,
    "status": "other side",
    "link": "https://polymarket.us/event/epl-cry-liv-2026-11-08",
    "other": {
@@ -1186,7 +1230,7 @@
     "usd": 37748,
     "first": "2026-11-07T18:52:15Z"
    },
-   "exit_bid": 0.63,
+   "exit_bid": null,
    "kalshi_against": null,
    "logged": true,
    "event_id": "401879243",
@@ -1201,7 +1245,7 @@
    "money_with": false,
    "grade": "A",
    "fair_board": 0.619,
-   "inside_fair": false,
+   "inside_fair": null,
    "books": null
   },
   {
@@ -1220,7 +1264,7 @@
    "best_rank": 132,
    "usd": 4633,
    "paid": 0.409,
-   "ask": 0.44,
+   "ask": null,
    "status": "other side",
    "link": "https://polymarket.us/event/epl-cry-liv-2026-11-08-more-markets",
    "other": {
@@ -1229,7 +1273,7 @@
     "usd": 2532,
     "first": "2026-11-08T07:43:03Z"
    },
-   "exit_bid": 0.43,
+   "exit_bid": null,
    "kalshi_against": null,
    "logged": true,
    "event_id": "401879243",
@@ -1954,32 +1998,6 @@
     "n": 1,
     "best_rank": 4,
     "usd": 130
-   }
-  },
-  "401879243|total": {
-   "over": {
-    "n": 1,
-    "best_rank": 132,
-    "usd": 4633
-   },
-   "under": {
-    "n": 1,
-    "best_rank": 149,
-    "usd": 2532
-   }
-  },
-  "401878759|total": {
-   "over": {
-    "n": 1,
-    "best_rank": 98,
-    "usd": 252
-   }
-  },
-  "401879239|total": {
-   "under": {
-    "n": 1,
-    "best_rank": 132,
-    "usd": 149
    }
   }
  },
