@@ -42,6 +42,7 @@ def main(src, dst):
                        start=start.strftime('%Y-%m-%dT%H:%M:%SZ'), logged=now, last_seen=now, price=implied(r.get('price')),
                        price_text=r.get('price'), size=r.get('size'), why=(r.get('lbl') or '').split(' · ', 1)[-1][:120])
         new += 1
+    os.makedirs(os.path.dirname(dst) or '.', exist_ok=True)
     with open(dst, 'w') as f:
         for d in sorted(have.values(), key=lambda d: (d['start'], d['key'])): f.write(json.dumps(d) + '\n')
     print(f'[sharp C] {len(rows)} Grade C rows on the page, {new} new; {len(have)} logged')
