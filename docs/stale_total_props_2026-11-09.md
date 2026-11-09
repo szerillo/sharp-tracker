@@ -45,3 +45,20 @@ an earlier prop pull: NFL anytime TD and rushing yards at 6 hours out is about 1
 about 72,000 above the 3M floor, so the NFL pull fits and the NBA one would need the floor lowered.
 
 Script: scratchpad stale_total.py / stale_an.py (not in the repo; reproducible from data/oddsapi/derivs and data/oddsapi/compact).
+
+## Update (5 AM): NFL, every prop market, 6 hours out against 10 minutes out
+Pulled: all 12 NFL prop markets 6 hours before kickoff, 644 games from October 2024 to now (data/oddsapi/derivs/nfl_props_t360m.jsonl.gz;
+the pull stopped itself at the 3M credit floor). The test needs Pinnacle's game total at both times, and our game-line history has a
+snapshot 6 hours out for only about half of NFL games and stops in February 2026 (the 2026 season is not in it). So only **154 games**
+could be tested.
+
+With the total up or down 1+ point and the book's prop unchanged (bet with the move), by market:
+- Larger cells (130-280 bets): receptions over +4.2% / under -10.7%; receiving yards over +5.2% / under -15.6%; anytime TD Yes -6.7%
+  after a rise (the plain 25-50% band is +12.9% here, so the total move adds nothing).
+- Small cells (25-60 bets): rush attempts over +15%, rush yards over +3%, rush+receiving yards over +21%, pass completions over +11%,
+  pass TDs over +10%; every under after a drop loses (-9% to -27%).
+- Moves of 2+ points: under 20 bets in every market.
+
+Read: nothing reliable; a slight lean toward overs after the total rises and against unders after it drops, on samples too small to mean
+anything. The bottleneck is the game total, not the props: a historical Odds API pull of NFL spreads and totals at each kickoff window, 6
+hours out, for 2024-26, is roughly 200 snapshots at about 20 credits each (about 4,000 credits), which would bring all 644 games in.
