@@ -1,0 +1,28 @@
+name: game lines at set times (The Odds API)
+# Sean, 11/9: spreads and totals at fixed minutes before the start for the games in a props snapshot file (loggers/oddsapi_lines_at.py).
+on:
+  workflow_dispatch:
+    inputs:
+      sport: {description: 'nfl / nba / nhl / cfb / mlb', default: 'nfl', required: true}
+      src: {description: 'props snapshot file with the games', default: 'data/oddsapi/derivs/nfl_props_t360m.jsonl.gz', required: true}
+      at: {description: 'minutes before the start, comma-separated', default: '360,10', required: true}
+      out: {description: 'output name under data/oddsapi/compact', default: 'nfl_lines_at', required: true}
+      floor: {description: 'stop at this many credits left', default: '2975000', required: true}
+permissions:
+  contents: write
+jobs:
+  pull:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+      - name: pull
+        env: {ODDS_API_KEY: '${{ secrets.ODDS_API_KEY }}'}
+        run: timeout 6600 python3 loggers/oddsapi_lines_at.py ${{ inputs.sport }} ${{ inputs.src }} --at ${{ inputs.at }} --out ${{ inputs.out }} --floor ${{ inputs.floor }} || true
+      - name: commit
+        if: always()
+        run: |
+          git config user.name "tracker-bot"; git config user.email "actions@users.noreply.github.com"
+          git add data/oddsapi/compact/${{ inputs.out }}.jsonl.gz
+          git commit -q -m "game lines at set times: ${{ inputs.out }}" || exit 0
+          for i in 1 2 3 4 5 6; do git pull -q --rebase -X theirs && git push -q && exit 0; sleep $((RANDOM % 20 + 5)); done
