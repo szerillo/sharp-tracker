@@ -8,6 +8,7 @@ on:
       at: {description: 'minutes before the start, comma-separated', default: '360,10', required: true}
       out: {description: 'output name under data/oddsapi/compact', default: 'nfl_lines_at', required: true}
       floor: {description: 'stop at this many credits left', default: '2975000', required: true}
+      markets: {description: 'Odds API markets', default: 'spreads,totals', required: false}
 permissions:
   contents: write
 jobs:
@@ -18,7 +19,7 @@ jobs:
       - uses: actions/checkout@v4
       - name: pull
         env: {ODDS_API_KEY: '${{ secrets.ODDS_API_KEY }}'}
-        run: timeout 6600 python3 loggers/oddsapi_lines_at.py ${{ inputs.sport }} ${{ inputs.src }} --at ${{ inputs.at }} --out ${{ inputs.out }} --floor ${{ inputs.floor }} || true
+        run: timeout 6600 python3 loggers/oddsapi_lines_at.py ${{ inputs.sport }} ${{ inputs.src }} --at ${{ inputs.at }} --out ${{ inputs.out }} --floor ${{ inputs.floor }} --markets ${{ inputs.markets || 'spreads,totals' }} || true
       - name: commit
         if: always()
         run: |
