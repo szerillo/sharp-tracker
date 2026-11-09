@@ -1,5 +1,5 @@
 {
- "built": "2026-11-09T19:20:19Z",
+ "built": "2026-11-09T19:27:57Z",
  "rows": [
   {
    "cond": "0x9dba4642f4329325c0bf83d5d0fb93f688b7ddabb745124704153fbc2b00b8f6",
@@ -100,7 +100,7 @@
    "best_rank": 4,
    "usd": 126,
    "paid": 0.5,
-   "ask": 0.51,
+   "ask": 0.53,
    "status": "live",
    "link": "https://polymarket.us/event/cbb-lamon-txam-2026-11-09",
    "other": null,
@@ -137,7 +137,7 @@
    "best_rank": 49,
    "usd": 6455,
    "paid": 0.486,
-   "ask": 0.58,
+   "ask": 0.6,
    "status": "live",
    "link": "https://polymarket.us/event/nba-den-hou-2026-11-09",
    "other": null,
@@ -174,7 +174,7 @@
    "best_rank": 112,
    "usd": 7777,
    "paid": 0.473,
-   "ask": 0.63,
+   "ask": 0.62,
    "status": "live",
    "link": "https://polymarket.us/event/nba-den-hou-2026-11-09",
    "other": null,
@@ -212,7 +212,7 @@
    "best_rank": 104,
    "usd": 227,
    "paid": 0.45,
-   "ask": 0.47,
+   "ask": 0.52,
    "status": "live",
    "link": "https://polymarket.us/event/nba-den-hou-2026-11-09",
    "other": null,
@@ -264,9 +264,6 @@
    "home_name": "San Jose Sharks",
    "game_start": "2026-11-10T03:00Z",
    "side_std": "away",
-   "conflict": [
-    "big money"
-   ],
    "money_with": false,
    "grade": "A",
    "fair_board": 0.5684,
@@ -416,16 +413,16 @@
    "best_rank": 43,
    "usd": 11895,
    "paid": 0.536,
-   "ask": 0.54,
+   "ask": 0.53,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-lal-atl-2026-11-09",
    "other": {
-    "n_accounts": 3,
+    "n_accounts": 4,
     "best_rank": 12,
-    "usd": 36100,
+    "usd": 36602,
     "first": "2026-11-09T18:00:06Z"
    },
-   "exit_bid": 0.53,
+   "exit_bid": 0.52,
    "kalshi_against": null,
    "logged": true,
    "event_id": "401909952",
@@ -498,13 +495,13 @@
    "bet": "Rockets ML",
    "side": "Rockets",
    "flagged": "2026-11-08T22:30:06Z",
-   "why": "4 top-200 accounts",
+   "why": "5 top-200 accounts",
    "proven": true,
    "trigger": "two",
-   "n_accounts": 4,
+   "n_accounts": 5,
    "best_rank": 23,
-   "usd": 5505,
-   "paid": 0.624,
+   "usd": 6290,
+   "paid": 0.625,
    "ask": 0.63,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-den-hou-2026-11-09",
@@ -548,7 +545,7 @@
    "best_rank": 119,
    "usd": 6395,
    "paid": 0.52,
-   "ask": 0.39,
+   "ask": 0.37,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-den-hou-2026-11-09",
    "other": {
@@ -557,7 +554,7 @@
     "usd": 7992,
     "first": "2026-11-09T19:15:06Z"
    },
-   "exit_bid": 0.38,
+   "exit_bid": 0.36,
    "kalshi_against": null,
    "logged": true,
    "event_id": "401909957",
@@ -571,8 +568,8 @@
    "side_std": "home",
    "money_with": false,
    "grade": "B",
-   "inside_fair": false,
-   "fair_board": 0.5142,
+   "inside_fair": true,
+   "fair_board": 0.5217,
    "books": null
   }
  ],
@@ -723,9 +720,9 @@
     "usd": 11895
    },
    "away": {
-    "n": 3,
+    "n": 4,
     "best_rank": 12,
-    "usd": 13756
+    "usd": 14258
    }
   },
   "401909952|spread": {
@@ -780,6 +777,11 @@
     "n": 1,
     "best_rank": 119,
     "usd": 410
+   },
+   "home": {
+    "n": 1,
+    "best_rank": 119,
+    "usd": 400
    }
   },
   "401909956|total": {
@@ -791,9 +793,9 @@
   },
   "401909957|ml": {
    "home": {
-    "n": 4,
+    "n": 5,
     "best_rank": 23,
-    "usd": 5505
+    "usd": 6290
    },
    "away": {
     "n": 6,
