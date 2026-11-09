@@ -1,23 +1,23 @@
 {
- "built": "2026-11-09T17:58:10Z",
+ "built": "2026-11-09T18:05:44Z",
  "rows": [
   {
-   "cond": "0x3fc1b3baed516c3f03aef0435531f6945e26c2bdfaa2fdc5f125de5709004aea",
+   "cond": "0x9dba4642f4329325c0bf83d5d0fb93f688b7ddabb745124704153fbc2b00b8f6",
    "slug": "nba-lal-atl-2026-11-09",
    "title": "Lakers vs. Hawks",
-   "mtype": "ml",
+   "mtype": "total",
    "start": "2026-11-10T00:00:00Z",
-   "bet": "Hawks ML",
-   "side": "Hawks",
-   "flagged": "2026-11-07T11:31:12Z",
-   "why": "4 top-200 accounts",
+   "bet": "Under 235.5",
+   "side": "Under",
+   "flagged": "2026-11-09T18:00:06Z",
+   "why": "a top-50 account",
    "proven": false,
-   "trigger": "two",
-   "n_accounts": 4,
-   "best_rank": 43,
-   "usd": 955,
-   "paid": 0.496,
-   "ask": 0.52,
+   "trigger": "top50",
+   "n_accounts": 1,
+   "best_rank": 40,
+   "usd": 2100,
+   "paid": 0.499,
+   "ask": 0.5,
    "status": "live",
    "link": "https://polymarket.us/event/nba-lal-atl-2026-11-09",
    "other": null,
@@ -31,21 +31,12 @@
    "away_name": "Los Angeles Lakers",
    "home_name": "Atlanta Hawks",
    "game_start": "2026-11-10T00:00Z",
-   "side_std": "home",
+   "side_std": "under",
    "money_with": true,
-   "grade": "A",
-   "fair_board": 0.5229,
-   "inside_fair": true,
-   "books": {
-    "at": "2026-11-09T16:55:53Z",
-    "fair": 0.5229,
-    "q": {
-     "Polymarket": 0.52,
-     "Novig": 0.525,
-     "FD": 0.5413,
-     "DK": 0.5455
-    }
-   }
+   "grade": "watch",
+   "fair_board": null,
+   "inside_fair": null,
+   "books": null
   },
   {
    "cond": "0xb23db781702d8225b014cfcafe9ccd55ede492bb7ea4507ac221d54f2375b579",
@@ -83,10 +74,10 @@
    "inside_fair": true,
    "fair_board": 0.4138,
    "books": {
-    "at": "2026-11-09T16:55:53Z",
-    "fair": 0.4034,
+    "at": "2026-11-09T17:52:30Z",
+    "fair": 0.4004,
     "q": {
-     "Novig": 0.405,
+     "Novig": 0.4,
      "Polymarket": 0.41,
      "DK": 0.4237,
      "Caesars": 0.4274
@@ -128,13 +119,7 @@
    "grade": "B",
    "fair_board": null,
    "inside_fair": null,
-   "books": {
-    "at": "2026-11-09T16:55:53Z",
-    "fair": null,
-    "q": {
-     "Novig": 0.515
-    }
-   }
+   "books": null
   },
   {
    "cond": "0x372ef9fd2ef5d6e26caa63a85da27ffaf9f6e5d0f10d6e4598c772e7b570093c",
@@ -169,15 +154,15 @@
    "side_std": "away",
    "money_with": false,
    "grade": "A",
-   "fair_board": 0.5669,
+   "fair_board": 0.5682,
    "inside_fair": false,
    "books": {
-    "at": "2026-11-09T16:55:53Z",
-    "fair": 0.5669,
+    "at": "2026-11-09T17:52:30Z",
+    "fair": 0.5682,
     "q": {
      "Polymarket": 0.57,
-     "Novig": 0.57,
-     "Caesars": 0.5798,
+     "Novig": 0.575,
+     "Caesars": 0.5833,
      "FD": 0.5868
     }
    }
@@ -292,13 +277,56 @@
    "fair_board": null,
    "inside_fair": null,
    "books": {
-    "at": "2026-11-09T16:55:53Z",
+    "at": "2026-11-09T17:52:30Z",
     "fair": null,
     "q": {
-     "Kalshi": 0.53,
-     "Novig": 0.54
+     "Novig": 0.53,
+     "Kalshi": 0.53
     }
    }
+  },
+  {
+   "cond": "0x3fc1b3baed516c3f03aef0435531f6945e26c2bdfaa2fdc5f125de5709004aea",
+   "slug": "nba-lal-atl-2026-11-09",
+   "title": "Lakers vs. Hawks",
+   "mtype": "ml",
+   "start": "2026-11-10T00:00:00Z",
+   "bet": "Hawks ML",
+   "side": "Hawks",
+   "flagged": "2026-11-07T11:31:12Z",
+   "why": "4 top-200 accounts",
+   "proven": false,
+   "trigger": "two",
+   "n_accounts": 4,
+   "best_rank": 43,
+   "usd": 955,
+   "paid": 0.496,
+   "ask": 0.56,
+   "status": "other side",
+   "link": "https://polymarket.us/event/nba-lal-atl-2026-11-09",
+   "other": {
+    "n_accounts": 3,
+    "best_rank": 12,
+    "usd": 36100,
+    "first": "2026-11-09T18:00:06Z"
+   },
+   "exit_bid": 0.55,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401909952",
+   "sport": "nba",
+   "league": null,
+   "away": "LAL",
+   "home": "ATL",
+   "away_name": "Los Angeles Lakers",
+   "home_name": "Atlanta Hawks",
+   "game_start": "2026-11-10T00:00Z",
+   "side_std": "home",
+   "money_with": true,
+   "grade": "A",
+   "fair_board": 0.5237,
+   "inside_fair": false,
+   "books": null
   },
   {
    "cond": "0xb9a7b47c2b3c56a902bd706745a98c3f627e6f25e3566205b362856f2804c721",
@@ -342,7 +370,7 @@
    ],
    "money_with": false,
    "grade": "A",
-   "fair_board": 0.6223,
+   "fair_board": 0.6227,
    "inside_fair": false,
    "books": null
   },
@@ -515,6 +543,11 @@
     "n": 4,
     "best_rank": 43,
     "usd": 955
+   },
+   "away": {
+    "n": 3,
+    "best_rank": 12,
+    "usd": 13756
    }
   },
   "401909952|spread": {
@@ -522,6 +555,13 @@
     "n": 1,
     "best_rank": 110,
     "usd": 176
+   }
+  },
+  "401909952|total": {
+   "under": {
+    "n": 1,
+    "best_rank": 40,
+    "usd": 2100
    }
   },
   "401909953|spread": {
