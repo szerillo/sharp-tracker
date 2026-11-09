@@ -1,5 +1,5 @@
 {
- "built": "2026-11-09T03:08:57Z",
+ "built": "2026-11-09T03:19:06Z",
  "record": {
   "cbb_1h_total_curve": {
    "n": 1,
@@ -20,7 +20,7 @@
    "units": -0.17
   },
   "nhl_p3_under_curve": {
-   "n": 7,
+   "n": 8,
    "won": 0,
    "lost": 7,
    "units": -2.0
@@ -33,31 +33,6 @@
   }
  },
  "rows": [
-  {
-   "key": "nhl_p3_under_curve|5abfa3c29e722130d055164350facd72||under",
-   "rule": "nhl_p3_under_curve",
-   "tier": "P",
-   "stake": 0.0,
-   "sport": "nhl",
-   "odds_id": "5abfa3c29e722130d055164350facd72",
-   "espn": "401892676",
-   "game": "New Jersey Devils @ Toronto Maple Leafs",
-   "start": "2026-11-09T00:10:00Z",
-   "market": "totals_p3",
-   "team": null,
-   "team_name": null,
-   "side": "under",
-   "line": 2.0,
-   "curve": 0.547,
-   "pin_fair": 0.463,
-   "gap": 8.5,
-   "full_total": 6.5,
-   "full_spread": 1.5,
-   "pin_price": 2.08,
-   "book": null,
-   "price": null,
-   "flagged": "2026-11-08T22:01:29Z"
-  },
   {
    "key": "nhl_p3_under_curve|41a3f4e9221afae1081031d9f6af0db4||under",
    "rule": "nhl_p3_under_curve",
