@@ -108,12 +108,15 @@ def main():
                     if key in seen: continue
                     bv = B[best[0]]
                     # 11/7 backtest (props grid, 2023-26): a Pinnacle quote 5+ min old lost (NBA 14-19, NHL 7-9); NBA threes only when the book's
-                    # own no-vig is 4+ points below Pinnacle's (1,655 bets +9.8%, 4/4 seasons; 2-4 points was 357 bets -1.7%). NHL keeps the 2% rule.
+                    # own no-vig is 4+ points below Pinnacle's; replaced 11/8 by EV 4%+, see below. NHL keeps the 2% rule.
                     fc = fair_check(P['under'], P['over'], best[1], bv.get('under'), bv.get('over'), P.get('ts'), bv.get('ts'), NOW, max_age=5)
                     if not fc['ok']:
                         print(f"[props_live] skip {player} {mk} u{ln} {BOOKS[best[0]]} {best[1]}: {fc['stale_why'] or 'no edge on the power-devig fair'} ({fc['ev_strict']}%)"); continue
-                    if mk == 'player_threes' and (fc['fair_gap'] is None or fc['fair_gap'] < 4):
-                        print(f"[props_live] skip {player} threes u{ln} {BOOKS[best[0]]} {best[1]}: book fair only {fc['fair_gap']} pts under Pinnacle's (need 4)"); continue
+                    # 11/8 (docs/nfl_props_2026-11-08.md, Sean): the 4-point fair-gap filter was fit to the 10-minute snapshot and flipped at the
+                    # 60-minute window the feed now uses (2-4 points was +13.3% there). EV 4%+ on the stricter Pinnacle fair holds at both windows
+                    # (+11.6% at T-10, +11.2% at T-60, every season positive), so threes use that instead.
+                    if mk == 'player_threes' and fc['ev_strict'] < 4:
+                        print(f"[props_live] skip {player} threes u{ln} {BOOKS[best[0]]} {best[1]}: only {fc['ev_strict']}% EV on the strict fair (threes need 4%)"); continue
                     seen.add(key); new += 1
                     rows.append(dict(key=key, sport=sp, odds_id=e['id'], espn=espn_event(sp, e['home_team'], e['away_team'], st), game=f"{e['away_team']} @ {e['home_team']}",
                                      start=e['commence_time'], market=mk, player=player, line=ln, side='under', book=BOOKS[best[0]], price=best[1], fair=round(fu, 4),
