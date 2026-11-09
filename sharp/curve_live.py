@@ -193,6 +193,48 @@ def main():
                                              curve=round(pc, 3), pin_fair=round(q, 3), gap=round(100 * (pc - q), 1), full_total=T, full_spread=S,
                                              pin_price=pr[side], book=book, price=price, **({k: fc[k] for k in ('pin_fair_power', 'book_fair', 'fair_gap', 'ev_curve')} if fc else {}),
                                              flagged=NOW.strftime('%Y-%m-%dT%H:%M:%SZ')))
+    # 11/9 (Sean, list item 2): closing line value. These derivative markets are not on our tick tape, so the bet tracker has no close for
+    # them. In the last run before the start (inside 12 minutes), one Pinnacle-only call per game for the flagged markets. Stored per row:
+    #   close_line   Pinnacle's closing number for our side (period spread: our team's points; totals: the line nearest ours)
+    #   close_fair   Pinnacle's closing no-vig probability for our side at OUR number (when it still hangs it)
+    #   clv          100 x (close_fair - 1/price paid)   beat_fair  close_fair minus Pinnacle's no-vig fair when flagged
+    #   line_value   points Pinnacle's close moved past our number in our favour
+    if KEY:
+        due = {}
+        for r in rows:
+            if r.get('close_ts') or r.get('won') is not None or r.get('rule') not in RULES: continue
+            m_ = (ts(r['start']) - NOW).total_seconds() / 60
+            if 0 < m_ <= 12: due.setdefault((RULES[r['rule']]['key'], r['odds_id']), []).append(r)
+        for (sk, oid), Rr in due.items():
+            mks = ','.join(sorted({r['market'] for r in Rr}))
+            d = get(f"{API}/sports/{sk}/events/{oid}/odds?apiKey={KEY}&regions=eu&markets={mks}&bookmakers=pinnacle&oddsFormat=decimal")
+            pin = {m['key']: m['outcomes'] for b in (d or {}).get('bookmakers') or [] if b['key'] == 'pinnacle' for m in b['markets']}
+            for r in Rr:
+                r['close_ts'] = NOW.strftime('%Y-%m-%dT%H:%M:%SZ'); outs = pin.get(r['market']) or []
+                if not outs: r['close_note'] = 'Pinnacle off the market at the close'; continue
+                if RULES[r['rule']].get('kind') == 'spread':
+                    mine = [o for o in outs if o['name'] == r['team_name'] and o.get('point') is not None]
+                    if mine: r['close_line'] = mine[0]['point']; r['line_value'] = round(r['line'] - r['close_line'], 1)
+                    a = next((o for o in mine if o['point'] == r['line']), None)
+                    b_ = next((o for o in outs if o['name'] != r['team_name'] and o.get('point') == -r['line']), None)
+                    if a and b_: r['close_fair'] = round((1 / a['price']) / (1 / a['price'] + 1 / b_['price']), 4)
+                else:
+                    want = (lambda o: o.get('description') == r['team_name']) if r.get('team') else (lambda o: True)
+                    G = {}
+                    for o in outs:
+                        if o['name'] in ('Over', 'Under') and o.get('point') is not None and want(o): G.setdefault(o['point'], {})[o['name'].lower()] = o['price']
+                    two = [ln for ln, v in G.items() if 'over' in v and 'under' in v]
+                    if two:
+                        r['close_line'] = min(two, key=lambda x: abs(x - r['line']))
+                        r['line_value'] = round((r['close_line'] - r['line']) if r['side'] == 'over' else (r['line'] - r['close_line']), 1)
+                    v = G.get(r['line']) or {}
+                    if 'over' in v and 'under' in v:
+                        fo = (1 / v['over']) / (1 / v['over'] + 1 / v['under']); r['close_fair'] = round(fo if r['side'] == 'over' else 1 - fo, 4)
+                if r.get('close_fair') is not None:
+                    pr = r.get('price') or r.get('pin_price')
+                    if pr: r['clv'] = round(100 * (r['close_fair'] - 1 / pr), 2)
+                    if r.get('pin_fair') is not None: r['beat_fair'] = round(100 * (r['close_fair'] - r['pin_fair']), 2)
+            print(f"[curve_live] close check {sk} {oid}: {len(Rr)} leans, markets {mks}")
     # grade on ESPN period scores (schedule.json linescores) or the final
     S_ = {}
     for r in rows:
@@ -228,6 +270,10 @@ def main():
     for tag in RULES:
         g = [r for r in rows if r['rule'] == tag and r.get('won') is not None]
         rec[tag] = dict(n=len(g), won=sum(1 for r in g if r['won'] == 1), lost=sum(1 for r in g if r['won'] == 0), units=round(sum(r['units'] for r in g), 2))
+        c_ = [r for r in rows if r['rule'] == tag and r.get('clv') is not None]
+        if c_: rec[tag]['clv'] = dict(n=len(c_), avg=round(sum(r['clv'] for r in c_) / len(c_), 2), beat=sum(1 for r in c_ if r['clv'] > 0))
+        l_ = [r for r in rows if r['rule'] == tag and r.get('line_value') is not None]
+        if l_: rec[tag]['line_value'] = dict(n=len(l_), avg=round(sum(r['line_value'] for r in l_) / len(l_), 2), better=sum(1 for r in l_ if r['line_value'] > 0), worse=sum(1 for r in l_ if r['line_value'] < 0))
     open_ = [r for r in rows if r.get('won') is None and ts(r['start']) > NOW - dt.timedelta(hours=4)]
     json.dump(dict(built=NOW.strftime('%Y-%m-%dT%H:%M:%SZ'), record=rec, rows=open_), open(OUT, 'w'), indent=1)
     print(f'[curve_live] {new} new, {len(open_)} open, record {rec}')
