@@ -1,42 +1,42 @@
 {
- "built": "2026-11-09T01:09:07Z",
+ "built": "2026-11-09T23:15:51Z",
  "results": {
   "ASOS airport stations (measured)": {
    "om24": {
-    "games": 79,
-    "mae": 2.97,
-    "bias": 1.25,
-    "band_agree": 0.785
+    "games": 84,
+    "mae": 2.91,
+    "bias": 1.24,
+    "band_agree": 0.786
    },
    "omL": {
-    "games": 88,
-    "mae": 2.81,
-    "bias": 0.61,
-    "band_agree": 0.83
+    "games": 89,
+    "mae": 2.79,
+    "bias": 0.48,
+    "band_agree": 0.854
    },
    "msw24": {
-    "games": 75,
-    "mae": 2.92,
-    "bias": 0.85,
-    "band_agree": 0.747
+    "games": 80,
+    "mae": 3.04,
+    "bias": 1.0,
+    "band_agree": 0.725
    },
    "mswL": {
-    "games": 88,
-    "mae": 2.7,
-    "bias": 0.98,
-    "band_agree": 0.75
+    "games": 89,
+    "mae": 2.69,
+    "bias": 1.04,
+    "band_agree": 0.742
    },
    "blend24": {
-    "games": 79,
-    "mae": 2.65,
-    "bias": 1.18,
-    "band_agree": 0.81
+    "games": 84,
+    "mae": 2.61,
+    "bias": 1.19,
+    "band_agree": 0.833
    },
    "blendL": {
-    "games": 88,
-    "mae": 2.51,
-    "bias": 0.8,
-    "band_agree": 0.795
+    "games": 89,
+    "mae": 2.49,
+    "bias": 0.76,
+    "band_agree": 0.843
    }
   },
   "Open-Meteo archive (ERA5), NFL": {
