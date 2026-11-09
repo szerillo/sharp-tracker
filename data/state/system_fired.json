@@ -4122,7 +4122,10 @@
 "price": -108,
 "fair": 0.49661,
 "edge_pts": -2.34,
-"why": "conference game, DUKE on road game 2 in a row, +13.5, total 53.5"
+"why": "conference game, DUKE on road game 2 in a row, +13.5, total 53.5",
+"void": true,
+"void_why": "rule no longer holds on the current line: home spread -13.5, total 54.5 (2026-11-09T14:52:35Z)",
+"void_at": "2026-11-09T14:52:35Z"
 },
 "401858294:cfb_day_over": {
 "tag": "cfb_day_over",
@@ -5056,5 +5059,44 @@
 "fair": 0.5,
 "edge_pts": 1.0,
 "why": "home HOU over rate 60%, days since last game: home 2, visitor 2; total 222.5 -> 216.5"
+},
+"401892683:nhl_skid_fade_road": {
+"tag": "nhl_skid_fade_road",
+"fill_id": "1262f227efd9",
+"ts": "2026-11-09T14:52:35Z",
+"market": "spread",
+"side": "away",
+"line": -1.5,
+"venue": "Kalshi",
+"price": 144,
+"fair": null,
+"edge_pts": null,
+"why": "COL off a win, home TOR has lost 3 straight: road puck line (mined angle)"
+},
+"401892693:nhl_early_home_fav_qual": {
+"tag": "nhl_early_home_fav_qual",
+"fill_id": "ca5f329469e1",
+"ts": "2026-11-09T14:52:35Z",
+"market": "ml",
+"side": "home",
+"line": null,
+"venue": "Polymarket",
+"price": -133,
+"fair": 0.5519,
+"edge_pts": -1.81,
+"why": "home favorite, game 20 of the season, opponent UTA wins 55% (10-8)"
+},
+"401892695:nhl_loss_streak_over": {
+"tag": "nhl_loss_streak_over",
+"fill_id": "7ae016d96dd2",
+"ts": "2026-11-09T14:52:35Z",
+"market": "total",
+"side": "over",
+"line": 7.5,
+"venue": "Polymarket",
+"price": 113,
+"fair": null,
+"edge_pts": null,
+"why": "home SJ has lost 5 straight, season over rate 47%: over (mined angle)"
 }
 }
