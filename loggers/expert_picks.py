@@ -9,6 +9,7 @@ EXPERTS = {   # profile slug: (name, what Sean follows them for)
     '_Collin1': ('Collin Wilson', 'CFB'), 'Joshua_Nunn': ('Duck', 'CFB'), 'AnthonyDabbundo': ('Dabbundo', 'soccer, NFL'),
     'Stuckey2': ('Stuckey', 'NFL, CFB, CBB'), 'wheatonbrando': ('Brandon Anderson', 'NFL'), 'DerekCarty': ('Derek Carty', 'props'),
     'nick_giffen': ('Nick Giffen', 'props, NFL'), 'The_Oddsmaker': ('Sean Koerner', 'props, NFL, MLB props'),
+    'VegasRefund': ('Vegas Refund', 'multi-sport'), 'NicholaskMartin': ('Nick Martin', 'NHL'),
 }
 OUT = 'data/experts'; PICKS = f'{OUT}/picks.jsonl'; RECS = f'{OUT}/records.json'
 KEEP = ('id', 'league_name', 'play', 'game_id', 'type', 'period', 'side_id', 'value', 'odds', 'units', 'units_net', 'result', 'status',
@@ -19,8 +20,8 @@ def page(slug):
     req = urllib.request.Request(f'https://www.actionnetwork.com/picks/profile/{slug}',
                                  headers={'User-Agent': 'Mozilla/5.0 (sharp-tracker pick log)', 'Accept': 'text/html'})
     html = urllib.request.urlopen(req, timeout=40).read().decode('utf-8', 'replace')
-    m = re.search(r'<script id="__NEXT_DATA__"[^>]*>(.*?)</script>', html, re.S)
-    if not m: raise ValueError('no page data')
+    m = re.search(r'<script[^>]*id="__NEXT_DATA__"[^>]*>(.*?)</script>', html, re.S)
+    if not m: raise ValueError(f'no page data ({len(html)} bytes: {re.sub(chr(92)+"s+", " ", html[:160])})')
     return json.loads(m.group(1))['props']['pageProps']['profile']
 
 
