@@ -1,5 +1,5 @@
 {
- "built": "2026-11-09T22:03:12Z",
+ "built": "2026-11-09T22:10:34Z",
  "rows": [
   {
    "cond": "0x9dba4642f4329325c0bf83d5d0fb93f688b7ddabb745124704153fbc2b00b8f6",
@@ -17,7 +17,7 @@
    "best_rank": 40,
    "usd": 2100,
    "paid": 0.499,
-   "ask": 0.49,
+   "ask": 0.48,
    "status": "live",
    "link": "https://polymarket.us/event/nba-lal-atl-2026-11-09",
    "other": null,
@@ -74,13 +74,13 @@
    "inside_fair": true,
    "fair_board": 0.4138,
    "books": {
-    "at": "2026-11-09T20:57:36Z",
-    "fair": 0.4004,
+    "at": "2026-11-09T21:56:14Z",
+    "fair": 0.3985,
     "q": {
-     "Novig": 0.405,
+     "Novig": 0.4,
      "Polymarket": 0.41,
-     "DK": 0.4237,
-     "Caesars": 0.4255
+     "Kalshi": 0.42,
+     "DK": 0.4237
     }
    }
   },
@@ -309,7 +309,7 @@
    "fair_board": 0.5703,
    "inside_fair": false,
    "books": {
-    "at": "2026-11-09T20:57:36Z",
+    "at": "2026-11-09T21:56:14Z",
     "fair": 0.5703,
     "q": {
      "Novig": 0.575,
@@ -389,14 +389,15 @@
    "side_std": "home",
    "money_with": false,
    "grade": "B",
-   "fair_board": null,
-   "inside_fair": null,
+   "fair_board": 0.4682,
+   "inside_fair": false,
    "books": {
-    "at": "2026-11-09T20:57:36Z",
-    "fair": null,
+    "at": "2026-11-09T21:56:14Z",
+    "fair": 0.4682,
     "q": {
-     "Novig": 0.445,
-     "Kalshi": 0.46
+     "Novig": 0.465,
+     "Kalshi": 0.49,
+     "FD": 0.5122
     }
    }
   },
@@ -453,12 +454,50 @@
    "best_rank": 49,
    "usd": 190,
    "paid": 0.54,
-   "ask": 0.64,
+   "ask": 0.68,
    "status": "live",
    "link": "https://polymarket.us/event/nfl-la-ari-2026-11-15",
    "other": null,
    "kalshi_against": null,
    "logged": true,
+   "event_id": "401873061",
+   "sport": "nfl",
+   "league": null,
+   "away": "LAR",
+   "home": "ARI",
+   "away_name": "Los Angeles Rams",
+   "home_name": "Arizona Cardinals",
+   "game_start": "2026-11-15T21:05Z",
+   "side_std": "under",
+   "money_with": false,
+   "grade": "A",
+   "fair_board": null,
+   "inside_fair": null,
+   "books": null
+  },
+  {
+   "cond": "0x59fc10e430fccbe31e9bfd012cf394d7554b15185f022946298cd38299e8e797",
+   "slug": "nfl-la-ari-2026-11-15",
+   "title": "Rams vs. Cardinals",
+   "mtype": "total",
+   "start": "2026-11-15T21:05:00Z",
+   "bet": "Under 42.5",
+   "side": "Under",
+   "flagged": "2026-11-09T22:09:10Z",
+   "why": "a top-50 account",
+   "proven": true,
+   "trigger": "proven",
+   "n_accounts": 1,
+   "best_rank": 49,
+   "usd": 339,
+   "paid": 0.55,
+   "ask": 0.57,
+   "status": "live",
+   "link": "https://polymarket.us/event/nfl-la-ari-2026-11-15",
+   "other": null,
+   "kalshi_against": null,
+   "logged": false,
+   "ladder": true,
    "event_id": "401873061",
    "sport": "nfl",
    "league": null,
@@ -510,7 +549,7 @@
    "fair_board": null,
    "inside_fair": null,
    "books": {
-    "at": "2026-11-09T20:57:36Z",
+    "at": "2026-11-09T21:56:14Z",
     "fair": null,
     "q": {
      "Novig": 0.53,
@@ -557,8 +596,8 @@
    "side_std": "home",
    "money_with": true,
    "grade": "A",
-   "fair_board": 0.5293,
-   "inside_fair": false,
+   "fair_board": 0.5314,
+   "inside_fair": true,
    "books": null
   },
   {
@@ -653,7 +692,7 @@
    ],
    "money_with": false,
    "grade": "A",
-   "fair_board": 0.6383,
+   "fair_board": 0.6382,
    "inside_fair": false,
    "books": null
   },
@@ -719,7 +758,7 @@
    "best_rank": 119,
    "usd": 6395,
    "paid": 0.52,
-   "ask": 0.4,
+   "ask": 0.39,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-den-hou-2026-11-09",
    "other": {
@@ -728,7 +767,7 @@
     "usd": 7992,
     "first": "2026-11-09T19:15:06Z"
    },
-   "exit_bid": 0.39,
+   "exit_bid": 0.38,
    "kalshi_against": null,
    "logged": true,
    "event_id": "401909957",
@@ -741,7 +780,7 @@
    "game_start": "2026-11-10T01:30Z",
    "side_std": "home",
    "conflict": [
-    "Kalshi move"
+    "Kalshi bet back"
    ],
    "money_with": false,
    "grade": "B",
