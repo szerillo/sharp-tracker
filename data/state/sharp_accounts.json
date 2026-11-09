@@ -1,5 +1,5 @@
 {
- "built": "2026-11-09T21:12:00Z",
+ "built": "2026-11-09T21:19:04Z",
  "rows": [
   {
    "cond": "0x9dba4642f4329325c0bf83d5d0fb93f688b7ddabb745124704153fbc2b00b8f6",
@@ -609,7 +609,7 @@
    "conflict": [
     "Kalshi bet back"
    ],
-   "money_with": true,
+   "money_with": false,
    "grade": "A",
    "inside_fair": false,
    "fair_board": 0.6181,
@@ -731,6 +731,14 @@
     "best_rank": 79,
     "usd": 5330
    }
+  },
+  "401892682:nhl_loss_streak_over": {
+   "with": {
+    "n": 1,
+    "best_rank": 143,
+    "usd": 513
+   },
+   "against": null
   },
   "401892685:nhl_early_home_fav_qual": {
    "with": {
@@ -1012,6 +1020,13 @@
     "n": 1,
     "best_rank": 197,
     "usd": 460
+   }
+  },
+  "401892682|total": {
+   "over": {
+    "n": 1,
+    "best_rank": 143,
+    "usd": 513
    }
   },
   "401892683|ml": {
