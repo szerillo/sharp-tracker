@@ -4061,19 +4061,16 @@
 },
 "401858293:cfb_road_streak_dog": {
 "tag": "cfb_road_streak_dog",
-"fill_id": "6799a5d2ad70",
-"ts": "2026-11-08T14:50:41Z",
+"fill_id": "2dc3af43e06a",
+"ts": "2026-11-09T01:53:31Z",
 "market": "spread",
 "side": "away",
 "line": 3.5,
-"venue": "FD",
-"price": -110,
-"fair": 0.50589,
-"edge_pts": -1.79,
-"why": "conference game, FSU on road game 2 in a row, +3.5, total 53.5",
-"void": true,
-"void_why": "rule no longer holds on the current line: home spread -3.5, total 54.5 (2026-11-09T00:51:17Z)",
-"void_at": "2026-11-09T00:51:17Z"
+"venue": "Novig",
+"price": -106,
+"fair": 0.5052,
+"edge_pts": -0.98,
+"why": "conference game, FSU on road game 2 in a row, +3.5, total 54.0"
 },
 "401856862:cfb_road_dog_low_total": {
 "tag": "cfb_road_dog_low_total",
@@ -5020,5 +5017,18 @@
 "venue": "Caesars",
 "price": -480
 }
+},
+"401909957:nba_under_good_home_over": {
+"tag": "nba_under_good_home_over",
+"fill_id": "da3cf4af2eb0",
+"ts": "2026-11-09T01:53:31Z",
+"market": "total",
+"side": "under",
+"line": 216.5,
+"venue": "Novig",
+"price": -100,
+"fair": 0.49283,
+"edge_pts": -0.72,
+"why": "home HOU over rate 60%, days since last game: home 2, visitor 2; total 222.5 -> 216.5"
 }
 }
