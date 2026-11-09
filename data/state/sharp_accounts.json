@@ -1,5 +1,5 @@
 {
- "built": "2026-11-09T20:58:35Z",
+ "built": "2026-11-09T21:12:00Z",
  "rows": [
   {
    "cond": "0x9dba4642f4329325c0bf83d5d0fb93f688b7ddabb745124704153fbc2b00b8f6",
@@ -74,13 +74,13 @@
    "inside_fair": false,
    "fair_board": 0.5674,
    "books": {
-    "at": "2026-11-09T19:57:01Z",
-    "fair": 0.5674,
+    "at": "2026-11-09T20:57:36Z",
+    "fair": 0.5636,
     "q": {
+     "Novig": 0.565,
      "Polymarket": 0.57,
-     "Novig": 0.57,
-     "FD": 0.5868,
-     "Kalshi": 0.59
+     "DK": 0.5868,
+     "FD": 0.5868
     }
    }
   },
@@ -120,8 +120,8 @@
    "inside_fair": true,
    "fair_board": 0.4138,
    "books": {
-    "at": "2026-11-09T19:57:01Z",
-    "fair": 0.4025,
+    "at": "2026-11-09T20:57:36Z",
+    "fair": 0.4004,
     "q": {
      "Novig": 0.405,
      "Polymarket": 0.41,
@@ -349,16 +349,16 @@
    "side_std": "away",
    "money_with": false,
    "grade": "A",
-   "fair_board": 0.5698,
+   "fair_board": 0.5703,
    "inside_fair": false,
    "books": {
-    "at": "2026-11-09T19:57:01Z",
-    "fair": 0.5698,
+    "at": "2026-11-09T20:57:36Z",
+    "fair": 0.5703,
     "q": {
-     "Polymarket": 0.57,
      "Novig": 0.575,
-     "Caesars": 0.5833,
-     "FD": 0.5868
+     "Polymarket": 0.58,
+     "FD": 0.5833,
+     "Caesars": 0.5833
     }
    }
   },
@@ -472,7 +472,7 @@
    "fair_board": null,
    "inside_fair": null,
    "books": {
-    "at": "2026-11-09T19:57:01Z",
+    "at": "2026-11-09T20:57:36Z",
     "fair": null,
     "q": {
      "Novig": 0.53,
@@ -496,7 +496,7 @@
    "best_rank": 43,
    "usd": 11895,
    "paid": 0.536,
-   "ask": 0.54,
+   "ask": 0.53,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-lal-atl-2026-11-09",
    "other": {
@@ -505,7 +505,7 @@
     "usd": 36602,
     "first": "2026-11-09T18:00:06Z"
    },
-   "exit_bid": 0.53,
+   "exit_bid": 0.52,
    "kalshi_against": null,
    "logged": true,
    "event_id": "401909952",
@@ -519,7 +519,7 @@
    "side_std": "home",
    "money_with": true,
    "grade": "A",
-   "fair_board": 0.5363,
+   "fair_board": 0.5293,
    "inside_fair": false,
    "books": null
   },
@@ -565,7 +565,7 @@
    ],
    "money_with": false,
    "grade": "A",
-   "fair_board": 0.6333,
+   "fair_board": 0.6383,
    "inside_fair": false,
    "books": null
   },
@@ -758,14 +758,6 @@
     "n": 1,
     "best_rank": 132,
     "usd": 314
-   }
-  },
-  "401909957:nba_under_good_home_over": {
-   "with": null,
-   "against": {
-    "n": 3,
-    "best_rank": 104,
-    "usd": 5400
    }
   }
  },
