@@ -81,3 +81,87 @@ for kind in ('dead (cannot win)', 'sure (cannot lose)'):
         if not X: continue
         usd = sum((x['yes'] if kind.startswith('dead') else 1 - x['yes']) * x['n'] for x in X)
         print(f'    yes traded at {lo:.2f}-{hi:.2f}: {len(X):6} trades, {sum(x["n"] for x in X):10,.0f} contracts; the riskless side was offered for ${usd:,.0f} of profit at settlement')
+
+# ---------------------------------------------------------------------------------------------------------------------------------------
+# 3. National Blend of Models (data/research/wx_kalshi/nbm/<K station>_<year>.csv.gz, IEM's archive of the NBS runs) against the market.
+#    The forecast high for a day is the run's 'txn' at the 00Z after it (the daytime maximum), with 'xnd' its standard deviation.
+#    Bias and spread are fitted on fall 2025 (CLI highs) per station and lead time, then used on 2026 against the Kalshi price 30 minutes
+#    after the run would be public (runtime + 2 hours, a conservative publication lag). A bracket's model probability is the normal
+#    probability of its whole-degree range. Bets: buy the side where the model is 5+ / 10+ points better than the last trade, at that price
+#    plus 1 cent, Kalshi taker fee included.
+import statistics as stt
+def ncdf(x): return 0.5 * (1 + math.erf(x / math.sqrt(2)))
+def nbm(st, year):
+    p = os.path.join(D, 'nbm', f'K{st}_{year}.csv.gz')
+    out = collections.defaultdict(list)       # target day -> [(run utc ts, txn, xnd)]
+    if not os.path.exists(p): return out
+    for r in csv.DictReader(gzip.open(p, 'rt')):
+        if r['ftime'][11:13] != '00' or not r.get('txn') or not r.get('xnd'): continue
+        try: run = dt.datetime.strptime(r['runtime'], '%Y-%m-%d %H:%M:%S').replace(tzinfo=dt.timezone.utc); ft = dt.datetime.strptime(r['ftime'], '%Y-%m-%d %H:%M:%S')
+        except Exception: continue
+        day = (ft - dt.timedelta(days=1)).date().isoformat()       # 00Z closes the previous local day's daytime window
+        out[day].append((run.timestamp(), float(r['txn']), float(r['xnd'])))
+    return out
+def cli_year(st, year):
+    p = os.path.join(D, 'cli', f'K{st}' + ('' if year == 2026 else f'_{year}') + '.json')
+    return {r['valid']: float(r['high']) for r in json.load(open(p)).get('results', []) if r.get('high') not in (None, 'M')} if os.path.exists(p) else {}
+print('\n3. National Blend of Models against the market')
+cal = {}
+for s, (st, tz) in CITY.items():
+    N, Cc = nbm(st, 2025), cli_year(st, 2025)
+    E = collections.defaultdict(list)
+    for day, L in N.items():
+        if day not in Cc: continue
+        end = dt.datetime.fromisoformat(day).replace(tzinfo=dt.timezone.utc) + dt.timedelta(days=1)
+        for run, txn, xnd in L:
+            lead = (end.timestamp() - run) / 3600
+            b = 'same day' if lead <= 24 else 'day before' if lead <= 48 else None
+            if b and xnd > 0: E[b].append(((Cc[day] - txn), xnd))
+    for b, L in E.items():
+        bias = stt.mean(e for e, _ in L); z = [((e - bias) / x) for e, x in L]
+        cal[(s, b)] = (bias, stt.pstdev(z))
+    print(f'  {s}: fall 2025 ' + ', '.join(f'{b}: bias {cal[(s, b)][0]:+.2f} F, spread x{cal[(s, b)][1]:.2f} (n {len(E[b])})' for b in E))
+bets = []; brier = collections.defaultdict(lambda: [0.0, 0.0, 0])
+for s, (st, tz) in CITY.items():
+    mp = os.path.join(D, f'{s}.markets.json')
+    if not os.path.exists(mp): continue
+    N = nbm(st, 2026)
+    for m in json.load(open(mp)).get('markets') or []:
+        if m.get('result') not in ('yes', 'no'): continue
+        tp = os.path.join(D, 'trades', m['ticker'] + '.jsonl.gz')
+        if not os.path.exists(tp): continue
+        lo, hi, ty = m.get('floor_strike'), m.get('cap_strike'), m.get('strike_type')
+        day = dt.datetime.strptime(m['event_ticker'].split('-')[1], '%y%b%d').date().isoformat()
+        T = sorted((P(t['ts']).timestamp(), t['yes']) for l in gzip.open(tp, 'rt') for t in [json.loads(l)])
+        end = dt.datetime.fromisoformat(day).replace(tzinfo=dt.timezone.utc) + dt.timedelta(days=1)
+        for run, txn, xnd in N.get(day, []):
+            lead = (end.timestamp() - run) / 3600; b = 'same day' if lead <= 24 else 'day before' if lead <= 48 else None
+            if not b or (s, b) not in cal or xnd <= 0: continue
+            t_ok = run + 2 * 3600 + 1800
+            pre = [x for x in T if x[0] <= t_ok]
+            if not pre or t_ok - pre[-1][0] > 3 * 3600: continue
+            bias, k = cal[(s, b)]; mu = txn + bias; sd = max(0.8, xnd * k)
+            if ty == 'greater': pm = 1 - ncdf((lo + 0.5 - mu) / sd)
+            elif ty == 'less': pm = ncdf((hi - 0.5 - mu) / sd) if hi is not None else ncdf((lo - 0.5 - mu) / sd)
+            else: pm = ncdf((hi + 0.5 - mu) / sd) - ncdf((lo - 0.5 - mu) / sd)
+            px = pre[-1][1]; win = m['result'] == 'yes'
+            bb = brier[b]; bb[0] += (pm - win) ** 2; bb[1] += (px - win) ** 2; bb[2] += 1
+            for side, edge, cost in (('yes', pm - px, px + 0.01), ('no', (1 - pm) - (1 - px), (1 - px) + 0.01)):
+                if 0.03 < cost < 0.97: bets.append(dict(s=s, b=b, side=side, edge=edge, cost=cost, won=win if side == 'yes' else not win, day=day, run=run))
+for b, (bm, bk, n) in brier.items(): print(f'  Brier score, {b}: model {bm / n:.4f} vs market {bk / n:.4f} on {n} bracket-runs (lower is better)')
+def rr(lab, L):
+    if len(L) < 20: print(f'  {lab:46} n={len(L)}'); return
+    fee = sum(0.07 * x['cost'] * (1 - x['cost']) for x in L); stake = sum(x['cost'] for x in L)
+    pnl = sum((1 - x['cost']) if x['won'] else -x['cost'] for x in L) - fee
+    days = len({(x['s'], x['day']) for x in L})
+    print(f'  {lab:46} bets {len(L):5} on {days:4} city-days  won {sum(x["won"] for x in L)}  ROI after fee {100 * pnl / stake:+6.1f}%')
+for b in ('day before', 'same day'):
+    for th in (0.05, 0.10, 0.15):
+        L = [x for x in bets if x['b'] == b and x['edge'] >= th]
+        # one bet per bracket and day: the first run that qualifies
+        seen = set(); L1 = []
+        for x in sorted(L, key=lambda x: x['run']):
+            k = (x['s'], x['day'], x['side'], round(x['cost'], 2))
+            if (x['s'], x['day'], x['side']) in seen: continue
+            L1.append(x)
+        rr(f'{b}, model {100 * th:.0f}+ pts better than the price', L)
