@@ -1,5 +1,5 @@
 {
- "built": "2026-11-09T19:59:07Z",
+ "built": "2026-11-09T20:06:59Z",
  "rows": [
   {
    "cond": "0x9dba4642f4329325c0bf83d5d0fb93f688b7ddabb745124704153fbc2b00b8f6",
@@ -189,8 +189,8 @@
    "home_name": "Houston Rockets",
    "game_start": "2026-11-10T01:30Z",
    "side_std": "away",
-   "money_with": true,
-   "grade": "A",
+   "money_with": false,
+   "grade": "B",
    "fair_board": null,
    "inside_fair": null,
    "books": null
@@ -227,8 +227,8 @@
    "home_name": "Houston Rockets",
    "game_start": "2026-11-10T01:30Z",
    "side_std": "away",
-   "money_with": true,
-   "grade": "A",
+   "money_with": false,
+   "grade": "B",
    "fair_board": null,
    "inside_fair": null,
    "books": null
@@ -548,7 +548,7 @@
    "other": {
     "n_accounts": 6,
     "best_rank": 23,
-    "usd": 36176,
+    "usd": 36912,
     "first": "2026-11-08T22:52:33Z"
    },
    "exit_bid": 0.61,
@@ -610,8 +610,7 @@
    "game_start": "2026-11-10T01:30Z",
    "side_std": "home",
    "conflict": [
-    "Kalshi move",
-    "big money"
+    "Kalshi move"
    ],
    "money_with": false,
    "grade": "B",
@@ -892,9 +891,9 @@
   },
   "401909961|ml": {
    "home": {
-    "n": 1,
+    "n": 2,
     "best_rank": 132,
-    "usd": 1080
+    "usd": 1325
    },
    "away": {
     "n": 1,
