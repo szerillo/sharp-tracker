@@ -12,16 +12,18 @@ concurrency:
 jobs:
   report:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 25
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with: {python-version: '3.12'}
       - run: python3 sharp/weekly.py
+      - name: wind forecast check (11/8, Sean) - Open-Meteo vs MySportsWeather vs the rule's blend, against measured airport wind (ASOS) and ERA5
+        run: python3 sharp/wx_accuracy.py || echo "::warning::wind forecast check failed"
       - name: commit
         run: |
           git config user.name "tracker-bot"; git config user.email "actions@users.noreply.github.com"
-          git add data/state/weekly.json docs/weekly && git commit -m "weekly $(date -u +%Y-%m-%d)" || exit 0
+          git add data/state/weekly.json docs/weekly data/research/wx_accuracy.json data/research/wx_cache && git commit -m "weekly $(date -u +%Y-%m-%d)" || exit 0
           for i in 1 2 3 4 5; do
             if git pull --rebase -X theirs && git push; then exit 0; fi
             git rebase --abort 2>/dev/null || true
