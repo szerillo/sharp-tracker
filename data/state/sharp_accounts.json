@@ -1,5 +1,5 @@
 {
- "built": "2026-11-09T05:05:15Z",
+ "built": "2026-11-09T05:12:04Z",
  "rows": [
   {
    "cond": "0x8a7e1452bda9f224ee3aaf004668164bd6a4226a7b496ea407eaf8c4e00b97c6",
@@ -351,7 +351,16 @@
   "clv_venue": 0.79,
   "clv_poly_same": -0.41
  },
- "sys_tags": {},
+ "sys_tags": {
+  "401873051:nfl_fade_fav_bye": {
+   "with": null,
+   "against": {
+    "n": 1,
+    "best_rank": 132,
+    "usd": 852
+   }
+  }
+ },
  "by_event": {
   "401873051|ml": {
    "away": {
@@ -363,6 +372,13 @@
     "n": 1,
     "best_rank": 49,
     "usd": 6921
+   }
+  },
+  "401873051|spread": {
+   "away": {
+    "n": 1,
+    "best_rank": 132,
+    "usd": 852
    }
   },
   "401873061|total": {
