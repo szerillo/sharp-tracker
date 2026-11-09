@@ -1,5 +1,5 @@
 {
- "built": "2026-11-09T05:12:04Z",
+ "built": "2026-11-09T05:18:58Z",
  "rows": [
   {
    "cond": "0x8a7e1452bda9f224ee3aaf004668164bd6a4226a7b496ea407eaf8c4e00b97c6",
@@ -186,8 +186,8 @@
    "link": "https://polymarket.us/event/nba-lal-atl-2026-11-09",
    "other": null,
    "kalshi_against": {
-    "move": 8.0,
-    "now": 57.5,
+    "move": 7.5,
+    "now": 57.0,
     "state": "held"
    },
    "logged": true,
@@ -256,7 +256,7 @@
    "conflict": [
     "Kalshi bet back"
    ],
-   "money_with": false,
+   "money_with": true,
    "grade": "A",
    "fair_board": 0.6144,
    "inside_fair": false,
@@ -447,6 +447,13 @@
     "n": 1,
     "best_rank": 93,
     "usd": 133
+   }
+  },
+  "401909970|ml": {
+   "away": {
+    "n": 1,
+    "best_rank": 142,
+    "usd": 183
    }
   },
   "401892682|ml": {
