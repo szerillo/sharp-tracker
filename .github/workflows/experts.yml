@@ -1,0 +1,24 @@
+name: experts (trusted experts' Action Network picks, graded by Action)
+# Sean, 11/8: log the 8 trusted experts' picks with results. Dispatched by pulse at 12:50 PM, 5:50 PM, 11:50 PM and 3:50 AM ET.
+on:
+  workflow_dispatch: {}
+permissions:
+  contents: write
+concurrency:
+  group: experts
+  cancel-in-progress: false
+jobs:
+  log:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.12'}
+      - run: python3 loggers/expert_picks.py
+      - name: commit
+        run: |
+          git config user.name "tracker-bot"; git config user.email "actions@users.noreply.github.com"
+          git add data/experts; git commit -q -m "expert picks $(date -u +%Y-%m-%dT%H:%M)" || exit 0
+          for i in 1 2 3 4 5; do git pull -q --rebase -X theirs && git push -q && exit 0; git rebase --abort 2>/dev/null || true; sleep $((RANDOM % 10 + 3)); done
+          exit 1
