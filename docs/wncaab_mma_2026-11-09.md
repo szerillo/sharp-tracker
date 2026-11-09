@@ -36,3 +36,23 @@ let both run as paper rules this season. Cost is in the price feed's Odds API ca
 - Read: the MMA close is about right (beating it by 8-9 points of CLV still only breaks even at the close). The edge is in getting the
   side before the move, which is what a sharp-action read is for. That is the thread to pull for MMA: how early the BetMMA steam and the
   Polymarket accounts get to the side that Pinnacle later moves toward (data/state/mma_steam.json is the live feed).
+
+### MMA: betting after Pinnacle has already moved (bettable version of the opening-price result)
+The +19.7% "at the opening price" cell needs to know in advance which way the line will go. The bettable version: watch Pinnacle, and the
+first time its no-vig price has moved 3 / 5 / 8+ points toward a fighter since its first quote, bet him at the best US book (DK, FD,
+Caesars, BetRivers) at that same snapshot. 1,861 fights with ESPN results, 2022-25, about 7 Pinnacle snapshots per fight.
+
+| Pinnacle moved | Bets | Record | ROI | z | Moved on after the trigger | Years + |
+|---|---|---|---|---|---|---|
+| 3+ pts | 862 | 526-336 | +2.4% | +0.69 | +0.42 pts | 3/4 (2025 -16u) |
+| 5+ pts | 484 | 312-172 | +5.5% | +1.09 | +0.32 | 3/4 |
+| 5+ pts, toward the underdog | 131 | 66-65 | +14.1% | +1.52 | +0.31 | 4/4 |
+| 5+ pts, inside 6 hours of the fight | 145 | 100-45 | +15.1% | +1.81 | +0.01 | 3/4 |
+| 8+ pts | 171 | 115-56 | +9.9% | +1.41 | +0.41 | 4/4 |
+| 8+ pts, toward the favourite | 137 | 97-40 | +8.4% | +1.15 | +0.35 | 4/4 |
+
+Read: once Pinnacle has moved, the move is nearly over (it goes on only 0.3-0.6 points), so following after the fact earns little: small
+positives that grow with the size of the move and none significant on its own. The value is in being on the side before Pinnacle moves,
+which is a sharp-action question: the next step is to log, for each fight, when the BetMMA steam and the Polymarket accounts first hit a
+side against when Pinnacle moved (the live feeds started in late October; a few cards in, this becomes testable). The 8+ point follow (4 of
+4 years) is the only after-the-move cell worth a paper rule.
