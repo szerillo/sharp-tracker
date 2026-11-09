@@ -1,5 +1,5 @@
 {
- "built": "2026-11-09T00:55:30Z",
+ "built": "2026-11-09T01:02:08Z",
  "rows": [
   {
    "cond": "0x12fe66309ecbcceab016e901e25a0bcc355f2a07f646c94dc110a9c411e14b9e",
@@ -601,7 +601,7 @@
    "best_rank": 43,
    "usd": 112,
    "paid": 0.8,
-   "ask": 0.86,
+   "ask": null,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-bos-mil-2026-11-08",
    "other": {
@@ -610,7 +610,7 @@
     "usd": 124,
     "first": "2026-11-08T07:02:10Z"
    },
-   "exit_bid": 0.85,
+   "exit_bid": null,
    "kalshi_against": null,
    "logged": true,
    "event_id": "401909949",
@@ -628,7 +628,7 @@
    "money_with": false,
    "grade": "watch",
    "fair_board": 0.8643,
-   "inside_fair": true,
+   "inside_fair": null,
    "books": null
   },
   {
@@ -818,18 +818,6 @@
   "clv_poly_same": -0.54
  },
  "sys_tags": {
-  "401909949:nba_bigfav_over": {
-   "with": {
-    "n": 1,
-    "best_rank": 132,
-    "usd": 377
-   },
-   "against": {
-    "n": 1,
-    "best_rank": 132,
-    "usd": 187
-   }
-  },
   "401909951:nba_badteams_under": {
    "with": null,
    "against": {
@@ -848,9 +836,9 @@
   },
   "401909951:nba_momentum:spread": {
    "with": {
-    "n": 3,
+    "n": 4,
     "best_rank": 49,
-    "usd": 14852
+    "usd": 31033
    },
    "against": {
     "n": 1,
@@ -894,30 +882,6 @@
     "usd": 6921
    }
   },
-  "401909949|ml": {
-   "away": {
-    "n": 1,
-    "best_rank": 43,
-    "usd": 112
-   },
-   "home": {
-    "n": 1,
-    "best_rank": 43,
-    "usd": 124
-   }
-  },
-  "401909949|total": {
-   "over": {
-    "n": 1,
-    "best_rank": 132,
-    "usd": 377
-   },
-   "under": {
-    "n": 1,
-    "best_rank": 132,
-    "usd": 187
-   }
-  },
   "401909951|total": {
    "over": {
     "n": 1,
@@ -932,9 +896,9 @@
     "usd": 1011
    },
    "away": {
-    "n": 3,
+    "n": 4,
     "best_rank": 49,
-    "usd": 14852
+    "usd": 31033
    }
   },
   "401909952|ml": {
@@ -989,13 +953,6 @@
     "n": 1,
     "best_rank": 93,
     "usd": 133
-   }
-  },
-  "401892679|ml": {
-   "home": {
-    "n": 1,
-    "best_rank": 132,
-    "usd": 245
    }
   },
   "401892682|ml": {
