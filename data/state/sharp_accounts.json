@@ -1,5 +1,5 @@
 {
- "built": "2026-11-09T19:27:57Z",
+ "built": "2026-11-09T19:36:33Z",
  "rows": [
   {
    "cond": "0x9dba4642f4329325c0bf83d5d0fb93f688b7ddabb745124704153fbc2b00b8f6",
@@ -17,7 +17,7 @@
    "best_rank": 40,
    "usd": 2100,
    "paid": 0.499,
-   "ask": 0.5,
+   "ask": 0.49,
    "status": "live",
    "link": "https://polymarket.us/event/nba-lal-atl-2026-11-09",
    "other": null,
@@ -122,6 +122,43 @@
    "books": null
   },
   {
+   "cond": "0xee8df37d79bca56589475dc457241d70b3a02e4ecc9bac6ec6f4b3fba9c0ed58",
+   "slug": "nfl-buf-min-2026-11-10",
+   "title": "Bills vs. Vikings",
+   "mtype": "total",
+   "start": "2026-11-10T01:15:00Z",
+   "bet": "Over 44.5",
+   "side": "Over",
+   "flagged": "2026-11-09T19:31:54Z",
+   "why": "2 top-200 accounts",
+   "proven": true,
+   "trigger": "proven",
+   "n_accounts": 2,
+   "best_rank": 143,
+   "usd": 1363,
+   "paid": 0.526,
+   "ask": 0.54,
+   "status": "live",
+   "link": "https://polymarket.us/event/nfl-buf-min-2026-11-10",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401873051",
+   "sport": "nfl",
+   "league": null,
+   "away": "BUF",
+   "home": "MIN",
+   "away_name": "Buffalo Bills",
+   "home_name": "Minnesota Vikings",
+   "game_start": "2026-11-10T01:15Z",
+   "side_std": "over",
+   "money_with": false,
+   "grade": "A",
+   "fair_board": null,
+   "inside_fair": null,
+   "books": null
+  },
+  {
    "cond": "0x01279fa416cf587ec5878ff30d0456bfcb111457c9814c95d7fd9057bfddface",
    "slug": "nba-den-hou-2026-11-09",
    "title": "Nuggets vs. Rockets",
@@ -137,7 +174,7 @@
    "best_rank": 49,
    "usd": 6455,
    "paid": 0.486,
-   "ask": 0.6,
+   "ask": 0.59,
    "status": "live",
    "link": "https://polymarket.us/event/nba-den-hou-2026-11-09",
    "other": null,
@@ -174,7 +211,7 @@
    "best_rank": 112,
    "usd": 7777,
    "paid": 0.473,
-   "ask": 0.62,
+   "ask": 0.61,
    "status": "live",
    "link": "https://polymarket.us/event/nba-den-hou-2026-11-09",
    "other": null,
@@ -212,7 +249,7 @@
    "best_rank": 104,
    "usd": 227,
    "paid": 0.45,
-   "ask": 0.52,
+   "ask": 0.53,
    "status": "live",
    "link": "https://polymarket.us/event/nba-den-hou-2026-11-09",
    "other": null,
@@ -249,7 +286,7 @@
    "best_rank": 197,
    "usd": 460,
    "paid": 0.56,
-   "ask": 0.57,
+   "ask": 0.58,
    "status": "live",
    "link": "https://polymarket.us/event/nhl-nyi-sj-2026-11-09",
    "other": null,
@@ -502,7 +539,7 @@
    "best_rank": 23,
    "usd": 6290,
    "paid": 0.625,
-   "ask": 0.63,
+   "ask": 0.62,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-den-hou-2026-11-09",
    "other": {
@@ -511,7 +548,7 @@
     "usd": 36176,
     "first": "2026-11-08T22:52:33Z"
    },
-   "exit_bid": 0.62,
+   "exit_bid": 0.61,
    "kalshi_against": null,
    "logged": true,
    "event_id": "401909957",
@@ -622,9 +659,9 @@
   "401873051:vrest8_1h": {
    "with": null,
    "against": {
-    "n": 1,
-    "best_rank": 182,
-    "usd": 285
+    "n": 2,
+    "best_rank": 143,
+    "usd": 1363
    }
   },
   "401873051:nfl_fade_fav_bye": {
@@ -694,9 +731,9 @@
   },
   "401873051|total": {
    "over": {
-    "n": 1,
-    "best_rank": 182,
-    "usd": 285
+    "n": 2,
+    "best_rank": 143,
+    "usd": 1363
    }
   },
   "401873061|total": {
