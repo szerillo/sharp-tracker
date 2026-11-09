@@ -4054,7 +4054,10 @@
 "price": -110,
 "fair": 0.5,
 "edge_pts": -2.38,
-"why": "conference game, OHIO on road game 2 in a row, +1.5, total 47.5"
+"why": "conference game, OHIO on road game 2 in a row, +1.5, total 47.5",
+"void": true,
+"void_why": "rule no longer holds on the current line: home spread 1.5, total 48.5 (2026-11-09T00:51:17Z)",
+"void_at": "2026-11-09T00:51:17Z"
 },
 "401858293:cfb_road_streak_dog": {
 "tag": "cfb_road_streak_dog",
@@ -4067,7 +4070,10 @@
 "price": -110,
 "fair": 0.50589,
 "edge_pts": -1.79,
-"why": "conference game, FSU on road game 2 in a row, +3.5, total 53.5"
+"why": "conference game, FSU on road game 2 in a row, +3.5, total 53.5",
+"void": true,
+"void_why": "rule no longer holds on the current line: home spread -3.5, total 54.5 (2026-11-09T00:51:17Z)",
+"void_at": "2026-11-09T00:51:17Z"
 },
 "401856862:cfb_road_dog_low_total": {
 "tag": "cfb_road_dog_low_total",
@@ -4110,19 +4116,16 @@
 },
 "401858296:cfb_road_streak_dog": {
 "tag": "cfb_road_streak_dog",
-"fill_id": "b883ab97573a",
-"ts": "2026-11-08T14:50:41Z",
+"fill_id": "36974f40cf41",
+"ts": "2026-11-09T00:51:17Z",
 "market": "spread",
 "side": "away",
-"line": 15.5,
-"venue": "DK",
-"price": -110,
-"fair": 0.51,
-"edge_pts": -1.38,
-"why": "conference game, DUKE on road game 2 in a row, +15.5, total 53.5",
-"void": true,
-"void_why": "rule no longer holds on the current line: home spread -14.5, total 54.5 (2026-11-08T18:55:51Z)",
-"void_at": "2026-11-08T18:55:51Z"
+"line": 13.5,
+"venue": "Kalshi",
+"price": -108,
+"fair": 0.49661,
+"edge_pts": -2.34,
+"why": "conference game, DUKE on road game 2 in a row, +13.5, total 53.5"
 },
 "401858294:cfb_day_over": {
 "tag": "cfb_day_over",
@@ -4961,10 +4964,24 @@
 "edge_pts": -0.19,
 "why": "Novig home side mid 0.318 inside T-0.9h; audit band 20-35c"
 },
+"401909949:nba_momentum:spread": {
+"tag": "nba_momentum",
+"fill_id": "d5d38783a224",
+"ts": "2026-11-08T23:54:01Z",
+"market": "spread",
+"side": "away",
+"line": -13.5,
+"venue": "Kalshi",
+"price": -108,
+"fair": 0.49358,
+"edge_pts": -2.64,
+"why": "Kalshi spread mid 0.535 at T-6h -> 0.505 now (-3.0c); continuation (audit section 3, NBA only)",
+"restored": true
+},
 "401909951:nba_momentum:spread": {
 "tag": "nba_momentum",
-"fill_id": "5c0237837f72",
-"ts": "2026-11-09T00:34:33Z",
+"fill_id": "9b0ef498809a",
+"ts": "2026-11-09T00:51:17Z",
 "market": "spread",
 "side": "away",
 "line": -11.5,
@@ -4972,81 +4989,12 @@
 "price": 104,
 "fair": 0.48568,
 "edge_pts": -0.43,
-"why": "Novig spread mid 0.555 at T-6h -> 0.515 now (-4.0c); continuation (audit section 3, NBA only)",
-"now": {
-"venue": "Novig",
-"price": 104
-},
-"ladder": [
-{
-"line": -9.5,
-"steps": -4,
-"venue": "Novig",
-"price": -130,
-"cost": 0.565,
-"fair": 0.56,
-"loss": 0.0005
-},
-{
-"line": -10.5,
-"steps": -2,
-"venue": "Polymarket",
-"price": -108,
-"cost": 0.52,
-"fair": 0.5195,
-"loss": -0.004
-},
-{
-"line": -11.0,
-"steps": -1,
-"venue": "Caesars",
-"price": -115,
-"cost": 0.5349,
-"fair": 0.5064,
-"loss": 0.024
-},
-{
-"line": -11.5,
-"steps": 0,
-"venue": "Novig",
-"price": 104,
-"cost": 0.49,
-"fair": 0.4857,
-"loss": -0.0002
-},
-{
-"line": -12.5,
-"steps": 2,
-"venue": "Novig",
-"price": 117,
-"cost": 0.46,
-"fair": 0.4515,
-"loss": 0.004
-},
-{
-"line": -13.5,
-"steps": 4,
-"venue": "Novig",
-"price": 138,
-"cost": 0.42,
-"fair": 0.415,
-"loss": 0.0005
-}
-],
-"bet_to": {
-"line": -13.5,
-"steps": 4,
-"venue": "Novig",
-"price": 138,
-"cost": 0.42,
-"fair": 0.415,
-"loss": 0.0005
-}
+"why": "Novig spread mid 0.555 at T-6h -> 0.515 now (-4.0c); continuation (audit section 3, NBA only)"
 },
 "401909951:nba_momentum:total": {
 "tag": "nba_momentum",
-"fill_id": "e99408196a59",
-"ts": "2026-11-09T00:34:33Z",
+"fill_id": "75b670cf04d6",
+"ts": "2026-11-09T00:51:17Z",
 "market": "total",
 "side": "under",
 "line": 236.5,
@@ -5054,66 +5002,6 @@
 "price": -106,
 "fair": 0.50808,
 "edge_pts": -0.69,
-"why": "Novig total mid 0.520 at T-6h -> 0.490 now (-3.0c); continuation (audit section 3, NBA only)",
-"now": {
-"venue": "FD",
-"price": -105
-},
-"ladder": [
-{
-"line": 238.5,
-"steps": -4,
-"venue": "Novig",
-"price": -127,
-"cost": 0.56,
-"fair": 0.5535,
-"loss": 0.0
-},
-{
-"line": 237.5,
-"steps": -2,
-"venue": "Novig",
-"price": -117,
-"cost": 0.54,
-"fair": 0.5325,
-"loss": 0.001
-},
-{
-"line": 236.5,
-"steps": 0,
-"venue": "FD",
-"price": -105,
-"cost": 0.5122,
-"fair": 0.5081,
-"loss": -0.0024
-},
-{
-"line": 235.5,
-"steps": 2,
-"venue": "Novig",
-"price": -100,
-"cost": 0.5,
-"fair": 0.4925,
-"loss": 0.001
-},
-{
-"line": 234.5,
-"steps": 4,
-"venue": "Novig",
-"price": 115,
-"cost": 0.465,
-"fair": 0.4635,
-"loss": -0.005
-}
-],
-"bet_to": {
-"line": 234.5,
-"steps": 4,
-"venue": "Novig",
-"price": 115,
-"cost": 0.465,
-"fair": 0.4635,
-"loss": -0.005
-}
+"why": "Novig total mid 0.520 at T-6h -> 0.490 now (-3.0c); continuation (audit section 3, NBA only)"
 }
 }
