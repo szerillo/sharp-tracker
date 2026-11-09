@@ -50,6 +50,7 @@ class Sched:
         for sp, games in self.h.items():
             d = collections.defaultdict(list)
             for eid, g in games.items():
+                if not g.get('start') or 'away' not in g or 'home' not in g: continue     # 11/9: some entries (fighters) have no away / home
                 day = dt.datetime.fromtimestamp(ts(g['start']), dt.timezone.utc).astimezone(__import__('zoneinfo').ZoneInfo('America/New_York'))   # ET date
                 for k in (-1, 0, 1): d[(day.date() + dt.timedelta(days=k), g['away'], g['home'])].append(g)
                 d[('name', g['away'], g['home'])].append(g)
@@ -59,7 +60,7 @@ class Sched:
 
     def kalshi(self, sport, date, blob, home_first=False):
         fix = {**SP.CODE_FIX.get(sport, {}), **(MLB_FIX if sport == 'mlb' else {})}
-        codes = {g['home'] for g in self.h.get(sport, {}).values()} | {g['away'] for g in self.h.get(sport, {}).values()}
+        codes = {g['home'] for g in self.h.get(sport, {}).values() if 'home' in g} | {g['away'] for g in self.h.get(sport, {}).values() if 'away' in g}
         sp = SP.split_codes(blob, codes, fix)
         if not sp: return None
         a, h = sp
