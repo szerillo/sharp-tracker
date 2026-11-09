@@ -1,0 +1,81 @@
+[line_outlier] nba+nba2: 7163 games with a Pinnacle quote inside 3h
+[odds_db] results nba: 7158
+[odds_db] results nhl: 0
+[odds_db] results nfl: 0
+[odds_db] results cfb: 0
+[odds_db] results cbb: 0
+[odds_db] results mlb: 0
+[odds_db] results wnba: 0
+[odds_db] results wncaab: 0
+[odds_db] results epl: 0
+[odds_db] results laliga: 0
+[odds_db] results bundesliga: 0
+[odds_db] results seriea: 0
+[odds_db] results ligue1: 0
+[odds_db] results mls: 0
+[odds_db] results ucl: 0
+[odds_db] results ligamx: 0
+[odds_db] results mma: 0
+[odds_db] results joined: 7158
+[line_outlier] finals matched for 7158 of 7163
+--- spread (window 3h before the start)
+  gap 0.5: outlier (2+ others on Pinnacle's number)          n= 6363 3285-3078  ROI   -1.9%  z -1.58  seasons+ 2/7  20:+43% 21:-2% 22:+2% 23:-2% 24:-3% 25:-3% 26:-4%
+  gap 0.5: others split / Pinnacle odd                       n= 1118 560-558   ROI   -4.0%  z -1.41  seasons+ 2/7  20:-36% 21:-0% 22:-9% 23:+6% 24:+3% 25:-9% 26:-12%
+  gap 1: outlier (2+ others on Pinnacle's number)            n=  373 199-174   ROI   +1.0%  z +0.20  seasons+ 4/6  21:+13% 22:+10% 23:+3% 24:-13% 25:-2% 26:+2%
+  gap 1: others split / Pinnacle odd                         n=  310 157-153   ROI   -3.7%  z -0.66  seasons+ 3/6  21:+16% 22:+6% 23:+14% 24:-13% 25:-19% 26:-18%
+  gap 1.5: outlier (2+ others on Pinnacle's number)          n=   51 23-28    ROI  -14.3%  z -1.06  seasons+ 2/5  21:-43% 22:+18% 23:+10% 24:-53% 25:-4%
+  gap 1.5: others split / Pinnacle odd                       n=   66 30-36    ROI  -13.0%  z -1.13  seasons+ 1/6  21:-14% 22:-18% 23:+10% 24:-5% 25:-4% 26:-100%
+  gap 2-2.5: outlier (2+ others on Pinnacle's number)        n=   90 44-46    ROI   -7.6%  z -0.77  seasons+ 2/6  21:-37% 22:+3% 23:+48% 24:-20% 25:-42% 26:-38%
+  gap 2-2.5: others split / Pinnacle odd                     n=   87 43-44    ROI   -5.9%  z -0.58  seasons+ 2/7  20:-100% 21:-10% 22:-20% 23:+53% 24:-40% 25:-18% 26:+26%
+  gap 1+ outlier                                             n=  476 249-227   ROI   -1.0%  z -0.24  seasons+ 2/6  21:-8% 22:+11% 23:+12% 24:-11% 25:-7% 26:-0%
+    ... 4+ others on Pinnacle's number                       n=  265 143-122   ROI   +2.0%  z +0.34  seasons+ 2/6  21:-2% 22:-8% 23:+23% 24:-10% 25:-4% 26:+28%
+    ... Pinnacle just moved to its number (book lagging)     n=   76 35-41    ROI  -12.6%  z -1.19  seasons+ 2/6  21:+4% 22:+8% 23:-16% 24:-24% 25:-12% 26:-24%
+    ... no Pinnacle move                                     n=  367 194-173   ROI   -0.0%  z -0.01  seasons+ 3/6  21:-15% 22:+10% 23:+22% 24:-8% 25:-10% 26:+3%
+    ... home                                                 n=  232 116-116   ROI   -5.3%  z -0.87  seasons+ 2/6  21:-2% 22:+4% 23:+9% 24:-5% 25:-17% 26:-22%
+    ... away                                                 n=  244 133-111   ROI   +3.1%  z +0.51  seasons+ 4/6  21:-12% 22:+16% 23:+16% 24:-20% 25:+2% 26:+18%
+    ... inside 1 hour                                        n=  189 98-91    ROI   -1.9%  z -0.29  seasons+ 2/6  21:+28% 22:-12% 23:-8% 24:-14% 25:+4% 26:-9%
+    ... at BetRivers                                         n=  201 98-103   ROI   -7.9%  z -1.19  seasons+ 2/6  21:-15% 22:+18% 23:+14% 24:-19% 25:-17% 26:-13%
+    ... at Caesars                                           n=  143 77-66    ROI   +2.7%  z +0.35  seasons+ 3/6  21:-4% 22:+6% 23:+14% 24:-5% 25:-11% 26:+9%
+    ... at DK                                                n=  163 87-76    ROI   +0.5%  z +0.07  seasons+ 3/6  21:-20% 22:+38% 23:+20% 24:-5% 25:+6% 26:-9%
+    ... at FD                                                n=  126 65-61    ROI   -2.2%  z -0.27  seasons+ 3/6  21:+2% 22:+1% 23:-5% 24:-24% 25:+9% 26:-6%
+  gap 1.5+ outlier                                           n=  138 67-71    ROI   -8.0%  z -1.01  seasons+ 2/6  21:-30% 22:+4% 23:+39% 24:-22% 25:-41% 26:-38%
+    ... 4+ others on Pinnacle's number                       n=   70 31-39    ROI  -16.1%  z -1.43  seasons+ 1/6  21:-30% 22:-37% 23:+39% 24:-14% 25:-32% 26:-100%
+    ... no Pinnacle move                                     n=  105 50-55    ROI   -9.7%  z -1.07  seasons+ 2/6  21:-37% 22:+10% 23:+51% 24:-27% 25:-77% 26:-63%
+    ... home                                                 n=   67 32-35    ROI   -9.4%  z -0.83  seasons+ 2/6  21:+1% 22:-19% 23:+30% 24:-26% 25:-37% 26:-100%
+    ... away                                                 n=   71 35-36    ROI   -6.7%  z -0.60  seasons+ 3/6  21:-50% 22:+14% 23:+51% 24:-15% 25:-46% 26:+85%
+    ... inside 1 hour                                        n=   48 23-25    ROI   -9.4%  z -0.69  seasons+ 3/6  21:+2% 22:-46% 23:+17% 24:+14% 25:-53% 26:-6%
+    ... at BetRivers                                         n=   65 33-32    ROI   -4.1%  z -0.35  seasons+ 2/6  21:-50% 22:+11% 23:+60% 24:-6% 25:-6% 26:-39%
+    ... at Caesars                                           n=   34 14-20    ROI  -21.4%  z -1.31  seasons+ 0/6  21:-68% 22:-4% 23:-4% 24:-4% 25:-52% 26:-6%
+    ... at DK                                                n=   52 27-25    ROI   -2.2%  z -0.17  seasons+ 2/6  21:-25% 22:+88% 23:+47% 24:-25% 25:-53% 26:-100%
+    ... at FD                                                n=   47 23-24    ROI   -7.0%  z -0.50  seasons+ 2/5  21:-12% 22:-15% 23:+33% 24:-57% 25:+43%
+--- total (window 3h before the start)
+  gap 0.5: outlier (2+ others on Pinnacle's number)          n= 6936 3511-3425  ROI   -3.4%  z -2.97  seasons+ 0/7  20:-8% 21:-4% 22:-4% 23:-4% 24:-3% 25:-3% 26:-1%
+  gap 0.5: others split / Pinnacle odd                       n= 2647 1294-1353  ROI   -6.5%  z -3.47  seasons+ 1/7  20:-5% 21:+2% 22:-15% 23:-7% 24:-3% 25:-7% 26:-8%
+  gap 1: outlier (2+ others on Pinnacle's number)            n= 1726 885-841   ROI   -2.6%  z -1.14  seasons+ 3/7  20:-37% 21:+2% 22:+0% 23:+2% 24:-8% 25:-5% 26:-3%
+  gap 1: others split / Pinnacle odd                         n= 1299 643-656   ROI   -5.6%  z -2.10  seasons+ 1/7  20:+58% 21:-4% 22:-9% 23:-3% 24:-7% 25:-0% 26:-12%
+  gap 1.5: outlier (2+ others on Pinnacle's number)          n=  152 86-66    ROI   +7.1%  z +0.94  seasons+ 5/6  21:+36% 22:+6% 23:+8% 24:-20% 25:+6% 26:+16%
+  gap 1.5: others split / Pinnacle odd                       n=  339 164-175   ROI   -7.8%  z -1.51  seasons+ 0/6  21:-9% 22:-7% 23:-2% 24:-7% 25:-6% 26:-21%
+  gap 2-2.5: outlier (2+ others on Pinnacle's number)        n=   46 25-21    ROI   +2.2%  z +0.17  seasons+ 2/6  21:+41% 22:-6% 23:-100% 24:-36% 25:+11% 26:-5%
+  gap 2-2.5: others split / Pinnacle odd                     n=  112 55-57    ROI   -6.5%  z -0.72  seasons+ 1/6  21:-17% 22:-5% 23:+27% 24:-1% 25:-24% 26:-31%
+  gap 1+ outlier                                             n= 1881 974-907   ROI   -1.7%  z -0.78  seasons+ 3/7  20:-37% 21:+7% 22:+0% 23:+2% 24:-10% 25:-5% 26:-2%
+    ... 4+ others on Pinnacle's number                       n=  910 471-439   ROI   -1.9%  z -0.57  seasons+ 3/7  20:-6% 21:+7% 22:+3% 23:+6% 24:-13% 25:-3% 26:-9%
+    ... Pinnacle just moved to its number (book lagging)     n=  337 165-172   ROI   -7.2%  z -1.40  seasons+ 2/7  20:-100% 21:-23% 22:+10% 23:+8% 24:-2% 25:-26% 26:-8%
+    ... no Pinnacle move                                     n= 1474 782-692   ROI   +0.7%  z +0.30  seasons+ 3/7  20:-24% 21:+16% 22:-4% 23:+3% 24:-10% 25:-1% 26:+3%
+    ... over                                                 n=  908 474-434   ROI   -0.9%  z -0.28  seasons+ 2/7  20:-52% 21:+0% 22:+11% 23:-3% 24:-6% 25:-0% 26:-4%
+    ... under                                                n=  973 500-473   ROI   -2.6%  z -0.82  seasons+ 2/7  20:-6% 21:+12% 22:-8% 23:+7% 24:-14% 25:-9% 26:-1%
+    ... inside 1 hour                                        n=  815 422-393   ROI   -1.9%  z -0.56  seasons+ 3/7  20:-100% 21:+1% 22:+12% 23:+1% 24:-11% 25:-8% 26:-9%
+    ... at BetRivers                                         n=  751 392-359   ROI   -1.2%  z -0.34  seasons+ 3/7  20:-37% 21:-9% 22:+3% 23:+6% 24:-4% 25:-3% 26:+6%
+    ... at Caesars                                           n=  559 281-278   ROI   -4.3%  z -1.03  seasons+ 3/7  20:-100% 21:+22% 22:+6% 23:-7% 24:-18% 25:-18% 26:+4%
+    ... at DK                                                n=  580 307-273   ROI   +0.2%  z +0.03  seasons+ 4/7  20:+27% 21:+8% 22:+8% 23:+8% 24:-3% 25:-7% 26:-6%
+    ... at FD                                                n=  437 227-210   ROI   -1.3%  z -0.30  seasons+ 3/6  21:+8% 22:+2% 23:-1% 24:-23% 25:+0% 26:-9%
+  gap 1.5+ outlier                                           n=  209 119-90    ROI   +7.5%  z +1.17  seasons+ 5/6  21:+36% 22:+6% 23:+4% 24:-23% 25:+8% 26:+12%
+    ... 4+ others on Pinnacle's number                       n=   79 48-31    ROI  +14.7%  z +1.38  seasons+ 5/6  21:+40% 22:+11% 23:+26% 24:-26% 25:+42% 26:+8%
+    ... Pinnacle just moved to its number (book lagging)     n=   52 30-22    ROI   +8.6%  z +0.66  seasons+ 3/6  21:+31% 22:+9% 23:-5% 24:-16% 25:+34% 26:-36%
+    ... no Pinnacle move                                     n=  148 83-65    ROI   +6.0%  z +0.79  seasons+ 3/6  21:+36% 22:-0% 23:-5% 24:-22% 25:+1% 26:+19%
+    ... over                                                 n=   87 49-38    ROI   +6.7%  z +0.65  seasons+ 4/6  21:+13% 22:+42% 23:+27% 24:-23% 25:+21% 26:-5%
+    ... under                                                n=  122 70-52    ROI   +8.1%  z +0.98  seasons+ 2/6  21:+47% 22:-10% 23:-12% 24:-22% 25:-1% 26:+32%
+    ... inside 1 hour                                        n=  123 78-45    ROI  +19.5%  z +2.30  seasons+ 5/6  21:+45% 22:+2% 23:+27% 24:-5% 25:+26% 26:+32%
+    ... at BetRivers                                         n=   69 35-34    ROI   -4.3%  z -0.36  seasons+ 5/6  21:+16% 22:+8% 23:+2% 24:-65% 25:+21% 26:+26%
+    ... at Caesars                                           n=   93 59-34    ROI  +19.7%  z +2.02  seasons+ 4/6  21:+46% 22:-3% 23:-24% 24:+24% 25:+26% 26:+27%
+    ... at DK                                                n=   37 23-14    ROI  +17.3%  z +1.13  seasons+ 3/5  21:+57% 23:+42% 24:-36% 25:-21% 26:+88%
+    ... at FD                                                n=   30 13-17    ROI  -17.3%  z -1.01  seasons+ 2/6  21:+15% 22:+36% 23:-100% 24:-52% 25:-62% 26:-29%
