@@ -1,43 +1,6 @@
 {
- "built": "2026-11-09T00:27:48Z",
+ "built": "2026-11-09T00:34:52Z",
  "rows": [
-  {
-   "cond": "0xd473df71870912bc0a4120c5fffc4f59cb4c26d59f8a421dbe441bbd640593cd",
-   "slug": "nhl-las-buf-2026-11-08",
-   "title": "Golden Knights vs. Sabres",
-   "mtype": "ml",
-   "start": "2026-11-08T20:30:00Z",
-   "bet": "Sabres ML",
-   "side": "Sabres",
-   "flagged": "2026-11-07T09:15:49Z",
-   "why": "a top-200 account also in this sport's top 50",
-   "proven": true,
-   "trigger": "proven",
-   "n_accounts": 1,
-   "best_rank": 197,
-   "usd": 530,
-   "paid": 0.5,
-   "ask": null,
-   "status": "live",
-   "link": "https://polymarket.us/event/nhl-las-buf-2026-11-08",
-   "other": null,
-   "kalshi_against": null,
-   "logged": true,
-   "event_id": "401892675",
-   "sport": "nhl",
-   "league": null,
-   "away": "VGK",
-   "home": "BUF",
-   "away_name": "Vegas Golden Knights",
-   "home_name": "Buffalo Sabres",
-   "game_start": "2026-11-08T20:30Z",
-   "side_std": "home",
-   "money_with": false,
-   "grade": "A",
-   "fair_board": null,
-   "inside_fair": null,
-   "books": null
-  },
   {
    "cond": "0x12fe66309ecbcceab016e901e25a0bcc355f2a07f646c94dc110a9c411e14b9e",
    "slug": "nfl-hou-lac-2026-11-08",
@@ -362,92 +325,6 @@
    }
   },
   {
-   "cond": "0xdf5bcd8e6ab6829f0b3ce73cf6102c568170b3612fa73ec230566763ceb65d30",
-   "slug": "nba-phi-chi-2026-11-08",
-   "title": "76ers vs. Bulls",
-   "mtype": "ml",
-   "start": "2026-11-08T20:30:00Z",
-   "bet": "Bulls ML",
-   "side": "Bulls",
-   "flagged": "2026-11-07T11:27:28Z",
-   "why": "a top-50 account",
-   "proven": false,
-   "trigger": "top50",
-   "n_accounts": 1,
-   "best_rank": 43,
-   "usd": 248,
-   "paid": 0.181,
-   "ask": null,
-   "status": "other side",
-   "link": "https://polymarket.us/event/nba-phi-chi-2026-11-08",
-   "other": {
-    "n_accounts": 2,
-    "best_rank": 43,
-    "usd": 3137,
-    "first": "2026-11-08T18:48:37Z"
-   },
-   "exit_bid": null,
-   "kalshi_against": null,
-   "logged": true,
-   "event_id": "401909945",
-   "sport": "nba",
-   "league": null,
-   "away": "PHI",
-   "home": "CHI",
-   "away_name": "Philadelphia 76ers",
-   "home_name": "Chicago Bulls",
-   "game_start": "2026-11-08T20:30Z",
-   "side_std": "home",
-   "money_with": false,
-   "grade": "watch",
-   "fair_board": null,
-   "inside_fair": null,
-   "books": null
-  },
-  {
-   "cond": "0xab51f54175130112a7303a235dc4a5b84860ffe7f39c40937c0f6825f85cd5c8",
-   "slug": "nba-phi-chi-2026-11-08",
-   "title": "76ers vs. Bulls",
-   "mtype": "spread",
-   "start": "2026-11-08T20:30:00Z",
-   "bet": "Bulls +9.5",
-   "side": "Bulls",
-   "flagged": "2026-11-08T16:59:48Z",
-   "why": "2 top-200 accounts",
-   "proven": false,
-   "trigger": "two",
-   "n_accounts": 2,
-   "best_rank": 119,
-   "usd": 2835,
-   "paid": 0.511,
-   "ask": null,
-   "status": "other side",
-   "link": "https://polymarket.us/event/nba-phi-chi-2026-11-08",
-   "other": {
-    "n_accounts": 1,
-    "best_rank": 194,
-    "usd": 250,
-    "first": "2026-11-08T19:46:27Z"
-   },
-   "exit_bid": null,
-   "kalshi_against": null,
-   "logged": true,
-   "event_id": "401909945",
-   "sport": "nba",
-   "league": null,
-   "away": "PHI",
-   "home": "CHI",
-   "away_name": "Philadelphia 76ers",
-   "home_name": "Chicago Bulls",
-   "game_start": "2026-11-08T20:30Z",
-   "side_std": "home",
-   "money_with": false,
-   "grade": "B",
-   "inside_fair": false,
-   "fair_board": 0.5124,
-   "books": null
-  },
-  {
    "cond": "0x86ced242518f12a9168a7b47e5a57fc0ac4e12e3bcb4981d560abe6b161fb696",
    "slug": "nba-lal-det-2026-11-08",
    "title": "Lakers vs. Pistons",
@@ -678,7 +555,7 @@
    "best_rank": 49,
    "usd": 20086,
    "paid": 0.536,
-   "ask": 0.56,
+   "ask": null,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-bkn-dal-2026-11-08",
    "other": {
@@ -687,7 +564,7 @@
     "usd": 34407,
     "first": "2026-11-08T22:45:03Z"
    },
-   "exit_bid": 0.55,
+   "exit_bid": null,
    "kalshi_against": null,
    "logged": true,
    "event_id": "401909948",
@@ -907,14 +784,14 @@
     "clv": 0.43
    }
   },
-  "n": 154,
+  "n": 155,
   "won": 68,
-  "units": -11.61,
+  "units": -12.11,
   "by_grade": {
    "A": {
-    "n": 108,
+    "n": 109,
     "won": 46,
-    "units": -10.04,
+    "units": -10.54,
     "clv": 0.08
    },
    "B": {
@@ -930,7 +807,7 @@
     "clv": -1.75
    }
   },
-  "units_1u": -27.02,
+  "units_1u": -28.02,
   "clv": -0.22,
   "n_venue": 73,
   "units_venue": -5.34,
@@ -965,18 +842,6 @@
     "best_rank": 143,
     "usd": 5365
    }
-  },
-  "401909948:nba_ats_hot_home": {
-   "with": {
-    "n": 1,
-    "best_rank": 112,
-    "usd": 34407
-   },
-   "against": {
-    "n": 4,
-    "best_rank": 12,
-    "usd": 20425
-   }
   }
  },
  "by_event": {
@@ -1004,32 +869,6 @@
     "n": 1,
     "best_rank": 49,
     "usd": 6921
-   }
-  },
-  "401909948|ml": {
-   "away": {
-    "n": 1,
-    "best_rank": 93,
-    "usd": 104
-   }
-  },
-  "401909948|total": {
-   "over": {
-    "n": 2,
-    "best_rank": 58,
-    "usd": 456
-   }
-  },
-  "401909948|spread": {
-   "away": {
-    "n": 4,
-    "best_rank": 12,
-    "usd": 20425
-   },
-   "home": {
-    "n": 1,
-    "best_rank": 112,
-    "usd": 34407
    }
   },
   "401909949|ml": {
