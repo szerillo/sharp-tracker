@@ -1,6 +1,50 @@
 {
- "built": "2026-11-09T08:22:35Z",
+ "built": "2026-11-09T08:34:52Z",
  "rows": [
+  {
+   "cond": "0x3fc1b3baed516c3f03aef0435531f6945e26c2bdfaa2fdc5f125de5709004aea",
+   "slug": "nba-lal-atl-2026-11-09",
+   "title": "Lakers vs. Hawks",
+   "mtype": "ml",
+   "start": "2026-11-10T00:00:00Z",
+   "bet": "Hawks ML",
+   "side": "Hawks",
+   "flagged": "2026-11-07T11:31:12Z",
+   "why": "3 top-200 accounts",
+   "proven": false,
+   "trigger": "two",
+   "n_accounts": 3,
+   "best_rank": 43,
+   "usd": 653,
+   "paid": 0.485,
+   "ask": 0.48,
+   "status": "live",
+   "link": "https://polymarket.us/event/nba-lal-atl-2026-11-09",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401909952",
+   "sport": "nba",
+   "league": null,
+   "away": "LAL",
+   "home": "ATL",
+   "away_name": "Los Angeles Lakers",
+   "home_name": "Atlanta Hawks",
+   "game_start": "2026-11-10T00:00Z",
+   "side_std": "home",
+   "money_with": true,
+   "grade": "A",
+   "fair_board": null,
+   "inside_fair": null,
+   "books": {
+    "at": "2026-11-09T02:51:51Z",
+    "fair": null,
+    "q": {
+     "Polymarket": 0.4,
+     "Kalshi": 0.42
+    }
+   }
+  },
   {
    "cond": "0x372ef9fd2ef5d6e26caa63a85da27ffaf9f6e5d0f10d6e4598c772e7b570093c",
    "slug": "nhl-nyi-sj-2026-11-09",
@@ -126,57 +170,6 @@
      "Novig": 0.52,
      "Polymarket": 0.52,
      "Kalshi": 0.53
-    }
-   }
-  },
-  {
-   "cond": "0x3fc1b3baed516c3f03aef0435531f6945e26c2bdfaa2fdc5f125de5709004aea",
-   "slug": "nba-lal-atl-2026-11-09",
-   "title": "Lakers vs. Hawks",
-   "mtype": "ml",
-   "start": "2026-11-10T00:00:00Z",
-   "bet": "Hawks ML",
-   "side": "Hawks",
-   "flagged": "2026-11-07T11:31:12Z",
-   "why": "3 top-200 accounts",
-   "proven": false,
-   "trigger": "two",
-   "n_accounts": 3,
-   "best_rank": 43,
-   "usd": 653,
-   "paid": 0.485,
-   "ask": 0.48,
-   "status": "live",
-   "link": "https://polymarket.us/event/nba-lal-atl-2026-11-09",
-   "other": null,
-   "kalshi_against": {
-    "move": 5.0,
-    "now": 54.5,
-    "state": "held"
-   },
-   "logged": true,
-   "event_id": "401909952",
-   "sport": "nba",
-   "league": null,
-   "away": "LAL",
-   "home": "ATL",
-   "away_name": "Los Angeles Lakers",
-   "home_name": "Atlanta Hawks",
-   "game_start": "2026-11-10T00:00Z",
-   "side_std": "home",
-   "conflict": [
-    "Kalshi move"
-   ],
-   "money_with": true,
-   "grade": "A",
-   "fair_board": null,
-   "inside_fair": null,
-   "books": {
-    "at": "2026-11-09T02:51:51Z",
-    "fair": null,
-    "q": {
-     "Polymarket": 0.4,
-     "Kalshi": 0.42
     }
    }
   },
