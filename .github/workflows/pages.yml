@@ -63,9 +63,16 @@ jobs:
     needs: deploy
     runs-on: ubuntu-latest
     timeout-minutes: 10
+    permissions:
+      contents: write     # 11/8: commits the Grade C sharp rows the check reads off the page (data/state/sharp_c_paper.jsonl)
     steps:
       - uses: actions/checkout@v4
-        with: {sparse-checkout: sharp/board_check.js, sparse-checkout-cone-mode: false}
+        with:
+          sparse-checkout: |
+            sharp/board_check.js
+            sharp/sharp_c_log.py
+            data/state/sharp_c_paper.jsonl
+          sparse-checkout-cone-mode: false
       - uses: actions/setup-node@v4
         with: {node-version: '20'}
       - name: install the browser
@@ -73,3 +80,11 @@ jobs:
       - name: board check (every sized open bet visible on the live page)
         env: {NTFY_TOPIC: '${{ secrets.NTFY_TOPIC }}'}
         run: sleep 45 && node sharp/board_check.js "${{ needs.deploy.outputs.page_url || 'https://szerillo.github.io/sharp-tracker/' }}"
+      - name: log Grade C sharp rows (sharp accounts plus money or a price move, no flag) for the bet tracker
+        if: always()
+        run: |
+          [ -f board_check.json ] || exit 0
+          python3 sharp/sharp_c_log.py board_check.json data/state/sharp_c_paper.jsonl || exit 0
+          git config user.name "tracker-bot"; git config user.email "actions@users.noreply.github.com"
+          git add data/state/sharp_c_paper.jsonl; git commit -q -m "grade C sharp rows $(date -u +%H:%M)" || exit 0
+          for i in 1 2 3 4 5; do git pull -q --rebase -X theirs && git push -q && exit 0; git rebase --abort 2>/dev/null || true; sleep $((RANDOM % 10 + 3)); done

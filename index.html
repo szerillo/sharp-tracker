@@ -440,6 +440,24 @@ const lbl = (k, v) => `<div><span class="lbl">${k}</span>${v}</div>`;
 const facts = L => `<dl class="facts">${L.filter(x => x && x[1]).map(([k, v]) => `<dt>${k}</dt><dd>${v}</dd>`).join('')}</dl>`;
 // one row shape for every bet, lean and signal (Sean, 11/2): when, game, bet, size, price, why it flagged, record; click for the details
 const SHEAD = `<thead><tr><th>Start</th><th>Bet</th><th>Size</th><th>Price</th></tr></thead>`;
+// 11/8 (Sean): 'line moved against since flag'. The bet tracker re-reads every open bet's price path each signals run (sharp/bet_log.py):
+// line_value = the number taken minus the main line now (points, + = better than now); clv = price now minus the price taken (cents).
+// A pregame row whose number has moved half a point or more against the side, or whose price has moved 3 cents or more against it on a
+// moneyline, gets a tag, so a flag that the market has since moved away from is not bet blind.
+let _mvMap = null, _mvBL = null;
+const movedAgainst = o => {
+  if (!o.ev || !o.side || !BL || !BL.rows) return '';
+  if (_mvBL !== BL) { _mvBL = BL; _mvMap = {}; for (const b of BL.rows) { if (b.won != null || !b.event_id || !b.side || !['system', 'sharp', 'curve', 'props'].includes(b.src)) continue;
+    const k = `${b.event_id}|${mkN(b.market)}|${b.side}`; (_mvMap[k] = _mvMap[k] || []).push(b); } }
+  const L = _mvMap[`${o.ev}|${mkN(o.mk)}|${o.side}`] || [];
+  for (const b of L) {
+    if (b.line_value != null && b.line_value <= -0.5 && b.close_line != null)
+      return ` <span class="tag-against" title="Flagged at ${b.line}; the main line is now ${b.close_line} (${Math.abs(b.line_value)} against).">line moved against since flag (now ${b.close_line > 0 && /spread/.test(b.market) ? '+' : ''}${b.close_line})</span>`;
+    if (b.line_value == null && b.clv != null && b.clv <= -3 && /ml$/.test(mkN(b.market)))
+      return ` <span class="tag-against" title="Price taken ${(100 * b.price).toFixed(0)}¢; now ${(100 * b.close).toFixed(0)}¢ at the best book.">price moved against since flag (${(-b.clv).toFixed(0)}¢)</span>`;
+  }
+  return '';
+};
 function sRow(o) {
   // 11/6 (Sean): main table is Start / Bet / Size / Price; why it flagged, the record and the rule details open on click
   const id = String(o.id).replace(/['"\\]/g, ''), open = window._wo[id];
@@ -458,7 +476,7 @@ function sRow(o) {
   const tagA = tierA + ` data-rank="${rank}" data-t="${o.start ? Date.parse(o.start) || 0 : 0}"` + (o.ev ? ` data-ev="${esc(String(o.ev))}" data-side="${esc(String(o.side || ''))}" data-sized="${o.size ? 1 : 0}"` : '');   // 11/6: read by the board check (sharp/board_check.js)
   const head = `<tr class="erow${o.gone ? ' gone' : ''}${more ? ' click' : ''}"${tagA}${started ? ' data-live="1"' : ''}${more ? ` onclick="_wo['${id}']=!_wo['${id}'];draw()"` : ''}>
     <td class="c-when"><b>${TM(o.start)}</b><div class="small dim">${until(o.start)}</div>${actHtml}</td>
-    <td class="c-bet">${more ? `<span class="chev">${open ? '▾' : '▸'}</span>` : ''}<span class="bet">${o.bet}</span>${o.unchecked ? ' <span class="tag-against" title="No odds, Kalshi or money data for this game (FCS). Only sharp accounts on the other side were checked.">only sharp accounts checked</span>' : ''}${o.flagged && Date.now() - Date.parse(o.flagged) < 3600e3 ? ' <span class="newpill" title="flagged in the last hour">new</span>' : ''} <span class="small dim">${o.sub || ''}</span>${o.status ? ` <div class="stat stat-${o.status[0]}" style="margin-left:6px">${o.status[1]}</div>` : ''}<div class="small dim"><span class="badge b-sport">${esc(o.sportLabel)}</span> ${o.game}</div><!--ALSO--></td>
+    <td class="c-bet">${more ? `<span class="chev">${open ? '▾' : '▸'}</span>` : ''}<span class="bet">${o.bet}</span>${o.start && new Date(o.start) > Date.now() ? movedAgainst(o) : ''}${o.unchecked ? ' <span class="tag-against" title="No odds, Kalshi or money data for this game (FCS). Only sharp accounts on the other side were checked.">only sharp accounts checked</span>' : ''}${o.flagged && Date.now() - Date.parse(o.flagged) < 3600e3 ? ' <span class="newpill" title="flagged in the last hour">new</span>' : ''} <span class="small dim">${o.sub || ''}</span>${o.status ? ` <div class="stat stat-${o.status[0]}" style="margin-left:6px">${o.status[1]}</div>` : ''}<div class="small dim"><span class="badge b-sport">${esc(o.sportLabel)}</span> ${o.game}</div><!--ALSO--></td>
     <td class="c-size">${o.size || '<span class="dim">—</span>'}</td>
     <td class="c-price">${o.price || '<span class="dim">—</span>'}${o.link ? `<div class="go">${o.link}</div>` : ''}</td></tr>`;
   const det = `${o.why ? `<div style="margin-bottom:6px"><b>Why it flagged:</b> ${o.why}</div>` : ''}${o.rec ? `<div style="margin-bottom:6px">${o.rec}</div>` : ''}${o.detail || ''}`;

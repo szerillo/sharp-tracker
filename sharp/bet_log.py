@@ -158,6 +158,18 @@ def main():
                          event_id=row.get('event_id'), game=f"{row.get('away', '')} @ {row.get('home', '')}" if row.get('event_id') else p.get('slug'),
                          start=p['start'], market=p['mtype'], side=row.get('side_std'), line=line, flagged=p['logged'], venue='Polymarket', price=p['price'],
                          won={'W': 1, 'L': 0}.get(p.get('result')), bet=p['bet']))
+    # ---- Grade C sharp rows (11/8, Sean): sharp accounts plus money or a price move, no flag. Logged off the published page by the board
+    # check (sharp/sharp_c_log.py) at the price shown when first seen; graded here from final scores (below, with the watch signals).
+    cp = os.path.join(SD, 'sharp_c_paper.jsonl')
+    if os.path.exists(cp):
+        for l in open(cp):
+            try: c = json.loads(l)
+            except Exception: continue
+            if not c.get('price'): continue
+            e = S.get(c['event_id']) or S.get(str(c['event_id'])) or {}
+            bets.append(dict(id='c:' + c['key'], src='sharp', cat='sharp C', rule='sharps + market move, no flag', sport=e.get('sport'), event_id=c['event_id'],
+                             game=f"{e.get('away', '?')} @ {e.get('home', '?')}", start=c['start'], market=c['market'], side=c['side'], line=c.get('line'),
+                             flagged=c['logged'], venue=(c.get('price_text') or '').split(' ')[-1][:20] or None, price=c['price'], won=None, bet=c.get('bet')))
     # ---- tennis set 1
     tp = os.path.join(ROOT, 'data', 'tennis', 'fs_paper.jsonl'); tg = os.path.join(ROOT, 'data', 'tennis', 'fs_graded.json')
     G = {g['event_id']: g for g in (json.load(open(tg)) if os.path.exists(tg) else [])}
@@ -290,6 +302,7 @@ def main():
             if d_: b['depth'] = d_
             # market move from our first tape point to the flag, toward (+) or away from (-) the side taken. 11/5 Polymarket re-score at
             # Pinnacle's close (data/research/poly_pinnacle.json): top-200 fills WITH Pinnacle's move +5.5% out of sample, AGAINST it -8.4%.
+            base = re.sub(r'^(1h|1q|1p)_', '', b['market'])    # 11/8: was set only further down, so this used the previous bet's market
             try:
                 mv = None
                 if base in ('spread', 'total') and b['line'] is not None and not (base == 'spread' and b['sport'] in ('nhl', 'mlb')):
@@ -344,7 +357,7 @@ def main():
         elif base == 'spread': b['margin'] = round(((h_ - a_) if b['side'] == 'home' else (a_ - h_)) + L, 1)
         elif base == 'ml': b['margin'] = (h_ - a_) if b['side'] == 'home' else (a_ - h_)
         b['unit_name'] = UNIT.get(b['sport'], 'points')
-        if b['src'] == 'watch' and b['won'] is None and b.get('margin') is not None and (base != 'total' and base != 'spread' or b['line'] is not None):
+        if (b['src'] == 'watch' or b['cat'] == 'sharp C') and b['won'] is None and b.get('margin') is not None and (base != 'total' and base != 'spread' or b['line'] is not None):
             b['won'] = 1 if b['margin'] > 0 else 0 if b['margin'] < 0 else 0.5
     # correlation (Sean, 11/2): bets on one game in one family (the team side: moneyline / spread, any period; or the total, any period)
     fam = lambda m: 'total' if ('total' in m or re.sub(r'^(1h|1q|1p)_', '', m).startswith('tt_')) else ('side' if re.sub(r'^(1h|1q|1p)_', '', m) in ('ml', 'spread') else None)
@@ -420,7 +433,7 @@ def main():
     opp_summ['none'] = summ([b for b in bets if b['event_id'] and b['side'] and not b.get('opp') and b['src'] in ('system', 'sharp')])
     # 11/5 (Sean): never count both sides of one game. Among counted bets (systems, leans, sharp A/B, tennis), a later bet on the other
     # team (moneyline or spread) or the other side of the total is kept on the list but not counted (counted=False, conflict_with=id)
-    COUNTED = ('system A', 'system B', 'lean C', 'sharp A', 'sharp B', 'tennis')
+    COUNTED = ('system A', 'system B', 'lean C', 'sharp A', 'sharp B', 'sharp C', 'tennis')
     # 11/5 (Sean): only the other side of the SAME market cancels: the later bet stays listed, not counted, no units, with a note. A spread on
     # one team and a moneyline on the other always both count; they are labelled as a middle (both can win) or a reverse middle (both can lose).
     per_ = lambda b: '1h' if b['market'].startswith(('1h_', '1p_', '1s_')) else 'fg'

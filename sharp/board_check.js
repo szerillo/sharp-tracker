@@ -18,7 +18,8 @@ const SRC = new Set(['system', 'sharp', 'curve', 'props']);
   const BL = await get('data/state/bet_log.json');
   const SY = await get('data/state/system_fires.json');
   const now = Date.now();
-  const cand = (BL.rows || []).filter(b => SRC.has(b.src) && SIZED.has(b.cat) && b.won == null && b.event_id && b.side && Date.parse(b.start) > now + 5 * 60e3);
+  // Grade C rows come and go with the signals (they are logged from this page), so a C row that left the page is not a missing bet
+  const cand = (BL.rows || []).filter(b => SRC.has(b.src) && SIZED.has(b.cat) && b.cat !== 'sharp C' && b.won == null && b.event_id && b.side && Date.parse(b.start) > now + 5 * 60e3);
 
   // 11/7: a sized bet that matched no schedule game gets no opposing market signals (Georgia State +6.5 showed clean with a Kalshi move
   // against it). Listed every run; FCS games have no schedule, so those are expected and say 'only sharp accounts checked' on the board.
@@ -34,6 +35,13 @@ const SRC = new Set(['system', 'sharp', 'curve', 'props']);
   const want = cand.filter((b, i) => inView[i]);
   // 11/7: the 'Not betting right now' list shows one reason at a time (Hold / Watch / Paper / Not met); a bought-out flag under Watch / passed
   // is on the board, one click away. Collect rows under every chip. A conflict row stands for both sides (data-oside).
+  // 11/8 (Sean, Grade C into the tracker): a Grade C sharp row (sharp accounts plus money or a price move, no flag) exists only on the page,
+  // so the page is the record of it. Every sized C row on the default view is written out; the pages job appends new ones to
+  // data/state/sharp_c_paper.jsonl at the price shown when first seen, and the bet tracker grades them from final scores.
+  const sharpC = await page.evaluate(() => [...document.querySelectorAll('tr.erow[data-kind="sharp"][data-tier="C"][data-rank="0"]')].map(tr => ({
+    ev: tr.dataset.ev, mk: tr.dataset.mk || '', side: tr.dataset.side, t: +tr.dataset.t || 0, f: +tr.dataset.f || 0, lbl: tr.dataset.lbl || '',
+    bet: (tr.querySelector('.bet') || {}).innerText || '', price: ((tr.querySelector('.c-price') || {}).innerText || '').replace(/\s+/g, ' ').trim(),
+    size: ((tr.querySelector('.c-size') || {}).innerText || '').replace(/\s+/g, ' ').trim() })));
   const chips = await page.evaluate(() => typeof _nb === 'undefined' ? [null] : ['hold', 'watch', 'paper', 'notmet']);
   const shown = [];
   for (const k of chips) {
@@ -64,7 +72,7 @@ const SRC = new Set(['system', 'sharp', 'curve', 'props']);
   const fmt = b => `${b.sport} ${b.game} ${b.market} ${b.side}${b.line != null ? ' ' + b.line : ''} (${b.cat}, ${b.rule || b.src})`;
   const out = { checked: new Date().toISOString(), site: SITE, bets_in_window: want.length, rows_visible: vis.length,
                 missing: missing.map(fmt), held_unsized: held.map(fmt), sized_rows_hidden_in_dropdowns: hidden.map(x => x.text),
-                system_file_age_h: +sysAgeH.toFixed(1), unmatched: unmatched.map(u => `${u.game} ${u.bet || ''}`), page_errors: errors, ok: !missing.length && !hidden.length && !stale && !errors.length };
+                system_file_age_h: +sysAgeH.toFixed(1), sharp_c: sharpC, unmatched: unmatched.map(u => `${u.game} ${u.bet || ''}`), page_errors: errors, ok: !missing.length && !hidden.length && !stale && !errors.length };
   fs.writeFileSync('board_check.json', JSON.stringify(out, null, 1));
   console.log(`[board check] ${want.length} sized open bets in the window; ${vis.length} rows visible; missing ${missing.length}; held (shown, no size) ${held.length}; sized rows inside closed dropdowns ${hidden.length}; system file ${sysAgeH.toFixed(1)}h old; page errors ${errors.length}`);
   for (const m of out.missing) console.log('  MISSING  ' + m);
