@@ -1,4 +1,4 @@
-name: signals (market and sharp board, every 20 minutes)
+name: signals (market and sharp board, every 10 minutes)
 # Sean, 11/4: systems only need a couple of pulls a day; the market and Polymarket sharp information needs to update all day.
 # This job refreshes everything on the board that comes from the live tapes, without the price-database rebuild the systems engine
 # needs: the big-money / Kalshi-move watch, the tennis set-1 watch, the move tape, the duplicate cleanup and the bet tracker.
@@ -16,7 +16,12 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 30   # 11/7: runs reached 20 min and were cut off before the commit (no board update 2:10-3:30 PM ET)
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v4     # 11/8: skip the Odds API history (about 540 MB; nothing in this job reads it), checkout was ~2 min
+        with:
+          sparse-checkout: |
+            /*
+            !/data/oddsapi/
+          sparse-checkout-cone-mode: false
       - uses: actions/setup-python@v5
         with: {python-version: '3.12'}
       - run: pip install -q numpy pandas
@@ -28,13 +33,13 @@ jobs:
       - name: exchange money split, move tape, tape check, tennis, MMA steam and the late pass, in parallel
         env: {MOVES_DAYS: '3', ODDS_API_KEY: '${{ secrets.ODDS_API_KEY }}'}
         run: |
-          mkdir -p /tmp/par
-          ( python3 sharp/flow_live.py ) > /tmp/par/1_flow.log 2>&1 &
-          ( python3 sharp/moves.py ) > /tmp/par/2_moves.log 2>&1 &
-          ( python3 sharp/tape_health.py ) > /tmp/par/3_tape.log 2>&1 &
-          ( python3 loggers/tennis_scores.py --days-back 2 && python3 sharp/tennis_watch.py ) > /tmp/par/4_tennis.log 2>&1 &
-          ( python3 sharp/mma_steam.py ) > /tmp/par/5_mma.log 2>&1 &
-          ( BUILD_DB=data/state/soon.sqlite BUILD_SOON_H=2.5 python3 sharp/build_db.py && python3 sharp/late_pass.py ) > /tmp/par/6_late.log 2>&1 &
+          mkdir -p /tmp/par; T0=$SECONDS
+          ( python3 sharp/flow_live.py ; echo "[took $((SECONDS - T0)) s]" ) > /tmp/par/1_flow.log 2>&1 &
+          ( python3 sharp/moves.py ; echo "[took $((SECONDS - T0)) s]" ) > /tmp/par/2_moves.log 2>&1 &
+          ( python3 sharp/tape_health.py ; echo "[took $((SECONDS - T0)) s]" ) > /tmp/par/3_tape.log 2>&1 &
+          ( python3 loggers/tennis_scores.py --days-back 2 && python3 sharp/tennis_watch.py ; echo "[took $((SECONDS - T0)) s]" ) > /tmp/par/4_tennis.log 2>&1 &
+          ( python3 sharp/mma_steam.py ; echo "[took $((SECONDS - T0)) s]" ) > /tmp/par/5_mma.log 2>&1 &
+          ( BUILD_DB=data/state/soon.sqlite BUILD_SOON_H=2.5 python3 sharp/build_db.py && python3 sharp/late_pass.py ; echo "[took $((SECONDS - T0)) s]" ) > /tmp/par/6_late.log 2>&1 &
           wait
           for f in /tmp/par/*.log; do echo "::group::$(basename $f)"; cat "$f"; echo "::endgroup::"; done
       - name: remove duplicate bets from the records
