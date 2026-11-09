@@ -159,8 +159,11 @@ def main():
     # ---- Polymarket sharp-account flags
     import sharp.sharp_live as SL
     meta = json.load(open(SL.META)) if os.path.exists(SL.META) else {}
-    for l in open(os.path.join(SD, 'sharp_paper.jsonl')):
-        p = json.loads(l)
+    seen_ladder = set()    # 11/9: one bet per game, market and side; extra lines of a laddered flag (each its own Polymarket market) are skipped
+    for p in sorted((json.loads(l) for l in open(os.path.join(SD, 'sharp_paper.jsonl'))), key=lambda p: p.get('logged') or ''):
+        lk = (p.get('slug'), p.get('mtype'), p.get('side'))
+        if lk in seen_ladder: continue
+        seen_ladder.add(lk)
         row = dict(title=(meta.get(p['cond']) or {}).get('title') or '', start=p['start'], side=p['side'], mtype=p['mtype'], bet=p['bet'])
         SL.map_rows([row])
         num = re.findall(r'[-+]?\d+(?:\.\d+)?', p['bet']); line = float(num[-1]) if p['mtype'] in ('spread', 'total') and num else None

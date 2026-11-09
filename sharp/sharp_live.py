@@ -298,6 +298,10 @@ def main():
     meta = json.load(open(META)) if os.path.exists(META) else {}
     paper = [json.loads(l) for l in open(PAPER)] if os.path.exists(PAPER) else []
     logged = {p['cond'] for p in paper}
+    # 11/9: Polymarket lists every spread / total line as its own market, so one account laddering a game (Under 228.5, 229.5, 230.5)
+    # was logged as several bets, each sized. One bet per game, market and side (Sean's one-bet-one-place rule): later lines are not logged.
+    lkey = lambda slug, mt, sd: (slug, mt, sd)
+    logged_k = {lkey(p['slug'], p['mtype'], p['side']) for p in paper}
     KM = []
     try: KM = [m for m in json.load(open(os.path.join(ROOT, 'data', 'state', 'flow_live.json'))).get('moves') or [] if m['market'] == 'ml']
     except Exception: pass
@@ -349,13 +353,14 @@ def main():
         # 11/5 (poly_pinnacle.py, held out): a flag whose Polymarket price sits below the tracker's fair for the side (Pinnacle-based) was
         # +9.3% / +2.3 pts CLV vs +3.8% / -2.0 outside it. Annotation on the board and a split in the paper record; not a filter yet.
         rows.append(row)
-        if cond not in logged and start > NOW and a and not opp:      # a flag first seen after a sharp already took the other side is not logged
+        if cond not in logged and lkey(row['slug'], row['mtype'], side) in logged_k: row['ladder'] = True   # another line of a logged bet
+        elif cond not in logged and start > NOW and a and not opp:      # a flag first seen after a sharp already took the other side is not logged
             map_rows([row]); conflicts([row])
             vp = venue_prices(row); fair_ = (vp or {}).get('fair'); row['fair_board'] = fair_; row['inside_fair'] = (a < fair_) if (fair_ is not None and a is not None) else None
             paper.append(dict(grade=row.get('grade'), venues=vp, inside_fair=row['inside_fair'], event_id=row.get('event_id'), cond=cond, slug=row['slug'], bet=row['bet'], side=side, mtype=row['mtype'], start=row['start'], flagged=row['flagged'],
                               logged=dt.datetime.fromtimestamp(NOW, dt.timezone.utc).strftime('%Y-%m-%dT%H:%M:%SZ'), price=a, why=row['why'], best_rank=row['best_rank'],
                               kalshi_against=bool(row['kalshi_against'])))
-            logged.add(cond); row['logged'] = True
+            logged.add(cond); logged_k.add(lkey(row['slug'], row['mtype'], side)); row['logged'] = True
     # 11/6 (Sean): a logged flag that later grades higher (more accounts pile in, a sport-proven account joins) shows on the board at the new
     # grade and size, so the record takes it at that grade too, at the ask when the upgrade is first seen (the first ask is kept)
     RK = {'A': 0, 'B': 1, 'watch': 2}; PP = {p['cond']: p for p in paper}

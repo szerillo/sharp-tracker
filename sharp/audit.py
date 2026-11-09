@@ -82,7 +82,10 @@ def main():
     bl = load('data/state/bet_log.json') or {}
     ids = {r.get('id') for r in bl.get('rows') or []}
     want = {'s:' + r['fill_id'] for r in ledger if r.get('result') != 'void' and r.get('mclass', 'game') == 'game' and str(r.get('rule_tag', '')).startswith('paper:')}
-    want |= {'p:' + p['cond'] for p in jl('data/state/sharp_paper.jsonl')}
+    _seen = set()    # 11/9: the tracker counts one sharp bet per game, market and side (the first line logged), same here
+    for p in sorted(jl('data/state/sharp_paper.jsonl'), key=lambda p: p.get('logged') or ''):
+        k = (p.get('slug'), p.get('mtype'), p.get('side'))
+        if k not in _seen: _seen.add(k); want.add('p:' + p['cond'])
     gap = want - ids
     check('bet tracker has every flagged bet', not gap, f"{len(want)} in the records, {len(gap)} missing from the tracker", level='warn' if len(gap) <= 3 else 'error')
     ok = all(c['ok'] or c['level'] == 'warn' for c in C)
