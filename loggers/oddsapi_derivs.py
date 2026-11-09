@@ -45,6 +45,8 @@ if '--quarters' in sys.argv: PLAN = QUARTERS
 if '--curve' in sys.argv: PLAN = CURVE
 if '--full' in sys.argv: PLAN = FULL
 if '--props' in sys.argv: PLAN = PROPS
+# 11/8: --markets a,b pulls only those markets (an early props snapshot for the rules that fire, without paying for every prop market)
+if '--markets' in sys.argv: PLAN = {k: sys.argv[sys.argv.index('--markets') + 1] for k in PLAN}
 SINCE = '2023-05-03'
 
 

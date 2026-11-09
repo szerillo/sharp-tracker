@@ -9,6 +9,7 @@ on:
       sports: {description: 'space-separated sports', default: 'nba nhl mlb cbb cfb nfl wnba soccer tennis', required: false}
       mode: {description: 'full (period and team markets), props (player props) or curve (full game + the curve-rule markets)', default: 'full', required: false}
       early: {description: 'minutes before the start for the snapshot (blank = 10)', default: '', required: false}
+      markets: {description: 'only these markets, comma-separated (blank = the mode''s full list)', default: '', required: false}
 permissions:
   contents: write
 jobs:
@@ -37,7 +38,7 @@ jobs:
           }
           end=$(( $(date +%s) + 20400 ))
           while [ $(date +%s) -lt $end ]; do
-            rc=0; timeout 1800 python3 loggers/oddsapi_derivs.py ${{ matrix.sport }} --${{ inputs.mode || 'full' }} ${{ inputs.early && format('--early {0}', inputs.early) || '' }} --newest-first --floor 3000000 || rc=$?     # || keeps bash -e from aborting before the commit (11/6: lost a checkpoint)
+            rc=0; timeout 1800 python3 loggers/oddsapi_derivs.py ${{ matrix.sport }} --${{ inputs.mode || 'full' }} ${{ inputs.early && format('--early {0}', inputs.early) || '' }} ${{ inputs.markets && format('--markets {0}', inputs.markets) || '' }} --newest-first --floor 3000000 || rc=$?     # || keeps bash -e from aborting before the commit (11/6: lost a checkpoint)
             push
             [ $rc -eq 124 ] || break        # finished (not a timeout): stop
           done
