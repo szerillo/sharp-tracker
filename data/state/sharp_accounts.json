@@ -1,5 +1,5 @@
 {
- "built": "2026-11-09T04:24:03Z",
+ "built": "2026-11-09T04:31:02Z",
  "rows": [
   {
    "cond": "0x8a7e1452bda9f224ee3aaf004668164bd6a4226a7b496ea407eaf8c4e00b97c6",
@@ -166,49 +166,6 @@
    "books": null
   },
   {
-   "cond": "0x347e6e1fdf8c4cd959a05ea42aa9c7ce2f5d69708b42d56595eab832d9bf5b41",
-   "slug": "nba-bkn-dal-2026-11-08",
-   "title": "Nets vs. Mavericks",
-   "mtype": "spread",
-   "start": "2026-11-09T00:30:00Z",
-   "bet": "Nets +8.5",
-   "side": "Nets",
-   "flagged": "2026-11-08T16:19:01Z",
-   "why": "2 top-200 accounts",
-   "proven": false,
-   "trigger": "two",
-   "n_accounts": 2,
-   "best_rank": 49,
-   "usd": 20086,
-   "paid": 0.536,
-   "ask": null,
-   "status": "other side",
-   "link": "https://polymarket.us/event/nba-bkn-dal-2026-11-08",
-   "other": {
-    "n_accounts": 1,
-    "best_rank": 112,
-    "usd": 34407,
-    "first": "2026-11-08T22:45:03Z"
-   },
-   "exit_bid": null,
-   "kalshi_against": null,
-   "logged": true,
-   "event_id": "401909948",
-   "sport": "nba",
-   "league": null,
-   "away": "BKN",
-   "home": "DAL",
-   "away_name": "Brooklyn Nets",
-   "home_name": "Dallas Mavericks",
-   "game_start": "2026-11-09T00:30Z",
-   "side_std": "away",
-   "money_with": false,
-   "grade": "B",
-   "inside_fair": false,
-   "fair_board": null,
-   "books": null
-  },
-  {
    "cond": "0xc2c8c1692b4f29d36ca4b0763046f46b4c1606cdb9355d5d466ea1730c265ab9",
    "slug": "nba-bos-mil-2026-11-08",
    "title": "Celtics vs. Bucks",
@@ -272,8 +229,8 @@
    "link": "https://polymarket.us/event/nba-lal-atl-2026-11-09",
    "other": null,
    "kalshi_against": {
-    "move": 9.0,
-    "now": 58.5,
+    "move": 8.5,
+    "now": 58.0,
     "state": "held"
    },
    "logged": true,
@@ -342,7 +299,7 @@
    "conflict": [
     "Kalshi bet back"
    ],
-   "money_with": false,
+   "money_with": true,
    "grade": "A",
    "fair_board": 0.6144,
    "inside_fair": false,
