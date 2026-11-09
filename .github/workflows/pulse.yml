@@ -42,8 +42,6 @@ jobs:
             # system's range late in the day were missed with three runs a day; systems now fill 1-30 h before the start)
             mm=$((10#$(TZ=America/New_York date +%M))); hh=$((10#$h))
             if [ $hh -ge 9 ] && [ $hh -le 21 ] && [ $mm -ge 40 ] && [ $mm -lt 45 ]; then fire tracker.yml; fi
-            # expert pick log (11/8): 4 times a day so settled picks are caught before they roll off the profile pages
-            case $hh in 12|17|23|3) if [ $mm -ge 50 ] && [ $mm -lt 55 ]; then fire experts.yml; fi ;; esac
             sleep 300
           done
           fire pulse.yml

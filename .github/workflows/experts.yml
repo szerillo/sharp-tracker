@@ -1,5 +1,6 @@
 name: experts (trusted experts' Action Network picks, graded by Action)
-# Sean, 11/8: log the 8 trusted experts' picks with results. Dispatched by pulse at 12:50 PM, 5:50 PM, 11:50 PM and 3:50 AM ET.
+# Sean, 11/8: log the trusted experts' picks with results. Not scheduled: Action Network serves GitHub's servers a bot-check page
+# (2.4 KB, no data) instead of the profile, so this only works if that changes. The log is filled from Sean's browser instead.
 on:
   workflow_dispatch: {}
 permissions:
