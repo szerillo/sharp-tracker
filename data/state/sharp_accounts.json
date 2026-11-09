@@ -1,6 +1,43 @@
 {
- "built": "2026-11-09T22:18:04Z",
+ "built": "2026-11-09T22:35:01Z",
  "rows": [
+  {
+   "cond": "0x06ddc853c5d0446b52cf40898e7a9067151cbdb3517da4dd7457ce2607976f5b",
+   "slug": "nba-lal-atl-2026-11-09",
+   "title": "Lakers vs. Hawks",
+   "mtype": "spread",
+   "start": "2026-11-10T00:00:00Z",
+   "bet": "Hawks +1.5",
+   "side": "Hawks",
+   "flagged": "2026-11-09T22:30:52Z",
+   "why": "2 top-200 accounts",
+   "proven": false,
+   "trigger": "two",
+   "n_accounts": 2,
+   "best_rank": 110,
+   "usd": 1632,
+   "paid": 0.563,
+   "ask": 0.6,
+   "status": "live",
+   "link": "https://polymarket.us/event/nba-lal-atl-2026-11-09",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401909952",
+   "sport": "nba",
+   "league": null,
+   "away": "LAL",
+   "home": "ATL",
+   "away_name": "Los Angeles Lakers",
+   "home_name": "Atlanta Hawks",
+   "game_start": "2026-11-10T00:00Z",
+   "side_std": "home",
+   "money_with": true,
+   "grade": "A",
+   "fair_board": null,
+   "inside_fair": null,
+   "books": null
+  },
   {
    "cond": "0x9dba4642f4329325c0bf83d5d0fb93f688b7ddabb745124704153fbc2b00b8f6",
    "slug": "nba-lal-atl-2026-11-09",
@@ -10,14 +47,14 @@
    "bet": "Under 235.5",
    "side": "Under",
    "flagged": "2026-11-09T18:00:06Z",
-   "why": "a top-50 account",
+   "why": "2 top-200 accounts",
    "proven": false,
-   "trigger": "top50",
-   "n_accounts": 1,
+   "trigger": "two",
+   "n_accounts": 2,
    "best_rank": 40,
-   "usd": 2100,
-   "paid": 0.499,
-   "ask": 0.48,
+   "usd": 2510,
+   "paid": 0.496,
+   "ask": 0.54,
    "status": "live",
    "link": "https://polymarket.us/event/nba-lal-atl-2026-11-09",
    "other": null,
@@ -33,10 +70,57 @@
    "game_start": "2026-11-10T00:00Z",
    "side_std": "under",
    "money_with": true,
-   "grade": "watch",
+   "grade": "A",
    "fair_board": null,
    "inside_fair": null,
    "books": null
+  },
+  {
+   "cond": "0x732908f8653a32ef87c0967ffb586bb05c872dbcc42380d3ca4705ed6eefbf57",
+   "slug": "nba-lal-atl-2026-11-09",
+   "title": "Lakers vs. Hawks",
+   "mtype": "spread",
+   "start": "2026-11-10T00:00:00Z",
+   "bet": "Hawks -1.5",
+   "side": "Hawks",
+   "flagged": "2026-11-09T22:31:39Z",
+   "why": "2 top-200 accounts",
+   "proven": false,
+   "trigger": "two",
+   "n_accounts": 2,
+   "best_rank": 49,
+   "usd": 2792,
+   "paid": 0.53,
+   "ask": 0.55,
+   "status": "live",
+   "link": "https://polymarket.us/event/nba-lal-atl-2026-11-09",
+   "other": null,
+   "kalshi_against": null,
+   "logged": false,
+   "ladder": true,
+   "event_id": "401909952",
+   "sport": "nba",
+   "league": null,
+   "away": "LAL",
+   "home": "ATL",
+   "away_name": "Los Angeles Lakers",
+   "home_name": "Atlanta Hawks",
+   "game_start": "2026-11-10T00:00Z",
+   "side_std": "home",
+   "money_with": true,
+   "grade": "A",
+   "fair_board": 0.5046,
+   "inside_fair": false,
+   "books": {
+    "at": "2026-11-09T21:56:14Z",
+    "fair": 0.5046,
+    "q": {
+     "Novig": 0.51,
+     "Polymarket": 0.51,
+     "Caesars": 0.5122,
+     "DK": 0.5238
+    }
+   }
   },
   {
    "cond": "0xb23db781702d8225b014cfcafe9ccd55ede492bb7ea4507ac221d54f2375b579",
@@ -384,9 +468,6 @@
    "home_name": "Golden State Warriors",
    "game_start": "2026-11-10T03:00Z",
    "side_std": "home",
-   "conflict": [
-    "big money"
-   ],
    "money_with": false,
    "grade": "B",
    "fair_board": 0.4682,
@@ -573,7 +654,7 @@
    "best_rank": 43,
    "usd": 12610,
    "paid": 0.536,
-   "ask": 0.53,
+   "ask": 0.58,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-lal-atl-2026-11-09",
    "other": {
@@ -582,7 +663,7 @@
     "usd": 36602,
     "first": "2026-11-09T18:00:06Z"
    },
-   "exit_bid": 0.52,
+   "exit_bid": 0.57,
    "kalshi_against": null,
    "logged": true,
    "event_id": "401909952",
@@ -597,7 +678,7 @@
    "money_with": true,
    "grade": "A",
    "fair_board": 0.5314,
-   "inside_fair": true,
+   "inside_fair": false,
    "books": null
   },
   {
@@ -963,16 +1044,16 @@
   },
   "401909952|spread": {
    "home": {
-    "n": 1,
-    "best_rank": 110,
-    "usd": 176
+    "n": 3,
+    "best_rank": 49,
+    "usd": 1786
    }
   },
   "401909952|total": {
    "under": {
-    "n": 1,
+    "n": 2,
     "best_rank": 40,
-    "usd": 2100
+    "usd": 2510
    }
   },
   "401909953|spread": {
