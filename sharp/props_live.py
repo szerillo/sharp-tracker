@@ -12,12 +12,16 @@ from sharp.props_test import stat, nm
 from sharp.fairprice import check as fair_check   # 11/7: power + proportional Pinnacle fair, the book's own fair, Pinnacle freshness
 KEY = os.environ.get('ODDS_API_KEY'); API = 'https://api.the-odds-api.com/v4'
 PLAN = {'nba': ('basketball_nba', 'player_threes', 'basketball/nba'), 'nhl': ('icehockey_nhl', 'player_total_saves,player_shots_on_goal', 'hockey/nhl'),
-        'nfl': ('americanfootball_nfl', 'player_rush_yds', 'football/nfl')}
+        'nfl': ('americanfootball_nfl', 'player_rush_yds,player_anytime_td', 'football/nfl')}
 # 11/8 (docs/nfl_props_2026-11-08.md): NFL rushing-yards OUTLIER book. Pinnacle hangs one line, a bettable book hangs one line 4.5+ yards away,
 # and 2+ other books sit within a yard of Pinnacle: bet the side the gap favours at the outlier (its line is lower -> over, higher -> under).
 # 2023-26 one snapshot per game: 65-35, +21.9%, 4 of 4 seasons; 2.5-4 yards away was flat (+3.5%). 100 bets, so paper.
 OUTLIER = {'nfl': dict(market='player_rush_yds', gap=4.5, agree=2)}
 OTHER = 'betrivers,bovada,betonlineag'     # fetched to count agreement with Pinnacle; not bet
+# 11/8 (docs/nfl_props_2026-11-08.md, Yes/No props): NFL anytime-touchdown YES where Pinnacle's Yes/No no-vig puts the scorer at 25-50% and
+# FD / Caesars / DK pay 2%+ over that fair. 2023-26, one bet per player and game at the best price: 538-1033, +10.4%, every season positive
+# (+12 / +7 / +12 / +8); scorers under 25% were -3.1%, so the band is the rule. Paper. NBA double-doubles and NHL anytime goals: nothing.
+BINARY = {'nfl': dict(market='player_anytime_td', lo=0.25, hi=0.50, ev=0.02)}
 BOOKS = {'fanduel': 'FD', 'williamhill_us': 'Caesars', 'draftkings': 'DK'}
 PAPER = os.path.join(ROOT, 'data', 'state', 'props_paper.jsonl'); OUT = os.path.join(ROOT, 'data', 'state', 'props_live.json')
 NOW = dt.datetime.now(dt.timezone.utc); EV_MIN = 0.02; STAKE = 0.25
@@ -90,6 +94,30 @@ def main():
                                              start=e['commence_time'], market=o_['market'], player=player, line=bl[0], side=side, book=name, price=price, rule='outlier book',
                                              pin_line=ln0, gap=round(abs(bl[0] - ln0), 1), agree=agree, pin_over=P[ln0]['over'], pin_under=P[ln0]['under'],
                                              pin_ts=P[ln0].get('ts'), book_ts=v.get('ts'), flagged=NOW.strftime('%Y-%m-%dT%H:%M:%SZ')))
+                    if sp in BINARY:
+                        b_ = BINARY[sp]; Y = {}      # player -> book -> {'Yes': price, 'No': price, 'ts': ..}
+                        for b in d.get('bookmakers') or []:
+                            for m in b['markets']:
+                                if m['key'] != b_['market']: continue
+                                for o in m['outcomes']:
+                                    if o['name'] not in ('Yes', 'No'): continue
+                                    q_ = Y.setdefault(o.get('description'), {}).setdefault(b['key'], {}); q_[o['name']] = o['price']; q_['ts'] = m.get('last_update') or b.get('last_update')
+                        for player, books in Y.items():
+                            P = books.get('pinnacle') or {}
+                            if 'Yes' not in P or 'No' not in P: continue
+                            fy = (1 / P['Yes']) / (1 / P['Yes'] + 1 / P['No'])
+                            if not b_['lo'] <= fy < b_['hi']: continue
+                            best = max(((bk, v['Yes']) for bk, v in books.items() if bk in BOOKS and 'Yes' in v), key=lambda x: x[1], default=None)
+                            if not best or fy * best[1] - 1 < b_['ev']: continue
+                            key = f"{e['id']}|{b_['market']}|{player}|yes"
+                            if key in seen: continue
+                            fc = fair_check(P['Yes'], P['No'], best[1], None, None, P.get('ts'), books[best[0]].get('ts'), NOW, max_age=5)
+                            if not fc['fresh']: print(f"[props_live] skip {player} anytime TD {BOOKS[best[0]]}: {fc['stale_why']}"); continue
+                            seen.add(key); new += 1
+                            rows.append(dict(key=key, sport=sp, odds_id=e['id'], espn=espn_event(sp, e['home_team'], e['away_team'], st), game=f"{e['away_team']} @ {e['home_team']}",
+                                             start=e['commence_time'], market=b_['market'], player=player, line=0.5, side='over', book=BOOKS[best[0]], price=best[1], rule='anytime td',
+                                             fair=round(fy, 4), fair_power=fc['pin_fair_power'], ev=round(100 * (fy * best[1] - 1), 1), ev_strict=fc['ev_strict'], pin_yes=P['Yes'], pin_no=P['No'],
+                                             pin_ts=P.get('ts'), book_ts=books[best[0]].get('ts'), flagged=NOW.strftime('%Y-%m-%dT%H:%M:%SZ')))
                     continue
                 Q = {}
                 for b in d.get('bookmakers') or []:

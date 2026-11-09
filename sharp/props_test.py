@@ -55,6 +55,9 @@ def stat(sp, mk, p):
              'player_rush_yds': g('rushing.rushingYards'), 'player_rush_attempts': g('rushing.rushingAttempts'), 'player_receptions': g('receiving.receptions'),
              'player_reception_yds': g('receiving.receivingYards')}
         if mk in M: return M[mk]
+        if mk == 'player_anytime_td':      # 11/8: rushing + receiving touchdowns (passing TDs do not count)
+            rt, ct = g('rushing.rushingTouchdowns'), g('receiving.receivingTouchdowns')
+            return None if rt is None and ct is None else (rt or 0) + (ct or 0)
         ry, rcy = g('rushing.rushingYards'), g('receiving.receivingYards')
         if mk == 'player_rush_reception_yds': return (ry or 0) + (rcy or 0) if (ry is not None or rcy is not None) else None
         if mk == 'player_pass_rush_yds':

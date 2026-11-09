@@ -885,8 +885,17 @@ function renderToday() {
   // 11/6: NBA threes unders are tier C (0.25u): 1087-938, +8.2% at the best of FD/Caesars/DK, every season positive, monotone in the
   // edge; the NHL ones stay paper (small samples)
   const plLive = r => (r.sport === 'nba' && r.market === 'player_threes') || (r.sport === 'nhl' && (r.flagged || '') >= '2026-11-06T23:00');   // 11/6 (Sean): NHL saves / shots unders tier C
+  // 11/8: NFL anytime-touchdown Yes (docs/nfl_props_2026-11-08.md): Pinnacle's Yes/No no-vig has the scorer at 25-50% and FD / Caesars / DK pay
+  // 2%+ over it. 2023-26, best price, one per player and game: 538-1033, +10.4%, every season positive. Paper.
+  const plTdRow = r => sRow({id: `pl|${r.key}`, mk: 'prop|' + r.key, tier: 'P', flagged: r.flagged, ev: r.espn, side: 'over', start: r.start, sportLabel: 'NFL', game: esc(r.game),
+      bet: `${esc(r.player)} anytime touchdown`, sub: `Player prop · price gap at ${VS(r.book)} · paper`, gone: true, status: ['gone', 'Paper: anytime-TD lean, no units until it has a forward record'], size: '',
+      price: `<b>${toAm(1 / r.price)}</b> <span class="small dim">${VS(r.book)}</span>`, link: '',
+      why: `${VS(r.book)} ${toAm(1 / r.price)} vs Pinnacle's no-vig ${(100 * r.fair).toFixed(1)}% (${r.ev > 0 ? '+' : ''}${r.ev}% EV); Pinnacle Yes ${toAm(1 / r.pin_yes)}`,
+      rec: lbl('Backtest', 'NFL 2023-26, scorers Pinnacle has at 25-50%, best of FD / Caesars / DK: 538-1033, +10.4%, every season positive; under 25% was -3.1%') + ' ' + lbl('Tracker', 'no graded picks yet'),
+      detail: facts([['Rule', 'Anytime TD (docs/nfl_props_2026-11-08.md): Pinnacle Yes/No no-vig 25-50%, FD / Caesars / DK Yes 2%+ over it, inside an hour of kickoff, first time per player. Paper.']])});
   const plRow = r => { const PLr = window._PL && window._PL.record;
     if (r.rule === 'outlier book') return plOutRow(r);
+    if (r.rule === 'anytime td') return plTdRow(r);
     return sRow({id: `pl|${r.key}`, mk: 'prop|' + r.key, tier: 'C', flagged: r.flagged || r.ts, ev: r.espn, side: 'under', start: r.start, sportLabel: (r.sport || '').toUpperCase(), game: esc(r.game), bet: `${esc(r.player)} under ${r.line} ${PLN[r.market] || r.market}`, sub: `Player prop · price gap at ${VS(r.book)}, ${plLive(r) ? 'tier C' : 'paper'}`,
       gone: !plLive(r), status: plLive(r) ? null : ['gone', 'Paper: prop price-gap lean, no units until it has a forward record'], size: plLive(r) ? unitText(SLIP.small, 1 / r.price) : '', price: `<b>${toAm(1 / r.price)}</b> <span class="small dim">${VS(r.book)}</span>`, link: '',
       why: `${VS(r.book)} under ${toAm(1 / r.price)} vs Pinnacle's no-vig ${(100 * r.fair).toFixed(1)}% (${r.ev > 0 ? '+' : ''}${r.ev}% EV); Pinnacle under ${toAm(1 / r.pin_under)}`,
