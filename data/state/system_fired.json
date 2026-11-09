@@ -4061,19 +4061,20 @@
 },
 "401858293:cfb_road_streak_dog": {
 "tag": "cfb_road_streak_dog",
-"fill_id": "c8c44a0e5c33",
-"ts": "2026-11-09T02:16:33Z",
+"fill_id": "2dc3af43e06a",
+"ts": "2026-11-09T01:53:31Z",
 "market": "spread",
 "side": "away",
 "line": 3.5,
 "venue": "Novig",
 "price": -106,
-"fair": 0.50545,
-"edge_pts": -0.96,
+"fair": 0.5052,
+"edge_pts": -0.98,
 "why": "conference game, FSU on road game 2 in a row, +3.5, total 54.0",
+"restored": true,
 "void": true,
-"void_why": "rule no longer holds on the current line: home spread -3.5, total 54.5 (2026-11-09T20:54:52Z)",
-"void_at": "2026-11-09T20:54:52Z"
+"void_why": "rule no longer holds on the current line: home spread -3.5, total 54.5 (2026-11-09T21:53:50Z)",
+"void_at": "2026-11-09T21:53:50Z"
 },
 "401856862:cfb_road_dog_low_total": {
 "tag": "cfb_road_dog_low_total",
@@ -4676,7 +4677,10 @@
 "price": -106,
 "fair": 0.49443,
 "edge_pts": -2.01,
-"why": "6:15 PM ET kickoff, total 51.5: over (mined angle)"
+"why": "6:15 PM ET kickoff, total 51.5: over (mined angle)",
+"void": true,
+"void_why": "rule no longer holds on the current line: home spread -3.5, total 53.5 (2026-11-09T21:53:50Z)",
+"void_at": "2026-11-09T21:53:50Z"
 },
 "401864538:cfb_road_dog_low_total": {
 "tag": "cfb_road_dog_low_total",
@@ -5049,19 +5053,20 @@
 },
 "401909957:nba_under_good_home_over": {
 "tag": "nba_under_good_home_over",
-"fill_id": "7593ca896e84",
-"ts": "2026-11-09T02:16:33Z",
+"fill_id": "da3cf4af2eb0",
+"ts": "2026-11-09T01:53:31Z",
 "market": "total",
 "side": "under",
 "line": 216.5,
 "venue": "Novig",
-"price": 104,
-"fair": 0.5,
-"edge_pts": 1.0,
+"price": -100,
+"fair": 0.49283,
+"edge_pts": -0.72,
 "why": "home HOU over rate 60%, days since last game: home 2, visitor 2; total 222.5 -> 216.5",
+"restored": true,
 "void": true,
-"void_why": "trigger no longer holds on current season records (2026-11-09T20:54:52Z)",
-"void_at": "2026-11-09T20:54:52Z"
+"void_why": "trigger no longer holds on current season records (2026-11-09T21:53:50Z)",
+"void_at": "2026-11-09T21:53:50Z"
 },
 "401892683:nhl_skid_fade_road": {
 "tag": "nhl_skid_fade_road",
