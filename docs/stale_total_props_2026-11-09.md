@@ -62,3 +62,29 @@ With the total up or down 1+ point and the book's prop unchanged (bet with the m
 Read: nothing reliable; a slight lean toward overs after the total rises and against unders after it drops, on samples too small to mean
 anything. The bottleneck is the game total, not the props: a historical Odds API pull of NFL spreads and totals at each kickoff window, 6
 hours out, for 2024-26, is roughly 200 snapshots at about 20 credits each (about 4,000 credits), which would bring all 644 games in.
+
+## Update (6 AM): NFL with the game lines pulled (556 games, every market)
+Pulled Pinnacle and US-book spreads and totals 6 hours and 10 minutes before every kickoff in the props file (loggers/oddsapi_lines_at.py,
+558 calls, 11,160 credits; 2,988,791 left). 556 of 644 games now testable. Bets at the book's unchanged line, 10 minutes out, with the
+move; "team total" = the player's team's implied total from the spread and total. Seasons 2024-26.
+
+| Market | Game total up 1+: over at a flat prop | Game total down 1+: under at a flat prop | Team total down 1+: under, flat | Baseline (no move): over / under |
+|---|---|---|---|---|
+| Receptions | 733 bets, -4.1% | 759, +0.6% | 114, +11.0% (team down 1.5+: 30, +31.7%) | -5.4% / -3.7% |
+| Receiving yards | 579, -4.2% | 589, -5.9% | 88, +9.7% (prop moved too: 71, +17.8%) | -2.8% / -7.4% |
+| Rushing yards | 270, 0.0% | 304, -10.6% | 52, +2.3% | -5.7% / -4.1% |
+| Rush attempts | 213, -11.3% | 240, -6.0% | 36, -1.8% | -12.8% / +1.2% |
+| Rush + receiving yards | 128, +2.3% | 128, -8.9% | small | -13.7% / +0.6% |
+| Passing yards | 104, -1.5% | 92, -3.5% | small | -2.3% / -7.6% |
+| Passing TDs | 147, -4.0% | 161, -20.2% | small | -0.3% / -5.7% |
+| Completions / attempts / INTs | -11% to -13% | -3% to +3% | small | -6% to -8% / -3% to -7% |
+| Anytime TD Yes (price flat) | 1,189, -2.9% | 1,231, +15.1% | 190, -1.1% | +13.0% (the 25-50% band effect) |
+
+Moves of 2+ points: 40-100 bets per market, nothing consistent.
+
+**Read: no stale-prop edge in the 6-hours-to-close window, in any of the 12 markets.** A flat prop after the total moves loses about what
+props lose anyway. The anytime TD Yes after a total RISE is worse than the baseline (-2.9% against +13.0%), the opposite of the idea.
+
+The one consistent lean is unders on receiving props when the player's own team total drops a point or more: receptions 114 bets +11.0%,
+receiving yards 88 bets +9.7% (and +17.8% where the prop did move, but not enough). z about 1.0-1.4, 2 of 3 seasons. Watch list, not a
+rule. It is also the slice a 24-hours-out snapshot would test best, since the bigger team-total moves happen earlier in the week.
