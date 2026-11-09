@@ -1,5 +1,5 @@
 {
- "built": "2026-11-09T20:51:48Z",
+ "built": "2026-11-09T20:58:35Z",
  "rows": [
   {
    "cond": "0x9dba4642f4329325c0bf83d5d0fb93f688b7ddabb745124704153fbc2b00b8f6",
@@ -496,7 +496,7 @@
    "best_rank": 43,
    "usd": 11895,
    "paid": 0.536,
-   "ask": 0.53,
+   "ask": 0.54,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-lal-atl-2026-11-09",
    "other": {
@@ -505,7 +505,7 @@
     "usd": 36602,
     "first": "2026-11-09T18:00:06Z"
    },
-   "exit_bid": 0.52,
+   "exit_bid": 0.53,
    "kalshi_against": null,
    "logged": true,
    "event_id": "401909952",
@@ -520,7 +520,7 @@
    "money_with": true,
    "grade": "A",
    "fair_board": 0.5363,
-   "inside_fair": true,
+   "inside_fair": false,
    "books": null
   },
   {
@@ -732,6 +732,14 @@
     "best_rank": 79,
     "usd": 5330
    }
+  },
+  "401892685:nhl_early_home_fav_qual": {
+   "with": {
+    "n": 1,
+    "best_rank": 132,
+    "usd": 351
+   },
+   "against": null
   },
   "401909957:nba_ats_hot_home": {
    "with": {
@@ -1020,6 +1028,13 @@
     "n": 1,
     "best_rank": 132,
     "usd": 533
+   }
+  },
+  "401892685|ml": {
+   "home": {
+    "n": 1,
+    "best_rank": 132,
+    "usd": 351
    }
   },
   "401906781|total": {
