@@ -285,8 +285,10 @@ def main():
         try: done_ = ts(b['start']).timestamp() < FROZEN_BEFORE
         except Exception: done_ = False
         pk = f"{b['id']}|{b.get('flagged')}"
-        if done_ and pk in PATHS: b.update(PATHS[pk]); continue
+        s3 = b.get('sport') == 'soccer' and b.get('market') == 'ml'   # 11/9: entries frozen before the three-way soccer fix are recomputed once
+        if done_ and pk in PATHS and (not s3 or PATHS[pk].get('fair3')): b.update(PATHS[pk]); continue
         snap0[id(b)] = (pk, done_, dict(b)); by[b['sport']].append(b)
+        if s3: b['fair3'] = 1                                      # after the snapshot, so the cache entry records it
     for sp, L in by.items():
         days = sorted({(ts(b['start']) + dt.timedelta(days=i)).astimezone(dt.timezone(dt.timedelta(hours=-5))).date().isoformat() for b in L for i in (-2, -1, 0)})
         T = Tape(sp, {b['event_id'] for b in L}, days)
