@@ -4668,8 +4668,8 @@
 },
 "401856884:cfb_day_over": {
 "tag": "cfb_day_over",
-"fill_id": "4804c365bc8f",
-"ts": "2026-11-09T00:06:24Z",
+"fill_id": "cb623a9e3f9b",
+"ts": "2026-11-08T23:45:25Z",
 "market": "total",
 "side": "over",
 "line": 51.5,
@@ -4678,9 +4678,10 @@
 "fair": 0.49443,
 "edge_pts": -2.01,
 "why": "6:15 PM ET kickoff, total 51.5: over (mined angle)",
+"restored": true,
 "void": true,
-"void_why": "rule no longer holds on the current line: home spread -3.5, total 53.5 (2026-11-09T21:53:50Z)",
-"void_at": "2026-11-09T21:53:50Z"
+"void_why": "rule no longer holds on the current line: home spread -3.5, total 53.5 (2026-11-09T22:55:21Z)",
+"void_at": "2026-11-09T22:55:21Z"
 },
 "401864538:cfb_road_dog_low_total": {
 "tag": "cfb_road_dog_low_total",
@@ -5162,5 +5163,18 @@
 "venue": "Novig",
 "price": -308
 }
+},
+"401909959:nba_under_good_home_over": {
+"tag": "nba_under_good_home_over",
+"fill_id": "c747779d5a07",
+"ts": "2026-11-09T22:55:21Z",
+"market": "total",
+"side": "under",
+"line": 229.5,
+"venue": "Novig",
+"price": -108,
+"fair": 0.515,
+"edge_pts": -0.5,
+"why": "home GS over rate 60%, days since last game: home 2, visitor 1; total 231.5 -> 229.5"
 }
 }
