@@ -1,5 +1,5 @@
 {
- "built": "2026-11-09T04:58:36Z",
+ "built": "2026-11-09T05:05:15Z",
  "rows": [
   {
    "cond": "0x8a7e1452bda9f224ee3aaf004668164bd6a4226a7b496ea407eaf8c4e00b97c6",
@@ -166,49 +166,6 @@
    "books": null
   },
   {
-   "cond": "0xc2c8c1692b4f29d36ca4b0763046f46b4c1606cdb9355d5d466ea1730c265ab9",
-   "slug": "nba-bos-mil-2026-11-08",
-   "title": "Celtics vs. Bucks",
-   "mtype": "ml",
-   "start": "2026-11-09T01:00:00Z",
-   "bet": "Celtics ML",
-   "side": "Celtics",
-   "flagged": "2026-11-07T07:35:27Z",
-   "why": "a top-50 account",
-   "proven": false,
-   "trigger": "top50",
-   "n_accounts": 1,
-   "best_rank": 43,
-   "usd": 112,
-   "paid": 0.8,
-   "ask": null,
-   "status": "other side",
-   "link": "https://polymarket.us/event/nba-bos-mil-2026-11-08",
-   "other": {
-    "n_accounts": 1,
-    "best_rank": 43,
-    "usd": 124,
-    "first": "2026-11-08T07:02:10Z"
-   },
-   "exit_bid": null,
-   "kalshi_against": null,
-   "logged": true,
-   "event_id": "401909949",
-   "sport": "nba",
-   "league": null,
-   "away": "BOS",
-   "home": "MIL",
-   "away_name": "Boston Celtics",
-   "home_name": "Milwaukee Bucks",
-   "game_start": "2026-11-09T01:00Z",
-   "side_std": "away",
-   "money_with": false,
-   "grade": "watch",
-   "fair_board": null,
-   "inside_fair": null,
-   "books": null
-  },
-  {
    "cond": "0x3fc1b3baed516c3f03aef0435531f6945e26c2bdfaa2fdc5f125de5709004aea",
    "slug": "nba-lal-atl-2026-11-09",
    "title": "Lakers vs. Hawks",
@@ -358,15 +315,15 @@
     "clv": 0.0
    },
    "outside": {
-    "n": 34,
+    "n": 35,
     "won": 17,
-    "units": -0.25,
-    "clv": 0.37
+    "units": -0.56,
+    "clv": 0.43
    }
   },
-  "n": 165,
+  "n": 166,
   "won": 72,
-  "units": -13.41,
+  "units": -13.72,
   "by_grade": {
    "A": {
     "n": 112,
@@ -381,18 +338,18 @@
     "clv": -0.92
    },
    "watch": {
-    "n": 18,
+    "n": 19,
     "won": 7,
-    "units": -1.76,
-    "clv": -0.22
+    "units": -2.07,
+    "clv": 0.05
    }
   },
-  "units_1u": -30.34,
-  "clv": -0.17,
-  "n_venue": 78,
-  "units_venue": -5.27,
-  "clv_venue": 0.72,
-  "clv_poly_same": -0.46
+  "units_1u": -31.34,
+  "clv": -0.14,
+  "n_venue": 79,
+  "units_venue": -5.55,
+  "clv_venue": 0.79,
+  "clv_poly_same": -0.41
  },
  "sys_tags": {},
  "by_event": {
