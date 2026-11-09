@@ -1,5 +1,5 @@
 {
- "built": "2026-11-09T21:39:13Z",
+ "built": "2026-11-09T21:47:27Z",
  "rows": [
   {
    "cond": "0x9dba4642f4329325c0bf83d5d0fb93f688b7ddabb745124704153fbc2b00b8f6",
@@ -37,52 +37,6 @@
    "fair_board": null,
    "inside_fair": null,
    "books": null
-  },
-  {
-   "cond": "0x87b847e161ea1a750e1f094223a644ca374e4d97a7b9d0397974a2f3c67e547d",
-   "slug": "nba-mem-tor-2026-11-09",
-   "title": "Grizzlies vs. Raptors",
-   "mtype": "ml",
-   "start": "2026-11-10T00:30:00Z",
-   "bet": "Raptors ML",
-   "side": "Raptors",
-   "flagged": "2026-11-09T20:16:04Z",
-   "why": "2 top-200 accounts",
-   "proven": false,
-   "trigger": "two",
-   "n_accounts": 2,
-   "best_rank": 93,
-   "usd": 580,
-   "paid": 0.574,
-   "ask": 0.57,
-   "status": "live",
-   "link": "https://polymarket.us/event/nba-mem-tor-2026-11-09",
-   "other": null,
-   "kalshi_against": null,
-   "logged": true,
-   "event_id": "401909955",
-   "sport": "nba",
-   "league": null,
-   "away": "MEM",
-   "home": "TOR",
-   "away_name": "Memphis Grizzlies",
-   "home_name": "Toronto Raptors",
-   "game_start": "2026-11-10T00:30Z",
-   "side_std": "home",
-   "money_with": false,
-   "grade": "B",
-   "inside_fair": false,
-   "fair_board": 0.5674,
-   "books": {
-    "at": "2026-11-09T20:57:36Z",
-    "fair": 0.5636,
-    "q": {
-     "Novig": 0.565,
-     "Polymarket": 0.57,
-     "DK": 0.5868,
-     "FD": 0.5868
-    }
-   }
   },
   {
    "cond": "0xb23db781702d8225b014cfcafe9ccd55ede492bb7ea4507ac221d54f2375b579",
@@ -366,6 +320,90 @@
    }
   },
   {
+   "cond": "0xc899a51d413b1dfb0d9474f9a33c1227863c0e3f0b15739661b75087b41355db",
+   "slug": "nba-nop-gsw-2026-11-09",
+   "title": "Pelicans vs. Warriors",
+   "mtype": "total",
+   "start": "2026-11-10T03:00:00Z",
+   "bet": "Under 230.5",
+   "side": "Under",
+   "flagged": "2026-11-09T21:45:06Z",
+   "why": "a top-50 account",
+   "proven": false,
+   "trigger": "top50",
+   "n_accounts": 1,
+   "best_rank": 40,
+   "usd": 1007,
+   "paid": 0.51,
+   "ask": 0.54,
+   "status": "live",
+   "link": "https://polymarket.us/event/nba-nop-gsw-2026-11-09",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401909959",
+   "sport": "nba",
+   "league": null,
+   "away": "NO",
+   "home": "GS",
+   "away_name": "New Orleans Pelicans",
+   "home_name": "Golden State Warriors",
+   "game_start": "2026-11-10T03:00Z",
+   "side_std": "under",
+   "money_with": true,
+   "grade": "watch",
+   "fair_board": null,
+   "inside_fair": null,
+   "books": null
+  },
+  {
+   "cond": "0x7e5836cbf7344c3686d441974dcf6ad97c54f9d7271c36c5dae5d523af839d32",
+   "slug": "nba-nop-gsw-2026-11-09",
+   "title": "Pelicans vs. Warriors",
+   "mtype": "spread",
+   "start": "2026-11-10T03:00:00Z",
+   "bet": "Warriors -10.5",
+   "side": "Warriors",
+   "flagged": "2026-11-09T21:46:13Z",
+   "why": "2 top-200 accounts",
+   "proven": false,
+   "trigger": "two",
+   "n_accounts": 2,
+   "best_rank": 12,
+   "usd": 9018,
+   "paid": 0.487,
+   "ask": 0.53,
+   "status": "live",
+   "link": "https://polymarket.us/event/nba-nop-gsw-2026-11-09",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401909959",
+   "sport": "nba",
+   "league": null,
+   "away": "NO",
+   "home": "GS",
+   "away_name": "New Orleans Pelicans",
+   "home_name": "Golden State Warriors",
+   "game_start": "2026-11-10T03:00Z",
+   "side_std": "home",
+   "conflict": [
+    "big money"
+   ],
+   "money_with": false,
+   "grade": "B",
+   "fair_board": null,
+   "inside_fair": null,
+   "books": {
+    "at": "2026-11-09T20:57:36Z",
+    "fair": null,
+    "q": {
+     "Novig": 0.445,
+     "Kalshi": 0.46
+    }
+   }
+  },
+  {
    "cond": "0xe3ae72ec65621e5c0fc6872d0021f97df258dff5146db4a812c024ffccee3983",
    "slug": "nba-gsw-hou-2026-11-11",
    "title": "Warriors vs. Rockets",
@@ -418,7 +456,7 @@
    "best_rank": 49,
    "usd": 190,
    "paid": 0.54,
-   "ask": 0.64,
+   "ask": 0.63,
    "status": "live",
    "link": "https://polymarket.us/event/nfl-la-ari-2026-11-15",
    "other": null,
@@ -524,6 +562,49 @@
    "grade": "A",
    "fair_board": 0.5293,
    "inside_fair": false,
+   "books": null
+  },
+  {
+   "cond": "0x87b847e161ea1a750e1f094223a644ca374e4d97a7b9d0397974a2f3c67e547d",
+   "slug": "nba-mem-tor-2026-11-09",
+   "title": "Grizzlies vs. Raptors",
+   "mtype": "ml",
+   "start": "2026-11-10T00:30:00Z",
+   "bet": "Raptors ML",
+   "side": "Raptors",
+   "flagged": "2026-11-09T20:16:04Z",
+   "why": "2 top-200 accounts",
+   "proven": false,
+   "trigger": "two",
+   "n_accounts": 2,
+   "best_rank": 93,
+   "usd": 580,
+   "paid": 0.574,
+   "ask": 0.57,
+   "status": "other side",
+   "link": "https://polymarket.us/event/nba-mem-tor-2026-11-09",
+   "other": {
+    "n_accounts": 1,
+    "best_rank": 132,
+    "usd": 242,
+    "first": "2026-11-09T21:45:12Z"
+   },
+   "exit_bid": 0.56,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401909955",
+   "sport": "nba",
+   "league": null,
+   "away": "MEM",
+   "home": "TOR",
+   "away_name": "Memphis Grizzlies",
+   "home_name": "Toronto Raptors",
+   "game_start": "2026-11-10T00:30Z",
+   "side_std": "home",
+   "money_with": false,
+   "grade": "B",
+   "inside_fair": false,
+   "fair_board": 0.5674,
    "books": null
   },
   {
@@ -764,7 +845,11 @@
    }
   },
   "401909959:nba_ats_hot_home": {
-   "with": null,
+   "with": {
+    "n": 5,
+    "best_rank": 12,
+    "usd": 14455
+   },
    "against": {
     "n": 1,
     "best_rank": 132,
@@ -856,6 +941,11 @@
     "n": 2,
     "best_rank": 93,
     "usd": 580
+   },
+   "away": {
+    "n": 1,
+    "best_rank": 132,
+    "usd": 242
    }
   },
   "401909955|total": {
@@ -941,6 +1031,18 @@
     "n": 1,
     "best_rank": 132,
     "usd": 314
+   },
+   "home": {
+    "n": 5,
+    "best_rank": 12,
+    "usd": 14455
+   }
+  },
+  "401909959|total": {
+   "under": {
+    "n": 1,
+    "best_rank": 40,
+    "usd": 1007
    }
   },
   "401909961|ml": {
