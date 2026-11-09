@@ -4061,15 +4061,15 @@
 },
 "401858293:cfb_road_streak_dog": {
 "tag": "cfb_road_streak_dog",
-"fill_id": "2dc3af43e06a",
-"ts": "2026-11-09T01:53:31Z",
+"fill_id": "c8c44a0e5c33",
+"ts": "2026-11-09T02:16:33Z",
 "market": "spread",
 "side": "away",
 "line": 3.5,
 "venue": "Novig",
 "price": -106,
-"fair": 0.5052,
-"edge_pts": -0.98,
+"fair": 0.50545,
+"edge_pts": -0.96,
 "why": "conference game, FSU on road game 2 in a row, +3.5, total 54.0"
 },
 "401856862:cfb_road_dog_low_total": {
@@ -5018,17 +5018,43 @@
 "price": -480
 }
 },
+"401873057:vrest8_1h": {
+"tag": "vrest8_1h",
+"fill_id": "9e437cc994fb",
+"ts": "2026-11-09T02:16:33Z",
+"market": "1h_total",
+"side": "under",
+"line": 23.5,
+"venue": "Novig",
+"price": -108,
+"fair": 0.48464,
+"edge_pts": -3.54,
+"why": "JAX off 10 days"
+},
+"401873064:vrest8_1h": {
+"tag": "vrest8_1h",
+"fill_id": "f36cb06c546a",
+"ts": "2026-11-09T02:16:33Z",
+"market": "1h_total",
+"side": "under",
+"line": 23.5,
+"venue": "Novig",
+"price": -106,
+"fair": 0.48103,
+"edge_pts": -3.4,
+"why": "PIT off 14 days"
+},
 "401909957:nba_under_good_home_over": {
 "tag": "nba_under_good_home_over",
-"fill_id": "da3cf4af2eb0",
-"ts": "2026-11-09T01:53:31Z",
+"fill_id": "7593ca896e84",
+"ts": "2026-11-09T02:16:33Z",
 "market": "total",
 "side": "under",
 "line": 216.5,
 "venue": "Novig",
-"price": -100,
-"fair": 0.49283,
-"edge_pts": -0.72,
+"price": 104,
+"fair": 0.5,
+"edge_pts": 1.0,
 "why": "home HOU over rate 60%, days since last game: home 2, visitor 2; total 222.5 -> 216.5"
 }
 }
