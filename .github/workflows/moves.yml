@@ -1,0 +1,45 @@
+name: moves (market move tape, every 10 minutes)
+# 11/8 (Sean: signals every 10 minutes): the move tape was the slowest part of the signals job (about 4.5 of its minutes), so it runs here,
+# on its own runner, dispatched by pulse in the same slots as signals. It writes only its own files.
+on:
+  workflow_dispatch: {}
+permissions:
+  contents: write
+  actions: write
+concurrency:
+  group: moves
+  cancel-in-progress: false
+jobs:
+  moves:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          sparse-checkout: |
+            /*
+            !/data/oddsapi/
+            !/data/polymarket/
+            !/data/tennis/
+          sparse-checkout-cone-mode: false
+          filter: blob:none
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.12'}
+      - run: pip install -q numpy pandas
+      - name: move tape
+        env: {MOVES_DAYS: '3'}
+        run: python3 sharp/moves.py
+      - name: commit
+        run: |
+          git config user.name "tracker-bot"; git config user.email "actions@users.noreply.github.com"
+          for f in data/state/moves.json data/state/moves.jsonl.gz data/state/moves_novig_flow.json; do [ -e "$f" ] && git add -A "$f"; done
+          git commit -q -m "moves $(date -u +%Y-%m-%dT%H:%M)" || exit 0
+          git stash -u -q || true
+          for i in 1 2 3 4 5; do
+            if git pull -q --rebase -X theirs && git push -q; then
+              GH_TOKEN="${{ secrets.GITHUB_TOKEN }}" gh api -X POST "repos/${GITHUB_REPOSITORY}/actions/workflows/pages.yml/dispatches" -f ref=main || true
+              exit 0
+            fi
+            git rebase --abort 2>/dev/null || true; sleep $((RANDOM % 15 + 5))
+          done
+          exit 1

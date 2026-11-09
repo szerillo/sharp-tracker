@@ -22,20 +22,20 @@ jobs:
             /*
             !/data/oddsapi/
           sparse-checkout-cone-mode: false
+          filter: blob:none      # fetch only the files checked out (the full fetch was ~2 min)
       - uses: actions/setup-python@v5
         with: {python-version: '3.12'}
       - run: pip install -q numpy pandas
       - name: read the latest system-bet files from main (owned by the tracker job; this checkout may predate its last commit)
         run: git fetch -q origin main && git checkout -q origin/main -- data/state/system_fires.json data/state/system_fired.json data/state/fills.jsonl data/state/sharp_accounts.json data/state/sharp_paper.jsonl || true
       # 11/7 (Sean: "have it update quicker"): these steps read different inputs and write different files, so they run at the same time
-      # (was one after another: about 7 minutes of a 20-minute run; now about as long as the slowest, the move tape). Each one's output is
+      # 11/8: the move tape (the slowest, ~4.5 min) runs in its own job, moves.yml, at the same time. (Was one after another: about 7 minutes of a 20-minute run; now about as long as the slowest, the move tape). Each one's output is
       # printed after, in order; a failure in one never stops the others (each was '|| true' before too).
-      - name: exchange money split, move tape, tape check, tennis, MMA steam and the late pass, in parallel
+      - name: exchange money split, tape check, tennis, MMA steam and the late pass, in parallel
         env: {MOVES_DAYS: '3', ODDS_API_KEY: '${{ secrets.ODDS_API_KEY }}'}
         run: |
           mkdir -p /tmp/par; T0=$SECONDS
           ( python3 sharp/flow_live.py ; echo "[took $((SECONDS - T0)) s]" ) > /tmp/par/1_flow.log 2>&1 &
-          ( python3 sharp/moves.py ; echo "[took $((SECONDS - T0)) s]" ) > /tmp/par/2_moves.log 2>&1 &
           ( python3 sharp/tape_health.py ; echo "[took $((SECONDS - T0)) s]" ) > /tmp/par/3_tape.log 2>&1 &
           ( python3 loggers/tennis_scores.py --days-back 2 && python3 sharp/tennis_watch.py ; echo "[took $((SECONDS - T0)) s]" ) > /tmp/par/4_tennis.log 2>&1 &
           ( python3 sharp/mma_steam.py ; echo "[took $((SECONDS - T0)) s]" ) > /tmp/par/5_mma.log 2>&1 &
@@ -92,7 +92,7 @@ jobs:
               subprocess.run(['git', 'checkout', '-q', 'origin/main', '--', 'data/state/system_fires.json', 'data/state/system_fired.json'])
           PY
           python3 sharp/merge_state.py origin/main || true     # 11/7: keep every fill / fire either job logged (no more whole-file overwrites)
-          for f in data/state/flow_live.json data/state/moves.json data/state/moves.jsonl.gz data/state/moves_novig_flow.json data/state/tape_health.json \
+          for f in data/state/flow_live.json data/state/tape_health.json \
                    data/state/system_fired.json data/state/system_fires.json data/state/fills.jsonl data/state/tennis_watch.json data/tennis/fs_paper.jsonl data/tennis/fs_graded.json data/tennis/hot_paper.jsonl data/tennis/hot_graded.json data/tennis/serve_paper.jsonl data/tennis/serve_graded.json data/tennis/hotdog_paper.jsonl data/tennis/hotdog_graded.json data/state/mma_steam.json data/mma/oddsapi_live.jsonl data/mma/oddsapi_open.json data/mma/steam_paper.jsonl data/mma/steam_graded.json data/tennis/results.jsonl data/tennis/schedule.json data/state/bet_log.json data/state/bet_paths.json data/state/audit.json \
                    data/kalshi/steam_rev_paper.jsonl data/kalshi/steam_rev_results.json data/state/stale_paper.jsonl data/state/stale_live.json data/state/props_paper.jsonl data/state/props_live.json data/state/curve_paper.jsonl data/state/curve_live.json; do [ -e "$f" ] && git add -A "$f"; done
           git commit -q -m "signals $(date -u +%Y-%m-%dT%H:%M)" || exit 0

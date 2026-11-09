@@ -34,8 +34,8 @@ jobs:
               fire prices_fast.yml                 # Pinnacle moves on NFL / CFB lines are on the move tape (it was tennis only before)
             fi
             case $(( m % 20 )) in                  # 20-minute price log, tracker and publish around the clock (the repo is public: no minute cap)
-              0|1|2|3|4) fire prices.yml; fire signals.yml ;;   # 11/8 (Sean): signals every 10 minutes (a run still going queues the next)
-              10|11|12|13|14) fire signals.yml ;;    # 11/4 (Sean): market / sharp board; systems hourly
+              0|1|2|3|4) fire prices.yml; fire signals.yml; fire moves.yml ;;   # 11/8 (Sean): signals every 10 minutes (a run still going queues the next)
+              10|11|12|13|14) fire signals.yml; fire moves.yml ;;    # 11/4 (Sean): market / sharp board; systems hourly
               15|16|17|18|19) fire pages.yml ;;    # workflow_run does not fire for runs started with GITHUB_TOKEN, so publish from here
             esac
             # full tracker (price database + systems engine): every hour at :40, 9:40 AM to 9:40 PM ET (Sean, 11/7: lines that move into a
