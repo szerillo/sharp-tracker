@@ -1,5 +1,5 @@
 {
- "built": "2026-11-09T00:41:39Z",
+ "built": "2026-11-09T00:48:28Z",
  "rows": [
   {
    "cond": "0x12fe66309ecbcceab016e901e25a0bcc355f2a07f646c94dc110a9c411e14b9e",
@@ -226,6 +226,9 @@
    "home_name": "Chicago Bears",
    "game_start": "2026-11-09T01:20Z",
    "side_std": "home",
+   "conflict": [
+    "big money"
+   ],
    "money_with": false,
    "grade": "A",
    "fair_board": null,
@@ -576,8 +579,8 @@
    "home_name": "Dallas Mavericks",
    "game_start": "2026-11-09T00:30Z",
    "side_std": "away",
-   "money_with": true,
-   "grade": "A",
+   "money_with": false,
+   "grade": "B",
    "inside_fair": false,
    "fair_board": null,
    "books": null
@@ -644,13 +647,13 @@
    "best_rank": 43,
    "usd": 257,
    "paid": 0.509,
-   "ask": 0.46,
+   "ask": 0.45,
    "status": "live",
    "link": "https://polymarket.us/event/nba-lal-atl-2026-11-09",
    "other": null,
    "kalshi_against": {
-    "move": 7.5,
-    "now": 57.0,
+    "move": 7.0,
+    "now": 56.5,
     "state": "held"
    },
    "logged": true,
@@ -784,14 +787,14 @@
     "clv": 0.43
    }
   },
-  "n": 155,
+  "n": 156,
   "won": 68,
-  "units": -12.11,
+  "units": -12.61,
   "by_grade": {
    "A": {
-    "n": 109,
+    "n": 110,
     "won": 46,
-    "units": -10.54,
+    "units": -11.04,
     "clv": 0.08
    },
    "B": {
@@ -807,7 +810,7 @@
     "clv": -1.75
    }
   },
-  "units_1u": -28.02,
+  "units_1u": -29.02,
   "clv": -0.22,
   "n_venue": 73,
   "units_venue": -5.34,
@@ -836,6 +839,26 @@
    }
   },
   "401909951:nba_under_good_home_over": {
+   "with": null,
+   "against": {
+    "n": 1,
+    "best_rank": 143,
+    "usd": 5365
+   }
+  },
+  "401909951:nba_momentum:spread": {
+   "with": {
+    "n": 3,
+    "best_rank": 49,
+    "usd": 14852
+   },
+   "against": {
+    "n": 1,
+    "best_rank": 119,
+    "usd": 1011
+   }
+  },
+  "401909951:nba_momentum:total": {
    "with": null,
    "against": {
     "n": 1,
