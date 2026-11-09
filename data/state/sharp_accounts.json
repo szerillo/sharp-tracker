@@ -1,5 +1,5 @@
 {
- "built": "2026-11-09T21:55:14Z",
+ "built": "2026-11-09T22:03:12Z",
  "rows": [
   {
    "cond": "0x9dba4642f4329325c0bf83d5d0fb93f688b7ddabb745124704153fbc2b00b8f6",
@@ -335,7 +335,7 @@
    "best_rank": 40,
    "usd": 1007,
    "paid": 0.51,
-   "ask": 0.56,
+   "ask": 0.55,
    "status": "live",
    "link": "https://polymarket.us/event/nba-nop-gsw-2026-11-09",
    "other": null,
@@ -372,7 +372,7 @@
    "best_rank": 12,
    "usd": 9018,
    "paid": 0.487,
-   "ask": 0.55,
+   "ask": 0.54,
    "status": "live",
    "link": "https://polymarket.us/event/nba-nop-gsw-2026-11-09",
    "other": null,
@@ -387,9 +387,6 @@
    "home_name": "Golden State Warriors",
    "game_start": "2026-11-10T03:00Z",
    "side_std": "home",
-   "conflict": [
-    "big money"
-   ],
    "money_with": false,
    "grade": "B",
    "fair_board": null,
@@ -456,7 +453,7 @@
    "best_rank": 49,
    "usd": 190,
    "paid": 0.54,
-   "ask": 0.65,
+   "ask": 0.64,
    "status": "live",
    "link": "https://polymarket.us/event/nfl-la-ari-2026-11-15",
    "other": null,
@@ -590,7 +587,11 @@
     "first": "2026-11-09T21:45:12Z"
    },
    "exit_bid": 0.55,
-   "kalshi_against": null,
+   "kalshi_against": {
+    "move": 4.5,
+    "now": 44.5,
+    "state": "drift"
+   },
    "logged": true,
    "event_id": "401909955",
    "sport": "nba",
@@ -601,6 +602,9 @@
    "home_name": "Toronto Raptors",
    "game_start": "2026-11-10T00:30Z",
    "side_std": "home",
+   "conflict": [
+    "Kalshi move"
+   ],
    "money_with": false,
    "grade": "B",
    "inside_fair": false,
@@ -829,6 +833,14 @@
     "n": 1,
     "best_rank": 132,
     "usd": 351
+   },
+   "against": null
+  },
+  "401864539:cfb_road_dog_low_total": {
+   "with": {
+    "n": 1,
+    "best_rank": 132,
+    "usd": 403
    },
    "against": null
   },
@@ -1146,6 +1158,13 @@
     "n": 1,
     "best_rank": 132,
     "usd": 351
+   }
+  },
+  "401864539|spread": {
+   "away": {
+    "n": 1,
+    "best_rank": 132,
+    "usd": 403
    }
   },
   "401906781|total": {
