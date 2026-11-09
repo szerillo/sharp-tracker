@@ -1,5 +1,5 @@
 {
- "built": "2026-11-09T19:04:58Z",
+ "built": "2026-11-09T19:12:48Z",
  "rows": [
   {
    "cond": "0x9dba4642f4329325c0bf83d5d0fb93f688b7ddabb745124704153fbc2b00b8f6",
@@ -74,11 +74,11 @@
    "inside_fair": true,
    "fair_board": 0.4138,
    "books": {
-    "at": "2026-11-09T17:52:30Z",
-    "fair": 0.4004,
+    "at": "2026-11-09T18:03:55Z",
+    "fair": 0.4087,
     "q": {
-     "Novig": 0.4,
      "Polymarket": 0.41,
+     "Novig": 0.415,
      "DK": 0.4237,
      "Caesars": 0.4274
     }
@@ -154,15 +154,15 @@
    "side_std": "home",
    "money_with": false,
    "grade": "B",
-   "fair_board": 0.5142,
-   "inside_fair": false,
+   "fair_board": 0.5217,
+   "inside_fair": true,
    "books": {
-    "at": "2026-11-09T17:52:30Z",
-    "fair": 0.5142,
+    "at": "2026-11-09T18:03:15Z",
+    "fair": 0.5217,
     "q": {
-     "Novig": 0.52,
      "Polymarket": 0.52,
-     "FD": 0.5327,
+     "Novig": 0.53,
+     "FD": 0.5349,
      "Caesars": 0.5349
     }
    }
@@ -198,13 +198,16 @@
    "home_name": "San Jose Sharks",
    "game_start": "2026-11-10T03:00Z",
    "side_std": "away",
+   "conflict": [
+    "big money"
+   ],
    "money_with": false,
    "grade": "A",
-   "fair_board": 0.5682,
+   "fair_board": 0.5684,
    "inside_fair": false,
    "books": {
-    "at": "2026-11-09T17:52:30Z",
-    "fair": 0.5682,
+    "at": "2026-11-09T18:03:55Z",
+    "fair": 0.5684,
     "q": {
      "Polymarket": 0.57,
      "Novig": 0.575,
@@ -323,11 +326,11 @@
    "fair_board": null,
    "inside_fair": null,
    "books": {
-    "at": "2026-11-09T17:52:30Z",
+    "at": "2026-11-09T18:03:52Z",
     "fair": null,
     "q": {
-     "Novig": 0.53,
-     "Kalshi": 0.53
+     "Novig": 0.535,
+     "Kalshi": 0.54
     }
    }
   },
@@ -370,8 +373,8 @@
    "side_std": "home",
    "money_with": true,
    "grade": "A",
-   "fair_board": 0.5237,
-   "inside_fair": false,
+   "fair_board": 0.5437,
+   "inside_fair": true,
    "books": null
   },
   {
@@ -416,7 +419,7 @@
    ],
    "money_with": false,
    "grade": "A",
-   "fair_board": 0.6227,
+   "fair_board": 0.6272,
    "inside_fair": false,
    "books": null
   },
