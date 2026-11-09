@@ -1,5 +1,5 @@
 {
- "built": "2026-11-09T17:05:21Z",
+ "built": "2026-11-09T17:14:21Z",
  "rows": [
   {
    "cond": "0x3fc1b3baed516c3f03aef0435531f6945e26c2bdfaa2fdc5f125de5709004aea",
@@ -34,16 +34,16 @@
    "side_std": "home",
    "money_with": true,
    "grade": "A",
-   "fair_board": 0.5217,
+   "fair_board": 0.5229,
    "inside_fair": true,
    "books": {
-    "at": "2026-11-09T15:57:17Z",
-    "fair": 0.5217,
+    "at": "2026-11-09T16:55:53Z",
+    "fair": 0.5229,
     "q": {
      "Polymarket": 0.52,
      "Novig": 0.525,
-     "Kalshi": 0.54,
-     "FD": 0.5413
+     "FD": 0.5413,
+     "DK": 0.5455
     }
    }
   },
@@ -83,13 +83,13 @@
    "inside_fair": true,
    "fair_board": 0.4138,
    "books": {
-    "at": "2026-11-09T15:57:17Z",
-    "fair": 0.4041,
+    "at": "2026-11-09T16:55:53Z",
+    "fair": 0.4034,
     "q": {
      "Novig": 0.405,
      "Polymarket": 0.41,
-     "Kalshi": 0.42,
-     "FD": 0.4348
+     "DK": 0.4237,
+     "Caesars": 0.4274
     }
    }
   },
@@ -126,11 +126,11 @@
    "side_std": "away",
    "money_with": false,
    "grade": "A",
-   "fair_board": 0.5666,
+   "fair_board": 0.5669,
    "inside_fair": false,
    "books": {
-    "at": "2026-11-09T15:57:17Z",
-    "fair": 0.5666,
+    "at": "2026-11-09T16:55:53Z",
+    "fair": 0.5669,
     "q": {
      "Polymarket": 0.57,
      "Novig": 0.57,
@@ -138,6 +138,43 @@
      "FD": 0.5868
     }
    }
+  },
+  {
+   "cond": "0xe3ae72ec65621e5c0fc6872d0021f97df258dff5146db4a812c024ffccee3983",
+   "slug": "nba-gsw-hou-2026-11-11",
+   "title": "Warriors vs. Rockets",
+   "mtype": "ml",
+   "start": "2026-11-12T02:30:00Z",
+   "bet": "Rockets ML",
+   "side": "Rockets",
+   "flagged": "2026-11-09T17:07:21Z",
+   "why": "2 top-200 accounts",
+   "proven": false,
+   "trigger": "two",
+   "n_accounts": 2,
+   "best_rank": 43,
+   "usd": 1284,
+   "paid": 0.603,
+   "ask": 0.66,
+   "status": "live",
+   "link": "https://polymarket.us/event/nba-gsw-hou-2026-11-11",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401909974",
+   "sport": "nba",
+   "league": null,
+   "away": "GS",
+   "home": "HOU",
+   "away_name": "Golden State Warriors",
+   "home_name": "Houston Rockets",
+   "game_start": "2026-11-12T02:30Z",
+   "side_std": "home",
+   "money_with": false,
+   "grade": "B",
+   "fair_board": null,
+   "inside_fair": null,
+   "books": null
   },
   {
    "cond": "0x3b773f3b5203b36a388f1a3f242b5012e7d4eb0b8fd6f3773f23185485b99c8f",
@@ -212,11 +249,11 @@
    "fair_board": null,
    "inside_fair": null,
    "books": {
-    "at": "2026-11-09T15:57:17Z",
+    "at": "2026-11-09T16:55:53Z",
     "fair": null,
     "q": {
-     "Novig": 0.535,
-     "Kalshi": 0.54
+     "Kalshi": 0.53,
+     "Novig": 0.54
     }
    }
   },
@@ -573,9 +610,9 @@
   },
   "401909974|ml": {
    "home": {
-    "n": 1,
-    "best_rank": 93,
-    "usd": 307
+    "n": 2,
+    "best_rank": 43,
+    "usd": 1284
    }
   },
   "401892680|ml": {
