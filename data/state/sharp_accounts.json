@@ -1,5 +1,5 @@
 {
- "built": "2026-11-09T19:43:54Z",
+ "built": "2026-11-09T19:51:31Z",
  "rows": [
   {
    "cond": "0x9dba4642f4329325c0bf83d5d0fb93f688b7ddabb745124704153fbc2b00b8f6",
@@ -189,8 +189,8 @@
    "home_name": "Houston Rockets",
    "game_start": "2026-11-10T01:30Z",
    "side_std": "away",
-   "money_with": false,
-   "grade": "B",
+   "money_with": true,
+   "grade": "A",
    "fair_board": null,
    "inside_fair": null,
    "books": null
@@ -227,8 +227,8 @@
    "home_name": "Houston Rockets",
    "game_start": "2026-11-10T01:30Z",
    "side_std": "away",
-   "money_with": false,
-   "grade": "B",
+   "money_with": true,
+   "grade": "A",
    "fair_board": null,
    "inside_fair": null,
    "books": null
@@ -568,8 +568,7 @@
    "game_start": "2026-11-10T01:30Z",
    "side_std": "home",
    "conflict": [
-    "Kalshi bet back",
-    "Kalshi move"
+    "Kalshi bet back"
    ],
    "money_with": false,
    "grade": "A",
@@ -614,6 +613,10 @@
    "home_name": "Houston Rockets",
    "game_start": "2026-11-10T01:30Z",
    "side_std": "home",
+   "conflict": [
+    "Kalshi move",
+    "big money"
+   ],
    "money_with": false,
    "grade": "B",
    "inside_fair": true,
