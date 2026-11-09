@@ -86,18 +86,31 @@ def fuzzy(box, name):
 
 def main():
     sp = sys.argv[1]; path = sys.argv[2] if len(sys.argv) > 2 else os.path.join(ROOT, 'data', 'oddsapi', 'derivs', f'{sp}_props.jsonl.gz')
-    conn = sqlite3.connect(os.path.join(ROOT, 'data', 'oddsapi', 'odds.sqlite'))
-    ESPN = {r[0]: str(r[1]) for r in conn.execute("SELECT game_id, espn_id FROM results WHERE espn_id IS NOT NULL")}
-    BOX = {}
+    dbp = os.path.join(ROOT, 'data', 'oddsapi', 'odds.sqlite'); ESPN = {}
+    if os.path.exists(dbp):
+        conn = sqlite3.connect(dbp); ESPN = {r[0]: str(r[1]) for r in conn.execute("SELECT game_id, espn_id FROM results WHERE espn_id IS NOT NULL")}
+    BOX = {}; BYDAY = collections.defaultdict(list)      # 11/8: without odds.sqlite, match the box score by start time (within 1h) and 3+ player names
+    import datetime as _dt
+    _ts = lambda t: _dt.datetime.fromisoformat(t.replace('Z', '+00:00') if len(t) > 17 else t.replace('Z', ':00+00:00'))
     for l in lines(os.path.join(ROOT, 'data', 'boxscores', f'{sp}.jsonl.gz')):
         try: d = json.loads(l)
         except Exception: continue
         BOX[str(d['event_id'])] = {nm(k): dict(v, _name=k) for k, v in d['players'].items()}
+        BYDAY[d['start'][:10]].append((BOX[str(d['event_id'])], _ts(d['start'])))
+    def find_box(d):
+        st = _ts(d['start']); best = None
+        names = {nm(o.get('description')) for b in d.get('bookmakers') or [] for m in b['markets'] for o in m['outcomes'] if o.get('description')}
+        for day in {st.date().isoformat(), (st - _dt.timedelta(days=1)).date().isoformat(), (st + _dt.timedelta(days=1)).date().isoformat()}:
+            for box, bst in BYDAY.get(day, []):
+                if abs((bst - st).total_seconds()) > 3600: continue
+                hit = sum(1 for n in names if n in box)
+                if hit >= 3 and (best is None or hit > best[0]): best = (hit, box)
+        return best[1] if best else None
     H = collections.defaultdict(list); nb = collections.Counter()
     for l in lines(path):
         try: d = json.loads(l)
         except Exception: continue
-        box = BOX.get(ESPN.get(d['game_id'], ''))
+        box = BOX.get(ESPN.get(d['game_id'], '')) or find_box(d)
         if not box or not d.get('bookmakers'): nb['no box'] += 1; continue
         season = d['start'][:4]
         Q = collections.defaultdict(dict); desc = {}          # (market, player) -> book -> {(side, line): price}

@@ -873,11 +873,20 @@ function renderToday() {
     const rec = fmtRec(x) ? ` · record ${fmtRec(x)}` : ' · no graded fires yet';
     return `<details class="how" ${window['_lb_' + tag] ? 'open' : ''} ontoggle="window['_lb_${tag}']=this.open"><summary>${esc(r.desc || tag)} (${L.length} games, tier ${(r.evidence || {}).tier || '?'}, 0.25u each${rec}) · broad rule, grouped</summary>${sTable(L.map(sysRow))}</details>`; }).join('');
   // Prop price-gap leans (sharp/props_live.py, 11/6): paper. A US book prices a prop under 2%+ better than Pinnacle's no-vig at the same line.
-  const PLN = {player_threes: '3-pointers', player_total_saves: 'saves', player_shots_on_goal: 'shots on goal'};
+  const PLN = {player_threes: '3-pointers', player_total_saves: 'saves', player_shots_on_goal: 'shots on goal', player_rush_yds: 'rushing yards'};
+  // 11/8: NFL rushing-yards outlier book (docs/nfl_props_2026-11-08.md): paper. A bettable book's only line sits 4.5+ yards from Pinnacle's
+  // while 2+ other books sit within a yard of Pinnacle; bet the side the gap favours at the outlier. 2023-26: 65-35, +21.9%, 4 of 4 seasons.
+  const plOutRow = r => sRow({id: `pl|${r.key}`, mk: 'prop|' + r.key, tier: 'P', flagged: r.flagged, ev: r.espn, side: r.side, start: r.start, sportLabel: 'NFL', game: esc(r.game),
+      bet: `${esc(r.player)} ${r.side} ${r.line} rushing yards`, sub: `Player prop · outlier line at ${VS(r.book)} · paper`, gone: true, status: ['gone', 'Paper: outlier-book lean, no units until it has a forward record'], size: '',
+      price: `<b>${toAm(1 / r.price)}</b> <span class="small dim">${VS(r.book)}</span>`, link: '',
+      why: `${VS(r.book)} hangs ${r.line}; Pinnacle ${r.pin_line} and ${r.agree} other books within a yard of it (${r.gap} yards apart)`,
+      rec: lbl('Backtest', 'NFL 2023-26, one snapshot per game: 65-35, +21.9%, every season positive; a 2.5-4 yard gap was flat (+3.5%)') + ' ' + lbl('Tracker', 'no graded picks yet'),
+      detail: facts([['Rule', 'Outlier book (docs/nfl_props_2026-11-08.md): Pinnacle one rushing-yards line, FD / Caesars / DK one line 4.5+ yards away, 2+ other books within a yard of Pinnacle; bet the side the gap favours at the outlier, inside an hour of kickoff. Paper.']])});
   // 11/6: NBA threes unders are tier C (0.25u): 1087-938, +8.2% at the best of FD/Caesars/DK, every season positive, monotone in the
   // edge; the NHL ones stay paper (small samples)
   const plLive = r => (r.sport === 'nba' && r.market === 'player_threes') || (r.sport === 'nhl' && (r.flagged || '') >= '2026-11-06T23:00');   // 11/6 (Sean): NHL saves / shots unders tier C
   const plRow = r => { const PLr = window._PL && window._PL.record;
+    if (r.rule === 'outlier book') return plOutRow(r);
     return sRow({id: `pl|${r.key}`, mk: 'prop|' + r.key, tier: 'C', flagged: r.flagged || r.ts, ev: r.espn, side: 'under', start: r.start, sportLabel: (r.sport || '').toUpperCase(), game: esc(r.game), bet: `${esc(r.player)} under ${r.line} ${PLN[r.market] || r.market}`, sub: `Player prop · price gap at ${VS(r.book)}, ${plLive(r) ? 'tier C' : 'paper'}`,
       gone: !plLive(r), status: plLive(r) ? null : ['gone', 'Paper: prop price-gap lean, no units until it has a forward record'], size: plLive(r) ? unitText(SLIP.small, 1 / r.price) : '', price: `<b>${toAm(1 / r.price)}</b> <span class="small dim">${VS(r.book)}</span>`, link: '',
       why: `${VS(r.book)} under ${toAm(1 / r.price)} vs Pinnacle's no-vig ${(100 * r.fair).toFixed(1)}% (${r.ev > 0 ? '+' : ''}${r.ev}% EV); Pinnacle under ${toAm(1 / r.pin_under)}`,

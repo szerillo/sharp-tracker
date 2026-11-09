@@ -11,7 +11,13 @@ HERE = os.path.dirname(os.path.abspath(__file__)); ROOT = os.path.abspath(os.pat
 from sharp.props_test import stat, nm
 from sharp.fairprice import check as fair_check   # 11/7: power + proportional Pinnacle fair, the book's own fair, Pinnacle freshness
 KEY = os.environ.get('ODDS_API_KEY'); API = 'https://api.the-odds-api.com/v4'
-PLAN = {'nba': ('basketball_nba', 'player_threes', 'basketball/nba'), 'nhl': ('icehockey_nhl', 'player_total_saves,player_shots_on_goal', 'hockey/nhl')}
+PLAN = {'nba': ('basketball_nba', 'player_threes', 'basketball/nba'), 'nhl': ('icehockey_nhl', 'player_total_saves,player_shots_on_goal', 'hockey/nhl'),
+        'nfl': ('americanfootball_nfl', 'player_rush_yds', 'football/nfl')}
+# 11/8 (docs/nfl_props_2026-11-08.md): NFL rushing-yards OUTLIER book. Pinnacle hangs one line, a bettable book hangs one line 4.5+ yards away,
+# and 2+ other books sit within a yard of Pinnacle: bet the side the gap favours at the outlier (its line is lower -> over, higher -> under).
+# 2023-26 one snapshot per game: 65-35, +21.9%, 4 of 4 seasons; 2.5-4 yards away was flat (+3.5%). 100 bets, so paper.
+OUTLIER = {'nfl': dict(market='player_rush_yds', gap=4.5, agree=2)}
+OTHER = 'betrivers,bovada,betonlineag'     # fetched to count agreement with Pinnacle; not bet
 BOOKS = {'fanduel': 'FD', 'williamhill_us': 'Caesars', 'draftkings': 'DK'}
 PAPER = os.path.join(ROOT, 'data', 'state', 'props_paper.jsonl'); OUT = os.path.join(ROOT, 'data', 'state', 'props_live.json')
 NOW = dt.datetime.now(dt.timezone.utc); EV_MIN = 0.02; STAKE = 0.25
@@ -55,8 +61,36 @@ def main():
                 st = ts(e['commence_time']); h = (st - NOW).total_seconds() / 3600
                 # 11/7 (Sean): the backtest priced every prop 10-14 min before tip; flag only inside the last hour (was 3 h)
                 if not 0.15 < h <= float(os.environ.get('PROPS_H', 1)): continue
-                d = get(f"{API}/sports/{sk}/events/{e['id']}/odds?apiKey={KEY}&regions=us,eu&markets={markets}&bookmakers=pinnacle,{','.join(BOOKS)}&oddsFormat=decimal")
+                d = get(f"{API}/sports/{sk}/events/{e['id']}/odds?apiKey={KEY}&regions=us,eu&markets={markets}&bookmakers=pinnacle,{','.join(BOOKS)}{',' + OTHER if sp in OUTLIER else ''}&oddsFormat=decimal")
                 if not d: continue
+                if sp in OUTLIER:
+                    o_ = OUTLIER[sp]; L = {}       # player -> book -> {line: (over, under, ts)}
+                    for b in d.get('bookmakers') or []:
+                        for m in b['markets']:
+                            if m['key'] != o_['market']: continue
+                            for o in m['outcomes']:
+                                if o.get('point') is None or o['name'] not in ('Over', 'Under'): continue
+                                q_ = L.setdefault(o.get('description'), {}).setdefault(b['key'], {}).setdefault(o['point'], {})
+                                q_[o['name'].lower()] = o['price']; q_['ts'] = m.get('last_update') or b.get('last_update')
+                    for player, books in L.items():
+                        P = books.get('pinnacle') or {}
+                        pl = [ln for ln, v in P.items() if 'over' in v and 'under' in v]
+                        if len(pl) != 1: continue
+                        ln0 = pl[0]
+                        for bk, name in BOOKS.items():
+                            bl = [ln for ln, v in (books.get(bk) or {}).items() if 'over' in v and 'under' in v]
+                            if len(bl) != 1 or abs(bl[0] - ln0) < o_['gap']: continue
+                            agree = sum(1 for k2, B2 in books.items() if k2 not in (bk, 'pinnacle') and any(abs(ln - ln0) <= 1 for ln in B2))
+                            if agree < o_['agree']: print(f'[props_live] skip {player} rush {bl[0]} at {name}: Pinnacle {ln0} but only {agree} other books near it'); continue
+                            side = 'over' if bl[0] < ln0 else 'under'; v = books[bk][bl[0]]; price = v[side]
+                            key = f"{e['id']}|{o_['market']}|{player}|{bl[0]}|{side}"
+                            if key in seen: continue
+                            seen.add(key); new += 1
+                            rows.append(dict(key=key, sport=sp, odds_id=e['id'], espn=espn_event(sp, e['home_team'], e['away_team'], st), game=f"{e['away_team']} @ {e['home_team']}",
+                                             start=e['commence_time'], market=o_['market'], player=player, line=bl[0], side=side, book=name, price=price, rule='outlier book',
+                                             pin_line=ln0, gap=round(abs(bl[0] - ln0), 1), agree=agree, pin_over=P[ln0]['over'], pin_under=P[ln0]['under'],
+                                             pin_ts=P[ln0].get('ts'), book_ts=v.get('ts'), flagged=NOW.strftime('%Y-%m-%dT%H:%M:%SZ')))
+                    continue
                 Q = {}
                 for b in d.get('bookmakers') or []:
                     for m in b['markets']:
@@ -103,7 +137,7 @@ def main():
         if p is None: r['won'] = 'void'; r['units'] = 0.0; continue
         v = stat(r['sport'], r['market'], p)
         if v is None: continue
-        won = 0.5 if v == r['line'] else 1 if v < r['line'] else 0
+        won = 0.5 if v == r['line'] else 1 if (v < r['line']) == (r.get('side', 'under') == 'under') else 0
         r['won'] = won; r['actual'] = v; r['units'] = round(STAKE * ((r['price'] - 1) if won == 1 else -1 if won == 0 else 0), 3)
     with open(PAPER, 'w') as f:
         for r in rows: f.write(json.dumps(r) + '\n')
