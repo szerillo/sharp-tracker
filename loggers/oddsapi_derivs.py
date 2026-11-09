@@ -54,6 +54,26 @@ def arg(name, default):
     return sys.argv[sys.argv.index(name) + 1] if name in sys.argv else default
 
 
+def recent(G, now):
+    """11/8: the exported game list ends when it was exported (NFL: 2026-02-08), so this season's games were never pulled. Add every game
+    since then from the historical events list, one call per sport key per day at 12:00Z (1 credit each)."""
+    keys = sorted({g[1] for g in G})
+    if not G or len(keys) > 3: return G
+    have = {g[0] for g in G}; last = max(g[2] for g in G)
+    d = dt.datetime.fromisoformat(last[:10] + 'T12:00:00+00:00'); end = dt.datetime.fromisoformat(now.replace('Z', '+00:00'))
+    if (end - d).days < 2: return G
+    add = 0
+    while d < end:
+        for k in keys:
+            j, cost, rem, st = get(f"{API}/historical/sports/{k}/events?apiKey={KEY}&date={d.strftime('%Y-%m-%dT%H:%M:%SZ')}")
+            for e in ((j or {}).get('data') or []):
+                if e['id'] in have or not (last < e['commence_time'] < now): continue
+                have.add(e['id']); G.append((e['id'], k, e['commence_time'], e['home_team'], e['away_team'])); add += 1
+        d += dt.timedelta(days=1)
+    print(f'[derivs] added {add} games after {last[:10]} from the events list', flush=True)
+    return G
+
+
 def get(url):
     """(json, cost, remaining, status). status: 'ok', 'none' (404/422: the event has no snapshot), or 'fail' (do not record)."""
     for i in range(8):
@@ -88,6 +108,7 @@ def main():
             G = conn.execute(f"SELECT game_id, key, start, home, away FROM games WHERE sport=? AND start>=? AND start<? AND key LIKE '%\\_%' ESCAPE '\\' ORDER BY start {order}", (sp, SINCE, now)).fetchall()   # Odds API ids only (live-logger rows carry ESPN ids)
         else:      # GitHub runners have no odds.sqlite: the exported list data/oddsapi/derivs/_games.json.gz
             G = [(g['game_id'], g['key'], g['start'], g['home'], g['away']) for g in json.load(gzip.open(os.path.join(OUTD, '_games.json.gz'), 'rt')) if g['sport'] == sp and SINCE <= g['start'] < now]
+            G = recent(G, now)
             G.sort(key=lambda x: x[2], reverse=(order == 'DESC'))
         todo = [g for g in G if g[0] not in done]
         print(f'[derivs] {sp}: {len(G)} games since {SINCE}, {len(done)} done, {len(todo)} to pull ({PLAN[sp]})', flush=True)
