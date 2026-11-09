@@ -30,7 +30,7 @@ RULES = {'wind1014': dict(market='total', side='under', stake=1.0), 'wind1014_1h
          'mlb_road_over_under': dict(market='total', side='under', stake=0.5, sport='mlb'),
          # exchange signals (docs/exchange_signals_audit_2026-10-29.md): fired inside T-1.5h, at the exchange that shows the signal
          'xch_homedog_fade': dict(market='ml|spread', side='away', stake=0.5, sport='nfl,nba,cfb,nhl,mlb', venue='Novig'),
-         'nba_momentum': dict(market='ml|spread|total', side='continuation', stake=0.5, sport='nba', venue='Novig|Kalshi'),
+         # nba_momentum retired 11/9 (docs/checkpoint_2026-11-09.md): 18-40 on paper, -11.79u, ROI -40.7%, ROI z -3.27 on 58 graded (rule: 50+ graded and z -2 or worse); CLV -1.49 on 58.
          # Bet Labs round 2 leans (docs/betlabs_segments_audit_2026-10-30.md), paper only
          'nhl_pl_fav_gap': dict(market='spread', side='fav', stake=0.5, sport='nhl'), 'nhl_pl_fav_strong_opp': dict(market='spread', side='fav', stake=0.5, sport='nhl'),
          'nhl_pl_dog_bigml': dict(market='spread', side='dog', stake=0.5, sport='nhl'),
@@ -789,7 +789,7 @@ def late_rules(conn, fired, fires_now, view_games):
                 fire('xch_homedog_fade', market, (-line if line is not None else None), 'away', away, 'Novig', f"Novig home side mid {ph:.3f} inside T-{ttk:.1f}h; audit band 20-35c")
                 break
         # nba_momentum: exchange two-sided mid moved >= 3c since T-6h -> continuation at that exchange
-        if sport == 'nba':
+        if sport == 'nba' and 'nba_momentum' in RULES:   # retired 11/9: out of RULES, so it no longer fires
             t6 = N.iso(st - dt.timedelta(hours=6))
             for market in ('ml', 'spread', 'total'):
                 line = None; part_h, part_a = home, away
