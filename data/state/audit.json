@@ -1,48 +1,48 @@
 {
- "built": "2026-11-09T02:29:27Z",
+ "built": "2026-11-09T02:41:09Z",
  "ok": false,
  "checks": [
   {
    "name": "fresh: sharp signals (5-minute job)",
    "ok": true,
    "level": "error",
-   "detail": "last built 10 min ago (allowed 20)"
+   "detail": "last built 16 min ago (allowed 20)"
   },
   {
    "name": "fresh: big money / Kalshi moves (20-minute job)",
    "ok": true,
    "level": "error",
-   "detail": "last built 4 min ago (allowed 60)"
+   "detail": "last built 6 min ago (allowed 60)"
   },
   {
    "name": "fresh: tennis watch (20-minute job)",
    "ok": true,
    "level": "error",
-   "detail": "last built 4 min ago (allowed 60)"
+   "detail": "last built 6 min ago (allowed 60)"
   },
   {
    "name": "fresh: bet tracker (20-minute job)",
    "ok": true,
    "level": "error",
-   "detail": "last built 1 min ago (allowed 60)"
+   "detail": "last built 2 min ago (allowed 60)"
   },
   {
    "name": "fresh: system bets (3 runs a day)",
    "ok": true,
    "level": "error",
-   "detail": "last built 36 min ago (allowed 300)"
+   "detail": "last built 25 min ago (allowed 300)"
   },
   {
    "name": "sharp feed: Polymarket fills arriving",
    "ok": true,
    "level": "warn",
-   "detail": "newest sharp fill 0.7 h ago"
+   "detail": "newest sharp fill 0.5 h ago"
   },
   {
    "name": "open system bets all on the board",
    "ok": false,
    "level": "error",
-   "detail": "51 open, 1 missing: cfb_road_dog_low_total 401864538"
+   "detail": "51 open, 2 missing: cfb_road_dog_low_total 401864538, nba_under_good_home_over 401909957"
   },
   {
    "name": "no duplicate bets in the records",
@@ -58,9 +58,9 @@
   },
   {
    "name": "bet tracker has every flagged bet",
-   "ok": false,
-   "level": "error",
-   "detail": "431 in the records, 4 missing from the tracker"
+   "ok": true,
+   "level": "warn",
+   "detail": "431 in the records, 0 missing from the tracker"
   }
  ]
 }
