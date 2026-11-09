@@ -1,5 +1,5 @@
 {
- "built": "2026-11-09T22:10:34Z",
+ "built": "2026-11-09T22:18:04Z",
  "rows": [
   {
    "cond": "0x9dba4642f4329325c0bf83d5d0fb93f688b7ddabb745124704153fbc2b00b8f6",
@@ -301,9 +301,6 @@
    "home_name": "San Jose Sharks",
    "game_start": "2026-11-10T03:00Z",
    "side_std": "away",
-   "conflict": [
-    "big money"
-   ],
    "money_with": false,
    "grade": "A",
    "fair_board": 0.5703,
@@ -387,6 +384,9 @@
    "home_name": "Golden State Warriors",
    "game_start": "2026-11-10T03:00Z",
    "side_std": "home",
+   "conflict": [
+    "big money"
+   ],
    "money_with": false,
    "grade": "B",
    "fair_board": 0.4682,
@@ -627,8 +627,8 @@
    },
    "exit_bid": 0.55,
    "kalshi_against": {
-    "move": 4.5,
-    "now": 44.5,
+    "move": 5.5,
+    "now": 45.5,
     "state": "drift"
    },
    "logged": true,
