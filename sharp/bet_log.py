@@ -91,6 +91,17 @@ class Tape:
     def novig_pin(self, key, t):
         """No-vig Pinnacle probability of this exact side and line at t (multiplicative, both sides quoted); Novig mid as the fallback."""
         ev, m, side, line = key
+        if m == 'ml':
+            # 11/9: soccer moneyline is three-way. Devigging home against away alone treated the draw as a push and overstated every
+            # soccer ML fair by 10-20 points. When Pinnacle has a draw quote, normalise all three; 'not_home' / 'not_away' = 1 - that side.
+            D = {s_: self.last(self.raw.get((ev, m, s_, line), {}).get('Pinnacle', []), t) for s_ in ('home', 'away', 'draw')}
+            if D['draw'] or side in ('draw', 'not_home', 'not_away'):
+                if not all(D.values()):
+                    n = self.last(self.raw.get(key, {}).get('Novig', []), t)   # Novig's soccer ML is one Yes/No market per outcome: its mid is already three-way
+                    return (n[1], 'Novig mid') if n else (None, None)
+                tot = sum(x[1] for x in D.values()); P = {s_: x[1] / tot for s_, x in D.items()}
+                P['not_home'] = 1 - P['home']; P['not_away'] = 1 - P['away']
+                return (P[side], 'Pinnacle') if side in P else (None, None)
         okey = (ev, m, OTH.get(side), line if (line is None or 'total' in m) else -line)
         a = self.last(self.raw.get(key, {}).get('Pinnacle', []), t); b = self.last(self.raw.get(okey, {}).get('Pinnacle', []), t)
         if a and b: return a[1] / (a[1] + b[1]), 'Pinnacle'
