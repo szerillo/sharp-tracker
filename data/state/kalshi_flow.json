@@ -1,5 +1,5 @@
 {
-"built": "2026-11-09T19:01:49Z",
+"built": "2026-11-09T19:09:31Z",
 "sport": "nhl",
 "rule": "kalshi_nhl_flow",
 "tier": "P",
@@ -7,7 +7,28 @@
 "min_usd": 500.0,
 "window_h": 6,
 "fire_min": 90,
-"rows": [],
+"rows": [
+{
+"event_id": "401892680",
+"market": "ml",
+"line": null,
+"start": "2026-11-10T01:00Z",
+"side": "home",
+"yes_side": "home",
+"home": "Edmonton Oilers",
+"away": "New York Rangers",
+"game": "New York Rangers @ Edmonton Oilers",
+"bet": "Edmonton Oilers moneyline",
+"share": 0.627,
+"usd": 338,
+"trades": 11,
+"price": 0.6,
+"mins_to_start": 350,
+"flag": false,
+"ticker": "KXNHLGAME-26NOV09NYREDM-EDM",
+"window_h": 6
+}
+],
 "record": {
 "n": 34,
 "won": 20,

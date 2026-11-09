@@ -1,5 +1,5 @@
 {
- "built": "2026-11-09T18:57:14Z",
+ "built": "2026-11-09T19:04:58Z",
  "rows": [
   {
    "cond": "0x9dba4642f4329325c0bf83d5d0fb93f688b7ddabb745124704153fbc2b00b8f6",
@@ -122,6 +122,52 @@
    "books": null
   },
   {
+   "cond": "0x37fad07dcc932c2b6d4e7f47f44c3c4460a48e7bcad38242fc6959c87a9e5ffe",
+   "slug": "nba-den-hou-2026-11-09",
+   "title": "Nuggets vs. Rockets",
+   "mtype": "spread",
+   "start": "2026-11-10T01:30:00Z",
+   "bet": "Rockets -8.5",
+   "side": "Rockets",
+   "flagged": "2026-11-09T19:04:00Z",
+   "why": "2 top-200 accounts",
+   "proven": false,
+   "trigger": "two",
+   "n_accounts": 2,
+   "best_rank": 119,
+   "usd": 6395,
+   "paid": 0.52,
+   "ask": 0.52,
+   "status": "live",
+   "link": "https://polymarket.us/event/nba-den-hou-2026-11-09",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401909957",
+   "sport": "nba",
+   "league": null,
+   "away": "DEN",
+   "home": "HOU",
+   "away_name": "Denver Nuggets",
+   "home_name": "Houston Rockets",
+   "game_start": "2026-11-10T01:30Z",
+   "side_std": "home",
+   "money_with": false,
+   "grade": "B",
+   "fair_board": 0.5142,
+   "inside_fair": false,
+   "books": {
+    "at": "2026-11-09T17:52:30Z",
+    "fair": 0.5142,
+    "q": {
+     "Novig": 0.52,
+     "Polymarket": 0.52,
+     "FD": 0.5327,
+     "Caesars": 0.5349
+    }
+   }
+  },
+  {
    "cond": "0x372ef9fd2ef5d6e26caa63a85da27ffaf9f6e5d0f10d6e4598c772e7b570093c",
    "slug": "nhl-nyi-sj-2026-11-09",
    "title": "Islanders vs. Sharks",
@@ -183,7 +229,7 @@
    "best_rank": 43,
    "usd": 1284,
    "paid": 0.603,
-   "ask": 0.66,
+   "ask": 0.65,
    "status": "live",
    "link": "https://polymarket.us/event/nba-gsw-hou-2026-11-11",
    "other": null,
@@ -490,11 +536,19 @@
   },
   "401909957:nba_ats_hot_home": {
    "with": {
-    "n": 1,
+    "n": 2,
     "best_rank": 119,
-    "usd": 6278
+    "usd": 6395
    },
    "against": null
+  },
+  "401909959:nba_ats_hot_home": {
+   "with": null,
+   "against": {
+    "n": 1,
+    "best_rank": 132,
+    "usd": 314
+   }
   },
   "401909957:nba_under_good_home_over": {
    "with": null,
@@ -640,9 +694,9 @@
   },
   "401909957|spread": {
    "home": {
-    "n": 1,
+    "n": 2,
     "best_rank": 119,
-    "usd": 6278
+    "usd": 6395
    }
   },
   "401909958|ml": {
@@ -657,6 +711,13 @@
     "n": 1,
     "best_rank": 119,
     "usd": 3544
+   }
+  },
+  "401909959|spread": {
+   "away": {
+    "n": 1,
+    "best_rank": 132,
+    "usd": 314
    }
   },
   "401909961|ml": {
