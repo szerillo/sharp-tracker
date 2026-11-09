@@ -1,0 +1,23 @@
+name: boxing results (Wikipedia records)
+# Sean, 11/9: results for the boxing odds history (loggers/boxing_results.py). Manual; resumable.
+on:
+  workflow_dispatch:
+    inputs:
+      minutes: {description: 'max minutes of lookups', default: '100', required: true}
+permissions:
+  contents: write
+jobs:
+  pull:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+      - name: look up results
+        run: timeout 6900 python3 loggers/boxing_results.py ${{ inputs.minutes }} || true
+      - name: commit
+        if: always()
+        run: |
+          git config user.name "tracker-bot"; git config user.email "actions@users.noreply.github.com"
+          git add data/boxing/results.json data/boxing/wiki_cache.json.gz
+          git commit -q -m "boxing results from Wikipedia" || exit 0
+          for i in 1 2 3 4 5 6; do git pull -q --rebase -X theirs && git push -q && exit 0; sleep $((RANDOM % 20 + 5)); done
