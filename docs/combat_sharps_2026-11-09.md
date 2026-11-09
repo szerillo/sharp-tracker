@@ -37,3 +37,17 @@ Read:
   sharper yardstick.
 - Not a bet. Possible use: a top-wallet fill as a reason to hold a UFC position against it (a pushback signal), which the three-period
   gap supports better than following does. To be checked against the live MMA steam rule before anything changes.
+
+## Boxing
+Pinnacle for 2026 boxing pulled for the Polymarket fight dates (loggers/oddsapi_lines_at.py --markets h2h; 6 hours and 10 minutes out, 76
+calls, 760 credits). Only 66 of Polymarket's 312 boxing fights have a Pinnacle price (Pinnacle does not hang most of the small Zuffa and
+undercard fights Polymarket lists), and almost no wallet has bet 8+ of them, so there is no one to rank: 3,254 wallets, 2 that qualify.
+
+| | Bets | Record | ROI | CLV vs Pinnacle close | Pinnacle moved toward the side after |
+|---|---|---|---|---|---|
+| Every wallet, first fill per fight and side | 888 | 629-259 | +4.0% | -2.21 | +0.03 |
+| First fills of $1k+ | 159 | 123-36 | +1.3% | -2.16 | +0.02 |
+
+Read: Polymarket's boxing money is mostly on favourites (629-259) and pays about 2 points over Pinnacle; Pinnacle does not move after it.
+No sharp signal to be had from Polymarket in boxing. The boxing odds test (Pinnacle vs the US books, 2023-25) waits on results: the
+Wikipedia lookup is being rerun with parallel page fetches (the first pass settled 127 of 223 fights in its time limit).
