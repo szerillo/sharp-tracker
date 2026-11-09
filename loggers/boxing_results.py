@@ -98,6 +98,14 @@ def main():
     t0 = time.time(); n = 0
     todo = [k for k in fights if k not in res and dt.datetime.fromisoformat(fights[k][2].replace('Z', '+00:00')) < dt.datetime.now(dt.timezone.utc) - dt.timedelta(days=2)]
     print(f'[boxing_results] {len(fights)} fights, {len(res)} done, {len(todo)} to look up', flush=True)
+    # 11/9: one page at a time managed about 2 fights a minute; fetch every fighter's page first, 8 at a time
+    import concurrent.futures as cf
+    names = sorted({x for k in todo for x in fights[k][:2]} - set(cache))
+    print(f'[boxing_results] fetching {len(names)} fighter pages', flush=True)
+    with cf.ThreadPoolExecutor(8) as ex:
+        for i, _ in enumerate(ex.map(lambda nm_: page_for(nm_, cache), names)):
+            if i % 250 == 0: print(f'[boxing_results] pages {i}/{len(names)}', flush=True); json.dump(cache, gzip.open(CACHE, 'wt'))
+            if (time.time() - t0) / 60 > MAXMIN: break
     for k in todo:
         if (time.time() - t0) / 60 > MAXMIN: break
         h, a, s = fights[k]; d = dt.datetime.fromisoformat(s.replace('Z', '+00:00')).date()
