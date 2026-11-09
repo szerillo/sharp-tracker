@@ -409,6 +409,11 @@ def main():
     old = {b.get('id'): b for b in (json.load(open(OUT)).get('rows') or [])} if os.path.exists(OUT) else {}
     for b in bets:
         o = old.get(b['id']) or {}
+        # 11/9: soccer ML fairs before the three-way fix were 10-20 pts too high; never carry those forward (a rolled-off one becomes blank)
+        s3 = b.get('sport') == 'soccer' and b.get('market') == 'ml'
+        if s3:
+            if not o.get('fair3'): o = {k: v for k, v in o.items() if k not in ('nv_close', 'nv_src', 'clv_nv', 'fair_at_flag', 'fair_src', 'edge')}
+            b['fair3'] = 1
         for k in ('alt_line', 'best', 'best_venue', 'best_at', 'best_after_min', 'best_before_start_min', 'close_board', 'close', 'clv', 'nv_close', 'nv_src', 'clv_nv',
                   'fair_at_flag', 'fair_src', 'edge', 'depth', 'close_line', 'open_line', 'line_value', 'keys_crossed', 'ctx'):
             if b.get(k) is None and o.get(k) is not None: b[k] = o[k]
