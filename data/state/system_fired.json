@@ -5003,5 +5003,22 @@
 "fair": 0.50808,
 "edge_pts": -0.69,
 "why": "Novig total mid 0.520 at T-6h -> 0.490 now (-3.0c); continuation (audit section 3, NBA only)"
+},
+"401909951:nba_momentum:ml": {
+"tag": "nba_momentum",
+"fill_id": "c2743e5d0d44",
+"ts": "2026-11-09T01:12:29Z",
+"market": "ml",
+"side": "away",
+"line": null,
+"venue": "Novig",
+"price": -506,
+"fair": 0.82906,
+"edge_pts": -0.59,
+"why": "Novig ml mid 0.207 at T-6h -> 0.168 now (-4.0c); continuation (audit section 3, NBA only)",
+"now": {
+"venue": "Caesars",
+"price": -480
+}
 }
 }
