@@ -1,5 +1,5 @@
 {
- "built": "2026-11-09T01:58:02Z",
+ "built": "2026-11-09T02:04:56Z",
  "rows": [
   {
    "cond": "0x38e2e42733c4910869776852bf5d7e3033c9b0936bd1e98069def7ed4070babb",
@@ -174,7 +174,7 @@
    "best_rank": 49,
    "usd": 1970,
    "paid": 0.539,
-   "ask": 0.58,
+   "ask": null,
    "status": "live",
    "link": "https://polymarket.us/event/nba-mia-sac-2026-11-08",
    "other": null,
@@ -610,13 +610,13 @@
    "best_rank": 43,
    "usd": 257,
    "paid": 0.509,
-   "ask": 0.34,
+   "ask": 0.35,
    "status": "live",
    "link": "https://polymarket.us/event/nba-lal-atl-2026-11-09",
    "other": null,
    "kalshi_against": {
-    "move": 7.0,
-    "now": 56.5,
+    "move": 6.0,
+    "now": 55.5,
     "state": "held"
    },
    "logged": true,
@@ -707,7 +707,7 @@
    "best_rank": 23,
    "usd": 1512,
    "paid": 0.635,
-   "ask": 0.74,
+   "ask": 0.75,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-den-hou-2026-11-09",
    "other": {
@@ -716,7 +716,7 @@
     "usd": 1810,
     "first": "2026-11-08T22:52:33Z"
    },
-   "exit_bid": 0.73,
+   "exit_bid": 0.74,
    "kalshi_against": null,
    "logged": true,
    "event_id": "401909957",
@@ -744,15 +744,15 @@
     "clv": 0.0
    },
    "outside": {
-    "n": 31,
+    "n": 32,
     "won": 16,
-    "units": 0.38,
+    "units": 0.13,
     "clv": 0.43
    }
   },
-  "n": 156,
-  "won": 68,
-  "units": -12.61,
+  "n": 159,
+  "won": 69,
+  "units": -12.63,
   "by_grade": {
    "A": {
     "n": 110,
@@ -761,10 +761,10 @@
     "clv": 0.08
    },
    "B": {
-    "n": 31,
-    "won": 18,
-    "units": 0.95,
-    "clv": -0.86
+    "n": 34,
+    "won": 19,
+    "units": 0.92,
+    "clv": -0.83
    },
    "watch": {
     "n": 15,
@@ -773,51 +773,14 @@
     "clv": -1.75
    }
   },
-  "units_1u": -29.02,
+  "units_1u": -28.68,
   "clv": -0.22,
-  "n_venue": 73,
-  "units_venue": -5.34,
-  "clv_venue": 0.59,
-  "clv_poly_same": -0.54
+  "n_venue": 75,
+  "units_venue": -5.17,
+  "clv_venue": 0.61,
+  "clv_poly_same": -0.52
  },
- "sys_tags": {
-  "401909951:nba_badteams_under": {
-   "with": null,
-   "against": {
-    "n": 1,
-    "best_rank": 143,
-    "usd": 5365
-   }
-  },
-  "401909951:nba_under_good_home_over": {
-   "with": null,
-   "against": {
-    "n": 1,
-    "best_rank": 143,
-    "usd": 5365
-   }
-  },
-  "401909951:nba_momentum:spread": {
-   "with": {
-    "n": 4,
-    "best_rank": 49,
-    "usd": 31033
-   },
-   "against": {
-    "n": 2,
-    "best_rank": 112,
-    "usd": 20184
-   }
-  },
-  "401909951:nba_momentum:total": {
-   "with": null,
-   "against": {
-    "n": 1,
-    "best_rank": 143,
-    "usd": 5365
-   }
-  }
- },
+ "sys_tags": {},
  "by_event": {
   "401873051|ml": {
    "away": {
@@ -836,32 +799,6 @@
     "n": 1,
     "best_rank": 49,
     "usd": 190
-   }
-  },
-  "401909950|ml": {
-   "home": {
-    "n": 1,
-    "best_rank": 195,
-    "usd": 659
-   }
-  },
-  "401909951|total": {
-   "over": {
-    "n": 1,
-    "best_rank": 143,
-    "usd": 5365
-   }
-  },
-  "401909951|spread": {
-   "home": {
-    "n": 2,
-    "best_rank": 112,
-    "usd": 20184
-   },
-   "away": {
-    "n": 4,
-    "best_rank": 49,
-    "usd": 31033
    }
   },
   "401909952|ml": {
