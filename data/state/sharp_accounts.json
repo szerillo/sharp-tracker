@@ -1,5 +1,5 @@
 {
- "built": "2026-11-09T18:05:44Z",
+ "built": "2026-11-09T18:29:05Z",
  "rows": [
   {
    "cond": "0x9dba4642f4329325c0bf83d5d0fb93f688b7ddabb745124704153fbc2b00b8f6",
@@ -152,6 +152,9 @@
    "home_name": "San Jose Sharks",
    "game_start": "2026-11-10T03:00Z",
    "side_std": "away",
+   "conflict": [
+    "big money"
+   ],
    "money_with": false,
    "grade": "A",
    "fair_board": 0.5682,
@@ -294,14 +297,14 @@
    "bet": "Hawks ML",
    "side": "Hawks",
    "flagged": "2026-11-07T11:31:12Z",
-   "why": "4 top-200 accounts",
+   "why": "5 top-200 accounts",
    "proven": false,
    "trigger": "two",
-   "n_accounts": 4,
+   "n_accounts": 5,
    "best_rank": 43,
-   "usd": 955,
-   "paid": 0.496,
-   "ask": 0.56,
+   "usd": 11895,
+   "paid": 0.536,
+   "ask": 0.55,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-lal-atl-2026-11-09",
    "other": {
@@ -310,7 +313,7 @@
     "usd": 36100,
     "first": "2026-11-09T18:00:06Z"
    },
-   "exit_bid": 0.55,
+   "exit_bid": 0.54,
    "kalshi_against": null,
    "logged": true,
    "event_id": "401909952",
@@ -488,12 +491,20 @@
     "usd": 5330
    }
   },
+  "401909957:nba_ats_hot_home": {
+   "with": {
+    "n": 1,
+    "best_rank": 119,
+    "usd": 6278
+   },
+   "against": null
+  },
   "401909957:nba_under_good_home_over": {
    "with": null,
    "against": {
-    "n": 1,
+    "n": 2,
     "best_rank": 110,
-    "usd": 439
+    "usd": 5173
    }
   }
  },
@@ -540,9 +551,9 @@
   },
   "401909952|ml": {
    "home": {
-    "n": 4,
+    "n": 5,
     "best_rank": 43,
-    "usd": 955
+    "usd": 11895
    },
    "away": {
     "n": 3,
@@ -625,9 +636,16 @@
   },
   "401909957|total": {
    "over": {
-    "n": 1,
+    "n": 2,
     "best_rank": 110,
-    "usd": 439
+    "usd": 5173
+   }
+  },
+  "401909957|spread": {
+   "home": {
+    "n": 1,
+    "best_rank": 119,
+    "usd": 6278
    }
   },
   "401909958|ml": {
@@ -717,6 +735,13 @@
     "n": 1,
     "best_rank": 197,
     "usd": 460
+   }
+  },
+  "401906781|total": {
+   "over": {
+    "n": 1,
+    "best_rank": 110,
+    "usd": 232
    }
   },
   "401917978|total": {
