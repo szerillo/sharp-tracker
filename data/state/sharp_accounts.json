@@ -1,5 +1,5 @@
 {
- "built": "2026-11-09T19:27:57Z",
+ "built": "2026-11-09T19:43:54Z",
  "rows": [
   {
    "cond": "0x9dba4642f4329325c0bf83d5d0fb93f688b7ddabb745124704153fbc2b00b8f6",
@@ -174,7 +174,7 @@
    "best_rank": 49,
    "usd": 6455,
    "paid": 0.486,
-   "ask": 0.6,
+   "ask": 0.59,
    "status": "live",
    "link": "https://polymarket.us/event/nba-den-hou-2026-11-09",
    "other": null,
@@ -211,7 +211,7 @@
    "best_rank": 112,
    "usd": 7777,
    "paid": 0.473,
-   "ask": 0.62,
+   "ask": 0.6,
    "status": "live",
    "link": "https://polymarket.us/event/nba-den-hou-2026-11-09",
    "other": null,
@@ -249,7 +249,7 @@
    "best_rank": 104,
    "usd": 227,
    "paid": 0.45,
-   "ask": 0.52,
+   "ask": 0.53,
    "status": "live",
    "link": "https://polymarket.us/event/nba-den-hou-2026-11-09",
    "other": null,
@@ -301,6 +301,9 @@
    "home_name": "San Jose Sharks",
    "game_start": "2026-11-10T03:00Z",
    "side_std": "away",
+   "conflict": [
+    "big money"
+   ],
    "money_with": false,
    "grade": "A",
    "fair_board": 0.5684,
@@ -539,7 +542,7 @@
    "best_rank": 23,
    "usd": 6290,
    "paid": 0.625,
-   "ask": 0.63,
+   "ask": 0.62,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-den-hou-2026-11-09",
    "other": {
@@ -549,7 +552,11 @@
     "first": "2026-11-08T22:52:33Z"
    },
    "exit_bid": 0.61,
-   "kalshi_against": null,
+   "kalshi_against": {
+    "move": 4.0,
+    "now": 39.5,
+    "state": "reversed"
+   },
    "logged": true,
    "event_id": "401909957",
    "sport": "nba",
@@ -560,6 +567,10 @@
    "home_name": "Houston Rockets",
    "game_start": "2026-11-10T01:30Z",
    "side_std": "home",
+   "conflict": [
+    "Kalshi bet back",
+    "Kalshi move"
+   ],
    "money_with": false,
    "grade": "A",
    "inside_fair": false,
@@ -582,7 +593,7 @@
    "best_rank": 119,
    "usd": 6395,
    "paid": 0.52,
-   "ask": 0.37,
+   "ask": 0.4,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-den-hou-2026-11-09",
    "other": {
@@ -591,7 +602,7 @@
     "usd": 7992,
     "first": "2026-11-09T19:15:06Z"
    },
-   "exit_bid": 0.36,
+   "exit_bid": 0.39,
    "kalshi_against": null,
    "logged": true,
    "event_id": "401909957",
