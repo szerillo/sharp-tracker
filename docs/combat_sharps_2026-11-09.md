@@ -49,5 +49,24 @@ undercard fights Polymarket lists), and almost no wallet has bet 8+ of them, so 
 | First fills of $1k+ | 159 | 123-36 | +1.3% | -2.16 | +0.02 |
 
 Read: Polymarket's boxing money is mostly on favourites (629-259) and pays about 2 points over Pinnacle; Pinnacle does not move after it.
-No sharp signal to be had from Polymarket in boxing. The boxing odds test (Pinnacle vs the US books, 2023-25) waits on results: the
-Wikipedia lookup is being rerun with parallel page fetches (the first pass settled 127 of 223 fights in its time limit).
+No sharp signal to be had from Polymarket in boxing.
+
+### Boxing odds: Pinnacle against the US books, 2023-26 (sharp/boxing_test.py)
+Results from the Wikipedia record tables (loggers/boxing_results.py): 2,320 fights with odds, 917 settled, 838 graded (540 with a
+Pinnacle quote). The other 1,395 have no Wikipedia page for either fighter, mostly undercards.
+
+**The full set is biased.** An unknown fighter usually gets a Wikipedia page only after he wins, so when only one fighter has a page,
+upsets by unknowns are over-represented. On all 838 fights, Pinnacle's 55-70% favourites won only 51.7% (n 120) and the best US price
+on dogs 7%+ over Pinnacle's fair returned +63% (65 bets, z 2.6). On the 207 fights where both fighters have a page, both go away:
+
+| (both fighters have a page) | Bets | Record | ROI | z |
+|---|---|---|---|---|
+| Pinnacle 55-70% favourites: priced / won | 44 | | 62.3% / 63.6% | |
+| Best US book 0%+ over Pinnacle's fair | 55 | 21-34 | +11.9% | +0.48 |
+| Best US book 2%+ over Pinnacle's fair | 35 | 9-26 | +5.4% | -0.24 |
+| Follow a Pinnacle move of 2+ pts at the best US book | 71 | 52-19 | +14.8% | +0.70 |
+| Dogs +150 to +300 / +300 or longer | 46 / 127 | 11-35 / 13-114 | -28.0% / -31.2% | -1.23 / -1.33 |
+
+Read: Pinnacle is calibrated on boxing, and nothing beats it: shopping the US books against Pinnacle, following Pinnacle's moves (and the
+lagging-book version: 53 bets, -3.2%), and every price band. Longshots lose the usual amount. The clean sample is small, and widening it
+would need a results source for undercard fights (BoxRec is not reachable). Not recommended.
