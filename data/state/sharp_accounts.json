@@ -1,5 +1,5 @@
 {
- "built": "2026-11-10T01:33:58Z",
+ "built": "2026-11-10T01:45:33Z",
  "rows": [
   {
    "cond": "0x9dba4642f4329325c0bf83d5d0fb93f688b7ddabb745124704153fbc2b00b8f6",
@@ -227,7 +227,7 @@
    "home_name": "Minnesota Vikings",
    "game_start": "2026-11-10T01:15Z",
    "side_std": "home",
-   "money_with": true,
+   "money_with": false,
    "grade": "A",
    "fair_board": null,
    "inside_fair": null,
@@ -436,6 +436,43 @@
      "Kalshi": 0.56
     }
    }
+  },
+  {
+   "cond": "0xfa30c2ac9ab8894137b8844540c19e2f977f6a53e522440c42cf71cadf0a2c57",
+   "slug": "cbb-presb-ncst-2026-11-10",
+   "title": "Presbyterian Blue Hose vs. North Carolina State Wolfpack",
+   "mtype": "total",
+   "start": "2026-11-11T00:00:00Z",
+   "bet": "Over 145.5",
+   "side": "Over",
+   "flagged": "2026-11-10T01:42:48Z",
+   "why": "a top-200 account also in this sport's top 50",
+   "proven": true,
+   "trigger": "proven",
+   "n_accounts": 1,
+   "best_rank": 116,
+   "usd": 213,
+   "paid": 0.46,
+   "ask": 0.54,
+   "status": "live",
+   "link": "https://polymarket.us/event/cbb-presb-ncst-2026-11-10",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401918957",
+   "sport": "cbb",
+   "league": null,
+   "away": "PRES",
+   "home": "NCSU",
+   "away_name": "Presbyterian Blue Hose",
+   "home_name": "NC State Wolfpack",
+   "game_start": "2026-11-11T00:00Z",
+   "side_std": "over",
+   "money_with": false,
+   "grade": "A",
+   "fair_board": null,
+   "inside_fair": null,
+   "books": null
   },
   {
    "cond": "0xe3ae72ec65621e5c0fc6872d0021f97df258dff5146db4a812c024ffccee3983",
@@ -932,9 +969,6 @@
    "home_name": "Minnesota Vikings",
    "game_start": "2026-11-10T01:15Z",
    "side_std": "away",
-   "conflict": [
-    "Kalshi bet back"
-   ],
    "money_with": false,
    "grade": "A",
    "fair_board": 0.6377,
@@ -978,9 +1012,6 @@
    "home_name": "Houston Rockets",
    "game_start": "2026-11-10T01:30Z",
    "side_std": "home",
-   "conflict": [
-    "Kalshi bet back"
-   ],
    "money_with": false,
    "grade": "A",
    "inside_fair": false,
@@ -1024,9 +1055,6 @@
    "home_name": "Houston Rockets",
    "game_start": "2026-11-10T01:30Z",
    "side_std": "home",
-   "conflict": [
-    "Kalshi bet back"
-   ],
    "money_with": false,
    "grade": "B",
    "inside_fair": true,
@@ -1201,9 +1229,9 @@
   },
   "401909958|spread": {
    "home": {
-    "n": 1,
+    "n": 2,
     "best_rank": 119,
-    "usd": 3544
+    "usd": 3744
    }
   },
   "401909959|spread": {
@@ -1340,6 +1368,13 @@
     "n": 1,
     "best_rank": 110,
     "usd": 1225
+   }
+  },
+  "401918957|total": {
+   "over": {
+    "n": 1,
+    "best_rank": 116,
+    "usd": 213
    }
   }
  },
