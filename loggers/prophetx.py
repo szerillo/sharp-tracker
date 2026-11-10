@@ -86,5 +86,101 @@ def probe():
         time.sleep(0.5)
 
 
+# ---------------------------------------------------------------------------------------------------------------------------------
+# pull: pregame game lines (moneyline, spread, total) and first-half spreads and totals for the next 48 hours, written as tick rows
+# (venue "ProphetX") to data/<sport>/ticks_px/<ET date>.jsonl.gz, a folder of its own so it never collides with the price job's files.
+# ask = the best price a taker gets on that side (implied probability), bid = 1 - the other side's ask; extra.qty = size at the best price.
+ROOT = os.path.abspath(os.path.join(os.path.dirname(os.path.abspath(__file__)), '..'))
+TOUR = {'NBA': 'nba', 'NFL': 'nfl', 'NHL': 'nhl', 'NCAAF': 'cfb', 'NCAAB': 'cbb', 'NCAA Football': 'cfb', 'NCAA Basketball': 'cbb', 'NCAAM': 'cbb', 'College Football': 'cfb', 'College Basketball': 'cbb'}
+SUB = {'moneyline': 'ml', 'spread': 'spread', 'total': 'total', 'first_half_spread': '1h_spread', 'first_half_total': '1h_total'}
+
+
+def imp(a): return 100.0 / (a + 100.0) if a > 0 else -a / (-a + 100.0)
+
+
+def get(path, params, H):
+    for i in range(5):
+        st, d = call(path, params, H)
+        if st == 429 or st == 0 or st >= 500: time.sleep(2 * (i + 1)); continue
+        return st, d
+    return st, d
+
+
+def norm(s):
+    import re, unicodedata
+    s = unicodedata.normalize('NFKD', s or '').encode('ascii', 'ignore').decode().lower().replace('&', 'and')
+    return re.sub(r'[^a-z0-9 ]', '', s).replace(' state', ' st').strip()
+
+
+def pull():
+    import gzip, datetime as dt, collections
+    tok = login()
+    if not tok: print('no session'); return
+    H = {'Authorization': 'Bearer ' + tok}; now = dt.datetime.now(dt.timezone.utc); ts_ = now.strftime('%Y-%m-%dT%H:%M:%SZ')
+    st, d = get('/mm/get_tournaments', dict(has_active_events='true'), H)
+    T = ((d.get('data') or {}).get('tournaments') or []) if isinstance(d, dict) else []
+    print('tournaments:', sorted(t.get('name') for t in T))
+    out = collections.defaultdict(list); stats = collections.Counter(); T0 = time.time(); shown_prop = False
+    for t in T:
+        sp = TOUR.get(t.get('name'))
+        if not sp: continue
+        try: sched = json.load(open(os.path.join(ROOT, 'data', sp, 'schedule.json')))
+        except Exception: continue
+        S = [e for e in (sched.values() if isinstance(sched, dict) else sched) if isinstance(e, dict) and e.get('start')]
+        def names(tm, abbr): return {norm(tm.get('displayName')), norm(tm.get('location')), norm(tm.get('shortDisplayName')), norm(abbr)} - {''}
+        st, e = get('/mm/get_sport_events', dict(tournament_id=t['id']), H); time.sleep(0.4)
+        E = ((e.get('data') or {}).get('sport_events') or []) if isinstance(e, dict) else []
+        for ev in E:
+            if time.time() - T0 > 420: stats['out of time'] += 1; continue
+            try: start = dt.datetime.fromisoformat(ev['scheduled'].replace('Z', '+00:00'))
+            except Exception: continue
+            if ev.get('status') != 'not_started' or not (dt.timedelta(minutes=5) < start - now < dt.timedelta(hours=48)): continue
+            comp = {c.get('side'): c for c in ev.get('competitors') or []}
+            if 'home' not in comp or 'away' not in comp: continue
+            hn = {norm(comp['home'].get('name')), norm(comp['home'].get('display_name')), norm(comp['home'].get('abbreviation'))}; an = {norm(comp['away'].get('name')), norm(comp['away'].get('display_name')), norm(comp['away'].get('abbreviation'))}
+            def hit(px, tm, abbr):
+                nm = names(tm, abbr); full = norm(tm.get('displayName'))
+                return bool(px & nm) or any(p_ and (full.startswith(p_ + ' ') or p_.startswith(norm(tm.get('location')) + ' ')) for p_ in px if len(p_) > 3)
+            M_ = [x for x in S if abs((dt.datetime.fromisoformat((x['start'] if len(x['start']) > 17 else x['start'].replace('Z', ':00Z')).replace('Z', '+00:00')) - start).total_seconds()) <= 6 * 3600
+                  and hit(hn, x.get('home_team') or {}, x.get('home')) and hit(an, x.get('away_team') or {}, x.get('away'))]
+            if len(M_) != 1: stats[f'{sp} no schedule match'] += 1; continue
+            eid = str(M_[0]['event_id']); side_of = {comp['home'].get('id'): 'home', comp['away'].get('id'): 'away'}
+            st, m = get('/v4/mm/get_markets', dict(event_id=ev['event_id']), H); time.sleep(0.35)
+            L = m.get('data') if isinstance(m, dict) else None
+            L = L if isinstance(L, list) else ((L or {}).get('markets') or [])
+            if st != 200: stats[f'markets HTTP {st}'] += 1; continue
+            stats[f'{sp} games'] += 1
+            for mk in L:
+                if not shown_prop and str(mk.get('sub_type', '')).startswith('player_total_points'):
+                    shown_prop = True; print('prop sample:', json.dumps({k: v for k, v in mk.items() if k not in ('selections', 'market_strikes')})[:500], json.dumps((mk.get('market_strikes') or [mk])[0].get('selections'))[:700])
+                our = SUB.get(mk.get('sub_type'))
+                if not our or mk.get('status') != 'active': continue
+                for grp_ in (mk.get('market_strikes') or [mk]):
+                    sel = grp_.get('selections') or []
+                    best = []
+                    for lv in sel:
+                        lv = [x for x in (lv or []) if x.get('price') is not None and (x.get('quantity') or 0) > 0]
+                        if lv: best.append(lv[0])
+                    if len(best) != 2: continue
+                    rows = []
+                    for x in best:
+                        if our.endswith('total'): side = 'over' if str(x.get('name', '')).lower().startswith('over') else 'under' if str(x.get('name', '')).lower().startswith('under') else None; line = x.get('strike')
+                        else: side = side_of.get(x.get('competitor_id')); line = x.get('strike') if our.endswith('spread') else None
+                        if side is None: rows = []; break
+                        rows.append((side, line, imp(float(x['price'])), x))
+                    if len(rows) != 2 or rows[0][0] == rows[1][0]: continue
+                    for i, (side, line, ask, x) in enumerate(rows):
+                        out[sp].append(dict(ts=ts_, sport=sp, event_id=eid, market=our, side=side, line=line, venue='ProphetX', bid=round(1 - rows[1 - i][2], 4), ask=round(ask, 4), american=x['price'],
+                                            extra=dict(px_event=ev['event_id'], market_id=mk.get('id'), outcome_id=x.get('outcome_id'), strike_id=x.get('strike_id'), qty=x.get('quantity'))))
+                        stats['rows'] += 1
+    etd = (now - dt.timedelta(hours=5)).strftime('%Y-%m-%d')
+    for sp, R in out.items():
+        dd = os.path.join(ROOT, 'data', sp, 'ticks_px'); os.makedirs(dd, exist_ok=True)
+        with gzip.open(os.path.join(dd, f'{etd}.jsonl.gz'), 'at') as f:
+            for r in R: f.write(json.dumps(r, separators=(',', ':')) + '\n')
+    print('[prophetx]', dict(stats), f'{round(time.time() - T0)}s')
+
+
 if __name__ == '__main__':
+    if (sys.argv[1:] or ['probe'])[0] == 'pull': pull(); sys.exit(0)
     if (sys.argv[1:] or ['probe'])[0] == 'probe': probe()

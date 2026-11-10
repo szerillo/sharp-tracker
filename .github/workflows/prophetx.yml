@@ -1,22 +1,40 @@
 name: prophetx
-# 11/10: ProphetX reads (loggers/prophetx.py). Keys are repo secrets set by Sean; the script never prints them. Manual for now.
+# 11/10: ProphetX quotes (loggers/prophetx.py pull) every 20 minutes into data/<sport>/ticks_px. Keys are repo secrets set by Sean; the
+# script never prints them. "probe" (manual) only reports which login works and the shape of the data.
 on:
+  schedule:
+    - cron: '3,23,43 14-23,0-6 * * *'
   workflow_dispatch:
     inputs:
-      mode: {description: 'probe', default: 'probe', required: true}
+      mode: {description: 'pull or probe', default: 'pull', required: true}
 permissions:
-  contents: read
+  contents: write
+concurrency:
+  group: prophetx
+  cancel-in-progress: false
 jobs:
   run:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 14
     steps:
       - uses: actions/checkout@v4
-        with: {sparse-checkout: loggers, sparse-checkout-cone-mode: true}
       - uses: actions/setup-python@v5
         with: {python-version: '3.12'}
-      - name: prophetx ${{ inputs.mode }}
+      - name: prophetx ${{ inputs.mode || 'pull' }}
+        timeout-minutes: 9
         env:
           PROPHETX_KEY: ${{ secrets.PROPHETX_KEY }}
           PROPHETX_SECRET: ${{ secrets.PROPHETX_SECRET }}
-        run: python3 loggers/prophetx.py ${{ inputs.mode }}
+        run: python3 loggers/prophetx.py ${{ inputs.mode || 'pull' }}
+      - name: commit
+        if: always()
+        run: |
+          git config user.name "prices-bot"; git config user.email "actions@users.noreply.github.com"
+          for d in data/*/ticks_px; do [ -e "$d" ] && git add -f "$d"; done
+          git commit -q -m "prophetx $(date -u +%Y-%m-%dT%H:%M)" || exit 0
+          for i in 1 2 3 4 5 6; do
+            if git pull -q --rebase -X theirs --no-tags origin main && git push -q; then exit 0; fi
+            git rebase --abort 2>/dev/null || true
+            sleep $((RANDOM % 20 + 5))
+          done
+          exit 1
