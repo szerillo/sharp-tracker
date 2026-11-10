@@ -73,3 +73,38 @@ Kalshi lists the tie as its own contract. Last tight quote in the 6 hours before
 
 Read: priced right. The history rate sits inside or within a cent of the quote everywhere, and the fee is larger than any gap. The
 closest thing to a bet is the NHL first-period tie at the ask (33.3c against 34.3%), which the 1.6c fee erases. No edge in ties.
+
+## 5. Novig makers on the whole public tape, every market type (sharp/novig_maker_history.py)
+**The strongest result of the night.** Novig publishes every trade with both sides marked (taker and maker). This is every pregame maker
+fill on a settled two-outcome market from Aug 3 to Nov 6: 8.48 million fills on 7,604 events, $744M put up by makers, $7.75M a day.
+Settled results, no fee (Novig charges none pregame), z clustered by event.
+
+| | Maker money per day | Settled ROI | vs Novig's close |
+|---|---|---|---|
+| **Every maker fill** | $7.75M | **+1.90% (z 3.4)** | +0.21c |
+| August / September / October | | +1.55% / +1.80% / +2.15% (each z 2.0+) | |
+| Moneylines | $2.38M | +2.75% (z 2.3) | +0.16c |
+| Spreads | $1.72M | +2.80% (z 2.4) | +0.18c |
+| Totals | $1.45M | +0.32% | +0.16c |
+| Player and other props | $1.91M | +1.56% (z 3.3) | +0.34c |
+| Team totals | $38k | +3.70% (z 2.0) | +0.70c |
+| First-half spreads | $40k | +8.30% (z 2.3) | +0.85c |
+| First-half totals | $54k | +3.50% | +0.62c |
+| Soccer three-way moneylines | $115k | -6.38% (z -1.9) | +0.01c |
+
+By league and market (settled ROI): NFL moneyline +8.3% (z 2.1), NFL spread +6.2% (z 2.0), NFL first-half spread +17.9%; MLB spread
++4.6% (z 2.4), MLB team total +6.8% (z 2.6), MLB props +1.4% (z 2.7); NHL props +3.9% (z 3.0); NBA props +3.0% (z 2.5); UFC props +9.1%
+(z 2.8); tennis props +6.1% (z 2.2). Losing: NBA moneyline -5.6% (z -1.8, the same sign as the 11-day test), soccer spreads -8.4%, UFC
+moneyline -3.0%. By size: every size is positive, including $10k+ fills (+11.0%, z 2.2, on $34M). By time: last hour +2.2%, 1 to 6
+hours +2.4%, 24 hours out +0.9%.
+
+Read:
+- On Novig the resting side has made about 1.9% of the money it put up, in each of the three months, across game lines and props.
+  That is about $147,000 a day earned by makers as a group, and it is the mirror of what takers there lose. On Kalshi over the same
+  months the makers lost 1.4% after the fee (section 1).
+- **This changes how to use Novig.** Every bet we take there pays about 2% to someone resting. The same bet rested instead earns it.
+  It is the long-sample confirmation of the rest-or-take pattern in our own log.
+- The thin, wide markets (team totals, first-half lines) pay makers more per dollar (+3.7% to +8.3%) but only $40-55k a day trades in
+  each. Props are the size: $1.9M a day at +1.6%.
+- Not tested here: how much of this a new, small maker would get (queue position), and who the makers are. It is an average over all
+  resting orders, including Novig's own liquidity providers, who are faster than we are.

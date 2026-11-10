@@ -12,7 +12,7 @@ import os, sys, json, gzip, math, collections, datetime as dt
 HERE = os.path.dirname(os.path.abspath(__file__)); ROOT = os.path.abspath(os.path.join(HERE, '..')); sys.path.insert(0, ROOT)
 import sharp.flow_volume as V, sharp.rule_replay as RR
 from sharp.sharp_accounts2 import Px
-OUT = os.path.join(ROOT, 'data', 'research', 'poly_pinnacle.json')
+OUT = os.environ.get('POLY_OUT') or os.path.join(ROOT, 'data', 'research', 'poly_pinnacle.json')
 TAG = {'nba': 'nba', 'nfl': 'nfl', 'nhl': 'nhl', 'cfb': 'cfb', 'cbb': 'cbb', 'mlb': 'mlb', 'wnba': 'wnba', 'ufc': 'mma'}
 MIN_USD = 100.0
 
@@ -132,6 +132,7 @@ def move(c, g, side0):
 
 def main():
     I = index(); MK = V.poly_markets(); cut = MK[int(len(MK) * 2 / 3)][1]
+    if os.environ.get('POLY_CUT'): cut = dt.datetime.fromisoformat(os.environ['POLY_CUT']).replace(tzinfo=dt.timezone.utc).timestamp()     # 11/10: rank before this date, follow after it
     print('polymarket markets with trades:', len(MK), 'cut', dt.datetime.utcfromtimestamp(cut).date(), flush=True)
     W = collections.defaultdict(lambda: dict(pin=0.0, poly=0.0, n=0, games=set(), roi=0.0, n_poly=0))
     F = []; stats = collections.Counter()
