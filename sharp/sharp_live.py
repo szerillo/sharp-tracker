@@ -383,7 +383,9 @@ def main():
         if sorted(px) != [0.0, 1.0]: continue
         won = px[outs.index(p['side'])] == 1.0; p['result'] = 'W' if won else 'L'
         p['pnl'] = round((1 - p['price']) / p['price'] if won else -1.0, 3)          # 1u to risk at the Polymarket ask (kept for the research)
-        sz = SIZE if (p.get('slug') or '').split('-')[0] in ('ucl', 'epl', 'mls', 'bun') else GSIZE.get(p.get('grade'), SIZE); p['u'] = units(p['price'], won, sz)   # soccer 0.25u at any grade (Sean, 11/4)                                                 # Sean's sizing (0.25u to win / to risk) at the Polymarket ask
+        sz = SIZE if (p.get('slug') or '').split('-')[0] in ('ucl', 'epl', 'mls', 'bun') else GSIZE.get(p.get('grade'), SIZE)
+        if (p.get('logged') or '') >= '2026-11-10T10:00:00Z': sz = 0.0     # 11/10 (Sean): sharp flags are paper, no units, until they beat Pinnacle's close
+        p['u'] = units(p['price'], won, sz)   # soccer 0.25u at any grade (Sean, 11/4)                                                 # Sean's sizing (0.25u to win / to risk) at the Polymarket ask
         vq = {k: v for k, v in ((p.get('venues') or {}).get('q') or {}).items() if k != 'DK'}      # where Sean bets (DK excluded: low limits)
         if vq: bv = min(vq, key=vq.get); p['best_venue'] = bv; p['best_cost'] = vq[bv]; p['u_venue'] = units(vq[bv], won, sz)
         cm = close_mid(p['cond'], epoch(p['start']))

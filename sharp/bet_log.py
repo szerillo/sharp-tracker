@@ -28,7 +28,12 @@ NOW = dt.datetime.now(dt.timezone.utc)
 def ts(s): return dt.datetime.fromisoformat(s.replace(' ', 'T').replace('Z', '+00:00').replace('+00:00:00', '+00:00')) if s else None
 def implied(a): return 100 / (a + 100) if a > 0 else -a / (-a + 100)
 HALF_U = {'nba_1h_under_hot_over'}       # tier C rules sized at 0.5u (Sean, 11/4)
-def size_units(cat, rule=None, sport=None): return 0.0 if cat == 'watch' else 0.5 if (cat in ('system A', 'system B') or (cat == 'sharp A' and sport != 'soccer') or rule in HALF_U) else 0.25
+# 11/10 (Sean, docs/review_2026-11-10.md): sharp flags carry no units from here until they beat Pinnacle's close (Sharp A +0.06 on 97, 45-69).
+# Flags logged before this keep the size they were tracked at.
+SHARP_PAPER_FROM = '2026-11-10T10:00:00Z'
+def size_units(cat, rule=None, sport=None, flagged=None):
+    if cat == 'watch' or (cat.startswith('sharp') and (flagged or '') >= SHARP_PAPER_FROM): return 0.0
+    return 0.5 if (cat in ('system A', 'system B') or (cat == 'sharp A' and sport != 'soccer') or rule in HALF_U) else 0.25
 
 
 def units(p, won, size):
@@ -431,7 +436,14 @@ def main():
     opp_stats = sharps_against(bets, S)
     for b in bets:
         b['bet_type'] = b['market'].replace('1s_ml', 'set1_ml')
-        b['size'] = size_units(b['cat'], b.get('rule'), b.get('sport')); b['units'] = units(b['price'], b['won'], b['size'])
+        b['size'] = size_units(b['cat'], b.get('rule'), b.get('sport'), b.get('flagged')); b['units'] = units(b['price'], b['won'], b['size'])
+        # 11/10 (Sean: "yes, do all that"; docs/review_2026-11-10.md): the price to rest instead of taking, 1c under the fair price at the flag
+        # (Novig or Kalshi), and whether the best price on a bettable venue later got there. Pre-registered: filled against never filled,
+        # read at 150 filled.
+        f_ = b.get('fair_at_flag')
+        if f_ is not None and 0.03 < f_ < 0.97:
+            b['rest'] = round(f_ - 0.01, 3)
+            if b.get('best') is not None: b['rest_filled'] = bool(b['best'] <= b['rest'] + 1e-9)
         b['lead_h'] = round((ts(b['start']) - ts(b['flagged'])).total_seconds() / 3600, 1)
     # ---- summaries
     def summ(L):
@@ -484,7 +496,19 @@ def main():
                                 roi=round(sum((1 / b['price'] - 1) if b['won'] == 1 else -1 if b['won'] == 0 else 0 for b in S_) / len(S_) * 100, 1),
                                 clv_nv=round(sum(c_) / len(c_), 2) if c_ else None, clv_n=len(c_))
     tag_stats = tag_bets(bets)
-    out = dict(built=NOW.strftime('%Y-%m-%dT%H:%M:%SZ'), venues=list(VENUES), opposed=opp_summ, watch_kinds=wk, tag_stats=tag_stats,
+    def rest_summ(L):
+        L = [b for b in L if b.get('won') in (0, 1) and b.get('rest') is not None and b.get('rest_filled') is not None and b.get('price')]
+        def rec(G_, pk):
+            if not G_: return dict(n=0)
+            x = [(1 / pk(b) - 1) if b['won'] == 1 else -1 for b in G_]; m = sum(x) / len(x); sd = (sum((v - m) ** 2 for v in x) / max(1, len(x) - 1)) ** 0.5
+            return dict(n=len(G_), w=sum(1 for b in G_ if b['won'] == 1), l=sum(1 for b in G_ if b['won'] == 0), roi=round(100 * m, 1), z=round(m / (sd / len(x) ** 0.5), 2) if sd else None)
+        F = [b for b in L if b['rest_filled']]; N = [b for b in L if not b['rest_filled']]
+        return dict(filled_at_rest=rec(F, lambda b: b['rest']), filled_at_flag=rec(F, lambda b: b['price']), never_at_flag=rec(N, lambda b: b['price']), all_at_flag=rec(L, lambda b: b['price']))
+    RG = {'bets': lambda b: b['cat'] in ('system A', 'system B', 'lean C', 'sharp A', 'sharp B', 'tennis'), 'systems and leans': lambda b: b['cat'] in ('system A', 'system B', 'lean C'),
+          'sharp flags': lambda b: b['cat'] in ('sharp A', 'sharp B'), 'paper rules': lambda b: b['cat'] == 'paper P', 'watch signals': lambda b: b['cat'] == 'watch', 'everything': lambda b: True}
+    rest = {k: rest_summ([b for b in bets if fn(b)]) for k, fn in RG.items()}
+    rest['since'] = {k: rest_summ([b for b in bets if fn(b) and (b.get('flagged') or '') >= '2026-11-10T10:00:00Z']) for k, fn in RG.items()}     # the forward test
+    out = dict(built=NOW.strftime('%Y-%m-%dT%H:%M:%SZ'), venues=list(VENUES), opposed=opp_summ, watch_kinds=wk, tag_stats=tag_stats, rest=rest,
                summary={k: summ(v) for k, v in sorted(groups.items())},
                rows=sorted(bets, key=lambda b: b['start'], reverse=True))
     json.dump(out, open(OUT, 'w'), separators=(',', ':'), default=str)
