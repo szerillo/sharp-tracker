@@ -1,5 +1,5 @@
 {
- "built": "2026-11-10T15:15:47Z",
+ "built": "2026-11-10T15:26:57Z",
  "rows": [
   {
    "cond": "0xfa30c2ac9ab8894137b8844540c19e2f977f6a53e522440c42cf71cadf0a2c57",
@@ -73,13 +73,7 @@
    "grade": "A",
    "fair_board": null,
    "inside_fair": null,
-   "books": {
-    "at": "2026-11-10T11:06:37Z",
-    "fair": null,
-    "q": {
-     "Novig": 0.49
-    }
-   }
+   "books": null
   },
   {
    "cond": "0x5240c570cfebc2bd8451035ddb8539994e143dc7753402c16722bcb00cb1d79f",
@@ -171,7 +165,7 @@
    "best_rank": 116,
    "usd": 230,
    "paid": 0.48,
-   "ask": 0.59,
+   "ask": 0.6,
    "status": "live",
    "link": "https://polymarket.us/event/cbb-dxst-utahst-2026-11-10",
    "other": null,
@@ -260,6 +254,9 @@
    "home_name": "BYU Cougars",
    "game_start": "2026-11-11T02:00Z",
    "side_std": "over",
+   "conflict": [
+    "Kalshi bet back"
+   ],
    "money_with": false,
    "grade": "B",
    "fair_board": null,
@@ -302,10 +299,10 @@
    "fair_board": null,
    "inside_fair": null,
    "books": {
-    "at": "2026-11-10T11:52:08Z",
+    "at": "2026-11-10T14:59:45Z",
     "fair": null,
     "q": {
-     "Polymarket": 0.46,
+     "Polymarket": 0.47,
      "Kalshi": 0.49
     }
    }
@@ -349,11 +346,11 @@
    "fair_board": null,
    "inside_fair": null,
    "books": {
-    "at": "2026-11-10T11:52:08Z",
+    "at": "2026-11-10T14:59:45Z",
     "fair": null,
     "q": {
-     "Polymarket": 0.65,
-     "Kalshi": 0.67
+     "Polymarket": 0.64,
+     "Kalshi": 0.65
     }
    }
   },
@@ -393,11 +390,11 @@
    "fair_board": null,
    "inside_fair": null,
    "books": {
-    "at": "2026-11-10T11:52:08Z",
+    "at": "2026-11-10T14:59:45Z",
     "fair": null,
     "q": {
-     "Polymarket": 0.44,
-     "Kalshi": 0.48
+     "Polymarket": 0.45,
+     "Kalshi": 0.49
     }
    }
   },
@@ -546,9 +543,18 @@
    "side_std": "home",
    "money_with": false,
    "grade": "A",
-   "fair_board": null,
-   "inside_fair": null,
-   "books": null
+   "fair_board": 0.5181,
+   "inside_fair": false,
+   "books": {
+    "at": "2026-11-10T14:59:45Z",
+    "fair": 0.5181,
+    "q": {
+     "Novig": 0.53,
+     "Kalshi": 0.54,
+     "DK": 0.5413,
+     "FD": 0.5455
+    }
+   }
   },
   {
    "cond": "0x379c60bd4aa3a2e7d519a1f76c60271a0d8cf93353beee693ec9d82bae5443b6",
@@ -593,7 +599,7 @@
    "fair_board": null,
    "inside_fair": null,
    "books": {
-    "at": "2026-11-10T11:52:08Z",
+    "at": "2026-11-10T14:59:45Z",
     "fair": null,
     "q": {
      "Kalshi": 0.12,
