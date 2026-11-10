@@ -95,6 +95,21 @@ TOUR = {'NBA': 'nba', 'NFL': 'nfl', 'NHL': 'nhl', 'NCAAF': 'cfb', 'NCAAB': 'cbb'
 SUB = {'moneyline': 'ml', 'spread': 'spread', 'total': 'total', 'first_half_spread': '1h_spread', 'first_half_total': '1h_total'}
 
 
+# ProphetX prop sub_type (after "player_total_") -> our prop code, as the price job names them (data/<sport>/ticks)
+PROP = {(None, 'points'): 'PTS', (None, 'rebounds'): 'REB', (None, 'assists'): 'AST', (None, 'points_rebounds_assists'): 'PRA', (None, 'points_rebounds'): 'PR', (None, 'points_assists'): 'PA',
+        (None, 'rebounds_assists'): 'RA', (None, 'steals'): 'STL', (None, 'blocks'): 'BLK', (None, 'three_pointers_made'): '3PM', (None, 'shots_on_goal'): 'SOG', (None, 'shots'): 'SOG', (None, 'goals'): 'GOALS',
+        (None, 'receiving_yards'): 'RECYDS', (None, 'receptions'): 'REC', (None, 'rushing_yards'): 'RUSHYDS', (None, 'rushing_attempts'): 'RUSHATT', (None, 'passing_yards'): 'PASSYDS',
+        (None, 'passing_touchdowns'): 'PASSTD', (None, 'passing_attempts'): 'PASSATT', (None, 'passing_completions'): 'PASSCOMP', (None, 'interceptions'): 'INT', (None, 'interceptions_thrown'): 'INT',
+        (None, 'rushing_receiving_yards'): 'RUSHRECYDS', (None, 'passing_rushing_yards'): 'PASSRUSHYDS'}
+
+
+def pkey(name):
+    """The price job's player key: lower case, no accents, punctuation to spaces, no Jr / Sr / II / III."""
+    import re, unicodedata
+    s = unicodedata.normalize('NFKD', name or '').encode('ascii', 'ignore').decode().lower()
+    return ' '.join(w for w in re.sub(r'[^a-z ]', ' ', s).split() if w not in ('jr', 'sr', 'ii', 'iii', 'iv'))
+
+
 def imp(a): return 100.0 / (a + 100.0) if a > 0 else -a / (-a + 100.0)
 
 
@@ -120,7 +135,7 @@ def pull():
     st, d = get('/mm/get_tournaments', dict(has_active_events='true'), H)
     T = ((d.get('data') or {}).get('tournaments') or []) if isinstance(d, dict) else []
     print('tournaments:', sorted(t.get('name') for t in T))
-    out = collections.defaultdict(list); stats = collections.Counter(); T0 = time.time(); shown_prop = False
+    out = collections.defaultdict(list); stats = collections.Counter(); T0 = time.time(); shown_prop = False; unmapped = collections.Counter()
     for t in T:
         sp = TOUR.get(t.get('name'))
         if not sp: continue
@@ -153,32 +168,44 @@ def pull():
             for mk in L:
                 if not shown_prop and str(mk.get('sub_type', '')).startswith('player_total_points'):
                     shown_prop = True; print('prop sample:', json.dumps({k: v for k, v in mk.items() if k not in ('selections', 'market_strikes')})[:500], json.dumps((mk.get('market_strikes') or [mk])[0].get('selections'))[:700])
-                our = SUB.get(mk.get('sub_type'))
+                st_ = mk.get('sub_type') or ''; our = SUB.get(st_); player = None
+                if not our and st_.startswith('player_total_') and mk.get('type') == 'total':
+                    # player props (11/10, Sean: "less seeded at ProphetX ... if we can seed stuff"): logged with empty sides too, so the offer
+                    # scan can list books nobody has seeded. Player = the market name up to " Total ".
+                    code = PROP.get((sp, st_[13:])) or PROP.get((None, st_[13:]))
+                    if not code: unmapped[(sp, st_)] += 1; continue
+                    our = 'prop_' + code; player = str(mk.get('name') or '').split(' Total ')[0].strip()
+                    if not player: continue
                 if not our or mk.get('status') != 'active': continue
                 for grp_ in (mk.get('market_strikes') or [mk]):
                     sel = grp_.get('selections') or []
-                    best = []
-                    for lv in sel:
-                        lv = [x for x in (lv or []) if x.get('price') is not None and (x.get('quantity') or 0) > 0]
-                        if lv: best.append(lv[0])
-                    if len(best) != 2: continue
                     rows = []
-                    for x in best:
-                        if our.endswith('total'): side = 'over' if str(x.get('name', '')).lower().startswith('over') else 'under' if str(x.get('name', '')).lower().startswith('under') else None; line = x.get('strike')
+                    for lv in sel:
+                        lv = lv or []
+                        if not lv: continue
+                        live = [x for x in lv if x.get('price') is not None and (x.get('quantity') or 0) > 0]
+                        x = live[0] if live else lv[0]
+                        if our.endswith('total') or player: side = 'over' if str(x.get('name', '')).lower().startswith('over') else 'under' if str(x.get('name', '')).lower().startswith('under') else None; line = x.get('strike')
                         else: side = side_of.get(x.get('competitor_id')); line = x.get('strike') if our.endswith('spread') else None
                         if side is None: rows = []; break
-                        rows.append((side, line, imp(float(x['price'])), x))
+                        rows.append((side, line, imp(float(x['price'])) if live else None, x))
                     if len(rows) != 2 or rows[0][0] == rows[1][0]: continue
+                    if not player and (rows[0][2] is None or rows[1][2] is None): continue        # game lines: both sides quoted
                     for i, (side, line, ask, x) in enumerate(rows):
-                        out[sp].append(dict(ts=ts_, sport=sp, event_id=eid, market=our, side=side, line=line, venue='ProphetX', bid=round(1 - rows[1 - i][2], 4), ask=round(ask, 4), american=x['price'],
-                                            extra=dict(px_event=ev['event_id'], market_id=mk.get('id'), outcome_id=x.get('outcome_id'), strike_id=x.get('strike_id'), qty=x.get('quantity'))))
-                        stats['rows'] += 1
+                        oa = rows[1 - i][2]
+                        r_ = dict(ts=ts_, sport=sp, event_id=eid, market=our, side=side, line=line, venue='ProphetX', bid=round(1 - oa, 4) if oa is not None else None, ask=round(ask, 4) if ask is not None else None,
+                                  american=x['price'] if ask is not None else None,
+                                  extra=dict(px_event=ev['event_id'], market_id=mk.get('id'), outcome_id=x.get('outcome_id'), strike_id=x.get('strike_id'), qty=x.get('quantity') if ask is not None else 0))
+                        if player: r_['participant'] = pkey(player); r_['player'] = player
+                        out[sp].append(r_); stats['prop rows' if player else 'rows'] += 1
+                        if player and ask is None and oa is None: stats['prop sides with an empty book'] += 1
     etd = (now - dt.timedelta(hours=5)).strftime('%Y-%m-%d')
     for sp, R in out.items():
         dd = os.path.join(ROOT, 'data', sp, 'ticks_px'); os.makedirs(dd, exist_ok=True)
         with gzip.open(os.path.join(dd, f'{etd}.jsonl.gz'), 'at') as f:
             for r in R: f.write(json.dumps(r, separators=(',', ':')) + '\n')
     print('[prophetx]', dict(stats), f'{round(time.time() - T0)}s')
+    if unmapped: print('[prophetx] prop types not mapped yet:', unmapped.most_common(40))
 
 
 if __name__ == '__main__':
