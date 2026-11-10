@@ -112,10 +112,28 @@ def main():
     import concurrent.futures as cf
     names = sorted({x for k in todo for x in fights[k][:2]} - set(cache))
     print(f'[boxing_results] fetching {len(names)} fighter pages', flush=True)
+    # 11/9: about 10 pages a minute one by one; first try every name as a title, 50 to a request, and only search for the misses
+    for i in range(0, len(names), 50):
+        if (time.time() - t0) / 60 > MAXMIN: break
+        chunk = names[i:i + 50]
+        d = api(dict(action='query', prop='revisions', rvprop='content', rvslots='main', titles='|'.join(chunk), redirects=1)) or {}
+        q = d.get('query') or {}
+        back = {}
+        for m in (q.get('normalized') or []) + (q.get('redirects') or []): back[m['to']] = back.get(m['from'], m['from'])
+        for p in q.get('pages') or []:
+            t = (((p.get('revisions') or [{}])[0].get('slots') or {}).get('main') or {}).get('content') or ''
+            nm = back.get(p.get('title'), p.get('title'))
+            while nm in back and nm not in chunk: nm = back[nm]
+            if nm in chunk and is_boxer(t):
+                j = t.lower().find('boxing record'); cache[nm] = (p['title'], t[j:j + 120000])
+        if i % 500 == 0: print(f'[boxing_results] title pass {i}/{len(names)}', flush=True); save_cache(cache)
+        time.sleep(0.5)
+    names = [x for x in names if x not in cache]
+    print(f'[boxing_results] {len(names)} names left for search', flush=True)
     with cf.ThreadPoolExecutor(8) as ex:
         for i, _ in enumerate(ex.map(lambda nm_: page_for(nm_, cache), names)):
             if i % 250 == 0: print(f'[boxing_results] pages {i}/{len(names)}', flush=True); save_cache(cache)
-            if (time.time() - t0) / 60 > MAXMIN: break
+            if (time.time() - t0) / 60 > MAXMIN * 0.8: ex.shutdown(wait=False, cancel_futures=True); break
     for k in todo:
         if (time.time() - t0) / 60 > MAXMIN: break
         h, a, s = fights[k]; d = dt.datetime.fromisoformat(s.replace('Z', '+00:00')).date()
