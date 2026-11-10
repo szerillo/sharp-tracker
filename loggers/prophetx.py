@@ -207,7 +207,7 @@ def pull():
                         oa = rows[1 - i][2]
                         r_ = dict(ts=ts_, sport=sp, event_id=eid, market=our, side=side, line=line, venue='ProphetX', bid=round(1 - oa, 4) if oa is not None else None, ask=round(ask, 4) if ask is not None else None,
                                   american=x['price'] if ask is not None else None,
-                                  extra=dict(px_event=ev['event_id'], market_id=mk.get('id'), outcome_id=x.get('outcome_id'), strike_id=x.get('strike_id'), qty=x.get('quantity') if ask is not None else 0))
+                                  extra=dict(px_event=ev['event_id'], market_id=mk.get('id'), outcome_id=x.get('outcome_id'), strike_id=x.get('strike_id'), qty=x.get('quantity') if ask is not None else 0, filled=mk.get('total_filled_quantity')))      # filled: matched so far on the whole market; its change between pulls is what traded
                         if player: r_['participant'] = pkey(player); r_['player'] = player
                         out[sp].append(r_); stats['prop rows' if player else 'rows'] += 1
                         if player and ask is None and oa is None: stats['prop sides with an empty book'] += 1
