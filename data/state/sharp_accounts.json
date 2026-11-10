@@ -1,5 +1,5 @@
 {
- "built": "2026-11-10T23:06:44Z",
+ "built": "2026-11-10T23:23:11Z",
  "rows": [
   {
    "cond": "0xfa30c2ac9ab8894137b8844540c19e2f977f6a53e522440c42cf71cadf0a2c57",
@@ -120,6 +120,144 @@
      "Caesars": 0.5595
     }
    }
+  },
+  {
+   "cond": "0x5a00be1e849975a7c2997222d657f42b3adf03215c37e6138493510c6eccb70d",
+   "slug": "nba-mil-nyk-2026-11-10",
+   "title": "Bucks vs. Knicks",
+   "mtype": "spread",
+   "start": "2026-11-11T00:30:00Z",
+   "bet": "Knicks -15.5",
+   "side": "Knicks",
+   "flagged": "2026-11-10T23:15:06Z",
+   "why": "3 top-200 accounts",
+   "proven": false,
+   "trigger": "two",
+   "n_accounts": 3,
+   "best_rank": 112,
+   "usd": 66181,
+   "paid": 0.5,
+   "ask": 0.52,
+   "status": "live",
+   "link": "https://polymarket.us/event/nba-mil-nyk-2026-11-10",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401909960",
+   "sport": "nba",
+   "league": null,
+   "away": "MIL",
+   "home": "NY",
+   "away_name": "Milwaukee Bucks",
+   "home_name": "New York Knicks",
+   "game_start": "2026-11-11T00:30Z",
+   "side_std": "home",
+   "conflict": [
+    "big money"
+   ],
+   "money_with": false,
+   "grade": "B",
+   "fair_board": 0.4914,
+   "inside_fair": false,
+   "books": {
+    "at": "2026-11-10T22:53:08Z",
+    "fair": 0.4914,
+    "q": {
+     "Novig": 0.49,
+     "Polymarket": 0.49,
+     "FD": 0.5192,
+     "Caesars": 0.5238
+    }
+   }
+  },
+  {
+   "cond": "0xaa2fe942a6e92c6ee1440e0afa6d5e9cadc06997369630e293c5f8e0171c7483",
+   "slug": "nba-mil-nyk-2026-11-10",
+   "title": "Bucks vs. Knicks",
+   "mtype": "spread",
+   "start": "2026-11-11T00:30:00Z",
+   "bet": "Knicks -14.5",
+   "side": "Knicks",
+   "flagged": "2026-11-10T23:15:06Z",
+   "why": "2 top-200 accounts",
+   "proven": false,
+   "trigger": "two",
+   "n_accounts": 2,
+   "best_rank": 112,
+   "usd": 5890,
+   "paid": 0.531,
+   "ask": 0.56,
+   "status": "live",
+   "link": "https://polymarket.us/event/nba-mil-nyk-2026-11-10",
+   "other": null,
+   "kalshi_against": null,
+   "logged": false,
+   "ladder": true,
+   "event_id": "401909960",
+   "sport": "nba",
+   "league": null,
+   "away": "MIL",
+   "home": "NY",
+   "away_name": "Milwaukee Bucks",
+   "home_name": "New York Knicks",
+   "game_start": "2026-11-11T00:30Z",
+   "side_std": "home",
+   "conflict": [
+    "big money"
+   ],
+   "money_with": false,
+   "grade": "B",
+   "fair_board": null,
+   "inside_fair": null,
+   "books": {
+    "at": "2026-11-10T22:53:08Z",
+    "fair": null,
+    "q": {
+     "Novig": 0.535,
+     "Kalshi": 0.56
+    }
+   }
+  },
+  {
+   "cond": "0x04dfd84740c878cd0006b04d9659d8d1f015268d28b852bb69ba42210d78a087",
+   "slug": "nba-mil-nyk-2026-11-10",
+   "title": "Bucks vs. Knicks",
+   "mtype": "spread",
+   "start": "2026-11-11T00:30:00Z",
+   "bet": "Knicks -16.5",
+   "side": "Knicks",
+   "flagged": "2026-11-10T23:15:07Z",
+   "why": "2 top-200 accounts",
+   "proven": false,
+   "trigger": "two",
+   "n_accounts": 2,
+   "best_rank": 112,
+   "usd": 12867,
+   "paid": 0.464,
+   "ask": 0.49,
+   "status": "live",
+   "link": "https://polymarket.us/event/nba-mil-nyk-2026-11-10",
+   "other": null,
+   "kalshi_against": null,
+   "logged": false,
+   "ladder": true,
+   "event_id": "401909960",
+   "sport": "nba",
+   "league": null,
+   "away": "MIL",
+   "home": "NY",
+   "away_name": "Milwaukee Bucks",
+   "home_name": "New York Knicks",
+   "game_start": "2026-11-11T00:30Z",
+   "side_std": "home",
+   "conflict": [
+    "big money"
+   ],
+   "money_with": false,
+   "grade": "B",
+   "fair_board": null,
+   "inside_fair": null,
+   "books": null
   },
   {
    "cond": "0x5240c570cfebc2bd8451035ddb8539994e143dc7753402c16722bcb00cb1d79f",
@@ -255,7 +393,7 @@
    "best_rank": 116,
    "usd": 230,
    "paid": 0.48,
-   "ask": 0.52,
+   "ask": 0.51,
    "status": "live",
    "link": "https://polymarket.us/event/cbb-lamon-tcu-2026-11-10",
    "other": null,
@@ -1026,9 +1164,9 @@
   },
   "401909960|spread": {
    "home": {
-    "n": 1,
-    "best_rank": 194,
-    "usd": 250
+    "n": 3,
+    "best_rank": 112,
+    "usd": 66181
    }
   },
   "401909961|ml": {
