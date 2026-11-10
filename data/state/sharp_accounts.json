@@ -1,5 +1,5 @@
 {
- "built": "2026-11-10T01:20:17Z",
+ "built": "2026-11-10T01:33:58Z",
  "rows": [
   {
    "cond": "0x9dba4642f4329325c0bf83d5d0fb93f688b7ddabb745124704153fbc2b00b8f6",
@@ -249,7 +249,7 @@
    "best_rank": 49,
    "usd": 7042,
    "paid": 0.494,
-   "ask": 0.56,
+   "ask": null,
    "status": "live",
    "link": "https://polymarket.us/event/nba-den-hou-2026-11-09",
    "other": null,
@@ -286,7 +286,7 @@
    "best_rank": 104,
    "usd": 227,
    "paid": 0.45,
-   "ask": 0.55,
+   "ask": null,
    "status": "live",
    "link": "https://polymarket.us/event/nba-den-hou-2026-11-09",
    "other": null,
@@ -957,7 +957,7 @@
    "best_rank": 23,
    "usd": 6290,
    "paid": 0.625,
-   "ask": 0.65,
+   "ask": null,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-den-hou-2026-11-09",
    "other": {
@@ -966,7 +966,7 @@
     "usd": 37655,
     "first": "2026-11-08T22:52:33Z"
    },
-   "exit_bid": 0.64,
+   "exit_bid": null,
    "kalshi_against": null,
    "logged": true,
    "event_id": "401909957",
@@ -1003,7 +1003,7 @@
    "best_rank": 119,
    "usd": 6395,
    "paid": 0.52,
-   "ask": 0.39,
+   "ask": null,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-den-hou-2026-11-09",
    "other": {
@@ -1012,7 +1012,7 @@
     "usd": 7992,
     "first": "2026-11-09T19:15:06Z"
    },
-   "exit_bid": 0.38,
+   "exit_bid": null,
    "kalshi_against": null,
    "logged": true,
    "event_id": "401909957",
@@ -1049,7 +1049,7 @@
    "best_rank": 112,
    "usd": 7777,
    "paid": 0.473,
-   "ask": 0.6,
+   "ask": null,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-den-hou-2026-11-09",
    "other": {
@@ -1058,7 +1058,7 @@
     "usd": 2601,
     "first": "2026-11-10T00:14:27Z"
    },
-   "exit_bid": 0.59,
+   "exit_bid": null,
    "kalshi_against": null,
    "logged": false,
    "ladder": true,
@@ -1148,18 +1148,6 @@
    },
    "against": null
   },
-  "401909957:nba_ats_hot_home": {
-   "with": {
-    "n": 4,
-    "best_rank": 112,
-    "usd": 9220
-   },
-   "against": {
-    "n": 4,
-    "best_rank": 49,
-    "usd": 13930
-   }
-  },
   "401909959:nba_ats_hot_home": {
    "with": {
     "n": 5,
@@ -1202,37 +1190,6 @@
     "n": 1,
     "best_rank": 49,
     "usd": 137
-   }
-  },
-  "401909957|ml": {
-   "home": {
-    "n": 5,
-    "best_rank": 23,
-    "usd": 6290
-   },
-   "away": {
-    "n": 7,
-    "best_rank": 23,
-    "usd": 19210
-   }
-  },
-  "401909957|total": {
-   "over": {
-    "n": 3,
-    "best_rank": 104,
-    "usd": 5400
-   }
-  },
-  "401909957|spread": {
-   "home": {
-    "n": 4,
-    "best_rank": 112,
-    "usd": 9220
-   },
-   "away": {
-    "n": 4,
-    "best_rank": 49,
-    "usd": 13930
    }
   },
   "401909958|ml": {
