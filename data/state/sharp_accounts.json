@@ -1,5 +1,5 @@
 {
- "built": "2026-11-10T23:38:00Z",
+ "built": "2026-11-10T23:45:09Z",
  "rows": [
   {
    "cond": "0xfa30c2ac9ab8894137b8844540c19e2f977f6a53e522440c42cf71cadf0a2c57",
@@ -152,9 +152,6 @@
    "home_name": "New York Knicks",
    "game_start": "2026-11-11T00:30Z",
    "side_std": "home",
-   "conflict": [
-    "big money"
-   ],
    "money_with": false,
    "grade": "B",
    "inside_fair": false,
@@ -202,9 +199,6 @@
    "home_name": "New York Knicks",
    "game_start": "2026-11-11T00:30Z",
    "side_std": "home",
-   "conflict": [
-    "big money"
-   ],
    "money_with": false,
    "grade": "B",
    "fair_board": null,
@@ -250,9 +244,6 @@
    "home_name": "New York Knicks",
    "game_start": "2026-11-11T00:30Z",
    "side_std": "home",
-   "conflict": [
-    "big money"
-   ],
    "money_with": false,
    "grade": "B",
    "fair_board": null,
@@ -275,7 +266,7 @@
    "best_rank": 116,
    "usd": 221,
    "paid": 0.47,
-   "ask": 0.51,
+   "ask": 0.5,
    "status": "live",
    "link": "https://polymarket.us/event/cbb-houbap-sdak-2026-11-10",
    "other": null,
@@ -319,7 +310,7 @@
    "best_rank": 116,
    "usd": 221,
    "paid": 0.47,
-   "ask": 0.55,
+   "ask": 0.56,
    "status": "live",
    "link": "https://polymarket.us/event/cbb-narz-arz-2026-11-10",
    "other": null,
@@ -485,9 +476,6 @@
    "home_name": "Utah Jazz",
    "game_start": "2026-11-11T02:00Z",
    "side_std": "away",
-   "conflict": [
-    "Kalshi move"
-   ],
    "money_with": false,
    "grade": "B",
    "fair_board": null,
@@ -653,7 +641,7 @@
    "best_rank": 43,
    "usd": 1284,
    "paid": 0.603,
-   "ask": 0.64,
+   "ask": 0.65,
    "status": "live",
    "link": "https://polymarket.us/event/nba-gsw-hou-2026-11-11",
    "other": null,
@@ -904,7 +892,7 @@
    "best_rank": 55,
    "usd": 2379,
    "paid": 0.327,
-   "ask": 0.34,
+   "ask": 0.35,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-orl-sac-2026-11-10",
    "other": {
@@ -913,7 +901,7 @@
     "usd": 408,
     "first": "2026-11-10T21:13:58Z"
    },
-   "exit_bid": 0.33,
+   "exit_bid": 0.34,
    "kalshi_against": null,
    "logged": true,
    "event_id": "401909964",
@@ -925,6 +913,9 @@
    "home_name": "Sacramento Kings",
    "game_start": "2026-11-11T03:00Z",
    "side_std": "home",
+   "conflict": [
+    "big money"
+   ],
    "money_with": false,
    "grade": "B",
    "inside_fair": true,
@@ -990,7 +981,7 @@
    "best_rank": 110,
    "usd": 38891,
    "paid": 0.51,
-   "ask": 0.52,
+   "ask": 0.54,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-orl-sac-2026-11-10",
    "other": {
@@ -999,7 +990,7 @@
     "usd": 22928,
     "first": "2026-11-10T21:04:27Z"
    },
-   "exit_bid": 0.51,
+   "exit_bid": 0.53,
    "kalshi_against": null,
    "logged": false,
    "ladder": true,
@@ -1015,7 +1006,7 @@
    "money_with": false,
    "grade": "B",
    "fair_board": 0.5246,
-   "inside_fair": true,
+   "inside_fair": false,
    "books": null
   },
   {
