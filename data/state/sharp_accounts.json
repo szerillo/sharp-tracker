@@ -1,5 +1,5 @@
 {
- "built": "2026-11-10T20:31:17Z",
+ "built": "2026-11-10T20:38:27Z",
  "rows": [
   {
    "cond": "0xfa30c2ac9ab8894137b8844540c19e2f977f6a53e522440c42cf71cadf0a2c57",
@@ -312,6 +312,52 @@
    "fair_board": null,
    "inside_fair": null,
    "books": null
+  },
+  {
+   "cond": "0x15ea6c2a515c23411f3dbc8c901d86458a23b22c556324827fc1bd30c50e0409",
+   "slug": "nba-orl-sac-2026-11-10",
+   "title": "Magic vs. Kings",
+   "mtype": "ml",
+   "start": "2026-11-11T03:00:00Z",
+   "bet": "Kings ML",
+   "side": "Kings",
+   "flagged": "2026-11-10T20:36:24Z",
+   "why": "2 top-200 accounts",
+   "proven": false,
+   "trigger": "two",
+   "n_accounts": 2,
+   "best_rank": 55,
+   "usd": 433,
+   "paid": 0.313,
+   "ask": 0.31,
+   "status": "live",
+   "link": "https://polymarket.us/event/nba-orl-sac-2026-11-10",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401909964",
+   "sport": "nba",
+   "league": null,
+   "away": "ORL",
+   "home": "SAC",
+   "away_name": "Orlando Magic",
+   "home_name": "Sacramento Kings",
+   "game_start": "2026-11-11T03:00Z",
+   "side_std": "home",
+   "money_with": false,
+   "grade": "B",
+   "fair_board": 0.3129,
+   "inside_fair": true,
+   "books": {
+    "at": "2026-11-10T19:58:13Z",
+    "fair": 0.3129,
+    "q": {
+     "Novig": 0.315,
+     "Polymarket": 0.32,
+     "FD": 0.3333,
+     "DK": 0.3378
+    }
+   }
   },
   {
    "cond": "0xd77d584f6a9fb2937e5c16f9494bbab607695f202db17181b51c29c5968e34a8",
@@ -908,9 +954,9 @@
   },
   "401909964|ml": {
    "home": {
-    "n": 1,
-    "best_rank": 93,
-    "usd": 133
+    "n": 2,
+    "best_rank": 55,
+    "usd": 433
    }
   },
   "401909965|ml": {
