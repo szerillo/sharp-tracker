@@ -610,6 +610,32 @@ def main():
         cur.update(AN_LINKS); json.dump(cur, open(pth, 'w'), separators=(',', ':'))
     with gzip.open(os.path.join(TD, f"{et_date(NOW).isoformat()}.jsonl.gz"), 'at') as f:
         for r in rows: f.write(json.dumps(r, separators=(',', ':')) + '\n')
+    # 11/10: ids of the soft markets (team totals, props, and Novig's period lines) for the 5-minute trade tape (fast.py --trades writes
+    # their fills to trades5_soft), so docs/maker_2026-11-10.md can be extended to the markets where the books are wide
+    try:
+        GAME_ = ('ml', 'spread', 'total'); soft = {}; nvs = collections.defaultdict(lambda: collections.defaultdict(dict)); day_ = et_date(NOW).isoformat()
+        for r in rows:
+            x = r.get('extra') or {}; mk = r['market']; base = mk.split('_', 1)[-1] if mk[:3] in ('1h_', '1q_', '1p_') else mk
+            st_ = STARTS.get(r['event_id'])
+            if r['venue'] == 'Kalshi' and x.get('ticker') and base not in GAME_:
+                yes = x.get('yes')
+                if r['side'] == yes: soft[x['ticker']] = dict(sport=SPORT, event_id=r['event_id'], market=mk, line=r.get('line'), yes_side=yes, seen=day_, soft=1, **({'player': r['participant']} if mk.startswith('prop_') else {}))
+            elif r['venue'] == 'Novig' and x.get('market_id') and x.get('outcome_id') and not mk.startswith('prop_') and mk not in GAME_ and st_:
+                nvs[(r['event_id'], mk)][x['market_id']][x['outcome_id']] = r
+        for (ev, mk), by_m in nvs.items():
+            two = {m_: o_ for m_, o_ in by_m.items() if len(o_) == 2}
+            if not two: continue
+            mid_, outs = min(two.items(), key=lambda kv: min(abs(((r.get('bid') or 0) + (r.get('ask') or 1)) / 2 - 0.5) for r in kv[1].values()))
+            hs = next((r for r in outs.values() if r['side'] in ('home', 'over')), None)
+            soft['nv:' + mid_] = dict(sport=SPORT, event_id=ev, market=mk, line=(hs or {}).get('line'), outcomes={o: r['side'] for o, r in outs.items()}, seen=day_, soft=1,
+                                      start=STARTS[ev].strftime('%Y-%m-%dT%H:%M:%SZ'))
+        if soft:
+            sp_ = os.path.join(OUT, 'soft_meta.json'); cur = {}
+            try: cur = json.load(open(sp_))
+            except Exception: pass
+            cur.update(soft); cut_ = (NOW - dt.timedelta(days=5)).date().isoformat()
+            json.dump({k: v for k, v in cur.items() if v.get('seen', '9') >= cut_}, open(sp_, 'w'), separators=(',', ':'))
+    except Exception as e: print(f'[lines {SPORT}] soft meta failed: {type(e).__name__}: {e}')
     if LIVE:
         LD = os.path.join(TD, '..', 'live'); os.makedirs(LD, exist_ok=True)
         with gzip.open(os.path.join(LD, f"{et_date(NOW).isoformat()}.jsonl.gz"), 'at') as f:

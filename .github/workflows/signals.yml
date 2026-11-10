@@ -51,6 +51,8 @@ jobs:
             echo "::error::Stale-book feed failed"
             [ -n "$NTFY_TOPIC" ] && curl -s -H "Title: Stale-book feed failed" -H "Priority: default" -d "Stale-book feed crashed in run $GITHUB_RUN_ID; its flags did not update" "https://ntfy.sh/$NTFY_TOPIC" >/dev/null || true
           fi
+      - name: offers to rest (Kalshi and Novig sides whose best bid is 3c+ under Pinnacle's fair; paper, 11/10)
+        run: python3 sharp/offers_live.py || echo "::warning::offers scan failed"
       - name: prop price-gap paper leans (NBA threes / NHL saves and shots unders where FD, Caesars or DK beat Pinnacle's no-vig by 2%+; 11/6)
         env: {NTFY_TOPIC: '${{ secrets.NTFY_TOPIC }}', ODDS_API_KEY: '${{ secrets.ODDS_API_KEY }}'}
         run: |
@@ -94,7 +96,7 @@ jobs:
           python3 sharp/merge_state.py origin/main || true     # 11/7: keep every fill / fire either job logged (no more whole-file overwrites)
           for f in data/state/flow_live.json data/state/tape_health.json \
                    data/state/system_fired.json data/state/system_fires.json data/state/fills.jsonl data/state/tennis_watch.json data/tennis/fs_paper.jsonl data/tennis/fs_graded.json data/tennis/hot_paper.jsonl data/tennis/hot_graded.json data/tennis/serve_paper.jsonl data/tennis/serve_graded.json data/tennis/hotdog_paper.jsonl data/tennis/hotdog_graded.json data/state/mma_steam.json data/mma/oddsapi_live.jsonl data/mma/oddsapi_open.json data/mma/steam_paper.jsonl data/mma/steam_graded.json data/tennis/results.jsonl data/tennis/schedule.json data/state/bet_log.json data/state/bet_paths.json data/state/audit.json \
-                   data/kalshi/steam_rev_paper.jsonl data/kalshi/steam_rev_results.json data/state/stale_paper.jsonl data/state/stale_live.json data/state/props_paper.jsonl data/state/props_live.json data/state/curve_paper.jsonl data/state/curve_live.json; do [ -e "$f" ] && git add -A "$f"; done
+                   data/kalshi/steam_rev_paper.jsonl data/kalshi/steam_rev_results.json data/state/stale_paper.jsonl data/state/stale_live.json data/state/props_paper.jsonl data/state/props_live.json data/state/curve_paper.jsonl data/state/curve_live.json data/state/offers.json data/state/offers_paper.jsonl; do [ -e "$f" ] && git add -A "$f"; done
           git commit -q -m "signals $(date -u +%Y-%m-%dT%H:%M)" || exit 0
           git stash -u -q || true
           for i in 1 2 3 4 5; do

@@ -116,6 +116,9 @@ def main():
     if '--trades' in ARGS:
         meta = {}
         for f in glob.glob(os.path.join(KD, 'fast_meta_*.json')): meta.update(json.load(open(f)))
+        for f in glob.glob(os.path.join(ROOT, 'data', '*', 'soft_meta.json')):       # 11/10: soft markets, written by lines.py every 10 minutes
+            try: meta.update({k: v for k, v in json.load(open(f)).items() if k not in meta})
+            except Exception: pass
         st = json.load(open(TSTATE)) if os.path.exists(TSTATE) else {}
         since = int(st.get('last_ts') or now.timestamp() - 600)
         raw = kalshi_trades(since); rows = []; newest = since
@@ -125,11 +128,15 @@ def main():
             if not m: continue
             rows.append(dict(ts=t['created_time'], ticker=t['ticker'], **m, yes_price=float(t.get('yes_price_dollars') or 0), count=float(t.get('count_fp') or t.get('count') or 0),
                              taker_side=t.get('taker_side'), block=bool(t.get('is_block_trade'))))
-        if rows:
-            with gzip.open(os.path.join(TR, f'{now.date().isoformat()}.jsonl.gz'), 'at') as f:
-                for t in rows: f.write(json.dumps(t, separators=(',', ':')) + '\n')
+        # 11/10: fills on the soft markets (team totals, props; ids from lines.py's data/<sport>/soft_meta.json) go to trades5_soft, so nothing that
+        # reads the game tape changes
+        for dd, part in ((TR, [t for t in rows if not t.get('soft')]), (TR + '_soft', [t for t in rows if t.get('soft')])):
+            if not part: continue
+            os.makedirs(dd, exist_ok=True)
+            with gzip.open(os.path.join(dd, f'{now.date().isoformat()}.jsonl.gz'), 'at') as f:
+                for t in part: f.write(json.dumps(t, separators=(',', ':')) + '\n')
         nst = st.get('novig') or {}; nrows = []; nmk = 0
-        for k, m in meta.items():
+        for k, m in sorted(meta.items(), key=lambda kv: (kv[1].get('soft', 0), kv[1].get('start') or '')):      # game markets first, then the soft ones with the time left
             if not k.startswith('nv:') or time.time() - T0 > 270: continue
             if not m.get('start') or m['start'] <= now.strftime('%Y-%m-%dT%H:%M:%SZ'): continue
             mid = k[3:]; last = int(nst.get(mid, 0)); nmk += 1
@@ -138,12 +145,13 @@ def main():
                 if int(t['ts']) <= last: continue
                 nrows.append(dict(ts=t['ts'], market_id=mid, outcome_id=t['outcomeId'], side_if_taker=m['outcomes'].get(t['outcomeId']), price=float(t['price']),
                                   qty_cents=int(t['qty']), usd=round(float(t['price']) * int(t['qty']) / 100, 2), take_id=t.get('takeId'), trade_id=t.get('tradeId'),
-                                  **{f: m[f] for f in ('sport', 'event_id', 'market', 'line')}))
+                                  **{f: m[f] for f in ('sport', 'event_id', 'market', 'line')}, **({'soft': 1} if m.get('soft') else {})))
                 nst[mid] = max(int(nst.get(mid, 0)), int(t['ts']))
-        if nrows:
-            os.makedirs(NTR, exist_ok=True)
-            with gzip.open(os.path.join(NTR, f'{now.date().isoformat()}.jsonl.gz'), 'at') as f:
-                for t in nrows: f.write(json.dumps(t, separators=(',', ':')) + '\n')
+        for dd, part in ((NTR, [t for t in nrows if not t.get('soft')]), (NTR + '_soft', [t for t in nrows if t.get('soft')])):
+            if not part: continue
+            os.makedirs(dd, exist_ok=True)
+            with gzip.open(os.path.join(dd, f'{now.date().isoformat()}.jsonl.gz'), 'at') as f:
+                for t in part: f.write(json.dumps(t, separators=(',', ':')) + '\n')
         json.dump({'last_ts': newest + 1 if raw else since, 'pulled': now.isoformat(), 'novig': nst}, open(TSTATE, 'w'))
         print(f"[fast trades] {round(time.time() - T0)}s; Kalshi {len(raw)} trades since {since}, {len(rows)} on {len({r['ticker'] for r in rows})} known game tickers; Novig {len(nrows)} new trades on {nmk} markets")
         return

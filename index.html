@@ -1044,6 +1044,7 @@ function renderToday() {
   return secFilter(`<div class="controls topbar">${whenBar(inSport)} ${sportBar(inWhen)} ${secBar}</div>${summary.replace('__NSIG__', `${strong.length} sharp signal${strong.length === 1 ? '' : 's'}`)}
     ${cardHtml}
     ${notHtml}
+    ${offersHtml()}
        <div class="small dim" style="margin:6px 0">Bets already started or graded are on the <a href="#" onclick="tab='tracker';_lw='d1';draw();return false">Bet tracker</a> (In progress, Past 24 hours).</div>
     <details class="how"><summary>How to read this page</summary><div class="explain">
       <p><b>Every row</b> reads the same way: start time (ET), game, the bet, size in units ($500 unit; to win when laying juice, to risk on plus money), the flagged price and whether it is still there, why it flagged, and its record. Click a row for the full rule, the trigger in this game and the backtest detail.</p>
@@ -1521,6 +1522,25 @@ function draw() {
   const audit = bad.length ? `<div class="banner ${bad.some(c => c.level === 'error') ? 'red' : ''}"><b>Board check (${ET(AU.built)} ET):</b> ${bad.map(c => `${esc(c.name)}: ${esc(c.detail)}`).join(' · ')}</div>` : '';
   $('#view').innerHTML = audit + {today: renderToday, tracker: renderBetLog, games: renderGames, systems: renderSystems, moves: renderMoves, more: renderMore, research: () => R2[rtab]()}[tab]();
 }
+// Offers to rest (sharp/offers_live.py, 11/10): paper. Kalshi and Novig sides where the best bid is 3c+ under Pinnacle's no-vig fair;
+// the offer is a resting bid 2c under fair. Not bets: nothing here is sized or placed. docs/maker_2026-11-10.md.
+function offersHtml() {
+  const O = window._OF; if (!O || !O.rows) return '';
+  const rows = O.rows.filter(r => new Date(r.start) > new Date());
+  const c = p => p == null ? '—' : (100 * p).toFixed(1).replace(/\.0$/, '') + 'c';
+  const mk = r => { const m = r.market; const per = m.startsWith('1h_') ? '1st half ' : m.startsWith('1q_') ? '1st quarter ' : m.startsWith('1p_') ? '1st period ' : ''; const b = m.replace(/^1[hqp]_/, '');
+    const sd = r.side === 'over' ? 'Over' : r.side === 'under' ? 'Under' : esc(r.team || r.side);
+    if (b.startsWith('prop_')) return `${esc(r.player || '')} ${sd} ${r.line} ${esc(b.slice(5))}`;
+    if (b.startsWith('tt_')) return `${per}${esc(r.team || b.slice(3))} team total ${sd} ${r.line}`;
+    if (b === 'total') return `${per}${sd} ${r.line}`;
+    if (b === 'spread') return `${per}${sd} ${r.line > 0 ? '+' : ''}${r.line}`;
+    return `${per}${sd} ML`; };
+  const tr = r => `<tr><td class="small">${DAYT(r.start)}</td><td>${esc((r.sport || '').toUpperCase())} · ${esc(r.game)}</td><td><b>${mk(r)}</b></td><td>${esc(r.venue)}</td><td>${c(r.bid)} / ${c(r.ask)}</td><td>${c(r.fair)}</td><td><b>${c(r.offer)}</b> <span class="small dim">${toAm(r.offer)}</span></td><td>${c(r.edge)}</td></tr>`;
+  const grp = (O.groups || []).slice(0, 8).map(g => `${esc(g.venue)} ${esc((g.sport || '').toUpperCase())} ${esc(g.market.replace('tt_', 'team total ').replace('_', ' '))} ${g.n}`).join(' · ');
+  return `<details class="how" ${window._ofOpen ? 'open' : ''} ontoggle="window._ofOpen=this.open"><summary>Offers to rest: ${rows.length} soft prices on Kalshi and Novig (paper, not bets)</summary>
+    <div class="small dim" style="margin:4px 0">Sides where the best bid is 3c or more under Pinnacle's fair price. The offer is a resting bid 2c under fair; "Kept" is what is left after Kalshi's maker fee. Games inside 24 hours. Updated ${O.updated ? DAYT(O.updated) : ''}. ${grp}</div>
+    ${rows.length ? `<div style="overflow-x:auto"><table class="tbl small"><thead><tr><th>Start</th><th>Game</th><th>Side</th><th>Venue</th><th>Bid / ask now</th><th>Pinnacle fair</th><th>Offer</th><th>Kept</th></tr></thead><tbody>${rows.slice(0, 80).map(tr).join('')}</tbody></table></div>` : '<div class="small dim">Nothing 3c or more off right now.</div>'}</details>`;
+}
 async function load() {
   let u = new URLSearchParams(location.search).get('data') || 'data/state/dashboard.json';
   try {
@@ -1529,13 +1549,13 @@ async function load() {
     const J = p => fetch(p, {cache: 'no-store'}).then(r => r.ok ? r.json() : null).catch(() => null);
     const SIDE = ['data/state/edges.json', 'data/state/moves.json', 'data/state/system_fires.json', 'data/state/flow_live.json', 'data/state/tennis_watch.json',
       'data/state/mma_steam.json', 'data/state/kalshi_flow.json', 'data/state/stale_live.json', 'data/state/props_live.json', 'data/state/curve_live.json',
-      'data/research/poly_pinnacle.json', 'data/state/tape_health.json', 'data/state/signal_snap.json', 'data/state/sharp_accounts.json', 'data/state/bet_log.json', 'data/state/audit.json'];
+      'data/research/poly_pinnacle.json', 'data/state/tape_health.json', 'data/state/signal_snap.json', 'data/state/sharp_accounts.json', 'data/state/bet_log.json', 'data/state/audit.json', 'data/state/offers.json'];
     const fresh = window._SIDE && Date.now() - window._SIDE.t < 120000;
     const [d0, side] = await Promise.all([J(u), fresh ? Promise.resolve(window._SIDE.v) : Promise.all(SIDE.map(J))]);
     if (!fresh) window._SIDE = {t: Date.now(), v: side};
     if (!d0) throw new Error('no data');
     D = d0;
-    [E, MV, SY, FL, TW, window._MS, window._KF, window._SL, window._PL, window._CV, window._PP, window._TH, SN, SA, BL, AU] = side;
+    [E, MV, SY, FL, TW, window._MS, window._KF, window._SL, window._PL, window._CV, window._PP, window._TH, SN, SA, BL, AU, window._OF] = side;
     const idx = D.index;
     if (idx && idx.sports && idx.sports.length) {
       if (!SPORT) SPORT = idx.sports[0].sport;
