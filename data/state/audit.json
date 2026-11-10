@@ -1,36 +1,36 @@
 {
- "built": "2026-11-10T17:09:00Z",
- "ok": true,
+ "built": "2026-11-10T17:20:00Z",
+ "ok": false,
  "checks": [
   {
    "name": "fresh: sharp signals (5-minute job)",
-   "ok": true,
+   "ok": false,
    "level": "error",
-   "detail": "last built 17 min ago (allowed 20)"
+   "detail": "last built 28 min ago (allowed 20)"
   },
   {
    "name": "fresh: big money / Kalshi moves (20-minute job)",
    "ok": true,
    "level": "error",
-   "detail": "last built 7 min ago (allowed 60)"
+   "detail": "last built 6 min ago (allowed 60)"
   },
   {
    "name": "fresh: tennis watch (20-minute job)",
    "ok": true,
    "level": "error",
-   "detail": "last built 7 min ago (allowed 60)"
+   "detail": "last built 6 min ago (allowed 60)"
   },
   {
    "name": "fresh: bet tracker (20-minute job)",
    "ok": true,
    "level": "error",
-   "detail": "last built 3 min ago (allowed 60)"
+   "detail": "last built 1 min ago (allowed 60)"
   },
   {
    "name": "fresh: system bets (3 runs a day)",
    "ok": true,
    "level": "error",
-   "detail": "last built 132 min ago (allowed 300)"
+   "detail": "last built 27 min ago (allowed 300)"
   },
   {
    "name": "sharp feed: Polymarket fills arriving",
