@@ -1,11 +1,11 @@
 {
- "built": "2026-11-10T05:32:17Z",
+ "built": "2026-11-10T05:40:53Z",
  "record": {
   "cbb_1h_total_curve": {
-   "n": 1,
-   "won": 0,
+   "n": 2,
+   "won": 1,
    "lost": 1,
-   "units": -0.25,
+   "units": -0.02,
    "clv": {
     "n": 1,
     "avg": -2.1,
@@ -31,7 +31,7 @@
    "units": -0.17
   },
   "nhl_p3_under_curve": {
-   "n": 9,
+   "n": 10,
    "won": 0,
    "lost": 8,
    "units": -2.5,
@@ -55,37 +55,6 @@
   }
  },
  "rows": [
-  {
-   "key": "nhl_p3_under_curve|d6c28acaab1a3d7db58968f5f33fbf3a||under",
-   "rule": "nhl_p3_under_curve",
-   "tier": "P",
-   "stake": 0.0,
-   "sport": "nhl",
-   "odds_id": "d6c28acaab1a3d7db58968f5f33fbf3a",
-   "espn": "401892681",
-   "game": "Philadelphia Flyers @ Vancouver Canucks",
-   "start": "2026-11-10T02:40:00Z",
-   "market": "totals_p3",
-   "team": null,
-   "team_name": null,
-   "side": "under",
-   "line": 2.0,
-   "curve": 0.547,
-   "pin_fair": 0.468,
-   "gap": 7.9,
-   "full_total": 6.5,
-   "full_spread": 1.5,
-   "pin_price": 2.06,
-   "book": null,
-   "price": null,
-   "flagged": "2026-11-10T00:12:35Z",
-   "close_ts": "2026-11-10T02:28:48Z",
-   "close_line": 2.0,
-   "line_value": 0.0,
-   "close_fair": 0.4576,
-   "clv": -2.78,
-   "beat_fair": -1.04
-  },
   {
    "key": "nhl_p3_under_curve|4b345990c8a04ff88ce31d233a406011||under",
    "rule": "nhl_p3_under_curve",
@@ -116,41 +85,6 @@
    "close_fair": 0.4562,
    "clv": -2.23,
    "beat_fair": -0.48
-  },
-  {
-   "key": "cbb_1h_total_curve|2a80dd8061cc9e506c15bafdfb0f7839||over",
-   "rule": "cbb_1h_total_curve",
-   "tier": "C",
-   "stake": 0.25,
-   "sport": "cbb",
-   "odds_id": "2a80dd8061cc9e506c15bafdfb0f7839",
-   "espn": "401921095",
-   "game": "Rice Owls @ Stanford Cardinal",
-   "start": "2026-11-10T03:00:00Z",
-   "market": "totals_h1",
-   "team": null,
-   "team_name": null,
-   "side": "over",
-   "line": 68.0,
-   "curve": 0.553,
-   "pin_fair": 0.482,
-   "gap": 7.1,
-   "full_total": 145.5,
-   "full_spread": -18.5,
-   "pin_price": 1.98,
-   "book": "Caesars",
-   "price": 1.91,
-   "pin_fair_power": 0.4803,
-   "book_fair": 0.4893,
-   "fair_gap": -0.8,
-   "ev_curve": 5.6,
-   "flagged": "2026-11-10T00:33:32Z",
-   "close_ts": "2026-11-10T02:48:19Z",
-   "close_line": 68.0,
-   "line_value": 0.0,
-   "close_fair": 0.5026,
-   "clv": -2.1,
-   "beat_fair": 2.06
   }
  ]
 }
