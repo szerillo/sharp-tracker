@@ -1,5 +1,5 @@
 {
- "built": "2026-11-10T12:03:52Z",
+ "built": "2026-11-10T12:17:15Z",
  "rows": [
   {
    "cond": "0xfa30c2ac9ab8894137b8844540c19e2f977f6a53e522440c42cf71cadf0a2c57",
@@ -54,7 +54,7 @@
    "best_rank": 116,
    "usd": 221,
    "paid": 0.47,
-   "ask": 0.51,
+   "ask": 0.5,
    "status": "live",
    "link": "https://polymarket.us/event/cbb-det-xav-2026-11-10",
    "other": null,
@@ -73,7 +73,13 @@
    "grade": "A",
    "fair_board": null,
    "inside_fair": null,
-   "books": null
+   "books": {
+    "at": "2026-11-10T11:06:37Z",
+    "fair": null,
+    "q": {
+     "Novig": 0.49
+    }
+   }
   },
   {
    "cond": "0x5240c570cfebc2bd8451035ddb8539994e143dc7753402c16722bcb00cb1d79f",
@@ -110,14 +116,7 @@
    "grade": "A",
    "fair_board": null,
    "inside_fair": null,
-   "books": {
-    "at": "2026-11-10T02:57:54Z",
-    "fair": null,
-    "q": {
-     "Novig": 0.56,
-     "Kalshi": 0.67
-    }
-   }
+   "books": null
   },
   {
    "cond": "0x1feea0fa7618b0ed8bb57833febf10899e5f0dc8af241e187cea1b64b6867604",
@@ -154,16 +153,7 @@
    "grade": "A",
    "inside_fair": false,
    "fair_board": 0.4924,
-   "books": {
-    "at": "2026-11-10T02:57:54Z",
-    "fair": 0.4924,
-    "q": {
-     "Kalshi": 0.5,
-     "FD": 0.5238,
-     "DK": 0.5238,
-     "Caesars": 0.5238
-    }
-   }
+   "books": null
   },
   {
    "cond": "0xeb7149118cee5bdfa64ff8e7d98b7f1dd1fbedafed8494c554614bd42599a7b8",
@@ -311,7 +301,14 @@
    "grade": "A",
    "fair_board": null,
    "inside_fair": null,
-   "books": null
+   "books": {
+    "at": "2026-11-10T11:52:08Z",
+    "fair": null,
+    "q": {
+     "Polymarket": 0.46,
+     "Kalshi": 0.49
+    }
+   }
   },
   {
    "cond": "0xe3ae72ec65621e5c0fc6872d0021f97df258dff5146db4a812c024ffccee3983",
@@ -351,7 +348,58 @@
    "grade": "B",
    "fair_board": null,
    "inside_fair": null,
-   "books": null
+   "books": {
+    "at": "2026-11-10T11:52:08Z",
+    "fair": null,
+    "q": {
+     "Polymarket": 0.65,
+     "Kalshi": 0.67
+    }
+   }
+  },
+  {
+   "cond": "0x154298d4e21e1167c4190df66a7fad9bf8211f67a11ec900b2920febc551759b",
+   "slug": "nhl-utah-las-2026-11-11",
+   "title": "Utah vs. Golden Knights",
+   "mtype": "ml",
+   "start": "2026-11-12T02:30:00Z",
+   "bet": "Utah ML",
+   "side": "Utah",
+   "flagged": "2026-11-10T12:08:00Z",
+   "why": "a top-200 account also in this sport's top 50",
+   "proven": true,
+   "trigger": "proven",
+   "n_accounts": 1,
+   "best_rank": 69,
+   "usd": 337,
+   "paid": 0.44,
+   "ask": 0.45,
+   "status": "live",
+   "link": "https://polymarket.us/event/nhl-utah-las-2026-11-11",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401892693",
+   "sport": "nhl",
+   "league": null,
+   "away": "UTA",
+   "home": "VGK",
+   "away_name": "Utah Mammoth",
+   "home_name": "Vegas Golden Knights",
+   "game_start": "2026-11-12T02:30Z",
+   "side_std": "away",
+   "money_with": false,
+   "grade": "A",
+   "fair_board": null,
+   "inside_fair": null,
+   "books": {
+    "at": "2026-11-10T11:52:08Z",
+    "fair": null,
+    "q": {
+     "Polymarket": 0.44,
+     "Kalshi": 0.48
+    }
+   }
   },
   {
    "cond": "0x6c7cda134b82fe6f27a91ae42180b5abf9eb166944c2de8c5743273cc0c951e6",
@@ -537,14 +585,7 @@
    "grade": "A",
    "fair_board": null,
    "inside_fair": null,
-   "books": {
-    "at": "2026-11-10T02:57:54Z",
-    "fair": null,
-    "q": {
-     "Novig": 0.53,
-     "Kalshi": 0.53
-    }
-   }
+   "books": null
   },
   {
    "cond": "0x379c60bd4aa3a2e7d519a1f76c60271a0d8cf93353beee693ec9d82bae5443b6",
@@ -588,7 +629,14 @@
    "grade": "watch",
    "fair_board": null,
    "inside_fair": null,
-   "books": null
+   "books": {
+    "at": "2026-11-10T11:52:08Z",
+    "fair": null,
+    "q": {
+     "Kalshi": 0.12,
+     "Polymarket": 0.12
+    }
+   }
   }
  ],
  "record": {
@@ -652,6 +700,14 @@
     "usd": 403
    },
    "against": null
+  },
+  "401892693:nhl_early_home_fav_qual": {
+   "with": null,
+   "against": {
+    "n": 1,
+    "best_rank": 69,
+    "usd": 337
+   }
   }
  },
  "by_event": {
@@ -728,6 +784,11 @@
     "n": 1,
     "best_rank": 93,
     "usd": 159
+   },
+   "away": {
+    "n": 2,
+    "best_rank": 58,
+    "usd": 1647
    }
   },
   "401909968|ml": {
@@ -791,6 +852,13 @@
     "n": 1,
     "best_rank": 69,
     "usd": 156
+   }
+  },
+  "401892693|ml": {
+   "away": {
+    "n": 1,
+    "best_rank": 69,
+    "usd": 337
    }
   },
   "401864539|spread": {
