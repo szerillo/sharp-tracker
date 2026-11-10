@@ -3,6 +3,24 @@
 Sean: "run anything else that you have ever possibly wanted to run overnight." No Odds API credits were used. Each section: what was
 tested, the result, and what it means for the board.
 
+## Bottom line
+1. **Novig pays the resting side; Kalshi does not.** Novig's makers earned 1.9% on $744M over three months, positive every month and
+   in every market type but soccer (section 5). Against Pinnacle at the moment of the fill, a bid 1c under fair keeps about 0.8c in
+   every market type in the last hour, and 2 to 3c bids keep more everywhere except moneylines (section 8). Kalshi's makers lost 1.4%
+   after the maker fee over the same months (section 1).
+2. **The sharp list is real and cannot be followed.** The top accounts beat Pinnacle's close by 0.74 at their own price in the last
+   60 days. A taker 5 minutes later is at -0.44; a bid rested at their price fills on the three quarters of flags that are worth
+   nothing; no filter at 5 minutes finds the quarter that runs (section 6). Flags stay on paper.
+3. **Price gaps against Pinnacle hold on moneylines at sportsbooks, not on numbers and not on exchanges.** A US book's moneyline 4%+
+   over Pinnacle's fair has paid at the open and later; a spread or total half a point better than Pinnacle's loses the juice. The
+   live stale-book lean has been firing on the two cases history does not support (section 2).
+4. **Nothing in locks, ladders or tie prices** (sections 3 and 4).
+
+Decisions for Sean: (a) the stale-book lean to sportsbooks only at a 4%+ gap; (b) the weekly recheck's tier moves
+(docs/weekly_recheck_2026-11-10.md); (c) whether to set Novig keys so a paper quoter can become a real one. Nothing was changed on
+those. Open item: the audit shows one open system fill not on the board (cfb_road_dog_low_total, SJSU @ AFA, a second fill logged
+11/8); it pre-dates tonight and is not fixed.
+
 ## 1. Kalshi makers on the full settled tape (sharp/maker_history.py)
 The 11/10 maker test had 11 days. This is every pregame trade on Kalshi's settled game markets from Aug 24 to Oct 29: 6.95 million
 fills, 1,276 games (NFL, college football, NBA, NHL, soccer; MLB tickers did not match the schedule and are left out), $607M put up by
