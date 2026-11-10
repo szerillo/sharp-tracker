@@ -1,5 +1,5 @@
 {
- "built": "2026-11-10T22:30:40Z",
+ "built": "2026-11-10T22:37:59Z",
  "rows": [
   {
    "cond": "0xfa30c2ac9ab8894137b8844540c19e2f977f6a53e522440c42cf71cadf0a2c57",
@@ -17,7 +17,7 @@
    "best_rank": 116,
    "usd": 213,
    "paid": 0.46,
-   "ask": 0.64,
+   "ask": 0.63,
    "status": "live",
    "link": "https://polymarket.us/event/cbb-presb-ncst-2026-11-10",
    "other": null,
@@ -218,7 +218,7 @@
    "best_rank": 116,
    "usd": 230,
    "paid": 0.48,
-   "ask": 0.57,
+   "ask": 0.56,
    "status": "live",
    "link": "https://polymarket.us/event/cbb-dxst-utahst-2026-11-10",
    "other": null,
@@ -781,6 +781,9 @@
    "home_name": "Sacramento Kings",
    "game_start": "2026-11-11T03:00Z",
    "side_std": "home",
+   "conflict": [
+    "big money"
+   ],
    "money_with": false,
    "grade": "B",
    "inside_fair": true,
