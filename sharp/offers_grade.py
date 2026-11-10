@@ -12,6 +12,7 @@ ROOT = os.path.abspath(os.path.join(os.path.dirname(os.path.abspath(__file__)), 
 from sharp.gzlines import lines
 PAPER = os.path.join(ROOT, 'data', 'state', 'offers_paper.jsonl'); OUT = os.path.join(ROOT, 'data', 'state', 'offers_record.json')
 NOW = dt.datetime.now(dt.timezone.utc)
+LIFE, OUR_USD = 3600, 100.0
 OTH = dict(home='away', away='home', over='under', under='over')
 def ts(s): return dt.datetime.fromisoformat(s.replace('Z', '+00:00')).timestamp() if isinstance(s, str) else s / 1000.0
 def imp(a): return 100.0 / (a + 100.0) if a > 0 else -a / (-a + 100.0)
@@ -82,19 +83,39 @@ def main():
         key = (o['event_id'], m, o['side'], o.get('line'), pk)
         a = last(key, st, 3600); b = last((o['event_id'], m, OTH[o['side']], o.get('line') if (o.get('line') is None or totlike(m)) else -o['line'], pk), st, 3600)
         close = a / (a + b) if a and b else None
-        rows.append(dict(key=o['key'], venue=o['venue'], sport=o['sport'], market=m, started=started, watched=watched, filled=bool(fills), fill_usd=round(sum(f[2] for f in fills)),
+        # 11/10: the headline counts a fill only inside the order's life (LIFE after it was logged: the scan reprices each cycle, so an
+        # old bid would have been moved), and at most OUR_USD of it (our size, not the whole print). filled_any = any time before the start.
+        any_ = bool(fills); fills = [f for f in fills if f[0] <= t0 + LIFE]
+        rows.append(dict(key=o['key'], venue=o['venue'], sport=o['sport'], market=m, started=started, watched=watched, filled=bool(fills), filled_any=any_, fill_usd=round(min(OUR_USD, sum(f[2] for f in fills))),
                          first_fill_min=round((fills[0][0] - t0) / 60) if fills else None, offer=o['offer'], fair=o['fair'], close=round(close, 4) if close else None,
                          clv=round(100 * (close - o['offer']), 2) if close else None))
     def summ(L):
         L = [r for r in L if r['started'] and r['watched']]
         F = [r for r in L if r['filled']]; N = [r for r in L if not r['filled']]
         cv = lambda X: (round(sum(r['clv'] for r in X if r['clv'] is not None) / max(1, sum(1 for r in X if r['clv'] is not None)), 2), sum(1 for r in X if r['clv'] is not None))
-        return dict(offers=len(L), filled=len(F), fill_rate=round(len(F) / len(L), 3) if L else None, usd_per_fill=round(sum(r['fill_usd'] for r in F) / len(F)) if F else None,
+        return dict(offers=len(L), filled=len(F), filled_any=sum(1 for r in L if r['filled_any']), fill_rate=round(len(F) / len(L), 3) if L else None, usd_per_fill=round(sum(r['fill_usd'] for r in F) / len(F)) if F else None,
                     clv_filled=cv(F)[0] if F else None, clv_filled_n=cv(F)[1], clv_unfilled=cv(N)[0] if N else None, clv_unfilled_n=cv(N)[1])
     grp = lambda m: 'props' if m.startswith('prop_') else 'team totals' if 'tt_' in m else 'period lines' if m[:2] in ('1h', '1q', '1p') else 'game lines'
     rec = dict(updated=NOW.strftime('%Y-%m-%dT%H:%M:%SZ'), logged=len(O), not_started=sum(1 for r in rows if not r['started']), unwatched=sum(1 for r in rows if r['started'] and not r['watched']),
                all=summ(rows), by={f"{v} {g}": summ([r for r in rows if r['venue'] == v and grp(r['market']) == g]) for v in ('Novig', 'Kalshi') for g in ('props', 'team totals', 'period lines', 'game lines')})
     rec['by'] = {k: v for k, v in rec['by'].items() if v['offers']}
+    # ProphetX has no trade tape; each quote row carries the market's matched total (extra.filled), so the rise between pulls is what traded
+    try:
+        PX = collections.defaultdict(dict)
+        for f in glob.glob(os.path.join(ROOT, 'data', '*', 'ticks_px', '2026-*.jsonl.gz')):
+            sp = f.split(os.sep)[-3]; day = os.path.basename(f)[:10]
+            for l in lines(f):
+                try: x = json.loads(l)
+                except Exception: continue
+                fl = (x.get('extra') or {}).get('filled')
+                if fl is None: continue
+                k = (sp, grp(x['market']), day, (x['extra'].get('px_event'), x['extra'].get('market_id')))
+                a = PX[k]; a['lo'] = min(a.get('lo', fl), fl); a['hi'] = max(a.get('hi', fl), fl)
+        agg = collections.defaultdict(lambda: [0, 0, 0.0, set()])
+        for (sp, g_, day, mk), a in PX.items():
+            z = agg[(sp, g_)]; z[0] += 1; z[1] += 1 if a['hi'] > a['lo'] else 0; z[2] += a['hi'] - a['lo']; z[3].add(day)
+        rec['prophetx_flow'] = [dict(sport=k[0], group=k[1], markets=v[0], traded=v[1], matched=round(v[2]), days=len(v[3]), per_day=round(v[2] / max(1, len(v[3])))) for k, v in sorted(agg.items(), key=lambda kv: -kv[1][2])]
+    except Exception as e: print('[offers_grade] prophetx flow failed:', e)
     json.dump(rec, open(OUT, 'w'), separators=(',', ':'))
     print(f"[offers_grade] {len(O)} offers logged; started and watched {rec['all']['offers']}, filled {rec['all']['filled']} ({rec['all']['fill_rate']}); CLV filled {rec['all']['clv_filled']} on {rec['all']['clv_filled_n']}, unfilled {rec['all']['clv_unfilled']} on {rec['all']['clv_unfilled_n']}; not watched {rec['unwatched']}")
 
