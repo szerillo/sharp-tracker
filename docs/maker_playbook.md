@@ -67,3 +67,20 @@ soccer 8.2%, NHL 7.0%); three legs kept 6.4%. Long parlays (6+ legs) and heavy f
 lost 52.6% of stakes over 14 days.
 Limits: 15 days; the last price stands in for each fill; the 50c-and-up loss may be partly takers on the NO side; each hour is capped
 at 2,000 parlays. Not compared with Pinnacle leg prices yet, so this is what makers earned, not what a Pinnacle-priced quote would earn.
+
+### Older sample, Sept 25 to Oct 26 (data/research/kalshi_parlays_older.json; one page of 1,000 parlays per hour, 32 days)
+
+| Group | Parlays | Takers paid | Makers kept | % of taker stakes | z (by day) |
+|---|---|---|---|---|---|
+| All | 584,635 | $50.4M | -$161,983 | -0.3% | -0.1 |
+| 2 legs | 64,170 | $15.2M | $539,868 | 3.6% | 1.2 |
+| 3 legs | 78,236 | $9.7M | $508,824 | 5.2% | 2.3 |
+| 4-5 legs | 137,038 | $11.4M | $368,730 | 3.2% | 0.9 |
+| 6+ legs | 305,191 | $14.2M | -$1,579,405 | -11.2% | -1.8 |
+| Priced 50c and up | 69,041 | $29.1M | -$2,129,738 | -7.3% | -4.2 |
+| Same game | 4,671 | $0.5M | -$36,043 | -7.1% | -0.8 |
+
+Read: the two-leg 16.3% from Oct 27 to Nov 10 did not repeat (3.6% here). Across both samples (47 days) two- and three-leg parlays
+kept makers a few percent of stakes, in line with the roughly 2% markup over the legs seen on the live log, and makers as a whole
+broke even. What repeats in both samples is the losing side: parlays of 6+ legs and parlays priced 50c and up cost makers money.
+Parlays are not clearly richer than Novig straights (1.9%) once the bad two weeks of luck are averaged out, and they swing far more.
