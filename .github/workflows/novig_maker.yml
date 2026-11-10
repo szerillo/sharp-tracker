@@ -28,4 +28,4 @@ jobs:
           mkdir -p data/research; cp /tmp/novig_maker.txt data/research/novig_maker_${{ inputs.script || 'history' }}.txt || true
           git add -f data/research/novig_maker_${{ inputs.script || 'history' }}.json data/research/novig_maker_${{ inputs.script || 'history' }}.txt
           git commit -q -m "novig maker history" || exit 0
-          for i in 1 2 3 4 5 6; do git pull -q --rebase -X theirs && git push -q && exit 0; sleep $((RANDOM % 20 + 5)); done
+          for i in 1 2 3 4 5 6; do git pull -q --rebase -X theirs --no-tags origin main && git push -q && exit 0; sleep $((RANDOM % 20 + 5)); done

@@ -51,7 +51,7 @@ jobs:
           git config user.name "prices-bot"; git config user.email "actions@users.noreply.github.com"
           git add data/mlb data/novig/catalog data/polymarket data/tennis data/kalshi/fast_meta_tennis.json data/nfl/weather data/cfb/weather && git commit -m "prices $(date -u +%Y-%m-%dT%H:%M)" || exit 0
           for i in 1 2 3 4 5; do
-            if git pull --rebase --autostash -X theirs && git push; then exit 0; fi   # 11/7: autostash, files a timed-out step left unstaged blocked the pull
+            if git pull --rebase --autostash -X theirs --no-tags origin main && git push; then exit 0; fi   # 11/7: autostash, files a timed-out step left unstaged blocked the pull
             git rebase --abort 2>/dev/null || true
             sleep $((RANDOM % 15 + 5))
           done
@@ -79,8 +79,10 @@ jobs:
         run: |
           git config user.name "prices-bot"; git config user.email "actions@users.noreply.github.com"
           git add data/${{ matrix.sport }} && git commit -m "lines ${{ matrix.sport }} $(date -u +%Y-%m-%dT%H:%M)" || exit 0
+          # 11/10: pull main only. A plain pull also fetched the backup branch pushed 11/9 with its whole history (11.5 minutes a run),
+          # which pushed every sport job past its time limit and made board prices 10 to 20 minutes late. Same change in every workflow.
           for i in 1 2 3 4 5 6; do
-            if git pull --rebase --autostash -X theirs && git push; then exit 0; fi   # 11/7: autostash, files a timed-out step left unstaged blocked the pull
+            if git pull --rebase --autostash -X theirs --no-tags origin main && git push; then exit 0; fi   # 11/7: autostash, files a timed-out step left unstaged blocked the pull
             git rebase --abort 2>/dev/null || true
             sleep $((RANDOM % 20 + 5))
           done

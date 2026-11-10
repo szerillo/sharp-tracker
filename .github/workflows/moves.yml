@@ -36,7 +36,7 @@ jobs:
           git commit -q -m "moves $(date -u +%Y-%m-%dT%H:%M)" || exit 0
           git stash -u -q || true
           for i in 1 2 3 4 5; do
-            if git pull -q --rebase -X theirs && git push -q; then
+            if git pull -q --rebase -X theirs --no-tags origin main && git push -q; then
               GH_TOKEN="${{ secrets.GITHUB_TOKEN }}" gh api -X POST "repos/${GITHUB_REPOSITORY}/actions/workflows/pages.yml/dispatches" -f ref=main || true
               exit 0
             fi

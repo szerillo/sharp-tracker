@@ -39,7 +39,7 @@ jobs:
           git config user.name "prices-bot"; git config user.email "actions@users.noreply.github.com"
           for d in data/*/ticks5 data/kalshi/trades5 data/novig/trades5 data/kalshi/trades5_soft data/novig/trades5_soft data/kalshi/*.json data/tennis/events.json data/polymarket/sharp_fills.jsonl data/polymarket/sharp_prop_fills.jsonl data/polymarket/_sharp_meta.json data/polymarket/_sharp_state.json data/state/sharp_accounts.json data/state/sharp_paper.jsonl data/state/sharp_alerts.json data/state/sys_sharp_tags.jsonl data/state/kalshi_flow.json data/kalshi/flow_paper.jsonl; do [ -e "$d" ] && git add "$d"; done; git commit -m "fast $(date -u +%Y-%m-%dT%H:%M)" || exit 0
           for i in 1 2 3 4 5 6; do
-            if git pull --rebase -X theirs && git push; then exit 0; fi
+            if git pull --rebase -X theirs --no-tags origin main && git push; then exit 0; fi
             git rebase --abort 2>/dev/null || true
             sleep $((RANDOM % 20 + 5))
           done

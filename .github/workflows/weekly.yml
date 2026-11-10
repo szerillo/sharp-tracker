@@ -25,7 +25,7 @@ jobs:
           git config user.name "tracker-bot"; git config user.email "actions@users.noreply.github.com"
           git add data/state/weekly.json docs/weekly data/research/wx_accuracy.json data/research/wx_cache && git commit -m "weekly $(date -u +%Y-%m-%d)" || exit 0
           for i in 1 2 3 4 5; do
-            if git pull --rebase -X theirs && git push; then exit 0; fi
+            if git pull --rebase -X theirs --no-tags origin main && git push; then exit 0; fi
             git rebase --abort 2>/dev/null || true
             sleep $((RANDOM % 15 + 5))
           done

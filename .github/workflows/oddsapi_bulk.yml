@@ -30,7 +30,7 @@ jobs:
           git add -A data/oddsapi/compact
           git commit -q -m "odds history: ${{ matrix.plan }} $(date -u +%Y-%m-%dT%H:%M)" || exit 0
           for i in 1 2 3 4 5 6 7 8; do
-            if git pull -q --rebase -X theirs && git push -q; then exit 0; fi
+            if git pull -q --rebase -X theirs --no-tags origin main && git push -q; then exit 0; fi
             git rebase --abort 2>/dev/null || true
             sleep $((RANDOM % 20 + 5))
           done

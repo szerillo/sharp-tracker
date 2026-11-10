@@ -58,7 +58,7 @@ jobs:
           git add -A data/tennis/odds
           git commit -q -m "tennis odds history (tennis-data.co.uk) $(date -u +%Y-%m-%d)" || exit 0
           for i in 1 2 3 4 5; do
-            if git pull -q --rebase -X theirs && git push -q; then exit 0; fi
+            if git pull -q --rebase -X theirs --no-tags origin main && git push -q; then exit 0; fi
             git rebase --abort 2>/dev/null || true
             sleep $((RANDOM % 15 + 5))
           done

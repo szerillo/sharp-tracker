@@ -33,7 +33,7 @@ jobs:
           git add -A data/tennis/kalshi_hist data/tennis/poly_hist
           git commit -q -m "tennis market history $(date -u +%Y-%m-%dT%H:%M)" || exit 0
           for i in 1 2 3 4 5; do
-            if git pull -q --rebase -X theirs && git push -q; then exit 0; fi
+            if git pull -q --rebase -X theirs --no-tags origin main && git push -q; then exit 0; fi
             git rebase --abort 2>/dev/null || true
             sleep $((RANDOM % 15 + 5))
           done
