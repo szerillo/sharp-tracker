@@ -5190,5 +5190,38 @@
 "edge_pts": null,
 "why": "Novig home side mid 0.237 inside T-1.5h; audit band 20-35c",
 "restored": true
+},
+"401873065:vrest8_1h": {
+"tag": "vrest8_1h",
+"fill_id": "db7abab87f8b",
+"ts": "2026-11-10T01:52:58Z",
+"market": "1h_total",
+"side": "under",
+"line": 19.5,
+"venue": "Novig",
+"price": -106,
+"fair": 0.47299,
+"edge_pts": -4.2,
+"why": "LAC off 8 days"
+},
+"401873065:mnf_1h": {
+"tag": "mnf_1h",
+"stacked": true,
+"market": "1h_total",
+"side": "under",
+"why": "Monday night (same bet already taken by a higher-priority rule)"
+},
+"401909963:nba_badteams_under": {
+"tag": "nba_badteams_under",
+"fill_id": "7c221e255cff",
+"ts": "2026-11-10T01:52:58Z",
+"market": "total",
+"side": "under",
+"line": 229.5,
+"venue": "Novig",
+"price": -108,
+"fair": 0.5,
+"edge_pts": -2.0,
+"why": "visitor MIA season margin -5.3, home UTAH wins 20% at home: under (mined angle)"
 }
 }
