@@ -189,3 +189,38 @@ Read:
   our bid) and how filled and unfilled offers closed against Pinnacle. The 5-minute trade job now also polls every Novig market with an
   open offer, props included. The board's offers section shows the record once offers have started.
 - Trade tape for team totals, props and period lines (data/kalshi/trades5_soft, data/novig/trades5_soft) is landing.
+
+## 8. Novig makers against Pinnacle at the moment of each fill, every market type (sharp/novig_maker_select.py)
+Section 5 is three months of settled results. This is the selective version: every Novig maker fill from Oct 30 to Nov 9 on a market in
+our ticks (3.2 million fills; 1.03 million where Pinnacle quoted the same line at that moment), priced against Pinnacle's no-vig fair at
+the fill and at the close. These are real fills, with size, props and team totals included.
+
+**Every maker fill** (cents per contract at the close; maker money per day): game moneylines +0.06c ($3.79M), spreads +0.16c ($1.78M),
+totals +0.41c ($957k), period lines +0.83c ($67k), team totals +0.87c ($45k), player props +0.06c ($1.26M).
+
+**A bid resting under Pinnacle's fair, paid at our bid** (kept at the close; money filled per day at that level or better; whole pool):
+
+| Market | 1c under | 2c under | 3c under |
+|---|---|---|---|
+| Game moneylines | +0.17c on $558k a day | -0.18c | -0.87c |
+| Game spreads | **+0.84c** on $411k ($5,600 a day) | +1.79c on $107k | +2.94c on $41k |
+| Game totals | **+0.71c** on $335k ($3,800) | +1.50c on $135k | +2.04c on $35k |
+| Period lines | +0.89c on $34k | +1.81c on $17k | +2.64c on $7k |
+| Team totals | +0.60c on $23k | +1.47c on $14k | +2.11c on $7k |
+| Player props | +0.14c on $455k | +0.70c on $266k ($3,800) | **+1.31c** on $150k ($3,900) |
+
+**By time (1c under).** Last hour: moneylines +0.86c, spreads +0.87c, totals +0.79c, props +0.66c, team totals +0.93c, period lines
++0.95c: about 0.8c in every market type, on about $745k a day in total. Earlier than that it depends on the market: spreads and totals
+hold (+0.4 to +1.4c), moneylines do not (6 to 24 hours out -0.70c), props do not at 1c (6 to 24 hours -0.19c, more than a day -0.74c)
+but do at 2c and 3c (+0.5 and +1.0c).
+
+Read:
+- On Novig a patient bid is paid for in every market type, and outside moneylines asking for more gets more: fills 2c and 3c under
+  fair keep about two thirds of the gap. (On Kalshi a 3c fill lost 2c.) Moneylines are the exception: the people who sell a moneyline
+  2c under Pinnacle know something.
+- Sizes are real but not large. The whole last-hour pool is about $15,000 a day of expected value for everyone resting 1c under fair
+  on Novig. Team totals and period lines are the richest per dollar and the thinnest ($20-35k a day filled at 1c under).
+- Spreads and totals outside the last hour are scored only when Pinnacle still has that line at the close (a third to two thirds of
+  the money), so those rows flatter; the last-hour rows are nearly complete and are the ones to trust.
+- What it supports for the paper quoter: Novig only; spreads, totals, team totals, period lines at 1 to 2c under fair at any time
+  inside a day; props at 2c or more, or 1c in the last hour; moneylines only in the last hour.
