@@ -1,5 +1,5 @@
 {
- "built": "2026-11-10T11:58:47Z",
+ "built": "2026-11-10T12:11:04Z",
  "ok": false,
  "checks": [
   {
@@ -22,9 +22,9 @@
   },
   {
    "name": "bet tracker has every flagged bet",
-   "ok": false,
-   "level": "error",
-   "detail": "454 in the records, 8 missing from the tracker"
+   "ok": true,
+   "level": "warn",
+   "detail": "448 in the records, 0 missing from the tracker"
   }
  ]
 }
