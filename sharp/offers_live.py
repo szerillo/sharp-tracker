@@ -94,7 +94,9 @@ def main():
     new = [r for r in rows if r['key'] not in seen]
     if new:
         with open(PAPER, 'a') as f:
-            for r in new: f.write(json.dumps(dict(r, logged=NOW.strftime('%Y-%m-%dT%H:%M:%SZ')), separators=(',', ':')) + '\n')
+            # 11/10: only what the grader needs (the log was growing 2.5 MB a day with the display fields)
+            KEEP = ('key', 'venue', 'sport', 'event_id', 'start', 'market', 'side', 'line', 'fair', 'bid', 'ask', 'offer', 'edge', 'under', 'ticker', 'yes', 'market_id', 'outcome_id')
+            for r in new: f.write(json.dumps(dict({k: r[k] for k in KEEP if r.get(k) is not None}, logged=NOW.strftime('%Y-%m-%dT%H:%M:%SZ')), separators=(',', ':')) + '\n')
     by = collections.Counter((r['venue'], r['sport'], 'props' if r['market'].startswith('prop_') else r['market']) for r in rows)
     json.dump(dict(updated=NOW.strftime('%Y-%m-%dT%H:%M:%SZ'), rule=dict(novig='1c under fair on spreads, totals, team totals, period lines; props 2c (1c in the last hour); moneylines 1c in the last hour only', kalshi='2c under fair', max_hours=MAX_H), n=len(rows),
                    groups=[dict(venue=k[0], sport=k[1], market=k[2], n=n) for k, n in by.most_common()], rows=rows[:200], logged=len(seen) + len(new)),
