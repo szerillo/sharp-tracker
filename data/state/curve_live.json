@@ -1,5 +1,5 @@
 {
- "built": "2026-11-10T21:04:28Z",
+ "built": "2026-11-10T21:13:49Z",
  "record": {
   "cbb_1h_total_curve": {
    "n": 2,
@@ -54,5 +54,60 @@
    "units": -1.68
   }
  },
- "rows": []
+ "rows": [
+  {
+   "key": "nhl_p3_under_curve|54a0d86217b79fbc969d6fca0e1564e8||under",
+   "rule": "nhl_p3_under_curve",
+   "tier": "B",
+   "stake": 0.5,
+   "sport": "nhl",
+   "odds_id": "54a0d86217b79fbc969d6fca0e1564e8",
+   "espn": "401892683",
+   "game": "Colorado Avalanche @ Toronto Maple Leafs",
+   "start": "2026-11-11T00:10:00Z",
+   "market": "totals_p3",
+   "team": null,
+   "team_name": null,
+   "side": "under",
+   "line": 2.5,
+   "curve": 0.66,
+   "pin_fair": 0.57,
+   "gap": 9.0,
+   "full_total": 6.5,
+   "full_spread": 1.5,
+   "pin_price": 1.69,
+   "book": "DK",
+   "price": 1.65,
+   "pin_fair_power": 0.574,
+   "book_fair": 0.5714,
+   "fair_gap": -0.1,
+   "ev_curve": 8.9,
+   "flagged": "2026-11-10T21:13:49Z"
+  },
+  {
+   "key": "nhl_p3_under_curve|11f3c6f0f406c5ffb575dbcd671cf964||under",
+   "rule": "nhl_p3_under_curve",
+   "tier": "P",
+   "stake": 0.0,
+   "sport": "nhl",
+   "odds_id": "11f3c6f0f406c5ffb575dbcd671cf964",
+   "espn": "401892688",
+   "game": "New Jersey Devils @ Winnipeg Jets",
+   "start": "2026-11-11T00:10:00Z",
+   "market": "totals_p3",
+   "team": null,
+   "team_name": null,
+   "side": "under",
+   "line": 2.0,
+   "curve": 0.547,
+   "pin_fair": 0.454,
+   "gap": 9.4,
+   "full_total": 6.5,
+   "full_spread": 1.5,
+   "pin_price": 2.12,
+   "book": null,
+   "price": null,
+   "flagged": "2026-11-10T21:13:49Z"
+  }
+ ]
 }
