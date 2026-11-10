@@ -1,5 +1,5 @@
 {
- "built": "2026-11-10T00:02:34Z",
+ "built": "2026-11-10T00:12:35Z",
  "record": {
   "cbb_1h_total_curve": {
    "n": 1,
@@ -32,5 +32,56 @@
    "units": -1.68
   }
  },
- "rows": []
+ "rows": [
+  {
+   "key": "nhl_p3_under_curve|d6c28acaab1a3d7db58968f5f33fbf3a||under",
+   "rule": "nhl_p3_under_curve",
+   "tier": "P",
+   "stake": 0.0,
+   "sport": "nhl",
+   "odds_id": "d6c28acaab1a3d7db58968f5f33fbf3a",
+   "espn": "401892681",
+   "game": "Philadelphia Flyers @ Vancouver Canucks",
+   "start": "2026-11-10T02:40:00Z",
+   "market": "totals_p3",
+   "team": null,
+   "team_name": null,
+   "side": "under",
+   "line": 2.0,
+   "curve": 0.547,
+   "pin_fair": 0.468,
+   "gap": 7.9,
+   "full_total": 6.5,
+   "full_spread": 1.5,
+   "pin_price": 2.06,
+   "book": null,
+   "price": null,
+   "flagged": "2026-11-10T00:12:35Z"
+  },
+  {
+   "key": "nhl_p3_under_curve|4b345990c8a04ff88ce31d233a406011||under",
+   "rule": "nhl_p3_under_curve",
+   "tier": "P",
+   "stake": 0.0,
+   "sport": "nhl",
+   "odds_id": "4b345990c8a04ff88ce31d233a406011",
+   "espn": "401892682",
+   "game": "New York Islanders @ San Jose Sharks",
+   "start": "2026-11-10T03:10:00Z",
+   "market": "totals_p3",
+   "team": null,
+   "team_name": null,
+   "side": "under",
+   "line": 2.0,
+   "curve": 0.547,
+   "pin_fair": 0.461,
+   "gap": 8.6,
+   "full_total": 6.5,
+   "full_spread": 1.5,
+   "pin_price": 2.09,
+   "book": null,
+   "price": null,
+   "flagged": "2026-11-10T00:12:35Z"
+  }
+ ]
 }
