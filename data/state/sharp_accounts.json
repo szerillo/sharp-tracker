@@ -1,5 +1,5 @@
 {
- "built": "2026-11-10T17:18:33Z",
+ "built": "2026-11-10T17:36:14Z",
  "rows": [
   {
    "cond": "0xfa30c2ac9ab8894137b8844540c19e2f977f6a53e522440c42cf71cadf0a2c57",
@@ -74,6 +74,52 @@
    "fair_board": null,
    "inside_fair": null,
    "books": null
+  },
+  {
+   "cond": "0x89db57ead0e1521c22fa1749583ac0424d37ff98ac70fbaaed14b306dc962dd4",
+   "slug": "nhl-min-mon-2026-11-10",
+   "title": "Wild vs. Canadiens",
+   "mtype": "ml",
+   "start": "2026-11-11T00:00:00Z",
+   "bet": "Wild ML",
+   "side": "Wild",
+   "flagged": "2026-11-10T17:26:55Z",
+   "why": "a top-200 account also in this sport's top 50",
+   "proven": true,
+   "trigger": "proven",
+   "n_accounts": 1,
+   "best_rank": 79,
+   "usd": 5785,
+   "paid": 0.54,
+   "ask": 0.55,
+   "status": "live",
+   "link": "https://polymarket.us/event/nhl-min-mon-2026-11-10",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401892684",
+   "sport": "nhl",
+   "league": null,
+   "away": "MIN",
+   "home": "MTL",
+   "away_name": "Minnesota Wild",
+   "home_name": "Montreal Canadiens",
+   "game_start": "2026-11-11T00:00Z",
+   "side_std": "away",
+   "money_with": false,
+   "grade": "A",
+   "fair_board": 0.5392,
+   "inside_fair": false,
+   "books": {
+    "at": "2026-11-10T16:55:10Z",
+    "fair": 0.5392,
+    "q": {
+     "Polymarket": 0.54,
+     "Novig": 0.545,
+     "Caesars": 0.5475,
+     "DK": 0.5556
+    }
+   }
   },
   {
    "cond": "0x5240c570cfebc2bd8451035ddb8539994e143dc7753402c16722bcb00cb1d79f",
@@ -172,7 +218,7 @@
    "best_rank": 116,
    "usd": 230,
    "paid": 0.48,
-   "ask": 0.57,
+   "ask": 0.56,
    "status": "live",
    "link": "https://polymarket.us/event/cbb-dxst-utahst-2026-11-10",
    "other": null,
@@ -187,9 +233,6 @@
    "home_name": "Utah State Aggies",
    "game_start": "2026-11-11T02:00Z",
    "side_std": "over",
-   "conflict": [
-    "Kalshi bet back"
-   ],
    "money_with": false,
    "grade": "A",
    "fair_board": null,
@@ -882,11 +925,25 @@
     "usd": 533
    }
   },
+  "401892684|ml": {
+   "away": {
+    "n": 1,
+    "best_rank": 79,
+    "usd": 5785
+   }
+  },
   "401892685|ml": {
    "home": {
     "n": 1,
     "best_rank": 132,
     "usd": 351
+   }
+  },
+  "401892686|ml": {
+   "away": {
+    "n": 1,
+    "best_rank": 115,
+    "usd": 24448
    }
   },
   "401892690|ml": {
