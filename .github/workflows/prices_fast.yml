@@ -13,7 +13,7 @@ concurrency:
 jobs:
   fast:
     runs-on: ubuntu-latest
-    timeout-minutes: 15    # 11/9: was 9. Evening runs need ~7 min of data steps, so the commit was killed at 9 every run from 5:30 PM ET
+    timeout-minutes: 20    # 11/9: was 9; 15 was not enough either (the trades job took 14.7 min at 7:32 PM). Evening runs need ~7 min of data steps, so the commit was killed at 9 every run from 5:30 PM ET
     strategy:
       fail-fast: false
       matrix:
