@@ -20,7 +20,18 @@ tested, the result, and what it means for the board.
 Decisions for Sean: (a) the stale-book lean to sportsbooks only at a 4%+ gap; (b) the weekly recheck's tier moves
 (docs/weekly_recheck_2026-11-10.md); (c) whether to set Novig keys so a paper quoter can become a real one. Nothing was changed on
 those. Fixed overnight: the board check's "1 missing" (cfb_road_dog_low_total, SJSU @ AFA) was the board pointing at a duplicate fill the
-ledger had already voided; sharp/systems.py now re-points to the live fill. One bet, counted once, as before.
+ledger had already voided; sharp/systems.py now re-points to the live fill. One bet, counted once, as before. Confirmed at 7:10 AM:
+the board check passes (56 open, 0 missing).
+
+**Side effect to know about:** applying that fix meant running the tracker job at 6:38 AM, outside its 10:41 AM / 2:41 PM / 5:41 PM
+slots, and it logged 8 system bets at 6:49 AM that the 10:41 run would otherwise have logged (nfl_fade_fav_bye LAC +5.5; bounce15_1h on
+two NFL first-half spreads; nhl_early_home_fav_qual on two games; nhl_bounce_home_ml; nhl_loss_streak_over on two totals). They are
+real fires of live rules, at 6:49 AM prices. Left in the record as logged; say if they should be voided and re-fired on schedule.
+
+**Seen, not fixed:** the 20-minute price job's commit step is taking about 6 minutes, so three of its sport jobs (NFL, college
+football, college basketball) run past their 14-minute limit and show as cancelled on 39 of the last 40 runs. Their prices are
+committed before the cancel, so the board has them, about 10 to 20 minutes after they were taken. The offer scan's quote window was
+widened from 25 to 45 minutes to match (it was scanning almost nothing).
 
 ## 1. Kalshi makers on the full settled tape (sharp/maker_history.py)
 The 11/10 maker test had 11 days. This is every pregame trade on Kalshi's settled game markets from Aug 24 to Oct 29: 6.95 million
