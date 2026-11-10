@@ -67,6 +67,6 @@ on dogs 7%+ over Pinnacle's fair returned +63% (65 bets, z 2.6). On the 207 figh
 | Follow a Pinnacle move of 2+ pts at the best US book | 71 | 52-19 | +14.8% | +0.70 |
 | Dogs +150 to +300 / +300 or longer | 46 / 127 | 11-35 / 13-114 | -28.0% / -31.2% | -1.23 / -1.33 |
 
-Read: Pinnacle is calibrated on boxing, and nothing beats it: shopping the US books against Pinnacle, following Pinnacle's moves (and the
-lagging-book version: 53 bets, -3.2%), and every price band. Longshots lose the usual amount. The clean sample is small, and widening it
+Read: Pinnacle is calibrated on boxing, and nothing beats it: shopping the US books against Pinnacle, following Pinnacle's moves (the
+lagging-book version lost even on the biased full set: 53 bets, -3.2%), and every price band. Longshots lose the usual amount. The clean sample is small, and widening it
 would need a results source for undercard fights (BoxRec is not reachable). Not recommended.
