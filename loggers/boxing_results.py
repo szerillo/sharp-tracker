@@ -86,6 +86,13 @@ def find(text, opp, d):
     return None
 
 
+def save_cache(cache):
+    # 11/9: a snapshot (the page threads keep adding while this runs), written to a temp file and closed before it replaces the old one
+    tmp = CACHE + '.tmp'
+    with gzip.open(tmp, 'wt') as f: json.dump(dict(cache), f)
+    os.replace(tmp, CACHE)
+
+
 def main():
     os.makedirs(os.path.dirname(OUT), exist_ok=True)
     fights = {}
@@ -94,7 +101,10 @@ def main():
         except Exception: continue
         fights[x['id']] = (x['home'], x['away'], x['start'])
     res = json.load(open(OUT)) if os.path.exists(OUT) else {}
-    cache = json.load(gzip.open(CACHE, 'rt')) if os.path.exists(CACHE) else {}
+    cache = {}
+    if os.path.exists(CACHE):
+        try: cache = json.load(gzip.open(CACHE, 'rt'))
+        except Exception as e: print(f'[boxing_results] cache unreadable ({e}), starting fresh', flush=True)
     t0 = time.time(); n = 0
     todo = [k for k in fights if k not in res and dt.datetime.fromisoformat(fights[k][2].replace('Z', '+00:00')) < dt.datetime.now(dt.timezone.utc) - dt.timedelta(days=2)]
     print(f'[boxing_results] {len(fights)} fights, {len(res)} done, {len(todo)} to look up', flush=True)
@@ -104,7 +114,7 @@ def main():
     print(f'[boxing_results] fetching {len(names)} fighter pages', flush=True)
     with cf.ThreadPoolExecutor(8) as ex:
         for i, _ in enumerate(ex.map(lambda nm_: page_for(nm_, cache), names)):
-            if i % 250 == 0: print(f'[boxing_results] pages {i}/{len(names)}', flush=True); json.dump(cache, gzip.open(CACHE, 'wt'))
+            if i % 250 == 0: print(f'[boxing_results] pages {i}/{len(names)}', flush=True); save_cache(cache)
             if (time.time() - t0) / 60 > MAXMIN: break
     for k in todo:
         if (time.time() - t0) / 60 > MAXMIN: break
@@ -119,8 +129,8 @@ def main():
         n += 1
         if n % 100 == 0:
             print(f'[boxing_results] {n} looked up, {sum(1 for v in res.values() if v.get("winner") in ("home", "away", "draw", "nc"))} settled', flush=True)
-            json.dump(res, open(OUT, 'w')); json.dump(cache, gzip.open(CACHE, 'wt'))
-    json.dump(res, open(OUT, 'w')); json.dump(cache, gzip.open(CACHE, 'wt'))
+            json.dump(res, open(OUT, 'w')); save_cache(cache)
+    json.dump(res, open(OUT, 'w')); save_cache(cache)
     c = {}
     for v in res.values(): c[str(v.get('winner'))] = c.get(str(v.get('winner')), 0) + 1
     print(f'[boxing_results] done: {len(res)} fights, {c}')
