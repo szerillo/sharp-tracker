@@ -108,6 +108,39 @@
 "clv": null,
 "clv_share": null
 },
+"type price | moneyline | 25-40c": {
+"fills": 296898,
+"events": 2932,
+"risk": 29373759,
+"risk_per_day": 305977,
+"roi": 12.23,
+"roi_z": 1.33,
+"pnl": 3593853,
+"clv": null,
+"clv_share": null
+},
+"league | UFC": {
+"fills": 96995,
+"events": 182,
+"risk": 9632329,
+"risk_per_day": 100337,
+"roi": -1.01,
+"roi_z": -0.32,
+"pnl": -97061,
+"clv": null,
+"clv_share": null
+},
+"league month | UFC | 2026-08": {
+"fills": 54708,
+"events": 81,
+"risk": 4883956,
+"risk_per_day": 50875,
+"roi": 3.05,
+"roi_z": 0.72,
+"pnl": 148905,
+"clv": null,
+"clv_share": null
+},
 "size | $100-1k": {
 "fills": 1185926,
 "events": 6799,
@@ -163,6 +196,17 @@
 "clv": null,
 "clv_share": null
 },
+"type price | moneyline | 60-75c": {
+"fills": 287927,
+"events": 2673,
+"risk": 44053141,
+"risk_per_day": 458887,
+"roi": -4.89,
+"roi_z": -1.1,
+"pnl": -2153063,
+"clv": null,
+"clv_share": null
+},
 "league type | tennis | moneyline": {
 "fills": 326914,
 "events": 3356,
@@ -207,6 +251,39 @@
 "clv": 0.13,
 "clv_share": 0.99
 },
+"type price | moneyline | 75c+": {
+"fills": 85646,
+"events": 1617,
+"risk": 19492819,
+"risk_per_day": 203050,
+"roi": -2.15,
+"roi_z": -0.5,
+"pnl": -418949,
+"clv": null,
+"clv_share": null
+},
+"league | tennis": {
+"fills": 443828,
+"events": 3385,
+"risk": 32379752,
+"risk_per_day": 337289,
+"roi": 1.18,
+"roi_z": 1.26,
+"pnl": 381249,
+"clv": null,
+"clv_share": null
+},
+"league month | tennis | 2026-08": {
+"fills": 160873,
+"events": 901,
+"risk": 10414613,
+"risk_per_day": 108486,
+"roi": 0.63,
+"roi_z": 0.58,
+"pnl": 65212,
+"clv": null,
+"clv_share": null
+},
 "price | 40-60c": {
 "fills": 5980866,
 "events": 7281,
@@ -215,6 +292,17 @@
 "roi": 2.12,
 "roi_z": 3.0,
 "pnl": 10843028,
+"clv": null,
+"clv_share": null
+},
+"type price | moneyline | 40-60c": {
+"fills": 1229175,
+"events": 2909,
+"risk": 131208023,
+"risk_per_day": 1366750,
+"roi": 3.07,
+"roi_z": 1.77,
+"pnl": 4028183,
 "clv": null,
 "clv_share": null
 },
@@ -259,6 +347,17 @@
 "roi": 0.25,
 "roi_z": 0.33,
 "pnl": 140469,
+"clv": null,
+"clv_share": null
+},
+"type price | total | 40-60c": {
+"fills": 1128639,
+"events": 5927,
+"risk": 124061182,
+"risk_per_day": 1292304,
+"roi": 0.61,
+"roi_z": 0.65,
+"pnl": 759447,
 "clv": null,
 "clv_share": null
 },
@@ -317,6 +416,39 @@
 "clv": null,
 "clv_share": null
 },
+"type price | player and other props | 40-60c": {
+"fills": 2145193,
+"events": 4123,
+"risk": 97496465,
+"risk_per_day": 1015588,
+"roi": 1.75,
+"roi_z": 3.13,
+"pnl": 1704657,
+"clv": null,
+"clv_share": null
+},
+"prop | WNBA | POINTS": {
+"fills": 84752,
+"events": 126,
+"risk": 2931560,
+"risk_per_day": 30537,
+"roi": -0.5,
+"roi_z": -0.25,
+"pnl": -14711,
+"clv": null,
+"clv_share": null
+},
+"league month | WNBA | 2026-08": {
+"fills": 302038,
+"events": 76,
+"risk": 16768486,
+"risk_per_day": 174672,
+"roi": 0.01,
+"roi_z": 0.01,
+"pnl": 2374,
+"clv": null,
+"clv_share": null
+},
 "type time | total | 6-24h": {
 "fills": 471874,
 "events": 4964,
@@ -361,6 +493,17 @@
 "clv": 0.21,
 "clv_share": 1.0
 },
+"type price | moneyline | under 25c": {
+"fills": 88874,
+"events": 1688,
+"risk": 4746191,
+"risk_per_day": 49439,
+"roi": 26.19,
+"roi_z": 1.07,
+"pnl": 1243107,
+"clv": null,
+"clv_share": null
+},
 "league type | MLB | moneyline": {
 "fills": 691886,
 "events": 780,
@@ -383,6 +526,28 @@
 "clv": 0.12,
 "clv_share": 0.98
 },
+"league | MLB": {
+"fills": 1304367,
+"events": 781,
+"risk": 152847435,
+"risk_per_day": 1592161,
+"roi": 2.19,
+"roi_z": 1.52,
+"pnl": 3344546,
+"clv": null,
+"clv_share": null
+},
+"league month | MLB | 2026-08": {
+"fills": 1287437,
+"events": 404,
+"risk": 92237075,
+"risk_per_day": 960803,
+"roi": 1.9,
+"roi_z": 2.36,
+"pnl": 1751282,
+"clv": null,
+"clv_share": null
+},
 "league type | MLB | player and other props": {
 "fills": 1295466,
 "events": 802,
@@ -391,6 +556,17 @@
 "roi": 1.4,
 "roi_z": 2.7,
 "pnl": 1014777,
+"clv": null,
+"clv_share": null
+},
+"prop | MLB | PITCHER_STRIKEOUTS": {
+"fills": 341179,
+"events": 773,
+"risk": 19707346,
+"risk_per_day": 205285,
+"roi": 2.4,
+"roi_z": 2.55,
+"pnl": 473833,
 "clv": null,
 "clv_share": null
 },
@@ -435,6 +611,17 @@
 "roi": 1.47,
 "roi_z": 1.82,
 "pnl": 953493,
+"clv": null,
+"clv_share": null
+},
+"type price | spread | 60-75c": {
+"fills": 99617,
+"events": 2923,
+"risk": 14032565,
+"risk_per_day": 146173,
+"roi": 1.28,
+"roi_z": 0.49,
+"pnl": 180189,
 "clv": null,
 "clv_share": null
 },
@@ -493,6 +680,39 @@
 "clv": null,
 "clv_share": null
 },
+"prop | WNBA | REBOUNDS": {
+"fills": 42748,
+"events": 125,
+"risk": 1565503,
+"risk_per_day": 16307,
+"roi": -0.81,
+"roi_z": -0.31,
+"pnl": -12664,
+"clv": null,
+"clv_share": null
+},
+"prop | MLB | PITCHER_OUTS": {
+"fills": 159349,
+"events": 769,
+"risk": 9020487,
+"risk_per_day": 93963,
+"roi": 1.26,
+"roi_z": 0.93,
+"pnl": 113704,
+"clv": null,
+"clv_share": null
+},
+"prop | MLB | BATTING_STRIKEOUTS": {
+"fills": 2567,
+"events": 527,
+"risk": 232440,
+"risk_per_day": 2421,
+"roi": -2.95,
+"roi_z": -0.58,
+"pnl": -6856,
+"clv": null,
+"clv_share": null
+},
 "league type | tennis | spread": {
 "fills": 57928,
 "events": 2840,
@@ -526,6 +746,28 @@
 "clv": null,
 "clv_share": null
 },
+"type price | total | 75c+": {
+"fills": 13259,
+"events": 1813,
+"risk": 2590682,
+"risk_per_day": 26986,
+"roi": 5.24,
+"roi_z": 2.83,
+"pnl": 135705,
+"clv": null,
+"clv_share": null
+},
+"prop | MLB | HITS_ALLOWED": {
+"fills": 30742,
+"events": 736,
+"risk": 1215256,
+"risk_per_day": 12659,
+"roi": 0.97,
+"roi_z": 0.36,
+"pnl": 11826,
+"clv": null,
+"clv_share": null
+},
 "league type | tennis | player and other props": {
 "fills": 19117,
 "events": 1860,
@@ -537,6 +779,72 @@
 "clv": null,
 "clv_share": null
 },
+"prop | tennis | SET_SPREAD": {
+"fills": 8763,
+"events": 1243,
+"risk": 733189,
+"risk_per_day": 7637,
+"roi": 1.48,
+"roi_z": 0.36,
+"pnl": 10847,
+"clv": null,
+"clv_share": null
+},
+"type price | total | 25-40c": {
+"fills": 64126,
+"events": 3348,
+"risk": 3878107,
+"risk_per_day": 40397,
+"roi": -7.51,
+"roi_z": -1.23,
+"pnl": -291387,
+"clv": null,
+"clv_share": null
+},
+"prop | MLB | HITS_RUNS_RBIS": {
+"fills": 75607,
+"events": 776,
+"risk": 2341939,
+"risk_per_day": 24395,
+"roi": 0.44,
+"roi_z": 0.24,
+"pnl": 10371,
+"clv": null,
+"clv_share": null
+},
+"prop | MLB | TOTAL_BASES": {
+"fills": 45615,
+"events": 780,
+"risk": 1148506,
+"risk_per_day": 11964,
+"roi": 2.58,
+"roi_z": 1.72,
+"pnl": 29589,
+"clv": null,
+"clv_share": null
+},
+"prop | MLB | RBIS": {
+"fills": 15815,
+"events": 760,
+"risk": 666718,
+"risk_per_day": 6945,
+"roi": -0.9,
+"roi_z": -0.49,
+"pnl": -5997,
+"clv": null,
+"clv_share": null
+},
+"type price | spread | 40-60c": {
+"fills": 1221593,
+"events": 5113,
+"risk": 137820450,
+"risk_per_day": 1435630,
+"roi": 3.24,
+"roi_z": 2.39,
+"pnl": 4460879,
+"clv": null,
+"clv_share": null
+},
 "league type | WNBA | total": {
 "fills": 59776,
 "events": 126,
@@ -545,6 +853,28 @@
 "roi": 7.18,
 "roi_z": 2.06,
 "pnl": 394122,
+"clv": null,
+"clv_share": null
+},
+"league | WNBA": {
+"fills": 203842,
+"events": 126,
+"risk": 17117323,
+"risk_per_day": 178305,
+"roi": 2.97,
+"roi_z": 1.52,
+"pnl": 509180,
+"clv": null,
+"clv_share": null
+},
+"prop | MLB | EARNED_RUNS": {
+"fills": 16630,
+"events": 733,
+"risk": 523380,
+"risk_per_day": 5452,
+"roi": -2.17,
+"roi_z": -0.62,
+"pnl": -11344,
 "clv": null,
 "clv_share": null
 },
@@ -578,6 +908,61 @@
 "roi": 0.39,
 "roi_z": 0.27,
 "pnl": 234480,
+"clv": null,
+"clv_share": null
+},
+"type price | player and other props | under 25c": {
+"fills": 172991,
+"events": 1910,
+"risk": 5015016,
+"risk_per_day": 52240,
+"roi": 3.2,
+"roi_z": 0.39,
+"pnl": 160719,
+"clv": null,
+"clv_share": null
+},
+"prop | MLB | HOME_RUNS": {
+"fills": 331992,
+"events": 780,
+"risk": 19472153,
+"risk_per_day": 202835,
+"roi": 0.78,
+"roi_z": 1.19,
+"pnl": 152812,
+"clv": null,
+"clv_share": null
+},
+"type price | player and other props | 75c+": {
+"fills": 535660,
+"events": 2204,
+"risk": 55255576,
+"risk_per_day": 575579,
+"roi": 1.13,
+"roi_z": 2.43,
+"pnl": 622050,
+"clv": null,
+"clv_share": null
+},
+"prop | MLB | FIRST_INNING_TOTAL": {
+"fills": 166644,
+"events": 780,
+"risk": 13977698,
+"risk_per_day": 145601,
+"roi": 2.07,
+"roi_z": 1.25,
+"pnl": 290028,
+"clv": null,
+"clv_share": null
+},
+"type price | player and other props | 25-40c": {
+"fills": 226798,
+"events": 2882,
+"risk": 6737244,
+"risk_per_day": 70180,
+"roi": 2.32,
+"roi_z": 0.53,
+"pnl": 156023,
 "clv": null,
 "clv_share": null
 },
@@ -625,6 +1010,61 @@
 "clv": null,
 "clv_share": null
 },
+"type price | 1st half total | 40-60c": {
+"fills": 59011,
+"events": 1672,
+"risk": 5006442,
+"risk_per_day": 52150,
+"roi": 3.44,
+"roi_z": 1.33,
+"pnl": 172468,
+"clv": null,
+"clv_share": null
+},
+"type price | player and other props | 60-75c": {
+"fills": 327865,
+"events": 3101,
+"risk": 18730185,
+"risk_per_day": 195106,
+"roi": 1.14,
+"roi_z": 0.53,
+"pnl": 213096,
+"clv": null,
+"clv_share": null
+},
+"prop | WNBA | FIRST_BASKET": {
+"fills": 9515,
+"events": 124,
+"risk": 542379,
+"risk_per_day": 5650,
+"roi": 1.5,
+"roi_z": 1.39,
+"pnl": 8157,
+"clv": null,
+"clv_share": null
+},
+"type price | total | 60-75c": {
+"fills": 58335,
+"events": 3009,
+"risk": 7874573,
+"risk_per_day": 82027,
+"roi": -1.99,
+"roi_z": -0.67,
+"pnl": -156767,
+"clv": null,
+"clv_share": null
+},
+"type price | spread | 25-40c": {
+"fills": 92656,
+"events": 3408,
+"risk": 6766493,
+"risk_per_day": 70484,
+"roi": -1.03,
+"roi_z": -0.19,
+"pnl": -69389,
+"clv": null,
+"clv_share": null
+},
 "league type | UFC | player and other props": {
 "fills": 30080,
 "events": 182,
@@ -647,6 +1087,28 @@
 "clv": 0.55,
 "clv_share": 0.56
 },
+"prop | UFC | VICTORY_BY_SUBMISSION": {
+"fills": 6981,
+"events": 177,
+"risk": 677908,
+"risk_per_day": 7062,
+"roi": 11.01,
+"roi_z": 2.32,
+"pnl": 74617,
+"clv": null,
+"clv_share": null
+},
+"prop | WNBA | ASSISTS": {
+"fills": 35407,
+"events": 124,
+"risk": 1347996,
+"risk_per_day": 14042,
+"roi": 1.62,
+"roi_z": 0.73,
+"pnl": 21774,
+"clv": null,
+"clv_share": null
+},
 "type size | 1st half total | $100-1k": {
 "fills": 11151,
 "events": 1384,
@@ -655,6 +1117,28 @@
 "roi": 2.58,
 "roi_z": 1.22,
 "pnl": 73572,
+"clv": null,
+"clv_share": null
+},
+"prop | WNBA | POINTS_REBOUNDS_ASSISTS": {
+"fills": 21957,
+"events": 125,
+"risk": 848574,
+"risk_per_day": 8839,
+"roi": -4.02,
+"roi_z": -1.24,
+"pnl": -34100,
+"clv": null,
+"clv_share": null
+},
+"type price | spread | 75c+": {
+"fills": 36492,
+"events": 1870,
+"risk": 5427705,
+"risk_per_day": 56539,
+"roi": -0.01,
+"roi_z": -0.0,
+"pnl": -455,
 "clv": null,
 "clv_share": null
 },
@@ -702,6 +1186,28 @@
 "clv": null,
 "clv_share": null
 },
+"type price | team total | 40-60c": {
+"fills": 62051,
+"events": 1868,
+"risk": 3507302,
+"risk_per_day": 36534,
+"roi": 2.81,
+"roi_z": 1.49,
+"pnl": 98434,
+"clv": null,
+"clv_share": null
+},
+"prop | WNBA | THREE_POINTERS_MADE": {
+"fills": 24857,
+"events": 125,
+"risk": 896507,
+"risk_per_day": 9339,
+"roi": 4.49,
+"roi_z": 1.5,
+"pnl": 40292,
+"clv": null,
+"clv_share": null
+},
 "type | 1st half spread": {
 "fills": 50972,
 "events": 1521,
@@ -746,6 +1252,28 @@
 "clv": null,
 "clv_share": null
 },
+"type price | 1st half spread | 40-60c": {
+"fills": 49162,
+"events": 1503,
+"risk": 3784988,
+"risk_per_day": 39427,
+"roi": 8.37,
+"roi_z": 2.31,
+"pnl": 316753,
+"clv": null,
+"clv_share": null
+},
+"prop | MLB | HITS": {
+"fills": 62954,
+"events": 777,
+"risk": 1854300,
+"risk_per_day": 19316,
+"roi": 0.76,
+"roi_z": 0.45,
+"pnl": 14113,
+"clv": null,
+"clv_share": null
+},
 "type time | player and other props | 1-6h": {
 "fills": 1381675,
 "events": 3981,
@@ -756,6 +1284,17 @@
 "pnl": 1214716,
 "clv": 0.28,
 "clv_share": 0.78
+},
+"prop | MLB | STOLEN_BASES": {
+"fills": 8564,
+"events": 713,
+"risk": 577557,
+"risk_per_day": 6016,
+"roi": 2.31,
+"roi_z": 1.31,
+"pnl": 13343,
+"clv": null,
+"clv_share": null
 },
 "type time | spread | last hour": {
 "fills": 294629,
@@ -768,6 +1307,39 @@
 "clv": 0.28,
 "clv_share": 0.95
 },
+"prop | MLB | RUNS": {
+"fills": 4015,
+"events": 595,
+"risk": 229312,
+"risk_per_day": 2389,
+"roi": -7.09,
+"roi_z": -1.44,
+"pnl": -16267,
+"clv": null,
+"clv_share": null
+},
+"prop | UFC | VICTORY_BY_DECISION": {
+"fills": 4131,
+"events": 176,
+"risk": 260419,
+"risk_per_day": 2713,
+"roi": 3.73,
+"roi_z": 0.51,
+"pnl": 9706,
+"clv": null,
+"clv_share": null
+},
+"prop | MLB | BATTING_WALKS": {
+"fills": 2752,
+"events": 321,
+"risk": 77037,
+"risk_per_day": 802,
+"roi": -23.9,
+"roi_z": -2.26,
+"pnl": -18409,
+"clv": null,
+"clv_share": null
+},
 "league type | UFC | total": {
 "fills": 12590,
 "events": 182,
@@ -776,6 +1348,28 @@
 "roi": 10.76,
 "roi_z": 1.24,
 "pnl": 148891,
+"clv": null,
+"clv_share": null
+},
+"prop | UFC | VICTORY_BY_KO_KTO_OR_DQ": {
+"fills": 15177,
+"events": 182,
+"risk": 1109033,
+"risk_per_day": 11552,
+"roi": 8.95,
+"roi_z": 2.24,
+"pnl": 99266,
+"clv": null,
+"clv_share": null
+},
+"prop | tennis | TOTAL_SETS": {
+"fills": 3549,
+"events": 963,
+"risk": 203050,
+"risk_per_day": 2115,
+"roi": -3.55,
+"roi_z": -0.62,
+"pnl": -7205,
 "clv": null,
 "clv_share": null
 },
@@ -823,6 +1417,17 @@
 "clv": null,
 "clv_share": null
 },
+"type price | 1st half moneyline | 40-60c": {
+"fills": 33429,
+"events": 845,
+"risk": 3326315,
+"risk_per_day": 34649,
+"roi": -0.3,
+"roi_z": -0.07,
+"pnl": -10043,
+"clv": null,
+"clv_share": null
+},
 "type time | spread | 24h+": {
 "fills": 192209,
 "events": 2051,
@@ -845,6 +1450,50 @@
 "clv": null,
 "clv_share": null
 },
+"league | NFL": {
+"fills": 719425,
+"events": 156,
+"risk": 121025452,
+"risk_per_day": 1260682,
+"roi": 5.57,
+"roi_z": 2.38,
+"pnl": 6741692,
+"clv": null,
+"clv_share": null
+},
+"league month | NFL | 2026-08": {
+"fills": 96185,
+"events": 66,
+"risk": 7183186,
+"risk_per_day": 74825,
+"roi": 2.63,
+"roi_z": 1.0,
+"pnl": 188627,
+"clv": null,
+"clv_share": null
+},
+"prop | MLB | WALKS": {
+"fills": 24146,
+"events": 724,
+"risk": 886173,
+"risk_per_day": 9231,
+"roi": -2.0,
+"roi_z": -0.71,
+"pnl": -17698,
+"clv": null,
+"clv_share": null
+},
+"prop | WNBA | DOUBLE_DOUBLE": {
+"fills": 3253,
+"events": 118,
+"risk": 205322,
+"risk_per_day": 2139,
+"roi": -0.11,
+"roi_z": -0.02,
+"pnl": -229,
+"clv": null,
+"clv_share": null
+},
 "type size | spread | $1k-10k": {
 "fills": 28676,
 "events": 2129,
@@ -864,6 +1513,28 @@
 "roi": 6.17,
 "roi_z": 2.03,
 "pnl": 3066238,
+"clv": null,
+"clv_share": null
+},
+"prop | tennis | FIRST_SET_MONEYLINE": {
+"fills": 4478,
+"events": 1081,
+"risk": 296997,
+"risk_per_day": 3094,
+"roi": 5.6,
+"roi_z": 1.37,
+"pnl": 16629,
+"clv": null,
+"clv_share": null
+},
+"type price | 1st half moneyline | 60-75c": {
+"fills": 3445,
+"events": 436,
+"risk": 688508,
+"risk_per_day": 7172,
+"roi": -10.39,
+"roi_z": -1.18,
+"pnl": -71524,
 "clv": null,
 "clv_share": null
 },
@@ -900,6 +1571,28 @@
 "clv": null,
 "clv_share": null
 },
+"type price | 1st half spread | 25-40c": {
+"fills": 1204,
+"events": 306,
+"risk": 53817,
+"risk_per_day": 561,
+"roi": 8.54,
+"roi_z": 0.42,
+"pnl": 4598,
+"clv": null,
+"clv_share": null
+},
+"type price | total | under 25c": {
+"fills": 16420,
+"events": 1877,
+"risk": 361112,
+"risk_per_day": 3762,
+"roi": 0.09,
+"roi_z": 0.01,
+"pnl": 331,
+"clv": null,
+"clv_share": null
+},
 "type size | team total | $100-1k": {
 "fills": 8685,
 "events": 1368,
@@ -919,6 +1612,28 @@
 "roi": 8.36,
 "roi_z": 2.89,
 "pnl": 169997,
+"clv": null,
+"clv_share": null
+},
+"prop | WNBA | POINTS_REBOUNDS": {
+"fills": 998,
+"events": 39,
+"risk": 39104,
+"risk_per_day": 407,
+"roi": -2.86,
+"roi_z": -0.19,
+"pnl": -1118,
+"clv": null,
+"clv_share": null
+},
+"prop | WNBA | REBOUNDS_ASSISTS": {
+"fills": 521,
+"events": 16,
+"risk": 18886,
+"risk_per_day": 197,
+"roi": -3.04,
+"roi_z": -0.14,
+"pnl": -574,
 "clv": null,
 "clv_share": null
 },
@@ -944,6 +1659,17 @@
 "clv": null,
 "clv_share": null
 },
+"type price | 1st half moneyline | 25-40c": {
+"fills": 5047,
+"events": 496,
+"risk": 531908,
+"risk_per_day": 5541,
+"roi": 20.03,
+"roi_z": 1.28,
+"pnl": 106557,
+"clv": null,
+"clv_share": null
+},
 "league type | PGA | player and other props": {
 "fills": 13391,
 "events": 546,
@@ -952,6 +1678,50 @@
 "roi": -0.99,
 "roi_z": -0.51,
 "pnl": -21723,
+"clv": null,
+"clv_share": null
+},
+"prop | PGA | WINNER": {
+"fills": 5646,
+"events": 9,
+"risk": 1564211,
+"risk_per_day": 16294,
+"roi": -1.67,
+"roi_z": -0.79,
+"pnl": -26138,
+"clv": null,
+"clv_share": null
+},
+"league month | PGA | 2026-08": {
+"fills": 13264,
+"events": 468,
+"risk": 1816451,
+"risk_per_day": 18921,
+"roi": 0.03,
+"roi_z": 0.01,
+"pnl": 468,
+"clv": null,
+"clv_share": null
+},
+"prop | PGA | TOP_TEN_FINISH": {
+"fills": 835,
+"events": 8,
+"risk": 37404,
+"risk_per_day": 390,
+"roi": -29.28,
+"roi_z": -1.11,
+"pnl": -10952,
+"clv": null,
+"clv_share": null
+},
+"prop | PGA | TOP_TWENTY_FINISH": {
+"fills": 876,
+"events": 8,
+"risk": 19873,
+"risk_per_day": 207,
+"roi": 7.78,
+"roi_z": 1.23,
+"pnl": 1545,
 "clv": null,
 "clv_share": null
 },
@@ -996,6 +1766,50 @@
 "roi": 5.68,
 "roi_z": 0.56,
 "pnl": 8695,
+"clv": null,
+"clv_share": null
+},
+"league | PGA": {
+"fills": 1597,
+"events": 179,
+"risk": 153217,
+"risk_per_day": 1596,
+"roi": 5.68,
+"roi_z": 0.56,
+"pnl": 8695,
+"clv": null,
+"clv_share": null
+},
+"prop | PGA | TOP_FIVE_FINISH": {
+"fills": 580,
+"events": 8,
+"risk": 39894,
+"risk_per_day": 416,
+"roi": -41.26,
+"roi_z": -1.41,
+"pnl": -16459,
+"clv": null,
+"clv_share": null
+},
+"type price | spread | under 25c": {
+"fills": 23853,
+"events": 1873,
+"risk": 999732,
+"risk_per_day": 10414,
+"roi": 4.57,
+"roi_z": 0.39,
+"pnl": 45707,
+"clv": null,
+"clv_share": null
+},
+"prop | MLB | TO_MAKE_THE_PLAYOFFS": {
+"fills": 41,
+"events": 1,
+"risk": 1361,
+"risk_per_day": 14,
+"roi": 29.12,
+"roi_z": 1.0,
+"pnl": 396,
 "clv": null,
 "clv_share": null
 },
@@ -1054,6 +1868,83 @@
 "clv": null,
 "clv_share": null
 },
+"type price | 1st half total | 25-40c": {
+"fills": 2024,
+"events": 434,
+"risk": 88819,
+"risk_per_day": 925,
+"roi": 6.35,
+"roi_z": 0.31,
+"pnl": 5643,
+"clv": null,
+"clv_share": null
+},
+"prop | MLB | REGULAR_SEASON_WINS": {
+"fills": 4,
+"events": 1,
+"risk": 634,
+"risk_per_day": 7,
+"roi": -100.0,
+"roi_z": -1.0,
+"pnl": -634,
+"clv": null,
+"clv_share": null
+},
+"type price | team total | 60-75c": {
+"fills": 805,
+"events": 193,
+"risk": 75803,
+"risk_per_day": 790,
+"roi": -11.72,
+"roi_z": -0.77,
+"pnl": -8885,
+"clv": null,
+"clv_share": null
+},
+"prop | WNBA | TRIPLE_DOUBLE": {
+"fills": 627,
+"events": 67,
+"risk": 98753,
+"risk_per_day": 1029,
+"roi": -0.72,
+"roi_z": -0.29,
+"pnl": -709,
+"clv": null,
+"clv_share": null
+},
+"prop | MLB | AL_WEST_DIVISION_WINNER": {
+"fills": 11,
+"events": 1,
+"risk": 147,
+"risk_per_day": 2,
+"roi": 23.01,
+"roi_z": 1.0,
+"pnl": 34,
+"clv": null,
+"clv_share": null
+},
+"prop | MLB | AL_EAST_DIVISION_WINNER": {
+"fills": 13,
+"events": 1,
+"risk": 1182,
+"risk_per_day": 12,
+"roi": 18.96,
+"roi_z": 1.0,
+"pnl": 224,
+"clv": null,
+"clv_share": null
+},
+"prop | MLB | AL_CENTRAL_DIVISION_WINNER": {
+"fills": 17,
+"events": 1,
+"risk": 1157,
+"risk_per_day": 12,
+"roi": -39.53,
+"roi_z": -1.0,
+"pnl": -457,
+"clv": null,
+"clv_share": null
+},
 "league type | WNBA | 1st half total": {
 "fills": 4832,
 "events": 125,
@@ -1062,6 +1953,72 @@
 "roi": 12.2,
 "roi_z": 2.04,
 "pnl": 62051,
+"clv": null,
+"clv_share": null
+},
+"prop | UFC | GO_THE_DISTANCE": {
+"fills": 3781,
+"events": 162,
+"risk": 298376,
+"risk_per_day": 3108,
+"roi": 9.97,
+"roi_z": 0.79,
+"pnl": 29761,
+"clv": null,
+"clv_share": null
+},
+"type price | team total | 25-40c": {
+"fills": 2880,
+"events": 669,
+"risk": 85278,
+"risk_per_day": 888,
+"roi": 12.95,
+"roi_z": 1.16,
+"pnl": 11040,
+"clv": null,
+"clv_share": null
+},
+"prop | PGA | TO_MAKE_THE_CUT": {
+"fills": 28,
+"events": 1,
+"risk": 694,
+"risk_per_day": 7,
+"roi": 18.57,
+"roi_z": 1.0,
+"pnl": 129,
+"clv": null,
+"clv_share": null
+},
+"prop | MLB | NL_CENTRAL_DIVISION_WINNER": {
+"fills": 2,
+"events": 1,
+"risk": 19,
+"risk_per_day": 0,
+"roi": 25.36,
+"roi_z": 1.0,
+"pnl": 5,
+"clv": null,
+"clv_share": null
+},
+"prop | MLB | TOTAL_HOME_RUNS": {
+"fills": 2063,
+"events": 273,
+"risk": 187861,
+"risk_per_day": 1957,
+"roi": -40.99,
+"roi_z": -2.35,
+"pnl": -77007,
+"clv": null,
+"clv_share": null
+},
+"prop | MLB | NL_EAST_DIVISION_WINNER": {
+"fills": 1,
+"events": 1,
+"risk": 4,
+"risk_per_day": 0,
+"roi": 18.34,
+"roi_z": 1.0,
+"pnl": 1,
 "clv": null,
 "clv_share": null
 },
@@ -1131,6 +2088,28 @@
 "clv": null,
 "clv_share": null
 },
+"prop | UFC | DRAW": {
+"fills": 10,
+"events": 8,
+"risk": 1643,
+"risk_per_day": 17,
+"roi": 2.85,
+"roi_z": 1.08,
+"pnl": 47,
+"clv": null,
+"clv_share": null
+},
+"prop | PGA | END_OF_ROUND_1_LEADER": {
+"fills": 581,
+"events": 7,
+"risk": 81632,
+"risk_per_day": 850,
+"roi": -1.1,
+"roi_z": -0.34,
+"pnl": -898,
+"clv": null,
+"clv_share": null
+},
 "league type | WNBA | team total": {
 "fills": 1160,
 "events": 109,
@@ -1150,6 +2129,17 @@
 "roi": -3.84,
 "roi_z": -0.47,
 "pnl": -3139,
+"clv": null,
+"clv_share": null
+},
+"type price | 1st half moneyline | 75c+": {
+"fills": 379,
+"events": 99,
+"risk": 57787,
+"risk_per_day": 602,
+"roi": 9.49,
+"roi_z": 1.43,
+"pnl": 5485,
 "clv": null,
 "clv_share": null
 },
@@ -1174,6 +2164,28 @@
 "pnl": 7090,
 "clv": 0.79,
 "clv_share": 0.81
+},
+"prop | PGA | FIRST_ROUND_MONEYLINE": {
+"fills": 1425,
+"events": 153,
+"risk": 151084,
+"risk_per_day": 1574,
+"roi": 12.08,
+"roi_z": 1.38,
+"pnl": 18250,
+"clv": null,
+"clv_share": null
+},
+"prop | tennis | PLAYER_GAMES_WON": {
+"fills": 1095,
+"events": 89,
+"risk": 17871,
+"risk_per_day": 186,
+"roi": 380.17,
+"roi_z": 3.88,
+"pnl": 67941,
+"clv": null,
+"clv_share": null
 },
 "type | moneyline (3-way)": {
 "fills": 108039,
@@ -1219,6 +2231,39 @@
 "clv": null,
 "clv_share": null
 },
+"type price | moneyline (3-way) | 40-60c": {
+"fills": 52613,
+"events": 512,
+"risk": 5174810,
+"risk_per_day": 53904,
+"roi": -13.29,
+"roi_z": -2.13,
+"pnl": -687750,
+"clv": null,
+"clv_share": null
+},
+"league | soccer": {
+"fills": 202880,
+"events": 707,
+"risk": 18153403,
+"risk_per_day": 189098,
+"roi": -5.49,
+"roi_z": -2.17,
+"pnl": -995771,
+"clv": null,
+"clv_share": null
+},
+"league month | soccer | 2026-08": {
+"fills": 56821,
+"events": 219,
+"risk": 4910891,
+"risk_per_day": 51155,
+"roi": -10.98,
+"roi_z": -2.16,
+"pnl": -539383,
+"clv": null,
+"clv_share": null
+},
 "type size | team total | $1k-10k": {
 "fills": 242,
 "events": 146,
@@ -1238,6 +2283,28 @@
 "roi": 6.28,
 "roi_z": 0.67,
 "pnl": 58872,
+"clv": null,
+"clv_share": null
+},
+"prop | WNBA | POINTS_ASSISTS": {
+"fills": 374,
+"events": 19,
+"risk": 14958,
+"risk_per_day": 156,
+"roi": -23.56,
+"roi_z": -1.15,
+"pnl": -3524,
+"clv": null,
+"clv_share": null
+},
+"type price | moneyline (3-way) | 60-75c": {
+"fills": 20368,
+"events": 548,
+"risk": 2760140,
+"risk_per_day": 28751,
+"roi": 2.09,
+"roi_z": 0.29,
+"pnl": 57788,
 "clv": null,
 "clv_share": null
 },
@@ -1263,6 +2330,83 @@
 "clv": null,
 "clv_share": null
 },
+"prop | soccer | MONEYLINE_3_WAY_DRAW": {
+"fills": 9853,
+"events": 658,
+"risk": 989094,
+"risk_per_day": 10303,
+"roi": -3.7,
+"roi_z": -0.88,
+"pnl": -36611,
+"clv": null,
+"clv_share": null
+},
+"type price | team total | under 25c": {
+"fills": 364,
+"events": 45,
+"risk": 8010,
+"risk_per_day": 83,
+"roi": 441.22,
+"roi_z": 3.3,
+"pnl": 35344,
+"clv": null,
+"clv_share": null
+},
+"prop | MLB | AL_WINNER": {
+"fills": 2,
+"events": 1,
+"risk": 84,
+"risk_per_day": 1,
+"roi": 11.94,
+"roi_z": 1.0,
+"pnl": 10,
+"clv": null,
+"clv_share": null
+},
+"prop | MLB | NL_WINNER": {
+"fills": 6,
+"events": 1,
+"risk": 1064,
+"risk_per_day": 11,
+"roi": 13.61,
+"roi_z": 1.0,
+"pnl": 145,
+"clv": null,
+"clv_share": null
+},
+"type price | 1st half total | 60-75c": {
+"fills": 686,
+"events": 194,
+"risk": 54405,
+"risk_per_day": 567,
+"roi": 4.55,
+"roi_z": 0.46,
+"pnl": 2477,
+"clv": null,
+"clv_share": null
+},
+"type price | moneyline (3-way) | 25-40c": {
+"fills": 18509,
+"events": 523,
+"risk": 1576874,
+"risk_per_day": 16426,
+"roi": -11.32,
+"roi_z": -0.72,
+"pnl": -178535,
+"clv": null,
+"clv_share": null
+},
+"type price | 1st half spread | 60-75c": {
+"fills": 468,
+"events": 151,
+"risk": 36088,
+"risk_per_day": 376,
+"roi": 1.87,
+"roi_z": 0.17,
+"pnl": 675,
+"clv": null,
+"clv_share": null
+},
 "league type | soccer | moneyline": {
 "fills": 486,
 "events": 6,
@@ -1274,6 +2418,17 @@
 "clv": null,
 "clv_share": null
 },
+"prop | PGA | SECOND_ROUND_MONEYLINE": {
+"fills": 1342,
+"events": 136,
+"risk": 135564,
+"risk_per_day": 1412,
+"roi": 8.16,
+"roi_z": 0.83,
+"pnl": 11062,
+"clv": null,
+"clv_share": null
+},
 "league type | soccer | total": {
 "fills": 71976,
 "events": 690,
@@ -1282,6 +2437,28 @@
 "roi": -1.68,
 "roi_z": -0.45,
 "pnl": -82247,
+"clv": null,
+"clv_share": null
+},
+"prop | soccer | BOTH_TEAMS_TO_SCORE": {
+"fills": 14435,
+"events": 655,
+"risk": 641296,
+"risk_per_day": 6680,
+"roi": -6.37,
+"roi_z": -1.06,
+"pnl": -40878,
+"clv": null,
+"clv_share": null
+},
+"prop | MLB | WORLD_SERIES_WINNER": {
+"fills": 2691,
+"events": 1,
+"risk": 303582,
+"risk_per_day": 3162,
+"roi": 18.19,
+"roi_z": 1.0,
+"pnl": 55211,
 "clv": null,
 "clv_share": null
 },
@@ -1307,6 +2484,17 @@
 "clv": 0.22,
 "clv_share": 0.92
 },
+"prop | PGA | THIRD_ROUND_MONEYLINE": {
+"fills": 1063,
+"events": 99,
+"risk": 75293,
+"risk_per_day": 784,
+"roi": 10.36,
+"roi_z": 1.26,
+"pnl": 7799,
+"clv": null,
+"clv_share": null
+},
 "league type | soccer | spread": {
 "fills": 25492,
 "events": 641,
@@ -1315,6 +2503,28 @@
 "roi": -8.43,
 "roi_z": -1.78,
 "pnl": -210351,
+"clv": null,
+"clv_share": null
+},
+"prop | soccer | PLAYER_GOALS": {
+"fills": 7684,
+"events": 550,
+"risk": 247198,
+"risk_per_day": 2575,
+"roi": -0.82,
+"roi_z": -0.14,
+"pnl": -2021,
+"clv": null,
+"clv_share": null
+},
+"prop | soccer | SHOTS_ON_TARGET": {
+"fills": 1790,
+"events": 268,
+"risk": 52835,
+"risk_per_day": 550,
+"roi": 11.54,
+"roi_z": 1.24,
+"pnl": 6098,
 "clv": null,
 "clv_share": null
 },
@@ -1328,6 +2538,17 @@
 "pnl": -151942,
 "clv": -0.21,
 "clv_share": 0.95
+},
+"prop | soccer | GOALS_ASSISTS": {
+"fills": 1046,
+"events": 173,
+"risk": 25705,
+"risk_per_day": 268,
+"roi": 22.54,
+"roi_z": 1.81,
+"pnl": 5794,
+"clv": null,
+"clv_share": null
 },
 "type size | total | $10k+": {
 "fills": 172,
@@ -1351,6 +2572,28 @@
 "clv": 0.05,
 "clv_share": 0.97
 },
+"prop | PGA | FOURTH_ROUND_MONEYLINE": {
+"fills": 1010,
+"events": 116,
+"risk": 92505,
+"risk_per_day": 964,
+"roi": -6.55,
+"roi_z": -0.63,
+"pnl": -6063,
+"clv": null,
+"clv_share": null
+},
+"type price | 1st half moneyline | under 25c": {
+"fills": 427,
+"events": 92,
+"risk": 30822,
+"risk_per_day": 321,
+"roi": -85.57,
+"roi_z": -1.63,
+"pnl": -26373,
+"clv": null,
+"clv_share": null
+},
 "type time | 1st half moneyline | 24h+": {
 "fills": 656,
 "events": 162,
@@ -1362,6 +2605,28 @@
 "clv": -0.27,
 "clv_share": 0.68
 },
+"type price | 1st half spread | under 25c": {
+"fills": 71,
+"events": 44,
+"risk": 834,
+"risk_per_day": 9,
+"roi": -38.4,
+"roi_z": -0.77,
+"pnl": -320,
+"clv": null,
+"clv_share": null
+},
+"type price | moneyline (3-way) | 75c+": {
+"fills": 8633,
+"events": 403,
+"risk": 1167257,
+"risk_per_day": 12159,
+"roi": -4.92,
+"roi_z": -0.65,
+"pnl": -57421,
+"clv": null,
+"clv_share": null
+},
 "league type | NFL | player and other props": {
 "fills": 955351,
 "events": 122,
@@ -1370,6 +2635,28 @@
 "roi": 1.08,
 "roi_z": 1.01,
 "pnl": 725510,
+"clv": null,
+"clv_share": null
+},
+"prop | NFL | TOUCHDOWNS": {
+"fills": 242731,
+"events": 106,
+"risk": 21913850,
+"risk_per_day": 228269,
+"roi": 1.17,
+"roi_z": 0.44,
+"pnl": 256078,
+"clv": null,
+"clv_share": null
+},
+"prop | NFL | FIRST_TOUCHDOWN_SCORER": {
+"fills": 119771,
+"events": 102,
+"risk": 15960029,
+"risk_per_day": 166250,
+"roi": 1.05,
+"roi_z": 1.91,
+"pnl": 167563,
 "clv": null,
 "clv_share": null
 },
@@ -1384,6 +2671,28 @@
 "clv": null,
 "clv_share": null
 },
+"type price | moneyline (3-way) | under 25c": {
+"fills": 7916,
+"events": 360,
+"risk": 347996,
+"risk_per_day": 3625,
+"roi": 46.67,
+"roi_z": 0.74,
+"pnl": 162413,
+"clv": null,
+"clv_share": null
+},
+"prop | PGA | CUSTOM": {
+"fills": 5,
+"events": 1,
+"risk": 16,
+"risk_per_day": 0,
+"roi": 15.42,
+"roi_z": 1.0,
+"pnl": 2,
+"clv": null,
+"clv_share": null
+},
 "league type | NFL | 1st half moneyline": {
 "fills": 6970,
 "events": 130,
@@ -1392,6 +2701,17 @@
 "roi": 4.33,
 "roi_z": 0.47,
 "pnl": 39784,
+"clv": null,
+"clv_share": null
+},
+"prop | soccer | TOTAL_CORNERS": {
+"fills": 1995,
+"events": 364,
+"risk": 79109,
+"risk_per_day": 824,
+"roi": 5.44,
+"roi_z": 0.87,
+"pnl": 4306,
 "clv": null,
 "clv_share": null
 },
@@ -1417,6 +2737,28 @@
 "clv": null,
 "clv_share": null
 },
+"league | NCAAF": {
+"fills": 1298392,
+"events": 906,
+"risk": 156734130,
+"risk_per_day": 1632647,
+"roi": 1.24,
+"roi_z": 1.23,
+"pnl": 1948428,
+"clv": null,
+"clv_share": null
+},
+"league month | NCAAF | 2026-08": {
+"fills": 43669,
+"events": 147,
+"risk": 3824213,
+"risk_per_day": 39836,
+"roi": 15.13,
+"roi_z": 1.96,
+"pnl": 578434,
+"clv": null,
+"clv_share": null
+},
 "league type | NCAAF | spread": {
 "fills": 658358,
 "events": 877,
@@ -1425,6 +2767,28 @@
 "roi": 1.68,
 "roi_z": 1.18,
 "pnl": 1246416,
+"clv": null,
+"clv_share": null
+},
+"type price | 1st half total | under 25c": {
+"fills": 48,
+"events": 35,
+"risk": 787,
+"risk_per_day": 8,
+"roi": 45.6,
+"roi_z": 0.62,
+"pnl": 359,
+"clv": null,
+"clv_share": null
+},
+"prop | NFL | PASSING_YARDS": {
+"fills": 37736,
+"events": 118,
+"risk": 1658956,
+"risk_per_day": 17281,
+"roi": -3.91,
+"roi_z": -0.84,
+"pnl": -64788,
 "clv": null,
 "clv_share": null
 },
@@ -1439,6 +2803,28 @@
 "clv": null,
 "clv_share": null
 },
+"prop | soccer | TEAM_TOTAL_CORNERS": {
+"fills": 1482,
+"events": 323,
+"risk": 65417,
+"risk_per_day": 681,
+"roi": -13.84,
+"roi_z": -1.35,
+"pnl": -9053,
+"clv": null,
+"clv_share": null
+},
+"prop | soccer | FOULS": {
+"fills": 69,
+"events": 45,
+"risk": 2101,
+"risk_per_day": 22,
+"roi": 31.14,
+"roi_z": 2.12,
+"pnl": 654,
+"clv": null,
+"clv_share": null
+},
 "type size | player and other props | $10k+": {
 "fills": 135,
 "events": 63,
@@ -1447,6 +2833,50 @@
 "roi": -8.25,
 "roi_z": -0.77,
 "pnl": -204531,
+"clv": null,
+"clv_share": null
+},
+"prop | soccer | ASSISTS": {
+"fills": 796,
+"events": 205,
+"risk": 25624,
+"risk_per_day": 267,
+"roi": 16.04,
+"roi_z": 2.74,
+"pnl": 4111,
+"clv": null,
+"clv_share": null
+},
+"prop | soccer | SAVES": {
+"fills": 163,
+"events": 62,
+"risk": 3897,
+"risk_per_day": 41,
+"roi": 14.25,
+"roi_z": 0.58,
+"pnl": 555,
+"clv": null,
+"clv_share": null
+},
+"prop | soccer | FIRST_GOAL_SCORER": {
+"fills": 956,
+"events": 147,
+"risk": 37325,
+"risk_per_day": 389,
+"roi": 7.55,
+"roi_z": 1.81,
+"pnl": 2820,
+"clv": null,
+"clv_share": null
+},
+"prop | NFL | PASSING_TOUCHDOWNS": {
+"fills": 18101,
+"events": 98,
+"risk": 640763,
+"risk_per_day": 6675,
+"roi": -4.72,
+"roi_z": -0.87,
+"pnl": -30260,
 "clv": null,
 "clv_share": null
 },
@@ -1461,6 +2891,28 @@
 "clv": 0.36,
 "clv_share": 0.61
 },
+"prop | NFL | RECEPTIONS": {
+"fills": 154530,
+"events": 108,
+"risk": 8676195,
+"risk_per_day": 90377,
+"roi": 1.44,
+"roi_z": 0.61,
+"pnl": 125292,
+"clv": null,
+"clv_share": null
+},
+"prop | NFL | RECEIVING_YARDS": {
+"fills": 183780,
+"events": 115,
+"risk": 8556939,
+"risk_per_day": 89135,
+"roi": 0.97,
+"roi_z": 0.5,
+"pnl": 83351,
+"clv": null,
+"clv_share": null
+},
 "type size | moneyline (3-way) | $10k+": {
 "fills": 9,
 "events": 7,
@@ -1472,6 +2924,39 @@
 "clv": null,
 "clv_share": null
 },
+"type price | 1st half spread | 75c+": {
+"fills": 67,
+"events": 32,
+"risk": 5812,
+"risk_per_day": 61,
+"roi": 6.28,
+"roi_z": 0.57,
+"pnl": 365,
+"clv": null,
+"clv_share": null
+},
+"prop | NFL | RUSHING_YARDS": {
+"fills": 112391,
+"events": 111,
+"risk": 5075061,
+"risk_per_day": 52865,
+"roi": 0.77,
+"roi_z": 0.3,
+"pnl": 38964,
+"clv": null,
+"clv_share": null
+},
+"type price | 1st half total | 75c+": {
+"fills": 60,
+"events": 22,
+"risk": 5049,
+"risk_per_day": 53,
+"roi": -5.02,
+"roi_z": -0.35,
+"pnl": -253,
+"clv": null,
+"clv_share": null
+},
 "league type | NCAAF | 1st half spread": {
 "fills": 17378,
 "events": 478,
@@ -1480,6 +2965,17 @@
 "roi": 5.67,
 "roi_z": 1.19,
 "pnl": 68486,
+"clv": null,
+"clv_share": null
+},
+"prop | tennis | WINNER": {
+"fills": 1232,
+"events": 2,
+"risk": 250869,
+"risk_per_day": 2613,
+"roi": 1.04,
+"roi_z": 0.67,
+"pnl": 2620,
 "clv": null,
 "clv_share": null
 },
@@ -1516,6 +3012,28 @@
 "clv": null,
 "clv_share": null
 },
+"type price | team total | 75c+": {
+"fills": 30,
+"events": 14,
+"risk": 2379,
+"risk_per_day": 25,
+"roi": 9.66,
+"roi_z": 0.94,
+"pnl": 230,
+"clv": null,
+"clv_share": null
+},
+"prop | NFL | RUSHING_ATTEMPTS": {
+"fills": 31193,
+"events": 108,
+"risk": 1773899,
+"risk_per_day": 18478,
+"roi": 3.73,
+"roi_z": 1.06,
+"pnl": 66139,
+"clv": null,
+"clv_share": null
+},
 "month | 2026-09": {
 "fills": 2457246,
 "events": 2581,
@@ -1524,6 +3042,215 @@
 "roi": 1.8,
 "roi_z": 2.27,
 "pnl": 5032656,
+"clv": null,
+"clv_share": null
+},
+"league month | tennis | 2026-09": {
+"fills": 137686,
+"events": 943,
+"risk": 11930919,
+"risk_per_day": 124280,
+"roi": 2.63,
+"roi_z": 1.46,
+"pnl": 313449,
+"clv": null,
+"clv_share": null
+},
+"league month | MLB | 2026-09": {
+"fills": 939637,
+"events": 376,
+"risk": 96109227,
+"risk_per_day": 1001138,
+"roi": 0.64,
+"roi_z": 0.75,
+"pnl": 614257,
+"clv": null,
+"clv_share": null
+},
+"league month | NCAAF | 2026-09": {
+"fills": 472185,
+"events": 554,
+"risk": 67680225,
+"risk_per_day": 705002,
+"roi": 1.29,
+"roi_z": 0.87,
+"pnl": 871903,
+"clv": null,
+"clv_share": null
+},
+"league month | NFL | 2026-09": {
+"fills": 682402,
+"events": 76,
+"risk": 84777463,
+"risk_per_day": 883099,
+"roi": 3.78,
+"roi_z": 1.83,
+"pnl": 3204000,
+"clv": null,
+"clv_share": null
+},
+"league month | UFC | 2026-09": {
+"fills": 38805,
+"events": 88,
+"risk": 3928432,
+"risk_per_day": 40921,
+"roi": -0.88,
+"roi_z": -0.19,
+"pnl": -34597,
+"clv": null,
+"clv_share": null
+},
+"league month | soccer | 2026-09": {
+"fills": 86610,
+"events": 273,
+"risk": 7921771,
+"risk_per_day": 82518,
+"roi": -4.39,
+"roi_z": -1.11,
+"pnl": -348075,
+"clv": null,
+"clv_share": null
+},
+"prop | NFL | INTERCEPTIONS_THROWN": {
+"fills": 11268,
+"events": 97,
+"risk": 585334,
+"risk_per_day": 6097,
+"roi": 4.35,
+"roi_z": 0.85,
+"pnl": 25486,
+"clv": null,
+"clv_share": null
+},
+"prop | NFL | PASSING_ATTEMPTS": {
+"fills": 11591,
+"events": 99,
+"risk": 600910,
+"risk_per_day": 6259,
+"roi": 0.57,
+"roi_z": 0.08,
+"pnl": 3452,
+"clv": null,
+"clv_share": null
+},
+"prop | NFL | PASSING_COMPLETIONS": {
+"fills": 11645,
+"events": 96,
+"risk": 576047,
+"risk_per_day": 6000,
+"roi": -0.85,
+"roi_z": -0.2,
+"pnl": -4878,
+"clv": null,
+"clv_share": null
+},
+"prop | NFL | TACKLES_ASSISTS": {
+"fills": 4011,
+"events": 102,
+"risk": 317298,
+"risk_per_day": 3305,
+"roi": 5.83,
+"roi_z": 0.71,
+"pnl": 18506,
+"clv": null,
+"clv_share": null
+},
+"prop | NFL | RUSHING_AND_RECEIVING_YARDS": {
+"fills": 5315,
+"events": 109,
+"risk": 177825,
+"risk_per_day": 1852,
+"roi": 14.96,
+"roi_z": 1.91,
+"pnl": 26608,
+"clv": null,
+"clv_share": null
+},
+"prop | NFL | LONGEST_COMPLETION": {
+"fills": 1264,
+"events": 58,
+"risk": 55123,
+"risk_per_day": 574,
+"roi": 13.72,
+"roi_z": 0.89,
+"pnl": 7562,
+"clv": null,
+"clv_share": null
+},
+"prop | NFL | LONGEST_RECEPTION": {
+"fills": 4103,
+"events": 102,
+"risk": 166722,
+"risk_per_day": 1737,
+"roi": -6.01,
+"roi_z": -0.64,
+"pnl": -10015,
+"clv": null,
+"clv_share": null
+},
+"prop | NFL | FIELD_GOALS_MADE": {
+"fills": 2330,
+"events": 85,
+"risk": 61101,
+"risk_per_day": 636,
+"roi": 19.68,
+"roi_z": 1.6,
+"pnl": 12026,
+"clv": null,
+"clv_share": null
+},
+"league month | WNBA | 2026-09": {
+"fills": 77730,
+"events": 43,
+"risk": 5792199,
+"risk_per_day": 60335,
+"roi": 4.95,
+"roi_z": 1.72,
+"pnl": 286827,
+"clv": null,
+"clv_share": null
+},
+"prop | NFL | LONGEST_RUSH": {
+"fills": 2359,
+"events": 82,
+"risk": 69378,
+"risk_per_day": 723,
+"roi": 3.44,
+"roi_z": 0.31,
+"pnl": 2389,
+"clv": null,
+"clv_share": null
+},
+"prop | NFL | KICKING_POINTS": {
+"fills": 908,
+"events": 77,
+"risk": 26968,
+"risk_per_day": 281,
+"roi": 5.7,
+"roi_z": 0.38,
+"pnl": 1537,
+"clv": null,
+"clv_share": null
+},
+"prop | NFL | PASSING_AND_RUSHING_YARDS": {
+"fills": 324,
+"events": 54,
+"risk": 11912,
+"risk_per_day": 124,
+"roi": 4.17,
+"roi_z": 0.22,
+"pnl": 497,
+"clv": null,
+"clv_share": null
+},
+"league month | PGA | 2026-09": {
+"fills": 1020,
+"events": 114,
+"risk": 369844,
+"risk_per_day": 3853,
+"roi": 0.63,
+"roi_z": 0.23,
+"pnl": 2321,
 "clv": null,
 "clv_share": null
 },
@@ -1538,6 +3265,28 @@
 "clv": null,
 "clv_share": null
 },
+"league | NPB": {
+"fills": 1519,
+"events": 85,
+"risk": 50717,
+"risk_per_day": 528,
+"roi": 22.27,
+"roi_z": 1.46,
+"pnl": 11292,
+"clv": null,
+"clv_share": null
+},
+"league month | NPB | 2026-09": {
+"fills": 485,
+"events": 52,
+"risk": 14816,
+"risk_per_day": 154,
+"roi": 28.88,
+"roi_z": 1.52,
+"pnl": 4280,
+"clv": null,
+"clv_share": null
+},
 "league type | KBO | moneyline": {
 "fills": 2056,
 "events": 77,
@@ -1546,6 +3295,28 @@
 "roi": 3.38,
 "roi_z": 0.3,
 "pnl": 1809,
+"clv": null,
+"clv_share": null
+},
+"league | KBO": {
+"fills": 2492,
+"events": 80,
+"risk": 66133,
+"risk_per_day": 689,
+"roi": 0.82,
+"roi_z": 0.09,
+"pnl": 544,
+"clv": null,
+"clv_share": null
+},
+"league month | KBO | 2026-09": {
+"fills": 575,
+"events": 36,
+"risk": 20417,
+"risk_per_day": 213,
+"roi": 21.55,
+"roi_z": 0.95,
+"pnl": 4400,
 "clv": null,
 "clv_share": null
 },
@@ -1593,6 +3364,17 @@
 "clv": null,
 "clv_share": null
 },
+"prop | WNBA | SERIES_WINNER": {
+"fills": 30,
+"events": 4,
+"risk": 8452,
+"risk_per_day": 88,
+"roi": 29.04,
+"roi_z": 1.45,
+"pnl": 2454,
+"clv": null,
+"clv_share": null
+},
 "league type | NHL | moneyline": {
 "fills": 170013,
 "events": 208,
@@ -1601,6 +3383,28 @@
 "roi": 1.83,
 "roi_z": 0.68,
 "pnl": 253154,
+"clv": null,
+"clv_share": null
+},
+"league | NHL": {
+"fills": 294263,
+"events": 209,
+"risk": 22041586,
+"risk_per_day": 229600,
+"roi": 1.87,
+"roi_z": 0.91,
+"pnl": 413096,
+"clv": null,
+"clv_share": null
+},
+"league month | NHL | 2026-09": {
+"fills": 20111,
+"events": 26,
+"risk": 1342465,
+"risk_per_day": 13984,
+"roi": 8.48,
+"roi_z": 1.15,
+"pnl": 113892,
 "clv": null,
 "clv_share": null
 },
@@ -1626,6 +3430,17 @@
 "clv": null,
 "clv_share": null
 },
+"prop | MLB | SERIES_WINNER": {
+"fills": 1583,
+"events": 10,
+"risk": 223081,
+"risk_per_day": 2324,
+"roi": 1.08,
+"roi_z": 0.05,
+"pnl": 2417,
+"clv": null,
+"clv_share": null
+},
 "league type | NHL | player and other props": {
 "fills": 324727,
 "events": 206,
@@ -1634,6 +3449,39 @@
 "roi": 3.88,
 "roi_z": 2.96,
 "pnl": 392218,
+"clv": null,
+"clv_share": null
+},
+"prop | NHL | PLAYER_GOALS": {
+"fills": 80349,
+"events": 200,
+"risk": 2193066,
+"risk_per_day": 22844,
+"roi": 2.68,
+"roi_z": 1.86,
+"pnl": 58667,
+"clv": null,
+"clv_share": null
+},
+"prop | NHL | ASSISTS": {
+"fills": 22673,
+"events": 200,
+"risk": 349123,
+"risk_per_day": 3637,
+"roi": -5.51,
+"roi_z": -1.24,
+"pnl": -19229,
+"clv": null,
+"clv_share": null
+},
+"prop | NHL | POINTS": {
+"fills": 38804,
+"events": 203,
+"risk": 653846,
+"risk_per_day": 6811,
+"roi": 3.09,
+"roi_z": 0.94,
+"pnl": 20181,
 "clv": null,
 "clv_share": null
 },
@@ -1648,6 +3496,39 @@
 "clv": null,
 "clv_share": null
 },
+"prop | NHL | SHOTS_ON_GOAL": {
+"fills": 161825,
+"events": 201,
+"risk": 5939777,
+"risk_per_day": 61873,
+"roi": 4.01,
+"roi_z": 2.05,
+"pnl": 238020,
+"clv": null,
+"clv_share": null
+},
+"prop | NHL | SAVES": {
+"fills": 17736,
+"events": 201,
+"risk": 783518,
+"risk_per_day": 8162,
+"roi": 11.53,
+"roi_z": 2.06,
+"pnl": 90328,
+"clv": null,
+"clv_share": null
+},
+"prop | NHL | POWER_PLAY_POINTS": {
+"fills": 292,
+"events": 78,
+"risk": 17152,
+"risk_per_day": 179,
+"roi": 5.54,
+"roi_z": 0.52,
+"pnl": 950,
+"clv": null,
+"clv_share": null
+},
 "month | 2026-10": {
 "fills": 4007560,
 "events": 3110,
@@ -1656,6 +3537,127 @@
 "roi": 2.15,
 "roi_z": 2.05,
 "pnl": 6921415,
+"clv": null,
+"clv_share": null
+},
+"league month | tennis | 2026-10": {
+"fills": 164386,
+"events": 1642,
+"risk": 11536196,
+"risk_per_day": 120169,
+"roi": 0.81,
+"roi_z": 0.54,
+"pnl": 93421,
+"clv": null,
+"clv_share": null
+},
+"league month | NCAAF | 2026-10": {
+"fills": 782538,
+"events": 374,
+"risk": 85229692,
+"risk_per_day": 887809,
+"roi": 0.58,
+"roi_z": 0.42,
+"pnl": 498091,
+"clv": null,
+"clv_share": null
+},
+"league month | NHL | 2026-10": {
+"fills": 598879,
+"events": 198,
+"risk": 30813947,
+"risk_per_day": 320979,
+"roi": 2.24,
+"roi_z": 1.48,
+"pnl": 691422,
+"clv": null,
+"clv_share": null
+},
+"league month | NFL | 2026-10": {
+"fills": 894277,
+"events": 59,
+"risk": 95903650,
+"risk_per_day": 998996,
+"roi": 4.24,
+"roi_z": 1.72,
+"pnl": 4071109,
+"clv": null,
+"clv_share": null
+},
+"league month | WNBA | 2026-10": {
+"fills": 49113,
+"events": 14,
+"risk": 3074632,
+"risk_per_day": 32027,
+"roi": 7.32,
+"roi_z": 1.4,
+"pnl": 225027,
+"clv": null,
+"clv_share": null
+},
+"league month | MLB | 2026-10": {
+"fills": 372759,
+"events": 41,
+"risk": 37169242,
+"risk_per_day": 387180,
+"roi": 5.36,
+"roi_z": 1.04,
+"pnl": 1993785,
+"clv": null,
+"clv_share": null
+},
+"league month | PGA | 2026-10": {
+"fills": 704,
+"events": 166,
+"risk": 165091,
+"risk_per_day": 1720,
+"roi": -9.58,
+"roi_z": -1.41,
+"pnl": -15816,
+"clv": null,
+"clv_share": null
+},
+"league month | NPB | 2026-10": {
+"fills": 1034,
+"events": 33,
+"risk": 35900,
+"risk_per_day": 374,
+"roi": 19.53,
+"roi_z": 0.97,
+"pnl": 7013,
+"clv": null,
+"clv_share": null
+},
+"league month | KBO | 2026-10": {
+"fills": 1917,
+"events": 48,
+"risk": 45716,
+"risk_per_day": 476,
+"roi": -8.44,
+"roi_z": -1.02,
+"pnl": -3857,
+"clv": null,
+"clv_share": null
+},
+"league month | UFC | 2026-10": {
+"fills": 33562,
+"events": 48,
+"risk": 3167320,
+"risk_per_day": 32993,
+"roi": 0.06,
+"roi_z": 0.02,
+"pnl": 2029,
+"clv": null,
+"clv_share": null
+},
+"league month | soccer | 2026-10": {
+"fills": 99717,
+"events": 284,
+"risk": 7490295,
+"risk_per_day": 78024,
+"roi": -2.3,
+"roi_z": -0.7,
+"pnl": -172541,
 "clv": null,
 "clv_share": null
 },
@@ -1670,6 +3672,28 @@
 "clv": null,
 "clv_share": null
 },
+"league | UEFA Nations League": {
+"fills": 8024,
+"events": 52,
+"risk": 669782,
+"risk_per_day": 6977,
+"roi": 12.91,
+"roi_z": 1.69,
+"pnl": 86462,
+"clv": null,
+"clv_share": null
+},
+"league month | UEFA Nations League | 2026-10": {
+"fills": 10373,
+"events": 52,
+"risk": 788880,
+"risk_per_day": 8218,
+"roi": 11.81,
+"roi_z": 1.84,
+"pnl": 93134,
+"clv": null,
+"clv_share": null
+},
 "league type | UEFA Nations League | player and other props": {
 "fills": 2349,
 "events": 51,
@@ -1678,6 +3702,17 @@
 "roi": 5.6,
 "roi_z": 0.54,
 "pnl": 6672,
+"clv": null,
+"clv_share": null
+},
+"prop | UEFA Nations League | BOTH_TEAMS_TO_SCORE": {
+"fills": 1049,
+"events": 51,
+"risk": 60489,
+"risk_per_day": 630,
+"roi": -1.51,
+"roi_z": -0.08,
+"pnl": -911,
 "clv": null,
 "clv_share": null
 },
@@ -1703,6 +3738,94 @@
 "clv": null,
 "clv_share": null
 },
+"prop | NHL | FIRST_GOAL_SCORER": {
+"fills": 3048,
+"events": 185,
+"risk": 178344,
+"risk_per_day": 1858,
+"roi": 1.85,
+"roi_z": 1.57,
+"pnl": 3300,
+"clv": null,
+"clv_share": null
+},
+"prop | UEFA Nations League | MONEYLINE_3_WAY_DRAW": {
+"fills": 624,
+"events": 49,
+"risk": 34578,
+"risk_per_day": 360,
+"roi": 1.33,
+"roi_z": 0.18,
+"pnl": 460,
+"clv": null,
+"clv_share": null
+},
+"prop | UEFA Nations League | PLAYER_GOALS": {
+"fills": 424,
+"events": 39,
+"risk": 14317,
+"risk_per_day": 149,
+"roi": 40.63,
+"roi_z": 1.4,
+"pnl": 5816,
+"clv": null,
+"clv_share": null
+},
+"prop | UEFA Nations League | SHOTS_ON_TARGET": {
+"fills": 61,
+"events": 15,
+"risk": 1412,
+"risk_per_day": 15,
+"roi": 93.19,
+"roi_z": 1.32,
+"pnl": 1316,
+"clv": null,
+"clv_share": null
+},
+"prop | UEFA Nations League | TOTAL_CORNERS": {
+"fills": 58,
+"events": 16,
+"risk": 3193,
+"risk_per_day": 33,
+"roi": 3.77,
+"roi_z": 0.15,
+"pnl": 120,
+"clv": null,
+"clv_share": null
+},
+"prop | UEFA Nations League | TEAM_TOTAL_CORNERS": {
+"fills": 54,
+"events": 12,
+"risk": 1777,
+"risk_per_day": 19,
+"roi": -50.76,
+"roi_z": -1.55,
+"pnl": -902,
+"clv": null,
+"clv_share": null
+},
+"prop | UEFA Nations League | ASSISTS": {
+"fills": 16,
+"events": 6,
+"risk": 751,
+"risk_per_day": 8,
+"roi": 47.5,
+"roi_z": 2.0,
+"pnl": 357,
+"clv": null,
+"clv_share": null
+},
+"prop | UEFA Nations League | FIRST_GOAL_SCORER": {
+"fills": 52,
+"events": 4,
+"risk": 2334,
+"risk_per_day": 24,
+"roi": 9.51,
+"roi_z": 0.37,
+"pnl": 222,
+"clv": null,
+"clv_share": null
+},
 "league type | NBA | moneyline": {
 "fills": 140597,
 "events": 109,
@@ -1711,6 +3834,28 @@
 "roi": -5.57,
 "roi_z": -1.83,
 "pnl": -633725,
+"clv": null,
+"clv_share": null
+},
+"league | NBA": {
+"fills": 495390,
+"events": 136,
+"risk": 30186484,
+"risk_per_day": 314443,
+"roi": -3.49,
+"roi_z": -2.1,
+"pnl": -1052008,
+"clv": null,
+"clv_share": null
+},
+"league month | NBA | 2026-10": {
+"fills": 997958,
+"events": 143,
+"risk": 46862933,
+"risk_per_day": 488156,
+"roi": -1.19,
+"roi_z": -0.97,
+"pnl": -558574,
 "clv": null,
 "clv_share": null
 },
@@ -1780,6 +3925,28 @@
 "clv": null,
 "clv_share": null
 },
+"prop | NBA | POINTS": {
+"fills": 142559,
+"events": 122,
+"risk": 4933588,
+"risk_per_day": 51392,
+"roi": 0.78,
+"roi_z": 0.37,
+"pnl": 38539,
+"clv": null,
+"clv_share": null
+},
+"prop | NBA | REBOUNDS": {
+"fills": 112525,
+"events": 105,
+"risk": 2565168,
+"risk_per_day": 26721,
+"roi": -0.18,
+"roi_z": -0.09,
+"pnl": -4580,
+"clv": null,
+"clv_share": null
+},
 "league type | NBA | 1st half spread": {
 "fills": 1833,
 "events": 95,
@@ -1788,6 +3955,61 @@
 "roi": 1.08,
 "roi_z": 0.1,
 "pnl": 1984,
+"clv": null,
+"clv_share": null
+},
+"prop | NBA | THREE_POINTERS_MADE": {
+"fills": 49102,
+"events": 101,
+"risk": 2719923,
+"risk_per_day": 28333,
+"roi": 6.79,
+"roi_z": 2.2,
+"pnl": 184747,
+"clv": null,
+"clv_share": null
+},
+"prop | UEFA Nations League | FOULS": {
+"fills": 3,
+"events": 2,
+"risk": 82,
+"risk_per_day": 1,
+"roi": 54.41,
+"roi_z": 0.77,
+"pnl": 45,
+"clv": null,
+"clv_share": null
+},
+"prop | NBA | ASSISTS": {
+"fills": 127375,
+"events": 92,
+"risk": 3105421,
+"risk_per_day": 32348,
+"roi": 4.19,
+"roi_z": 1.62,
+"pnl": 130003,
+"clv": null,
+"clv_share": null
+},
+"prop | UEFA Nations League | GOALS_ASSISTS": {
+"fills": 8,
+"events": 2,
+"risk": 165,
+"risk_per_day": 2,
+"roi": 90.32,
+"roi_z": 1.41,
+"pnl": 149,
+"clv": null,
+"clv_share": null
+},
+"prop | NBA | POINTS_REBOUNDS_ASSISTS": {
+"fills": 25376,
+"events": 75,
+"risk": 1278277,
+"risk_per_day": 13315,
+"roi": 7.05,
+"roi_z": 1.98,
+"pnl": 90066,
 "clv": null,
 "clv_share": null
 },
@@ -1813,6 +4035,61 @@
 "clv": null,
 "clv_share": null
 },
+"prop | NBA | TRIPLE_DOUBLE": {
+"fills": 1805,
+"events": 60,
+"risk": 149991,
+"risk_per_day": 1562,
+"roi": 16.11,
+"roi_z": 0.76,
+"pnl": 24169,
+"clv": null,
+"clv_share": null
+},
+"prop | NBA | REBOUNDS_ASSISTS": {
+"fills": 4839,
+"events": 71,
+"risk": 161976,
+"risk_per_day": 1687,
+"roi": -8.46,
+"roi_z": -0.79,
+"pnl": -13698,
+"clv": null,
+"clv_share": null
+},
+"prop | NBA | FIRST_BASKET": {
+"fills": 9174,
+"events": 18,
+"risk": 655923,
+"risk_per_day": 6833,
+"roi": 0.34,
+"roi_z": 0.18,
+"pnl": 2239,
+"clv": null,
+"clv_share": null
+},
+"prop | NBA | DOUBLE_DOUBLE": {
+"fills": 3156,
+"events": 70,
+"risk": 268444,
+"risk_per_day": 2796,
+"roi": 5.77,
+"roi_z": 1.65,
+"pnl": 15480,
+"clv": null,
+"clv_share": null
+},
+"prop | NBA | POINTS_REBOUNDS": {
+"fills": 8085,
+"events": 72,
+"risk": 371334,
+"risk_per_day": 3868,
+"roi": 9.71,
+"roi_z": 2.0,
+"pnl": 36039,
+"clv": null,
+"clv_share": null
+},
 "league type | soccer | 1st half total": {
 "fills": 463,
 "events": 92,
@@ -1821,6 +4098,61 @@
 "roi": 15.45,
 "roi_z": 1.42,
 "pnl": 5482,
+"clv": null,
+"clv_share": null
+},
+"prop | NBA | POINTS_ASSISTS": {
+"fills": 5568,
+"events": 71,
+"risk": 249258,
+"risk_per_day": 2596,
+"roi": 1.64,
+"roi_z": 0.32,
+"pnl": 4080,
+"clv": null,
+"clv_share": null
+},
+"prop | NBA | BLOCKS": {
+"fills": 10283,
+"events": 64,
+"risk": 97205,
+"risk_per_day": 1013,
+"roi": -7.86,
+"roi_z": -0.65,
+"pnl": -7638,
+"clv": null,
+"clv_share": null
+},
+"prop | NBA | STEALS": {
+"fills": 2532,
+"events": 64,
+"risk": 103224,
+"risk_per_day": 1075,
+"roi": -4.37,
+"roi_z": -0.41,
+"pnl": -4508,
+"clv": null,
+"clv_share": null
+},
+"prop | NBA | STEALS_BLOCKS": {
+"fills": 189,
+"events": 24,
+"risk": 16716,
+"risk_per_day": 174,
+"roi": -8.99,
+"roi_z": -0.24,
+"pnl": -1503,
+"clv": null,
+"clv_share": null
+},
+"prop | MLB | FINALS_MVP": {
+"fills": 461,
+"events": 1,
+"risk": 17631,
+"risk_per_day": 184,
+"roi": 7.86,
+"roi_z": 1.0,
+"pnl": 1386,
 "clv": null,
 "clv_share": null
 },
@@ -1835,6 +4167,28 @@
 "clv": null,
 "clv_share": null
 },
+"league | Boxing": {
+"fills": 193,
+"events": 4,
+"risk": 7023,
+"risk_per_day": 73,
+"roi": -48.84,
+"roi_z": -0.97,
+"pnl": -3430,
+"clv": null,
+"clv_share": null
+},
+"league month | Boxing | 2026-10": {
+"fills": 195,
+"events": 4,
+"risk": 7039,
+"risk_per_day": 73,
+"roi": -48.44,
+"roi_z": -0.97,
+"pnl": -3410,
+"clv": null,
+"clv_share": null
+},
 "league type | NASCAR | player and other props": {
 "fills": 148,
 "events": 4,
@@ -1846,7 +4200,62 @@
 "clv": null,
 "clv_share": null
 },
+"prop | NASCAR | WINNER": {
+"fills": 131,
+"events": 1,
+"risk": 16417,
+"risk_per_day": 171,
+"roi": 3.32,
+"roi_z": 1.0,
+"pnl": 546,
+"clv": null,
+"clv_share": null
+},
+"league month | NASCAR | 2026-10": {
+"fills": 148,
+"events": 4,
+"risk": 16558,
+"risk_per_day": 172,
+"roi": 3.53,
+"roi_z": 1.07,
+"pnl": 585,
+"clv": null,
+"clv_share": null
+},
+"prop | NASCAR | TOP_FIVE_FINISH": {
+"fills": 5,
+"events": 1,
+"risk": 57,
+"risk_per_day": 1,
+"roi": 30.32,
+"roi_z": 1.0,
+"pnl": 17,
+"clv": null,
+"clv_share": null
+},
+"prop | NASCAR | TOP_THREE_FINISH": {
+"fills": 2,
+"events": 1,
+"risk": 24,
+"risk_per_day": 0,
+"roi": 25.0,
+"roi_z": 1.0,
+"pnl": 6,
+"clv": null,
+"clv_share": null
+},
 "league type | Boxing | player and other props": {
+"fills": 2,
+"events": 1,
+"risk": 16,
+"risk_per_day": 0,
+"roi": 122.22,
+"roi_z": 1.0,
+"pnl": 20,
+"clv": null,
+"clv_share": null
+},
+"prop | Boxing | VICTORY_BY_DECISION": {
 "fills": 2,
 "events": 1,
 "risk": 16,
@@ -1868,6 +4277,17 @@
 "clv": null,
 "clv_share": null
 },
+"prop | NASCAR | TOP_TEN_FINISH": {
+"fills": 10,
+"events": 1,
+"risk": 59,
+"risk_per_day": 1,
+"roi": 26.8,
+"roi_z": 1.0,
+"pnl": 16,
+"clv": null,
+"clv_share": null
+},
 "month | 2026-11": {
 "fills": 1913,
 "events": 9,
@@ -1876,6 +4296,28 @@
 "roi": 5.3,
 "roi_z": 0.3,
 "pnl": 3469,
+"clv": null,
+"clv_share": null
+},
+"league month | NFL | 2026-11": {
+"fills": 1912,
+"events": 8,
+"risk": 65463,
+"risk_per_day": 682,
+"roi": 5.3,
+"roi_z": 0.3,
+"pnl": 3467,
+"clv": null,
+"clv_share": null
+},
+"league month | soccer | 2026-11": {
+"fills": 1,
+"events": 1,
+"risk": 46,
+"risk_per_day": 0,
+"roi": 4.38,
+"roi_z": 1.0,
+"pnl": 2,
 "clv": null,
 "clv_share": null
 }
