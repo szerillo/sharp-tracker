@@ -265,3 +265,16 @@ Read:
   the money), so those rows flatter; the last-hour rows are nearly complete and are the ones to trust.
 - What it supports for the paper quoter: Novig only; spreads, totals, team totals, period lines at 1 to 2c under fair at any time
   inside a day; props at 2c or more, or 1c in the last hour; moneylines only in the last hour.
+
+## Afternoon, 11/10 (Sean: "need more data on the stuff you said to stop ... 1-2 months of just tracking"; "burn through this list")
+- **Nothing is dropped.** Sharp flags, Kalshi offers, the original stale-book lean and the rest keep logging on paper for 1 to 2 months.
+- **Slow jobs fixed.** Every workflow's `git pull` was also fetching the backup branch pushed 11/9 with its whole history: 11.5 minutes a
+  run. All 23 workflows now pull main only. The commit step went from 6 to 11 minutes to about 5 seconds, so board prices are no longer
+  10 to 20 minutes late and the sport jobs stop running past their limit.
+- **Tier moves from the weekly recheck applied:** mnf_1h B to C; nhl_pl_dog_bigml and cfb_road_dog_low_total C to paper. Bets already
+  logged keep their size. cfb_wind14 (A now; recheck says C, or B if the Bet Labs picks count) is left for Sean.
+- **Stale-book:** the version history supports (a sportsbook moneyline 4%+ over Pinnacle's fair after a Pinnacle move) is now its own
+  paper rule, stale_book_sb4, logged next to the original, which keeps tracking unchanged.
+- **Paper quoter priced by market** (section 8): Novig 1c under fair on spreads, totals, team totals and period lines; props 2c (1c in
+  the last hour); moneylines in the last hour only; Kalshi 2c.
+- The 8 system bets logged at 6:49 AM stay in the record as logged.
