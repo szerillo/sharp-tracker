@@ -27,7 +27,7 @@ def raw_rows():
         parts = os.path.relpath(f, OA).split(os.sep); sport = parts[0]; key = parts[1] if len(parts) == 3 else sport
         try: d = json.load(gzip.open(f, 'rt'))
         except Exception: continue
-        if not d.get('timestamp'): continue
+        if not isinstance(d, dict) or not d.get('timestamp'): continue
         for r in compact(sport, key, d): yield r
 
 
