@@ -33,6 +33,11 @@ football, college basketball) run past their 14-minute limit and show as cancell
 committed before the cancel, so the board has them, about 10 to 20 minutes after they were taken. The offer scan's quote window was
 widened from 25 to 45 minutes to match (it was scanning almost nothing).
 
+**Status at 10:10 AM:** the offer scan is listing again (165 offers, mostly Novig college basketball team totals and NHL and NBA props;
+412 logged so far, none started yet, so no fill record). The live board loads without errors. One board-check warning: the 5-minute
+sharp-signals build was 31 minutes old (allowed 20); the 5-minute job's runs are taking 8 to 15 minutes each and two of the last eight
+were cancelled, the same slow-commit problem as the price job.
+
 ## 1. Kalshi makers on the full settled tape (sharp/maker_history.py)
 The 11/10 maker test had 11 days. This is every pregame trade on Kalshi's settled game markets from Aug 24 to Oct 29: 6.95 million
 fills, 1,276 games (NFL, college football, NBA, NHL, soccer; MLB tickers did not match the schedule and are left out), $607M put up by
