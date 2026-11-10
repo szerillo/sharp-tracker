@@ -108,3 +108,46 @@ Read:
   each. Props are the size: $1.9M a day at +1.6%.
 - Not tested here: how much of this a new, small maker would get (queue position), and who the makers are. It is an average over all
   resting orders, including Novig's own liquidity providers, who are faster than we are.
+
+## 6. The sharp list on the last 60 days, scored at Pinnacle's close (sharp/poly_pinnacle.py, POLY_CUT=2026-09-10)
+The Polymarket trade history was re-pulled (51,555 markets, 23.5 million fills). Accounts ranked on everything before Sep 10 (30+ fills on
+15+ games), then followed from Sep 10 to Nov 9 **at their own fill prices**.
+
+| Followed Sep 10 to Nov 9 | Fills | Accounts | ROI | CLV vs Pinnacle's close |
+|---|---|---|---|---|
+| Top 200 by Polymarket CLV (the live method) | 9,489 | 57 | +6.7% | **+0.39** |
+| Top 200 by Pinnacle CLV | 10,653 | 46 | +5.7% | +0.34 |
+| In both top 200s | 8,461 | 30 | +7.9% | +0.41 |
+| Top 200 by past ROI | 728 | 36 | -10.1% | -0.23 |
+| Every qualified account | 64,056 | 604 | -1.7% | -0.03 |
+| Bottom 200 by Pinnacle CLV | 570 | 30 | -0.8% | -1.06 |
+
+Inside the live method's top 200: fills already priced under Pinnacle's fair +7.6% (CLV +2.30) against +5.5% (CLV -1.96) for fills over
+it; with Pinnacle's move +9.7% (CLV +1.23), against it +2.9% (-0.52); moneylines, spreads and totals about equal (+6.1 / +6.2 / +7.3%);
+6+ hours out +7.8% (CLV +0.61), last hour +3.8% (-0.07). By sport: CFB +9.6%, NFL +5.6%, NBA +4.1%, NHL +16.8% (442 fills).
+
+Read:
+- **The list is not broken.** On the most recent 60 days the same accounts still beat Pinnacle's close by 0.4 points and made 6.7% at
+  the prices they got. Ranking by ROI still does not work, and the two CLV rankings still agree.
+- **Our flags are not getting the accounts' price.** Live, Sharp A is +0.06 against Pinnacle where the accounts themselves are +0.39,
+  and the live record (45-69) is well below what their own fills returned. The gap between their fill and our entry is most of the edge.
+  That fits everything else tonight: the value is in the price they rested or took early, not in the price left afterwards.
+- What to do with it: keep sharp flags on paper as decided, and make the paper test the right one. A sharp flag's resting price should
+  be the price the accounts paid (already on every flag), not 1c under fair. Proposed; not changed.
+- Polymarket's public feed does not separate resting fills from taking fills (the taker-only switch returns the same rows), so ranking
+  wallets by their resting fills is not possible from this data.
+
+## 7. Smaller checks
+- **Does CLV predict results in our own log?** 1,448 graded rows with a Pinnacle close: the slope of (won minus price) on CLV is 0.22
+  per point, where an efficient market gives about 1. With this sample the error on that slope is about 0.5, so it says nothing either
+  way. CLV stays the yardstick for sharps; the rest-or-take forward test is what will settle the pattern in section 2 of the review.
+- **Systems at the price we get**: not rerun. sharp/rule_replay.py already grades every replayable rule at Pinnacle's close and at the best
+  US book, with the open-to-close move (pushback doc, 11/9).
+- **A scheduled weekly recheck also ran overnight** (docs/weekly_recheck_2026-11-10.md). Its recommendations (cfb_road_dog_low_total and
+  nhl_pl_dog_bigml down to paper, mnf_1h and cfb_wind14 down to C, nba_momentum and stale_book retired or reworked) are Sean's calls.
+
+## Built overnight
+- sharp/offers_grade.py: marks which paper offers would have filled (a trade on the tape after the offer where someone sold at or under
+  our bid) and how filled and unfilled offers closed against Pinnacle. The 5-minute trade job now also polls every Novig market with an
+  open offer, props included. The board's offers section shows the record once offers have started.
+- Trade tape for team totals, props and period lines (data/kalshi/trades5_soft, data/novig/trades5_soft) is landing.
