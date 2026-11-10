@@ -5,6 +5,7 @@ on:
     inputs:
       first: {description: 'first day', default: '2026-08-03', required: true}
       last: {description: 'last day (blank = yesterday)', default: '', required: false}
+      debug: {description: 'set to 1 to print the file shape only', default: '', required: false}
 permissions:
   contents: write
 jobs:
@@ -16,12 +17,13 @@ jobs:
       - uses: actions/setup-python@v5
         with: {python-version: '3.12'}
       - name: maker history
-        env: {MAX_SECONDS: '19000'}
+        env: {MAX_SECONDS: '19000', DEBUG_ROWS: '${{ inputs.debug }}'}
         run: python3 sharp/novig_maker_history.py ${{ inputs.first }} ${{ inputs.last }} 2>&1 | tee /tmp/novig_maker.txt
       - name: commit
         if: always()
         run: |
           git config user.name "tracker-bot"; git config user.email "actions@users.noreply.github.com"
+          if [ -n "${{ inputs.debug }}" ]; then exit 0; fi
           mkdir -p data/research; cp /tmp/novig_maker.txt data/research/novig_maker_history.txt || true
           git add -f data/research/novig_maker_history.json data/research/novig_maker_history.txt
           git commit -q -m "novig maker history" || exit 0

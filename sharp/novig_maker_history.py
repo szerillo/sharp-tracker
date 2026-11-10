@@ -57,6 +57,19 @@ def main():
         ds = d.isoformat(); d += dt.timedelta(days=1)
         if not fetch_to(f"{BASE}/{ds}/trades.csv", tmp): print(f'{ds}: no file', flush=True); continue
         n = 0
+        if os.environ.get('DEBUG_ROWS'):       # check of the file's shape: both sides of the same trades, and whether their costs add to the payout
+            with open(tmp, newline='') as fh:
+                rd = csv.DictReader(fh); print(rd.fieldnames); by = collections.defaultdict(list)
+                for i, r in enumerate(rd):
+                    if r.get('tradeType') == 'STRAIGHT': by[r.get('tradeId') or r.get('id') or (r['marketId'], r['timestamp'], r['qty'])].append(r)
+                    if i > 400000: break
+                k2 = [v for v in by.values() if len(v) == 2 and {x['side'] for x in v} == {'TAKER', 'MAKER'}]
+                print('trades with both sides:', len(k2), 'of', len(by))
+                same = sum(1 for v in k2 if v[0]['outcomeId'] == v[1]['outcomeId']); print('same outcome on both sides:', same, 'different:', len(k2) - same)
+                tot = [(float(v[0]['cost']) + float(v[1]['cost'])) / float(v[0]['qty']) for v in k2 if float(v[0]['qty']) > 0 and v[0]['qty'] == v[1]['qty']]
+                tot.sort(); print('(taker cost + maker cost) / qty: median', tot[len(tot) // 2] if tot else None, 'p10', tot[len(tot) // 10] if tot else None, 'p90', tot[9 * len(tot) // 10] if tot else None, 'n', len(tot))
+                for v in k2[:4]: print(json.dumps(v)[:900])
+            return
         with open(tmp, newline='') as fh:
             for r in csv.DictReader(fh):
                 if r.get('tradeType') != 'STRAIGHT': continue
