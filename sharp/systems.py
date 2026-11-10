@@ -408,11 +408,14 @@ def main():
     # the fills ledger is the record (11/4): a bet in the ledger that the state file lost (an older checkout's commit overwrote it) is
     # restored here, so it stays on the board instead of vanishing (the duplicate guard in paper_fill would not refire it)
     have = {v.get('fill_id') for v in fired.values() if isinstance(v, dict)}
+    # 11/10: a state entry that points at a fill the ledger voided as a duplicate is re-pointed at the live fill of the same bet (the board
+    # showed the voided copy of SJSU @ AFA and the audit reported the live one as missing)
+    dead = {r['fill_id'] for r in FI.load() if r.get('result') == 'void'}
     for r in FI.load():
         if not str(r.get('rule_tag', '')).startswith('paper:') or r['fill_id'] in have or r.get('result') == 'void' or r.get('mclass', 'game') != 'game': continue
         if N.parse_ts(r['start_utc']) < NOW - dt.timedelta(hours=6): continue
         tag = r['rule_tag'][6:]; key = f"{r['event_id']}:{tag}" + (f":{r['market']}" if tag in ('xch_homedog_fade', 'nba_momentum') else '')
-        if key in fired and fired[key].get('fill_id') and not fired[key].get('void'): continue
+        if key in fired and fired[key].get('fill_id') and not fired[key].get('void') and fired[key]['fill_id'] not in dead: continue
         fired[key] = dict(tag=tag, fill_id=r['fill_id'], ts=r['ts_utc'], market=r['market'], side=r['side'], line=r.get('line'), venue=r['venue'], price=r['price_american'],
                           fair=r.get('fair_at_fill'), edge_pts=(round(100 * (r['fair_at_fill'] - r['implied']), 2) if r.get('fair_at_fill') is not None else None),
                           why=(r.get('note') or '').split(' | ')[0], restored=True)
