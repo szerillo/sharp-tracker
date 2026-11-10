@@ -119,6 +119,13 @@ def main():
         for f in glob.glob(os.path.join(ROOT, 'data', '*', 'soft_meta.json')):       # 11/10: soft markets, written by lines.py every 10 minutes
             try: meta.update({k: v for k, v in json.load(open(f)).items() if k not in meta})
             except Exception: pass
+        # 11/10: every Novig market with an open paper offer (sharp/offers_live.py) is polled for trades too, props included, so
+        # sharp/offers_grade.py can mark which offers would have filled
+        try:
+            for r in (json.load(open(os.path.join(ROOT, 'data', 'state', 'offers.json'))).get('rows') or []):
+                if r.get('venue') == 'Novig' and r.get('market_id') and r.get('outcome_id') and ('nv:' + r['market_id']) not in meta:
+                    meta['nv:' + r['market_id']] = dict(sport=r['sport'], event_id=r['event_id'], market=r['market'], line=r.get('line'), outcomes={r['outcome_id']: r['side']}, soft=1, start=r['start'])
+        except Exception: pass
         st = json.load(open(TSTATE)) if os.path.exists(TSTATE) else {}
         since = int(st.get('last_ts') or now.timestamp() - 600)
         raw = kalshi_trades(since); rows = []; newest = since

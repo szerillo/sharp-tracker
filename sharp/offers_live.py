@@ -71,7 +71,7 @@ def main():
                              fair=round(fair, 4), bid=round(bid, 3), ask=ask, spread=round(ask - bid, 3) if ask is not None and bid else None,
                              offer=round(ours, 3), room=round(room, 3), edge=round(fair - ours - fee, 4), seen=t.strftime('%Y-%m-%dT%H:%M:%SZ'),
                              pin_limit=min(z for z in (a[1].get('limit'), b[1].get('limit')) if z) if (a[1].get('limit') or b[1].get('limit')) else None,
-                             ticker=(x.get('extra') or {}).get('ticker'), market_id=(x.get('extra') or {}).get('market_id')))
+                             ticker=(x.get('extra') or {}).get('ticker'), yes=(x.get('extra') or {}).get('yes'), market_id=(x.get('extra') or {}).get('market_id'), outcome_id=(x.get('extra') or {}).get('outcome_id')))
     rows.sort(key=lambda r: -r['room'])
     seen = set()
     if os.path.exists(PAPER):
