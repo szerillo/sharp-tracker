@@ -18,8 +18,8 @@ tested, the result, and what it means for the board.
 
 Decisions for Sean: (a) the stale-book lean to sportsbooks only at a 4%+ gap; (b) the weekly recheck's tier moves
 (docs/weekly_recheck_2026-11-10.md); (c) whether to set Novig keys so a paper quoter can become a real one. Nothing was changed on
-those. Open item: the audit shows one open system fill not on the board (cfb_road_dog_low_total, SJSU @ AFA, a second fill logged
-11/8); it pre-dates tonight and is not fixed.
+those. Fixed overnight: the board check's "1 missing" (cfb_road_dog_low_total, SJSU @ AFA) was the board pointing at a duplicate fill the
+ledger had already voided; sharp/systems.py now re-points to the live fill. One bet, counted once, as before.
 
 ## 1. Kalshi makers on the full settled tape (sharp/maker_history.py)
 The 11/10 maker test had 11 days. This is every pregame trade on Kalshi's settled game markets from Aug 24 to Oct 29: 6.95 million
