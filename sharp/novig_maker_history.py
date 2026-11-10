@@ -79,7 +79,8 @@ def main():
                 sb = 'under $100' if cost < 100 else '$100-1k' if cost < 1000 else '$1k-10k' if cost < 1e4 else '$10k+'
                 pb = 'under 25c' if q < .25 else '25-40c' if q < .4 else '40-60c' if q < .6 else '60-75c' if q < .75 else '75c+'
                 pnl = (won - q) * qty; n += 1
-                for key in (('all',), ('type', tg), ('league type', lg, tg), ('time', tb), ('size', sb), ('price', pb), ('type time', tg, tb), ('type size', tg, sb), ('month', ds[:7])):
+                for key in (('all',), ('type', tg), ('league type', lg, tg), ('time', tb), ('size', sb), ('price', pb), ('type time', tg, tb), ('type size', tg, sb), ('month', ds[:7]),
+                            ('type price', tg, pb), ('prop', lg, m.get('type') or '?') if tg == 'player and other props' else ('league', lg), ('league month', lg, ds[:7])):
                     PNL[key][ev] += pnl; a = AGG[key]; a[0] += 1; a[1] += qty; a[2] += cost
                 for ck in (('all',), ('type', tg), ('time', tb), ('size', sb), ('type time', tg, tb)):
                     c_ = CL[(r['marketId'], oid, ck)]; c_[0] += qty; c_[1] += cost
