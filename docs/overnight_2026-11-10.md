@@ -48,3 +48,28 @@ Pinnacle move is someone informed selling, not a stale book.
 
 Proposed (not changed; a rule change is Sean's call): stale-book lean = sportsbooks only (FD, Caesars, BetRivers, DK), gap 4%+. The
 exchange version stops.
+
+## 3. Locks and ladder violations on our tape (sharp/arb_scan.py)
+Every pregame pull of Kalshi, Novig and Polymarket game markets and team totals, Oct 30 to Nov 10 (2.1 million market pulls).
+- **Kalshi ladders: no violations.** Not once was an easier spread or total line offered under the bid of a harder one after fees.
+- **Cross-venue locks are rare and small.** About 200 episodes in 11 days across all sports, typically 1 to 2 cents after Kalshi's fee
+  (Novig + Polymarket NHL moneylines 43 episodes at 0.5c; Kalshi + Novig NBA spreads 28 at 2c; Kalshi + Polymarket NBA moneylines 8 at
+  4c). Most last one pull, and the two quotes are up to 3 minutes apart, so many are a stale quote and not a real lock. One college
+  football team total showed a 40c "lock" on 247 pulls: a line mismatch on one game, not money.
+- Read: nothing to build. The exchanges are consistent with each other at our pull speed.
+
+## 4. Tie prices on Kalshi's half, quarter and period moneylines
+Kalshi lists the tie as its own contract. Last tight quote in the 6 hours before the start against the tie rate in our linescores:
+
+| Market | Games | Kalshi tie bid / ask | History |
+|---|---|---|---|
+| NFL first half | 28 | 7.8c / 8.9c | 7.2% of 1,799 |
+| NFL first quarter | 28 | 20.5c / 21.6c | 20.7% |
+| College football first half | 91 | 6.6c / 7.8c | 6.3% of 6,007 |
+| NBA first half | 83 | 2.9c / 4.3c | 3.2% of 4,119 |
+| NBA first quarter | 82 | 3.4c / 5.8c | 4.8% |
+| College basketball first half | 55 | 1.6c / 3.9c | 3.5% of 18,923 |
+| NHL first period | 72 | 31.8c / 33.3c | 34.3% of 4,455 |
+
+Read: priced right. The history rate sits inside or within a cent of the quote everywhere, and the fee is larger than any gap. The
+closest thing to a bet is the NHL first-period tie at the ask (33.3c against 34.3%), which the 1.6c fee erases. No edge in ties.
