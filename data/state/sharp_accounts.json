@@ -1,5 +1,5 @@
 {
- "built": "2026-11-10T06:11:50Z",
+ "built": "2026-11-10T06:23:27Z",
  "rows": [
   {
    "cond": "0x372ef9fd2ef5d6e26caa63a85da27ffaf9f6e5d0f10d6e4598c772e7b570093c",
@@ -218,7 +218,7 @@
    "best_rank": 116,
    "usd": 221,
    "paid": 0.47,
-   "ask": 0.53,
+   "ask": 0.52,
    "status": "live",
    "link": "https://polymarket.us/event/cbb-houbap-sdak-2026-11-10",
    "other": null,
@@ -367,6 +367,43 @@
    "books": null
   },
   {
+   "cond": "0xc1012db10a61496f2e1dd45d94f3926e24744ff85370d8f2b592510c70e0d67a",
+   "slug": "cbb-queen-byu-2026-11-10",
+   "title": "Queens (NC) Royals vs. BYU Cougars",
+   "mtype": "total",
+   "start": "2026-11-11T02:00:00Z",
+   "bet": "Over 180.5",
+   "side": "Over",
+   "flagged": "2026-11-10T06:20:22Z",
+   "why": "a top-50 account",
+   "proven": false,
+   "trigger": "top50",
+   "n_accounts": 1,
+   "best_rank": 4,
+   "usd": 230,
+   "paid": 0.48,
+   "ask": 0.55,
+   "status": "live",
+   "link": "https://polymarket.us/event/cbb-queen-byu-2026-11-10",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401921740",
+   "sport": "cbb",
+   "league": null,
+   "away": "QUC",
+   "home": "BYU",
+   "away_name": "Queens University Royals",
+   "home_name": "BYU Cougars",
+   "game_start": "2026-11-11T02:00Z",
+   "side_std": "over",
+   "money_with": false,
+   "grade": "B",
+   "fair_board": null,
+   "inside_fair": null,
+   "books": null
+  },
+  {
    "cond": "0xe3ae72ec65621e5c0fc6872d0021f97df258dff5146db4a812c024ffccee3983",
    "slug": "nba-gsw-hou-2026-11-11",
    "title": "Warriors vs. Rockets",
@@ -382,7 +419,7 @@
    "best_rank": 43,
    "usd": 1284,
    "paid": 0.603,
-   "ask": 0.6,
+   "ask": 0.59,
    "status": "live",
    "link": "https://polymarket.us/event/nba-gsw-hou-2026-11-11",
    "other": null,
@@ -541,14 +578,14 @@
     "clv": 0.43
    }
   },
-  "n": 181,
+  "n": 182,
   "won": 78,
-  "units": -16.46,
+  "units": -17.12,
   "by_grade": {
    "A": {
-    "n": 121,
+    "n": 122,
     "won": 48,
-    "units": -15.32,
+    "units": -15.99,
     "clv": 0.02
    },
    "B": {
@@ -564,7 +601,7 @@
     "clv": -0.09
    }
   },
-  "units_1u": -35.96,
+  "units_1u": -36.96,
   "clv": -0.28,
   "n_venue": 86,
   "units_venue": -5.32,
@@ -726,6 +763,13 @@
     "n": 1,
     "best_rank": 116,
     "usd": 221
+   }
+  },
+  "401921740|total": {
+   "over": {
+    "n": 1,
+    "best_rank": 4,
+    "usd": 230
    }
   },
   "401925940|total": {
