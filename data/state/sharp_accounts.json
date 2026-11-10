@@ -1,5 +1,5 @@
 {
- "built": "2026-11-10T09:59:12Z",
+ "built": "2026-11-10T10:10:03Z",
  "rows": [
   {
    "cond": "0xfa30c2ac9ab8894137b8844540c19e2f977f6a53e522440c42cf71cadf0a2c57",
@@ -292,7 +292,7 @@
    "best_rank": 43,
    "usd": 1284,
    "paid": 0.603,
-   "ask": 0.63,
+   "ask": 0.65,
    "status": "live",
    "link": "https://polymarket.us/event/nba-gsw-hou-2026-11-11",
    "other": null,
@@ -312,6 +312,80 @@
    ],
    "money_with": false,
    "grade": "B",
+   "fair_board": null,
+   "inside_fair": null,
+   "books": null
+  },
+  {
+   "cond": "0x6c7cda134b82fe6f27a91ae42180b5abf9eb166944c2de8c5743273cc0c951e6",
+   "slug": "nba-det-was-2026-11-12",
+   "title": "Pistons vs. Wizards",
+   "mtype": "ml",
+   "start": "2026-11-13T00:00:00Z",
+   "bet": "Pistons ML",
+   "side": "Pistons",
+   "flagged": "2026-11-10T10:05:33Z",
+   "why": "a top-50 account",
+   "proven": false,
+   "trigger": "top50",
+   "n_accounts": 1,
+   "best_rank": 43,
+   "usd": 108,
+   "paid": 0.76,
+   "ask": 0.77,
+   "status": "live",
+   "link": "https://polymarket.us/event/nba-det-was-2026-11-12",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401909977",
+   "sport": "nba",
+   "league": null,
+   "away": "DET",
+   "home": "WSH",
+   "away_name": "Detroit Pistons",
+   "home_name": "Washington Wizards",
+   "game_start": "2026-11-13T00:00Z",
+   "side_std": "away",
+   "money_with": false,
+   "grade": "watch",
+   "fair_board": null,
+   "inside_fair": null,
+   "books": null
+  },
+  {
+   "cond": "0xc096d9590945f29434681ef1e972af587ff836fc2d0d5101ad652caecf7beb97",
+   "slug": "nba-dal-min-2026-11-12",
+   "title": "Mavericks vs. Timberwolves",
+   "mtype": "ml",
+   "start": "2026-11-13T01:00:00Z",
+   "bet": "Mavericks ML",
+   "side": "Mavericks",
+   "flagged": "2026-11-10T10:08:33Z",
+   "why": "a top-50 account",
+   "proven": false,
+   "trigger": "top50",
+   "n_accounts": 1,
+   "best_rank": 43,
+   "usd": 131,
+   "paid": 0.325,
+   "ask": 0.38,
+   "status": "live",
+   "link": "https://polymarket.us/event/nba-dal-min-2026-11-12",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401909978",
+   "sport": "nba",
+   "league": null,
+   "away": "DAL",
+   "home": "MIN",
+   "away_name": "Dallas Mavericks",
+   "home_name": "Minnesota Timberwolves",
+   "game_start": "2026-11-13T01:00Z",
+   "side_std": "away",
+   "money_with": false,
+   "grade": "watch",
    "fair_board": null,
    "inside_fair": null,
    "books": null
@@ -434,6 +508,50 @@
      "Kalshi": 0.53
     }
    }
+  },
+  {
+   "cond": "0x379c60bd4aa3a2e7d519a1f76c60271a0d8cf93353beee693ec9d82bae5443b6",
+   "slug": "nba-sas-chi-2026-11-11",
+   "title": "Spurs vs. Bulls",
+   "mtype": "ml",
+   "start": "2026-11-12T01:00:00Z",
+   "bet": "Bulls ML",
+   "side": "Bulls",
+   "flagged": "2026-11-10T10:00:18Z",
+   "why": "a top-50 account",
+   "proven": false,
+   "trigger": "top50",
+   "n_accounts": 1,
+   "best_rank": 43,
+   "usd": 660,
+   "paid": 0.11,
+   "ask": 0.12,
+   "status": "live",
+   "link": "https://polymarket.us/event/nba-sas-chi-2026-11-11",
+   "other": null,
+   "kalshi_against": {
+    "move": 6.0,
+    "now": 89.5,
+    "state": "held"
+   },
+   "logged": true,
+   "event_id": "401909969",
+   "sport": "nba",
+   "league": null,
+   "away": "SA",
+   "home": "CHI",
+   "away_name": "San Antonio Spurs",
+   "home_name": "Chicago Bulls",
+   "game_start": "2026-11-12T01:00Z",
+   "side_std": "home",
+   "conflict": [
+    "Kalshi move"
+   ],
+   "money_with": false,
+   "grade": "watch",
+   "fair_board": null,
+   "inside_fair": null,
+   "books": null
   }
  ],
  "record": {
@@ -575,6 +693,13 @@
     "usd": 132
    }
   },
+  "401909969|ml": {
+   "home": {
+    "n": 1,
+    "best_rank": 43,
+    "usd": 660
+   }
+  },
   "401909970|ml": {
    "away": {
     "n": 1,
@@ -587,6 +712,20 @@
     "n": 2,
     "best_rank": 43,
     "usd": 1284
+   }
+  },
+  "401909977|ml": {
+   "away": {
+    "n": 1,
+    "best_rank": 43,
+    "usd": 108
+   }
+  },
+  "401909978|ml": {
+   "away": {
+    "n": 1,
+    "best_rank": 43,
+    "usd": 131
    }
   },
   "401892683|ml": {
