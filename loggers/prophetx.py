@@ -142,6 +142,17 @@ def pull():
         try: sched = json.load(open(os.path.join(ROOT, 'data', sp, 'schedule.json')))
         except Exception: continue
         S = [e for e in (sched.values() if isinstance(sched, dict) else sched) if isinstance(e, dict) and e.get('start')]
+        # props are kept only at the lines Pinnacle quotes today (the offer scan can price nothing else); the full ladders were 25,000 rows a pull
+        PL = set()
+        for dd_ in {(now - dt.timedelta(hours=5)).strftime('%Y-%m-%d'), (now - dt.timedelta(hours=10)).strftime('%Y-%m-%d')}:
+            fp = os.path.join(ROOT, 'data', sp, 'ticks', f'{dd_}.jsonl.gz')
+            if not os.path.exists(fp): continue
+            try:
+                for l in gzip.open(fp, 'rt'):
+                    if '"Pinnacle"' in l and '"prop_' in l:
+                        try: x = json.loads(l); PL.add((str(x['event_id']), x['market'], x.get('participant'), x.get('line')))
+                        except Exception: pass
+            except Exception: pass
         def names(tm, abbr): return {norm(tm.get('displayName')), norm(tm.get('location')), norm(tm.get('shortDisplayName')), norm(abbr)} - {''}
         st, e = get('/mm/get_sport_events', dict(tournament_id=t['id']), H); time.sleep(0.4)
         E = ((e.get('data') or {}).get('sport_events') or []) if isinstance(e, dict) else []
@@ -191,6 +202,7 @@ def pull():
                         rows.append((side, line, imp(float(x['price'])) if live else None, x))
                     if len(rows) != 2 or rows[0][0] == rows[1][0]: continue
                     if not player and (rows[0][2] is None or rows[1][2] is None): continue        # game lines: both sides quoted
+                    if player and (eid, our, pkey(player), rows[0][1]) not in PL: stats['prop strikes off Pinnacle\'s line (not kept)'] += 1; continue
                     for i, (side, line, ask, x) in enumerate(rows):
                         oa = rows[1 - i][2]
                         r_ = dict(ts=ts_, sport=sp, event_id=eid, market=our, side=side, line=line, venue='ProphetX', bid=round(1 - oa, 4) if oa is not None else None, ask=round(ask, 4) if ask is not None else None,
