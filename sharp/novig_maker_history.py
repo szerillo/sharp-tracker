@@ -57,6 +57,24 @@ def main():
         ds = d.isoformat(); d += dt.timedelta(days=1)
         if not fetch_to(f"{BASE}/{ds}/trades.csv", tmp): print(f'{ds}: no file', flush=True); continue
         n = 0
+        if os.environ.get('DEBUG_ROWS') == 'parlay':      # 11/10 (Sean: "offering parlays even more lucrative"): what the file holds for parlays
+            with open(tmp, newline='') as fh:
+                rd = csv.DictReader(fh); print(rd.fieldnames); tt = collections.Counter(); ex = collections.defaultdict(list); vol = collections.defaultdict(float); byid = collections.defaultdict(list)
+                for r in rd:
+                    k = (r.get('tradeType'), r.get('side')); tt[k] += 1
+                    try: vol[k] += float(r['cost'])
+                    except Exception: pass
+                    if r.get('tradeType') != 'STRAIGHT':
+                        if len(ex[k]) < 3: ex[k].append(r)
+                        tid = r.get('tradeId') or r.get('orderId') or r.get('id')
+                        if tid and len(byid) < 200000: byid[tid].append(r)
+                print('rows by (tradeType, side):', dict(tt)); print('cost by (tradeType, side):', {str(k): round(v) for k, v in vol.items()})
+                for k, L in ex.items():
+                    for r in L: print(k, json.dumps(r)[:700])
+                sizes = collections.Counter(len(v) for v in byid.values()); print('rows per parlay trade id:', sizes.most_common(8))
+                for tid, v in list(byid.items())[:3]: print('one id:', json.dumps(v)[:1500])
+                cat_hit = sum(1 for v in byid.values() for r in v if r.get('marketId') in cat); print('non-straight rows whose marketId is in our catalog:', cat_hit, 'of', sum(len(v) for v in byid.values()))
+            return
         if os.environ.get('DEBUG_ROWS'):       # check of the file's shape: both sides of the same trades, and whether their costs add to the payout
             with open(tmp, newline='') as fh:
                 rd = csv.DictReader(fh); print(rd.fieldnames); by = collections.defaultdict(list)
