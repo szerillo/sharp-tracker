@@ -146,8 +146,16 @@ def main():
         L = V.poly_trades(c, st)
         if len(L) < 5: continue
         P = Px([x[:4] for x in L]); cl = P.at(st); ry = 1 if c['winner'] == c['outcomes'][0] else 0; mv = move(c, g, side0)
+        # 11/10: would a bid rested at a fill's price have filled later? suffix min / max of the yes price over the trades after it
+        Ts = [x[0] for x in L]; smin = [None] * (len(L) + 1); smax = [None] * (len(L) + 1); lo = 9.0; hi = -9.0
+        for i_ in range(len(L) - 1, -1, -1):
+            if L[i_][0] < st: lo = min(lo, L[i_][1]); hi = max(hi, L[i_][1])
+            smin[i_] = lo; smax[i_] = hi
+        smin[len(L)] = 9.0; smax[len(L)] = -9.0
+        import bisect as _b
         for t, py, usd, d, w in L:
             if usd < MIN_USD or not w: continue
+            j_ = _b.bisect_right(Ts, t + 300); refill = (smin[j_] <= py + 1e-9) if d > 0 else (smax[j_] >= py - 1e-9)
             price = py if d > 0 else 1 - py; fair_side = fp if d > 0 else 1 - fp; won = ry if d > 0 else 1 - ry
             clv_pin = 100 * (fair_side - price); clv_poly = 100 * (((cl if d > 0 else 1 - cl) - price)) if cl is not None else None
             roi = ((1 - price) / price if won else -1.0)
@@ -155,7 +163,13 @@ def main():
                 x = W[w]; x['pin'] += clv_pin; x['n'] += 1; x['games'].add(g['id']); x['roi'] += roi
                 if clv_poly is not None: x['poly'] += clv_poly; x['n_poly'] += 1
             else:
-                F.append(dict(w=w, clv_pin=clv_pin, clv_poly=clv_poly, roi=roi, price=price, fair=fair_side, mv=(mv if d > 0 else -mv) if mv is not None else None,
+                # 11/10: what a follower gets: the two-sided mid 5 and 30 minutes after the fill, plus 1c to cross
+                late = {}
+                for nm, dl in (('5', 300), ('30', 1800)):
+                    m_ = P.at(t + dl) if t + dl < st else None
+                    if m_ is not None:
+                        q_ = min(0.99, (m_ if d > 0 else 1 - m_) + 0.01); late['clv' + nm] = 100 * (fair_side - q_); late['roi' + nm] = ((1 - q_) / q_ if won else -1.0)
+                F.append(dict(late, refill=refill, t=t, gid=g['id'], side=d, w=w, clv_pin=clv_pin, clv_poly=clv_poly, roi=roi, price=price, fair=fair_side, mv=(mv if d > 0 else -mv) if mv is not None else None,
                               mkt=c['market'], sport=c['tag'], fav=fair_side >= 0.5, inside=price < fair_side, t_to=st - t, kind=fair.kind))
     print('markets', dict(stats), 'train accounts', len(W), 'test fills', len(F), flush=True)
     sc = {w: x for w, x in W.items() if x['n'] >= 30 and len(x['games']) >= 15 and x['n_poly'] >= 30}
@@ -183,6 +197,27 @@ def main():
            follow(top_roi - top_poly, 'ROI top 200 only'), follow(by_roi[:50], 'top 50 by past ROI'),
            follow(top_pin - top_poly, 'Pinnacle top 200 only'), follow(top_poly - top_pin, 'Polymarket top 200 only'), follow(by_pin[:50], 'top 50 by Pinnacle CLV'),
            follow(by_poly[:50], 'top 50 by Polymarket CLV'), follow(sc, 'every qualified account (baseline)'), follow(by_pin[-200:], 'bottom 200 by Pinnacle CLV (fade?)')]
+    # 11/10: the follower's version. A flag = the first fill by a top-200 account on a game, market and side; entry at the account's own
+    # price, 5 minutes later and 30 minutes later (mid + 1c).
+    def flags(S):
+        seen = set(); out = []
+        for f in sorted((f for f in F if f['w'] in S), key=lambda f: f['t']):
+            k = (f['gid'], f['mkt'], f['side'])
+            if k not in seen: seen.add(k); out.append(f)
+        return out
+    def fstat(L, ck, rk):
+        x = [f[ck] for f in L if f.get(ck) is not None]; r = [f[rk] for f in L if f.get(rk) is not None]
+        if not x: return dict(n=0)
+        m = sum(r) / len(r); sd = (sum((v - m) ** 2 for v in r) / max(1, len(r) - 1)) ** 0.5
+        mc = sum(x) / len(x); sc_ = (sum((v - mc) ** 2 for v in x) / max(1, len(x) - 1)) ** 0.5
+        return dict(n=len(x), clv=round(mc, 2), clv_z=round(mc / (sc_ / len(x) ** 0.5), 2) if sc_ else None, roi=round(100 * m, 1), roi_z=round(m / (sd / len(r) ** 0.5), 2) if sd else None)
+    follower = {}
+    for name, S in (('poly_top200', set(by_poly[:200])), ('pin_top200', set(by_pin[:200])), ('poly_top50', set(by_poly[:50]))):
+        FL = flags(S); both = [f for f in FL if f.get('clv5') is not None and f.get('clv30') is not None]
+        rf = [f for f in FL if f['refill']]; nrf = [f for f in FL if not f['refill']]
+        follower[name] = dict(rest_at_their_price=dict(came_back=fstat(rf, 'clv_pin', 'roi'), never_came_back=fstat(nrf, 'clv_pin', 'roi'), never_came_back_take_5m=fstat(nrf, 'clv5', 'roi5')), flags=len(FL), at_their_price=fstat(FL, 'clv_pin', 'roi'), same_flags_their_price=fstat(both, 'clv_pin', 'roi'), after_5m=fstat(both, 'clv5', 'roi5'), after_30m=fstat(both, 'clv30', 'roi30'),
+                              by_market={mk: dict(their=fstat([f for f in both if f['mkt'] == mk], 'clv_pin', 'roi'), after_5m=fstat([f for f in both if f['mkt'] == mk], 'clv5', 'roi5')) for mk in ('ml', 'spread', 'total')})
+        print('FOLLOWER', name, json.dumps(follower[name]))
     # (3) combinations on the held-out fills of the Polymarket top 200 (the live list's method) and of the Pinnacle top 200
     combos = {}
     for name, S in (('poly_top200', top_poly), ('pin_top200', top_pin), ('roi_top200', top_roi)):
@@ -205,7 +240,7 @@ def main():
             C[f'{spt} sides AGAINST the move'] = follow(S, spt, [f for f in R if f['sport'] == spt and f['mkt'] != 'total' and f['mv'] is not None and f['mv'] < 0])
         C['inside the last hour'] = follow(S, 'late', [f for f in R if f['t_to'] <= 3600]); C['earlier than 6h out'] = follow(S, 'early', [f for f in R if f['t_to'] > 6 * 3600])
         combos[name] = C
-    res = dict(asof=dt.datetime.utcnow().isoformat() + 'Z', markets=dict(stats), cut=dt.datetime.utcfromtimestamp(cut).isoformat() + 'Z', agreement=agree, out_of_sample=oos,
+    res = dict(follower=follower, asof=dt.datetime.utcnow().isoformat() + 'Z', markets=dict(stats), cut=dt.datetime.utcfromtimestamp(cut).isoformat() + 'Z', agreement=agree, out_of_sample=oos,
                combinations=combos, top20_pinnacle=[dict(w=w, pin_clv=round(sc[w]['pin_m'], 2), poly_clv=round(sc[w]['poly_m'], 2), fills=sc[w]['n'], roi=round(sc[w]['roi_m'] * 100, 1),
                                                          poly_rank=rk_poly[w] + 1) for w in by_pin[:20]])
     os.makedirs(os.path.dirname(OUT), exist_ok=True); json.dump(res, open(OUT, 'w'), indent=1)

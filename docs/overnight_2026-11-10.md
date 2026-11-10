@@ -98,6 +98,12 @@ By league and market (settled ROI): NFL moneyline +8.3% (z 2.1), NFL spread +6.2
 moneyline -3.0%. By size: every size is positive, including $10k+ fills (+11.0%, z 2.2, on $34M). By time: last hour +2.2%, 1 to 6
 hours +2.4%, 24 hours out +0.9%.
 
+Props by type (settled ROI, $ of maker money a day): MLB pitcher strikeouts +2.4% (z 2.6, $205k), MLB home runs +0.8% ($203k), MLB
+first-inning total +2.1% ($146k); NFL first touchdown +1.1% (z 1.9, $166k), receptions +1.4% ($90k), receiving yards +1.0% ($89k),
+passing yards -3.9%; NBA threes +6.8% (z 2.2, $28k), points-rebounds-assists +7.1% (z 2.0), assists +4.2%, points +0.8% ($51k),
+rebounds -0.2%. By league, game lines only: NFL +5.6% (z 2.4), MLB +2.2%, college football +1.2%, NHL +1.9%, tennis +1.2%, NBA -3.5%
+(z -2.1, October only), soccer -5.5% (z -2.2).
+
 Read:
 - On Novig the resting side has made about 1.9% of the money it put up, in each of the three months, across game lines and props.
   That is about $147,000 a day earned by makers as a group, and it is the mirror of what takers there lose. On Kalshi over the same
@@ -132,8 +138,32 @@ Read:
 - **Our flags are not getting the accounts' price.** Live, Sharp A is +0.06 against Pinnacle where the accounts themselves are +0.39,
   and the live record (45-69) is well below what their own fills returned. The gap between their fill and our entry is most of the edge.
   That fits everything else tonight: the value is in the price they rested or took early, not in the price left afterwards.
-- What to do with it: keep sharp flags on paper as decided, and make the paper test the right one. A sharp flag's resting price should
-  be the price the accounts paid (already on every flag), not 1c under fair. Proposed; not changed.
+- What to do with it: see the follower test below. Their price is not ours to get, by taking or by resting.
+
+**What a follower gets.** A flag = the first fill by a top-200 account on a game, market and side (2,127 flags, Sep 10 to Nov 9).
+
+| Entry | Flags | CLV vs Pinnacle's close | ROI |
+|---|---|---|---|
+| At the account's own price | 2,127 | **+0.74** (z 9.8) | +2.6% |
+| Taking 5 minutes later (mid + 1c), same flags | 1,354 | **-0.44** (z -4.6) | -0.5% |
+| Taking 30 minutes later | 1,354 | -0.61 (z -6.7) | -0.9% |
+
+**Resting a bid at the account's price.** Did the market trade back to their price 5+ minutes later?
+
+| | Flags | At their price: CLV, ROI | |
+|---|---|---|---|
+| Came back (the bid fills) | 1,579 (74%) | +0.18, **-2.7%** | what a resting follower gets |
+| Never came back (no fill) | 548 (26%) | +2.36, **+18.0%** (z 3.8) | all of the edge; taking these 5 minutes later was +0.50 CLV, +9.8% (z 1.6) on 315 |
+
+Read:
+- The accounts' edge is real and it is in about a quarter of their bets: the ones the market never comes back on. A bid rested at their
+  price fills on the other three quarters, which are worth nothing. A taker 5 minutes later pays more than the whole edge.
+- **This goes against resting on sharp flags.** In our own log, sharp flags whose price came back did better (+9.5% on 33 against
+  -21.7% on 72). On 2,127 flags from the full tape it is the other way round. The log split was small-sample noise for sharps. The
+  board still shows a rest price on sharp flags and the forward table will keep counting, but the evidence now says a sharp flag that
+  comes back to you is the weak kind.
+- So the sharp list, as a follow signal, has no entry that captures it in these 60 days: not taking late, not resting. What is left
+  to test is speed (entering within seconds of the fill) and knowing in advance which quarter runs. Flags stay on paper.
 - Polymarket's public feed does not separate resting fills from taking fills (the taker-only switch returns the same rows), so ranking
   wallets by their resting fills is not possible from this data.
 
