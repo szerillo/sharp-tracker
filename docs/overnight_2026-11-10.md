@@ -278,3 +278,15 @@ Read:
 - **Paper quoter priced by market** (section 8): Novig 1c under fair on spreads, totals, team totals and period lines; props 2c (1c in
   the last hour); moneylines in the last hour only; Kalshi 2c.
 - The 8 system bets logged at 6:49 AM stay in the record as logged.
+
+## 9. Does the first move after the open keep going? (sharp/open_momentum.py, 11/10 afternoon)
+The last open item from the review: what predicts the side the market moves toward. Odds API 2020-26, Pinnacle's move from one snapshot
+to the next with 6+ hours left (the first move after the open, and later moves), then the bet at the best bettable US price.
+- **Moves do not continue.** After Pinnacle's moneyline moves 1.5 to 3 points, it goes on by the close exactly half the time and gives
+  back 0.45 on average; after 3+ points it gives back 1.27. Spread and total line moves continue 39 to 46% of the time.
+- **Following loses the juice:** moneylines -2.7% on 2,870 first moves and -2.6% on 8,598 later ones (1 of 7 seasons positive);
+  spreads -2.1% and -1.1%; totals -2.5% and +0.4%. The only near-even cell is a total where a US book still hangs Pinnacle's old
+  number (+0.4% on 9,561), which says a stale number is worth about the vig and no more.
+- **Fading loses more:** spreads -4.9% and -3.7% (0 of 7 seasons on later moves), totals -3.4% and -5.6% (z -7.6), moneylines -2.7%.
+- Read: the side the market ends up on wins at its opening price only in hindsight. Nothing in the early price action says which side
+  that will be. No rule; this closes the review's open-price question.
