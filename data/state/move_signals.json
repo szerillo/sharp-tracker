@@ -1,5 +1,5 @@
 {
- "built": "2026-11-09T23:56:30Z",
+ "built": "2026-11-10T00:20:08Z",
  "move_pts": 2.0,
  "follow_pts": 1.0,
  "sports": {
@@ -12,11 +12,23 @@
   },
   "nba": {
    "sport": "nba",
-   "events": 13,
+   "events": 12,
    "gate": 150,
    "published": false,
    "tests": {
     "M2_novig_leads": {
+     "n_moves": 2,
+     "events": 1,
+     "pinnacle_follows_within": {
+      "1": 0.0,
+      "2": 0.0,
+      "3": 0.0
+     },
+     "bet_pinnacle_clv_pts": 0.0,
+     "roi": 1.0476,
+     "win": 1.0
+    },
+    "M2_kalshi_leads": {
      "n_moves": 2,
      "events": 1,
      "pinnacle_follows_within": {
@@ -32,14 +44,14 @@
   },
   "nhl": {
    "sport": "nhl",
-   "events": 5,
+   "events": 4,
    "gate": 150,
    "published": false,
    "tests": {}
   },
   "soccer": {
    "sport": "soccer",
-   "events": 14,
+   "events": 10,
    "gate": 150,
    "published": false,
    "tests": {}
@@ -60,7 +72,7 @@
   },
   "cbb": {
    "sport": "cbb",
-   "events": 71,
+   "events": 55,
    "gate": 150,
    "published": false,
    "tests": {}
