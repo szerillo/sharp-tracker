@@ -165,7 +165,7 @@ def main():
             else:
                 # 11/10: what a follower gets: the two-sided mid 5 and 30 minutes after the fill, plus 1c to cross
                 late = {}
-                for nm, dl in (('5', 300), ('30', 1800)):
+                for nm, dl in (('1', 60), ('5', 300), ('30', 1800)):
                     m_ = P.at(t + dl) if t + dl < st else None
                     if m_ is not None:
                         q_ = min(0.99, (m_ if d > 0 else 1 - m_) + 0.01); late['clv' + nm] = 100 * (fair_side - q_); late['roi' + nm] = ((1 - q_) / q_ if won else -1.0); late['p' + nm] = q_ - 0.01
@@ -215,7 +215,7 @@ def main():
     for name, S in (('poly_top200', set(by_poly[:200])), ('pin_top200', set(by_pin[:200])), ('poly_top50', set(by_poly[:50]))):
         FL = flags(S); both = [f for f in FL if f.get('clv5') is not None and f.get('clv30') is not None]
         rf = [f for f in FL if f['refill']]; nrf = [f for f in FL if not f['refill']]
-        follower[name] = dict(rest_at_their_price=dict(came_back=fstat(rf, 'clv_pin', 'roi'), never_came_back=fstat(nrf, 'clv_pin', 'roi'), never_came_back_take_5m=fstat(nrf, 'clv5', 'roi5')), flags=len(FL), at_their_price=fstat(FL, 'clv_pin', 'roi'), same_flags_their_price=fstat(both, 'clv_pin', 'roi'), after_5m=fstat(both, 'clv5', 'roi5'), after_30m=fstat(both, 'clv30', 'roi30'),
+        follower[name] = dict(rest_at_their_price=dict(came_back=fstat(rf, 'clv_pin', 'roi'), never_came_back=fstat(nrf, 'clv_pin', 'roi'), never_came_back_take_5m=fstat(nrf, 'clv5', 'roi5')), flags=len(FL), at_their_price=fstat(FL, 'clv_pin', 'roi'), same_flags_their_price=fstat(both, 'clv_pin', 'roi'), after_1m=fstat([f for f in both if f.get('clv1') is not None], 'clv1', 'roi1'), after_1m_no_cross=fstat([dict(f, c=f['clv1'] + 1) for f in both if f.get('clv1') is not None], 'c', 'roi1'), after_5m=fstat(both, 'clv5', 'roi5'), after_30m=fstat(both, 'clv30', 'roi30'),
                               by_market={mk: dict(their=fstat([f for f in both if f['mkt'] == mk], 'clv_pin', 'roi'), after_5m=fstat([f for f in both if f['mkt'] == mk], 'clv5', 'roi5')) for mk in ('ml', 'spread', 'total')})
         # which flags run? splits knowable 5 minutes after the flag, graded for a taker at 5 minutes (mid + 1c)
         byk = collections.defaultdict(list)

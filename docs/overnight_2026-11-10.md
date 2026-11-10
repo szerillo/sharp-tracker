@@ -9,7 +9,8 @@ tested, the result, and what it means for the board.
    every market type in the last hour, and 2 to 3c bids keep more everywhere except moneylines (section 8). Kalshi's makers lost 1.4%
    after the maker fee over the same months (section 1).
 2. **The sharp list is real and cannot be followed.** The top accounts beat Pinnacle's close by 0.74 at their own price in the last
-   60 days. A taker 5 minutes later is at -0.44; a bid rested at their price fills on the three quarters of flags that are worth
+   60 days, buying at about the mid. A follower who crosses the spread 5 minutes later is between -0.44 and +0.06 depending on the
+   spread, which is where the live flags sit (+0.06); a bid rested at their price fills on the three quarters of flags that are worth
    nothing; no filter at 5 minutes finds the quarter that runs (section 6). Flags stay on paper.
 3. **Price gaps against Pinnacle hold on moneylines at sportsbooks, not on numbers and not on exchanges.** A US book's moneyline 4%+
    over Pinnacle's fair has paid at the open and later; a spread or total half a point better than Pinnacle's loses the juice. The
@@ -166,8 +167,14 @@ Read:
 | Entry | Flags | CLV vs Pinnacle's close | ROI |
 |---|---|---|---|
 | At the account's own price | 2,127 | **+0.74** (z 9.8) | +2.6% |
-| Taking 5 minutes later (mid + 1c), same flags | 1,354 | **-0.44** (z -4.6) | -0.5% |
-| Taking 30 minutes later | 1,354 | -0.61 (z -6.7) | -0.9% |
+| Taking 1 minute later (mid + 1c), same flags | 1,285 | -0.22 (z -2.3) | +1.9% |
+| Taking 5 minutes later (mid + 1c) | 1,354 | **-0.44** (z -4.6) | -0.5% |
+| Taking 30 minutes later (mid + 1c) | 1,354 | -0.61 (z -6.7) | -0.9% |
+
+The cost to cross is the whole story. One minute after their fill the mid is still at their price (CLV at the mid +0.78): they are
+buying at about the middle of the market, and a follower has to pay the spread to get in. With 1c to cross the follower is at -0.2 to
+-0.6; with half a cent (a 1c-wide market) it is about +0.3 at one minute and +0.06 at five, **which is exactly what the live Sharp A
+flags show (+0.06)**. The live record is not bad luck on a working signal; it is the signal after the cost of entry.
 
 **Resting a bid at the account's price.** Did the market trade back to their price 5+ minutes later?
 
