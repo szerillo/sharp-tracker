@@ -1,0 +1,22 @@
+name: prophetx
+# 11/10: ProphetX reads (loggers/prophetx.py). Keys are repo secrets set by Sean; the script never prints them. Manual for now.
+on:
+  workflow_dispatch:
+    inputs:
+      mode: {description: 'probe', default: 'probe', required: true}
+permissions:
+  contents: read
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with: {sparse-checkout: loggers, sparse-checkout-cone-mode: true}
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.12'}
+      - name: prophetx ${{ inputs.mode }}
+        env:
+          PROPHETX_KEY: ${{ secrets.PROPHETX_KEY }}
+          PROPHETX_SECRET: ${{ secrets.PROPHETX_SECRET }}
+        run: python3 loggers/prophetx.py ${{ inputs.mode }}
