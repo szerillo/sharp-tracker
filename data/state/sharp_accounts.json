@@ -1,5 +1,5 @@
 {
- "built": "2026-11-10T13:38:44Z",
+ "built": "2026-11-10T13:51:51Z",
  "rows": [
   {
    "cond": "0xfa30c2ac9ab8894137b8844540c19e2f977f6a53e522440c42cf71cadf0a2c57",
@@ -17,7 +17,7 @@
    "best_rank": 116,
    "usd": 213,
    "paid": 0.46,
-   "ask": 0.6,
+   "ask": 0.57,
    "status": "live",
    "link": "https://polymarket.us/event/cbb-presb-ncst-2026-11-10",
    "other": null,
@@ -97,7 +97,7 @@
    "best_rank": 116,
    "usd": 221,
    "paid": 0.47,
-   "ask": 0.52,
+   "ask": 0.51,
    "status": "live",
    "link": "https://polymarket.us/event/cbb-houbap-sdak-2026-11-10",
    "other": null,
@@ -245,7 +245,7 @@
    "best_rank": 4,
    "usd": 230,
    "paid": 0.48,
-   "ask": 0.56,
+   "ask": 0.58,
    "status": "live",
    "link": "https://polymarket.us/event/cbb-queen-byu-2026-11-10",
    "other": null,
@@ -326,7 +326,7 @@
    "best_rank": 43,
    "usd": 1284,
    "paid": 0.603,
-   "ask": 0.65,
+   "ask": 0.64,
    "status": "live",
    "link": "https://polymarket.us/event/nba-gsw-hou-2026-11-11",
    "other": null,
@@ -439,43 +439,6 @@
    "books": null
   },
   {
-   "cond": "0xc096d9590945f29434681ef1e972af587ff836fc2d0d5101ad652caecf7beb97",
-   "slug": "nba-dal-min-2026-11-12",
-   "title": "Mavericks vs. Timberwolves",
-   "mtype": "ml",
-   "start": "2026-11-13T01:00:00Z",
-   "bet": "Mavericks ML",
-   "side": "Mavericks",
-   "flagged": "2026-11-10T10:08:33Z",
-   "why": "a top-50 account",
-   "proven": false,
-   "trigger": "top50",
-   "n_accounts": 1,
-   "best_rank": 43,
-   "usd": 131,
-   "paid": 0.325,
-   "ask": 0.35,
-   "status": "live",
-   "link": "https://polymarket.us/event/nba-dal-min-2026-11-12",
-   "other": null,
-   "kalshi_against": null,
-   "logged": true,
-   "event_id": "401909978",
-   "sport": "nba",
-   "league": null,
-   "away": "DAL",
-   "home": "MIN",
-   "away_name": "Dallas Mavericks",
-   "home_name": "Minnesota Timberwolves",
-   "game_start": "2026-11-13T01:00Z",
-   "side_std": "away",
-   "money_with": false,
-   "grade": "watch",
-   "fair_board": null,
-   "inside_fair": null,
-   "books": null
-  },
-  {
    "cond": "0x3b773f3b5203b36a388f1a3f242b5012e7d4eb0b8fd6f3773f23185485b99c8f",
    "slug": "nfl-la-ari-2026-11-15",
    "title": "Rams vs. Cardinals",
@@ -528,7 +491,7 @@
    "best_rank": 49,
    "usd": 339,
    "paid": 0.55,
-   "ask": 0.59,
+   "ask": 0.61,
    "status": "live",
    "link": "https://polymarket.us/event/nfl-la-ari-2026-11-15",
    "other": null,
@@ -637,6 +600,49 @@
      "Polymarket": 0.12
     }
    }
+  },
+  {
+   "cond": "0xc096d9590945f29434681ef1e972af587ff836fc2d0d5101ad652caecf7beb97",
+   "slug": "nba-dal-min-2026-11-12",
+   "title": "Mavericks vs. Timberwolves",
+   "mtype": "ml",
+   "start": "2026-11-13T01:00:00Z",
+   "bet": "Mavericks ML",
+   "side": "Mavericks",
+   "flagged": "2026-11-10T10:08:33Z",
+   "why": "a top-50 account",
+   "proven": false,
+   "trigger": "top50",
+   "n_accounts": 1,
+   "best_rank": 43,
+   "usd": 131,
+   "paid": 0.325,
+   "ask": 0.35,
+   "status": "other side",
+   "link": "https://polymarket.us/event/nba-dal-min-2026-11-12",
+   "other": {
+    "n_accounts": 1,
+    "best_rank": 93,
+    "usd": 549,
+    "first": "2026-11-10T13:39:07Z"
+   },
+   "exit_bid": 0.34,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401909978",
+   "sport": "nba",
+   "league": null,
+   "away": "DAL",
+   "home": "MIN",
+   "away_name": "Dallas Mavericks",
+   "home_name": "Minnesota Timberwolves",
+   "game_start": "2026-11-13T01:00Z",
+   "side_std": "away",
+   "money_with": false,
+   "grade": "watch",
+   "fair_board": null,
+   "inside_fair": null,
+   "books": null
   }
  ],
  "record": {
@@ -831,6 +837,11 @@
     "n": 1,
     "best_rank": 43,
     "usd": 131
+   },
+   "home": {
+    "n": 1,
+    "best_rank": 93,
+    "usd": 549
    }
   },
   "401892683|ml": {
@@ -859,6 +870,13 @@
     "n": 1,
     "best_rank": 69,
     "usd": 337
+   }
+  },
+  "401892694|ml": {
+   "home": {
+    "n": 1,
+    "best_rank": 132,
+    "usd": 175
    }
   },
   "401864539|spread": {
