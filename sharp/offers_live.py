@@ -17,7 +17,7 @@ NOW = dt.datetime.fromisoformat(os.environ['OFFERS_NOW']) if os.environ.get('OFF
 # 11/10: quotes reach the repo 10 to 20 minutes after they are taken (the price job's commit), so 25 minutes left almost nothing to
 # scan (22 priced sides at 7 AM). 45 minutes, the bet log's own limit, with the venue and Pinnacle quotes within 15 minutes of each other.
 ROOM_MIN, EDGE, FRESH, PIN_FRESH, MAX_H = 0.03, 0.02, 45 * 60, 45 * 60, 24
-TICK = dict(Kalshi=0.01, Novig=0.005)
+TICK = dict(Kalshi=0.01, Novig=0.005, ProphetX=0.002)       # ProphetX quotes in American odds; 0.2c is about one step near even money
 OTH = dict(home='away', away='home', over='under', under='over')
 SKIP = ('1h_ml', '1q_ml', '1p_ml', '1s_ml')
 
@@ -43,14 +43,15 @@ def main():
         if not G: continue
         last = {}
         for day in sorted({(NOW - dt.timedelta(hours=h)).strftime('%Y-%m-%d') for h in (0, 6, 30)}):
-            p = os.path.join(ROOT, 'data', sp, 'ticks', f'{day}.jsonl.gz')
+          for sub_ in ('ticks', 'ticks_px'):           # ticks_px: ProphetX quotes (loggers/prophetx.py, 11/10)
+            p = os.path.join(ROOT, 'data', sp, sub_, f'{day}.jsonl.gz')
             if not os.path.exists(p): continue
             for l in lines(p):
-                if '"Pinnacle"' not in l and '"Kalshi"' not in l and '"Novig"' not in l: continue
+                if '"Pinnacle"' not in l and '"Kalshi"' not in l and '"Novig"' not in l and '"ProphetX"' not in l: continue
                 try: x = json.loads(l)
                 except Exception: continue
                 v = x.get('venue'); m = x.get('market') or ''
-                if v not in ('Pinnacle', 'Kalshi', 'Novig') or str(x.get('event_id')) not in G or m in SKIP or (sp == 'soccer' and m == 'ml'): continue
+                if v not in ('Pinnacle', 'Kalshi', 'Novig', 'ProphetX') or str(x.get('event_id')) not in G or m in SKIP or (sp == 'soccer' and m == 'ml'): continue
                 try: t = ts(x['ts'])
                 except Exception: continue
                 if (NOW - t).total_seconds() > PIN_FRESH or t > NOW: continue
@@ -69,14 +70,14 @@ def main():
             # Novig spreads, totals, team totals and period lines keep the gap at 1c; props need 2c (1c in the last hour); moneylines only
             # hold in the last hour. Kalshi stays at 2c for tracking (its maker fee takes most of a 1c bid).
             hrs = (G[ev_][0] - NOW).total_seconds() / 3600; tk = TICK[v]
-            if v == 'Kalshi': edge = EDGE
+            if v in ('Kalshi', 'ProphetX'): edge = EDGE          # ProphetX takes 2% of a market's net profit (about 0.5c at even money) and has no fill history yet
             elif m == 'ml': edge = 0.01 if hrs <= 1 else None
             elif m.startswith('prop_'): edge = 0.01 if hrs <= 1 else 0.02
             else: edge = 0.01
             if edge is None or room < edge + tk: continue
             ours = math.floor((fair - edge) / tk + 1e-9) * tk
             if ours <= bid + 1e-9 or (ask is not None and ask <= ours + 1e-9): continue
-            fee = 0.0175 * ours * (1 - ours) if v == 'Kalshi' else 0.0
+            fee = 0.0175 * ours * (1 - ours) if v == 'Kalshi' else 0.02 * fair * (1 - ours) if v == 'ProphetX' else 0.0
             st, game = G[ev_]
             rows.append(dict(key='|'.join(str(z) for z in (v, ev_, m, side, line, pk or '')), venue=v, sport=sp, event_id=ev_, game=game, start=st.strftime('%Y-%m-%dT%H:%M:%SZ'),
                              market=m, side=side, line=line, player=x.get('player') or (pk if pk else None), team=x.get('participant') if not pk else None,
