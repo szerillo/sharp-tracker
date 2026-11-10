@@ -5,7 +5,7 @@ taker buys YES (every leg hits) and the maker holds NO. For every settled parlay
 legs, result. Maker profit per contract = price - 1 if it hit, else price. Summed by collection, sport of the legs, number of legs and
 price. No Kalshi fee is applied (fees on these differ by product; shown before fees).
 A sample of markets is checked against the trade tape for the assumption that the taker is on YES.
-Usage: python3 sharp/kalshi_parlays.py [max_pages]   -> data/research/kalshi_parlays.json"""
+Usage: python3 sharp/kalshi_parlays.py [pages_per_hour] [days] [skip_days] [out_file]   -> data/research/kalshi_parlays.json"""
 import os, sys, json, time, collections, urllib.request, urllib.error
 ROOT = os.path.abspath(os.path.join(os.path.dirname(os.path.abspath(__file__)), '..'))
 API = 'https://api.elections.kalshi.com/trade-api/v2'
@@ -56,7 +56,9 @@ def main():
     import datetime as dt
     DAYS = int(sys.argv[2]) if len(sys.argv) > 2 else 14; PER = MAXP
     now = dt.datetime.now(dt.timezone.utc).replace(minute=0, second=0, microsecond=0)
-    WIN = [(int((now - dt.timedelta(hours=h + 1)).timestamp()), int((now - dt.timedelta(hours=h)).timestamp())) for h in range(DAYS * 24)]
+    SKIP = int(sys.argv[3]) if len(sys.argv) > 3 else 0            # days back to start from (an older, separate sample)
+    OUTF = os.path.join(ROOT, 'data', 'research', sys.argv[4] if len(sys.argv) > 4 else 'kalshi_parlays.json')
+    WIN = [(int((now - dt.timedelta(hours=h + 1)).timestamp()), int((now - dt.timedelta(hours=h)).timestamp())) for h in range(SKIP * 24, (SKIP + DAYS) * 24)]
     for (lo, hi), page in ((w_, p_) for w_ in WIN for p_ in range(PER)):
         ser = 'sample'
         if page == 0: cur = ''; stop = False
@@ -82,8 +84,10 @@ def main():
             if len(sample) < 60 and seen['markets'] % 500 == 7: sample.append(m['ticker'])
         cur = d.get('cursor')
         if not cur or not d.get('markets'): stop = True
-        if page == 0 and WIN.index((lo, hi)) % 24 == 0: print(f'window {WIN.index((lo, hi))} of {len(WIN)}: {dict(seen)}; days {min(days) if days else None} to {max(days) if days else None}', flush=True)
-        time.sleep(0.35)
+        if page == 0 and WIN.index((lo, hi)) % 24 == 0:
+            json.dump(dict(partial=True, seen=dict(seen), days=[min(days) if days else None, max(days) if days else None, len(days)], rows={' | '.join(k): a.out() for k, a in A.items()}), open(OUTF, 'w'), indent=0)
+            print(f'window {WIN.index((lo, hi))} of {len(WIN)}: {dict(seen)}; days {min(days) if days else None} to {max(days) if days else None}', flush=True)
+        time.sleep(0.2)
     # check: is the taker on YES, and is there one trade per parlay?
     ty = tn = one = 0
     for tk in sample:
@@ -94,7 +98,7 @@ def main():
         for x in T: ty += x.get('taker_side') == 'yes'; tn += x.get('taker_side') == 'no'
     out = dict(seen=dict(seen), days=[min(days) if days else None, max(days) if days else None, len(days)], check=dict(sampled=len(sample), single_trade=one, taker_yes=ty, taker_no=tn),
                rows={' | '.join(k): a.out() for k, a in A.items()})
-    json.dump(out, open(os.path.join(ROOT, 'data', 'research', 'kalshi_parlays.json'), 'w'), indent=0)
+    json.dump(out, open(OUTF, 'w'), indent=0)
     print(out['seen'], out['days'], out['check'])
     for k in sorted(out['rows']):
         r = out['rows'][k]
