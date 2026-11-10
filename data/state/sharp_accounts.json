@@ -1,5 +1,5 @@
 {
- "built": "2026-11-10T00:49:15Z",
+ "built": "2026-11-10T01:02:34Z",
  "rows": [
   {
    "cond": "0x9dba4642f4329325c0bf83d5d0fb93f688b7ddabb745124704153fbc2b00b8f6",
@@ -54,7 +54,7 @@
    "best_rank": 79,
    "usd": 5330,
    "paid": 0.41,
-   "ask": 0.4,
+   "ask": null,
    "status": "live",
    "link": "https://polymarket.us/event/nhl-nyr-edm-2026-11-09",
    "other": null,
@@ -100,7 +100,7 @@
    "best_rank": 4,
    "usd": 126,
    "paid": 0.5,
-   "ask": 0.55,
+   "ask": null,
    "status": "live",
    "link": "https://polymarket.us/event/cbb-lamon-txam-2026-11-09",
    "other": null,
@@ -137,7 +137,7 @@
    "best_rank": 143,
    "usd": 1363,
    "paid": 0.526,
-   "ask": 0.55,
+   "ask": 0.56,
    "status": "live",
    "link": "https://polymarket.us/event/nfl-buf-min-2026-11-10",
    "other": null,
@@ -174,7 +174,7 @@
    "best_rank": 143,
    "usd": 6803,
    "paid": 0.29,
-   "ask": 0.3,
+   "ask": 0.31,
    "status": "live",
    "link": "https://polymarket.us/event/nfl-buf-min-2026-11-10",
    "other": null,
@@ -249,7 +249,7 @@
    "best_rank": 49,
    "usd": 7042,
    "paid": 0.494,
-   "ask": 0.57,
+   "ask": 0.56,
    "status": "live",
    "link": "https://polymarket.us/event/nba-den-hou-2026-11-09",
    "other": null,
@@ -957,7 +957,7 @@
    "best_rank": 23,
    "usd": 6290,
    "paid": 0.625,
-   "ask": 0.64,
+   "ask": 0.65,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-den-hou-2026-11-09",
    "other": {
@@ -966,7 +966,7 @@
     "usd": 37655,
     "first": "2026-11-08T22:52:33Z"
    },
-   "exit_bid": 0.63,
+   "exit_bid": 0.64,
    "kalshi_against": null,
    "logged": true,
    "event_id": "401909957",
@@ -1012,7 +1012,7 @@
     "usd": 7992,
     "first": "2026-11-09T19:15:06Z"
    },
-   "exit_bid": 0.37,
+   "exit_bid": 0.38,
    "kalshi_against": null,
    "logged": true,
    "event_id": "401909957",
@@ -1144,14 +1144,6 @@
     "usd": 852
    }
   },
-  "401892680:nhl_early_home_fav_qual": {
-   "with": null,
-   "against": {
-    "n": 1,
-    "best_rank": 79,
-    "usd": 5330
-   }
-  },
   "401892682:nhl_loss_streak_over": {
    "with": {
     "n": 1,
@@ -1253,32 +1245,6 @@
     "n": 1,
     "best_rank": 49,
     "usd": 137
-   }
-  },
-  "401909956|spread": {
-   "home": {
-    "n": 1,
-    "best_rank": 132,
-    "usd": 114
-   }
-  },
-  "401909956|ml": {
-   "away": {
-    "n": 1,
-    "best_rank": 119,
-    "usd": 410
-   },
-   "home": {
-    "n": 1,
-    "best_rank": 119,
-    "usd": 400
-   }
-  },
-  "401909956|total": {
-   "over": {
-    "n": 2,
-    "best_rank": 110,
-    "usd": 952
    }
   },
   "401909957|ml": {
@@ -1420,13 +1386,6 @@
     "usd": 1284
    }
   },
-  "401892680|ml": {
-   "away": {
-    "n": 1,
-    "best_rank": 79,
-    "usd": 5330
-   }
-  },
   "401892682|ml": {
    "away": {
     "n": 1,
@@ -1460,13 +1419,6 @@
     "n": 1,
     "best_rank": 132,
     "usd": 403
-   }
-  },
-  "401917978|total": {
-   "over": {
-    "n": 1,
-    "best_rank": 4,
-    "usd": 126
    }
   },
   "401921095|total": {
