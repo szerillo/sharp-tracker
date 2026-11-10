@@ -1,5 +1,5 @@
 {
- "built": "2026-11-10T06:19:09Z",
+ "built": "2026-11-10T06:26:54Z",
  "record": {
   "cbb_1h_total_curve": {
    "n": 2,
@@ -31,10 +31,10 @@
    "units": -0.17
   },
   "nhl_p3_under_curve": {
-   "n": 10,
-   "won": 0,
+   "n": 11,
+   "won": 1,
    "lost": 8,
-   "units": -2.5,
+   "units": -2.23,
    "clv": {
     "n": 2,
     "avg": -2.5,
@@ -54,37 +54,5 @@
    "units": -1.68
   }
  },
- "rows": [
-  {
-   "key": "nhl_p3_under_curve|4b345990c8a04ff88ce31d233a406011||under",
-   "rule": "nhl_p3_under_curve",
-   "tier": "P",
-   "stake": 0.0,
-   "sport": "nhl",
-   "odds_id": "4b345990c8a04ff88ce31d233a406011",
-   "espn": "401892682",
-   "game": "New York Islanders @ San Jose Sharks",
-   "start": "2026-11-10T03:10:00Z",
-   "market": "totals_p3",
-   "team": null,
-   "team_name": null,
-   "side": "under",
-   "line": 2.0,
-   "curve": 0.547,
-   "pin_fair": 0.461,
-   "gap": 8.6,
-   "full_total": 6.5,
-   "full_spread": 1.5,
-   "pin_price": 2.09,
-   "book": null,
-   "price": null,
-   "flagged": "2026-11-10T00:12:35Z",
-   "close_ts": "2026-11-10T02:58:35Z",
-   "close_line": 2.0,
-   "line_value": 0.0,
-   "close_fair": 0.4562,
-   "clv": -2.23,
-   "beat_fair": -0.48
-  }
- ]
+ "rows": []
 }
