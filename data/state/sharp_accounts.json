@@ -1,5 +1,5 @@
 {
- "built": "2026-11-10T02:53:44Z",
+ "built": "2026-11-10T03:05:31Z",
  "rows": [
   {
    "cond": "0x9dba4642f4329325c0bf83d5d0fb93f688b7ddabb745124704153fbc2b00b8f6",
@@ -323,7 +323,7 @@
    "best_rank": 197,
    "usd": 460,
    "paid": 0.56,
-   "ask": 0.57,
+   "ask": null,
    "status": "live",
    "link": "https://polymarket.us/event/nhl-nyi-sj-2026-11-09",
    "other": null,
@@ -341,7 +341,7 @@
    "money_with": false,
    "grade": "A",
    "fair_board": 0.5666,
-   "inside_fair": false,
+   "inside_fair": null,
    "books": {
     "at": "2026-11-10T01:56:01Z",
     "fair": 0.5666,
@@ -369,7 +369,7 @@
    "best_rank": 40,
    "usd": 1007,
    "paid": 0.51,
-   "ask": 0.55,
+   "ask": null,
    "status": "live",
    "link": "https://polymarket.us/event/nba-nop-gsw-2026-11-09",
    "other": null,
@@ -406,7 +406,7 @@
    "best_rank": 12,
    "usd": 9018,
    "paid": 0.487,
-   "ask": 0.53,
+   "ask": null,
    "status": "live",
    "link": "https://polymarket.us/event/nba-nop-gsw-2026-11-09",
    "other": null,
@@ -421,9 +421,6 @@
    "home_name": "Golden State Warriors",
    "game_start": "2026-11-10T03:00Z",
    "side_std": "home",
-   "conflict": [
-    "big money"
-   ],
    "money_with": false,
    "grade": "B",
    "fair_board": null,
@@ -1195,15 +1192,15 @@
     "clv": 0.43
    }
   },
-  "n": 166,
+  "n": 169,
   "won": 72,
-  "units": -13.72,
+  "units": -15.55,
   "by_grade": {
    "A": {
-    "n": 112,
+    "n": 115,
     "won": 46,
-    "units": -12.18,
-    "clv": 0.09
+    "units": -14.02,
+    "clv": 0.07
    },
    "B": {
     "n": 35,
@@ -1218,22 +1215,14 @@
     "clv": 0.05
    }
   },
-  "units_1u": -31.34,
-  "clv": -0.14,
-  "n_venue": 79,
-  "units_venue": -5.55,
+  "units_1u": -34.34,
+  "clv": -0.15,
+  "n_venue": 80,
+  "units_venue": -6.05,
   "clv_venue": 0.79,
   "clv_poly_same": -0.41
  },
  "sys_tags": {
-  "401892682:nhl_loss_streak_over": {
-   "with": {
-    "n": 1,
-    "best_rank": 143,
-    "usd": 513
-   },
-   "against": null
-  },
   "401892685:nhl_early_home_fav_qual": {
    "with": {
     "n": 1,
@@ -1247,26 +1236,6 @@
     "n": 1,
     "best_rank": 132,
     "usd": 403
-   },
-   "against": null
-  },
-  "401909959:nba_ats_hot_home": {
-   "with": {
-    "n": 5,
-    "best_rank": 12,
-    "usd": 14455
-   },
-   "against": {
-    "n": 2,
-    "best_rank": 31,
-    "usd": 934
-   }
-  },
-  "401909959:nba_under_good_home_over": {
-   "with": {
-    "n": 1,
-    "best_rank": 40,
-    "usd": 1007
    },
    "against": null
   }
@@ -1284,25 +1253,6 @@
     "n": 1,
     "best_rank": 49,
     "usd": 137
-   }
-  },
-  "401909959|spread": {
-   "away": {
-    "n": 2,
-    "best_rank": 31,
-    "usd": 934
-   },
-   "home": {
-    "n": 5,
-    "best_rank": 12,
-    "usd": 14455
-   }
-  },
-  "401909959|total": {
-   "under": {
-    "n": 1,
-    "best_rank": 40,
-    "usd": 1007
    }
   },
   "401909960|ml": {
@@ -1380,20 +1330,6 @@
     "usd": 1284
    }
   },
-  "401892682|ml": {
-   "away": {
-    "n": 1,
-    "best_rank": 197,
-    "usd": 460
-   }
-  },
-  "401892682|total": {
-   "over": {
-    "n": 1,
-    "best_rank": 143,
-    "usd": 513
-   }
-  },
   "401892683|ml": {
    "away": {
     "n": 1,
@@ -1413,13 +1349,6 @@
     "n": 1,
     "best_rank": 132,
     "usd": 403
-   }
-  },
-  "401921095|total": {
-   "under": {
-    "n": 1,
-    "best_rank": 110,
-    "usd": 1225
    }
   },
   "401918957|total": {
