@@ -168,8 +168,8 @@ def main():
                 for nm, dl in (('5', 300), ('30', 1800)):
                     m_ = P.at(t + dl) if t + dl < st else None
                     if m_ is not None:
-                        q_ = min(0.99, (m_ if d > 0 else 1 - m_) + 0.01); late['clv' + nm] = 100 * (fair_side - q_); late['roi' + nm] = ((1 - q_) / q_ if won else -1.0)
-                F.append(dict(late, refill=refill, t=t, gid=g['id'], side=d, w=w, clv_pin=clv_pin, clv_poly=clv_poly, roi=roi, price=price, fair=fair_side, mv=(mv if d > 0 else -mv) if mv is not None else None,
+                        q_ = min(0.99, (m_ if d > 0 else 1 - m_) + 0.01); late['clv' + nm] = 100 * (fair_side - q_); late['roi' + nm] = ((1 - q_) / q_ if won else -1.0); late['p' + nm] = q_ - 0.01
+                F.append(dict(late, refill=refill, usd=usd, hrs=(st - t) / 3600, t=t, gid=g['id'], side=d, w=w, clv_pin=clv_pin, clv_poly=clv_poly, roi=roi, price=price, fair=fair_side, mv=(mv if d > 0 else -mv) if mv is not None else None,
                               mkt=c['market'], sport=c['tag'], fav=fair_side >= 0.5, inside=price < fair_side, t_to=st - t, kind=fair.kind))
     print('markets', dict(stats), 'train accounts', len(W), 'test fills', len(F), flush=True)
     sc = {w: x for w, x in W.items() if x['n'] >= 30 and len(x['games']) >= 15 and x['n_poly'] >= 30}
@@ -217,6 +217,22 @@ def main():
         rf = [f for f in FL if f['refill']]; nrf = [f for f in FL if not f['refill']]
         follower[name] = dict(rest_at_their_price=dict(came_back=fstat(rf, 'clv_pin', 'roi'), never_came_back=fstat(nrf, 'clv_pin', 'roi'), never_came_back_take_5m=fstat(nrf, 'clv5', 'roi5')), flags=len(FL), at_their_price=fstat(FL, 'clv_pin', 'roi'), same_flags_their_price=fstat(both, 'clv_pin', 'roi'), after_5m=fstat(both, 'clv5', 'roi5'), after_30m=fstat(both, 'clv30', 'roi30'),
                               by_market={mk: dict(their=fstat([f for f in both if f['mkt'] == mk], 'clv_pin', 'roi'), after_5m=fstat([f for f in both if f['mkt'] == mk], 'clv5', 'roi5')) for mk in ('ml', 'spread', 'total')})
+        # which flags run? splits knowable 5 minutes after the flag, graded for a taker at 5 minutes (mid + 1c)
+        byk = collections.defaultdict(list)
+        for f in F:
+            if f['w'] in S: byk[(f['gid'], f['mkt'], f['side'])].append(f)
+        for f in both:
+            L_ = byk[(f['gid'], f['mkt'], f['side'])]; f['n5'] = len({x['w'] for x in L_ if x['t'] <= f['t'] + 300}); f['usd5'] = sum(x['usd'] for x in L_ if x['t'] <= f['t'] + 300)
+            f['drift5'] = 100 * (f['p5'] - f['price'])
+        SP = {'5-minute drift: price fell 1c+ (against them)': lambda f: f['drift5'] <= -1, 'drift within 1c': lambda f: -1 < f['drift5'] < 1, 'drift +1 to +2c (their way)': lambda f: 1 <= f['drift5'] < 2,
+              'drift +2c or more': lambda f: f['drift5'] >= 2, '1 account in 5 minutes': lambda f: f['n5'] == 1, '2+ accounts in 5 minutes': lambda f: f['n5'] >= 2,
+              'under $1k in 5 minutes': lambda f: f['usd5'] < 1000, '$1k-10k': lambda f: 1000 <= f['usd5'] < 10000, '$10k+': lambda f: f['usd5'] >= 10000,
+              '24h+ out': lambda f: f['hrs'] >= 24, '6-24h': lambda f: 6 <= f['hrs'] < 24, '1-6h': lambda f: 1 <= f['hrs'] < 6, 'last hour': lambda f: f['hrs'] < 1,
+              'their price under 40c': lambda f: f['price'] < .4, '40-60c': lambda f: .4 <= f['price'] < .6, '60c+': lambda f: f['price'] >= .6,
+              '2+ accounts and drift +1c or more': lambda f: f['n5'] >= 2 and f['drift5'] >= 1, '$10k+ and 6h+ out': lambda f: f['usd5'] >= 10000 and f['hrs'] >= 6}
+        follower[name]['which_run'] = {k: dict(take_5m=fstat([f for f in both if fn(f)], 'clv5', 'roi5'), their=fstat([f for f in both if fn(f)], 'clv_pin', 'roi'),
+                                              came_back=round(sum(1 for f in both if fn(f) and f['refill']) / max(1, sum(1 for f in both if fn(f))), 2)) for k, fn in SP.items()}
+        for sp_ in sorted({f['sport'] for f in both}): follower[name]['which_run']['sport ' + sp_] = dict(take_5m=fstat([f for f in both if f['sport'] == sp_], 'clv5', 'roi5'), their=fstat([f for f in both if f['sport'] == sp_], 'clv_pin', 'roi'))
         print('FOLLOWER', name, json.dumps(follower[name]))
     # (3) combinations on the held-out fills of the Polymarket top 200 (the live list's method) and of the Pinnacle top 200
     combos = {}

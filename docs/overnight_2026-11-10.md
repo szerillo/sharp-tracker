@@ -104,6 +104,9 @@ passing yards -3.9%; NBA threes +6.8% (z 2.2, $28k), points-rebounds-assists +7.
 rebounds -0.2%. By league, game lines only: NFL +5.6% (z 2.4), MLB +2.2%, college football +1.2%, NHL +1.9%, tennis +1.2%, NBA -3.5%
 (z -2.1, October only), soccer -5.5% (z -2.2).
 
+Checked: in Novig's file the two sides of a trade carry different outcomes and their costs add up to the payout (66,960 of 66,960 trades
+on Oct 20), so a MAKER row is the resting side's own position and price.
+
 Read:
 - On Novig the resting side has made about 1.9% of the money it put up, in each of the three months, across game lines and props.
   That is about $147,000 a day earned by makers as a group, and it is the mirror of what takers there lose. On Kalshi over the same
@@ -162,8 +165,13 @@ Read:
   -21.7% on 72). On 2,127 flags from the full tape it is the other way round. The log split was small-sample noise for sharps. The
   board still shows a rest price on sharp flags and the forward table will keep counting, but the evidence now says a sharp flag that
   comes back to you is the weak kind.
-- So the sharp list, as a follow signal, has no entry that captures it in these 60 days: not taking late, not resting. What is left
-  to test is speed (entering within seconds of the fill) and knowing in advance which quarter runs. Flags stay on paper.
+- **Which flags run cannot be told at 5 minutes.** For a taker at 5 minutes, CLV is negative in every split tried: by how far the
+  price had already moved (fell 1c+: +0.25 on 49; within 1c: -0.38 on 1,120; up 1 to 2c: -0.78; up 2c+: -1.45), one account (-0.43) or
+  two or more (-0.65), money in the first 5 minutes (under $1k -0.29, $1k to $10k -0.57, $10k+ -1.04), time to the start (24h+ -0.15,
+  6 to 24h -0.52, 1 to 6h -0.59, last hour -0.67), and every sport (NFL -0.17 to NBA -0.66). More accounts and more money mean a
+  bigger move before a follower gets there, not a better bet.
+- So the sharp list, as a follow signal, has no entry that captures it in these 60 days: not taking late, not resting, not filtering.
+  What is left is speed (seconds, which needs an order sent by machine). Flags stay on paper.
 - Polymarket's public feed does not separate resting fills from taking fills (the taker-only switch returns the same rows), so ranking
   wallets by their resting fills is not possible from this data.
 
