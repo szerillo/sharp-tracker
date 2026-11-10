@@ -1,5 +1,5 @@
 {
- "built": "2026-11-10T02:14:35Z",
+ "built": "2026-11-10T02:29:13Z",
  "rows": [
   {
    "cond": "0x9dba4642f4329325c0bf83d5d0fb93f688b7ddabb745124704153fbc2b00b8f6",
@@ -475,6 +475,43 @@
    "books": null
   },
   {
+   "cond": "0x0409a9f4c5791aa5d5d61acbad27cd0c44e1c0df6a5271ed967c8d93fc56e5ea",
+   "slug": "cbb-det-xav-2026-11-10",
+   "title": "Detroit Titans vs. Xavier Musketeers",
+   "mtype": "total",
+   "start": "2026-11-11T00:00:00Z",
+   "bet": "Over 158.5",
+   "side": "Over",
+   "flagged": "2026-11-10T02:26:09Z",
+   "why": "a top-200 account also in this sport's top 50",
+   "proven": true,
+   "trigger": "proven",
+   "n_accounts": 1,
+   "best_rank": 116,
+   "usd": 221,
+   "paid": 0.47,
+   "ask": 0.54,
+   "status": "live",
+   "link": "https://polymarket.us/event/cbb-det-xav-2026-11-10",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401909543",
+   "sport": "cbb",
+   "league": null,
+   "away": "DETM",
+   "home": "XAV",
+   "away_name": "Detroit Mercy Titans",
+   "home_name": "Xavier Musketeers",
+   "game_start": "2026-11-11T00:00Z",
+   "side_std": "over",
+   "money_with": false,
+   "grade": "A",
+   "fair_board": null,
+   "inside_fair": null,
+   "books": null
+  },
+  {
    "cond": "0x5240c570cfebc2bd8451035ddb8539994e143dc7753402c16722bcb00cb1d79f",
    "slug": "cbb-houbap-sdak-2026-11-10",
    "title": "Houston Christian Huskies vs. South Dakota Coyotes",
@@ -564,7 +601,7 @@
    "best_rank": 49,
    "usd": 190,
    "paid": 0.54,
-   "ask": 0.72,
+   "ask": 0.71,
    "status": "live",
    "link": "https://polymarket.us/event/nfl-la-ari-2026-11-15",
    "other": null,
@@ -1390,6 +1427,13 @@
     "n": 1,
     "best_rank": 116,
     "usd": 213
+   }
+  },
+  "401909543|total": {
+   "over": {
+    "n": 1,
+    "best_rank": 116,
+    "usd": 221
    }
   },
   "401924952|total": {
