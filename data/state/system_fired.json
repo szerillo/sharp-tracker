@@ -5106,7 +5106,10 @@
 "price": 113,
 "fair": null,
 "edge_pts": null,
-"why": "home SJ has lost 5 straight, season over rate 47%: over (mined angle)"
+"why": "home SJ has lost 5 straight, season over rate 47%: over (mined angle)",
+"void": true,
+"void_why": "trigger no longer holds on current season records (2026-11-10T11:49:38Z)",
+"void_at": "2026-11-10T11:49:38Z"
 },
 "401858295:cfb_homefav_7510_under": {
 "tag": "cfb_homefav_7510_under",
@@ -5223,5 +5226,109 @@
 "fair": 0.5,
 "edge_pts": -2.0,
 "why": "visitor MIA season margin -5.3, home UTAH wins 20% at home: under (mined angle)"
+},
+"401873053:bounce15_1h": {
+"tag": "bounce15_1h",
+"fill_id": "8f4017226fcf",
+"ts": "2026-11-10T11:49:38Z",
+"market": "1h_spread",
+"side": "away",
+"line": 1.5,
+"venue": "FD",
+"price": -110,
+"fair": 0.50594,
+"edge_pts": -1.79,
+"why": "NE previous game ATS margin -21.5"
+},
+"401873065:bounce15_1h": {
+"tag": "bounce15_1h",
+"fill_id": "89727ac6c8d2",
+"ts": "2026-11-10T11:49:38Z",
+"market": "1h_spread",
+"side": "away",
+"line": 3.5,
+"venue": "DK",
+"price": -125,
+"fair": 0.53459,
+"edge_pts": -2.1,
+"why": "LAC previous game ATS margin -16.5"
+},
+"401873065:nfl_fade_fav_bye": {
+"tag": "nfl_fade_fav_bye",
+"fill_id": "11b21dc0c231",
+"ts": "2026-11-10T11:49:38Z",
+"market": "spread",
+"side": "away",
+"line": 5.5,
+"venue": "Novig",
+"price": -108,
+"fair": 0.5117,
+"edge_pts": -0.83,
+"why": "BAL (favourite) off 11 days: dog LAC"
+},
+"401892700:nhl_early_home_fav_qual": {
+"tag": "nhl_early_home_fav_qual",
+"fill_id": "fa47f8d7a6db",
+"ts": "2026-11-10T11:49:38Z",
+"market": "ml",
+"side": "home",
+"line": null,
+"venue": "Polymarket",
+"price": -138,
+"fair": 0.58024,
+"edge_pts": 0.02,
+"why": "home favorite, game 19 of the season, opponent WSH wins 60% (9-6)"
+},
+"401892697:nhl_loss_streak_over": {
+"tag": "nhl_loss_streak_over",
+"fill_id": "37071c1bc29e",
+"ts": "2026-11-10T11:49:38Z",
+"market": "total",
+"side": "over",
+"line": 7.5,
+"venue": "Polymarket",
+"price": 127,
+"fair": null,
+"edge_pts": null,
+"why": "home TOR has lost 3 straight, season over rate 53%: over (mined angle)"
+},
+"401892696:nhl_early_home_fav_qual": {
+"tag": "nhl_early_home_fav_qual",
+"fill_id": "475006be0623",
+"ts": "2026-11-10T11:49:38Z",
+"market": "ml",
+"side": "home",
+"line": null,
+"venue": "Polymarket",
+"price": -117,
+"fair": 0.54024,
+"edge_pts": 0.02,
+"why": "home favorite, game 19 of the season, opponent MTL wins 64% (11-6)"
+},
+"401892699:nhl_bounce_home_ml": {
+"tag": "nhl_bounce_home_ml",
+"fill_id": "c1ee76af4839",
+"ts": "2026-11-10T11:49:38Z",
+"market": "ml",
+"side": "home",
+"line": null,
+"venue": "Polymarket",
+"price": -156,
+"fair": 0.59976,
+"edge_pts": -1.02,
+"why": "home FLA lost its last game by 3, record 9-9 (50%): home moneyline (mined angle)"
+},
+"401892702:nhl_loss_streak_over": {
+"tag": "nhl_loss_streak_over",
+"fill_id": "36a9be9f71c2",
+"ts": "2026-11-10T11:49:38Z",
+"market": "total",
+"side": "over",
+"line": 7.5,
+"venue": "Polymarket",
+"price": 133,
+"fair": null,
+"edge_pts": null,
+"why": "home CHI has lost 6 straight, season over rate 56%: over (mined angle)"
 }
 }
