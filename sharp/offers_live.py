@@ -13,7 +13,9 @@ HERE = os.path.dirname(os.path.abspath(__file__)); ROOT = os.path.abspath(os.pat
 from sharp.gzlines import lines
 OUT = os.path.join(ROOT, 'data', 'state', 'offers.json'); PAPER = os.path.join(ROOT, 'data', 'state', 'offers_paper.jsonl')
 NOW = dt.datetime.fromisoformat(os.environ['OFFERS_NOW']) if os.environ.get('OFFERS_NOW') else dt.datetime.now(dt.timezone.utc)
-ROOM_MIN, EDGE, FRESH, PIN_FRESH, MAX_H = 0.03, 0.02, 25 * 60, 30 * 60, 24
+# 11/10: quotes reach the repo 10 to 20 minutes after they are taken (the price job's commit), so 25 minutes left almost nothing to
+# scan (22 priced sides at 7 AM). 45 minutes, the bet log's own limit, with the venue and Pinnacle quotes within 15 minutes of each other.
+ROOM_MIN, EDGE, FRESH, PIN_FRESH, MAX_H = 0.03, 0.02, 45 * 60, 45 * 60, 24
 TICK = dict(Kalshi=0.01, Novig=0.005)
 OTH = dict(home='away', away='home', over='under', under='over')
 SKIP = ('1h_ml', '1q_ml', '1p_ml', '1s_ml')
@@ -57,6 +59,7 @@ def main():
             if v == 'Pinnacle' or side not in OTH or (NOW - t).total_seconds() > FRESH: continue
             a = last.get(('Pinnacle', ev_, m, side, line, pk)); b = last.get(('Pinnacle', ev_, m, OTH[side], line if (line is None or totlike(m)) else -line, pk))
             if not (a and b) or a[1].get('american') is None or b[1].get('american') is None: counts['no Pinnacle price'] += 1; continue
+            if abs((t - a[0]).total_seconds()) > 900 or abs((t - b[0]).total_seconds()) > 900: counts['Pinnacle quote not from the same pull'] += 1; continue
             ia, ib = imp(a[1]['american']), imp(b[1]['american']); fair = ia / (ia + ib)
             if not 0.08 <= fair <= 0.92: continue
             bid = x.get('bid') or 0.0; ask = x.get('ask'); room = fair - bid
