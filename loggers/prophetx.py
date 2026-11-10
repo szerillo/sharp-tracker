@@ -58,7 +58,7 @@ def probe():
     print('tournament shape:', json.dumps(shape(T[:1])))
     want = [t for t in T if any(k in (t.get('name') or '') for k in ('NBA', 'NFL', 'NHL', 'NCAA'))][:6]
     print('examples:', [(t.get('id'), t.get('name')) for t in want])
-    for t in want[:2]:
+    for t in [t for t in want if t.get('name') in ('NBA', 'NFL', 'NHL')][:1]:
         st, e = call(f'/{kind}/get_sport_events', dict(tournament_id=t['id']), H)
         E = ((e.get('data') or {}).get('sport_events') or []) if isinstance(e, dict) else []
         print(f"{t.get('name')}: HTTP {st}, {len(E)} events; shape {json.dumps(shape(E[:1]))[:700]}")
@@ -73,6 +73,15 @@ def probe():
                     L = M if isinstance(M, list) else M.get('markets')
                     print('  market types:', sorted({str(x.get('type')) for x in L})[:40])
                     print('  market shape:', json.dumps(shape(L[:1]))[:1500])
+                    import collections
+                    c = collections.Counter((x.get('type'), x.get('category_name'), x.get('sub_type'), x.get('status')) for x in L)
+                    print('  kinds (type, category, sub_type, status):', c.most_common(40))
+                    for want_ in ('moneyline', 'spread', 'total'):
+                        x = next((x for x in L if x.get('type') == want_ and x.get('category_name') in (None, '', 'Game Lines', 'game', 'Game') or (x.get('type') == want_ and 'game' in str(x.get('category_name')).lower())), None) or next((x for x in L if x.get('type') == want_), None)
+                        if x: print('  sample', want_, json.dumps({k: v for k, v in x.items() if k != 'selections'})[:400], '| selections:', json.dumps(x.get('selections'))[:1200])
+                    x = next((x for x in L if 'player' in str(x.get('category_name')).lower() or 'prop' in str(x.get('category_name')).lower()), None)
+                    if x: print('  sample prop', json.dumps({k: v for k, v in x.items() if k != 'selections'})[:400], '| selections:', json.dumps(x.get('selections'))[:900])
+                    print('  event:', json.dumps(ev)[:700])
                     break
         time.sleep(0.5)
 
