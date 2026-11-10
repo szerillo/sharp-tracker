@@ -1,5 +1,5 @@
 {
- "built": "2026-11-10T22:10:11Z",
+ "built": "2026-11-10T22:19:25Z",
  "record": {
   "cbb_1h_total_curve": {
    "n": 2,
@@ -108,6 +108,60 @@
    "book": null,
    "price": null,
    "flagged": "2026-11-10T21:22:19Z"
+  },
+  {
+   "key": "nhl_p1_spread_curve|0e5af7e0f9734ecda4b3c3013712deb6||away",
+   "rule": "nhl_p1_spread_curve",
+   "tier": "C",
+   "stake": 0.25,
+   "sport": "nhl",
+   "odds_id": "0e5af7e0f9734ecda4b3c3013712deb6",
+   "espn": "401892685",
+   "game": "Washington Capitals @ Ottawa Senators",
+   "start": "2026-11-11T00:10:00Z",
+   "market": "spreads_p1",
+   "team": null,
+   "team_name": "Washington Capitals",
+   "side": "away",
+   "line": 0.5,
+   "curve": 0.725,
+   "pin_fair": 0.651,
+   "gap": 7.4,
+   "full_total": 6.5,
+   "full_spread": 1.5,
+   "pin_price": 1.48,
+   "book": "DK",
+   "price": 1.45,
+   "pin_fair_power": 0.6596,
+   "book_fair": 0.6506,
+   "fair_gap": 0.0,
+   "ev_curve": 5.2,
+   "flagged": "2026-11-10T22:19:25Z"
+  },
+  {
+   "key": "nhl_p3_under_curve|0e5af7e0f9734ecda4b3c3013712deb6||under",
+   "rule": "nhl_p3_under_curve",
+   "tier": "P",
+   "stake": 0.0,
+   "sport": "nhl",
+   "odds_id": "0e5af7e0f9734ecda4b3c3013712deb6",
+   "espn": "401892685",
+   "game": "Washington Capitals @ Ottawa Senators",
+   "start": "2026-11-11T00:10:00Z",
+   "market": "totals_p3",
+   "team": null,
+   "team_name": null,
+   "side": "under",
+   "line": 2.0,
+   "curve": 0.547,
+   "pin_fair": 0.458,
+   "gap": 9.0,
+   "full_total": 6.5,
+   "full_spread": 1.5,
+   "pin_price": 2.11,
+   "book": null,
+   "price": null,
+   "flagged": "2026-11-10T22:19:25Z"
   }
  ]
 }
