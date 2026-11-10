@@ -1,5 +1,5 @@
 {
- "built": "2026-11-10T00:34:51Z",
+ "built": "2026-11-10T00:49:15Z",
  "rows": [
   {
    "cond": "0x9dba4642f4329325c0bf83d5d0fb93f688b7ddabb745124704153fbc2b00b8f6",
@@ -74,11 +74,11 @@
    "inside_fair": true,
    "fair_board": 0.4138,
    "books": {
-    "at": "2026-11-09T23:57:21Z",
-    "fair": 0.4006,
+    "at": "2026-11-10T00:20:56Z",
+    "fair": 0.3975,
     "q": {
      "Polymarket": 0.4,
-     "Novig": 0.405,
+     "Novig": 0.4,
      "Kalshi": 0.42,
      "FD": 0.4237
     }
@@ -286,7 +286,7 @@
    "best_rank": 104,
    "usd": 227,
    "paid": 0.45,
-   "ask": 0.54,
+   "ask": 0.53,
    "status": "live",
    "link": "https://polymarket.us/event/nba-den-hou-2026-11-09",
    "other": null,
@@ -343,7 +343,7 @@
    "fair_board": 0.5652,
    "inside_fair": false,
    "books": {
-    "at": "2026-11-09T23:57:21Z",
+    "at": "2026-11-10T00:20:56Z",
     "fair": 0.5652,
     "q": {
      "Polymarket": 0.57,
@@ -429,7 +429,7 @@
    "fair_board": null,
    "inside_fair": null,
    "books": {
-    "at": "2026-11-09T23:57:21Z",
+    "at": "2026-11-09T23:22:42Z",
     "fair": null,
     "q": {
      "Novig": 0.53,
@@ -490,7 +490,7 @@
    "best_rank": 49,
    "usd": 190,
    "paid": 0.54,
-   "ask": 0.72,
+   "ask": 0.71,
    "status": "live",
    "link": "https://polymarket.us/event/nfl-la-ari-2026-11-15",
    "other": null,
@@ -585,7 +585,7 @@
    "fair_board": null,
    "inside_fair": null,
    "books": {
-    "at": "2026-11-09T23:57:21Z",
+    "at": "2026-11-09T23:22:03Z",
     "fair": null,
     "q": {
      "Novig": 0.53,
@@ -762,7 +762,7 @@
    "side_std": "away",
    "money_with": false,
    "grade": "B",
-   "fair_board": null,
+   "fair_board": 0.5404,
    "inside_fair": null,
    "books": null
   },
@@ -835,11 +835,7 @@
     "first": "2026-11-09T21:45:12Z"
    },
    "exit_bid": null,
-   "kalshi_against": {
-    "move": 13.5,
-    "now": 53.5,
-    "state": "held"
-   },
+   "kalshi_against": null,
    "logged": true,
    "event_id": "401909955",
    "sport": "nba",
@@ -850,9 +846,6 @@
    "home_name": "Toronto Raptors",
    "game_start": "2026-11-10T00:30Z",
    "side_std": "home",
-   "conflict": [
-    "Kalshi move"
-   ],
    "money_with": false,
    "grade": "B",
    "inside_fair": false,
@@ -898,7 +891,7 @@
    "side_std": "away",
    "money_with": false,
    "grade": "B",
-   "fair_board": null,
+   "fair_board": 0.5151,
    "inside_fair": null,
    "books": null
   },
@@ -964,16 +957,16 @@
    "best_rank": 23,
    "usd": 6290,
    "paid": 0.625,
-   "ask": 0.63,
+   "ask": 0.64,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-den-hou-2026-11-09",
    "other": {
-    "n_accounts": 6,
+    "n_accounts": 7,
     "best_rank": 23,
-    "usd": 36912,
+    "usd": 37655,
     "first": "2026-11-08T22:52:33Z"
    },
-   "exit_bid": 0.62,
+   "exit_bid": 0.63,
    "kalshi_against": null,
    "logged": true,
    "event_id": "401909957",
@@ -1295,9 +1288,9 @@
     "usd": 6290
    },
    "away": {
-    "n": 6,
+    "n": 7,
     "best_rank": 23,
-    "usd": 18466
+    "usd": 19210
    }
   },
   "401909957|total": {
