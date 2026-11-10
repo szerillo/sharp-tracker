@@ -1,5 +1,5 @@
 {
- "built": "2026-11-10T01:02:34Z",
+ "built": "2026-11-10T01:20:17Z",
  "rows": [
   {
    "cond": "0x9dba4642f4329325c0bf83d5d0fb93f688b7ddabb745124704153fbc2b00b8f6",
@@ -69,18 +69,18 @@
    "home_name": "Edmonton Oilers",
    "game_start": "2026-11-10T01:00Z",
    "side_std": "away",
-   "money_with": true,
+   "money_with": false,
    "grade": "A",
    "inside_fair": true,
    "fair_board": 0.4138,
    "books": {
-    "at": "2026-11-10T00:20:56Z",
-    "fair": 0.3975,
+    "at": "2026-11-10T00:52:45Z",
+    "fair": 0.3967,
     "q": {
      "Polymarket": 0.4,
      "Novig": 0.4,
-     "Kalshi": 0.42,
-     "FD": 0.4237
+     "Caesars": 0.4167,
+     "Kalshi": 0.42
     }
    }
   },
@@ -137,7 +137,7 @@
    "best_rank": 143,
    "usd": 1363,
    "paid": 0.526,
-   "ask": 0.56,
+   "ask": null,
    "status": "live",
    "link": "https://polymarket.us/event/nfl-buf-min-2026-11-10",
    "other": null,
@@ -174,7 +174,7 @@
    "best_rank": 143,
    "usd": 6803,
    "paid": 0.29,
-   "ask": 0.31,
+   "ask": null,
    "status": "live",
    "link": "https://polymarket.us/event/nfl-buf-min-2026-11-10",
    "other": null,
@@ -212,7 +212,7 @@
    "best_rank": 143,
    "usd": 5979,
    "paid": 0.24,
-   "ask": 0.25,
+   "ask": null,
    "status": "live",
    "link": "https://polymarket.us/event/nfl-buf-min-2026-11-10",
    "other": null,
@@ -286,7 +286,7 @@
    "best_rank": 104,
    "usd": 227,
    "paid": 0.45,
-   "ask": 0.53,
+   "ask": 0.55,
    "status": "live",
    "link": "https://polymarket.us/event/nba-den-hou-2026-11-09",
    "other": null,
@@ -340,11 +340,11 @@
    "side_std": "away",
    "money_with": false,
    "grade": "A",
-   "fair_board": 0.5652,
+   "fair_board": 0.5649,
    "inside_fair": false,
    "books": {
-    "at": "2026-11-10T00:20:56Z",
-    "fair": 0.5652,
+    "at": "2026-11-10T00:52:45Z",
+    "fair": 0.5649,
     "q": {
      "Polymarket": 0.57,
      "Novig": 0.57,
@@ -429,10 +429,10 @@
    "fair_board": null,
    "inside_fair": null,
    "books": {
-    "at": "2026-11-09T23:22:42Z",
+    "at": "2026-11-10T00:52:45Z",
     "fair": null,
     "q": {
-     "Novig": 0.53,
+     "Novig": 0.535,
      "Kalshi": 0.56
     }
    }
@@ -585,11 +585,11 @@
    "fair_board": null,
    "inside_fair": null,
    "books": {
-    "at": "2026-11-09T23:22:03Z",
+    "at": "2026-11-10T00:52:45Z",
     "fair": null,
     "q": {
-     "Novig": 0.53,
-     "Kalshi": 0.53
+     "Kalshi": 0.52,
+     "Novig": 0.535
     }
    }
   },
@@ -632,7 +632,7 @@
    "side_std": "home",
    "money_with": false,
    "grade": "B",
-   "fair_board": 0.559,
+   "fair_board": 0.5572,
    "inside_fair": null,
    "books": null
   },
@@ -762,7 +762,7 @@
    "side_std": "away",
    "money_with": false,
    "grade": "B",
-   "fair_board": 0.5404,
+   "fair_board": null,
    "inside_fair": null,
    "books": null
   },
@@ -805,7 +805,7 @@
    "side_std": "away",
    "money_with": false,
    "grade": "watch",
-   "fair_board": 0.2152,
+   "fair_board": 0.2133,
    "inside_fair": null,
    "books": null
   },
@@ -891,7 +891,7 @@
    "side_std": "away",
    "money_with": false,
    "grade": "B",
-   "fair_board": 0.5151,
+   "fair_board": null,
    "inside_fair": null,
    "books": null
   },
@@ -911,7 +911,7 @@
    "best_rank": 49,
    "usd": 6625,
    "paid": 0.64,
-   "ask": 0.64,
+   "ask": null,
    "status": "other side",
    "link": "https://polymarket.us/event/nfl-buf-min-2026-11-10",
    "other": {
@@ -920,7 +920,7 @@
     "usd": 6921,
     "first": "2026-11-05T15:36:49Z"
    },
-   "exit_bid": 0.63,
+   "exit_bid": null,
    "kalshi_against": null,
    "logged": true,
    "event_id": "401873051",
@@ -937,8 +937,8 @@
    ],
    "money_with": false,
    "grade": "A",
-   "fair_board": 0.6385,
-   "inside_fair": false,
+   "fair_board": 0.6377,
+   "inside_fair": null,
    "books": null
   },
   {
@@ -1124,26 +1124,6 @@
   "clv_poly_same": -0.41
  },
  "sys_tags": {
-  "401873051:vrest8_1h": {
-   "with": null,
-   "against": {
-    "n": 2,
-    "best_rank": 143,
-    "usd": 1363
-   }
-  },
-  "401873051:nfl_fade_fav_bye": {
-   "with": {
-    "n": 1,
-    "best_rank": 143,
-    "usd": 5979
-   },
-   "against": {
-    "n": 1,
-    "best_rank": 132,
-    "usd": 852
-   }
-  },
   "401892682:nhl_loss_streak_over": {
    "with": {
     "n": 1,
@@ -1199,40 +1179,17 @@
     "usd": 1007
    },
    "against": null
+  },
+  "401909958:xch_homedog_fade:ml": {
+   "with": {
+    "n": 1,
+    "best_rank": 93,
+    "usd": 158
+   },
+   "against": null
   }
  },
  "by_event": {
-  "401873051|ml": {
-   "away": {
-    "n": 1,
-    "best_rank": 49,
-    "usd": 6625
-   },
-   "home": {
-    "n": 1,
-    "best_rank": 49,
-    "usd": 6921
-   }
-  },
-  "401873051|spread": {
-   "away": {
-    "n": 1,
-    "best_rank": 132,
-    "usd": 852
-   },
-   "home": {
-    "n": 1,
-    "best_rank": 143,
-    "usd": 5979
-   }
-  },
-  "401873051|total": {
-   "over": {
-    "n": 2,
-    "best_rank": 143,
-    "usd": 1363
-   }
-  },
   "401873061|total": {
    "under": {
     "n": 1,
