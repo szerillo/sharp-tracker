@@ -6,6 +6,7 @@ on:
       first: {description: 'first day', default: '2026-08-03', required: true}
       last: {description: 'last day (blank = yesterday)', default: '', required: false}
       debug: {description: 'set to 1 to print the file shape only', default: '', required: false}
+      script: {description: 'history (whole tape, settled) or select (against Pinnacle at the fill, our ticks)', default: 'history', required: false}
 permissions:
   contents: write
 jobs:
@@ -18,13 +19,13 @@ jobs:
         with: {python-version: '3.12'}
       - name: maker history
         env: {MAX_SECONDS: '19000', DEBUG_ROWS: '${{ inputs.debug }}'}
-        run: python3 sharp/novig_maker_history.py ${{ inputs.first }} ${{ inputs.last }} 2>&1 | tee /tmp/novig_maker.txt
+        run: python3 sharp/novig_maker_${{ inputs.script || 'history' }}.py ${{ inputs.first }} ${{ inputs.last }} 2>&1 | tee /tmp/novig_maker.txt
       - name: commit
         if: always()
         run: |
           git config user.name "tracker-bot"; git config user.email "actions@users.noreply.github.com"
           if [ -n "${{ inputs.debug }}" ]; then exit 0; fi
-          mkdir -p data/research; cp /tmp/novig_maker.txt data/research/novig_maker_history.txt || true
-          git add -f data/research/novig_maker_history.json data/research/novig_maker_history.txt
+          mkdir -p data/research; cp /tmp/novig_maker.txt data/research/novig_maker_${{ inputs.script || 'history' }}.txt || true
+          git add -f data/research/novig_maker_${{ inputs.script || 'history' }}.json data/research/novig_maker_${{ inputs.script || 'history' }}.txt
           git commit -q -m "novig maker history" || exit 0
           for i in 1 2 3 4 5 6; do git pull -q --rebase -X theirs && git push -q && exit 0; sleep $((RANDOM % 20 + 5)); done
