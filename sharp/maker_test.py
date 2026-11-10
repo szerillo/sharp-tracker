@@ -119,17 +119,22 @@ def trades(start):
             if t >= start[ev]: continue
             p = float(x['price']); c = float(x.get('qty_cents') or 0) / 100.0
             if not (0.02 <= p <= 0.98) or c <= 0: continue
-            yield 'Novig', sp, ev, m, OTH[ts], (ln if (ln is None or m == 'total') else -ln), 1 - p, c, t
+            # the tape's outcome and price are the resting order's (checked 11/10: 86% of fills in markets 1c+ wide print below the mid of
+            # that outcome, and flow_live.py reads the taker as the other side), so the maker holds this outcome at this price
+            yield 'Novig', sp, ev, m, ts, ln, p, c, t
 
 
 class Acc:
-    __slots__ = ('n', 'c', 'risk', 'e', 'm30', 'cm30', 'clv', 'cclv', 'pnl', 'rpnl', 'ev', 'days')
+    __slots__ = ('n', 'c', 'risk', 'e', 'm30', 'cm30', 'clv', 'cclv', 'pnl', 'rpnl', 'ev', 'days', 'fee', 'v')
     def __init__(s):
-        s.n = 0; s.c = s.risk = s.e = s.m30 = s.cm30 = s.clv = s.cclv = s.pnl = s.rpnl = 0.0; s.ev = collections.defaultdict(lambda: [0.0, 0.0]); s.days = set()
+        s.n = 0; s.fee = 0.0; s.v = None; s.c = s.risk = s.e = s.m30 = s.cm30 = s.clv = s.cclv = s.pnl = s.rpnl = 0.0; s.ev = collections.defaultdict(lambda: [0.0, 0.0]); s.days = set()
     def add(s, ev, day, q, c, e, m30, clv, w):
         s.n += 1; s.c += c; s.risk += q * c; s.e += e * c; s.days.add(day)
         if m30 is not None: s.m30 += m30 * c; s.cm30 += c
-        if clv is not None: s.clv += clv * c; s.cclv += c; x = s.ev[ev]; x[0] += clv * c; x[1] += c
+        if clv is not None:
+            s.clv += clv * c; s.cclv += c; x = s.ev[ev]; x[0] += clv * c; x[1] += c
+            # Kalshi maker fee on its game markets: 0.0175 x price x (1 - price) a contract (0.44c at 50c). Novig: none pregame.
+            if s.v == 'Kalshi': s.fee += 0.0175 * q * (1 - q) * c
         if w is not None: s.pnl += (w - q) * c; s.rpnl += q * c
     def out(s):
         ms = [a / b for a, b in s.ev.values() if b > 0]; z = None
@@ -141,6 +146,7 @@ class Acc:
                     edge_at_fill=round(100 * s.e / s.c, 2) if s.c else None,
                     after30=round(100 * s.m30 / s.cm30, 2) if s.cm30 else None,
                     clv=round(100 * s.clv / s.cclv, 2) if s.cclv else None, clv_z=z,
+                    clv_net=round(100 * (s.clv - s.fee) / s.cclv, 2) if s.cclv else None, net_usd_day=round((s.clv - s.fee) / nd) if s.cclv else None,
                     clv_usd_day=round(s.clv / nd) if s.cclv else None, clv_share=round(s.cclv / s.c, 2) if s.c else None,
                     roi=round(100 * s.pnl / s.rpnl, 1) if s.rpnl else None, pnl=round(s.pnl), graded_risk=round(s.rpnl))
 
@@ -162,7 +168,7 @@ def main():
         seen[v] += 1
         f = fair(pin, ev, m, side, line, t)
         if f is None: seen[v + ' no Pinnacle price at that line'] += 1; continue
-        st = start[ev]; day = dt.datetime.utcfromtimestamp(t).strftime('%Y-%m-%d')
+        st = start[ev]; day = dt.datetime.fromtimestamp(t, dt.timezone.utc).strftime('%Y-%m-%d')
         e = f - q
         if abs(e) > 0.15: seen[v + ' 15c+ from Pinnacle (dropped)'] += 1; continue
         f30 = fair(pin, ev, m, side, line, t + 1800) if t + 1800 < st else None
@@ -172,14 +178,13 @@ def main():
         for key in (('all', v), ('edge', v, eband(e)), ('sport', v, sp, m), ('time', v, tband((st - t) / 3600)),
                     ('size', v, 'under $100' if q * c < 100 else '$100-1k' if q * c < 1000 else '$1k-10k' if q * c < 1e4 else '$10k+'),
                     ('price', v, 'under 25c' if q < .25 else '25-40c' if q < .4 else '40-60c' if q < .6 else '60-75c' if q < .75 else '75c+')):
-            A[key].add(ev, day, q, c, e, m30, clv, w)
+            A[key].v = v; A[key].add(ev, day, q, c, e, m30, clv, w)
         # resting bid k cents under fair, whole-cent prices; filled by any taker trade at or through it, paid at our bid
         for k in (1, 2, 3):
             b = math.floor((f - k / 100.0) * 100 + 1e-9) / 100.0
             if q <= b + 1e-9:
                 for key in (('rest', v, k), ('rest_time', v, k, tband((st - t) / 3600)), ('rest_sport', v, k, sp, m)):
-                    A[key].add(ev, day, b, c, f - b, (f30 - b) if f30 is not None else None, (fc - b) if fc is not None else None, w)
-                if (st - t) / 3600 >= 1 and m != 'ml': pass
+                    A[key].v = v; A[key].add(ev, day, b, c, f - b, (f30 - b) if f30 is not None else None, (fc - b) if fc is not None else None, w)
     out = dict(days=[D0, D1], seen=dict(seen), rows={'|'.join(map(str, k)): a.out() for k, a in A.items()})
     json.dump(out, open(os.path.join(ROOT, 'data', 'research', 'maker_test.json'), 'w'), indent=0)
     print(json.dumps(dict(seen), indent=1))
@@ -188,7 +193,7 @@ def main():
         for k in sorted(out['rows']):
             if k.startswith(pre):
                 r = out['rows'][k]
-                print(f"  {k[len(pre):]:<34} fills {r['fills']:>7}  risk ${r['risk']:>11,}  edge at fill {str(r['edge_at_fill']):>6}c  +30m {str(r['after30']):>6}c  close {str(r['clv']):>6}c (z {r['clv_z']}, {r['games']} games)  $/day at close {str(r['clv_usd_day']):>7}  settled ROI {r['roi']}% on ${r['graded_risk']:,}")
+                print(f"  {k[len(pre):]:<34} fills {r['fills']:>7}  risk ${r['risk']:>11,}  edge at fill {str(r['edge_at_fill']):>6}c  +30m {str(r['after30']):>6}c  close {str(r['clv']):>6}c (z {r['clv_z']}, {r['games']} games)  after fee {str(r['clv_net']):>6}c  $/day net {str(r['net_usd_day']):>7}  settled ROI {r['roi']}% on ${r['graded_risk']:,}")
     for v in ('Kalshi', 'Novig'):
         show(f'{v}: every maker fill', f'all|{v}')
         show(f'{v}: by the maker\'s price against Pinnacle fair at the fill', f'edge|{v}|')
