@@ -1,33 +1,13 @@
 {
- "built": "2026-11-10T02:37:32Z",
+ "built": "2026-11-10T02:48:01Z",
  "record": {
-  "n": 54,
-  "won": 18,
-  "lost": 36,
-  "units": -3.91,
-  "roi": -29.0
+  "n": 56,
+  "won": 19,
+  "lost": 37,
+  "units": -3.87,
+  "roi": -27.6
  },
  "rows": [
-  {
-   "key": "401909952|ml|home",
-   "sport": "nba",
-   "event_id": "401909952",
-   "game": "LAL @ ATL",
-   "start": "2026-11-10T00:00Z",
-   "market": "ml",
-   "side": "home",
-   "line": null,
-   "venue": "DK",
-   "price": 0.4608,
-   "fair": 0.4794,
-   "fair_power": 0.4786,
-   "venue_fair": 0.4421,
-   "fair_gap": 3.7,
-   "ev": 4.0,
-   "move": 2.9,
-   "flagged": "2026-11-09T08:37:20Z",
-   "team": "ATL"
-  },
   {
    "key": "401909956|ml|away",
    "sport": "nba",
@@ -127,26 +107,6 @@
    "move": 1.8,
    "flagged": "2026-11-09T16:21:09Z",
    "team": "NU"
-  },
-  {
-   "key": "401919733|ml|away",
-   "sport": "cbb",
-   "event_id": "401919733",
-   "game": "SCST @ CHST",
-   "start": "2026-11-10T00:00Z",
-   "market": "ml",
-   "side": "away",
-   "line": null,
-   "venue": "Novig",
-   "price": 0.46,
-   "fair": 0.4745,
-   "fair_power": 0.4731,
-   "venue_fair": 0.4554,
-   "fair_gap": 1.9,
-   "ev": 3.2,
-   "move": 3.5,
-   "flagged": "2026-11-09T17:38:20Z",
-   "team": "SCST"
   },
   {
    "key": "401917978|total|under",

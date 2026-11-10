@@ -1,11 +1,22 @@
 {
- "built": "2026-11-10T02:37:45Z",
+ "built": "2026-11-10T02:48:19Z",
  "record": {
   "cbb_1h_total_curve": {
    "n": 1,
    "won": 0,
    "lost": 1,
-   "units": -0.25
+   "units": -0.25,
+   "clv": {
+    "n": 1,
+    "avg": -2.1,
+    "beat": 0
+   },
+   "line_value": {
+    "n": 1,
+    "avg": 0.0,
+    "better": 0,
+    "worse": 0
+   }
   },
   "cfb_q1_under_curve": {
    "n": 11,
@@ -127,7 +138,13 @@
    "book_fair": 0.4893,
    "fair_gap": -0.8,
    "ev_curve": 5.6,
-   "flagged": "2026-11-10T00:33:32Z"
+   "flagged": "2026-11-10T00:33:32Z",
+   "close_ts": "2026-11-10T02:48:19Z",
+   "close_line": 68.0,
+   "line_value": 0.0,
+   "close_fair": 0.5026,
+   "clv": -2.1,
+   "beat_fair": 2.06
   }
  ]
 }
