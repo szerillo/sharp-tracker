@@ -1,5 +1,5 @@
 {
- "built": "2026-11-10T04:20:05Z",
+ "built": "2026-11-10T04:34:05Z",
  "rows": [
   {
    "cond": "0xb23db781702d8225b014cfcafe9ccd55ede492bb7ea4507ac221d54f2375b579",
@@ -478,7 +478,7 @@
    "best_rank": 116,
    "usd": 221,
    "paid": 0.47,
-   "ask": 0.54,
+   "ask": 0.53,
    "status": "live",
    "link": "https://polymarket.us/event/cbb-houbap-sdak-2026-11-10",
    "other": null,
@@ -568,7 +568,7 @@
    "best_rank": 116,
    "usd": 230,
    "paid": 0.48,
-   "ask": 0.7,
+   "ask": 0.56,
    "status": "live",
    "link": "https://polymarket.us/event/cbb-dxst-utahst-2026-11-10",
    "other": null,
@@ -657,6 +657,9 @@
    "home_name": "Houston Rockets",
    "game_start": "2026-11-12T02:30Z",
    "side_std": "home",
+   "conflict": [
+    "Kalshi bet back"
+   ],
    "money_with": false,
    "grade": "B",
    "fair_board": null,
@@ -679,7 +682,7 @@
    "best_rank": 49,
    "usd": 190,
    "paid": 0.54,
-   "ask": 0.71,
+   "ask": 0.74,
    "status": "live",
    "link": "https://polymarket.us/event/nfl-la-ari-2026-11-15",
    "other": null,
@@ -716,7 +719,7 @@
    "best_rank": 49,
    "usd": 339,
    "paid": 0.55,
-   "ask": 0.59,
+   "ask": 0.6,
    "status": "live",
    "link": "https://polymarket.us/event/nfl-la-ari-2026-11-15",
    "other": null,
@@ -781,92 +784,6 @@
      "Kalshi": 0.53
     }
    }
-  },
-  {
-   "cond": "0x87b847e161ea1a750e1f094223a644ca374e4d97a7b9d0397974a2f3c67e547d",
-   "slug": "nba-mem-tor-2026-11-09",
-   "title": "Grizzlies vs. Raptors",
-   "mtype": "ml",
-   "start": "2026-11-10T00:30:00Z",
-   "bet": "Raptors ML",
-   "side": "Raptors",
-   "flagged": "2026-11-09T20:16:04Z",
-   "why": "2 top-200 accounts",
-   "proven": false,
-   "trigger": "two",
-   "n_accounts": 2,
-   "best_rank": 93,
-   "usd": 580,
-   "paid": 0.574,
-   "ask": null,
-   "status": "other side",
-   "link": "https://polymarket.us/event/nba-mem-tor-2026-11-09",
-   "other": {
-    "n_accounts": 6,
-    "best_rank": 55,
-    "usd": 68241,
-    "first": "2026-11-09T21:45:12Z"
-   },
-   "exit_bid": null,
-   "kalshi_against": null,
-   "logged": true,
-   "event_id": "401909955",
-   "sport": "nba",
-   "league": null,
-   "away": "MEM",
-   "home": "TOR",
-   "away_name": "Memphis Grizzlies",
-   "home_name": "Toronto Raptors",
-   "game_start": "2026-11-10T00:30Z",
-   "side_std": "home",
-   "money_with": false,
-   "grade": "B",
-   "inside_fair": false,
-   "fair_board": 0.5674,
-   "books": null
-  },
-  {
-   "cond": "0x87da75a934a64850a44b02401eb1b41950f9d829dc42f5ce6a02fd0b541ce595",
-   "slug": "nba-mem-tor-2026-11-09",
-   "title": "Grizzlies vs. Raptors",
-   "mtype": "spread",
-   "start": "2026-11-10T00:30:00Z",
-   "bet": "Grizzlies +2.5",
-   "side": "Grizzlies",
-   "flagged": "2026-11-09T22:47:42Z",
-   "why": "2 top-200 accounts",
-   "proven": false,
-   "trigger": "two",
-   "n_accounts": 2,
-   "best_rank": 112,
-   "usd": 656,
-   "paid": 0.54,
-   "ask": null,
-   "status": "other side",
-   "link": "https://polymarket.us/event/nba-mem-tor-2026-11-09",
-   "other": {
-    "n_accounts": 1,
-    "best_rank": 112,
-    "usd": 3583,
-    "first": "2026-11-09T22:50:33Z"
-   },
-   "exit_bid": null,
-   "kalshi_against": null,
-   "logged": false,
-   "event_id": "401909955",
-   "sport": "nba",
-   "league": null,
-   "away": "MEM",
-   "home": "TOR",
-   "away_name": "Memphis Grizzlies",
-   "home_name": "Toronto Raptors",
-   "game_start": "2026-11-10T00:30Z",
-   "side_std": "away",
-   "money_with": false,
-   "grade": "B",
-   "fair_board": null,
-   "inside_fair": null,
-   "books": null
   },
   {
    "cond": "0xb9a7b47c2b3c56a902bd706745a98c3f627e6f25e3566205b362856f2804c721",
@@ -1045,47 +962,47 @@
  "record": {
   "by_fair": {
    "inside": {
-    "n": 6,
-    "won": 2,
-    "units": -1.59,
-    "clv": -0.3
+    "n": 7,
+    "won": 3,
+    "units": -1.34,
+    "clv": -2.5
    },
    "outside": {
-    "n": 36,
-    "won": 17,
-    "units": -0.89,
+    "n": 37,
+    "won": 18,
+    "units": -0.39,
     "clv": 0.43
    }
   },
-  "n": 171,
-  "won": 72,
-  "units": -16.38,
+  "n": 175,
+  "won": 74,
+  "units": -16.62,
   "by_grade": {
    "A": {
-    "n": 116,
-    "won": 46,
-    "units": -14.52,
-    "clv": 0.05
+    "n": 118,
+    "won": 47,
+    "units": -14.74,
+    "clv": 0.01
    },
    "B": {
-    "n": 36,
-    "won": 19,
-    "units": 0.2,
-    "clv": -0.92
+    "n": 37,
+    "won": 20,
+    "units": 0.45,
+    "clv": -1.36
    },
    "watch": {
-    "n": 19,
+    "n": 20,
     "won": 7,
-    "units": -2.07,
+    "units": -2.34,
     "clv": 0.05
    }
   },
-  "units_1u": -36.34,
-  "clv": -0.16,
-  "n_venue": 82,
-  "units_venue": -6.88,
-  "clv_venue": 0.75,
-  "clv_poly_same": -0.43
+  "units_1u": -37.09,
+  "clv": -0.29,
+  "n_venue": 84,
+  "units_venue": -6.13,
+  "clv_venue": 0.52,
+  "clv_poly_same": -0.63
  },
  "sys_tags": {
   "401892685:nhl_early_home_fav_qual": {
