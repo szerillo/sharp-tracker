@@ -277,7 +277,7 @@ def main():
     if os.path.exists(sp_):
         for l in open(sp_):
             p = json.loads(l)
-            bets.append(dict(id=f"sb:{p['key']}", src='paper', cat='paper P', rule='stale_book', sport=p['sport'], event_id=p['event_id'], game=p['game'],
+            bets.append(dict(id=f"sb:{p['key']}", src='paper', cat='paper P', rule='stale_book_sb4' if p.get('kind') == 'sb4' else 'stale_book', sport=p['sport'], event_id=p['event_id'], game=p['game'],
                              start=p['start'].replace('Z', ':00Z') if len(p['start']) == 17 else p['start'], market=p['market'], side=p['side'], line=p.get('line'), flagged=p['flagged'],
                              venue=p['venue'], price=p['price'], won=W_(p.get('won'))))
     # ---- price paths

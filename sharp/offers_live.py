@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
 """Offers to rest, live (Sean 11/10: "scan Kalshi and Novig daily for opportunities that are way off from market, to offer"; research in
 docs/maker_2026-11-10.md and sharp/offer_scan.py). On the 10-minute tape, every Kalshi and Novig market side where Pinnacle quotes both
-sides at the same line and the venue's best bid sits 3c or more under Pinnacle's no-vig fair price. The offer is a resting bid 2c under
-fair (whole cents on Kalshi, half cents on Novig), which is then first in line. Paper only: nothing is placed.
+sides at the same line and our bid would be first in line. The bid is 1c under Pinnacle's no-vig fair on Novig spreads, totals, team totals
+and period lines, 2c on props (1c in the last hour), 1c on moneylines in the last hour only, 2c on Kalshi (rules from the 11/10 maker
+tests). Whole cents on Kalshi, half cents on Novig. Paper only: nothing is placed.
 Left out: period moneylines (a tie loses on Kalshi and is refunded at Pinnacle), soccer moneylines (three-way), games more than 24 hours
 out (maker fills that early lost on Kalshi) or inside 10 minutes, fair prices outside 8-92%.
 Writes data/state/offers.json for the board and appends each offer the first time it is seen to data/state/offers_paper.jsonl, so fills
@@ -64,15 +65,23 @@ def main():
             if not 0.08 <= fair <= 0.92: continue
             bid = x.get('bid') or 0.0; ask = x.get('ask'); room = fair - bid
             counts['priced'] += 1
-            if room < ROOM_MIN: continue
-            tk = TICK[v]; ours = math.floor((fair - EDGE) / tk + 1e-9) * tk
+            # 11/10 (docs/overnight_2026-11-10.md section 8, Novig maker fills against Pinnacle): how far under fair to rest, by market.
+            # Novig spreads, totals, team totals and period lines keep the gap at 1c; props need 2c (1c in the last hour); moneylines only
+            # hold in the last hour. Kalshi stays at 2c for tracking (its maker fee takes most of a 1c bid).
+            hrs = (G[ev_][0] - NOW).total_seconds() / 3600; tk = TICK[v]
+            if v == 'Kalshi': edge = EDGE
+            elif m == 'ml': edge = 0.01 if hrs <= 1 else None
+            elif m.startswith('prop_'): edge = 0.01 if hrs <= 1 else 0.02
+            else: edge = 0.01
+            if edge is None or room < edge + tk: continue
+            ours = math.floor((fair - edge) / tk + 1e-9) * tk
             if ours <= bid + 1e-9 or (ask is not None and ask <= ours + 1e-9): continue
             fee = 0.0175 * ours * (1 - ours) if v == 'Kalshi' else 0.0
             st, game = G[ev_]
             rows.append(dict(key='|'.join(str(z) for z in (v, ev_, m, side, line, pk or '')), venue=v, sport=sp, event_id=ev_, game=game, start=st.strftime('%Y-%m-%dT%H:%M:%SZ'),
                              market=m, side=side, line=line, player=x.get('player') or (pk if pk else None), team=x.get('participant') if not pk else None,
                              fair=round(fair, 4), bid=round(bid, 3), ask=ask, spread=round(ask - bid, 3) if ask is not None and bid else None,
-                             offer=round(ours, 3), room=round(room, 3), edge=round(fair - ours - fee, 4), seen=t.strftime('%Y-%m-%dT%H:%M:%SZ'),
+                             offer=round(ours, 3), room=round(room, 3), under=edge, edge=round(fair - ours - fee, 4), seen=t.strftime('%Y-%m-%dT%H:%M:%SZ'),
                              pin_limit=min(z for z in (a[1].get('limit'), b[1].get('limit')) if z) if (a[1].get('limit') or b[1].get('limit')) else None,
                              ticker=(x.get('extra') or {}).get('ticker'), yes=(x.get('extra') or {}).get('yes'), market_id=(x.get('extra') or {}).get('market_id'), outcome_id=(x.get('extra') or {}).get('outcome_id')))
     rows.sort(key=lambda r: -r['room'])
@@ -86,7 +95,7 @@ def main():
         with open(PAPER, 'a') as f:
             for r in new: f.write(json.dumps(dict(r, logged=NOW.strftime('%Y-%m-%dT%H:%M:%SZ')), separators=(',', ':')) + '\n')
     by = collections.Counter((r['venue'], r['sport'], 'props' if r['market'].startswith('prop_') else r['market']) for r in rows)
-    json.dump(dict(updated=NOW.strftime('%Y-%m-%dT%H:%M:%SZ'), rule=dict(room_min=ROOM_MIN, edge=EDGE, max_hours=MAX_H), n=len(rows),
+    json.dump(dict(updated=NOW.strftime('%Y-%m-%dT%H:%M:%SZ'), rule=dict(novig='1c under fair on spreads, totals, team totals, period lines; props 2c (1c in the last hour); moneylines 1c in the last hour only', kalshi='2c under fair', max_hours=MAX_H), n=len(rows),
                    groups=[dict(venue=k[0], sport=k[1], market=k[2], n=n) for k, n in by.most_common()], rows=rows[:200], logged=len(seen) + len(new)),
               open(OUT, 'w'), separators=(',', ':'))
     print(f"[offers] {len(rows)} offers ({len(new)} new) from {counts['priced']} priced sides; {dict(collections.Counter(r['venue'] for r in rows))}; top groups {by.most_common(6)}")

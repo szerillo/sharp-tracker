@@ -12,6 +12,7 @@ VEN = ('Novig', 'Kalshi', 'Polymarket', 'FD', 'Caesars', 'DK')
 PAPER = os.path.join(ROOT, 'data', 'state', 'stale_paper.jsonl'); OUT = os.path.join(ROOT, 'data', 'state', 'stale_live.json')
 NOW = dt.datetime.fromisoformat(os.environ['STALE_NOW']) if os.environ.get('STALE_NOW') else dt.datetime.now(dt.timezone.utc)      # STALE_NOW: replay a past moment (testing)
 EV_MIN, MOVE_MIN, DEC_MAX = 0.02, 0.01, 3.0
+SB4_VEN, SB4_EV = ('FD', 'Caesars', 'DK'), 0.04
 
 
 def ts(s): return dt.datetime.fromisoformat(s.replace('Z', '+00:00'))
@@ -95,8 +96,16 @@ def main():
                 ro = next((x for (v2, s2, l2), x in latest.items() if v2 == v and s2 == OS and (mk == 'ml' or l2 == (-ln if mk == 'spread' else ln))), None)
                 vf = (c / (c + cost(ro))) if ro and cost(ro) else None
                 key = f'{ev}|{mk}|{side}'           # one lean per side (the best venue), so the record counts each bet once
-                if key in seen: continue
                 e = sched[ev]
+                # 11/10 (docs/overnight_2026-11-10.md section 2; Sean: keep tracking the rest): the version history supports is its own
+                # paper rule, logged next to the original: a sportsbook moneyline 4%+ over Pinnacle's fair (2020-26: +12.5% on 415,
+                # 6 of 7 seasons; 2-4% gaps -2.7%; the original is 20-43 live, 57 of 63 on exchanges).
+                if v in SB4_VEN and mk == 'ml' and ev_ >= SB4_EV and ('sb4|' + key) not in seen:
+                    cand['sb4|' + key] = max(cand.get('sb4|' + key, {'ev': -1}), dict(key='sb4|' + key, kind='sb4', sport=sp, event_id=ev, game=f"{e.get('away')} @ {e.get('home')}", start=e['start'],
+                                             market=mk, side=side, line=ln, venue=v, price=round(c, 4), fair=round(p, 4), fair_power=round(p_pow, 4), venue_fair=round(vf, 4) if vf else None,
+                                             fair_gap=round(100 * (p - vf), 1) if vf else None, ev=round(100 * ev_, 1), move=round(100 * (p - q[0]), 1), flagged=NOW.strftime('%Y-%m-%dT%H:%M:%SZ'),
+                                             team=(e.get('home') if side == 'home' else e.get('away') if side == 'away' else None)), key=lambda x: x['ev'])
+                if key in seen: continue
                 cand[key] = max(cand.get(key, {'ev': -1}), dict(key=key, sport=sp, event_id=ev, game=f"{e.get('away')} @ {e.get('home')}", start=e['start'], market=mk, side=side, line=ln, venue=v,
                                 price=round(c, 4), fair=round(p, 4), fair_power=round(p_pow, 4), venue_fair=round(vf, 4) if vf else None, fair_gap=round(100 * (p - vf), 1) if vf else None,
                                 ev=round(100 * ev_, 1), move=round(100 * (p - q[0]), 1), flagged=NOW.strftime('%Y-%m-%dT%H:%M:%SZ'),
@@ -120,10 +129,11 @@ def main():
     with open(PAPER, 'w') as f:
         for r in rows: f.write(json.dumps(r) + '\n')
     g = [r for r in rows if r.get('won') is not None]
-    rec = dict(n=len(g), won=sum(1 for r in g if r['won'] == 1), lost=sum(1 for r in g if r['won'] == 0), units=round(sum(r['units'] for r in g), 2),
-               roi=round(100 * sum(r['units'] for r in g) / (0.25 * max(1, len(g))), 1))
+    def rec_(g): return dict(n=len(g), won=sum(1 for r in g if r['won'] == 1), lost=sum(1 for r in g if r['won'] == 0), units=round(sum(r['units'] for r in g), 2),
+                             roi=round(100 * sum(r['units'] for r in g) / (0.25 * max(1, len(g))), 1))
+    rec = rec_([r for r in g if r.get('kind') != 'sb4']); rec4 = rec_([r for r in g if r.get('kind') == 'sb4'])
     open_ = [r for r in rows if r.get('won') is None and ts(r['start'].replace('Z', ':00Z') if len(r['start']) == 17 else r['start']) > NOW - dt.timedelta(hours=4)]
-    json.dump(dict(built=NOW.strftime('%Y-%m-%dT%H:%M:%SZ'), record=rec, rows=open_), open(OUT, 'w'), indent=1)
+    json.dump(dict(built=NOW.strftime('%Y-%m-%dT%H:%M:%SZ'), record=rec, record_sb4=rec4, rows=open_), open(OUT, 'w'), indent=1)
     print(f'[stale_live] {len(new)} new, {len(open_)} open, record {rec}')
 
 
