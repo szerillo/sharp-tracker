@@ -1,5 +1,5 @@
 {
- "built": "2026-11-10T02:00:32Z",
+ "built": "2026-11-10T02:14:35Z",
  "rows": [
   {
    "cond": "0x9dba4642f4329325c0bf83d5d0fb93f688b7ddabb745124704153fbc2b00b8f6",
@@ -74,8 +74,8 @@
    "inside_fair": true,
    "fair_board": 0.4138,
    "books": {
-    "at": "2026-11-10T00:52:45Z",
-    "fair": 0.3967,
+    "at": "2026-11-10T00:49:46Z",
+    "fair": 0.3966,
     "q": {
      "Polymarket": 0.4,
      "Novig": 0.4,
@@ -340,11 +340,11 @@
    "side_std": "away",
    "money_with": false,
    "grade": "A",
-   "fair_board": 0.5649,
+   "fair_board": 0.5666,
    "inside_fair": false,
    "books": {
-    "at": "2026-11-10T00:52:45Z",
-    "fair": 0.5649,
+    "at": "2026-11-10T01:56:01Z",
+    "fair": 0.5666,
     "q": {
      "Polymarket": 0.57,
      "Novig": 0.57,
@@ -384,7 +384,7 @@
    "home_name": "Golden State Warriors",
    "game_start": "2026-11-10T03:00Z",
    "side_std": "under",
-   "money_with": true,
+   "money_with": false,
    "grade": "watch",
    "fair_board": null,
    "inside_fair": null,
@@ -429,10 +429,10 @@
    "fair_board": null,
    "inside_fair": null,
    "books": {
-    "at": "2026-11-10T00:52:45Z",
+    "at": "2026-11-10T01:56:01Z",
     "fair": null,
     "q": {
-     "Novig": 0.535,
+     "Novig": 0.53,
      "Kalshi": 0.56
     }
    }
@@ -467,6 +467,43 @@
    "away_name": "Presbyterian Blue Hose",
    "home_name": "NC State Wolfpack",
    "game_start": "2026-11-11T00:00Z",
+   "side_std": "over",
+   "money_with": false,
+   "grade": "A",
+   "fair_board": null,
+   "inside_fair": null,
+   "books": null
+  },
+  {
+   "cond": "0x5240c570cfebc2bd8451035ddb8539994e143dc7753402c16722bcb00cb1d79f",
+   "slug": "cbb-houbap-sdak-2026-11-10",
+   "title": "Houston Christian Huskies vs. South Dakota Coyotes",
+   "mtype": "total",
+   "start": "2026-11-11T01:00:00Z",
+   "bet": "Over 155.5",
+   "side": "Over",
+   "flagged": "2026-11-10T02:01:58Z",
+   "why": "a top-200 account also in this sport's top 50",
+   "proven": true,
+   "trigger": "proven",
+   "n_accounts": 1,
+   "best_rank": 116,
+   "usd": 221,
+   "paid": 0.47,
+   "ask": 0.54,
+   "status": "live",
+   "link": "https://polymarket.us/event/cbb-houbap-sdak-2026-11-10",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401924952",
+   "sport": "cbb",
+   "league": null,
+   "away": "HCU",
+   "home": "SDAK",
+   "away_name": "Houston Christian Huskies",
+   "home_name": "South Dakota Coyotes",
+   "game_start": "2026-11-11T01:00Z",
    "side_std": "over",
    "money_with": false,
    "grade": "A",
@@ -622,11 +659,11 @@
    "fair_board": null,
    "inside_fair": null,
    "books": {
-    "at": "2026-11-10T00:52:45Z",
+    "at": "2026-11-10T01:56:01Z",
     "fair": null,
     "q": {
-     "Kalshi": 0.52,
-     "Novig": 0.535
+     "Novig": 0.53,
+     "Kalshi": 0.53
     }
    }
   },
@@ -669,7 +706,7 @@
    "side_std": "home",
    "money_with": false,
    "grade": "B",
-   "fair_board": 0.5572,
+   "fair_board": null,
    "inside_fair": null,
    "books": null
   },
@@ -842,7 +879,7 @@
    "side_std": "away",
    "money_with": false,
    "grade": "watch",
-   "fair_board": 0.2133,
+   "fair_board": null,
    "inside_fair": null,
    "books": null
   },
@@ -971,7 +1008,7 @@
    "side_std": "away",
    "money_with": false,
    "grade": "A",
-   "fair_board": 0.6377,
+   "fair_board": 0.6361,
    "inside_fair": null,
    "books": null
   },
@@ -1353,6 +1390,13 @@
     "n": 1,
     "best_rank": 116,
     "usd": 213
+   }
+  },
+  "401924952|total": {
+   "over": {
+    "n": 1,
+    "best_rank": 116,
+    "usd": 221
    }
   }
  },
