@@ -40,3 +40,30 @@ fill 3c+ under fair on Kalshi or on a moneyline as a gift (those fills lost).
   the best bid, so this bites when someone improves over us.
 - Who the other makers are and how fast they reprice. Our Pinnacle reading is up to 20 minutes old on the 10-minute tape.
 - Settled results for a small maker. All of the above is closing-line value and the all-makers average.
+
+## Parlays on Kalshi (11/10, sharp/kalshi_parlays.py, data/research/kalshi_parlays.json)
+
+Sean 11/10: "think offering parlays even more lucrative". Kalshi lists every parlay as a settled public market with its legs, so the
+makers can be scored. Sample: for each hour from Oct 27 to Nov 10, the first 2,000 parlays settled in that hour (664,000 markets,
+435,098 with trades). The taker is scored as the YES side at the last price (a trade check had the taker on YES 93 of 106 times, and
+44 of 60 sampled parlays had a single trade).
+
+| Group | Parlays | Takers paid | Makers kept | % of taker stakes | % of maker money | z (by day) |
+|---|---|---|---|---|---|---|
+| All | 435,098 | $35.7M | -$291,507 | -0.8% | -0.15% | -0.2 |
+| 2 legs | 44,626 | $9.6M | $1,564,910 | 16.3% | 7.1% | 3.7 |
+| 3 legs | 55,337 | $7.4M | $474,386 | 6.4% | 2.1% | 2.3 |
+| 4-5 legs | 95,308 | $8.0M | $2,789 | 0.0% | 0.0% | 0.0 |
+| 6+ legs | 239,827 | $10.8M | -$2,333,592 | -21.7% | -2.0% | -2.5 |
+| Priced 50c and up | 50,111 | $20.5M | -$1,139,783 | -5.6% | -25.1% | -3.6 |
+| Priced 30-50c | 44,611 | $5.1M | $439,470 | 8.7% | 5.6% | 1.5 |
+| Same game | 4,605 | $0.5M | $110,813 | 20.9% | 3.1% | 1.9 |
+| Two games | 48,141 | $9.7M | $1,472,307 | 15.2% | 6.2% | 3.3 |
+| Three or more games | 382,352 | $25.5M | -$1,874,627 | -7.4% | -1.1% | -1.5 |
+
+Read: makers as a group broke even over 15 days; the single day first looked at (11/10, +21.1%) was a good day. The money is in short
+parlays: two legs kept 16.3% of stakes and was positive in every sport sampled (NFL 50.1%, tennis 21.0%, NBA 15.7%, CFB 10.2%,
+soccer 8.2%, NHL 7.0%); three legs kept 6.4%. Long parlays (6+ legs) and heavy favorites (50c and up) lost. NBA parlays of 4+ legs
+lost 52.6% of stakes over 14 days.
+Limits: 15 days; the last price stands in for each fill; the 50c-and-up loss may be partly takers on the NO side; each hour is capped
+at 2,000 parlays. Not compared with Pinnacle leg prices yet, so this is what makers earned, not what a Pinnacle-priced quote would earn.
