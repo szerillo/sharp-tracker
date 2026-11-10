@@ -12,7 +12,9 @@ permissions:
   pages: write
   id-token: write
 concurrency:
-  group: pages
+  # 11/9: renamed from 'pages'. A run stuck 'waiting' at the github-pages gate since the 1 PM GitHub outage held that queue and could not be
+  # cancelled (GitHub refuses: 'not been queued yet'); every later publish waited behind it and was replaced.
+  group: pages-publish
   # 11/7: never cancel a deploy mid-sync. Cancelling left GitHub's side 'syncing' and the next deploys timed out (12:06-12:44 PM ET, the
   # board went stale). A running deploy finishes; only the newest waiting run is kept behind it.
   cancel-in-progress: false
