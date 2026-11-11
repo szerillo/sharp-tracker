@@ -1,5 +1,5 @@
 {
- "built": "2026-11-11T17:58:43Z",
+ "built": "2026-11-11T17:43:35Z",
  "rows": [
   {
    "cond": "0xd77d584f6a9fb2937e5c16f9494bbab607695f202db17181b51c29c5968e34a8",
@@ -63,7 +63,7 @@
    "best_rank": 116,
    "usd": 221,
    "paid": 0.47,
-   "ask": 0.47,
+   "ask": 0.45,
    "status": "live",
    "link": "https://polymarket.us/event/cbb-camp-etnst-2026-11-11",
    "other": null,
@@ -608,8 +608,8 @@
    },
    "exit_bid": 0.34,
    "kalshi_against": {
-    "move": 10.5,
-    "now": 69.5,
+    "move": 9.5,
+    "now": 68.5,
     "state": "held"
    },
    "logged": true,
@@ -628,49 +628,6 @@
    "money_with": false,
    "grade": "A",
    "fair_board": 0.3153,
-   "inside_fair": false,
-   "books": null
-  },
-  {
-   "cond": "0xf86cc9665831536126721a096dff7f7374cc0b0c40c4431d6cd91eae34479630",
-   "slug": "nba-bos-tor-2026-11-11",
-   "title": "Celtics vs. Raptors",
-   "mtype": "spread",
-   "start": "2026-11-12T00:00:00Z",
-   "bet": "Raptors +6.5",
-   "side": "Raptors",
-   "flagged": "2026-11-11T17:49:52Z",
-   "why": "2 top-200 accounts",
-   "proven": false,
-   "trigger": "two",
-   "n_accounts": 2,
-   "best_rank": 110,
-   "usd": 15676,
-   "paid": 0.533,
-   "ask": 0.55,
-   "status": "other side",
-   "link": "https://polymarket.us/event/nba-bos-tor-2026-11-11",
-   "other": {
-    "n_accounts": 1,
-    "best_rank": 112,
-    "usd": 343,
-    "first": "2026-11-11T17:56:33Z"
-   },
-   "exit_bid": 0.54,
-   "kalshi_against": null,
-   "logged": false,
-   "event_id": "401909968",
-   "sport": "nba",
-   "league": null,
-   "away": "BOS",
-   "home": "TOR",
-   "away_name": "Boston Celtics",
-   "home_name": "Toronto Raptors",
-   "game_start": "2026-11-12T00:00Z",
-   "side_std": "home",
-   "money_with": true,
-   "grade": "A",
-   "fair_board": 0.5152,
    "inside_fair": false,
    "books": null
   },
@@ -1051,11 +1008,6 @@
     "n": 3,
     "best_rank": 110,
     "usd": 21411
-   },
-   "away": {
-    "n": 1,
-    "best_rank": 112,
-    "usd": 343
    }
   },
   "401909969|ml": {
