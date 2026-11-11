@@ -1,5 +1,5 @@
 {
- "built": "2026-11-11T17:43:35Z",
+ "built": "2026-11-11T18:06:26Z",
  "rows": [
   {
    "cond": "0xd77d584f6a9fb2937e5c16f9494bbab607695f202db17181b51c29c5968e34a8",
@@ -63,7 +63,7 @@
    "best_rank": 116,
    "usd": 221,
    "paid": 0.47,
-   "ask": 0.45,
+   "ask": 0.47,
    "status": "live",
    "link": "https://polymarket.us/event/cbb-camp-etnst-2026-11-11",
    "other": null,
@@ -128,48 +128,51 @@
    "books": null
   },
   {
-   "cond": "0xf86cc9665831536126721a096dff7f7374cc0b0c40c4431d6cd91eae34479630",
-   "slug": "nba-bos-tor-2026-11-11",
-   "title": "Celtics vs. Raptors",
-   "mtype": "spread",
+   "cond": "0x50feee38cd63eaf7d2eec5d29c9bab3eaebdda0c8e51bb409ec7b162d767c861",
+   "slug": "nba-cle-nyk-2026-11-11",
+   "title": "Cavaliers vs. Knicks",
+   "mtype": "ml",
    "start": "2026-11-12T00:00:00Z",
-   "bet": "Raptors +6.5",
-   "side": "Raptors",
-   "flagged": "2026-11-11T17:49:52Z",
-   "why": "2 top-200 accounts",
-   "proven": false,
+   "bet": "Cavaliers ML",
+   "side": "Cavaliers",
+   "flagged": "2026-11-11T18:00:06Z",
+   "why": "4 top-200 accounts",
+   "proven": true,
    "trigger": "two",
-   "n_accounts": 2,
-   "best_rank": 110,
-   "usd": 15676,
-   "paid": 0.533,
-   "ask": 0.55,
+   "n_accounts": 4,
+   "best_rank": 31,
+   "usd": 6281,
+   "paid": 0.399,
+   "ask": 0.39,
    "status": "live",
-   "link": "https://polymarket.us/event/nba-bos-tor-2026-11-11",
+   "link": "https://polymarket.us/event/nba-cle-nyk-2026-11-11",
    "other": null,
    "kalshi_against": null,
    "logged": true,
-   "event_id": "401909968",
+   "event_id": "401909967",
    "sport": "nba",
    "league": null,
-   "away": "BOS",
-   "home": "TOR",
-   "away_name": "Boston Celtics",
-   "home_name": "Toronto Raptors",
+   "away": "CLE",
+   "home": "NY",
+   "away_name": "Cleveland Cavaliers",
+   "home_name": "New York Knicks",
    "game_start": "2026-11-12T00:00Z",
-   "side_std": "home",
-   "money_with": true,
+   "side_std": "away",
+   "conflict": [
+    "Kalshi bet back"
+   ],
+   "money_with": false,
    "grade": "A",
-   "fair_board": 0.5152,
+   "fair_board": 0.3676,
    "inside_fair": false,
    "books": {
     "at": "2026-11-11T17:00:02Z",
-    "fair": 0.5152,
+    "fair": 0.3676,
     "q": {
-     "Novig": 0.52,
-     "Polymarket": 0.52,
-     "DK": 0.5392,
-     "Kalshi": 0.54
+     "Polymarket": 0.37,
+     "Novig": 0.37,
+     "FD": 0.3876,
+     "Kalshi": 0.39
     }
    }
   },
@@ -514,7 +517,7 @@
    "best_rank": 49,
    "usd": 339,
    "paid": 0.55,
-   "ask": 0.63,
+   "ask": 0.65,
    "status": "live",
    "link": "https://polymarket.us/event/nfl-la-ari-2026-11-15",
    "other": null,
@@ -597,7 +600,7 @@
    "best_rank": 31,
    "usd": 41325,
    "paid": 0.327,
-   "ask": 0.35,
+   "ask": 0.34,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-bos-tor-2026-11-11",
    "other": {
@@ -606,10 +609,10 @@
     "usd": 700,
     "first": "2026-11-11T17:50:58Z"
    },
-   "exit_bid": 0.34,
+   "exit_bid": 0.33,
    "kalshi_against": {
-    "move": 9.5,
-    "now": 68.5,
+    "move": 10.5,
+    "now": 69.5,
     "state": "held"
    },
    "logged": true,
@@ -629,6 +632,49 @@
    "grade": "A",
    "fair_board": 0.3153,
    "inside_fair": false,
+   "books": null
+  },
+  {
+   "cond": "0xf86cc9665831536126721a096dff7f7374cc0b0c40c4431d6cd91eae34479630",
+   "slug": "nba-bos-tor-2026-11-11",
+   "title": "Celtics vs. Raptors",
+   "mtype": "spread",
+   "start": "2026-11-12T00:00:00Z",
+   "bet": "Raptors +6.5",
+   "side": "Raptors",
+   "flagged": "2026-11-11T17:49:52Z",
+   "why": "2 top-200 accounts",
+   "proven": false,
+   "trigger": "two",
+   "n_accounts": 2,
+   "best_rank": 110,
+   "usd": 15676,
+   "paid": 0.533,
+   "ask": 0.54,
+   "status": "other side",
+   "link": "https://polymarket.us/event/nba-bos-tor-2026-11-11",
+   "other": {
+    "n_accounts": 1,
+    "best_rank": 112,
+    "usd": 2434,
+    "first": "2026-11-11T17:56:33Z"
+   },
+   "exit_bid": 0.53,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401909968",
+   "sport": "nba",
+   "league": null,
+   "away": "BOS",
+   "home": "TOR",
+   "away_name": "Boston Celtics",
+   "home_name": "Toronto Raptors",
+   "game_start": "2026-11-12T00:00Z",
+   "side_std": "home",
+   "money_with": true,
+   "grade": "A",
+   "inside_fair": false,
+   "fair_board": 0.5152,
    "books": null
   },
   {
@@ -767,9 +813,6 @@
    "home_name": "New Orleans Pelicans",
    "game_start": "2026-11-12T01:00Z",
    "side_std": "home",
-   "conflict": [
-    "big money"
-   ],
    "money_with": false,
    "grade": "watch",
    "fair_board": 0.605,
@@ -986,9 +1029,16 @@
   },
   "401909967|ml": {
    "away": {
+    "n": 4,
+    "best_rank": 31,
+    "usd": 6281
+   }
+  },
+  "401909967|spread": {
+   "away": {
     "n": 1,
-    "best_rank": 194,
-    "usd": 370
+    "best_rank": 110,
+    "usd": 136
    }
   },
   "401909968|ml": {
@@ -1008,6 +1058,11 @@
     "n": 3,
     "best_rank": 110,
     "usd": 21411
+   },
+   "away": {
+    "n": 1,
+    "best_rank": 112,
+    "usd": 343
    }
   },
   "401909969|ml": {
