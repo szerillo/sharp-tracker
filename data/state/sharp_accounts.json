@@ -1,5 +1,5 @@
 {
- "built": "2026-11-11T22:32:39Z",
+ "built": "2026-11-11T23:02:24Z",
  "rows": [
   {
    "cond": "0xd77d584f6a9fb2937e5c16f9494bbab607695f202db17181b51c29c5968e34a8",
@@ -32,6 +32,9 @@
    "home_name": "Buffalo Sabres",
    "game_start": "2026-11-12T00:00Z",
    "side_std": "home",
+   "conflict": [
+    "big money"
+   ],
    "money_with": false,
    "grade": "A",
    "fair_board": 0.4569,
@@ -106,7 +109,7 @@
    "best_rank": 116,
    "usd": 204,
    "paid": 0.45,
-   "ask": 0.58,
+   "ask": 0.59,
    "status": "live",
    "link": "https://polymarket.us/event/cbb-jmad-del-2026-11-11",
    "other": null,
@@ -159,6 +162,7 @@
    "game_start": "2026-11-12T00:00Z",
    "side_std": "under",
    "conflict": [
+    "Kalshi move",
     "big money"
    ],
    "money_with": false,
@@ -275,7 +279,7 @@
    "best_rank": 119,
    "usd": 3307,
    "paid": 0.494,
-   "ask": 0.55,
+   "ask": 0.56,
    "status": "live",
    "link": "https://polymarket.us/event/nba-sas-chi-2026-11-11",
    "other": null,
@@ -788,8 +792,8 @@
    },
    "exit_bid": 0.33,
    "kalshi_against": {
-    "move": 8.5,
-    "now": 67.5,
+    "move": 7.5,
+    "now": 66.5,
     "state": "held"
    },
    "logged": true,
@@ -848,8 +852,8 @@
    "home_name": "Toronto Raptors",
    "game_start": "2026-11-12T00:00Z",
    "side_std": "home",
-   "money_with": false,
-   "grade": "B",
+   "money_with": true,
+   "grade": "A",
    "inside_fair": false,
    "fair_board": 0.5152,
    "books": null
@@ -940,7 +944,7 @@
    "conflict": [
     "Kalshi bet back"
    ],
-   "money_with": true,
+   "money_with": false,
    "grade": "A",
    "inside_fair": false,
    "fair_board": 0.3676,
@@ -1015,7 +1019,7 @@
    "best_rank": 43,
    "usd": 386,
    "paid": 0.62,
-   "ask": 0.6,
+   "ask": 0.59,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-bkn-nop-2026-11-11",
    "other": {
@@ -1024,7 +1028,7 @@
     "usd": 2228,
     "first": "2026-11-11T16:16:39Z"
    },
-   "exit_bid": 0.59,
+   "exit_bid": 0.58,
    "kalshi_against": null,
    "logged": true,
    "event_id": "401909972",
@@ -1042,7 +1046,7 @@
    "money_with": false,
    "grade": "watch",
    "fair_board": 0.5944,
-   "inside_fair": false,
+   "inside_fair": true,
    "books": null
   },
   {
@@ -1072,8 +1076,8 @@
    },
    "exit_bid": 0.25,
    "kalshi_against": {
-    "move": 12.0,
-    "now": 80.0,
+    "move": 6.0,
+    "now": 74.0,
     "state": "reversed"
    },
    "logged": true,
