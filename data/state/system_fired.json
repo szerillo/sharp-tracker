@@ -5401,5 +5401,39 @@
 "fair": 0.71105,
 "edge_pts": 1.11,
 "why": "Novig home side mid 0.305 inside T-1.2h; audit band 20-35c"
+},
+"401909964:xch_homedog_fade:ml": {
+"tag": "xch_homedog_fade",
+"fill_id": "d042bb49fbbb",
+"ts": "2026-11-11T01:36:54Z",
+"market": "ml",
+"side": "away",
+"line": null,
+"venue": "Novig",
+"price": -194,
+"fair": 0.65868,
+"edge_pts": -0.13,
+"why": "Novig home side mid 0.343 inside T-1.4h; audit band 20-35c",
+"now": {
+"venue": "Novig",
+"price": -194
+}
+},
+"401892689:xch_homedog_fade:spread": {
+"tag": "xch_homedog_fade",
+"fill_id": "790723d165e5",
+"ts": "2026-11-11T01:36:54Z",
+"market": "spread",
+"side": "away",
+"line": 1.5,
+"venue": "Novig",
+"price": -217,
+"fair": 0.67771,
+"edge_pts": -0.73,
+"why": "Novig home side mid 0.320 inside T-1.4h; audit band 20-35c",
+"now": {
+"venue": "Polymarket",
+"price": -213
+}
 }
 }
