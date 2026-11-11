@@ -1,5 +1,5 @@
 {
- "built": "2026-11-11T19:04:28Z",
+ "built": "2026-11-11T19:19:02Z",
  "rows": [
   {
    "cond": "0xd77d584f6a9fb2937e5c16f9494bbab607695f202db17181b51c29c5968e34a8",
@@ -628,7 +628,7 @@
    "conflict": [
     "Kalshi move"
    ],
-   "money_with": true,
+   "money_with": false,
    "grade": "A",
    "fair_board": 0.334,
    "inside_fair": false,
@@ -813,9 +813,6 @@
    "home_name": "New Orleans Pelicans",
    "game_start": "2026-11-12T01:00Z",
    "side_std": "home",
-   "conflict": [
-    "big money"
-   ],
    "money_with": false,
    "grade": "watch",
    "fair_board": 0.5974,
@@ -990,9 +987,9 @@
   "401909971:nba_bigfav_over": {
    "with": null,
    "against": {
-    "n": 1,
-    "best_rank": 143,
-    "usd": 133
+    "n": 2,
+    "best_rank": 110,
+    "usd": 2887
    }
   }
  },
@@ -1098,16 +1095,16 @@
   },
   "401909971|spread": {
    "away": {
-    "n": 1,
-    "best_rank": 194,
-    "usd": 247
+    "n": 2,
+    "best_rank": 110,
+    "usd": 3903
    }
   },
   "401909971|total": {
    "under": {
-    "n": 1,
-    "best_rank": 143,
-    "usd": 133
+    "n": 2,
+    "best_rank": 110,
+    "usd": 2887
    }
   },
   "401909972|ml": {
