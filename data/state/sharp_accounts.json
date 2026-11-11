@@ -1,5 +1,5 @@
 {
- "built": "2026-11-11T16:06:35Z",
+ "built": "2026-11-11T16:20:28Z",
  "rows": [
   {
    "cond": "0xd77d584f6a9fb2937e5c16f9494bbab607695f202db17181b51c29c5968e34a8",
@@ -208,55 +208,6 @@
      "DK": 0.5192,
      "FD": 0.5238,
      "Caesars": 0.5238
-    }
-   }
-  },
-  {
-   "cond": "0x0ca4e718c52ecd21a49fe745209756729a011fe868086939160158d3e5cd7684",
-   "slug": "nba-bkn-nop-2026-11-11",
-   "title": "Nets vs. Pelicans",
-   "mtype": "ml",
-   "start": "2026-11-12T01:00:00Z",
-   "bet": "Pelicans ML",
-   "side": "Pelicans",
-   "flagged": "2026-11-10T19:30:45Z",
-   "why": "a top-50 account",
-   "proven": false,
-   "trigger": "top50",
-   "n_accounts": 1,
-   "best_rank": 43,
-   "usd": 386,
-   "paid": 0.62,
-   "ask": 0.64,
-   "status": "live",
-   "link": "https://polymarket.us/event/nba-bkn-nop-2026-11-11",
-   "other": null,
-   "kalshi_against": null,
-   "logged": true,
-   "event_id": "401909972",
-   "sport": "nba",
-   "league": null,
-   "away": "BKN",
-   "home": "NO",
-   "away_name": "Brooklyn Nets",
-   "home_name": "New Orleans Pelicans",
-   "game_start": "2026-11-12T01:00Z",
-   "side_std": "home",
-   "conflict": [
-    "big money"
-   ],
-   "money_with": false,
-   "grade": "watch",
-   "fair_board": 0.6348,
-   "inside_fair": false,
-   "books": {
-    "at": "2026-11-11T16:00:44Z",
-    "fair": 0.6348,
-    "q": {
-     "Novig": 0.635,
-     "Polymarket": 0.64,
-     "Kalshi": 0.65,
-     "DK": 0.6503
     }
    }
   },
@@ -572,7 +523,7 @@
    "best_rank": 43,
    "usd": 11531,
    "paid": 0.284,
-   "ask": 0.31,
+   "ask": 0.32,
    "status": "live",
    "link": "https://polymarket.us/event/nba-bos-tor-2026-11-11",
    "other": null,
@@ -661,6 +612,52 @@
      "DK": 0.1176
     }
    }
+  },
+  {
+   "cond": "0x0ca4e718c52ecd21a49fe745209756729a011fe868086939160158d3e5cd7684",
+   "slug": "nba-bkn-nop-2026-11-11",
+   "title": "Nets vs. Pelicans",
+   "mtype": "ml",
+   "start": "2026-11-12T01:00:00Z",
+   "bet": "Pelicans ML",
+   "side": "Pelicans",
+   "flagged": "2026-11-10T19:30:45Z",
+   "why": "a top-50 account",
+   "proven": false,
+   "trigger": "top50",
+   "n_accounts": 1,
+   "best_rank": 43,
+   "usd": 386,
+   "paid": 0.62,
+   "ask": 0.61,
+   "status": "other side",
+   "link": "https://polymarket.us/event/nba-bkn-nop-2026-11-11",
+   "other": {
+    "n_accounts": 1,
+    "best_rank": 43,
+    "usd": 2228,
+    "first": "2026-11-11T16:16:39Z"
+   },
+   "exit_bid": 0.6,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401909972",
+   "sport": "nba",
+   "league": null,
+   "away": "BKN",
+   "home": "NO",
+   "away_name": "Brooklyn Nets",
+   "home_name": "New Orleans Pelicans",
+   "game_start": "2026-11-12T01:00Z",
+   "side_std": "home",
+   "conflict": [
+    "big money"
+   ],
+   "money_with": false,
+   "grade": "watch",
+   "fair_board": 0.6348,
+   "inside_fair": true,
+   "books": null
   },
   {
    "cond": "0x36dfe6c00ce22c8d125894d3cff971f302187abaf4b2c4e4a1864640b9f05ce0",
@@ -919,6 +916,11 @@
     "n": 1,
     "best_rank": 43,
     "usd": 386
+   },
+   "away": {
+    "n": 1,
+    "best_rank": 43,
+    "usd": 1617
    }
   },
   "401909973|ml": {
