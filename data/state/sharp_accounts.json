@@ -1,5 +1,5 @@
 {
- "built": "2026-11-11T00:20:48Z",
+ "built": "2026-11-11T00:27:45Z",
  "rows": [
   {
    "cond": "0xfa30c2ac9ab8894137b8844540c19e2f977f6a53e522440c42cf71cadf0a2c57",
@@ -122,52 +122,6 @@
    }
   },
   {
-   "cond": "0x5a00be1e849975a7c2997222d657f42b3adf03215c37e6138493510c6eccb70d",
-   "slug": "nba-mil-nyk-2026-11-10",
-   "title": "Bucks vs. Knicks",
-   "mtype": "spread",
-   "start": "2026-11-11T00:30:00Z",
-   "bet": "Knicks -15.5",
-   "side": "Knicks",
-   "flagged": "2026-11-10T23:15:06Z",
-   "why": "3 top-200 accounts",
-   "proven": false,
-   "trigger": "two",
-   "n_accounts": 3,
-   "best_rank": 112,
-   "usd": 66181,
-   "paid": 0.5,
-   "ask": 0.51,
-   "status": "live",
-   "link": "https://polymarket.us/event/nba-mil-nyk-2026-11-10",
-   "other": null,
-   "kalshi_against": null,
-   "logged": true,
-   "event_id": "401909960",
-   "sport": "nba",
-   "league": null,
-   "away": "MIL",
-   "home": "NY",
-   "away_name": "Milwaukee Bucks",
-   "home_name": "New York Knicks",
-   "game_start": "2026-11-11T00:30Z",
-   "side_std": "home",
-   "money_with": false,
-   "grade": "B",
-   "inside_fair": false,
-   "fair_board": 0.4914,
-   "books": {
-    "at": "2026-11-10T23:56:39Z",
-    "fair": 0.5197,
-    "q": {
-     "Polymarket": 0.49,
-     "FD": 0.5192,
-     "Caesars": 0.5238,
-     "Novig": 0.53
-    }
-   }
-  },
-  {
    "cond": "0xaa2fe942a6e92c6ee1440e0afa6d5e9cadc06997369630e293c5f8e0171c7483",
    "slug": "nba-mil-nyk-2026-11-10",
    "title": "Bucks vs. Knicks",
@@ -183,7 +137,7 @@
    "best_rank": 112,
    "usd": 5890,
    "paid": 0.531,
-   "ask": 0.55,
+   "ask": 0.54,
    "status": "live",
    "link": "https://polymarket.us/event/nba-mil-nyk-2026-11-10",
    "other": null,
@@ -204,53 +158,6 @@
    "fair_board": null,
    "inside_fair": null,
    "books": null
-  },
-  {
-   "cond": "0x04dfd84740c878cd0006b04d9659d8d1f015268d28b852bb69ba42210d78a087",
-   "slug": "nba-mil-nyk-2026-11-10",
-   "title": "Bucks vs. Knicks",
-   "mtype": "spread",
-   "start": "2026-11-11T00:30:00Z",
-   "bet": "Knicks -16.5",
-   "side": "Knicks",
-   "flagged": "2026-11-10T23:15:07Z",
-   "why": "2 top-200 accounts",
-   "proven": false,
-   "trigger": "two",
-   "n_accounts": 2,
-   "best_rank": 112,
-   "usd": 12867,
-   "paid": 0.464,
-   "ask": 0.48,
-   "status": "live",
-   "link": "https://polymarket.us/event/nba-mil-nyk-2026-11-10",
-   "other": null,
-   "kalshi_against": null,
-   "logged": false,
-   "ladder": true,
-   "event_id": "401909960",
-   "sport": "nba",
-   "league": null,
-   "away": "MIL",
-   "home": "NY",
-   "away_name": "Milwaukee Bucks",
-   "home_name": "New York Knicks",
-   "game_start": "2026-11-11T00:30Z",
-   "side_std": "home",
-   "money_with": false,
-   "grade": "B",
-   "fair_board": 0.4805,
-   "inside_fair": true,
-   "books": {
-    "at": "2026-11-10T23:56:39Z",
-    "fair": 0.4805,
-    "q": {
-     "Novig": 0.48,
-     "Polymarket": 0.49,
-     "Kalshi": 0.5,
-     "FD": 0.5192
-    }
-   }
   },
   {
    "cond": "0x5240c570cfebc2bd8451035ddb8539994e143dc7753402c16722bcb00cb1d79f",
@@ -833,6 +740,93 @@
    }
   },
   {
+   "cond": "0x5a00be1e849975a7c2997222d657f42b3adf03215c37e6138493510c6eccb70d",
+   "slug": "nba-mil-nyk-2026-11-10",
+   "title": "Bucks vs. Knicks",
+   "mtype": "spread",
+   "start": "2026-11-11T00:30:00Z",
+   "bet": "Knicks -15.5",
+   "side": "Knicks",
+   "flagged": "2026-11-10T23:15:06Z",
+   "why": "3 top-200 accounts",
+   "proven": false,
+   "trigger": "two",
+   "n_accounts": 3,
+   "best_rank": 112,
+   "usd": 66181,
+   "paid": 0.5,
+   "ask": 0.48,
+   "status": "other side",
+   "link": "https://polymarket.us/event/nba-mil-nyk-2026-11-10",
+   "other": {
+    "n_accounts": 1,
+    "best_rank": 112,
+    "usd": 35000,
+    "first": "2026-11-11T00:21:06Z"
+   },
+   "exit_bid": 0.47,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401909960",
+   "sport": "nba",
+   "league": null,
+   "away": "MIL",
+   "home": "NY",
+   "away_name": "Milwaukee Bucks",
+   "home_name": "New York Knicks",
+   "game_start": "2026-11-11T00:30Z",
+   "side_std": "home",
+   "money_with": false,
+   "grade": "B",
+   "inside_fair": false,
+   "fair_board": 0.4914,
+   "books": null
+  },
+  {
+   "cond": "0x04dfd84740c878cd0006b04d9659d8d1f015268d28b852bb69ba42210d78a087",
+   "slug": "nba-mil-nyk-2026-11-10",
+   "title": "Bucks vs. Knicks",
+   "mtype": "spread",
+   "start": "2026-11-11T00:30:00Z",
+   "bet": "Knicks -16.5",
+   "side": "Knicks",
+   "flagged": "2026-11-10T23:15:07Z",
+   "why": "2 top-200 accounts",
+   "proven": false,
+   "trigger": "two",
+   "n_accounts": 2,
+   "best_rank": 112,
+   "usd": 12867,
+   "paid": 0.464,
+   "ask": 0.47,
+   "status": "other side",
+   "link": "https://polymarket.us/event/nba-mil-nyk-2026-11-10",
+   "other": {
+    "n_accounts": 1,
+    "best_rank": 112,
+    "usd": 13657,
+    "first": "2026-11-11T00:21:19Z"
+   },
+   "exit_bid": 0.46,
+   "kalshi_against": null,
+   "logged": false,
+   "ladder": true,
+   "event_id": "401909960",
+   "sport": "nba",
+   "league": null,
+   "away": "MIL",
+   "home": "NY",
+   "away_name": "Milwaukee Bucks",
+   "home_name": "New York Knicks",
+   "game_start": "2026-11-11T00:30Z",
+   "side_std": "home",
+   "money_with": false,
+   "grade": "B",
+   "fair_board": 0.4805,
+   "inside_fair": true,
+   "books": null
+  },
+  {
    "cond": "0xd6ba59e228e7b3dd1b87379df52264634cff63b94a8dc4d385f9d92a61bdfb63",
    "slug": "nba-mia-uta-2026-11-10",
    "title": "Heat vs. Jazz",
@@ -848,7 +842,7 @@
    "best_rank": 112,
    "usd": 81778,
    "paid": 0.49,
-   "ask": 0.43,
+   "ask": 0.44,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-mia-uta-2026-11-10",
    "other": {
@@ -857,7 +851,7 @@
     "usd": 21502,
     "first": "2026-11-11T00:15:06Z"
    },
-   "exit_bid": 0.42,
+   "exit_bid": 0.43,
    "kalshi_against": null,
    "logged": true,
    "event_id": "401909963",
@@ -940,7 +934,7 @@
    "best_rank": 110,
    "usd": 5725,
    "paid": 0.549,
-   "ask": 0.56,
+   "ask": 0.57,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-orl-sac-2026-11-10",
    "other": {
@@ -949,7 +943,7 @@
     "usd": 296,
     "first": "2026-11-10T21:04:49Z"
    },
-   "exit_bid": 0.55,
+   "exit_bid": 0.56,
    "kalshi_against": null,
    "logged": true,
    "event_id": "401909964",
@@ -1215,9 +1209,9 @@
     "usd": 66181
    },
    "away": {
-    "n": 1,
-    "best_rank": 154,
-    "usd": 107
+    "n": 2,
+    "best_rank": 112,
+    "usd": 35107
    }
   },
   "401909961|ml": {
@@ -1248,9 +1242,9 @@
   },
   "401909963|ml": {
    "away": {
-    "n": 1,
-    "best_rank": 93,
-    "usd": 394
+    "n": 2,
+    "best_rank": 55,
+    "usd": 1172
    },
    "home": {
     "n": 4,
