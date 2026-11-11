@@ -1,7 +1,14 @@
 # Novig quoter: build plan (paper only)
 
 Sean, via Kirk, 11/11: lay out the plan to build a Novig quoter, paper only; no live orders until Sean signs off. Nothing below places
-an order. Evidence: data/research/novig_maker_select.json (11 days, Oct 31 to Nov 9: every Novig maker fill on a market Pinnacle also
+an order.
+
+Refresh 11/11 22:35 UTC: the select file was rerun through 11/10 (our Pinnacle tape starts 10/30, so in practice 10/30 to 11/10). No
+headline row changed sign; every z moved by 1.1 or less; the share of edge kept to the close in the last hour moved by 1 to 8 points
+(spreads 76%, totals 67%, team totals 76%, period lines 87%, moneylines 74%, props 57%). The table in section 1 is the 11/9 version and
+the conclusions stand. The history file could not be refreshed in substance: see section 7.
+
+Evidence: data/research/novig_maker_select.json (11 days, Oct 31 to Nov 9: every Novig maker fill on a market Pinnacle also
 quotes, priced against Pinnacle's no-vig fair at the fill, 30 minutes later and at the close) and novig_maker_history.json (Aug 3 to
 Nov 6, settled results). Current paper offers: data/state/offers_record.json.
 
@@ -110,6 +117,12 @@ The 9 AM check-in did not run (the scheduled task was disabled when this session
    Pinnacle read than our tape; none of that is built or started.
 
 ## 7. Multiple testing note on the history file
+
+Date range caveat (found 11/11): the history file counts settled fills only, and Novig's history API has rejected our key since about
+11/4 ("signature verification failed", 401), so no settled results reach the catalog after that. Fills from about 10/29 on are dropped
+(6,017,596 as "no win/loss result"). The file says Aug 3 to Nov 10 but in substance covers Aug 3 to about Oct 28; a rerun on 11/11
+returned every row unchanged. Fix: Sean updates the NOVIG_KEY_ID / NOVIG_PRIVATE_KEY secrets (the key was due for rotation); the
+tracker job's backfill then fills the gap and the history run can be repeated.
 
 novig_maker_history.json reports 392 cuts. "type time | team total | last hour" (+10.37%, z 3.25) is one of them: 10 cuts reach z 3.25 or
 more, against 0.45 expected by chance alone; Bonferroni puts its adjusted p at about 0.45 (the critical z for 392 cuts at 5% is 3.83).
