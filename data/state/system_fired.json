@@ -5402,10 +5402,36 @@
 "edge_pts": 1.11,
 "why": "Novig home side mid 0.305 inside T-1.2h; audit band 20-35c"
 },
+"401909970:nba_ats_hot_home": {
+"tag": "nba_ats_hot_home",
+"fill_id": "833de65e02a2",
+"ts": "2026-11-11T01:51:39Z",
+"market": "spread",
+"side": "home",
+"line": 4.5,
+"venue": "DK",
+"price": -114,
+"fair": 0.51271,
+"edge_pts": -2.0,
+"why": "home MEM covers 70% of spreads this season (10 games), 2 days rest: home spread (mined angle)"
+},
+"401909972:nba_under_good_home_over_small": {
+"tag": "nba_under_good_home_over_small",
+"fill_id": "7f2c45ba13e8",
+"ts": "2026-11-11T01:51:39Z",
+"market": "total",
+"side": "under",
+"line": 229.5,
+"venue": "DK",
+"price": -110,
+"fair": 0.5,
+"edge_pts": -2.38,
+"why": "home NO over rate 63%, days since last game: home 2, visitor 3; total 230.5 -> 229.5"
+},
 "401909964:xch_homedog_fade:ml": {
 "tag": "xch_homedog_fade",
-"fill_id": "d042bb49fbbb",
-"ts": "2026-11-11T01:36:54Z",
+"fill_id": "3aa33b299523",
+"ts": "2026-11-11T01:51:39Z",
 "market": "ml",
 "side": "away",
 "line": null,
@@ -5413,16 +5439,12 @@
 "price": -194,
 "fair": 0.65868,
 "edge_pts": -0.13,
-"why": "Novig home side mid 0.343 inside T-1.4h; audit band 20-35c",
-"now": {
-"venue": "Novig",
-"price": -194
-}
+"why": "Novig home side mid 0.343 inside T-1.1h; audit band 20-35c"
 },
 "401892689:xch_homedog_fade:spread": {
 "tag": "xch_homedog_fade",
-"fill_id": "790723d165e5",
-"ts": "2026-11-11T01:36:54Z",
+"fill_id": "efd84247ac4b",
+"ts": "2026-11-11T01:51:39Z",
 "market": "spread",
 "side": "away",
 "line": 1.5,
@@ -5430,10 +5452,6 @@
 "price": -217,
 "fair": 0.67771,
 "edge_pts": -0.73,
-"why": "Novig home side mid 0.320 inside T-1.4h; audit band 20-35c",
-"now": {
-"venue": "Polymarket",
-"price": -213
-}
+"why": "Novig home side mid 0.320 inside T-1.1h; audit band 20-35c"
 }
 }
