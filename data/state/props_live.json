@@ -1,10 +1,10 @@
 {
- "built": "2026-11-11T06:30:02Z",
+ "built": "2026-11-11T06:40:56Z",
  "record": {
-  "n": 13,
+  "n": 14,
   "won": 6,
-  "lost": 7,
-  "units": -0.28,
+  "lost": 8,
+  "units": -0.53,
   "line_value": {
    "n": 3,
    "avg": 0.0,
@@ -28,38 +28,5 @@
    }
   }
  },
- "rows": [
-  {
-   "key": "78ab42ddb22b68903fd53a384d0fc616|player_threes|Anthony Black|1.5",
-   "sport": "nba",
-   "odds_id": "78ab42ddb22b68903fd53a384d0fc616",
-   "espn": "401909964",
-   "game": "Orlando Magic @ Sacramento Kings",
-   "start": "2026-11-11T03:10:00Z",
-   "market": "player_threes",
-   "player": "Anthony Black",
-   "line": 1.5,
-   "side": "under",
-   "book": "DK",
-   "price": 2.13,
-   "fair": 0.496,
-   "ev": 5.6,
-   "pin_under": 1.88,
-   "pin_over": 1.85,
-   "book_over": 1.67,
-   "fair_power": 0.4955,
-   "book_fair": 0.4395,
-   "fair_gap": 5.7,
-   "ev_strict": 5.5,
-   "pin_ts": "2026-11-11T02:41:37Z",
-   "book_ts": "2026-11-11T02:41:59Z",
-   "flagged": "2026-11-11T02:42:39Z",
-   "close_ts": "2026-11-11T03:02:42Z",
-   "close_line": 1.5,
-   "close_fair": 0.4893,
-   "clv": 1.98,
-   "beat_fair": -0.67,
-   "line_value": 0.0
-  }
- ]
+ "rows": []
 }
