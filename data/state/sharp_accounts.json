@@ -1,5 +1,5 @@
 {
- "built": "2026-11-11T00:27:45Z",
+ "built": "2026-11-11T00:35:28Z",
  "rows": [
   {
    "cond": "0xfa30c2ac9ab8894137b8844540c19e2f977f6a53e522440c42cf71cadf0a2c57",
@@ -137,7 +137,7 @@
    "best_rank": 112,
    "usd": 5890,
    "paid": 0.531,
-   "ask": 0.54,
+   "ask": null,
    "status": "live",
    "link": "https://polymarket.us/event/nba-mil-nyk-2026-11-10",
    "other": null,
@@ -419,7 +419,7 @@
    "best_rank": 116,
    "usd": 221,
    "paid": 0.47,
-   "ask": 0.6,
+   "ask": 0.78,
    "status": "live",
    "link": "https://polymarket.us/event/cbb-camp-etnst-2026-11-11",
    "other": null,
@@ -432,6 +432,43 @@
    "home": "ETSU",
    "away_name": "Campbell Fighting Camels",
    "home_name": "East Tennessee State Buccaneers",
+   "game_start": "2026-11-12T00:00Z",
+   "side_std": "over",
+   "money_with": false,
+   "grade": "A",
+   "fair_board": null,
+   "inside_fair": null,
+   "books": null
+  },
+  {
+   "cond": "0x7404650d8c7d769455740c7b9fc6c6d694f2dc0e01579c5deb05fdc05c6cc632",
+   "slug": "cbb-jmad-del-2026-11-11",
+   "title": "James Madison Dukes vs. Delaware Fightin' Blue Hens",
+   "mtype": "total",
+   "start": "2026-11-12T00:00:00Z",
+   "bet": "Over 147.5",
+   "side": "Over",
+   "flagged": "2026-11-11T00:34:31Z",
+   "why": "a top-200 account also in this sport's top 50",
+   "proven": true,
+   "trigger": "proven",
+   "n_accounts": 1,
+   "best_rank": 116,
+   "usd": 204,
+   "paid": 0.45,
+   "ask": 0.69,
+   "status": "live",
+   "link": "https://polymarket.us/event/cbb-jmad-del-2026-11-11",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401920903",
+   "sport": "cbb",
+   "league": null,
+   "away": "JMU",
+   "home": "DEL",
+   "away_name": "James Madison Dukes",
+   "home_name": "Delaware Blue Hens",
    "game_start": "2026-11-12T00:00Z",
    "side_std": "over",
    "money_with": false,
@@ -755,7 +792,7 @@
    "best_rank": 112,
    "usd": 66181,
    "paid": 0.5,
-   "ask": 0.48,
+   "ask": null,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-mil-nyk-2026-11-10",
    "other": {
@@ -764,7 +801,7 @@
     "usd": 35000,
     "first": "2026-11-11T00:21:06Z"
    },
-   "exit_bid": 0.47,
+   "exit_bid": null,
    "kalshi_against": null,
    "logged": true,
    "event_id": "401909960",
@@ -798,7 +835,7 @@
    "best_rank": 112,
    "usd": 12867,
    "paid": 0.464,
-   "ask": 0.47,
+   "ask": null,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-mil-nyk-2026-11-10",
    "other": {
@@ -807,7 +844,7 @@
     "usd": 13657,
     "first": "2026-11-11T00:21:19Z"
    },
-   "exit_bid": 0.46,
+   "exit_bid": null,
    "kalshi_against": null,
    "logged": false,
    "ladder": true,
@@ -823,7 +860,7 @@
    "money_with": false,
    "grade": "B",
    "fair_board": 0.4805,
-   "inside_fair": true,
+   "inside_fair": null,
    "books": null
   },
   {
@@ -909,9 +946,6 @@
    "home_name": "Sacramento Kings",
    "game_start": "2026-11-11T03:00Z",
    "side_std": "home",
-   "conflict": [
-    "big money"
-   ],
    "money_with": false,
    "grade": "B",
    "inside_fair": true,
@@ -1014,13 +1048,13 @@
    "bet": "Bulls ML",
    "side": "Bulls",
    "flagged": "2026-11-10T10:00:18Z",
-   "why": "a top-50 account",
+   "why": "2 top-200 accounts",
    "proven": false,
-   "trigger": "top50",
-   "n_accounts": 1,
+   "trigger": "two",
+   "n_accounts": 2,
    "best_rank": 43,
-   "usd": 660,
-   "paid": 0.11,
+   "usd": 774,
+   "paid": 0.111,
    "ask": 0.12,
    "status": "live",
    "link": "https://polymarket.us/event/nba-sas-chi-2026-11-11",
@@ -1044,7 +1078,7 @@
     "Kalshi move"
    ],
    "money_with": false,
-   "grade": "watch",
+   "grade": "B",
    "fair_board": 0.1294,
    "inside_fair": true,
    "books": {
@@ -1163,14 +1197,6 @@
     "best_rank": 69,
     "usd": 337
    }
-  },
-  "401909960:nba_bigfav_over": {
-   "with": null,
-   "against": {
-    "n": 1,
-    "best_rank": 115,
-    "usd": 3930
-   }
   }
  },
  "by_event": {
@@ -1186,32 +1212,6 @@
     "n": 1,
     "best_rank": 49,
     "usd": 137
-   }
-  },
-  "401909960|ml": {
-   "away": {
-    "n": 1,
-    "best_rank": 93,
-    "usd": 216
-   }
-  },
-  "401909960|total": {
-   "under": {
-    "n": 1,
-    "best_rank": 115,
-    "usd": 3930
-   }
-  },
-  "401909960|spread": {
-   "home": {
-    "n": 3,
-    "best_rank": 112,
-    "usd": 66181
-   },
-   "away": {
-    "n": 2,
-    "best_rank": 112,
-    "usd": 35107
    }
   },
   "401909961|ml": {
@@ -1259,9 +1259,9 @@
     "usd": 30755
    },
    "away": {
-    "n": 2,
+    "n": 3,
     "best_rank": 112,
-    "usd": 8772
+    "usd": 9266
    }
   },
   "401909964|ml": {
@@ -1309,9 +1309,9 @@
   },
   "401909969|ml": {
    "home": {
-    "n": 1,
+    "n": 2,
     "best_rank": 43,
-    "usd": 660
+    "usd": 774
    }
   },
   "401909970|ml": {
@@ -1352,13 +1352,6 @@
     "n": 1,
     "best_rank": 93,
     "usd": 549
-   }
-  },
-  "401892686|ml": {
-   "away": {
-    "n": 1,
-    "best_rank": 115,
-    "usd": 24448
    }
   },
   "401892690|ml": {
@@ -1422,6 +1415,13 @@
     "n": 1,
     "best_rank": 116,
     "usd": 230
+   }
+  },
+  "401920903|total": {
+   "over": {
+    "n": 1,
+    "best_rank": 116,
+    "usd": 204
    }
   },
   "401920740|total": {
