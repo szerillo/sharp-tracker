@@ -1,5 +1,5 @@
 {
- "built": "2026-11-10T23:50:45Z",
+ "built": "2026-11-11T00:01:57Z",
  "record": {
   "cbb_1h_total_curve": {
    "n": 2,
@@ -28,7 +28,18 @@
    "n": 4,
    "won": 2,
    "lost": 2,
-   "units": -0.17
+   "units": -0.17,
+   "clv": {
+    "n": 1,
+    "avg": -3.88,
+    "beat": 0
+   },
+   "line_value": {
+    "n": 1,
+    "avg": 0.0,
+    "better": 0,
+    "worse": 0
+   }
   },
   "nhl_p3_under_curve": {
    "n": 11,
@@ -36,12 +47,12 @@
    "lost": 8,
    "units": -2.23,
    "clv": {
-    "n": 2,
-    "avg": -2.5,
+    "n": 5,
+    "avg": -2.43,
     "beat": 0
    },
    "line_value": {
-    "n": 2,
+    "n": 5,
     "avg": 0.0,
     "better": 0,
     "worse": 0
@@ -82,7 +93,13 @@
    "book_fair": 0.5714,
    "fair_gap": -0.1,
    "ev_curve": 8.9,
-   "flagged": "2026-11-10T21:22:19Z"
+   "flagged": "2026-11-10T21:22:19Z",
+   "close_ts": "2026-11-11T00:01:57Z",
+   "close_line": 2.5,
+   "line_value": 0.0,
+   "close_fair": 0.5652,
+   "clv": -4.09,
+   "beat_fair": -0.48
   },
   {
    "key": "nhl_p3_under_curve|11f3c6f0f406c5ffb575dbcd671cf964||under",
@@ -107,7 +124,13 @@
    "pin_price": 2.12,
    "book": null,
    "price": null,
-   "flagged": "2026-11-10T21:22:19Z"
+   "flagged": "2026-11-10T21:22:19Z",
+   "close_ts": "2026-11-11T00:01:57Z",
+   "close_line": 2.0,
+   "line_value": 0.0,
+   "close_fair": 0.4588,
+   "clv": -1.29,
+   "beat_fair": 0.48
   },
   {
    "key": "nhl_p1_spread_curve|0e5af7e0f9734ecda4b3c3013712deb6||away",
@@ -136,7 +159,13 @@
    "book_fair": 0.6506,
    "fair_gap": 0.0,
    "ev_curve": 5.2,
-   "flagged": "2026-11-10T22:19:25Z"
+   "flagged": "2026-11-10T22:19:25Z",
+   "close_ts": "2026-11-11T00:01:57Z",
+   "close_line": 0.5,
+   "line_value": 0.0,
+   "close_fair": 0.6509,
+   "clv": -3.88,
+   "beat_fair": -0.01
   },
   {
    "key": "nhl_p3_under_curve|0e5af7e0f9734ecda4b3c3013712deb6||under",
@@ -161,42 +190,13 @@
    "pin_price": 2.11,
    "book": null,
    "price": null,
-   "flagged": "2026-11-10T22:19:25Z"
-  },
-  {
-   "key": "cbb_1h_total_curve|56e97d53de1e7bf6c31ad2b111448a6b||over",
-   "rule": "cbb_1h_total_curve",
-   "tier": "C",
-   "stake": 0.25,
-   "sport": "cbb",
-   "odds_id": "56e97d53de1e7bf6c31ad2b111448a6b",
-   "espn": null,
-   "game": "Elon Phoenix @ GW Revolutionaries",
-   "start": "2026-11-11T00:00:00Z",
-   "market": "totals_h1",
-   "team": null,
-   "team_name": null,
-   "side": "over",
-   "line": 68.0,
-   "curve": 0.564,
-   "pin_fair": 0.484,
-   "gap": 7.9,
-   "full_total": 147.0,
-   "full_spread": -13.5,
-   "pin_price": 1.97,
-   "book": "Caesars",
-   "price": 1.91,
-   "pin_fair_power": 0.4831,
-   "book_fair": 0.4893,
-   "fair_gap": -0.5,
-   "ev_curve": 7.6,
-   "flagged": "2026-11-10T23:50:45Z",
-   "close_ts": "2026-11-10T23:50:45Z",
-   "close_line": 68.0,
+   "flagged": "2026-11-10T22:19:25Z",
+   "close_ts": "2026-11-11T00:01:57Z",
+   "close_line": 2.0,
    "line_value": 0.0,
-   "close_fair": 0.4843,
-   "clv": -3.93,
-   "beat_fair": 0.03
+   "close_fair": 0.4562,
+   "clv": -1.77,
+   "beat_fair": -0.18
   }
  ]
 }
