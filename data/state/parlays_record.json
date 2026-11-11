@@ -1,60 +1,60 @@
 {
-"updated": "2026-11-11T18:05:55Z",
-"logged": 1921,
-"settled": 1329,
+"updated": "2026-11-11T18:18:38Z",
+"logged": 1934,
+"settled": 1332,
 "rows": {
 "2 legs": {
-"n": 709,
-"stake": 94811,
-"maker_pnl": 19832,
+"n": 710,
+"stake": 94826,
+"maker_pnl": 19846,
 "pct_of_stakes": 20.9,
 "expected_from_legs": 4.1,
 "hit": 29.2,
 "days": 2
 },
 "3 legs": {
-"n": 620,
-"stake": 49000,
-"maker_pnl": 8259,
+"n": 622,
+"stake": 49048,
+"maker_pnl": 8284,
 "pct_of_stakes": 16.9,
-"expected_from_legs": 7.5,
-"hit": 24.8,
+"expected_from_legs": 7.4,
+"hit": 24.9,
 "days": 2
 },
 "all": {
-"n": 1329,
-"stake": 143811,
-"maker_pnl": 28091,
-"pct_of_stakes": 19.5,
+"n": 1332,
+"stake": 143874,
+"maker_pnl": 28131,
+"pct_of_stakes": 19.6,
 "expected_from_legs": 5.2,
 "hit": 27.2,
 "days": 2
 },
 "different games": {
-"n": 804,
-"stake": 98812,
-"maker_pnl": 16558,
+"n": 806,
+"stake": 98855,
+"maker_pnl": 16601,
 "pct_of_stakes": 16.8,
 "expected_from_legs": 2.8,
-"hit": 28.0,
+"hit": 27.9,
 "days": 2
 },
 "different games | 0-3% over": {
-"n": 274,
-"stake": 47374,
-"maker_pnl": -6578,
+"n": 275,
+"stake": 47389,
+"maker_pnl": -6564,
 "pct_of_stakes": -13.9,
 "expected_from_legs": 2.0,
-"hit": 33.6,
+"hit": 33.5,
 "days": 2
 },
 "different games | 3-8% over": {
-"n": 272,
-"stake": 34450,
-"maker_pnl": 19046,
+"n": 273,
+"stake": 34479,
+"maker_pnl": 19074,
 "pct_of_stakes": 55.3,
 "expected_from_legs": 4.3,
-"hit": 25.7,
+"hit": 25.6,
 "days": 2
 },
 "different games | 8%+ over": {
@@ -76,12 +76,12 @@
 "days": 2
 },
 "same game": {
-"n": 525,
-"stake": 44999,
-"maker_pnl": 11533,
+"n": 526,
+"stake": 45019,
+"maker_pnl": 11530,
 "pct_of_stakes": 25.6,
 "expected_from_legs": 10.6,
-"hit": 25.9,
+"hit": 26.0,
 "days": 2
 },
 "same game | 0-3% over": {
@@ -94,12 +94,12 @@
 "days": 2
 },
 "same game | 3-8% over": {
-"n": 92,
-"stake": 13897,
-"maker_pnl": 6454,
+"n": 93,
+"stake": 13916,
+"maker_pnl": 6451,
 "pct_of_stakes": 46.4,
 "expected_from_legs": 5.1,
-"hit": 29.3,
+"hit": 30.1,
 "days": 2
 },
 "same game | 8%+ over": {
