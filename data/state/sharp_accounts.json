@@ -1,5 +1,5 @@
 {
- "built": "2026-11-11T17:43:35Z",
+ "built": "2026-11-11T17:58:43Z",
  "rows": [
   {
    "cond": "0xd77d584f6a9fb2937e5c16f9494bbab607695f202db17181b51c29c5968e34a8",
@@ -63,7 +63,7 @@
    "best_rank": 116,
    "usd": 221,
    "paid": 0.47,
-   "ask": 0.45,
+   "ask": 0.47,
    "status": "live",
    "link": "https://polymarket.us/event/cbb-camp-etnst-2026-11-11",
    "other": null,
@@ -244,6 +244,43 @@
    "side_std": "under",
    "money_with": false,
    "grade": "A",
+   "fair_board": null,
+   "inside_fair": null,
+   "books": null
+  },
+  {
+   "cond": "0xe0b9ecc9a8d221b1e88c0b97e8189a85829f2934bd6cda007f123ed72c6f02e8",
+   "slug": "nba-sas-chi-2026-11-11",
+   "title": "Spurs vs. Bulls",
+   "mtype": "total",
+   "start": "2026-11-12T01:00:00Z",
+   "bet": "Under 239.5",
+   "side": "Under",
+   "flagged": "2026-11-11T17:52:22Z",
+   "why": "2 top-200 accounts",
+   "proven": false,
+   "trigger": "two",
+   "n_accounts": 2,
+   "best_rank": 119,
+   "usd": 3307,
+   "paid": 0.494,
+   "ask": 0.54,
+   "status": "live",
+   "link": "https://polymarket.us/event/nba-sas-chi-2026-11-11",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401909969",
+   "sport": "nba",
+   "league": null,
+   "away": "SA",
+   "home": "CHI",
+   "away_name": "San Antonio Spurs",
+   "home_name": "Chicago Bulls",
+   "game_start": "2026-11-12T01:00Z",
+   "side_std": "under",
+   "money_with": false,
+   "grade": "B",
    "fair_board": null,
    "inside_fair": null,
    "books": null
@@ -477,7 +514,7 @@
    "best_rank": 49,
    "usd": 339,
    "paid": 0.55,
-   "ask": 0.64,
+   "ask": 0.63,
    "status": "live",
    "link": "https://polymarket.us/event/nfl-la-ari-2026-11-15",
    "other": null,
@@ -571,8 +608,8 @@
    },
    "exit_bid": 0.34,
    "kalshi_against": {
-    "move": 9.5,
-    "now": 68.5,
+    "move": 10.5,
+    "now": 69.5,
     "state": "held"
    },
    "logged": true,
@@ -591,6 +628,49 @@
    "money_with": false,
    "grade": "A",
    "fair_board": 0.3153,
+   "inside_fair": false,
+   "books": null
+  },
+  {
+   "cond": "0xf86cc9665831536126721a096dff7f7374cc0b0c40c4431d6cd91eae34479630",
+   "slug": "nba-bos-tor-2026-11-11",
+   "title": "Celtics vs. Raptors",
+   "mtype": "spread",
+   "start": "2026-11-12T00:00:00Z",
+   "bet": "Raptors +6.5",
+   "side": "Raptors",
+   "flagged": "2026-11-11T17:49:52Z",
+   "why": "2 top-200 accounts",
+   "proven": false,
+   "trigger": "two",
+   "n_accounts": 2,
+   "best_rank": 110,
+   "usd": 15676,
+   "paid": 0.533,
+   "ask": 0.55,
+   "status": "other side",
+   "link": "https://polymarket.us/event/nba-bos-tor-2026-11-11",
+   "other": {
+    "n_accounts": 1,
+    "best_rank": 112,
+    "usd": 343,
+    "first": "2026-11-11T17:56:33Z"
+   },
+   "exit_bid": 0.54,
+   "kalshi_against": null,
+   "logged": false,
+   "event_id": "401909968",
+   "sport": "nba",
+   "league": null,
+   "away": "BOS",
+   "home": "TOR",
+   "away_name": "Boston Celtics",
+   "home_name": "Toronto Raptors",
+   "game_start": "2026-11-12T00:00Z",
+   "side_std": "home",
+   "money_with": true,
+   "grade": "A",
+   "fair_board": 0.5152,
    "inside_fair": false,
    "books": null
   },
@@ -899,9 +979,9 @@
   "401909969:nba_bigfav_over": {
    "with": null,
    "against": {
-    "n": 1,
-    "best_rank": 143,
-    "usd": 275
+    "n": 2,
+    "best_rank": 119,
+    "usd": 721
    }
   },
   "401909971:nba_bigfav_over": {
@@ -971,6 +1051,11 @@
     "n": 3,
     "best_rank": 110,
     "usd": 21411
+   },
+   "away": {
+    "n": 1,
+    "best_rank": 112,
+    "usd": 343
    }
   },
   "401909969|ml": {
@@ -982,9 +1067,9 @@
   },
   "401909969|total": {
    "under": {
-    "n": 1,
-    "best_rank": 143,
-    "usd": 275
+    "n": 2,
+    "best_rank": 119,
+    "usd": 721
    }
   },
   "401909969|spread": {
