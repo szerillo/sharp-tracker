@@ -1,5 +1,5 @@
 {
- "built": "2026-11-11T23:17:12Z",
+ "built": "2026-11-11T23:23:30Z",
  "rows": [
   {
    "cond": "0xd77d584f6a9fb2937e5c16f9494bbab607695f202db17181b51c29c5968e34a8",
@@ -174,6 +174,44 @@
    }
   },
   {
+   "cond": "0xf64f3819e6cde4dde310f312af7c697b6da778f2a6a8e3cd4cf94a6ed1e99ae3",
+   "slug": "nba-bos-tor-2026-11-11",
+   "title": "Celtics vs. Raptors",
+   "mtype": "spread",
+   "start": "2026-11-12T00:00:00Z",
+   "bet": "Raptors +4.5",
+   "side": "Raptors",
+   "flagged": "2026-11-11T23:20:46Z",
+   "why": "2 top-200 accounts",
+   "proven": false,
+   "trigger": "two",
+   "n_accounts": 2,
+   "best_rank": 112,
+   "usd": 9993,
+   "paid": 0.467,
+   "ask": 0.49,
+   "status": "live",
+   "link": "https://polymarket.us/event/nba-bos-tor-2026-11-11",
+   "other": null,
+   "kalshi_against": null,
+   "logged": false,
+   "ladder": true,
+   "event_id": "401909968",
+   "sport": "nba",
+   "league": null,
+   "away": "BOS",
+   "home": "TOR",
+   "away_name": "Boston Celtics",
+   "home_name": "Toronto Raptors",
+   "game_start": "2026-11-12T00:00Z",
+   "side_std": "home",
+   "money_with": true,
+   "grade": "A",
+   "fair_board": null,
+   "inside_fair": null,
+   "books": null
+  },
+  {
    "cond": "0x4c3660be5d5b26642e60b2643807c91aab47caf87e18a8d0f53a62fa6e543ff8",
    "slug": "cfb-sacst-cmich-2026-11-11",
    "title": "Sacramento State vs. Central Michigan",
@@ -272,7 +310,7 @@
    "best_rank": 119,
    "usd": 3307,
    "paid": 0.494,
-   "ask": 0.56,
+   "ask": 0.58,
    "status": "live",
    "link": "https://polymarket.us/event/nba-sas-chi-2026-11-11",
    "other": null,
@@ -547,7 +585,7 @@
    "best_rank": 43,
    "usd": 108,
    "paid": 0.76,
-   "ask": 0.79,
+   "ask": 0.82,
    "status": "live",
    "link": "https://polymarket.us/event/nba-det-was-2026-11-12",
    "other": null,
@@ -785,7 +823,7 @@
    "best_rank": 31,
    "usd": 41325,
    "paid": 0.327,
-   "ask": 0.34,
+   "ask": 0.35,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-bos-tor-2026-11-11",
    "other": {
@@ -794,7 +832,7 @@
     "usd": 5272,
     "first": "2026-11-11T17:50:58Z"
    },
-   "exit_bid": 0.33,
+   "exit_bid": 0.34,
    "kalshi_against": {
     "move": 7.5,
     "now": 66.5,
@@ -816,7 +854,7 @@
    "money_with": true,
    "grade": "A",
    "fair_board": 0.341,
-   "inside_fair": true,
+   "inside_fair": false,
    "books": null
   },
   {
@@ -878,7 +916,7 @@
    "best_rank": 43,
    "usd": 1975,
    "paid": 0.43,
-   "ask": 0.42,
+   "ask": 0.41,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-was-ind-2026-11-11",
    "other": {
@@ -887,7 +925,7 @@
     "usd": 2521,
     "first": "2026-11-11T17:25:31Z"
    },
-   "exit_bid": 0.41,
+   "exit_bid": 0.4,
    "kalshi_against": null,
    "logged": true,
    "event_id": "401909966",
@@ -924,7 +962,7 @@
    "best_rank": 31,
    "usd": 6281,
    "paid": 0.399,
-   "ask": 0.35,
+   "ask": 0.34,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-cle-nyk-2026-11-11",
    "other": {
@@ -933,7 +971,7 @@
     "usd": 3528,
     "first": "2026-11-11T20:47:51Z"
    },
-   "exit_bid": 0.34,
+   "exit_bid": 0.33,
    "kalshi_against": null,
    "logged": true,
    "event_id": "401909967",
@@ -1119,7 +1157,7 @@
    "best_rank": 43,
    "usd": 131,
    "paid": 0.325,
-   "ask": 0.36,
+   "ask": 0.37,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-dal-min-2026-11-12",
    "other": {
@@ -1319,9 +1357,9 @@
   },
   "401909968|spread": {
    "home": {
-    "n": 3,
+    "n": 4,
     "best_rank": 110,
-    "usd": 21411
+    "usd": 25484
    },
    "away": {
     "n": 1,
