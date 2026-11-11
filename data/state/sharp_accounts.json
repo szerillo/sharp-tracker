@@ -1,5 +1,5 @@
 {
- "built": "2026-11-11T22:18:07Z",
+ "built": "2026-11-11T22:25:32Z",
  "rows": [
   {
    "cond": "0xd77d584f6a9fb2937e5c16f9494bbab607695f202db17181b51c29c5968e34a8",
@@ -123,6 +123,46 @@
    "side_std": "over",
    "money_with": false,
    "grade": "A",
+   "fair_board": null,
+   "inside_fair": null,
+   "books": null
+  },
+  {
+   "cond": "0xfa0cf0b8512574582784d1b3ce3a0f3a8e2a6468214b9cd9ef8cdef8ecbbaedd",
+   "slug": "nba-cle-nyk-2026-11-11",
+   "title": "Cavaliers vs. Knicks",
+   "mtype": "total",
+   "start": "2026-11-12T00:00:00Z",
+   "bet": "Under 221.5",
+   "side": "Under",
+   "flagged": "2026-11-11T22:22:24Z",
+   "why": "2 top-200 accounts",
+   "proven": false,
+   "trigger": "two",
+   "n_accounts": 2,
+   "best_rank": 76,
+   "usd": 5664,
+   "paid": 0.5,
+   "ask": 0.48,
+   "status": "live",
+   "link": "https://polymarket.us/event/nba-cle-nyk-2026-11-11",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401909967",
+   "sport": "nba",
+   "league": null,
+   "away": "CLE",
+   "home": "NY",
+   "away_name": "Cleveland Cavaliers",
+   "home_name": "New York Knicks",
+   "game_start": "2026-11-12T00:00Z",
+   "side_std": "under",
+   "conflict": [
+    "big money"
+   ],
+   "money_with": false,
+   "grade": "B",
    "fair_board": null,
    "inside_fair": null,
    "books": null
@@ -728,7 +768,7 @@
    "best_rank": 31,
    "usd": 41325,
    "paid": 0.327,
-   "ask": 0.33,
+   "ask": 0.34,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-bos-tor-2026-11-11",
    "other": {
@@ -737,7 +777,7 @@
     "usd": 5272,
     "first": "2026-11-11T17:50:58Z"
    },
-   "exit_bid": 0.32,
+   "exit_bid": 0.33,
    "kalshi_against": {
     "move": 7.5,
     "now": 66.5,
@@ -759,7 +799,7 @@
    "money_with": false,
    "grade": "A",
    "fair_board": 0.3328,
-   "inside_fair": true,
+   "inside_fair": false,
    "books": null
   },
   {
@@ -778,7 +818,7 @@
    "best_rank": 110,
    "usd": 15676,
    "paid": 0.533,
-   "ask": 0.53,
+   "ask": 0.54,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-bos-tor-2026-11-11",
    "other": {
@@ -787,7 +827,7 @@
     "usd": 3443,
     "first": "2026-11-11T17:56:33Z"
    },
-   "exit_bid": 0.52,
+   "exit_bid": 0.53,
    "kalshi_against": null,
    "logged": true,
    "event_id": "401909968",
@@ -867,7 +907,7 @@
    "best_rank": 31,
    "usd": 6281,
    "paid": 0.399,
-   "ask": 0.37,
+   "ask": 0.35,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-cle-nyk-2026-11-11",
    "other": {
@@ -876,7 +916,7 @@
     "usd": 3528,
     "first": "2026-11-11T20:47:51Z"
    },
-   "exit_bid": 0.36,
+   "exit_bid": 0.34,
    "kalshi_against": null,
    "logged": true,
    "event_id": "401909967",
@@ -1209,9 +1249,9 @@
   },
   "401909967|total": {
    "under": {
-    "n": 1,
+    "n": 2,
     "best_rank": 76,
-    "usd": 2000
+    "usd": 5664
    }
   },
   "401909967|ml": {
