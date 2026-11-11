@@ -1,5 +1,5 @@
 {
- "built": "2026-11-11T19:19:02Z",
+ "built": "2026-11-11T19:25:02Z",
  "rows": [
   {
    "cond": "0xd77d584f6a9fb2937e5c16f9494bbab607695f202db17181b51c29c5968e34a8",
@@ -465,6 +465,43 @@
    }
   },
   {
+   "cond": "0x0c637d60a9447423c980eaf62fd805a2a0a8cc27823c4b7ec2582525a754163b",
+   "slug": "nfl-min-gb-2026-11-15",
+   "title": "Vikings vs. Packers",
+   "mtype": "spread",
+   "start": "2026-11-15T18:00:00Z",
+   "bet": "Vikings +6.5",
+   "side": "Vikings",
+   "flagged": "2026-11-11T19:18:58Z",
+   "why": "a top-50 account",
+   "proven": false,
+   "trigger": "top50",
+   "n_accounts": 1,
+   "best_rank": 12,
+   "usd": 104,
+   "paid": 0.602,
+   "ask": 0.65,
+   "status": "live",
+   "link": "https://polymarket.us/event/nfl-min-gb-2026-11-15",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401873060",
+   "sport": "nfl",
+   "league": null,
+   "away": "MIN",
+   "home": "GB",
+   "away_name": "Minnesota Vikings",
+   "home_name": "Green Bay Packers",
+   "game_start": "2026-11-15T18:00Z",
+   "side_std": "away",
+   "money_with": false,
+   "grade": "B",
+   "fair_board": null,
+   "inside_fair": null,
+   "books": null
+  },
+  {
    "cond": "0x3b773f3b5203b36a388f1a3f242b5012e7d4eb0b8fd6f3773f23185485b99c8f",
    "slug": "nfl-la-ari-2026-11-15",
    "title": "Rams vs. Cardinals",
@@ -517,7 +554,7 @@
    "best_rank": 49,
    "usd": 339,
    "paid": 0.55,
-   "ask": 0.63,
+   "ask": 0.64,
    "status": "live",
    "link": "https://polymarket.us/event/nfl-la-ari-2026-11-15",
    "other": null,
@@ -994,6 +1031,13 @@
   }
  },
  "by_event": {
+  "401873060|spread": {
+   "away": {
+    "n": 1,
+    "best_rank": 12,
+    "usd": 104
+   }
+  },
   "401873061|total": {
    "under": {
     "n": 1,
@@ -1124,6 +1168,11 @@
     "n": 1,
     "best_rank": 143,
     "usd": 121
+   },
+   "away": {
+    "n": 1,
+    "best_rank": 93,
+    "usd": 702
    }
   },
   "401909974|ml": {
