@@ -1,5 +1,5 @@
 {
- "built": "2026-11-10T23:58:52Z",
+ "built": "2026-11-11T00:06:16Z",
  "rows": [
   {
    "cond": "0xfa30c2ac9ab8894137b8844540c19e2f977f6a53e522440c42cf71cadf0a2c57",
@@ -17,7 +17,7 @@
    "best_rank": 116,
    "usd": 213,
    "paid": 0.46,
-   "ask": 0.66,
+   "ask": null,
    "status": "live",
    "link": "https://polymarket.us/event/cbb-presb-ncst-2026-11-10",
    "other": null,
@@ -54,7 +54,7 @@
    "best_rank": 116,
    "usd": 221,
    "paid": 0.47,
-   "ask": 0.47,
+   "ask": null,
    "status": "live",
    "link": "https://polymarket.us/event/cbb-det-xav-2026-11-10",
    "other": null,
@@ -91,7 +91,7 @@
    "best_rank": 79,
    "usd": 5785,
    "paid": 0.54,
-   "ask": 0.54,
+   "ask": null,
    "status": "live",
    "link": "https://polymarket.us/event/nhl-min-mon-2026-11-10",
    "other": null,
@@ -310,7 +310,7 @@
    "best_rank": 116,
    "usd": 221,
    "paid": 0.47,
-   "ask": 0.56,
+   "ask": 0.57,
    "status": "live",
    "link": "https://polymarket.us/event/cbb-narz-arz-2026-11-10",
    "other": null,
@@ -551,7 +551,7 @@
    "best_rank": 116,
    "usd": 221,
    "paid": 0.47,
-   "ask": 0.62,
+   "ask": 0.7,
    "status": "live",
    "link": "https://polymarket.us/event/cbb-camp-etnst-2026-11-11",
    "other": null,
@@ -950,9 +950,6 @@
    "home_name": "Sacramento Kings",
    "game_start": "2026-11-11T03:00Z",
    "side_std": "home",
-   "conflict": [
-    "big money"
-   ],
    "money_with": false,
    "grade": "B",
    "inside_fair": true,
@@ -1342,27 +1339,6 @@
     "usd": 549
    }
   },
-  "401892683|ml": {
-   "away": {
-    "n": 1,
-    "best_rank": 132,
-    "usd": 533
-   }
-  },
-  "401892684|ml": {
-   "away": {
-    "n": 1,
-    "best_rank": 79,
-    "usd": 5785
-   }
-  },
-  "401892685|ml": {
-   "home": {
-    "n": 1,
-    "best_rank": 132,
-    "usd": 351
-   }
-  },
   "401892686|ml": {
    "away": {
     "n": 1,
@@ -1396,20 +1372,6 @@
     "n": 1,
     "best_rank": 132,
     "usd": 403
-   }
-  },
-  "401918957|total": {
-   "over": {
-    "n": 1,
-    "best_rank": 116,
-    "usd": 213
-   }
-  },
-  "401909543|total": {
-   "over": {
-    "n": 1,
-    "best_rank": 116,
-    "usd": 221
    }
   },
   "401924952|total": {
