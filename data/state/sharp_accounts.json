@@ -1,5 +1,5 @@
 {
- "built": "2026-11-11T22:32:39Z",
+ "built": "2026-11-11T22:55:09Z",
  "rows": [
   {
    "cond": "0xd77d584f6a9fb2937e5c16f9494bbab607695f202db17181b51c29c5968e34a8",
@@ -17,7 +17,7 @@
    "best_rank": 69,
    "usd": 156,
    "paid": 0.46,
-   "ask": 0.46,
+   "ask": 0.45,
    "status": "live",
    "link": "https://polymarket.us/event/nhl-tb-buf-2026-11-11",
    "other": null,
@@ -35,7 +35,7 @@
    "money_with": false,
    "grade": "A",
    "fair_board": 0.4569,
-   "inside_fair": false,
+   "inside_fair": true,
    "books": {
     "at": "2026-11-11T21:03:23Z",
     "fair": 0.4569,
@@ -143,7 +143,7 @@
    "best_rank": 76,
    "usd": 5664,
    "paid": 0.5,
-   "ask": 0.5,
+   "ask": 0.51,
    "status": "live",
    "link": "https://polymarket.us/event/nba-cle-nyk-2026-11-11",
    "other": null,
@@ -275,7 +275,7 @@
    "best_rank": 119,
    "usd": 3307,
    "paid": 0.494,
-   "ask": 0.55,
+   "ask": 0.56,
    "status": "live",
    "link": "https://polymarket.us/event/nba-sas-chi-2026-11-11",
    "other": null,
@@ -788,8 +788,8 @@
    },
    "exit_bid": 0.33,
    "kalshi_against": {
-    "move": 8.5,
-    "now": 67.5,
+    "move": 9.5,
+    "now": 68.5,
     "state": "held"
    },
    "logged": true,
@@ -1072,8 +1072,8 @@
    },
    "exit_bid": 0.25,
    "kalshi_against": {
-    "move": 12.0,
-    "now": 80.0,
+    "move": 5.0,
+    "now": 73.0,
     "state": "reversed"
    },
    "logged": true,
