@@ -299,7 +299,7 @@ function renderVenues() {
   return h;
 }
 
-const SPORT_LABEL = {nfl: 'NFL', nba: 'NBA', nhl: 'NHL', cfb: 'CFB', cbb: 'CBB', wnba: 'WNBA', tennis: 'Tennis', soccer: 'Soccer', mma: 'MMA', mlb: 'MLB'};
+const SPORT_LABEL = {nfl: 'NFL', nba: 'NBA', nhl: 'NHL', cfb: 'CFB', cbb: 'CBB', wnba: 'WNBA', wncaab: 'WNCAAB', tennis: 'Tennis', soccer: 'Soccer', mma: 'MMA', mlb: 'MLB'};
 // Moves are stored as the home / over side's devigged probability. Everything shown to the reader is in the terms of the side the
 // market moved TOWARD: its own probability and American price, so "toward Under" always pairs with the under getting shorter.
 const sideP = (m, p) => p == null ? null : ((m.side === 'home' || m.side === 'over') ? p : 1 - p);
@@ -361,7 +361,7 @@ function sysCards(list) {
 window._tf = window._tf || {sport: '', league: ''};
 window._when = window._when || 'today';
 const LEAGUE_LABEL = {epl: 'EPL', laliga: 'La Liga', bundesliga: 'Bundesliga', seriea: 'Serie A', ligue1: 'Ligue 1', mls: 'MLS', ucl: 'Champions League', uel: 'Europa League', ligamx: 'Liga MX', atp: 'ATP', wta: 'WTA', itf: 'ITF', challenger: 'Challenger'};
-const SPORT_ORDER = ['nfl', 'cfb', 'nba', 'cbb', 'nhl', 'soccer', 'mma', 'tennis', 'wnba', 'mlb'];
+const SPORT_ORDER = ['nfl', 'cfb', 'nba', 'cbb', 'nhl', 'soccer', 'mma', 'tennis', 'wnba', 'wncaab', 'mlb'];
 const etDay = d => new Date(d).toLocaleDateString('en-CA', {timeZone: 'America/New_York'});
 const DAYT = iso => new Date(iso).toLocaleString('en-US', {timeZone: 'America/New_York', weekday: 'short', month: 'short', day: 'numeric', hour: 'numeric', minute: '2-digit'}) + ' ET';
 // 'today' = starts before the next 6 AM ET (Sean, 11/2: tonight plus the overnight / morning tennis; next-day soccer goes to Later)
@@ -1411,7 +1411,7 @@ const BLW = {all: ['All dates', () => true], live: ['In progress', b => ['live',
 const BLG = {all: 'All bets', systems: 'Systems', sharp: 'Sharp', paper: 'Paper rules'};
 const blGroup = b => b.cat === 'paper P' ? 'paper' : /^sharp/.test(b.cat) ? 'sharp' : ['system A', 'system B', 'lean C', 'tennis'].includes(b.cat) ? 'systems' : 'watch';
 const blRule = b => b.rule ? String(b.rule).split(' | ')[0] : (b.cat === 'tennis' ? 'tennis_hot_fav' : null);
-const RULE_NAME = {stale_book_sb4: 'Stale sportsbook moneyline, 4%+', cbb_1h_total_curve: 'CBB 1H total off the curve', cfb_q1_under_curve: 'CFB 1Q under off the curve', cfb_tt_under_curve: 'CFB team-total under off the curve', nba_threes_under_gap: 'NBA threes under, price gap', nhl_prop_under_gap: 'NHL prop under, price gap', stale_book: 'Stale book after a Pinnacle move', wind1014: 'NFL wind 10-14 under', wind1014_1h: 'NFL wind 10-14 1H under', cfb_wind14: 'CFB wind 14+ under', vrest8_1h: 'NFL visitor off long rest 1H under',
+const RULE_NAME = {stale_book_sb4: 'Stale sportsbook moneyline, 4%+', wncaab_dog_7_10: "Women's CBB dog +7 to +10", wncaab_move_follow: "Women's CBB: follow a 1+ point spread move", cbb_1h_total_curve: 'CBB 1H total off the curve', cfb_q1_under_curve: 'CFB 1Q under off the curve', cfb_tt_under_curve: 'CFB team-total under off the curve', nba_threes_under_gap: 'NBA threes under, price gap', nhl_prop_under_gap: 'NHL prop under, price gap', stale_book: 'Stale book after a Pinnacle move', wind1014: 'NFL wind 10-14 under', wind1014_1h: 'NFL wind 10-14 1H under', cfb_wind14: 'CFB wind 14+ under', vrest8_1h: 'NFL visitor off long rest 1H under',
   mnf_1h: 'MNF 1H under', awfuldog: 'NFL fade bad-margin dogs', bounce15_1h: 'NFL bounce after 15+ loss 1H', nfl_home_dog_7510: 'NFL home dog 7.5-10',
   nhl_bounce_home_ml: 'NHL home bounce ML', nhl_pl_fav_gap: 'NHL PL fav, win% gap', nhl_pl_fav_strong_opp: 'NHL PL fav vs strong opp', nhl_pl_dog_bigml: 'NHL PL dog, big ML',
   nba_1h_under_hot_over: 'NBA 1H under, hot-over teams', nhl_early_home_fav_qual: 'NHL early-season home fav', nba_under_good_home_over: 'NBA under, good home over team',

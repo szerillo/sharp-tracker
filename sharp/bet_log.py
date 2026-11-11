@@ -280,6 +280,15 @@ def main():
             bets.append(dict(id=f"sb:{p['key']}", src='paper', cat='paper P', rule='stale_book_sb4' if p.get('kind') == 'sb4' else 'stale_book', sport=p['sport'], event_id=p['event_id'], game=p['game'],
                              start=p['start'].replace('Z', ':00Z') if len(p['start']) == 17 else p['start'], market=p['market'], side=p['side'], line=p.get('line'), flagged=p['flagged'],
                              venue=p['venue'], price=p['price'], won=W_(p.get('won'))))
+    # ---- 11/10 women's college basketball paper rules (loggers/wncaab_live.py; graded in their own log from ESPN finals)
+    wp_ = os.path.join(SD, 'wncaab_paper.jsonl')
+    if os.path.exists(wp_):
+        for l in open(wp_):
+            try: p = json.loads(l)
+            except Exception: continue
+            bets.append(dict(id=f"wc:{p['key']}", src='paper', cat='paper P', rule=p['rule'], sport='wncaab', event_id=p.get('espn') or p['event_id'], game=p['game'],
+                             start=p['start'], market='spread', side=p['side'], line=p['line'], flagged=p['flagged'], venue=p['book'], price=p['price'],
+                             won=W_(p.get('won')), bet=p.get('bet')))
     # ---- price paths
     # 11/7 (Sean: "have it update quicker"): the tape is the slow part (43.7M tick lines a run, 95% of this step). A game 12+ hours past its
     # start has a final close, CLV and line movement, so those fields are kept in data/state/bet_paths.json and its tape is not read again.
