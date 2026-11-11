@@ -1,5 +1,5 @@
 {
- "built": "2026-11-11T23:05:30Z",
+ "built": "2026-11-11T23:17:14Z",
  "record": {
   "n": 14,
   "won": 6,
@@ -28,5 +28,32 @@
    }
   }
  },
- "rows": []
+ "rows": [
+  {
+   "key": "79041ec71c97248859299c4b6211cc17|player_shots_on_goal|Jake Guentzel|2.5",
+   "sport": "nhl",
+   "odds_id": "79041ec71c97248859299c4b6211cc17",
+   "espn": "401892690",
+   "game": "Tampa Bay Lightning @ Buffalo Sabres",
+   "start": "2026-11-12T00:10:00Z",
+   "market": "player_shots_on_goal",
+   "player": "Jake Guentzel",
+   "line": 2.5,
+   "side": "under",
+   "book": "DK",
+   "price": 1.91,
+   "fair": 0.5348,
+   "ev": 2.1,
+   "pin_under": 1.74,
+   "pin_over": 2.0,
+   "book_over": 1.8,
+   "fair_power": 0.5388,
+   "book_fair": 0.4852,
+   "fair_gap": 5.0,
+   "ev_strict": 2.1,
+   "pin_ts": "2026-11-11T23:16:31Z",
+   "book_ts": "2026-11-11T23:17:14Z",
+   "flagged": "2026-11-11T23:17:14Z"
+  }
+ ]
 }
