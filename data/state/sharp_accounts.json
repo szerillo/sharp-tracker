@@ -1,5 +1,5 @@
 {
- "built": "2026-11-11T01:29:41Z",
+ "built": "2026-11-11T01:50:45Z",
  "rows": [
   {
    "cond": "0xfa30c2ac9ab8894137b8844540c19e2f977f6a53e522440c42cf71cadf0a2c57",
@@ -219,7 +219,7 @@
    "best_rank": 116,
    "usd": 221,
    "paid": 0.47,
-   "ask": 0.53,
+   "ask": 0.54,
    "status": "live",
    "link": "https://polymarket.us/event/cbb-narz-arz-2026-11-10",
    "other": null,
@@ -419,7 +419,7 @@
    "best_rank": 116,
    "usd": 221,
    "paid": 0.47,
-   "ask": 0.68,
+   "ask": 0.69,
    "status": "live",
    "link": "https://polymarket.us/event/cbb-camp-etnst-2026-11-11",
    "other": null,
@@ -456,7 +456,7 @@
    "best_rank": 116,
    "usd": 204,
    "paid": 0.45,
-   "ask": 0.55,
+   "ask": 0.54,
    "status": "live",
    "link": "https://polymarket.us/event/cbb-jmad-del-2026-11-11",
    "other": null,
@@ -708,7 +708,7 @@
    "best_rank": 49,
    "usd": 339,
    "paid": 0.55,
-   "ask": 0.63,
+   "ask": 0.64,
    "status": "live",
    "link": "https://polymarket.us/event/nfl-la-ari-2026-11-15",
    "other": null,
@@ -879,7 +879,7 @@
    "best_rank": 12,
    "usd": 89892,
    "paid": 0.486,
-   "ask": 0.52,
+   "ask": 0.51,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-mia-uta-2026-11-10",
    "other": {
@@ -888,7 +888,7 @@
     "usd": 28425,
     "first": "2026-11-11T00:15:06Z"
    },
-   "exit_bid": 0.51,
+   "exit_bid": 0.5,
    "kalshi_against": null,
    "logged": true,
    "event_id": "401909963",
@@ -1208,6 +1208,18 @@
     "n": 4,
     "best_rank": 23,
     "usd": 5715
+   }
+  },
+  "401909964:xch_homedog_fade:ml": {
+   "with": {
+    "n": 2,
+    "best_rank": 55,
+    "usd": 1252
+   },
+   "against": {
+    "n": 3,
+    "best_rank": 55,
+    "usd": 2379
    }
   }
  },
