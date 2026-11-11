@@ -1,5 +1,5 @@
 {
- "built": "2026-11-11T02:46:26Z",
+ "built": "2026-11-11T02:53:25Z",
  "rows": [
   {
    "cond": "0xfa30c2ac9ab8894137b8844540c19e2f977f6a53e522440c42cf71cadf0a2c57",
@@ -397,7 +397,7 @@
    "best_rank": 116,
    "usd": 221,
    "paid": 0.47,
-   "ask": 0.68,
+   "ask": 0.67,
    "status": "live",
    "link": "https://polymarket.us/event/cbb-camp-etnst-2026-11-11",
    "other": null,
@@ -441,7 +441,7 @@
    "best_rank": 116,
    "usd": 204,
    "paid": 0.45,
-   "ask": 0.56,
+   "ask": 0.63,
    "status": "live",
    "link": "https://polymarket.us/event/cbb-jmad-del-2026-11-11",
    "other": null,
@@ -608,6 +608,52 @@
      "Kalshi": 0.48,
      "Caesars": 0.4808,
      "DK": 0.4878
+    }
+   }
+  },
+  {
+   "cond": "0xb1ea56aad24b7403dc1639243135a3cc96b378b3dd27a9440b6132262f215786",
+   "slug": "cbb-usc-cah-2026-11-11",
+   "title": "USC Trojans vs. California Golden Bears",
+   "mtype": "total",
+   "start": "2026-11-12T04:00:00Z",
+   "bet": "Over 160.5",
+   "side": "Over",
+   "flagged": "2026-11-11T02:50:22Z",
+   "why": "a top-200 account also in this sport's top 50",
+   "proven": true,
+   "trigger": "proven",
+   "n_accounts": 1,
+   "best_rank": 116,
+   "usd": 221,
+   "paid": 0.47,
+   "ask": 0.97,
+   "status": "live",
+   "link": "https://polymarket.us/event/cbb-usc-cah-2026-11-11",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401918054",
+   "sport": "cbb",
+   "league": null,
+   "away": "USC",
+   "home": "CAL",
+   "away_name": "USC Trojans",
+   "home_name": "California Golden Bears",
+   "game_start": "2026-11-12T04:00Z",
+   "side_std": "over",
+   "money_with": false,
+   "grade": "A",
+   "fair_board": 0.5005,
+   "inside_fair": false,
+   "books": {
+    "at": "2026-11-11T02:31:02Z",
+    "fair": 0.5005,
+    "q": {
+     "Kalshi": 0.52,
+     "DK": 0.5238,
+     "Caesars": 0.5238,
+     "FD": 0.5349
     }
    }
   },
@@ -979,6 +1025,9 @@
    "home_name": "Sacramento Kings",
    "game_start": "2026-11-11T03:00Z",
    "side_std": "home",
+   "conflict": [
+    "big money"
+   ],
    "money_with": false,
    "grade": "B",
    "fair_board": null,
@@ -1023,6 +1072,9 @@
    "home_name": "Sacramento Kings",
    "game_start": "2026-11-11T03:00Z",
    "side_std": "home",
+   "conflict": [
+    "big money"
+   ],
    "money_with": false,
    "grade": "B",
    "fair_board": null,
@@ -1050,8 +1102,8 @@
    "link": "https://polymarket.us/event/nba-sas-chi-2026-11-11",
    "other": null,
    "kalshi_against": {
-    "move": 5.0,
-    "now": 88.5,
+    "move": 6.0,
+    "now": 89.5,
     "state": "reversed"
    },
    "logged": true,
@@ -1342,6 +1394,13 @@
    }
   },
   "401920740|total": {
+   "over": {
+    "n": 1,
+    "best_rank": 116,
+    "usd": 221
+   }
+  },
+  "401918054|total": {
    "over": {
     "n": 1,
     "best_rank": 116,
