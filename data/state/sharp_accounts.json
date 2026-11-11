@@ -1,5 +1,5 @@
 {
- "built": "2026-11-11T17:30:34Z",
+ "built": "2026-11-11T17:43:35Z",
  "rows": [
   {
    "cond": "0xd77d584f6a9fb2937e5c16f9494bbab607695f202db17181b51c29c5968e34a8",
@@ -63,7 +63,7 @@
    "best_rank": 116,
    "usd": 221,
    "paid": 0.47,
-   "ask": 0.44,
+   "ask": 0.45,
    "status": "live",
    "link": "https://polymarket.us/event/cbb-camp-etnst-2026-11-11",
    "other": null,
@@ -519,8 +519,8 @@
    "link": "https://polymarket.us/event/nba-bos-tor-2026-11-11",
    "other": null,
    "kalshi_against": {
-    "move": 10.5,
-    "now": 69.5,
+    "move": 9.5,
+    "now": 68.5,
     "state": "held"
    },
    "logged": true,
@@ -687,6 +687,9 @@
    "home_name": "New Orleans Pelicans",
    "game_start": "2026-11-12T01:00Z",
    "side_std": "home",
+   "conflict": [
+    "big money"
+   ],
    "money_with": false,
    "grade": "watch",
    "fair_board": 0.605,
