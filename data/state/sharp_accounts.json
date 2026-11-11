@@ -1,5 +1,5 @@
 {
- "built": "2026-11-11T19:32:24Z",
+ "built": "2026-11-11T19:39:27Z",
  "rows": [
   {
    "cond": "0xd77d584f6a9fb2937e5c16f9494bbab607695f202db17181b51c29c5968e34a8",
@@ -267,7 +267,7 @@
    "best_rank": 119,
    "usd": 3307,
    "paid": 0.494,
-   "ask": 0.54,
+   "ask": 0.55,
    "status": "live",
    "link": "https://polymarket.us/event/nba-sas-chi-2026-11-11",
    "other": null,
@@ -665,7 +665,7 @@
    "conflict": [
     "Kalshi move"
    ],
-   "money_with": false,
+   "money_with": true,
    "grade": "A",
    "fair_board": 0.334,
    "inside_fair": false,
@@ -781,8 +781,8 @@
    "link": "https://polymarket.us/event/nba-sas-chi-2026-11-11",
    "other": null,
    "kalshi_against": {
-    "move": 6.0,
-    "now": 89.5,
+    "move": 7.0,
+    "now": 90.5,
     "state": "reversed"
    },
    "logged": true,
@@ -850,6 +850,9 @@
    "home_name": "New Orleans Pelicans",
    "game_start": "2026-11-12T01:00Z",
    "side_std": "home",
+   "conflict": [
+    "big money"
+   ],
    "money_with": false,
    "grade": "watch",
    "fair_board": 0.5974,
@@ -1220,6 +1223,13 @@
     "n": 1,
     "best_rank": 69,
     "usd": 156
+   }
+  },
+  "401892692|ml": {
+   "away": {
+    "n": 1,
+    "best_rank": 61,
+    "usd": 720
    }
   },
   "401892693|ml": {
