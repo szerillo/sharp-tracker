@@ -1,11 +1,11 @@
 {
- "built": "2026-11-11T02:29:07Z",
+ "built": "2026-11-11T02:40:59Z",
  "record": {
-  "n": 65,
+  "n": 68,
   "won": 20,
-  "lost": 45,
-  "units": -5.62,
-  "roi": -34.6
+  "lost": 48,
+  "units": -6.37,
+  "roi": -37.5
  },
  "record_sb4": {
   "n": 0,
@@ -216,26 +216,6 @@
    "team": "BOS"
   },
   {
-   "key": "401925781|ml|away",
-   "sport": "cbb",
-   "event_id": "401925781",
-   "game": "WSU @ DUQ",
-   "start": "2026-11-11T00:00Z",
-   "market": "ml",
-   "side": "away",
-   "line": null,
-   "venue": "Novig",
-   "price": 0.395,
-   "fair": 0.4116,
-   "fair_power": 0.4065,
-   "venue_fair": 0.3911,
-   "fair_gap": 2.1,
-   "ev": 4.2,
-   "move": 1.0,
-   "flagged": "2026-11-10T17:28:01Z",
-   "team": "WSU"
-  },
-  {
    "key": "401892688|total|over",
    "sport": "nhl",
    "event_id": "401892688",
@@ -314,46 +294,6 @@
    "move": 1.0,
    "flagged": "2026-11-10T18:19:00Z",
    "team": "TOR"
-  },
-  {
-   "key": "401917520|spread|away",
-   "sport": "cbb",
-   "event_id": "401917520",
-   "game": "LMU @ TROY",
-   "start": "2026-11-11T00:00Z",
-   "market": "spread",
-   "side": "away",
-   "line": -1.5,
-   "venue": "Novig",
-   "price": 0.485,
-   "fair": 0.5,
-   "fair_power": 0.5,
-   "venue_fair": 0.4802,
-   "fair_gap": 2.0,
-   "ev": 3.1,
-   "move": 1.4,
-   "flagged": "2026-11-10T18:58:51Z",
-   "team": "LMU"
-  },
-  {
-   "key": "401911196|spread|home",
-   "sport": "cbb",
-   "event_id": "401911196",
-   "game": "IONA @ FOR",
-   "start": "2026-11-11T00:00Z",
-   "market": "spread",
-   "side": "home",
-   "line": -11.5,
-   "venue": "Novig",
-   "price": 0.485,
-   "fair": 0.5022,
-   "fair_power": 0.5024,
-   "venue_fair": 0.4826,
-   "fair_gap": 2.0,
-   "ev": 3.6,
-   "move": 1.1,
-   "flagged": "2026-11-10T20:21:01Z",
-   "team": "FOR"
   },
   {
    "key": "401913527|ml|home",
