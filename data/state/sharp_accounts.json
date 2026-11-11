@@ -1,5 +1,5 @@
 {
- "built": "2026-11-10T23:58:52Z",
+ "built": "2026-11-11T00:20:48Z",
  "rows": [
   {
    "cond": "0xfa30c2ac9ab8894137b8844540c19e2f977f6a53e522440c42cf71cadf0a2c57",
@@ -17,7 +17,7 @@
    "best_rank": 116,
    "usd": 213,
    "paid": 0.46,
-   "ask": 0.66,
+   "ask": null,
    "status": "live",
    "link": "https://polymarket.us/event/cbb-presb-ncst-2026-11-10",
    "other": null,
@@ -268,7 +268,7 @@
    "best_rank": 116,
    "usd": 221,
    "paid": 0.47,
-   "ask": 0.5,
+   "ask": 0.51,
    "status": "live",
    "link": "https://polymarket.us/event/cbb-houbap-sdak-2026-11-10",
    "other": null,
@@ -386,7 +386,7 @@
    "best_rank": 116,
    "usd": 230,
    "paid": 0.48,
-   "ask": 0.51,
+   "ask": 0.52,
    "status": "live",
    "link": "https://polymarket.us/event/cbb-lamon-tcu-2026-11-10",
    "other": null,
@@ -441,55 +441,14 @@
    "home_name": "BYU Cougars",
    "game_start": "2026-11-11T02:00Z",
    "side_std": "over",
+   "conflict": [
+    "Kalshi bet back"
+   ],
    "money_with": false,
    "grade": "B",
    "fair_board": null,
    "inside_fair": null,
    "books": null
-  },
-  {
-   "cond": "0xd6ba59e228e7b3dd1b87379df52264634cff63b94a8dc4d385f9d92a61bdfb63",
-   "slug": "nba-mia-uta-2026-11-10",
-   "title": "Heat vs. Jazz",
-   "mtype": "spread",
-   "start": "2026-11-11T02:00:00Z",
-   "bet": "Heat -8.5",
-   "side": "Heat",
-   "flagged": "2026-11-10T21:58:46Z",
-   "why": "2 top-200 accounts",
-   "proven": false,
-   "trigger": "two",
-   "n_accounts": 2,
-   "best_rank": 112,
-   "usd": 81778,
-   "paid": 0.49,
-   "ask": 0.52,
-   "status": "live",
-   "link": "https://polymarket.us/event/nba-mia-uta-2026-11-10",
-   "other": null,
-   "kalshi_against": null,
-   "logged": true,
-   "event_id": "401909963",
-   "sport": "nba",
-   "league": null,
-   "away": "MIA",
-   "home": "UTAH",
-   "away_name": "Miami Heat",
-   "home_name": "Utah Jazz",
-   "game_start": "2026-11-11T02:00Z",
-   "side_std": "away",
-   "money_with": false,
-   "grade": "B",
-   "fair_board": null,
-   "inside_fair": null,
-   "books": {
-    "at": "2026-11-10T23:56:39Z",
-    "fair": null,
-    "q": {
-     "Novig": 0.535,
-     "Kalshi": 0.55
-    }
-   }
   },
   {
    "cond": "0xd77d584f6a9fb2937e5c16f9494bbab607695f202db17181b51c29c5968e34a8",
@@ -553,7 +512,7 @@
    "best_rank": 116,
    "usd": 221,
    "paid": 0.47,
-   "ask": 0.62,
+   "ask": 0.6,
    "status": "live",
    "link": "https://polymarket.us/event/cbb-camp-etnst-2026-11-11",
    "other": null,
@@ -573,52 +532,6 @@
    "fair_board": null,
    "inside_fair": null,
    "books": null
-  },
-  {
-   "cond": "0x379c60bd4aa3a2e7d519a1f76c60271a0d8cf93353beee693ec9d82bae5443b6",
-   "slug": "nba-sas-chi-2026-11-11",
-   "title": "Spurs vs. Bulls",
-   "mtype": "ml",
-   "start": "2026-11-12T01:00:00Z",
-   "bet": "Bulls ML",
-   "side": "Bulls",
-   "flagged": "2026-11-10T10:00:18Z",
-   "why": "a top-50 account",
-   "proven": false,
-   "trigger": "top50",
-   "n_accounts": 1,
-   "best_rank": 43,
-   "usd": 660,
-   "paid": 0.11,
-   "ask": 0.12,
-   "status": "live",
-   "link": "https://polymarket.us/event/nba-sas-chi-2026-11-11",
-   "other": null,
-   "kalshi_against": null,
-   "logged": true,
-   "event_id": "401909969",
-   "sport": "nba",
-   "league": null,
-   "away": "SA",
-   "home": "CHI",
-   "away_name": "San Antonio Spurs",
-   "home_name": "Chicago Bulls",
-   "game_start": "2026-11-12T01:00Z",
-   "side_std": "home",
-   "money_with": false,
-   "grade": "watch",
-   "fair_board": 0.1294,
-   "inside_fair": true,
-   "books": {
-    "at": "2026-11-10T23:56:39Z",
-    "fair": 0.1294,
-    "q": {
-     "Polymarket": 0.13,
-     "Novig": 0.13,
-     "Kalshi": 0.14,
-     "Caesars": 0.1538
-    }
-   }
   },
   {
    "cond": "0x0ca4e718c52ecd21a49fe745209756729a011fe868086939160158d3e5cd7684",
@@ -851,7 +764,7 @@
    "best_rank": 49,
    "usd": 339,
    "paid": 0.55,
-   "ask": 0.63,
+   "ask": 0.64,
    "status": "live",
    "link": "https://polymarket.us/event/nfl-la-ari-2026-11-15",
    "other": null,
@@ -920,6 +833,52 @@
    }
   },
   {
+   "cond": "0xd6ba59e228e7b3dd1b87379df52264634cff63b94a8dc4d385f9d92a61bdfb63",
+   "slug": "nba-mia-uta-2026-11-10",
+   "title": "Heat vs. Jazz",
+   "mtype": "spread",
+   "start": "2026-11-11T02:00:00Z",
+   "bet": "Heat -8.5",
+   "side": "Heat",
+   "flagged": "2026-11-10T21:58:46Z",
+   "why": "2 top-200 accounts",
+   "proven": false,
+   "trigger": "two",
+   "n_accounts": 2,
+   "best_rank": 112,
+   "usd": 81778,
+   "paid": 0.49,
+   "ask": 0.43,
+   "status": "other side",
+   "link": "https://polymarket.us/event/nba-mia-uta-2026-11-10",
+   "other": {
+    "n_accounts": 3,
+    "best_rank": 12,
+    "usd": 21502,
+    "first": "2026-11-11T00:15:06Z"
+   },
+   "exit_bid": 0.42,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401909963",
+   "sport": "nba",
+   "league": null,
+   "away": "MIA",
+   "home": "UTAH",
+   "away_name": "Miami Heat",
+   "home_name": "Utah Jazz",
+   "game_start": "2026-11-11T02:00Z",
+   "side_std": "away",
+   "conflict": [
+    "Kalshi move"
+   ],
+   "money_with": false,
+   "grade": "B",
+   "fair_board": null,
+   "inside_fair": null,
+   "books": null
+  },
+  {
    "cond": "0x15ea6c2a515c23411f3dbc8c901d86458a23b22c556324827fc1bd30c50e0409",
    "slug": "nba-orl-sac-2026-11-10",
    "title": "Magic vs. Kings",
@@ -956,6 +915,9 @@
    "home_name": "Sacramento Kings",
    "game_start": "2026-11-11T03:00Z",
    "side_std": "home",
+   "conflict": [
+    "big money"
+   ],
    "money_with": false,
    "grade": "B",
    "inside_fair": true,
@@ -1048,6 +1010,59 @@
    "fair_board": 0.5246,
    "inside_fair": false,
    "books": null
+  },
+  {
+   "cond": "0x379c60bd4aa3a2e7d519a1f76c60271a0d8cf93353beee693ec9d82bae5443b6",
+   "slug": "nba-sas-chi-2026-11-11",
+   "title": "Spurs vs. Bulls",
+   "mtype": "ml",
+   "start": "2026-11-12T01:00:00Z",
+   "bet": "Bulls ML",
+   "side": "Bulls",
+   "flagged": "2026-11-10T10:00:18Z",
+   "why": "a top-50 account",
+   "proven": false,
+   "trigger": "top50",
+   "n_accounts": 1,
+   "best_rank": 43,
+   "usd": 660,
+   "paid": 0.11,
+   "ask": 0.12,
+   "status": "live",
+   "link": "https://polymarket.us/event/nba-sas-chi-2026-11-11",
+   "other": null,
+   "kalshi_against": {
+    "move": 5.0,
+    "now": 88.5,
+    "state": "reversed"
+   },
+   "logged": true,
+   "event_id": "401909969",
+   "sport": "nba",
+   "league": null,
+   "away": "SA",
+   "home": "CHI",
+   "away_name": "San Antonio Spurs",
+   "home_name": "Chicago Bulls",
+   "game_start": "2026-11-12T01:00Z",
+   "side_std": "home",
+   "conflict": [
+    "Kalshi move"
+   ],
+   "money_with": false,
+   "grade": "watch",
+   "fair_board": 0.1294,
+   "inside_fair": true,
+   "books": {
+    "at": "2026-11-10T23:56:39Z",
+    "fair": 0.1294,
+    "q": {
+     "Polymarket": 0.13,
+     "Novig": 0.13,
+     "Kalshi": 0.14,
+     "Caesars": 0.1538
+    }
+   }
   },
   {
    "cond": "0xc096d9590945f29434681ef1e972af587ff836fc2d0d5101ad652caecf7beb97",
@@ -1238,16 +1253,16 @@
     "usd": 394
    },
    "home": {
-    "n": 1,
+    "n": 4,
     "best_rank": 23,
-    "usd": 4400
+    "usd": 5715
    }
   },
   "401909963|spread": {
    "home": {
-    "n": 1,
-    "best_rank": 132,
-    "usd": 105
+    "n": 5,
+    "best_rank": 12,
+    "usd": 30755
    },
    "away": {
     "n": 2,
