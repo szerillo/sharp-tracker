@@ -1,5 +1,5 @@
 {
- "built": "2026-11-11T18:20:53Z",
+ "built": "2026-11-11T18:27:55Z",
  "rows": [
   {
    "cond": "0xd77d584f6a9fb2937e5c16f9494bbab607695f202db17181b51c29c5968e34a8",
@@ -480,7 +480,7 @@
    "best_rank": 49,
    "usd": 190,
    "paid": 0.54,
-   "ask": 0.75,
+   "ask": 0.74,
    "status": "live",
    "link": "https://polymarket.us/event/nfl-la-ari-2026-11-15",
    "other": null,
@@ -611,8 +611,8 @@
    },
    "exit_bid": 0.33,
    "kalshi_against": {
-    "move": 10.0,
-    "now": 69.0,
+    "move": 6.5,
+    "now": 65.5,
     "state": "held"
    },
    "logged": true,
@@ -628,7 +628,7 @@
    "conflict": [
     "Kalshi move"
    ],
-   "money_with": false,
+   "money_with": true,
    "grade": "A",
    "fair_board": 0.311,
    "inside_fair": false,
@@ -671,8 +671,8 @@
    "home_name": "Toronto Raptors",
    "game_start": "2026-11-12T00:00Z",
    "side_std": "home",
-   "money_with": true,
-   "grade": "A",
+   "money_with": false,
+   "grade": "B",
    "inside_fair": false,
    "fair_board": 0.5152,
    "books": null
@@ -813,6 +813,9 @@
    "home_name": "New Orleans Pelicans",
    "game_start": "2026-11-12T01:00Z",
    "side_std": "home",
+   "conflict": [
+    "big money"
+   ],
    "money_with": false,
    "grade": "watch",
    "fair_board": 0.5938,
