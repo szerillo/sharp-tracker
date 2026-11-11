@@ -1,5 +1,5 @@
 {
- "built": "2026-11-11T22:39:52Z",
+ "built": "2026-11-11T22:47:26Z",
  "rows": [
   {
    "cond": "0xd77d584f6a9fb2937e5c16f9494bbab607695f202db17181b51c29c5968e34a8",
@@ -63,7 +63,7 @@
    "best_rank": 116,
    "usd": 221,
    "paid": 0.47,
-   "ask": 0.46,
+   "ask": 0.45,
    "status": "live",
    "link": "https://polymarket.us/event/cbb-camp-etnst-2026-11-11",
    "other": null,
@@ -106,7 +106,7 @@
    "best_rank": 116,
    "usd": 204,
    "paid": 0.45,
-   "ask": 0.59,
+   "ask": 0.58,
    "status": "live",
    "link": "https://polymarket.us/event/cbb-jmad-del-2026-11-11",
    "other": null,
@@ -143,7 +143,7 @@
    "best_rank": 76,
    "usd": 5664,
    "paid": 0.5,
-   "ask": 0.48,
+   "ask": 0.5,
    "status": "live",
    "link": "https://polymarket.us/event/nba-cle-nyk-2026-11-11",
    "other": null,
@@ -164,7 +164,7 @@
    "money_with": false,
    "grade": "B",
    "fair_board": 0.4963,
-   "inside_fair": true,
+   "inside_fair": false,
    "books": {
     "at": "2026-11-11T21:02:29Z",
     "fair": 0.4963,
@@ -275,7 +275,7 @@
    "best_rank": 119,
    "usd": 3307,
    "paid": 0.494,
-   "ask": 0.55,
+   "ask": 0.56,
    "status": "live",
    "link": "https://polymarket.us/event/nba-sas-chi-2026-11-11",
    "other": null,
@@ -693,7 +693,7 @@
    "best_rank": 49,
    "usd": 339,
    "paid": 0.55,
-   "ask": 0.64,
+   "ask": 0.63,
    "status": "live",
    "link": "https://polymarket.us/event/nfl-la-ari-2026-11-15",
    "other": null,
@@ -788,8 +788,8 @@
    },
    "exit_bid": 0.33,
    "kalshi_against": {
-    "move": 8.5,
-    "now": 67.5,
+    "move": 9.5,
+    "now": 68.5,
     "state": "held"
    },
    "logged": true,
@@ -805,7 +805,7 @@
    "conflict": [
     "Kalshi move"
    ],
-   "money_with": false,
+   "money_with": true,
    "grade": "A",
    "fair_board": 0.3284,
    "inside_fair": false,
@@ -1072,8 +1072,8 @@
    },
    "exit_bid": 0.25,
    "kalshi_against": {
-    "move": 12.0,
-    "now": 80.0,
+    "move": 5.0,
+    "now": 73.0,
     "state": "reversed"
    },
    "logged": true,
