@@ -5318,7 +5318,10 @@
 "price": -156,
 "fair": 0.59976,
 "edge_pts": -1.02,
-"why": "home FLA lost its last game by 3, record 9-9 (50%): home moneyline (mined angle)"
+"why": "home FLA lost its last game by 3, record 9-9 (50%): home moneyline (mined angle)",
+"void": true,
+"void_why": "trigger no longer holds on current season records (2026-11-11T14:51:16Z)",
+"void_at": "2026-11-11T14:51:16Z"
 },
 "401892702:nhl_loss_streak_over": {
 "tag": "nhl_loss_streak_over",
@@ -5426,7 +5429,10 @@
 "price": -110,
 "fair": 0.5,
 "edge_pts": -2.38,
-"why": "home NO over rate 63%, days since last game: home 2, visitor 3; total 230.5 -> 229.5"
+"why": "home NO over rate 63%, days since last game: home 2, visitor 3; total 230.5 -> 229.5",
+"void": true,
+"void_why": "trigger no longer holds on current season records (2026-11-11T14:51:16Z)",
+"void_at": "2026-11-11T14:51:16Z"
 },
 "401909964:xch_homedog_fade:ml": {
 "tag": "xch_homedog_fade",
@@ -5453,5 +5459,57 @@
 "fair": 0.67771,
 "edge_pts": -0.73,
 "why": "Novig home side mid 0.320 inside T-1.1h; audit band 20-35c"
+},
+"401909972:nba_under_good_home_over": {
+"tag": "nba_under_good_home_over",
+"fill_id": "a007242979e6",
+"ts": "2026-11-11T14:51:16Z",
+"market": "total",
+"side": "under",
+"line": 228.5,
+"venue": "Novig",
+"price": -100,
+"fair": 0.49694,
+"edge_pts": -0.31,
+"why": "home NO over rate 63%, days since last game: home 2, visitor 3; total 230.5 -> 228.5"
+},
+"401909971:nba_bigfav_over": {
+"tag": "nba_bigfav_over",
+"fill_id": "36f7311c6e7e",
+"ts": "2026-11-11T14:51:16Z",
+"market": "total",
+"side": "over",
+"line": 229.5,
+"venue": "Novig",
+"price": 106,
+"fair": 0.48718,
+"edge_pts": 0.22,
+"why": "LAL is 87% on the moneyline: over (mined angle)"
+},
+"401892697:nhl_skid_fade_road": {
+"tag": "nhl_skid_fade_road",
+"fill_id": "22df274f7124",
+"ts": "2026-11-11T14:51:16Z",
+"market": "spread",
+"side": "away",
+"line": -1.5,
+"venue": "Kalshi",
+"price": 150,
+"fair": 0.365,
+"edge_pts": -3.5,
+"why": "MIN off a win, home TOR has lost 4 straight: road puck line (mined angle)"
+},
+"401892706:nhl_loss_streak_over": {
+"tag": "nhl_loss_streak_over",
+"fill_id": "b400379632e0",
+"ts": "2026-11-11T14:51:16Z",
+"market": "total",
+"side": "over",
+"line": 6.5,
+"venue": "Kalshi",
+"price": -138,
+"fair": null,
+"edge_pts": null,
+"why": "home VAN has lost 6 straight, season over rate 45%: over (mined angle)"
 }
 }
