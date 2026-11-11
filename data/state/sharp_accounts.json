@@ -1,5 +1,5 @@
 {
- "built": "2026-11-11T00:27:45Z",
+ "built": "2026-11-11T00:42:32Z",
  "rows": [
   {
    "cond": "0xfa30c2ac9ab8894137b8844540c19e2f977f6a53e522440c42cf71cadf0a2c57",
@@ -137,7 +137,7 @@
    "best_rank": 112,
    "usd": 5890,
    "paid": 0.531,
-   "ask": 0.54,
+   "ask": null,
    "status": "live",
    "link": "https://polymarket.us/event/nba-mil-nyk-2026-11-10",
    "other": null,
@@ -175,7 +175,7 @@
    "best_rank": 116,
    "usd": 221,
    "paid": 0.47,
-   "ask": 0.51,
+   "ask": 0.5,
    "status": "live",
    "link": "https://polymarket.us/event/cbb-houbap-sdak-2026-11-10",
    "other": null,
@@ -708,7 +708,7 @@
    "best_rank": 49,
    "usd": 339,
    "paid": 0.55,
-   "ask": 0.64,
+   "ask": 0.63,
    "status": "live",
    "link": "https://polymarket.us/event/nfl-la-ari-2026-11-15",
    "other": null,
@@ -792,7 +792,7 @@
    "best_rank": 112,
    "usd": 66181,
    "paid": 0.5,
-   "ask": 0.48,
+   "ask": null,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-mil-nyk-2026-11-10",
    "other": {
@@ -801,7 +801,7 @@
     "usd": 35000,
     "first": "2026-11-11T00:21:06Z"
    },
-   "exit_bid": 0.47,
+   "exit_bid": null,
    "kalshi_against": null,
    "logged": true,
    "event_id": "401909960",
@@ -835,7 +835,7 @@
    "best_rank": 112,
    "usd": 12867,
    "paid": 0.464,
-   "ask": 0.47,
+   "ask": null,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-mil-nyk-2026-11-10",
    "other": {
@@ -844,7 +844,7 @@
     "usd": 13657,
     "first": "2026-11-11T00:21:19Z"
    },
-   "exit_bid": 0.46,
+   "exit_bid": null,
    "kalshi_against": null,
    "logged": false,
    "ladder": true,
@@ -860,7 +860,7 @@
    "money_with": false,
    "grade": "B",
    "fair_board": 0.4805,
-   "inside_fair": true,
+   "inside_fair": null,
    "books": null
   },
   {
@@ -1212,32 +1212,6 @@
     "n": 1,
     "best_rank": 49,
     "usd": 137
-   }
-  },
-  "401909960|ml": {
-   "away": {
-    "n": 1,
-    "best_rank": 93,
-    "usd": 216
-   }
-  },
-  "401909960|total": {
-   "under": {
-    "n": 1,
-    "best_rank": 115,
-    "usd": 3930
-   }
-  },
-  "401909960|spread": {
-   "home": {
-    "n": 3,
-    "best_rank": 112,
-    "usd": 66181
-   },
-   "away": {
-    "n": 2,
-    "best_rank": 112,
-    "usd": 35107
    }
   },
   "401909961|ml": {
