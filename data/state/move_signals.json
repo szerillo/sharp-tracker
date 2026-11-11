@@ -1,5 +1,5 @@
 {
- "built": "2026-11-10T23:55:37Z",
+ "built": "2026-11-11T00:51:59Z",
  "move_pts": 2.0,
  "follow_pts": 1.0,
  "sports": {
@@ -12,39 +12,14 @@
   },
   "nba": {
    "sport": "nba",
-   "events": 18,
+   "events": 12,
    "gate": 150,
    "published": false,
-   "tests": {
-    "M2_novig_leads": {
-     "n_moves": 2,
-     "events": 1,
-     "pinnacle_follows_within": {
-      "1": 0.0,
-      "2": 0.0,
-      "3": 0.0
-     },
-     "bet_pinnacle_clv_pts": 0.0,
-     "roi": 1.0476,
-     "win": 1.0
-    },
-    "M2_kalshi_leads": {
-     "n_moves": 2,
-     "events": 1,
-     "pinnacle_follows_within": {
-      "1": 0.0,
-      "2": 0.0,
-      "3": 0.0
-     },
-     "bet_pinnacle_clv_pts": 0.0,
-     "roi": 1.0476,
-     "win": 1.0
-    }
-   }
+   "tests": {}
   },
   "nhl": {
    "sport": "nhl",
-   "events": 4,
+   "events": 3,
    "gate": 150,
    "published": false,
    "tests": {}
@@ -65,14 +40,14 @@
   },
   "cfb": {
    "sport": "cfb",
-   "events": 11,
+   "events": 9,
    "gate": 150,
    "published": false,
    "tests": {}
   },
   "cbb": {
    "sport": "cbb",
-   "events": 63,
+   "events": 37,
    "gate": 150,
    "published": false,
    "tests": {}
