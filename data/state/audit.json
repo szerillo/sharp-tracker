@@ -1,6 +1,6 @@
 {
- "built": "2026-11-11T06:42:32Z",
- "ok": false,
+ "built": "2026-11-11T06:52:49Z",
+ "ok": true,
  "checks": [
   {
    "name": "fresh: sharp signals (5-minute job)",
@@ -24,19 +24,19 @@
    "name": "fresh: bet tracker (20-minute job)",
    "ok": true,
    "level": "error",
-   "detail": "last built 2 min ago (allowed 60)"
+   "detail": "last built 1 min ago (allowed 60)"
   },
   {
    "name": "fresh: system bets (3 runs a day)",
    "ok": true,
    "level": "error",
-   "detail": "last built 231 min ago (allowed 300)"
+   "detail": "last built 242 min ago (allowed 300)"
   },
   {
    "name": "sharp feed: Polymarket fills arriving",
    "ok": true,
    "level": "warn",
-   "detail": "newest sharp fill 0.3 h ago"
+   "detail": "newest sharp fill 0.4 h ago"
   },
   {
    "name": "open system bets all on the board",
