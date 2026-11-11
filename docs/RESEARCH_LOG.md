@@ -67,7 +67,8 @@ OPEN (running or waiting on data).
 | 11/10 | Ties, locks, ladders | Nothing | DEAD | docs/overnight_2026-11-10.md |
 | 11/9 | Curve leans retest after going live | Judged on results, not CLV; early live record poor (NHL 3rd-period unders 0-8) | Keep tracking | docs/curve_retest_2026-11-09.md |
 | 11/9 | Kalshi daily high-temperature markets | Calibrated through the day and better than the National Blend; what is left is speed | DEAD for us | docs/weather_markets_2026-11-09.md |
-| 11/9 | Women's college basketball, MMA market tests | WNCAAB (no Pinnacle, 2 seasons): unders -7.9%; dogs +7 to +10 53-38 (+11.4%); following a line move is the strongest cell. MMA: following a 6+ point Pinnacle move at the close +7.3%, but the same side at its opening price +19.7% (the money is made before the move) | WNCAAB cells are paper candidates, not logged yet; MMA steam stays tier C | docs/wncaab_mma_2026-11-09.md |
+| 11/10 | Women's college basketball spread cells rebuilt (sharp/wncaab_replay.py; the 11/9 script was not saved) and put on paper | Dogs +7 to +10: 53-38-1, +11.4%, both seasons positive, matches 11/9 exactly. Follow a 1+ point move: 76-57-1, +9.6%, 2025-26 -3.7u; the 11/9 figure (75-44, +20.7%) could not be reproduced (checked one-snapshot games, pricing off the median, in-game snapshots, listed start vs ESPN tip: only 20 games list a late start and none moved a close). Live logic matched the replay's side and number on 76 of 80 historical picks (the other 4 had none of Sean's books on the median); ESPN grading matched on all 76 | PAPER from 11/10 as wncaab_dog_7_10 and wncaab_move_follow; the rebuild is the definition of record | loggers/wncaab_live.py, data/research/wncaab_replay.json, METHODOLOGY section 8d |
+| 11/9 | Women's college basketball, MMA market tests | WNCAAB (no Pinnacle, 2 seasons): unders -7.9%; dogs +7 to +10 53-38 (+11.4%); following a line move is the strongest cell. MMA: following a 6+ point Pinnacle move at the close +7.3%, but the same side at its opening price +19.7% (the money is made before the move) | WNCAAB cells on paper 11/10 (row above); MMA steam stays tier C | docs/wncaab_mma_2026-11-09.md |
 | 11/6 | Tier recheck of every system and paper angle | Tiers set | see doc | docs/tier_recheck_2026-11-06.md |
 | 11/6 | Derivatives on the full-game curve | CFB first-quarter unders tier A, CBB first-half totals tier C | LIVE | docs/deriv_curve_2026-11-06.md |
 | 11/6 | Full-game systems split into derivatives; NBA under reconciliation; threshold grid | NBA under rule works only at its exact thresholds (fragile); grid verdicts ROBUST / FRAGILE / NO EDGE per rule | Tiers set from it (see tier recheck) | docs/deriv_split_2026-11-06.md |
@@ -90,10 +91,19 @@ OPEN (running or waiting on data).
 - Player props, 2023-26: NBA (points, rebounds, assists, threes, PRA), NFL (12 markets), NHL (shots, saves, points, goalscorer), plus MLB, WNBA, soccer results files in data/research/props_*.json.
 - Not pulled: props at more than one or two times before the start (only 10 min, 60 min and 3 h snapshots exist); second-half lines (not posted pregame).
 
-## 6. Corrections worth remembering
+## 6. Process changes
+
+| Date | Change |
+|---|---|
+| 11/10 | docs/METHODOLOGY.md refreshed (was dated 11/6): new "Changes on 11/10" list; tier table (1a); 11/10 tier review (cfb_wind14 A to C, mnf_1h B to C, cfb_road_dog_low_total and nhl_pl_dog_bigml to paper); sharp flags on paper from 11/10 10:00 UTC; data of record now lists derivatives for nine sports, props 2023-26, exchange tapes and ProphetX; new section 8 (resting offers, rest or take, parlays, women's college basketball); testing standard adds the neighbour rule and "every test script saved in the repo"; corrected the 11/6 note that nfl_home_dog_7510 was held at B (it went to C later that day) |
+| 11/10 | Push helper adds the session attribution lines to every commit from here on |
+
+## 7. Corrections worth remembering
 
 - Novig tape: outcome and price are the resting order's. Maker side was reversed once in maker_test (fixed 11/10).
 - moves.jsonl.gz: p1 is the home/over price, not the mover's.
 - Soccer moneylines need a three-way devig.
 - One day of parlays (11/10, makers +21.1%) was not representative; 15 days came to -0.8%.
 - Do not dispatch tracker.yml off schedule (it logs system fills).
+- A test whose script was not saved cannot be checked later (the 11/9 women's basketball move cell). Save every test script in sharp/.
+- nfl_home_dog_7510 is tier C in sharp/systems.py, but its EVIDENCE text still says "stays B" (left from before the 11/6 recheck). Text only; not changed, since it is in the live rules file.

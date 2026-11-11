@@ -50,7 +50,7 @@ and prophetx.yml on their slots, and tracker.yml hourly at :40 from 9 AM to 9 PM
 |---|---|---|
 | prices.yml | 20 min, 10 AM to 2 AM ET | price log, all venues |
 | prices_fast.yml | 5 min | move tape, exchange fills |
-| signals.yml | 10 min | sharp board, stale books, props leans, curve leans, paper offers and grade, paper parlay sample and grade |
+| signals.yml | 10 min | sharp board, stale books, props leans, curve leans, paper offers and grade, paper parlay sample and grade, women's college basketball spreads (Odds API, at most every 18 min) |
 | moves.yml | 10 min | market move tape |
 | prophetx.yml | 20 min (via pulse) | ProphetX quotes |
 | tracker.yml | hourly :40 (via pulse) | fold, grade, export bet_log. Do NOT dispatch off schedule: it logs system fills |
@@ -91,7 +91,7 @@ Board rules (standing, from Sean):
 ## 6. Live vs paper vs dead (summary; the log has every line)
 
 - Live with units: the tiered systems above, NBA threes unders, curve leans, tennis settled favourite.
-- Paper, logging for 1-2 months at Sean's request (do not retire early): Polymarket sharp flags (0 units since 11/10 10:00 UTC),
+- Paper, logging for 1-2 months at Sean's request (do not retire early): Polymarket sharp flags (0 units since 11/10 10:00 UTC), women's college basketball dogs +7 to +10 and move-follow,
   Kalshi offers, the original stale-book lean, stale_book_sb4 (book moneyline 4%+ over Pinnacle fair), nba_momentum, paper offers on
   Novig / Kalshi / ProphetX, rest-or-take, the parlay log, tennis first-set favourite, steam reversal.
 - Dead (do not re-run without new data): boxing, ties, locks and ladders, opening moves, fading unfollowed moves, fading line moves,
@@ -111,8 +111,8 @@ Key findings behind the current direction:
    props $30,105.
 2. Parlay log: 85 logged, none settled yet (data/state/parlays_record.json). Revisit at 1,000+ settled.
 3. Unmapped ProphetX prop types; no ProphetX trade feed.
-4. WNCAAB cells (dogs +7 to +10, move-follow) are not logged on paper yet.
-5. docs/METHODOLOGY.md is dated 11/6 and predates the maker work and the 11/10 tier changes; it needs a refresh.
+4. Women's college basketball paper rules (dogs +7 to +10, follow a 1+ point move) started 11/10: loggers/wncaab_live.py in the signals job, about 1 Odds API credit a pull (METHODOLOGY section 8d).
+5. METHODOLOGY.md refreshed 11/10.
 6. METHODOLOGY section 7 items still open (NBA 1H under, weather fire window, tennis Challenger rule, CBB mining).
 
 Sean's calls (not decided by Claude):
