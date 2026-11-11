@@ -1,60 +1,60 @@
 {
-"updated": "2026-11-11T18:42:36Z",
-"logged": 1955,
-"settled": 1347,
+"updated": "2026-11-11T18:52:35Z",
+"logged": 1975,
+"settled": 1353,
 "rows": {
 "2 legs": {
-"n": 720,
-"stake": 96936,
-"maker_pnl": 18506,
-"pct_of_stakes": 19.1,
+"n": 725,
+"stake": 97103,
+"maker_pnl": 18135,
+"pct_of_stakes": 18.7,
 "expected_from_legs": 4.1,
-"hit": 29.3,
+"hit": 29.7,
 "days": 2
 },
 "3 legs": {
-"n": 627,
-"stake": 49651,
-"maker_pnl": 8028,
-"pct_of_stakes": 16.2,
+"n": 628,
+"stake": 49765,
+"maker_pnl": 8141,
+"pct_of_stakes": 16.4,
 "expected_from_legs": 7.4,
-"hit": 25.0,
+"hit": 24.8,
 "days": 2
 },
 "all": {
-"n": 1347,
-"stake": 146587,
-"maker_pnl": 26534,
-"pct_of_stakes": 18.1,
+"n": 1353,
+"stake": 146868,
+"maker_pnl": 26276,
+"pct_of_stakes": 17.9,
 "expected_from_legs": 5.2,
-"hit": 27.3,
+"hit": 27.4,
 "days": 2
 },
 "different games": {
-"n": 816,
-"stake": 101060,
-"maker_pnl": 15161,
-"pct_of_stakes": 15.0,
+"n": 821,
+"stake": 101331,
+"maker_pnl": 14904,
+"pct_of_stakes": 14.7,
 "expected_from_legs": 2.8,
-"hit": 27.9,
+"hit": 28.1,
 "days": 2
 },
 "different games | 0-3% over": {
-"n": 279,
-"stake": 47973,
+"n": 280,
+"stake": 47981,
 "maker_pnl": -6840,
 "pct_of_stakes": -14.3,
 "expected_from_legs": 2.0,
-"hit": 33.3,
+"hit": 33.6,
 "days": 2
 },
 "different games | 3-8% over": {
-"n": 276,
-"stake": 36044,
-"maker_pnl": 17910,
-"pct_of_stakes": 49.7,
+"n": 280,
+"stake": 36306,
+"maker_pnl": 17653,
+"pct_of_stakes": 48.6,
 "expected_from_legs": 4.3,
-"hit": 25.7,
+"hit": 26.1,
 "days": 2
 },
 "different games | 8%+ over": {
@@ -76,12 +76,12 @@
 "days": 2
 },
 "same game": {
-"n": 531,
-"stake": 45527,
-"maker_pnl": 11373,
+"n": 532,
+"stake": 45537,
+"maker_pnl": 11372,
 "pct_of_stakes": 25.0,
 "expected_from_legs": 10.6,
-"hit": 26.2,
+"hit": 26.3,
 "days": 2
 },
 "same game | 0-3% over": {
@@ -103,12 +103,12 @@
 "days": 2
 },
 "same game | 8%+ over": {
-"n": 249,
-"stake": 19496,
-"maker_pnl": -1083,
+"n": 250,
+"stake": 19506,
+"maker_pnl": -1084,
 "pct_of_stakes": -5.6,
 "expected_from_legs": 30.8,
-"hit": 28.5,
+"hit": 28.8,
 "days": 2
 },
 "same game | under legs": {
