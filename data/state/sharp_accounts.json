@@ -1,5 +1,5 @@
 {
- "built": "2026-11-11T02:53:25Z",
+ "built": "2026-11-11T03:00:48Z",
  "rows": [
   {
    "cond": "0xfa30c2ac9ab8894137b8844540c19e2f977f6a53e522440c42cf71cadf0a2c57",
@@ -397,7 +397,7 @@
    "best_rank": 116,
    "usd": 221,
    "paid": 0.47,
-   "ask": 0.67,
+   "ask": 0.63,
    "status": "live",
    "link": "https://polymarket.us/event/cbb-camp-etnst-2026-11-11",
    "other": null,
@@ -441,7 +441,7 @@
    "best_rank": 116,
    "usd": 204,
    "paid": 0.45,
-   "ask": 0.56,
+   "ask": 0.63,
    "status": "live",
    "link": "https://polymarket.us/event/cbb-jmad-del-2026-11-11",
    "other": null,
@@ -961,7 +961,7 @@
    "best_rank": 55,
    "usd": 2379,
    "paid": 0.327,
-   "ask": 0.35,
+   "ask": null,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-orl-sac-2026-11-10",
    "other": {
@@ -970,7 +970,7 @@
     "usd": 1252,
     "first": "2026-11-10T21:13:58Z"
    },
-   "exit_bid": 0.34,
+   "exit_bid": null,
    "kalshi_against": null,
    "logged": true,
    "event_id": "401909964",
@@ -1004,7 +1004,7 @@
    "best_rank": 110,
    "usd": 5725,
    "paid": 0.549,
-   "ask": 0.57,
+   "ask": null,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-orl-sac-2026-11-10",
    "other": {
@@ -1013,7 +1013,7 @@
     "usd": 296,
     "first": "2026-11-10T21:04:49Z"
    },
-   "exit_bid": 0.56,
+   "exit_bid": null,
    "kalshi_against": null,
    "logged": true,
    "event_id": "401909964",
@@ -1050,7 +1050,7 @@
    "best_rank": 110,
    "usd": 38891,
    "paid": 0.51,
-   "ask": 0.55,
+   "ask": null,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-orl-sac-2026-11-10",
    "other": {
@@ -1059,7 +1059,7 @@
     "usd": 22928,
     "first": "2026-11-10T21:04:27Z"
    },
-   "exit_bid": 0.54,
+   "exit_bid": null,
    "kalshi_against": null,
    "logged": false,
    "ladder": true,
@@ -1097,7 +1097,7 @@
    "best_rank": 43,
    "usd": 774,
    "paid": 0.111,
-   "ask": 0.12,
+   "ask": 0.11,
    "status": "live",
    "link": "https://polymarket.us/event/nba-sas-chi-2026-11-11",
    "other": null,
@@ -1122,7 +1122,7 @@
    "money_with": false,
    "grade": "B",
    "fair_board": 0.1149,
-   "inside_fair": false,
+   "inside_fair": true,
    "books": {
     "at": "2026-11-11T02:31:02Z",
     "fair": 0.1149,
@@ -1239,18 +1239,6 @@
     "best_rank": 69,
     "usd": 337
    }
-  },
-  "401909964:xch_homedog_fade:ml": {
-   "with": {
-    "n": 2,
-    "best_rank": 55,
-    "usd": 1252
-   },
-   "against": {
-    "n": 3,
-    "best_rank": 55,
-    "usd": 2379
-   }
   }
  },
  "by_event": {
@@ -1266,30 +1254,6 @@
     "n": 1,
     "best_rank": 49,
     "usd": 137
-   }
-  },
-  "401909964|ml": {
-   "home": {
-    "n": 3,
-    "best_rank": 55,
-    "usd": 2379
-   },
-   "away": {
-    "n": 2,
-    "best_rank": 55,
-    "usd": 1252
-   }
-  },
-  "401909964|spread": {
-   "home": {
-    "n": 2,
-    "best_rank": 110,
-    "usd": 5725
-   },
-   "away": {
-    "n": 1,
-    "best_rank": 112,
-    "usd": 296
    }
   },
   "401909965|ml": {
