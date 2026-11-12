@@ -1,5 +1,5 @@
 {
- "built": "2026-11-12T16:34:54Z",
+ "built": "2026-11-12T16:42:11Z",
  "rows": [
   {
    "cond": "0xf580f0bd2c432b8c12bf71c23366eff4a6e2f6fe96b8f466884b06b1f58f5782",
@@ -109,7 +109,7 @@
    "best_rank": 116,
    "usd": 104,
    "paid": 0.47,
-   "ask": 0.52,
+   "ask": 0.53,
    "status": "live",
    "link": "https://polymarket.us/event/cbb-merc-wvir-2026-11-12",
    "other": null,
@@ -192,7 +192,7 @@
    "best_rank": 197,
    "usd": 1012,
    "paid": 0.46,
-   "ask": 0.49,
+   "ask": 0.5,
    "status": "live",
    "link": "https://polymarket.us/event/nhl-stl-utah-2026-11-12",
    "other": null,
@@ -426,7 +426,7 @@
    "best_rank": 49,
    "usd": 339,
    "paid": 0.55,
-   "ask": 0.61,
+   "ask": 0.64,
    "status": "live",
    "link": "https://polymarket.us/event/nfl-la-ari-2026-11-15",
    "other": null,
@@ -501,7 +501,7 @@
    "best_rank": 12,
    "usd": 155,
    "paid": 0.47,
-   "ask": 0.47,
+   "ask": 0.48,
    "status": "live",
    "link": "https://polymarket.us/event/nfl-sf-dal-2026-11-15",
    "other": null,
@@ -611,7 +611,7 @@
    "side_std": "away",
    "money_with": false,
    "grade": "watch",
-   "fair_board": 0.3312,
+   "fair_board": 0.3249,
    "inside_fair": false,
    "books": null
   }
@@ -667,6 +667,14 @@
     "n": 1,
     "best_rank": 132,
     "usd": 403
+   },
+   "against": null
+  },
+  "401892700:nhl_early_home_fav_qual": {
+   "with": {
+    "n": 1,
+    "best_rank": 58,
+    "usd": 205
    },
    "against": null
   }
@@ -783,6 +791,13 @@
     "n": 1,
     "best_rank": 197,
     "usd": 636
+   }
+  },
+  "401892700|ml": {
+   "home": {
+    "n": 1,
+    "best_rank": 58,
+    "usd": 205
    }
   },
   "401892702|ml": {
