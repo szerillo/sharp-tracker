@@ -1,5 +1,5 @@
 {
- "built": "2026-11-12T16:56:30Z",
+ "built": "2026-11-12T17:03:12Z",
  "rows": [
   {
    "cond": "0xf580f0bd2c432b8c12bf71c23366eff4a6e2f6fe96b8f466884b06b1f58f5782",
@@ -17,7 +17,7 @@
    "best_rank": 197,
    "usd": 636,
    "paid": 0.72,
-   "ask": 0.73,
+   "ask": null,
    "status": "live",
    "link": "https://polymarket.us/event/nhl-car-sea-2026-11-12",
    "other": null,
@@ -426,7 +426,7 @@
    "best_rank": 49,
    "usd": 339,
    "paid": 0.55,
-   "ask": 0.64,
+   "ask": 0.63,
    "status": "live",
    "link": "https://polymarket.us/event/nfl-la-ari-2026-11-15",
    "other": null,
@@ -517,6 +517,33 @@
    "game_start": "2026-11-15T21:25Z",
    "side_std": "over",
    "money_with": false,
+   "grade": "B",
+   "fair_board": null,
+   "inside_fair": null,
+   "books": null
+  },
+  {
+   "cond": "0xa4205ef4d7859ca4bbfbe3bf42454f854489c4187133b895d17a21175d4d668b",
+   "slug": "nba-gsw-nop-2026-11-16",
+   "title": "Warriors vs. Pelicans",
+   "mtype": "ml",
+   "start": "2026-11-17T01:00:00Z",
+   "bet": "Pelicans ML",
+   "side": "Pelicans",
+   "flagged": "2026-11-12T16:59:09Z",
+   "why": "a top-50 account",
+   "proven": false,
+   "trigger": "top50",
+   "n_accounts": 1,
+   "best_rank": 43,
+   "usd": 1173,
+   "paid": 0.556,
+   "ask": 0.57,
+   "status": "live",
+   "link": "https://polymarket.us/event/nba-gsw-nop-2026-11-16",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
    "grade": "B",
    "fair_board": null,
    "inside_fair": null,
@@ -784,13 +811,6 @@
     "n": 1,
     "best_rank": 93,
     "usd": 542
-   }
-  },
-  "401891808|ml": {
-   "away": {
-    "n": 1,
-    "best_rank": 197,
-    "usd": 636
    }
   },
   "401892700|ml": {
