@@ -1,5 +1,5 @@
 {
-"built": "2026-11-12T16:32:15Z",
+"built": "2026-11-12T16:39:29Z",
 "sport": "nhl",
 "rule": "kalshi_nhl_flow",
 "tier": "P",
@@ -19,13 +19,13 @@
 "away": "Carolina Hurricanes",
 "game": "Carolina Hurricanes @ Seattle Kraken",
 "bet": "Carolina Hurricanes moneyline",
-"share": -0.78,
-"usd": 17367,
-"trades": 401,
-"price": 0.72,
-"mins_to_start": 28,
+"share": -0.837,
+"usd": 35875,
+"trades": 486,
+"price": 0.73,
+"mins_to_start": 21,
 "flag": true,
-"ticker": "KXNHLGAME-26NOV12CARSEA-SEA",
+"ticker": "KXNHLGAME-26NOV12CARSEA-CAR",
 "window_h": 6
 },
 {
@@ -39,11 +39,11 @@
 "away": "Carolina Hurricanes",
 "game": "Carolina Hurricanes @ Seattle Kraken",
 "bet": "Carolina Hurricanes -1.5",
-"share": -0.591,
-"usd": 15423,
-"trades": 133,
-"price": 0.51,
-"mins_to_start": 28,
+"share": -0.311,
+"usd": 15207,
+"trades": 155,
+"price": 0.52,
+"mins_to_start": 21,
 "flag": true,
 "ticker": "KXNHLSPREAD-26NOV12CARSEA-CAR2",
 "window_h": 6
@@ -59,12 +59,12 @@
 "away": "Carolina Hurricanes",
 "game": "Carolina Hurricanes @ Seattle Kraken",
 "bet": "Under 6.5",
-"share": -0.208,
-"usd": 2638,
-"trades": 48,
-"price": 0.51,
-"mins_to_start": 28,
-"flag": false,
+"share": -0.613,
+"usd": 6720,
+"trades": 74,
+"price": 0.5,
+"mins_to_start": 21,
+"flag": true,
 "ticker": "KXNHLTOTAL-26NOV12CARSEA-7",
 "window_h": 6
 }
@@ -74,5 +74,5 @@
 "won": 20,
 "units": 0.13
 },
-"n_flagged": 2
+"n_flagged": 3
 }
