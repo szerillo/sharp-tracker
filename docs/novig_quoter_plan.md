@@ -16,13 +16,34 @@ Nov 6, settled results). Current paper offers: data/state/offers_record.json.
 
 "Edge at fill" in the select file is measured against the last Pinnacle quote up to 30 minutes before the fill, and the two sides of
 the market may come from different pulls (`fair(k, t, 1800)` in sharp/novig_maker_select.py). If Pinnacle had already moved by the time
-of the fill, a stale fair makes the fill look like edge that then "decays" by +30m, which is exactly the decay pattern below. So part of
-the decay may be measurement, not adverse selection, and part of the edge may not exist.
+of the fill, a stale fair makes the fill look like edge that then "decays" by +30m.
 
-Test: rerun the select script with the fair limited to a Pinnacle quote taken within 2 minutes (and 5 minutes) before the fill, both
-sides from the same pull, and compare edge at fill, +30m and close by market and window against the 30-minute version. Decide the build
-only if the last-hour edge at close survives the fresh-fair version. Our 5-minute tape is the limit on how fresh this can be; anything
-the 2-minute cut drops for lack of a quote is reported, not filled in.
+**Result (11/12): the last-hour edge survives a fresh fair.** Rerun over 10/30 to 11/11 with the fair limited to a Pinnacle quote taken
+within 5 minutes, and within 2 minutes, before the fill, both sides from one pull (within 60 seconds of each other):
+data/research/novig_maker_select_fresh300.json and _fresh120.json. Bids 1c under fair, last hour, cents at fill / +30m / close:
+
+| Market | All fills (30-minute fair) | Fair within 5 minutes | Fair within 2 minutes |
+|---|---|---|---|
+| Game spread | 1.19 / 0.65 / 0.91 (z 33.42, 12,447 fills, 257 games) | 1.19 / 0.43 / 0.83 (z 32.1, 3,982 fills, 258 games) | 1.2 / 0.12 / 0.74 (z 28.05, 1,738 fills, 204 games) |
+| Game total | 1.21 / 0.61 / 0.81 (z 28.09, 7,450 fills, 291 games) | 1.18 / 0.63 / 0.75 (z 29.91, 3,910 fills, 281 games) | 1.19 / 0.74 / 0.93 (z 26.65, 1,796 fills, 227 games) |
+| Team totals | 1.23 / 0.57 / 0.94 (z 15.14, 1,240 fills, 219 games) | 1.25 / 0.63 / 1.04 (z 10.53, 298 fills, 103 games) | 1.26 / 0.68 / 1.03 (z 8.07, 140 fills, 57 games) |
+| Period lines | 1.21 / 0.65 / 1.05 (z 30.86, 2,035 fills, 211 games) | 1.22 / 1.1 / 1.22 (z 33.16, 1,288 fills, 176 games) | 1.19 / 1.18 / 1.34 (z 27.79, 551 fills, 121 games) |
+| Moneyline | 1.21 / 0.59 / 0.9 (z 23.32, 13,272 fills, 287 games) | 1.18 / 0.47 / 0.89 (z 24.85, 8,171 fills, 281 games) | 1.2 / 0.31 / 0.71 (z 22.24, 3,339 fills, 238 games) |
+| Player props | 1.22 / 0.4 / 0.69 (z 9.12, 24,008 fills, 153 games) | 1.21 / 0.33 / 0.89 (z 9.03, 4,611 fills, 148 games) | 1.2 / 0.24 / 0.96 (z 10.92, 1,836 fills, 143 games) |
+
+- Every market keeps a positive close mark with a 2-minute fair: 0.71c to 1.34c. Totals, team totals, period lines and props hold or
+  improve. Spreads (0.91c to 0.74c) and moneylines (0.90c to 0.71c) lose about a fifth, so part of their measured edge was the stale
+  fair. The last-hour edge is not an artefact of a stale Pinnacle price.
+- Spreads at 2 minutes fall to 0.12c at +30m before recovering to 0.74c at the close: fills on fresh spread quotes get hit hard in the
+  next half hour. A reason to pull spread quotes on any Pinnacle move (section 2).
+- The fresh cut keeps 15% (5 minutes) and 7% (2 minutes) of the 3.48M mapped maker fills: only fills that happen to land just after one
+  of our Pinnacle pulls. Which fills those are depends on our pull clock, not on the market, so it is a fair sample, but a thin one in
+  team totals (140 fills at 2 minutes).
+- z is the close mark clustered by game (one value per game). It is large because it measures price, not settled results.
+- What the test cannot rule out: Pinnacle moving in the seconds before a fill. Our tape is 5 minutes at best; a live quoter would read
+  Pinnacle in seconds (section 2).
+- The comparison column for the same fills under the old 30-minute fair came out identical by construction (when a quote within 2 minutes
+  exists, it is also the latest within 30), so the comparison above is fresh-fair fills against all fills.
 
 ## 1. Where to start: markets and windows
 
@@ -59,7 +80,41 @@ Bids 1c under Pinnacle's fair, share of the edge at fill still there at the clos
 - Pull: Pinnacle's line or price moves 1c or more inside a minute (move first, re-quote after the next stable read); the Pinnacle quote
   is older than the age limit; a line change at Pinnacle or Novig; 5 minutes before the start; a large Novig taker print on the other
   side of the same market (someone knows something).
-- Fees: Novig charges no pregame fee, so the edge is fair minus our price. Kalshi and ProphetX are not part of this build.
+- Fees: Novig charges no pregame fee, so the edge is fair minus our price. Kalshi is not part of this build; ProphetX is section 2b.
+
+## 2b. ProphetX, net of its fee (11/12)
+
+The fee, as settled by Kirk from ProphetX's CFTC self-certification (filed 6/12/26, effective 6/29, extended 12 months on 8/15/26): 2% of
+net proceeds per market, assessed at settlement, on single-event contracts; the same for makers and takers. A market we lose pays
+nothing, so it is 2% of the profit on a winning contract. Parlays and RFQs pay no fee. A maker rebate returns a share of fees monthly by
+make volume (marginal tiers): $0-50k 0%, $50k-750k 20%, $750k-3M 40%, $3M-7.5M 60%, over $7.5M 80%. At our paper caps (under $50k a
+month) the rebate is 0.
+
+Expected fee per $1 contract bought at price q with fair p: 0.02 x p x (1 - q). About 0.5c at 50%, 0.35c at 80% or 20%. The paper
+offers already net it this way (sharp/offers_live.py).
+
+We have no ProphetX fill history (no public trade feed), so the stand-in is Novig's last hour (select file, 10/30 to 11/10): the edge a
+filled bid still had at the close, less the fee at 50% (the worst case):
+
+| Market | 1c under: close, after fee | 2c under: close, after fee | 3c under: close, after fee |
+|---|---|---|---|
+| Game spread | 0.91c, 0.41c | 1.75c, 1.25c | 2.65c, 2.15c |
+| Game total | 0.81c, 0.31c | 1.65c, 1.15c | 1.97c, 1.47c |
+| Team totals | 0.94c, 0.44c | 1.88c, 1.38c | 2.81c, 2.31c |
+| Period lines | 1.05c, 0.55c | 2.06c, 1.56c | 3.05c, 2.55c |
+| Moneyline | 0.90c, 0.40c | 1.25c, 0.75c | 1.27c, 0.77c |
+| Player props | 0.69c, 0.19c | 1.38c, 0.88c | 2.03c, 1.53c |
+
+Read:
+- At 1c under the fee takes about half of what is left at the close; props keep 0.19c, totals 0.31c. Not worth quoting at 1c.
+- At 2c under (the paper rule for ProphetX) every group clears the fee in the last hour: period lines 1.56c, team totals 1.38c,
+  spreads 1.25c, totals 1.15c, props 0.88c, moneylines 0.75c. Fills at 2c under are rarer (on Novig, spreads 1,848 fills at 2c vs 12,447
+  at 1c).
+- Moneylines gain little from 2c to 3c (0.75c to 0.77c after fee): the extra gap is mostly picked off.
+- ProphetX's own quotes already sit 1.8 to 2.9c under fair on props, so a 2c bid there is often not first in line; the paper offers only
+  count a bid that would improve the book.
+- These are Novig's numbers with Novig's takers. ProphetX's flow may be softer or sharper; only ProphetX fills would settle it, and there
+  is no feed for them. Paper only; nothing live.
 
 ## 3. Adverse selection: how the quoter avoids getting picked off
 
