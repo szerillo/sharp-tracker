@@ -1,5 +1,5 @@
 {
- "built": "2026-11-12T02:33:17Z",
+ "built": "2026-11-12T02:46:27Z",
  "record": {
   "n": 14,
   "won": 6,
@@ -117,13 +117,33 @@
    "ev_strict": 5.0,
    "pin_ts": "2026-11-12T01:54:29Z",
    "book_ts": "2026-11-12T01:54:29Z",
-   "flagged": "2026-11-12T01:54:33Z",
-   "close_ts": "2026-11-12T02:33:17Z",
-   "close_line": 1.5,
-   "close_fair": 0.5,
-   "clv": 2.38,
-   "beat_fair": 0.0,
-   "line_value": 0.0
+   "flagged": "2026-11-12T01:54:33Z"
+  },
+  {
+   "key": "43a0ad5ba8bff6cdca19964348b53eff|player_shots_on_goal|Beckett Sennecke|2.5",
+   "sport": "nhl",
+   "odds_id": "43a0ad5ba8bff6cdca19964348b53eff",
+   "espn": "401892694",
+   "game": "Nashville Predators @ Anaheim Ducks",
+   "start": "2026-11-12T03:10:00Z",
+   "market": "player_shots_on_goal",
+   "player": "Beckett Sennecke",
+   "line": 2.5,
+   "side": "under",
+   "book": "FD",
+   "price": 2.12,
+   "fair": 0.4893,
+   "ev": 3.7,
+   "pin_under": 1.91,
+   "pin_over": 1.83,
+   "book_over": 1.68,
+   "fair_power": 0.4881,
+   "book_fair": 0.4421,
+   "fair_gap": 4.7,
+   "ev_strict": 3.5,
+   "pin_ts": "2026-11-12T02:46:20Z",
+   "book_ts": "2026-11-12T02:45:41Z",
+   "flagged": "2026-11-12T02:46:27Z"
   }
  ]
 }
