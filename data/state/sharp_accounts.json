@@ -1,5 +1,5 @@
 {
- "built": "2026-11-12T18:42:02Z",
+ "built": "2026-11-12T18:56:38Z",
  "rows": [
   {
    "cond": "0xf580f0bd2c432b8c12bf71c23366eff4a6e2f6fe96b8f466884b06b1f58f5782",
@@ -63,7 +63,7 @@
    "best_rank": 43,
    "usd": 108,
    "paid": 0.76,
-   "ask": 0.81,
+   "ask": 0.8,
    "status": "live",
    "link": "https://polymarket.us/event/nba-det-was-2026-11-12",
    "other": null,
@@ -81,7 +81,7 @@
    "money_with": false,
    "grade": "watch",
    "fair_board": 0.8074,
-   "inside_fair": false,
+   "inside_fair": true,
    "books": {
     "at": "2026-11-12T17:53:55Z",
     "fair": 0.8074,
@@ -473,7 +473,7 @@
    "best_rank": 49,
    "usd": 339,
    "paid": 0.55,
-   "ask": 0.63,
+   "ask": 0.64,
    "status": "live",
    "link": "https://polymarket.us/event/nfl-la-ari-2026-11-15",
    "other": null,
@@ -622,11 +622,7 @@
     "first": "2026-11-11T22:30:49Z"
    },
    "exit_bid": 0.29,
-   "kalshi_against": {
-    "move": 4.5,
-    "now": 72.5,
-    "state": "reversed"
-   },
+   "kalshi_against": null,
    "logged": true,
    "event_id": "401909976",
    "sport": "nba",
@@ -637,9 +633,6 @@
    "home_name": "Philadelphia 76ers",
    "game_start": "2026-11-13T00:00Z",
    "side_std": "away",
-   "conflict": [
-    "Kalshi move"
-   ],
    "money_with": false,
    "grade": "B",
    "fair_board": 0.2508,
