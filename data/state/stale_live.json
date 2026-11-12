@@ -1,11 +1,11 @@
 {
- "built": "2026-11-12T02:17:29Z",
+ "built": "2026-11-12T02:29:45Z",
  "record": {
-  "n": 86,
-  "won": 29,
-  "lost": 57,
-  "units": -6.18,
-  "roi": -28.7
+  "n": 88,
+  "won": 30,
+  "lost": 58,
+  "units": -6.0,
+  "roi": -27.3
  },
  "record_sb4": {
   "n": 0,
@@ -136,26 +136,6 @@
    "team": "AMER"
   },
   {
-   "key": "401926868|ml|away",
-   "sport": "cbb",
-   "event_id": "401926868",
-   "game": "MILW @ INST",
-   "start": "2026-11-12T00:00Z",
-   "market": "ml",
-   "side": "away",
-   "line": null,
-   "venue": "Novig",
-   "price": 0.37,
-   "fair": 0.3879,
-   "fair_power": 0.3812,
-   "venue_fair": 0.3682,
-   "fair_gap": 2.0,
-   "ev": 4.8,
-   "move": 1.3,
-   "flagged": "2026-11-11T15:55:48Z",
-   "team": "MILW"
-  },
-  {
    "key": "401909972|ml|away",
    "sport": "nba",
    "event_id": "401909972",
@@ -174,26 +154,6 @@
    "move": 3.3,
    "flagged": "2026-11-11T16:44:51Z",
    "team": "BKN"
-  },
-  {
-   "key": "401920903|ml|home",
-   "sport": "cbb",
-   "event_id": "401920903",
-   "game": "JMU @ DEL",
-   "start": "2026-11-12T00:00Z",
-   "market": "ml",
-   "side": "home",
-   "line": null,
-   "venue": "Novig",
-   "price": 0.41,
-   "fair": 0.4183,
-   "fair_power": 0.4134,
-   "venue_fair": 0.408,
-   "fair_gap": 1.0,
-   "ev": 2.0,
-   "move": 2.0,
-   "flagged": "2026-11-11T17:04:38Z",
-   "team": "DEL"
   },
   {
    "key": "401917522|ml|home",
@@ -314,6 +274,26 @@
    "move": 2.5,
    "flagged": "2026-11-12T00:05:23Z",
    "team": "SA"
+  },
+  {
+   "key": "401873052|ml|away",
+   "sport": "nfl",
+   "event_id": "401873052",
+   "game": "WSH @ NYG",
+   "start": "2026-11-13T01:15Z",
+   "market": "ml",
+   "side": "away",
+   "line": null,
+   "venue": "Novig",
+   "price": 0.45,
+   "fair": 0.4645,
+   "fair_power": 0.4629,
+   "venue_fair": 0.4478,
+   "fair_gap": 1.7,
+   "ev": 3.2,
+   "move": 2.5,
+   "flagged": "2026-11-12T02:29:45Z",
+   "team": "WSH"
   }
  ]
 }

@@ -1,24 +1,24 @@
 {
- "built": "2026-11-12T02:20:52Z",
+ "built": "2026-11-12T02:33:17Z",
  "record": {
   "n": 14,
   "won": 6,
   "lost": 8,
   "units": -0.53,
   "line_value": {
-   "n": 5,
+   "n": 6,
    "avg": 0.0,
    "positive": 0
   },
   "clv": {
-   "n": 5,
-   "avg": 1.63,
-   "beat": 5,
+   "n": 6,
+   "avg": 1.76,
+   "beat": 6,
    "by_rule": {
     "nhl under": {
-     "n": 2,
-     "avg": 1.23,
-     "beat": 2
+     "n": 3,
+     "avg": 1.61,
+     "beat": 3
     },
     "threes under": {
      "n": 3,
@@ -117,7 +117,13 @@
    "ev_strict": 5.0,
    "pin_ts": "2026-11-12T01:54:29Z",
    "book_ts": "2026-11-12T01:54:29Z",
-   "flagged": "2026-11-12T01:54:33Z"
+   "flagged": "2026-11-12T01:54:33Z",
+   "close_ts": "2026-11-12T02:33:17Z",
+   "close_line": 1.5,
+   "close_fair": 0.5,
+   "clv": 2.38,
+   "beat_fair": 0.0,
+   "line_value": 0.0
   }
  ]
 }
