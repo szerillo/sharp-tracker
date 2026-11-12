@@ -1,29 +1,29 @@
 {
- "built": "2026-11-11T23:56:57Z",
+ "built": "2026-11-12T00:09:48Z",
  "record": {
   "n": 14,
   "won": 6,
   "lost": 8,
   "units": -0.53,
   "line_value": {
-   "n": 3,
+   "n": 5,
    "avg": 0.0,
    "positive": 0
   },
   "clv": {
-   "n": 3,
-   "avg": 1.79,
-   "beat": 3,
+   "n": 5,
+   "avg": 1.63,
+   "beat": 5,
    "by_rule": {
     "nhl under": {
-     "n": 1,
-     "avg": 1.62,
-     "beat": 1
+     "n": 2,
+     "avg": 1.23,
+     "beat": 2
     },
     "threes under": {
-     "n": 2,
-     "avg": 1.87,
-     "beat": 2
+     "n": 3,
+     "avg": 1.91,
+     "beat": 3
     }
    }
   }
@@ -53,7 +53,13 @@
    "ev_strict": 2.1,
    "pin_ts": "2026-11-11T23:16:31Z",
    "book_ts": "2026-11-11T23:17:14Z",
-   "flagged": "2026-11-11T23:17:14Z"
+   "flagged": "2026-11-11T23:17:14Z",
+   "close_ts": "2026-11-12T00:09:48Z",
+   "close_line": 2.5,
+   "close_fair": 0.5319,
+   "clv": 0.83,
+   "beat_fair": -0.29,
+   "line_value": 0.0
   },
   {
    "key": "37f4c00ff7ec01d5aa7c33dd1ac84bbc|player_threes|Immanuel Quickley|2.5",
@@ -79,7 +85,13 @@
    "ev_strict": 4.1,
    "pin_ts": "2026-11-11T23:44:03Z",
    "book_ts": "2026-11-11T23:44:50Z",
-   "flagged": "2026-11-11T23:44:55Z"
+   "flagged": "2026-11-11T23:44:55Z",
+   "close_ts": "2026-11-12T00:09:48Z",
+   "close_line": 2.5,
+   "close_fair": 0.496,
+   "clv": 1.98,
+   "beat_fair": 0.0,
+   "line_value": 0.0
   }
  ]
 }
