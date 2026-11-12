@@ -1,5 +1,5 @@
 {
- "built": "2026-11-12T22:26:46Z",
+ "built": "2026-11-12T22:34:00Z",
  "rows": [
   {
    "cond": "0x6c7cda134b82fe6f27a91ae42180b5abf9eb166944c2de8c5743273cc0c951e6",
@@ -273,7 +273,7 @@
    "best_rank": 43,
    "usd": 142,
    "paid": 0.69,
-   "ask": 0.71,
+   "ask": 0.72,
    "status": "live",
    "link": "https://polymarket.us/event/nba-nyk-ind-2026-11-13",
    "other": null,
@@ -379,6 +379,43 @@
    "home": "PIT",
    "away_name": "Ottawa Senators",
    "home_name": "Pittsburgh Penguins",
+   "game_start": "2026-11-15T00:00Z",
+   "side_std": "home",
+   "money_with": false,
+   "grade": "B",
+   "fair_board": null,
+   "inside_fair": null,
+   "books": null
+  },
+  {
+   "cond": "0x3973b1825585afc8ab2a6c2a2323937be97b911ceec9075d945a36ebce0b77b9",
+   "slug": "cbb-loulaf-ncw-2026-11-14",
+   "title": "Louisiana-Lafayette Ragin' Cajuns vs. UNCW Seahawks",
+   "mtype": "ml",
+   "start": "2026-11-15T00:00:00Z",
+   "bet": "UNCW Seahawks ML",
+   "side": "UNCW Seahawks",
+   "flagged": "2026-11-12T22:29:34Z",
+   "why": "a top-50 account",
+   "proven": false,
+   "trigger": "top50",
+   "n_accounts": 1,
+   "best_rank": 4,
+   "usd": 118,
+   "paid": 0.53,
+   "ask": 0.54,
+   "status": "live",
+   "link": "https://polymarket.us/event/cbb-loulaf-ncw-2026-11-14",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401926864",
+   "sport": "cbb",
+   "league": null,
+   "away": "UL",
+   "home": "UNCW",
+   "away_name": "Louisiana Ragin' Cajuns",
+   "home_name": "UNC Wilmington Seahawks",
    "game_start": "2026-11-15T00:00Z",
    "side_std": "home",
    "money_with": false,
@@ -653,7 +690,7 @@
    "best_rank": 43,
    "usd": 1173,
    "paid": 0.556,
-   "ask": 0.57,
+   "ask": 0.56,
    "status": "live",
    "link": "https://polymarket.us/event/nba-gsw-nop-2026-11-16",
    "other": null,
@@ -766,10 +803,16 @@
    "best_rank": 40,
    "usd": 783,
    "paid": 0.487,
-   "ask": 0.57,
-   "status": "live",
+   "ask": 0.55,
+   "status": "other side",
    "link": "https://polymarket.us/event/nba-cle-mia-2026-11-13",
-   "other": null,
+   "other": {
+    "n_accounts": 1,
+    "best_rank": 55,
+    "usd": 508,
+    "first": "2026-11-12T22:30:10Z"
+   },
+   "exit_bid": 0.54,
    "kalshi_against": {
     "move": 6.0,
     "now": 52.5,
@@ -792,13 +835,7 @@
    "grade": "watch",
    "fair_board": null,
    "inside_fair": null,
-   "books": {
-    "at": "2026-11-12T22:18:10Z",
-    "fair": null,
-    "q": {
-     "Kalshi": 0.5
-    }
-   }
+   "books": null
   }
  ],
  "record": {
@@ -995,6 +1032,11 @@
     "n": 1,
     "best_rank": 40,
     "usd": 783
+   },
+   "away": {
+    "n": 1,
+    "best_rank": 55,
+    "usd": 277
    }
   },
   "401909304|ml": {
@@ -1079,6 +1121,13 @@
     "n": 1,
     "best_rank": 132,
     "usd": 206
+   }
+  },
+  "401926864|ml": {
+   "home": {
+    "n": 1,
+    "best_rank": 4,
+    "usd": 118
    }
   }
  },
