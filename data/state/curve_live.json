@@ -1,5 +1,5 @@
 {
- "built": "2026-11-12T13:55:37Z",
+ "built": "2026-11-12T14:04:56Z",
  "record": {
   "cbb_1h_total_curve": {
    "n": 2,
@@ -65,5 +65,31 @@
    "units": -1.68
   }
  },
- "rows": []
+ "rows": [
+  {
+   "key": "nhl_p3_under_curve|5a2820b80e20b69258bd5eb25c18eb78||under",
+   "rule": "nhl_p3_under_curve",
+   "tier": "P",
+   "stake": 0.0,
+   "sport": "nhl",
+   "odds_id": "5a2820b80e20b69258bd5eb25c18eb78",
+   "espn": "401891808",
+   "game": "Carolina Hurricanes @ Seattle Kraken",
+   "start": "2026-11-12T17:00:00Z",
+   "market": "totals_p3",
+   "team": null,
+   "team_name": null,
+   "side": "under",
+   "line": 2.0,
+   "curve": 0.547,
+   "pin_fair": 0.43,
+   "gap": 11.7,
+   "full_total": 6.5,
+   "full_spread": 1.5,
+   "pin_price": 2.24,
+   "book": null,
+   "price": null,
+   "flagged": "2026-11-12T14:04:56Z"
+  }
+ ]
 }
