@@ -1,5 +1,5 @@
 {
- "built": "2026-11-12T02:34:50Z",
+ "built": "2026-11-12T02:42:14Z",
  "rows": [
   {
    "cond": "0xd77d584f6a9fb2937e5c16f9494bbab607695f202db17181b51c29c5968e34a8",
@@ -689,6 +689,43 @@
      "Kalshi": 0.84
     }
    }
+  },
+  {
+   "cond": "0x9f15a5e77493abab2820881aeac0186daffb77c2dd5b1230d30be446f10beef5",
+   "slug": "cbb-merc-wvir-2026-11-12",
+   "title": "Mercer Bears vs. West Virginia Mountaineers",
+   "mtype": "total",
+   "start": "2026-11-13T00:00:00Z",
+   "bet": "Over 150.5",
+   "side": "Over",
+   "flagged": "2026-11-12T02:35:42Z",
+   "why": "a top-200 account also in this sport's top 50",
+   "proven": true,
+   "trigger": "proven",
+   "n_accounts": 1,
+   "best_rank": 116,
+   "usd": 104,
+   "paid": 0.47,
+   "ask": 0.6,
+   "status": "live",
+   "link": "https://polymarket.us/event/cbb-merc-wvir-2026-11-12",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401921768",
+   "sport": "cbb",
+   "league": null,
+   "away": "MER",
+   "home": "WVU",
+   "away_name": "Mercer Bears",
+   "home_name": "West Virginia Mountaineers",
+   "game_start": "2026-11-13T00:00Z",
+   "side_std": "over",
+   "money_with": false,
+   "grade": "A",
+   "fair_board": null,
+   "inside_fair": null,
+   "books": null
   },
   {
    "cond": "0xde189f9aa90222a576dd7a2ae9a5f03283a9cd14f212fa27f9cafa2ae805d913",
@@ -1527,6 +1564,13 @@
     "n": 1,
     "best_rank": 116,
     "usd": 221
+   }
+  },
+  "401921768|total": {
+   "over": {
+    "n": 1,
+    "best_rank": 116,
+    "usd": 104
    }
   }
  },
