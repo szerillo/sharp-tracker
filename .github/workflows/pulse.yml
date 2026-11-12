@@ -42,6 +42,7 @@ jobs:
             # system's range late in the day were missed with three runs a day; systems now fill 1-30 h before the start)
             mm=$((10#$(TZ=America/New_York date +%M))); hh=$((10#$h))
             if [ $hh -ge 9 ] && [ $hh -le 21 ] && [ $mm -ge 40 ] && [ $mm -lt 45 ]; then fire tracker.yml; fi
+            if [ $hh -eq 5 ] && [ $mm -ge 20 ] && [ $mm -lt 25 ]; then fire novig_quoter.yml; fi    # 11/12: daily paper Novig quoter (no orders)
             sleep 300
           done
           fire pulse.yml

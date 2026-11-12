@@ -1,0 +1,46 @@
+name: novig paper quoter (replay or daily live paper; no orders)
+# Sean 11/12: a paper Novig quoter graded against Novig's public trade file (docs/novig_quoter_plan.md, pass bar in
+# docs/novig_quoter_prereg.md). Nothing here places an order or uses trading keys. pulse.yml dispatches the daily run at about 5:20 AM ET
+# (the public file for a day publishes after midnight ET; the run quotes games that started two days earlier, so every trade file it
+# needs is out). The daily run also grades the paper offers from the public file (sharp/offers_grade_public.py).
+on:
+  schedule:
+    - cron: '23 10 * * *'      # backup clock only (GitHub cron is unreliable here); pulse.yml is the real one
+  workflow_dispatch:
+    inputs:
+      first: {description: 'first game day (UTC); blank = two days ago', default: '', required: false}
+      last: {description: 'last game day (UTC); blank = same as first', default: '', required: false}
+      mode: {description: 'daily (append to the live paper log) or replay (research file only)', default: 'daily', required: false}
+permissions:
+  contents: write
+concurrency:
+  group: novig_quoter
+  cancel-in-progress: false
+jobs:
+  quote:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.12'}
+      - name: paper quoter
+        run: |
+          F="${{ inputs.first }}"; L="${{ inputs.last }}"; MODE="${{ inputs.mode || 'daily' }}"
+          [ -z "$F" ] && F=$(date -u -d '2 days ago' +%F); [ -z "$L" ] && L=$F
+          if [ "$MODE" = replay ]; then python3 sharp/novig_paper_quoter.py $F $L 2>&1 | tee /tmp/quoter.txt
+          else python3 sharp/novig_paper_quoter.py $F $L --daily 2>&1 | tee /tmp/quoter.txt; fi
+      - name: grade the paper offers from the public file
+        if: ${{ (inputs.mode || 'daily') == 'daily' }}
+        run: python3 sharp/offers_grade_public.py || echo "::warning::offers public grade failed"
+      - name: commit
+        run: |
+          git config user.name "tracker-bot"; git config user.email "actions@users.noreply.github.com"
+          for p in data/research/novig_paper_quoter_*.json data/state/novig_quoter_fills.jsonl data/state/novig_quoter_record.json data/novig/quoter data/state/offers_public_grades.json data/state/offers_record_public.json; do
+            [ -e "$p" ] && git add -f $p; done
+          git commit -m "novig paper quoter ${{ inputs.mode || 'daily' }} $(date -u +%Y-%m-%dT%H:%M)" || exit 0
+          for i in 1 2 3 4 5 6; do
+            if git pull --rebase -X theirs --no-tags origin main && git push; then exit 0; fi
+            git rebase --abort 2>/dev/null || true; sleep $((RANDOM % 20 + 5))
+          done
+          exit 1
