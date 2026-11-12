@@ -12,8 +12,28 @@ _KEY = None
 def _key():
     global _KEY
     if _KEY is None:
-        _KEY = serialization.load_pem_private_key(_pem(os.environ['NOVIG_PRIVATE_KEY']), password=None)
+        raw = os.environ['NOVIG_PRIVATE_KEY']; err = None
+        for cand in _pems(raw):
+            try: _KEY = serialization.load_pem_private_key(cand, password=None); break
+            except Exception as e: err = e
+        if _KEY is None:
+            import re
+            t = raw.strip(); bad = sorted({c for c in t if not re.match(r'[A-Za-z0-9+/=\s-]', c)})
+            raise ValueError(f'NOVIG_PRIVATE_KEY does not contain a readable private key: {len(t)} characters, BEGIN line '
+                             f'{"present" if "-----BEGIN" in t else "missing"}, {len(t.splitlines())} lines, unexpected characters {bad}. '
+                             f'Paste the whole .pem file exactly as it opens in a text editor. ({type(err).__name__})')
     return _KEY
+
+
+def _pems(raw):
+    """The pasted secret as is (normalised), then each key-shaped piece of it (11/12: a pasted secret held a '|')."""
+    import re
+    yield _pem(raw)
+    t = raw.replace('\\n', '\n')
+    m = re.search(r'-----BEGIN ([A-Z ]+)-----(.*?)-----END \1-----', t, re.S)
+    body = m.group(2) if m else t
+    for piece in sorted(re.split(r'[^A-Za-z0-9+/=\s]+', body), key=len, reverse=True):
+        if len(re.sub(r'\s+', '', piece)) >= 40: yield _pem(piece)
 
 
 def _pem(raw):
