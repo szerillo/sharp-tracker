@@ -1,0 +1,355 @@
+nba: 55109 Novig outcomes mapped, 10088 Pinnacle series (22s)
+nfl: 73886 Novig outcomes mapped, 14052 Pinnacle series (53s)
+nhl: 88555 Novig outcomes mapped, 24538 Pinnacle series (65s)
+cfb: 103987 Novig outcomes mapped, 27246 Pinnacle series (115s)
+cbb: 137261 Novig outcomes mapped, 38878 Pinnacle series (136s)
+mma: 137373 Novig outcomes mapped, 39558 Pinnacle series (138s)
+soccer: 141024 Novig outcomes mapped, 41862 Pinnacle series (154s)
+2026-10-30: 0 maker fills priced (158s)
+2026-10-31: 0 maker fills priced (163s)
+2026-11-01: 870 maker fills priced (169s)
+2026-11-02: 52458 maker fills priced (177s)
+2026-11-03: 29460 maker fills priced (182s)
+2026-11-04: 75200 maker fills priced (189s)
+2026-11-05: 14079 maker fills priced (198s)
+2026-11-06: 49905 maker fills priced (206s)
+2026-11-07: 61389 maker fills priced (217s)
+2026-11-08: 66051 maker fills priced (229s)
+2026-11-09: 50755 maker fills priced (241s)
+2026-11-10: 65407 maker fills priced (250s)
+2026-11-11: 63702 maker fills priced (259s)
+{'maker fills on mapped markets': 3482753, 'no Pinnacle quote within 300s with both sides from one pull': 2953321, '15c+ from Pinnacle (dropped)': 156}
+all | game ml                                                  fills  229156 games  392 risk $ 25,159,318 ($1,935,332/day) edge at fill    0.3c  +30m   0.07c  close   0.09c (z 6.57) on 0.98  $/day 4066
+all | game spread                                              fills  102353 games  342 risk $ 10,188,270 ($  783,713/day) edge at fill   0.29c  +30m   0.27c  close    0.1c (z 10.49) on 0.79  $/day 1476
+all | game total                                               fills  104394 games  364 risk $  5,456,860 ($  419,758/day) edge at fill   0.37c  +30m   0.28c  close   0.29c (z 10.24) on 0.7  $/day 2018
+all | period lines                                             fills    4986 games  239 risk $    441,033 ($   33,926/day) edge at fill   0.84c  +30m   0.64c  close   0.86c (z 15.33) on 0.91  $/day 638
+all | player props                                             fills   86203 games  148 risk $  3,067,693 ($  235,976/day) edge at fill   0.16c  +30m    0.2c  close   0.08c (z 0.03) on 0.93  $/day 454
+all | team totals                                              fills    2184 games  217 risk $    112,843 ($    8,680/day) edge at fill   1.11c  +30m    0.7c  close    0.8c (z 8.82) on 0.96  $/day 180
+edge | game ml | paid 0-1c over fair                           fills   87640 games  369 risk $  9,434,085 ($  725,699/day) edge at fill  -0.41c  +30m  -0.46c  close  -0.19c (z -6.62) on 0.98  $/day -2907
+edge | game ml | paid 0-1c under fair                          fills   74792 games  342 risk $  9,196,789 ($  707,445/day) edge at fill   0.48c  +30m   0.31c  close   0.15c (z 7.67) on 0.98  $/day 2579
+edge | game ml | paid 1-2c over fair                           fills   11834 games  310 risk $  2,013,377 ($  154,875/day) edge at fill  -1.32c  +30m   -1.0c  close  -0.92c (z -7.08) on 0.99  $/day -2422
+edge | game ml | paid 1-2c under fair                          fills   43258 games  378 risk $  2,879,687 ($  221,514/day) edge at fill   1.39c  +30m   0.79c  close   0.61c (z 15.31) on 0.98  $/day 4129
+edge | game ml | paid 2-4c under fair                          fills    6028 games  254 risk $    710,494 ($   54,653/day) edge at fill   2.66c  +30m   1.09c  close   1.01c (z 9.62) on 0.98  $/day 2110
+edge | game ml | paid 2c+ over fair                            fills    4849 games  105 risk $    704,530 ($   54,195/day) edge at fill  -3.28c  +30m  -0.77c  close    0.0c (z -1.19) on 0.99  $/day 4
+edge | game ml | paid 4c+ under fair                           fills     755 games   39 risk $    220,354 ($   16,950/day) edge at fill   6.93c  +30m   0.23c  close   1.26c (z 1.49) on 0.98  $/day 573
+edge | game spread | paid 0-1c over fair                       fills   25972 games  312 risk $  3,405,147 ($  261,934/day) edge at fill  -0.41c  +30m  -0.37c  close   -0.5c (z -7.17) on 0.91  $/day -2780
+edge | game spread | paid 0-1c under fair                      fills   38604 games  318 risk $  3,357,992 ($  258,307/day) edge at fill   0.47c  +30m   0.36c  close   0.43c (z 12.71) on 0.81  $/day 2157
+edge | game spread | paid 1-2c over fair                       fills   11009 games  179 risk $    929,187 ($   71,476/day) edge at fill  -1.39c  +30m   -1.0c  close  -0.98c (z -11.27) on 0.76  $/day -1203
+edge | game spread | paid 1-2c under fair                      fills   18244 games  316 risk $  1,583,720 ($  121,825/day) edge at fill   1.41c  +30m   1.05c  close    1.0c (z 28.31) on 0.7  $/day 2090
+edge | game spread | paid 2-4c under fair                      fills    4415 games  162 risk $    561,040 ($   43,157/day) edge at fill   2.73c  +30m   1.98c  close   1.95c (z 22.35) on 0.59  $/day 1241
+edge | game spread | paid 2c+ over fair                        fills    3405 games   55 risk $    235,946 ($   18,150/day) edge at fill  -3.19c  +30m  -1.99c  close  -2.39c (z -9.5) on 0.5  $/day -484
+edge | game spread | paid 4c+ under fair                       fills     704 games   24 risk $    115,238 ($    8,864/day) edge at fill   5.38c  +30m   5.18c  close   5.94c (z 13.1) on 0.33  $/day 456
+edge | game total | paid 0-1c over fair                        fills   20309 games  298 risk $  1,116,231 ($   85,864/day) edge at fill  -0.48c  +30m  -0.46c  close  -0.33c (z -8.35) on 0.82  $/day -543
+edge | game total | paid 0-1c under fair                       fills   25742 games  306 risk $  1,568,149 ($  120,627/day) edge at fill   0.49c  +30m   0.38c  close    0.5c (z 12.24) on 0.76  $/day 1090
+edge | game total | paid 1-2c over fair                        fills   31050 games  194 risk $    542,794 ($   41,753/day) edge at fill  -1.38c  +30m  -1.14c  close  -0.81c (z -11.18) on 0.69  $/day -528
+edge | game total | paid 1-2c under fair                       fills    9871 games  323 risk $  1,143,236 ($   87,941/day) edge at fill   1.41c  +30m   1.06c  close   0.94c (z 29.13) on 0.72  $/day 1453
+edge | game total | paid 2-4c under fair                       fills    4216 games  207 risk $    620,701 ($   47,746/day) edge at fill   2.61c  +30m    1.8c  close   1.69c (z 27.34) on 0.52  $/day 1057
+edge | game total | paid 2c+ over fair                         fills   12725 games   89 risk $    396,379 ($   30,491/day) edge at fill  -3.43c  +30m  -2.31c  close  -2.61c (z -14.1) on 0.4  $/day -697
+edge | game total | paid 4c+ under fair                        fills     481 games   34 risk $     69,369 ($    5,336/day) edge at fill   5.25c  +30m   4.46c  close   4.35c (z 15.65) on 0.31  $/day 186
+edge | period lines | paid 0-1c over fair                      fills     781 games   87 risk $     69,740 ($    5,365/day) edge at fill  -0.47c  +30m  -0.82c  close  -0.62c (z -4.23) on 0.98  $/day -84
+edge | period lines | paid 0-1c under fair                     fills    1088 games  141 risk $     81,217 ($    6,247/day) edge at fill    0.5c  +30m   0.45c  close   0.44c (z 11.22) on 0.98  $/day 64
+edge | period lines | paid 1-2c over fair                      fills     370 games   46 risk $     28,050 ($    2,158/day) edge at fill  -1.35c  +30m  -1.37c  close  -1.34c (z -9.24) on 0.97  $/day -65
+edge | period lines | paid 1-2c under fair                     fills    1473 games  170 risk $    112,249 ($    8,635/day) edge at fill   1.53c  +30m   1.36c  close   1.41c (z 19.05) on 0.97  $/day 288
+edge | period lines | paid 2-4c under fair                     fills     829 games  153 risk $     98,838 ($    7,603/day) edge at fill   2.78c  +30m   2.38c  close   2.47c (z 27.81) on 0.87  $/day 407
+edge | period lines | paid 2c+ over fair                       fills     304 games   28 risk $     41,240 ($    3,172/day) edge at fill  -2.97c  +30m  -1.72c  close  -1.43c (z -7.19) on 0.58  $/day -59
+edge | period lines | paid 4c+ under fair                      fills     141 games   36 risk $      9,699 ($      746/day) edge at fill   5.09c  +30m    4.5c  close   4.65c (z 23.08) on 0.87  $/day 87
+edge | player props | paid 0-1c over fair                      fills   10789 games  148 risk $    493,030 ($   37,925/day) edge at fill  -0.51c  +30m  -0.47c  close   -0.4c (z -4.4) on 0.96  $/day -353
+edge | player props | paid 0-1c under fair                     fills   11216 games  147 risk $    456,755 ($   35,135/day) edge at fill   0.52c  +30m   0.38c  close   0.23c (z 4.59) on 0.96  $/day 203
+edge | player props | paid 1-2c over fair                      fills   14377 games  147 risk $    368,754 ($   28,366/day) edge at fill  -1.48c  +30m  -1.44c  close  -1.04c (z -12.03) on 0.94  $/day -659
+edge | player props | paid 1-2c under fair                     fills    9783 games  147 risk $    394,697 ($   30,361/day) edge at fill   1.49c  +30m   1.27c  close   0.96c (z 12.64) on 0.93  $/day 721
+edge | player props | paid 2-4c under fair                     fills   12112 games  148 risk $    478,532 ($   36,810/day) edge at fill   2.83c  +30m    2.3c  close   1.67c (z 21.47) on 0.91  $/day 1565
+edge | player props | paid 2c+ over fair                       fills   23431 games  148 risk $    676,982 ($   52,076/day) edge at fill  -3.75c  +30m  -2.36c  close  -2.09c (z -15.55) on 0.91  $/day -2380
+edge | player props | paid 4c+ under fair                      fills    4495 games  145 risk $    198,943 ($   15,303/day) edge at fill   5.66c  +30m   3.97c  close   3.71c (z 20.54) on 0.83  $/day 1358
+edge | team totals | paid 0-1c over fair                       fills     499 games   73 risk $     24,740 ($    1,903/day) edge at fill  -0.51c  +30m  -0.61c  close   0.21c (z -3.63) on 1.0  $/day 11
+edge | team totals | paid 0-1c under fair                      fills     330 games   90 risk $     17,621 ($    1,355/day) edge at fill   0.54c  +30m   0.42c  close   0.58c (z 2.22) on 0.94  $/day 20
+edge | team totals | paid 1-2c over fair                       fills     218 games   60 risk $     12,458 ($      958/day) edge at fill   -1.4c  +30m  -1.92c  close  -2.06c (z -5.81) on 0.99  $/day -47
+edge | team totals | paid 1-2c under fair                      fills     401 games  113 risk $     24,190 ($    1,861/day) edge at fill   1.48c  +30m    1.5c  close   1.25c (z 10.72) on 0.94  $/day 58
+edge | team totals | paid 2-4c under fair                      fills     465 games  134 risk $     19,081 ($    1,468/day) edge at fill   2.83c  +30m   2.53c  close    2.4c (z 15.47) on 0.98  $/day 95
+edge | team totals | paid 4c+ under fair                       fills     181 games   47 risk $     10,624 ($      817/day) edge at fill   5.57c  +30m    3.6c  close   2.73c (z 11.26) on 0.91  $/day 58
+rest sport | game ml | 1c under | cbb                          fills    5560 games  170 risk $    375,889 ($   28,915/day) edge at fill   1.22c  +30m   0.79c  close   0.78c (z 10.55) on 1.0  $/day 709
+rest sport | game ml | 1c under | cfb                          fills    4101 games   55 risk $    524,262 ($   40,328/day) edge at fill   1.23c  +30m   0.51c  close  -0.25c (z 1.05) on 0.97  $/day -333
+rest sport | game ml | 1c under | mma                          fills     820 games   12 risk $     55,197 ($    4,246/day) edge at fill   1.23c  +30m   1.01c  close   0.76c (z 5.75) on 0.55  $/day 51
+rest sport | game ml | 1c under | nba                          fills   29527 games   76 risk $  1,675,777 ($  128,906/day) edge at fill   1.23c  +30m  -0.74c  close  -0.53c (z 0.97) on 1.0  $/day -2444
+rest sport | game ml | 1c under | nfl                          fills    4941 games   16 risk $    775,602 ($   59,662/day) edge at fill   1.18c  +30m    0.7c  close   0.61c (z 0.17) on 0.95  $/day 1277
+rest sport | game ml | 1c under | nhl                          fills    5125 games   56 risk $    494,301 ($   38,023/day) edge at fill   1.18c  +30m   0.66c  close   0.51c (z 6.4) on 1.0  $/day 591
+rest sport | game ml | 2c under | cbb                          fills    1421 games  124 risk $    117,402 ($    9,031/day) edge at fill    2.2c  +30m   1.41c  close   1.52c (z 8.12) on 1.0  $/day 445
+rest sport | game ml | 2c under | cfb                          fills     844 games   32 risk $     84,019 ($    6,463/day) edge at fill   2.16c  +30m   0.98c  close  -0.25c (z 2.02) on 0.96  $/day -77
+rest sport | game ml | 2c under | mma                          fills     211 games   10 risk $     11,835 ($      910/day) edge at fill   2.25c  +30m   1.79c  close   1.62c (z 4.83) on 0.45  $/day 19
+rest sport | game ml | 2c under | nba                          fills    3175 games   53 risk $    597,722 ($   45,979/day) edge at fill   2.23c  +30m   -1.3c  close  -0.76c (z -0.22) on 1.0  $/day -1258
+rest sport | game ml | 2c under | nfl                          fills     727 games   13 risk $     81,143 ($    6,242/day) edge at fill   2.29c  +30m   1.11c  close   0.78c (z 0.69) on 0.93  $/day 229
+rest sport | game ml | 2c under | nhl                          fills     446 games   22 risk $     76,716 ($    5,901/day) edge at fill   2.12c  +30m   0.84c  close    0.7c (z 3.1) on 1.0  $/day 185
+rest sport | game ml | 3c under | cbb                          fills     226 games   40 risk $     41,621 ($    3,202/day) edge at fill   3.18c  +30m   1.68c  close    2.5c (z 2.09) on 1.0  $/day 273
+rest sport | game ml | 3c under | cfb                          fills     100 games    5 risk $     28,987 ($    2,230/day) edge at fill   3.23c  +30m  -0.39c  close  -4.66c (z None) on 0.99  $/day -525
+rest sport | game ml | 3c under | nba                          fills     986 games   26 risk $    302,580 ($   23,275/day) edge at fill   3.18c  +30m  -2.07c  close   -1.2c (z -0.59) on 1.0  $/day -947
+rest sport | game ml | 3c under | nfl                          fills     237 games    6 risk $     33,908 ($    2,608/day) edge at fill   3.19c  +30m   1.79c  close   1.43c (z -0.6) on 0.91  $/day 215
+rest sport | game spread | 1c under | cbb                      fills    5469 games  180 risk $    509,990 ($   39,230/day) edge at fill   1.18c  +30m   0.99c  close   0.87c (z 22.66) on 0.72  $/day 595
+rest sport | game spread | 1c under | cfb                      fills    2983 games   26 risk $    531,439 ($   40,880/day) edge at fill    1.2c  +30m   0.96c  close   1.53c (z 7.49) on 0.53  $/day 886
+rest sport | game spread | 1c under | nba                      fills   11899 games   48 risk $    823,491 ($   63,345/day) edge at fill   1.21c  +30m   0.59c  close   0.65c (z 6.33) on 0.58  $/day 638
+rest sport | game spread | 1c under | nfl                      fills    2277 games    8 risk $    387,476 ($   29,806/day) edge at fill   1.16c  +30m   0.59c  close   0.05c (z 1.05) on 0.8  $/day 31
+rest sport | game spread | 1c under | nhl                      fills     777 games   48 risk $     55,466 ($    4,267/day) edge at fill   1.18c  +30m   0.88c  close   0.82c (z 9.96) on 0.99  $/day 92
+rest sport | game spread | 1c under | soccer                   fills     184 games    7 risk $     17,937 ($    1,380/day) edge at fill   1.28c  +30m   0.74c  close    0.9c (z 1.52) on 0.84  $/day 56
+rest sport | game spread | 2c under | cbb                      fills    1700 games  116 risk $    228,874 ($   17,606/day) edge at fill   2.15c  +30m    1.9c  close    1.8c (z 22.12) on 0.66  $/day 518
+rest sport | game spread | 2c under | cfb                      fills     590 games   15 risk $     80,588 ($    6,199/day) edge at fill   2.11c  +30m    1.7c  close   1.73c (z 8.37) on 0.26  $/day 76
+rest sport | game spread | 2c under | nba                      fills    2524 games   18 risk $    347,249 ($   26,711/day) edge at fill    2.2c  +30m   1.32c  close   1.43c (z 5.23) on 0.52  $/day 592
+rest sport | game spread | 2c under | nfl                      fills     366 games    5 risk $     37,203 ($    2,862/day) edge at fill    2.1c  +30m   0.38c  close   0.92c (z None) on 0.61  $/day 55
+rest sport | game spread | 3c under | cbb                      fills     536 games   45 risk $     74,063 ($    5,697/day) edge at fill   3.14c  +30m   2.79c  close   2.58c (z 18.14) on 0.46  $/day 170
+rest sport | game spread | 3c under | cfb                      fills     104 games    2 risk $     18,367 ($    1,413/day) edge at fill   3.08c  +30m   2.45c  close    4.4c (z None) on 0.04  $/day 8
+rest sport | game spread | 3c under | nba                      fills     634 games   13 risk $    202,279 ($   15,560/day) edge at fill   3.18c  +30m   2.77c  close    3.0c (z 6.7) on 0.49  $/day 706
+rest sport | game total | 1c under | cbb                       fills    3570 games  164 risk $    304,965 ($   23,459/day) edge at fill    1.2c  +30m   0.86c  close   0.88c (z 20.5) on 0.64  $/day 319
+rest sport | game total | 1c under | cfb                       fills    2471 games   40 risk $    441,421 ($   33,955/day) edge at fill   1.19c  +30m   0.91c  close   0.96c (z 11.77) on 0.65  $/day 568
+rest sport | game total | 1c under | mma                       fills     184 games   13 risk $      8,200 ($      631/day) edge at fill   1.25c  +30m   1.16c  close   0.12c (z 2.69) on 0.94  $/day 2
+rest sport | game total | 1c under | nba                       fills    4199 games   42 risk $    551,353 ($   42,412/day) edge at fill   1.16c  +30m    0.5c  close   0.56c (z 5.35) on 0.48  $/day 299
+rest sport | game total | 1c under | nfl                       fills    1745 games   13 risk $    364,713 ($   28,055/day) edge at fill   1.24c  +30m    0.6c  close   0.17c (z 2.12) on 0.67  $/day 84
+rest sport | game total | 1c under | nhl                       fills    2003 games   35 risk $    155,226 ($   11,940/day) edge at fill   1.22c  +30m   1.04c  close   0.47c (z 6.82) on 0.97  $/day 150
+rest sport | game total | 1c under | soccer                    fills     578 games   26 risk $     56,712 ($    4,362/day) edge at fill   1.19c  +30m    0.5c  close   0.64c (z 4.14) on 0.98  $/day 105
+rest sport | game total | 2c under | cbb                       fills    1696 games  108 risk $    164,481 ($   12,652/day) edge at fill   2.19c  +30m   1.73c  close   1.67c (z 23.62) on 0.59  $/day 305
+rest sport | game total | 2c under | cfb                       fills     461 games   26 risk $    140,958 ($   10,843/day) edge at fill   2.15c  +30m   1.81c  close   1.91c (z 7.46) on 0.63  $/day 357
+rest sport | game total | 2c under | mma                       fills     120 games   11 risk $      4,662 ($      359/day) edge at fill   2.19c  +30m    2.0c  close    0.5c (z 4.32) on 0.94  $/day 6
+rest sport | game total | 2c under | nba                       fills    1839 games   26 risk $    217,968 ($   16,767/day) edge at fill   2.16c  +30m    1.0c  close    0.9c (z 6.01) on 0.26  $/day 106
+rest sport | game total | 2c under | nfl                       fills     325 games    8 risk $    112,592 ($    8,661/day) edge at fill   2.28c  +30m   1.48c  close   0.39c (z 1.63) on 0.37  $/day 34
+rest sport | game total | 2c under | nhl                       fills     316 games   19 risk $     56,873 ($    4,375/day) edge at fill    2.2c  +30m   1.15c  close   0.87c (z 6.31) on 0.96  $/day 114
+rest sport | game total | 3c under | cbb                       fills     647 games   62 risk $     75,914 ($    5,840/day) edge at fill   3.19c  +30m   2.67c  close   2.53c (z 22.97) on 0.54  $/day 199
+rest sport | game total | 3c under | nba                       fills     259 games    6 risk $     65,726 ($    5,056/day) edge at fill   3.17c  +30m   2.34c  close   0.78c (z 4.27) on 0.1  $/day 11
+rest sport | period lines | 1c under | cbb                     fills     668 games   97 risk $     53,747 ($    4,134/day) edge at fill   1.25c  +30m   0.77c  close   1.11c (z 16.29) on 0.87  $/day 119
+rest sport | period lines | 1c under | cfb                     fills     586 games   43 risk $     58,214 ($    4,478/day) edge at fill   1.26c  +30m    1.0c  close   0.78c (z 4.35) on 0.98  $/day 130
+rest sport | period lines | 1c under | nba                     fills     510 games   44 risk $     53,084 ($    4,083/day) edge at fill   1.21c  +30m   1.11c  close   0.79c (z 8.07) on 0.8  $/day 84
+rest sport | period lines | 1c under | nfl                     fills     612 games   14 risk $     57,072 ($    4,390/day) edge at fill   1.17c  +30m   0.96c  close   1.34c (z 4.6) on 1.0  $/day 197
+rest sport | period lines | 2c under | cbb                     fills     411 games   83 risk $     36,649 ($    2,819/day) edge at fill   2.27c  +30m   1.65c  close   2.04c (z 25.44) on 0.84  $/day 147
+rest sport | period lines | 2c under | cfb                     fills     203 games   29 risk $     18,970 ($    1,459/day) edge at fill   2.26c  +30m   1.86c  close   1.36c (z 5.11) on 0.98  $/day 77
+rest sport | period lines | 2c under | nba                     fills     223 games   33 risk $     30,843 ($    2,373/day) edge at fill   2.21c  +30m   1.99c  close   1.63c (z 11.28) on 0.71  $/day 92
+rest sport | period lines | 2c under | nfl                     fills     107 games   11 risk $     22,039 ($    1,695/day) edge at fill   2.14c  +30m   2.17c  close   2.47c (z 8.65) on 1.0  $/day 165
+rest sport | period lines | 3c under | cbb                     fills     245 games   53 risk $     20,462 ($    1,574/day) edge at fill   3.29c  +30m   2.49c  close   3.08c (z 28.05) on 0.81  $/day 121
+rest sport | player props | 1c under | nba                     fills   13932 games   76 risk $    537,076 ($   41,314/day) edge at fill   1.23c  +30m   0.39c  close  -0.19c (z -1.82) on 0.88  $/day -200
+rest sport | player props | 1c under | nfl                     fills    8084 games   16 risk $    472,564 ($   36,351/day) edge at fill   1.21c  +30m   0.68c  close   0.52c (z 1.28) on 0.9  $/day 454
+rest sport | player props | 1c under | nhl                     fills    4466 games   56 risk $    103,629 ($    7,971/day) edge at fill   1.24c  +30m   0.96c  close   0.51c (z 8.0) on 0.99  $/day 122
+rest sport | player props | 2c under | nba                     fills    9125 games   76 risk $    373,928 ($   28,764/day) edge at fill   2.22c  +30m   1.18c  close   0.48c (z 3.18) on 0.87  $/day 364
+rest sport | player props | 2c under | nfl                     fills    4534 games   16 risk $    261,439 ($   20,111/day) edge at fill    2.2c  +30m   1.44c  close   1.31c (z 3.14) on 0.87  $/day 637
+rest sport | player props | 2c under | nhl                     fills    3032 games   56 risk $     69,752 ($    5,366/day) edge at fill   2.23c  +30m   1.89c  close    1.4c (z 15.83) on 1.0  $/day 235
+rest sport | player props | 3c under | nba                     fills    5422 games   76 risk $    230,893 ($   17,761/day) edge at fill   3.22c  +30m   1.87c  close   1.11c (z 6.32) on 0.85  $/day 518
+rest sport | player props | 3c under | nfl                     fills    1986 games   16 risk $    131,328 ($   10,102/day) edge at fill   3.17c  +30m   2.06c  close   2.61c (z 3.91) on 0.8  $/day 582
+rest sport | player props | 3c under | nhl                     fills    1715 games   56 risk $     40,676 ($    3,129/day) edge at fill   3.23c  +30m   2.73c  close   2.15c (z 16.25) on 1.0  $/day 217
+rest sport | team totals | 1c under | cfb                      fills     209 games   35 risk $     13,494 ($    1,038/day) edge at fill   1.18c  +30m   1.17c  close   0.46c (z 3.35) on 0.91  $/day 11
+rest sport | team totals | 1c under | nba                      fills     142 games   41 risk $      7,052 ($      542/day) edge at fill   1.27c  +30m   0.73c  close    1.1c (z 3.03) on 0.98  $/day 19
+rest sport | team totals | 1c under | nfl                      fills     194 games   15 risk $     12,758 ($      981/day) edge at fill    1.3c  +30m  -0.56c  close  -0.84c (z 2.45) on 0.99  $/day -23
+rest sport | team totals | 1c under | nhl                      fills     298 games   45 risk $     15,590 ($    1,199/day) edge at fill   1.31c  +30m   1.25c  close   1.15c (z 6.87) on 0.99  $/day 40
+rest sport | team totals | 1c under | soccer                   fills     165 games   44 risk $      5,537 ($      426/day) edge at fill   1.18c  +30m   0.72c  close    0.9c (z 3.15) on 0.97  $/day 13
+rest sport | team totals | 2c under | nba                      fills     122 games   39 risk $      5,298 ($      408/day) edge at fill   2.24c  +30m   1.73c  close   2.09c (z 7.77) on 0.97  $/day 28
+rest sport | team totals | 2c under | nfl                      fills     101 games   12 risk $      7,499 ($      577/day) edge at fill   2.32c  +30m  -0.31c  close  -1.09c (z 2.69) on 1.0  $/day -20
+rest sport | team totals | 2c under | nhl                      fills     186 games   36 risk $     10,208 ($      785/day) edge at fill   2.32c  +30m   2.18c  close   2.14c (z 11.71) on 1.0  $/day 49
+rest sport | team totals | 2c under | soccer                   fills     112 games   33 risk $      3,241 ($      249/day) edge at fill   2.16c  +30m   1.44c  close   1.53c (z 4.75) on 0.95  $/day 13
+rest time | game ml | 1c under | 1-6h                          fills   21491 games  331 risk $  1,320,900 ($  101,608/day) edge at fill   1.22c  +30m  -0.03c  close  -0.17c (z 9.99) on 1.0  $/day -560
+rest time | game ml | 1c under | 24h+                          fills    4075 games  100 risk $    337,710 ($   25,978/day) edge at fill   1.26c  +30m   0.54c  close  -0.06c (z 0.94) on 0.83  $/day -45
+rest time | game ml | 1c under | 6-24h                         fills   16337 games  313 risk $  1,062,141 ($   81,703/day) edge at fill   1.21c  +30m  -0.38c  close  -0.86c (z 4.45) on 0.98  $/day -2081
+rest time | game ml | 1c under | last hour                     fills    8171 games  281 risk $  1,180,277 ($   90,791/day) edge at fill   1.18c  +30m   0.47c  close   0.89c (z 24.85) on 1.0  $/day 2610
+rest time | game ml | 2c under | 1-6h                          fills    1986 games  123 risk $    393,338 ($   30,257/day) edge at fill   2.22c  +30m  -0.49c  close   0.25c (z 6.77) on 1.0  $/day 273
+rest time | game ml | 2c under | 24h+                          fills    1198 games   48 risk $    115,088 ($    8,853/day) edge at fill   2.23c  +30m   0.85c  close  -0.61c (z 1.5) on 0.87  $/day -198
+rest time | game ml | 2c under | 6-24h                         fills    2603 games  150 risk $    272,345 ($   20,950/day) edge at fill   2.19c  +30m   -1.2c  close  -1.64c (z 3.46) on 1.0  $/day -1182
+rest time | game ml | 2c under | last hour                     fills    1037 games   71 risk $    188,066 ($   14,467/day) edge at fill   2.22c  +30m   0.63c  close   1.35c (z 9.88) on 1.0  $/day 775
+rest time | game ml | 3c under | 1-6h                          fills     599 games   33 risk $    196,515 ($   15,117/day) edge at fill   3.18c  +30m  -1.51c  close   0.23c (z 1.71) on 1.0  $/day 102
+rest time | game ml | 3c under | 24h+                          fills     333 games   13 risk $     52,915 ($    4,070/day) edge at fill   3.22c  +30m   0.96c  close  -0.73c (z -0.57) on 0.92  $/day -117
+rest time | game ml | 3c under | 6-24h                         fills     531 games   39 risk $    108,474 ($    8,344/day) edge at fill   3.15c  +30m  -2.66c  close   -3.4c (z -0.46) on 0.99  $/day -874
+rest time | game ml | 3c under | last hour                     fills     189 games   16 risk $     54,761 ($    4,212/day) edge at fill   3.23c  +30m   1.11c  close    1.9c (z 2.79) on 1.0  $/day 366
+rest time | game spread | 1c under | 1-6h                      fills    4460 games  243 risk $    757,701 ($   58,285/day) edge at fill   1.18c  +30m   0.79c  close   0.28c (z 15.34) on 0.66  $/day 264
+rest time | game spread | 1c under | 24h+                      fills    2031 games   25 risk $    188,110 ($   14,470/day) edge at fill   1.18c  +30m   0.94c  close   0.53c (z 1.38) on 0.21  $/day 40
+rest time | game spread | 1c under | 6-24h                     fills   13116 games  165 risk $    591,366 ($   45,490/day) edge at fill   1.21c  +30m   0.88c  close   1.73c (z 11.39) on 0.31  $/day 593
+rest time | game spread | 1c under | last hour                 fills    3982 games  258 risk $    788,622 ($   60,663/day) edge at fill   1.19c  +30m   0.43c  close   0.83c (z 32.1) on 1.0  $/day 1220
+rest time | game spread | 2c under | 1-6h                      fills     962 games   77 risk $    266,569 ($   20,505/day) edge at fill   2.17c  +30m   1.45c  close   1.13c (z 12.12) on 0.6  $/day 377
+rest time | game spread | 2c under | 24h+                      fills     629 games   11 risk $     51,253 ($    3,943/day) edge at fill   2.11c  +30m   1.67c  close   3.62c (z 4.81) on 0.05  $/day 20
+rest time | game spread | 2c under | 6-24h                     fills    2839 games   56 risk $    197,077 ($   15,160/day) edge at fill    2.2c  +30m   1.68c  close   2.64c (z 10.44) on 0.16  $/day 158
+rest time | game spread | 2c under | last hour                 fills     787 games   95 risk $    183,936 ($   14,149/day) edge at fill   2.15c  +30m   1.24c  close    1.7c (z 27.84) on 1.0  $/day 595
+rest time | game spread | 3c under | 1-6h                      fills     337 games   21 risk $    129,517 ($    9,963/day) edge at fill   3.14c  +30m   2.88c  close   2.62c (z 8.13) on 0.47  $/day 337
+rest time | game spread | 3c under | 24h+                      fills     150 games    4 risk $     12,572 ($      967/day) edge at fill   3.07c  +30m   2.55c  close   6.66c (z None) on 0.1  $/day 19
+rest time | game spread | 3c under | 6-24h                     fills     681 games   19 risk $    100,042 ($    7,696/day) edge at fill   3.21c  +30m   2.77c  close   4.59c (z 8.04) on 0.17  $/day 154
+rest time | game spread | 3c under | last hour                 fills     203 games   33 risk $     57,727 ($    4,441/day) edge at fill   3.16c  +30m   1.89c  close   2.55c (z 18.17) on 1.0  $/day 392
+rest time | game total | 1c under | 1-6h                       fills    4178 games  240 risk $    557,576 ($   42,890/day) edge at fill   1.19c  +30m   0.72c  close   0.36c (z 13.6) on 0.66  $/day 275
+rest time | game total | 1c under | 24h+                       fills    1402 games   46 risk $    230,412 ($   17,724/day) edge at fill   1.26c  +30m   0.88c  close   0.93c (z 3.56) on 0.29  $/day 116
+rest time | game total | 1c under | 6-24h                      fills    5260 games  157 risk $    456,208 ($   35,093/day) edge at fill   1.19c  +30m   0.66c  close   0.52c (z 6.86) on 0.28  $/day 124
+rest time | game total | 1c under | last hour                  fills    3910 games  281 risk $    638,393 ($   49,107/day) edge at fill   1.18c  +30m   0.63c  close   0.75c (z 29.91) on 1.0  $/day 897
+rest time | game total | 2c under | 1-6h                       fills    1012 games   85 risk $    205,041 ($   15,772/day) edge at fill   2.18c  +30m   1.52c  close   0.97c (z 12.15) on 0.5  $/day 233
+rest time | game total | 2c under | 24h+                       fills     608 games   31 risk $    120,775 ($    9,290/day) edge at fill   2.24c  +30m   1.75c  close   1.85c (z 5.46) on 0.25  $/day 118
+rest time | game total | 2c under | 6-24h                      fills    2247 games   65 risk $    196,390 ($   15,107/day) edge at fill   2.18c  +30m   1.24c  close   1.13c (z 7.94) on 0.17  $/day 71
+rest time | game total | 2c under | last hour                  fills     945 games  128 risk $    185,712 ($   14,286/day) edge at fill   2.18c  +30m   1.26c  close   1.44c (z 29.69) on 1.0  $/day 515
+rest time | game total | 3c under | 1-6h                       fills     330 games   26 risk $     63,636 ($    4,895/day) edge at fill   3.21c  +30m   2.55c  close   1.83c (z 7.53) on 0.21  $/day 59
+rest time | game total | 3c under | 24h+                       fills     188 games    9 risk $     30,306 ($    2,331/day) edge at fill   3.22c  +30m   2.56c  close    2.0c (z 4.99) on 0.1  $/day 13
+rest time | game total | 3c under | 6-24h                      fills     470 games   20 risk $     65,734 ($    5,056/day) edge at fill   3.19c  +30m   2.45c  close    1.2c (z 6.55) on 0.13  $/day 20
+rest time | game total | 3c under | last hour                  fills     188 games   51 risk $     48,963 ($    3,766/day) edge at fill   3.23c  +30m   2.84c  close   2.47c (z 31.48) on 1.0  $/day 291
+rest time | period lines | 1c under | 1-6h                     fills     736 games  128 risk $     61,630 ($    4,741/day) edge at fill   1.23c  +30m   0.98c  close   0.69c (z 8.61) on 0.78  $/day 62
+rest time | period lines | 1c under | 6-24h                    fills     349 games   63 risk $     19,829 ($    1,525/day) edge at fill   1.19c  +30m   0.77c  close   0.12c (z 3.54) on 0.75  $/day 3
+rest time | period lines | 1c under | last hour                fills    1288 games  176 risk $    141,736 ($   10,903/day) edge at fill   1.22c  +30m    1.1c  close   1.22c (z 33.16) on 1.0  $/day 323
+rest time | period lines | 2c under | 1-6h                     fills     318 games   79 risk $     33,869 ($    2,605/day) edge at fill   2.21c  +30m   1.91c  close   1.65c (z 12.51) on 0.67  $/day 78
+rest time | period lines | 2c under | 6-24h                    fills     136 games   38 risk $     10,325 ($      794/day) edge at fill   2.16c  +30m   1.66c  close   0.86c (z 5.53) on 0.62  $/day 10
+rest time | period lines | 2c under | last hour                fills     483 games  117 risk $     64,789 ($    4,984/day) edge at fill   2.24c  +30m    2.0c  close   2.13c (z 47.54) on 1.0  $/day 264
+rest time | period lines | 3c under | 1-6h                     fills     101 games   27 risk $      9,392 ($      722/day) edge at fill   3.22c  +30m   2.66c  close   2.17c (z 10.09) on 0.48  $/day 23
+rest time | period lines | 3c under | last hour                fills     207 games   60 risk $     29,430 ($    2,264/day) edge at fill   3.25c  +30m   2.97c  close   3.17c (z 34.72) on 1.0  $/day 181
+rest time | player props | 1c under | 1-6h                     fills   10679 games  148 risk $    467,152 ($   35,935/day) edge at fill   1.23c  +30m   0.65c  close   0.13c (z 2.21) on 0.93  $/day 118
+rest time | player props | 1c under | 24h+                     fills    1560 games   15 risk $     59,340 ($    4,565/day) edge at fill   1.16c  +30m    0.7c  close  -1.24c (z -1.95) on 0.5  $/day -84
+rest time | player props | 1c under | 6-24h                    fills    9632 games  146 risk $    309,579 ($   23,814/day) edge at fill   1.23c  +30m    0.5c  close  -0.32c (z -1.1) on 0.84  $/day -166
+rest time | player props | 1c under | last hour                fills    4611 games  148 risk $    277,198 ($   21,323/day) edge at fill   1.21c  +30m   0.33c  close   0.89c (z 9.03) on 1.0  $/day 507
+rest time | player props | 2c under | 1-6h                     fills    6349 games  148 risk $    311,679 ($   23,975/day) edge at fill   2.22c  +30m    1.5c  close   0.94c (z 8.05) on 0.92  $/day 579
+rest time | player props | 2c under | 24h+                     fills    1145 games   15 risk $     46,147 ($    3,550/day) edge at fill   2.14c  +30m   1.59c  close  -0.83c (z -0.72) on 0.46  $/day -41
+rest time | player props | 2c under | 6-24h                    fills    6536 games  146 risk $    207,968 ($   15,998/day) edge at fill   2.23c  +30m   1.27c  close   0.36c (z 5.18) on 0.83  $/day 129
+rest time | player props | 2c under | last hour                fills    2661 games  147 risk $    139,326 ($   10,717/day) edge at fill    2.2c  +30m   0.66c  close    1.7c (z 16.43) on 1.0  $/day 503
+rest time | player props | 3c under | 1-6h                     fills    3334 games  147 risk $    171,446 ($   13,188/day) edge at fill   3.21c  +30m    2.3c  close    1.9c (z 11.21) on 0.9  $/day 624
+rest time | player props | 3c under | 24h+                     fills     658 games   15 risk $     33,056 ($    2,543/day) edge at fill   3.13c  +30m   2.44c  close  -0.53c (z -0.55) on 0.4  $/day -17
+rest time | player props | 3c under | 6-24h                    fills    3723 games  144 risk $    119,806 ($    9,216/day) edge at fill   3.22c  +30m   1.75c  close   0.92c (z 8.8) on 0.81  $/day 189
+rest time | player props | 3c under | last hour                fills    1408 games  136 risk $     78,590 ($    6,045/day) edge at fill    3.2c  +30m   1.19c  close   2.63c (z 21.23) on 1.0  $/day 446
+rest time | team totals | 1c under | 1-6h                      fills     435 games  125 risk $     20,135 ($    1,549/day) edge at fill   1.26c  +30m   1.26c  close   1.24c (z 7.08) on 0.98  $/day 49
+rest time | team totals | 1c under | 6-24h                     fills     218 games   67 risk $     13,691 ($    1,053/day) edge at fill    1.3c  +30m  -0.28c  close  -1.25c (z 4.1) on 0.86  $/day -31
+rest time | team totals | 1c under | last hour                 fills     298 games  103 risk $     16,612 ($    1,278/day) edge at fill   1.25c  +30m   0.63c  close   1.04c (z 10.53) on 1.0  $/day 35
+rest time | team totals | 2c under | 1-6h                      fills     270 games   86 risk $     10,695 ($      823/day) edge at fill   2.26c  +30m   2.23c  close   2.39c (z 10.96) on 0.99  $/day 50
+rest time | team totals | 2c under | 6-24h                     fills     145 games   47 risk $     10,388 ($      799/day) edge at fill   2.32c  +30m   0.26c  close  -0.76c (z 5.48) on 0.9  $/day -15
+rest time | team totals | 2c under | last hour                 fills     158 games   68 risk $      7,001 ($      539/day) edge at fill   2.28c  +30m   1.46c  close   1.73c (z 14.57) on 1.0  $/day 26
+rest time | team totals | 3c under | 1-6h                      fills     122 games   51 risk $      5,910 ($      455/day) edge at fill   3.28c  +30m   3.16c  close   3.55c (z 11.92) on 1.0  $/day 42
+rest | game ml | 1c under                                      fills   50074 games  385 risk $  3,901,027 ($  300,079/day) edge at fill   1.21c  +30m  -0.03c  close  -0.01c (z 8.46) on 0.98  $/day -72
+rest | game ml | 2c under                                      fills    6824 games  254 risk $    968,837 ($   74,526/day) edge at fill   2.22c  +30m   -0.4c  close  -0.16c (z 6.48) on 0.98  $/day -410
+rest | game ml | 3c under                                      fills    1652 games   83 risk $    412,664 ($   31,743/day) edge at fill   3.19c  +30m  -1.21c  close  -0.71c (z 0.72) on 0.98  $/day -654
+rest | game spread | 1c under                                  fills   23589 games  317 risk $  2,325,799 ($  178,908/day) edge at fill   1.19c  +30m   0.78c  close   0.75c (z 24.04) on 0.65  $/day 2117
+rest | game spread | 2c under                                  fills    5217 games  166 risk $    698,834 ($   53,756/day) edge at fill   2.17c  +30m   1.53c  close   1.55c (z 20.32) on 0.54  $/day 1114
+rest | game spread | 3c under                                  fills    1371 games   64 risk $    299,858 ($   23,066/day) edge at fill   3.16c  +30m   2.68c  close   2.88c (z 15.69) on 0.46  $/day 761
+rest | game total | 1c under                                   fills   14750 games  333 risk $  1,882,589 ($  144,815/day) edge at fill    1.2c  +30m   0.71c  close   0.62c (z 22.84) on 0.64  $/day 1388
+rest | game total | 2c under                                   fills    4812 games  210 risk $    707,919 ($   54,455/day) edge at fill   2.19c  +30m   1.45c  close   1.31c (z 22.49) on 0.5  $/day 883
+rest | game total | 3c under                                   fills    1176 games   91 risk $    208,639 ($   16,049/day) edge at fill   3.21c  +30m   2.53c  close   2.19c (z 21.39) on 0.36  $/day 318
+rest | period lines | 1c under                                 fills    2458 games  215 risk $    226,176 ($   17,398/day) edge at fill   1.22c  +30m   0.99c  close   1.01c (z 16.89) on 0.92  $/day 392
+rest | period lines | 2c under                                 fills     981 games  166 risk $    110,664 ($    8,513/day) edge at fill   2.22c  +30m   1.89c  close   1.92c (z 24.0) on 0.87  $/day 350
+rest | period lines | 3c under                                 fills     371 games   82 risk $     43,604 ($    3,354/day) edge at fill   3.23c  +30m   2.77c  close   2.96c (z 24.82) on 0.86  $/day 214
+rest | player props | 1c under                                 fills   26482 games  148 risk $  1,113,269 ($   85,636/day) edge at fill   1.22c  +30m   0.57c  close   0.19c (z 2.01) on 0.9  $/day 384
+rest | player props | 2c under                                 fills   16691 games  148 risk $    705,120 ($   54,240/day) edge at fill   2.21c  +30m   1.35c  close   0.89c (z 9.28) on 0.88  $/day 1175
+rest | player props | 3c under                                 fills    9123 games  148 risk $    402,897 ($   30,992/day) edge at fill   3.21c  +30m   2.02c  close    1.7c (z 12.95) on 0.85  $/day 1244
+rest | team totals | 1c under                                  fills    1049 games  195 risk $     55,650 ($    4,281/day) edge at fill   1.26c  +30m   0.67c  close   0.47c (z 8.29) on 0.95  $/day 50
+rest | team totals | 2c under                                  fills     647 games  156 risk $     30,694 ($    2,361/day) edge at fill   2.29c  +30m   1.33c  close   1.06c (z 12.4) on 0.96  $/day 65
+rest | team totals | 3c under                                  fills     345 games  104 risk $     18,768 ($    1,444/day) edge at fill   3.31c  +30m   1.74c  close   1.43c (z 14.09) on 0.94  $/day 53
+same fills, 30m fair, rest time | game ml | 1c under | 1-6h    fills   21491 games  331 risk $  1,320,900 ($  101,608/day) edge at fill   1.22c  +30m  -0.03c  close  -0.17c (z 9.99) on 1.0  $/day -560
+same fills, 30m fair, rest time | game ml | 1c under | 24h+    fills    4075 games  100 risk $    337,710 ($   25,978/day) edge at fill   1.26c  +30m   0.54c  close  -0.06c (z 0.94) on 0.83  $/day -45
+same fills, 30m fair, rest time | game ml | 1c under | 6-24h   fills   16337 games  313 risk $  1,062,141 ($   81,703/day) edge at fill   1.21c  +30m  -0.38c  close  -0.86c (z 4.45) on 0.98  $/day -2081
+same fills, 30m fair, rest time | game ml | 1c under | last hour fills    8171 games  281 risk $  1,180,277 ($   90,791/day) edge at fill   1.18c  +30m   0.47c  close   0.89c (z 24.85) on 1.0  $/day 2610
+same fills, 30m fair, rest time | game ml | 2c under | 1-6h    fills    1986 games  123 risk $    393,338 ($   30,257/day) edge at fill   2.22c  +30m  -0.49c  close   0.25c (z 6.77) on 1.0  $/day 273
+same fills, 30m fair, rest time | game ml | 2c under | 24h+    fills    1198 games   48 risk $    115,088 ($    8,853/day) edge at fill   2.23c  +30m   0.85c  close  -0.61c (z 1.5) on 0.87  $/day -198
+same fills, 30m fair, rest time | game ml | 2c under | 6-24h   fills    2603 games  150 risk $    272,345 ($   20,950/day) edge at fill   2.19c  +30m   -1.2c  close  -1.64c (z 3.46) on 1.0  $/day -1182
+same fills, 30m fair, rest time | game ml | 2c under | last hour fills    1037 games   71 risk $    188,066 ($   14,467/day) edge at fill   2.22c  +30m   0.63c  close   1.35c (z 9.88) on 1.0  $/day 775
+same fills, 30m fair, rest time | game ml | 3c under | 1-6h    fills     599 games   33 risk $    196,515 ($   15,117/day) edge at fill   3.18c  +30m  -1.51c  close   0.23c (z 1.71) on 1.0  $/day 102
+same fills, 30m fair, rest time | game ml | 3c under | 24h+    fills     333 games   13 risk $     52,915 ($    4,070/day) edge at fill   3.22c  +30m   0.96c  close  -0.73c (z -0.57) on 0.92  $/day -117
+same fills, 30m fair, rest time | game ml | 3c under | 6-24h   fills     531 games   39 risk $    108,474 ($    8,344/day) edge at fill   3.15c  +30m  -2.66c  close   -3.4c (z -0.46) on 0.99  $/day -874
+same fills, 30m fair, rest time | game ml | 3c under | last hour fills     189 games   16 risk $     54,761 ($    4,212/day) edge at fill   3.23c  +30m   1.11c  close    1.9c (z 2.79) on 1.0  $/day 366
+same fills, 30m fair, rest time | game spread | 1c under | 1-6h fills    4460 games  243 risk $    757,701 ($   58,285/day) edge at fill   1.18c  +30m   0.79c  close   0.28c (z 15.34) on 0.66  $/day 264
+same fills, 30m fair, rest time | game spread | 1c under | 24h+ fills    2031 games   25 risk $    188,110 ($   14,470/day) edge at fill   1.18c  +30m   0.94c  close   0.53c (z 1.38) on 0.21  $/day 40
+same fills, 30m fair, rest time | game spread | 1c under | 6-24h fills   13116 games  165 risk $    591,366 ($   45,490/day) edge at fill   1.21c  +30m   0.88c  close   1.73c (z 11.39) on 0.31  $/day 593
+same fills, 30m fair, rest time | game spread | 1c under | last hour fills    3982 games  258 risk $    788,622 ($   60,663/day) edge at fill   1.19c  +30m   0.43c  close   0.83c (z 32.1) on 1.0  $/day 1220
+same fills, 30m fair, rest time | game spread | 2c under | 1-6h fills     962 games   77 risk $    266,569 ($   20,505/day) edge at fill   2.17c  +30m   1.45c  close   1.13c (z 12.12) on 0.6  $/day 377
+same fills, 30m fair, rest time | game spread | 2c under | 24h+ fills     629 games   11 risk $     51,253 ($    3,943/day) edge at fill   2.11c  +30m   1.67c  close   3.62c (z 4.81) on 0.05  $/day 20
+same fills, 30m fair, rest time | game spread | 2c under | 6-24h fills    2839 games   56 risk $    197,077 ($   15,160/day) edge at fill    2.2c  +30m   1.68c  close   2.64c (z 10.44) on 0.16  $/day 158
+same fills, 30m fair, rest time | game spread | 2c under | last hour fills     787 games   95 risk $    183,936 ($   14,149/day) edge at fill   2.15c  +30m   1.24c  close    1.7c (z 27.84) on 1.0  $/day 595
+same fills, 30m fair, rest time | game spread | 3c under | 1-6h fills     337 games   21 risk $    129,517 ($    9,963/day) edge at fill   3.14c  +30m   2.88c  close   2.62c (z 8.13) on 0.47  $/day 337
+same fills, 30m fair, rest time | game spread | 3c under | 24h+ fills     150 games    4 risk $     12,572 ($      967/day) edge at fill   3.07c  +30m   2.55c  close   6.66c (z None) on 0.1  $/day 19
+same fills, 30m fair, rest time | game spread | 3c under | 6-24h fills     681 games   19 risk $    100,042 ($    7,696/day) edge at fill   3.21c  +30m   2.77c  close   4.59c (z 8.04) on 0.17  $/day 154
+same fills, 30m fair, rest time | game spread | 3c under | last hour fills     203 games   33 risk $     57,727 ($    4,441/day) edge at fill   3.16c  +30m   1.89c  close   2.55c (z 18.17) on 1.0  $/day 392
+same fills, 30m fair, rest time | game total | 1c under | 1-6h fills    4178 games  240 risk $    557,576 ($   42,890/day) edge at fill   1.19c  +30m   0.72c  close   0.36c (z 13.6) on 0.66  $/day 275
+same fills, 30m fair, rest time | game total | 1c under | 24h+ fills    1402 games   46 risk $    230,412 ($   17,724/day) edge at fill   1.26c  +30m   0.88c  close   0.93c (z 3.56) on 0.29  $/day 116
+same fills, 30m fair, rest time | game total | 1c under | 6-24h fills    5260 games  157 risk $    456,208 ($   35,093/day) edge at fill   1.19c  +30m   0.66c  close   0.52c (z 6.86) on 0.28  $/day 124
+same fills, 30m fair, rest time | game total | 1c under | last hour fills    3910 games  281 risk $    638,393 ($   49,107/day) edge at fill   1.18c  +30m   0.63c  close   0.75c (z 29.91) on 1.0  $/day 897
+same fills, 30m fair, rest time | game total | 2c under | 1-6h fills    1012 games   85 risk $    205,041 ($   15,772/day) edge at fill   2.18c  +30m   1.52c  close   0.97c (z 12.15) on 0.5  $/day 233
+same fills, 30m fair, rest time | game total | 2c under | 24h+ fills     608 games   31 risk $    120,775 ($    9,290/day) edge at fill   2.24c  +30m   1.75c  close   1.85c (z 5.46) on 0.25  $/day 118
+same fills, 30m fair, rest time | game total | 2c under | 6-24h fills    2247 games   65 risk $    196,390 ($   15,107/day) edge at fill   2.18c  +30m   1.24c  close   1.13c (z 7.94) on 0.17  $/day 71
+same fills, 30m fair, rest time | game total | 2c under | last hour fills     945 games  128 risk $    185,712 ($   14,286/day) edge at fill   2.18c  +30m   1.26c  close   1.44c (z 29.69) on 1.0  $/day 515
+same fills, 30m fair, rest time | game total | 3c under | 1-6h fills     330 games   26 risk $     63,636 ($    4,895/day) edge at fill   3.21c  +30m   2.55c  close   1.83c (z 7.53) on 0.21  $/day 59
+same fills, 30m fair, rest time | game total | 3c under | 24h+ fills     188 games    9 risk $     30,306 ($    2,331/day) edge at fill   3.22c  +30m   2.56c  close    2.0c (z 4.99) on 0.1  $/day 13
+same fills, 30m fair, rest time | game total | 3c under | 6-24h fills     470 games   20 risk $     65,734 ($    5,056/day) edge at fill   3.19c  +30m   2.45c  close    1.2c (z 6.55) on 0.13  $/day 20
+same fills, 30m fair, rest time | game total | 3c under | last hour fills     188 games   51 risk $     48,963 ($    3,766/day) edge at fill   3.23c  +30m   2.84c  close   2.47c (z 31.48) on 1.0  $/day 291
+same fills, 30m fair, rest time | period lines | 1c under | 1-6h fills     736 games  128 risk $     61,630 ($    4,741/day) edge at fill   1.23c  +30m   0.98c  close   0.69c (z 8.61) on 0.78  $/day 62
+same fills, 30m fair, rest time | period lines | 1c under | 6-24h fills     349 games   63 risk $     19,829 ($    1,525/day) edge at fill   1.19c  +30m   0.77c  close   0.12c (z 3.54) on 0.75  $/day 3
+same fills, 30m fair, rest time | period lines | 1c under | last hour fills    1288 games  176 risk $    141,736 ($   10,903/day) edge at fill   1.22c  +30m    1.1c  close   1.22c (z 33.16) on 1.0  $/day 323
+same fills, 30m fair, rest time | period lines | 2c under | 1-6h fills     318 games   79 risk $     33,869 ($    2,605/day) edge at fill   2.21c  +30m   1.91c  close   1.65c (z 12.51) on 0.67  $/day 78
+same fills, 30m fair, rest time | period lines | 2c under | 6-24h fills     136 games   38 risk $     10,325 ($      794/day) edge at fill   2.16c  +30m   1.66c  close   0.86c (z 5.53) on 0.62  $/day 10
+same fills, 30m fair, rest time | period lines | 2c under | last hour fills     483 games  117 risk $     64,789 ($    4,984/day) edge at fill   2.24c  +30m    2.0c  close   2.13c (z 47.54) on 1.0  $/day 264
+same fills, 30m fair, rest time | period lines | 3c under | 1-6h fills     101 games   27 risk $      9,392 ($      722/day) edge at fill   3.22c  +30m   2.66c  close   2.17c (z 10.09) on 0.48  $/day 23
+same fills, 30m fair, rest time | period lines | 3c under | last hour fills     207 games   60 risk $     29,430 ($    2,264/day) edge at fill   3.25c  +30m   2.97c  close   3.17c (z 34.72) on 1.0  $/day 181
+same fills, 30m fair, rest time | player props | 1c under | 1-6h fills   10679 games  148 risk $    467,152 ($   35,935/day) edge at fill   1.23c  +30m   0.65c  close   0.13c (z 2.21) on 0.93  $/day 118
+same fills, 30m fair, rest time | player props | 1c under | 24h+ fills    1560 games   15 risk $     59,340 ($    4,565/day) edge at fill   1.16c  +30m    0.7c  close  -1.24c (z -1.95) on 0.5  $/day -84
+same fills, 30m fair, rest time | player props | 1c under | 6-24h fills    9632 games  146 risk $    309,579 ($   23,814/day) edge at fill   1.23c  +30m    0.5c  close  -0.32c (z -1.1) on 0.84  $/day -166
+same fills, 30m fair, rest time | player props | 1c under | last hour fills    4611 games  148 risk $    277,198 ($   21,323/day) edge at fill   1.21c  +30m   0.33c  close   0.89c (z 9.03) on 1.0  $/day 507
+same fills, 30m fair, rest time | player props | 2c under | 1-6h fills    6349 games  148 risk $    311,679 ($   23,975/day) edge at fill   2.22c  +30m    1.5c  close   0.94c (z 8.05) on 0.92  $/day 579
+same fills, 30m fair, rest time | player props | 2c under | 24h+ fills    1145 games   15 risk $     46,147 ($    3,550/day) edge at fill   2.14c  +30m   1.59c  close  -0.83c (z -0.72) on 0.46  $/day -41
+same fills, 30m fair, rest time | player props | 2c under | 6-24h fills    6536 games  146 risk $    207,968 ($   15,998/day) edge at fill   2.23c  +30m   1.27c  close   0.36c (z 5.18) on 0.83  $/day 129
+same fills, 30m fair, rest time | player props | 2c under | last hour fills    2661 games  147 risk $    139,326 ($   10,717/day) edge at fill    2.2c  +30m   0.66c  close    1.7c (z 16.43) on 1.0  $/day 503
+same fills, 30m fair, rest time | player props | 3c under | 1-6h fills    3334 games  147 risk $    171,446 ($   13,188/day) edge at fill   3.21c  +30m    2.3c  close    1.9c (z 11.21) on 0.9  $/day 624
+same fills, 30m fair, rest time | player props | 3c under | 24h+ fills     658 games   15 risk $     33,056 ($    2,543/day) edge at fill   3.13c  +30m   2.44c  close  -0.53c (z -0.55) on 0.4  $/day -17
+same fills, 30m fair, rest time | player props | 3c under | 6-24h fills    3723 games  144 risk $    119,806 ($    9,216/day) edge at fill   3.22c  +30m   1.75c  close   0.92c (z 8.8) on 0.81  $/day 189
+same fills, 30m fair, rest time | player props | 3c under | last hour fills    1408 games  136 risk $     78,590 ($    6,045/day) edge at fill    3.2c  +30m   1.19c  close   2.63c (z 21.23) on 1.0  $/day 446
+same fills, 30m fair, rest time | team totals | 1c under | 1-6h fills     435 games  125 risk $     20,135 ($    1,549/day) edge at fill   1.26c  +30m   1.26c  close   1.24c (z 7.08) on 0.98  $/day 49
+same fills, 30m fair, rest time | team totals | 1c under | 6-24h fills     218 games   67 risk $     13,691 ($    1,053/day) edge at fill    1.3c  +30m  -0.28c  close  -1.25c (z 4.1) on 0.86  $/day -31
+same fills, 30m fair, rest time | team totals | 1c under | last hour fills     298 games  103 risk $     16,612 ($    1,278/day) edge at fill   1.25c  +30m   0.63c  close   1.04c (z 10.53) on 1.0  $/day 35
+same fills, 30m fair, rest time | team totals | 2c under | 1-6h fills     270 games   86 risk $     10,695 ($      823/day) edge at fill   2.26c  +30m   2.23c  close   2.39c (z 10.96) on 0.99  $/day 50
+same fills, 30m fair, rest time | team totals | 2c under | 6-24h fills     145 games   47 risk $     10,388 ($      799/day) edge at fill   2.32c  +30m   0.26c  close  -0.76c (z 5.48) on 0.9  $/day -15
+same fills, 30m fair, rest time | team totals | 2c under | last hour fills     158 games   68 risk $      7,001 ($      539/day) edge at fill   2.28c  +30m   1.46c  close   1.73c (z 14.57) on 1.0  $/day 26
+same fills, 30m fair, rest time | team totals | 3c under | 1-6h fills     122 games   51 risk $      5,910 ($      455/day) edge at fill   3.28c  +30m   3.16c  close   3.55c (z 11.92) on 1.0  $/day 42
+size | game ml | $100-1k                                       fills   25867 games  374 risk $  7,531,397 ($  579,338/day) edge at fill    0.5c  +30m   0.29c  close   0.29c (z 3.84) on 0.98  $/day 4337
+size | game ml | $1k+                                          fills    4639 games  272 risk $ 15,147,995 ($1,165,230/day) edge at fill   0.14c  +30m  -0.18c  close   -0.1c (z -1.06) on 0.99  $/day -2627
+size | game ml | under $100                                    fills  198650 games  392 risk $  2,479,926 ($  190,764/day) edge at fill   0.51c  +30m   0.46c  close   0.47c (z 14.08) on 0.97  $/day 2356
+size | game spread | $100-1k                                   fills   10780 games  313 risk $  3,041,566 ($  233,967/day) edge at fill   0.41c  +30m    0.3c  close   0.32c (z 7.04) on 0.72  $/day 1271
+size | game spread | $1k+                                      fills    1584 games  167 risk $  6,114,882 ($  470,376/day) edge at fill   0.19c  +30m   0.22c  close  -0.04c (z 4.06) on 0.85  $/day -371
+size | game spread | under $100                                fills   89989 games  340 risk $  1,031,822 ($   79,371/day) edge at fill   0.46c  +30m   0.42c  close   0.43c (z 15.52) on 0.7  $/day 577
+size | game total | $100-1k                                    fills    7855 games  314 risk $  2,339,520 ($  179,963/day) edge at fill   0.36c  +30m   0.24c  close    0.3c (z 8.48) on 0.64  $/day 821
+size | game total | $1k+                                       fills    1010 games  146 risk $  2,396,513 ($  184,347/day) edge at fill   0.37c  +30m   0.29c  close   0.26c (z 2.49) on 0.75  $/day 941
+size | game total | under $100                                 fills   95529 games  362 risk $    720,827 ($   55,448/day) edge at fill   0.42c  +30m   0.35c  close   0.37c (z 12.61) on 0.69  $/day 342
+size | period lines | $100-1k                                  fills     966 games  158 risk $    229,169 ($   17,628/day) edge at fill   1.06c  +30m   0.85c  close   0.91c (z 10.9) on 0.89  $/day 383
+size | period lines | under $100                               fills    3966 games  232 risk $     93,577 ($    7,198/day) edge at fill   1.04c  +30m   0.89c  close   0.92c (z 14.96) on 0.93  $/day 149
+size | player props | $100-1k                                  fills    6819 games  148 risk $  1,503,982 ($  115,691/day) edge at fill   0.25c  +30m    0.3c  close   0.19c (z -0.19) on 0.91  $/day 512
+size | player props | $1k+                                     fills     181 games   30 risk $    486,441 ($   37,419/day) edge at fill  -0.19c  +30m    0.1c  close  -0.37c (z 0.44) on 0.98  $/day -360
+size | player props | under $100                               fills   79203 games  148 risk $  1,077,270 ($   82,867/day) edge at fill   0.19c  +30m    0.1c  close   0.13c (z 1.19) on 0.92  $/day 267
+size | team totals | $100-1k                                   fills     287 games   87 risk $     66,552 ($    5,119/day) edge at fill   1.28c  +30m   0.79c  close   0.91c (z 3.97) on 0.97  $/day 121
+size | team totals | under $100                                fills    1892 games  216 risk $     37,211 ($    2,862/day) edge at fill   1.15c  +30m   0.94c  close   0.87c (z 8.87) on 0.94  $/day 63
+sport | game ml | cbb                                          fills   20836 games  176 risk $  1,420,833 ($  109,295/day) edge at fill   0.37c  +30m   0.25c  close   0.31c (z 5.57) on 1.0  $/day 813
+sport | game ml | cfb                                          fills   34587 games   55 risk $  3,852,632 ($  296,356/day) edge at fill   0.26c  +30m   0.11c  close   0.03c (z 0.93) on 0.98  $/day 189
+sport | game ml | mma                                          fills    2559 games   12 risk $    216,903 ($   16,685/day) edge at fill   0.51c  +30m   0.48c  close   0.41c (z 3.34) on 0.57  $/day 103
+sport | game ml | nba                                          fills   84844 games   76 risk $  8,969,409 ($  689,955/day) edge at fill   0.43c  +30m  -0.04c  close  -0.01c (z 0.47) on 1.0  $/day -96
+sport | game ml | nfl                                          fills   35859 games   16 risk $  7,468,017 ($  574,463/day) edge at fill   0.15c  +30m   0.07c  close   0.12c (z 0.63) on 0.97  $/day 1740
+sport | game ml | nhl                                          fills   50471 games   57 risk $  3,231,524 ($  248,579/day) edge at fill   0.33c  +30m   0.22c  close   0.25c (z 6.08) on 1.0  $/day 1643
+sport | game spread | cbb                                      fills   23082 games  190 risk $  1,383,996 ($  106,461/day) edge at fill   0.36c  +30m   0.39c  close   0.43c (z 9.1) on 0.7  $/day 752
+sport | game spread | cfb                                      fills   26865 games   27 risk $  2,247,213 ($  172,863/day) edge at fill   0.28c  +30m   0.28c  close   0.04c (z 2.2) on 0.69  $/day 127
+sport | game spread | nba                                      fills   31247 games   53 risk $  2,214,459 ($  170,343/day) edge at fill   0.84c  +30m   0.46c  close   0.54c (z 5.04) on 0.68  $/day 1648
+sport | game spread | nfl                                      fills   14728 games    8 risk $  3,946,443 ($  303,573/day) edge at fill  -0.06c  +30m   0.07c  close  -0.15c (z -0.27) on 0.94  $/day -1094
+sport | game spread | nhl                                      fills    6032 games   57 risk $    362,187 ($   27,861/day) edge at fill   0.28c  +30m   0.22c  close   0.11c (z 2.24) on 0.98  $/day 83
+sport | game spread | soccer                                   fills     399 games    7 risk $     33,973 ($    2,613/day) edge at fill   0.81c  +30m   0.18c  close   0.54c (z 0.98) on 0.87  $/day 65
+sport | game total | cbb                                       fills   38085 games  184 risk $    889,333 ($   68,410/day) edge at fill  -0.19c  +30m  -0.18c  close   0.25c (z 6.62) on 0.57  $/day 231
+sport | game total | cfb                                       fills   12045 games   40 risk $  1,156,749 ($   88,981/day) edge at fill   0.48c  +30m   0.46c  close   0.45c (z 3.99) on 0.61  $/day 638
+sport | game total | mma                                       fills     291 games   13 risk $     15,041 ($    1,157/day) edge at fill   1.08c  +30m   1.06c  close   0.91c (z 4.29) on 0.95  $/day 33
+sport | game total | nba                                       fills   32970 games   43 risk $  1,442,676 ($  110,975/day) edge at fill   0.51c  +30m   0.37c  close   0.28c (z 3.54) on 0.59  $/day 477
+sport | game total | nfl                                       fills    7748 games   14 risk $  1,330,243 ($  102,326/day) edge at fill   0.41c  +30m   0.29c  close   0.19c (z 2.58) on 0.84  $/day 426
+sport | game total | nhl                                       fills   10476 games   39 risk $    483,695 ($   37,207/day) edge at fill   0.47c  +30m   0.25c  close   0.28c (z 4.81) on 0.96  $/day 269
+sport | game total | soccer                                    fills    2779 games   31 risk $    139,123 ($   10,702/day) edge at fill   0.73c  +30m   0.17c  close   0.47c (z 3.09) on 0.97  $/day 183
+sport | period lines | cbb                                     fills    1032 games  109 risk $     81,119 ($    6,240/day) edge at fill   1.45c  +30m   1.02c  close   1.82c (z 13.38) on 0.82  $/day 276
+sport | period lines | cfb                                     fills    1461 games   47 risk $    113,504 ($    8,731/day) edge at fill    1.0c  +30m   0.91c  close   0.76c (z 6.65) on 0.98  $/day 245
+sport | period lines | nba                                     fills     921 games   49 risk $    120,370 ($    9,259/day) edge at fill   0.23c  +30m   0.41c  close   0.29c (z 4.75) on 0.83  $/day 72
+sport | period lines | nfl                                     fills    1442 games   14 risk $    120,413 ($    9,263/day) edge at fill   0.83c  +30m   0.38c  close   0.83c (z 2.72) on 1.0  $/day 228
+sport | period lines | soccer                                  fills     130 games   20 risk $      5,628 ($      433/day) edge at fill   1.85c  +30m   1.67c  close   1.67c (z 5.13) on 1.0  $/day 39
+sport | player props | nba                                     fills   48000 games   76 risk $  1,228,554 ($   94,504/day) edge at fill   0.42c  +30m   0.34c  close   0.31c (z 3.43) on 0.89  $/day 756
+sport | player props | nfl                                     fills   22352 games   16 risk $  1,428,428 ($  109,879/day) edge at fill   0.17c  +30m   0.37c  close   0.06c (z 0.08) on 0.94  $/day 165
+sport | player props | nhl                                     fills   15851 games   56 risk $    410,712 ($   31,593/day) edge at fill  -0.65c  +30m  -0.67c  close   -0.5c (z -4.5) on 0.99  $/day -435
+sport | team totals | cfb                                      fills     343 games   36 risk $     23,535 ($    1,810/day) edge at fill   0.99c  +30m   0.74c  close   0.62c (z 4.77) on 0.9  $/day 27
+sport | team totals | nba                                      fills     206 games   46 risk $      9,584 ($      737/day) edge at fill   1.84c  +30m    1.6c  close   2.05c (z 7.04) on 0.96  $/day 44
+sport | team totals | nfl                                      fills     468 games   15 risk $     35,744 ($    2,750/day) edge at fill   0.98c  +30m   0.34c  close   0.71c (z 1.67) on 0.99  $/day 55
+sport | team totals | nhl                                      fills     745 games   54 risk $     34,010 ($    2,616/day) edge at fill   0.83c  +30m   0.59c  close   0.57c (z 3.01) on 0.98  $/day 42
+sport | team totals | soccer                                   fills     347 games   48 risk $      7,687 ($      591/day) edge at fill   1.89c  +30m   1.64c  close   1.38c (z 4.65) on 0.98  $/day 29
+time | game ml | 1-6h                                          fills   75040 games  386 risk $  8,844,273 ($  680,329/day) edge at fill   0.28c  +30m   0.01c  close   0.14c (z 6.54) on 1.0  $/day 2296
+time | game ml | 24h+                                          fills   13761 games  124 risk $  1,385,985 ($  106,614/day) edge at fill    0.5c  +30m   0.32c  close   0.18c (z 0.96) on 0.77  $/day 407
+time | game ml | 6-24h                                         fills   95538 games  355 risk $  4,738,135 ($  364,472/day) edge at fill   0.47c  +30m   0.09c  close  -0.06c (z 3.29) on 0.98  $/day -510
+time | game ml | last hour                                     fills   44817 games  389 risk $ 10,190,924 ($  783,917/day) edge at fill   0.21c  +30m   0.11c  close    0.1c (z 6.65) on 1.0  $/day 1910
+time | game spread | 1-6h                                      fills   27357 games  298 risk $  3,110,129 ($  239,241/day) edge at fill   0.48c  +30m   0.25c  close    0.2c (z 9.24) on 0.8  $/day 931
+time | game spread | 24h+                                      fills    6267 games   39 risk $    639,561 ($   49,197/day) edge at fill   0.47c  +30m   0.41c  close   0.08c (z 1.91) on 0.29  $/day 26
+time | game spread | 6-24h                                     fills   49928 games  215 risk $  1,902,746 ($  146,365/day) edge at fill   0.44c  +30m   0.34c  close   0.53c (z 6.74) on 0.47  $/day 876
+time | game spread | last hour                                 fills   18801 games  336 risk $  4,535,834 ($  348,910/day) edge at fill   0.06c  +30m   0.17c  close  -0.04c (z 10.28) on 1.0  $/day -357
+time | game total | 1-6h                                       fills   33096 games  311 risk $  1,786,982 ($  137,460/day) edge at fill   0.21c  +30m   0.16c  close   0.24c (z 6.76) on 0.68  $/day 529
+time | game total | 24h+                                       fills    3228 games   62 risk $    449,043 ($   34,542/day) edge at fill   0.91c  +30m   0.77c  close   0.94c (z 3.99) on 0.3  $/day 233
+time | game total | 6-24h                                      fills   47923 games  198 risk $  1,189,020 ($   91,463/day) edge at fill   0.42c  +30m   0.26c  close   0.38c (z 5.76) on 0.35  $/day 288
+time | game total | last hour                                  fills   20147 games  352 risk $  2,031,814 ($  156,293/day) edge at fill   0.36c  +30m   0.28c  close   0.26c (z 9.2) on 1.0  $/day 968
+time | period lines | 1-6h                                     fills    1752 games  153 risk $    131,336 ($   10,103/day) edge at fill   0.58c  +30m    0.6c  close   0.48c (z 10.62) on 0.8  $/day 94
+time | period lines | 24h+                                     fills     112 games   17 risk $      5,808 ($      447/day) edge at fill   0.52c  +30m   1.06c  close   0.76c (z 2.9) on 0.72  $/day 8
+time | period lines | 6-24h                                    fills     613 games   75 risk $     34,169 ($    2,628/day) edge at fill    0.8c  +30m   0.76c  close   0.68c (z 5.17) on 0.67  $/day 29
+time | period lines | last hour                                fills    2509 games  210 risk $    269,720 ($   20,748/day) edge at fill   0.98c  +30m   0.62c  close   1.02c (z 13.86) on 1.0  $/day 509
+time | player props | 1-6h                                     fills   35707 games  148 risk $  1,217,684 ($   93,668/day) edge at fill   0.28c  +30m   0.39c  close   0.26c (z 1.85) on 0.95  $/day 589
+time | player props | 24h+                                     fills    2647 games   15 risk $    100,552 ($    7,735/day) edge at fill   1.15c  +30m   1.19c  close   0.55c (z 1.76) on 0.51  $/day 64
+time | player props | 6-24h                                    fills   31965 games  146 risk $    843,053 ($   64,850/day) edge at fill  -0.06c  +30m  -0.18c  close  -0.09c (z -0.4) on 0.86  $/day -125
+time | player props | last hour                                fills   15884 games  148 risk $    906,404 ($   69,723/day) edge at fill    0.1c  +30m    0.2c  close  -0.04c (z 1.11) on 1.0  $/day -67
+time | team totals | 1-6h                                      fills     889 games  152 risk $     36,653 ($    2,819/day) edge at fill    1.1c  +30m   1.07c  close   1.02c (z 5.82) on 0.97  $/day 73
+time | team totals | 24h+                                      fills     150 games   26 risk $     15,251 ($    1,173/day) edge at fill   0.73c  +30m   0.51c  close   1.36c (z 2.7) on 0.97  $/day 45
+time | team totals | 6-24h                                     fills     559 games  103 risk $     28,051 ($    2,158/day) edge at fill   1.55c  +30m   0.52c  close   0.21c (z 4.38) on 0.9  $/day 11
+time | team totals | last hour                                 fills     586 games  145 risk $     32,888 ($    2,530/day) edge at fill   0.92c  +30m   0.38c  close   0.76c (z 7.52) on 1.0  $/day 52
