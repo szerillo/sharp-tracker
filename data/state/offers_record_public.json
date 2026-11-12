@@ -1,0 +1,77 @@
+{
+"updated": "2026-11-12T23:14:46Z",
+"logged": 7261,
+"status": {
+"Novig: logged without market/outcome ids": 220,
+"Kalshi: not graded (no ticker on most; resting on Kalshi tested negative)": 564,
+"ProphetX: no public trade feed": 2511,
+"Novig: waiting for the trade file": 1284,
+"not started": 1728,
+"Novig: graded": 954
+},
+"all": {
+"graded": 954,
+"filled": 237,
+"fill_rate": 0.248,
+"usd_filled": 12266,
+"avg_fill_usd": 51.75,
+"close_edge_filled": 0.71,
+"close_edge_unfilled": 1.83
+},
+"groups": {
+"game ml": {
+"graded": 7,
+"filled": 6,
+"fill_rate": 0.857,
+"usd_filled": 452,
+"avg_fill_usd": 75.3,
+"close_edge_filled": 1.4,
+"close_edge_unfilled": 1.53
+},
+"game spread": {
+"graded": 44,
+"filled": 30,
+"fill_rate": 0.682,
+"usd_filled": 1920,
+"avg_fill_usd": 63.99,
+"close_edge_filled": 0.79,
+"close_edge_unfilled": 1.62
+},
+"game total": {
+"graded": 61,
+"filled": 16,
+"fill_rate": 0.262,
+"usd_filled": 921,
+"avg_fill_usd": 57.55,
+"close_edge_filled": 0.94,
+"close_edge_unfilled": 1.74
+},
+"period lines": {
+"graded": 144,
+"filled": 12,
+"fill_rate": 0.083,
+"usd_filled": 565,
+"avg_fill_usd": 47.08,
+"close_edge_filled": 1.27,
+"close_edge_unfilled": 1.78
+},
+"player props": {
+"graded": 487,
+"filled": 167,
+"fill_rate": 0.343,
+"usd_filled": 8088,
+"avg_fill_usd": 48.43,
+"close_edge_filled": 0.67,
+"close_edge_unfilled": 1.76
+},
+"team totals": {
+"graded": 211,
+"filled": 6,
+"fill_rate": 0.028,
+"usd_filled": 320,
+"avg_fill_usd": 53.32,
+"close_edge_filled": -0.11,
+"close_edge_unfilled": 2.03
+}
+}
+}
