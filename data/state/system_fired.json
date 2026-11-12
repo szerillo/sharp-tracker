@@ -4481,7 +4481,10 @@
 "price": -112,
 "fair": 0.50464,
 "edge_pts": -2.37,
-"why": "2:00 PM ET kickoff, total 46.5: over (mined angle)"
+"why": "2:00 PM ET kickoff, total 46.5: over (mined angle)",
+"void": true,
+"void_why": "rule no longer holds on the current line: home spread -10.5, total 44.5 (2026-11-12T17:00:24Z)",
+"void_at": "2026-11-12T17:00:24Z"
 },
 "401870769:cfb_day_over": {
 "tag": "cfb_day_over",
@@ -5688,5 +5691,18 @@
 "fair": null,
 "edge_pts": null,
 "why": "home TOR has lost 4 straight, season over rate 55%: over (mined angle)"
+},
+"401920064:cbb_under_good_over_drop": {
+"tag": "cbb_under_good_over_drop",
+"fill_id": "42024895192a",
+"ts": "2026-11-12T17:00:24Z",
+"market": "total",
+"side": "under",
+"line": 137.5,
+"venue": "Kalshi",
+"price": -117,
+"fair": 0.51117,
+"edge_pts": -2.88,
+"why": "home URI over 67% (3 games), visitor UMES over 67% (4); total 143.5 -> 137.5"
 }
 }
