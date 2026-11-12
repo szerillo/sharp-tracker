@@ -1,5 +1,5 @@
 {
- "built": "2026-11-11T23:44:04Z",
+ "built": "2026-11-11T23:58:31Z",
  "rows": [
   {
    "cond": "0xd77d584f6a9fb2937e5c16f9494bbab607695f202db17181b51c29c5968e34a8",
@@ -63,7 +63,7 @@
    "best_rank": 116,
    "usd": 221,
    "paid": 0.47,
-   "ask": 0.45,
+   "ask": 0.44,
    "status": "live",
    "link": "https://polymarket.us/event/cbb-camp-etnst-2026-11-11",
    "other": null,
@@ -78,7 +78,7 @@
    "home_name": "East Tennessee State Buccaneers",
    "game_start": "2026-11-12T00:00Z",
    "side_std": "over",
-   "money_with": false,
+   "money_with": true,
    "grade": "A",
    "fair_board": null,
    "inside_fair": null,
@@ -158,8 +158,8 @@
    "home_name": "New York Knicks",
    "game_start": "2026-11-12T00:00Z",
    "side_std": "under",
-   "money_with": true,
-   "grade": "A",
+   "money_with": false,
+   "grade": "B",
    "fair_board": 0.4816,
    "inside_fair": false,
    "books": {
@@ -189,7 +189,7 @@
    "best_rank": 112,
    "usd": 9993,
    "paid": 0.467,
-   "ask": 0.49,
+   "ask": 0.5,
    "status": "live",
    "link": "https://polymarket.us/event/nba-bos-tor-2026-11-11",
    "other": null,
@@ -205,8 +205,8 @@
    "home_name": "Toronto Raptors",
    "game_start": "2026-11-12T00:00Z",
    "side_std": "home",
-   "money_with": true,
-   "grade": "A",
+   "money_with": false,
+   "grade": "B",
    "fair_board": null,
    "inside_fair": null,
    "books": null
@@ -395,7 +395,7 @@
    "best_rank": 43,
    "usd": 1284,
    "paid": 0.603,
-   "ask": 0.7,
+   "ask": 0.69,
    "status": "live",
    "link": "https://polymarket.us/event/nba-gsw-hou-2026-11-11",
    "other": null,
@@ -739,7 +739,7 @@
    "best_rank": 49,
    "usd": 339,
    "paid": 0.55,
-   "ask": 0.64,
+   "ask": 0.62,
    "status": "live",
    "link": "https://polymarket.us/event/nfl-la-ari-2026-11-15",
    "other": null,
@@ -823,7 +823,7 @@
    "best_rank": 31,
    "usd": 41325,
    "paid": 0.327,
-   "ask": 0.35,
+   "ask": 0.36,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-bos-tor-2026-11-11",
    "other": {
@@ -832,7 +832,7 @@
     "usd": 9584,
     "first": "2026-11-11T17:50:58Z"
    },
-   "exit_bid": 0.34,
+   "exit_bid": 0.35,
    "kalshi_against": {
     "move": 7.5,
     "now": 66.5,
@@ -873,7 +873,7 @@
    "best_rank": 110,
    "usd": 15676,
    "paid": 0.533,
-   "ask": 0.56,
+   "ask": 0.57,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-bos-tor-2026-11-11",
    "other": {
@@ -882,7 +882,7 @@
     "usd": 3443,
     "first": "2026-11-11T17:56:33Z"
    },
-   "exit_bid": 0.55,
+   "exit_bid": 0.56,
    "kalshi_against": null,
    "logged": true,
    "event_id": "401909968",
@@ -894,8 +894,8 @@
    "home_name": "Toronto Raptors",
    "game_start": "2026-11-12T00:00Z",
    "side_std": "home",
-   "money_with": true,
-   "grade": "A",
+   "money_with": false,
+   "grade": "B",
    "inside_fair": false,
    "fair_board": 0.5152,
    "books": null
@@ -986,7 +986,7 @@
    "conflict": [
     "Kalshi bet back"
    ],
-   "money_with": true,
+   "money_with": false,
    "grade": "A",
    "inside_fair": false,
    "fair_board": 0.3676,
