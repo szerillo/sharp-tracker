@@ -1,5 +1,5 @@
 {
- "built": "2026-11-12T15:51:22Z",
+ "built": "2026-11-12T16:06:07Z",
  "rows": [
   {
    "cond": "0xf580f0bd2c432b8c12bf71c23366eff4a6e2f6fe96b8f466884b06b1f58f5782",
@@ -109,7 +109,7 @@
    "best_rank": 116,
    "usd": 104,
    "paid": 0.47,
-   "ask": 0.54,
+   "ask": 0.53,
    "status": "live",
    "link": "https://polymarket.us/event/cbb-merc-wvir-2026-11-12",
    "other": null,
@@ -434,7 +434,7 @@
    "best_rank": 49,
    "usd": 339,
    "paid": 0.55,
-   "ask": 0.63,
+   "ask": 0.61,
    "status": "live",
    "link": "https://polymarket.us/event/nfl-la-ari-2026-11-15",
    "other": null,
@@ -596,7 +596,7 @@
    "best_rank": 43,
    "usd": 131,
    "paid": 0.325,
-   "ask": 0.33,
+   "ask": 0.34,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-dal-min-2026-11-12",
    "other": {
@@ -605,7 +605,7 @@
     "usd": 549,
     "first": "2026-11-10T13:39:07Z"
    },
-   "exit_bid": 0.32,
+   "exit_bid": 0.33,
    "kalshi_against": null,
    "logged": true,
    "event_id": "401909978",
@@ -620,7 +620,7 @@
    "money_with": false,
    "grade": "watch",
    "fair_board": 0.3312,
-   "inside_fair": true,
+   "inside_fair": false,
    "books": null
   }
  ],
@@ -704,6 +704,13 @@
     "n": 1,
     "best_rank": 12,
     "usd": 156
+   }
+  },
+  "401873056|total": {
+   "under": {
+    "n": 1,
+    "best_rank": 132,
+    "usd": 714
    }
   },
   "401873060|spread": {
