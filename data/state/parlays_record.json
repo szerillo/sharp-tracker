@@ -1,15 +1,15 @@
 {
-"updated": "2026-11-12T14:35:55Z",
-"logged": 3319,
-"settled": 3486,
+"updated": "2026-11-12T14:47:06Z",
+"logged": 3382,
+"settled": 3491,
 "rows": {
 "2 legs": {
-"n": 1503,
-"stake": 171651,
-"maker_pnl": 32723,
+"n": 1508,
+"stake": 171734,
+"maker_pnl": 32806,
 "pct_of_stakes": 19.1,
 "expected_from_legs": 4.3,
-"hit": 33.5,
+"hit": 33.4,
 "days": 3
 },
 "3 legs": {
@@ -22,18 +22,18 @@
 "days": 3
 },
 "all": {
-"n": 2846,
-"stake": 266037,
-"maker_pnl": 33334,
-"pct_of_stakes": 12.5,
-"expected_from_legs": 4.9,
-"hit": 29.9,
+"n": 2851,
+"stake": 266120,
+"maker_pnl": 33418,
+"pct_of_stakes": 12.6,
+"expected_from_legs": 5.0,
+"hit": 29.8,
 "days": 3
 },
 "different games": {
-"n": 1905,
-"stake": 192283,
-"maker_pnl": 16810,
+"n": 1906,
+"stake": 192295,
+"maker_pnl": 16822,
 "pct_of_stakes": 8.7,
 "expected_from_legs": 2.8,
 "hit": 30.0,
@@ -58,12 +58,12 @@
 "days": 3
 },
 "different games | 8%+ over": {
-"n": 218,
-"stake": 13050,
-"maker_pnl": 2319,
+"n": 219,
+"stake": 13062,
+"maker_pnl": 2331,
 "pct_of_stakes": 17.8,
-"expected_from_legs": 13.1,
-"hit": 14.7,
+"expected_from_legs": 13.2,
+"hit": 14.6,
 "days": 3
 },
 "different games | under legs": {
@@ -76,12 +76,12 @@
 "days": 3
 },
 "same game": {
-"n": 941,
-"stake": 73753,
-"maker_pnl": 16524,
-"pct_of_stakes": 22.4,
+"n": 945,
+"stake": 73826,
+"maker_pnl": 16596,
+"pct_of_stakes": 22.5,
 "expected_from_legs": 10.5,
-"hit": 29.6,
+"hit": 29.5,
 "days": 3
 },
 "same game | 0-3% over": {
@@ -103,21 +103,21 @@
 "days": 3
 },
 "same game | 8%+ over": {
-"n": 441,
-"stake": 32305,
-"maker_pnl": 2474,
-"pct_of_stakes": 7.7,
-"expected_from_legs": 28.8,
-"hit": 28.8,
+"n": 443,
+"stake": 32338,
+"maker_pnl": 2506,
+"pct_of_stakes": 7.8,
+"expected_from_legs": 28.9,
+"hit": 28.7,
 "days": 3
 },
 "same game | under legs": {
-"n": 235,
-"stake": 14403,
-"maker_pnl": 5216,
-"pct_of_stakes": 36.2,
-"expected_from_legs": -18.9,
-"hit": 24.7,
+"n": 237,
+"stake": 14442,
+"maker_pnl": 5256,
+"pct_of_stakes": 36.4,
+"expected_from_legs": -18.8,
+"hit": 24.5,
 "days": 3
 }
 }
