@@ -171,6 +171,46 @@ The 9 AM check-in did not run (the scheduled task was disabled when this session
 5. Two weeks of paper, then Sean decides. A live version would need his Novig keys as secrets, a quoter he runs himself, and a faster
    Pinnacle read than our tape; none of that is built or started.
 
+## 8. Paper quoter replay, 10/30 to 11/11 (11/12; development data, not the test)
+
+sharp/novig_paper_quoter.py over 13 game days, 1,138 games, with the rules in its header (data/research/novig_paper_quoter_2026-10-30_2026-11-11.json).
+Edge columns are cents per filled contract: at the fill / at the next Pinnacle reading / +30 minutes / the close. "Sides filled" is the
+share of market sides the quoter posted on that got any fill.
+
+With the registered caps ($300 filled per game, $2,500 filled and unsettled at once):
+
+| Group | Fills | Filled | Sides filled | Edge (fill / next / +30m / close) | Close, 90% low | $/day at close |
+|---|---|---|---|---|---|---|
+| All headline groups | 908 | $25,499 | 7.2% | 1.21 / 1.1 / 0.92 / 0.91 | 0.86 | $42.96 |
+| Game spread | 165 | $4,924 | 9.2% | 1.16 / 1.0 / 0.69 / 0.78 | 0.73 | $6.09 |
+| Game total | 254 | $7,766 | 11.1% | 1.21 / 1.09 / 0.98 / 0.82 | 0.77 | $10.21 |
+| Team totals | 160 | $3,142 | 3.6% | 1.19 / 0.95 / 1.1 / 1.16 | 0.91 | $5.63 |
+| Period lines | 145 | $5,404 | 8.6% | 1.25 / 1.21 / 1.0 / 1.07 | 0.95 | $9.12 |
+| Moneyline | 184 | $4,263 | 9.2% | 1.22 / 1.12 / 0.89 / 0.86 | 0.57 | $11.91 |
+| Player props (not tested) | 521 | $10,303 | 3.2% | 1.24 / 1.01 / 0.8 / 0.69 | 0.62 | $11.73 |
+
+Without the caps (reporting only):
+
+| Group | Fills | Filled | Sides filled | Edge (fill / next / +30m / close) | Close, 90% low | $/day at close |
+|---|---|---|---|---|---|---|
+| All headline groups | 3,293 | $93,800 | 17.7% | 1.2 / 1.09 / 0.88 / 0.91 | 0.92 | $163.57 |
+| Game spread | 696 | $20,861 | 25.4% | 1.18 / 1.06 / 0.82 / 0.91 | 0.89 | $30.08 |
+| Game total | 948 | $25,426 | 27.2% | 1.18 / 1.04 / 0.82 / 0.79 | 0.83 | $31.85 |
+| Team totals | 315 | $7,915 | 7.6% | 1.2 / 0.9 / 0.67 / 0.96 | 0.83 | $12.05 |
+| Period lines | 493 | $17,815 | 22.5% | 1.23 / 1.17 / 0.99 / 1.07 | 0.97 | $30.02 |
+| Moneyline | 841 | $21,783 | 21.8% | 1.2 / 1.11 / 0.94 / 0.91 | 0.72 | $59.58 |
+| Player props (not tested) | 4,330 | $83,755 | 16.8% | 1.22 / 0.74 / 0.7 / 0.85 | 0.78 | $116.72 |
+
+Read:
+- The edge holds on our own fills: 0.91c at the close in the headline groups, 90% lower bound 0.86c, and the next Pinnacle reading after a
+  fill is 1.10c, so on average we are not picked off. Every headline group clears the 0.40c bar with room.
+- The caps dropped 6,194 of 13,817 fills (45%). With them, $43 a day at the close and 7.2% of sides filled; without them, $164 a day
+  and 17.7%. The fill-rate bar in the prereg (10%) is therefore mostly a test of our own caps (Sean's call, docs/novig_quoter_prereg.md).
+- Quotes mostly ended stale (27,722 of 36,409): many Pinnacle series in our tape update only every 20 minutes, so a quote dies 10 minutes
+  after its reading. A faster Pinnacle read would quote more of the hour.
+- No settled results yet: the Novig results backfill was broken (fixed 11/12, catch-up running); the settled check comes with it.
+- 91% of headline fills were trade-throughs, not touches, so the queue assumption matters little.
+
 ## 7. Multiple testing note on the history file
 
 Date range caveat (found 11/11): the history file counts settled fills only, and Novig's history API has rejected our key since about
