@@ -1,5 +1,5 @@
 {
- "built": "2026-11-12T02:12:53Z",
+ "built": "2026-11-12T02:20:04Z",
  "rows": [
   {
    "cond": "0xd77d584f6a9fb2937e5c16f9494bbab607695f202db17181b51c29c5968e34a8",
@@ -450,9 +450,6 @@
    "home_name": "Utah Jazz",
    "game_start": "2026-11-12T02:00Z",
    "side_std": "over",
-   "conflict": [
-    "Kalshi move"
-   ],
    "money_with": false,
    "grade": "watch",
    "inside_fair": false,
@@ -475,7 +472,7 @@
    "best_rank": 43,
    "usd": 1284,
    "paid": 0.603,
-   "ask": 0.68,
+   "ask": 0.69,
    "status": "live",
    "link": "https://polymarket.us/event/nba-gsw-hou-2026-11-11",
    "other": null,
@@ -496,7 +493,7 @@
    "money_with": false,
    "grade": "B",
    "fair_board": 0.6896,
-   "inside_fair": true,
+   "inside_fair": false,
    "books": {
     "at": "2026-11-12T01:55:37Z",
     "fair": 0.6896,
@@ -505,52 +502,6 @@
      "Novig": 0.69,
      "Kalshi": 0.71,
      "FD": 0.7143
-    }
-   }
-  },
-  {
-   "cond": "0x154298d4e21e1167c4190df66a7fad9bf8211f67a11ec900b2920febc551759b",
-   "slug": "nhl-utah-las-2026-11-11",
-   "title": "Utah vs. Golden Knights",
-   "mtype": "ml",
-   "start": "2026-11-12T02:30:00Z",
-   "bet": "Utah ML",
-   "side": "Utah",
-   "flagged": "2026-11-10T12:08:00Z",
-   "why": "a top-200 account also in this sport's top 50",
-   "proven": true,
-   "trigger": "proven",
-   "n_accounts": 1,
-   "best_rank": 69,
-   "usd": 337,
-   "paid": 0.44,
-   "ask": 0.45,
-   "status": "live",
-   "link": "https://polymarket.us/event/nhl-utah-las-2026-11-11",
-   "other": null,
-   "kalshi_against": null,
-   "logged": true,
-   "event_id": "401892693",
-   "sport": "nhl",
-   "league": null,
-   "away": "UTA",
-   "home": "VGK",
-   "away_name": "Utah Mammoth",
-   "home_name": "Vegas Golden Knights",
-   "game_start": "2026-11-12T02:30Z",
-   "side_std": "away",
-   "money_with": false,
-   "grade": "A",
-   "fair_board": 0.4553,
-   "inside_fair": false,
-   "books": {
-    "at": "2026-11-12T01:55:37Z",
-    "fair": 0.4553,
-    "q": {
-     "Novig": 0.455,
-     "Polymarket": 0.46,
-     "DK": 0.4762,
-     "FD": 0.4854
     }
    }
   },
@@ -616,7 +567,7 @@
    "best_rank": 116,
    "usd": 221,
    "paid": 0.47,
-   "ask": 0.49,
+   "ask": 0.47,
    "status": "live",
    "link": "https://polymarket.us/event/cbb-usc-cah-2026-11-11",
    "other": null,
@@ -1266,6 +1217,49 @@
    "books": null
   },
   {
+   "cond": "0x154298d4e21e1167c4190df66a7fad9bf8211f67a11ec900b2920febc551759b",
+   "slug": "nhl-utah-las-2026-11-11",
+   "title": "Utah vs. Golden Knights",
+   "mtype": "ml",
+   "start": "2026-11-12T02:30:00Z",
+   "bet": "Utah ML",
+   "side": "Utah",
+   "flagged": "2026-11-10T12:08:00Z",
+   "why": "a top-200 account also in this sport's top 50",
+   "proven": true,
+   "trigger": "proven",
+   "n_accounts": 1,
+   "best_rank": 69,
+   "usd": 337,
+   "paid": 0.44,
+   "ask": 0.44,
+   "status": "other side",
+   "link": "https://polymarket.us/event/nhl-utah-las-2026-11-11",
+   "other": {
+    "n_accounts": 1,
+    "best_rank": 79,
+    "usd": 176,
+    "first": "2026-11-12T02:15:09Z"
+   },
+   "exit_bid": 0.43,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401892693",
+   "sport": "nhl",
+   "league": null,
+   "away": "UTA",
+   "home": "VGK",
+   "away_name": "Utah Mammoth",
+   "home_name": "Vegas Golden Knights",
+   "game_start": "2026-11-12T02:30Z",
+   "side_std": "away",
+   "money_with": false,
+   "grade": "A",
+   "fair_board": 0.4553,
+   "inside_fair": true,
+   "books": null
+  },
+  {
    "cond": "0x36dfe6c00ce22c8d125894d3cff971f302187abaf4b2c4e4a1864640b9f05ce0",
    "slug": "nba-tor-phi-2026-11-12",
    "title": "Raptors vs. 76ers",
@@ -1292,8 +1286,8 @@
    },
    "exit_bid": 0.25,
    "kalshi_against": {
-    "move": 6.0,
-    "now": 74.0,
+    "move": 6.5,
+    "now": 74.5,
     "state": "reversed"
    },
    "logged": true,
@@ -1331,7 +1325,7 @@
    "best_rank": 43,
    "usd": 131,
    "paid": 0.325,
-   "ask": 0.36,
+   "ask": 0.35,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-dal-min-2026-11-12",
    "other": {
@@ -1340,7 +1334,7 @@
     "usd": 549,
     "first": "2026-11-10T13:39:07Z"
    },
-   "exit_bid": 0.35,
+   "exit_bid": 0.34,
    "kalshi_against": null,
    "logged": true,
    "event_id": "401909978",
@@ -1414,7 +1408,11 @@
    "against": null
   },
   "401892693:nhl_early_home_fav_qual": {
-   "with": null,
+   "with": {
+    "n": 1,
+    "best_rank": 79,
+    "usd": 176
+   },
    "against": {
     "n": 1,
     "best_rank": 69,
@@ -1529,6 +1527,11 @@
     "n": 1,
     "best_rank": 69,
     "usd": 337
+   },
+   "home": {
+    "n": 1,
+    "best_rank": 79,
+    "usd": 176
    }
   },
   "401892694|ml": {
