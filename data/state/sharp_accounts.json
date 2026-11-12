@@ -1,5 +1,5 @@
 {
- "built": "2026-11-12T08:45:50Z",
+ "built": "2026-11-12T09:06:27Z",
  "rows": [
   {
    "cond": "0xf580f0bd2c432b8c12bf71c23366eff4a6e2f6fe96b8f466884b06b1f58f5782",
@@ -142,6 +142,98 @@
    }
   },
   {
+   "cond": "0xa78998bdf212722f63a450a5c7cef8185aa01f5cd951c57aadbb17e2186bb5eb",
+   "slug": "nhl-buf-chi-2026-11-12",
+   "title": "Sabres vs. Blackhawks",
+   "mtype": "ml",
+   "start": "2026-11-13T01:00:00Z",
+   "bet": "Sabres ML",
+   "side": "Sabres",
+   "flagged": "2026-11-12T08:57:22Z",
+   "why": "a top-200 account also in this sport's top 50",
+   "proven": true,
+   "trigger": "proven",
+   "n_accounts": 1,
+   "best_rank": 197,
+   "usd": 1092,
+   "paid": 0.58,
+   "ask": 0.58,
+   "status": "live",
+   "link": "https://polymarket.us/event/nhl-buf-chi-2026-11-12",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401892702",
+   "sport": "nhl",
+   "league": null,
+   "away": "BUF",
+   "home": "CHI",
+   "away_name": "Buffalo Sabres",
+   "home_name": "Chicago Blackhawks",
+   "game_start": "2026-11-13T01:00Z",
+   "side_std": "away",
+   "money_with": false,
+   "grade": "A",
+   "fair_board": 0.5819,
+   "inside_fair": true,
+   "books": {
+    "at": "2026-11-12T03:35:58Z",
+    "fair": 0.5819,
+    "q": {
+     "Novig": 0.58,
+     "FD": 0.5935,
+     "Caesars": 0.5968,
+     "DK": 0.5968
+    }
+   }
+  },
+  {
+   "cond": "0xde2e07509474b55dbfd2fd7fb2ecf2c779ad450cb053924535960f0e8ffdd65d",
+   "slug": "nhl-stl-utah-2026-11-12",
+   "title": "Blues vs. Utah",
+   "mtype": "ml",
+   "start": "2026-11-13T02:00:00Z",
+   "bet": "Blues ML",
+   "side": "Blues",
+   "flagged": "2026-11-12T09:02:24Z",
+   "why": "a top-200 account also in this sport's top 50",
+   "proven": true,
+   "trigger": "proven",
+   "n_accounts": 1,
+   "best_rank": 197,
+   "usd": 1012,
+   "paid": 0.46,
+   "ask": 0.46,
+   "status": "live",
+   "link": "https://polymarket.us/event/nhl-stl-utah-2026-11-12",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401892704",
+   "sport": "nhl",
+   "league": null,
+   "away": "STL",
+   "home": "UTA",
+   "away_name": "St. Louis Blues",
+   "home_name": "Utah Mammoth",
+   "game_start": "2026-11-13T02:00Z",
+   "side_std": "away",
+   "money_with": false,
+   "grade": "A",
+   "fair_board": 0.4515,
+   "inside_fair": false,
+   "books": {
+    "at": "2026-11-12T03:35:58Z",
+    "fair": 0.4515,
+    "q": {
+     "Novig": 0.455,
+     "Polymarket": 0.46,
+     "Caesars": 0.4651,
+     "DK": 0.4673
+    }
+   }
+  },
+  {
    "cond": "0xde189f9aa90222a576dd7a2ae9a5f03283a9cd14f212fa27f9cafa2ae805d913",
    "slug": "nhl-ott-pit-2026-11-14",
    "title": "Senators vs. Penguins",
@@ -194,7 +286,7 @@
    "best_rank": 12,
    "usd": 104,
    "paid": 0.602,
-   "ask": 0.67,
+   "ask": 0.66,
    "status": "live",
    "link": "https://polymarket.us/event/nfl-min-gb-2026-11-15",
    "other": null,
@@ -268,7 +360,7 @@
    "best_rank": 49,
    "usd": 190,
    "paid": 0.54,
-   "ask": 0.75,
+   "ask": 0.74,
    "status": "live",
    "link": "https://polymarket.us/event/nfl-la-ari-2026-11-15",
    "other": null,
@@ -637,6 +729,20 @@
     "n": 1,
     "best_rank": 197,
     "usd": 636
+   }
+  },
+  "401892702|ml": {
+   "away": {
+    "n": 1,
+    "best_rank": 197,
+    "usd": 1092
+   }
+  },
+  "401892704|ml": {
+   "away": {
+    "n": 1,
+    "best_rank": 197,
+    "usd": 1012
    }
   },
   "401892713|ml": {
