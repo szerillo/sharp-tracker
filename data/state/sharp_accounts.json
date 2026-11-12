@@ -1,5 +1,5 @@
 {
- "built": "2026-11-12T00:50:53Z",
+ "built": "2026-11-12T00:58:02Z",
  "rows": [
   {
    "cond": "0xd77d584f6a9fb2937e5c16f9494bbab607695f202db17181b51c29c5968e34a8",
@@ -227,7 +227,7 @@
    "best_rank": 110,
    "usd": 628,
    "paid": 0.617,
-   "ask": 0.67,
+   "ask": null,
    "status": "live",
    "link": "https://polymarket.us/event/cfb-sacst-cmich-2026-11-11",
    "other": null,
@@ -310,7 +310,7 @@
    "best_rank": 11,
    "usd": 450,
    "paid": 0.55,
-   "ask": 0.57,
+   "ask": null,
    "status": "live",
    "link": "https://polymarket.us/event/cfb-umass-toledo-2026-11-11",
    "other": null,
@@ -347,7 +347,7 @@
    "best_rank": 12,
    "usd": 367,
    "paid": 0.54,
-   "ask": 0.55,
+   "ask": null,
    "status": "live",
    "link": "https://polymarket.us/event/cfb-sacst-cmich-2026-11-11",
    "other": null,
@@ -384,7 +384,7 @@
    "best_rank": 119,
    "usd": 3307,
    "paid": 0.494,
-   "ask": 0.6,
+   "ask": 0.57,
    "status": "live",
    "link": "https://polymarket.us/event/nba-sas-chi-2026-11-11",
    "other": null,
@@ -580,10 +580,10 @@
    "home_name": "Portland Trail Blazers",
    "game_start": "2026-11-12T03:00Z",
    "side_std": "home",
-   "money_with": false,
-   "grade": "B",
+   "money_with": true,
+   "grade": "A",
    "inside_fair": false,
-   "fair_board": 0.4902,
+   "fair_board": 0.5689,
    "books": {
     "at": "2026-11-11T23:56:08Z",
     "fair": 0.5689,
@@ -850,7 +850,7 @@
    "best_rank": 49,
    "usd": 339,
    "paid": 0.55,
-   "ask": 0.62,
+   "ask": 0.65,
    "status": "live",
    "link": "https://polymarket.us/event/nfl-la-ari-2026-11-15",
    "other": null,
@@ -1206,7 +1206,11 @@
     "first": "2026-11-11T16:16:39Z"
    },
    "exit_bid": 0.55,
-   "kalshi_against": null,
+   "kalshi_against": {
+    "move": 4.0,
+    "now": 43.5,
+    "state": "held"
+   },
    "logged": true,
    "event_id": "401909972",
    "sport": "nba",
@@ -1218,6 +1222,7 @@
    "game_start": "2026-11-12T01:00Z",
    "side_std": "home",
    "conflict": [
+    "Kalshi move",
     "big money"
    ],
    "money_with": false,
@@ -1253,7 +1258,7 @@
    },
    "exit_bid": 0.53,
    "kalshi_against": null,
-   "logged": true,
+   "logged": false,
    "event_id": "401909971",
    "sport": "nba",
    "league": null,
@@ -1288,7 +1293,7 @@
    "best_rank": 40,
    "usd": 2256,
    "paid": 0.233,
-   "ask": 0.24,
+   "ask": 0.25,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-tor-phi-2026-11-12",
    "other": {
@@ -1297,10 +1302,10 @@
     "usd": 300,
     "first": "2026-11-11T22:30:49Z"
    },
-   "exit_bid": 0.23,
+   "exit_bid": 0.24,
    "kalshi_against": {
-    "move": 7.5,
-    "now": 75.5,
+    "move": 9.5,
+    "now": 77.5,
     "state": "reversed"
    },
    "logged": true,
@@ -1677,34 +1682,6 @@
     "n": 1,
     "best_rank": 197,
     "usd": 310
-   }
-  },
-  "401866463|spread": {
-   "home": {
-    "n": 1,
-    "best_rank": 11,
-    "usd": 450
-   }
-  },
-  "401866462|total": {
-   "under": {
-    "n": 1,
-    "best_rank": 110,
-    "usd": 628
-   }
-  },
-  "401866462|ml": {
-   "away": {
-    "n": 1,
-    "best_rank": 157,
-    "usd": 338
-   }
-  },
-  "401866462|spread": {
-   "home": {
-    "n": 1,
-    "best_rank": 12,
-    "usd": 367
    }
   },
   "401864539|spread": {
