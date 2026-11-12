@@ -211,16 +211,27 @@ Read:
 - No settled results yet: the Novig results backfill was broken (fixed 11/12, catch-up running); the settled check comes with it.
 - 91% of headline fills were trade-throughs, not touches, so the queue assumption matters little.
 
-## 7. Multiple testing note on the history file
+## 7. History file, before and after the results backfill (11/12)
 
-Date range caveat (found 11/11): the history file counts settled fills only, and Novig's history API has rejected our key since about
-11/4 ("signature verification failed", 401), so no settled results reach the catalog after that. Fills from about 10/29 on are dropped
-(6,017,596 as "no win/loss result"). The file says Aug 3 to Nov 10 but in substance covers Aug 3 to about Oct 28; a rerun on 11/11
-returned every row unchanged. Fix: Sean updates the NOVIG_KEY_ID / NOVIG_PRIVATE_KEY secrets (the key was due for rotation); the
-tracker job's backfill then fills the gap and the history run can be repeated.
+The Novig results backfill was broken (the key was rejected from about 11/4, and markets already in our catalog never received results),
+so the history file had settled fills only to about 10/28. Fixed 11/12 (loggers/novig_history.py); the catch-up wrote results onto
+278,694 catalog markets. Rerun 8/3 to 11/11 (the 11/12 trade file publishes after midnight ET). Settled ROI on the maker side, z clustered
+by event:
 
-novig_maker_history.json reports 392 cuts. "type time | team total | last hour" (+10.37%, z 3.25) is one of them: 10 cuts reach z 3.25 or
-more, against 0.45 expected by chance alone; Bonferroni puts its adjusted p at about 0.45 (the critical z for 392 cuts at 5% is 3.83).
-The cuts overlap, so Bonferroni is strict. The neighbouring team-total windows are -2.74% (24h+), -0.63% (6-24h) and +0.71% (1-6h).
-Read: the last-hour team-total result is consistent with the last-hour pattern in section 1 (team totals keep 75% of the edge to the
-close in the select file), but on its own it is not significant after correcting for the number of cuts.
+| Row | Before (8/3 to about 10/28) | After (8/3 to 11/11) |
+|---|---|---|
+| All | +1.90%, z 3.40, 8,481,714 fills, 7,604 events | +2.17%, z 4.14, 13,980,963 fills, 9,893 events |
+| Spread | +2.80%, z 2.43, 1,474,211 fills, 5,865 events | +3.73%, z 3.28, 3,168,337 fills, 7,655 events |
+| Moneyline | +2.75%, z 2.34, 1,988,520 fills, 6,024 events | +2.84%, z 2.58, 2,671,526 fills, 7,910 events |
+| Props | +1.56%, z 3.34, 3,408,507 fills, 4,752 events | +1.16%, z 2.74, 4,909,611 fills, 5,593 events |
+| Total | +0.32%, z 0.37, 1,280,779 fills, 6,097 events | +0.76%, z 0.93, 2,745,088 fills, 7,947 events |
+| 1H spread | +8.30%, z 2.32, 50,972 fills, 1,521 events | +6.89%, z 2.36, 67,745 fills, 2,019 events |
+| Team total, last hour | +10.37%, z 3.25, 19,021 fills, 1,685 events | +9.12%, z 3.34, 27,055 fills, 2,224 events |
+
+No row changed sign and none crossed z 2. Spreads strengthened (z 2.43 to 3.28); props weakened (+1.56% to +1.16%). Fills still dropped
+for having no win/loss result: 1,128,806 (was 6,017,596): markets voided, three-way, or settled outside the window walked.
+
+Multiple testing: the file now reports 437 cuts. Team total last hour (+9.12%, z 3.34) is one of 11 cuts at that z or above, against
+0.37 expected by chance; Bonferroni adjusted p about 0.37 (the critical z for 437 cuts at 5% is 3.86). Neighbouring team-total windows:
+24h+ -2.77% (z -0.50), 6-24h +0.42% (z 0.13), 1-6h +0.75% (z 0.26). Read: still not significant on its own after correcting for the
+number of cuts, but it held its size on 42% more fills, and it matches the last-hour pattern in the select file and the quoter replay.
