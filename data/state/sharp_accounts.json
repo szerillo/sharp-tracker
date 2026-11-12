@@ -1,5 +1,5 @@
 {
- "built": "2026-11-12T14:06:13Z",
+ "built": "2026-11-12T14:15:41Z",
  "rows": [
   {
    "cond": "0xf580f0bd2c432b8c12bf71c23366eff4a6e2f6fe96b8f466884b06b1f58f5782",
@@ -229,6 +229,43 @@
      "DK": 0.4673
     }
    }
+  },
+  {
+   "cond": "0xcc62bb72a799f4a0a2324aa5b9e2061c0e62370310d8d3efa1bf5ac27a14e401",
+   "slug": "cfb-loulaf-lamon-2026-11-12",
+   "title": "Louisiana vs. Louisiana-Monroe",
+   "mtype": "total",
+   "start": "2026-11-13T02:00:00Z",
+   "bet": "Under 51.5",
+   "side": "Under",
+   "flagged": "2026-11-12T14:07:16Z",
+   "why": "a top-200 account also in this sport's top 50",
+   "proven": true,
+   "trigger": "proven",
+   "n_accounts": 1,
+   "best_rank": 110,
+   "usd": 400,
+   "paid": 0.6,
+   "ask": 0.62,
+   "status": "live",
+   "link": "https://polymarket.us/event/cfb-loulaf-lamon-2026-11-12",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401869969",
+   "sport": "cfb",
+   "league": null,
+   "away": "UL",
+   "home": "ULM",
+   "away_name": "Louisiana Ragin' Cajuns",
+   "home_name": "UL Monroe Warhawks",
+   "game_start": "2026-11-13T02:00Z",
+   "side_std": "under",
+   "money_with": false,
+   "grade": "A",
+   "fair_board": null,
+   "inside_fair": null,
+   "books": null
   },
   {
    "cond": "0xde189f9aa90222a576dd7a2ae9a5f03283a9cd14f212fa27f9cafa2ae805d913",
@@ -773,6 +810,13 @@
     "n": 1,
     "best_rank": 12,
     "usd": 212
+   }
+  },
+  "401869969|total": {
+   "under": {
+    "n": 1,
+    "best_rank": 110,
+    "usd": 400
    }
   },
   "401864539|spread": {
