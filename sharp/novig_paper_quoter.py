@@ -39,6 +39,7 @@ HEADLINE = ('game spread', 'game total', 'team totals', 'period lines', 'game ml
 FILLS = os.path.join(ROOT, 'data', 'state', 'novig_quoter_fills.jsonl'); REC = os.path.join(ROOT, 'data', 'state', 'novig_quoter_record.json')
 QDIR = os.path.join(ROOT, 'data', 'novig', 'quoter')
 LIVE_FROM = '2026-11-13'        # first game day of the pre-registered live paper period (docs/novig_quoter_prereg.md)
+UNCAPPED = []                   # replay only: the fills before the caps, for the uncapped summary
 
 
 def tot(m): return 'total' in m or m.startswith('prop_') or 'tt_' in m
@@ -137,6 +138,20 @@ def fair_loose(pin, k, t, age):
 def price(f): return math.floor((f - GAP) * 200 + 1e-9) / 200.0
 
 
+def fair_next(pin, k, t, st, within=900):
+    """Fair at the first fresh Pinnacle reading strictly after t (both sides one pull), within 15 minutes and before the start.
+    11/12: our tape updates every 5-20 minutes, so a fixed +5 minute mark mostly reuses the fill's own reading; this is the first new
+    information after the fill."""
+    v = pin.get(k)
+    if not v: return None
+    i = bisect.bisect_right(v[0], t)
+    while i < len(v[0]) and v[0][i] <= min(t + within, st):
+        r = fair_fresh(pin, k, v[0][i])
+        if r: return r[0]
+        i += 1
+    return None
+
+
 def simulate(k, st, pin, nvb, trades):
     """One market side over its last-hour window. Returns (quotes, fills)."""
     g = grp(k[1]); spreadlike = (g == 'game spread')
@@ -208,12 +223,13 @@ def run(d0, d1):
         for x in fs:
             f5 = fair_loose(pin, k, x['t'] + 300, 1800) if x['t'] + 300 < st else None
             f30 = fair_loose(pin, k, x['t'] + 1800, 1800) if x['t'] + 1800 < st else None
-            fc = fair_loose(pin, k, st, 3600)
+            fc = fair_loose(pin, k, st, 3600); fn = fair_next(pin, k, x['t'], st)
             F.append(dict(id=f"{'|'.join(map(str, k))}|{round(x['t'])}", key='|'.join(map(str, k)), event=k[0], sport=sp, group=g, market_id=nv[0], outcome_id=nv[1],
                           start=iso(st), t=iso(x['t']), day=iso(st)[:10], b=x['b'], c=round(x['c'], 2), risk=round(x['b'] * x['c'], 2), how=x['how'],
-                          e_fill=round(x['f'] - x['b'], 4), e5=round(f5 - x['b'], 4) if f5 is not None else None, e30=round(f30 - x['b'], 4) if f30 is not None else None,
+                          e_fill=round(x['f'] - x['b'], 4), e_next=round(fn - x['b'], 4) if fn is not None else None, e5=round(f5 - x['b'], 4) if f5 is not None else None, e30=round(f30 - x['b'], 4) if f30 is not None else None,
                           e_close=round(fc - x['b'], 4) if fc is not None else None, won=(1 if res == 'WIN' else 0 if res == 'LOSS' else None)))
     F.sort(key=lambda r: r['t'])
+    global UNCAPPED; UNCAPPED = [dict(r) for r in F]          # before the caps trim anything
     # caps, in time order across all markets
     game = collections.defaultdict(float); openr = []; kept = []; dropped = 0
     for r in F:
@@ -249,7 +265,7 @@ def summarize(Q, F, ndays):
                     fills=len(rows), contracts=round(c),
                     dollars_filled=round(sum(r['risk'] for r in rows)), avg_fill_usd=round(sum(r['risk'] for r in rows) / len(rows), 2) if rows else None,
                     through_share=round(sum(1 for r in rows if r['how'] == 'through') / len(rows), 2) if rows else None,
-                    games=len(g), edge_at_fill=w('e_fill')[0], plus5=w('e5')[0], plus30=w('e30')[0], plus30_share=w('e30')[1], close=w('e_close')[0],
+                    games=len(g), edge_at_fill=w('e_fill')[0], next_reading=w('e_next')[0], next_reading_share=w('e_next')[1], plus5=w('e5')[0], plus30=w('e30')[0], plus30_share=w('e30')[1], close=w('e_close')[0],
                     close_z_by_game=z, close_lo90=lo90, usd_day_at_close=round(exp_close / max(1, ndays), 2),
                     settled_fills=len(st), settled_pnl=round(pnl, 2), settled_roi=round(100 * pnl / risk, 2) if risk else None,
                     settled_expected=round(sum(r['e_close'] * r['c'] for r in st if r.get('e_close') is not None), 2))
@@ -269,7 +285,7 @@ def main():
     if not daily:
         out = dict(first=d0, last=d1, rules=dict(window_s=WINDOW, stop_s=STOP, fair_age_s=AGE, same_pull_s=PULL, latency_s=LAT, pause_s=PAUSE, size_usd=SIZE_USD,
                                                     game_cap=GAME_CAP, total_cap=TOTAL_CAP, gap=GAP, reprice=REPRICE, pull=PULLMOVE, spreads='pulled on any move'),
-                   info=info, **summarize(Q, F, ndays), sample_fills=F[:50])
+                   info=info, **summarize(Q, F, ndays), uncapped=summarize(Q, UNCAPPED, ndays)['rows'], sample_fills=F[:50])
         p = os.path.join(ROOT, 'data', 'research', f'novig_paper_quoter_{d0}_{d1}.json'); json.dump(out, open(p, 'w'), indent=0)
         print(json.dumps(out['rows'], indent=0)); return
     # daily live-paper mode: log every quote, append new fills, regrade settled results on all fills, rebuild the record

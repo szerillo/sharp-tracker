@@ -28,11 +28,12 @@ A group is evaluated only with at least 150 fills on at least 40 games; otherwis
 A group passes when all three hold:
 1. Close edge on filled contracts (Pinnacle no-vig at the start minus our price, weighted by contracts) is at least 0.40c, and its 90%
    lower bound, clustered by game, is above 0.
-2. The +5 minute mark on filled contracts is at least 0.00c (on average we are not picked off within five minutes).
+2. The next-reading mark on filled contracts is at least 0.00c: the edge at the first fresh Pinnacle reading after each fill (within 15
+   minutes, before the start). On average we are not picked off by the next thing Pinnacle does.
 3. Settled results are not significantly worse than the close says: the per-game mean of (settled P&L minus close-expected P&L) is
    above -2 standard errors.
 
-A group is excluded and flagged if its +5 minute mark is below -0.25c or its close edge is below 0, whatever its sample.
+A group is excluded and flagged if its next-reading mark is below -0.25c or its close edge is below 0, whatever its sample.
 
 ## Go / no-go
 
@@ -50,8 +51,8 @@ Otherwise NO-GO. Either way the full table for every group is reported, passing 
 - 0.40c: the plan's fresh-fair test had every headline group's last-hour close mark between 0.71c and 1.34c on the market's own fills;
   our quoter fills only when someone trades through or into our price, which selects for informed flow, so a lower bar than the market
   average is the honest test. Under 0.40c, ProphetX-style fees or any execution slippage would eat it.
-- +5 minutes at 0: the plan's spread fills fell to 0.12c by +30 minutes; a quoter that is underwater five minutes after its fills is
-  being picked off, whatever the close says.
+- Next reading at 0: the plan's spread fills fell to 0.12c by +30 minutes; a quoter that is underwater at the next Pinnacle reading after
+  its fills is being picked off, whatever the close says.
 - The settled check guards against the close mark being wrong (for example a stale Pinnacle close).
 - Requiring 2 of 5 groups and a pooled bound limits passing by chance across five tests.
 
@@ -65,4 +66,9 @@ Otherwise NO-GO. Either way the full table for every group is reported, passing 
 
 ## Changes
 
-- 11/12: registered.
+- 11/12 (about 23:00 UTC): registered, commit b0094de.
+- 11/12 (about 23:15 UTC), before any test-period game started: bar 2 and the exclusion rule now use the next-reading mark instead of a
+  fixed +5 minute mark. The development replay (10/30 to 11/11) showed the +5 minute mark mostly reused the fill's own Pinnacle reading,
+  because our tape updates every 5 to 20 minutes, so it could not detect being picked off. Thresholds unchanged. Reporting only: the
+  replay file also carries an uncapped summary (the caps dropped 45% of replay fills). No other bar changed after seeing the replay,
+  including the 10% side fill rate, which the replay's headline groups missed (7.2%; see docs/novig_quoter_plan.md section 8).
