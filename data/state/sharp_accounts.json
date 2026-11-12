@@ -1,5 +1,5 @@
 {
- "built": "2026-11-12T22:34:00Z",
+ "built": "2026-11-12T22:26:46Z",
  "rows": [
   {
    "cond": "0x6c7cda134b82fe6f27a91ae42180b5abf9eb166944c2de8c5743273cc0c951e6",
@@ -273,7 +273,7 @@
    "best_rank": 43,
    "usd": 142,
    "paid": 0.69,
-   "ask": 0.72,
+   "ask": 0.71,
    "status": "live",
    "link": "https://polymarket.us/event/nba-nyk-ind-2026-11-13",
    "other": null,
@@ -835,7 +835,13 @@
    "grade": "watch",
    "fair_board": null,
    "inside_fair": null,
-   "books": null
+   "books": {
+    "at": "2026-11-12T22:18:10Z",
+    "fair": null,
+    "q": {
+     "Kalshi": 0.5
+    }
+   }
   }
  ],
  "record": {
