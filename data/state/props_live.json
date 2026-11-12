@@ -1,10 +1,10 @@
 {
- "built": "2026-11-12T20:27:48Z",
+ "built": "2026-11-12T20:39:43Z",
  "record": {
-  "n": 18,
-  "won": 10,
+  "n": 19,
+  "won": 11,
   "lost": 8,
-  "units": 0.53,
+  "units": 0.71,
   "line_value": {
    "n": 7,
    "avg": 0.0,
@@ -28,38 +28,5 @@
    }
   }
  },
- "rows": [
-  {
-   "key": "5a2820b80e20b69258bd5eb25c18eb78|player_shots_on_goal|Bobby McMann|2.5",
-   "sport": "nhl",
-   "odds_id": "5a2820b80e20b69258bd5eb25c18eb78",
-   "espn": "401891808",
-   "game": "Carolina Hurricanes @ Seattle Kraken",
-   "start": "2026-11-12T17:00:00Z",
-   "market": "player_shots_on_goal",
-   "player": "Bobby McMann",
-   "line": 2.5,
-   "side": "under",
-   "book": "DK",
-   "price": 1.71,
-   "fair": 0.599,
-   "ev": 2.4,
-   "pin_under": 1.56,
-   "pin_over": 2.33,
-   "book_over": 2.05,
-   "fair_power": 0.6098,
-   "book_fair": 0.5452,
-   "fair_gap": 5.4,
-   "ev_strict": 2.4,
-   "pin_ts": "2026-11-12T16:31:40Z",
-   "book_ts": "2026-11-12T16:31:22Z",
-   "flagged": "2026-11-12T16:32:02Z",
-   "close_ts": "2026-11-12T16:56:29Z",
-   "close_line": 2.5,
-   "close_fair": 0.599,
-   "clv": 1.42,
-   "beat_fair": 0.0,
-   "line_value": 0.0
-  }
- ]
+ "rows": []
 }
