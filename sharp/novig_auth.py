@@ -12,9 +12,19 @@ _KEY = None
 def _key():
     global _KEY
     if _KEY is None:
-        pem = os.environ['NOVIG_PRIVATE_KEY'].replace('\\n', '\n').encode()
-        _KEY = serialization.load_pem_private_key(pem, password=None)
+        _KEY = serialization.load_pem_private_key(_pem(os.environ['NOVIG_PRIVATE_KEY']), password=None)
     return _KEY
+
+
+def _pem(raw):
+    """Rebuild a PKCS#8 PEM from a pasted secret (11/12): line breaks turned into spaces or literal \\n, CRLF, surrounding quotes, or the
+    BEGIN/END lines left off. Never logs the value."""
+    import re, textwrap
+    t = raw.strip().strip('"\'').replace('\\n', '\n').replace('\r', '')
+    m = re.search(r'-----BEGIN ([A-Z ]+)-----(.*?)-----END \1-----', t, re.S)
+    label, body = (m.group(1), m.group(2)) if m else ('PRIVATE KEY', t)
+    body = re.sub(r'\s+', '', body)
+    return ('-----BEGIN %s-----\n%s\n-----END %s-----\n' % (label, '\n'.join(textwrap.wrap(body, 64)), label)).encode()
 
 
 def _enc(s):
