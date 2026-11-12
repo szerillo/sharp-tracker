@@ -1,5 +1,5 @@
 {
- "built": "2026-11-12T02:57:28Z",
+ "built": "2026-11-12T03:11:45Z",
  "rows": [
   {
    "cond": "0xd77d584f6a9fb2937e5c16f9494bbab607695f202db17181b51c29c5968e34a8",
@@ -509,7 +509,7 @@
    "best_rank": 55,
    "usd": 22980,
    "paid": 0.56,
-   "ask": 0.59,
+   "ask": null,
    "status": "live",
    "link": "https://polymarket.us/event/nba-okc-por-2026-11-11",
    "other": null,
@@ -641,7 +641,7 @@
    "best_rank": 43,
    "usd": 108,
    "paid": 0.76,
-   "ask": 0.79,
+   "ask": 0.78,
    "status": "live",
    "link": "https://polymarket.us/event/nba-det-was-2026-11-12",
    "other": null,
@@ -659,7 +659,7 @@
    "money_with": false,
    "grade": "watch",
    "fair_board": 0.7825,
-   "inside_fair": false,
+   "inside_fair": true,
    "books": {
     "at": "2026-11-12T02:53:59Z",
     "fair": 0.7825,
@@ -687,7 +687,7 @@
    "best_rank": 116,
    "usd": 104,
    "paid": 0.47,
-   "ask": 0.65,
+   "ask": 0.77,
    "status": "live",
    "link": "https://polymarket.us/event/cbb-merc-wvir-2026-11-12",
    "other": null,
@@ -1311,8 +1311,8 @@
    },
    "exit_bid": 0.25,
    "kalshi_against": {
-    "move": 6.5,
-    "now": 74.5,
+    "move": 7.5,
+    "now": 75.5,
     "state": "reversed"
    },
    "logged": true,
