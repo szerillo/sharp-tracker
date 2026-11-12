@@ -10,6 +10,8 @@ import os, sys, csv, json, gzip, glob, math, bisect, time, collections, datetime
 HERE = os.path.dirname(os.path.abspath(__file__)); ROOT = os.path.abspath(os.path.join(HERE, '..')); sys.path.insert(0, HERE)
 import maker_test as M
 from novig_maker_history import fetch_to, BASE
+FRESH = int(sys.argv[3]) if len(sys.argv) > 3 and sys.argv[3].strip() else None   # 11/12 assumption test: fair no older than this, both sides one pull
+PULL = 60                                                                       # seconds between the two sides that still count as one pull
 D0 = sys.argv[1] if len(sys.argv) > 1 else '2026-10-30'; D1 = sys.argv[2] if len(sys.argv) > 2 else (dt.date.today() - dt.timedelta(days=1)).isoformat()
 SPORTS = ['nba', 'nfl', 'nhl', 'cfb', 'cbb', 'mma', 'soccer']
 THREE = ('1h_ml', '1q_ml', '1p_ml')            # a tie is a third outcome there; not comparable with Pinnacle's two-way price
@@ -51,6 +53,16 @@ def main():
         ev, m, side, line, pk = k
         a = M.last(pin, k, t, age); b = M.last(pin, (ev, m, M.OTH[side], line if (line is None or tot(m)) else -line, pk), t, age)
         return a / (a + b) if a and b else None
+    def last_t(k, t, age):
+        v = pin.get(k)
+        if not v: return None
+        i = bisect.bisect_right(v[0], t) - 1
+        return (v[0][i], v[1][i]) if i >= 0 and t - v[0][i] <= age else None
+    def fair_fresh(k, t, age):
+        ev, m, side, line, pk = k
+        a = last_t(k, t, age); b = last_t((ev, m, M.OTH[side], line if (line is None or tot(m)) else -line, pk), t, age)
+        if not (a and b) or abs(a[0] - b[0]) > PULL: return None
+        return a[1] / (a[1] + b[1])
     A = collections.defaultdict(M.Acc); seen = collections.Counter(); days = []
     d = dt.date.fromisoformat(D0); end = dt.date.fromisoformat(D1); tmp = os.path.join(tempfile.gettempdir(), 'novig_trades.csv')
     while d <= end:
@@ -71,7 +83,10 @@ def main():
                 q = cost / qty
                 if not 0.02 <= q <= 0.98: continue
                 seen['maker fills on mapped markets'] += 1
-                f = fair(k, t, 1800)
+                f = fair(k, t, 1800); f_old = f
+                if FRESH:
+                    f = fair_fresh(k, t, FRESH)
+                    if f is None: seen[f'no Pinnacle quote within {FRESH}s with both sides from one pull'] += 1; continue
                 if f is None: seen['no Pinnacle price at that line then'] += 1; continue
                 e = f - q
                 if abs(e) > 0.15: seen['15c+ from Pinnacle (dropped)'] += 1; continue
@@ -85,10 +100,16 @@ def main():
                     if q <= b + 1e-9:
                         for key in (('rest', g, f'{kc}c under'), ('rest sport', g, f'{kc}c under', sp), ('rest time', g, f'{kc}c under', M.tband(h))):
                             a = A[key]; a.v = 'Novig'; a.add(ev, ds, b, qty, f - b, (f30 - b) if f30 is not None else None, (fc - b) if fc is not None else None, None)
+                    if FRESH and f_old is not None:      # the same fills with the usual 30-minute fair, so the two are compared on one set
+                        b0 = math.floor((f_old - kc / 100.0) * 200 + 1e-9) / 200.0
+                        if q <= b0 + 1e-9:
+                            a = A[('same fills, 30m fair, rest time', g, f'{kc}c under', M.tband(h))]; a.v = 'Novig'
+                            a.add(ev, ds, b0, qty, f_old - b0, (f30 - b0) if f30 is not None else None, (fc - b0) if fc is not None else None, None)
         days.append(ds); print(f'{ds}: {n} maker fills priced ({round(time.time() - T0)}s)', flush=True)
     out = dict(days=days, seen=dict(seen), rows={' | '.join(map(str, k)): a.out() for k, a in A.items()})
     os.makedirs(os.path.join(ROOT, 'data', 'research'), exist_ok=True)
-    json.dump(out, open(os.path.join(ROOT, 'data', 'research', 'novig_maker_select.json'), 'w'), indent=0)
+    out['fresh'] = dict(max_age_s=FRESH, same_pull_s=PULL) if FRESH else None
+    json.dump(out, open(os.path.join(ROOT, 'data', 'research', f"novig_maker_select{f'_fresh{FRESH}' if FRESH else ''}.json"), 'w'), indent=0)
     print(dict(seen))
     for k in sorted(out['rows']):
         r = out['rows'][k]
