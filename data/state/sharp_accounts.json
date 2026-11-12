@@ -1,5 +1,5 @@
 {
- "built": "2026-11-12T04:50:19Z",
+ "built": "2026-11-12T05:10:40Z",
  "rows": [
   {
    "cond": "0x4391179c4cd7614f97180f90a8a79b0ecebc74fa567f6b427a9eb7a2435a13ff",
@@ -320,6 +320,16 @@
    "other": null,
    "kalshi_against": null,
    "logged": true,
+   "event_id": "401892713",
+   "sport": "nhl",
+   "league": null,
+   "away": "OTT",
+   "home": "PIT",
+   "away_name": "Ottawa Senators",
+   "home_name": "Pittsburgh Penguins",
+   "game_start": "2026-11-15T00:00Z",
+   "side_std": "home",
+   "money_with": false,
    "grade": "B",
    "fair_board": null,
    "inside_fair": null,
@@ -452,7 +462,7 @@
    "best_rank": 49,
    "usd": 339,
    "paid": 0.55,
-   "ask": 0.63,
+   "ask": 0.62,
    "status": "live",
    "link": "https://polymarket.us/event/nfl-la-ari-2026-11-15",
    "other": null,
@@ -827,6 +837,13 @@
     "n": 1,
     "best_rank": 197,
     "usd": 636
+   }
+  },
+  "401892713|ml": {
+   "home": {
+    "n": 1,
+    "best_rank": 12,
+    "usd": 212
    }
   },
   "401864539|spread": {
