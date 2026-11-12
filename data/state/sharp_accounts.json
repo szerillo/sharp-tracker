@@ -1,5 +1,5 @@
 {
- "built": "2026-11-12T02:57:28Z",
+ "built": "2026-11-12T03:04:47Z",
  "rows": [
   {
    "cond": "0xd77d584f6a9fb2937e5c16f9494bbab607695f202db17181b51c29c5968e34a8",
@@ -369,18 +369,9 @@
    "side_std": "home",
    "money_with": false,
    "grade": "B",
-   "fair_board": 0.0948,
+   "fair_board": null,
    "inside_fair": null,
-   "books": {
-    "at": "2026-11-12T00:43:51Z",
-    "fair": 0.0948,
-    "q": {
-     "Novig": 0.1,
-     "Polymarket": 0.1,
-     "Kalshi": 0.11,
-     "Caesars": 0.1176
-    }
-   }
+   "books": null
   },
   {
    "cond": "0xe0b9ecc9a8d221b1e88c0b97e8189a85829f2934bd6cda007f123ed72c6f02e8",
@@ -489,16 +480,16 @@
    "side_std": "home",
    "money_with": false,
    "grade": "B",
-   "fair_board": 0.6896,
+   "fair_board": 0.6863,
    "inside_fair": null,
    "books": {
-    "at": "2026-11-12T01:55:37Z",
-    "fair": 0.6896,
+    "at": "2026-11-12T02:19:48Z",
+    "fair": 0.6863,
     "q": {
-     "Polymarket": 0.68,
-     "Novig": 0.69,
+     "Novig": 0.685,
+     "Polymarket": 0.69,
      "Kalshi": 0.71,
-     "FD": 0.7143
+     "DK": 0.7135
     }
    }
   },
@@ -518,7 +509,7 @@
    "best_rank": 55,
    "usd": 22980,
    "paid": 0.56,
-   "ask": 0.59,
+   "ask": null,
    "status": "live",
    "link": "https://polymarket.us/event/nba-okc-por-2026-11-11",
    "other": null,
@@ -538,12 +529,12 @@
    "inside_fair": false,
    "fair_board": 0.5689,
    "books": {
-    "at": "2026-11-12T01:55:37Z",
-    "fair": 0.5721,
+    "at": "2026-11-12T02:53:59Z",
+    "fair": 0.576,
     "q": {
-     "Novig": 0.575,
-     "FD": 0.5763,
      "Polymarket": 0.58,
+     "Novig": 0.58,
+     "FD": 0.5868,
      "Caesars": 0.5918
     }
    }
@@ -586,16 +577,7 @@
    "grade": "A",
    "inside_fair": false,
    "fair_board": 0.5005,
-   "books": {
-    "at": "2026-11-12T01:55:37Z",
-    "fair": 0.4835,
-    "q": {
-     "Novig": 0.48,
-     "Kalshi": 0.51,
-     "DK": 0.5192,
-     "FD": 0.5192
-    }
-   }
+   "books": null
   },
   {
    "cond": "0xf580f0bd2c432b8c12bf71c23366eff4a6e2f6fe96b8f466884b06b1f58f5782",
@@ -633,7 +615,7 @@
    "inside_fair": false,
    "fair_board": 0.7249,
    "books": {
-    "at": "2026-11-12T01:55:37Z",
+    "at": "2026-11-12T02:53:59Z",
     "fair": 0.7257,
     "q": {
      "Polymarket": 0.73,
@@ -676,14 +658,16 @@
    "side_std": "away",
    "money_with": false,
    "grade": "watch",
-   "fair_board": null,
-   "inside_fair": null,
+   "fair_board": 0.7825,
+   "inside_fair": false,
    "books": {
-    "at": "2026-11-12T01:55:37Z",
-    "fair": null,
+    "at": "2026-11-12T02:53:59Z",
+    "fair": 0.7825,
     "q": {
-     "Polymarket": 0.82,
-     "Kalshi": 0.84
+     "FD": 0.7872,
+     "Polymarket": 0.79,
+     "Novig": 0.79,
+     "Kalshi": 0.82
     }
    }
   },
@@ -722,7 +706,15 @@
    "grade": "A",
    "fair_board": null,
    "inside_fair": null,
-   "books": null
+   "books": {
+    "at": "2026-11-12T02:53:59Z",
+    "fair": null,
+    "q": {
+     "Polymarket": 0.47,
+     "Novig": 0.485,
+     "Kalshi": 0.52
+    }
+   }
   },
   {
    "cond": "0xde189f9aa90222a576dd7a2ae9a5f03283a9cd14f212fa27f9cafa2ae805d913",
@@ -740,7 +732,7 @@
    "best_rank": 12,
    "usd": 212,
    "paid": 0.49,
-   "ask": 0.5,
+   "ask": 0.49,
    "status": "live",
    "link": "https://polymarket.us/event/nhl-ott-pit-2026-11-14",
    "other": null,
@@ -821,16 +813,16 @@
    "side_std": "over",
    "money_with": false,
    "grade": "B",
-   "fair_board": 0.5263,
+   "fair_board": 0.5245,
    "inside_fair": false,
    "books": {
-    "at": "2026-11-12T01:55:37Z",
-    "fair": 0.5263,
+    "at": "2026-11-12T02:53:59Z",
+    "fair": 0.5245,
     "q": {
-     "DK": 0.5192,
      "Caesars": 0.5215,
+     "DK": 0.5238,
      "FD": 0.5349,
-     "Novig": 0.54
+     "Novig": 0.535
     }
    }
   },
@@ -942,14 +934,13 @@
    "side_std": "home",
    "money_with": false,
    "grade": "A",
-   "fair_board": 0.5251,
+   "fair_board": 0.5281,
    "inside_fair": false,
    "books": {
-    "at": "2026-11-12T01:55:37Z",
-    "fair": 0.5251,
+    "at": "2026-11-12T02:53:59Z",
+    "fair": 0.5281,
     "q": {
-     "Novig": 0.525,
-     "DK": 0.5349,
+     "Novig": 0.535,
      "FD": 0.5455,
      "Kalshi": 0.56
     }
@@ -1203,7 +1194,7 @@
    "side_std": "home",
    "money_with": false,
    "grade": "watch",
-   "fair_board": 0.5636,
+   "fair_board": null,
    "inside_fair": null,
    "books": null
   },
@@ -1289,7 +1280,7 @@
    "side_std": "away",
    "money_with": false,
    "grade": "A",
-   "fair_board": 0.4553,
+   "fair_board": 0.4398,
    "inside_fair": null,
    "books": null
   },
@@ -1382,7 +1373,7 @@
    "side_std": "away",
    "money_with": false,
    "grade": "watch",
-   "fair_board": 0.362,
+   "fair_board": 0.3525,
    "inside_fair": true,
    "books": null
   }
@@ -1396,19 +1387,19 @@
     "clv": -2.5
    },
    "outside": {
-    "n": 40,
-    "won": 20,
+    "n": 43,
+    "won": 22,
     "units": -0.96,
-    "clv": 0.3
+    "clv": 0.33
    }
   },
-  "n": 194,
-  "won": 85,
+  "n": 200,
+  "won": 87,
   "units": -16.56,
   "by_grade": {
    "A": {
-    "n": 129,
-    "won": 53,
+    "n": 134,
+    "won": 55,
     "units": -15.11,
     "clv": 0.02
    },
@@ -1419,18 +1410,18 @@
     "clv": -1.37
    },
    "watch": {
-    "n": 21,
+    "n": 22,
     "won": 8,
     "units": -2.09,
     "clv": -0.09
    }
   },
-  "units_1u": -36.26,
-  "clv": -0.33,
-  "n_venue": 91,
+  "units_1u": -37.88,
+  "clv": -0.32,
+  "n_venue": 96,
   "units_venue": -5.82,
-  "clv_venue": 0.57,
-  "clv_poly_same": -0.74
+  "clv_venue": 0.67,
+  "clv_poly_same": -0.69
  },
  "sys_tags": {
   "401864539:cfb_road_dog_low_total": {
@@ -1478,20 +1469,6 @@
     "usd": 155
    }
   },
-  "401909975|ml": {
-   "home": {
-    "n": 2,
-    "best_rank": 55,
-    "usd": 22980
-   }
-  },
-  "401909975|spread": {
-   "home": {
-    "n": 1,
-    "best_rank": 115,
-    "usd": 7289
-   }
-  },
   "401909976|ml": {
    "away": {
     "n": 3,
@@ -1528,18 +1505,6 @@
     "n": 1,
     "best_rank": 93,
     "usd": 148
-   }
-  },
-  "401892694|ml": {
-   "home": {
-    "n": 1,
-    "best_rank": 132,
-    "usd": 175
-   },
-   "away": {
-    "n": 1,
-    "best_rank": 197,
-    "usd": 310
    }
   },
   "401891808|ml": {
