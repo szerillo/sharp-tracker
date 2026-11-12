@@ -1,5 +1,5 @@
 {
- "built": "2026-11-12T06:14:53Z",
+ "built": "2026-11-12T06:25:13Z",
  "record": {
   "cbb_1h_total_curve": {
    "n": 2,
@@ -42,10 +42,10 @@
    }
   },
   "nhl_p3_under_curve": {
-   "n": 15,
+   "n": 17,
    "won": 2,
-   "lost": 10,
-   "units": -2.7,
+   "lost": 12,
+   "units": -3.7,
    "clv": {
     "n": 7,
     "avg": -2.69,
@@ -65,76 +65,5 @@
    "units": -1.68
   }
  },
- "rows": [
-  {
-   "key": "nhl_p3_under_curve|43a0ad5ba8bff6cdca19964348b53eff||under",
-   "rule": "nhl_p3_under_curve",
-   "tier": "B",
-   "stake": 0.5,
-   "sport": "nhl",
-   "odds_id": "43a0ad5ba8bff6cdca19964348b53eff",
-   "espn": "401892694",
-   "game": "Nashville Predators @ Anaheim Ducks",
-   "start": "2026-11-12T03:10:00Z",
-   "market": "totals_p3",
-   "team": null,
-   "team_name": null,
-   "side": "under",
-   "line": 2.5,
-   "curve": 0.663,
-   "pin_fair": 0.563,
-   "gap": 10.0,
-   "full_total": 6.5,
-   "full_spread": -1.5,
-   "pin_price": 1.71,
-   "book": "DK",
-   "price": 1.69,
-   "pin_fair_power": 0.5664,
-   "book_fair": 0.5587,
-   "fair_gap": 0.4,
-   "ev_curve": 12.0,
-   "flagged": "2026-11-12T00:35:16Z",
-   "close_ts": "2026-11-12T03:09:54Z",
-   "close_line": 2.5,
-   "line_value": 0.0,
-   "close_fair": 0.5601,
-   "clv": -3.16,
-   "beat_fair": -0.29
-  },
-  {
-   "key": "nhl_p3_under_curve|e75aa3d5c3b4939e080de0739fc8196a||under",
-   "rule": "nhl_p3_under_curve",
-   "tier": "B",
-   "stake": 0.5,
-   "sport": "nhl",
-   "odds_id": "e75aa3d5c3b4939e080de0739fc8196a",
-   "espn": "401892695",
-   "game": "Pittsburgh Penguins @ San Jose Sharks",
-   "start": "2026-11-12T03:10:00Z",
-   "market": "totals_p3",
-   "team": null,
-   "team_name": null,
-   "side": "under",
-   "line": 2.5,
-   "curve": 0.643,
-   "pin_fair": 0.556,
-   "gap": 8.7,
-   "full_total": 7.0,
-   "full_spread": 1.5,
-   "pin_price": 1.73,
-   "book": "DK",
-   "price": 1.69,
-   "pin_fair_power": 0.5597,
-   "book_fair": 0.5587,
-   "fair_gap": -0.2,
-   "ev_curve": 8.7,
-   "flagged": "2026-11-12T00:35:16Z",
-   "close_ts": "2026-11-12T03:09:54Z",
-   "close_line": 2.5,
-   "line_value": 0.0,
-   "close_fair": 0.5564,
-   "clv": -3.53,
-   "beat_fair": 0.04
-  }
- ]
+ "rows": []
 }
