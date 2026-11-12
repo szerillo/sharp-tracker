@@ -1,5 +1,5 @@
 {
- "built": "2026-11-12T22:49:45Z",
+ "built": "2026-11-12T23:05:09Z",
  "rows": [
   {
    "cond": "0x6c7cda134b82fe6f27a91ae42180b5abf9eb166944c2de8c5743273cc0c951e6",
@@ -829,6 +829,57 @@
    "fair_board": null,
    "inside_fair": null,
    "books": null
+  },
+  {
+   "cond": "0x977b827837e77ff1c7fd06da51d590250ba60c6b2e65377162fe67f706fb56ab",
+   "slug": "nba-gsw-sas-2026-11-13",
+   "title": "Warriors vs. Spurs",
+   "mtype": "ml",
+   "start": "2026-11-14T02:30:00Z",
+   "bet": "Warriors ML",
+   "side": "Warriors",
+   "flagged": "2026-11-12T23:00:09Z",
+   "why": "a top-50 account",
+   "proven": false,
+   "trigger": "top50",
+   "n_accounts": 1,
+   "best_rank": 40,
+   "usd": 755,
+   "paid": 0.165,
+   "ask": 0.15,
+   "status": "live",
+   "link": "https://polymarket.us/event/nba-gsw-sas-2026-11-13",
+   "other": null,
+   "kalshi_against": {
+    "move": 14.0,
+    "now": 83.5,
+    "state": "held"
+   },
+   "logged": true,
+   "event_id": "401909302",
+   "sport": "nba",
+   "league": null,
+   "away": "GS",
+   "home": "SA",
+   "away_name": "Golden State Warriors",
+   "home_name": "San Antonio Spurs",
+   "game_start": "2026-11-14T02:30Z",
+   "side_std": "away",
+   "conflict": [
+    "Kalshi move"
+   ],
+   "money_with": false,
+   "grade": "watch",
+   "fair_board": null,
+   "inside_fair": null,
+   "books": {
+    "at": "2026-11-12T22:18:10Z",
+    "fair": null,
+    "q": {
+     "Kalshi": 0.17,
+     "DK": 0.2041
+    }
+   }
   }
  ],
  "record": {
@@ -1030,6 +1081,13 @@
     "n": 1,
     "best_rank": 55,
     "usd": 277
+   }
+  },
+  "401909302|ml": {
+   "away": {
+    "n": 1,
+    "best_rank": 40,
+    "usd": 755
    }
   },
   "401909304|ml": {
