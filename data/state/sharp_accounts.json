@@ -1,43 +1,6 @@
 {
- "built": "2026-11-12T05:57:15Z",
+ "built": "2026-11-12T06:03:34Z",
  "rows": [
-  {
-   "cond": "0x4391179c4cd7614f97180f90a8a79b0ecebc74fa567f6b427a9eb7a2435a13ff",
-   "slug": "nba-orl-uta-2026-11-11",
-   "title": "Magic vs. Jazz",
-   "mtype": "total",
-   "start": "2026-11-12T02:00:00Z",
-   "bet": "Over 214.5",
-   "side": "Over",
-   "flagged": "2026-11-11T20:00:06Z",
-   "why": "a top-50 account",
-   "proven": false,
-   "trigger": "top50",
-   "n_accounts": 1,
-   "best_rank": 40,
-   "usd": 1855,
-   "paid": 0.519,
-   "ask": null,
-   "status": "live",
-   "link": "https://polymarket.us/event/nba-orl-uta-2026-11-11",
-   "other": null,
-   "kalshi_against": null,
-   "logged": true,
-   "event_id": "401909973",
-   "sport": "nba",
-   "league": null,
-   "away": "ORL",
-   "home": "UTAH",
-   "away_name": "Orlando Magic",
-   "home_name": "Utah Jazz",
-   "game_start": "2026-11-12T02:00Z",
-   "side_std": "over",
-   "money_with": false,
-   "grade": "watch",
-   "inside_fair": false,
-   "fair_board": 0.5015,
-   "books": null
-  },
   {
    "cond": "0xe3ae72ec65621e5c0fc6872d0021f97df258dff5146db4a812c024ffccee3983",
    "slug": "nba-gsw-hou-2026-11-11",
@@ -462,7 +425,7 @@
    "best_rank": 49,
    "usd": 339,
    "paid": 0.55,
-   "ask": 0.63,
+   "ask": 0.64,
    "status": "live",
    "link": "https://polymarket.us/event/nfl-la-ari-2026-11-15",
    "other": null,
@@ -675,7 +638,7 @@
    "best_rank": 43,
    "usd": 131,
    "paid": 0.325,
-   "ask": 0.34,
+   "ask": 0.35,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-dal-min-2026-11-12",
    "other": {
@@ -684,7 +647,7 @@
     "usd": 549,
     "first": "2026-11-10T13:39:07Z"
    },
-   "exit_bid": 0.33,
+   "exit_bid": 0.34,
    "kalshi_against": null,
    "logged": true,
    "event_id": "401909978",
@@ -699,7 +662,7 @@
    "money_with": false,
    "grade": "watch",
    "fair_board": 0.3459,
-   "inside_fair": true,
+   "inside_fair": false,
    "books": null
   }
  ],
@@ -712,19 +675,19 @@
     "clv": -2.5
    },
    "outside": {
-    "n": 44,
-    "won": 23,
+    "n": 45,
+    "won": 24,
     "units": -0.96,
     "clv": 0.39
    }
   },
-  "n": 211,
-  "won": 92,
+  "n": 212,
+  "won": 93,
   "units": -16.31,
   "by_grade": {
    "A": {
-    "n": 138,
-    "won": 56,
+    "n": 139,
+    "won": 57,
     "units": -15.11,
     "clv": -0.16
    },
@@ -741,9 +704,9 @@
     "clv": -0.54
    }
   },
-  "units_1u": -40.28,
+  "units_1u": -39.55,
   "clv": -0.46,
-  "n_venue": 100,
+  "n_venue": 101,
   "units_venue": -5.82,
   "clv_venue": 0.62,
   "clv_poly_same": -0.75
