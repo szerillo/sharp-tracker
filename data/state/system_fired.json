@@ -5551,5 +5551,22 @@
 "edge_pts": null,
 "why": "Novig home side mid 0.328 inside T-1.5h; audit band 20-35c",
 "restored": true
+},
+"401892693:xch_homedog_fade:spread": {
+"tag": "xch_homedog_fade",
+"fill_id": "2ba36882e54a",
+"ts": "2026-11-12T01:08:47Z",
+"market": "spread",
+"side": "away",
+"line": 1.5,
+"venue": "Novig",
+"price": -212,
+"fair": 0.67559,
+"edge_pts": -0.44,
+"why": "Novig home side mid 0.325 inside T-1.4h; audit band 20-35c",
+"now": {
+"venue": "Novig",
+"price": -212
+}
 }
 }
