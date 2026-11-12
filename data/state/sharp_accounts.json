@@ -1,5 +1,5 @@
 {
- "built": "2026-11-12T01:18:36Z",
+ "built": "2026-11-12T01:25:59Z",
  "rows": [
   {
    "cond": "0xd77d584f6a9fb2937e5c16f9494bbab607695f202db17181b51c29c5968e34a8",
@@ -361,6 +361,52 @@
    "books": null
   },
   {
+   "cond": "0x379c60bd4aa3a2e7d519a1f76c60271a0d8cf93353beee693ec9d82bae5443b6",
+   "slug": "nba-sas-chi-2026-11-11",
+   "title": "Spurs vs. Bulls",
+   "mtype": "ml",
+   "start": "2026-11-12T01:00:00Z",
+   "bet": "Bulls ML",
+   "side": "Bulls",
+   "flagged": "2026-11-10T10:00:18Z",
+   "why": "2 top-200 accounts",
+   "proven": false,
+   "trigger": "two",
+   "n_accounts": 2,
+   "best_rank": 43,
+   "usd": 774,
+   "paid": 0.111,
+   "ask": null,
+   "status": "live",
+   "link": "https://polymarket.us/event/nba-sas-chi-2026-11-11",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401909969",
+   "sport": "nba",
+   "league": null,
+   "away": "SA",
+   "home": "CHI",
+   "away_name": "San Antonio Spurs",
+   "home_name": "Chicago Bulls",
+   "game_start": "2026-11-12T01:00Z",
+   "side_std": "home",
+   "money_with": false,
+   "grade": "B",
+   "fair_board": 0.0883,
+   "inside_fair": null,
+   "books": {
+    "at": "2026-11-12T00:55:40Z",
+    "fair": 0.0883,
+    "q": {
+     "Novig": 0.1,
+     "Polymarket": 0.1,
+     "FD": 0.1099,
+     "Kalshi": 0.11
+    }
+   }
+  },
+  {
    "cond": "0xe0b9ecc9a8d221b1e88c0b97e8189a85829f2934bd6cda007f123ed72c6f02e8",
    "slug": "nba-sas-chi-2026-11-11",
    "title": "Spurs vs. Bulls",
@@ -376,7 +422,7 @@
    "best_rank": 119,
    "usd": 3307,
    "paid": 0.494,
-   "ask": 0.57,
+   "ask": null,
    "status": "live",
    "link": "https://polymarket.us/event/nba-sas-chi-2026-11-11",
    "other": null,
@@ -413,7 +459,7 @@
    "best_rank": 40,
    "usd": 1855,
    "paid": 0.519,
-   "ask": 0.54,
+   "ask": 0.55,
    "status": "live",
    "link": "https://polymarket.us/event/nba-orl-uta-2026-11-11",
    "other": null,
@@ -889,7 +935,7 @@
    "best_rank": 49,
    "usd": 339,
    "paid": 0.55,
-   "ask": 0.65,
+   "ask": 0.63,
    "status": "live",
    "link": "https://polymarket.us/event/nfl-la-ari-2026-11-15",
    "other": null,
@@ -1167,59 +1213,6 @@
    "books": null
   },
   {
-   "cond": "0x379c60bd4aa3a2e7d519a1f76c60271a0d8cf93353beee693ec9d82bae5443b6",
-   "slug": "nba-sas-chi-2026-11-11",
-   "title": "Spurs vs. Bulls",
-   "mtype": "ml",
-   "start": "2026-11-12T01:00:00Z",
-   "bet": "Bulls ML",
-   "side": "Bulls",
-   "flagged": "2026-11-10T10:00:18Z",
-   "why": "2 top-200 accounts",
-   "proven": false,
-   "trigger": "two",
-   "n_accounts": 2,
-   "best_rank": 43,
-   "usd": 774,
-   "paid": 0.111,
-   "ask": null,
-   "status": "live",
-   "link": "https://polymarket.us/event/nba-sas-chi-2026-11-11",
-   "other": null,
-   "kalshi_against": {
-    "move": 7.0,
-    "now": 90.5,
-    "state": "reversed"
-   },
-   "logged": true,
-   "event_id": "401909969",
-   "sport": "nba",
-   "league": null,
-   "away": "SA",
-   "home": "CHI",
-   "away_name": "San Antonio Spurs",
-   "home_name": "Chicago Bulls",
-   "game_start": "2026-11-12T01:00Z",
-   "side_std": "home",
-   "conflict": [
-    "Kalshi move"
-   ],
-   "money_with": false,
-   "grade": "B",
-   "fair_board": 0.0883,
-   "inside_fair": null,
-   "books": {
-    "at": "2026-11-12T00:55:40Z",
-    "fair": 0.0883,
-    "q": {
-     "Novig": 0.1,
-     "Polymarket": 0.1,
-     "FD": 0.1099,
-     "Kalshi": 0.11
-    }
-   }
-  },
-  {
    "cond": "0x0ca4e718c52ecd21a49fe745209756729a011fe868086939160158d3e5cd7684",
    "slug": "nba-bkn-nop-2026-11-11",
    "title": "Nets vs. Pelicans",
@@ -1244,12 +1237,8 @@
     "usd": 2228,
     "first": "2026-11-11T16:16:39Z"
    },
-   "exit_bid": 0.55,
-   "kalshi_against": {
-    "move": 4.0,
-    "now": 43.5,
-    "state": "held"
-   },
+   "exit_bid": null,
+   "kalshi_against": null,
    "logged": true,
    "event_id": "401909972",
    "sport": "nba",
@@ -1260,10 +1249,6 @@
    "home_name": "New Orleans Pelicans",
    "game_start": "2026-11-12T01:00Z",
    "side_std": "home",
-   "conflict": [
-    "Kalshi move",
-    "big money"
-   ],
    "money_with": false,
    "grade": "watch",
    "fair_board": 0.5629,
@@ -1307,10 +1292,7 @@
    "home_name": "Milwaukee Bucks",
    "game_start": "2026-11-12T01:00Z",
    "side_std": "home",
-   "conflict": [
-    "Kalshi move"
-   ],
-   "money_with": true,
+   "money_with": false,
    "grade": "watch",
    "fair_board": null,
    "inside_fair": null,
@@ -1332,7 +1314,7 @@
    "best_rank": 40,
    "usd": 2256,
    "paid": 0.233,
-   "ask": 0.25,
+   "ask": 0.26,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-tor-phi-2026-11-12",
    "other": {
@@ -1341,10 +1323,10 @@
     "usd": 300,
     "first": "2026-11-11T22:30:49Z"
    },
-   "exit_bid": 0.24,
+   "exit_bid": 0.25,
    "kalshi_against": {
-    "move": 9.5,
-    "now": 77.5,
+    "move": 7.0,
+    "now": 75.0,
     "state": "reversed"
    },
    "logged": true,
