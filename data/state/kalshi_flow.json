@@ -1,5 +1,5 @@
 {
-"built": "2026-11-12T11:07:26Z",
+"built": "2026-11-12T11:18:07Z",
 "sport": "nhl",
 "rule": "kalshi_nhl_flow",
 "tier": "P",
@@ -7,7 +7,28 @@
 "min_usd": 500.0,
 "window_h": 6,
 "fire_min": 90,
-"rows": [],
+"rows": [
+{
+"event_id": "401891808",
+"market": "ml",
+"line": null,
+"start": "2026-11-12T17:00Z",
+"side": "away",
+"yes_side": "home",
+"home": "Seattle Kraken",
+"away": "Carolina Hurricanes",
+"game": "Carolina Hurricanes @ Seattle Kraken",
+"bet": "Carolina Hurricanes moneyline",
+"share": -0.613,
+"usd": 227,
+"trades": 14,
+"price": 0.73,
+"mins_to_start": 342,
+"flag": false,
+"ticker": "KXNHLGAME-26NOV12CARSEA-CAR",
+"window_h": 6
+}
+],
 "record": {
 "n": 34,
 "won": 20,
