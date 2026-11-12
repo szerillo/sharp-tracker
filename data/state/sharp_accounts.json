@@ -1,5 +1,5 @@
 {
- "built": "2026-11-12T00:37:11Z",
+ "built": "2026-11-12T00:43:58Z",
  "rows": [
   {
    "cond": "0xd77d584f6a9fb2937e5c16f9494bbab607695f202db17181b51c29c5968e34a8",
@@ -421,7 +421,7 @@
    "best_rank": 49,
    "usd": 2576,
    "paid": 0.55,
-   "ask": 0.56,
+   "ask": 0.55,
    "status": "live",
    "link": "https://polymarket.us/event/nba-lal-mil-2026-11-11",
    "other": null,
@@ -667,7 +667,7 @@
    "game_start": "2026-11-12T04:00Z",
    "side_std": "over",
    "conflict": [
-    "Kalshi move"
+    "Kalshi bet back"
    ],
    "money_with": false,
    "grade": "A",
@@ -1256,8 +1256,8 @@
    },
    "exit_bid": 0.23,
    "kalshi_against": {
-    "move": 8.5,
-    "now": 76.5,
+    "move": 7.5,
+    "now": 75.5,
     "state": "reversed"
    },
    "logged": true,
@@ -1369,14 +1369,6 @@
   "clv_poly_same": -0.74
  },
  "sys_tags": {
-  "401866462:cfb_road_dog_low_total": {
-   "with": null,
-   "against": {
-    "n": 1,
-    "best_rank": 12,
-    "usd": 367
-   }
-  },
   "401864539:cfb_road_dog_low_total": {
    "with": {
     "n": 1,
@@ -1394,7 +1386,11 @@
    }
   },
   "401909969:nba_bigfav_over": {
-   "with": null,
+   "with": {
+    "n": 1,
+    "best_rank": 119,
+    "usd": 197
+   },
    "against": {
     "n": 2,
     "best_rank": 119,
@@ -1451,6 +1447,11 @@
     "n": 2,
     "best_rank": 119,
     "usd": 721
+   },
+   "over": {
+    "n": 1,
+    "best_rank": 119,
+    "usd": 197
    }
   },
   "401909969|spread": {
