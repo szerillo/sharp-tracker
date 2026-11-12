@@ -1,5 +1,5 @@
 {
- "built": "2026-11-12T23:33:27Z",
+ "built": "2026-11-12T23:48:46Z",
  "rows": [
   {
    "cond": "0x6c7cda134b82fe6f27a91ae42180b5abf9eb166944c2de8c5743273cc0c951e6",
@@ -204,6 +204,9 @@
    "home_name": "Utah Mammoth",
    "game_start": "2026-11-13T02:00Z",
    "side_std": "away",
+   "conflict": [
+    "big money"
+   ],
    "money_with": false,
    "grade": "A",
    "inside_fair": false,
@@ -402,7 +405,7 @@
    "best_rank": 4,
    "usd": 118,
    "paid": 0.53,
-   "ask": 0.52,
+   "ask": 0.54,
    "status": "live",
    "link": "https://polymarket.us/event/cbb-loulaf-ncw-2026-11-14",
    "other": null,
@@ -439,7 +442,7 @@
    "best_rank": 12,
    "usd": 104,
    "paid": 0.602,
-   "ask": 0.66,
+   "ask": 0.65,
    "status": "live",
    "link": "https://polymarket.us/event/nfl-min-gb-2026-11-15",
    "other": null,
@@ -716,7 +719,7 @@
    "best_rank": 40,
    "usd": 2256,
    "paid": 0.233,
-   "ask": 0.28,
+   "ask": 0.29,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-tor-phi-2026-11-12",
    "other": {
@@ -725,7 +728,7 @@
     "usd": 600,
     "first": "2026-11-11T22:30:49Z"
    },
-   "exit_bid": 0.27,
+   "exit_bid": 0.28,
    "kalshi_against": null,
    "logged": true,
    "event_id": "401909976",
@@ -737,10 +740,10 @@
    "home_name": "Philadelphia 76ers",
    "game_start": "2026-11-13T00:00Z",
    "side_std": "away",
-   "money_with": false,
-   "grade": "B",
+   "money_with": true,
+   "grade": "A",
    "fair_board": 0.2816,
-   "inside_fair": true,
+   "inside_fair": false,
    "books": null
   },
   {
@@ -850,8 +853,8 @@
    "link": "https://polymarket.us/event/nba-gsw-sas-2026-11-13",
    "other": null,
    "kalshi_against": {
-    "move": 17.0,
-    "now": 86.5,
+    "move": 16.0,
+    "now": 85.5,
     "state": "held"
    },
    "logged": true,
