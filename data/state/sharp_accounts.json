@@ -1,5 +1,5 @@
 {
- "built": "2026-11-12T16:06:07Z",
+ "built": "2026-11-12T16:13:32Z",
  "rows": [
   {
    "cond": "0xf580f0bd2c432b8c12bf71c23366eff4a6e2f6fe96b8f466884b06b1f58f5782",
@@ -37,8 +37,8 @@
    "inside_fair": false,
    "fair_board": 0.7249,
    "books": {
-    "at": "2026-11-12T14:58:26Z",
-    "fair": 0.7341,
+    "at": "2026-11-12T16:01:00Z",
+    "fair": 0.7337,
     "q": {
      "Kalshi": 0.75,
      "FD": 0.75,
@@ -80,16 +80,16 @@
    "side_std": "away",
    "money_with": false,
    "grade": "watch",
-   "fair_board": 0.8025,
-   "inside_fair": true,
+   "fair_board": 0.799,
+   "inside_fair": false,
    "books": {
-    "at": "2026-11-12T14:58:26Z",
-    "fair": 0.8025,
+    "at": "2026-11-12T16:01:00Z",
+    "fair": 0.799,
     "q": {
      "Kalshi": 0.81,
-     "Caesars": 0.8148,
-     "DK": 0.8148,
-     "FD": 0.8333
+     "FD": 0.8113,
+     "DK": 0.8236,
+     "Caesars": 0.8276
     }
    }
   },
@@ -166,8 +166,8 @@
    "inside_fair": true,
    "fair_board": 0.5819,
    "books": {
-    "at": "2026-11-12T14:58:26Z",
-    "fair": 0.5918,
+    "at": "2026-11-12T16:01:00Z",
+    "fair": 0.592,
     "q": {
      "Caesars": 0.6032,
      "FD": 0.6063,
@@ -215,12 +215,12 @@
    "inside_fair": false,
    "fair_board": 0.4515,
    "books": {
-    "at": "2026-11-12T14:58:26Z",
-    "fair": 0.4757,
+    "at": "2026-11-12T16:01:00Z",
+    "fair": 0.4793,
     "q": {
-     "Caesars": 0.4878,
-     "DK": 0.4878,
      "FD": 0.5,
+     "Caesars": 0.5,
+     "DK": 0.5,
      "Kalshi": 0.51
     }
    }
@@ -369,17 +369,9 @@
    "side_std": "over",
    "money_with": false,
    "grade": "B",
-   "fair_board": 0.5228,
-   "inside_fair": false,
-   "books": {
-    "at": "2026-11-12T14:58:26Z",
-    "fair": 0.5228,
-    "q": {
-     "DK": 0.5238,
-     "Caesars": 0.5413,
-     "Kalshi": 0.57
-    }
-   }
+   "fair_board": null,
+   "inside_fair": null,
+   "books": null
   },
   {
    "cond": "0x3b773f3b5203b36a388f1a3f242b5012e7d4eb0b8fd6f3773f23185485b99c8f",
@@ -434,7 +426,7 @@
    "best_rank": 49,
    "usd": 339,
    "paid": 0.55,
-   "ask": 0.61,
+   "ask": 0.64,
    "status": "live",
    "link": "https://polymarket.us/event/nfl-la-ari-2026-11-15",
    "other": null,
@@ -576,7 +568,7 @@
    ],
    "money_with": false,
    "grade": "B",
-   "fair_board": 0.2377,
+   "fair_board": 0.2448,
    "inside_fair": false,
    "books": null
   },
@@ -619,7 +611,7 @@
    "side_std": "away",
    "money_with": false,
    "grade": "watch",
-   "fair_board": 0.3312,
+   "fair_board": 0.3249,
    "inside_fair": false,
    "books": null
   }
