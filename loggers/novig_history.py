@@ -52,24 +52,40 @@ def main():
     events = {}; fresh = []; n_seen = 0; newest = since
     for items in paged('/v3/history/events', 'limit=5000', 2, st, 'events_cursor'):
         for e in items: events[e['eventId']] = e
-    for items in paged('/v3/history/markets', f'settledAfter={since}&limit=5000', max_pages, st, 'markets_cursor' if backfilling else None):
+    # 11/12: phase 2 keeps its cursor too, and the watermark moves only once a walk reaches the end. Before, a run read max_pages of the
+    # newest markets and jumped the watermark to the newest one, skipping everything older that it had not reached (11/12: 11/4 to 11/12).
+    n_filled = 0
+    for items in paged('/v3/history/markets', f'settledAfter={since}&limit=5000', max_pages, st, 'markets_cursor' if backfilling else 'since_cursor'):
         for m in items:
             n_seen += 1; newest = max(newest, m.get('settledTs') or 0)
-            if m['marketId'] in cat: continue
+            old = cat.get(m['marketId'])
+            # 11/12: a market the live catalog saw before it settled has no result; write the settled record for it (it used to be skipped,
+            # which left fills on those markets ungradeable: 6.0M maker fills were dropped as "no win/loss result")
+            if old and any(v in ('WIN', 'LOSS') for v in (old.get('result') or {}).values()): continue
+            if old: n_filled += 1
             e = events.get(m['eventId']) or {}
             rec = dict(market=m['marketId'], event_id=m['eventId'], event=e.get('description'), league=e.get('league'), sport=e.get('sport'),
                        start_ts=e.get('startsTs'), type=m.get('marketType'), desc=m.get('description'), strike=m.get('strike'),
                        outcomes={o['outcomeId']: o['name'] for o in m.get('outcomes', [])},
                        result={o['outcomeId']: o.get('status') for o in m.get('outcomes', [])}, settled_ts=m.get('settledTs'),
                        first_seen=now, last_seen=now, source='history')
+            if old:      # keep what the live catalog knew when the history API leaves it out
+                for f_ in ('event', 'league', 'sport', 'start_ts', 'type', 'desc', 'strike'):
+                    if rec.get(f_) is None and old.get(f_) is not None: rec[f_] = old[f_]
             cat[m['marketId']] = rec; fresh.append(rec)
     if fresh:
         with gzip.open(os.path.join(CDIR, f'history-{now[:10]}.jsonl.gz'), 'at') as f:
             for r in fresh: f.write(json.dumps(r, separators=(',', ':')) + '\n')
     if backfilling and not st.get('markets_cursor'): st['backfill_done'] = True
-    if not backfilling or st.get('backfill_done'): st['settled_after'] = max(newest, st.get('settled_after', 0))
+    if backfilling:
+        if st.get('backfill_done'): st['settled_after'] = max(newest, st.get('settled_after', 0))
+    else:
+        st['walk_newest'] = max(newest, st.get('walk_newest', 0))
+        if not st.get('since_cursor'):                        # the walk reached the end: everything after the watermark is in
+            st['settled_after'] = max(st.pop('walk_newest', 0), st.get('settled_after', 0))
     st['last_run'] = now; st['events_cached'] = len(events); json.dump(st, open(STATE, 'w'))
-    print(f'[novig history] {n_seen} settled markets scanned, {len(fresh)} new to catalog ({len(cat)} total); '
+    print(f'[novig history] {n_seen} settled markets scanned, {len(fresh)} written ({n_filled} results added to markets already in the catalog; {len(cat)} total); '
+          f'{"walk resumes from cursor; " if st.get("since_cursor") else ""}'
           f'{"backfill done" if st.get("backfill_done") else "backfill resumes from cursor"}; watermark {st.get("settled_after")}')
 
 

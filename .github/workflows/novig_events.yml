@@ -1,6 +1,8 @@
 name: novig events fix (fill league/start on history catalog)
 on:
-  workflow_dispatch: {}
+  workflow_dispatch:
+    inputs:
+      pages: {description: 'pages of 5,000 settled markets to walk this run', default: '60', required: false}
 permissions:
   contents: write
 concurrency:
@@ -18,10 +20,12 @@ jobs:
       - env:
           NOVIG_KEY_ID: ${{ secrets.NOVIG_KEY_ID }}
           NOVIG_PRIVATE_KEY: ${{ secrets.NOVIG_PRIVATE_KEY }}
-        run: python3 loggers/novig_events_fix.py
+        run: |
+          python3 loggers/novig_history.py --max-pages ${{ inputs.pages || '60' }} || true      # 11/12: catch-up walk of settled markets (results onto catalog markets that lack them)
+          python3 loggers/novig_events_fix.py
       - run: |
           git config user.name "tracker-bot"; git config user.email "actions@users.noreply.github.com"
-          git add -A data/novig/catalog data/novig/events_history.jsonl.gz && git commit -m "novig events fix $(date -u +%Y-%m-%dT%H:%M)" || exit 0
+          git add -A data/novig/catalog data/novig/events_history.jsonl.gz data/novig/_history_state.json && git commit -m "novig events fix $(date -u +%Y-%m-%dT%H:%M)" || exit 0
           for i in 1 2 3 4 5 6; do
             if git pull --rebase -X theirs --no-tags origin main && git push; then exit 0; fi
             git rebase --abort 2>/dev/null || true; sleep $((RANDOM % 20 + 5))
