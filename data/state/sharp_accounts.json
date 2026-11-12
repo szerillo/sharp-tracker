@@ -227,7 +227,7 @@
    "best_rank": 110,
    "usd": 628,
    "paid": 0.617,
-   "ask": null,
+   "ask": 0.67,
    "status": "live",
    "link": "https://polymarket.us/event/cfb-sacst-cmich-2026-11-11",
    "other": null,
@@ -310,12 +310,12 @@
    "best_rank": 11,
    "usd": 450,
    "paid": 0.55,
-   "ask": null,
+   "ask": 0.57,
    "status": "live",
    "link": "https://polymarket.us/event/cfb-umass-toledo-2026-11-11",
    "other": null,
    "kalshi_against": null,
-   "logged": false,
+   "logged": true,
    "event_id": "401866463",
    "sport": "cfb",
    "league": null,
@@ -347,12 +347,12 @@
    "best_rank": 12,
    "usd": 367,
    "paid": 0.54,
-   "ask": null,
+   "ask": 0.55,
    "status": "live",
    "link": "https://polymarket.us/event/cfb-sacst-cmich-2026-11-11",
    "other": null,
    "kalshi_against": null,
-   "logged": false,
+   "logged": true,
    "event_id": "401866462",
    "sport": "cfb",
    "league": null,
@@ -1369,6 +1369,14 @@
   "clv_poly_same": -0.74
  },
  "sys_tags": {
+  "401866462:cfb_road_dog_low_total": {
+   "with": null,
+   "against": {
+    "n": 1,
+    "best_rank": 12,
+    "usd": 367
+   }
+  },
   "401864539:cfb_road_dog_low_total": {
    "with": {
     "n": 1,
@@ -1622,6 +1630,34 @@
     "n": 1,
     "best_rank": 197,
     "usd": 310
+   }
+  },
+  "401866463|spread": {
+   "home": {
+    "n": 1,
+    "best_rank": 11,
+    "usd": 450
+   }
+  },
+  "401866462|total": {
+   "under": {
+    "n": 1,
+    "best_rank": 110,
+    "usd": 628
+   }
+  },
+  "401866462|ml": {
+   "away": {
+    "n": 1,
+    "best_rank": 157,
+    "usd": 338
+   }
+  },
+  "401866462|spread": {
+   "home": {
+    "n": 1,
+    "best_rank": 12,
+    "usd": 367
    }
   },
   "401864539|spread": {
