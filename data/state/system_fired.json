@@ -5133,7 +5133,10 @@
 "price": -104,
 "fair": 0.49725,
 "edge_pts": -1.27,
-"why": "home favourite UVA -10.0, total 47.5: under (mined angle)"
+"why": "home favourite UVA -10.0, total 47.5: under (mined angle)",
+"void": true,
+"void_why": "rule no longer holds on the current line: home spread -10.5, total 47.5 (2026-11-13T16:52:08Z)",
+"void_at": "2026-11-13T16:52:08Z"
 },
 "401892683:nhl_loss_streak_over": {
 "tag": "nhl_loss_streak_over",
@@ -5996,5 +5999,31 @@
 "fair": 0.4884,
 "edge_pts": -3.16,
 "why": "home USD over 100% (3 games), visitor CHST over 75% (4); total 148.0 -> 144.5"
+},
+"401892714:nhl_pl_fav_strong_opp": {
+"tag": "nhl_pl_fav_strong_opp",
+"fill_id": "d938ca3f1d47",
+"ts": "2026-11-13T16:52:08Z",
+"market": "spread",
+"side": "home",
+"line": -1.5,
+"venue": "Novig",
+"price": 223,
+"fair": 0.3,
+"edge_pts": -1.0,
+"why": "opponent NJ wins 70% (14-6); favorite WSH -1.5 against a strong team"
+},
+"401892714:nhl_early_home_fav_qual": {
+"tag": "nhl_early_home_fav_qual",
+"fill_id": "02fb9071060c",
+"ts": "2026-11-13T16:52:08Z",
+"market": "ml",
+"side": "home",
+"line": null,
+"venue": "Novig",
+"price": -104,
+"fair": 0.50242,
+"edge_pts": -0.76,
+"why": "home favorite, game 18 of the season, opponent NJ wins 70% (14-6)"
 }
 }
