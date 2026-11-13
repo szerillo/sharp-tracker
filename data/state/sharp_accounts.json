@@ -1,5 +1,5 @@
 {
- "built": "2026-11-13T14:04:10Z",
+ "built": "2026-11-13T14:12:39Z",
  "rows": [
   {
    "cond": "0xc31a3f047367e05c7c92b9553b7cf00252bb86b3291cf3dda9e6868644a0de6b",
@@ -47,6 +47,53 @@
      "Novig": 0.715,
      "Caesars": 0.7354,
      "Kalshi": 0.74
+    }
+   }
+  },
+  {
+   "cond": "0xc71264e683e4c414f7aa73b734ed7c701358adf182941937cf2b7d55a269de6d",
+   "slug": "nba-mem-nop-2026-11-13",
+   "title": "Grizzlies vs. Pelicans",
+   "mtype": "spread",
+   "start": "2026-11-14T01:00:00Z",
+   "bet": "Pelicans +4.5",
+   "side": "Pelicans",
+   "flagged": "2026-11-13T14:11:27Z",
+   "why": "2 top-200 accounts",
+   "proven": false,
+   "trigger": "two",
+   "n_accounts": 2,
+   "best_rank": 110,
+   "usd": 1854,
+   "paid": 0.564,
+   "ask": 0.58,
+   "status": "live",
+   "link": "https://polymarket.us/event/nba-mem-nop-2026-11-13",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401909300",
+   "sport": "nba",
+   "league": null,
+   "away": "MEM",
+   "home": "NO",
+   "away_name": "Memphis Grizzlies",
+   "home_name": "New Orleans Pelicans",
+   "game_start": "2026-11-14T01:00Z",
+   "side_std": "home",
+   "conflict": [
+    "Kalshi bet back"
+   ],
+   "money_with": false,
+   "grade": "B",
+   "fair_board": null,
+   "inside_fair": null,
+   "books": {
+    "at": "2026-11-13T03:14:28Z",
+    "fair": null,
+    "q": {
+     "Novig": 0.555,
+     "Kalshi": 0.58
     }
    }
   },
@@ -659,7 +706,7 @@
    "best_rank": 43,
    "usd": 1173,
    "paid": 0.556,
-   "ask": 0.47,
+   "ask": 0.46,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-gsw-nop-2026-11-16",
    "other": {
@@ -668,7 +715,7 @@
     "usd": 203,
     "first": "2026-11-13T10:27:49Z"
    },
-   "exit_bid": 0.46,
+   "exit_bid": 0.45,
    "kalshi_against": null,
    "logged": true,
    "grade": "B",
@@ -873,9 +920,9 @@
   },
   "401909300|spread": {
    "home": {
-    "n": 1,
+    "n": 2,
     "best_rank": 110,
-    "usd": 1110
+    "usd": 1854
    }
   },
   "401909301|spread": {
