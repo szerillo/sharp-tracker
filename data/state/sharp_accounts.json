@@ -1,80 +1,6 @@
 {
- "built": "2026-11-13T03:49:33Z",
+ "built": "2026-11-13T04:04:00Z",
  "rows": [
-  {
-   "cond": "0x6c7cda134b82fe6f27a91ae42180b5abf9eb166944c2de8c5743273cc0c951e6",
-   "slug": "nba-det-was-2026-11-12",
-   "title": "Pistons vs. Wizards",
-   "mtype": "ml",
-   "start": "2026-11-13T00:00:00Z",
-   "bet": "Pistons ML",
-   "side": "Pistons",
-   "flagged": "2026-11-10T10:05:33Z",
-   "why": "a top-50 account",
-   "proven": false,
-   "trigger": "top50",
-   "n_accounts": 1,
-   "best_rank": 43,
-   "usd": 108,
-   "paid": 0.76,
-   "ask": null,
-   "status": "live",
-   "link": "https://polymarket.us/event/nba-det-was-2026-11-12",
-   "other": null,
-   "kalshi_against": null,
-   "logged": true,
-   "event_id": "401909977",
-   "sport": "nba",
-   "league": null,
-   "away": "DET",
-   "home": "WSH",
-   "away_name": "Detroit Pistons",
-   "home_name": "Washington Wizards",
-   "game_start": "2026-11-13T00:00Z",
-   "side_std": "away",
-   "money_with": false,
-   "grade": "watch",
-   "fair_board": null,
-   "inside_fair": null,
-   "books": null
-  },
-  {
-   "cond": "0x9f15a5e77493abab2820881aeac0186daffb77c2dd5b1230d30be446f10beef5",
-   "slug": "cbb-merc-wvir-2026-11-12",
-   "title": "Mercer Bears vs. West Virginia Mountaineers",
-   "mtype": "total",
-   "start": "2026-11-13T00:00:00Z",
-   "bet": "Over 150.5",
-   "side": "Over",
-   "flagged": "2026-11-12T02:35:42Z",
-   "why": "a top-200 account also in this sport's top 50",
-   "proven": true,
-   "trigger": "proven",
-   "n_accounts": 1,
-   "best_rank": 116,
-   "usd": 104,
-   "paid": 0.47,
-   "ask": null,
-   "status": "live",
-   "link": "https://polymarket.us/event/cbb-merc-wvir-2026-11-12",
-   "other": null,
-   "kalshi_against": null,
-   "logged": true,
-   "event_id": "401921768",
-   "sport": "cbb",
-   "league": null,
-   "away": "MER",
-   "home": "WVU",
-   "away_name": "Mercer Bears",
-   "home_name": "West Virginia Mountaineers",
-   "game_start": "2026-11-13T00:00Z",
-   "side_std": "over",
-   "money_with": false,
-   "grade": "A",
-   "fair_board": null,
-   "inside_fair": null,
-   "books": null
-  },
   {
    "cond": "0xa78998bdf212722f63a450a5c7cef8185aa01f5cd951c57aadbb17e2186bb5eb",
    "slug": "nhl-buf-chi-2026-11-12",
@@ -719,49 +645,6 @@
    "books": null
   },
   {
-   "cond": "0x36dfe6c00ce22c8d125894d3cff971f302187abaf4b2c4e4a1864640b9f05ce0",
-   "slug": "nba-tor-phi-2026-11-12",
-   "title": "Raptors vs. 76ers",
-   "mtype": "ml",
-   "start": "2026-11-13T00:00:00Z",
-   "bet": "Raptors ML",
-   "side": "Raptors",
-   "flagged": "2026-11-11T15:50:33Z",
-   "why": "3 top-200 accounts",
-   "proven": false,
-   "trigger": "two",
-   "n_accounts": 3,
-   "best_rank": 40,
-   "usd": 2256,
-   "paid": 0.233,
-   "ask": null,
-   "status": "other side",
-   "link": "https://polymarket.us/event/nba-tor-phi-2026-11-12",
-   "other": {
-    "n_accounts": 2,
-    "best_rank": 43,
-    "usd": 600,
-    "first": "2026-11-11T22:30:49Z"
-   },
-   "exit_bid": null,
-   "kalshi_against": null,
-   "logged": true,
-   "event_id": "401909976",
-   "sport": "nba",
-   "league": null,
-   "away": "TOR",
-   "home": "PHI",
-   "away_name": "Toronto Raptors",
-   "home_name": "Philadelphia 76ers",
-   "game_start": "2026-11-13T00:00Z",
-   "side_std": "away",
-   "money_with": false,
-   "grade": "B",
-   "fair_board": null,
-   "inside_fair": null,
-   "books": null
-  },
-  {
    "cond": "0xc096d9590945f29434681ef1e972af587ff836fc2d0d5101ad652caecf7beb97",
    "slug": "nba-dal-min-2026-11-12",
    "title": "Mavericks vs. Timberwolves",
@@ -904,10 +787,10 @@
  "record": {
   "by_fair": {
    "inside": {
-    "n": 8,
+    "n": 9,
     "won": 3,
     "units": -1.34,
-    "clv": -2.5
+    "clv": -1.93
    },
    "outside": {
     "n": 47,
@@ -916,15 +799,15 @@
     "clv": -0.9
    }
   },
-  "n": 216,
+  "n": 218,
   "won": 95,
   "units": -16.31,
   "by_grade": {
    "A": {
-    "n": 142,
+    "n": 143,
     "won": 58,
     "units": -15.11,
-    "clv": -0.66
+    "clv": -0.64
    },
    "B": {
     "n": 49,
@@ -933,18 +816,18 @@
     "clv": -1.26
    },
    "watch": {
-    "n": 25,
+    "n": 26,
     "won": 10,
     "units": -2.09,
-    "clv": -0.54
+    "clv": -0.68
    }
   },
-  "units_1u": -40.88,
+  "units_1u": -42.88,
   "clv": -0.79,
-  "n_venue": 104,
+  "n_venue": 105,
   "units_venue": -5.82,
-  "clv_venue": 0.54,
-  "clv_poly_same": -1.39
+  "clv_venue": 0.55,
+  "clv_poly_same": -1.36
  },
  "sys_tags": {
   "401864539:cfb_road_dog_low_total": {
