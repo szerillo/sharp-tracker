@@ -5812,7 +5812,10 @@
 "price": 102,
 "fair": 0.48853,
 "edge_pts": -0.65,
-"why": "SA is 85% on the moneyline: over (mined angle)"
+"why": "SA is 85% on the moneyline: over (mined angle)",
+"void": true,
+"void_why": "trigger no longer holds on current season records (2026-11-13T20:52:40Z)",
+"void_at": "2026-11-13T20:52:40Z"
 },
 "401869969:xch_homedog_fade:ml": {
 "tag": "xch_homedog_fade",
@@ -6060,5 +6063,44 @@
 "fair": 0.51004,
 "edge_pts": -1.15,
 "why": "avg 13.7 mph (Open-Meteo 13.4 at T-22h, MySportsWeather 14.0), gust 24.2, 44.8F"
+},
+"401858295:cfb_wind14": {
+"tag": "cfb_wind14",
+"fill_id": "b91956f98902",
+"ts": "2026-11-13T20:52:40Z",
+"market": "total",
+"side": "under",
+"line": 47.5,
+"venue": "Novig",
+"price": -104,
+"fair": 0.50618,
+"edge_pts": -0.38,
+"why": "avg 13.8 mph (Open-Meteo 13.6 at T-24h, MySportsWeather 14.0), gust 23.7, 49.5F"
+},
+"401902278:cbb_under_good_over_drop": {
+"tag": "cbb_under_good_over_drop",
+"fill_id": "76cfeb5a8f7d",
+"ts": "2026-11-13T20:52:40Z",
+"market": "total",
+"side": "under",
+"line": 158.5,
+"venue": "Novig",
+"price": -111,
+"fair": 0.51107,
+"edge_pts": -1.39,
+"why": "home BTLR over 100% (3 games), visitor PITT over 67% (3); total 159.0 -> 158.5"
+},
+"401917980:cbb_under_good_over_drop": {
+"tag": "cbb_under_good_over_drop",
+"fill_id": "7f4ada69e35f",
+"ts": "2026-11-13T20:52:40Z",
+"market": "total",
+"side": "under",
+"line": 148.5,
+"venue": "Novig",
+"price": 102,
+"fair": 0.49493,
+"edge_pts": -0.01,
+"why": "home ASU over 67% (3 games), visitor ULM over 100% (4); total 152.0 -> 148.5"
 }
 }
