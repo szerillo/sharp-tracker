@@ -1,5 +1,5 @@
 {
- "built": "2026-11-13T11:36:04Z",
+ "built": "2026-11-13T11:45:50Z",
  "rows": [
   {
    "cond": "0xc31a3f047367e05c7c92b9553b7cf00252bb86b3291cf3dda9e6868644a0de6b",
@@ -49,43 +49,6 @@
      "Kalshi": 0.74
     }
    }
-  },
-  {
-   "cond": "0xde189f9aa90222a576dd7a2ae9a5f03283a9cd14f212fa27f9cafa2ae805d913",
-   "slug": "nhl-ott-pit-2026-11-14",
-   "title": "Senators vs. Penguins",
-   "mtype": "ml",
-   "start": "2026-11-15T00:00:00Z",
-   "bet": "Penguins ML",
-   "side": "Penguins",
-   "flagged": "2026-11-12T00:03:27Z",
-   "why": "a top-50 account",
-   "proven": false,
-   "trigger": "top50",
-   "n_accounts": 1,
-   "best_rank": 12,
-   "usd": 212,
-   "paid": 0.49,
-   "ask": 0.49,
-   "status": "live",
-   "link": "https://polymarket.us/event/nhl-ott-pit-2026-11-14",
-   "other": null,
-   "kalshi_against": null,
-   "logged": true,
-   "event_id": "401892713",
-   "sport": "nhl",
-   "league": null,
-   "away": "OTT",
-   "home": "PIT",
-   "away_name": "Ottawa Senators",
-   "home_name": "Pittsburgh Penguins",
-   "game_start": "2026-11-15T00:00Z",
-   "side_std": "home",
-   "money_with": false,
-   "grade": "B",
-   "fair_board": null,
-   "inside_fair": null,
-   "books": null
   },
   {
    "cond": "0x3973b1825585afc8ab2a6c2a2323937be97b911ceec9075d945a36ebce0b77b9",
@@ -638,6 +601,49 @@
    "books": null
   },
   {
+   "cond": "0xde189f9aa90222a576dd7a2ae9a5f03283a9cd14f212fa27f9cafa2ae805d913",
+   "slug": "nhl-ott-pit-2026-11-14",
+   "title": "Senators vs. Penguins",
+   "mtype": "ml",
+   "start": "2026-11-15T00:00:00Z",
+   "bet": "Penguins ML",
+   "side": "Penguins",
+   "flagged": "2026-11-12T00:03:27Z",
+   "why": "a top-50 account",
+   "proven": false,
+   "trigger": "top50",
+   "n_accounts": 1,
+   "best_rank": 12,
+   "usd": 212,
+   "paid": 0.49,
+   "ask": 0.48,
+   "status": "other side",
+   "link": "https://polymarket.us/event/nhl-ott-pit-2026-11-14",
+   "other": {
+    "n_accounts": 1,
+    "best_rank": 197,
+    "usd": 181,
+    "first": "2026-11-13T11:39:00Z"
+   },
+   "exit_bid": 0.47,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401892713",
+   "sport": "nhl",
+   "league": null,
+   "away": "OTT",
+   "home": "PIT",
+   "away_name": "Ottawa Senators",
+   "home_name": "Pittsburgh Penguins",
+   "game_start": "2026-11-15T00:00Z",
+   "side_std": "home",
+   "money_with": false,
+   "grade": "B",
+   "fair_board": null,
+   "inside_fair": null,
+   "books": null
+  },
+  {
    "cond": "0xa4205ef4d7859ca4bbfbe3bf42454f854489c4187133b895d17a21175d4d668b",
    "slug": "nba-gsw-nop-2026-11-16",
    "title": "Warriors vs. Pelicans",
@@ -880,6 +886,11 @@
     "n": 1,
     "best_rank": 12,
     "usd": 212
+   },
+   "away": {
+    "n": 1,
+    "best_rank": 197,
+    "usd": 181
    }
   },
   "401864539|spread": {
