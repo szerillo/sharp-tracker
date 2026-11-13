@@ -1,5 +1,5 @@
 {
- "built": "2026-11-13T00:45:13Z",
+ "built": "2026-11-13T00:56:13Z",
  "record": {
   "cbb_1h_total_curve": {
    "n": 2,
@@ -22,7 +22,18 @@
    "n": 12,
    "won": 5,
    "lost": 7,
-   "units": -0.99
+   "units": -0.99,
+   "clv": {
+    "n": 1,
+    "avg": -2.17,
+    "beat": 0
+   },
+   "line_value": {
+    "n": 1,
+    "avg": 0.0,
+    "better": 0,
+    "worse": 0
+   }
   },
   "nhl_p1_spread_curve": {
    "n": 5,
@@ -208,7 +219,13 @@
    "pin_price": 2.23,
    "book": null,
    "price": null,
-   "flagged": "2026-11-12T23:47:32Z"
+   "flagged": "2026-11-12T23:47:32Z",
+   "close_ts": "2026-11-13T00:56:13Z",
+   "close_line": 9.5,
+   "line_value": 0.0,
+   "close_fair": 0.4267,
+   "clv": -2.17,
+   "beat_fair": -0.13
   },
   {
    "key": "nhl_p1_spread_curve|89806a3740a856eb0cb991e427d5dcfa||away",
