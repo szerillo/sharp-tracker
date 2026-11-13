@@ -1,5 +1,5 @@
 {
- "built": "2026-11-13T00:03:14Z",
+ "built": "2026-11-13T00:10:08Z",
  "rows": [
   {
    "cond": "0x6c7cda134b82fe6f27a91ae42180b5abf9eb166944c2de8c5743273cc0c951e6",
@@ -34,16 +34,16 @@
    "side_std": "away",
    "money_with": false,
    "grade": "watch",
-   "fair_board": 0.8021,
+   "fair_board": 0.7994,
    "inside_fair": null,
    "books": {
-    "at": "2026-11-12T22:58:06Z",
-    "fair": 0.8021,
+    "at": "2026-11-12T23:07:32Z",
+    "fair": 0.7994,
     "q": {
+     "Novig": 0.8,
      "DK": 0.8141,
      "Kalshi": 0.82,
-     "FD": 0.8276,
-     "Caesars": 0.8276
+     "FD": 0.8276
     }
    }
   },
@@ -123,13 +123,13 @@
    "inside_fair": true,
    "fair_board": 0.5819,
    "books": {
-    "at": "2026-11-12T22:58:06Z",
-    "fair": 0.5899,
+    "at": "2026-11-12T23:59:08Z",
+    "fair": 0.5916,
     "q": {
+     "Novig": 0.595,
      "Caesars": 0.6032,
      "DK": 0.6078,
-     "FD": 0.6094,
-     "Kalshi": 0.62
+     "FD": 0.6154
     }
    }
   },
@@ -165,8 +165,7 @@
    "game_start": "2026-11-13T01:00Z",
    "side_std": "over",
    "conflict": [
-    "Kalshi bet back",
-    "big money"
+    "Kalshi bet back"
    ],
    "money_with": false,
    "grade": "B",
@@ -213,13 +212,13 @@
    "inside_fair": false,
    "fair_board": 0.4515,
    "books": {
-    "at": "2026-11-12T22:58:06Z",
-    "fair": 0.543,
+    "at": "2026-11-12T23:59:08Z",
+    "fair": 0.5478,
     "q": {
-     "FD": 0.5575,
+     "Novig": 0.55,
+     "FD": 0.5652,
      "Caesars": 0.5652,
-     "DK": 0.5652,
-     "Kalshi": 0.57
+     "DK": 0.5652
     }
    }
   },
@@ -296,14 +295,16 @@
    ],
    "money_with": false,
    "grade": "watch",
-   "fair_board": null,
-   "inside_fair": null,
+   "fair_board": 0.7101,
+   "inside_fair": true,
    "books": {
-    "at": "2026-11-12T22:58:06Z",
-    "fair": null,
+    "at": "2026-11-12T23:07:32Z",
+    "fair": 0.7101,
     "q": {
-     "DK": 0.5556,
-     "Kalshi": 0.75
+     "DK": 0.7067,
+     "Novig": 0.71,
+     "Kalshi": 0.73,
+     "Caesars": 0.7354
     }
    }
   },
@@ -323,7 +324,7 @@
    "best_rank": 43,
    "usd": 1912,
    "paid": 0.21,
-   "ask": 0.25,
+   "ask": 0.26,
    "status": "live",
    "link": "https://polymarket.us/event/nba-okc-lac-2026-11-13",
    "other": null,
@@ -346,10 +347,10 @@
    "fair_board": null,
    "inside_fair": null,
    "books": {
-    "at": "2026-11-12T22:58:06Z",
+    "at": "2026-11-12T23:07:32Z",
     "fair": null,
     "q": {
-     "Kalshi": 0.26
+     "Kalshi": 0.27
     }
    }
   },
@@ -748,9 +749,9 @@
    "conflict": [
     "Kalshi move"
    ],
-   "money_with": true,
-   "grade": "A",
-   "fair_board": 0.2816,
+   "money_with": false,
+   "grade": "B",
+   "fair_board": 0.2898,
    "inside_fair": null,
    "books": null
   },
@@ -793,7 +794,7 @@
    "side_std": "away",
    "money_with": false,
    "grade": "watch",
-   "fair_board": 0.3317,
+   "fair_board": 0.3335,
    "inside_fair": false,
    "books": null
   },
@@ -836,8 +837,8 @@
    "side_std": "home",
    "money_with": false,
    "grade": "watch",
-   "fair_board": null,
-   "inside_fair": null,
+   "fair_board": 0.5478,
+   "inside_fair": false,
    "books": null
   },
   {
@@ -880,13 +881,15 @@
    ],
    "money_with": false,
    "grade": "watch",
-   "fair_board": null,
-   "inside_fair": null,
+   "fair_board": 0.1455,
+   "inside_fair": true,
    "books": {
-    "at": "2026-11-12T22:58:06Z",
-    "fair": null,
+    "at": "2026-11-12T23:07:32Z",
+    "fair": 0.1455,
     "q": {
-     "Kalshi": 0.18,
+     "FD": 0.1493,
+     "Novig": 0.15,
+     "Kalshi": 0.16,
      "DK": 0.2041
     }
    }
