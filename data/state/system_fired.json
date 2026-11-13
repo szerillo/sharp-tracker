@@ -3147,7 +3147,10 @@
 "price": -127,
 "fair": null,
 "edge_pts": null,
-"why": "conference game, ILL +9.5 on the road, total 47.5"
+"why": "conference game, ILL +9.5 on the road, total 47.5",
+"void": true,
+"void_why": "rule no longer holds on the current line: home spread -10.5, total 48.5 (2026-11-13T21:49:23Z)",
+"void_at": "2026-11-13T21:49:23Z"
 },
 "401858526:cfb_road_streak_dog": {
 "tag": "cfb_road_streak_dog",
@@ -4135,19 +4138,16 @@
 },
 "401858294:cfb_day_over": {
 "tag": "cfb_day_over",
-"fill_id": "426ec058fb51",
-"ts": "2026-11-08T14:50:41Z",
+"fill_id": "0b3f1295b661",
+"ts": "2026-11-13T21:49:23Z",
 "market": "total",
 "side": "over",
 "line": 51.5,
-"venue": "FD",
-"price": -115,
-"fair": 0.5133,
-"edge_pts": -2.16,
-"why": "3:30 PM ET kickoff, total 51.5: over (mined angle)",
-"void": true,
-"void_why": "rule no longer holds on the current line: home spread -30.5, total 53.5 (2026-11-08T18:55:51Z)",
-"void_at": "2026-11-08T18:55:51Z"
+"venue": "Novig",
+"price": -108,
+"fair": 0.51302,
+"edge_pts": -0.7,
+"why": "3:30 PM ET kickoff, total 51.5: over (mined angle)"
 },
 "401858295:cfb_road_dog_low_total": {
 "tag": "cfb_road_dog_low_total",
@@ -4287,19 +4287,16 @@
 },
 "401858297:cfb_road_dog_low_total": {
 "tag": "cfb_road_dog_low_total",
-"fill_id": "c38d2a08da3a",
-"ts": "2026-11-08T21:53:05Z",
+"fill_id": "bea311bf1446",
+"ts": "2026-11-13T21:49:23Z",
 "market": "spread",
 "side": "away",
-"line": 13.5,
-"venue": "DK",
-"price": -110,
-"fair": 0.51128,
-"edge_pts": -1.25,
-"why": "conference game, GT +13.5 on the road, total 47.5",
-"void": true,
-"void_why": "rule no longer holds on the current line: home spread -13.5, total 48.5 (2026-11-12T22:54:21Z)",
-"void_at": "2026-11-12T22:54:21Z"
+"line": 14.5,
+"venue": "Novig",
+"price": -100,
+"fair": 0.49577,
+"edge_pts": -0.42,
+"why": "conference game, GT +14.5 on the road, total 47.5"
 },
 "401860916:cfb_homefav_7510_under": {
 "tag": "cfb_homefav_7510_under",
