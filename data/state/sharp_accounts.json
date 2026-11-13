@@ -1,5 +1,5 @@
 {
- "built": "2026-11-12T23:48:46Z",
+ "built": "2026-11-13T00:03:14Z",
  "rows": [
   {
    "cond": "0x6c7cda134b82fe6f27a91ae42180b5abf9eb166944c2de8c5743273cc0c951e6",
@@ -17,7 +17,7 @@
    "best_rank": 43,
    "usd": 108,
    "paid": 0.76,
-   "ask": 0.8,
+   "ask": null,
    "status": "live",
    "link": "https://polymarket.us/event/nba-det-was-2026-11-12",
    "other": null,
@@ -35,7 +35,7 @@
    "money_with": false,
    "grade": "watch",
    "fair_board": 0.8021,
-   "inside_fair": true,
+   "inside_fair": null,
    "books": {
     "at": "2026-11-12T22:58:06Z",
     "fair": 0.8021,
@@ -63,7 +63,7 @@
    "best_rank": 116,
    "usd": 104,
    "paid": 0.47,
-   "ask": 0.53,
+   "ask": null,
    "status": "live",
    "link": "https://polymarket.us/event/cbb-merc-wvir-2026-11-12",
    "other": null,
@@ -276,7 +276,7 @@
    "best_rank": 43,
    "usd": 142,
    "paid": 0.69,
-   "ask": 0.72,
+   "ask": 0.71,
    "status": "live",
    "link": "https://polymarket.us/event/nba-nyk-ind-2026-11-13",
    "other": null,
@@ -406,7 +406,7 @@
    "best_rank": 4,
    "usd": 118,
    "paid": 0.53,
-   "ask": 0.54,
+   "ask": 0.52,
    "status": "live",
    "link": "https://polymarket.us/event/cbb-loulaf-ncw-2026-11-14",
    "other": null,
@@ -720,7 +720,7 @@
    "best_rank": 40,
    "usd": 2256,
    "paid": 0.233,
-   "ask": 0.29,
+   "ask": null,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-tor-phi-2026-11-12",
    "other": {
@@ -729,8 +729,12 @@
     "usd": 600,
     "first": "2026-11-11T22:30:49Z"
    },
-   "exit_bid": 0.28,
-   "kalshi_against": null,
+   "exit_bid": null,
+   "kalshi_against": {
+    "move": 4.5,
+    "now": 72.5,
+    "state": "reversed"
+   },
    "logged": true,
    "event_id": "401909976",
    "sport": "nba",
@@ -741,10 +745,13 @@
    "home_name": "Philadelphia 76ers",
    "game_start": "2026-11-13T00:00Z",
    "side_std": "away",
+   "conflict": [
+    "Kalshi move"
+   ],
    "money_with": true,
    "grade": "A",
    "fair_board": 0.2816,
-   "inside_fair": false,
+   "inside_fair": null,
    "books": null
   },
   {
@@ -849,7 +856,7 @@
    "best_rank": 40,
    "usd": 755,
    "paid": 0.165,
-   "ask": 0.15,
+   "ask": 0.14,
    "status": "live",
    "link": "https://polymarket.us/event/nba-gsw-sas-2026-11-13",
    "other": null,
@@ -938,14 +945,6 @@
     "usd": 403
    },
    "against": null
-  },
-  "401892700:nhl_early_home_fav_qual": {
-   "with": {
-    "n": 1,
-    "best_rank": 58,
-    "usd": 205
-   },
-   "against": null
   }
  },
  "by_event": {
@@ -1008,51 +1007,6 @@
     "n": 1,
     "best_rank": 12,
     "usd": 155
-   }
-  },
-  "401909976|ml": {
-   "away": {
-    "n": 3,
-    "best_rank": 40,
-    "usd": 2256
-   },
-   "home": {
-    "n": 2,
-    "best_rank": 43,
-    "usd": 600
-   }
-  },
-  "401909976|total": {
-   "under": {
-    "n": 1,
-    "best_rank": 115,
-    "usd": 6399
-   }
-  },
-  "401909976|spread": {
-   "away": {
-    "n": 2,
-    "best_rank": 49,
-    "usd": 14451
-   },
-   "home": {
-    "n": 1,
-    "best_rank": 49,
-    "usd": 2623
-   }
-  },
-  "401909977|ml": {
-   "away": {
-    "n": 1,
-    "best_rank": 43,
-    "usd": 108
-   }
-  },
-  "401909977|total": {
-   "over": {
-    "n": 1,
-    "best_rank": 132,
-    "usd": 1122
    }
   },
   "401909978|ml": {
@@ -1119,27 +1073,6 @@
     "usd": 542
    }
   },
-  "401892697|ml": {
-   "home": {
-    "n": 1,
-    "best_rank": 115,
-    "usd": 386
-   }
-  },
-  "401892700|ml": {
-   "home": {
-    "n": 1,
-    "best_rank": 58,
-    "usd": 205
-   }
-  },
-  "401892701|ml": {
-   "home": {
-    "n": 1,
-    "best_rank": 115,
-    "usd": 104
-   }
-  },
   "401892702|ml": {
    "away": {
     "n": 1,
@@ -1180,20 +1113,6 @@
     "n": 1,
     "best_rank": 132,
     "usd": 403
-   }
-  },
-  "401921768|total": {
-   "over": {
-    "n": 1,
-    "best_rank": 116,
-    "usd": 104
-   }
-  },
-  "401920566|spread": {
-   "away": {
-    "n": 1,
-    "best_rank": 132,
-    "usd": 206
    }
   },
   "401926864|ml": {
