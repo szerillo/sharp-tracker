@@ -5763,10 +5763,49 @@
 "why": "Novig home side mid 0.305 inside T-1.0h; audit band 20-35c",
 "restored": true
 },
+"401909301:nba_ats_hot_home": {
+"tag": "nba_ats_hot_home",
+"fill_id": "aee65d485ccd",
+"ts": "2026-11-13T00:48:45Z",
+"market": "spread",
+"side": "home",
+"line": -17.5,
+"venue": "Novig",
+"price": -100,
+"fair": 0.49773,
+"edge_pts": -0.23,
+"why": "home HOU covers 75% of spreads this season (12 games), 2 days rest: home spread (mined angle)"
+},
+"401909301:nba_bigfav_over": {
+"tag": "nba_bigfav_over",
+"fill_id": "9d83eb29b0cc",
+"ts": "2026-11-13T00:48:45Z",
+"market": "total",
+"side": "over",
+"line": 218.5,
+"venue": "FD",
+"price": -110,
+"fair": 0.5,
+"edge_pts": -2.38,
+"why": "HOU is 93% on the moneyline: over (mined angle)"
+},
+"401909302:nba_bigfav_over": {
+"tag": "nba_bigfav_over",
+"fill_id": "3a08e0ef324c",
+"ts": "2026-11-13T00:48:45Z",
+"market": "total",
+"side": "over",
+"line": 218.5,
+"venue": "FD",
+"price": -106,
+"fair": 0.49592,
+"edge_pts": -1.86,
+"why": "SA is 87% on the moneyline: over (mined angle)"
+},
 "401869969:xch_homedog_fade:ml": {
 "tag": "xch_homedog_fade",
-"fill_id": "660d4a60b90e",
-"ts": "2026-11-13T00:38:09Z",
+"fill_id": "f6ae3c860960",
+"ts": "2026-11-13T00:48:45Z",
 "market": "ml",
 "side": "away",
 "line": null,
@@ -5774,10 +5813,6 @@
 "price": -365,
 "fair": 0.78503,
 "edge_pts": 0.0,
-"why": "Novig home side mid 0.220 inside T-1.4h; audit band 20-35c",
-"now": {
-"venue": "Novig",
-"price": -365
-}
+"why": "Novig home side mid 0.220 inside T-1.2h; audit band 20-35c"
 }
 }
