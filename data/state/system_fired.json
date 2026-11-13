@@ -5970,5 +5970,31 @@
 "fair": 0.4945,
 "edge_pts": -0.55,
 "why": "home MSU over 67% (3 games), visitor UNI over 100% (3); total 155.5 -> 153.5"
+},
+"401892711:nhl_early_home_fav_qual": {
+"tag": "nhl_early_home_fav_qual",
+"fill_id": "22c8cb0bd081",
+"ts": "2026-11-13T15:52:46Z",
+"market": "ml",
+"side": "home",
+"line": null,
+"venue": "Kalshi",
+"price": -113,
+"fair": 0.505,
+"edge_pts": -2.5,
+"why": "home favorite, game 20 of the season, opponent COL wins 55% (11-9)"
+},
+"401917526:cbb_under_good_over_drop": {
+"tag": "cbb_under_good_over_drop",
+"fill_id": "8eb22954f675",
+"ts": "2026-11-13T15:52:46Z",
+"market": "total",
+"side": "under",
+"line": 144.5,
+"venue": "Novig",
+"price": -108,
+"fair": 0.4884,
+"edge_pts": -3.16,
+"why": "home USD over 100% (3 games), visitor CHST over 75% (4); total 148.0 -> 144.5"
 }
 }
