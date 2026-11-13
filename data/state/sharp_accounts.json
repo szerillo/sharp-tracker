@@ -1,5 +1,5 @@
 {
- "built": "2026-11-13T13:42:25Z",
+ "built": "2026-11-13T13:52:35Z",
  "rows": [
   {
    "cond": "0xc31a3f047367e05c7c92b9553b7cf00252bb86b3291cf3dda9e6868644a0de6b",
@@ -570,7 +570,7 @@
    "best_rank": 43,
    "usd": 1912,
    "paid": 0.21,
-   "ask": 0.28,
+   "ask": 0.29,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-okc-lac-2026-11-13",
    "other": {
@@ -579,7 +579,7 @@
     "usd": 2458,
     "first": "2026-11-13T11:13:22Z"
    },
-   "exit_bid": 0.27,
+   "exit_bid": 0.28,
    "kalshi_against": null,
    "logged": true,
    "event_id": "401909304",
@@ -749,6 +749,13 @@
   }
  },
  "by_event": {
+  "401873053|ml": {
+   "away": {
+    "n": 1,
+    "best_rank": 58,
+    "usd": 420
+   }
+  },
   "401873058|total": {
    "over": {
     "n": 1,
@@ -768,6 +775,27 @@
     "n": 1,
     "best_rank": 12,
     "usd": 104
+   }
+  },
+  "401873060|ml": {
+   "away": {
+    "n": 1,
+    "best_rank": 115,
+    "usd": 4226
+   }
+  },
+  "401873057|ml": {
+   "away": {
+    "n": 1,
+    "best_rank": 58,
+    "usd": 160
+   }
+  },
+  "401873059|ml": {
+   "home": {
+    "n": 1,
+    "best_rank": 58,
+    "usd": 340
    }
   },
   "401873061|total": {
