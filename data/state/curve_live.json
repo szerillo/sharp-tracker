@@ -1,5 +1,5 @@
 {
- "built": "2026-11-13T22:47:07Z",
+ "built": "2026-11-13T22:59:45Z",
  "record": {
   "cbb_1h_total_curve": {
    "n": 2,
@@ -123,6 +123,35 @@
    "fair_gap": -0.5,
    "ev_curve": 6.1,
    "flagged": "2026-11-13T22:25:02Z"
+  },
+  {
+   "key": "cbb_1h_total_curve|b0e39394110637793b94d8c1f47214b5||over",
+   "rule": "cbb_1h_total_curve",
+   "tier": "C",
+   "stake": 0.25,
+   "sport": "cbb",
+   "odds_id": "b0e39394110637793b94d8c1f47214b5",
+   "espn": "401906772",
+   "game": "Merrimack Warriors @ Florida Gators",
+   "start": "2026-11-14T00:00:00Z",
+   "market": "totals_h1",
+   "team": null,
+   "team_name": null,
+   "side": "over",
+   "line": 65.5,
+   "curve": 0.586,
+   "pin_fair": 0.503,
+   "gap": 8.3,
+   "full_total": 140.0,
+   "full_spread": -35.0,
+   "pin_price": 1.9,
+   "book": "FD",
+   "price": 1.88,
+   "pin_fair_power": 0.5028,
+   "book_fair": 0.5,
+   "fair_gap": 0.3,
+   "ev_curve": 10.2,
+   "flagged": "2026-11-13T22:59:45Z"
   }
  ]
 }
