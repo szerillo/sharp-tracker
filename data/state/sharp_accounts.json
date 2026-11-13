@@ -1,5 +1,5 @@
 {
- "built": "2026-11-13T02:31:32Z",
+ "built": "2026-11-13T02:38:42Z",
  "rows": [
   {
    "cond": "0x6c7cda134b82fe6f27a91ae42180b5abf9eb166944c2de8c5743273cc0c951e6",
@@ -240,6 +240,52 @@
    "fair_board": null,
    "inside_fair": null,
    "books": null
+  },
+  {
+   "cond": "0x09a4e9c13f6c9dbd5c2ecf529972860c0ddf273af6305afab3e648fe787564c5",
+   "slug": "nhl-nyi-lak-2026-11-12",
+   "title": "Islanders vs. Kings",
+   "mtype": "ml",
+   "start": "2026-11-13T03:00:00Z",
+   "bet": "Kings ML",
+   "side": "Kings",
+   "flagged": "2026-11-13T02:32:33Z",
+   "why": "a top-200 account also in this sport's top 50",
+   "proven": true,
+   "trigger": "proven",
+   "n_accounts": 1,
+   "best_rank": 79,
+   "usd": 6516,
+   "paid": 0.53,
+   "ask": 0.54,
+   "status": "live",
+   "link": "https://polymarket.us/event/nhl-nyi-lak-2026-11-12",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401892705",
+   "sport": "nhl",
+   "league": null,
+   "away": "NYI",
+   "home": "LA",
+   "away_name": "New York Islanders",
+   "home_name": "Los Angeles Kings",
+   "game_start": "2026-11-13T03:00Z",
+   "side_std": "home",
+   "money_with": false,
+   "grade": "A",
+   "fair_board": 0.5314,
+   "inside_fair": false,
+   "books": {
+    "at": "2026-11-13T01:53:39Z",
+    "fair": 0.5314,
+    "q": {
+     "Novig": 0.535,
+     "FD": 0.5455,
+     "Caesars": 0.5475,
+     "DK": 0.5556
+    }
+   }
   },
   {
    "cond": "0xc31a3f047367e05c7c92b9553b7cf00252bb86b3291cf3dda9e6868644a0de6b",
@@ -1028,6 +1074,13 @@
     "n": 1,
     "best_rank": 93,
     "usd": 542
+   }
+  },
+  "401892705|ml": {
+   "home": {
+    "n": 1,
+    "best_rank": 79,
+    "usd": 6516
    }
   },
   "401892713|ml": {
