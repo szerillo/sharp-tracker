@@ -1,5 +1,5 @@
 {
- "built": "2026-11-13T00:10:08Z",
+ "built": "2026-11-13T00:03:14Z",
  "rows": [
   {
    "cond": "0x6c7cda134b82fe6f27a91ae42180b5abf9eb166944c2de8c5743273cc0c951e6",
@@ -34,7 +34,7 @@
    "side_std": "away",
    "money_with": false,
    "grade": "watch",
-   "fair_board": 0.7994,
+   "fair_board": 0.8021,
    "inside_fair": null,
    "books": {
     "at": "2026-11-12T23:07:32Z",
@@ -165,7 +165,8 @@
    "game_start": "2026-11-13T01:00Z",
    "side_std": "over",
    "conflict": [
-    "Kalshi bet back"
+    "Kalshi bet back",
+    "big money"
    ],
    "money_with": false,
    "grade": "B",
@@ -749,9 +750,9 @@
    "conflict": [
     "Kalshi move"
    ],
-   "money_with": false,
-   "grade": "B",
-   "fair_board": 0.2898,
+   "money_with": true,
+   "grade": "A",
+   "fair_board": 0.2816,
    "inside_fair": null,
    "books": null
   },
