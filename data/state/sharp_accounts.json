@@ -1,5 +1,5 @@
 {
- "built": "2026-11-13T13:17:06Z",
+ "built": "2026-11-13T13:32:39Z",
  "rows": [
   {
    "cond": "0xc31a3f047367e05c7c92b9553b7cf00252bb86b3291cf3dda9e6868644a0de6b",
@@ -522,8 +522,8 @@
    "link": "https://polymarket.us/event/nba-gsw-sas-2026-11-13",
    "other": null,
    "kalshi_against": {
-    "move": 16.0,
-    "now": 85.5,
+    "move": 15.0,
+    "now": 84.5,
     "state": "held"
    },
    "logged": true,
@@ -731,6 +731,14 @@
    },
    "against": null
   },
+  "401909301:nba_ats_hot_home": {
+   "with": null,
+   "against": {
+    "n": 1,
+    "best_rank": 132,
+    "usd": 264
+   }
+  },
   "401909302:nba_bigfav_over": {
    "with": null,
    "against": {
@@ -826,6 +834,20 @@
     "n": 1,
     "best_rank": 132,
     "usd": 250
+   }
+  },
+  "401909300|spread": {
+   "home": {
+    "n": 1,
+    "best_rank": 110,
+    "usd": 1110
+   }
+  },
+  "401909301|spread": {
+   "away": {
+    "n": 1,
+    "best_rank": 132,
+    "usd": 264
    }
   },
   "401909302|ml": {
