@@ -1,5 +1,5 @@
 {
- "built": "2026-11-13T17:53:41Z",
+ "built": "2026-11-13T18:01:10Z",
  "rows": [
   {
    "cond": "0x1f9956f9fdc9433a245e02f698b8f52f7880ad7d78c3c4ba1ede7ce556ac32fa",
@@ -126,6 +126,55 @@
    "fair_board": null,
    "inside_fair": null,
    "books": null
+  },
+  {
+   "cond": "0x53f6405f166f438c2d8b40eac17a0d002181245cb2e5b016a477f7b5ed471736",
+   "slug": "nba-mem-nop-2026-11-13",
+   "title": "Grizzlies vs. Pelicans",
+   "mtype": "ml",
+   "start": "2026-11-14T01:00:00Z",
+   "bet": "Grizzlies ML",
+   "side": "Grizzlies",
+   "flagged": "2026-11-13T18:00:15Z",
+   "why": "2 top-200 accounts",
+   "proven": false,
+   "trigger": "two",
+   "n_accounts": 2,
+   "best_rank": 42,
+   "usd": 990,
+   "paid": 0.56,
+   "ask": 0.58,
+   "status": "live",
+   "link": "https://polymarket.us/event/nba-mem-nop-2026-11-13",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401909300",
+   "sport": "nba",
+   "league": null,
+   "away": "MEM",
+   "home": "NO",
+   "away_name": "Memphis Grizzlies",
+   "home_name": "New Orleans Pelicans",
+   "game_start": "2026-11-14T01:00Z",
+   "side_std": "away",
+   "conflict": [
+    "big money"
+   ],
+   "money_with": false,
+   "grade": "B",
+   "fair_board": 0.5611,
+   "inside_fair": false,
+   "books": {
+    "at": "2026-11-13T16:55:28Z",
+    "fair": 0.5611,
+    "q": {
+     "Novig": 0.565,
+     "Caesars": 0.5745,
+     "DK": 0.5745,
+     "Kalshi": 0.58
+    }
+   }
   },
   {
    "cond": "0x3973b1825585afc8ab2a6c2a2323937be97b911ceec9075d945a36ebce0b77b9",
@@ -966,6 +1015,11 @@
     "n": 2,
     "best_rank": 110,
     "usd": 1854
+   },
+   "away": {
+    "n": 1,
+    "best_rank": 132,
+    "usd": 414
    }
   },
   "401909300|total": {
@@ -973,6 +1027,13 @@
     "n": 1,
     "best_rank": 132,
     "usd": 286
+   }
+  },
+  "401909300|ml": {
+   "away": {
+    "n": 2,
+    "best_rank": 42,
+    "usd": 990
    }
   },
   "401909301|spread": {
