@@ -1,5 +1,5 @@
 {
- "built": "2026-11-13T20:48:34Z",
+ "built": "2026-11-13T21:00:28Z",
  "record": {
   "cbb_1h_total_curve": {
    "n": 2,
@@ -65,5 +65,35 @@
    "units": -1.68
   }
  },
- "rows": []
+ "rows": [
+  {
+   "key": "cfb_q1_under_curve|eff5d01c8683ed700c896743f0490989||under",
+   "rule": "cfb_q1_under_curve",
+   "tier": "A",
+   "stake": 0.5,
+   "sport": "cfb",
+   "odds_id": "eff5d01c8683ed700c896743f0490989",
+   "espn": "401858293",
+   "game": "Florida State Seminoles @ Pittsburgh Panthers",
+   "start": "2026-11-14T00:00:00Z",
+   "market": "totals_q1",
+   "team": null,
+   "team_name": null,
+   "side": "under",
+   "line": 10.5,
+   "curve": 0.598,
+   "pin_fair": 0.533,
+   "gap": 6.5,
+   "full_total": 52.0,
+   "full_spread": -3.5,
+   "pin_price": 1.79,
+   "book": "FD",
+   "price": 1.78,
+   "pin_fair_power": 0.535,
+   "book_fair": 0.5365,
+   "fair_gap": -0.4,
+   "ev_curve": 6.4,
+   "flagged": "2026-11-13T21:00:28Z"
+  }
+ ]
 }
