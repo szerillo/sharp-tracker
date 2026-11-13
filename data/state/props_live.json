@@ -1,24 +1,24 @@
 {
- "built": "2026-11-12T23:47:30Z",
+ "built": "2026-11-13T00:01:17Z",
  "record": {
   "n": 19,
   "won": 11,
   "lost": 8,
   "units": 0.71,
   "line_value": {
-   "n": 7,
+   "n": 10,
    "avg": 0.0,
    "positive": 0
   },
   "clv": {
-   "n": 7,
-   "avg": 1.62,
-   "beat": 7,
+   "n": 10,
+   "avg": 1.6,
+   "beat": 10,
    "by_rule": {
     "nhl under": {
-     "n": 4,
-     "avg": 1.41,
-     "beat": 4
+     "n": 7,
+     "avg": 1.47,
+     "beat": 7
     },
     "threes under": {
      "n": 3,
@@ -53,7 +53,13 @@
    "ev_strict": 4.5,
    "pin_ts": "2026-11-12T23:33:59Z",
    "book_ts": "2026-11-12T23:33:59Z",
-   "flagged": "2026-11-12T23:34:30Z"
+   "flagged": "2026-11-12T23:34:30Z",
+   "close_ts": "2026-11-13T00:01:17Z",
+   "close_line": 1.5,
+   "close_fair": 0.5807,
+   "clv": 2.51,
+   "beat_fair": 0.0,
+   "line_value": 0.0
   },
   {
    "key": "fe4c6dbd3b40768336356b2a02966544|player_shots_on_goal|Joel Eriksson Ek|2.5",
@@ -79,7 +85,13 @@
    "ev_strict": 1.6,
    "pin_ts": "2026-11-12T23:34:00Z",
    "book_ts": "2026-11-12T23:34:00Z",
-   "flagged": "2026-11-12T23:34:30Z"
+   "flagged": "2026-11-12T23:34:30Z",
+   "close_ts": "2026-11-13T00:01:17Z",
+   "close_line": 2.5,
+   "close_fair": 0.4562,
+   "clv": 1.18,
+   "beat_fair": 0.0,
+   "line_value": 0.0
   },
   {
    "key": "fe4c6dbd3b40768336356b2a02966544|player_shots_on_goal|Easton Cowan|1.5",
@@ -105,7 +117,13 @@
    "ev_strict": 2.0,
    "pin_ts": "2026-11-12T23:34:00Z",
    "book_ts": "2026-11-12T23:34:00Z",
-   "flagged": "2026-11-12T23:34:30Z"
+   "flagged": "2026-11-12T23:34:30Z",
+   "close_ts": "2026-11-13T00:01:17Z",
+   "close_line": 1.5,
+   "close_fair": 0.5,
+   "clv": 0.98,
+   "beat_fair": 0.0,
+   "line_value": 0.0
   }
  ]
 }
