@@ -1,5 +1,5 @@
 {
- "built": "2026-11-13T02:38:42Z",
+ "built": "2026-11-13T02:52:46Z",
  "rows": [
   {
    "cond": "0x6c7cda134b82fe6f27a91ae42180b5abf9eb166944c2de8c5743273cc0c951e6",
@@ -272,10 +272,13 @@
    "home_name": "Los Angeles Kings",
    "game_start": "2026-11-13T03:00Z",
    "side_std": "home",
+   "conflict": [
+    "big money"
+   ],
    "money_with": false,
    "grade": "A",
-   "fair_board": 0.5314,
    "inside_fair": false,
+   "fair_board": 0.5314,
    "books": {
     "at": "2026-11-13T01:53:39Z",
     "fair": 0.5314,
@@ -886,8 +889,8 @@
    "link": "https://polymarket.us/event/nba-gsw-sas-2026-11-13",
    "other": null,
    "kalshi_against": {
-    "move": 18.0,
-    "now": 87.5,
+    "move": 17.0,
+    "now": 86.5,
     "state": "held"
    },
    "logged": true,
