@@ -1,61 +1,20 @@
 {
- "built": "2026-11-13T05:31:35Z",
+ "built": "2026-11-13T05:43:52Z",
  "record": {
-  "n": 104,
-  "won": 38,
+  "n": 105,
+  "won": 39,
   "lost": 66,
-  "units": -5.34,
-  "roi": -20.5
+  "units": -5.05,
+  "roi": -19.2
  },
  "record_sb4": {
-  "n": 0,
-  "won": 0,
+  "n": 1,
+  "won": 1,
   "lost": 0,
-  "units": 0,
-  "roi": 0.0
+  "units": 0.24,
+  "roi": 95.2
  },
  "rows": [
-  {
-   "key": "401892704|ml|away",
-   "sport": "nhl",
-   "event_id": "401892704",
-   "game": "STL @ UTA",
-   "start": "2026-11-13T02:00Z",
-   "market": "ml",
-   "side": "away",
-   "line": null,
-   "venue": "Novig",
-   "price": 0.465,
-   "fair": 0.4784,
-   "fair_power": 0.4775,
-   "venue_fair": 0.4627,
-   "fair_gap": 1.6,
-   "ev": 2.9,
-   "move": 1.9,
-   "flagged": "2026-11-12T11:09:20Z",
-   "team": "STL"
-  },
-  {
-   "key": "sb4|401892704|ml|away",
-   "kind": "sb4",
-   "sport": "nhl",
-   "event_id": "401892704",
-   "game": "STL @ UTA",
-   "start": "2026-11-13T02:00Z",
-   "market": "ml",
-   "side": "away",
-   "line": null,
-   "venue": "DK",
-   "price": 0.5122,
-   "fair": 0.542,
-   "fair_power": 0.5435,
-   "venue_fair": 0.4892,
-   "fair_gap": 5.3,
-   "ev": 5.8,
-   "move": 4.9,
-   "flagged": "2026-11-12T20:12:54Z",
-   "team": "STL"
-  },
   {
    "key": "401909296|total|over",
    "sport": "nba",
