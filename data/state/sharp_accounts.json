@@ -1,5 +1,5 @@
 {
- "built": "2026-11-13T01:56:35Z",
+ "built": "2026-11-13T02:03:55Z",
  "rows": [
   {
    "cond": "0x6c7cda134b82fe6f27a91ae42180b5abf9eb166944c2de8c5743273cc0c951e6",
@@ -34,18 +34,9 @@
    "side_std": "away",
    "money_with": false,
    "grade": "watch",
-   "fair_board": 0.7977,
+   "fair_board": null,
    "inside_fair": null,
-   "books": {
-    "at": "2026-11-12T23:46:25Z",
-    "fair": 0.7977,
-    "q": {
-     "Novig": 0.8,
-     "FD": 0.8113,
-     "DK": 0.8141,
-     "Kalshi": 0.82
-    }
-   }
+   "books": null
   },
   {
    "cond": "0x9f15a5e77493abab2820881aeac0186daffb77c2dd5b1230d30be446f10beef5",
@@ -120,8 +111,8 @@
    "inside_fair": true,
    "fair_board": 0.5819,
    "books": {
-    "at": "2026-11-13T00:52:02Z",
-    "fair": 0.5894,
+    "at": "2026-11-13T00:42:15Z",
+    "fair": 0.5897,
     "q": {
      "Novig": 0.59,
      "Caesars": 0.6032,
@@ -183,7 +174,7 @@
    "best_rank": 197,
    "usd": 1012,
    "paid": 0.46,
-   "ask": 0.55,
+   "ask": null,
    "status": "live",
    "link": "https://polymarket.us/event/nhl-stl-utah-2026-11-12",
    "other": null,
@@ -206,8 +197,8 @@
    "inside_fair": false,
    "fair_board": 0.4515,
    "books": {
-    "at": "2026-11-13T00:52:02Z",
-    "fair": 0.5471,
+    "at": "2026-11-13T01:53:39Z",
+    "fair": 0.5477,
     "q": {
      "Novig": 0.55,
      "DK": 0.5652,
@@ -232,7 +223,7 @@
    "best_rank": 110,
    "usd": 400,
    "paid": 0.6,
-   "ask": 0.63,
+   "ask": null,
    "status": "live",
    "link": "https://polymarket.us/event/cfb-loulaf-lamon-2026-11-12",
    "other": null,
@@ -292,16 +283,16 @@
    ],
    "money_with": false,
    "grade": "watch",
-   "fair_board": 0.7038,
+   "fair_board": 0.7129,
    "inside_fair": false,
    "books": {
-    "at": "2026-11-13T00:52:02Z",
-    "fair": 0.7038,
+    "at": "2026-11-13T01:53:39Z",
+    "fair": 0.7129,
     "q": {
-     "Novig": 0.705,
      "DK": 0.7067,
-     "Caesars": 0.7222,
-     "Kalshi": 0.73
+     "Novig": 0.715,
+     "Caesars": 0.7354,
+     "FD": 0.7368
     }
    }
   },
@@ -341,15 +332,15 @@
    ],
    "money_with": false,
    "grade": "watch",
-   "fair_board": 0.2571,
+   "fair_board": 0.266,
    "inside_fair": false,
    "books": {
-    "at": "2026-11-13T00:52:02Z",
-    "fair": 0.2571,
+    "at": "2026-11-13T01:53:39Z",
+    "fair": 0.266,
     "q": {
-     "Novig": 0.255,
-     "Kalshi": 0.27,
+     "Novig": 0.27,
      "FD": 0.2899,
+     "Kalshi": 0.29,
      "Caesars": 0.2941
     }
    }
@@ -407,7 +398,7 @@
    "best_rank": 4,
    "usd": 118,
    "paid": 0.53,
-   "ask": 0.52,
+   "ask": 0.51,
    "status": "live",
    "link": "https://polymarket.us/event/cbb-loulaf-ncw-2026-11-14",
    "other": null,
@@ -744,7 +735,7 @@
    "side_std": "away",
    "money_with": false,
    "grade": "B",
-   "fair_board": 0.2745,
+   "fair_board": null,
    "inside_fair": null,
    "books": null
   },
@@ -787,7 +778,7 @@
    "side_std": "away",
    "money_with": false,
    "grade": "watch",
-   "fair_board": 0.3376,
+   "fair_board": 0.3341,
    "inside_fair": null,
    "books": null
   },
@@ -830,7 +821,7 @@
    "side_std": "home",
    "money_with": false,
    "grade": "watch",
-   "fair_board": 0.5473,
+   "fair_board": 0.5534,
    "inside_fair": false,
    "books": null
   },
@@ -874,14 +865,14 @@
    ],
    "money_with": false,
    "grade": "watch",
-   "fair_board": 0.13,
+   "fair_board": 0.1286,
    "inside_fair": false,
    "books": {
-    "at": "2026-11-13T00:52:02Z",
-    "fair": 0.13,
+    "at": "2026-11-13T01:53:39Z",
+    "fair": 0.1286,
     "q": {
-     "Novig": 0.14,
-     "Kalshi": 0.15,
+     "Novig": 0.135,
+     "Kalshi": 0.14,
      "Caesars": 0.1538,
      "FD": 0.1562
     }
@@ -1045,25 +1036,11 @@
     "usd": 542
    }
   },
-  "401892704|ml": {
-   "away": {
-    "n": 1,
-    "best_rank": 197,
-    "usd": 1012
-   }
-  },
   "401892713|ml": {
    "home": {
     "n": 1,
     "best_rank": 12,
     "usd": 212
-   }
-  },
-  "401869969|total": {
-   "under": {
-    "n": 1,
-    "best_rank": 110,
-    "usd": 400
    }
   },
   "401864539|spread": {
