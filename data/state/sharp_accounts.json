@@ -1,5 +1,5 @@
 {
- "built": "2026-11-13T19:24:05Z",
+ "built": "2026-11-13T19:31:48Z",
  "rows": [
   {
    "cond": "0x1f9956f9fdc9433a245e02f698b8f52f7880ad7d78c3c4ba1ede7ce556ac32fa",
@@ -17,7 +17,7 @@
    "best_rank": 3,
    "usd": 187,
    "paid": 0.4,
-   "ask": 0.48,
+   "ask": 0.5,
    "status": "live",
    "link": "https://polymarket.us/event/cbb-uwf-clvst-2026-11-13",
    "other": null,
@@ -223,55 +223,6 @@
    }
   },
   {
-   "cond": "0xb8d693d2e47e231dd4ef7c0d096add3d47658539c5e0b1a6d95fa5ba290d6e6c",
-   "slug": "cbb-siue-duke-2026-11-13",
-   "title": "SIUE Cougars vs. Duke Blue Devils",
-   "mtype": "total",
-   "start": "2026-11-14T01:00:00Z",
-   "bet": "Over 148.5",
-   "side": "Over",
-   "flagged": "2026-11-13T19:05:03Z",
-   "why": "a top-50 account",
-   "proven": false,
-   "trigger": "top50",
-   "n_accounts": 1,
-   "best_rank": 4,
-   "usd": 275,
-   "paid": 0.5,
-   "ask": 0.51,
-   "status": "live",
-   "link": "https://polymarket.us/event/cbb-siue-duke-2026-11-13",
-   "other": null,
-   "kalshi_against": null,
-   "logged": true,
-   "event_id": "401909565",
-   "sport": "cbb",
-   "league": null,
-   "away": "SIUE",
-   "home": "DUKE",
-   "away_name": "SIU Edwardsville Cougars",
-   "home_name": "Duke Blue Devils",
-   "game_start": "2026-11-14T01:00Z",
-   "side_std": "over",
-   "conflict": [
-    "Kalshi bet back"
-   ],
-   "money_with": false,
-   "grade": "B",
-   "fair_board": 0.504,
-   "inside_fair": false,
-   "books": {
-    "at": "2026-11-13T18:02:27Z",
-    "fair": 0.504,
-    "q": {
-     "Novig": 0.515,
-     "FD": 0.5238,
-     "Caesars": 0.5238,
-     "DK": 0.5349
-    }
-   }
-  },
-  {
    "cond": "0x34b943e0e102f73967ce12d39dcc689144d69a568ae860d956c8082f29e387f5",
    "slug": "cfb-ill-ucla-2026-11-13",
    "title": "Illinois vs. UCLA",
@@ -287,7 +238,7 @@
    "best_rank": 58,
    "usd": 480,
    "paid": 0.52,
-   "ask": 0.52,
+   "ask": 0.53,
    "status": "live",
    "link": "https://polymarket.us/event/cfb-ill-ucla-2026-11-13",
    "other": null,
@@ -353,8 +304,8 @@
    ],
    "money_with": false,
    "grade": "A",
-   "fair_board": 0.5142,
    "inside_fair": true,
+   "fair_board": 0.5142,
    "books": {
     "at": "2026-11-13T19:03:56Z",
     "fair": 0.5142,
