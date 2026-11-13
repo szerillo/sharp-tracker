@@ -1,5 +1,5 @@
 {
- "built": "2026-11-13T00:17:21Z",
+ "built": "2026-11-13T00:30:49Z",
  "rows": [
   {
    "cond": "0x6c7cda134b82fe6f27a91ae42180b5abf9eb166944c2de8c5743273cc0c951e6",
@@ -78,9 +78,6 @@
    "home_name": "West Virginia Mountaineers",
    "game_start": "2026-11-13T00:00Z",
    "side_std": "over",
-   "conflict": [
-    "Kalshi bet back"
-   ],
    "money_with": false,
    "grade": "A",
    "fair_board": null,
@@ -165,7 +162,8 @@
    "game_start": "2026-11-13T01:00Z",
    "side_std": "over",
    "conflict": [
-    "Kalshi bet back"
+    "Kalshi bet back",
+    "big money"
    ],
    "money_with": false,
    "grade": "B",
@@ -407,7 +405,7 @@
    "best_rank": 4,
    "usd": 118,
    "paid": 0.53,
-   "ask": 0.51,
+   "ask": 0.53,
    "status": "live",
    "link": "https://polymarket.us/event/cbb-loulaf-ncw-2026-11-14",
    "other": null,
@@ -731,11 +729,7 @@
     "first": "2026-11-11T22:30:49Z"
    },
    "exit_bid": null,
-   "kalshi_against": {
-    "move": 4.5,
-    "now": 72.5,
-    "state": "reversed"
-   },
+   "kalshi_against": null,
    "logged": true,
    "event_id": "401909976",
    "sport": "nba",
@@ -746,9 +740,6 @@
    "home_name": "Philadelphia 76ers",
    "game_start": "2026-11-13T00:00Z",
    "side_std": "away",
-   "conflict": [
-    "Kalshi move"
-   ],
    "money_with": false,
    "grade": "B",
    "fair_board": 0.2898,
@@ -823,7 +814,7 @@
     "usd": 508,
     "first": "2026-11-12T22:30:10Z"
    },
-   "exit_bid": 0.55,
+   "exit_bid": 0.54,
    "kalshi_against": null,
    "logged": true,
    "event_id": "401909298",
