@@ -5828,36 +5828,10 @@
 "edge_pts": -0.0,
 "why": "Novig home side mid 0.312 inside T-1.2h; audit band 20-35c"
 },
-"401892716:nhl_early_home_fav_qual": {
-"tag": "nhl_early_home_fav_qual",
-"fill_id": "b9ff5793ac00",
-"ts": "2026-11-13T02:53:28Z",
-"market": "ml",
-"side": "home",
-"line": null,
-"venue": "Kalshi",
-"price": -113,
-"fair": 0.505,
-"edge_pts": -2.5,
-"why": "home favorite, game 19 of the season, opponent FLA wins 52% (10-9)"
-},
-"401892715:nhl_loss_streak_over": {
-"tag": "nhl_loss_streak_over",
-"fill_id": "32f9adacae26",
-"ts": "2026-11-13T02:53:28Z",
-"market": "total",
-"side": "over",
-"line": 5.5,
-"venue": "Kalshi",
-"price": -117,
-"fair": 0.505,
-"edge_pts": -3.5,
-"why": "home CBJ has lost 3 straight, season over rate 41%: over (mined angle)"
-},
 "401892714:nhl_bounce_home_ml": {
 "tag": "nhl_bounce_home_ml",
-"fill_id": "0ee1eea0a269",
-"ts": "2026-11-13T02:53:28Z",
+"fill_id": "c74ab20d30fd",
+"ts": "2026-11-13T03:11:11Z",
 "market": "ml",
 "side": "home",
 "line": null,
@@ -5866,5 +5840,31 @@
 "fair": 0.485,
 "edge_pts": -2.5,
 "why": "home WSH lost its last game by 3, record 10-7 (59%): home moneyline (mined angle)"
+},
+"401892716:nhl_early_home_fav_qual": {
+"tag": "nhl_early_home_fav_qual",
+"fill_id": "02cc5372fb4f",
+"ts": "2026-11-13T03:11:11Z",
+"market": "ml",
+"side": "home",
+"line": null,
+"venue": "Kalshi",
+"price": -113,
+"fair": 0.505,
+"edge_pts": -2.5,
+"why": "home favorite, game 19 of the season, opponent FLA wins 55% (11-9)"
+},
+"401892715:nhl_loss_streak_over": {
+"tag": "nhl_loss_streak_over",
+"fill_id": "96cd35cdb82d",
+"ts": "2026-11-13T03:11:11Z",
+"market": "total",
+"side": "over",
+"line": 5.5,
+"venue": "Kalshi",
+"price": -122,
+"fair": null,
+"edge_pts": null,
+"why": "home CBJ has lost 3 straight, season over rate 41%: over (mined angle)"
 }
 }
