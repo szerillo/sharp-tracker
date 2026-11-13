@@ -5907,7 +5907,10 @@
 "price": -122,
 "fair": null,
 "edge_pts": null,
-"why": "conference game, EMU +13.5 on the road, total 26.5"
+"why": "conference game, EMU +13.5 on the road, total 26.5",
+"void": true,
+"void_why": "rule no longer holds on the current line: home spread -1.5, total 38.5 (2026-11-13T17:57:06Z)",
+"void_at": "2026-11-13T17:57:06Z"
 },
 "401892717:nhl_bounce_home_ml": {
 "tag": "nhl_bounce_home_ml",
@@ -6011,7 +6014,10 @@
 "price": 223,
 "fair": 0.3,
 "edge_pts": -1.0,
-"why": "opponent NJ wins 70% (14-6); favorite WSH -1.5 against a strong team"
+"why": "opponent NJ wins 70% (14-6); favorite WSH -1.5 against a strong team",
+"void": true,
+"void_why": "trigger no longer holds on current season records (2026-11-13T17:57:06Z)",
+"void_at": "2026-11-13T17:57:06Z"
 },
 "401892714:nhl_early_home_fav_qual": {
 "tag": "nhl_early_home_fav_qual",
@@ -6024,6 +6030,9 @@
 "price": -104,
 "fair": 0.50242,
 "edge_pts": -0.76,
-"why": "home favorite, game 18 of the season, opponent NJ wins 70% (14-6)"
+"why": "home favorite, game 18 of the season, opponent NJ wins 70% (14-6)",
+"void": true,
+"void_why": "trigger no longer holds on current season records (2026-11-13T17:57:06Z)",
+"void_at": "2026-11-13T17:57:06Z"
 }
 }
