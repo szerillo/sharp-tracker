@@ -5641,7 +5641,10 @@
 "price": -108,
 "fair": null,
 "edge_pts": null,
-"why": "home CHI has lost 6 straight, season over rate 56%: over (mined angle)"
+"why": "home CHI has lost 6 straight, season over rate 56%: over (mined angle)",
+"void": true,
+"void_why": "trigger no longer holds on current season records (2026-11-13T14:52:35Z)",
+"void_at": "2026-11-13T14:52:35Z"
 },
 "401892708:nhl_skid_fade_road": {
 "tag": "nhl_skid_fade_road",
@@ -5654,7 +5657,10 @@
 "price": 156,
 "fair": null,
 "edge_pts": null,
-"why": "WPG off a win, home CHI has lost 6 straight: road puck line (mined angle)"
+"why": "WPG off a win, home CHI has lost 6 straight: road puck line (mined angle)",
+"void": true,
+"void_why": "trigger no longer holds on current season records (2026-11-13T14:52:35Z)",
+"void_at": "2026-11-13T14:52:35Z"
 },
 "401892709:nhl_pl_fav_strong_opp": {
 "tag": "nhl_pl_fav_strong_opp",
@@ -5800,7 +5806,10 @@
 "price": -106,
 "fair": 0.49592,
 "edge_pts": -1.86,
-"why": "SA is 87% on the moneyline: over (mined angle)"
+"why": "SA is 87% on the moneyline: over (mined angle)",
+"void": true,
+"void_why": "trigger no longer holds on current season records (2026-11-13T14:52:35Z)",
+"void_at": "2026-11-13T14:52:35Z"
 },
 "401869969:xch_homedog_fade:ml": {
 "tag": "xch_homedog_fade",
@@ -5843,8 +5852,8 @@
 },
 "401892716:nhl_early_home_fav_qual": {
 "tag": "nhl_early_home_fav_qual",
-"fill_id": "02cc5372fb4f",
-"ts": "2026-11-13T03:11:11Z",
+"fill_id": "b9ff5793ac00",
+"ts": "2026-11-13T02:53:28Z",
 "market": "ml",
 "side": "home",
 "line": null,
@@ -5852,7 +5861,11 @@
 "price": -113,
 "fair": 0.505,
 "edge_pts": -2.5,
-"why": "home favorite, game 19 of the season, opponent FLA wins 55% (11-9)"
+"why": "home favorite, game 19 of the season, opponent FLA wins 52% (10-9)",
+"restored": true,
+"void": true,
+"void_why": "trigger no longer holds on current season records (2026-11-13T14:52:35Z)",
+"void_at": "2026-11-13T14:52:35Z"
 },
 "401892715:nhl_loss_streak_over": {
 "tag": "nhl_loss_streak_over",
@@ -5866,5 +5879,96 @@
 "fair": null,
 "edge_pts": null,
 "why": "home CBJ has lost 3 straight, season over rate 41%: over (mined angle)"
+},
+"401871061:cfb_wind14": {
+"tag": "cfb_wind14",
+"fill_id": "75ba5849e946",
+"ts": "2026-11-13T14:52:35Z",
+"market": "total",
+"side": "under",
+"line": 53.5,
+"venue": "Novig",
+"price": 102,
+"fair": 0.49673,
+"edge_pts": 0.17,
+"why": "avg 13.8 mph (Open-Meteo 13.5 at T-30h, MySportsWeather 14.0), gust 22.8, 49.0F"
+},
+"401866465:cfb_road_dog_low_total": {
+"tag": "cfb_road_dog_low_total",
+"fill_id": "ab6f5f0d542a",
+"ts": "2026-11-13T14:52:35Z",
+"market": "spread",
+"side": "away",
+"line": 13.5,
+"venue": "Kalshi",
+"price": -122,
+"fair": null,
+"edge_pts": null,
+"why": "conference game, EMU +13.5 on the road, total 26.5"
+},
+"401892717:nhl_bounce_home_ml": {
+"tag": "nhl_bounce_home_ml",
+"fill_id": "848ab09a5d67",
+"ts": "2026-11-13T14:52:35Z",
+"market": "ml",
+"side": "home",
+"line": null,
+"venue": "Kalshi",
+"price": -150,
+"fair": 0.575,
+"edge_pts": -2.5,
+"why": "home DAL lost its last game by 5, record 10-8 (56%): home moneyline (mined angle)"
+},
+"401892720:nhl_loss_streak_over": {
+"tag": "nhl_loss_streak_over",
+"fill_id": "2a7aafd5e5f5",
+"ts": "2026-11-13T14:52:35Z",
+"market": "total",
+"side": "over",
+"line": 5.5,
+"venue": "Kalshi",
+"price": -144,
+"fair": null,
+"edge_pts": null,
+"why": "home LA has lost 3 straight, season over rate 47%: over (mined angle)"
+},
+"401892722:nhl_early_home_fav_qual": {
+"tag": "nhl_early_home_fav_qual",
+"fill_id": "7f96c5cc147c",
+"ts": "2026-11-13T14:52:35Z",
+"market": "ml",
+"side": "home",
+"line": null,
+"venue": "Kalshi",
+"price": -144,
+"fair": 0.565,
+"edge_pts": -2.5,
+"why": "home favorite, game 19 of the season, opponent FLA wins 55% (11-9)"
+},
+"401892722:nhl_bounce_home_ml": {
+"tag": "nhl_bounce_home_ml",
+"fill_id": "469263a061cc",
+"ts": "2026-11-13T14:52:35Z",
+"market": "ml",
+"side": "home",
+"line": null,
+"venue": "Kalshi",
+"price": -144,
+"fair": 0.565,
+"edge_pts": -2.5,
+"why": "home DAL lost its last game by 5, record 10-8 (56%): home moneyline (mined angle)"
+},
+"401925755:cbb_under_good_over_drop": {
+"tag": "cbb_under_good_over_drop",
+"fill_id": "d4909719c7aa",
+"ts": "2026-11-13T14:52:35Z",
+"market": "total",
+"side": "under",
+"line": 153.5,
+"venue": "Novig",
+"price": -100,
+"fair": 0.4945,
+"edge_pts": -0.55,
+"why": "home MSU over 67% (3 games), visitor UNI over 100% (3); total 155.5 -> 153.5"
 }
 }
