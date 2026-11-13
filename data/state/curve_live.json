@@ -1,5 +1,5 @@
 {
- "built": "2026-11-13T03:14:47Z",
+ "built": "2026-11-13T03:27:19Z",
  "record": {
   "cbb_1h_total_curve": {
    "n": 2,
@@ -25,10 +25,10 @@
    "units": -0.99
   },
   "nhl_p1_spread_curve": {
-   "n": 6,
-   "won": 4,
+   "n": 7,
+   "won": 5,
    "lost": 2,
-   "units": 0.05,
+   "units": 0.16,
    "clv": {
     "n": 1,
     "avg": -3.88,
@@ -66,38 +66,6 @@
   }
  },
  "rows": [
-  {
-   "key": "nhl_p1_spread_curve|206230c7db215749b099353074bb5c13||home",
-   "rule": "nhl_p1_spread_curve",
-   "tier": "C",
-   "stake": 0.25,
-   "sport": "nhl",
-   "odds_id": "206230c7db215749b099353074bb5c13",
-   "espn": "401892698",
-   "game": "Colorado Avalanche @ Ottawa Senators",
-   "start": "2026-11-13T00:08:00Z",
-   "market": "spreads_p1",
-   "team": null,
-   "team_name": "Ottawa Senators",
-   "side": "home",
-   "line": 0.5,
-   "curve": 0.748,
-   "pin_fair": 0.654,
-   "gap": 9.4,
-   "full_total": 6.5,
-   "full_spread": -1.5,
-   "pin_price": 1.47,
-   "book": "DK",
-   "price": 1.45,
-   "pin_fair_power": 0.6634,
-   "book_fair": 0.6506,
-   "fair_gap": 0.4,
-   "ev_curve": 8.4,
-   "flagged": "2026-11-12T21:28:31Z",
-   "close_ts": "2026-11-13T00:01:17Z",
-   "close_line": -0.5,
-   "line_value": 1.0
-  },
   {
    "key": "nhl_p3_under_curve|a25eef409ec7d9f7e872d37603bb0243||under",
    "rule": "nhl_p3_under_curve",
