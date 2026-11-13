@@ -1,15 +1,15 @@
 {
-"updated": "2026-11-13T21:23:41Z",
-"logged": 6015,
-"settled": 6978,
+"updated": "2026-11-13T21:35:59Z",
+"logged": 6109,
+"settled": 6980,
 "rows": {
 "2 legs": {
-"n": 2607,
-"stake": 274836,
-"maker_pnl": 19488,
-"pct_of_stakes": 7.1,
+"n": 2609,
+"stake": 274879,
+"maker_pnl": 19257,
+"pct_of_stakes": 7.0,
 "expected_from_legs": 4.5,
-"hit": 34.9,
+"hit": 35.0,
 "days": 4
 },
 "3 legs": {
@@ -22,21 +22,21 @@
 "days": 4
 },
 "all": {
-"n": 4917,
-"stake": 445512,
-"maker_pnl": -1397,
-"pct_of_stakes": -0.3,
+"n": 4919,
+"stake": 445554,
+"maker_pnl": -1629,
+"pct_of_stakes": -0.4,
 "expected_from_legs": 5.5,
 "hit": 31.4,
 "days": 4
 },
 "different games": {
-"n": 3094,
-"stake": 314320,
-"maker_pnl": -5795,
-"pct_of_stakes": -1.8,
+"n": 3095,
+"stake": 314334,
+"maker_pnl": -5945,
+"pct_of_stakes": -1.9,
 "expected_from_legs": 3.0,
-"hit": 31.5,
+"hit": 31.6,
 "days": 4
 },
 "different games | 0-3% over": {
@@ -49,12 +49,12 @@
 "days": 4
 },
 "different games | 3-8% over": {
-"n": 1011,
-"stake": 112636,
-"maker_pnl": -8335,
-"pct_of_stakes": -7.4,
+"n": 1012,
+"stake": 112650,
+"maker_pnl": -8485,
+"pct_of_stakes": -7.5,
 "expected_from_legs": 4.2,
-"hit": 27.1,
+"hit": 27.2,
 "days": 4
 },
 "different games | 8%+ over": {
@@ -76,10 +76,10 @@
 "days": 4
 },
 "same game": {
-"n": 1823,
-"stake": 131191,
-"maker_pnl": 4398,
-"pct_of_stakes": 3.4,
+"n": 1824,
+"stake": 131220,
+"maker_pnl": 4316,
+"pct_of_stakes": 3.3,
 "expected_from_legs": 11.7,
 "hit": 31.2,
 "days": 4
@@ -103,12 +103,12 @@
 "days": 4
 },
 "same game | 8%+ over": {
-"n": 845,
-"stake": 57178,
-"maker_pnl": -655,
-"pct_of_stakes": -1.1,
+"n": 846,
+"stake": 57206,
+"maker_pnl": -737,
+"pct_of_stakes": -1.3,
 "expected_from_legs": 30.1,
-"hit": 28.2,
+"hit": 28.3,
 "days": 4
 },
 "same game | under legs": {
