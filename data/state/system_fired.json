@@ -5800,19 +5800,16 @@
 },
 "401909302:nba_bigfav_over": {
 "tag": "nba_bigfav_over",
-"fill_id": "3a08e0ef324c",
-"ts": "2026-11-13T00:48:45Z",
+"fill_id": "963c02a41926",
+"ts": "2026-11-13T18:58:28Z",
 "market": "total",
 "side": "over",
 "line": 218.5,
-"venue": "FD",
-"price": -106,
-"fair": 0.49592,
-"edge_pts": -1.86,
-"why": "SA is 87% on the moneyline: over (mined angle)",
-"void": true,
-"void_why": "trigger no longer holds on current season records (2026-11-13T14:52:35Z)",
-"void_at": "2026-11-13T14:52:35Z"
+"venue": "Novig",
+"price": 102,
+"fair": 0.48853,
+"edge_pts": -0.65,
+"why": "SA is 85% on the moneyline: over (mined angle)"
 },
 "401869969:xch_homedog_fade:ml": {
 "tag": "xch_homedog_fade",
@@ -6034,5 +6031,18 @@
 "void": true,
 "void_why": "trigger no longer holds on current season records (2026-11-13T17:57:06Z)",
 "void_at": "2026-11-13T17:57:06Z"
+},
+"401919049:cbb_under_good_over_drop": {
+"tag": "cbb_under_good_over_drop",
+"fill_id": "2b73606a40f4",
+"ts": "2026-11-13T18:58:28Z",
+"market": "total",
+"side": "under",
+"line": 156.5,
+"venue": "Novig",
+"price": -120,
+"fair": 0.50464,
+"edge_pts": -4.04,
+"why": "home TCU over 100% (3 games), visitor MILW over 67% (4); total 158.0 -> 156.5"
 }
 }
