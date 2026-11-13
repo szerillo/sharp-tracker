@@ -1,5 +1,5 @@
 {
- "built": "2026-11-13T05:07:07Z",
+ "built": "2026-11-13T05:21:09Z",
  "rows": [
   {
    "cond": "0xde2e07509474b55dbfd2fd7fb2ecf2c779ad450cb053924535960f0e8ffdd65d",
@@ -389,7 +389,17 @@
    "other": null,
    "kalshi_against": null,
    "logged": true,
-   "grade": "B",
+   "event_id": "401909985",
+   "sport": "nba",
+   "league": null,
+   "away": "IND",
+   "home": "PHI",
+   "away_name": "Indiana Pacers",
+   "home_name": "Philadelphia 76ers",
+   "game_start": "2026-11-15T18:00Z",
+   "side_std": "home",
+   "money_with": false,
+   "grade": "watch",
    "fair_board": null,
    "inside_fair": null,
    "books": null
@@ -634,8 +644,8 @@
    "link": "https://polymarket.us/event/nba-gsw-sas-2026-11-13",
    "other": null,
    "kalshi_against": {
-    "move": 16.5,
-    "now": 86.0,
+    "move": 17.0,
+    "now": 86.5,
     "state": "held"
    },
    "logged": true,
@@ -822,6 +832,13 @@
     "n": 1,
     "best_rank": 93,
     "usd": 542
+   }
+  },
+  "401909985|ml": {
+   "home": {
+    "n": 1,
+    "best_rank": 43,
+    "usd": 230
    }
   },
   "401892713|ml": {
