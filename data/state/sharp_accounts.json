@@ -1,5 +1,5 @@
 {
- "built": "2026-11-13T00:59:30Z",
+ "built": "2026-11-13T01:06:49Z",
  "rows": [
   {
    "cond": "0x6c7cda134b82fe6f27a91ae42180b5abf9eb166944c2de8c5743273cc0c951e6",
@@ -100,7 +100,7 @@
    "best_rank": 197,
    "usd": 1092,
    "paid": 0.58,
-   "ask": 0.6,
+   "ask": null,
    "status": "live",
    "link": "https://polymarket.us/event/nhl-buf-chi-2026-11-12",
    "other": null,
@@ -146,7 +146,7 @@
    "best_rank": 3,
    "usd": 116,
    "paid": 0.11,
-   "ask": 0.11,
+   "ask": null,
    "status": "live",
    "link": "https://polymarket.us/event/cfb-mphs-sfl-2026-11-12",
    "other": null,
@@ -765,7 +765,7 @@
    "best_rank": 43,
    "usd": 131,
    "paid": 0.325,
-   "ask": 0.34,
+   "ask": null,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-dal-min-2026-11-12",
    "other": {
@@ -774,7 +774,7 @@
     "usd": 814,
     "first": "2026-11-10T13:39:07Z"
    },
-   "exit_bid": 0.33,
+   "exit_bid": null,
    "kalshi_against": null,
    "logged": true,
    "event_id": "401909978",
@@ -789,7 +789,7 @@
    "money_with": false,
    "grade": "watch",
    "fair_board": 0.3376,
-   "inside_fair": false,
+   "inside_fair": null,
    "books": null
   },
   {
@@ -1006,18 +1006,6 @@
     "usd": 155
    }
   },
-  "401909978|ml": {
-   "away": {
-    "n": 1,
-    "best_rank": 43,
-    "usd": 131
-   },
-   "home": {
-    "n": 2,
-    "best_rank": 43,
-    "usd": 814
-   }
-  },
   "401909296|ml": {
    "away": {
     "n": 1,
@@ -1070,13 +1058,6 @@
     "usd": 542
    }
   },
-  "401892702|ml": {
-   "away": {
-    "n": 1,
-    "best_rank": 197,
-    "usd": 1092
-   }
-  },
   "401892704|ml": {
    "away": {
     "n": 1,
@@ -1089,13 +1070,6 @@
     "n": 1,
     "best_rank": 12,
     "usd": 212
-   }
-  },
-  "401862824|total": {
-   "over": {
-    "n": 1,
-    "best_rank": 3,
-    "usd": 116
    }
   },
   "401869969|total": {
