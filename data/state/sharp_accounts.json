@@ -1,5 +1,5 @@
 {
- "built": "2026-11-12T23:48:46Z",
+ "built": "2026-11-12T23:56:07Z",
  "rows": [
   {
    "cond": "0x6c7cda134b82fe6f27a91ae42180b5abf9eb166944c2de8c5743273cc0c951e6",
@@ -165,7 +165,8 @@
    "game_start": "2026-11-13T01:00Z",
    "side_std": "over",
    "conflict": [
-    "Kalshi bet back"
+    "Kalshi bet back",
+    "big money"
    ],
    "money_with": false,
    "grade": "B",
@@ -729,7 +730,11 @@
     "first": "2026-11-11T22:30:49Z"
    },
    "exit_bid": 0.28,
-   "kalshi_against": null,
+   "kalshi_against": {
+    "move": 4.5,
+    "now": 72.5,
+    "state": "reversed"
+   },
    "logged": true,
    "event_id": "401909976",
    "sport": "nba",
@@ -740,6 +745,9 @@
    "home_name": "Philadelphia 76ers",
    "game_start": "2026-11-13T00:00Z",
    "side_std": "away",
+   "conflict": [
+    "Kalshi move"
+   ],
    "money_with": true,
    "grade": "A",
    "fair_board": 0.2816,
@@ -848,7 +856,7 @@
    "best_rank": 40,
    "usd": 755,
    "paid": 0.165,
-   "ask": 0.15,
+   "ask": 0.14,
    "status": "live",
    "link": "https://polymarket.us/event/nba-gsw-sas-2026-11-13",
    "other": null,
@@ -1045,6 +1053,13 @@
     "n": 1,
     "best_rank": 43,
     "usd": 108
+   }
+  },
+  "401909977|total": {
+   "over": {
+    "n": 1,
+    "best_rank": 132,
+    "usd": 1122
    }
   },
   "401909978|ml": {
