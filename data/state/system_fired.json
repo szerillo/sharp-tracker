@@ -3999,7 +3999,10 @@
 "price": -108,
 "fair": null,
 "edge_pts": null,
-"why": "home favourite UCLA -9.5, total 47.5: under (mined angle)"
+"why": "home favourite UCLA -9.5, total 47.5: under (mined angle)",
+"void": true,
+"void_why": "rule no longer holds on the current line: home spread -10.5, total 47.5 (2026-11-13T19:53:15Z)",
+"void_at": "2026-11-13T19:53:15Z"
 },
 "401856885:cfb_road_streak_dog": {
 "tag": "cfb_road_streak_dog",
@@ -6044,5 +6047,18 @@
 "fair": 0.50464,
 "edge_pts": -4.04,
 "why": "home TCU over 100% (3 games), visitor MILW over 67% (4); total 158.0 -> 156.5"
+},
+"401858520:cfb_wind14": {
+"tag": "cfb_wind14",
+"fill_id": "e1de9e5bc0e6",
+"ts": "2026-11-13T19:53:15Z",
+"market": "total",
+"side": "under",
+"line": 42.5,
+"venue": "Caesars",
+"price": -109,
+"fair": 0.51004,
+"edge_pts": -1.15,
+"why": "avg 13.7 mph (Open-Meteo 13.4 at T-22h, MySportsWeather 14.0), gust 24.2, 44.8F"
 }
 }
