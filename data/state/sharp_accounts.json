@@ -1,5 +1,5 @@
 {
- "built": "2026-11-13T21:00:54Z",
+ "built": "2026-11-13T21:07:21Z",
  "rows": [
   {
    "cond": "0x1f9956f9fdc9433a245e02f698b8f52f7880ad7d78c3c4ba1ede7ce556ac32fa",
@@ -74,11 +74,11 @@
    ],
    "money_with": false,
    "grade": "watch",
-   "fair_board": 0.7532,
+   "fair_board": 0.7529,
    "inside_fair": true,
    "books": {
-    "at": "2026-11-13T19:57:53Z",
-    "fair": 0.7532,
+    "at": "2026-11-13T20:56:27Z",
+    "fair": 0.7529,
     "q": {
      "Novig": 0.755,
      "FD": 0.7701,
@@ -163,11 +163,11 @@
    "inside_fair": false,
    "fair_board": 0.5611,
    "books": {
-    "at": "2026-11-13T19:57:53Z",
-    "fair": 0.5967,
+    "at": "2026-11-13T20:56:27Z",
+    "fair": 0.5971,
     "q": {
      "Novig": 0.6,
-     "FD": 0.6063,
+     "FD": 0.6124,
      "DK": 0.6183,
      "Kalshi": 0.62
     }
@@ -212,13 +212,13 @@
    "inside_fair": false,
    "fair_board": 0.504,
    "books": {
-    "at": "2026-11-13T19:57:53Z",
-    "fair": 0.5123,
+    "at": "2026-11-13T20:56:27Z",
+    "fair": 0.5108,
     "q": {
+     "Novig": 0.52,
      "FD": 0.5238,
      "Caesars": 0.5238,
-     "DK": 0.5238,
-     "Novig": 0.525
+     "DK": 0.5238
     }
    }
   },
@@ -258,11 +258,11 @@
    "inside_fair": true,
    "fair_board": 0.5223,
    "books": {
-    "at": "2026-11-13T19:57:53Z",
-    "fair": 0.5163,
+    "at": "2026-11-13T20:56:27Z",
+    "fair": 0.5171,
     "q": {
-     "Novig": 0.53,
      "FD": 0.5349,
+     "Novig": 0.535,
      "DK": 0.5413,
      "Kalshi": 0.55
     }
@@ -304,13 +304,13 @@
    ],
    "money_with": false,
    "grade": "A",
-   "fair_board": 0.5122,
+   "fair_board": 0.5127,
    "inside_fair": true,
    "books": {
-    "at": "2026-11-13T19:57:53Z",
-    "fair": 0.5122,
+    "at": "2026-11-13T20:56:27Z",
+    "fair": 0.5127,
     "q": {
-     "Novig": 0.51,
+     "Novig": 0.515,
      "DK": 0.5283,
      "Caesars": 0.5349,
      "Kalshi": 0.54
@@ -387,14 +387,15 @@
    "side_std": "home",
    "money_with": false,
    "grade": "A",
-   "fair_board": 0.5127,
+   "fair_board": 0.5126,
    "inside_fair": false,
    "books": {
-    "at": "2026-11-13T19:57:53Z",
-    "fair": 0.5127,
+    "at": "2026-11-13T20:56:27Z",
+    "fair": 0.5126,
     "q": {
      "Novig": 0.52,
      "FD": 0.5327,
+     "Caesars": 0.5327,
      "Kalshi": 0.54
     }
    }
@@ -432,11 +433,11 @@
    "side_std": "away",
    "money_with": false,
    "grade": "A",
-   "fair_board": 0.5867,
+   "fair_board": 0.5876,
    "inside_fair": false,
    "books": {
-    "at": "2026-11-13T19:57:53Z",
-    "fair": 0.5867,
+    "at": "2026-11-13T20:56:27Z",
+    "fair": 0.5876,
     "q": {
      "Novig": 0.59,
      "DK": 0.6078,
@@ -444,6 +445,130 @@
      "FD": 0.6183
     }
    }
+  },
+  {
+   "cond": "0xdd289f2088515d994bb3c4e13e4b70b5000855490e53244ec7c1519f4c657766",
+   "slug": "cfb-sjst-airf-2026-11-14",
+   "title": "San Jose State vs. Air Force",
+   "mtype": "total",
+   "start": "2026-11-15T00:00:00Z",
+   "bet": "Over 45.5",
+   "side": "Over",
+   "flagged": "2026-11-13T21:06:03Z",
+   "why": "a top-200 account also in this sport's top 50",
+   "proven": true,
+   "trigger": "proven",
+   "n_accounts": 1,
+   "best_rank": 110,
+   "usd": 409,
+   "paid": 0.58,
+   "ask": 0.59,
+   "status": "live",
+   "link": "https://polymarket.us/event/cfb-sjst-airf-2026-11-14",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401864538",
+   "sport": "cfb",
+   "league": null,
+   "away": "SJSU",
+   "home": "AFA",
+   "away_name": "San Jos\u00e9 State Spartans",
+   "home_name": "Air Force Falcons",
+   "game_start": "2026-11-15T00:00Z",
+   "side_std": "over",
+   "conflict": [
+    "Kalshi bet back"
+   ],
+   "money_with": false,
+   "grade": "A",
+   "fair_board": null,
+   "inside_fair": null,
+   "books": null
+  },
+  {
+   "cond": "0xf4f30a71957f36f82ec2cf13672f70d425255112674cf44fc9db22ead8681ce3",
+   "slug": "cfb-stan-vtech-2026-11-14",
+   "title": "Stanford vs. Virginia Tech",
+   "mtype": "total",
+   "start": "2026-11-15T00:30:00Z",
+   "bet": "Under 57.5",
+   "side": "Under",
+   "flagged": "2026-11-13T21:04:01Z",
+   "why": "a top-200 account also in this sport's top 50",
+   "proven": true,
+   "trigger": "proven",
+   "n_accounts": 1,
+   "best_rank": 110,
+   "usd": 460,
+   "paid": 0.49,
+   "ask": 0.5,
+   "status": "live",
+   "link": "https://polymarket.us/event/cfb-stan-vtech-2026-11-14",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401858299",
+   "sport": "cfb",
+   "league": null,
+   "away": "STAN",
+   "home": "VT",
+   "away_name": "Stanford Cardinal",
+   "home_name": "Virginia Tech Hokies",
+   "game_start": "2026-11-15T00:30Z",
+   "side_std": "under",
+   "money_with": false,
+   "grade": "A",
+   "fair_board": 0.4885,
+   "inside_fair": false,
+   "books": {
+    "at": "2026-11-13T20:56:27Z",
+    "fair": 0.4885,
+    "q": {
+     "Novig": 0.485,
+     "FD": 0.5122,
+     "Caesars": 0.5192,
+     "DK": 0.5238
+    }
+   }
+  },
+  {
+   "cond": "0x92aead9edf612984b33b98773888f9892e3b79a159452f0a9c56c8929551661c",
+   "slug": "cfb-stan-vtech-2026-11-14",
+   "title": "Stanford vs. Virginia Tech",
+   "mtype": "total",
+   "start": "2026-11-15T00:30:00Z",
+   "bet": "Under 61.5",
+   "side": "Under",
+   "flagged": "2026-11-13T21:04:51Z",
+   "why": "a top-200 account also in this sport's top 50",
+   "proven": true,
+   "trigger": "proven",
+   "n_accounts": 1,
+   "best_rank": 110,
+   "usd": 390,
+   "paid": 0.61,
+   "ask": 0.62,
+   "status": "live",
+   "link": "https://polymarket.us/event/cfb-stan-vtech-2026-11-14",
+   "other": null,
+   "kalshi_against": null,
+   "logged": false,
+   "ladder": true,
+   "event_id": "401858299",
+   "sport": "cfb",
+   "league": null,
+   "away": "STAN",
+   "home": "VT",
+   "away_name": "Stanford Cardinal",
+   "home_name": "Virginia Tech Hokies",
+   "game_start": "2026-11-15T00:30Z",
+   "side_std": "under",
+   "money_with": false,
+   "grade": "A",
+   "fair_board": null,
+   "inside_fair": null,
+   "books": null
   },
   {
    "cond": "0x0c637d60a9447423c980eaf62fd805a2a0a8cc27823c4b7ec2582525a754163b",
@@ -781,7 +906,7 @@
    "side_std": "home",
    "money_with": false,
    "grade": "watch",
-   "fair_board": 0.5564,
+   "fair_board": 0.5548,
    "inside_fair": false,
    "books": null
   },
@@ -825,16 +950,16 @@
    ],
    "money_with": false,
    "grade": "watch",
-   "fair_board": 0.1497,
+   "fair_board": 0.1504,
    "inside_fair": false,
    "books": {
-    "at": "2026-11-13T19:57:53Z",
-    "fair": 0.1497,
+    "at": "2026-11-13T20:56:27Z",
+    "fair": 0.1504,
     "q": {
      "Novig": 0.155,
-     "FD": 0.1667,
      "Kalshi": 0.17,
-     "DK": 0.1704
+     "DK": 0.1704,
+     "FD": 0.1724
     }
    }
   },
@@ -880,7 +1005,7 @@
    ],
    "money_with": false,
    "grade": "watch",
-   "fair_board": 0.2835,
+   "fair_board": 0.282,
    "inside_fair": false,
    "books": null
   },
@@ -923,8 +1048,8 @@
    "side_std": "home",
    "money_with": false,
    "grade": "B",
-   "fair_board": 0.4707,
-   "inside_fair": true,
+   "fair_board": 0.4669,
+   "inside_fair": false,
    "books": null
   },
   {
@@ -1029,14 +1154,6 @@
     "n": 1,
     "best_rank": 132,
     "usd": 264
-   }
-  },
-  "401909302:nba_bigfav_over": {
-   "with": null,
-   "against": {
-    "n": 2,
-    "best_rank": 58,
-    "usd": 628
    }
   },
   "401892711:nhl_early_home_fav_qual": {
@@ -1305,11 +1422,25 @@
     "usd": 490
    }
   },
+  "401858299|total": {
+   "under": {
+    "n": 1,
+    "best_rank": 110,
+    "usd": 460
+   }
+  },
   "401858523|total": {
    "under": {
     "n": 1,
     "best_rank": 132,
     "usd": 107
+   }
+  },
+  "401864538|total": {
+   "over": {
+    "n": 1,
+    "best_rank": 110,
+    "usd": 409
    }
   },
   "401864539|spread": {
