@@ -1,5 +1,5 @@
 {
- "built": "2026-11-13T23:36:06Z",
+ "built": "2026-11-13T23:48:09Z",
  "record": {
   "cbb_1h_total_curve": {
    "n": 2,
@@ -7,12 +7,12 @@
    "lost": 1,
    "units": -0.02,
    "clv": {
-    "n": 1,
-    "avg": -2.1,
+    "n": 2,
+    "avg": -2.31,
     "beat": 0
    },
    "line_value": {
-    "n": 1,
+    "n": 2,
     "avg": 0.0,
     "better": 0,
     "worse": 0
@@ -22,7 +22,18 @@
    "n": 13,
    "won": 5,
    "lost": 8,
-   "units": -1.24
+   "units": -1.24,
+   "clv": {
+    "n": 1,
+    "avg": 0.52,
+    "beat": 1
+   },
+   "line_value": {
+    "n": 1,
+    "avg": 0.0,
+    "better": 0,
+    "worse": 0
+   }
   },
   "nhl_p1_spread_curve": {
    "n": 7,
@@ -93,7 +104,13 @@
    "book_fair": 0.534,
    "fair_gap": -0.1,
    "ev_curve": 6.4,
-   "flagged": "2026-11-13T21:13:51Z"
+   "flagged": "2026-11-13T21:13:51Z",
+   "close_ts": "2026-11-13T23:48:09Z",
+   "close_line": 10.5,
+   "line_value": 0.0,
+   "close_fair": 0.567,
+   "clv": 0.52,
+   "beat_fair": 3.4
   },
   {
    "key": "cbb_1h_total_curve|e8f581fca659627171b85fcbe82784ca||over",
@@ -151,7 +168,13 @@
    "book_fair": 0.5,
    "fair_gap": 0.3,
    "ev_curve": 10.2,
-   "flagged": "2026-11-13T22:59:45Z"
+   "flagged": "2026-11-13T22:59:45Z",
+   "close_ts": "2026-11-13T23:48:09Z",
+   "close_line": 65.5,
+   "line_value": 0.0,
+   "close_fair": 0.5066,
+   "clv": -2.53,
+   "beat_fair": 0.36
   },
   {
    "key": "nhl_p3_under_curve|069bea369487ef0cd3017c9ceea68817||under",
