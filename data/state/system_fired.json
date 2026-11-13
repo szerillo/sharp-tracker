@@ -3149,8 +3149,8 @@
 "edge_pts": null,
 "why": "conference game, ILL +9.5 on the road, total 47.5",
 "void": true,
-"void_why": "rule no longer holds on the current line: home spread -10.5, total 48.5 (2026-11-13T21:49:23Z)",
-"void_at": "2026-11-13T21:49:23Z"
+"void_why": "rule no longer holds on the current line: home spread -10.5, total 48.5 (2026-11-13T22:10:30Z)",
+"void_at": "2026-11-13T22:10:30Z"
 },
 "401858526:cfb_road_streak_dog": {
 "tag": "cfb_road_streak_dog",
@@ -4138,8 +4138,8 @@
 },
 "401858294:cfb_day_over": {
 "tag": "cfb_day_over",
-"fill_id": "0b3f1295b661",
-"ts": "2026-11-13T21:49:23Z",
+"fill_id": "94d5c7be0a28",
+"ts": "2026-11-13T22:10:30Z",
 "market": "total",
 "side": "over",
 "line": 51.5,
@@ -4287,15 +4287,15 @@
 },
 "401858297:cfb_road_dog_low_total": {
 "tag": "cfb_road_dog_low_total",
-"fill_id": "bea311bf1446",
-"ts": "2026-11-13T21:49:23Z",
+"fill_id": "995477a73f1d",
+"ts": "2026-11-13T22:10:30Z",
 "market": "spread",
 "side": "away",
 "line": 14.5,
 "venue": "Novig",
 "price": -100,
-"fair": 0.49577,
-"edge_pts": -0.42,
+"fair": 0.49573,
+"edge_pts": -0.43,
 "why": "conference game, GT +14.5 on the road, total 47.5"
 },
 "401860916:cfb_homefav_7510_under": {
@@ -5800,19 +5800,16 @@
 },
 "401909302:nba_bigfav_over": {
 "tag": "nba_bigfav_over",
-"fill_id": "963c02a41926",
-"ts": "2026-11-13T18:58:28Z",
+"fill_id": "48fbad71454f",
+"ts": "2026-11-13T22:10:30Z",
 "market": "total",
 "side": "over",
-"line": 218.5,
+"line": 217.5,
 "venue": "Novig",
-"price": 102,
-"fair": 0.48853,
-"edge_pts": -0.65,
-"why": "SA is 85% on the moneyline: over (mined angle)",
-"void": true,
-"void_why": "trigger no longer holds on current season records (2026-11-13T20:52:40Z)",
-"void_at": "2026-11-13T20:52:40Z"
+"price": -106,
+"fair": 0.5077,
+"edge_pts": -0.73,
+"why": "SA is 85% on the moneyline: over (mined angle)"
 },
 "401869969:xch_homedog_fade:ml": {
 "tag": "xch_homedog_fade",
@@ -6099,5 +6096,18 @@
 "fair": 0.49493,
 "edge_pts": -0.01,
 "why": "home ASU over 67% (3 games), visitor ULM over 100% (4); total 152.0 -> 148.5"
+},
+"401864537:cfb_wind14": {
+"tag": "cfb_wind14",
+"fill_id": "6d25bcecc104",
+"ts": "2026-11-13T22:10:30Z",
+"market": "total",
+"side": "under",
+"line": 38.5,
+"venue": "Kalshi",
+"price": -104,
+"fair": 0.49532,
+"edge_pts": -1.47,
+"why": "avg 18.7 mph (Open-Meteo 12.4 at T-30h, MySportsWeather 25.0), gust 27.7, 73.6F"
 }
 }
