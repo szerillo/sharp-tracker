@@ -1,49 +1,49 @@
 {
-"updated": "2026-11-13T16:00:17Z",
-"logged": 5562,
-"settled": 6903,
+"updated": "2026-11-13T16:11:13Z",
+"logged": 5394,
+"settled": 6308,
 "rows": {
 "2 legs": {
-"n": 2562,
-"stake": 271967,
-"maker_pnl": 19201,
-"pct_of_stakes": 7.1,
-"expected_from_legs": 4.5,
-"hit": 34.9,
+"n": 2482,
+"stake": 260647,
+"maker_pnl": 37279,
+"pct_of_stakes": 14.3,
+"expected_from_legs": 4.2,
+"hit": 35.1,
 "days": 4
 },
 "3 legs": {
-"n": 2280,
-"stake": 168221,
-"maker_pnl": -22188,
-"pct_of_stakes": -13.2,
-"expected_from_legs": 7.2,
-"hit": 27.5,
+"n": 2263,
+"stake": 172388,
+"maker_pnl": -23677,
+"pct_of_stakes": -13.7,
+"expected_from_legs": 6.0,
+"hit": 26.4,
 "days": 4
 },
 "all": {
-"n": 4842,
-"stake": 440188,
-"maker_pnl": -2988,
-"pct_of_stakes": -0.7,
-"expected_from_legs": 5.5,
-"hit": 31.4,
+"n": 4745,
+"stake": 433035,
+"maker_pnl": 13602,
+"pct_of_stakes": 3.1,
+"expected_from_legs": 4.9,
+"hit": 31.0,
 "days": 4
 },
 "different games": {
-"n": 3043,
-"stake": 309810,
-"maker_pnl": -7451,
-"pct_of_stakes": -2.4,
-"expected_from_legs": 2.9,
-"hit": 31.6,
+"n": 2962,
+"stake": 301283,
+"maker_pnl": 15817,
+"pct_of_stakes": 5.2,
+"expected_from_legs": 3.0,
+"hit": 30.8,
 "days": 4
 },
 "different games | 0-3% over": {
-"n": 1198,
-"stake": 141259,
-"maker_pnl": -9668,
-"pct_of_stakes": -6.8,
+"n": 1169,
+"stake": 138436,
+"maker_pnl": -7251,
+"pct_of_stakes": -5.2,
 "expected_from_legs": 1.9,
 "hit": 39.1,
 "days": 4
@@ -54,7 +54,7 @@
 "maker_pnl": -9078,
 "pct_of_stakes": -8.2,
 "expected_from_legs": 4.2,
-"hit": 27.0,
+"hit": 25.7,
 "days": 4
 },
 "different games | 8%+ over": {
@@ -85,9 +85,9 @@
 "days": 4
 },
 "same game": {
-"n": 1782,
-"stake": 131724,
-"maker_pnl": -2243,
+"n": 1783,
+"stake": 131752,
+"maker_pnl": -2214,
 "pct_of_stakes": -1.7,
 "expected_from_legs": 9.3,
 "hit": 31.3,
@@ -112,10 +112,10 @@
 "days": 4
 },
 "same game | 8%+ over": {
-"n": 811,
-"stake": 53895,
-"maker_pnl": -20,
-"pct_of_stakes": -0.0,
+"n": 812,
+"stake": 53924,
+"maker_pnl": 9,
+"pct_of_stakes": 0.0,
 "expected_from_legs": 26.8,
 "hit": 29.7,
 "days": 4
