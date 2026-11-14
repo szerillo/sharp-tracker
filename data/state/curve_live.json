@@ -1,5 +1,5 @@
 {
- "built": "2026-11-14T20:17:00Z",
+ "built": "2026-11-14T20:29:16Z",
  "record": {
   "cbb_1h_total_curve": {
    "n": 4,
@@ -24,12 +24,12 @@
    "lost": 8,
    "units": -0.85,
    "clv": {
-    "n": 6,
-    "avg": -1.52,
+    "n": 9,
+    "avg": -2.14,
     "beat": 1
    },
    "line_value": {
-    "n": 6,
+    "n": 9,
     "avg": 0.0,
     "better": 0,
     "worse": 0
@@ -58,12 +58,12 @@
    "lost": 13,
    "units": -3.38,
    "clv": {
-    "n": 12,
-    "avg": -2.36,
+    "n": 13,
+    "avg": -2.32,
     "beat": 0
    },
    "line_value": {
-    "n": 13,
+    "n": 14,
     "avg": -0.04,
     "better": 0,
     "worse": 1
@@ -435,7 +435,13 @@
    "book_fair": 0.488,
    "fair_gap": -1.3,
    "ev_curve": 5.7,
-   "flagged": "2026-11-14T17:34:15Z"
+   "flagged": "2026-11-14T17:34:15Z",
+   "close_ts": "2026-11-14T20:29:16Z",
+   "close_line": 13.5,
+   "line_value": 0.0,
+   "close_fair": 0.5,
+   "clv": -2.08,
+   "beat_fair": 2.5
   },
   {
    "key": "cfb_q1_under_curve|67a73e38d3fd93df27dcca8160f796c3||under",
@@ -464,7 +470,13 @@
    "book_fair": 0.5186,
    "fair_gap": -1.2,
    "ev_curve": 12.6,
-   "flagged": "2026-11-14T17:34:15Z"
+   "flagged": "2026-11-14T17:34:15Z",
+   "close_ts": "2026-11-14T20:29:16Z",
+   "close_line": 13.5,
+   "line_value": 0.0,
+   "close_fair": 0.5066,
+   "clv": -4.59,
+   "beat_fair": -0.04
   },
   {
    "key": "cfb_q1_under_curve|65104e496f8e5c0208eb59dd0c946475||under",
@@ -493,7 +505,13 @@
    "book_fair": 0.5013,
    "fair_gap": -0.4,
    "ev_curve": 5.7,
-   "flagged": "2026-11-14T17:34:15Z"
+   "flagged": "2026-11-14T17:34:15Z",
+   "close_ts": "2026-11-14T20:29:16Z",
+   "close_line": 12.5,
+   "line_value": 0.0,
+   "close_fair": 0.5,
+   "clv": -3.48,
+   "beat_fair": 0.3
   },
   {
    "key": "cfb_q1_under_curve|a21a2f1087d443fa1a1c71e1a03a0fe0||under",
@@ -572,7 +590,13 @@
    "pin_price": 2.08,
    "book": null,
    "price": null,
-   "flagged": "2026-11-14T18:02:24Z"
+   "flagged": "2026-11-14T18:02:24Z",
+   "close_ts": "2026-11-14T20:29:16Z",
+   "close_line": 2.0,
+   "line_value": 0.0,
+   "close_fair": 0.4625,
+   "clv": -1.83,
+   "beat_fair": -0.05
   },
   {
    "key": "cfb_q1_under_curve|54769e255d6ea468fa2d12ed744eb6f2||under",
