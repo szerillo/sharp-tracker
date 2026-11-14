@@ -1,5 +1,5 @@
 {
- "built": "2026-11-14T20:03:22Z",
+ "built": "2026-11-14T20:17:35Z",
  "rows": [
   {
    "cond": "0x8a37958f5b7fcef52411cf0929b2d95296e85bf65f675b2bb00b96fdf70183ee",
@@ -541,13 +541,13 @@
    "inside_fair": false,
    "fair_board": 0.4864,
    "books": {
-    "at": "2026-11-14T18:07:00Z",
-    "fair": 0.4909,
+    "at": "2026-11-14T20:02:06Z",
+    "fair": 0.4961,
     "q": {
-     "Novig": 0.49,
+     "Novig": 0.495,
      "Caesars": 0.5215,
      "DK": 0.5238,
-     "FD": 0.5238
+     "FD": 0.5349
     }
    }
   },
@@ -644,7 +644,7 @@
    "best_rank": 65,
    "usd": 4490,
    "paid": 0.58,
-   "ask": 0.63,
+   "ask": 0.62,
    "status": "live",
    "link": "https://polymarket.us/event/cfb-wcar-samf-2026-11-14",
    "other": null,
@@ -671,7 +671,7 @@
    "best_rank": 58,
    "usd": 490,
    "paid": 0.51,
-   "ask": 0.5,
+   "ask": 0.49,
    "status": "live",
    "link": "https://polymarket.us/event/cfb-gas-gast-2026-11-14",
    "other": null,
@@ -686,18 +686,18 @@
    "home_name": "Georgia State Panthers",
    "game_start": "2026-11-14T20:30Z",
    "side_std": "under",
-   "money_with": false,
+   "money_with": true,
    "grade": "A",
    "inside_fair": false,
    "fair_board": 0.4977,
    "books": {
-    "at": "2026-11-14T18:07:00Z",
-    "fair": 0.4992,
+    "at": "2026-11-14T20:02:06Z",
+    "fair": 0.4996,
     "q": {
      "Novig": 0.505,
      "Caesars": 0.5192,
-     "DK": 0.5192,
-     "Kalshi": 0.52
+     "Kalshi": 0.52,
+     "FD": 0.5238
     }
    }
   },
@@ -737,13 +737,13 @@
    "inside_fair": false,
    "fair_board": 0.4949,
    "books": {
-    "at": "2026-11-14T18:07:00Z",
-    "fair": 0.4949,
+    "at": "2026-11-14T20:02:06Z",
+    "fair": 0.503,
     "q": {
-     "Novig": 0.5,
      "Caesars": 0.5074,
+     "Novig": 0.51,
      "DK": 0.5192,
-     "Kalshi": 0.52
+     "FD": 0.5238
     }
    }
   },
@@ -823,10 +823,10 @@
    "inside_fair": false,
    "fair_board": 0.4828,
    "books": {
-    "at": "2026-11-14T18:07:00Z",
-    "fair": 0.4724,
+    "at": "2026-11-14T20:02:06Z",
+    "fair": null,
     "q": {
-     "Novig": 0.475,
+     "Novig": 0.47,
      "FD": 0.5,
      "Kalshi": 0.5
     }
@@ -863,11 +863,45 @@
    "home_name": "Texas State Bobcats",
    "game_start": "2026-11-14T21:00Z",
    "side_std": "under",
-   "conflict": [
-    "big money"
-   ],
    "money_with": false,
    "grade": "A",
+   "fair_board": null,
+   "inside_fair": null,
+   "books": null
+  },
+  {
+   "cond": "0x46013f4fcc90ebd023be3743443c34d052fc24c9ec9118c29dad7ecc50180ec1",
+   "slug": "cbb-sdkst-ncol-2026-11-14",
+   "title": "South Dakota State Jackrabbits vs. Northern Colorado Bears",
+   "mtype": "total",
+   "start": "2026-11-14T21:00:00Z",
+   "bet": "Under 150.5",
+   "side": "Under",
+   "flagged": "2026-11-14T20:17:02Z",
+   "why": "2 top-200 accounts",
+   "proven": false,
+   "trigger": "two",
+   "n_accounts": 2,
+   "best_rank": 110,
+   "usd": 1699,
+   "paid": 0.503,
+   "ask": 0.53,
+   "status": "live",
+   "link": "https://polymarket.us/event/cbb-sdkst-ncol-2026-11-14",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401925889",
+   "sport": "cbb",
+   "league": null,
+   "away": "SDST",
+   "home": "UNCO",
+   "away_name": "South Dakota State Jackrabbits",
+   "home_name": "Northern Colorado Bears",
+   "game_start": "2026-11-14T21:00Z",
+   "side_std": "under",
+   "money_with": false,
+   "grade": "B",
    "fair_board": null,
    "inside_fair": null,
    "books": null
@@ -903,8 +937,8 @@
    "home_name": "Rice Owls",
    "game_start": "2026-11-14T21:30Z",
    "side_std": "over",
-   "money_with": true,
-   "grade": "A",
+   "money_with": false,
+   "grade": "B",
    "fair_board": null,
    "inside_fair": null,
    "books": null
@@ -945,7 +979,7 @@
    "inside_fair": true,
    "fair_board": 0.8523,
    "books": {
-    "at": "2026-11-14T18:07:00Z",
+    "at": "2026-11-14T20:02:06Z",
     "fair": 0.8625,
     "q": {
      "Caesars": 0.871,
@@ -1024,13 +1058,13 @@
    "side_std": "away",
    "money_with": false,
    "grade": "A",
-   "fair_board": 0.5772,
+   "fair_board": 0.5778,
    "inside_fair": false,
    "books": {
-    "at": "2026-11-14T18:06:43Z",
-    "fair": 0.5772,
+    "at": "2026-11-14T20:02:06Z",
+    "fair": 0.5778,
     "q": {
-     "Novig": 0.58,
+     "Novig": 0.575,
      "DK": 0.5968,
      "Kalshi": 0.6,
      "FD": 0.6032
@@ -1224,7 +1258,7 @@
    "inside_fair": false,
    "fair_board": 0.4885,
    "books": {
-    "at": "2026-11-14T18:07:00Z",
+    "at": "2026-11-14T20:02:06Z",
     "fair": 0.4862,
     "q": {
      "Novig": 0.49,
@@ -1273,6 +1307,43 @@
    "books": null
   },
   {
+   "cond": "0xcbb1f611df8e831c6b3103e2760f2c24dde71c8b30e7d181aa16289200d454a5",
+   "slug": "nba-dal-cle-2026-11-14",
+   "title": "Mavericks vs. Cavaliers",
+   "mtype": "spread",
+   "start": "2026-11-15T00:30:00Z",
+   "bet": "Mavericks -1.5",
+   "side": "Mavericks",
+   "flagged": "2026-11-14T20:11:08Z",
+   "why": "2 top-200 accounts",
+   "proven": true,
+   "trigger": "proven",
+   "n_accounts": 2,
+   "best_rank": 4,
+   "usd": 773,
+   "paid": 0.569,
+   "ask": 0.6,
+   "status": "live",
+   "link": "https://polymarket.us/event/nba-dal-cle-2026-11-14",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401909981",
+   "sport": "nba",
+   "league": null,
+   "away": "DAL",
+   "home": "CLE",
+   "away_name": "Dallas Mavericks",
+   "home_name": "Cleveland Cavaliers",
+   "game_start": "2026-11-15T00:30Z",
+   "side_std": "away",
+   "money_with": false,
+   "grade": "A",
+   "fair_board": null,
+   "inside_fair": null,
+   "books": null
+  },
+  {
    "cond": "0x40a187afde69ab388504806d46277cae42743044e86fc13f401242cc51c55987",
    "slug": "nba-det-mia-2026-11-14",
    "title": "Pistons vs. Heat",
@@ -1305,16 +1376,16 @@
    "side_std": "away",
    "money_with": false,
    "grade": "watch",
-   "fair_board": 0.6259,
-   "inside_fair": true,
+   "fair_board": 0.6045,
+   "inside_fair": false,
    "books": {
-    "at": "2026-11-14T18:06:38Z",
-    "fair": 0.6259,
+    "at": "2026-11-14T20:02:06Z",
+    "fair": 0.6045,
     "q": {
-     "Novig": 0.62,
-     "Kalshi": 0.64,
-     "FD": 0.6667,
-     "DK": 0.67
+     "Novig": 0.61,
+     "Caesars": 0.6226,
+     "FD": 0.6324,
+     "DK": 0.6337
     }
    }
   },
@@ -1354,13 +1425,13 @@
    "inside_fair": false,
    "fair_board": 0.5081,
    "books": {
-    "at": "2026-11-14T18:07:00Z",
-    "fair": 0.4886,
+    "at": "2026-11-14T20:02:06Z",
+    "fair": 0.5017,
     "q": {
-     "Novig": 0.49,
-     "Kalshi": 0.51,
-     "DK": 0.5238,
-     "Caesars": 0.5283
+     "Novig": 0.51,
+     "DK": 0.5122,
+     "Caesars": 0.5283,
+     "Kalshi": 0.53
     }
    }
   },
@@ -1400,13 +1471,13 @@
    "inside_fair": false,
    "fair_board": 0.5103,
    "books": {
-    "at": "2026-11-14T18:06:43Z",
-    "fair": 0.5156,
+    "at": "2026-11-14T20:02:06Z",
+    "fair": 0.4903,
     "q": {
-     "Novig": 0.52,
-     "Caesars": 0.5349,
-     "DK": 0.5349,
-     "FD": 0.5349
+     "Novig": 0.505,
+     "FD": 0.5098,
+     "DK": 0.5122,
+     "Kalshi": 0.52
     }
    }
   },
@@ -1500,7 +1571,7 @@
    "best_rank": 43,
    "usd": 178,
    "paid": 0.38,
-   "ask": 0.39,
+   "ask": 0.41,
    "status": "live",
    "link": "https://polymarket.us/event/nba-lal-phx-2026-11-15",
    "other": null,
@@ -1520,7 +1591,7 @@
    "fair_board": null,
    "inside_fair": null,
    "books": {
-    "at": "2026-11-14T18:06:38Z",
+    "at": "2026-11-14T20:02:06Z",
     "fair": null,
     "q": {
      "Kalshi": 0.38
@@ -1749,7 +1820,7 @@
    "fair_board": null,
    "inside_fair": null,
    "books": {
-    "at": "2026-11-14T18:06:38Z",
+    "at": "2026-11-14T20:02:06Z",
     "fair": null,
     "q": {
      "Kalshi": 0.44
@@ -1835,7 +1906,7 @@
    ],
    "money_with": false,
    "grade": "B",
-   "fair_board": 0.4434,
+   "fair_board": 0.4448,
    "inside_fair": false,
    "books": null
   },
@@ -1878,7 +1949,7 @@
    "side_std": "home",
    "money_with": false,
    "grade": "A",
-   "fair_board": 0.5585,
+   "fair_board": 0.5572,
    "inside_fair": false,
    "books": null
   },
@@ -1964,7 +2035,7 @@
    "side_std": "away",
    "money_with": false,
    "grade": "B",
-   "fair_board": 0.4253,
+   "fair_board": 0.4243,
    "inside_fair": false,
    "books": null
   },
@@ -2007,8 +2078,8 @@
    "side_std": "away",
    "money_with": false,
    "grade": "B",
-   "fair_board": null,
-   "inside_fair": null,
+   "fair_board": 0.4956,
+   "inside_fair": false,
    "books": null
   },
   {
@@ -2589,6 +2660,13 @@
     "usd": 117
    }
   },
+  "401892712|ml": {
+   "away": {
+    "n": 1,
+    "best_rank": 132,
+    "usd": 394
+   }
+  },
   "401892713|ml": {
    "home": {
     "n": 1,
@@ -2729,9 +2807,9 @@
   },
   "401925889|total": {
    "under": {
-    "n": 1,
+    "n": 2,
     "best_rank": 110,
-    "usd": 1450
+    "usd": 1699
    }
   },
   "401917529|ml": {
