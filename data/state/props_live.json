@@ -1,19 +1,19 @@
 {
- "built": "2026-11-14T03:21:55Z",
+ "built": "2026-11-14T03:36:01Z",
  "record": {
   "n": 23,
   "won": 12,
   "lost": 11,
   "units": 0.22,
   "line_value": {
-   "n": 10,
+   "n": 11,
    "avg": 0.0,
    "positive": 0
   },
   "clv": {
-   "n": 11,
-   "avg": 1.54,
-   "beat": 11,
+   "n": 12,
+   "avg": 1.59,
+   "beat": 12,
    "by_rule": {
     "anytime td": {
      "n": 1,
@@ -26,9 +26,9 @@
      "beat": 7
     },
     "threes under": {
-     "n": 3,
-     "avg": 1.91,
-     "beat": 3
+     "n": 4,
+     "avg": 1.98,
+     "beat": 4
     }
    }
   }
@@ -110,7 +110,13 @@
    "ev_strict": 4.2,
    "pin_ts": "2026-11-14T03:07:48Z",
    "book_ts": "2026-11-14T03:07:51Z",
-   "flagged": "2026-11-14T03:08:43Z"
+   "flagged": "2026-11-14T03:08:43Z",
+   "close_ts": "2026-11-14T03:36:01Z",
+   "close_line": 2.5,
+   "close_fair": 0.5346,
+   "clv": 2.18,
+   "beat_fair": 0.0,
+   "line_value": 0.0
   }
  ]
 }
