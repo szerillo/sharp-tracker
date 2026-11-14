@@ -1,5 +1,5 @@
 {
- "built": "2026-11-14T22:01:24Z",
+ "built": "2026-11-14T22:16:01Z",
  "record": {
   "cbb_1h_total_curve": {
    "n": 4,
@@ -19,10 +19,10 @@
    }
   },
   "cfb_q1_under_curve": {
-   "n": 17,
-   "won": 6,
+   "n": 18,
+   "won": 7,
    "lost": 11,
-   "units": -2.35,
+   "units": -1.77,
    "clv": {
     "n": 10,
     "avg": -2.07,
@@ -582,7 +582,7 @@
    "book_fair": 0.5,
    "fair_gap": 1.4,
    "ev_curve": 8.9,
-   "flagged": "2026-11-14T21:07:07Z"
+   "flagged": "2026-11-14T21:19:15Z"
   },
   {
    "key": "cfb_q1_under_curve|018349e41d033e3b1fdbc14ce9b09325||under",
@@ -607,7 +607,7 @@
    "pin_price": 1.87,
    "book": null,
    "price": null,
-   "flagged": "2026-11-14T21:34:10Z"
+   "flagged": "2026-11-14T21:19:15Z"
   },
   {
    "key": "nhl_p3_under_curve|7f07a205e325038963274f255cb856cc||under",
@@ -636,7 +636,7 @@
    "book_fair": 0.5587,
    "fair_gap": -0.5,
    "ev_curve": 8.7,
-   "flagged": "2026-11-14T21:34:10Z"
+   "flagged": "2026-11-14T21:19:15Z"
   },
   {
    "key": "nhl_p3_under_curve|fa960f164539f05a9e76c85f358b93a6||under",
@@ -661,7 +661,7 @@
    "pin_price": 2.14,
    "book": null,
    "price": null,
-   "flagged": "2026-11-14T21:34:10Z"
+   "flagged": "2026-11-14T21:19:15Z"
   },
   {
    "key": "nhl_p3_under_curve|13ccf67b4b7c472d4e05fdda2b440b42||under",
@@ -702,6 +702,35 @@
    "team": "away",
    "team_name": "Florida Atlantic Owls",
    "side": "under",
+   "line": 20.5,
+   "curve": 0.521,
+   "pin_fair": 0.465,
+   "gap": 5.6,
+   "full_total": 46.0,
+   "full_spread": -4.5,
+   "pin_price": 2.07,
+   "book": "FD",
+   "price": 1.88,
+   "pin_fair_power": 0.4631,
+   "book_fair": 0.5,
+   "fair_gap": -3.5,
+   "ev_curve": -2.1,
+   "flagged": "2026-11-14T21:46:41Z"
+  },
+  {
+   "key": "cfb_tt_under_curve|018349e41d033e3b1fdbc14ce9b09325|away|under",
+   "rule": "cfb_tt_under_curve",
+   "tier": "C",
+   "stake": 0.25,
+   "sport": "cfb",
+   "odds_id": "018349e41d033e3b1fdbc14ce9b09325",
+   "espn": "401862826",
+   "game": "Florida Atlantic Owls @ Tulsa Golden Hurricane",
+   "start": "2026-11-15T00:15:00Z",
+   "market": "team_totals",
+   "team": "away",
+   "team_name": "Florida Atlantic Owls",
+   "side": "under",
    "line": 34.5,
    "curve": 0.6,
    "pin_fair": 0.537,
@@ -715,7 +744,7 @@
    "book_fair": 0.5411,
    "fair_gap": -0.4,
    "ev_curve": 3.8,
-   "flagged": "2026-11-14T22:01:24Z"
+   "flagged": "2026-11-14T22:16:01Z"
   }
  ]
 }
