@@ -1475,7 +1475,10 @@ function renderBetLog() {
   const q = (_lq || '').trim().toLowerCase(), qOk = b => !q || [b.game, b.bet, ruleName(blRule(b) || ''), b.venue].join(' ').toLowerCase().includes(q);
   const ruleKey = b => _lg === 'sharp' ? ({'sharp A': 'Grade A', 'sharp B': 'Grade B', 'sharp C': 'Grade C'})[b.cat] || b.cat : blRule(b) || '?';
   const ruleLbl = k => _lg === 'sharp' ? k : ruleName(k);
-  const inG = BL.rows.filter(GRP[_lg][1]);
+  // 11/14 (Sean): bets are graded at 1 unit flat, whatever the stake: favorites bet to win 1u, plus money risks 1u
+  const flat1 = b => { const p = b.price, u = b.counted === false || b.won == null || !(p > 0 && p < 1) ? null : b.won === 0.5 ? 0 : p > 0.5 ? (b.won ? 1 : -p / (1 - p)) : (b.won ? (1 - p) / p : -1);
+    return Object.assign({}, b, {size: 1, units: u, stake: b.size}); };
+  const inG = BL.rows.filter(GRP[_lg][1]).map(b => _lg === 'bets' ? flat1(b) : b);
   const base = inG.filter(b => BLW[_lw][1](b) && mOk(b) && sOk(b) && qOk(b));       // everything but sport, rule and result: the tables below split this
   const inSport = base.filter(b => _ls === 'all' || b.sport === _ls);
   const rows = inSport.filter(b => (_lsub === 'all' || ruleKey(b) === _lsub) && rOk(b)).sort((a, b) => a.start < b.start ? 1 : -1);
@@ -1508,7 +1511,7 @@ function renderBetLog() {
   const rec = `<div class="tsum"><div class="tsum-what">${esc(what)}</div>
       <div class="tsum-big">${S.graded ? `${blRec(S)}` : 'No graded bets'}${S.graded ? (units ? ` <span class="sep">·</span> ${money(S.units, `${S.units > 0 ? '+' : ''}${S.units.toFixed(2)}u`)} <span class="sep">·</span> ${money(roi, roi == null ? '—' : `${roi > 0 ? '+' : ''}${roi.toFixed(1)}% ROI`)}`
         : ` <span class="sep">·</span> ${money(flatR(cnt(rows)), `${flatR(cnt(rows)) > 0 ? '+' : ''}${(flatR(cnt(rows)) || 0).toFixed(1)}% flat`)}`) : ''}</div>
-      <div class="small dim">${S.n} bet${S.n === 1 ? '' : 's'}, ${S.graded} graded${units && S.risked ? `, ${S.risked.toFixed(2)}u risked` : ''}${S.clv_nv != null ? `, no-vig CLV ${blPts(S.clv_nv)}` : ''}${units ? '' : ' · paper and sharp flags carry no units: flat ROI is 1 unit a bet at the logged price'}</div></div>`;
+      <div class="small dim">${S.n} bet${S.n === 1 ? '' : 's'}, ${S.graded} graded${units && S.risked ? `, ${S.risked.toFixed(2)}u risked` : ''}${S.clv_nv != null ? `, no-vig CLV ${blPts(S.clv_nv)}` : ''}${units ? ' · 1 unit a bet: favorites to win 1u, plus money risking 1u' : ' · paper and sharp flags carry no units: flat ROI is 1 unit a bet at the logged price'}</div></div>`;
   // ---- by rule and by sport
   const line = L => { const s = blSumm(L), r = blRoi(s), f = flatR(L);
     return `<td class="num">${s.n}</td><td class="num">${blRec(s)}</td>` + (units ? `<td class="num">${s.graded ? money(s.units, `${s.units > 0 ? '+' : ''}${s.units.toFixed(2)}`) : '—'}</td><td class="num">${money(r, r == null ? '—' : `${r > 0 ? '+' : ''}${r.toFixed(1)}%`)}</td>`

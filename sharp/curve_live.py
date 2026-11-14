@@ -24,7 +24,8 @@ RULES = {
     # 11/6 paper: NHL period markets off the curve at kickoff (validate at 6 hours before the start when that pull lands)
     'nhl_p1_spread_curve': dict(sport='nhl', key='icehockey_nhl', mk='spreads_p1', per=(0, 1), gap=0.07, sides=('home', 'away'), kind='spread', tier='C', stake=0.25),
     # 11/6 9am: B after the 6-hours-before test: 243-185, +13.3%, every season (+19.7 / +5.3 / +17.9); kickoff 241-194, +10.9%
-    'nhl_p3_under_curve': dict(sport='nhl', key='icehockey_nhl', mk='totals_p3', per=(2, 1), gap=0.07, sides=('under',), tier='B', stake=0.5),
+    # 11/14 (Sean): B -> paper after 0-5 staked (-3.60u); earlier fires keep their B record, new fires log as paper
+    'nhl_p3_under_curve': dict(sport='nhl', key='icehockey_nhl', mk='totals_p3', per=(2, 1), gap=0.07, sides=('under',), tier='P', stake=0.0),
     'cfb_tt_under_curve': dict(sport='cfb', key='americanfootball_ncaaf', mk='team_totals', per=None, gap=0.05, sides=('under',), tier='C', stake=0.25),
 }
 PAPER = os.path.join(ROOT, 'data', 'state', 'curve_paper.jsonl'); OUT = os.path.join(ROOT, 'data', 'state', 'curve_live.json')
