@@ -1,5 +1,5 @@
 {
- "built": "2026-11-14T21:34:10Z",
+ "built": "2026-11-14T21:46:41Z",
  "record": {
   "cbb_1h_total_curve": {
    "n": 4,
@@ -24,8 +24,8 @@
    "lost": 11,
    "units": -2.35,
    "clv": {
-    "n": 11,
-    "avg": -2.09,
+    "n": 10,
+    "avg": -2.07,
     "beat": 1
    },
    "line_value": {
@@ -443,13 +443,7 @@
    "pin_price": 2.22,
    "book": null,
    "price": null,
-   "flagged": "2026-11-14T18:25:08Z",
-   "close_ts": "2026-11-14T21:07:07Z",
-   "close_line": 9.5,
-   "line_value": 0.0,
-   "close_fair": 0.4282,
-   "clv": -2.23,
-   "beat_fair": -0.08
+   "flagged": "2026-11-14T18:25:08Z"
   },
   {
    "key": "cfb_tt_under_curve|d03caba2636ec407098ec3e1fe18fcf7|away|under",
@@ -721,7 +715,36 @@
    "pin_price": 2.15,
    "book": null,
    "price": null,
-   "flagged": "2026-11-14T21:34:10Z"
+   "flagged": "2026-11-14T21:19:15Z"
+  },
+  {
+   "key": "cfb_tt_under_curve|5f45291a1a5e01525b2e3aebe791c436|away|under",
+   "rule": "cfb_tt_under_curve",
+   "tier": "C",
+   "stake": 0.25,
+   "sport": "cfb",
+   "odds_id": "5f45291a1a5e01525b2e3aebe791c436",
+   "espn": "401856885",
+   "game": "Texas Longhorns @ LSU Tigers",
+   "start": "2026-11-15T00:30:00Z",
+   "market": "team_totals",
+   "team": "away",
+   "team_name": "Texas Longhorns",
+   "side": "under",
+   "line": 20.5,
+   "curve": 0.521,
+   "pin_fair": 0.465,
+   "gap": 5.6,
+   "full_total": 46.0,
+   "full_spread": -4.5,
+   "pin_price": 2.07,
+   "book": "FD",
+   "price": 1.88,
+   "pin_fair_power": 0.4631,
+   "book_fair": 0.5,
+   "fair_gap": -3.5,
+   "ev_curve": -2.1,
+   "flagged": "2026-11-14T21:46:41Z"
   }
  ]
 }
