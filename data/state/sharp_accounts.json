@@ -1,5 +1,5 @@
 {
- "built": "2026-11-14T06:04:44Z",
+ "built": "2026-11-14T06:11:57Z",
  "rows": [
   {
    "cond": "0x023fe2801e367dbc1d3c14f891273d40e90f5ebbfbadc2b75316bb5fd03a32f5",
@@ -98,7 +98,7 @@
    "best_rank": 11,
    "usd": 235,
    "paid": 0.53,
-   "ask": 0.85,
+   "ask": 0.83,
    "status": "live",
    "link": "https://polymarket.us/event/cbb-airf-pacfc-2026-11-14",
    "other": null,
@@ -370,6 +370,49 @@
    "fair_board": null,
    "inside_fair": null,
    "books": null
+  },
+  {
+   "cond": "0x40a187afde69ab388504806d46277cae42743044e86fc13f401242cc51c55987",
+   "slug": "nba-det-mia-2026-11-14",
+   "title": "Pistons vs. Heat",
+   "mtype": "ml",
+   "start": "2026-11-15T01:00:00Z",
+   "bet": "Pistons ML",
+   "side": "Pistons",
+   "flagged": "2026-11-14T06:07:50Z",
+   "why": "a top-50 account",
+   "proven": true,
+   "trigger": "proven",
+   "n_accounts": 1,
+   "best_rank": 23,
+   "usd": 2951,
+   "paid": 0.65,
+   "ask": 0.65,
+   "status": "live",
+   "link": "https://polymarket.us/event/nba-det-mia-2026-11-14",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401909982",
+   "sport": "nba",
+   "league": null,
+   "away": "DET",
+   "home": "MIA",
+   "away_name": "Detroit Pistons",
+   "home_name": "Miami Heat",
+   "game_start": "2026-11-15T01:00Z",
+   "side_std": "away",
+   "money_with": false,
+   "grade": "watch",
+   "fair_board": null,
+   "inside_fair": null,
+   "books": {
+    "at": "2026-11-14T02:24:11Z",
+    "fair": null,
+    "q": {
+     "Kalshi": 0.66
+    }
+   }
   },
   {
    "cond": "0x0c637d60a9447423c980eaf62fd805a2a0a8cc27823c4b7ec2582525a754163b",
@@ -1066,6 +1109,13 @@
     "n": 1,
     "best_rank": 93,
     "usd": 542
+   }
+  },
+  "401909982|ml": {
+   "away": {
+    "n": 1,
+    "best_rank": 23,
+    "usd": 2951
    }
   },
   "401909985|ml": {
