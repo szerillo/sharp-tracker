@@ -1,5 +1,5 @@
 {
- "built": "2026-11-14T20:42:42Z",
+ "built": "2026-11-14T20:49:45Z",
  "rows": [
   {
    "cond": "0x8a37958f5b7fcef52411cf0929b2d95296e85bf65f675b2bb00b96fdf70183ee",
@@ -530,9 +530,6 @@
    "home_name": "Notre Dame Fighting Irish",
    "game_start": "2026-11-14T20:30Z",
    "side_std": "home",
-   "conflict": [
-    "Kalshi bet back"
-   ],
    "money_with": false,
    "grade": "A",
    "inside_fair": false,
@@ -616,9 +613,6 @@
    "home_name": "Liberty Flames",
    "game_start": "2026-11-14T20:30Z",
    "side_std": "home",
-   "conflict": [
-    "big money"
-   ],
    "money_with": false,
    "grade": "A",
    "fair_board": null,
@@ -729,7 +723,7 @@
    "home_name": "Northern Illinois Huskies",
    "game_start": "2026-11-14T20:30Z",
    "side_std": "over",
-   "money_with": true,
+   "money_with": false,
    "grade": "A",
    "inside_fair": false,
    "fair_board": 0.4949,
@@ -845,7 +839,7 @@
    "best_rank": 58,
    "usd": 460,
    "paid": 0.54,
-   "ask": 0.54,
+   "ask": 0.53,
    "status": "live",
    "link": "https://polymarket.us/event/cfb-frest-txst-2026-11-14",
    "other": null,
@@ -1785,49 +1779,6 @@
    "books": null
   },
   {
-   "cond": "0xb69fe3437bcc8c68cca5ef13f157052728db8470a5260041c7f3f2e76a71432f",
-   "slug": "nba-nyk-tor-2026-11-15",
-   "title": "Knicks vs. Raptors",
-   "mtype": "ml",
-   "start": "2026-11-15T23:00:00Z",
-   "bet": "Raptors ML",
-   "side": "Raptors",
-   "flagged": "2026-11-13T11:25:58Z",
-   "why": "a top-50 account",
-   "proven": false,
-   "trigger": "top50",
-   "n_accounts": 1,
-   "best_rank": 43,
-   "usd": 170,
-   "paid": 0.34,
-   "ask": 0.42,
-   "status": "live",
-   "link": "https://polymarket.us/event/nba-nyk-tor-2026-11-15",
-   "other": null,
-   "kalshi_against": null,
-   "logged": true,
-   "event_id": "401909990",
-   "sport": "nba",
-   "league": null,
-   "away": "NY",
-   "home": "TOR",
-   "away_name": "New York Knicks",
-   "home_name": "Toronto Raptors",
-   "game_start": "2026-11-15T23:00Z",
-   "side_std": "home",
-   "money_with": false,
-   "grade": "watch",
-   "fair_board": null,
-   "inside_fair": null,
-   "books": {
-    "at": "2026-11-14T19:43:05Z",
-    "fair": null,
-    "q": {
-     "Kalshi": 0.44
-    }
-   }
-  },
-  {
    "cond": "0x938960d8c1a2d38f91924167a3596107563c016316cd553ef2e3401843f8df55",
    "slug": "cfb-but-mrst-2026-11-14",
    "title": "Butler vs. Marist",
@@ -2013,16 +1964,16 @@
    "best_rank": 75,
    "usd": 14445,
    "paid": 0.446,
-   "ask": 0.46,
+   "ask": 0.45,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-bkn-mem-2026-11-14",
    "other": {
     "n_accounts": 1,
     "best_rank": 75,
-    "usd": 14185,
+    "usd": 36122,
     "first": "2026-11-14T19:44:41Z"
    },
-   "exit_bid": 0.45,
+   "exit_bid": 0.44,
    "kalshi_against": null,
    "logged": false,
    "event_id": "401909983",
@@ -2037,7 +1988,7 @@
    "money_with": false,
    "grade": "B",
    "fair_board": 0.4516,
-   "inside_fair": false,
+   "inside_fair": true,
    "books": null
   },
   {
@@ -2134,6 +2085,49 @@
    "books": null
   },
   {
+   "cond": "0xb69fe3437bcc8c68cca5ef13f157052728db8470a5260041c7f3f2e76a71432f",
+   "slug": "nba-nyk-tor-2026-11-15",
+   "title": "Knicks vs. Raptors",
+   "mtype": "ml",
+   "start": "2026-11-15T23:00:00Z",
+   "bet": "Raptors ML",
+   "side": "Raptors",
+   "flagged": "2026-11-13T11:25:58Z",
+   "why": "a top-50 account",
+   "proven": false,
+   "trigger": "top50",
+   "n_accounts": 1,
+   "best_rank": 43,
+   "usd": 170,
+   "paid": 0.34,
+   "ask": 0.42,
+   "status": "other side",
+   "link": "https://polymarket.us/event/nba-nyk-tor-2026-11-15",
+   "other": {
+    "n_accounts": 1,
+    "best_rank": 43,
+    "usd": 201,
+    "first": "2026-11-14T20:47:52Z"
+   },
+   "exit_bid": 0.4,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401909990",
+   "sport": "nba",
+   "league": null,
+   "away": "NY",
+   "home": "TOR",
+   "away_name": "New York Knicks",
+   "home_name": "Toronto Raptors",
+   "game_start": "2026-11-15T23:00Z",
+   "side_std": "home",
+   "money_with": false,
+   "grade": "watch",
+   "fair_board": null,
+   "inside_fair": null,
+   "books": null
+  },
+  {
    "cond": "0xd52bf2df8eebb1aa0f1e87662421f431d730474c81932a434e4c66d82fa00725",
    "slug": "nba-orl-bos-2026-11-16",
    "title": "Magic vs. Celtics",
@@ -2154,8 +2148,8 @@
    "link": "https://polymarket.us/event/nba-orl-bos-2026-11-16",
    "other": null,
    "kalshi_against": {
-    "move": 6.0,
-    "now": 24.5,
+    "move": 5.5,
+    "now": 24.0,
     "state": "held"
    },
    "logged": true,
@@ -2280,15 +2274,15 @@
     "clv": -0.54
    }
   },
-  "n": 238,
-  "won": 103,
+  "n": 240,
+  "won": 104,
   "units": -16.31,
   "by_grade": {
    "A": {
-    "n": 155,
-    "won": 63,
+    "n": 157,
+    "won": 64,
     "units": -15.11,
-    "clv": -0.6
+    "clv": -0.58
    },
    "B": {
     "n": 55,
@@ -2303,8 +2297,8 @@
     "clv": -0.6
    }
   },
-  "units_1u": -38.21,
-  "clv": -0.65,
+  "units_1u": -38.36,
+  "clv": -0.64,
   "n_venue": 118,
   "units_venue": -5.82,
   "clv_venue": 0.67,
@@ -2591,6 +2585,11 @@
     "n": 1,
     "best_rank": 43,
     "usd": 170
+   },
+   "away": {
+    "n": 1,
+    "best_rank": 43,
+    "usd": 201
    }
   },
   "401909994|ml": {
@@ -2760,6 +2759,13 @@
     "n": 2,
     "best_rank": 110,
     "usd": 1699
+   }
+  },
+  "401918979|spread": {
+   "away": {
+    "n": 1,
+    "best_rank": 132,
+    "usd": 349
    }
   },
   "401917529|ml": {
