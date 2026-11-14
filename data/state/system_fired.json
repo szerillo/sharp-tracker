@@ -3250,7 +3250,10 @@
 "price": -150,
 "fair": null,
 "edge_pts": null,
-"why": "conference game, MIZ +12.5 on the road, total 46.5"
+"why": "conference game, MIZ +12.5 on the road, total 46.5",
+"void": true,
+"void_why": "rule no longer holds on the current line: home spread -16.5, total 48.5 (2026-11-14T15:53:02Z)",
+"void_at": "2026-11-14T15:53:02Z"
 },
 "401856883:cfb_road_streak_dog": {
 "tag": "cfb_road_streak_dog",
@@ -5978,7 +5981,10 @@
 "price": -144,
 "fair": 0.565,
 "edge_pts": -2.5,
-"why": "home DAL lost its last game by 5, record 10-8 (56%): home moneyline (mined angle)"
+"why": "home DAL lost its last game by 5, record 10-8 (56%): home moneyline (mined angle)",
+"void": true,
+"void_why": "trigger no longer holds on current season records (2026-11-14T15:53:02Z)",
+"void_at": "2026-11-14T15:53:02Z"
 },
 "401925755:cbb_under_good_over_drop": {
 "tag": "cbb_under_good_over_drop",
@@ -6373,7 +6379,10 @@
 "price": -100,
 "fair": 0.49715,
 "edge_pts": -0.29,
-"why": "DEN on road game 4 in a row: over"
+"why": "DEN on road game 4 in a row: over",
+"void": true,
+"void_why": "trigger no longer holds on current season records (2026-11-14T15:53:02Z)",
+"void_at": "2026-11-14T15:53:02Z"
 },
 "401909983:nba_roadtrip_over": {
 "tag": "nba_roadtrip_over",
@@ -6386,7 +6395,10 @@
 "price": -110,
 "fair": 0.50287,
 "edge_pts": -2.09,
-"why": "BKN on road game 4 in a row: over"
+"why": "BKN on road game 4 in a row: over",
+"void": true,
+"void_why": "trigger no longer holds on current season records (2026-11-14T15:53:02Z)",
+"void_at": "2026-11-14T15:53:02Z"
 },
 "401909984:nba_ats_hot_home": {
 "tag": "nba_ats_hot_home",
@@ -6439,5 +6451,31 @@
 "fair": null,
 "edge_pts": null,
 "why": "VAN opened +190 on the moneyline: +1.5 on a big dog"
+},
+"401909984:nba_roadtrip_over": {
+"tag": "nba_roadtrip_over",
+"fill_id": "98e0ab6b2ff7",
+"ts": "2026-11-14T15:53:02Z",
+"market": "total",
+"side": "over",
+"line": 234.5,
+"venue": "Novig",
+"price": -104,
+"fair": 0.50515,
+"edge_pts": -0.49,
+"why": "CHI off 3 straight home games, first road game: over (Bet Labs filter)"
+},
+"401858520:xch_homedog_fade:ml": {
+"tag": "xch_homedog_fade",
+"fill_id": "ba900b946f6d",
+"ts": "2026-11-14T15:53:02Z",
+"market": "ml",
+"side": "away",
+"line": null,
+"venue": "Novig",
+"price": -308,
+"fair": 0.75261,
+"edge_pts": -0.24,
+"why": "Novig home side mid 0.247 inside T-1.1h; audit band 20-35c"
 }
 }
