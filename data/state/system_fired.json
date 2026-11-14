@@ -4338,7 +4338,10 @@
 "price": -110,
 "fair": 0.5,
 "edge_pts": -2.38,
-"why": "home favourite PSU -7.5, total 42.5: under (mined angle)"
+"why": "home favourite PSU -7.5, total 42.5: under (mined angle)",
+"void": true,
+"void_why": "rule no longer holds on the current line: home spread -10.5, total 42.0 (2026-11-13T23:56:03Z)",
+"void_at": "2026-11-13T23:56:03Z"
 },
 "401873042:xch_homedog_fade:ml": {
 "tag": "xch_homedog_fade",
@@ -5800,19 +5803,16 @@
 },
 "401909302:nba_bigfav_over": {
 "tag": "nba_bigfav_over",
-"fill_id": "48fbad71454f",
-"ts": "2026-11-13T22:10:30Z",
+"fill_id": "51f886d3a0cd",
+"ts": "2026-11-13T23:56:03Z",
 "market": "total",
 "side": "over",
 "line": 217.5,
 "venue": "Novig",
-"price": -106,
-"fair": 0.5077,
-"edge_pts": -0.73,
-"why": "SA is 85% on the moneyline: over (mined angle)",
-"void": true,
-"void_why": "trigger no longer holds on current season records (2026-11-13T22:57:02Z)",
-"void_at": "2026-11-13T22:57:02Z"
+"price": 102,
+"fair": 0.49292,
+"edge_pts": -0.21,
+"why": "SA is 85% on the moneyline: over (mined angle)"
 },
 "401869969:xch_homedog_fade:ml": {
 "tag": "xch_homedog_fade",
