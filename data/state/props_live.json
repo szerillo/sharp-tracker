@@ -1,10 +1,10 @@
 {
- "built": "2026-11-14T05:27:59Z",
+ "built": "2026-11-14T05:40:49Z",
  "record": {
-  "n": 23,
+  "n": 24,
   "won": 12,
-  "lost": 11,
-  "units": 0.22,
+  "lost": 12,
+  "units": -0.03,
   "line_value": {
    "n": 11,
    "avg": 0.0,
@@ -34,32 +34,6 @@
   }
  },
  "rows": [
-  {
-   "key": "069bea369487ef0cd3017c9ceea68817|player_shots_on_goal|Gabe Perreault|1.5",
-   "sport": "nhl",
-   "odds_id": "069bea369487ef0cd3017c9ceea68817",
-   "espn": "401892706",
-   "game": "New York Rangers @ Vancouver Canucks",
-   "start": "2026-11-14T02:10:00Z",
-   "market": "player_shots_on_goal",
-   "player": "Gabe Perreault",
-   "line": 1.5,
-   "side": "under",
-   "book": "DK",
-   "price": 2.25,
-   "fair": 0.4574,
-   "ev": 2.9,
-   "pin_under": 2.04,
-   "pin_over": 1.72,
-   "book_over": 1.59,
-   "fair_power": 0.4527,
-   "book_fair": 0.4141,
-   "fair_gap": 4.3,
-   "ev_strict": 1.9,
-   "pin_ts": "2026-11-14T01:26:39Z",
-   "book_ts": "2026-11-14T01:26:39Z",
-   "flagged": "2026-11-14T01:27:26Z"
-  },
   {
    "key": "1fae7f34ec6035dffa74feb148ee26c7|player_threes|De'Anthony Melton|1.5",
    "sport": "nba",
