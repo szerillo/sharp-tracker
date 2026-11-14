@@ -1,5 +1,5 @@
 {
- "built": "2026-11-14T15:31:05Z",
+ "built": "2026-11-14T16:15:25Z",
  "record": {
   "cbb_1h_total_curve": {
    "n": 4,
@@ -271,6 +271,35 @@
    "fair_gap": -0.9,
    "ev_curve": 6.3,
    "flagged": "2026-11-14T15:15:06Z"
+  },
+  {
+   "key": "cfb_tt_under_curve|cf67bd8ed20036fea0a72f8a0d5836e7|home|under",
+   "rule": "cfb_tt_under_curve",
+   "tier": "C",
+   "stake": 0.25,
+   "sport": "cfb",
+   "odds_id": "cf67bd8ed20036fea0a72f8a0d5836e7",
+   "espn": "401858300",
+   "game": "Syracuse Orange @ NC State Wolfpack",
+   "start": "2026-11-14T17:00:00Z",
+   "market": "team_totals",
+   "team": "home",
+   "team_name": "NC State Wolfpack",
+   "side": "under",
+   "line": 26.5,
+   "curve": 0.551,
+   "pin_fair": 0.499,
+   "gap": 5.2,
+   "full_total": 53.5,
+   "full_spread": 2.5,
+   "pin_price": 1.93,
+   "book": "Caesars",
+   "price": 1.88,
+   "pin_fair_power": 0.4986,
+   "book_fair": 0.496,
+   "fair_gap": 0.3,
+   "ev_curve": 3.5,
+   "flagged": "2026-11-14T16:15:25Z"
   }
  ]
 }
