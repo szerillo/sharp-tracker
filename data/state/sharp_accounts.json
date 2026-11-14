@@ -1,5 +1,5 @@
 {
- "built": "2026-11-14T16:02:10Z",
+ "built": "2026-11-14T16:09:05Z",
  "rows": [
   {
    "cond": "0x023fe2801e367dbc1d3c14f891273d40e90f5ebbfbadc2b75316bb5fd03a32f5",
@@ -37,7 +37,7 @@
    "fair_board": null,
    "inside_fair": null,
    "books": {
-    "at": "2026-11-14T14:59:29Z",
+    "at": "2026-11-14T15:58:17Z",
     "fair": null,
     "q": {
      "Kalshi": 0.74
@@ -84,13 +84,13 @@
    "inside_fair": false,
    "fair_board": 0.4264,
    "books": {
-    "at": "2026-11-14T14:59:29Z",
-    "fair": 0.4264,
+    "at": "2026-11-14T15:58:17Z",
+    "fair": 0.4318,
     "q": {
-     "Novig": 0.435,
+     "Novig": 0.44,
      "Caesars": 0.4405,
-     "DK": 0.4464,
-     "Kalshi": 0.45
+     "FD": 0.4444,
+     "DK": 0.4464
     }
    }
   },
@@ -233,6 +233,70 @@
    "books": null
   },
   {
+   "cond": "0x06b77fae2b331bbd37f217de381c27ae7c2dbd55ae745f9d4c421fefcbd88ec9",
+   "slug": "cfb-gtech-clmsn-2026-11-14",
+   "title": "Georgia Tech vs. Clemson",
+   "mtype": "total",
+   "start": "2026-11-14T17:30:00Z",
+   "bet": "Over 45.5",
+   "side": "Over",
+   "flagged": "2026-11-14T16:03:46Z",
+   "why": "a top-200 account also in this sport's top 50",
+   "proven": true,
+   "trigger": "proven",
+   "n_accounts": 1,
+   "best_rank": 58,
+   "usd": 317,
+   "paid": 0.56,
+   "ask": 0.57,
+   "status": "live",
+   "link": "https://polymarket.us/event/cfb-gtech-clmsn-2026-11-14",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401858297",
+   "sport": "cfb",
+   "league": null,
+   "away": "GT",
+   "home": "CLEM",
+   "away_name": "Georgia Tech Yellow Jackets",
+   "home_name": "Clemson Tigers",
+   "game_start": "2026-11-14T17:30Z",
+   "side_std": "over",
+   "money_with": false,
+   "grade": "A",
+   "fair_board": null,
+   "inside_fair": null,
+   "books": null
+  },
+  {
+   "cond": "0xdf5fbe87d14410160ccf27fcc95e41f3866a6f74ec9a596712079e84f86f70ba",
+   "slug": "cfb-pvam-arpb-2026-11-14",
+   "title": "Prairie View A&M vs. Arkansas-Pine Bluff",
+   "mtype": "ml",
+   "start": "2026-11-14T20:00:00Z",
+   "bet": "Prairie View A&M ML",
+   "side": "Prairie View A&M",
+   "flagged": "2026-11-14T16:04:25Z",
+   "why": "2 top-200 accounts",
+   "proven": true,
+   "trigger": "proven",
+   "n_accounts": 2,
+   "best_rank": 65,
+   "usd": 3219,
+   "paid": 0.558,
+   "ask": 0.56,
+   "status": "live",
+   "link": "https://polymarket.us/event/cfb-pvam-arpb-2026-11-14",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "grade": "A",
+   "fair_board": null,
+   "inside_fair": null,
+   "books": null
+  },
+  {
    "cond": "0x0e44a2d148d3c58043145ac53ad607837f7e35a0c023fa09c822939f1145256b",
    "slug": "cfb-tenn-txam-2026-11-14",
    "title": "Tennessee vs. Texas A&M",
@@ -308,10 +372,10 @@
    "inside_fair": false,
    "fair_board": 0.4864,
    "books": {
-    "at": "2026-11-14T14:59:29Z",
-    "fair": 0.4939,
+    "at": "2026-11-14T15:58:17Z",
+    "fair": 0.4954,
     "q": {
-     "Novig": 0.495,
+     "Novig": 0.5,
      "Caesars": 0.5215,
      "DK": 0.5238,
      "FD": 0.5238
@@ -393,6 +457,33 @@
    "books": null
   },
   {
+   "cond": "0xb6b8d1bd3f5c9bba3b0b8925c6bd9d4edfa4eb42f4e7a2c6bbd559e823dae1e9",
+   "slug": "cfb-wcar-samf-2026-11-14",
+   "title": "Western Carolina vs. Samford",
+   "mtype": "ml",
+   "start": "2026-11-14T20:30:00Z",
+   "bet": "Western Carolina ML",
+   "side": "Western Carolina",
+   "flagged": "2026-11-14T16:05:28Z",
+   "why": "a top-200 account also in this sport's top 50",
+   "proven": true,
+   "trigger": "proven",
+   "n_accounts": 1,
+   "best_rank": 65,
+   "usd": 4490,
+   "paid": 0.58,
+   "ask": 0.58,
+   "status": "live",
+   "link": "https://polymarket.us/event/cfb-wcar-samf-2026-11-14",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "grade": "A",
+   "fair_board": null,
+   "inside_fair": null,
+   "books": null
+  },
+  {
    "cond": "0xe569f88488ba4b313938b751ab4c481ea925cdc1780b24623275e565a60d9deb",
    "slug": "cbb-airf-pacfc-2026-11-14",
    "title": "Air Force Falcons vs. Pacific Tigers",
@@ -408,7 +499,7 @@
    "best_rank": 11,
    "usd": 235,
    "paid": 0.53,
-   "ask": 0.68,
+   "ask": 0.67,
    "status": "live",
    "link": "https://polymarket.us/event/cbb-airf-pacfc-2026-11-14",
    "other": null,
@@ -468,8 +559,8 @@
    "inside_fair": false,
    "fair_board": 0.4828,
    "books": {
-    "at": "2026-11-14T14:59:29Z",
-    "fair": 0.4764,
+    "at": "2026-11-14T15:58:17Z",
+    "fair": 0.4781,
     "q": {
      "Novig": 0.48,
      "FD": 0.5,
@@ -514,8 +605,8 @@
    "inside_fair": true,
    "fair_board": 0.8523,
    "books": {
-    "at": "2026-11-14T14:59:29Z",
-    "fair": 0.8614,
+    "at": "2026-11-14T15:58:17Z",
+    "fair": 0.8607,
     "q": {
      "Caesars": 0.871,
      "FD": 0.8734,
@@ -593,11 +684,11 @@
    "side_std": "away",
    "money_with": false,
    "grade": "A",
-   "fair_board": 0.5831,
+   "fair_board": 0.5811,
    "inside_fair": false,
    "books": {
-    "at": "2026-11-14T14:59:29Z",
-    "fair": 0.5831,
+    "at": "2026-11-14T15:58:17Z",
+    "fair": 0.5811,
     "q": {
      "Novig": 0.585,
      "DK": 0.5968,
@@ -679,13 +770,13 @@
    "inside_fair": false,
    "fair_board": 0.4885,
    "books": {
-    "at": "2026-11-14T14:59:29Z",
-    "fair": 0.4862,
+    "at": "2026-11-14T15:58:17Z",
+    "fair": 0.4911,
     "q": {
-     "Novig": 0.49,
-     "Kalshi": 0.51,
+     "Novig": 0.495,
      "DK": 0.5122,
-     "FD": 0.5122
+     "FD": 0.5122,
+     "Caesars": 0.5192
     }
    }
   },
@@ -760,16 +851,16 @@
    "side_std": "away",
    "money_with": false,
    "grade": "watch",
-   "fair_board": 0.6423,
+   "fair_board": 0.6431,
    "inside_fair": false,
    "books": {
-    "at": "2026-11-14T14:59:29Z",
-    "fair": 0.6423,
+    "at": "2026-11-14T15:58:17Z",
+    "fair": 0.6431,
     "q": {
      "Novig": 0.645,
      "DK": 0.6564,
      "Caesars": 0.661,
-     "FD": 0.6622
+     "FD": 0.6644
     }
    }
   },
@@ -809,8 +900,8 @@
    "inside_fair": false,
    "fair_board": 0.5081,
    "books": {
-    "at": "2026-11-14T14:59:29Z",
-    "fair": 0.5041,
+    "at": "2026-11-14T15:58:17Z",
+    "fair": 0.5018,
     "q": {
      "Novig": 0.505,
      "FD": 0.5238,
@@ -1115,7 +1206,7 @@
    "fair_board": null,
    "inside_fair": null,
    "books": {
-    "at": "2026-11-14T14:59:29Z",
+    "at": "2026-11-14T15:58:17Z",
     "fair": null,
     "q": {
      "Kalshi": 0.43
@@ -1184,7 +1275,7 @@
     "usd": 574,
     "first": "2026-11-14T01:57:58Z"
    },
-   "exit_bid": 0.31,
+   "exit_bid": 0.32,
    "kalshi_against": null,
    "logged": false,
    "grade": "A",
@@ -1231,7 +1322,7 @@
    "side_std": "home",
    "money_with": false,
    "grade": "B",
-   "fair_board": 0.4549,
+   "fair_board": 0.455,
    "inside_fair": false,
    "books": null
   },
@@ -1274,7 +1365,7 @@
    "side_std": "home",
    "money_with": false,
    "grade": "A",
-   "fair_board": 0.5321,
+   "fair_board": 0.5347,
    "inside_fair": false,
    "books": null
   },
@@ -1506,18 +1597,6 @@
     "usd": 714
    },
    "against": null
-  },
-  "401909980:nba_roadtrip_over": {
-   "with": {
-    "n": 1,
-    "best_rank": 132,
-    "usd": 1108
-   },
-   "against": {
-    "n": 2,
-    "best_rank": 110,
-    "usd": 6692
-   }
   }
  },
  "by_event": {
@@ -1782,6 +1861,13 @@
     "n": 1,
     "best_rank": 58,
     "usd": 460
+   }
+  },
+  "401858297|total": {
+   "over": {
+    "n": 1,
+    "best_rank": 58,
+    "usd": 317
    }
   },
   "401858518|spread": {
