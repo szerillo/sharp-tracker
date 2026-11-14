@@ -1,5 +1,5 @@
 {
- "built": "2026-11-14T06:25:18Z",
+ "built": "2026-11-14T06:53:08Z",
  "rows": [
   {
    "cond": "0x023fe2801e367dbc1d3c14f891273d40e90f5ebbfbadc2b75316bb5fd03a32f5",
@@ -61,7 +61,7 @@
    "best_rank": 4,
    "usd": 294,
    "paid": 0.881,
-   "ask": 0.907,
+   "ask": 0.905,
    "status": "live",
    "link": "https://polymarket.us/event/cfb-tenn-txam-2026-11-14",
    "other": null,
@@ -98,7 +98,7 @@
    "best_rank": 11,
    "usd": 235,
    "paid": 0.53,
-   "ask": 0.8,
+   "ask": 0.81,
    "status": "live",
    "link": "https://polymarket.us/event/cbb-airf-pacfc-2026-11-14",
    "other": null,
@@ -486,49 +486,6 @@
    "books": null
   },
   {
-   "cond": "0x6939f2859abf4a29b7e4587d96b0f2ff88597ffdcafae357af8435b083289f19",
-   "slug": "nba-ind-phi-2026-11-15",
-   "title": "Pacers vs. 76ers",
-   "mtype": "ml",
-   "start": "2026-11-15T18:00:00Z",
-   "bet": "76ers ML",
-   "side": "76ers",
-   "flagged": "2026-11-12T19:17:24Z",
-   "why": "a top-50 account",
-   "proven": false,
-   "trigger": "top50",
-   "n_accounts": 1,
-   "best_rank": 43,
-   "usd": 230,
-   "paid": 0.79,
-   "ask": 0.8,
-   "status": "live",
-   "link": "https://polymarket.us/event/nba-ind-phi-2026-11-15",
-   "other": null,
-   "kalshi_against": null,
-   "logged": true,
-   "event_id": "401909985",
-   "sport": "nba",
-   "league": null,
-   "away": "IND",
-   "home": "PHI",
-   "away_name": "Indiana Pacers",
-   "home_name": "Philadelphia 76ers",
-   "game_start": "2026-11-15T18:00Z",
-   "side_std": "home",
-   "money_with": false,
-   "grade": "watch",
-   "fair_board": null,
-   "inside_fair": null,
-   "books": {
-    "at": "2026-11-14T02:24:11Z",
-    "fair": null,
-    "q": {
-     "Kalshi": 0.82
-    }
-   }
-  },
-  {
    "cond": "0x3b773f3b5203b36a388f1a3f242b5012e7d4eb0b8fd6f3773f23185485b99c8f",
    "slug": "nfl-la-ari-2026-11-15",
    "title": "Rams vs. Cardinals",
@@ -877,6 +834,49 @@
    "books": null
   },
   {
+   "cond": "0x6939f2859abf4a29b7e4587d96b0f2ff88597ffdcafae357af8435b083289f19",
+   "slug": "nba-ind-phi-2026-11-15",
+   "title": "Pacers vs. 76ers",
+   "mtype": "ml",
+   "start": "2026-11-15T18:00:00Z",
+   "bet": "76ers ML",
+   "side": "76ers",
+   "flagged": "2026-11-12T19:17:24Z",
+   "why": "a top-50 account",
+   "proven": false,
+   "trigger": "top50",
+   "n_accounts": 1,
+   "best_rank": 43,
+   "usd": 230,
+   "paid": 0.79,
+   "ask": 0.8,
+   "status": "other side",
+   "link": "https://polymarket.us/event/nba-ind-phi-2026-11-15",
+   "other": {
+    "n_accounts": 1,
+    "best_rank": 132,
+    "usd": 317,
+    "first": "2026-11-14T06:50:34Z"
+   },
+   "exit_bid": 0.79,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401909985",
+   "sport": "nba",
+   "league": null,
+   "away": "IND",
+   "home": "PHI",
+   "away_name": "Indiana Pacers",
+   "home_name": "Philadelphia 76ers",
+   "game_start": "2026-11-15T18:00Z",
+   "side_std": "home",
+   "money_with": false,
+   "grade": "watch",
+   "fair_board": null,
+   "inside_fair": null,
+   "books": null
+  },
+  {
    "cond": "0xa4205ef4d7859ca4bbfbe3bf42454f854489c4187133b895d17a21175d4d668b",
    "slug": "nba-gsw-nop-2026-11-16",
    "title": "Warriors vs. Pelicans",
@@ -1077,6 +1077,11 @@
     "n": 1,
     "best_rank": 43,
     "usd": 230
+   },
+   "away": {
+    "n": 1,
+    "best_rank": 132,
+    "usd": 317
    }
   },
   "401909987|ml": {
@@ -1129,6 +1134,13 @@
     "n": 1,
     "best_rank": 4,
     "usd": 431
+   }
+  },
+  "401892711|spread": {
+   "away": {
+    "n": 1,
+    "best_rank": 132,
+    "usd": 117
    }
   },
   "401892713|ml": {
