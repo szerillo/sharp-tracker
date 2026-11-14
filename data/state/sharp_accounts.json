@@ -1,5 +1,5 @@
 {
- "built": "2026-11-14T21:18:19Z",
+ "built": "2026-11-14T21:24:55Z",
  "rows": [
   {
    "cond": "0x06b77fae2b331bbd37f217de381c27ae7c2dbd55ae745f9d4c421fefcbd88ec9",
@@ -675,9 +675,6 @@
    "home_name": "Texas State Bobcats",
    "game_start": "2026-11-14T21:00Z",
    "side_std": "under",
-   "conflict": [
-    "big money"
-   ],
    "money_with": false,
    "grade": "A",
    "fair_board": null,
@@ -752,8 +749,8 @@
    "home_name": "Rice Owls",
    "game_start": "2026-11-14T21:30Z",
    "side_std": "over",
-   "money_with": true,
-   "grade": "A",
+   "money_with": false,
+   "grade": "B",
    "fair_board": null,
    "inside_fair": null,
    "books": null
@@ -774,7 +771,7 @@
    "best_rank": 11,
    "usd": 1632,
    "paid": 0.37,
-   "ask": 0.31,
+   "ask": 0.35,
    "status": "live",
    "link": "https://polymarket.us/event/cfb-kan-wvir-2026-11-14",
    "other": null,
@@ -829,6 +826,43 @@
      "FD": 0.878
     }
    }
+  },
+  {
+   "cond": "0x9b5578ea88ccda0f948797736a8bb97fc20baeb3f73f64f495f634ab066108fe",
+   "slug": "cfb-oregst-boise-2026-11-14",
+   "title": "Oregon State vs. Boise State",
+   "mtype": "total",
+   "start": "2026-11-14T23:00:00Z",
+   "bet": "Under 65.5",
+   "side": "Under",
+   "flagged": "2026-11-14T21:22:46Z",
+   "why": "a top-200 account also in this sport's top 50",
+   "proven": true,
+   "trigger": "proven",
+   "n_accounts": 1,
+   "best_rank": 58,
+   "usd": 279,
+   "paid": 0.53,
+   "ask": 0.54,
+   "status": "live",
+   "link": "https://polymarket.us/event/cfb-oregst-boise-2026-11-14",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401860914",
+   "sport": "cfb",
+   "league": null,
+   "away": "ORST",
+   "home": "BOIS",
+   "away_name": "Oregon State Beavers",
+   "home_name": "Boise State Broncos",
+   "game_start": "2026-11-14T23:00Z",
+   "side_std": "under",
+   "money_with": false,
+   "grade": "A",
+   "fair_board": null,
+   "inside_fair": null,
+   "books": null
   },
   {
    "cond": "0x3973b1825585afc8ab2a6c2a2323937be97b911ceec9075d945a36ebce0b77b9",
@@ -1247,7 +1281,7 @@
    "best_rank": 58,
    "usd": 480,
    "paid": 0.48,
-   "ask": 0.48,
+   "ask": 0.5,
    "status": "live",
    "link": "https://polymarket.us/event/cfb-ntx-utsa-2026-11-14",
    "other": null,
@@ -1902,7 +1936,7 @@
    "best_rank": 43,
    "usd": 230,
    "paid": 0.79,
-   "ask": 0.75,
+   "ask": 0.74,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-ind-phi-2026-11-15",
    "other": {
@@ -1911,7 +1945,7 @@
     "usd": 785,
     "first": "2026-11-14T06:50:34Z"
    },
-   "exit_bid": 0.74,
+   "exit_bid": 0.73,
    "kalshi_against": {
     "move": 5.5,
     "now": 25.5,
@@ -1952,7 +1986,7 @@
    "best_rank": 43,
    "usd": 170,
    "paid": 0.34,
-   "ask": 0.42,
+   "ask": 0.41,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-nyk-tor-2026-11-15",
    "other": {
@@ -1961,7 +1995,7 @@
     "usd": 201,
     "first": "2026-11-14T20:47:52Z"
    },
-   "exit_bid": 0.39,
+   "exit_bid": 0.4,
    "kalshi_against": null,
    "logged": true,
    "event_id": "401909990",
@@ -2546,6 +2580,13 @@
     "n": 1,
     "best_rank": 4,
     "usd": 208
+   }
+  },
+  "401860914|total": {
+   "under": {
+    "n": 1,
+    "best_rank": 58,
+    "usd": 279
    }
   },
   "401864538|total": {
