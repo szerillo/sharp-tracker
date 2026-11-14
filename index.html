@@ -1688,7 +1688,7 @@ async function load() {
     const J = p => fetch(p, {cache: 'no-store'}).then(r => r.ok ? r.json() : null).catch(() => null);
     const SIDE = ['data/state/edges.json', 'data/state/moves.json', 'data/state/system_fires.json', 'data/state/flow_live.json', 'data/state/tennis_watch.json',
       'data/state/mma_steam.json', 'data/state/kalshi_flow.json', 'data/state/stale_live.json', 'data/state/props_live.json', 'data/state/curve_live.json',
-      'data/research/poly_pinnacle.json', 'data/state/tape_health.json', 'data/state/signal_snap.json', 'data/state/sharp_accounts.json', 'data/state/bet_log.json', 'data/state/audit.json', 'data/state/offers.json', 'data/state/offers_record.json', 'data/betlabs/current_picks.json'];
+      'data/research/poly_pinnacle.json', 'data/state/tape_health.json', 'data/state/signal_snap.json', 'data/state/sharp_accounts.json', 'data/state/bet_log.json', 'data/state/audit.json', 'data/state/offers.json', 'data/state/offers_record.json', 'data/state/betlabs_picks.json'];
     const fresh = window._SIDE && Date.now() - window._SIDE.t < 120000;
     const [d0, side] = await Promise.all([J(u), fresh ? Promise.resolve(window._SIDE.v) : Promise.all(SIDE.map(J))]);
     if (!fresh) window._SIDE = {t: Date.now(), v: side};
