@@ -565,6 +565,9 @@
    "home_name": "Boise State Broncos",
    "game_start": "2026-11-14T23:00Z",
    "side_std": "under",
+   "conflict": [
+    "big money"
+   ],
    "money_with": false,
    "grade": "A",
    "fair_board": 0.4873,
@@ -1293,9 +1296,6 @@
    "home_name": "Oklahoma State Cowboys",
    "game_start": "2026-11-15T02:30Z",
    "side_std": "under",
-   "conflict": [
-    "Kalshi move"
-   ],
    "money_with": false,
    "grade": "A",
    "inside_fair": false,
@@ -1859,7 +1859,7 @@
    "best_rank": 95,
    "usd": 1321,
    "paid": 0.543,
-   "ask": 0.63,
+   "ask": 0.62,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-dal-cle-2026-11-14",
    "other": {
@@ -1868,7 +1868,7 @@
     "usd": 777,
     "first": "2026-11-14T22:55:50Z"
    },
-   "exit_bid": 0.62,
+   "exit_bid": 0.61,
    "kalshi_against": null,
    "logged": false,
    "ladder": true,
@@ -1896,7 +1896,7 @@
    "bet": "Nets ML",
    "side": "Nets",
    "flagged": "2026-11-14T19:37:10Z",
-   "why": "4 top-200 accounts",
+   "why": "3 top-200 accounts",
    "proven": false,
    "trigger": "two",
    "n_accounts": 4,
@@ -1989,16 +1989,16 @@
    "best_rank": 75,
    "usd": 6364,
    "paid": 0.41,
-   "ask": 0.47,
+   "ask": 0.46,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-bkn-mem-2026-11-14",
    "other": {
-    "n_accounts": 2,
-    "best_rank": 75,
-    "usd": 6963,
+    "n_accounts": 1,
+    "best_rank": 112,
+    "usd": 6189,
     "first": "2026-11-14T23:20:41Z"
    },
-   "exit_bid": 0.46,
+   "exit_bid": 0.45,
    "kalshi_against": null,
    "logged": true,
    "event_id": "401909983",
@@ -2015,52 +2015,6 @@
    ],
    "money_with": false,
    "grade": "B",
-   "fair_board": null,
-   "inside_fair": null,
-   "books": null
-  },
-  {
-   "cond": "0x10ac71d3e4050b6fd0359bac257ace8d5bb210b021effb9dc59756f6ff528283",
-   "slug": "nba-chi-min-2026-11-14",
-   "title": "Bulls vs. Timberwolves",
-   "mtype": "spread",
-   "start": "2026-11-15T01:00:00Z",
-   "bet": "Bulls +16.5",
-   "side": "Bulls",
-   "flagged": "2026-11-14T23:32:11Z",
-   "why": "a top-50 account",
-   "proven": false,
-   "trigger": "top50",
-   "n_accounts": 1,
-   "best_rank": 49,
-   "usd": 2468,
-   "paid": 0.539,
-   "ask": 0.53,
-   "status": "other side",
-   "link": "https://polymarket.us/event/nba-chi-min-2026-11-14",
-   "other": {
-    "n_accounts": 1,
-    "best_rank": 49,
-    "usd": 5473,
-    "first": "2026-11-14T23:32:41Z"
-   },
-   "exit_bid": 0.52,
-   "kalshi_against": null,
-   "logged": false,
-   "event_id": "401909984",
-   "sport": "nba",
-   "league": null,
-   "away": "CHI",
-   "home": "MIN",
-   "away_name": "Chicago Bulls",
-   "home_name": "Minnesota Timberwolves",
-   "game_start": "2026-11-15T01:00Z",
-   "side_std": "away",
-   "conflict": [
-    "Kalshi move"
-   ],
-   "money_with": false,
-   "grade": "watch",
    "fair_board": null,
    "inside_fair": null,
    "books": null
@@ -2568,9 +2522,9 @@
   },
   "401909983|ml": {
    "away": {
-    "n": 4,
+    "n": 3,
     "best_rank": 49,
-    "usd": 17356
+    "usd": 16945
    },
    "home": {
     "n": 4,
