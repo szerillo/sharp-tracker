@@ -1,5 +1,5 @@
 {
- "built": "2026-11-14T17:05:17Z",
+ "built": "2026-11-14T17:26:23Z",
  "rows": [
   {
    "cond": "0x023fe2801e367dbc1d3c14f891273d40e90f5ebbfbadc2b75316bb5fd03a32f5",
@@ -69,10 +69,7 @@
    "home_name": "Iowa State Cyclones",
    "game_start": "2026-11-14T17:00Z",
    "side_std": "away",
-   "conflict": [
-    "Kalshi move"
-   ],
-   "money_with": true,
+   "money_with": false,
    "grade": "A",
    "inside_fair": false,
    "fair_board": 0.4264,
@@ -118,7 +115,7 @@
    "home_name": "Iowa State Cyclones",
    "game_start": "2026-11-14T17:00Z",
    "side_std": "away",
-   "money_with": true,
+   "money_with": false,
    "grade": "A",
    "fair_board": null,
    "inside_fair": null,
@@ -281,7 +278,7 @@
    "best_rank": 115,
    "usd": 6203,
    "paid": 0.5,
-   "ask": 0.51,
+   "ask": 0.52,
    "status": "live",
    "link": "https://polymarket.us/event/cfb-gtech-clmsn-2026-11-14",
    "other": null,
@@ -321,7 +318,7 @@
    "best_rank": 4,
    "usd": 133,
    "paid": 0.51,
-   "ask": 0.54,
+   "ask": 0.53,
    "status": "live",
    "link": "https://polymarket.us/event/cbb-drexel-maine-2026-11-14",
    "other": null,
@@ -341,6 +338,52 @@
    "fair_board": null,
    "inside_fair": null,
    "books": null
+  },
+  {
+   "cond": "0xa183a0b2ce3da2c1a20abf6675e5b44bfa76ac97a211f8a404ed4137bdc9a8fc",
+   "slug": "nhl-sea-car-2026-11-14",
+   "title": "Kraken vs. Hurricanes",
+   "mtype": "total",
+   "start": "2026-11-14T18:00:00Z",
+   "bet": "Under 6.5",
+   "side": "Under",
+   "flagged": "2026-11-14T17:16:56Z",
+   "why": "a top-200 account also in this sport's top 50",
+   "proven": true,
+   "trigger": "proven",
+   "n_accounts": 1,
+   "best_rank": 79,
+   "usd": 6551,
+   "paid": 0.53,
+   "ask": 0.52,
+   "status": "live",
+   "link": "https://polymarket.us/event/nhl-sea-car-2026-11-14",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401891809",
+   "sport": "nhl",
+   "league": null,
+   "away": "SEA",
+   "home": "CAR",
+   "away_name": "Seattle Kraken",
+   "home_name": "Carolina Hurricanes",
+   "game_start": "2026-11-14T18:00Z",
+   "side_std": "under",
+   "money_with": false,
+   "grade": "A",
+   "fair_board": 0.5222,
+   "inside_fair": true,
+   "books": {
+    "at": "2026-11-14T17:01:53Z",
+    "fair": 0.5222,
+    "q": {
+     "Novig": 0.525,
+     "FD": 0.5413,
+     "Caesars": 0.5455,
+     "DK": 0.5495
+    }
+   }
   },
   {
    "cond": "0xdf5fbe87d14410160ccf27fcc95e41f3866a6f74ec9a596712079e84f86f70ba",
@@ -385,7 +428,7 @@
    "best_rank": 4,
    "usd": 294,
    "paid": 0.881,
-   "ask": 0.914,
+   "ask": 0.907,
    "status": "live",
    "link": "https://polymarket.us/event/cfb-tenn-txam-2026-11-14",
    "other": null,
@@ -575,7 +618,7 @@
    "best_rank": 11,
    "usd": 235,
    "paid": 0.53,
-   "ask": 0.63,
+   "ask": 0.65,
    "status": "live",
    "link": "https://polymarket.us/event/cbb-airf-pacfc-2026-11-14",
    "other": null,
@@ -797,7 +840,7 @@
    "side_std": "away",
    "money_with": false,
    "grade": "A",
-   "fair_board": 0.5811,
+   "fair_board": 0.5817,
    "inside_fair": true,
    "books": {
     "at": "2026-11-14T17:01:53Z",
@@ -919,6 +962,43 @@
     "Kalshi move"
    ],
    "money_with": false,
+   "grade": "A",
+   "fair_board": null,
+   "inside_fair": null,
+   "books": null
+  },
+  {
+   "cond": "0x14c0323dac416f91c3eaccb31b7f0138901c6a8cccaeb1f3341dfbb625a04e26",
+   "slug": "cfb-flatl-tulsa-2026-11-14",
+   "title": "Florida Atlantic vs. Tulsa",
+   "mtype": "total",
+   "start": "2026-11-15T00:15:00Z",
+   "bet": "Under 73.5",
+   "side": "Under",
+   "flagged": "2026-11-14T17:24:20Z",
+   "why": "a top-200 account also in this sport's top 50",
+   "proven": true,
+   "trigger": "proven",
+   "n_accounts": 1,
+   "best_rank": 58,
+   "usd": 203,
+   "paid": 0.52,
+   "ask": 0.53,
+   "status": "live",
+   "link": "https://polymarket.us/event/cfb-flatl-tulsa-2026-11-14",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401862826",
+   "sport": "cfb",
+   "league": null,
+   "away": "FAU",
+   "home": "TLSA",
+   "away_name": "Florida Atlantic Owls",
+   "home_name": "Tulsa Golden Hurricane",
+   "game_start": "2026-11-15T00:15Z",
+   "side_std": "under",
+   "money_with": true,
    "grade": "A",
    "fair_board": null,
    "inside_fair": null,
@@ -1796,6 +1876,14 @@
   "clv_poly_same": -1.13
  },
  "sys_tags": {
+  "401858523:cfb_homefav_7510_under": {
+   "with": {
+    "n": 1,
+    "best_rank": 132,
+    "usd": 107
+   },
+   "against": null
+  },
   "401858297:cfb_road_dog_low_total": {
    "with": {
     "n": 1,
@@ -2135,6 +2223,13 @@
     "usd": 6203
    }
   },
+  "401856889|spread": {
+   "away": {
+    "n": 1,
+    "best_rank": 182,
+    "usd": 293
+   }
+  },
   "401869937|ml": {
    "away": {
     "n": 1,
@@ -2161,6 +2256,13 @@
     "n": 1,
     "best_rank": 132,
     "usd": 107
+   }
+  },
+  "401862826|total": {
+   "under": {
+    "n": 1,
+    "best_rank": 58,
+    "usd": 203
    }
   },
   "401869952|total": {
