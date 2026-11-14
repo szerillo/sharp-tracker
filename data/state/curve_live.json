@@ -1,5 +1,5 @@
 {
- "built": "2026-11-14T04:51:12Z",
+ "built": "2026-11-14T05:03:37Z",
  "record": {
   "cbb_1h_total_curve": {
    "n": 4,
@@ -53,10 +53,10 @@
    }
   },
   "nhl_p3_under_curve": {
-   "n": 21,
-   "won": 3,
+   "n": 22,
+   "won": 4,
    "lost": 13,
-   "units": -3.67,
+   "units": -3.38,
    "clv": {
     "n": 12,
     "avg": -2.36,
@@ -76,37 +76,5 @@
    "units": -1.68
   }
  },
- "rows": [
-  {
-   "key": "nhl_p3_under_curve|069bea369487ef0cd3017c9ceea68817||under",
-   "rule": "nhl_p3_under_curve",
-   "tier": "P",
-   "stake": 0.0,
-   "sport": "nhl",
-   "odds_id": "069bea369487ef0cd3017c9ceea68817",
-   "espn": "401892706",
-   "game": "New York Rangers @ Vancouver Canucks",
-   "start": "2026-11-14T02:10:00Z",
-   "market": "totals_p3",
-   "team": null,
-   "team_name": null,
-   "side": "under",
-   "line": 2.0,
-   "curve": 0.547,
-   "pin_fair": 0.45,
-   "gap": 9.7,
-   "full_total": 6.5,
-   "full_spread": 1.5,
-   "pin_price": 2.14,
-   "book": null,
-   "price": null,
-   "flagged": "2026-11-13T23:24:49Z",
-   "close_ts": "2026-11-14T02:03:58Z",
-   "close_line": 2.0,
-   "line_value": 0.0,
-   "close_fair": 0.4499,
-   "clv": -1.74,
-   "beat_fair": -0.01
-  }
- ]
+ "rows": []
 }
