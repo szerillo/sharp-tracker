@@ -1,5 +1,5 @@
 {
- "built": "2026-11-14T22:58:00Z",
+ "built": "2026-11-14T23:31:49Z",
  "rows": [
   {
    "cond": "0xdf5fbe87d14410160ccf27fcc95e41f3866a6f74ec9a596712079e84f86f70ba",
@@ -565,9 +565,6 @@
    "home_name": "Boise State Broncos",
    "game_start": "2026-11-14T23:00Z",
    "side_std": "under",
-   "conflict": [
-    "big money"
-   ],
    "money_with": false,
    "grade": "A",
    "fair_board": 0.4873,
@@ -719,7 +716,7 @@
    "best_rank": 4,
    "usd": 2631,
    "paid": 0.49,
-   "ask": 0.47,
+   "ask": 0.46,
    "status": "live",
    "link": "https://polymarket.us/event/cbb-uwg-chsou-2026-11-14",
    "other": null,
@@ -1218,46 +1215,6 @@
      "DK": 0.6337
     }
    }
-  },
-  {
-   "cond": "0x743b58d306cb6bf88903bb914fd2723b78843a733fe7c4fd5941fdb78f8503f7",
-   "slug": "nba-bkn-mem-2026-11-14",
-   "title": "Nets vs. Grizzlies",
-   "mtype": "spread",
-   "start": "2026-11-15T01:00:00Z",
-   "bet": "Grizzlies -4.5",
-   "side": "Grizzlies",
-   "flagged": "2026-11-14T23:10:50Z",
-   "why": "2 top-200 accounts",
-   "proven": false,
-   "trigger": "two",
-   "n_accounts": 2,
-   "best_rank": 75,
-   "usd": 6364,
-   "paid": 0.41,
-   "ask": 0.42,
-   "status": "live",
-   "link": "https://polymarket.us/event/nba-bkn-mem-2026-11-14",
-   "other": null,
-   "kalshi_against": null,
-   "logged": true,
-   "event_id": "401909983",
-   "sport": "nba",
-   "league": null,
-   "away": "BKN",
-   "home": "MEM",
-   "away_name": "Brooklyn Nets",
-   "home_name": "Memphis Grizzlies",
-   "game_start": "2026-11-15T01:00Z",
-   "side_std": "home",
-   "conflict": [
-    "Kalshi move"
-   ],
-   "money_with": false,
-   "grade": "B",
-   "fair_board": null,
-   "inside_fair": null,
-   "books": null
   },
   {
    "cond": "0xdebe7982500f8d644335dd435fc94748ccaed8a49e27501f00bee6650594cf84",
@@ -1809,7 +1766,7 @@
    "best_rank": 69,
    "usd": 113,
    "paid": 0.52,
-   "ask": 0.57,
+   "ask": 0.56,
    "status": "other side",
    "link": "https://polymarket.us/event/nhl-col-mon-2026-11-14",
    "other": {
@@ -1818,7 +1775,7 @@
     "usd": 431,
     "first": "2026-11-14T02:47:02Z"
    },
-   "exit_bid": 0.56,
+   "exit_bid": 0.55,
    "kalshi_against": null,
    "logged": true,
    "event_id": "401892711",
@@ -1833,7 +1790,7 @@
    "money_with": false,
    "grade": "A",
    "fair_board": 0.5653,
-   "inside_fair": false,
+   "inside_fair": true,
    "books": null
   },
   {
@@ -1896,7 +1853,7 @@
    "best_rank": 95,
    "usd": 1321,
    "paid": 0.543,
-   "ask": 0.62,
+   "ask": 0.63,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-dal-cle-2026-11-14",
    "other": {
@@ -1905,7 +1862,7 @@
     "usd": 777,
     "first": "2026-11-14T22:55:50Z"
    },
-   "exit_bid": 0.61,
+   "exit_bid": 0.62,
    "kalshi_against": null,
    "logged": false,
    "ladder": true,
@@ -1936,17 +1893,17 @@
    "why": "3 top-200 accounts",
    "proven": false,
    "trigger": "two",
-   "n_accounts": 2,
-   "best_rank": 75,
-   "usd": 14445,
-   "paid": 0.446,
-   "ask": 0.43,
+   "n_accounts": 3,
+   "best_rank": 49,
+   "usd": 16945,
+   "paid": 0.436,
+   "ask": 0.38,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-bkn-mem-2026-11-14",
    "other": {
     "n_accounts": 2,
     "best_rank": 42,
-    "usd": 88997,
+    "usd": 95991,
     "first": "2026-11-14T19:44:41Z"
    },
    "exit_bid": 0.42,
@@ -2026,16 +1983,16 @@
    "best_rank": 75,
    "usd": 6364,
    "paid": 0.41,
-   "ask": 0.46,
+   "ask": 0.47,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-bkn-mem-2026-11-14",
    "other": {
-    "n_accounts": 1,
-    "best_rank": 112,
-    "usd": 6189,
+    "n_accounts": 2,
+    "best_rank": 75,
+    "usd": 6963,
     "first": "2026-11-14T23:20:41Z"
    },
-   "exit_bid": 0.45,
+   "exit_bid": 0.46,
    "kalshi_against": null,
    "logged": true,
    "event_id": "401909983",
@@ -2072,7 +2029,7 @@
    "best_rank": 43,
    "usd": 230,
    "paid": 0.79,
-   "ask": 0.71,
+   "ask": 0.75,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-ind-phi-2026-11-15",
    "other": {
@@ -2081,7 +2038,7 @@
     "usd": 2590,
     "first": "2026-11-14T06:50:34Z"
    },
-   "exit_bid": 0.7,
+   "exit_bid": 0.74,
    "kalshi_against": {
     "move": 11.5,
     "now": 31.5,
@@ -2122,7 +2079,7 @@
    "best_rank": 43,
    "usd": 170,
    "paid": 0.34,
-   "ask": 0.43,
+   "ask": 0.42,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-nyk-tor-2026-11-15",
    "other": {
@@ -2131,7 +2088,7 @@
     "usd": 201,
     "first": "2026-11-14T20:47:52Z"
    },
-   "exit_bid": 0.41,
+   "exit_bid": 0.4,
    "kalshi_against": null,
    "logged": true,
    "event_id": "401909990",
@@ -2296,8 +2253,8 @@
     "clv": -0.52
    }
   },
-  "n": 247,
-  "won": 106,
+  "n": 248,
+  "won": 107,
   "units": -16.31,
   "by_grade": {
    "A": {
@@ -2307,8 +2264,8 @@
     "clv": -0.56
    },
    "B": {
-    "n": 56,
-    "won": 30,
+    "n": 57,
+    "won": 31,
     "units": 0.89,
     "clv": -0.82
    },
@@ -2319,7 +2276,7 @@
     "clv": -0.6
    }
   },
-  "units_1u": -41.47,
+  "units_1u": -41.38,
   "clv": -0.62,
   "n_venue": 120,
   "units_venue": -5.82,
@@ -2535,9 +2492,9 @@
   },
   "401909983|spread": {
    "away": {
-    "n": 2,
-    "best_rank": 112,
-    "usd": 93383
+    "n": 3,
+    "best_rank": 75,
+    "usd": 94157
    },
    "home": {
     "n": 2,
