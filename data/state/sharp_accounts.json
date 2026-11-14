@@ -1,5 +1,5 @@
 {
- "built": "2026-11-14T05:07:34Z",
+ "built": "2026-11-14T05:14:19Z",
  "rows": [
   {
    "cond": "0x34b943e0e102f73967ce12d39dcc689144d69a568ae860d956c8082f29e387f5",
@@ -727,7 +727,7 @@
    "best_rank": 43,
    "usd": 170,
    "paid": 0.34,
-   "ask": 0.43,
+   "ask": 0.42,
    "status": "live",
    "link": "https://polymarket.us/event/nba-nyk-tor-2026-11-15",
    "other": null,
@@ -981,7 +981,17 @@
    "exit_bid": 0.42,
    "kalshi_against": null,
    "logged": true,
-   "grade": "B",
+   "event_id": "401910000",
+   "sport": "nba",
+   "league": null,
+   "away": "GS",
+   "home": "NO",
+   "away_name": "Golden State Warriors",
+   "home_name": "New Orleans Pelicans",
+   "game_start": "2026-11-17T01:00Z",
+   "side_std": "home",
+   "money_with": false,
+   "grade": "watch",
    "fair_board": null,
    "inside_fair": null,
    "books": null
@@ -996,13 +1006,13 @@
     "clv": -1.93
    },
    "outside": {
-    "n": 52,
+    "n": 53,
     "won": 28,
     "units": -0.96,
     "clv": -0.59
    }
   },
-  "n": 230,
+  "n": 231,
   "won": 100,
   "units": -16.31,
   "by_grade": {
@@ -1013,7 +1023,7 @@
     "clv": -0.63
    },
    "B": {
-    "n": 53,
+    "n": 54,
     "won": 29,
     "units": 0.89,
     "clv": -0.82
@@ -1025,9 +1035,9 @@
     "clv": -0.68
    }
   },
-  "units_1u": -36.98,
+  "units_1u": -37.98,
   "clv": -0.68,
-  "n_venue": 112,
+  "n_venue": 113,
   "units_venue": -5.82,
   "clv_venue": 0.7,
   "clv_poly_same": -1.17
@@ -1158,6 +1168,18 @@
     "n": 1,
     "best_rank": 43,
     "usd": 170
+   }
+  },
+  "401910000|ml": {
+   "home": {
+    "n": 1,
+    "best_rank": 43,
+    "usd": 1173
+   },
+   "away": {
+    "n": 1,
+    "best_rank": 43,
+    "usd": 203
    }
   },
   "401892710|ml": {
