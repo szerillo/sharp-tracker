@@ -1,5 +1,5 @@
 {
- "built": "2026-11-14T11:55:00Z",
+ "built": "2026-11-14T12:05:23Z",
  "rows": [
   {
    "cond": "0x023fe2801e367dbc1d3c14f891273d40e90f5ebbfbadc2b75316bb5fd03a32f5",
@@ -60,7 +60,7 @@
    "best_rank": 4,
    "usd": 294,
    "paid": 0.881,
-   "ask": 0.908,
+   "ask": 0.909,
    "status": "live",
    "link": "https://polymarket.us/event/cfb-tenn-txam-2026-11-14",
    "other": null,
@@ -82,6 +82,55 @@
    "books": null
   },
   {
+   "cond": "0xa71b6b5761973b39d59e6fbac717728460dce340f4de53a7a4236fe2fe4e36ad",
+   "slug": "cfb-boscol-nd-2026-11-14",
+   "title": "Boston College vs. Notre Dame",
+   "mtype": "spread",
+   "start": "2026-11-14T20:30:00Z",
+   "bet": "Notre Dame -29.5",
+   "side": "Notre Dame",
+   "flagged": "2026-11-14T11:57:50Z",
+   "why": "a top-200 account also in this sport's top 50",
+   "proven": true,
+   "trigger": "proven",
+   "n_accounts": 1,
+   "best_rank": 115,
+   "usd": 2458,
+   "paid": 0.49,
+   "ask": 0.5,
+   "status": "live",
+   "link": "https://polymarket.us/event/cfb-boscol-nd-2026-11-14",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401858294",
+   "sport": "cfb",
+   "league": null,
+   "away": "BC",
+   "home": "ND",
+   "away_name": "Boston College Eagles",
+   "home_name": "Notre Dame Fighting Irish",
+   "game_start": "2026-11-14T20:30Z",
+   "side_std": "home",
+   "conflict": [
+    "Kalshi bet back"
+   ],
+   "money_with": false,
+   "grade": "A",
+   "fair_board": 0.4864,
+   "inside_fair": false,
+   "books": {
+    "at": "2026-11-14T07:46:30Z",
+    "fair": 0.4864,
+    "q": {
+     "Novig": 0.485,
+     "Caesars": 0.5215,
+     "DK": 0.5238,
+     "FD": 0.5238
+    }
+   }
+  },
+  {
    "cond": "0xe569f88488ba4b313938b751ab4c481ea925cdc1780b24623275e565a60d9deb",
    "slug": "cbb-airf-pacfc-2026-11-14",
    "title": "Air Force Falcons vs. Pacific Tigers",
@@ -97,7 +146,7 @@
    "best_rank": 11,
    "usd": 235,
    "paid": 0.53,
-   "ask": 0.7,
+   "ask": 0.68,
    "status": "live",
    "link": "https://polymarket.us/event/cbb-airf-pacfc-2026-11-14",
    "other": null,
@@ -117,6 +166,55 @@
    "fair_board": null,
    "inside_fair": null,
    "books": null
+  },
+  {
+   "cond": "0x0ba773d41763b0867213fcc7893d91f3d8d5f56174e60245f4ee8d0937ee39f5",
+   "slug": "cfb-frest-txst-2026-11-14",
+   "title": "Fresno State vs. Texas State",
+   "mtype": "spread",
+   "start": "2026-11-14T21:00:00Z",
+   "bet": "Fresno State +9.5",
+   "side": "Fresno State",
+   "flagged": "2026-11-14T12:03:14Z",
+   "why": "a top-200 account also in this sport's top 50",
+   "proven": true,
+   "trigger": "proven",
+   "n_accounts": 1,
+   "best_rank": 115,
+   "usd": 7860,
+   "paid": 0.48,
+   "ask": 0.49,
+   "status": "live",
+   "link": "https://polymarket.us/event/cfb-frest-txst-2026-11-14",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401860916",
+   "sport": "cfb",
+   "league": null,
+   "away": "FRES",
+   "home": "TXST",
+   "away_name": "Fresno State Bulldogs",
+   "home_name": "Texas State Bobcats",
+   "game_start": "2026-11-14T21:00Z",
+   "side_std": "away",
+   "conflict": [
+    "Kalshi bet back"
+   ],
+   "money_with": false,
+   "grade": "A",
+   "fair_board": 0.4828,
+   "inside_fair": false,
+   "books": {
+    "at": "2026-11-14T07:46:30Z",
+    "fair": 0.4828,
+    "q": {
+     "Novig": 0.485,
+     "FD": 0.5,
+     "Kalshi": 0.51,
+     "Caesars": 0.5146
+    }
+   }
   },
   {
    "cond": "0x5a4b9dde28142967904cf5957cf6af0788bfa2cc098fe09249fcd965a218e578",
@@ -1294,11 +1392,25 @@
     "usd": 460
    }
   },
+  "401858294|spread": {
+   "home": {
+    "n": 1,
+    "best_rank": 115,
+    "usd": 2458
+   }
+  },
   "401858523|total": {
    "under": {
     "n": 1,
     "best_rank": 132,
     "usd": 107
+   }
+  },
+  "401860916|spread": {
+   "away": {
+    "n": 1,
+    "best_rank": 115,
+    "usd": 7860
    }
   },
   "401860914|ml": {
