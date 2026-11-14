@@ -1,5 +1,5 @@
 {
- "built": "2026-11-14T15:02:27Z",
+ "built": "2026-11-14T15:09:44Z",
  "rows": [
   {
    "cond": "0x023fe2801e367dbc1d3c14f891273d40e90f5ebbfbadc2b75316bb5fd03a32f5",
@@ -37,10 +37,10 @@
    "fair_board": null,
    "inside_fair": null,
    "books": {
-    "at": "2026-11-14T07:46:30Z",
+    "at": "2026-11-14T14:59:29Z",
     "fair": null,
     "q": {
-     "Kalshi": 0.73
+     "Kalshi": 0.74
     }
    }
   },
@@ -120,10 +120,10 @@
    "inside_fair": false,
    "fair_board": 0.4864,
    "books": {
-    "at": "2026-11-14T07:46:30Z",
-    "fair": 0.4864,
+    "at": "2026-11-14T14:59:29Z",
+    "fair": 0.4939,
     "q": {
-     "Novig": 0.485,
+     "Novig": 0.495,
      "Caesars": 0.5215,
      "DK": 0.5238,
      "FD": 0.5238
@@ -243,12 +243,12 @@
    "inside_fair": false,
    "fair_board": 0.4828,
    "books": {
-    "at": "2026-11-14T07:46:30Z",
-    "fair": 0.4828,
+    "at": "2026-11-14T14:59:29Z",
+    "fair": 0.4764,
     "q": {
-     "Novig": 0.485,
+     "Novig": 0.48,
      "FD": 0.5,
-     "Kalshi": 0.51,
+     "Kalshi": 0.5,
      "Caesars": 0.5146
     }
    }
@@ -289,12 +289,12 @@
    "inside_fair": true,
    "fair_board": 0.8523,
    "books": {
-    "at": "2026-11-14T07:46:30Z",
-    "fair": 0.8594,
+    "at": "2026-11-14T14:59:29Z",
+    "fair": 0.8614,
     "q": {
      "Caesars": 0.871,
-     "DK": 0.871,
-     "FD": 0.8734
+     "FD": 0.8734,
+     "DK": 0.875
     }
    }
   },
@@ -368,15 +368,15 @@
    "side_std": "away",
    "money_with": false,
    "grade": "A",
-   "fair_board": 0.582,
+   "fair_board": 0.5831,
    "inside_fair": false,
    "books": {
-    "at": "2026-11-14T07:46:30Z",
-    "fair": 0.582,
+    "at": "2026-11-14T14:59:29Z",
+    "fair": 0.5831,
     "q": {
      "Novig": 0.585,
-     "FD": 0.6032,
-     "DK": 0.6078,
+     "DK": 0.5968,
+     "FD": 0.6094,
      "Kalshi": 0.61
     }
    }
@@ -454,8 +454,8 @@
    "inside_fair": false,
    "fair_board": 0.4885,
    "books": {
-    "at": "2026-11-14T07:46:30Z",
-    "fair": 0.4847,
+    "at": "2026-11-14T14:59:29Z",
+    "fair": 0.4862,
     "q": {
      "Novig": 0.49,
      "Kalshi": 0.51,
@@ -535,16 +535,16 @@
    "side_std": "away",
    "money_with": false,
    "grade": "watch",
-   "fair_board": 0.634,
+   "fair_board": 0.6423,
    "inside_fair": false,
    "books": {
-    "at": "2026-11-14T07:46:30Z",
-    "fair": 0.634,
+    "at": "2026-11-14T14:59:29Z",
+    "fair": 0.6423,
     "q": {
-     "FD": 0.635,
      "Novig": 0.645,
      "DK": 0.6564,
-     "Kalshi": 0.66
+     "Caesars": 0.661,
+     "FD": 0.6622
     }
    }
   },
@@ -584,13 +584,13 @@
    "inside_fair": false,
    "fair_board": 0.5081,
    "books": {
-    "at": "2026-11-14T07:46:30Z",
-    "fair": 0.5081,
+    "at": "2026-11-14T14:59:29Z",
+    "fair": 0.5041,
     "q": {
-     "Novig": 0.515,
+     "Novig": 0.505,
      "FD": 0.5238,
-     "Caesars": 0.5283,
-     "DK": 0.5349
+     "DK": 0.5238,
+     "Caesars": 0.5283
     }
    }
   },
@@ -890,10 +890,10 @@
    "fair_board": null,
    "inside_fair": null,
    "books": {
-    "at": "2026-11-14T07:46:30Z",
+    "at": "2026-11-14T14:59:29Z",
     "fair": null,
     "q": {
-     "Kalshi": 0.44
+     "Kalshi": 0.43
     }
    }
   },
@@ -969,7 +969,7 @@
    "side_std": "home",
    "money_with": false,
    "grade": "B",
-   "fair_board": 0.4558,
+   "fair_board": 0.4549,
    "inside_fair": false,
    "books": null
   },
@@ -1012,7 +1012,7 @@
    "side_std": "home",
    "money_with": false,
    "grade": "A",
-   "fair_board": 0.5247,
+   "fair_board": 0.5321,
    "inside_fair": false,
    "books": null
   },
@@ -1255,6 +1255,34 @@
     "n": 1,
     "best_rank": 4,
     "usd": 431
+   }
+  },
+  "401873056:wind1014": {
+   "with": {
+    "n": 1,
+    "best_rank": 132,
+    "usd": 714
+   },
+   "against": null
+  },
+  "401873056:wind1014_1h": {
+   "with": {
+    "n": 1,
+    "best_rank": 132,
+    "usd": 714
+   },
+   "against": null
+  },
+  "401909980:nba_roadtrip_over": {
+   "with": {
+    "n": 1,
+    "best_rank": 132,
+    "usd": 1108
+   },
+   "against": {
+    "n": 1,
+    "best_rank": 115,
+    "usd": 6398
    }
   }
  },
@@ -1555,6 +1583,13 @@
     "n": 2,
     "best_rank": 4,
     "usd": 561
+   }
+  },
+  "401920074|total": {
+   "under": {
+    "n": 1,
+    "best_rank": 110,
+    "usd": 1380
    }
   },
   "401917529|ml": {
