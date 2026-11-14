@@ -1,5 +1,5 @@
 {
- "built": "2026-11-14T15:16:53Z",
+ "built": "2026-11-14T15:31:45Z",
  "rows": [
   {
    "cond": "0x023fe2801e367dbc1d3c14f891273d40e90f5ebbfbadc2b75316bb5fd03a32f5",
@@ -43,6 +43,93 @@
      "Kalshi": 0.74
     }
    }
+  },
+  {
+   "cond": "0x8a37958f5b7fcef52411cf0929b2d95296e85bf65f675b2bb00b96fdf70183ee",
+   "slug": "cfb-cin-iowast-2026-11-14",
+   "title": "Cincinnati vs. Iowa State",
+   "mtype": "ml",
+   "start": "2026-11-14T17:00:00Z",
+   "bet": "Cincinnati ML",
+   "side": "Cincinnati",
+   "flagged": "2026-11-14T15:22:17Z",
+   "why": "a top-200 account also in this sport's top 50",
+   "proven": true,
+   "trigger": "proven",
+   "n_accounts": 1,
+   "best_rank": 115,
+   "usd": 758,
+   "paid": 0.43,
+   "ask": 0.45,
+   "status": "live",
+   "link": "https://polymarket.us/event/cfb-cin-iowast-2026-11-14",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401856859",
+   "sport": "cfb",
+   "league": null,
+   "away": "CIN",
+   "home": "ISU",
+   "away_name": "Cincinnati Bearcats",
+   "home_name": "Iowa State Cyclones",
+   "game_start": "2026-11-14T17:00Z",
+   "side_std": "away",
+   "conflict": [
+    "Kalshi move",
+    "big money"
+   ],
+   "money_with": false,
+   "grade": "A",
+   "fair_board": 0.4264,
+   "inside_fair": false,
+   "books": {
+    "at": "2026-11-14T14:59:29Z",
+    "fair": 0.4264,
+    "q": {
+     "Novig": 0.435,
+     "Caesars": 0.4405,
+     "DK": 0.4464,
+     "Kalshi": 0.45
+    }
+   }
+  },
+  {
+   "cond": "0xbf909b0a177c16ba0f4b10fc75b83c7bf882e385f747451cb9391747706606cb",
+   "slug": "cfb-cin-iowast-2026-11-14",
+   "title": "Cincinnati vs. Iowa State",
+   "mtype": "spread",
+   "start": "2026-11-14T17:00:00Z",
+   "bet": "Cincinnati +3.5",
+   "side": "Cincinnati",
+   "flagged": "2026-11-14T15:30:05Z",
+   "why": "a top-200 account also in this sport's top 50",
+   "proven": true,
+   "trigger": "proven",
+   "n_accounts": 1,
+   "best_rank": 58,
+   "usd": 440,
+   "paid": 0.56,
+   "ask": 0.56,
+   "status": "live",
+   "link": "https://polymarket.us/event/cfb-cin-iowast-2026-11-14",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401856859",
+   "sport": "cfb",
+   "league": null,
+   "away": "CIN",
+   "home": "ISU",
+   "away_name": "Cincinnati Bearcats",
+   "home_name": "Iowa State Cyclones",
+   "game_start": "2026-11-14T17:00Z",
+   "side_std": "away",
+   "money_with": false,
+   "grade": "A",
+   "fair_board": null,
+   "inside_fair": null,
+   "books": null
   },
   {
    "cond": "0x0e44a2d148d3c58043145ac53ad607837f7e35a0c023fa09c822939f1145256b",
@@ -1520,6 +1607,13 @@
     "n": 1,
     "best_rank": 115,
     "usd": 758
+   }
+  },
+  "401856859|spread": {
+   "away": {
+    "n": 1,
+    "best_rank": 58,
+    "usd": 440
    }
   },
   "401858299|total": {
