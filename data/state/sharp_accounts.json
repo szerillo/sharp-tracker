@@ -1,80 +1,6 @@
 {
- "built": "2026-11-14T21:18:19Z",
+ "built": "2026-11-14T21:32:09Z",
  "rows": [
-  {
-   "cond": "0x06b77fae2b331bbd37f217de381c27ae7c2dbd55ae745f9d4c421fefcbd88ec9",
-   "slug": "cfb-gtech-clmsn-2026-11-14",
-   "title": "Georgia Tech vs. Clemson",
-   "mtype": "total",
-   "start": "2026-11-14T17:30:00Z",
-   "bet": "Over 45.5",
-   "side": "Over",
-   "flagged": "2026-11-14T16:03:46Z",
-   "why": "a top-200 account also in this sport's top 50",
-   "proven": true,
-   "trigger": "proven",
-   "n_accounts": 1,
-   "best_rank": 58,
-   "usd": 317,
-   "paid": 0.56,
-   "ask": null,
-   "status": "live",
-   "link": "https://polymarket.us/event/cfb-gtech-clmsn-2026-11-14",
-   "other": null,
-   "kalshi_against": null,
-   "logged": true,
-   "event_id": "401858297",
-   "sport": "cfb",
-   "league": null,
-   "away": "GT",
-   "home": "CLEM",
-   "away_name": "Georgia Tech Yellow Jackets",
-   "home_name": "Clemson Tigers",
-   "game_start": "2026-11-14T17:30Z",
-   "side_std": "over",
-   "money_with": false,
-   "grade": "A",
-   "fair_board": null,
-   "inside_fair": null,
-   "books": null
-  },
-  {
-   "cond": "0x04188c934466aa23dd6115d210034fb93269eaef2b6e107d1cd6b2a48eff5971",
-   "slug": "cfb-gtech-clmsn-2026-11-14",
-   "title": "Georgia Tech vs. Clemson",
-   "mtype": "spread",
-   "start": "2026-11-14T17:30:00Z",
-   "bet": "Georgia Tech +15.5",
-   "side": "Georgia Tech",
-   "flagged": "2026-11-14T16:35:37Z",
-   "why": "a top-200 account also in this sport's top 50",
-   "proven": true,
-   "trigger": "proven",
-   "n_accounts": 1,
-   "best_rank": 115,
-   "usd": 6203,
-   "paid": 0.5,
-   "ask": null,
-   "status": "live",
-   "link": "https://polymarket.us/event/cfb-gtech-clmsn-2026-11-14",
-   "other": null,
-   "kalshi_against": null,
-   "logged": true,
-   "event_id": "401858297",
-   "sport": "cfb",
-   "league": null,
-   "away": "GT",
-   "home": "CLEM",
-   "away_name": "Georgia Tech Yellow Jackets",
-   "home_name": "Clemson Tigers",
-   "game_start": "2026-11-14T17:30Z",
-   "side_std": "away",
-   "money_with": false,
-   "grade": "A",
-   "fair_board": null,
-   "inside_fair": null,
-   "books": null
-  },
   {
    "cond": "0xefaf3a0673b3c4fa579f0e1ed2caa4ecfc6140dff8a20f7c7c51c9fb26bb5d5f",
    "slug": "cbb-drexel-maine-2026-11-14",
@@ -675,9 +601,6 @@
    "home_name": "Texas State Bobcats",
    "game_start": "2026-11-14T21:00Z",
    "side_std": "under",
-   "conflict": [
-    "big money"
-   ],
    "money_with": false,
    "grade": "A",
    "fair_board": null,
@@ -737,7 +660,7 @@
    "best_rank": 12,
    "usd": 139,
    "paid": 0.48,
-   "ask": 0.5,
+   "ask": null,
    "status": "live",
    "link": "https://polymarket.us/event/cfb-tulane-rice-2026-11-14",
    "other": null,
@@ -752,8 +675,8 @@
    "home_name": "Rice Owls",
    "game_start": "2026-11-14T21:30Z",
    "side_std": "over",
-   "money_with": true,
-   "grade": "A",
+   "money_with": false,
+   "grade": "B",
    "fair_board": null,
    "inside_fair": null,
    "books": null
@@ -767,13 +690,13 @@
    "bet": "West Virginia ML",
    "side": "West Virginia",
    "flagged": "2026-11-14T20:51:56Z",
-   "why": "a top-50 account",
+   "why": "2 top-200 accounts",
    "proven": false,
-   "trigger": "top50",
-   "n_accounts": 1,
+   "trigger": "two",
+   "n_accounts": 2,
    "best_rank": 11,
-   "usd": 1632,
-   "paid": 0.37,
+   "usd": 1914,
+   "paid": 0.361,
    "ask": 0.31,
    "status": "live",
    "link": "https://polymarket.us/event/cfb-kan-wvir-2026-11-14",
@@ -801,7 +724,7 @@
    "best_rank": 4,
    "usd": 208,
    "paid": 0.83,
-   "ask": 0.86,
+   "ask": 0.87,
    "status": "live",
    "link": "https://polymarket.us/event/cfb-oregst-boise-2026-11-14",
    "other": null,
@@ -846,7 +769,7 @@
    "best_rank": 58,
    "usd": 279,
    "paid": 0.53,
-   "ask": 0.54,
+   "ask": 0.53,
    "status": "live",
    "link": "https://polymarket.us/event/cfb-oregst-boise-2026-11-14",
    "other": null,
@@ -1201,7 +1124,7 @@
    "best_rank": 4,
    "usd": 773,
    "paid": 0.569,
-   "ask": 0.6,
+   "ask": 0.61,
    "status": "live",
    "link": "https://polymarket.us/event/nba-dal-cle-2026-11-14",
    "other": null,
@@ -1284,7 +1207,7 @@
    "best_rank": 58,
    "usd": 480,
    "paid": 0.48,
-   "ask": 0.48,
+   "ask": 0.5,
    "status": "live",
    "link": "https://polymarket.us/event/cfb-ntx-utsa-2026-11-14",
    "other": null,
@@ -1998,7 +1921,7 @@
     "usd": 201,
     "first": "2026-11-14T20:47:52Z"
    },
-   "exit_bid": 0.39,
+   "exit_bid": 0.4,
    "kalshi_against": null,
    "logged": true,
    "event_id": "401909990",
@@ -2194,14 +2117,6 @@
   "clv_poly_same": -1.08
  },
  "sys_tags": {
-  "401862828:cfb_day_over": {
-   "with": {
-    "n": 1,
-    "best_rank": 12,
-    "usd": 139
-   },
-   "against": null
-  },
   "401864539:cfb_road_dog_low_total": {
    "with": {
     "n": 1,
@@ -2237,14 +2152,6 @@
     "usd": 714
    },
    "against": null
-  },
-  "401862828:cfb_wind14": {
-   "with": null,
-   "against": {
-    "n": 1,
-    "best_rank": 12,
-    "usd": 139
-   }
   }
  },
  "by_event": {
@@ -2562,13 +2469,6 @@
     "n": 1,
     "best_rank": 110,
     "usd": 460
-   }
-  },
-  "401862828|total": {
-   "over": {
-    "n": 1,
-    "best_rank": 12,
-    "usd": 139
    }
   },
   "401862826|total": {
