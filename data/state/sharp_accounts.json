@@ -1,5 +1,5 @@
 {
- "built": "2026-11-14T16:30:29Z",
+ "built": "2026-11-14T16:37:50Z",
  "rows": [
   {
    "cond": "0x023fe2801e367dbc1d3c14f891273d40e90f5ebbfbadc2b75316bb5fd03a32f5",
@@ -269,6 +269,46 @@
    "books": null
   },
   {
+   "cond": "0x04188c934466aa23dd6115d210034fb93269eaef2b6e107d1cd6b2a48eff5971",
+   "slug": "cfb-gtech-clmsn-2026-11-14",
+   "title": "Georgia Tech vs. Clemson",
+   "mtype": "spread",
+   "start": "2026-11-14T17:30:00Z",
+   "bet": "Georgia Tech +15.5",
+   "side": "Georgia Tech",
+   "flagged": "2026-11-14T16:35:37Z",
+   "why": "a top-200 account also in this sport's top 50",
+   "proven": true,
+   "trigger": "proven",
+   "n_accounts": 1,
+   "best_rank": 115,
+   "usd": 6203,
+   "paid": 0.5,
+   "ask": 0.51,
+   "status": "live",
+   "link": "https://polymarket.us/event/cfb-gtech-clmsn-2026-11-14",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401858297",
+   "sport": "cfb",
+   "league": null,
+   "away": "GT",
+   "home": "CLEM",
+   "away_name": "Georgia Tech Yellow Jackets",
+   "home_name": "Clemson Tigers",
+   "game_start": "2026-11-14T17:30Z",
+   "side_std": "away",
+   "conflict": [
+    "Kalshi move"
+   ],
+   "money_with": false,
+   "grade": "A",
+   "fair_board": null,
+   "inside_fair": null,
+   "books": null
+  },
+  {
    "cond": "0xdf5fbe87d14410160ccf27fcc95e41f3866a6f74ec9a596712079e84f86f70ba",
    "slug": "cfb-pvam-arpb-2026-11-14",
    "title": "Prairie View A&M vs. Arkansas-Pine Bluff",
@@ -311,7 +351,7 @@
    "best_rank": 4,
    "usd": 294,
    "paid": 0.881,
-   "ask": 0.916,
+   "ask": 0.915,
    "status": "live",
    "link": "https://polymarket.us/event/cfb-tenn-txam-2026-11-14",
    "other": null,
@@ -471,7 +511,7 @@
    "best_rank": 65,
    "usd": 4490,
    "paid": 0.58,
-   "ask": 0.58,
+   "ask": 0.57,
    "status": "live",
    "link": "https://polymarket.us/event/cfb-wcar-samf-2026-11-14",
    "other": null,
@@ -535,7 +575,7 @@
    "best_rank": 115,
    "usd": 7860,
    "paid": 0.48,
-   "ask": 0.48,
+   "ask": 0.47,
    "status": "live",
    "link": "https://polymarket.us/event/cfb-frest-txst-2026-11-14",
    "other": null,
@@ -567,6 +607,43 @@
      "Caesars": 0.5146
     }
    }
+  },
+  {
+   "cond": "0xe0937d9bde3c051d60db64718e5f01a8639e8a7b3889fdc5da35e1cc007c1691",
+   "slug": "cfb-frest-txst-2026-11-14",
+   "title": "Fresno State vs. Texas State",
+   "mtype": "total",
+   "start": "2026-11-14T21:00:00Z",
+   "bet": "Under 61.5",
+   "side": "Under",
+   "flagged": "2026-11-14T16:33:37Z",
+   "why": "a top-200 account also in this sport's top 50",
+   "proven": true,
+   "trigger": "proven",
+   "n_accounts": 1,
+   "best_rank": 58,
+   "usd": 460,
+   "paid": 0.54,
+   "ask": 0.54,
+   "status": "live",
+   "link": "https://polymarket.us/event/cfb-frest-txst-2026-11-14",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401860916",
+   "sport": "cfb",
+   "league": null,
+   "away": "FRES",
+   "home": "TXST",
+   "away_name": "Fresno State Bulldogs",
+   "home_name": "Texas State Bobcats",
+   "game_start": "2026-11-14T21:00Z",
+   "side_std": "under",
+   "money_with": true,
+   "grade": "A",
+   "fair_board": null,
+   "inside_fair": null,
+   "books": null
   },
   {
    "cond": "0x5a4b9dde28142967904cf5957cf6af0788bfa2cc098fe09249fcd965a218e578",
@@ -729,6 +806,43 @@
    "side_std": "over",
    "money_with": false,
    "grade": "A",
+   "fair_board": null,
+   "inside_fair": null,
+   "books": null
+  },
+  {
+   "cond": "0xc9c7d9b93f082cfabbc5ab742e6df0bc56ecd0a85e522faac148d409652fe114",
+   "slug": "cbb-uwg-chsou-2026-11-14",
+   "title": "West Georgia Wolves vs. Charleston Southern Buccaneers",
+   "mtype": "spread",
+   "start": "2026-11-15T00:00:00Z",
+   "bet": "Charleston Southern Buccaneers -4.5",
+   "side": "Charleston Southern Buccaneers",
+   "flagged": "2026-11-14T16:36:37Z",
+   "why": "a top-50 account",
+   "proven": false,
+   "trigger": "top50",
+   "n_accounts": 1,
+   "best_rank": 4,
+   "usd": 2631,
+   "paid": 0.49,
+   "ask": 0.52,
+   "status": "live",
+   "link": "https://polymarket.us/event/cbb-uwg-chsou-2026-11-14",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401911376",
+   "sport": "cbb",
+   "league": null,
+   "away": "WGA",
+   "home": "CHSO",
+   "away_name": "West Georgia Wolves",
+   "home_name": "Charleston Southern Buccaneers",
+   "game_start": "2026-11-15T00:00Z",
+   "side_std": "home",
+   "money_with": false,
+   "grade": "B",
    "fair_board": null,
    "inside_fair": null,
    "books": null
@@ -1553,6 +1667,22 @@
     "usd": 1016
    }
   },
+  "401858297:cfb_road_dog_low_total": {
+   "with": {
+    "n": 1,
+    "best_rank": 115,
+    "usd": 6203
+   },
+   "against": null
+  },
+  "401860916:cfb_homefav_7510_under": {
+   "with": {
+    "n": 1,
+    "best_rank": 58,
+    "usd": 460
+   },
+   "against": null
+  },
   "401864539:cfb_road_dog_low_total": {
    "with": {
     "n": 1,
@@ -1594,6 +1724,14 @@
     "n": 1,
     "best_rank": 132,
     "usd": 714
+   },
+   "against": null
+  },
+  "401860916:cfb_wind14": {
+   "with": {
+    "n": 1,
+    "best_rank": 58,
+    "usd": 460
    },
    "against": null
   }
@@ -1869,6 +2007,13 @@
     "usd": 317
    }
   },
+  "401858297|spread": {
+   "away": {
+    "n": 1,
+    "best_rank": 115,
+    "usd": 6203
+   }
+  },
   "401869937|ml": {
    "away": {
     "n": 1,
@@ -1918,6 +2063,13 @@
     "usd": 7860
    }
   },
+  "401860916|total": {
+   "under": {
+    "n": 1,
+    "best_rank": 58,
+    "usd": 460
+   }
+  },
   "401860914|ml": {
    "home": {
     "n": 1,
@@ -1965,6 +2117,20 @@
     "n": 1,
     "best_rank": 4,
     "usd": 118
+   }
+  },
+  "401911376|spread": {
+   "home": {
+    "n": 1,
+    "best_rank": 4,
+    "usd": 2631
+   }
+  },
+  "401920961|total": {
+   "under": {
+    "n": 1,
+    "best_rank": 110,
+    "usd": 874
    }
   }
  },
