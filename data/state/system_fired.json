@@ -4209,19 +4209,16 @@
 },
 "401858523:cfb_homefav_7510_under": {
 "tag": "cfb_homefav_7510_under",
-"fill_id": "204b8cdcae56",
-"ts": "2026-11-08T14:50:41Z",
+"fill_id": "9463f1670e99",
+"ts": "2026-11-14T16:55:08Z",
 "market": "total",
 "side": "under",
-"line": 41.5,
-"venue": "DK",
-"price": -110,
-"fair": 0.51073,
-"edge_pts": -1.31,
-"why": "home favourite ORE -9.5, total 41.5: under (mined angle)",
-"void": true,
-"void_why": "rule no longer holds on the current line: home spread -10.5, total 41.5 (2026-11-08T15:54:01Z)",
-"void_at": "2026-11-08T15:54:01Z"
+"line": 39.5,
+"venue": "Novig",
+"price": 104,
+"fair": 0.48929,
+"edge_pts": -0.07,
+"why": "home favourite ORE -10.0, total 39.5: under (mined angle)"
 },
 "401858524:cfb_road_dog_low_total": {
 "tag": "cfb_road_dog_low_total",
@@ -6480,8 +6477,8 @@
 },
 "401862825:xch_homedog_fade:ml": {
 "tag": "xch_homedog_fade",
-"fill_id": "b4fc1cb06807",
-"ts": "2026-11-14T16:35:44Z",
+"fill_id": "96308c4f43c6",
+"ts": "2026-11-14T16:55:08Z",
 "market": "ml",
 "side": "away",
 "line": null,
@@ -6489,10 +6486,6 @@
 "price": -365,
 "fair": 0.78711,
 "edge_pts": 0.21,
-"why": "Novig home side mid 0.217 inside T-1.4h; audit band 20-35c",
-"now": {
-"venue": "Novig",
-"price": -365
-}
+"why": "Novig home side mid 0.217 inside T-1.1h; audit band 20-35c"
 }
 }
