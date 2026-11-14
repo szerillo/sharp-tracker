@@ -1321,7 +1321,8 @@ function renderBetLabs() {
   for (const g of games) for (const [t, why] of Object.entries(g.triggers || {})) {
     if (!labsOf[t] || seen.has(g.event_id + '|' + t) || !live(why)) continue;
     const s = scr[labsOf[t]];
-    rows.push({date: etDay(g.start_utc), sport: g.sport, rule: t, name: s ? s.name : t, sid: labsOf[t], pick: '', game: `${g.away_name || g.away} @ ${g.home_name || g.home}`, status: 'tool', note: `Tool: ${why}`}); }
+    const sd = ((SY.rules || {})[t] || {}).side, pk = sd === 'home' ? (g.home_name || g.home) : sd === 'away' ? (g.away_name || g.away) : sd ? sd[0].toUpperCase() + sd.slice(1) : '';
+    rows.push({date: etDay(g.start_utc), sport: g.sport, rule: t, name: s ? s.name : t, sid: labsOf[t], pick: pk, game: `${g.away_name || g.away} @ ${g.home_name || g.home}`, status: 'tool', note: `Tool: ${why}`}); }
   const ST = {all: 'All', both: 'Both agree', bl: 'Bet Labs only', tool: 'Tool only', later: 'Later games'};
   const f = window._bf, sports = [...new Set(rows.map(r => r.sport))].sort();
   const V = rows.filter(r => (f.sport === 'all' || r.sport === f.sport) && (f.st === 'all' || r.status === f.st)).sort((a, b) => a.date < b.date ? -1 : a.date > b.date ? 1 : (a.name < b.name ? -1 : 1));
