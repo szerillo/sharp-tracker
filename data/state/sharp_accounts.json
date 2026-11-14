@@ -1,5 +1,5 @@
 {
- "built": "2026-11-14T21:24:55Z",
+ "built": "2026-11-14T21:18:19Z",
  "rows": [
   {
    "cond": "0x06b77fae2b331bbd37f217de381c27ae7c2dbd55ae745f9d4c421fefcbd88ec9",
@@ -675,6 +675,9 @@
    "home_name": "Texas State Bobcats",
    "game_start": "2026-11-14T21:00Z",
    "side_std": "under",
+   "conflict": [
+    "big money"
+   ],
    "money_with": false,
    "grade": "A",
    "fair_board": null,
@@ -749,8 +752,8 @@
    "home_name": "Rice Owls",
    "game_start": "2026-11-14T21:30Z",
    "side_std": "over",
-   "money_with": false,
-   "grade": "B",
+   "money_with": true,
+   "grade": "A",
    "fair_board": null,
    "inside_fair": null,
    "books": null
@@ -771,7 +774,7 @@
    "best_rank": 11,
    "usd": 1632,
    "paid": 0.37,
-   "ask": 0.35,
+   "ask": 0.31,
    "status": "live",
    "link": "https://polymarket.us/event/cfb-kan-wvir-2026-11-14",
    "other": null,
@@ -1281,7 +1284,7 @@
    "best_rank": 58,
    "usd": 480,
    "paid": 0.48,
-   "ask": 0.5,
+   "ask": 0.48,
    "status": "live",
    "link": "https://polymarket.us/event/cfb-ntx-utsa-2026-11-14",
    "other": null,
@@ -1995,7 +1998,7 @@
     "usd": 201,
     "first": "2026-11-14T20:47:52Z"
    },
-   "exit_bid": 0.4,
+   "exit_bid": 0.39,
    "kalshi_against": null,
    "logged": true,
    "event_id": "401909990",
