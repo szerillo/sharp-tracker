@@ -109,6 +109,7 @@ OPEN (running or waiting on data).
 |---|---|
 | 11/10 | docs/METHODOLOGY.md refreshed (was dated 11/6): new "Changes on 11/10" list; tier table (1a); 11/10 tier review (cfb_wind14 A to C, mnf_1h B to C, cfb_road_dog_low_total and nhl_pl_dog_bigml to paper); sharp flags on paper from 11/10 10:00 UTC; data of record now lists derivatives for nine sports, props 2023-26, exchange tapes and ProphetX; new section 8 (resting offers, rest or take, parlays, women's college basketball); testing standard adds the neighbour rule and "every test script saved in the repo"; corrected the 11/6 note that nfl_home_dog_7510 was held at B (it went to C later that day) |
 | 11/10 | Push helper adds the session attribution lines to every commit from here on |
+| 11/14 | Hold rule narrowed to a Kalshi move against or a rule on the other side (held went 7-17, -47.3% flat; per the board 104-60, +15.2%). Sharp accounts against systems were 25-16, +14.8%, so no longer held. Tracker graded at 1u flat, split Bet per the board / Held. Sharp flags graded each on their own (86-105). Soccer Yes/No conflicts fixed (3 false conflicts, 1 false middle). xch_homedog_fade paper to C; nhl_p3_under_curve B to paper (0-5, -3.60u) |
 
 ## 7. Corrections worth remembering
 

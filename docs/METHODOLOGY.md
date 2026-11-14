@@ -98,7 +98,8 @@ tests behind each line. Updated when a rule or gate changes, with the date. Ever
 - Market-only signals (Kalshi price moves, bet backs, big money, sharp moves) are watch only: 392 graded, none positive at any meaningful z.
   Kalshi NHL late taker flow (30%+ one way on $500+ in the last 6h) is a paper lean. Novig and Kalshi have no account-level flow;
   Novig's leaderboard is in-app only.
-- Sharp flags still count as signals against a system bet (section 6) while they are on paper.
+- Sharp flags no longer hold a system bet (11/14). A sharp flag with a system on the other side is itself held. Each sharp flag is graded
+  on its own record, with nothing dropped for an opposite flag (11/14).
 
 ## 5. Record keeping
 - Every record reads the same way everywhere: label, W-L, win %, ROI. Labels: "WC backtest <years>" (our database at Pinnacle's close),
@@ -114,8 +115,12 @@ tests behind each line. Updated when a rule or gate changes, with the date. Ever
 - Filter: All / Sharp / Systems on Today and Upcoming.
 - Order: Sharp signals, System bets (coming weather fires in the open), Leans (rules firing on 4+ games grouped), Paper rules
   (collapsed), plus an Offers to rest section (section 8). In-progress games stay four hours, listed below the upcoming ones in each section.
-- Bet systems, leans and sharp action only with NO signal against (Sean, 11/7): any signal on the other side holds the bet (see the
-  11/7 section below). Paper rules never count as opposition. One bet shows in one place.
+- Hold rule (Sean, 11/14; replaces the 11/7 "no signal against" rule): a system or lean is held only when a stronger rule is on the
+  other side, or Kalshi moved against it (29-67 across systems and paper by 11/14). Sharp accounts, sharp flags, bet back, big money
+  and sharp move against are shown and graded, not held; each is re-checked at 30 bets against. Sharp flags still need nothing against
+  them. Paper rules never count as opposition. One bet shows in one place.
+- Bet tracker (11/14): bets are graded at 1 unit flat (favorites to win 1u, plus money risks 1u). Bets view defaults to "Bet per the
+  board"; "Held" shows what the board held. Conflict and middle notes carry the gap between the two flags, with a within-an-hour filter.
 - Cross-annotation: a bet both a system and a sharp signal land on shows the badge in both sections and in the tracker
   ("Flagged by a system AND a sharp signal").
 - BetMGM never bettable. No duplicate bets on one market; stacked fires on the same side are one bet.
