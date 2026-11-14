@@ -1,5 +1,5 @@
 {
- "built": "2026-11-14T23:31:49Z",
+ "built": "2026-11-14T23:38:45Z",
  "rows": [
   {
    "cond": "0xdf5fbe87d14410160ccf27fcc95e41f3866a6f74ec9a596712079e84f86f70ba",
@@ -1110,7 +1110,7 @@
    "best_rank": 104,
    "usd": 379,
    "paid": 0.49,
-   "ask": 0.52,
+   "ask": 0.51,
    "status": "live",
    "link": "https://polymarket.us/event/nba-dal-cle-2026-11-14",
    "other": null,
@@ -1293,6 +1293,9 @@
    "home_name": "Oklahoma State Cowboys",
    "game_start": "2026-11-15T02:30Z",
    "side_std": "under",
+   "conflict": [
+    "Kalshi move"
+   ],
    "money_with": false,
    "grade": "A",
    "inside_fair": false,
@@ -1502,6 +1505,9 @@
    "home_name": "Phoenix Suns",
    "game_start": "2026-11-15T21:00Z",
    "side_std": "home",
+   "conflict": [
+    "Kalshi bet back"
+   ],
    "money_with": false,
    "grade": "watch",
    "fair_board": null,
@@ -1766,7 +1772,7 @@
    "best_rank": 69,
    "usd": 113,
    "paid": 0.52,
-   "ask": 0.56,
+   "ask": 0.55,
    "status": "other side",
    "link": "https://polymarket.us/event/nhl-col-mon-2026-11-14",
    "other": {
@@ -1775,7 +1781,7 @@
     "usd": 431,
     "first": "2026-11-14T02:47:02Z"
    },
-   "exit_bid": 0.55,
+   "exit_bid": 0.54,
    "kalshi_against": null,
    "logged": true,
    "event_id": "401892711",
@@ -1890,23 +1896,23 @@
    "bet": "Nets ML",
    "side": "Nets",
    "flagged": "2026-11-14T19:37:10Z",
-   "why": "3 top-200 accounts",
+   "why": "4 top-200 accounts",
    "proven": false,
    "trigger": "two",
-   "n_accounts": 3,
+   "n_accounts": 4,
    "best_rank": 49,
-   "usd": 16945,
-   "paid": 0.436,
+   "usd": 17356,
+   "paid": 0.435,
    "ask": 0.38,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-bkn-mem-2026-11-14",
    "other": {
-    "n_accounts": 2,
+    "n_accounts": 4,
     "best_rank": 42,
     "usd": 95991,
     "first": "2026-11-14T19:44:41Z"
    },
-   "exit_bid": 0.42,
+   "exit_bid": 0.37,
    "kalshi_against": null,
    "logged": false,
    "event_id": "401909983",
@@ -1940,16 +1946,16 @@
    "best_rank": 112,
    "usd": 91769,
    "paid": 0.501,
-   "ask": 0.5,
+   "ask": 0.45,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-bkn-mem-2026-11-14",
    "other": {
     "n_accounts": 2,
     "best_rank": 75,
-    "usd": 39583,
+    "usd": 56381,
     "first": "2026-11-14T19:42:41Z"
    },
-   "exit_bid": 0.49,
+   "exit_bid": 0.44,
    "kalshi_against": null,
    "logged": false,
    "event_id": "401909983",
@@ -2014,6 +2020,52 @@
    "books": null
   },
   {
+   "cond": "0x10ac71d3e4050b6fd0359bac257ace8d5bb210b021effb9dc59756f6ff528283",
+   "slug": "nba-chi-min-2026-11-14",
+   "title": "Bulls vs. Timberwolves",
+   "mtype": "spread",
+   "start": "2026-11-15T01:00:00Z",
+   "bet": "Bulls +16.5",
+   "side": "Bulls",
+   "flagged": "2026-11-14T23:32:11Z",
+   "why": "a top-50 account",
+   "proven": false,
+   "trigger": "top50",
+   "n_accounts": 1,
+   "best_rank": 49,
+   "usd": 2468,
+   "paid": 0.539,
+   "ask": 0.53,
+   "status": "other side",
+   "link": "https://polymarket.us/event/nba-chi-min-2026-11-14",
+   "other": {
+    "n_accounts": 1,
+    "best_rank": 49,
+    "usd": 5473,
+    "first": "2026-11-14T23:32:41Z"
+   },
+   "exit_bid": 0.52,
+   "kalshi_against": null,
+   "logged": false,
+   "event_id": "401909984",
+   "sport": "nba",
+   "league": null,
+   "away": "CHI",
+   "home": "MIN",
+   "away_name": "Chicago Bulls",
+   "home_name": "Minnesota Timberwolves",
+   "game_start": "2026-11-15T01:00Z",
+   "side_std": "away",
+   "conflict": [
+    "Kalshi move"
+   ],
+   "money_with": false,
+   "grade": "watch",
+   "fair_board": null,
+   "inside_fair": null,
+   "books": null
+  },
+  {
    "cond": "0x6939f2859abf4a29b7e4587d96b0f2ff88597ffdcafae357af8435b083289f19",
    "slug": "nba-ind-phi-2026-11-15",
    "title": "Pacers vs. 76ers",
@@ -2029,16 +2081,16 @@
    "best_rank": 43,
    "usd": 230,
    "paid": 0.79,
-   "ask": 0.75,
+   "ask": 0.73,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-ind-phi-2026-11-15",
    "other": {
     "n_accounts": 3,
     "best_rank": 40,
-    "usd": 2590,
+    "usd": 2919,
     "first": "2026-11-14T06:50:34Z"
    },
-   "exit_bid": 0.74,
+   "exit_bid": 0.72,
    "kalshi_against": {
     "move": 11.5,
     "now": 31.5,
@@ -2079,7 +2131,7 @@
    "best_rank": 43,
    "usd": 170,
    "paid": 0.34,
-   "ask": 0.42,
+   "ask": 0.41,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-nyk-tor-2026-11-15",
    "other": {
@@ -2127,8 +2179,8 @@
    "link": "https://polymarket.us/event/nba-orl-bos-2026-11-16",
    "other": null,
    "kalshi_against": {
-    "move": 6.0,
-    "now": 24.5,
+    "move": 7.0,
+    "now": 25.5,
     "state": "held"
    },
    "logged": true,
@@ -2253,15 +2305,15 @@
     "clv": -0.52
    }
   },
-  "n": 248,
-  "won": 107,
+  "n": 249,
+  "won": 108,
   "units": -16.31,
   "by_grade": {
    "A": {
-    "n": 163,
-    "won": 66,
+    "n": 164,
+    "won": 67,
     "units": -15.11,
-    "clv": -0.56
+    "clv": -0.54
    },
    "B": {
     "n": 57,
@@ -2276,8 +2328,8 @@
     "clv": -0.6
    }
   },
-  "units_1u": -41.38,
-  "clv": -0.62,
+  "units_1u": -40.59,
+  "clv": -0.61,
   "n_venue": 120,
   "units_venue": -5.82,
   "clv_venue": 0.66,
@@ -2319,6 +2371,18 @@
     "usd": 714
    },
    "against": null
+  },
+  "401909984:nba_ats_hot_home": {
+   "with": {
+    "n": 1,
+    "best_rank": 49,
+    "usd": 5473
+   },
+   "against": {
+    "n": 1,
+    "best_rank": 49,
+    "usd": 2468
+   }
   },
   "401892711:xch_homedog_fade:spread": {
    "with": {
@@ -2497,21 +2561,21 @@
     "usd": 94157
    },
    "home": {
-    "n": 2,
-    "best_rank": 75,
-    "usd": 1418
+    "n": 3,
+    "best_rank": 12,
+    "usd": 1523
    }
   },
   "401909983|ml": {
    "away": {
-    "n": 3,
+    "n": 4,
     "best_rank": 49,
-    "usd": 16945
+    "usd": 17356
    },
    "home": {
-    "n": 2,
+    "n": 4,
     "best_rank": 42,
-    "usd": 15045
+    "usd": 17999
    }
   },
   "401909983|total": {
@@ -2519,6 +2583,18 @@
     "n": 1,
     "best_rank": 132,
     "usd": 928
+   }
+  },
+  "401909984|spread": {
+   "away": {
+    "n": 1,
+    "best_rank": 49,
+    "usd": 2468
+   },
+   "home": {
+    "n": 1,
+    "best_rank": 49,
+    "usd": 5473
    }
   },
   "401909985|ml": {
