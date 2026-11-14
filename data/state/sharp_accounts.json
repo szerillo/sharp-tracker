@@ -1,5 +1,5 @@
 {
- "built": "2026-11-14T22:43:19Z",
+ "built": "2026-11-14T22:58:00Z",
  "rows": [
   {
    "cond": "0x2841b2f55985346b5a2fe2150408835a4681154e047ccfae380264f0c6c43e53",
@@ -640,7 +640,7 @@
    "best_rank": 58,
    "usd": 279,
    "paid": 0.53,
-   "ask": 0.49,
+   "ask": 0.48,
    "status": "live",
    "link": "https://polymarket.us/event/cfb-oregst-boise-2026-11-14",
    "other": null,
@@ -655,9 +655,6 @@
    "home_name": "Boise State Broncos",
    "game_start": "2026-11-14T23:00Z",
    "side_std": "under",
-   "conflict": [
-    "big money"
-   ],
    "money_with": false,
    "grade": "A",
    "fair_board": null,
@@ -877,7 +874,7 @@
    "best_rank": 58,
    "usd": 203,
    "paid": 0.52,
-   "ask": 0.53,
+   "ask": 0.52,
    "status": "live",
    "link": "https://polymarket.us/event/cfb-flatl-tulsa-2026-11-14",
    "other": null,
@@ -996,9 +993,9 @@
    "trigger": "proven",
    "n_accounts": 3,
    "best_rank": 4,
-   "usd": 773,
-   "paid": 0.569,
-   "ask": 0.65,
+   "usd": 1037,
+   "paid": 0.595,
+   "ask": 0.72,
    "status": "live",
    "link": "https://polymarket.us/event/nba-dal-cle-2026-11-14",
    "other": null,
@@ -1052,44 +1049,6 @@
    "side_std": "under",
    "money_with": false,
    "grade": "A",
-   "fair_board": null,
-   "inside_fair": null,
-   "books": null
-  },
-  {
-   "cond": "0x653a21913e1ffa847ecdd9392408219084cf54e9b62904c2501fade8b6e52ed6",
-   "slug": "nba-dal-cle-2026-11-14",
-   "title": "Mavericks vs. Cavaliers",
-   "mtype": "spread",
-   "start": "2026-11-15T00:30:00Z",
-   "bet": "Mavericks -4.5",
-   "side": "Mavericks",
-   "flagged": "2026-11-14T22:45:07Z",
-   "why": "2 top-200 accounts",
-   "proven": false,
-   "trigger": "two",
-   "n_accounts": 2,
-   "best_rank": 95,
-   "usd": 1321,
-   "paid": 0.543,
-   "ask": 0.63,
-   "status": "live",
-   "link": "https://polymarket.us/event/nba-dal-cle-2026-11-14",
-   "other": null,
-   "kalshi_against": null,
-   "logged": false,
-   "ladder": true,
-   "event_id": "401909981",
-   "sport": "nba",
-   "league": null,
-   "away": "DAL",
-   "home": "CLE",
-   "away_name": "Dallas Mavericks",
-   "home_name": "Cleveland Cavaliers",
-   "game_start": "2026-11-15T00:30Z",
-   "side_std": "away",
-   "money_with": false,
-   "grade": "B",
    "fair_board": null,
    "inside_fair": null,
    "books": null
@@ -1271,7 +1230,7 @@
    "best_rank": 104,
    "usd": 176,
    "paid": 0.41,
-   "ask": 0.42,
+   "ask": 0.43,
    "status": "live",
    "link": "https://polymarket.us/event/nba-dal-cle-2026-11-14",
    "other": null,
@@ -1952,6 +1911,50 @@
    "books": null
   },
   {
+   "cond": "0x653a21913e1ffa847ecdd9392408219084cf54e9b62904c2501fade8b6e52ed6",
+   "slug": "nba-dal-cle-2026-11-14",
+   "title": "Mavericks vs. Cavaliers",
+   "mtype": "spread",
+   "start": "2026-11-15T00:30:00Z",
+   "bet": "Mavericks -4.5",
+   "side": "Mavericks",
+   "flagged": "2026-11-14T22:45:07Z",
+   "why": "2 top-200 accounts",
+   "proven": false,
+   "trigger": "two",
+   "n_accounts": 2,
+   "best_rank": 95,
+   "usd": 1321,
+   "paid": 0.543,
+   "ask": 0.61,
+   "status": "other side",
+   "link": "https://polymarket.us/event/nba-dal-cle-2026-11-14",
+   "other": {
+    "n_accounts": 1,
+    "best_rank": 112,
+    "usd": 777,
+    "first": "2026-11-14T22:55:50Z"
+   },
+   "exit_bid": 0.6,
+   "kalshi_against": null,
+   "logged": false,
+   "ladder": true,
+   "event_id": "401909981",
+   "sport": "nba",
+   "league": null,
+   "away": "DAL",
+   "home": "CLE",
+   "away_name": "Dallas Mavericks",
+   "home_name": "Cleveland Cavaliers",
+   "game_start": "2026-11-15T00:30Z",
+   "side_std": "away",
+   "money_with": false,
+   "grade": "B",
+   "fair_board": null,
+   "inside_fair": null,
+   "books": null
+  },
+  {
    "cond": "0x0998f4a258f3a3440db42ce507da813b3f66917609f8a9c434db9771f433a6fe",
    "slug": "nba-bkn-mem-2026-11-14",
    "title": "Nets vs. Grizzlies",
@@ -2064,8 +2067,8 @@
    },
    "exit_bid": 0.69,
    "kalshi_against": {
-    "move": 13.0,
-    "now": 33.0,
+    "move": 12.0,
+    "now": 32.0,
     "state": "held"
    },
    "logged": true,
@@ -2151,8 +2154,8 @@
    "link": "https://polymarket.us/event/nba-orl-bos-2026-11-16",
    "other": null,
    "kalshi_against": {
-    "move": 4.5,
-    "now": 23.0,
+    "move": 6.0,
+    "now": 24.5,
     "state": "held"
    },
    "logged": true,
@@ -2195,8 +2198,8 @@
    "link": "https://polymarket.us/event/nba-phi-bkn-2026-11-16",
    "other": null,
    "kalshi_against": {
-    "move": 5.0,
-    "now": 35.5,
+    "move": 4.5,
+    "now": 35.0,
     "state": "held"
    },
    "logged": true,
@@ -2343,6 +2346,14 @@
     "usd": 714
    },
    "against": null
+  },
+  "401892711:xch_homedog_fade:spread": {
+   "with": {
+    "n": 1,
+    "best_rank": 132,
+    "usd": 117
+   },
+   "against": null
   }
  },
  "by_event": {
@@ -2485,6 +2496,13 @@
     "n": 1,
     "best_rank": 23,
     "usd": 2951
+   }
+  },
+  "401909982|total": {
+   "under": {
+    "n": 1,
+    "best_rank": 132,
+    "usd": 1027
    }
   },
   "401909983|spread": {
