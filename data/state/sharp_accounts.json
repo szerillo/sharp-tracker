@@ -1,5 +1,5 @@
 {
- "built": "2026-11-14T10:03:05Z",
+ "built": "2026-11-14T10:20:07Z",
  "rows": [
   {
    "cond": "0x023fe2801e367dbc1d3c14f891273d40e90f5ebbfbadc2b75316bb5fd03a32f5",
@@ -879,6 +879,50 @@
    "books": null
   },
   {
+   "cond": "0xd52bf2df8eebb1aa0f1e87662421f431d730474c81932a434e4c66d82fa00725",
+   "slug": "nba-orl-bos-2026-11-16",
+   "title": "Magic vs. Celtics",
+   "mtype": "ml",
+   "start": "2026-11-17T00:00:00Z",
+   "bet": "Celtics ML",
+   "side": "Celtics",
+   "flagged": "2026-11-14T10:15:49Z",
+   "why": "a top-50 account",
+   "proven": false,
+   "trigger": "top50",
+   "n_accounts": 1,
+   "best_rank": 43,
+   "usd": 197,
+   "paid": 0.73,
+   "ask": 0.77,
+   "status": "live",
+   "link": "https://polymarket.us/event/nba-orl-bos-2026-11-16",
+   "other": null,
+   "kalshi_against": {
+    "move": 7.5,
+    "now": 26.0,
+    "state": "held"
+   },
+   "logged": true,
+   "event_id": "401909994",
+   "sport": "nba",
+   "league": null,
+   "away": "ORL",
+   "home": "BOS",
+   "away_name": "Orlando Magic",
+   "home_name": "Boston Celtics",
+   "game_start": "2026-11-17T00:00Z",
+   "side_std": "home",
+   "conflict": [
+    "Kalshi move"
+   ],
+   "money_with": false,
+   "grade": "watch",
+   "fair_board": null,
+   "inside_fair": null,
+   "books": null
+  },
+  {
    "cond": "0xa4205ef4d7859ca4bbfbe3bf42454f854489c4187133b895d17a21175d4d668b",
    "slug": "nba-gsw-nop-2026-11-16",
    "title": "Warriors vs. Pelicans",
@@ -1126,6 +1170,13 @@
     "n": 1,
     "best_rank": 43,
     "usd": 170
+   }
+  },
+  "401909994|ml": {
+   "home": {
+    "n": 1,
+    "best_rank": 43,
+    "usd": 197
    }
   },
   "401910000|ml": {
