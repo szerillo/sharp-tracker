@@ -1,5 +1,5 @@
 {
- "built": "2026-11-14T18:00:57Z",
+ "built": "2026-11-14T18:14:03Z",
  "rows": [
   {
    "cond": "0x023fe2801e367dbc1d3c14f891273d40e90f5ebbfbadc2b75316bb5fd03a32f5",
@@ -73,16 +73,7 @@
    "grade": "A",
    "inside_fair": false,
    "fair_board": 0.4264,
-   "books": {
-    "at": "2026-11-14T16:23:33Z",
-    "fair": 0.4514,
-    "q": {
-     "Novig": 0.46,
-     "Caesars": 0.4651,
-     "Kalshi": 0.47,
-     "DK": 0.4762
-    }
-   }
+   "books": null
   },
   {
    "cond": "0xbf909b0a177c16ba0f4b10fc75b83c7bf882e385f747451cb9391747706606cb",
@@ -369,13 +360,13 @@
    "inside_fair": true,
    "fair_board": 0.5222,
    "books": {
-    "at": "2026-11-14T16:23:12Z",
-    "fair": 0.5222,
+    "at": "2026-11-14T17:28:03Z",
+    "fair": 0.5234,
     "q": {
-     "Novig": 0.525,
-     "FD": 0.5413,
-     "Caesars": 0.5455,
-     "DK": 0.5495
+     "Novig": 0.53,
+     "Kalshi": 0.54,
+     "FD": 0.5455,
+     "Caesars": 0.5495
     }
    }
   },
@@ -418,15 +409,89 @@
    "inside_fair": false,
    "fair_board": 0.4983,
    "books": {
-    "at": "2026-11-14T16:23:33Z",
-    "fair": 0.4983,
+    "at": "2026-11-14T17:26:05Z",
+    "fair": 0.4958,
     "q": {
-     "Novig": 0.505,
+     "Novig": 0.5,
      "FD": 0.5122,
-     "Caesars": 0.5192,
-     "DK": 0.5283
+     "DK": 0.5192,
+     "Caesars": 0.5192
     }
    }
+  },
+  {
+   "cond": "0x2841b2f55985346b5a2fe2150408835a4681154e047ccfae380264f0c6c43e53",
+   "slug": "cfb-kanst-tcu-2026-11-14",
+   "title": "Kansas State vs. TCU",
+   "mtype": "spread",
+   "start": "2026-11-14T19:00:00Z",
+   "bet": "TCU -14.5",
+   "side": "TCU",
+   "flagged": "2026-11-14T18:10:01Z",
+   "why": "a top-50 account",
+   "proven": false,
+   "trigger": "top50",
+   "n_accounts": 1,
+   "best_rank": 3,
+   "usd": 4817,
+   "paid": 0.459,
+   "ask": 0.46,
+   "status": "live",
+   "link": "https://polymarket.us/event/cfb-kanst-tcu-2026-11-14",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401856862",
+   "sport": "cfb",
+   "league": null,
+   "away": "KSU",
+   "home": "TCU",
+   "away_name": "Kansas State Wildcats",
+   "home_name": "TCU Horned Frogs",
+   "game_start": "2026-11-14T19:00Z",
+   "side_std": "home",
+   "money_with": false,
+   "grade": "B",
+   "fair_board": null,
+   "inside_fair": null,
+   "books": null
+  },
+  {
+   "cond": "0x5f466233b63dc79ab60ba1505e0f63d68d9d4bfec6ec7f5b104be971b08ed4a4",
+   "slug": "cfb-kenest-smho-2026-11-14",
+   "title": "Kennesaw State vs. Sam Houston",
+   "mtype": "total",
+   "start": "2026-11-14T19:00:00Z",
+   "bet": "Over 43.5",
+   "side": "Over",
+   "flagged": "2026-11-14T18:13:19Z",
+   "why": "a top-200 account also in this sport's top 50",
+   "proven": true,
+   "trigger": "proven",
+   "n_accounts": 1,
+   "best_rank": 58,
+   "usd": 450,
+   "paid": 0.55,
+   "ask": 0.55,
+   "status": "live",
+   "link": "https://polymarket.us/event/cfb-kenest-smho-2026-11-14",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401870769",
+   "sport": "cfb",
+   "league": null,
+   "away": "KENN",
+   "home": "SHSU",
+   "away_name": "Kennesaw State Owls",
+   "home_name": "Sam Houston Bearkats",
+   "game_start": "2026-11-14T19:00Z",
+   "side_std": "over",
+   "money_with": false,
+   "grade": "A",
+   "fair_board": null,
+   "inside_fair": null,
+   "books": null
   },
   {
    "cond": "0xdf5fbe87d14410160ccf27fcc95e41f3866a6f74ec9a596712079e84f86f70ba",
@@ -471,7 +536,7 @@
    "best_rank": 4,
    "usd": 294,
    "paid": 0.881,
-   "ask": 0.919,
+   "ask": 0.908,
    "status": "live",
    "link": "https://polymarket.us/event/cfb-tenn-txam-2026-11-14",
    "other": null,
@@ -531,8 +596,8 @@
    "inside_fair": false,
    "fair_board": 0.4864,
    "books": {
-    "at": "2026-11-14T16:23:33Z",
-    "fair": 0.4954,
+    "at": "2026-11-14T18:03:25Z",
+    "fair": 0.4939,
     "q": {
      "Novig": 0.495,
      "Caesars": 0.5215,
@@ -721,13 +786,12 @@
    "inside_fair": false,
    "fair_board": 0.4828,
    "books": {
-    "at": "2026-11-14T16:23:33Z",
-    "fair": 0.4777,
+    "at": "2026-11-14T18:03:25Z",
+    "fair": 0.4717,
     "q": {
-     "Novig": 0.475,
+     "Novig": 0.47,
      "Kalshi": 0.5,
-     "FD": 0.5122,
-     "Caesars": 0.5146
+     "FD": 0.5122
     }
    }
   },
@@ -804,7 +868,7 @@
    "inside_fair": true,
    "fair_board": 0.8523,
    "books": {
-    "at": "2026-11-14T16:23:33Z",
+    "at": "2026-11-14T18:03:25Z",
     "fair": 0.8625,
     "q": {
      "Caesars": 0.871,
@@ -883,16 +947,16 @@
    "side_std": "away",
    "money_with": false,
    "grade": "A",
-   "fair_board": 0.5817,
+   "fair_board": 0.5808,
    "inside_fair": true,
    "books": {
-    "at": "2026-11-14T16:23:12Z",
-    "fair": 0.5817,
+    "at": "2026-11-14T18:03:25Z",
+    "fair": 0.5808,
     "q": {
      "Novig": 0.585,
      "DK": 0.5968,
-     "Kalshi": 0.61,
-     "Caesars": 0.6154
+     "FD": 0.6094,
+     "Kalshi": 0.61
     }
    }
   },
@@ -1083,7 +1147,7 @@
    "inside_fair": false,
    "fair_board": 0.4885,
    "books": {
-    "at": "2026-11-14T16:23:33Z",
+    "at": "2026-11-14T18:03:25Z",
     "fair": 0.4862,
     "q": {
      "Novig": 0.49,
@@ -1147,7 +1211,7 @@
    "best_rank": 23,
    "usd": 2951,
    "paid": 0.65,
-   "ask": 0.63,
+   "ask": 0.61,
    "status": "live",
    "link": "https://polymarket.us/event/nba-det-mia-2026-11-14",
    "other": null,
@@ -1164,16 +1228,16 @@
    "side_std": "away",
    "money_with": false,
    "grade": "watch",
-   "fair_board": 0.6416,
+   "fair_board": 0.6475,
    "inside_fair": true,
    "books": {
-    "at": "2026-11-14T16:23:16Z",
-    "fair": 0.6416,
+    "at": "2026-11-14T18:03:25Z",
+    "fair": 0.6475,
     "q": {
-     "Novig": 0.645,
-     "DK": 0.6564,
-     "Caesars": 0.661,
-     "FD": 0.6644
+     "Novig": 0.65,
+     "FD": 0.6644,
+     "DK": 0.67,
+     "Kalshi": 0.67
     }
    }
   },
@@ -1213,11 +1277,11 @@
    "inside_fair": false,
    "fair_board": 0.5081,
    "books": {
-    "at": "2026-11-14T16:23:33Z",
+    "at": "2026-11-14T18:03:25Z",
     "fair": 0.5008,
     "q": {
-     "Novig": 0.505,
-     "FD": 0.5238,
+     "Novig": 0.5,
+     "Kalshi": 0.52,
      "DK": 0.5238,
      "Caesars": 0.5283
     }
@@ -1259,8 +1323,8 @@
    "inside_fair": false,
    "fair_board": 0.5103,
    "books": {
-    "at": "2026-11-14T16:23:12Z",
-    "fair": 0.5103,
+    "at": "2026-11-14T18:03:25Z",
+    "fair": 0.5116,
     "q": {
      "Novig": 0.515,
      "Kalshi": 0.53,
@@ -1565,10 +1629,10 @@
    "fair_board": null,
    "inside_fair": null,
    "books": {
-    "at": "2026-11-14T16:23:16Z",
+    "at": "2026-11-14T18:03:25Z",
     "fair": null,
     "q": {
-     "Kalshi": 0.43
+     "Kalshi": 0.44
     }
    }
   },
@@ -1651,7 +1715,7 @@
    ],
    "money_with": false,
    "grade": "B",
-   "fair_board": 0.4487,
+   "fair_board": 0.4472,
    "inside_fair": false,
    "books": null
   },
@@ -1694,7 +1758,7 @@
    "side_std": "home",
    "money_with": false,
    "grade": "A",
-   "fair_board": 0.5352,
+   "fair_board": 0.5599,
    "inside_fair": false,
    "books": null
   },
@@ -1714,7 +1778,7 @@
    "best_rank": 43,
    "usd": 230,
    "paid": 0.79,
-   "ask": 0.78,
+   "ask": 0.77,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-ind-phi-2026-11-15",
    "other": {
@@ -1723,7 +1787,7 @@
     "usd": 317,
     "first": "2026-11-14T06:50:34Z"
    },
-   "exit_bid": 0.77,
+   "exit_bid": 0.76,
    "kalshi_against": null,
    "logged": true,
    "event_id": "401909985",
@@ -1919,6 +1983,14 @@
   "clv_poly_same": -1.13
  },
  "sys_tags": {
+  "401856862:cfb_road_dog_low_total": {
+   "with": null,
+   "against": {
+    "n": 1,
+    "best_rank": 3,
+    "usd": 4817
+   }
+  },
   "401858523:cfb_homefav_7510_under": {
    "with": {
     "n": 1,
@@ -1940,6 +2012,14 @@
     "n": 1,
     "best_rank": 132,
     "usd": 403
+   },
+   "against": null
+  },
+  "401870769:cfb_day_over": {
+   "with": {
+    "n": 1,
+    "best_rank": 58,
+    "usd": 450
    },
    "against": null
   },
@@ -2230,11 +2310,25 @@
     "usd": 655
    }
   },
+  "401856862|spread": {
+   "home": {
+    "n": 1,
+    "best_rank": 3,
+    "usd": 4817
+   }
+  },
   "401858299|total": {
    "under": {
     "n": 1,
     "best_rank": 110,
     "usd": 460
+   }
+  },
+  "401870769|total": {
+   "over": {
+    "n": 1,
+    "best_rank": 58,
+    "usd": 450
    }
   },
   "401858518|spread": {
