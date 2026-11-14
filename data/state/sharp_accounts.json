@@ -1,43 +1,6 @@
 {
- "built": "2026-11-14T19:48:58Z",
+ "built": "2026-11-14T20:03:22Z",
  "rows": [
-  {
-   "cond": "0x023fe2801e367dbc1d3c14f891273d40e90f5ebbfbadc2b75316bb5fd03a32f5",
-   "slug": "cbb-ncg-cornel-2026-11-14",
-   "title": "UNCG Spartans vs. Cornell Big Red",
-   "mtype": "ml",
-   "start": "2026-11-14T16:00:00Z",
-   "bet": "Cornell Big Red ML",
-   "side": "Cornell Big Red",
-   "flagged": "2026-11-13T23:36:00Z",
-   "why": "2 top-200 accounts",
-   "proven": false,
-   "trigger": "two",
-   "n_accounts": 2,
-   "best_rank": 4,
-   "usd": 561,
-   "paid": 0.553,
-   "ask": null,
-   "status": "live",
-   "link": "https://polymarket.us/event/cbb-ncg-cornel-2026-11-14",
-   "other": null,
-   "kalshi_against": null,
-   "logged": true,
-   "event_id": "401924720",
-   "sport": "cbb",
-   "league": null,
-   "away": "UNCG",
-   "home": "COR",
-   "away_name": "UNC Greensboro Spartans",
-   "home_name": "Cornell Big Red",
-   "game_start": "2026-11-14T16:00Z",
-   "side_std": "home",
-   "money_with": false,
-   "grade": "B",
-   "fair_board": null,
-   "inside_fair": null,
-   "books": null
-  },
   {
    "cond": "0x8a37958f5b7fcef52411cf0929b2d95296e85bf65f675b2bb00b96fdf70183ee",
    "slug": "cfb-cin-iowast-2026-11-14",
@@ -488,7 +451,7 @@
    "best_rank": 65,
    "usd": 3219,
    "paid": 0.558,
-   "ask": 0.58,
+   "ask": null,
    "status": "live",
    "link": "https://polymarket.us/event/cfb-pvam-arpb-2026-11-14",
    "other": null,
@@ -515,7 +478,7 @@
    "best_rank": 4,
    "usd": 294,
    "paid": 0.881,
-   "ask": 0.907,
+   "ask": null,
    "status": "live",
    "link": "https://polymarket.us/event/cfb-tenn-txam-2026-11-14",
    "other": null,
@@ -641,7 +604,7 @@
    "best_rank": 115,
    "usd": 4372,
    "paid": 0.48,
-   "ask": 0.5,
+   "ask": 0.51,
    "status": "live",
    "link": "https://polymarket.us/event/cfb-mtnst-librty-2026-11-14",
    "other": null,
@@ -708,7 +671,7 @@
    "best_rank": 58,
    "usd": 490,
    "paid": 0.51,
-   "ask": 0.51,
+   "ask": 0.5,
    "status": "live",
    "link": "https://polymarket.us/event/cfb-gas-gast-2026-11-14",
    "other": null,
@@ -800,7 +763,7 @@
    "best_rank": 11,
    "usd": 235,
    "paid": 0.53,
-   "ask": 0.85,
+   "ask": 0.86,
    "status": "live",
    "link": "https://polymarket.us/event/cbb-airf-pacfc-2026-11-14",
    "other": null,
@@ -900,6 +863,9 @@
    "home_name": "Texas State Bobcats",
    "game_start": "2026-11-14T21:00Z",
    "side_std": "under",
+   "conflict": [
+    "big money"
+   ],
    "money_with": false,
    "grade": "A",
    "fair_board": null,
@@ -937,8 +903,8 @@
    "home_name": "Rice Owls",
    "game_start": "2026-11-14T21:30Z",
    "side_std": "over",
-   "money_with": false,
-   "grade": "B",
+   "money_with": true,
+   "grade": "A",
    "fair_board": null,
    "inside_fair": null,
    "books": null
@@ -1519,6 +1485,49 @@
    "books": null
   },
   {
+   "cond": "0x871a326d71e52ccaa1dd2d558e2ec507f6a197e64d8834864f9198ad5f7069ad",
+   "slug": "nba-lal-phx-2026-11-15",
+   "title": "Lakers vs. Suns",
+   "mtype": "ml",
+   "start": "2026-11-15T21:00:00Z",
+   "bet": "Suns ML",
+   "side": "Suns",
+   "flagged": "2026-11-14T19:56:37Z",
+   "why": "a top-50 account",
+   "proven": false,
+   "trigger": "top50",
+   "n_accounts": 1,
+   "best_rank": 43,
+   "usd": 178,
+   "paid": 0.38,
+   "ask": 0.39,
+   "status": "live",
+   "link": "https://polymarket.us/event/nba-lal-phx-2026-11-15",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401909986",
+   "sport": "nba",
+   "league": null,
+   "away": "LAL",
+   "home": "PHX",
+   "away_name": "Los Angeles Lakers",
+   "home_name": "Phoenix Suns",
+   "game_start": "2026-11-15T21:00Z",
+   "side_std": "home",
+   "money_with": false,
+   "grade": "watch",
+   "fair_board": null,
+   "inside_fair": null,
+   "books": {
+    "at": "2026-11-14T18:06:38Z",
+    "fair": null,
+    "q": {
+     "Kalshi": 0.38
+    }
+   }
+  },
+  {
    "cond": "0x3b773f3b5203b36a388f1a3f242b5012e7d4eb0b8fd6f3773f23185485b99c8f",
    "slug": "nfl-la-ari-2026-11-15",
    "title": "Rams vs. Cardinals",
@@ -1889,7 +1898,7 @@
    "best_rank": 4,
    "usd": 17842,
    "paid": 0.516,
-   "ask": 0.58,
+   "ask": 0.6,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-dal-cle-2026-11-14",
    "other": {
@@ -1898,7 +1907,7 @@
     "usd": 2734,
     "first": "2026-11-14T18:23:47Z"
    },
-   "exit_bid": 0.57,
+   "exit_bid": 0.59,
    "kalshi_against": null,
    "logged": false,
    "event_id": "401909981",
@@ -1975,16 +1984,16 @@
    "best_rank": 112,
    "usd": 91769,
    "paid": 0.501,
-   "ask": 0.54,
+   "ask": 0.53,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-bkn-mem-2026-11-14",
    "other": {
     "n_accounts": 1,
     "best_rank": 112,
-    "usd": 1605,
+    "usd": 8557,
     "first": "2026-11-14T19:42:41Z"
    },
-   "exit_bid": 0.53,
+   "exit_bid": 0.52,
    "kalshi_against": null,
    "logged": false,
    "event_id": "401909983",
@@ -2027,10 +2036,10 @@
     "usd": 785,
     "first": "2026-11-14T06:50:34Z"
    },
-   "exit_bid": 0.75,
+   "exit_bid": 0.74,
    "kalshi_against": {
-    "move": 4.5,
-    "now": 24.5,
+    "move": 4.0,
+    "now": 24.0,
     "state": "fresh"
    },
    "logged": true,
@@ -2500,6 +2509,13 @@
     "usd": 785
    }
   },
+  "401909986|ml": {
+   "home": {
+    "n": 1,
+    "best_rank": 43,
+    "usd": 178
+   }
+  },
   "401909987|ml": {
    "away": {
     "n": 1,
@@ -2590,20 +2606,6 @@
     "n": 1,
     "best_rank": 79,
     "usd": 17150
-   }
-  },
-  "401856888|spread": {
-   "away": {
-    "n": 1,
-    "best_rank": 4,
-    "usd": 294
-   }
-  },
-  "401856888|ml": {
-   "away": {
-    "n": 1,
-    "best_rank": 182,
-    "usd": 260
    }
   },
   "401856863|total": {
