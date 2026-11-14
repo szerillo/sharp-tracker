@@ -100,10 +100,10 @@ DESC = {'wind1014': 'NFL outdoor, wind 10-14 mph (average of the latest Open-Met
         'nfl_home_dog_7510': 'NFL home dog of +7.5 to +10 at the close: home spread', 'nfl_road_dog_7510': 'NFL road dog of +7.5 to +10: road spread (paper)',
         'nfl_fade_fav_bye': 'NFL favourite coming off a bye (8+ days): take the dog on the spread (paper)',
         'nba_ats_hot_home': 'NBA home team covering 60%+ of its spreads this season (8+ games) on exactly 2 days rest: home spread (mined 11/5)',
-        'nba_bigfav_over': 'NBA favourite at 85%+ no-vig on the moneyline: over (mined 11/5; blowouts run up)',
+        'nba_bigfav_over': 'NBA favourite at -650 or shorter on the moneyline (about 85.5% no-vig): over (Bet Labs 1799443 / 1799444)',
         'nhl_loss_streak_over': 'NHL home team on a 3+ game losing streak with a season over rate of 40-60%: over (mined 11/5)',
-        'nba_badteams_under': 'NBA visitor with a season margin of -2 to -7 at a home team winning under 40% at home (8+ games each): under (mined 11/5)',
-        'nba_roadtrip_over': 'NBA visitor on its 4th+ straight road game that won the last meeting with this opponent: over (mined 11/5)',
+        'nba_badteams_under': 'NBA home team winning 40% or less (8+ games) vs a visitor winning 30-45%: under (Bet Labs 1799442, exact since 11/14)',
+        'nba_roadtrip_over': 'NBA visitor on its 4th+ straight road game: over (Bet Labs 1799438, exact since 11/14; the last-meeting filter was dropped)',
         'nhl_bounce_home_ml': 'NHL home team off a loss by 3+ goals with a 50-64% record (8+ games): home moneyline (mined 11/5)',
         'nhl_skid_fade_road': 'NHL road team off a win against a home team that has lost 3+ straight: road puck line (mined 11/5)',
         'cfb_day_over': 'CFB game kicking off 2-7pm ET with a total of 45-51.5: over (mined 11/5; noon kickoffs dropped. PAPER until a mechanism is shown: Sean 11/5, a time slot is not a reason for overs. Tomorrow\'s CFB weather replay tests the temperature story)',
@@ -215,6 +215,25 @@ def rule_wind(wx, msw, indoor=False):
         return m, f"MySportsWeather {m:g} mph" + (f", gusts {g:g}" if g is not None else '') + (f" (Open-Meteo {o} at T-{wx['hours_to_kickoff']:.0f}h)" if o is not None else '')
     if o is not None: return o, f"Open-Meteo {o} mph at T-{wx['hours_to_kickoff']:.0f}h (MySportsWeather has no reading: fallback)"
     return None, 'no forecast'
+
+
+# 11/14 (Sean): Bet Labs filters the tool cannot compute (cfb_road_streak_dog's "Number of Bets Compared To Daily Avg 1.01+") are taken
+# from Sean's Bet Labs snapshot (data/state/betlabs_picks.json, refreshed 9, 11, 2, 5, 7 ET through his Chrome) while it is under 8 hours old.
+BLP = os.path.join(ROOT, 'data', 'state', 'betlabs_picks.json'); _BLP = []
+def _bnm(x): return ''.join(c for c in (x or '').lower().replace('international', 'intl').replace('state', 'st') if c.isalnum() or c == ' ').split()
+def _bsame(a, b):
+    x, y = _bnm(a), _bnm(b)
+    if not x or not y or x[0] != y[0]: return False
+    n = min(len(x), len(y)); L = x if len(x) >= len(y) else y
+    return x[:n] == y[:n] and (len(L) == n or L[n] not in ('st', 'tech', 'a', 'am', 'intl', 'southern', 'northern'))
+def labs_list(screen_id, away_name, home_name, max_h=8):
+    """True / False when a fresh snapshot exists (is the game on that screen's current list), None when the snapshot is stale or missing."""
+    if not _BLP:
+        try: _BLP.append(json.load(open(BLP)))
+        except Exception: _BLP.append(None)
+    d = _BLP[0]
+    if not d or (NOW - N.parse_ts(d['pulled'])).total_seconds() / 3600 > max_h: return None
+    return any(p['sid'] == screen_id and _bsame(p['away'], away_name) and _bsame(p['home'], home_name) for p in d['picks'])
 
 
 def prev_scheduled(sport, team, st):
@@ -481,9 +500,10 @@ def main():
         # file only keeps a rolling window, the season log only has finished games); calendar days, as Bet Labs counts
         cand = [t for t in (v_prev[0] if v_prev else None, N.parse_ts(pv['last_start']) if pv.get('last_start') else None) if t is not None and t < st]
         vdays = (N.et_date(st) - N.et_date(max(cand))).days if cand else None
-        if vdays is not None and 8 <= vdays <= 30:
+        roofed = home in ROOF_NFL or is_indoor(ev)      # 11/14: both Bet Labs screens filter "Dome Closed N"
+        if vdays is not None and 8 <= vdays <= 30 and not roofed:
             trig['vrest8_1h'] = f"{away} off {vdays} days"
-        if et_dow == 'Monday': trig['mnf_1h'] = 'Monday night'
+        if et_dow == 'Monday' and not roofed: trig['mnf_1h'] = 'Monday night'
         if dog and (away if dog == 'away' else home) not in pending:
             dp = pv if dog == 'away' else ph; dteam = away if dog == 'away' else home
             if dp.get('games', 0) >= 1 and dp.get('margin_avg') is not None and dp['margin_avg'] <= -13:     # 11/6: back to Bet Labs' -13 or worse (the 11/5 re-band came from a replay bug)
@@ -552,6 +572,9 @@ def main():
         if rec_s.get('conf') and sp_line is not None and sp_line < 0 and tl is not None and tl <= 54:
             k_, n_ = road_streak('cfb', away, st)
             if n_ >= 1 and 2 <= k_ <= 5: rs = k_
+            if rs:      # Bet Labs' bet-count filter: follow its list while the snapshot is fresh
+                on_ = labs_list(1792198, (rec_s.get('away_team') or {}).get('displayName') or away, (rec_s.get('home_team') or {}).get('displayName') or home)
+                if on_ is False: rs = None
         dayover = tl is not None and 45 <= tl <= 51.5 and 14 <= st.astimezone(N.ET).hour < 19     # 11/5 (Sean, cut the noise): noon kickoffs were -0.9% / +2.8% train / test; 2-7pm ET +11.7% / +13.1%, 7 of 7 seasons
         hf_under = sp_line is not None and -10 <= sp_line <= -7.5 and tl is not None
         # 11/7 (Sean's Bet Labs comparison): a logged CFB bet whose rule no longer holds on the current line before kickoff (the spread left
@@ -620,26 +643,29 @@ def main():
             if am is not None and 181 <= am <= 196: trig['nhl_pl_dog_bigml'] = ('spread', dog_side, f"{dog} opened +{am:.0f} on the moneyline: +1.5 on a big dog")
             if fav == home and ph['games'] + 1 <= 24 and int(100 * pd['win_pct']) >= 51:
                 trig['nhl_early_home_fav_qual'] = ('ml', 'home', f"home favorite, game {ph['games'] + 1} of the season, opponent {away} wins {int(100 * pd['win_pct'])}% ({pd['wins']}-{pd['games'] - pd['wins']})")
-            mined_ok = ph['games'] >= 3 and pa['games'] >= 3          # 11/5: the miner's own minimum (3 games for record features); the Bet Labs rules keep their own definitions
+            mined_ok = ph['games'] >= 1 and pa['games'] >= 1          # 11/14 (Sean: fire exactly what Bet Labs fires): Bet Labs has no games minimum (was 3)
             if mined_ok and ph.get('loss_streak', 0) >= 3 and ph.get('over_pct') is not None and 0.40 <= ph['over_pct'] < 0.60:
                 trig['nhl_loss_streak_over'] = ('total', 'over', f"home {home} has lost {ph['loss_streak']} straight, season over rate {100 * ph['over_pct']:.0f}%: over (mined angle)")
-            if mined_ok and ph.get('last_margin') is not None and ph['last_margin'] <= -3 and 0.50 <= ph['win_pct'] < 0.65:
+            if mined_ok and ph.get('last_margin') is not None and -20 <= ph['last_margin'] <= -3 and 50 <= int(100 * ph['win_pct']) <= 64:
                 trig['nhl_bounce_home_ml'] = ('ml', 'home', f"home {home} lost its last game by {-ph['last_margin']:.0f}, record {ph['wins']}-{ph['games'] - ph['wins']} ({100 * ph['win_pct']:.0f}%): home moneyline (mined angle)")
-            if mined_ok and pa.get('last_margin') is not None and pa['last_margin'] > 0 and ph.get('loss_streak', 0) >= 3:
+            if mined_ok and pa.get('last_margin') is not None and 1 <= pa['last_margin'] <= 20 and 3 <= ph.get('loss_streak', 0) <= 12:
                 trig['nhl_skid_fade_road'] = ('spread', 'away', f"{away} off a win, home {home} has lost {ph['loss_streak']} straight: road puck line (mined angle)")
         else:
             if int(100 * (pa.get('over_pct') or 0)) >= 71: trig['nba_1h_under_hot_over'] = ('1h_total', 'under', f"visitor {away} over rate {100 * pa['over_pct']:.0f}% this season; 1H under (regression lean)")
             # mined paper angles (11/5): ATS-hot home team on 2 days rest; big favourite over
             h_off0 = (N.et_date(st) - N.et_date(N.parse_ts(ph['last_start']))).days if ph.get('last_start') else None
-            mined_ok = ph['games'] >= 3 and pa['games'] >= 3          # 11/5: the miner's own minimum (3 games); ATS% still needs 8 spreads
-            if mined_ok and ph.get('ats_n', 0) >= 8 and ph.get('ats_pct') is not None and ph['ats_pct'] >= 0.60 and h_off0 == 2:
+            mined_ok = ph['games'] >= 1 and pa['games'] >= 1          # 11/14: Bet Labs' screens have no games minimum (was 3)
+            # Bet Labs 1799432: team's game number 9-82 (8+ played), exactly 2 days between games, ATS 60-100%, home
+            if ph['games'] >= 8 and ph.get('ats_pct') is not None and int(100 * ph['ats_pct']) >= 60 and h_off0 == 2:
                 trig['nba_ats_hot_home'] = ('spread', 'home', f"home {home} covers {100 * ph['ats_pct']:.0f}% of spreads this season ({ph['ats_n']} games), 2 days rest: home spread (mined angle)")
-            if mined_ok and max(p_home, 1 - p_home) >= 0.85:
+            if max(p_home, 1 - p_home) >= 0.855:     # Bet Labs 1799443 / 1799444: home moneyline -650 or shorter / +650 or longer (about 85.5% no-vig)
                 trig['nba_bigfav_over'] = ('total', 'over', f"{fav} is {100 * max(p_home, 1 - p_home):.0f}% on the moneyline: over (mined angle)")
-            if mined_ok and pa.get('margin_avg') is not None and -7 <= pa['margin_avg'] < -2 and ph.get('home_pct') is not None and ph['home_pct'] < 0.40:
-                trig['nba_badteams_under'] = ('total', 'under', f"visitor {away} season margin {pa['margin_avg']:+.1f}, home {home} wins {100 * ph['home_pct']:.0f}% at home: under (mined angle)")
-            if mined_ok and pa.get('road_streak', 0) >= 4 and pa.get('last_vs') is not None and pa['last_vs'] > 0:
-                trig['nba_roadtrip_over'] = ('total', 'over', f"{away} on road game {pa['road_streak']} in a row and won the last meeting by {pa['last_vs']:.0f}: over (mined angle)")
+            # 11/14 (Sean): Bet Labs 1799442 exactly: home game number 9-82, home win% 0-40, visitor win% 30-45 (was visitor margin -7 to -2 and home win% at home)
+            if ph['games'] >= 8 and int(100 * ph['win_pct']) <= 40 and pa['games'] >= 1 and 30 <= int(100 * pa['win_pct']) <= 45:
+                trig['nba_badteams_under'] = ('total', 'under', f"home {home} wins {int(100 * ph['win_pct'])}% ({ph['games']} games), visitor {away} wins {int(100 * pa['win_pct'])}%: under")
+            # 11/14 (Sean): Bet Labs 1799438 exactly: the visitor's previous game was its 3rd+ straight road game (so this is the 4th+); no last-meeting filter
+            if 3 <= pa.get('road_streak', 0) <= 30:
+                trig['nba_roadtrip_over'] = ('total', 'over', f"{away} on road game {pa['road_streak'] + 1} in a row: over")
             # Bet Labs "days between games" = calendar-day gap (back-to-back = 1); checked on its 2026 picks 10/31
             h_off = (N.et_date(st) - N.et_date(N.parse_ts(ph['last_start']))).days if ph.get('last_start') else None
             a_off = (N.et_date(st) - N.et_date(N.parse_ts(pa['last_start']))).days if pa.get('last_start') else None
@@ -733,6 +759,7 @@ def main():
         ph, pa = SEA.profile('cbb', home, st), SEA.profile('cbb', away, st)
         # 11/14 (Sean): 3 games made the season over % too thin (5 fires on 11/13-14, Bet Labs 0); paper until each team has 6 games
         if ph.get('games', 0) < CBB_MIN_G or pa.get('games', 0) < CBB_MIN_G or ph.get('over_pct') is None or pa.get('over_pct') is None: continue
+        if ph.get('ou_streak') not in (0, 1, 2, 3): continue      # 11/14: Bet Labs 1792184 "Home OU Streak 3, 2, 1, 0" (home not on an under streak, not 4+ overs)
         if not (ph['over_pct'] >= 0.50 and pa['over_pct'] >= 0.59): continue
         eq = F.EventQuotes(conn, ev); tl, _n = main_line(eq, 'total', None); op = open_line(conn, ev, 'total')
         if tl is None or op is None or op - tl < 0.5: continue
@@ -740,6 +767,21 @@ def main():
         take(conn, eq, fired, fires_now, game, ev, start, away, home, 'cbb_under_good_over_drop', 'total', tl, 'under', None, 0.5,
              f"home {home} over {100 * ph['over_pct']:.0f}% ({ph['games']} games), visitor {away} over {100 * pa['over_pct']:.0f}% ({pa['games']}); total {op} -> {tl}")
         view_games.append(game)
+    # 11/14 (Sean: every Tested/Tracked Bet Labs system fires in the tool): MLB 1799441, visitor's game number 16-162 (15+ played) and its
+    # games over 60-100%: under. Paper. No MLB games until spring; wrapped so a missing MLB log never stops the run.
+    try:
+        for ev, start, away, home in conn.execute("SELECT event_id, start_utc, away, home FROM events WHERE sport='mlb' ORDER BY start_utc").fetchall():
+            st = N.parse_ts(start); ttk = (st - NOW).total_seconds() / 3600
+            if not (0 < ttk <= VIEW_H): continue
+            pa = SEA.profile('mlb', away, st)
+            if pa.get('games', 0) < 15 or pa.get('over_pct') is None or int(100 * pa['over_pct']) < 60: continue
+            eq = F.EventQuotes(conn, ev); tl, _n = main_line(eq, 'total', None)
+            if tl is None: continue
+            game = dict(event_id=ev, away=away, home=home, start_utc=start, hours_to_kickoff=round(ttk, 1), spread_home=None, dog=None, triggers={}, fills=[], sport='mlb')
+            take(conn, eq, fired, fires_now, game, ev, start, away, home, 'mlb_road_over_under', 'total', tl, 'under', None, 0.5,
+                 f"visitor {away} games over {int(100 * pa['over_pct'])}% ({pa['games']} games): under")
+            view_games.append(game)
+    except Exception as e: print(f"[systems] MLB rule skipped: {e}")
     late_rules(conn, fired, fires_now, view_games)
     json.dump(fired, open(FIRED, 'w'), indent=0)
     # per-tag forward record from the ledger

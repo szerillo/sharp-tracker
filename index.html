@@ -1317,9 +1317,8 @@ function renderBetLabs() {
     const x = a.split(' '), y = b.split(' '); return x[0] === y[0] && (x.length === 1 || y.length === 1 || x[1] === y[1]); };
   const scr = Object.fromEntries(BP.screens.map(x => [x.id, x]));
   // 11/14: rules whose Bet Labs screen is only an approximation of the tested rule; a mismatch there is a known definition difference, not a gap
-  const DEF = {nba_roadtrip_over: "Bet Labs screen has no last-meeting filter; the tool's tested rule also needs the visitor to have won the last meeting",
-    nba_badteams_under: "Bet Labs screen uses both teams' win %; the tool uses the visitor's season margin (-7 to -2) and the home team's home win %",
-    cfb_road_streak_dog: "Bet Labs also requires above-average bet count for the day (Number of Bets vs Daily Avg 1.01+), which the tool cannot see",
+  // 11/14: remaining known differences (the NBA and CFB definitions were aligned to Bet Labs the same day)
+  const DEF = {cbb_under_good_over_drop: "Sean's 6-game minimum per team (11/14); Bet Labs fires from a team's first game",
     cfb_wind14: 'Wind source differs by design: the tool uses MySportsWeather, Bet Labs its own wind', wind1014: 'Wind source differs by design: the tool uses MySportsWeather, Bet Labs its own wind',
     wind1014_1h: 'Wind source differs by design: the tool uses MySportsWeather, Bet Labs its own wind'};
   const built = SY.built ? new Date(SY.built) : null, nowT = Date.now();
