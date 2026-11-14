@@ -1,5 +1,5 @@
 {
- "built": "2026-11-14T17:19:54Z",
+ "built": "2026-11-14T17:33:26Z",
  "rows": [
   {
    "cond": "0x023fe2801e367dbc1d3c14f891273d40e90f5ebbfbadc2b75316bb5fd03a32f5",
@@ -69,10 +69,7 @@
    "home_name": "Iowa State Cyclones",
    "game_start": "2026-11-14T17:00Z",
    "side_std": "away",
-   "conflict": [
-    "Kalshi move"
-   ],
-   "money_with": true,
+   "money_with": false,
    "grade": "A",
    "inside_fair": false,
    "fair_board": 0.4264,
@@ -241,7 +238,7 @@
    "best_rank": 58,
    "usd": 317,
    "paid": 0.56,
-   "ask": 0.57,
+   "ask": null,
    "status": "live",
    "link": "https://polymarket.us/event/cfb-gtech-clmsn-2026-11-14",
    "other": null,
@@ -281,7 +278,7 @@
    "best_rank": 115,
    "usd": 6203,
    "paid": 0.5,
-   "ask": 0.52,
+   "ask": null,
    "status": "live",
    "link": "https://polymarket.us/event/cfb-gtech-clmsn-2026-11-14",
    "other": null,
@@ -358,7 +355,7 @@
    "best_rank": 79,
    "usd": 6551,
    "paid": 0.53,
-   "ask": 0.53,
+   "ask": 0.52,
    "status": "live",
    "link": "https://polymarket.us/event/nhl-sea-car-2026-11-14",
    "other": null,
@@ -376,15 +373,64 @@
    "money_with": false,
    "grade": "A",
    "fair_board": 0.5222,
-   "inside_fair": false,
+   "inside_fair": true,
    "books": {
-    "at": "2026-11-14T17:01:53Z",
+    "at": "2026-11-14T16:23:12Z",
     "fair": 0.5222,
     "q": {
      "Novig": 0.525,
      "FD": 0.5413,
      "Caesars": 0.5455,
      "DK": 0.5495
+    }
+   }
+  },
+  {
+   "cond": "0x1571eb501f6601972ce82f4b17bb644dd7d49fa1931580b9b11dbcb6fb1e3bff",
+   "slug": "cfb-ecar-charlt-2026-11-14",
+   "title": "East Carolina vs. Charlotte",
+   "mtype": "spread",
+   "start": "2026-11-14T18:00:00Z",
+   "bet": "East Carolina -10.5",
+   "side": "East Carolina",
+   "flagged": "2026-11-14T17:27:40Z",
+   "why": "a top-200 account also in this sport's top 50",
+   "proven": true,
+   "trigger": "proven",
+   "n_accounts": 1,
+   "best_rank": 115,
+   "usd": 7935,
+   "paid": 0.5,
+   "ask": 0.51,
+   "status": "live",
+   "link": "https://polymarket.us/event/cfb-ecar-charlt-2026-11-14",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401862825",
+   "sport": "cfb",
+   "league": null,
+   "away": "ECU",
+   "home": "CLT",
+   "away_name": "East Carolina Pirates",
+   "home_name": "Charlotte 49ers",
+   "game_start": "2026-11-14T18:00Z",
+   "side_std": "away",
+   "conflict": [
+    "big money"
+   ],
+   "money_with": false,
+   "grade": "A",
+   "fair_board": 0.4983,
+   "inside_fair": false,
+   "books": {
+    "at": "2026-11-14T16:23:33Z",
+    "fair": 0.4983,
+    "q": {
+     "Novig": 0.505,
+     "FD": 0.5122,
+     "Caesars": 0.5192,
+     "DK": 0.5283
     }
    }
   },
@@ -491,7 +537,7 @@
    "inside_fair": false,
    "fair_board": 0.4864,
    "books": {
-    "at": "2026-11-14T17:01:53Z",
+    "at": "2026-11-14T16:23:33Z",
     "fair": 0.4954,
     "q": {
      "Novig": 0.495,
@@ -681,8 +727,8 @@
    "inside_fair": false,
    "fair_board": 0.4828,
    "books": {
-    "at": "2026-11-14T17:01:53Z",
-    "fair": 0.4762,
+    "at": "2026-11-14T16:23:33Z",
+    "fair": 0.4777,
     "q": {
      "Novig": 0.475,
      "Kalshi": 0.5,
@@ -764,7 +810,7 @@
    "inside_fair": true,
    "fair_board": 0.8523,
    "books": {
-    "at": "2026-11-14T17:01:53Z",
+    "at": "2026-11-14T16:23:33Z",
     "fair": 0.8625,
     "q": {
      "Caesars": 0.871,
@@ -846,7 +892,7 @@
    "fair_board": 0.5817,
    "inside_fair": true,
    "books": {
-    "at": "2026-11-14T17:01:53Z",
+    "at": "2026-11-14T16:23:12Z",
     "fair": 0.5817,
     "q": {
      "Novig": 0.585,
@@ -872,7 +918,7 @@
    "best_rank": 110,
    "usd": 409,
    "paid": 0.58,
-   "ask": 0.6,
+   "ask": 0.59,
    "status": "live",
    "link": "https://polymarket.us/event/cfb-sjst-airf-2026-11-14",
    "other": null,
@@ -971,6 +1017,43 @@
    "books": null
   },
   {
+   "cond": "0x14c0323dac416f91c3eaccb31b7f0138901c6a8cccaeb1f3341dfbb625a04e26",
+   "slug": "cfb-flatl-tulsa-2026-11-14",
+   "title": "Florida Atlantic vs. Tulsa",
+   "mtype": "total",
+   "start": "2026-11-15T00:15:00Z",
+   "bet": "Under 73.5",
+   "side": "Under",
+   "flagged": "2026-11-14T17:24:20Z",
+   "why": "a top-200 account also in this sport's top 50",
+   "proven": true,
+   "trigger": "proven",
+   "n_accounts": 1,
+   "best_rank": 58,
+   "usd": 203,
+   "paid": 0.52,
+   "ask": 0.53,
+   "status": "live",
+   "link": "https://polymarket.us/event/cfb-flatl-tulsa-2026-11-14",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401862826",
+   "sport": "cfb",
+   "league": null,
+   "away": "FAU",
+   "home": "TLSA",
+   "away_name": "Florida Atlantic Owls",
+   "home_name": "Tulsa Golden Hurricane",
+   "game_start": "2026-11-15T00:15Z",
+   "side_std": "under",
+   "money_with": true,
+   "grade": "A",
+   "fair_board": null,
+   "inside_fair": null,
+   "books": null
+  },
+  {
    "cond": "0xf4f30a71957f36f82ec2cf13672f70d425255112674cf44fc9db22ead8681ce3",
    "slug": "cfb-stan-vtech-2026-11-14",
    "title": "Stanford vs. Virginia Tech",
@@ -1006,7 +1089,7 @@
    "inside_fair": false,
    "fair_board": 0.4885,
    "books": {
-    "at": "2026-11-14T17:01:53Z",
+    "at": "2026-11-14T16:23:33Z",
     "fair": 0.4862,
     "q": {
      "Novig": 0.49,
@@ -1087,11 +1170,11 @@
    "side_std": "away",
    "money_with": false,
    "grade": "watch",
-   "fair_board": 0.644,
+   "fair_board": 0.6416,
    "inside_fair": false,
    "books": {
-    "at": "2026-11-14T17:01:53Z",
-    "fair": 0.644,
+    "at": "2026-11-14T16:23:16Z",
+    "fair": 0.6416,
     "q": {
      "Novig": 0.645,
      "DK": 0.6564,
@@ -1136,8 +1219,8 @@
    "inside_fair": false,
    "fair_board": 0.5081,
    "books": {
-    "at": "2026-11-14T17:01:53Z",
-    "fair": 0.5011,
+    "at": "2026-11-14T16:23:33Z",
+    "fair": 0.5008,
     "q": {
      "Novig": 0.505,
      "FD": 0.5238,
@@ -1162,7 +1245,7 @@
    "best_rank": 79,
    "usd": 17150,
    "paid": 0.51,
-   "ask": 0.51,
+   "ask": 0.52,
    "status": "live",
    "link": "https://polymarket.us/event/nhl-nyi-ana-2026-11-14",
    "other": null,
@@ -1180,9 +1263,9 @@
    "money_with": false,
    "grade": "A",
    "fair_board": 0.5103,
-   "inside_fair": true,
+   "inside_fair": false,
    "books": {
-    "at": "2026-11-14T17:01:53Z",
+    "at": "2026-11-14T16:23:12Z",
     "fair": 0.5103,
     "q": {
      "Novig": 0.515,
@@ -1488,7 +1571,7 @@
    "fair_board": null,
    "inside_fair": null,
    "books": {
-    "at": "2026-11-14T17:01:53Z",
+    "at": "2026-11-14T16:23:16Z",
     "fair": null,
     "q": {
      "Kalshi": 0.43
@@ -1850,14 +1933,6 @@
    },
    "against": null
   },
-  "401858297:cfb_road_dog_low_total": {
-   "with": {
-    "n": 1,
-    "best_rank": 115,
-    "usd": 6203
-   },
-   "against": null
-  },
   "401860916:cfb_homefav_7510_under": {
    "with": {
     "n": 1,
@@ -2175,18 +2250,18 @@
     "usd": 460
    }
   },
-  "401858297|total": {
-   "over": {
+  "401856889|spread": {
+   "away": {
     "n": 1,
-    "best_rank": 58,
-    "usd": 317
+    "best_rank": 182,
+    "usd": 293
    }
   },
-  "401858297|spread": {
+  "401862825|spread": {
    "away": {
     "n": 1,
     "best_rank": 115,
-    "usd": 6203
+    "usd": 7935
    }
   },
   "401856889|spread": {
