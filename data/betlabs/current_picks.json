@@ -1,7 +1,135 @@
 {
-"pulled": "2026-11-14T09:55:00Z",
+"pulled": "2026-11-14T14:18:03Z",
 "source": "Bet Labs current system picks (your saved Tested: and Tracked: screens)",
 "screens": [
+{
+"id": 1799444,
+"name": "NBA Big Visitor Fav 85 Pct Over",
+"sport": "nba",
+"rules": [
+"nba_bigfav_over"
+]
+},
+{
+"id": 1799443,
+"name": "NBA Big Home Fav 85 Pct Over",
+"sport": "nba",
+"rules": [
+"nba_bigfav_over"
+]
+},
+{
+"id": 1799442,
+"name": "NBA Weak Visitor at Home Team Under 40 Pct Under (approx)",
+"sport": "nba",
+"rules": [
+"nba_badteams_under"
+]
+},
+{
+"id": 1799441,
+"name": "MLB Visitor Over 60 Pct Under",
+"sport": "mlb",
+"rules": [
+"mlb_road_over_under"
+]
+},
+{
+"id": 1799440,
+"name": "CFB Home Fav 7.5 to 10 Under",
+"sport": "cfb",
+"rules": [
+"cfb_homefav_7510_under"
+]
+},
+{
+"id": 1799439,
+"name": "CFB Afternoon Game 2-7pm ET Total 45 to 51.5 Over",
+"sport": "cfb",
+"rules": [
+"cfb_day_over"
+]
+},
+{
+"id": 1799438,
+"name": "NBA Visitor 4th Plus Straight Road Game Over",
+"sport": "nba",
+"rules": [
+"nba_roadtrip_over"
+]
+},
+{
+"id": 1799435,
+"name": "NFL Dog vs Favorite Off Bye ATS",
+"sport": "nfl",
+"rules": [
+"nfl_fade_fav_bye"
+]
+},
+{
+"id": 1799434,
+"name": "NFL Road Dog 7.5 to 10 ATS",
+"sport": "nfl",
+"rules": [
+"nfl_road_dog_7510"
+]
+},
+{
+"id": 1799433,
+"name": "NFL Home Dog 7.5 to 10 ATS",
+"sport": "nfl",
+"rules": [
+"nfl_home_dog_7510"
+]
+},
+{
+"id": 1799432,
+"name": "NBA Home ATS 60 Pct Rest 2 Days",
+"sport": "nba",
+"rules": [
+"nba_ats_hot_home"
+]
+},
+{
+"id": 1799431,
+"name": "NHL Road Off Win vs Home Lost 3 Plus PL",
+"sport": "nhl",
+"rules": [
+"nhl_skid_fade_road"
+]
+},
+{
+"id": 1799430,
+"name": "NHL Bounce Home Off 3 Plus Goal Loss ML",
+"sport": "nhl",
+"rules": [
+"nhl_bounce_home_ml"
+]
+},
+{
+"id": 1799428,
+"name": "NHL Home Lost 3 Straight Over",
+"sport": "nhl",
+"rules": [
+"nhl_loss_streak_over"
+]
+},
+{
+"id": 1792204,
+"name": "CFB Hot Weather Over Total 55 or Less",
+"sport": "cfb",
+"rules": [
+"cfb_hot_over_low_total"
+]
+},
+{
+"id": 1792198,
+"name": "CFB Conf Road Streak Dog Total 54 or Less",
+"sport": "cfb",
+"rules": [
+"cfb_road_streak_dog"
+]
+},
 {
 "id": 1792184,
 "name": "CBB Under Good Over Teams Total Down",
@@ -27,62 +155,6 @@
 ]
 },
 {
-"id": 1792198,
-"name": "CFB Conf Road Streak Dog Total 54 or Less",
-"sport": "cfb",
-"rules": [
-"cfb_road_streak_dog"
-]
-},
-{
-"id": 1792204,
-"name": "CFB Hot Weather Over Total 55 or Less",
-"sport": "cfb",
-"rules": [
-"cfb_hot_over_low_total"
-]
-},
-{
-"id": 1783043,
-"name": "CFB Wind 14 Plus Under",
-"sport": "cfb",
-"rules": [
-"cfb_wind14"
-]
-},
-{
-"id": 1784158,
-"name": "NBA 1H Under Visitor Over Pct 71 Plus",
-"sport": "nba",
-"rules": [
-"nba_1h_under_hot_over"
-]
-},
-{
-"id": 1799443,
-"name": "NBA Big Home Fav 85 Pct Over",
-"sport": "nba",
-"rules": [
-"nba_bigfav_over"
-]
-},
-{
-"id": 1799444,
-"name": "NBA Big Visitor Fav 85 Pct Over",
-"sport": "nba",
-"rules": [
-"nba_bigfav_over"
-]
-},
-{
-"id": 1799432,
-"name": "NBA Home ATS 60 Pct Rest 2 Days",
-"sport": "nba",
-"rules": [
-"nba_ats_hot_home"
-]
-},
-{
 "id": 1789285,
 "name": "NBA Under Good Home Over Team Rest Total Down",
 "sport": "nba",
@@ -91,67 +163,19 @@
 ]
 },
 {
-"id": 1799442,
-"name": "NBA Weak Visitor at Home Team Under 40 Pct Under (approx)",
-"sport": "nba",
-"rules": [
-"nba_badteams_under"
-]
-},
-{
-"id": 1772929,
-"name": "NFL 1H Blowout Bounce Dog ATS",
-"sport": "nfl",
-"rules": [
-"bounce15_1h"
-]
-},
-{
-"id": 1772963,
-"name": "NFL 1H Monday Night Under",
-"sport": "nfl",
-"rules": [
-"mnf_1h"
-]
-},
-{
-"id": 1772962,
-"name": "NFL 1H Visitor Off 8 to 30 Days Under",
-"sport": "nfl",
-"rules": [
-"vrest8_1h"
-]
-},
-{
-"id": 769171,
-"name": "NFL 1H Wind 10-13 Under",
-"sport": "nfl",
-"rules": [
-"wind1014_1h"
-]
-},
-{
-"id": 1772776,
-"name": "NFL Awful-Team Dog ATS",
-"sport": "nfl",
-"rules": [
-"awfuldog"
-]
-},
-{
-"id": 1772775,
-"name": "NFL Wind 10-14 Under",
-"sport": "nfl",
-"rules": [
-"wind1014"
-]
-},
-{
 "id": 1789284,
 "name": "NHL Early Season Home Fav vs Quality Opp ML",
 "sport": "nhl",
 "rules": [
 "nhl_early_home_fav_qual"
+]
+},
+{
+"id": 1784158,
+"name": "NBA 1H Under Visitor Over Pct 71 Plus",
+"sport": "nba",
+"rules": [
+"nba_1h_under_hot_over"
 ]
 },
 {
@@ -179,856 +203,1030 @@
 ]
 },
 {
-"id": 1799431,
-"name": "NHL Road Off Win vs Home Lost 3 Plus PL",
-"sport": "nhl",
-"rules": [
-"nhl_skid_fade_road"
-]
-},
-{
-"id": 1799439,
-"name": "CFB Afternoon Game 2-7pm ET Total 45 to 51.5 Over",
+"id": 1783043,
+"name": "CFB Wind 14 Plus Under",
 "sport": "cfb",
 "rules": [
-"cfb_day_over"
+"cfb_wind14"
 ]
 },
 {
-"id": 1799440,
-"name": "CFB Home Fav 7.5 to 10 Under",
-"sport": "cfb",
-"rules": [
-"cfb_homefav_7510_under"
-]
-},
-{
-"id": 1799441,
-"name": "MLB Visitor Over 60 Pct Under",
-"sport": "mlb",
-"rules": [
-"mlb_road_over_under"
-]
-},
-{
-"id": 1799438,
-"name": "NBA Visitor 4th Plus Straight Road Game Over",
-"sport": "nba",
-"rules": [
-"nba_roadtrip_over"
-]
-},
-{
-"id": 1799435,
-"name": "NFL Dog vs Favorite Off Bye ATS",
+"id": 1772963,
+"name": "NFL 1H Monday Night Under",
 "sport": "nfl",
 "rules": [
-"nfl_fade_fav_bye"
+"mnf_1h"
 ]
 },
 {
-"id": 1799433,
-"name": "NFL Home Dog 7.5 to 10 ATS",
+"id": 1772962,
+"name": "NFL 1H Visitor Off 8 to 30 Days Under",
 "sport": "nfl",
 "rules": [
-"nfl_home_dog_7510"
+"vrest8_1h"
 ]
 },
 {
-"id": 1799434,
-"name": "NFL Road Dog 7.5 to 10 ATS",
+"id": 1772929,
+"name": "NFL 1H Blowout Bounce Dog ATS",
 "sport": "nfl",
 "rules": [
-"nfl_road_dog_7510"
+"bounce15_1h"
 ]
 },
 {
-"id": 1799430,
-"name": "NHL Bounce Home Off 3 Plus Goal Loss ML",
-"sport": "nhl",
+"id": 1772776,
+"name": "NFL Awful-Team Dog ATS",
+"sport": "nfl",
 "rules": [
-"nhl_bounce_home_ml"
+"awfuldog"
 ]
 },
 {
-"id": 1799428,
-"name": "NHL Home Lost 3 Straight Over",
-"sport": "nhl",
+"id": 1772775,
+"name": "NFL Wind 10-14 Under",
+"sport": "nfl",
 "rules": [
-"nhl_loss_streak_over"
+"wind1014"
+]
+},
+{
+"id": 769171,
+"name": "NFL 1H Wind 10-13 Under",
+"sport": "nfl",
+"rules": [
+"wind1014_1h"
 ]
 }
 ],
 "picks": [
 {
-"sid": 1789286,
-"date": "2026-11-14",
-"play": "Kansas State",
-"away": "Kansas St",
-"home": "TCU"
-},
-{
-"sid": 1789286,
-"date": "2026-11-14",
-"play": "Minnesota",
-"away": "Minnesota",
-"home": "Penn St"
-},
-{
-"sid": 1789286,
-"date": "2026-11-14",
-"play": "Purdue",
-"away": "Purdue",
-"home": "Iowa"
-},
-{
-"sid": 1789286,
-"date": "2026-11-14",
-"play": "Missouri",
-"away": "Missouri",
-"home": "Georgia"
-},
-{
-"sid": 1789286,
-"date": "2026-11-14",
-"play": "UNLV",
-"away": "UNLV",
-"home": "New Mexico"
-},
-{
-"sid": 1789286,
-"date": "2026-11-14",
-"play": "California",
-"away": "California",
-"home": "Virginia"
-},
-{
-"sid": 1789286,
-"date": "2026-11-14",
-"play": "Georgia Tech",
-"away": "Georgia Tech",
-"home": "Clemson"
-},
-{
-"sid": 1789286,
-"date": "2026-11-14",
-"play": "Northwestern",
-"away": "Northwestern",
-"home": "Ohio St"
-},
-{
-"sid": 1789286,
-"date": "2026-11-14",
-"play": "Michigan",
-"away": "Michigan",
-"home": "Oregon"
-},
-{
-"sid": 1789286,
-"date": "2026-11-17",
-"play": "Eastern Michigan",
-"away": "Eastern Michigan",
-"home": "Western Michigan"
-},
-{
-"sid": 1792198,
-"date": "2026-11-14",
-"play": "Texas",
-"away": "Texas",
-"home": "LSU"
-},
-{
-"sid": 1783043,
-"date": "2026-11-14",
-"play": "Under",
-"away": "Florida Intl",
-"home": "Delaware"
-},
-{
-"sid": 1783043,
-"date": "2026-11-14",
-"play": "Under",
-"away": "North Dakota St",
-"home": "Hawaii"
-},
-{
-"sid": 1783043,
-"date": "2026-11-21",
-"play": "Under",
-"away": "Texas A&M",
-"home": "Oklahoma"
-},
-{
-"sid": 1799443,
-"date": "2026-11-14",
-"play": "Over",
-"away": "Chicago Bulls",
-"home": "Minnesota Timberwolves"
-},
-{
-"sid": 1799432,
-"date": "2026-11-14",
-"play": "Minnesota Timberwolves",
-"away": "Chicago Bulls",
-"home": "Minnesota Timberwolves"
-},
-{
-"sid": 1799432,
-"date": "2026-11-16",
-"play": "Brooklyn Nets",
-"away": "Philadelphia 76ers",
-"home": "Brooklyn Nets"
-},
-{
-"sid": 1799432,
-"date": "2026-11-16",
-"play": "Minnesota Timberwolves",
-"away": "Portland Trail Blazers",
-"home": "Minnesota Timberwolves"
-},
-{
-"sid": 1799432,
-"date": "2026-11-17",
-"play": "Los Angeles Lakers",
-"away": "Charlotte Hornets",
-"home": "Los Angeles Lakers"
-},
-{
-"sid": 1799432,
-"date": "2026-11-18",
-"play": "Brooklyn Nets",
-"away": "Chicago Bulls",
-"home": "Brooklyn Nets"
-},
-{
-"sid": 1799432,
-"date": "2026-11-19",
-"play": "Minnesota Timberwolves",
-"away": "New York Knicks",
-"home": "Minnesota Timberwolves"
-},
-{
-"sid": 1799432,
-"date": "2026-11-20",
-"play": "Brooklyn Nets",
-"away": "Orlando Magic",
-"home": "Brooklyn Nets"
-},
-{
-"sid": 1799432,
-"date": "2026-11-20",
-"play": "Detroit Pistons",
-"away": "Toronto Raptors",
-"home": "Detroit Pistons"
-},
-{
-"sid": 1799432,
-"date": "2026-11-20",
-"play": "Los Angeles Lakers",
-"away": "Sacramento Kings",
-"home": "Los Angeles Lakers"
-},
-{
-"sid": 1799432,
-"date": "2026-11-21",
-"play": "Minnesota Timberwolves",
-"away": "Memphis Grizzlies",
-"home": "Minnesota Timberwolves"
-},
-{
-"sid": 1799432,
-"date": "2026-11-23",
-"play": "Minnesota Timberwolves",
-"away": "Brooklyn Nets",
-"home": "Minnesota Timberwolves"
-},
-{
-"sid": 1799432,
-"date": "2026-11-25",
-"play": "Portland Trail Blazers",
-"away": "San Antonio Spurs",
-"home": "Portland Trail Blazers"
-},
-{
-"sid": 1799432,
-"date": "2026-11-25",
-"play": "Houston Rockets",
-"away": "Phoenix Suns",
-"home": "Houston Rockets"
-},
-{
-"sid": 1799432,
-"date": "2026-11-25",
-"play": "Memphis Grizzlies",
-"away": "Los Angeles Clippers",
-"home": "Memphis Grizzlies"
-},
-{
-"sid": 1799432,
-"date": "2026-11-27",
-"play": "Portland Trail Blazers",
-"away": "Golden State Warriors",
-"home": "Portland Trail Blazers"
-},
-{
-"sid": 1799432,
-"date": "2026-11-27",
-"play": "Minnesota Timberwolves",
-"away": "Memphis Grizzlies",
-"home": "Minnesota Timberwolves"
-},
-{
-"sid": 1799442,
+"sid": 769171,
 "date": "2026-11-15",
 "play": "Under",
-"away": "Charlotte Hornets",
-"home": "Los Angeles Clippers"
+"away": "Houston Texans",
+"home": "Cleveland Browns",
+"info": "Avg Wind Speed 12, Dome Closed N"
 },
 {
-"sid": 1799442,
-"date": "2026-11-18",
+"sid": 769171,
+"date": "2026-11-15",
 "play": "Under",
-"away": "Phoenix Suns",
-"home": "Sacramento Kings"
+"away": "Buffalo Bills",
+"home": "New York Jets",
+"info": "Avg Wind Speed 11, Dome Closed N"
 },
 {
-"sid": 1799442,
-"date": "2026-11-20",
-"play": "Under",
-"away": "Phoenix Suns",
-"home": "Utah Jazz"
-},
-{
-"sid": 1799442,
-"date": "2026-11-20",
-"play": "Under",
-"away": "Washington Wizards",
-"home": "Chicago Bulls"
-},
-{
-"sid": 1799442,
-"date": "2026-11-20",
-"play": "Under",
-"away": "Orlando Magic",
-"home": "Brooklyn Nets"
-},
-{
-"sid": 1799442,
+"sid": 769171,
 "date": "2026-11-22",
 "play": "Under",
-"away": "Orlando Magic",
-"home": "Washington Wizards"
+"away": "New Orleans Saints",
+"home": "Chicago Bears",
+"info": "Avg Wind Speed 10, Dome Closed N"
 },
 {
-"sid": 1799442,
+"sid": 769171,
+"date": "2026-11-22",
+"play": "Under",
+"away": "Arizona Cardinals",
+"home": "Kansas City Chiefs",
+"info": "Avg Wind Speed 13, Dome Closed N"
+},
+{
+"sid": 769171,
+"date": "2026-11-22",
+"play": "Under",
+"away": "Miami Dolphins",
+"home": "Buffalo Bills",
+"info": "Avg Wind Speed 12, Dome Closed N"
+},
+{
+"sid": 769171,
 "date": "2026-11-23",
 "play": "Under",
-"away": "Phoenix Suns",
-"home": "New Orleans Pelicans"
+"away": "Cincinnati Bengals",
+"home": "Washington Commanders",
+"info": "Avg Wind Speed 10, Dome Closed N"
 },
 {
-"sid": 1799442,
-"date": "2026-11-27",
+"sid": 1772775,
+"date": "2026-11-15",
 "play": "Under",
-"away": "New Orleans Pelicans",
-"home": "Los Angeles Clippers"
+"away": "Buffalo Bills",
+"home": "New York Jets",
+"info": "Avg Wind Speed 11"
+},
+{
+"sid": 1772775,
+"date": "2026-11-15",
+"play": "Under",
+"away": "Houston Texans",
+"home": "Cleveland Browns",
+"info": "Avg Wind Speed 12"
+},
+{
+"sid": 1772775,
+"date": "2026-11-22",
+"play": "Under",
+"away": "New Orleans Saints",
+"home": "Chicago Bears",
+"info": "Avg Wind Speed 10"
+},
+{
+"sid": 1772775,
+"date": "2026-11-22",
+"play": "Under",
+"away": "Miami Dolphins",
+"home": "Buffalo Bills",
+"info": "Avg Wind Speed 12"
+},
+{
+"sid": 1772775,
+"date": "2026-11-22",
+"play": "Under",
+"away": "Arizona Cardinals",
+"home": "Kansas City Chiefs",
+"info": "Avg Wind Speed 13"
+},
+{
+"sid": 1772775,
+"date": "2026-11-23",
+"play": "Under",
+"away": "Cincinnati Bengals",
+"home": "Washington Commanders",
+"info": "Avg Wind Speed 10"
 },
 {
 "sid": 1772929,
 "date": "2026-11-15",
 "play": "New England Patriots",
 "away": "New England Patriots",
-"home": "Detroit Lions"
+"home": "Detroit Lions",
+"info": "Previous Game ATS Margin -21, Favorite / Dog Dog"
 },
 {
 "sid": 1772929,
 "date": "2026-11-16",
 "play": "Los Angeles Chargers",
 "away": "Los Angeles Chargers",
-"home": "Baltimore Ravens"
-},
-{
-"sid": 1772963,
-"date": "2026-11-16",
-"play": "Under",
-"away": "Los Angeles Chargers",
-"home": "Baltimore Ravens"
-},
-{
-"sid": 1772963,
-"date": "2026-11-23",
-"play": "Under",
-"away": "Cincinnati Bengals",
-"home": "Washington Commanders"
+"home": "Baltimore Ravens",
+"info": "Previous Game ATS Margin -16.5, Favorite / Dog Dog"
 },
 {
 "sid": 1772962,
 "date": "2026-11-15",
 "play": "Under",
 "away": "Pittsburgh Steelers",
-"home": "Cincinnati Bengals"
+"home": "Cincinnati Bengals",
+"info": "Visitor Days Between games 14, Dome Closed N"
 },
 {
 "sid": 1772962,
 "date": "2026-11-15",
 "play": "Under",
 "away": "Jacksonville Jaguars",
-"home": "Tennessee Titans"
+"home": "Tennessee Titans",
+"info": "Visitor Days Between games 10, Dome Closed N"
 },
 {
 "sid": 1772962,
 "date": "2026-11-16",
 "play": "Under",
 "away": "Los Angeles Chargers",
-"home": "Baltimore Ravens"
+"home": "Baltimore Ravens",
+"info": "Visitor Days Between games 8, Dome Closed N"
 },
 {
 "sid": 1772962,
 "date": "2026-11-23",
 "play": "Under",
 "away": "Cincinnati Bengals",
-"home": "Washington Commanders"
+"home": "Washington Commanders",
+"info": "Visitor Days Between games 8, Dome Closed N"
 },
 {
 "sid": 1772962,
 "date": "2026-11-25",
 "play": "Under",
 "away": "Green Bay Packers",
-"home": "Los Angeles Rams"
+"home": "Los Angeles Rams",
+"info": "Visitor Days Between games 10, Dome Closed N"
 },
 {
-"sid": 769171,
-"date": "2026-11-15",
+"sid": 1772963,
+"date": "2026-11-16",
 "play": "Under",
-"away": "Houston Texans",
-"home": "Cleveland Browns"
+"away": "Los Angeles Chargers",
+"home": "Baltimore Ravens",
+"info": "Day Of Week Monday, Dome Closed N"
 },
 {
-"sid": 769171,
-"date": "2026-11-15",
+"sid": 1772963,
+"date": "2026-11-23",
 "play": "Under",
-"away": "Buffalo Bills",
-"home": "New York Jets"
+"away": "Cincinnati Bengals",
+"home": "Washington Commanders",
+"info": "Day Of Week Monday, Dome Closed N"
 },
 {
-"sid": 769171,
-"date": "2026-11-22",
-"play": "Under",
-"away": "New Orleans Saints",
-"home": "Chicago Bears"
-},
-{
-"sid": 1772775,
-"date": "2026-11-15",
-"play": "Under",
-"away": "Buffalo Bills",
-"home": "New York Jets"
-},
-{
-"sid": 1772775,
-"date": "2026-11-15",
-"play": "Under",
-"away": "Houston Texans",
-"home": "Cleveland Browns"
-},
-{
-"sid": 1772775,
-"date": "2026-11-22",
-"play": "Under",
-"away": "New Orleans Saints",
-"home": "Chicago Bears"
-},
-{
-"sid": 1789284,
+"sid": 1783043,
 "date": "2026-11-14",
-"play": "Montreal Canadiens",
-"away": "Colorado Avalanche",
-"home": "Montreal Canadiens"
+"play": "Under",
+"away": "Florida Intl",
+"home": "Delaware",
+"info": "Avg Wind Speed 14"
 },
 {
-"sid": 1789284,
-"date": "2026-11-15",
-"play": "Dallas Stars",
-"away": "Florida Panthers",
-"home": "Dallas Stars"
+"sid": 1783043,
+"date": "2026-11-14",
+"play": "Under",
+"away": "North Dakota State",
+"home": "Hawaii",
+"info": "Avg Wind Speed 19"
+},
+{
+"sid": 1783043,
+"date": "2026-11-21",
+"play": "Under",
+"away": "Texas A&M",
+"home": "Oklahoma",
+"info": "Avg Wind Speed 15"
+},
+{
+"sid": 1783043,
+"date": "2026-11-21",
+"play": "Under",
+"away": "Charlotte",
+"home": "Tulsa",
+"info": "Avg Wind Speed 15"
+},
+{
+"sid": 1783043,
+"date": "2026-11-21",
+"play": "Under",
+"away": "Iowa",
+"home": "Illinois",
+"info": "Avg Wind Speed 15"
+},
+{
+"sid": 1783043,
+"date": "2026-11-21",
+"play": "Under",
+"away": "Kentucky",
+"home": "Missouri",
+"info": "Avg Wind Speed 16"
 },
 {
 "sid": 1784155,
 "date": "2026-11-14",
 "play": "Minnesota Wild",
 "away": "Minnesota Wild",
-"home": "Boston Bruins"
+"home": "Boston Bruins",
+"info": "Opponent Win % 68, Favorite / Dog Favorite"
 },
 {
-"sid": 1799431,
-"date": "2026-11-14",
-"play": "Edmonton Oilers",
-"away": "Edmonton Oilers",
-"home": "Toronto Maple Leafs"
-},
-{
-"sid": 1799439,
-"date": "2026-11-14",
-"play": "Over",
-"away": "Arizona St",
-"home": "UCF"
-},
-{
-"sid": 1799439,
-"date": "2026-11-14",
-"play": "Over",
-"away": "Missouri",
-"home": "Georgia"
-},
-{
-"sid": 1799439,
-"date": "2026-11-14",
-"play": "Over",
-"away": "Ole Miss",
-"home": "Oklahoma"
-},
-{
-"sid": 1799439,
-"date": "2026-11-14",
-"play": "Over",
-"away": "New Mexico St",
-"home": "Missouri St"
-},
-{
-"sid": 1799439,
-"date": "2026-11-14",
-"play": "Over",
-"away": "Kennesaw St",
-"home": "Sam Houston St"
-},
-{
-"sid": 1799439,
-"date": "2026-11-14",
-"play": "Over",
-"away": "Boston College",
-"home": "Notre Dame"
-},
-{
-"sid": 1799439,
-"date": "2026-11-14",
-"play": "Over",
-"away": "Nevada",
-"home": "Northern Illinois"
-},
-{
-"sid": 1799439,
-"date": "2026-11-14",
-"play": "Over",
-"away": "Tulane",
-"home": "Rice"
-},
-{
-"sid": 1799439,
-"date": "2026-11-14",
-"play": "Over",
-"away": "California",
-"home": "Virginia"
-},
-{
-"sid": 1799439,
-"date": "2026-11-14",
-"play": "Over",
-"away": "Auburn",
-"home": "Mississippi St"
-},
-{
-"sid": 1799439,
-"date": "2026-11-14",
-"play": "Over",
-"away": "USC",
-"home": "Indiana"
-},
-{
-"sid": 1799439,
-"date": "2026-11-17",
-"play": "Over",
-"away": "Eastern Michigan",
-"home": "Western Michigan"
-},
-{
-"sid": 1799439,
-"date": "2026-11-21",
-"play": "Over",
-"away": "LSU",
-"home": "Tennessee"
-},
-{
-"sid": 1799440,
-"date": "2026-11-14",
-"play": "Under",
-"away": "Baylor",
-"home": "BYU"
-},
-{
-"sid": 1799440,
-"date": "2026-11-14",
-"play": "Under",
-"away": "Fresno St",
-"home": "Texas St"
-},
-{
-"sid": 1799440,
-"date": "2026-11-14",
-"play": "Under",
-"away": "Colorado St",
-"home": "Washington St"
-},
-{
-"sid": 1799440,
-"date": "2026-11-14",
-"play": "Under",
-"away": "USC",
-"home": "Indiana"
-},
-{
-"sid": 1799440,
-"date": "2026-11-17",
-"play": "Under",
-"away": "Ball St",
-"home": "Ohio"
-},
-{
-"sid": 1799438,
-"date": "2026-11-14",
-"play": "Over",
-"away": "Chicago Bulls",
-"home": "Minnesota Timberwolves"
-},
-{
-"sid": 1799438,
-"date": "2026-11-15",
-"play": "Over",
-"away": "Houston Rockets",
-"home": "Washington Wizards"
-},
-{
-"sid": 1799438,
+"sid": 1784156,
 "date": "2026-11-16",
-"play": "Over",
-"away": "Philadelphia 76ers",
-"home": "Brooklyn Nets"
+"play": "Vancouver Canucks",
+"away": "Vancouver Canucks",
+"home": "Utah Mammoth",
+"info": "Open Moneyline Range 190, Favorite / Dog Dog"
 },
 {
-"sid": 1799438,
-"date": "2026-11-16",
-"play": "Over",
-"away": "Phoenix Suns",
-"home": "Denver Nuggets"
-},
-{
-"sid": 1799438,
-"date": "2026-11-18",
-"play": "Over",
-"away": "Washington Wizards",
-"home": "Toronto Raptors"
-},
-{
-"sid": 1799438,
-"date": "2026-11-19",
-"play": "Over",
-"away": "Los Angeles Clippers",
-"home": "San Antonio Spurs"
-},
-{
-"sid": 1799438,
-"date": "2026-11-20",
-"play": "Over",
-"away": "Sacramento Kings",
-"home": "Los Angeles Lakers"
-},
-{
-"sid": 1799438,
-"date": "2026-11-20",
-"play": "Over",
-"away": "Toronto Raptors",
-"home": "Detroit Pistons"
-},
-{
-"sid": 1799438,
-"date": "2026-11-20",
-"play": "Over",
-"away": "New Orleans Pelicans",
-"home": "Oklahoma City Thunder"
-},
-{
-"sid": 1799438,
-"date": "2026-11-22",
-"play": "Over",
-"away": "Denver Nuggets",
-"home": "Chicago Bulls"
-},
-{
-"sid": 1799438,
-"date": "2026-11-23",
-"play": "Over",
-"away": "Cleveland Cavaliers",
-"home": "Chicago Bulls"
-},
-{
-"sid": 1799438,
-"date": "2026-11-23",
-"play": "Over",
-"away": "Brooklyn Nets",
-"home": "Minnesota Timberwolves"
-},
-{
-"sid": 1799438,
-"date": "2026-11-23",
-"play": "Over",
-"away": "San Antonio Spurs",
-"home": "Sacramento Kings"
-},
-{
-"sid": 1799438,
-"date": "2026-11-25",
-"play": "Over",
-"away": "Minnesota Timberwolves",
-"home": "Oklahoma City Thunder"
-},
-{
-"sid": 1799438,
-"date": "2026-11-25",
-"play": "Over",
-"away": "Miami Heat",
-"home": "Philadelphia 76ers"
-},
-{
-"sid": 1799438,
-"date": "2026-11-25",
-"play": "Over",
-"away": "Chicago Bulls",
-"home": "Charlotte Hornets"
-},
-{
-"sid": 1799438,
-"date": "2026-11-27",
-"play": "Over",
-"away": "Philadelphia 76ers",
-"home": "Indiana Pacers"
-},
-{
-"sid": 1799438,
-"date": "2026-11-27",
-"play": "Over",
-"away": "Los Angeles Lakers",
-"home": "San Antonio Spurs"
-},
-{
-"sid": 1799435,
-"date": "2026-11-15",
-"play": "Tennessee Titans",
-"away": "Jacksonville Jaguars",
-"home": "Tennessee Titans"
-},
-{
-"sid": 1799435,
-"date": "2026-11-16",
-"play": "Los Angeles Chargers",
-"away": "Los Angeles Chargers",
-"home": "Baltimore Ravens"
-},
-{
-"sid": 1799435,
-"date": "2026-11-22",
-"play": "New Orleans Saints",
-"away": "New Orleans Saints",
-"home": "Chicago Bears"
-},
-{
-"sid": 1799435,
-"date": "2026-11-22",
-"play": "Las Vegas Raiders",
-"away": "Las Vegas Raiders",
-"home": "Denver Broncos"
-},
-{
-"sid": 1799435,
-"date": "2026-11-23",
-"play": "Washington Commanders",
-"away": "Cincinnati Bengals",
-"home": "Washington Commanders"
-},
-{
-"sid": 1799433,
-"date": "2026-11-15",
-"play": "Arizona Cardinals",
-"away": "Los Angeles Rams",
-"home": "Arizona Cardinals"
-},
-{
-"sid": 1799433,
-"date": "2026-11-15",
-"play": "New York Jets",
-"away": "Buffalo Bills",
-"home": "New York Jets"
-},
-{
-"sid": 1799434,
-"date": "2026-11-19",
-"play": "Indianapolis Colts",
-"away": "Indianapolis Colts",
-"home": "Houston Texans"
-},
-{
-"sid": 1799434,
-"date": "2026-11-22",
-"play": "New Orleans Saints",
-"away": "New Orleans Saints",
-"home": "Chicago Bears"
-},
-{
-"sid": 1799434,
-"date": "2026-11-22",
-"play": "Tennessee Titans",
-"away": "Tennessee Titans",
-"home": "Dallas Cowboys"
-},
-{
-"sid": 1799434,
-"date": "2026-11-22",
-"play": "Las Vegas Raiders",
-"away": "Las Vegas Raiders",
-"home": "Denver Broncos"
-},
-{
-"sid": 1799430,
+"sid": 1789284,
 "date": "2026-11-14",
-"play": "Washington Capitals",
-"away": "New Jersey Devils",
-"home": "Washington Capitals"
+"play": "Montreal Canadiens",
+"away": "Colorado Avalanche",
+"home": "Montreal Canadiens",
+"info": "Home / Visitor Home, Favorite / Dog Favorite, Opponent Win % 55, Game Number 20"
 },
 {
-"sid": 1799430,
-"date": "2026-11-14",
+"sid": 1789284,
+"date": "2026-11-15",
 "play": "Dallas Stars",
-"away": "Buffalo Sabres",
-"home": "Dallas Stars"
+"away": "Florida Panthers",
+"home": "Dallas Stars",
+"info": "Home / Visitor Home, Favorite / Dog Favorite, Opponent Win % 55, Game Number 20"
+},
+{
+"sid": 1789284,
+"date": "2026-11-16",
+"play": "New York Rangers",
+"away": "Montreal Canadiens",
+"home": "New York Rangers",
+"info": "Home / Visitor Home, Favorite / Dog Favorite, Opponent Win % 63, Game Number 22"
+},
+{
+"sid": 1789286,
+"date": "2026-11-14",
+"play": "Kansas State",
+"away": "Kansas State",
+"home": "TCU",
+"info": "Conference/Non-Conference Conference, Spread Range 13.5, Home / Visitor Visitor, Closing Total Range 44.5"
+},
+{
+"sid": 1789286,
+"date": "2026-11-14",
+"play": "Minnesota",
+"away": "Minnesota",
+"home": "Penn State",
+"info": "Conference/Non-Conference Conference, Spread Range 11.5, Home / Visitor Visitor, Closing Total Range 42.5"
+},
+{
+"sid": 1789286,
+"date": "2026-11-14",
+"play": "Purdue",
+"away": "Purdue",
+"home": "Iowa",
+"info": "Conference/Non-Conference Conference, Spread Range 17.5, Home / Visitor Visitor, Closing Total Range 47.5"
+},
+{
+"sid": 1789286,
+"date": "2026-11-14",
+"play": "Missouri",
+"away": "Missouri",
+"home": "Georgia",
+"info": "Conference/Non-Conference Conference, Spread Range 16, Home / Visitor Visitor, Closing Total Range 47.5"
+},
+{
+"sid": 1789286,
+"date": "2026-11-14",
+"play": "UNLV",
+"away": "UNLV",
+"home": "New Mexico",
+"info": "Conference/Non-Conference Conference, Spread Range 16.5, Home / Visitor Visitor, Closing Total Range 46.5"
+},
+{
+"sid": 1789286,
+"date": "2026-11-14",
+"play": "California",
+"away": "California",
+"home": "Virginia",
+"info": "Conference/Non-Conference Conference, Spread Range 11.5, Home / Visitor Visitor, Closing Total Range 47.5"
+},
+{
+"sid": 1789286,
+"date": "2026-11-14",
+"play": "Georgia Tech",
+"away": "Georgia Tech",
+"home": "Clemson",
+"info": "Conference/Non-Conference Conference, Spread Range 15, Home / Visitor Visitor, Closing Total Range 47.5"
+},
+{
+"sid": 1789286,
+"date": "2026-11-14",
+"play": "Northwestern",
+"away": "Northwestern",
+"home": "Ohio State",
+"info": "Conference/Non-Conference Conference, Spread Range 14, Home / Visitor Visitor, Closing Total Range 45.5"
+},
+{
+"sid": 1789286,
+"date": "2026-11-14",
+"play": "Michigan",
+"away": "Michigan",
+"home": "Oregon",
+"info": "Conference/Non-Conference Conference, Spread Range 10.5, Home / Visitor Visitor, Closing Total Range 38.5"
+},
+{
+"sid": 1789286,
+"date": "2026-11-17",
+"play": "Eastern Michigan",
+"away": "Eastern Michigan",
+"home": "Western Michigan",
+"info": "Conference/Non-Conference Conference, Spread Range 13.5, Home / Visitor Visitor, Closing Total Range 46.5"
+},
+{
+"sid": 1792198,
+"date": "2026-11-14",
+"play": "Texas",
+"away": "Texas",
+"home": "LSU",
+"info": "Favorite / Dog Dog, Closing Total Range 46.5, Home/Away Streak -2, Number of Bets Compared To Daily Avg 3.11, Conference/Non-Conference Conference"
 },
 {
 "sid": 1799428,
 "date": "2026-11-14",
 "play": "Over",
 "away": "Philadelphia Flyers",
-"home": "Columbus Blue Jackets"
+"home": "Columbus Blue Jackets",
+"info": "Home Over Win % 41, Home Recent Win % 0"
 },
 {
 "sid": 1799428,
 "date": "2026-11-14",
 "play": "Over",
 "away": "Edmonton Oilers",
-"home": "Toronto Maple Leafs"
+"home": "Toronto Maple Leafs",
+"info": "Home Over Win % 57, Home Recent Win % 0"
 },
 {
 "sid": 1799428,
 "date": "2026-11-14",
 "play": "Over",
 "away": "Calgary Flames",
-"home": "Los Angeles Kings"
+"home": "Los Angeles Kings",
+"info": "Home Over Win % 47, Home Recent Win % 0"
+},
+{
+"sid": 1799430,
+"date": "2026-11-14",
+"play": "Washington Capitals",
+"away": "New Jersey Devils",
+"home": "Washington Capitals",
+"info": "Team Win % 58, Previous Game Margin -3, Home / Visitor Home"
+},
+{
+"sid": 1799430,
+"date": "2026-11-14",
+"play": "Dallas Stars",
+"away": "Buffalo Sabres",
+"home": "Dallas Stars",
+"info": "Team Win % 55, Previous Game Margin -5, Home / Visitor Home"
+},
+{
+"sid": 1799431,
+"date": "2026-11-14",
+"play": "Edmonton Oilers",
+"away": "Edmonton Oilers",
+"home": "Toronto Maple Leafs",
+"info": "Opponent Win/Loss Streak -4, Previous Game Margin 1, Home / Visitor Visitor"
+},
+{
+"sid": 1799432,
+"date": "2026-11-14",
+"play": "Minnesota Timberwolves",
+"away": "Chicago Bulls",
+"home": "Minnesota Timberwolves",
+"info": "Game Number 13, Days Between games 2, Team ATS % 91, Home / Visitor Home"
+},
+{
+"sid": 1799432,
+"date": "2026-11-16",
+"play": "Brooklyn Nets",
+"away": "Philadelphia 76ers",
+"home": "Brooklyn Nets",
+"info": "Game Number 13, Days Between games 2, Team ATS % 63, Home / Visitor Home"
+},
+{
+"sid": 1799432,
+"date": "2026-11-16",
+"play": "Minnesota Timberwolves",
+"away": "Portland Trail Blazers",
+"home": "Minnesota Timberwolves",
+"info": "Game Number 14, Days Between games 2, Team ATS % 91, Home / Visitor Home"
+},
+{
+"sid": 1799432,
+"date": "2026-11-17",
+"play": "Los Angeles Lakers",
+"away": "Charlotte Hornets",
+"home": "Los Angeles Lakers",
+"info": "Game Number 15, Days Between games 2, Team ATS % 69, Home / Visitor Home"
+},
+{
+"sid": 1799432,
+"date": "2026-11-18",
+"play": "Brooklyn Nets",
+"away": "Chicago Bulls",
+"home": "Brooklyn Nets",
+"info": "Game Number 14, Days Between games 2, Team ATS % 63, Home / Visitor Home"
+},
+{
+"sid": 1799432,
+"date": "2026-11-19",
+"play": "Minnesota Timberwolves",
+"away": "New York Knicks",
+"home": "Minnesota Timberwolves",
+"info": "Game Number 16, Days Between games 2, Team ATS % 91, Home / Visitor Home"
+},
+{
+"sid": 1799432,
+"date": "2026-11-20",
+"play": "Brooklyn Nets",
+"away": "Orlando Magic",
+"home": "Brooklyn Nets",
+"info": "Game Number 15, Days Between games 2, Team ATS % 63, Home / Visitor Home"
+},
+{
+"sid": 1799432,
+"date": "2026-11-20",
+"play": "Detroit Pistons",
+"away": "Toronto Raptors",
+"home": "Detroit Pistons",
+"info": "Game Number 15, Days Between games 2, Team ATS % 63, Home / Visitor Home"
+},
+{
+"sid": 1799432,
+"date": "2026-11-20",
+"play": "Los Angeles Lakers",
+"away": "Sacramento Kings",
+"home": "Los Angeles Lakers",
+"info": "Game Number 17, Days Between games 2, Team ATS % 69, Home / Visitor Home"
+},
+{
+"sid": 1799432,
+"date": "2026-11-21",
+"play": "Minnesota Timberwolves",
+"away": "Memphis Grizzlies",
+"home": "Minnesota Timberwolves",
+"info": "Game Number 17, Days Between games 2, Team ATS % 91, Home / Visitor Home"
+},
+{
+"sid": 1799432,
+"date": "2026-11-23",
+"play": "Minnesota Timberwolves",
+"away": "Brooklyn Nets",
+"home": "Minnesota Timberwolves",
+"info": "Game Number 18, Days Between games 2, Team ATS % 91, Home / Visitor Home"
+},
+{
+"sid": 1799432,
+"date": "2026-11-25",
+"play": "Portland Trail Blazers",
+"away": "San Antonio Spurs",
+"home": "Portland Trail Blazers",
+"info": "Game Number 18, Days Between games 2, Team ATS % 66, Home / Visitor Home"
+},
+{
+"sid": 1799432,
+"date": "2026-11-25",
+"play": "Houston Rockets",
+"away": "Phoenix Suns",
+"home": "Houston Rockets",
+"info": "Game Number 19, Days Between games 2, Team ATS % 69, Home / Visitor Home"
+},
+{
+"sid": 1799432,
+"date": "2026-11-25",
+"play": "Memphis Grizzlies",
+"away": "Los Angeles Clippers",
+"home": "Memphis Grizzlies",
+"info": "Game Number 19, Days Between games 2, Team ATS % 66, Home / Visitor Home"
+},
+{
+"sid": 1799432,
+"date": "2026-11-27",
+"play": "Portland Trail Blazers",
+"away": "Golden State Warriors",
+"home": "Portland Trail Blazers",
+"info": "Game Number 19, Days Between games 2, Team ATS % 66, Home / Visitor Home"
+},
+{
+"sid": 1799432,
+"date": "2026-11-27",
+"play": "Minnesota Timberwolves",
+"away": "Memphis Grizzlies",
+"home": "Minnesota Timberwolves",
+"info": "Game Number 20, Days Between games 2, Team ATS % 91, Home / Visitor Home"
+},
+{
+"sid": 1799433,
+"date": "2026-11-15",
+"play": "Arizona Cardinals",
+"away": "Los Angeles Rams",
+"home": "Arizona Cardinals",
+"info": "Spread Range 9.5, Favorite / Dog Dog, Home / Visitor Home"
+},
+{
+"sid": 1799433,
+"date": "2026-11-15",
+"play": "New York Jets",
+"away": "Buffalo Bills",
+"home": "New York Jets",
+"info": "Spread Range 7.5, Favorite / Dog Dog, Home / Visitor Home"
+},
+{
+"sid": 1799434,
+"date": "2026-11-19",
+"play": "Indianapolis Colts",
+"away": "Indianapolis Colts",
+"home": "Houston Texans",
+"info": "Spread Range 10, Favorite / Dog Dog, Home / Visitor Visitor"
+},
+{
+"sid": 1799434,
+"date": "2026-11-22",
+"play": "New Orleans Saints",
+"away": "New Orleans Saints",
+"home": "Chicago Bears",
+"info": "Spread Range 9.5, Favorite / Dog Dog, Home / Visitor Visitor"
+},
+{
+"sid": 1799434,
+"date": "2026-11-22",
+"play": "Tennessee Titans",
+"away": "Tennessee Titans",
+"home": "Dallas Cowboys",
+"info": "Spread Range 7.5, Favorite / Dog Dog, Home / Visitor Visitor"
+},
+{
+"sid": 1799434,
+"date": "2026-11-22",
+"play": "Las Vegas Raiders",
+"away": "Las Vegas Raiders",
+"home": "Denver Broncos",
+"info": "Spread Range 7.5, Favorite / Dog Dog, Home / Visitor Visitor"
+},
+{
+"sid": 1799435,
+"date": "2026-11-15",
+"play": "Tennessee Titans",
+"away": "Jacksonville Jaguars",
+"home": "Tennessee Titans",
+"info": "Opp Days Between games 10, Favorite / Dog Dog"
+},
+{
+"sid": 1799435,
+"date": "2026-11-16",
+"play": "Los Angeles Chargers",
+"away": "Los Angeles Chargers",
+"home": "Baltimore Ravens",
+"info": "Opp Days Between games 11, Favorite / Dog Dog"
+},
+{
+"sid": 1799435,
+"date": "2026-11-22",
+"play": "New Orleans Saints",
+"away": "New Orleans Saints",
+"home": "Chicago Bears",
+"info": "Opp Days Between games 14, Favorite / Dog Dog"
+},
+{
+"sid": 1799435,
+"date": "2026-11-22",
+"play": "Las Vegas Raiders",
+"away": "Las Vegas Raiders",
+"home": "Denver Broncos",
+"info": "Opp Days Between games 14, Favorite / Dog Dog"
+},
+{
+"sid": 1799435,
+"date": "2026-11-23",
+"play": "Washington Commanders",
+"away": "Cincinnati Bengals",
+"home": "Washington Commanders",
+"info": "Opp Days Between games 8, Favorite / Dog Dog"
+},
+{
+"sid": 1799438,
+"date": "2026-11-14",
+"play": "Over",
+"away": "Chicago Bulls",
+"home": "Minnesota Timberwolves",
+"info": "Visitor Prev Game Home/AwayStreak 3"
+},
+{
+"sid": 1799438,
+"date": "2026-11-15",
+"play": "Over",
+"away": "Houston Rockets",
+"home": "Washington Wizards",
+"info": "Visitor Prev Game Home/AwayStreak 3"
+},
+{
+"sid": 1799438,
+"date": "2026-11-16",
+"play": "Over",
+"away": "Philadelphia 76ers",
+"home": "Brooklyn Nets",
+"info": "Visitor Prev Game Home/AwayStreak 3"
+},
+{
+"sid": 1799438,
+"date": "2026-11-16",
+"play": "Over",
+"away": "Phoenix Suns",
+"home": "Denver Nuggets",
+"info": "Visitor Prev Game Home/AwayStreak 7"
+},
+{
+"sid": 1799438,
+"date": "2026-11-18",
+"play": "Over",
+"away": "Washington Wizards",
+"home": "Toronto Raptors",
+"info": "Visitor Prev Game Home/AwayStreak 3"
+},
+{
+"sid": 1799438,
+"date": "2026-11-19",
+"play": "Over",
+"away": "Los Angeles Clippers",
+"home": "San Antonio Spurs",
+"info": "Visitor Prev Game Home/AwayStreak 3"
+},
+{
+"sid": 1799438,
+"date": "2026-11-20",
+"play": "Over",
+"away": "Sacramento Kings",
+"home": "Los Angeles Lakers",
+"info": "Visitor Prev Game Home/AwayStreak 7"
+},
+{
+"sid": 1799438,
+"date": "2026-11-20",
+"play": "Over",
+"away": "Toronto Raptors",
+"home": "Detroit Pistons",
+"info": "Visitor Prev Game Home/AwayStreak 3"
+},
+{
+"sid": 1799438,
+"date": "2026-11-20",
+"play": "Over",
+"away": "New Orleans Pelicans",
+"home": "Oklahoma City Thunder",
+"info": "Visitor Prev Game Home/AwayStreak 5"
+},
+{
+"sid": 1799438,
+"date": "2026-11-22",
+"play": "Over",
+"away": "Denver Nuggets",
+"home": "Chicago Bulls",
+"info": "Visitor Prev Game Home/AwayStreak 3"
+},
+{
+"sid": 1799438,
+"date": "2026-11-23",
+"play": "Over",
+"away": "Cleveland Cavaliers",
+"home": "Chicago Bulls",
+"info": "Visitor Prev Game Home/AwayStreak 4"
+},
+{
+"sid": 1799438,
+"date": "2026-11-23",
+"play": "Over",
+"away": "Brooklyn Nets",
+"home": "Minnesota Timberwolves",
+"info": "Visitor Prev Game Home/AwayStreak 3"
+},
+{
+"sid": 1799438,
+"date": "2026-11-23",
+"play": "Over",
+"away": "San Antonio Spurs",
+"home": "Sacramento Kings",
+"info": "Visitor Prev Game Home/AwayStreak 3"
+},
+{
+"sid": 1799438,
+"date": "2026-11-25",
+"play": "Over",
+"away": "Minnesota Timberwolves",
+"home": "Oklahoma City Thunder",
+"info": "Visitor Prev Game Home/AwayStreak 8"
+},
+{
+"sid": 1799438,
+"date": "2026-11-25",
+"play": "Over",
+"away": "Miami Heat",
+"home": "Philadelphia 76ers",
+"info": "Visitor Prev Game Home/AwayStreak 5"
+},
+{
+"sid": 1799438,
+"date": "2026-11-25",
+"play": "Over",
+"away": "Chicago Bulls",
+"home": "Charlotte Hornets",
+"info": "Visitor Prev Game Home/AwayStreak 3"
+},
+{
+"sid": 1799438,
+"date": "2026-11-27",
+"play": "Over",
+"away": "Philadelphia 76ers",
+"home": "Indiana Pacers",
+"info": "Visitor Prev Game Home/AwayStreak 3"
+},
+{
+"sid": 1799438,
+"date": "2026-11-27",
+"play": "Over",
+"away": "Los Angeles Lakers",
+"home": "San Antonio Spurs",
+"info": "Visitor Prev Game Home/AwayStreak 4"
+},
+{
+"sid": 1799439,
+"date": "2026-11-14",
+"play": "Over",
+"away": "Arizona State",
+"home": "UCF",
+"info": "Time of Day 17, Closing Total Range 47.5"
+},
+{
+"sid": 1799439,
+"date": "2026-11-14",
+"play": "Over",
+"away": "Missouri",
+"home": "Georgia",
+"info": "Time of Day 15, Closing Total Range 47.5"
+},
+{
+"sid": 1799439,
+"date": "2026-11-14",
+"play": "Over",
+"away": "Ole Miss",
+"home": "Oklahoma",
+"info": "Time of Day 16, Closing Total Range 49.5"
+},
+{
+"sid": 1799439,
+"date": "2026-11-14",
+"play": "Over",
+"away": "New Mexico State",
+"home": "Missouri State",
+"info": "Time of Day 15, Closing Total Range 49.5"
+},
+{
+"sid": 1799439,
+"date": "2026-11-14",
+"play": "Over",
+"away": "Kennesaw State",
+"home": "Sam Houston State",
+"info": "Time of Day 14, Closing Total Range 46.5"
+},
+{
+"sid": 1799439,
+"date": "2026-11-14",
+"play": "Over",
+"away": "Boston College",
+"home": "Notre Dame",
+"info": "Time of Day 15, Closing Total Range 51.5"
+},
+{
+"sid": 1799439,
+"date": "2026-11-14",
+"play": "Over",
+"away": "Nevada",
+"home": "Northern Illinois",
+"info": "Time of Day 15, Closing Total Range 47.5"
+},
+{
+"sid": 1799439,
+"date": "2026-11-14",
+"play": "Over",
+"away": "Tulane",
+"home": "Rice",
+"info": "Time of Day 16, Closing Total Range 48.5"
+},
+{
+"sid": 1799439,
+"date": "2026-11-14",
+"play": "Over",
+"away": "California",
+"home": "Virginia",
+"info": "Time of Day 15, Closing Total Range 47.5"
+},
+{
+"sid": 1799439,
+"date": "2026-11-14",
+"play": "Over",
+"away": "Auburn",
+"home": "Mississippi St",
+"info": "Time of Day 16, Closing Total Range 51.5"
+},
+{
+"sid": 1799439,
+"date": "2026-11-14",
+"play": "Over",
+"away": "USC",
+"home": "Indiana",
+"info": "Time of Day 15, Closing Total Range 50.5"
+},
+{
+"sid": 1799439,
+"date": "2026-11-17",
+"play": "Over",
+"away": "Eastern Michigan",
+"home": "Western Michigan",
+"info": "Time of Day 18, Closing Total Range 46.5"
+},
+{
+"sid": 1799439,
+"date": "2026-11-21",
+"play": "Over",
+"away": "LSU",
+"home": "Tennessee",
+"info": "Time of Day 15, Closing Total Range 48.5"
+},
+{
+"sid": 1799440,
+"date": "2026-11-14",
+"play": "Under",
+"away": "Baylor",
+"home": "BYU",
+"info": "Home Spread Range -8.5"
+},
+{
+"sid": 1799440,
+"date": "2026-11-14",
+"play": "Under",
+"away": "Fresno State",
+"home": "Texas State",
+"info": "Home Spread Range -10"
+},
+{
+"sid": 1799440,
+"date": "2026-11-14",
+"play": "Under",
+"away": "Colorado State",
+"home": "Washington State",
+"info": "Home Spread Range -9"
+},
+{
+"sid": 1799440,
+"date": "2026-11-14",
+"play": "Under",
+"away": "USC",
+"home": "Indiana",
+"info": "Home Spread Range -9.5"
+},
+{
+"sid": 1799440,
+"date": "2026-11-17",
+"play": "Under",
+"away": "Ball State",
+"home": "Ohio",
+"info": "Home Spread Range -8.5"
+},
+{
+"sid": 1799442,
+"date": "2026-11-15",
+"play": "Under",
+"away": "Charlotte Hornets",
+"home": "Los Angeles Clippers",
+"info": "Home Team Game Number 12, Home Team Win % 27, Visitor Team Win % 33"
+},
+{
+"sid": 1799442,
+"date": "2026-11-18",
+"play": "Under",
+"away": "Phoenix Suns",
+"home": "Sacramento Kings",
+"info": "Home Team Game Number 14, Home Team Win % 8, Visitor Team Win % 45"
+},
+{
+"sid": 1799442,
+"date": "2026-11-20",
+"play": "Under",
+"away": "Phoenix Suns",
+"home": "Utah Jazz",
+"info": "Home Team Game Number 17, Home Team Win % 7, Visitor Team Win % 45"
+},
+{
+"sid": 1799442,
+"date": "2026-11-20",
+"play": "Under",
+"away": "Washington Wizards",
+"home": "Chicago Bulls",
+"info": "Home Team Game Number 15, Home Team Win % 18, Visitor Team Win % 30"
+},
+{
+"sid": 1799442,
+"date": "2026-11-20",
+"play": "Under",
+"away": "Orlando Magic",
+"home": "Brooklyn Nets",
+"info": "Home Team Game Number 15, Home Team Win % 27, Visitor Team Win % 41"
+},
+{
+"sid": 1799442,
+"date": "2026-11-22",
+"play": "Under",
+"away": "Orlando Magic",
+"home": "Washington Wizards",
+"info": "Home Team Game Number 18, Home Team Win % 30, Visitor Team Win % 41"
+},
+{
+"sid": 1799442,
+"date": "2026-11-23",
+"play": "Under",
+"away": "Phoenix Suns",
+"home": "New Orleans Pelicans",
+"info": "Home Team Game Number 19, Home Team Win % 30, Visitor Team Win % 45"
+},
+{
+"sid": 1799442,
+"date": "2026-11-27",
+"play": "Under",
+"away": "New Orleans Pelicans",
+"home": "Los Angeles Clippers",
+"info": "Home Team Game Number 18, Home Team Win % 27, Visitor Team Win % 30"
+},
+{
+"sid": 1799443,
+"date": "2026-11-14",
+"play": "Over",
+"away": "Chicago Bulls",
+"home": "Minnesota Timberwolves",
+"info": "Home Moneyline Range -1000"
 }
 ]
 }
