@@ -4173,7 +4173,10 @@
 "price": -110,
 "fair": 0.5,
 "edge_pts": -2.38,
-"why": "conference game, CAL on road game 3 in a row, +12.5, total 47.5"
+"why": "conference game, CAL on road game 3 in a row, +12.5, total 47.5",
+"void": true,
+"void_why": "rule no longer holds on the current line: home spread -11.5, total 47.5 (2026-11-14T14:55:09Z)",
+"void_at": "2026-11-14T14:55:09Z"
 },
 "401858295:cfb_day_over": {
 "tag": "cfb_day_over",
@@ -4542,7 +4545,10 @@
 "price": -110,
 "fair": 0.5,
 "edge_pts": -2.38,
-"why": "4:15 PM ET kickoff, total 50.5: over (mined angle)"
+"why": "4:15 PM ET kickoff, total 50.5: over (mined angle)",
+"void": true,
+"void_why": "rule no longer holds on the current line: home spread -2.5, total 49.5 (2026-11-14T14:55:09Z)",
+"void_at": "2026-11-14T14:55:09Z"
 },
 "401873057:nfl_home_dog_7510": {
 "tag": "nfl_home_dog_7510",
@@ -4699,8 +4705,8 @@
 },
 "401864538:cfb_road_dog_low_total": {
 "tag": "cfb_road_dog_low_total",
-"fill_id": "f4a7fa6b692b",
-"ts": "2026-11-08T20:13:16Z",
+"fill_id": "64058e21a829",
+"ts": "2026-11-08T19:53:25Z",
 "market": "spread",
 "side": "away",
 "line": 11.5,
@@ -4708,7 +4714,11 @@
 "price": -110,
 "fair": 0.5,
 "edge_pts": -2.38,
-"why": "conference game, SJSU +11.5 on the road, total 47.5"
+"why": "conference game, SJSU +11.5 on the road, total 47.5",
+"restored": true,
+"void": true,
+"void_why": "rule no longer holds on the current line: home spread -13.5, total 48.5 (2026-11-14T14:55:09Z)",
+"void_at": "2026-11-14T14:55:09Z"
 },
 "401909957:nba_ats_hot_home": {
 "tag": "nba_ats_hot_home",
@@ -4968,7 +4978,10 @@
 "price": -110,
 "fair": 0.503,
 "edge_pts": -2.08,
-"why": "3:30 PM ET kickoff, total 48.5: over (mined angle)"
+"why": "3:30 PM ET kickoff, total 48.5: over (mined angle)",
+"void": true,
+"void_why": "rule no longer holds on the current line: home spread -8.5, total 50.5 (2026-11-14T14:55:09Z)",
+"void_at": "2026-11-14T14:55:09Z"
 },
 "401892679:xch_homedog_fade:spread": {
 "tag": "xch_homedog_fade",
@@ -6205,5 +6218,226 @@
 "venue": "Novig",
 "price": -251
 }
+},
+"401873056:wind1014": {
+"tag": "wind1014",
+"fill_id": "be37ee8b890a",
+"ts": "2026-11-14T14:55:09Z",
+"market": "total",
+"side": "under",
+"line": 40.5,
+"venue": "Novig",
+"price": 102,
+"fair": 0.49475,
+"edge_pts": -0.02,
+"why": "MySportsWeather 12 mph, gusts 16 (Open-Meteo 11.1 at T-27h), gust 13.9, 44.8F"
+},
+"401873056:wind1014_1h": {
+"tag": "wind1014_1h",
+"fill_id": "19e5cf13a36e",
+"ts": "2026-11-14T14:55:09Z",
+"market": "1h_total",
+"side": "under",
+"line": 19.5,
+"venue": "Novig",
+"price": 111,
+"fair": 0.4674,
+"edge_pts": -0.76,
+"why": "MySportsWeather 12 mph, gusts 16 (Open-Meteo 11.1 at T-27h), gust 13.9, 44.8F"
+},
+"401873054:wind1014": {
+"tag": "wind1014",
+"fill_id": "73a2a874ca5f",
+"ts": "2026-11-14T14:55:09Z",
+"market": "total",
+"side": "under",
+"line": 51.0,
+"venue": "Caesars",
+"price": -114,
+"fair": 0.50702,
+"edge_pts": -2.57,
+"why": "MySportsWeather 14 mph, gusts 24 (Open-Meteo 9.1 at T-27h), gust 14.8, 45.7F"
+},
+"401858525:cfb_wind14": {
+"tag": "cfb_wind14",
+"fill_id": "fac4f58add67",
+"ts": "2026-11-14T14:55:09Z",
+"market": "total",
+"side": "under",
+"line": 51.5,
+"venue": "Novig",
+"price": -104,
+"fair": 0.50645,
+"edge_pts": -0.36,
+"why": "MySportsWeather 15 mph, gusts 26 (Open-Meteo 8.1 at T-3h), gust 14.8, 41.6F"
+},
+"401862829:cfb_wind14": {
+"tag": "cfb_wind14",
+"fill_id": "2e5e0a5aeb26",
+"ts": "2026-11-14T14:55:09Z",
+"market": "total",
+"side": "under",
+"line": 47.5,
+"venue": "Novig",
+"price": 102,
+"fair": 0.49494,
+"edge_pts": -0.01,
+"why": "MySportsWeather 15 mph, gusts 28 (Open-Meteo 8.8 at T-3h), gust 19.0, 44.3F"
+},
+"401856862:cfb_wind14": {
+"tag": "cfb_wind14",
+"fill_id": "6996d88e1df0",
+"ts": "2026-11-14T14:55:09Z",
+"market": "total",
+"side": "under",
+"line": 44.5,
+"venue": "Novig",
+"price": -100,
+"fair": 0.49362,
+"edge_pts": -0.64,
+"why": "MySportsWeather 15 mph, gusts 24 (Open-Meteo 12.8 at T-4h), gust 18.8, 63.1F"
+},
+"401871060:cfb_wind14": {
+"tag": "cfb_wind14",
+"fill_id": "9e03c237dd77",
+"ts": "2026-11-14T14:55:09Z",
+"market": "total",
+"side": "under",
+"line": 54.5,
+"venue": "Novig",
+"price": -106,
+"fair": 0.50958,
+"edge_pts": -0.54,
+"why": "MySportsWeather 15 mph, gusts 28 (Open-Meteo 11.1 at T-5h), gust 21.0, 46.8F"
+},
+"401856888:cfb_wind14": {
+"tag": "cfb_wind14",
+"fill_id": "87414c462e2a",
+"ts": "2026-11-14T14:55:09Z",
+"market": "total",
+"side": "under",
+"line": 43.5,
+"venue": "Novig",
+"price": 111,
+"fair": 0.48442,
+"edge_pts": 0.94,
+"why": "MySportsWeather 15 mph, gusts 23 (Open-Meteo 10.9 at T-5h), gust 17.2, 66.3F"
+},
+"401860916:cfb_wind14": {
+"tag": "cfb_wind14",
+"fill_id": "86c552537ca8",
+"ts": "2026-11-14T14:55:09Z",
+"market": "total",
+"side": "under",
+"line": 59.5,
+"venue": "Novig",
+"price": -102,
+"fair": 0.50003,
+"edge_pts": -0.5,
+"why": "MySportsWeather 15 mph, gusts 23 (Open-Meteo 12.3 at T-6h), gust 21.3, 69.6F"
+},
+"401856886:cfb_day_over": {
+"tag": "cfb_day_over",
+"fill_id": "04febafdb5a0",
+"ts": "2026-11-14T14:55:09Z",
+"market": "total",
+"side": "over",
+"line": 51.5,
+"venue": "Novig",
+"price": -100,
+"fair": 0.49327,
+"edge_pts": -0.67,
+"why": "4:15 PM ET kickoff, total 51.5: over (mined angle)"
+},
+"401862828:cfb_wind14": {
+"tag": "cfb_wind14",
+"fill_id": "946361bc44bd",
+"ts": "2026-11-14T14:55:09Z",
+"market": "total",
+"side": "under",
+"line": 48.5,
+"venue": "Novig",
+"price": -100,
+"fair": 0.49839,
+"edge_pts": -0.16,
+"why": "MySportsWeather 15 mph, gusts 26 (Open-Meteo 8.9 at T-7h), gust 17.4, 63.4F"
+},
+"401909980:nba_roadtrip_over": {
+"tag": "nba_roadtrip_over",
+"fill_id": "9fd6e252780c",
+"ts": "2026-11-14T14:55:09Z",
+"market": "total",
+"side": "over",
+"line": 235.5,
+"venue": "Novig",
+"price": -100,
+"fair": 0.49715,
+"edge_pts": -0.29,
+"why": "DEN on road game 4 in a row: over"
+},
+"401909983:nba_roadtrip_over": {
+"tag": "nba_roadtrip_over",
+"fill_id": "0dcf6b089a09",
+"ts": "2026-11-14T14:55:09Z",
+"market": "total",
+"side": "over",
+"line": 228.0,
+"venue": "Caesars",
+"price": -110,
+"fair": 0.50287,
+"edge_pts": -2.09,
+"why": "BKN on road game 4 in a row: over"
+},
+"401909984:nba_ats_hot_home": {
+"tag": "nba_ats_hot_home",
+"fill_id": "f77d6ba346a2",
+"ts": "2026-11-14T14:55:09Z",
+"market": "spread",
+"side": "home",
+"line": -14.5,
+"venue": "DK",
+"price": -105,
+"fair": 0.51265,
+"edge_pts": 0.05,
+"why": "home MIN covers 92% of spreads this season (12 games), 2 days rest: home spread (mined angle)"
+},
+"401909984:nba_bigfav_over": {
+"tag": "nba_bigfav_over",
+"fill_id": "b42d9df4053a",
+"ts": "2026-11-14T14:55:09Z",
+"market": "total",
+"side": "over",
+"line": 235.5,
+"venue": "Novig",
+"price": 104,
+"fair": 0.48469,
+"edge_pts": -0.53,
+"why": "MIN is 89% on the moneyline: over (mined angle)"
+},
+"401892726:nhl_early_home_fav_qual": {
+"tag": "nhl_early_home_fav_qual",
+"fill_id": "f640328a8b39",
+"ts": "2026-11-14T14:55:09Z",
+"market": "ml",
+"side": "home",
+"line": null,
+"venue": "Kalshi",
+"price": -117,
+"fair": 0.505,
+"edge_pts": -3.5,
+"why": "home favorite, game 22 of the season, opponent MTL wins 63% (12-7)"
+},
+"401892727:nhl_pl_dog_bigml": {
+"tag": "nhl_pl_dog_bigml",
+"fill_id": "f8ab7e62b283",
+"ts": "2026-11-14T14:55:09Z",
+"market": "spread",
+"side": "away",
+"line": 1.5,
+"venue": "Kalshi",
+"price": -100,
+"fair": null,
+"edge_pts": null,
+"why": "VAN opened +190 on the moneyline: +1.5 on a big dog"
 }
 }
