@@ -5,7 +5,9 @@ name: tracker (fold, grade, export)
 on:
   schedule:
     - cron: '41 15,19,22 * * *'   # UTC: backup clock for 10:41 AM, 2:41 PM, 5:41 PM ET (pulse dispatches these; 11/4: systems a few times a day)
-  workflow_dispatch: {}
+  workflow_dispatch:
+    inputs:
+      grade_only: {description: "'true' = pull results and grade only; skip the systems engine and signal snapshots, so no new bets are logged off schedule (11/14)", default: 'false', required: false}
 permissions:
   contents: write
   actions: write      # publishes Pages itself once the board is pushed (the pulse's Pages slot fired mid-run and shipped the previous board)
@@ -38,6 +40,7 @@ jobs:
       - name: season logs (ESPN scores + DK close) for the systems engine
         run: python3 -m sharp.season nfl nhl nba cfb cbb || true
       - name: systems engine (pre-registered rules -> paper fills)
+        if: ${{ inputs.grade_only != 'true' }}
         env: {NTFY_TOPIC: '${{ secrets.NTFY_TOPIC }}'}
         run: |     # 11/6: a crash used to pass silently; now it alerts, and the job still commits everything else
           if ! python3 sharp/systems.py; then
@@ -53,12 +56,15 @@ jobs:
         run: python3 sharp/exchange_fills.py || true
       - run: python3 -m sharp.fills grade
       - name: move-based sharp signals (Pinnacle steam, exchange lead, juice, timing, limits) on the tick log
+        if: ${{ inputs.grade_only != 'true' }}
         run: python3 sharp/move_signals.py || true
       - name: signal snapshot per game x market (agree vs conflict, graded later)
+        if: ${{ inputs.grade_only != 'true' }}
         run: python3 sharp/signal_log.py || true
       - name: remove duplicate bets from the records (one fill per rule per game, one tennis pick per match)
         run: python3 sharp/dedupe_fills.py || true
       - run: python3 sharp/weights_fit.py
+        if: ${{ inputs.grade_only != 'true' }}
       - run: python3 sharp/export.py
       - name: roll off raw ticks older than 10 days to the raw-archive release
         env: {GITHUB_TOKEN: '${{ secrets.GITHUB_TOKEN }}', GH_TOKEN: '${{ secrets.GITHUB_TOKEN }}'}
