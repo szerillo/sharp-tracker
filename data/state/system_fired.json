@@ -6483,5 +6483,46 @@
 "fair": 0.78711,
 "edge_pts": 0.21,
 "why": "Novig home side mid 0.217 inside T-1.1h; audit band 20-35c"
+},
+"401869952:xch_homedog_fade:ml": {
+"tag": "xch_homedog_fade",
+"fill_id": "23ed8be89f6d",
+"ts": "2026-11-14T19:01:32Z",
+"market": "ml",
+"side": "away",
+"line": null,
+"venue": "Novig",
+"price": -208,
+"fair": 0.67206,
+"edge_pts": -0.29,
+"why": "Novig home side mid 0.328 inside T-1.5h; audit band 20-35c",
+"restored": true
+},
+"401864536:xch_homedog_fade:ml": {
+"tag": "xch_homedog_fade",
+"fill_id": "4b53683a8b3b",
+"ts": "2026-11-14T19:01:32Z",
+"market": "ml",
+"side": "away",
+"line": null,
+"venue": "Novig",
+"price": -217,
+"fair": 0.68166,
+"edge_pts": -0.33,
+"why": "Novig home side mid 0.318 inside T-1.5h; audit band 20-35c",
+"restored": true
+},
+"401873054:wind1014_1h": {
+"tag": "wind1014_1h",
+"fill_id": "a53c965d4d8a",
+"ts": "2026-11-14T19:55:45Z",
+"market": "1h_total",
+"side": "under",
+"line": 25.5,
+"venue": "DK",
+"price": -102,
+"fair": 0.492,
+"edge_pts": -1.3,
+"why": "MySportsWeather 12 mph, gusts 22 (Open-Meteo 9.1 at T-23h), gust 14.8, 45.7F"
 }
 }
