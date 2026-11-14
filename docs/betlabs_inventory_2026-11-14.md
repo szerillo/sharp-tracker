@@ -10,7 +10,7 @@ Source: Sean's Bet Labs account, all 171 saved systems listed by Bet Labs itself
 | Tracked: MLB Visitor Over 60 Pct Under (1799441) | MLB | total under | Visitor game 16-162, visitor over 60-100% | D / -2.2% | 1287-1273 | mlb_road_over_under | paper (P) | MISSING | added: had a rule entry but no firing code; fires in season |
 | Tracked: CFB Home Fav 7.5 to 10 Under (1799440) | CFB | total under | Home spread -10 to -7.5 | A / +4.0% | 614-527 | cfb_homefav_7510_under | live (C) | MATCHES |  |
 | Tracked: CFB Afternoon Game 2-7pm ET Total 45 to 51.5 Over (1799439) | CFB | total over | Kickoff 14:00-18:59 ET, total 45-51.5 | D / -1.7% | 889-858 | cfb_day_over | paper (P) | MATCHES |  |
-| Tracked: NBA Visitor 4th Plus Straight Road Game Over (1799438) | NBA | total over | Visitor's previous game road streak 3-30 | D / -2.9% | 1688-1686 | nba_roadtrip_over | paper (P) | DIFFERENT FILTERS | fixed: dropped the last-meeting filter, streak 3+ before this game |
+| Tracked: NBA Visitor 4th Plus Straight Road Game Over (1799438) | NBA | total over | Visitor's previous game home/away streak 3-30 (positive = home streak) | D / -2.9% | 1688-1686 | nba_roadtrip_over | paper (P) | DIFFERENT FILTERS | fixed: the filter means the visitor is off a 3+ game homestand (the name says road trip); the tool fires on the filter |
 | Tracked: NFL Dog vs Favorite Off Bye ATS (1799435) | NFL | spread dog | Opponent off 8-30 days, dog | D / -4.6% | 560-581 | nfl_fade_fav_bye | paper (P) | MATCHES |  |
 | Tracked: NFL Road Dog 7.5 to 10 ATS (1799434) | NFL | spread dog | Spread 7.5-10, dog, visitor | D / -3.5% | 311-306 | nfl_road_dog_7510 | paper (P) | MATCHES |  |
 | Tracked: NFL Home Dog 7.5 to 10 ATS (1799433) | NFL | spread dog | Spread 7.5-10, dog, home | A / +10.7% | 119-85 | nfl_home_dog_7510 | live (C) | MATCHES |  |
@@ -36,3 +36,5 @@ Source: Sean's Bet Labs account, all 171 saved systems listed by Bet Labs itself
 | Tested: NFL Awful-Team Dog ATS (1772776) | NFL | spread dog | Season margin -40 to -13, dog | A / +17.2% | 254-164 | awfuldog | live (C) | MATCHES |  |
 | Tested: NFL Wind 10-14 Under (1772775) | NFL | total under | Wind 10-14 | A / +13.2% | 536-379 | wind1014 | live (A) | MATCHES | wind from MySportsWeather by design |
 | Tested: NFL 1H Wind 10-13 Under (769171) | NFL | 1H total under | Wind 10-13, dome closed N | A / +9.2% | 406-302 | wind1014_1h | live (C) | MATCHES | wind from MySportsWeather by design |
+
+10:20 AM update: the road-trip screen's filter does not match its name (checked on its 11/14 picks: CHI and HOU off 3-game homestands, while the tool's 4-game road trips were not picked). NHL results-based rules now wait while a team still has a game to play before this one.
