@@ -1,5 +1,5 @@
 {
- "built": "2026-11-14T06:25:18Z",
+ "built": "2026-11-14T06:32:02Z",
  "rows": [
   {
    "cond": "0x023fe2801e367dbc1d3c14f891273d40e90f5ebbfbadc2b75316bb5fd03a32f5",
@@ -61,7 +61,7 @@
    "best_rank": 4,
    "usd": 294,
    "paid": 0.881,
-   "ask": 0.907,
+   "ask": 0.905,
    "status": "live",
    "link": "https://polymarket.us/event/cfb-tenn-txam-2026-11-14",
    "other": null,
@@ -98,7 +98,7 @@
    "best_rank": 11,
    "usd": 235,
    "paid": 0.53,
-   "ask": 0.8,
+   "ask": 0.79,
    "status": "live",
    "link": "https://polymarket.us/event/cbb-airf-pacfc-2026-11-14",
    "other": null,
@@ -387,7 +387,7 @@
    "best_rank": 23,
    "usd": 2951,
    "paid": 0.65,
-   "ask": 0.65,
+   "ask": 0.64,
    "status": "live",
    "link": "https://polymarket.us/event/nba-det-mia-2026-11-14",
    "other": null,
@@ -718,49 +718,6 @@
    "books": null
   },
   {
-   "cond": "0x977b827837e77ff1c7fd06da51d590250ba60c6b2e65377162fe67f706fb56ab",
-   "slug": "nba-gsw-sas-2026-11-13",
-   "title": "Warriors vs. Spurs",
-   "mtype": "ml",
-   "start": "2026-11-14T02:30:00Z",
-   "bet": "Warriors ML",
-   "side": "Warriors",
-   "flagged": "2026-11-12T23:00:09Z",
-   "why": "a top-50 account",
-   "proven": false,
-   "trigger": "top50",
-   "n_accounts": 1,
-   "best_rank": 40,
-   "usd": 755,
-   "paid": 0.165,
-   "ask": null,
-   "status": "other side",
-   "link": "https://polymarket.us/event/nba-gsw-sas-2026-11-13",
-   "other": {
-    "n_accounts": 1,
-    "best_rank": 42,
-    "usd": 750,
-    "first": "2026-11-14T01:47:50Z"
-   },
-   "exit_bid": null,
-   "kalshi_against": null,
-   "logged": true,
-   "event_id": "401909302",
-   "sport": "nba",
-   "league": null,
-   "away": "GS",
-   "home": "SA",
-   "away_name": "Golden State Warriors",
-   "home_name": "San Antonio Spurs",
-   "game_start": "2026-11-14T02:30Z",
-   "side_std": "away",
-   "money_with": false,
-   "grade": "watch",
-   "fair_board": 0.1458,
-   "inside_fair": null,
-   "books": null
-  },
-  {
    "cond": "0x6c0dac1551a12d7ade3ac5585a587c251f9d78e00f55ee6e42b72c2bf38a9955",
    "slug": "nba-okc-lac-2026-11-13",
    "title": "Thunder vs. Clippers",
@@ -981,8 +938,8 @@
     "clv": -0.59
    }
   },
-  "n": 234,
-  "won": 101,
+  "n": 235,
+  "won": 102,
   "units": -16.31,
   "by_grade": {
    "A": {
@@ -992,8 +949,8 @@
     "clv": -0.62
    },
    "B": {
-    "n": 54,
-    "won": 29,
+    "n": 55,
+    "won": 30,
     "units": 0.89,
     "clv": -0.82
    },
@@ -1004,9 +961,9 @@
     "clv": -0.6
    }
   },
-  "units_1u": -39.02,
+  "units_1u": -36.99,
   "clv": -0.67,
-  "n_venue": 116,
+  "n_venue": 117,
   "units_venue": -5.82,
   "clv_venue": 0.65,
   "clv_poly_same": -1.13
