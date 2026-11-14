@@ -229,7 +229,7 @@ def rule_wind(wx, msw, indoor=False):
 # 11/14 (Sean): Bet Labs filters the tool cannot compute (cfb_road_streak_dog's "Number of Bets Compared To Daily Avg 1.01+") are taken
 # from Sean's Bet Labs snapshot (data/state/betlabs_picks.json, refreshed 9, 11, 2, 5, 7 ET through his Chrome) while it is under 8 hours old.
 BLP = os.path.join(ROOT, 'data', 'state', 'betlabs_picks.json'); _BLP = []
-def _bnm(x): return ''.join(c for c in (x or '').lower().replace('international', 'intl').replace('state', 'st') if c.isalnum() or c == ' ').split()
+def _bnm(x): return ''.join(c for c in (x or '').lower().replace('los angeles', 'la').replace('international', 'intl').replace('state', 'st') if c.isalnum() or c == ' ').split()
 def _bsame(a, b):
     x, y = _bnm(a), _bnm(b)
     if not x or not y or x[0] != y[0]: return False
@@ -242,7 +242,9 @@ def labs_list(screen_id, away_name, home_name, max_h=8):
         except Exception: _BLP.append(None)
     d = _BLP[0]
     if not d or (NOW - N.parse_ts(d['pulled'])).total_seconds() / 3600 > max_h: return None
-    return any(p['sid'] == screen_id and _bsame(p['away'], away_name) and _bsame(p['home'], home_name) for p in d['picks'])
+    two = lambda x: _bnm(x)[:2]
+    return any(p['sid'] == screen_id and ((_bsame(p['away'], away_name) and _bsame(p['home'], home_name)) or (_bsame(p['away'], away_name) and two(p['home']) == two(home_name))
+               or (_bsame(p['home'], home_name) and two(p['away']) == two(away_name))) for p in d['picks'])
 
 
 def prev_scheduled(sport, team, st):
@@ -653,6 +655,9 @@ def main():
             if fav == home and ph['games'] + 1 <= 24 and int(100 * pd['win_pct']) >= 51:
                 trig['nhl_early_home_fav_qual'] = ('ml', 'home', f"home favorite, game {ph['games'] + 1} of the season, opponent {away} wins {int(100 * pd['win_pct'])}% ({pd['wins']}-{pd['games'] - pd['wins']})")
             mined_ok = ph['games'] >= 1 and pa['games'] >= 1          # 11/14 (Sean: fire exactly what Bet Labs fires): Bet Labs has no games minimum (was 3)
+            # 11/14: a team with a game still to play before this one has no final "last game" yet; Bet Labs only lists the next game
+            # (FLA @ DAL 11/15 fired on DAL's loss two games back while DAL vs BUF 11/14 was still to play)
+            if any(pg and pg[0] > NOW for pg in (prev_scheduled('nhl', home, st), prev_scheduled('nhl', away, st))): mined_ok = False
             if mined_ok and ph.get('loss_streak', 0) >= 3 and ph.get('over_pct') is not None and 0.40 <= ph['over_pct'] < 0.60:
                 trig['nhl_loss_streak_over'] = ('total', 'over', f"home {home} has lost {ph['loss_streak']} straight, season over rate {100 * ph['over_pct']:.0f}%: over (mined angle)")
             if mined_ok and ph.get('last_margin') is not None and -20 <= ph['last_margin'] <= -3 and 50 <= int(100 * ph['win_pct']) <= 64:
@@ -672,9 +677,11 @@ def main():
             # 11/14 (Sean): Bet Labs 1799442 exactly: home game number 9-82, home win% 0-40, visitor win% 30-45 (was visitor margin -7 to -2 and home win% at home)
             if ph['games'] >= 8 and int(100 * ph['win_pct']) <= 40 and pa['games'] >= 1 and 30 <= int(100 * pa['win_pct']) <= 45:
                 trig['nba_badteams_under'] = ('total', 'under', f"home {home} wins {int(100 * ph['win_pct'])}% ({ph['games']} games), visitor {away} wins {int(100 * pa['win_pct'])}%: under")
-            # 11/14 (Sean): Bet Labs 1799438 exactly: the visitor's previous game was its 3rd+ straight road game (so this is the 4th+); no last-meeting filter
-            if 3 <= pa.get('road_streak', 0) <= 30:
-                trig['nba_roadtrip_over'] = ('total', 'over', f"{away} on road game {pa['road_streak'] + 1} in a row: over")
+            # 11/14 (Sean): Bet Labs 1799438 exactly. Its filter "Visitor Prev Game Home/AwayStreak 3..30" is POSITIVE, which in Bet Labs is a
+            # home streak: the visitor comes off 3+ straight home games (checked on its 11/14 picks: CHI and HOU off 3-game homestands; the
+            # 4-game road trips it did not pick). The screen's name ("4th Plus Straight Road Game") does not match its filter.
+            if 3 <= pa.get('home_streak', 0) <= 30:
+                trig['nba_roadtrip_over'] = ('total', 'over', f"{away} off {pa['home_streak']} straight home games, first road game: over (Bet Labs filter)")
             # Bet Labs "days between games" = calendar-day gap (back-to-back = 1); checked on its 2026 picks 10/31
             h_off = (N.et_date(st) - N.et_date(N.parse_ts(ph['last_start']))).days if ph.get('last_start') else None
             a_off = (N.et_date(st) - N.et_date(N.parse_ts(pa['last_start']))).days if pa.get('last_start') else None

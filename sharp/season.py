@@ -82,6 +82,15 @@ def team_logs(sport):
     return logs
 
 
+def _home_streak(L):
+    """Consecutive home games ending with the team's last game (Bet Labs' positive "Home/Away Streak" on the previous game)."""
+    n = 0
+    for gm in reversed(L):
+        if gm.get('side') != 'home': break
+        n += 1
+    return n
+
+
 def _ou_streak(L):
     n = 0; sgn = 0
     for gm in reversed(L):
@@ -110,7 +119,7 @@ def profile(sport, team, before_utc, opp=None):
     hg = [gm for gm in L if gm.get('side') == 'home']; ag = [gm for gm in L if gm.get('side') == 'away']
     return dict(games=len(L), margin_avg=sum(gm['margin'] for gm in L) / len(L), last_ats_margin=last.get('ats_margin'), last_margin=last['margin'],
                 ats_pct=(sum(1 for a in ats if a > 0) / len(ats)) if ats else None, ats_n=len(ats), loss_streak=k, road_streak=rk,      # 11/5: for the mined angles
-                ou_streak=_ou_streak(L),      # 11/14: Bet Labs 'OU Streak' (+n = n straight overs, -n = n straight unders, 0 = last game a push or none)
+                ou_streak=_ou_streak(L), home_streak=_home_streak(L),      # 11/14: Bet Labs 'OU Streak' (+n = n straight overs, -n = n straight unders, 0 = last game a push or none)
                 home_pct=(sum(1 for gm in hg if gm['margin'] > 0) / len(hg)) if len(hg) >= 3 else None, away_pct=(sum(1 for gm in ag if gm['margin'] > 0) / len(ag)) if len(ag) >= 3 else None,
                 last_vs=next((gm['margin'] for gm in reversed(L) if gm.get('opp') == opp), None) if opp else None,
                 last_start=last['start'], days_since_last=(before_utc - parse_ts(last['start'])).total_seconds() / 86400,

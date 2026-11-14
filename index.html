@@ -1297,7 +1297,7 @@ function renderWeekly() {
 // 11/14 (Sean: "track all of the betlabs systems ... and figure out gaps"): every Tested / Tracked Bet Labs screen's current picks, matched
 // against what the tool's rules fired, live. Bet Labs needs Sean's sign-in, so the picks are a snapshot pulled through his Chrome.
 window._bf = window._bf || {sport: 'all', st: 'all'};
-const blNm = s => (s || '').toLowerCase().replace(/international/g, 'intl').replace(/state/g, 'st').replace(/[^a-z0-9 ]/g, '').trim();
+const blNm = s => (s || '').toLowerCase().replace(/los angeles/g, 'la').replace(/international/g, 'intl').replace(/state/g, 'st').replace(/[^a-z0-9 ]/g, '').trim();
 function blSame(a, b) { a = blNm(a); b = blNm(b); if (!a || !b) return false; const x = a.split(' '), y = b.split(' '); if (x[0] !== y[0]) return false;
   const n = Math.min(x.length, y.length), L = x.length >= y.length ? x : y, S = x.length >= y.length ? y : x;
   for (let i = 0; i < n; i++) if (L[i] !== S[i]) return false; return L.length === n || !['st', 'tech', 'a', 'am', 'intl', 'southern', 'northern'].includes(L[n]); }
@@ -1312,7 +1312,7 @@ function renderBetLabs() {
   const BP = window._BLP;
   if (!BP) return '<div class="banner">No Bet Labs snapshot yet.</div>';
   if (!SY) return '<div class="banner">system_fires.json not loaded yet.</div>';
-  const nm = s => (s || '').toLowerCase().replace(/state/g, 'st').replace(/[^a-z0-9 ]/g, '').trim();
+  const nm = s => (s || '').toLowerCase().replace(/los angeles/g, 'la').replace(/international/g, 'intl').replace(/state/g, 'st').replace(/[^a-z0-9 ]/g, '').trim();
   const same = (a, b) => { a = nm(a); b = nm(b); if (!a || !b) return false; if (a === b || a.startsWith(b) || b.startsWith(a)) return true;
     const x = a.split(' '), y = b.split(' '); return x[0] === y[0] && (x.length === 1 || y.length === 1 || x[1] === y[1]); };
   const scr = Object.fromEntries(BP.screens.map(x => [x.id, x]));
@@ -1324,7 +1324,9 @@ function renderBetLabs() {
   const built = SY.built ? new Date(SY.built) : null, nowT = Date.now();
   const live = t => !/no longer meets/.test(String(t || ''));
   const games = SY.games || [];
-  const findG = (p, sp) => games.find(g => g.sport === sp && ((same(g.home_name || g.home, p.home) && same(g.away_name || g.away, p.away)) || (nm(g.home) === nm(p.home) && nm(g.away) === nm(p.away))));
+  const two = x => nm(x).split(' ').slice(0, 2).join(' ');      // 11/14: "Sam Houston State" vs "Sam Houston Bearkats"
+  const findG = (p, sp) => games.find(g => g.sport === sp && ((same(g.home_name || g.home, p.home) && same(g.away_name || g.away, p.away)) || (nm(g.home) === nm(p.home) && nm(g.away) === nm(p.away))))
+    || games.find(g => g.sport === sp && ((same(g.away_name || g.away, p.away) && two(g.home_name || g.home) === two(p.home)) || (same(g.home_name || g.home, p.home) && two(g.away_name || g.away) === two(p.away))));
   const etDay = d => new Date(d).toLocaleDateString('en-CA', {timeZone: 'America/New_York'});
   const today = etDay(Date.now()), tmw = etDay(Date.now() + 864e5);
   const rows = [], seen = new Set();
