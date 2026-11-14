@@ -1,5 +1,5 @@
 {
- "built": "2026-11-14T19:34:49Z",
+ "built": "2026-11-14T19:48:58Z",
  "rows": [
   {
    "cond": "0x023fe2801e367dbc1d3c14f891273d40e90f5ebbfbadc2b75316bb5fd03a32f5",
@@ -754,7 +754,7 @@
    "best_rank": 58,
    "usd": 500,
    "paid": 0.5,
-   "ask": 0.5,
+   "ask": 0.52,
    "status": "live",
    "link": "https://polymarket.us/event/cfb-nevada-nill-2026-11-14",
    "other": null,
@@ -771,8 +771,8 @@
    "side_std": "over",
    "money_with": false,
    "grade": "A",
-   "fair_board": 0.4949,
    "inside_fair": false,
+   "fair_board": 0.4949,
    "books": {
     "at": "2026-11-14T18:07:00Z",
     "fair": 0.4949,
@@ -800,7 +800,7 @@
    "best_rank": 11,
    "usd": 235,
    "paid": 0.53,
-   "ask": 0.84,
+   "ask": 0.85,
    "status": "live",
    "link": "https://polymarket.us/event/cbb-airf-pacfc-2026-11-14",
    "other": null,
@@ -900,11 +900,45 @@
    "home_name": "Texas State Bobcats",
    "game_start": "2026-11-14T21:00Z",
    "side_std": "under",
-   "conflict": [
-    "big money"
-   ],
    "money_with": false,
    "grade": "A",
+   "fair_board": null,
+   "inside_fair": null,
+   "books": null
+  },
+  {
+   "cond": "0xae4b872a55ee1048f896497f4fc7d8aa37833d5d39a3d439dc2b946b9a7fba7d",
+   "slug": "cfb-tulane-rice-2026-11-14",
+   "title": "Tulane vs. Rice",
+   "mtype": "total",
+   "start": "2026-11-14T21:30:00Z",
+   "bet": "Over 49.5",
+   "side": "Over",
+   "flagged": "2026-11-14T19:42:58Z",
+   "why": "a top-50 account",
+   "proven": false,
+   "trigger": "top50",
+   "n_accounts": 1,
+   "best_rank": 12,
+   "usd": 139,
+   "paid": 0.48,
+   "ask": 0.5,
+   "status": "live",
+   "link": "https://polymarket.us/event/cfb-tulane-rice-2026-11-14",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401862828",
+   "sport": "cfb",
+   "league": null,
+   "away": "TULN",
+   "home": "RICE",
+   "away_name": "Tulane Green Wave",
+   "home_name": "Rice Owls",
+   "game_start": "2026-11-14T21:30Z",
+   "side_std": "over",
+   "money_with": false,
+   "grade": "B",
    "fair_board": null,
    "inside_fair": null,
    "books": null
@@ -1938,7 +1972,7 @@
    "best_rank": 4,
    "usd": 17842,
    "paid": 0.516,
-   "ask": 0.57,
+   "ask": 0.58,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-dal-cle-2026-11-14",
    "other": {
@@ -1947,7 +1981,7 @@
     "usd": 2734,
     "first": "2026-11-14T18:23:47Z"
    },
-   "exit_bid": 0.56,
+   "exit_bid": 0.57,
    "kalshi_against": null,
    "logged": false,
    "event_id": "401909981",
@@ -1961,6 +1995,92 @@
    "side_std": "away",
    "money_with": false,
    "grade": "A",
+   "fair_board": null,
+   "inside_fair": null,
+   "books": null
+  },
+  {
+   "cond": "0x0998f4a258f3a3440db42ce507da813b3f66917609f8a9c434db9771f433a6fe",
+   "slug": "nba-bkn-mem-2026-11-14",
+   "title": "Nets vs. Grizzlies",
+   "mtype": "ml",
+   "start": "2026-11-15T01:00:00Z",
+   "bet": "Nets ML",
+   "side": "Nets",
+   "flagged": "2026-11-14T19:37:10Z",
+   "why": "2 top-200 accounts",
+   "proven": false,
+   "trigger": "two",
+   "n_accounts": 2,
+   "best_rank": 75,
+   "usd": 14445,
+   "paid": 0.446,
+   "ask": 0.46,
+   "status": "other side",
+   "link": "https://polymarket.us/event/nba-bkn-mem-2026-11-14",
+   "other": {
+    "n_accounts": 1,
+    "best_rank": 75,
+    "usd": 14185,
+    "first": "2026-11-14T19:44:41Z"
+   },
+   "exit_bid": 0.45,
+   "kalshi_against": null,
+   "logged": false,
+   "event_id": "401909983",
+   "sport": "nba",
+   "league": null,
+   "away": "BKN",
+   "home": "MEM",
+   "away_name": "Brooklyn Nets",
+   "home_name": "Memphis Grizzlies",
+   "game_start": "2026-11-15T01:00Z",
+   "side_std": "away",
+   "money_with": false,
+   "grade": "B",
+   "fair_board": 0.4253,
+   "inside_fair": false,
+   "books": null
+  },
+  {
+   "cond": "0xc6fc98d58f9edab5a95cb2bb703bd466428bd57c1185d7c4c3e4f7a8adb54b2f",
+   "slug": "nba-bkn-mem-2026-11-14",
+   "title": "Nets vs. Grizzlies",
+   "mtype": "spread",
+   "start": "2026-11-15T01:00:00Z",
+   "bet": "Nets +2.5",
+   "side": "Nets",
+   "flagged": "2026-11-14T19:36:23Z",
+   "why": "2 top-200 accounts",
+   "proven": false,
+   "trigger": "two",
+   "n_accounts": 2,
+   "best_rank": 112,
+   "usd": 91769,
+   "paid": 0.501,
+   "ask": 0.54,
+   "status": "other side",
+   "link": "https://polymarket.us/event/nba-bkn-mem-2026-11-14",
+   "other": {
+    "n_accounts": 1,
+    "best_rank": 112,
+    "usd": 1605,
+    "first": "2026-11-14T19:42:41Z"
+   },
+   "exit_bid": 0.53,
+   "kalshi_against": null,
+   "logged": false,
+   "event_id": "401909983",
+   "sport": "nba",
+   "league": null,
+   "away": "BKN",
+   "home": "MEM",
+   "away_name": "Brooklyn Nets",
+   "home_name": "Memphis Grizzlies",
+   "game_start": "2026-11-15T01:00Z",
+   "side_std": "away",
+   "money_with": false,
+   "grade": "B",
    "fair_board": null,
    "inside_fair": null,
    "books": null
@@ -1991,7 +2111,11 @@
     "first": "2026-11-14T06:50:34Z"
    },
    "exit_bid": 0.75,
-   "kalshi_against": null,
+   "kalshi_against": {
+    "move": 4.5,
+    "now": 24.5,
+    "state": "fresh"
+   },
    "logged": true,
    "event_id": "401909985",
    "sport": "nba",
@@ -2002,6 +2126,9 @@
    "home_name": "Philadelphia 76ers",
    "game_start": "2026-11-15T18:00Z",
    "side_std": "home",
+   "conflict": [
+    "Kalshi move"
+   ],
    "money_with": false,
    "grade": "watch",
    "fair_board": null,
@@ -2202,6 +2329,14 @@
    },
    "against": null
   },
+  "401862828:cfb_day_over": {
+   "with": {
+    "n": 1,
+    "best_rank": 12,
+    "usd": 139
+   },
+   "against": null
+  },
   "401864536:cfb_day_over": {
    "with": {
     "n": 1,
@@ -2253,6 +2388,14 @@
     "usd": 460
    },
    "against": null
+  },
+  "401862828:cfb_wind14": {
+   "with": null,
+   "against": {
+    "n": 1,
+    "best_rank": 12,
+    "usd": 139
+   }
   }
  },
  "by_event": {
@@ -2402,6 +2545,11 @@
     "n": 2,
     "best_rank": 112,
     "usd": 93383
+   },
+   "home": {
+    "n": 1,
+    "best_rank": 112,
+    "usd": 1605
    }
   },
   "401909983|ml": {
@@ -2409,6 +2557,11 @@
     "n": 2,
     "best_rank": 75,
     "usd": 14445
+   },
+   "home": {
+    "n": 1,
+    "best_rank": 75,
+    "usd": 14185
    }
   },
   "401909983|total": {
@@ -2548,6 +2701,13 @@
     "n": 1,
     "best_rank": 110,
     "usd": 460
+   }
+  },
+  "401862828|total": {
+   "over": {
+    "n": 1,
+    "best_rank": 12,
+    "usd": 139
    }
   },
   "401858518|spread": {
