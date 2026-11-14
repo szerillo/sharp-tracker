@@ -31,6 +31,9 @@ HALF_U = {'nba_1h_under_hot_over'}       # tier C rules sized at 0.5u (Sean, 11/
 # 11/10 (Sean, docs/review_2026-11-10.md): sharp flags carry no units from here until they beat Pinnacle's close (Sharp A +0.06 on 97, 45-69).
 # Flags logged before this keep the size they were tracked at.
 SHARP_PAPER_FROM = '2026-11-10T10:00:00Z'
+# 11/14: a rule promoted from paper counts as a bet only for fills logged from its promotion on; its earlier paper fills stay paper, so
+# no units are backdated into the record.
+PROMOTED_FROM = {'xch_homedog_fade': '2026-11-14T08:30:00Z'}     # Sean 11/14: paper -> tier C
 def size_units(cat, rule=None, sport=None, flagged=None):
     if cat == 'watch' or (cat.startswith('sharp') and (flagged or '') >= SHARP_PAPER_FROM): return 0.0
     return 0.5 if (cat in ('system A', 'system B') or (cat == 'sharp A' and sport != 'soccer') or rule in HALF_U) else 0.25
@@ -157,6 +160,7 @@ def main():
         if r.get('result') == 'void' or r.get('mclass', 'game') != 'game': continue
         tag = str(r.get('rule_tag', '')).replace('paper:', ''); tier = tiers.get(tag)
         cat = {'A': 'system A', 'B': 'system B', 'C': 'lean C', 'P': 'paper P'}.get(tier, 'paper P')
+        if tag in PROMOTED_FROM and (r.get('ts_utc') or '') < PROMOTED_FROM[tag]: cat = 'paper P'
         e = S.get(r['event_id']) or {}
         won = {'W': 1, 'L': 0, 'P': 0.5}.get(r.get('result'))
         bets.append(dict(id='s:' + r['fill_id'], src='system', cat=cat, rule=tag, sport=e.get('sport'), event_id=r['event_id'], game=f"{e.get('away', '?')} @ {e.get('home', '?')}",

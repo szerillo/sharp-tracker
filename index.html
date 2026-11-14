@@ -142,6 +142,20 @@
     .slipt tr.erow td.c-game,.slipt tr.erow td.c-why,.slipt tr.erow td.c-rec{display:none} .slipt tr.det{display:block} .slipt tr.det td{display:block} .facts{grid-template-columns:1fr} .facts dt{margin-top:6px}}
   .gone-sec .sec-h .name{color:var(--muted)}
   @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+.tf{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:6px 0 12px}
+.tf select,.tf input[type=search]{background:var(--panel);color:var(--text);border:1px solid var(--border);border-radius:8px;padding:6px 10px;font:500 13.5px 'Mona Sans',sans-serif;max-width:240px}
+.tf input[type=search]{min-width:170px}
+.seg{display:inline-flex;border:1px solid var(--border);border-radius:999px;overflow:hidden;background:var(--panel)}
+.seg button{border:0;background:transparent;color:var(--text);padding:6px 13px;font:600 13.5px Poppins,sans-serif;cursor:pointer}
+.seg button+button{border-left:1px solid var(--border)}
+.seg button.on{background:var(--black);color:var(--onfg,#fff);box-shadow:inset 0 -3px 0 var(--green)}
+.seg button:focus-visible,.tf select:focus-visible,.tf input:focus-visible,.tf-clear:focus-visible{outline:2px solid var(--green);outline-offset:2px}
+.tf-clear{border:0;background:none;color:var(--muted);text-decoration:underline;cursor:pointer;font:500 13px 'Mona Sans',sans-serif}
+.tsum{border:1px solid var(--border);border-radius:10px;background:var(--panel);padding:12px 16px;margin:0 0 12px}
+.tsum-what{font-size:13px;color:var(--muted)} .tsum-big{font:700 24px Poppins,sans-serif;margin:2px 0} .tsum-big .sep{color:var(--faint);font-weight:400}
+.tierl{display:inline-block;font:600 11px 'Mona Sans',sans-serif;color:var(--muted);border:1px solid var(--border);border-radius:4px;padding:0 4px;margin-left:4px;vertical-align:1px}
+.tbets td{vertical-align:top} .nowrap{white-space:nowrap}
+@media (max-width:600px){.rtab th:nth-child(2),.rtab td:nth-child(2),.rtab th:last-child,.rtab td:last-child{display:none} .tf select,.tf input[type=search]{max-width:100%;flex:1 1 140px} .tsum-big{font-size:20px}}
 .recpill{display:inline-block;padding:1px 7px;border-radius:10px;font-size:12px;white-space:nowrap;margin-left:4px}
 .recpill.rp-pos{background:rgba(22,163,74,.16);color:var(--pos,#15803d)}.recpill.rp-neg{background:rgba(220,38,38,.14);color:var(--neg,#b91c1c)}.recpill.rp-flat{background:var(--panel2);color:inherit}
 .recpill.big{font-size:18px;padding:4px 12px;margin:4px 0}.recbanner{border:1px solid var(--line);border-radius:8px;padding:10px 14px;margin:8px 0;background:var(--panel)}
@@ -1310,9 +1324,10 @@ function renderSystems() {
     }
     return `<div class="gcard"><div class="ghead click" onclick="_sf.open['${tag}']=!_sf.open['${tag}'];draw()" style="cursor:pointer">
         <span class="chev">${open ? '▾' : '▸'}</span><span class="badge b-sport">${esc((SPORT_LABEL[sportOf(r)] || (sportOf(r) === 'multi' ? 'Exchanges' : sportOf(r))).toString())}</span>
-        <span class="gname">${esc(r.desc || tag)}</span>
+        <span class="gname">${esc(ruleName(tag))}</span>
         <span class="small" style="margin-left:auto">${counts}</span></div>
-      <div class="small" style="padding:6px 14px;display:flex;flex-wrap:wrap;gap:4px 18px"><span><span class="lbl">Size</span>${({A: '0.5u', B: '0.5u', C: '0.25u', P: 'paper'})[tierOf(tag)] || '—'}</span><span><span class="lbl">Tracker</span>${recTxt(x)}</span><span class="dim mono">${tag}</span></div>${body}</div>`;
+      <div class="small dim" style="padding:4px 14px 0">${esc(r.desc || '')}</div>
+      <div class="small" style="padding:4px 14px 6px;display:flex;flex-wrap:wrap;gap:4px 18px"><span><span class="lbl">Size</span>${({A: '0.5u', B: '0.5u', C: '0.25u', P: 'paper'})[tierOf(tag)] || '—'}</span><span><span class="lbl">Tracker</span>${recTxt(x)}</span></div>${body}</div>`;
   };
   let html = '', last = null;
   for (const t of tags) { const tr = tierOf(t); if (tr !== last) { html += `<div class="hdr2"><h2>${TLBL[tr] || 'Tier ' + tr}</h2><span class="meta">${tags.filter(x => tierOf(x) === tr).length} system${tags.filter(x => tierOf(x) === tr).length === 1 ? '' : 's'}</span></div>`; last = tr; } html += block(t); }
@@ -1411,82 +1426,119 @@ const BLW = {all: ['All dates', () => true], live: ['In progress', b => ['live',
 const BLG = {all: 'All bets', systems: 'Systems', sharp: 'Sharp', paper: 'Paper rules'};
 const blGroup = b => b.cat === 'paper P' ? 'paper' : /^sharp/.test(b.cat) ? 'sharp' : ['system A', 'system B', 'lean C', 'tennis'].includes(b.cat) ? 'systems' : 'watch';
 const blRule = b => b.rule ? String(b.rule).split(' | ')[0] : (b.cat === 'tennis' ? 'tennis_hot_fav' : null);
-const RULE_NAME = {stale_book_sb4: 'Stale sportsbook moneyline, 4%+', wncaab_dog_7_10: "Women's CBB dog +7 to +10", wncaab_move_follow: "Women's CBB: follow a 1+ point spread move", cbb_1h_total_curve: 'CBB 1H total off the curve', cfb_q1_under_curve: 'CFB 1Q under off the curve', cfb_tt_under_curve: 'CFB team-total under off the curve', nba_threes_under_gap: 'NBA threes under, price gap', nhl_prop_under_gap: 'NHL prop under, price gap', stale_book: 'Stale book after a Pinnacle move', wind1014: 'NFL wind 10-14 under', wind1014_1h: 'NFL wind 10-14 1H under', cfb_wind14: 'CFB wind 14+ under', vrest8_1h: 'NFL visitor off long rest 1H under',
-  mnf_1h: 'MNF 1H under', awfuldog: 'NFL fade bad-margin dogs', bounce15_1h: 'NFL bounce after 15+ loss 1H', nfl_home_dog_7510: 'NFL home dog 7.5-10',
-  nhl_bounce_home_ml: 'NHL home bounce ML', nhl_pl_fav_gap: 'NHL PL fav, win% gap', nhl_pl_fav_strong_opp: 'NHL PL fav vs strong opp', nhl_pl_dog_bigml: 'NHL PL dog, big ML',
-  nba_1h_under_hot_over: 'NBA 1H under, hot-over teams', nhl_early_home_fav_qual: 'NHL early-season home fav', nba_under_good_home_over: 'NBA under, good home over team',
-  cfb_road_dog_low_total: 'CFB conf road dog, low total', cbb_bigloss_vs_top5: 'CBB bounce vs top 5', cfb_hot_over_low_total: 'CFB heat over, low total',
-  cfb_homefav_7510_under: 'CFB home fav 7.5-10 under', tennis_hot_fav: 'Tennis settled hot favourite', mma_steam_fav: 'MMA steam to the favourite',
-  kalshi_nhl_flow: 'NHL Kalshi late flow', nba_momentum: 'NBA exchange momentum', xch_homedog_fade: 'Exchange home-dog fade', cfb_day_over: 'CFB afternoon over',
-  nfl_road_dog_7510: 'NFL road dog 7.5-10', nfl_fade_fav_bye: 'NFL fade fav off bye', nba_ats_hot_home: 'NBA ATS-hot home team', nba_bigfav_over: 'NBA big fav over',
-  nhl_loss_streak_over: 'NHL home skid over', nba_badteams_under: 'NBA bad teams under', nba_roadtrip_over: 'NBA road trip over', nhl_skid_fade_road: 'NHL fade road team vs skid',
-  mlb_road_over_under: 'MLB visitor over-team under', cfb_road_streak_dog: 'CFB road streak dog', cbb_under_good_over_drop: 'CBB under, total dropped',
-  wind1014_cold: 'NFL wind 10-14, cold (paper)', awfuldog_deep: 'NFL bad-margin dogs, 13+', tennis_fs_fav: 'Tennis first-set favourite', tennis_hot_dog: 'Tennis hot dog'};
+// 11/14 (Sean): short, consistent rule names: sport first, then the bet in a few words. The long rule text stays on the Systems page.
+const RULE_NAME = {
+  wind1014: 'NFL wind under (10-14 mph)', wind1014_1h: 'NFL wind 1H under', wind1014_cold: 'NFL cold wind under', cfb_wind14: 'CFB wind under (14+ mph)',
+  vrest8_1h: 'NFL rested visitor 1H under', mnf_1h: 'NFL Monday night 1H under', awfuldog: 'NFL bad-team dog', awfuldog_deep: 'NFL very bad-team dog',
+  bounce15_1h: 'NFL bounce-back 1H dog', nfl_home_dog_7510: 'NFL home dog +7.5 to +10', nfl_road_dog_7510: 'NFL road dog +7.5 to +10', nfl_fade_fav_bye: 'NFL fade favorite off a bye',
+  nfl_prop_under_gap: 'NFL prop under (price gap)',
+  nba_ats_hot_home: 'NBA hot home team ATS', nba_bigfav_over: 'NBA big favorite over', nba_badteams_under: 'NBA bad teams under', nba_roadtrip_over: 'NBA long road trip over',
+  nba_under_good_home_over: 'NBA under, total dropped', nba_under_good_home_over_small: 'NBA under, small drop', nba_1h_under_hot_over: 'NBA 1H under vs over teams',
+  nba_momentum: 'NBA exchange momentum', nba_threes_under_gap: 'NBA threes under (price gap)', nba_prop_under_gap: 'NBA prop under (price gap)',
+  nhl_early_home_fav_qual: 'NHL early-season home favorite', nhl_skid_fade_road: 'NHL road team vs a skid', nhl_bounce_home_ml: 'NHL home bounce-back',
+  nhl_loss_streak_over: 'NHL home skid over', nhl_pl_fav_gap: 'NHL puck-line favorite, record gap', nhl_pl_fav_strong_opp: 'NHL puck-line favorite vs a good team',
+  nhl_pl_dog_bigml: 'NHL puck-line big dog', nhl_prop_under_gap: 'NHL prop under (price gap)', nhl_p3_under_curve: 'NHL 3rd-period under', nhl_p1_spread_curve: 'NHL 1st-period spread',
+  kalshi_nhl_flow: 'NHL late Kalshi flow',
+  cfb_q1_under_curve: 'CFB 1Q under', cfb_tt_under_curve: 'CFB team-total under', cfb_homefav_7510_under: 'CFB home favorite -7.5 to -10 under', cfb_hot_over_low_total: 'CFB heat over',
+  cfb_road_dog_low_total: 'CFB road dog, low total', cfb_road_streak_dog: 'CFB road-trip dog', cfb_day_over: 'CFB afternoon over',
+  cbb_1h_total_curve: 'CBB 1H total', cbb_bigloss_vs_top5: 'CBB bounce-back vs a top 5', cbb_under_good_over_drop: 'CBB under, total dropped',
+  wncaab_dog_7_10: 'WCBB dog +7 to +10', wncaab_move_follow: 'WCBB follow the move',
+  mlb_road_over_under: 'MLB over-team under', mma_steam_fav: 'MMA steam favorite',
+  tennis_hot_fav: 'Tennis hot favorite', tennis_hot_dog: 'Tennis hot dog', tennis_fs_fav: 'Tennis first-set favorite',
+  xch_homedog_fade: 'Fade the home dog (exchange)', stale_book: 'Stale book price', stale_book_sb4: 'Stale book moneyline (4%+)'};
 const ruleName = r => RULE_NAME[r] || String(r).replace(/_/g, ' ');
 const recPill = (s, big) => { if (!s || !s.graded) return '<span class="dim">no results yet</span>'; const u = s.units, c = u > 0.004 ? 'rp-pos' : u < -0.004 ? 'rp-neg' : 'rp-flat';
   return `<span class="recpill ${c}${big ? ' big' : ''}"><b>${blRec(s)}</b> ${u > 0 ? '+' : ''}${u.toFixed(2)}u${blRoi(s) != null ? ` · ${blRoi(s) > 0 ? '+' : ''}${blRoi(s).toFixed(1)}%` : ''}</span>`; };
 const blCounted = L => L.filter(b => b.counted !== false);
+// 11/14 (Sean): "the tags are too complicated ... the whole button system and the way stuff colours in doesn't work". One filter bar
+// (what, sport, dates, rule, bet type, result, signals, search), one record line, a by-rule and a by-sport table, compact bet rows with a
+// details switch. Colour only on units and ROI.
+window._lg = window._lg || 'bets'; window._ls = window._ls || 'all'; window._lsub = window._lsub || 'all'; window._lm = window._lm || 'all';
+window._lr = window._lr || 'all'; window._lsig = window._lsig || 'all'; window._lq = window._lq || ''; window._ldet = window._ldet || false;
+window.setTF = (k, v) => { window[k] = v; if (k === '_lg' || k === '_ls') window._lsub = 'all'; draw(); };
+window.clearTF = () => { Object.assign(window, {_ls: 'all', _lsub: 'all', _lw: 'all', _lm: 'all', _lr: 'all', _lsig: 'all', _lq: ''}); draw(); };
+const tierLetter = b => (/^(system|lean|paper|sharp) ([ABCP])$/.exec(b.cat || '') || [])[2] || (b.cat === 'tennis' ? 'B' : '');
 function renderBetLog() {
   if (!BL) return '<div class="banner">The bet tracker builds with the next tracker run.</div>';
-  window._ls = window._ls || 'all'; window._lg = window._lg || 'all'; window._lsub = window._lsub || 'all'; window._lm = window._lm || 'all'; window._lo = window._lo || 'all';
-  const chip = (on, label, js) => `<button class="${on ? 'on' : ''}" onclick="${js};draw()">${label}</button>`;
-  const sel = (v, opts, js) => `<select onchange="${js};draw()">${opts.map(([k, l]) => `<option value="${k}"${k === v ? ' selected' : ''}>${l}</option>`).join('')}</select>`;
-  const MF = {all: ['Any bet type', () => true], ml: ['Moneyline', b => /ml$/.test(b.bet_type || '')], spread: ['Spread', b => /spread$/.test(b.bet_type || '')],
-    over: ['Over', b => /total$/.test(b.bet_type || '') && b.side === 'over'], under: ['Under', b => /total$/.test(b.bet_type || '') && b.side === 'under'], fh: ['First half', b => /^1h_/.test(b.bet_type || '')]};
-  const OPPF = {all: ['Any sharp context', () => true], none: ['No sharps against', b => !b.opp], at_flag: ['Sharps against at the flag', b => (b.opp || {}).when === 'at_flag'], after: ['Sharps against later', b => (b.opp || {}).when === 'after'],
-    withs: ['Sharps with it', b => !!b.with], also: ['System and sharp agree', b => !!(b.also && b.also.length)], against_move: ['Against the market move', b => !!(b.move_at_flag && b.move_at_flag.dir === 'against')],
-    noconf: ['Hide cancelled bets', b => b.counted !== false], conf: ['Only cancelled or cancelling bets', b => b.counted === false || !!b.cancelled_later], mid: ['Only middles', b => !!b.middle]};
-  const base = BL.rows.filter(b => blGroup(b) !== 'watch');
-  // 11/7 (Sean): tag filter. Every bet carries the signals around it (sharp accounts, big money, Kalshi moves, bet backs, sharp moves,
-  // with or against, plus system / sharp overlap); pick tags to keep only bets carrying ALL of them, and the record updates
-  window._ltags = window._ltags || [];
-  const hasTags = b => _ltags.every(t => (b.tags || []).includes(t));
-  const inW = base.filter(b => BLW[_lw][1](b) && MF[_lm][1](b) && OPPF[_lo][1](b) && hasTags(b));
-  const inS = inW.filter(b => _ls === 'all' || b.sport === _ls);
-  const sports = [...new Set(base.map(b => b.sport).filter(Boolean))].sort((a, b) => base.filter(x => x.sport === b).length - base.filter(x => x.sport === a).length);
-  const bets = L => blCounted(L.filter(b => blGroup(b) !== 'paper' && b.cat !== 'sharp watch'));       // what the record counts: real bets only
-  // sport row: each sport with its record (bets only, paper excluded)
-  const sportRow = ['all', ...sports].map(s => { const L = s === 'all' ? inW : inW.filter(b => b.sport === s); return chip(_ls === s, `${s === 'all' ? 'All sports' : esc(SPORT_LABEL[s] || s)} ${recPill(blSumm(bets(L)))}`, `_ls='${s}';_lsub='all'`); }).join('');
-  const groupRow = Object.entries(BLG).map(([g, l]) => { const L = g === 'all' ? bets(inS) : blCounted(inS.filter(b => blGroup(b) === g && b.cat !== 'sharp watch')); return chip(_lg === g, `${l} ${recPill(blSumm(L))}`, `_lg='${g}';_lsub='all'`); }).join('');
-  // sub row: rules for Systems / Paper (sport-filtered), grades for Sharp
-  let subRow = '', subTable = '';
-  const inG = _lg === 'all' ? inS.filter(b => blGroup(b) !== 'paper') : inS.filter(b => blGroup(b) === _lg);
-  const subKey = b => _lg === 'sharp' ? ({'sharp A': 'Grade A', 'sharp B': 'Grade B', 'sharp watch': 'Watch'})[b.cat] || b.cat : blRule(b) || '?';
-  if (_lg !== 'all') {
-    const keys = [...new Set(inG.map(subKey))];
-    const tierOfR = r => _lg === 'sharp' ? '' : ((((SY && SY.rules) || {})[r] || {}).evidence || {}).tier || (_lg === 'paper' ? 'P' : (r === 'tennis_hot_fav' ? 'B' : ''));
-    const order = r => _lg === 'sharp' ? r : ({A: 0, B: 1, C: 2, P: 3})[tierOfR(r)] ?? 4;
-    keys.sort((a, b) => (order(a) < order(b) ? -1 : order(a) > order(b) ? 1 : 0) || ruleName(a).localeCompare(ruleName(b)));
-    subRow = `<div class="controls"><span class="tabs inline">${chip(_lsub === 'all', `All ${BLG[_lg].toLowerCase()}`, `_lsub='all'`)}${keys.map(k => { const L = blCounted(inG.filter(b => subKey(b) === k)), t = tierOfR(k);
-      return chip(_lsub === k, `${t ? `<span class="badge b-tier">${t}</span> ` : ''}${esc(_lg === 'sharp' ? k : ruleName(k))} ${recPill(blSumm(L))}`, `_lsub='${k.replace(/'/g, '')}'`); }).join('')}</span></div>`;
-    subTable = `<table class="rtab"><thead><tr><th>${_lg === 'sharp' ? 'Grade' : 'Rule'}</th><th class="num">Bets</th><th class="num">Record</th><th class="num">No-vig CLV</th><th class="num">Line value</th></tr></thead><tbody>${keys.map(k => { const L = blCounted(inG.filter(b => subKey(b) === k)), s = blSumm(L), t = tierOfR(k);
-      return `<tr class="click" onclick="_lsub='${k.replace(/'/g, '')}';draw()"><td>${t ? `<span class="badge b-tier">${t}</span> ` : ''}${esc(_lg === 'sharp' ? k : ruleName(k))}</td><td class="num">${s.n}</td><td class="num">${recPill(s)}</td><td class="num">${blPts(s.clv_nv)}</td><td class="num">${s.line_value == null ? '—' : sgn(s.line_value, 2)}</td></tr>`; }).join('')}</tbody></table>`;
-  }
-  const rows = inG.filter(b => _lsub === 'all' || subKey(b).replace(/'/g, '') === _lsub);
-  const tot = blSumm(_lg === 'all' ? bets(rows) : blCounted(rows.filter(b => _lsub !== 'all' || b.cat !== 'sharp watch')));
-  // by bet type for the selection
-  const by = {}; for (const b of blCounted(rows)) (by[b.bet_type] = by[b.bet_type] || []).push(b);
-  const btTable = Object.keys(by).length > 1 ? `<table class="rtab"><thead><tr><th>Bet type</th><th class="num">Bets</th><th class="num">Record</th><th class="num">No-vig CLV</th></tr></thead><tbody>${Object.entries(by).sort((a, b) => b[1].length - a[1].length).map(([bt, L]) => { const s = blSumm(L);
-    return `<tr><td>${esc(BT[bt] || bt)}</td><td class="num">${s.n}</td><td class="num">${recPill(s)}</td><td class="num">${blPts(s.clv_nv)}</td></tr>`; }).join('')}</tbody></table>` : '';
+  BLW.w7 = BLW.w7 || ['Last 7 days', b => { const t = new Date(b.start); return t <= Date.now() && Date.now() - t <= 7 * 864e5; }];
+  const GRP = {bets: ['Bets', b => blGroup(b) === 'systems'], sharp: ['Sharp flags', b => blGroup(b) === 'sharp' && b.cat !== 'sharp watch'], paper: ['Paper rules', b => blGroup(b) === 'paper']};
+  if (!GRP[_lg]) window._lg = 'bets';
+  const MF = {all: 'Any bet type', ml: 'Moneyline', spread: 'Spread', over: 'Over', under: 'Under', fh: 'First half / quarter / period', prop: 'Player props'};
+  const mOk = b => { const t = b.bet_type || '', m = b.market || ''; return _lm === 'all' || (_lm === 'ml' && /ml$/.test(t)) || (_lm === 'spread' && /spread$/.test(t)) ||
+    (_lm === 'over' && /total/.test(t + m) && b.side === 'over') || (_lm === 'under' && /total|prop/.test(t + m) && b.side === 'under') || (_lm === 'fh' && /^1[hqp]_/.test(t || m)) || (_lm === 'prop' && /^prop_/.test(t || m)); };
+  const RES = {all: 'All', open: 'Open', won: 'Won', lost: 'Lost'};
+  const rOk = b => _lr === 'all' || (_lr === 'open' && b.won == null) || (_lr === 'won' && b.won === 1) || (_lr === 'lost' && b.won === 0);
+  const SIG = {all: 'Any signals', clean: 'Nothing against it', against: 'Something against it', agree: 'Sharps or another rule agree', conflict: 'Conflicts and middles'};
+  const tg = b => b.tags || [];
+  const sOk = b => _lsig === 'all' || (_lsig === 'clean' && !tg(b).includes('any signal against') && !b.opp) || (_lsig === 'against' && (tg(b).includes('any signal against') || !!b.opp)) ||
+    (_lsig === 'agree' && (tg(b).some(t => / with$/.test(t) || / also$/.test(t)) || !!b.with || !!(b.also && b.also.length))) || (_lsig === 'conflict' && (b.counted === false || !!b.cancelled_later || !!b.middle));
+  const q = (_lq || '').trim().toLowerCase(), qOk = b => !q || [b.game, b.bet, ruleName(blRule(b) || ''), b.venue].join(' ').toLowerCase().includes(q);
+  const ruleKey = b => _lg === 'sharp' ? ({'sharp A': 'Grade A', 'sharp B': 'Grade B', 'sharp C': 'Grade C'})[b.cat] || b.cat : blRule(b) || '?';
+  const ruleLbl = k => _lg === 'sharp' ? k : ruleName(k);
+  const inG = BL.rows.filter(GRP[_lg][1]);
+  const base = inG.filter(b => BLW[_lw][1](b) && mOk(b) && sOk(b) && qOk(b));       // everything but sport, rule and result: the tables below split this
+  const inSport = base.filter(b => _ls === 'all' || b.sport === _ls);
+  const rows = inSport.filter(b => (_lsub === 'all' || ruleKey(b) === _lsub) && rOk(b)).sort((a, b) => a.start < b.start ? 1 : -1);
+  const cnt = L => _lg === 'paper' ? L : blCounted(L);
+  // ---- filter bar
+  const seg = (k, opts, cur) => `<span class="seg">${Object.entries(opts).map(([v, l]) => `<button class="${cur === v ? 'on' : ''}" onclick="setTF('${k}','${v}')">${l}</button>`).join('')}</span>`;
+  const sel = (k, opts, cur) => `<select onchange="setTF('${k}',this.value)">${opts.map(([v, l]) => `<option value="${esc(v)}"${v === cur ? ' selected' : ''}>${esc(l)}</option>`).join('')}</select>`;
+  const sports = [...new Set(inG.map(b => b.sport).filter(Boolean))].sort((a, b) => inG.filter(x => x.sport === b).length - inG.filter(x => x.sport === a).length);
+  const rules = [...new Set(inSport.map(ruleKey))].sort((a, b) => ruleLbl(a).localeCompare(ruleLbl(b)));
+  if (_lsub !== 'all' && !rules.includes(_lsub)) rules.unshift(_lsub);
+  const dirty = _ls !== 'all' || _lsub !== 'all' || _lw !== 'all' || _lm !== 'all' || _lr !== 'all' || _lsig !== 'all' || q;
+  const bar = `<div class="tf">
+      ${seg('_lg', Object.fromEntries(Object.entries(GRP).map(([k, [l]]) => [k, l])), _lg)}
+      ${sel('_ls', [['all', 'All sports'], ...sports.map(x => [x, (SPORT_LABEL[x] || x).toString()])], _ls)}
+      ${sel('_lw', Object.entries(BLW).map(([k, [l]]) => [k, l]), _lw)}
+      ${sel('_lsub', [['all', _lg === 'sharp' ? 'All grades' : 'All rules'], ...rules.map(k => [k, ruleLbl(k)])], _lsub)}
+      ${sel('_lm', Object.entries(MF), _lm)}
+      ${sel('_lsig', Object.entries(SIG), _lsig)}
+      ${seg('_lr', RES, _lr)}
+      <input type="search" placeholder="Team, player or rule" value="${esc(_lq)}" onchange="setTF('_lq',this.value)" aria-label="Search bets">
+      ${dirty ? '<button class="tf-clear" onclick="clearTF()">Clear filters</button>' : ''}
+    </div>`;
+  // ---- record line
+  const S = blSumm(cnt(rows)), roi = blRoi(S);
+  const money = (x, t) => x == null ? '—' : `<span class="${x > 0.004 ? 'pos' : x < -0.004 ? 'neg' : ''}">${t}</span>`;
+  const what = [_ls === 'all' ? 'All sports' : (SPORT_LABEL[_ls] || _ls), GRP[_lg][0], _lsub !== 'all' ? ruleLbl(_lsub) : '', _lw !== 'all' ? BLW[_lw][0] : '', _lr !== 'all' ? RES[_lr] : ''].filter(Boolean).join(', ');
+  const units = _lg === 'bets';
+  const flatU = L => L.filter(b => b.won === 1 || b.won === 0).reduce((a, b) => a + (b.won === 1 ? 1 / b.price - 1 : -1), 0);
+  const flatR = L => { const n = L.filter(b => b.won === 1 || b.won === 0).length; return n ? 100 * flatU(L) / n : null; };
+  const rec = `<div class="tsum"><div class="tsum-what">${esc(what)}</div>
+      <div class="tsum-big">${S.graded ? `${blRec(S)}` : 'No graded bets'}${S.graded ? (units ? ` <span class="sep">·</span> ${money(S.units, `${S.units > 0 ? '+' : ''}${S.units.toFixed(2)}u`)} <span class="sep">·</span> ${money(roi, roi == null ? '—' : `${roi > 0 ? '+' : ''}${roi.toFixed(1)}% ROI`)}`
+        : ` <span class="sep">·</span> ${money(flatR(cnt(rows)), `${flatR(cnt(rows)) > 0 ? '+' : ''}${(flatR(cnt(rows)) || 0).toFixed(1)}% flat`)}`) : ''}</div>
+      <div class="small dim">${S.n} bet${S.n === 1 ? '' : 's'}, ${S.graded} graded${units && S.risked ? `, ${S.risked.toFixed(2)}u risked` : ''}${S.clv_nv != null ? `, no-vig CLV ${blPts(S.clv_nv)}` : ''}${units ? '' : ' · paper and sharp flags carry no units: flat ROI is 1 unit a bet at the logged price'}</div></div>`;
+  // ---- by rule and by sport
+  const line = L => { const s = blSumm(L), r = blRoi(s), f = flatR(L);
+    return `<td class="num">${s.n}</td><td class="num">${blRec(s)}</td>` + (units ? `<td class="num">${s.graded ? money(s.units, `${s.units > 0 ? '+' : ''}${s.units.toFixed(2)}`) : '—'}</td><td class="num">${money(r, r == null ? '—' : `${r > 0 ? '+' : ''}${r.toFixed(1)}%`)}</td>`
+      : `<td class="num">${money(f, f == null ? '—' : `${f > 0 ? '+' : ''}${f.toFixed(1)}%`)}</td>`) + `<td class="num">${blPts(s.clv_nv)}</td>`; };
+  const head = first => `<thead><tr><th>${first}</th><th class="num">Bets</th><th class="num">W-L</th>${units ? '<th class="num">Units</th><th class="num">ROI</th>' : '<th class="num">Flat ROI</th>'}<th class="num">CLV</th></tr></thead>`;
+  const score = L => units ? blSumm(L).units : flatU(L);
+  const byRule = _lsub === 'all' ? (() => { const G = {}; for (const b of cnt(inSport.filter(rOk))) (G[ruleKey(b)] = G[ruleKey(b)] || []).push(b);
+    const K = Object.keys(G).sort((a, b) => score(G[b]) - score(G[a]));
+    return K.length > 1 ? `<div class="sec"><div class="sec-h"><span class="name">${_lg === 'sharp' ? 'By grade' : 'By rule'}</span><span class="meta">best first · click to filter</span></div><table class="rtab">${head(_lg === 'sharp' ? 'Grade' : 'Rule')}<tbody>${K.map(k => { const t = _lg === 'sharp' ? '' : tierLetter(G[k][0]);
+      return `<tr class="click" onclick="setTF('_lsub','${esc(k)}')"><td>${esc(ruleLbl(k))}${t && t !== 'P' ? ` <span class="tierl">${t}</span>` : ''}</td>${line(G[k])}</tr>`; }).join('')}</tbody></table></div>` : ''; })() : '';
+  const bySport = _ls === 'all' ? (() => { const G = {}; for (const b of cnt(base.filter(b => (_lsub === 'all' || ruleKey(b) === _lsub) && rOk(b)))) (G[b.sport] = G[b.sport] || []).push(b);
+    const K = Object.keys(G).sort((a, b) => score(G[b]) - score(G[a]));
+    return K.length > 1 ? `<div class="sec"><div class="sec-h"><span class="name">By sport</span><span class="meta">click to filter</span></div><table class="rtab">${head('Sport')}<tbody>${K.map(k => `<tr class="click" onclick="setTF('_ls','${esc(k)}')"><td>${esc((SPORT_LABEL[k] || k).toString())}</td>${line(G[k])}</tr>`).join('')}</tbody></table></div>` : ''; })() : '';
+  // ---- bets
+  const res = b => { const st = blState(b); return b.won === 1 ? '<b class="pos">W</b>' : b.won === 0 ? '<b class="neg">L</b>' : b.won === 0.5 ? 'P' : st === 'upcoming' ? '<span class="dim">open</span>' : st === 'live' ? '<span class="dim">in play</span>' : '<span class="dim">awaiting</span>'; };
+  const cRow = b => { const t = tierLetter(b), nc = b.counted === false;
+    return `<tr${nc ? ' class="notcounted" title="Not counted: the other side of an earlier bet on this game"' : ''}><td class="small nowrap">${DAYT(b.start)}</td><td class="small"><span class="badge b-sport">${esc((SPORT_LABEL[b.sport] || b.sport || '?').toString())}</span> ${esc(b.game || '')}</td>
+      <td><b>${esc(blSide(b))}</b><div class="small dim">${esc(_lg === 'sharp' ? ruleKey(b) : ruleName(blRule(b) || ''))}${t && t !== 'P' && _lg !== 'sharp' ? ` · tier ${t}` : ''}${nc ? ' · not counted' : ''}${(b.opp || tg(b).includes('any signal against')) ? ' · <span class="tag-against">signal against</span>' : ''}</div></td>
+      <td class="small nowrap"><b>${toAm(b.price)}</b> ${esc(b.venue || '')}</td><td class="small nowrap">${b.close != null ? toAm(b.close) : '—'}${b.clv_nv != null ? ` <span class="${b.clv_nv >= 0 ? 'pos' : 'neg'}">${sgn(b.clv_nv)}</span>` : ''}</td>
+      <td class="num">${res(b)}</td><td class="num">${units && b.units != null ? money(b.units, `${b.units > 0 ? '+' : ''}${b.units.toFixed(2)}`) : b.won == null ? '' : units ? '—' : `<span class="dim">${b.won === 1 ? '+' + (1 / b.price - 1).toFixed(2) : b.won === 0 ? '-1.00' : '0'}</span>`}</td></tr>`; };
+  const cHead = `<thead><tr><th>Start</th><th>Game</th><th>Bet</th><th>Price</th><th>Close, CLV</th><th class="num">Result</th><th class="num">${units ? 'Units' : 'Flat'}</th></tr></thead>`;
+  const list = rows.length ? `<div class="sec"><div class="sec-h"><span class="name">Bets (${rows.length})</span><span class="meta"><label class="small"><input type="checkbox" ${_ldet ? 'checked' : ''} onchange="setTF('_ldet',this.checked)"> Show details</label> · newest first · built ${ET(BL.built)} ET</span></div>
+      <div style="overflow-x:auto"><table class="tbets">${_ldet ? BLHEAD : cHead}<tbody>${rows.slice(0, 300).map(_ldet ? blRow : cRow).join('')}</tbody></table></div>${rows.length > 300 ? '<div class="small dim">Showing the newest 300; narrow the filters to see the rest.</div>' : ''}</div>`
+    : `<div class="small dim" style="margin:12px 0">No bets match these filters.${dirty ? ' <a href="#" onclick="clearTF();return false">Clear filters</a>' : ''}</div>`;
+  // ---- signals around the bets (the old tag view, kept for digging)
   const TAGS = ['sharp accts with', 'sharp accts against', 'big money with', 'big money against', 'Kalshi move with', 'Kalshi move against', 'bet back with', 'bet back against',
     'sharp move with', 'sharp move against', 'any signal against', 'no signal against', 'system also', 'sharp flag also', 'same-market conflict', 'middle'];
-  const tagPool = blCounted(_lg === 'all' ? rows.filter(b => blGroup(b) !== 'paper') : rows);
-  const tagSeen = TAGS.filter(t => base.some(b => (b.tags || []).includes(t)));
-  const tagBtn = t => { const on = _ltags.includes(t), L = tagPool.filter(b => (b.tags || []).includes(t));
-    return `<button class="${on ? 'on' : ''}" onclick="_ltags=${on ? `_ltags.filter(x=>x!=='${t}')` : `[..._ltags,'${t}']`};draw()">${esc(t)} ${recPill(blSumm(L))}</button>`; };
-  const tagRow = tagSeen.length ? `<div class="controls small"><span class="dim" style="margin-right:6px">Tags${_ltags.length ? ' (bets with all selected)' : ''}:</span><span class="tabs inline">${tagSeen.map(tagBtn).join('')}${_ltags.length ? `<button onclick="_ltags=[];draw()">Clear tags</button>` : ''}</span></div>` : '';
-  const tagTable = tagSeen.length ? `<table class="rtab"><thead><tr><th>Tag</th><th class="num">Bets</th><th class="num">Record</th><th class="num">No-vig CLV</th></tr></thead><tbody>${tagSeen.map(t => { const L = tagPool.filter(b => (b.tags || []).includes(t)), sm = blSumm(L);
-    return L.length ? `<tr class="click" onclick="_ltags=[..._ltags.filter(x=>x!=='${t}'),'${t}'];draw()"><td>${esc(t)}</td><td class="num">${sm.n}</td><td class="num">${recPill(sm)}</td><td class="num">${blPts(sm.clv_nv)}</td></tr>` : ''; }).join('')}</tbody></table>` : '';
-  const title = [_ls === 'all' ? 'All sports' : (SPORT_LABEL[_ls] || _ls), BLG[_lg], _lsub !== 'all' ? (_lg === 'sharp' ? _lsub : ruleName(_lsub)) : '', _ltags.length ? 'tags: ' + _ltags.join(' + ') : ''].filter(Boolean).join(' · ');
-  const nX = rows.filter(b => b.counted === false).length;
-  return `<div class="controls"><span class="tabs inline sportrow">${sportRow}</span></div>
-    <div class="controls"><span class="tabs inline">${groupRow}</span></div>
-    ${subRow}
-    ${tagRow}
-    <div class="controls small">${sel(_lw, Object.entries(BLW).map(([k, [l]]) => [k, l]), "_lw=this.value")} ${sel(_lm, Object.entries(MF).map(([k, [l]]) => [k, l]), "_lm=this.value")} ${sel(_lo, Object.entries(OPPF).map(([k, [l]]) => [k, l]), "_lo=this.value")}</div>
-    <div class="recbanner"><div class="rb-title">${esc(title)}</div><div>${recPill(tot, true)}</div><div class="small dim">${tot.n} bets · ${tot.risked.toFixed(2)}u risked · no-vig CLV ${blPts(tot.clv_nv)} · line value ${tot.line_value == null ? '—' : sgn(tot.line_value, 2)}${nX ? ` · ${nX} not counted (opposite side of an earlier bet on the same game)` : ''}${_lg === 'all' ? ' · paper rules and sharp watch rows are not in this record' : ''}</div></div>
-    <div class="rgrid">${subTable ? `<div class="sec"><div class="sec-h"><span class="name">${_lg === 'sharp' ? 'By grade' : 'By rule'}</span><span class="meta">click a row to filter</span></div>${subTable}</div>` : ''}${tagTable ? `<div class="sec"><div class="sec-h"><span class="name">By tag</span><span class="meta">the signals around each bet · click to filter</span></div>${tagTable}</div>` : ''}${btTable ? `<div class="sec"><div class="sec-h"><span class="name">By bet type</span></div>${btTable}</div>` : ''}</div>
-    ${rows.length ? `<div class="sec"><div class="sec-h"><span class="name">Bets</span><span class="meta">newest first · built ${ET(BL.built)} ET</span></div><table>${BLHEAD}<tbody>${rows.slice(0, 250).map(blRow).join('')}</tbody></table></div>` : '<div class="small dim">No bets for this selection.</div>'}
+  const pool = cnt(rows); const seen = TAGS.filter(t => pool.some(b => tg(b).includes(t)));
+  const tagT = seen.length ? `<details class="how"><summary>Signals around these bets (for digging; the Signals filter above is the short version)</summary><table class="rtab">${head('Signal')}<tbody>${seen.map(t => `<tr><td>${esc(t)}</td>${line(pool.filter(b => tg(b).includes(t)))}</tr>`).join('')}</tbody></table></details>` : '';
+  return `${bar}${rec}<div class="rgrid">${byRule}${bySport}</div>${list}${tagT}
     ${BL.rest ? (() => { const R = BL.rest, f = x => !x || !x.n ? '—' : `${x.w}-${x.l}, ${x.roi > 0 ? '+' : ''}${x.roi}% (${x.n})`;
       const row = (k, x) => `<tr><td>${esc(k)}</td><td class="num">${f(x.filled_at_rest)}</td><td class="num">${f(x.filled_at_flag)}</td><td class="num">${f(x.never_at_flag)}</td><td class="num">${f(x.all_at_flag)}</td></tr>`;
       const tbl = X => `<table class="small"><thead><tr><th>Group</th><th class="num">Came back, at the rest price</th><th class="num">Same bets at the flag price</th><th class="num">Never came back, at the flag price</th><th class="num">All, at the flag price</th></tr></thead><tbody>${['bets', 'systems and leans', 'sharp flags', 'paper rules', 'watch signals', 'everything'].filter(k => X[k]).map(k => row(k, X[k])).join('')}</tbody></table>`;
