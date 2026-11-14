@@ -6162,5 +6162,31 @@
 "fair": 0.66133,
 "edge_pts": 0.13,
 "why": "Novig home side mid 0.343 inside T-1.2h; audit band 20-35c"
+},
+"401858301:cfb_wind14": {
+"tag": "cfb_wind14",
+"fill_id": "e2c0d59ccf4f",
+"ts": "2026-11-14T01:52:16Z",
+"market": "total",
+"side": "under",
+"line": 60.5,
+"venue": "Caesars",
+"price": -105,
+"fair": 0.50472,
+"edge_pts": -0.75,
+"why": "avg 13.6 mph (Open-Meteo 12.2 at T-16h, MySportsWeather 15.0), gust 21.0, 57.3F"
+},
+"401856860:xch_homedog_fade:ml": {
+"tag": "xch_homedog_fade",
+"fill_id": "4cd251479939",
+"ts": "2026-11-14T01:52:16Z",
+"market": "ml",
+"side": "away",
+"line": null,
+"venue": "Novig",
+"price": -277,
+"fair": 0.73347,
+"edge_pts": -0.15,
+"why": "Novig home side mid 0.270 inside T-1.4h; audit band 20-35c"
 }
 }
