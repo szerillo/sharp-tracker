@@ -1,5 +1,5 @@
 {
- "built": "2026-11-14T17:05:17Z",
+ "built": "2026-11-14T17:19:54Z",
  "rows": [
   {
    "cond": "0x023fe2801e367dbc1d3c14f891273d40e90f5ebbfbadc2b75316bb5fd03a32f5",
@@ -321,7 +321,7 @@
    "best_rank": 4,
    "usd": 133,
    "paid": 0.51,
-   "ask": 0.54,
+   "ask": 0.53,
    "status": "live",
    "link": "https://polymarket.us/event/cbb-drexel-maine-2026-11-14",
    "other": null,
@@ -341,6 +341,52 @@
    "fair_board": null,
    "inside_fair": null,
    "books": null
+  },
+  {
+   "cond": "0xa183a0b2ce3da2c1a20abf6675e5b44bfa76ac97a211f8a404ed4137bdc9a8fc",
+   "slug": "nhl-sea-car-2026-11-14",
+   "title": "Kraken vs. Hurricanes",
+   "mtype": "total",
+   "start": "2026-11-14T18:00:00Z",
+   "bet": "Under 6.5",
+   "side": "Under",
+   "flagged": "2026-11-14T17:16:56Z",
+   "why": "a top-200 account also in this sport's top 50",
+   "proven": true,
+   "trigger": "proven",
+   "n_accounts": 1,
+   "best_rank": 79,
+   "usd": 6551,
+   "paid": 0.53,
+   "ask": 0.53,
+   "status": "live",
+   "link": "https://polymarket.us/event/nhl-sea-car-2026-11-14",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401891809",
+   "sport": "nhl",
+   "league": null,
+   "away": "SEA",
+   "home": "CAR",
+   "away_name": "Seattle Kraken",
+   "home_name": "Carolina Hurricanes",
+   "game_start": "2026-11-14T18:00Z",
+   "side_std": "under",
+   "money_with": false,
+   "grade": "A",
+   "fair_board": 0.5222,
+   "inside_fair": false,
+   "books": {
+    "at": "2026-11-14T17:01:53Z",
+    "fair": 0.5222,
+    "q": {
+     "Novig": 0.525,
+     "FD": 0.5413,
+     "Caesars": 0.5455,
+     "DK": 0.5495
+    }
+   }
   },
   {
    "cond": "0xdf5fbe87d14410160ccf27fcc95e41f3866a6f74ec9a596712079e84f86f70ba",
@@ -385,7 +431,7 @@
    "best_rank": 4,
    "usd": 294,
    "paid": 0.881,
-   "ask": 0.914,
+   "ask": 0.907,
    "status": "live",
    "link": "https://polymarket.us/event/cfb-tenn-txam-2026-11-14",
    "other": null,
@@ -575,7 +621,7 @@
    "best_rank": 11,
    "usd": 235,
    "paid": 0.53,
-   "ask": 0.63,
+   "ask": 0.65,
    "status": "live",
    "link": "https://polymarket.us/event/cbb-airf-pacfc-2026-11-14",
    "other": null,
@@ -797,7 +843,7 @@
    "side_std": "away",
    "money_with": false,
    "grade": "A",
-   "fair_board": 0.5811,
+   "fair_board": 0.5817,
    "inside_fair": true,
    "books": {
     "at": "2026-11-14T17:01:53Z",
@@ -826,7 +872,7 @@
    "best_rank": 110,
    "usd": 409,
    "paid": 0.58,
-   "ask": 0.59,
+   "ask": 0.6,
    "status": "live",
    "link": "https://polymarket.us/event/cfb-sjst-airf-2026-11-14",
    "other": null,
@@ -880,6 +926,46 @@
    "side_std": "home",
    "money_with": false,
    "grade": "B",
+   "fair_board": null,
+   "inside_fair": null,
+   "books": null
+  },
+  {
+   "cond": "0x55627f1289f43391c102d524221374bc5305720fea61842bc15ddb4f632d9600",
+   "slug": "cfb-sjst-airf-2026-11-14",
+   "title": "San Jose State vs. Air Force",
+   "mtype": "spread",
+   "start": "2026-11-15T00:00:00Z",
+   "bet": "San Jose State +14.5",
+   "side": "San Jose State",
+   "flagged": "2026-11-14T17:18:52Z",
+   "why": "a top-200 account also in this sport's top 50",
+   "proven": true,
+   "trigger": "proven",
+   "n_accounts": 1,
+   "best_rank": 58,
+   "usd": 470,
+   "paid": 0.53,
+   "ask": 0.53,
+   "status": "live",
+   "link": "https://polymarket.us/event/cfb-sjst-airf-2026-11-14",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401864538",
+   "sport": "cfb",
+   "league": null,
+   "away": "SJSU",
+   "home": "AFA",
+   "away_name": "San Jos\u00e9 State Spartans",
+   "home_name": "Air Force Falcons",
+   "game_start": "2026-11-15T00:00Z",
+   "side_std": "away",
+   "conflict": [
+    "Kalshi move"
+   ],
+   "money_with": false,
+   "grade": "A",
    "fair_board": null,
    "inside_fair": null,
    "books": null
@@ -1057,6 +1143,52 @@
      "FD": 0.5238,
      "DK": 0.5238,
      "Caesars": 0.5283
+    }
+   }
+  },
+  {
+   "cond": "0xbde42d97c464effaac840f9b9105ae05b6fab0a3315a6154da1abfec425621de",
+   "slug": "nhl-nyi-ana-2026-11-14",
+   "title": "Islanders vs. Ducks",
+   "mtype": "ml",
+   "start": "2026-11-15T03:00:00Z",
+   "bet": "Ducks ML",
+   "side": "Ducks",
+   "flagged": "2026-11-14T17:16:29Z",
+   "why": "a top-200 account also in this sport's top 50",
+   "proven": true,
+   "trigger": "proven",
+   "n_accounts": 1,
+   "best_rank": 79,
+   "usd": 17150,
+   "paid": 0.51,
+   "ask": 0.51,
+   "status": "live",
+   "link": "https://polymarket.us/event/nhl-nyi-ana-2026-11-14",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401892719",
+   "sport": "nhl",
+   "league": null,
+   "away": "NYI",
+   "home": "ANA",
+   "away_name": "New York Islanders",
+   "home_name": "Anaheim Ducks",
+   "game_start": "2026-11-15T03:00Z",
+   "side_std": "home",
+   "money_with": false,
+   "grade": "A",
+   "fair_board": 0.5103,
+   "inside_fair": true,
+   "books": {
+    "at": "2026-11-14T17:01:53Z",
+    "fair": 0.5103,
+    "q": {
+     "Novig": 0.515,
+     "Kalshi": 0.53,
+     "Caesars": 0.5349,
+     "DK": 0.5349
     }
    }
   },
@@ -1710,6 +1842,14 @@
   "clv_poly_same": -1.13
  },
  "sys_tags": {
+  "401858523:cfb_homefav_7510_under": {
+   "with": {
+    "n": 1,
+    "best_rank": 132,
+    "usd": 107
+   },
+   "against": null
+  },
   "401858297:cfb_road_dog_low_total": {
    "with": {
     "n": 1,
@@ -1955,6 +2095,13 @@
     "usd": 203
    }
   },
+  "401891809|total": {
+   "under": {
+    "n": 1,
+    "best_rank": 79,
+    "usd": 6551
+   }
+  },
   "401892710|ml": {
    "away": {
     "n": 1,
@@ -1991,6 +2138,13 @@
     "n": 1,
     "best_rank": 197,
     "usd": 181
+   }
+  },
+  "401892719|ml": {
+   "home": {
+    "n": 1,
+    "best_rank": 79,
+    "usd": 17150
    }
   },
   "401856888|spread": {
@@ -2033,6 +2187,13 @@
     "n": 1,
     "best_rank": 115,
     "usd": 6203
+   }
+  },
+  "401856889|spread": {
+   "away": {
+    "n": 1,
+    "best_rank": 182,
+    "usd": 293
    }
   },
   "401869937|ml": {
@@ -2103,6 +2264,13 @@
     "n": 1,
     "best_rank": 110,
     "usd": 409
+   }
+  },
+  "401864538|spread": {
+   "away": {
+    "n": 1,
+    "best_rank": 58,
+    "usd": 470
    }
   },
   "401864539|spread": {
