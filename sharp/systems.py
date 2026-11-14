@@ -187,6 +187,36 @@ def blend_wind(wx, msw, need_both=False):
     return None, 'no forecast'
 
 
+# 11/14 (Sean): MySportsWeather's sustained wind is the number the wind rules fire on; Open-Meteo only when MySportsWeather has no reading for
+# the game. Domes and roofed stadiums never get a wind play (11/14: DAL @ IND fired on MySportsWeather alone at Lucas Oil, and SoFi's canopy
+# was treated as open). ROOF_NFL: home teams playing under a roof (dome, retractable or SoFi's canopy).
+ROOF_NFL = {'ARI', 'ATL', 'DAL', 'DET', 'HOU', 'IND', 'LV', 'LAR', 'LAC', 'MIN', 'NO'}
+_INDOOR = {}
+def is_indoor(event_id, path=None):
+    path = path or WX
+    if path not in _INDOOR:
+        S_ = set()
+        if os.path.exists(path):
+            for l in open(path):
+                try: r = json.loads(l)
+                except Exception: continue
+                if r.get('indoor'): S_.add(r.get('espn_id'))
+        _INDOOR[path] = S_
+    return event_id in _INDOOR[path]
+
+
+def rule_wind(wx, msw, indoor=False):
+    """(mph or None, label): MySportsWeather's wind when it has a reading, else Open-Meteo's (fallback); None under a roof."""
+    if indoor: return None, 'roofed stadium: no wind play'
+    o = wx.get('wind_mph') if wx and not wx.get('indoor') else None
+    m = msw.get('wind_mph') if msw else None
+    if m is not None:
+        g = msw.get('gust_mph')
+        return m, f"MySportsWeather {m:g} mph" + (f", gusts {g:g}" if g is not None else '') + (f" (Open-Meteo {o} at T-{wx['hours_to_kickoff']:.0f}h)" if o is not None else '')
+    if o is not None: return o, f"Open-Meteo {o} mph at T-{wx['hours_to_kickoff']:.0f}h (MySportsWeather has no reading: fallback)"
+    return None, 'no forecast'
+
+
 def prev_scheduled(sport, team, st):
     """(start, event_id) of the team's last scheduled game before st, played or not (postponed games skipped), from the ESPN schedule."""
     sched_rec(sport, ''); best = None
@@ -438,13 +468,13 @@ def main():
         pending = {t for t, pg in ((away, v_prev), (home, h_prev)) if pg and pg[0] > NOW}
         # --- rules
         msw = msw_latest('nfl', ev)
-        wv, wlab = blend_wind(wx, msw)
+        wv, wlab = rule_wind(wx, msw, indoor=home in ROOF_NFL or is_indoor(ev))
         wr = round(wv) if wv is not None else None     # Bet Labs' wind is whole mph (checked on its 2026 picks 10/31)
         if wr is not None and 10 <= wr <= 14:
             cold = wx is not None and wx.get('temp_f') is not None and wx['temp_f'] <= 35      # 11/5 replay: the cold band is 27-27, mild weather 133-76
             trig['wind1014_cold' if cold else 'wind1014'] = wlab + (f", gust {wx.get('gust_mph')}, {wx.get('temp_f')}F" if wx else '')
             if wr <= 13: trig['wind1014_1h'] = trig['wind1014_cold' if cold else 'wind1014']      # the tested first-half screen is 10-13 mph, not 10-14
-        elif wr is not None and any(x is not None and 10 <= round(x) <= 14 for x in ((wx or {}).get('wind_mph'), (msw or {}).get('wind_mph'))):
+        elif False:     # 11/14: one wind source now (MySportsWeather, Open-Meteo fallback), so no "one source only" flag
             trig['wind_msw_only'] = (f"one source in the 10-14 band but the average is {wv:.1f} mph ({wlab}); flag only" if wv is not None
                                      else f"one source in the 10-14 band ({wlab}); flag only")
         # visitor's previous game: the later of its last completed game (season log) and its last scheduled game before this one (the schedule
@@ -510,9 +540,9 @@ def main():
         st = N.parse_ts(start); ttk = (st - NOW).total_seconds() / 3600
         if not (0 < ttk <= VIEW_H): continue      # triggers visible up to a week out (like Bet Labs); fills only inside WINDOW_H (paper_fill checks)
         wx = weather_t24(ev, WX_CFB); msw = msw_latest('cfb', ev)
-        wv, wlab = blend_wind(wx, msw, need_both=True)      # 11/5: CFB needs the MySportsWeather reading; Open-Meteo alone does not carry the rule
+        wv, wlab = rule_wind(wx, msw, indoor=is_indoor(ev, WX_CFB))      # 11/14 (Sean): MySportsWeather wind, Open-Meteo fallback
         windy = wv is not None and round(wv) >= 14
-        msw_only = (not windy) and any(x is not None and round(x) >= 14 for x in ((wx or {}).get('wind_mph'), (msw or {}).get('wind_mph')))   # one source (or Open-Meteo alone) at 14+: flag, no bet
+        msw_only = False
         eq = F.EventQuotes(conn, ev)
         sp_line, _n = main_line(eq, 'spread', home); tl, _n2 = main_line(eq, 'total', None); rec_s = sched_rec('cfb', ev)
         rdlt = sp_line is not None and sp_line <= -7 and tl is not None and tl <= 48 and rec_s.get('conf')

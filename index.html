@@ -556,7 +556,9 @@ function sysRow({g, f, tag}) {
   const per = /^(1h|1q|1p)_/.test(f.market) ? '1st half' : 'Full game', gone = f.lapsed || f.now === null || held;     // 11/5 (Sean): held bets stay on the board, greyed, with the Held note
   // 11/5 (Sean): a system bet that a graded sharp signal also landed on is annotated here (and the sharp row says "with your system bet")
   const sm = (window._strongMap || {})[`${g.event_id}|${(f.market || '').replace(/^(1h|1q|1p)_/, '')}|${f.side}`];
-  const sp = [t && t.with ? `<span class="tag-with">${t.with.n} sharp account${t.with.n === 1 ? '' : 's'} with</span>` : '', t && t.against ? `<span class="tag-against">${t.against.n} sharp account${t.against.n === 1 ? '' : 's'} against</span>` : '',
+  const bla = /wind/.test(tag) ? blAgree(tag, g) : null;
+  const sp = [bla === true ? '<span class="tag-with">Bet Labs agrees</span>' : bla === false ? '<span class="tag-against">Bet Labs: not on its wind list</span>' : '',
+    t && t.with ? `<span class="tag-with">${t.with.n} sharp account${t.with.n === 1 ? '' : 's'} with</span>` : '', t && t.against ? `<span class="tag-against">${t.against.n} sharp account${t.against.n === 1 ? '' : 's'} against</span>` : '',
     sm ? `<span class="tag-with">also a Grade ${sm.grade} sharp signal (${esc(sm.parts)})</span>` : '',
     ...mk.map(x => `<span class="${x.endsWith('against') ? 'tag-against' : 'tag-with'}">${esc(x)}</span>`)].filter(Boolean).join(' · ');
   const trk = fmtRec(x) || `none graded${x && x.n ? ` (${x.n} open)` : ''}`;
@@ -1295,6 +1297,16 @@ function renderWeekly() {
 // 11/14 (Sean: "track all of the betlabs systems ... and figure out gaps"): every Tested / Tracked Bet Labs screen's current picks, matched
 // against what the tool's rules fired, live. Bet Labs needs Sean's sign-in, so the picks are a snapshot pulled through his Chrome.
 window._bf = window._bf || {sport: 'all', st: 'all'};
+const blNm = s => (s || '').toLowerCase().replace(/international/g, 'intl').replace(/state/g, 'st').replace(/[^a-z0-9 ]/g, '').trim();
+function blSame(a, b) { a = blNm(a); b = blNm(b); if (!a || !b) return false; const x = a.split(' '), y = b.split(' '); if (x[0] !== y[0]) return false;
+  const n = Math.min(x.length, y.length), L = x.length >= y.length ? x : y, S = x.length >= y.length ? y : x;
+  for (let i = 0; i < n; i++) if (L[i] !== S[i]) return false; return L.length === n || !['st', 'tech', 'a', 'am', 'intl', 'southern', 'northern'].includes(L[n]); }
+// 11/14 (Sean): every wind pick shows whether Sean's Bet Labs screen for that rule has the same game (null = no snapshot or no screen)
+function blAgree(tag, g) {
+  const BP = window._BLP; if (!BP) return null;
+  const t = tag === 'wind1014_cold' ? 'wind1014' : tag, S = BP.screens.filter(x => x.rules.includes(t)); if (!S.length) return null;
+  const ids = new Set(S.map(x => x.id));
+  return BP.picks.some(p => ids.has(p.sid) && blSame(p.home, g.home_name || g.home) && blSame(p.away, g.away_name || g.away)); }
 window.setBF = (k, v) => { window._bf[k] = v; draw(); };
 function renderBetLabs() {
   const BP = window._BLP;
