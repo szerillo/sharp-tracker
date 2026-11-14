@@ -1,5 +1,5 @@
 {
- "built": "2026-11-14T03:17:24Z",
+ "built": "2026-11-14T03:37:45Z",
  "rows": [
   {
    "cond": "0xc31a3f047367e05c7c92b9553b7cf00252bb86b3291cf3dda9e6868644a0de6b",
@@ -357,7 +357,7 @@
    "best_rank": 4,
    "usd": 294,
    "paid": 0.881,
-   "ask": 0.911,
+   "ask": 0.917,
    "status": "live",
    "link": "https://polymarket.us/event/cfb-tenn-txam-2026-11-14",
    "other": null,
@@ -949,7 +949,7 @@
    "best_rank": 43,
    "usd": 170,
    "paid": 0.34,
-   "ask": 0.43,
+   "ask": 0.45,
    "status": "live",
    "link": "https://polymarket.us/event/nba-nyk-tor-2026-11-15",
    "other": null,
@@ -1222,49 +1222,6 @@
    "books": null
   },
   {
-   "cond": "0x5c94e40aec16a9208079b29ab5771de84c0490684aa7e94850af4ad835cfa81a",
-   "slug": "nhl-col-mon-2026-11-14",
-   "title": "Avalanche vs. Canadiens",
-   "mtype": "ml",
-   "start": "2026-11-15T00:00:00Z",
-   "bet": "Canadiens ML",
-   "side": "Canadiens",
-   "flagged": "2026-11-13T10:19:46Z",
-   "why": "a top-200 account also in this sport's top 50",
-   "proven": true,
-   "trigger": "proven",
-   "n_accounts": 1,
-   "best_rank": 69,
-   "usd": 113,
-   "paid": 0.52,
-   "ask": 0.54,
-   "status": "other side",
-   "link": "https://polymarket.us/event/nhl-col-mon-2026-11-14",
-   "other": {
-    "n_accounts": 1,
-    "best_rank": 4,
-    "usd": 431,
-    "first": "2026-11-14T02:47:02Z"
-   },
-   "exit_bid": 0.53,
-   "kalshi_against": null,
-   "logged": true,
-   "event_id": "401892711",
-   "sport": "nhl",
-   "league": null,
-   "away": "COL",
-   "home": "MTL",
-   "away_name": "Colorado Avalanche",
-   "home_name": "Montreal Canadiens",
-   "game_start": "2026-11-15T00:00Z",
-   "side_std": "home",
-   "money_with": false,
-   "grade": "A",
-   "fair_board": 0.5132,
-   "inside_fair": false,
-   "books": null
-  },
-  {
    "cond": "0xa4205ef4d7859ca4bbfbe3bf42454f854489c4187133b895d17a21175d4d668b",
    "slug": "nba-gsw-nop-2026-11-16",
    "title": "Warriors vs. Pelicans",
@@ -1363,18 +1320,6 @@
     "best_rank": 4,
     "usd": 431
    }
-  },
-  "401909304:xch_homedog_fade:ml": {
-   "with": {
-    "n": 2,
-    "best_rank": 43,
-    "usd": 1062
-   },
-   "against": {
-    "n": 2,
-    "best_rank": 43,
-    "usd": 2612
-   }
   }
  },
  "by_event": {
@@ -1446,30 +1391,6 @@
     "n": 1,
     "best_rank": 12,
     "usd": 155
-   }
-  },
-  "401909304|ml": {
-   "home": {
-    "n": 2,
-    "best_rank": 43,
-    "usd": 2612
-   },
-   "away": {
-    "n": 2,
-    "best_rank": 43,
-    "usd": 1062
-   }
-  },
-  "401909304|spread": {
-   "home": {
-    "n": 1,
-    "best_rank": 112,
-    "usd": 3206
-   },
-   "away": {
-    "n": 1,
-    "best_rank": 112,
-    "usd": 3206
    }
   },
   "401909981|ml": {
