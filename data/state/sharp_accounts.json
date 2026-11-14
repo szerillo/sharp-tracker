@@ -1,5 +1,5 @@
 {
- "built": "2026-11-14T06:53:08Z",
+ "built": "2026-11-14T07:07:19Z",
  "rows": [
   {
    "cond": "0x023fe2801e367dbc1d3c14f891273d40e90f5ebbfbadc2b75316bb5fd03a32f5",
@@ -98,7 +98,7 @@
    "best_rank": 11,
    "usd": 235,
    "paid": 0.53,
-   "ask": 0.81,
+   "ask": 0.8,
    "status": "live",
    "link": "https://polymarket.us/event/cbb-airf-pacfc-2026-11-14",
    "other": null,
@@ -556,6 +556,43 @@
    "side_std": "under",
    "money_with": false,
    "grade": "A",
+   "fair_board": null,
+   "inside_fair": null,
+   "books": null
+  },
+  {
+   "cond": "0xb86087a86d6cbdaf089c93d4c25c2b7345fb9f1be8dbb9a10330040f1fb47a64",
+   "slug": "nfl-sea-lv-2026-11-15",
+   "title": "Seahawks vs. Raiders",
+   "mtype": "spread",
+   "start": "2026-11-15T21:05:00Z",
+   "bet": "Seahawks -14.5",
+   "side": "Seahawks",
+   "flagged": "2026-11-14T07:01:13Z",
+   "why": "a top-50 account",
+   "proven": false,
+   "trigger": "top50",
+   "n_accounts": 1,
+   "best_rank": 12,
+   "usd": 230,
+   "paid": 0.23,
+   "ask": 0.23,
+   "status": "live",
+   "link": "https://polymarket.us/event/nfl-sea-lv-2026-11-15",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401873062",
+   "sport": "nfl",
+   "league": null,
+   "away": "SEA",
+   "home": "LV",
+   "away_name": "Seattle Seahawks",
+   "home_name": "Las Vegas Raiders",
+   "game_start": "2026-11-15T21:05Z",
+   "side_std": "away",
+   "money_with": false,
+   "grade": "B",
    "fair_board": null,
    "inside_fair": null,
    "books": null
@@ -1035,6 +1072,13 @@
     "n": 1,
     "best_rank": 58,
     "usd": 340
+   }
+  },
+  "401873062|spread": {
+   "away": {
+    "n": 1,
+    "best_rank": 12,
+    "usd": 230
    }
   },
   "401873061|total": {
