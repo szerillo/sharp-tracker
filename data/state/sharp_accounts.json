@@ -1,5 +1,5 @@
 {
- "built": "2026-11-14T00:10:03Z",
+ "built": "2026-11-14T00:31:29Z",
  "rows": [
   {
    "cond": "0xc31a3f047367e05c7c92b9553b7cf00252bb86b3291cf3dda9e6868644a0de6b",
@@ -402,6 +402,43 @@
    }
   },
   {
+   "cond": "0xe569f88488ba4b313938b751ab4c481ea925cdc1780b24623275e565a60d9deb",
+   "slug": "cbb-airf-pacfc-2026-11-14",
+   "title": "Air Force Falcons vs. Pacific Tigers",
+   "mtype": "ml",
+   "start": "2026-11-14T21:00:00Z",
+   "bet": "Pacific Tigers ML",
+   "side": "Pacific Tigers",
+   "flagged": "2026-11-14T00:29:42Z",
+   "why": "a top-50 account",
+   "proven": false,
+   "trigger": "top50",
+   "n_accounts": 1,
+   "best_rank": 11,
+   "usd": 235,
+   "paid": 0.53,
+   "ask": 0.53,
+   "status": "live",
+   "link": "https://polymarket.us/event/cbb-airf-pacfc-2026-11-14",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401917529",
+   "sport": "cbb",
+   "league": null,
+   "away": "AF",
+   "home": "PAC",
+   "away_name": "Air Force Falcons",
+   "home_name": "Pacific Tigers",
+   "game_start": "2026-11-14T21:00Z",
+   "side_std": "home",
+   "money_with": false,
+   "grade": "B",
+   "fair_board": null,
+   "inside_fair": null,
+   "books": null
+  },
+  {
    "cond": "0x5a4b9dde28142967904cf5957cf6af0788bfa2cc098fe09249fcd965a218e578",
    "slug": "cfb-oregst-boise-2026-11-14",
    "title": "Oregon State vs. Boise State",
@@ -434,8 +471,8 @@
    "side_std": "home",
    "money_with": false,
    "grade": "B",
-   "fair_board": 0.8523,
    "inside_fair": true,
+   "fair_board": 0.8523,
    "books": {
     "at": "2026-11-14T00:01:00Z",
     "fair": 0.8523,
@@ -1601,6 +1638,13 @@
     "n": 1,
     "best_rank": 4,
     "usd": 114
+   }
+  },
+  "401917529|ml": {
+   "home": {
+    "n": 1,
+    "best_rank": 11,
+    "usd": 235
    }
   },
   "401926864|ml": {
