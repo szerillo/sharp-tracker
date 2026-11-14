@@ -1,5 +1,5 @@
 {
- "built": "2026-11-14T01:50:59Z",
+ "built": "2026-11-14T01:58:21Z",
  "rows": [
   {
    "cond": "0xc31a3f047367e05c7c92b9553b7cf00252bb86b3291cf3dda9e6868644a0de6b",
@@ -410,7 +410,7 @@
    "best_rank": 4,
    "usd": 294,
    "paid": 0.881,
-   "ask": 0.916,
+   "ask": 0.921,
    "status": "live",
    "link": "https://polymarket.us/event/cfb-tenn-txam-2026-11-14",
    "other": null,
@@ -447,7 +447,7 @@
    "best_rank": 11,
    "usd": 235,
    "paid": 0.53,
-   "ask": 0.53,
+   "ask": 0.58,
    "status": "live",
    "link": "https://polymarket.us/event/cbb-airf-pacfc-2026-11-14",
    "other": null,
@@ -1203,6 +1203,39 @@
    "books": null
   },
   {
+   "cond": "0x938960d8c1a2d38f91924167a3596107563c016316cd553ef2e3401843f8df55",
+   "slug": "cfb-but-mrst-2026-11-14",
+   "title": "Butler vs. Marist",
+   "mtype": "ml",
+   "start": "2026-11-14T17:00:00Z",
+   "bet": "Marist ML",
+   "side": "Marist",
+   "flagged": "2026-11-14T01:57:52Z",
+   "why": "a top-50 account",
+   "proven": true,
+   "trigger": "proven",
+   "n_accounts": 1,
+   "best_rank": 49,
+   "usd": 738,
+   "paid": 0.298,
+   "ask": 0.32,
+   "status": "other side",
+   "link": "https://polymarket.us/event/cfb-but-mrst-2026-11-14",
+   "other": {
+    "n_accounts": 1,
+    "best_rank": 4,
+    "usd": 283,
+    "first": "2026-11-14T01:57:58Z"
+   },
+   "exit_bid": 0.31,
+   "kalshi_against": null,
+   "logged": false,
+   "grade": "A",
+   "fair_board": null,
+   "inside_fair": null,
+   "books": null
+  },
+  {
    "cond": "0xde189f9aa90222a576dd7a2ae9a5f03283a9cd14f212fa27f9cafa2ae805d913",
    "slug": "nhl-ott-pit-2026-11-14",
    "title": "Senators vs. Penguins",
@@ -1261,7 +1294,7 @@
    "best_rank": 43,
    "usd": 1173,
    "paid": 0.556,
-   "ask": 0.44,
+   "ask": 0.43,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-gsw-nop-2026-11-16",
    "other": {
@@ -1270,7 +1303,7 @@
     "usd": 203,
     "first": "2026-11-13T10:27:49Z"
    },
-   "exit_bid": 0.43,
+   "exit_bid": 0.42,
    "kalshi_against": null,
    "logged": true,
    "grade": "B",
