@@ -5812,7 +5812,10 @@
 "price": 102,
 "fair": 0.49292,
 "edge_pts": -0.21,
-"why": "SA is 85% on the moneyline: over (mined angle)"
+"why": "SA is 85% on the moneyline: over (mined angle)",
+"void": true,
+"void_why": "trigger no longer holds on current season records (2026-11-14T00:49:19Z)",
+"void_at": "2026-11-14T00:49:19Z"
 },
 "401869969:xch_homedog_fade:ml": {
 "tag": "xch_homedog_fade",
@@ -6149,19 +6152,15 @@
 },
 "401892706:xch_homedog_fade:ml": {
 "tag": "xch_homedog_fade",
-"fill_id": "718fd27a11a8",
-"ts": "2026-11-14T00:34:18Z",
+"fill_id": "92113616da9c",
+"ts": "2026-11-14T00:49:19Z",
 "market": "ml",
 "side": "away",
 "line": null,
 "venue": "Novig",
-"price": -190,
-"fair": 0.65807,
-"edge_pts": 0.31,
-"why": "Novig home side mid 0.347 inside T-1.4h; audit band 20-35c",
-"now": {
-"venue": "Novig",
-"price": -190
-}
+"price": -194,
+"fair": 0.66133,
+"edge_pts": 0.13,
+"why": "Novig home side mid 0.343 inside T-1.2h; audit band 20-35c"
 }
 }
