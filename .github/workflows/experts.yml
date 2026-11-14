@@ -1,6 +1,8 @@
 name: experts (trusted experts' Action Network picks, graded by Action)
 # Sean, 11/8: log the trusted experts' picks with results. Not scheduled: Action Network serves GitHub's servers a bot-check page
 # (2.4 KB, no data) instead of the profile, so this only works if that changes. The log is filled from Sean's browser instead.
+# 11/14: scheduled from Sean's Chrome by two scheduled tasks (daily 8:47 AM ET; 9:53 AM and 5:53 PM ET Sat/Sun/Mon/Thu), which run
+# loggers/expert_picks.py --from-json with the profiles read in the browser.
 on:
   workflow_dispatch: {}
 permissions:

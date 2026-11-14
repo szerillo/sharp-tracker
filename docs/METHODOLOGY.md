@@ -79,6 +79,12 @@ tests behind each line. Updated when a rule or gate changes, with the date. Ever
    scheduled task through his Chrome; Bet Labs tab lists the gaps). Caution recorded at the switch: MySportsWeather reports wind in
    5 mph steps (a 15 means about 13-17); on 11/14 it put 13 CFB games at 14+ where Bet Labs had 2. The 235 Bet Labs CFB picks cannot
    be backtested on it (MySportsWeather history starts 10/29). Re-check the switch at 30 graded wind fires against the Bet Labs-agree split.
+   Roofed stadiums (11/14): from the ESPN schedule's indoor flag plus a fixed roofed-venue list (sharp/systems.py roofed()), not the
+   Open-Meteo log.
+6. Bet Labs alignment (Sean, 11/14): every Tested:/Tracked: system in his Bet Labs account (32) has a rule that fires on exactly its
+   filters (docs/betlabs_inventory_2026-11-14.md, data/state/betlabs_inventory.json). Known differences, named: wind source
+   (MySportsWeather by design), Sean's 6-game minimum on the CBB under, and the CFB road streak dog's bet-count filter, which the tool
+   takes from the Bet Labs list while the snapshot is under 8 hours old. Tiers did not change; new rules start as paper.
 5. Every system has a Bet Labs tracking screen ("Tracked: ...") and the tracker grades every fire at the price it flagged, with CLV
    against Pinnacle's close.
 6. Neighbours (11/6): a rule is also graded one notch either side of each threshold. An edge that exists only at the exact thresholds,
