@@ -1,5 +1,5 @@
 {
- "built": "2026-11-14T20:42:56Z",
+ "built": "2026-11-14T20:56:11Z",
  "record": {
   "cbb_1h_total_curve": {
    "n": 4,
@@ -19,17 +19,17 @@
    }
   },
   "cfb_q1_under_curve": {
-   "n": 14,
+   "n": 15,
    "won": 6,
-   "lost": 8,
-   "units": -0.85,
+   "lost": 9,
+   "units": -1.35,
    "clv": {
-    "n": 9,
-    "avg": -2.14,
+    "n": 10,
+    "avg": -2.07,
     "beat": 1
    },
    "line_value": {
-    "n": 9,
+    "n": 10,
     "avg": 0.0,
     "better": 0,
     "worse": 0
@@ -70,17 +70,17 @@
    }
   },
   "cfb_tt_under_curve": {
-   "n": 16,
-   "won": 5,
+   "n": 17,
+   "won": 6,
    "lost": 11,
-   "units": -1.68,
+   "units": -1.52,
    "clv": {
-    "n": 3,
-    "avg": -2.2,
+    "n": 4,
+    "avg": -1.92,
     "beat": 1
    },
    "line_value": {
-    "n": 3,
+    "n": 4,
     "avg": 0.0,
     "better": 0,
     "worse": 0
@@ -88,72 +88,6 @@
   }
  },
  "rows": [
-  {
-   "key": "cfb_q1_under_curve|0431ccbcda08ef99781fee8c341c8932||under",
-   "rule": "cfb_q1_under_curve",
-   "tier": "A",
-   "stake": 0.5,
-   "sport": "cfb",
-   "odds_id": "0431ccbcda08ef99781fee8c341c8932",
-   "espn": "401856859",
-   "game": "Cincinnati Bearcats @ Iowa State Cyclones",
-   "start": "2026-11-14T17:00:00Z",
-   "market": "totals_q1",
-   "team": null,
-   "team_name": null,
-   "side": "under",
-   "line": 13.5,
-   "curve": 0.565,
-   "pin_fair": 0.508,
-   "gap": 5.8,
-   "full_total": 58.0,
-   "full_spread": -3.0,
-   "pin_price": 1.88,
-   "book": "FD",
-   "price": 1.91,
-   "pin_fair_power": 0.5084,
-   "book_fair": 0.5,
-   "fair_gap": 0.8,
-   "ev_curve": 8.0,
-   "flagged": "2026-11-14T14:22:22Z",
-   "close_ts": "2026-11-14T16:54:55Z",
-   "close_line": 13.5,
-   "line_value": 0.0,
-   "close_fair": 0.5105,
-   "clv": -1.31,
-   "beat_fair": 0.25
-  },
-  {
-   "key": "cfb_tt_under_curve|0431ccbcda08ef99781fee8c341c8932|away|under",
-   "rule": "cfb_tt_under_curve",
-   "tier": "P",
-   "stake": 0.0,
-   "sport": "cfb",
-   "odds_id": "0431ccbcda08ef99781fee8c341c8932",
-   "espn": "401856859",
-   "game": "Cincinnati Bearcats @ Iowa State Cyclones",
-   "start": "2026-11-14T17:00:00Z",
-   "market": "team_totals",
-   "team": "away",
-   "team_name": "Cincinnati Bearcats",
-   "side": "under",
-   "line": 30.5,
-   "curve": 0.654,
-   "pin_fair": 0.58,
-   "gap": 7.5,
-   "full_total": 58.0,
-   "full_spread": -3.0,
-   "pin_price": 1.66,
-   "book": null,
-   "price": null,
-   "flagged": "2026-11-14T14:22:22Z",
-   "close_ts": "2026-11-14T16:54:55Z",
-   "close_line": 30.5,
-   "line_value": 0.0,
-   "close_fair": 0.5652,
-   "clv": -3.72,
-   "beat_fair": -1.48
-  },
   {
    "key": "cfb_q1_under_curve|83b67813ba763c65142b4238e3c44270||under",
    "rule": "cfb_q1_under_curve",
@@ -540,7 +474,13 @@
    "book_fair": 0.4508,
    "fair_gap": 1.0,
    "ev_curve": 18.8,
-   "flagged": "2026-11-14T18:02:24Z"
+   "flagged": "2026-11-14T18:02:24Z",
+   "close_ts": "2026-11-14T20:56:11Z",
+   "close_line": 13.5,
+   "line_value": 0.0,
+   "close_fair": 0.4571,
+   "clv": -1.46,
+   "beat_fair": -0.39
   },
   {
    "key": "cfb_tt_under_curve|a21a2f1087d443fa1a1c71e1a03a0fe0|away|under",
@@ -565,7 +505,13 @@
    "pin_price": 1.85,
    "book": null,
    "price": null,
-   "flagged": "2026-11-14T18:02:24Z"
+   "flagged": "2026-11-14T18:02:24Z",
+   "close_ts": "2026-11-14T20:56:11Z",
+   "close_line": 25.5,
+   "line_value": 0.0,
+   "close_fair": 0.5297,
+   "clv": -1.08,
+   "beat_fair": 0.87
   },
   {
    "key": "nhl_p3_under_curve|c3f43b11aaf8ba26496727f557330d72||under",
