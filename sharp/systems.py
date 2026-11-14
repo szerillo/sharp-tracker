@@ -191,6 +191,15 @@ def blend_wind(wx, msw, need_both=False):
 # the game. Domes and roofed stadiums never get a wind play (11/14: DAL @ IND fired on MySportsWeather alone at Lucas Oil, and SoFi's canopy
 # was treated as open). ROOF_NFL: home teams playing under a roof (dome, retractable or SoFi's canopy).
 ROOF_NFL = {'ARI', 'ATL', 'DAL', 'DET', 'HOU', 'IND', 'LV', 'LAR', 'LAC', 'MIN', 'NO'}
+# 11/14 (Sean, redundancy audit): dome detection no longer leans on the Open-Meteo log's indoor flag. A game is roofed when the ESPN schedule
+# says indoor, or its venue is on this fixed list of roofed stadiums (domes, retractable roofs, SoFi's canopy), or (NFL) the home team plays
+# under a roof.
+ROOF_VENUES = ('ford field', 'fargodome', 'jma wireless dome', 'carrier dome', 'mercedes-benz stadium', 'allegiant stadium', 'alamodome',
+               'state farm stadium', 'at&t stadium', 'nrg stadium', 'reliant stadium', 'lucas oil stadium', 'u.s. bank stadium', 'caesars superdome',
+               'sofi stadium', 'tropicana field', 'kibbie dome', 'uni-dome', 'dakotadome', 'holt arena', 'alerus center', 'superdome')
+def roofed(sport, ev, home=None):
+    r = sched_rec(sport, ev); v = r.get('venue'); v = (v.get('fullName') if isinstance(v, dict) else v) or ''
+    return bool(r.get('indoor')) or any(k in v.lower() for k in ROOF_VENUES) or (sport == 'nfl' and home in ROOF_NFL)
 _INDOOR = {}
 def is_indoor(event_id, path=None):
     path = path or WX
@@ -487,7 +496,7 @@ def main():
         pending = {t for t, pg in ((away, v_prev), (home, h_prev)) if pg and pg[0] > NOW}
         # --- rules
         msw = msw_latest('nfl', ev)
-        wv, wlab = rule_wind(wx, msw, indoor=home in ROOF_NFL or is_indoor(ev))
+        wv, wlab = rule_wind(wx, msw, indoor=roofed('nfl', ev, home))
         wr = round(wv) if wv is not None else None     # Bet Labs' wind is whole mph (checked on its 2026 picks 10/31)
         if wr is not None and 10 <= wr <= 14:
             cold = wx is not None and wx.get('temp_f') is not None and wx['temp_f'] <= 35      # 11/5 replay: the cold band is 27-27, mild weather 133-76
@@ -500,10 +509,10 @@ def main():
         # file only keeps a rolling window, the season log only has finished games); calendar days, as Bet Labs counts
         cand = [t for t in (v_prev[0] if v_prev else None, N.parse_ts(pv['last_start']) if pv.get('last_start') else None) if t is not None and t < st]
         vdays = (N.et_date(st) - N.et_date(max(cand))).days if cand else None
-        roofed = home in ROOF_NFL or is_indoor(ev)      # 11/14: both Bet Labs screens filter "Dome Closed N"
-        if vdays is not None and 8 <= vdays <= 30 and not roofed:
+        roofed_ = roofed('nfl', ev, home)      # 11/14: both Bet Labs screens filter "Dome Closed N"
+        if vdays is not None and 8 <= vdays <= 30 and not roofed_:
             trig['vrest8_1h'] = f"{away} off {vdays} days"
-        if et_dow == 'Monday' and not roofed: trig['mnf_1h'] = 'Monday night'
+        if et_dow == 'Monday' and not roofed_: trig['mnf_1h'] = 'Monday night'
         if dog and (away if dog == 'away' else home) not in pending:
             dp = pv if dog == 'away' else ph; dteam = away if dog == 'away' else home
             if dp.get('games', 0) >= 1 and dp.get('margin_avg') is not None and dp['margin_avg'] <= -13:     # 11/6: back to Bet Labs' -13 or worse (the 11/5 re-band came from a replay bug)
@@ -560,7 +569,7 @@ def main():
         st = N.parse_ts(start); ttk = (st - NOW).total_seconds() / 3600
         if not (0 < ttk <= VIEW_H): continue      # triggers visible up to a week out (like Bet Labs); fills only inside WINDOW_H (paper_fill checks)
         wx = weather_t24(ev, WX_CFB); msw = msw_latest('cfb', ev)
-        wv, wlab = rule_wind(wx, msw, indoor=is_indoor(ev, WX_CFB))      # 11/14 (Sean): MySportsWeather wind, Open-Meteo fallback
+        wv, wlab = rule_wind(wx, msw, indoor=roofed('cfb', ev))      # 11/14 (Sean): MySportsWeather wind, Open-Meteo fallback
         windy = wv is not None and round(wv) >= 14
         msw_only = False
         eq = F.EventQuotes(conn, ev)

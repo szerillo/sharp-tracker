@@ -47,18 +47,27 @@ def main():
     try: recs = json.load(open(RECS))
     except Exception: recs = {}
     now = dt.datetime.now(dt.timezone.utc).isoformat(timespec='seconds'); new = upd = bad = 0
+    # 11/14: GitHub's runners get Action's bot-check page, so the scheduled run reads the profiles in Sean's Chrome and hands them over as
+    # one JSON file: --from-json FILE with {slug: {"picks": [already-flat picks], "pick_stats": {...}}} (same fields as flat() writes)
+    pre = None
+    if '--from-json' in sys.argv: pre = json.load(open(sys.argv[sys.argv.index('--from-json') + 1]))
     for slug in EXPERTS:
-        try: prof = page(slug)
-        except Exception as e:
-            print(f'[experts] {slug}: {e}'); bad += 1; continue
-        for pk in prof.get('picks') or []:
-            r = flat(pk, slug); old = have.get(r['id'])
+        if pre is not None:
+            if slug not in pre: print(f'[experts] {slug}: not in the handed-over file'); bad += 1; continue
+            prof = dict(pick_stats=pre[slug].get('pick_stats') or {}); flats = [dict(p, expert=slug, name=EXPERTS[slug][0]) for p in pre[slug].get('picks') or []]
+        else:
+            try: prof = page(slug)
+            except Exception as e:
+                print(f'[experts] {slug}: {e}'); bad += 1; continue
+            flats = [flat(pk, slug) for pk in prof.get('picks') or []]
+        for r in flats:
+            old = have.get(r['id'])
             if old is None: r['first_seen'] = now; have[r['id']] = r; new += 1
             elif (old.get('result'), old.get('units_net')) != (r.get('result'), r.get('units_net')):
                 r['first_seen'] = old.get('first_seen'); have[r['id']] = r; upd += 1
         ps = (prof.get('pick_stats') or {})
         recs[slug] = dict(name=EXPERTS[slug][0], follow=EXPERTS[slug][1], at=now, stats=ps.get('pick_stats') or ps)
-        time.sleep(2)
+        if pre is None: time.sleep(2)
     with open(PICKS, 'w') as f:
         for d in sorted(have.values(), key=lambda d: (d.get('created_at') or '', d['id'])): f.write(json.dumps(d) + '\n')
     json.dump(recs, open(RECS, 'w'), indent=1)
