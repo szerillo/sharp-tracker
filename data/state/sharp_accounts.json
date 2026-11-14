@@ -1,5 +1,5 @@
 {
- "built": "2026-11-14T14:36:47Z",
+ "built": "2026-11-14T14:46:52Z",
  "rows": [
   {
    "cond": "0x023fe2801e367dbc1d3c14f891273d40e90f5ebbfbadc2b75316bb5fd03a32f5",
@@ -60,7 +60,7 @@
    "best_rank": 4,
    "usd": 294,
    "paid": 0.881,
-   "ask": 0.91,
+   "ask": 0.915,
    "status": "live",
    "link": "https://polymarket.us/event/cfb-tenn-txam-2026-11-14",
    "other": null,
@@ -131,6 +131,43 @@
    }
   },
   {
+   "cond": "0xd6651d875d9105ba1b1d8156c270d27e968c895b0dd039694c7a28e21dff7d2a",
+   "slug": "cfb-usc-ind-2026-11-14",
+   "title": "USC vs. Indiana",
+   "mtype": "spread",
+   "start": "2026-11-14T20:30:00Z",
+   "bet": "USC -1.5",
+   "side": "USC",
+   "flagged": "2026-11-14T14:45:26Z",
+   "why": "a top-50 account",
+   "proven": false,
+   "trigger": "top50",
+   "n_accounts": 1,
+   "best_rank": 3,
+   "usd": 234,
+   "paid": 0.26,
+   "ask": 0.26,
+   "status": "live",
+   "link": "https://polymarket.us/event/cfb-usc-ind-2026-11-14",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401858518",
+   "sport": "cfb",
+   "league": null,
+   "away": "USC",
+   "home": "IU",
+   "away_name": "USC Trojans",
+   "home_name": "Indiana Hoosiers",
+   "game_start": "2026-11-14T20:30Z",
+   "side_std": "away",
+   "money_with": false,
+   "grade": "B",
+   "fair_board": null,
+   "inside_fair": null,
+   "books": null
+  },
+  {
    "cond": "0xe569f88488ba4b313938b751ab4c481ea925cdc1780b24623275e565a60d9deb",
    "slug": "cbb-airf-pacfc-2026-11-14",
    "title": "Air Force Falcons vs. Pacific Tigers",
@@ -146,7 +183,7 @@
    "best_rank": 11,
    "usd": 235,
    "paid": 0.53,
-   "ask": 0.68,
+   "ask": 0.67,
    "status": "live",
    "link": "https://polymarket.us/event/cbb-airf-pacfc-2026-11-14",
    "other": null,
@@ -1311,6 +1348,11 @@
     "n": 1,
     "best_rank": 115,
     "usd": 6398
+   },
+   "over": {
+    "n": 1,
+    "best_rank": 132,
+    "usd": 1108
    }
   },
   "401909981|ml": {
@@ -1450,6 +1492,13 @@
     "n": 1,
     "best_rank": 110,
     "usd": 460
+   }
+  },
+  "401858518|spread": {
+   "away": {
+    "n": 1,
+    "best_rank": 3,
+    "usd": 234
    }
   },
   "401858294|spread": {
