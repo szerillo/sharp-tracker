@@ -117,7 +117,7 @@ DESC = {'wind1014': 'NFL outdoor, wind 10-14 mph (average of the latest Open-Met
         'cbb_bigloss_vs_top5': 'CBB regular-season conference game: unranked team off a 14-45 point loss vs a top-5 opponent: that team on the spread',
         'cfb_hot_over_low_total': 'CFB non-conference game, 85F+ and wind 10 mph or less, total 55 or lower: over (heat wears defences down; low totals price it least)',
         'cfb_road_streak_dog': 'CFB conference road dog on its 2nd-5th straight road game, total 54 or lower: road spread (Bet Labs also requires a heavy-bet day, which we cannot see)',
-        'cbb_under_good_over_drop': 'CBB weekday game, home team over 50%+ and visitor over 59%+ this season (3+ games each), total down 0.5+ from open: under'}
+        'cbb_under_good_over_drop': 'CBB weekday game, home team over 50%+ and visitor over 59%+ this season (6+ games each), total down 0.5+ from open: under'}
 # Bet Labs screen per rule (every rule Bet Labs can express has a "Tested:" screen in the account, aligned 11/1). Exchange and tennis rules
 # use data Bet Labs does not have, so they have none.
 LABS = {'wind1014': (1772775, 'Tested: NFL Wind 10-14 Under'), 'wind1014_1h': (769171, 'Tested: NFL 1H Wind 10-13 Under'),
@@ -723,6 +723,7 @@ def main():
                                 fair=row['fair_at_fill'], edge_pts=(round(100 * (row['fair_at_fill'] - row['implied']), 2) if row['fair_at_fill'] is not None else None), why=why)
                     fired[key] = rec_; game['fills'].append(rec_); fires_now.append(dict(game=f"{away}@{home}", **rec_))
         view_games.append(game)
+    CBB_MIN_G = 6
     # CBB under with two over-heavy teams once the total has dropped (rescued 766981 variant)
     for ev, start, away, home in conn.execute("SELECT event_id, start_utc, away, home FROM events WHERE sport='cbb' ORDER BY start_utc").fetchall():
         st = N.parse_ts(start); ttk = (st - NOW).total_seconds() / 3600
@@ -730,7 +731,8 @@ def main():
         g = (cbb or {}).get(ev) or {}
         if g.get('season_type') not in (2, None) or st.astimezone(N.ET).weekday() > 4: continue      # Monday-Friday, regular season
         ph, pa = SEA.profile('cbb', home, st), SEA.profile('cbb', away, st)
-        if ph.get('games', 0) < 3 or pa.get('games', 0) < 3 or ph.get('over_pct') is None or pa.get('over_pct') is None: continue
+        # 11/14 (Sean): 3 games made the season over % too thin (5 fires on 11/13-14, Bet Labs 0); paper until each team has 6 games
+        if ph.get('games', 0) < CBB_MIN_G or pa.get('games', 0) < CBB_MIN_G or ph.get('over_pct') is None or pa.get('over_pct') is None: continue
         if not (ph['over_pct'] >= 0.50 and pa['over_pct'] >= 0.59): continue
         eq = F.EventQuotes(conn, ev); tl, _n = main_line(eq, 'total', None); op = open_line(conn, ev, 'total')
         if tl is None or op is None or op - tl < 0.5: continue
