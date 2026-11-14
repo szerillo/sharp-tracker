@@ -1404,7 +1404,8 @@ function blConflict(b) {
   let s = '';
   if (b.counted === false) s += `<div class="stat stat-held">Not counted: the other side of ${esc(b.conflict_desc || 'an earlier bet')}, flagged earlier on this market. No units.${b.units_raw != null ? ` (Would have been ${b.units_raw > 0 ? '+' : ''}${b.units_raw.toFixed(2)}u.)` : ''}</div>`;
   if (b.cancelled_later) s += `<div class="stat stat-held">Later flagged the other way: ${b.cancelled_later.map(esc).join(', ')} (not counted).</div>`;
-  if (b.middle) s += b.middle.map(m => `<div class="stat ${m.kind === 'middle' ? 'stat-fit' : 'stat-lapsed'}">${m.kind === 'middle' ? 'Middle' : 'Reverse middle (both can lose)'} with ${esc(m.with_)}. Both count.</div>`).join('');
+  if (b.both_sides) s += b.both_sides.map(m => `<div class="stat stat-lapsed">Sharps on both sides: ${esc(m.with_)}${m.gap_h != null ? `, ${Math.abs(m.gap_h) <= 1 ? 'within an hour' : Math.round(Math.abs(m.gap_h)) + ' hours apart'}` : ''}. Both count on the sharp record.</div>`).join('');
+  if (b.middle) s += b.middle.map(m => `<div class="stat ${m.kind === 'middle' ? 'stat-fit' : 'stat-lapsed'}">${m.kind === 'middle' ? 'Middle' : 'Reverse middle (both can lose)'} with ${esc(m.with_)}${m.gap_h != null ? `, ${Math.abs(m.gap_h) <= 1 ? 'within an hour' : Math.round(Math.abs(m.gap_h)) + ' hours apart'}` : ''}. Both count.</div>`).join('');
   return s;
 }
 function blRow(b) {
@@ -1468,10 +1469,10 @@ function renderBetLog() {
     (_lm === 'over' && /total/.test(t + m) && b.side === 'over') || (_lm === 'under' && /total|prop/.test(t + m) && b.side === 'under') || (_lm === 'fh' && /^1[hqp]_/.test(t || m)) || (_lm === 'prop' && /^prop_/.test(t || m)); };
   const RES = {all: 'All', open: 'Open', won: 'Won', lost: 'Lost'};
   const rOk = b => _lr === 'all' || (_lr === 'open' && b.won == null) || (_lr === 'won' && b.won === 1) || (_lr === 'lost' && b.won === 0);
-  const SIG = {all: 'Any signals', clean: 'Nothing against it', against: 'Something against it', agree: 'Sharps or another rule agree', conflict: 'Conflicts and middles'};
+  const SIG = {all: 'Any signals', clean: 'Nothing against it', against: 'Something against it', agree: 'Sharps or another rule agree', conflict: 'Conflicts and middles', conflict1h: 'Conflicts and middles within an hour'};
   const tg = b => b.tags || [];
   const sOk = b => _lsig === 'all' || (_lsig === 'clean' && !tg(b).includes('any signal against') && !b.opp) || (_lsig === 'against' && (tg(b).includes('any signal against') || !!b.opp)) ||
-    (_lsig === 'agree' && (tg(b).some(t => / with$/.test(t) || / also$/.test(t)) || !!b.with || !!(b.also && b.also.length))) || (_lsig === 'conflict' && (b.counted === false || !!b.cancelled_later || !!b.middle));
+    (_lsig === 'agree' && (tg(b).some(t => / with$/.test(t) || / also$/.test(t)) || !!b.with || !!(b.also && b.also.length))) || ((_lsig === 'conflict' || (_lsig === 'conflict1h' && b.pair_gap_h != null && b.pair_gap_h <= 1)) && (b.counted === false || !!b.cancelled_later || !!b.middle || !!b.both_sides));
   const q = (_lq || '').trim().toLowerCase(), qOk = b => !q || [b.game, b.bet, ruleName(blRule(b) || ''), b.venue].join(' ').toLowerCase().includes(q);
   const ruleKey = b => _lg === 'sharp' ? ({'sharp A': 'Grade A', 'sharp B': 'Grade B', 'sharp C': 'Grade C'})[b.cat] || b.cat : blRule(b) || '?';
   const ruleLbl = k => _lg === 'sharp' ? k : ruleName(k);

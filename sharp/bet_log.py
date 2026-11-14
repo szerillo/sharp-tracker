@@ -483,22 +483,41 @@ def main():
     # 11/5 (Sean): only the other side of the SAME market cancels: the later bet stays listed, not counted, no units, with a note. A spread on
     # one team and a moneyline on the other always both count; they are labelled as a middle (both can win) or a reverse middle (both can lose).
     per_ = lambda b: '1h' if b['market'].startswith(('1h_', '1p_', '1s_')) else 'fg'
+    # 11/14 (Sean): sharp flags are a signal under test, so each one counts on its own: a sharp flag is never cancelled, and is only
+    # compared with other sharp flags (both sides flagged = labelled, both count). Bets (systems, leans, tennis) keep one side per market.
+    fam_ = lambda b: 'sharp' if b['cat'].startswith('sharp') else 'bets'
+    # 11/14: soccer moneyline is three-way, so "X to win: No" leans to the other team. Same lean = same direction (not a conflict or middle).
+    lean_ = lambda b: {'home': 1, 'not_away': 1, 'away': -1, 'not_home': -1}.get(b['side'], 0)
+    tsec = lambda b: ts(b['flagged']).timestamp() if b.get('flagged') else None
     grp_ = collections.defaultdict(list)
     for b in bets:
-        if b['cat'] in COUNTED and b.get('event_id'): grp_[(str(b['event_id']), per_(b))].append(b)
+        if b['cat'] in COUNTED and b.get('event_id'): grp_[(str(b['event_id']), per_(b), fam_(b))].append(b)
     desc_ = lambda x: f"{x['cat']} {x.get('bet') or x['side']}"
-    for L_ in grp_.values():
+    def gap_(k, b):
+        g = (tsec(b) - tsec(k)) / 3600 if tsec(b) is not None and tsec(k) is not None else None
+        for x in (k, b):
+            if g is not None and (x.get('pair_gap_h') is None or g < x['pair_gap_h']): x['pair_gap_h'] = round(g, 1)
+        return round(g, 1) if g is not None else None
+    for (_, _, fam), L_ in grp_.items():
         L_.sort(key=lambda b: b.get('flagged') or '')
         for i, b in enumerate(L_):
             for k in L_[:i]:
                 if k.get('counted') is False or k['side'] == b['side']: continue
-                if k['market'] == b['market'] and b.get('counted') is not False:
+                if lean_(k) and lean_(k) == lean_(b): continue          # soccer: "X: No" and "Y: Yes" point the same way
+                if k['market'] == b['market'] and {k['side'], b['side']} == {'not_home', 'not_away'}:
+                    g = gap_(k, b)      # both "not to win" bets win on a draw
+                    b.setdefault('middle', []).append(dict(kind='middle', with_=desc_(k), gap_h=g)); k.setdefault('middle', []).append(dict(kind='middle', with_=desc_(b), gap_h=g))
+                elif k['market'] == b['market'] and fam == 'sharp':
+                    g = gap_(k, b)
+                    b.setdefault('both_sides', []).append(dict(with_=desc_(k), gap_h=g)); k.setdefault('both_sides', []).append(dict(with_=desc_(b), gap_h=g))
+                elif k['market'] == b['market'] and b.get('counted') is not False:
+                    g = gap_(k, b)
                     b['counted'] = False; b['conflict_with'] = k['id']; b['conflict_desc'] = desc_(k); b['units_raw'] = b.get('units'); b['units'] = None
                     k.setdefault('cancelled_later', []).append(desc_(b))
                 elif {k['market'].replace('1h_', ''), b['market'].replace('1h_', '')} == {'ml', 'spread'}:
                     sp = k if 'spread' in k['market'] else b
-                    kind = 'middle' if (sp.get('line') or 0) > 0 else 'reverse middle'
-                    b.setdefault('middle', []).append(dict(kind=kind, with_=desc_(k))); k.setdefault('middle', []).append(dict(kind=kind, with_=desc_(b)))
+                    kind = 'middle' if (sp.get('line') or 0) > 0 else 'reverse middle'; g = gap_(k, b)
+                    b.setdefault('middle', []).append(dict(kind=kind, with_=desc_(k), gap_h=g)); k.setdefault('middle', []).append(dict(kind=kind, with_=desc_(b), gap_h=g))
     # 11/5 (Sean): the watch-only market signals (Kalshi move, bet back, big money, sharp move) graded by kind, so the board can show
     # whether they are doing anything; flat ROI at the flagged price and mean no-vig CLV
     wk = {}
@@ -573,7 +592,7 @@ def tag_bets(bets):
         others = S_side.get((str(b['event_id']), f_, b['side']), set())
         if b['src'] == 'sharp' and 'system' in others: t.append('system also')
         if b['src'] != 'sharp' and 'sharp' in others: t.append('sharp flag also')
-        if b.get('counted') is False: t.append('same-market conflict')
+        if b.get('counted') is False or b.get('both_sides'): t.append('same-market conflict')
         if b.get('middle'): t.append('middle')
         b['tags'] = sorted(set(t), key=lambda x: TAG_ORDER.index(x) if x in TAG_ORDER else 99)
     # the backtest of the sample: graded bets by group (systems and leans / sharp flags / everything) and tag
