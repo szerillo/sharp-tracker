@@ -73,6 +73,12 @@ tests behind each line. Updated when a rule or gate changes, with the date. Ever
 4. Weather: NFL wind from Open-Meteo agrees with Bet Labs' venue wind (their picks 160-101 at our close); CFB does not (reanalysis
    flat, their picks 135-96), so the CFB rule fires only with MySportsWeather in the blend. Bets fire inside 30h of kickoff; 48h
    triggers are listed in the open as "Coming".
+   11/14 (Sean): all wind rules (NFL and CFB) fire on MySportsWeather's sustained wind; Open-Meteo only when MySportsWeather has no
+   reading for the game, at OpenStreetMap stadium coordinates (were city centers). Domes, retractable roofs and SoFi never get a wind
+   play. Every wind pick shows whether Sean's Bet Labs wind screen has the same game (snapshot refreshed 9, 11, 2, 5, 7 ET by a
+   scheduled task through his Chrome; Bet Labs tab lists the gaps). Caution recorded at the switch: MySportsWeather reports wind in
+   5 mph steps (a 15 means about 13-17); on 11/14 it put 13 CFB games at 14+ where Bet Labs had 2. The 235 Bet Labs CFB picks cannot
+   be backtested on it (MySportsWeather history starts 10/29). Re-check the switch at 30 graded wind fires against the Bet Labs-agree split.
 5. Every system has a Bet Labs tracking screen ("Tracked: ...") and the tracker grades every fire at the price it flagged, with CLV
    against Pinnacle's close.
 6. Neighbours (11/6): a rule is also graded one notch either side of each threshold. An edge that exists only at the exact thresholds,
