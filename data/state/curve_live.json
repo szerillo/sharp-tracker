@@ -1,5 +1,5 @@
 {
- "built": "2026-11-14T18:40:30Z",
+ "built": "2026-11-14T18:54:42Z",
  "record": {
   "cbb_1h_total_curve": {
    "n": 4,
@@ -24,12 +24,12 @@
    "lost": 8,
    "units": -0.85,
    "clv": {
-    "n": 4,
-    "avg": -1.43,
+    "n": 5,
+    "avg": -1.33,
     "beat": 1
    },
    "line_value": {
-    "n": 4,
+    "n": 5,
     "avg": 0.0,
     "better": 0,
     "worse": 0
@@ -589,7 +589,13 @@
    "book_fair": 0.4764,
    "fair_gap": 0.9,
    "ev_curve": 12.1,
-   "flagged": "2026-11-14T18:25:08Z"
+   "flagged": "2026-11-14T18:25:08Z",
+   "close_ts": "2026-11-14T18:54:42Z",
+   "close_line": 9.5,
+   "line_value": 0.0,
+   "close_fair": 0.4908,
+   "clv": -0.92,
+   "beat_fair": 0.48
   },
   {
    "key": "cfb_q1_under_curve|d6d167714ff638b23e84d757ff522414||under",
@@ -615,6 +621,31 @@
    "book": null,
    "price": null,
    "flagged": "2026-11-14T18:25:08Z"
+  },
+  {
+   "key": "cfb_tt_under_curve|d03caba2636ec407098ec3e1fe18fcf7|away|under",
+   "rule": "cfb_tt_under_curve",
+   "tier": "P",
+   "stake": 0.0,
+   "sport": "cfb",
+   "odds_id": "d03caba2636ec407098ec3e1fe18fcf7",
+   "espn": "401862828",
+   "game": "Tulane Green Wave @ Rice Owls",
+   "start": "2026-11-14T21:30:00Z",
+   "market": "team_totals",
+   "team": "away",
+   "team_name": "Tulane Green Wave",
+   "side": "under",
+   "line": 23.5,
+   "curve": 0.585,
+   "pin_fair": 0.518,
+   "gap": 6.7,
+   "full_total": 48.5,
+   "full_spread": -3.5,
+   "pin_price": 1.86,
+   "book": null,
+   "price": null,
+   "flagged": "2026-11-14T18:54:42Z"
   }
  ]
 }
