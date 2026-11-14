@@ -1,6 +1,6 @@
 {
- "built": "2026-11-14T15:17:17Z",
- "ok": false,
+ "built": "2026-11-14T15:33:13Z",
+ "ok": true,
  "checks": [
   {
    "name": "fresh: sharp signals (5-minute job)",
@@ -28,9 +28,9 @@
   },
   {
    "name": "fresh: system bets (3 runs a day)",
-   "ok": false,
+   "ok": true,
    "level": "error",
-   "detail": "last built 728 min ago (allowed 300)"
+   "detail": "last built 38 min ago (allowed 300)"
   },
   {
    "name": "sharp feed: Polymarket fills arriving",
