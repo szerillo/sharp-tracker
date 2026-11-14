@@ -1316,6 +1316,13 @@ function renderBetLabs() {
   const same = (a, b) => { a = nm(a); b = nm(b); if (!a || !b) return false; if (a === b || a.startsWith(b) || b.startsWith(a)) return true;
     const x = a.split(' '), y = b.split(' '); return x[0] === y[0] && (x.length === 1 || y.length === 1 || x[1] === y[1]); };
   const scr = Object.fromEntries(BP.screens.map(x => [x.id, x]));
+  // 11/14: rules whose Bet Labs screen is only an approximation of the tested rule; a mismatch there is a known definition difference, not a gap
+  const DEF = {nba_roadtrip_over: "Bet Labs screen has no last-meeting filter; the tool's tested rule also needs the visitor to have won the last meeting",
+    nba_badteams_under: "Bet Labs screen uses both teams' win %; the tool uses the visitor's season margin (-7 to -2) and the home team's home win %",
+    cfb_road_streak_dog: "Bet Labs also requires above-average bet count for the day (Number of Bets vs Daily Avg 1.01+), which the tool cannot see",
+    cfb_wind14: 'Wind source differs by design: the tool uses MySportsWeather, Bet Labs its own wind', wind1014: 'Wind source differs by design: the tool uses MySportsWeather, Bet Labs its own wind',
+    wind1014_1h: 'Wind source differs by design: the tool uses MySportsWeather, Bet Labs its own wind'};
+  const built = SY.built ? new Date(SY.built) : null, nowT = Date.now();
   const live = t => !/no longer meets/.test(String(t || ''));
   const games = SY.games || [];
   const findG = (p, sp) => games.find(g => g.sport === sp && ((same(g.home_name || g.home, p.home) && same(g.away_name || g.away, p.away)) || (nm(g.home) === nm(p.home) && nm(g.away) === nm(p.away))));
@@ -1326,27 +1333,28 @@ function renderBetLabs() {
     for (const rule of (s.rules.length ? s.rules : [null])) {
       const g = findG(p, s.sport), trig = g && rule ? (g.triggers || {})[rule] : null;
       if (g && rule) seen.add(g.event_id + '|' + rule);
-      const status = trig && live(trig) ? 'both' : p.date > tmw ? 'later' : 'bl';
+      const unrated = built && !g && new Date(p.date + 'T23:59:00-05:00') > built && (new Date(p.date + 'T12:00:00-05:00') - built) / 36e5 > 6;
+      const status = trig && live(trig) ? 'both' : p.date > tmw ? 'later' : unrated ? 'later' : DEF[rule] ? 'def' : 'bl';
       rows.push({date: p.date, sport: s.sport, rule, name: s.name, sid: s.id, pick: p.play, game: `${p.away} @ ${p.home}`, status,
-        note: status === 'both' ? String(trig) : status === 'later' ? 'The tool rates games inside about 30 hours of the start' : trig ? `Tool: ${trig}` : g ? `Tool rated this game; this rule did not fire` : 'This rule did not fire on this game in the tool'}); } }
+        note: status === 'both' ? String(trig) : status === 'later' ? (p.date > tmw ? 'The tool rates games inside about 30 hours of the start' : `Not rated yet: the tool's last rules run was ${built ? ET(SY.built) : '?'} ET`) : status === 'def' ? DEF[rule] + (trig ? ` (tool: ${trig})` : '') : trig ? `Tool: ${trig}` : g ? `Tool rated this game; this rule did not fire` : 'This rule did not fire on this game in the tool'}); } }
   const labsOf = Object.fromEntries(Object.entries(SY.rules || {}).filter(([, r]) => r.labs && r.labs.id).map(([t, r]) => [t, r.labs.id]));
   for (const g of games) for (const [t, why] of Object.entries(g.triggers || {})) {
-    if (!labsOf[t] || seen.has(g.event_id + '|' + t) || !live(why)) continue;
+    if (!labsOf[t] || seen.has(g.event_id + '|' + t) || !live(why) || new Date(g.start_utc) < nowT) continue;      // started games drop off Bet Labs' list
     const s = scr[labsOf[t]];
     const sd = ((SY.rules || {})[t] || {}).side, pk = sd === 'home' ? (g.home_name || g.home) : sd === 'away' ? (g.away_name || g.away) : sd ? sd[0].toUpperCase() + sd.slice(1) : '';
-    rows.push({date: etDay(g.start_utc), sport: g.sport, rule: t, name: s ? s.name : t, sid: labsOf[t], pick: pk, game: `${g.away_name || g.away} @ ${g.home_name || g.home}`, status: 'tool', note: `Tool: ${why}`}); }
-  const ST = {all: 'All', both: 'Both agree', bl: 'Bet Labs only', tool: 'Tool only', later: 'Later games'};
+    rows.push({date: etDay(g.start_utc), sport: g.sport, rule: t, name: s ? s.name : t, sid: labsOf[t], pick: pk, game: `${g.away_name || g.away} @ ${g.home_name || g.home}`, status: DEF[t] ? 'def' : 'tool', note: DEF[t] ? `${DEF[t]} (tool: ${why})` : `Tool: ${why}`}); }
+  const ST = {all: 'All', both: 'Both agree', bl: 'Bet Labs only', tool: 'Tool only', def: 'Definition differs', later: 'Not rated yet'};
   const f = window._bf, sports = [...new Set(rows.map(r => r.sport))].sort();
   const V = rows.filter(r => (f.sport === 'all' || r.sport === f.sport) && (f.st === 'all' || r.status === f.st)).sort((a, b) => a.date < b.date ? -1 : a.date > b.date ? 1 : (a.name < b.name ? -1 : 1));
   const cnt = k => rows.filter(r => (f.sport === 'all' || r.sport === f.sport) && r.status === k).length;
   const seg = (k, opts, cur) => `<span class="seg">${Object.entries(opts).map(([v, l]) => `<button class="${cur === v ? 'on' : ''}" onclick="setBF('${k}','${v}')">${l}</button>`).join('')}</span>`;
   const tier = t => { const e = ((SY.rules || {})[t] || {}).evidence || {}; return e.tier || ''; };
-  const SL = {both: ['ok-chip', 'Both'], bl: ['stat stat-held', 'Bet Labs only'], tool: ['stat stat-lapsed', 'Tool only'], later: ['dim', 'Later']};
+  const SL = {both: ['ok-chip', 'Both'], bl: ['stat stat-held', 'Bet Labs only'], tool: ['stat stat-lapsed', 'Tool only'], def: ['dim', 'Definition differs'], later: ['dim', 'Not rated yet']};
   const pulled = new Date(BP.pulled), age = Math.round((Date.now() - pulled) / 36e5);
-  return `<div class="hdr2"><h2>Bet Labs systems</h2><span class="meta">Your Tested and Tracked screens, pulled ${ET(BP.pulled)} ET (${age} h ago), matched live against the tool's rules</span></div>
+  return `<div class="hdr2"><h2>Bet Labs systems</h2><span class="meta">Your Tested and Tracked screens, pulled ${ET(BP.pulled)} ET (${age} h ago), matched against the tool's rules run of ${built ? ET(SY.built) : '?'} ET</span></div>
     <div class="tf">${seg('sport', Object.fromEntries([['all', 'All sports'], ...sports.map(x => [x, (SPORT_LABEL[x] || x.toUpperCase())])]), f.sport)}
       ${seg('st', Object.fromEntries(Object.entries(ST).map(([k, l]) => [k, k === 'all' ? l : `${l} (${cnt(k)})`])), f.st)}</div>
-    <div class="small dim" style="margin:6px 0 10px">Both: Bet Labs and the tool picked the game. Bet Labs only or Tool only: a gap to check (data source, line, or rule definition). Later: Bet Labs lists games further out than the tool rates.</div>
+    <div class="small dim" style="margin:6px 0 10px">Both: Bet Labs and the tool picked the game. Bet Labs only or Tool only: a gap to check (data source, line, or rule definition). Definition differs: the Bet Labs screen is an approximation of the tool's rule, or the wind source differs by design. Not rated yet: the tool has not run its rules on that game since Bet Labs listed it.</div>
     <table class="tbets"><thead><tr><th>Date</th><th>System</th><th>Pick</th><th>Game</th><th>Status</th></tr></thead><tbody>
     ${V.map(r => `<tr><td class="nowrap">${r.date.slice(5).replace('-', '/')}</td><td><b>${esc(r.rule ? ruleName(r.rule) : r.name)}</b>${r.rule && tier(r.rule) ? ` <span class="tierl">${tier(r.rule)}</span>` : ''}<div class="small dim">${esc(r.name)} · <a target="_blank" href="https://sportsinsights.actionnetwork.com/betlabs/screen?ScreenId=${r.sid}">screen</a></div></td>
       <td>${esc(r.pick)}</td><td>${esc(r.game)}</td><td><span class="${SL[r.status][0]}" style="margin:0">${SL[r.status][1]}</span><div class="small dim">${esc(r.note).slice(0, 160)}</div></td></tr>`).join('') || '<tr><td colspan="5" class="dim">Nothing here.</td></tr>'}
