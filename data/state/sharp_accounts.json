@@ -1,5 +1,5 @@
 {
- "built": "2026-11-14T21:03:54Z",
+ "built": "2026-11-14T21:11:20Z",
  "rows": [
   {
    "cond": "0x06b77fae2b331bbd37f217de381c27ae7c2dbd55ae745f9d4c421fefcbd88ec9",
@@ -360,7 +360,7 @@
    "inside_fair": false,
    "fair_board": 0.4864,
    "books": {
-    "at": "2026-11-14T20:28:22Z",
+    "at": "2026-11-14T20:23:39Z",
     "fair": 0.4924,
     "q": {
      "Novig": 0.49,
@@ -440,9 +440,17 @@
    "side_std": "home",
    "money_with": false,
    "grade": "A",
-   "fair_board": null,
+   "fair_board": 0.5008,
    "inside_fair": null,
-   "books": null
+   "books": {
+    "at": "2026-11-14T20:23:39Z",
+    "fair": 0.5008,
+    "q": {
+     "FD": 0.5,
+     "Novig": 0.51,
+     "Caesars": 0.5327
+    }
+   }
   },
   {
    "cond": "0xb6b8d1bd3f5c9bba3b0b8925c6bd9d4edfa4eb42f4e7a2c6bbd559e823dae1e9",
@@ -507,13 +515,13 @@
    "inside_fair": false,
    "fair_board": 0.4977,
    "books": {
-    "at": "2026-11-14T20:28:22Z",
-    "fair": 0.4958,
+    "at": "2026-11-14T20:23:39Z",
+    "fair": 0.4916,
     "q": {
-     "Novig": 0.5,
+     "Novig": 0.495,
+     "Kalshi": 0.51,
      "Caesars": 0.5192,
-     "DK": 0.5192,
-     "Kalshi": 0.52
+     "DK": 0.5192
     }
    }
   },
@@ -552,16 +560,7 @@
    "grade": "A",
    "inside_fair": false,
    "fair_board": 0.4949,
-   "books": {
-    "at": "2026-11-14T20:28:22Z",
-    "fair": 0.5061,
-    "q": {
-     "Caesars": 0.5074,
-     "Novig": 0.515,
-     "DK": 0.5192,
-     "Kalshi": 0.52
-    }
-   }
+   "books": null
   },
   {
    "cond": "0xe569f88488ba4b313938b751ab4c481ea925cdc1780b24623275e565a60d9deb",
@@ -632,19 +631,20 @@
    "game_start": "2026-11-14T21:00Z",
    "side_std": "away",
    "conflict": [
-    "Kalshi bet back"
+    "Kalshi bet back",
+    "Kalshi move"
    ],
    "money_with": false,
    "grade": "A",
    "inside_fair": false,
    "fair_board": 0.4828,
    "books": {
-    "at": "2026-11-14T20:28:22Z",
+    "at": "2026-11-14T20:23:39Z",
     "fair": null,
     "q": {
      "Novig": 0.47,
-     "FD": 0.5,
-     "Kalshi": 0.5
+     "Kalshi": 0.49,
+     "FD": 0.5
     }
    }
   },
@@ -679,6 +679,9 @@
    "home_name": "Texas State Bobcats",
    "game_start": "2026-11-14T21:00Z",
    "side_std": "under",
+   "conflict": [
+    "big money"
+   ],
    "money_with": false,
    "grade": "A",
    "fair_board": null,
@@ -738,7 +741,7 @@
    "best_rank": 12,
    "usd": 139,
    "paid": 0.48,
-   "ask": 0.52,
+   "ask": 0.5,
    "status": "live",
    "link": "https://polymarket.us/event/cfb-tulane-rice-2026-11-14",
    "other": null,
@@ -753,8 +756,8 @@
    "home_name": "Rice Owls",
    "game_start": "2026-11-14T21:30Z",
    "side_std": "over",
-   "money_with": false,
-   "grade": "B",
+   "money_with": true,
+   "grade": "A",
    "fair_board": null,
    "inside_fair": null,
    "books": null
@@ -775,7 +778,7 @@
    "best_rank": 11,
    "usd": 1632,
    "paid": 0.37,
-   "ask": 0.47,
+   "ask": 0.38,
    "status": "live",
    "link": "https://polymarket.us/event/cfb-kan-wvir-2026-11-14",
    "other": null,
@@ -822,7 +825,7 @@
    "inside_fair": true,
    "fair_board": 0.8523,
    "books": {
-    "at": "2026-11-14T20:28:22Z",
+    "at": "2026-11-14T21:00:30Z",
     "fair": 0.8625,
     "q": {
      "Caesars": 0.871,
@@ -901,11 +904,11 @@
    "side_std": "away",
    "money_with": false,
    "grade": "A",
-   "fair_board": 0.5805,
+   "fair_board": 0.5807,
    "inside_fair": true,
    "books": {
-    "at": "2026-11-14T20:28:22Z",
-    "fair": 0.5805,
+    "at": "2026-11-14T21:00:30Z",
+    "fair": 0.5807,
     "q": {
      "Novig": 0.585,
      "DK": 0.5968,
@@ -1101,8 +1104,8 @@
    "inside_fair": false,
    "fair_board": 0.4885,
    "books": {
-    "at": "2026-11-14T20:28:22Z",
-    "fair": 0.4862,
+    "at": "2026-11-14T21:00:30Z",
+    "fair": 0.4879,
     "q": {
      "Novig": 0.49,
      "Kalshi": 0.51,
@@ -1219,18 +1222,55 @@
    "side_std": "away",
    "money_with": false,
    "grade": "watch",
-   "fair_board": 0.6071,
+   "fair_board": 0.6099,
    "inside_fair": false,
    "books": {
-    "at": "2026-11-14T19:43:05Z",
-    "fair": 0.6071,
+    "at": "2026-11-14T21:00:30Z",
+    "fair": 0.6099,
     "q": {
-     "Novig": 0.605,
+     "Novig": 0.61,
      "Caesars": 0.6296,
      "FD": 0.6324,
      "DK": 0.6337
     }
    }
+  },
+  {
+   "cond": "0xdebe7982500f8d644335dd435fc94748ccaed8a49e27501f00bee6650594cf84",
+   "slug": "cfb-ntx-utsa-2026-11-14",
+   "title": "North Texas vs. UTSA",
+   "mtype": "total",
+   "start": "2026-11-15T02:00:00Z",
+   "bet": "Under 75.5",
+   "side": "Under",
+   "flagged": "2026-11-14T21:08:05Z",
+   "why": "a top-200 account also in this sport's top 50",
+   "proven": true,
+   "trigger": "proven",
+   "n_accounts": 1,
+   "best_rank": 58,
+   "usd": 480,
+   "paid": 0.48,
+   "ask": 0.48,
+   "status": "live",
+   "link": "https://polymarket.us/event/cfb-ntx-utsa-2026-11-14",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401862827",
+   "sport": "cfb",
+   "league": null,
+   "away": "UNT",
+   "home": "UTSA",
+   "away_name": "North Texas Mean Green",
+   "home_name": "UTSA Roadrunners",
+   "game_start": "2026-11-15T02:00Z",
+   "side_std": "under",
+   "money_with": false,
+   "grade": "A",
+   "fair_board": null,
+   "inside_fair": null,
+   "books": null
   },
   {
    "cond": "0x828c4022536030bd4f199445d838a25f96dd32c63ba85540686d4923821cc03a",
@@ -1268,8 +1308,8 @@
    "inside_fair": false,
    "fair_board": 0.5081,
    "books": {
-    "at": "2026-11-14T20:28:22Z",
-    "fair": 0.5017,
+    "at": "2026-11-14T21:00:30Z",
+    "fair": 0.4966,
     "q": {
      "Novig": 0.51,
      "DK": 0.5122,
@@ -1314,8 +1354,8 @@
    "inside_fair": false,
    "fair_board": 0.5103,
    "books": {
-    "at": "2026-11-14T20:28:22Z",
-    "fair": 0.4909,
+    "at": "2026-11-14T21:00:30Z",
+    "fair": 0.4907,
     "q": {
      "Novig": 0.495,
      "Caesars": 0.495,
@@ -1434,10 +1474,10 @@
    "fair_board": null,
    "inside_fair": null,
    "books": {
-    "at": "2026-11-14T19:43:05Z",
+    "at": "2026-11-14T21:00:30Z",
     "fair": null,
     "q": {
-     "Kalshi": 0.38
+     "Kalshi": 0.42
     }
    }
   },
@@ -1532,7 +1572,7 @@
    "best_rank": 12,
    "usd": 230,
    "paid": 0.23,
-   "ask": 0.25,
+   "ask": 0.24,
    "status": "live",
    "link": "https://polymarket.us/event/nfl-sea-lv-2026-11-15",
    "other": null,
@@ -1803,7 +1843,7 @@
    "side_std": "away",
    "money_with": false,
    "grade": "B",
-   "fair_board": 0.4516,
+   "fair_board": 0.4649,
    "inside_fair": true,
    "books": null
   },
@@ -1846,8 +1886,8 @@
    "side_std": "away",
    "money_with": false,
    "grade": "B",
-   "fair_board": 0.5299,
-   "inside_fair": true,
+   "fair_board": null,
+   "inside_fair": null,
    "books": null
   },
   {
@@ -1925,7 +1965,7 @@
     "usd": 201,
     "first": "2026-11-14T20:47:52Z"
    },
-   "exit_bid": 0.4,
+   "exit_bid": 0.39,
    "kalshi_against": null,
    "logged": true,
    "event_id": "401909990",
@@ -1964,8 +2004,8 @@
    "link": "https://polymarket.us/event/nba-orl-bos-2026-11-16",
    "other": null,
    "kalshi_against": {
-    "move": 5.5,
-    "now": 24.0,
+    "move": 5.0,
+    "now": 23.5,
     "state": "held"
    },
    "logged": true,
@@ -2531,6 +2571,13 @@
     "n": 1,
     "best_rank": 132,
     "usd": 403
+   }
+  },
+  "401862827|total": {
+   "under": {
+    "n": 1,
+    "best_rank": 58,
+    "usd": 480
    }
   },
   "401925827|total": {
