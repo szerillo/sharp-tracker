@@ -1,5 +1,5 @@
 {
- "built": "2026-11-14T20:24:50Z",
+ "built": "2026-11-14T20:35:13Z",
  "rows": [
   {
    "cond": "0x8a37958f5b7fcef52411cf0929b2d95296e85bf65f675b2bb00b96fdf70183ee",
@@ -515,7 +515,7 @@
    "best_rank": 115,
    "usd": 2458,
    "paid": 0.49,
-   "ask": 0.5,
+   "ask": null,
    "status": "live",
    "link": "https://polymarket.us/event/cfb-boscol-nd-2026-11-14",
    "other": null,
@@ -564,7 +564,7 @@
    "best_rank": 3,
    "usd": 234,
    "paid": 0.26,
-   "ask": 0.26,
+   "ask": null,
    "status": "live",
    "link": "https://polymarket.us/event/cfb-usc-ind-2026-11-14",
    "other": null,
@@ -601,7 +601,7 @@
    "best_rank": 115,
    "usd": 4372,
    "paid": 0.48,
-   "ask": 0.52,
+   "ask": null,
    "status": "live",
    "link": "https://polymarket.us/event/cfb-mtnst-librty-2026-11-14",
    "other": null,
@@ -641,7 +641,7 @@
    "best_rank": 65,
    "usd": 4490,
    "paid": 0.58,
-   "ask": 0.62,
+   "ask": null,
    "status": "live",
    "link": "https://polymarket.us/event/cfb-wcar-samf-2026-11-14",
    "other": null,
@@ -668,7 +668,7 @@
    "best_rank": 58,
    "usd": 490,
    "paid": 0.51,
-   "ask": 0.49,
+   "ask": null,
    "status": "live",
    "link": "https://polymarket.us/event/cfb-gas-gast-2026-11-14",
    "other": null,
@@ -714,7 +714,7 @@
    "best_rank": 58,
    "usd": 500,
    "paid": 0.5,
-   "ask": 0.54,
+   "ask": null,
    "status": "live",
    "link": "https://polymarket.us/event/cfb-nevada-nill-2026-11-14",
    "other": null,
@@ -760,7 +760,7 @@
    "best_rank": 11,
    "usd": 235,
    "paid": 0.53,
-   "ask": 0.86,
+   "ask": 0.81,
    "status": "live",
    "link": "https://polymarket.us/event/cbb-airf-pacfc-2026-11-14",
    "other": null,
@@ -797,7 +797,7 @@
    "best_rank": 115,
    "usd": 7860,
    "paid": 0.48,
-   "ask": 0.47,
+   "ask": 0.46,
    "status": "live",
    "link": "https://polymarket.us/event/cfb-frest-txst-2026-11-14",
    "other": null,
@@ -1978,6 +1978,7 @@
    "exit_bid": 0.59,
    "kalshi_against": null,
    "logged": false,
+   "ladder": true,
    "event_id": "401909981",
    "sport": "nba",
    "league": null,
@@ -2270,21 +2271,21 @@
     "clv": -1.93
    },
    "outside": {
-    "n": 53,
+    "n": 54,
     "won": 28,
     "units": -0.96,
-    "clv": -0.59
+    "clv": -0.54
    }
   },
-  "n": 236,
+  "n": 238,
   "won": 103,
   "units": -16.31,
   "by_grade": {
    "A": {
-    "n": 153,
+    "n": 155,
     "won": 63,
     "units": -15.11,
-    "clv": -0.62
+    "clv": -0.6
    },
    "B": {
     "n": 55,
@@ -2299,22 +2300,14 @@
     "clv": -0.6
    }
   },
-  "units_1u": -36.21,
-  "clv": -0.67,
-  "n_venue": 117,
+  "units_1u": -38.21,
+  "clv": -0.65,
+  "n_venue": 118,
   "units_venue": -5.82,
-  "clv_venue": 0.65,
-  "clv_poly_same": -1.13
+  "clv_venue": 0.67,
+  "clv_poly_same": -1.09
  },
  "sys_tags": {
-  "401858523:cfb_homefav_7510_under": {
-   "with": {
-    "n": 1,
-    "best_rank": 132,
-    "usd": 107
-   },
-   "against": null
-  },
   "401860916:cfb_homefav_7510_under": {
    "with": {
     "n": 1,
@@ -2328,14 +2321,6 @@
     "n": 1,
     "best_rank": 12,
     "usd": 139
-   },
-   "against": null
-  },
-  "401864536:cfb_day_over": {
-   "with": {
-    "n": 1,
-    "best_rank": 58,
-    "usd": 500
    },
    "against": null
   },
@@ -2704,53 +2689,11 @@
     "usd": 139
    }
   },
-  "401858518|spread": {
-   "away": {
-    "n": 1,
-    "best_rank": 3,
-    "usd": 234
-   }
-  },
-  "401858294|spread": {
-   "home": {
-    "n": 1,
-    "best_rank": 115,
-    "usd": 2458
-   }
-  },
-  "401858523|total": {
-   "under": {
-    "n": 1,
-    "best_rank": 132,
-    "usd": 107
-   }
-  },
   "401862826|total": {
    "under": {
     "n": 1,
     "best_rank": 58,
     "usd": 203
-   }
-  },
-  "401864536|total": {
-   "over": {
-    "n": 1,
-    "best_rank": 58,
-    "usd": 500
-   }
-  },
-  "401869952|total": {
-   "under": {
-    "n": 2,
-    "best_rank": 58,
-    "usd": 9530
-   }
-  },
-  "401871061|spread": {
-   "home": {
-    "n": 1,
-    "best_rank": 115,
-    "usd": 4372
    }
   },
   "401860916|spread": {
