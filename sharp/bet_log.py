@@ -528,6 +528,9 @@ def main():
                                 roi=round(sum((1 / b['price'] - 1) if b['won'] == 1 else -1 if b['won'] == 0 else 0 for b in S_) / len(S_) * 100, 1),
                                 clv_nv=round(sum(c_) / len(c_), 2) if c_ else None, clv_n=len(c_))
     tag_stats = tag_bets(bets)
+    # 11/14 (Sean): what the board holds now: a Kalshi move against a system or lean, or a rule on the other side
+    for b in bets:
+        if b['cat'] in ('system A', 'system B', 'lean C', 'tennis') and ({'Kalshi move against', 'system against'} & set(b.get('tags') or [])): b['held'] = True
     def rest_summ(L):
         L = [b for b in L if b.get('won') in (0, 1) and b.get('rest') is not None and b.get('rest_filled') is not None and b.get('price')]
         def rec(G_, pk):

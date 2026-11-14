@@ -549,7 +549,10 @@ function sysRow({g, f, tag}) {
   // 11/7 (Sean: "we want systems & leans without a signal against it. And sharp action without signals against it"): any market signal
   // against (big money, Kalshi move, bet back, sharp move) holds the bet too, like sharp accounts against already did. Shown, graded, no size.
   const mkAgainst = mk.filter(x => x.endsWith('against')).map(x => x.replace(/ against$/, ''));
-  const held = !!sa || !!f._conf || mkAgainst.length > 0;
+  // 11/14 (Sean): only two things hold a system or lean now: a stronger rule on the other side, and a Kalshi move against (29-67 across
+  // systems and paper). Sharp accounts, bet back, big money, sharp move and sharp flags against are shown and graded, not held.
+  const kAg = mkAgainst.includes('Kalshi move');
+  const held = !!f._conf || kAg;
   const per = /^(1h|1q|1p)_/.test(f.market) ? '1st half' : 'Full game', gone = f.lapsed || f.now === null || held;     // 11/5 (Sean): held bets stay on the board, greyed, with the Held note
   // 11/5 (Sean): a system bet that a graded sharp signal also landed on is annotated here (and the sharp row says "with your system bet")
   const sm = (window._strongMap || {})[`${g.event_id}|${(f.market || '').replace(/^(1h|1q|1p)_/, '')}|${f.side}`];
@@ -560,8 +563,8 @@ function sysRow({g, f, tag}) {
   return sRow({id: `s|${g.event_id}|${tag}|${f.market}`, tier: e.tier, flagged: f.ts, mk: f.market, ev: g.event_id, side: f.side, start: g.start_utc, sportLabel: SPORT_LABEL[g.sport] || g.sport, game: `${esc(g.away_name || g.away)} @ ${esc(g.home_name || g.home)}`,
     bet: esc(betText(f, g)), sub: `${per} · tier ${e.tier || '?'}${(() => { const ag = [...(t && t.against ? [`${t.against.n} sharp acct${t.against.n === 1 ? '' : 's'}`] : []), ...mk.filter(x => x.endsWith('against')).map(x => x.replace(/ against$/, ''))];
       return ag.length ? ` <span class="stat stat-held" style="margin:2px 0 0 6px;white-space:nowrap" title="Signals on the other side of this bet; open the row for detail">Against: ${esc(ag.join(', '))}</span>` : ''; })()}`,
-    status: sa ? ['held', `Held: Polymarket sharps on the other side (${sa.n} account${sa.n === 1 ? '' : 's'})`] : f._conf ? ['held', 'Held: a stronger rule is on the other side']
-      : mkAgainst.length ? ['held', `Held: ${mkAgainst.join(', ')} on the other side`]
+    status: f._conf ? ['held', 'Held: a stronger rule is on the other side']
+      : kAg ? ['held', 'Held: Kalshi moved the other way']
       : f.lapsed ? ['lapsed', 'Trigger no longer met'] : f.now === null ? ['gone', 'Price gone: no bettable price'] : e.tier === 'P' ? ['gone', `Paper: ${e.paper_why || 'thin or untested forward'}`] : null,
     size: held || e.tier === 'P' || f.lapsed ? '' : unitText(['A', 'B'].includes(e.tier) || HALF_U.has(tag) ? SLIP.big : SLIP.small, amProb(f.now ? f.now.price : f.price)),
     price: priceOf(f, g), link: gone || e.tier === 'P' ? '' : betLink((f.now && f.now.venue) || f.venue, g.event_id, f.market),
@@ -573,7 +576,7 @@ function sysRow({g, f, tag}) {
       ['Tracker', `${trk}${x && x.clv_avg != null ? ` · CLV ${x.clv_avg >= 0 ? '+' : ''}${x.clv_avg}% (diagnostic only for a system)` : ''}`],
       ['Polymarket sharps', sp],
       ['Other numbers', (f.ladder || []).length ? (f.ladder || []).map(x => `${esc(betText({...f, line: x.line}, g))}: ${am(x.price)} ${VS(x.venue)}${x.loss != null ? ` <span class="${x.loss <= 0.02 ? 'ok-chip' : 'dim'}">(${x.loss <= 0 ? '+' : '-'}${Math.abs(100 * x.loss).toFixed(1)}% vs the flagged number)</span>` : ''}`).join('<br>') : ''], ['Flagged', f.ts ? `${DAYT(f.ts)} at ${VS(f.venue)} ${am(f.price)}` : `${VS(f.venue)} ${am(f.price)}`],
-      ['Status', sa ? `Held, not a bet: ${sa.n} Polymarket sharp account${sa.n === 1 ? ' is' : 's are'} on the other side of this game (${sa.m === 'total' ? 'the total' : 'the ' + (sa.m === 'ml' ? 'moneyline' : 'spread')}). For now nothing on the board bets against the Polymarket sharps; the fill stays in the ledger and is graded, and the tag is logged so the combination can be tested.` : f._conf ? `Held, not a bet: conflicts with ${esc(f._conf)}, the stronger rule on this game. The board keeps one side per game; the fill stays in the ledger and is graded.` : held ? 'Held, not a bet: Polymarket sharp accounts are on the other side of this game (for a first-half lean, the full-game market). Tier C leans and sharp signals have not been tested together yet, so a conflict is a pass; the fill stays in the ledger and is graded, and the tag is logged so the combination can be tested.' : f.lapsed ? 'The trigger is no longer met on the latest data (for wind: the forecast moved out of the band). Stays in the ledger and is graded either way; not a new bet.' : (f.now === null ? 'No bettable price right now. Still counted at the flagged price.' : '')],
+      ['Status', f._conf ? `Held, not a bet: conflicts with ${esc(f._conf)}, the stronger rule on this game. The board keeps one side per game; the fill stays in the ledger and is graded.` : kAg ? 'Held, not a bet: Kalshi moved the other way. Since 11/14 that is the only market signal that holds a bet (29-67 against it across systems and paper); the fill stays in the ledger and is graded' : f.lapsed ? 'The trigger is no longer met on the latest data (for wind: the forecast moved out of the band). Stays in the ledger and is graded either way; not a new bet.' : (f.now === null ? 'No bettable price right now. Still counted at the flagged price.' : '')],
       ['Links', r.labs ? `<a target="_blank" href="https://sportsinsights.actionnetwork.com/betlabs/screen?ScreenId=${r.labs.id}">Bet Labs screen ↗</a>` : '']])});
 }
 function gameHead(x) {
@@ -937,10 +940,10 @@ function renderToday() {
     const what = r.market === 'totals_h1' ? '1H total' : r.market === 'totals_q1' ? '1Q total' : r.market === 'totals_p3' ? '3rd-period total' : r.market === 'spreads_p1' ? '1st period' : `${esc(r.team_name || '')} team total`;
     // 11/7: same market name as the bet log (team totals tt_home / tt_away, 1h_total ...), and the bet log's opposition tags hold it
     const cmk = ({totals_h1: '1h_total', totals_q1: '1q_total', totals_p3: '3p_total', spreads_p1: '1p_spread'})[r.market] || ('tt_' + (r.team || 'home'));
-    const ctags = (window._BLT || {})[`cv:${r.key}`] || [], cAg = live && ctags.includes('any signal against');
+    const ctags = (window._BLT || {})[`cv:${r.key}`] || [], cAg = live && (ctags.includes('Kalshi move against') || ctags.includes('system against'));   // 11/14: only a Kalshi move or a rule against holds
     const cAgW = ctags.filter(t => t.endsWith('against') && t !== 'any signal against');
-    return sRow({id: `cv|${r.key}`, mk: cmk, tier: r.tier, gone: !live || cAg, why: cAg ? `<span class="tag-against">Against: ${esc(cAgW.map(t => t.replace(/ against$/, '')).join(', '))}</span>` : undefined, flagged: r.flagged || r.ts, ev: r.espn, side: r.side, start: r.start, sportLabel: (r.sport || '').toUpperCase(), game: esc(r.game), bet: r.market.startsWith('spreads') ? `${esc(r.team_name || r.side)} ${r.line > 0 ? '+' : ''}${r.line} ${what}` : `${r.side === 'over' ? 'Over' : 'Under'} ${r.line} ${what}`,
-      sub: `${(CVN[r.rule] || [r.rule])[0]} · ${live ? 'tier ' + r.tier : 'paper'}`, status: !live ? ['gone', 'Paper: no units until it has a forward record'] : cAg ? ['held', `Held: ${cAgW.map(t => t.replace(/ against$/, '')).join(', ')} on the other side`] : null,
+    return sRow({id: `cv|${r.key}`, mk: cmk, tier: r.tier, gone: !live || cAg, why: cAgW.length ? `<span class="tag-against">Against: ${esc(cAgW.map(t => t.replace(/ against$/, '')).join(', '))}</span>` : undefined, flagged: r.flagged || r.ts, ev: r.espn, side: r.side, start: r.start, sportLabel: (r.sport || '').toUpperCase(), game: esc(r.game), bet: r.market.startsWith('spreads') ? `${esc(r.team_name || r.side)} ${r.line > 0 ? '+' : ''}${r.line} ${what}` : `${r.side === 'over' ? 'Over' : 'Under'} ${r.line} ${what}`,
+      sub: `${(CVN[r.rule] || [r.rule])[0]} · ${live ? 'tier ' + r.tier : 'paper'}`, status: !live ? ['gone', 'Paper: no units until it has a forward record'] : cAg ? ['held', ctags.includes('Kalshi move against') ? 'Held: Kalshi moved the other way' : 'Held: a rule is on the other side'] : null,
       size: live && !cAg ? unitText(['A', 'B'].includes(r.tier) ? SLIP.big : SLIP.small, 1 / pr) : '', price: `<b>${toAm(1 / pr)}</b> <span class="small dim">${r.book ? VS(r.book) : 'Pinnacle'}</span>`, link: r.book ? betLink(r.book, r.espn, 'total') : '',
       why: `The full game (total ${r.full_total}, home ${r.full_spread > 0 ? '+' : ''}${r.full_spread}) puts the ${r.side} at ${(100 * r.curve).toFixed(1)}%; Pinnacle's no-vig is ${(100 * r.pin_fair).toFixed(1)}% (${r.gap} points off the curve)`,
       rec: lbl('Backtest', (CVN[r.rule] || ['', ''])[1]) + ' ' + lbl('Tracker', CVr && CVr.n ? `${CVr.won}-${CVr.lost}, ${CVr.units > 0 ? '+' : ''}${CVr.units}u` : 'no graded picks yet') + (CVr && CVr.clv && CVr.clv.n ? ' ' + lbl('Closing line', `beat Pinnacle's close on ${CVr.clv.beat} of ${CVr.clv.n}, average ${CVr.clv.avg > 0 ? '+' : ''}${CVr.clv.avg} pts`) : ''),
@@ -1013,6 +1016,16 @@ function renderToday() {
     const oks = !sd || !OPP[sd] ? [] : ['total', 'tt_home', 'tt_away'].includes(base) ? ['total', 'tt_home', 'tt_away'].map(m => `${ev}|${per}${m}|${OPP[sd]}`) : (['spread', 'ml'].includes(base) ? ['spread', 'ml'].map(m => `${ev}|${per}${m}|${OPP[sd]}`) : [`${ev}|${mk}|${OPP[sd]}`]);
     const oLs = oks.filter(k2 => groups.has(k2) && !done.has(k2) && backed(bucketOf(groups.get(k2))));
     const oL = oLs.length ? oLs.flatMap(k2 => groups.get(k2)) : null;
+    const sysBet = X => X.some(r => kindOf(r) === 'sys' && isBet(r));
+    if (oL && backed(b) && sysBet(L) !== sysBet(oL)) {   // 11/14 (Sean): sharps against a system no longer hold it; the sharp side is held
+      oLs.forEach(k2 => done.add(k2)); const [S_, O_] = sysBet(L) ? [L, oL] : [oL, L];
+      const bS = bucketOf(S_) === 'opposed' ? 'opposed' : (S_.some(r => kindOf(r) === 'sharp' && isBet(r)) ? 'both' : 'sys'), pS = pickPrimary(S_, bS);
+      placed[bS].push(pS.replace('<!--ALSO-->', `${alsoLine(S_.filter(r => r !== pS), 'Also')}${alsoLine(O_, 'Against')}`));
+      const pO = pickPrimary(O_.filter(backer), 'opposed') || O_[0];
+      placed.opposed.push(pO.replace('<!--ALSO-->', `<div class="small"><span class="tag-against">Held: a system bet is on the other side</span></div>${alsoLine(O_.filter(r => r !== pO), 'Also')}`)
+        .replace(/<span class="act act-(bet|watch|pass)"[^>]*>[A-Z]+<\/span>/, '<span class="act act-hold">HOLD</span>').replace(/data-rank="\d"/, 'data-rank="2"')
+        .replace(/data-sized="1"/, 'data-sized="0"').replace(/<td class="c-size">[\s\S]*?<\/td>/, '<td class="c-size"><span class="dim">—</span></td>'));
+      continue; }
     if (oL && backed(b)) {     // both sides of the game have support: one row, labelled conflict
       oLs.forEach(k2 => done.add(k2)); const prim = pickPrimary([...L, ...oL].filter(backer), 'opposed') || pickPrimary(L, b);
       const mine = (L.includes(prim) ? L : oL).filter(r => r !== prim), theirs = L.includes(prim) ? oL : L;
@@ -1455,9 +1468,9 @@ const blCounted = L => L.filter(b => b.counted !== false);
 // (what, sport, dates, rule, bet type, result, signals, search), one record line, a by-rule and a by-sport table, compact bet rows with a
 // details switch. Colour only on units and ROI.
 window._lg = window._lg || 'bets'; window._ls = window._ls || 'all'; window._lsub = window._lsub || 'all'; window._lm = window._lm || 'all';
-window._lr = window._lr || 'all'; window._lsig = window._lsig || 'all'; window._lq = window._lq || ''; window._ldet = window._ldet || false;
+window._lr = window._lr || 'all'; window._lh = window._lh || 'play'; window._lsig = window._lsig || 'all'; window._lq = window._lq || ''; window._ldet = window._ldet || false;
 window.setTF = (k, v) => { window[k] = v; if (k === '_lg' || k === '_ls') window._lsub = 'all'; draw(); };
-window.clearTF = () => { Object.assign(window, {_ls: 'all', _lsub: 'all', _lw: 'all', _lm: 'all', _lr: 'all', _lsig: 'all', _lq: ''}); draw(); };
+window.clearTF = () => { Object.assign(window, {_lh: 'play', _ls: 'all', _lsub: 'all', _lw: 'all', _lm: 'all', _lr: 'all', _lsig: 'all', _lq: ''}); draw(); };
 const tierLetter = b => (/^(system|lean|paper|sharp) ([ABCP])$/.exec(b.cat || '') || [])[2] || (b.cat === 'tennis' ? 'B' : '');
 function renderBetLog() {
   if (!BL) return '<div class="banner">The bet tracker builds with the next tracker run.</div>';
@@ -1480,7 +1493,9 @@ function renderBetLog() {
   const flat1 = b => { const p = b.price, u = b.counted === false || b.won == null || !(p > 0 && p < 1) ? null : b.won === 0.5 ? 0 : p > 0.5 ? (b.won ? 1 : -p / (1 - p)) : (b.won ? (1 - p) / p : -1);
     return Object.assign({}, b, {size: 1, units: u, stake: b.size}); };
   const inG = BL.rows.filter(GRP[_lg][1]).map(b => _lg === 'bets' ? flat1(b) : b);
-  const base = inG.filter(b => BLW[_lw][1](b) && mOk(b) && sOk(b) && qOk(b));       // everything but sport, rule and result: the tables below split this
+  const HO = {play: 'Bet per the board', held: 'Held', all: 'Bet and held'};
+  const hOk = b => _lg !== 'bets' || _lh === 'all' || (_lh === 'held') === !!b.held;
+  const base = inG.filter(b => BLW[_lw][1](b) && mOk(b) && sOk(b) && qOk(b) && hOk(b));       // everything but sport, rule and result: the tables below split this
   const inSport = base.filter(b => _ls === 'all' || b.sport === _ls);
   const rows = inSport.filter(b => (_lsub === 'all' || ruleKey(b) === _lsub) && rOk(b)).sort((a, b) => a.start < b.start ? 1 : -1);
   const cnt = L => _lg === 'paper' ? L : blCounted(L);
@@ -1493,6 +1508,7 @@ function renderBetLog() {
   const dirty = _ls !== 'all' || _lsub !== 'all' || _lw !== 'all' || _lm !== 'all' || _lr !== 'all' || _lsig !== 'all' || q;
   const bar = `<div class="tf">
       ${seg('_lg', Object.fromEntries(Object.entries(GRP).map(([k, [l]]) => [k, l])), _lg)}
+      ${_lg === 'bets' ? seg('_lh', HO, _lh) : ''}
       ${sel('_ls', [['all', 'All sports'], ...sports.map(x => [x, (SPORT_LABEL[x] || x).toString()])], _ls)}
       ${sel('_lw', Object.entries(BLW).map(([k, [l]]) => [k, l]), _lw)}
       ${sel('_lsub', [['all', _lg === 'sharp' ? 'All grades' : 'All rules'], ...rules.map(k => [k, ruleLbl(k)])], _lsub)}
@@ -1505,7 +1521,7 @@ function renderBetLog() {
   // ---- record line
   const S = blSumm(cnt(rows)), roi = blRoi(S);
   const money = (x, t) => x == null ? '—' : `<span class="${x > 0.004 ? 'pos' : x < -0.004 ? 'neg' : ''}">${t}</span>`;
-  const what = [_ls === 'all' ? 'All sports' : (SPORT_LABEL[_ls] || _ls), GRP[_lg][0], _lsub !== 'all' ? ruleLbl(_lsub) : '', _lw !== 'all' ? BLW[_lw][0] : '', _lr !== 'all' ? RES[_lr] : ''].filter(Boolean).join(', ');
+  const what = [_ls === 'all' ? 'All sports' : (SPORT_LABEL[_ls] || _ls), GRP[_lg][0], _lg === 'bets' && _lh !== 'play' ? HO[_lh] : '', _lsub !== 'all' ? ruleLbl(_lsub) : '', _lw !== 'all' ? BLW[_lw][0] : '', _lr !== 'all' ? RES[_lr] : ''].filter(Boolean).join(', ');
   const units = _lg === 'bets';
   const flatU = L => L.filter(b => b.won === 1 || b.won === 0).reduce((a, b) => a + (b.won === 1 ? 1 / b.price - 1 : -1), 0);
   const flatR = L => { const n = L.filter(b => b.won === 1 || b.won === 0).length; return n ? 100 * flatU(L) / n : null; };
