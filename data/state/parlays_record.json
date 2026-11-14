@@ -1,60 +1,60 @@
 {
-"updated": "2026-11-14T22:58:16Z",
-"logged": 8668,
-"settled": 8824,
+"updated": "2026-11-14T23:13:38Z",
+"logged": 8690,
+"settled": 8833,
 "rows": {
 "2 legs": {
-"n": 3555,
-"stake": 381679,
-"maker_pnl": 27306,
+"n": 3561,
+"stake": 381909,
+"maker_pnl": 27457,
 "pct_of_stakes": 7.2,
 "expected_from_legs": 5.3,
 "hit": 34.0,
 "days": 5
 },
 "3 legs": {
-"n": 3208,
-"stake": 249816,
-"maker_pnl": 4923,
+"n": 3211,
+"stake": 249892,
+"maker_pnl": 4938,
 "pct_of_stakes": 2.0,
 "expected_from_legs": 6.9,
 "hit": 25.6,
 "days": 5
 },
 "all": {
-"n": 6763,
-"stake": 631495,
-"maker_pnl": 32229,
+"n": 6772,
+"stake": 631802,
+"maker_pnl": 32396,
 "pct_of_stakes": 5.1,
 "expected_from_legs": 5.9,
 "hit": 30.0,
 "days": 5
 },
 "different games": {
-"n": 4450,
-"stake": 455053,
-"maker_pnl": 10460,
+"n": 4455,
+"stake": 455239,
+"maker_pnl": 10608,
 "pct_of_stakes": 2.3,
 "expected_from_legs": 3.5,
 "hit": 29.9,
 "days": 5
 },
 "different games | 0-3% over": {
-"n": 1824,
-"stake": 200029,
-"maker_pnl": 1269,
-"pct_of_stakes": 0.6,
+"n": 1828,
+"stake": 200206,
+"maker_pnl": 1445,
+"pct_of_stakes": 0.7,
 "expected_from_legs": 1.9,
-"hit": 35.2,
+"hit": 35.1,
 "days": 5
 },
 "different games | 3-8% over": {
-"n": 1422,
-"stake": 165882,
-"maker_pnl": -18353,
+"n": 1423,
+"stake": 165891,
+"maker_pnl": -18382,
 "pct_of_stakes": -11.1,
 "expected_from_legs": 4.2,
-"hit": 26.2,
+"hit": 26.3,
 "days": 5
 },
 "different games | 8%+ over": {
@@ -76,12 +76,12 @@
 "days": 5
 },
 "same game": {
-"n": 2313,
-"stake": 176442,
-"maker_pnl": 21769,
+"n": 2317,
+"stake": 176563,
+"maker_pnl": 21788,
 "pct_of_stakes": 12.3,
 "expected_from_legs": 12.2,
-"hit": 30.2,
+"hit": 30.3,
 "days": 5
 },
 "same game | 0-3% over": {
@@ -103,12 +103,12 @@
 "days": 5
 },
 "same game | 8%+ over": {
-"n": 1076,
-"stake": 85814,
-"maker_pnl": 10818,
+"n": 1080,
+"stake": 85936,
+"maker_pnl": 10837,
 "pct_of_stakes": 12.6,
-"expected_from_legs": 27.8,
-"hit": 28.0,
+"expected_from_legs": 27.9,
+"hit": 28.1,
 "days": 5
 },
 "same game | under legs": {

@@ -1,11 +1,11 @@
 {
- "built": "2026-11-14T22:54:47Z",
+ "built": "2026-11-14T23:10:05Z",
  "record": {
-  "n": 119,
-  "won": 43,
+  "n": 120,
+  "won": 44,
   "lost": 76,
-  "units": -6.46,
-  "roi": -21.7
+  "units": -6.06,
+  "roi": -20.2
  },
  "record_sb4": {
   "n": 1,
@@ -136,26 +136,6 @@
    "team": null
   },
   {
-   "key": "401911016|ml|away",
-   "sport": "cbb",
-   "event_id": "401911016",
-   "game": "CMU @ NKU",
-   "start": "2026-11-14T20:30Z",
-   "market": "ml",
-   "side": "away",
-   "line": null,
-   "venue": "Novig",
-   "price": 0.385,
-   "fair": 0.4046,
-   "fair_power": 0.3991,
-   "venue_fair": 0.3831,
-   "fair_gap": 2.2,
-   "ev": 5.1,
-   "move": 2.0,
-   "flagged": "2026-11-14T17:15:24Z",
-   "team": "CMU"
-  },
-  {
    "key": "401925108|ml|away",
    "sport": "cbb",
    "event_id": "401925108",
@@ -274,6 +254,27 @@
    "move": 1.9,
    "flagged": "2026-11-14T20:12:57Z",
    "team": "CGY"
+  },
+  {
+   "key": "sb4|401909981|ml|away",
+   "kind": "sb4",
+   "sport": "nba",
+   "event_id": "401909981",
+   "game": "DAL @ CLE",
+   "start": "2026-11-15T00:30Z",
+   "market": "ml",
+   "side": "away",
+   "line": null,
+   "venue": "FD",
+   "price": 0.6774,
+   "fair": 0.7579,
+   "fair_power": 0.7749,
+   "venue_fair": 0.6515,
+   "fair_gap": 10.6,
+   "ev": 11.9,
+   "move": 9.1,
+   "flagged": "2026-11-14T23:10:05Z",
+   "team": "DAL"
   }
  ]
 }
