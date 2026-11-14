@@ -1,5 +1,5 @@
 {
- "built": "2026-11-14T02:26:51Z",
+ "built": "2026-11-14T02:34:14Z",
  "rows": [
   {
    "cond": "0xc31a3f047367e05c7c92b9553b7cf00252bb86b3291cf3dda9e6868644a0de6b",
@@ -341,13 +341,13 @@
    "bet": "Cornell Big Red ML",
    "side": "Cornell Big Red",
    "flagged": "2026-11-13T23:36:00Z",
-   "why": "a top-50 account",
+   "why": "2 top-200 accounts",
    "proven": false,
-   "trigger": "top50",
-   "n_accounts": 1,
+   "trigger": "two",
+   "n_accounts": 2,
    "best_rank": 4,
-   "usd": 114,
-   "paid": 0.68,
+   "usd": 561,
+   "paid": 0.553,
    "ask": 0.52,
    "status": "live",
    "link": "https://polymarket.us/event/cbb-ncg-cornel-2026-11-14",
@@ -392,7 +392,7 @@
    "best_rank": 4,
    "usd": 294,
    "paid": 0.881,
-   "ask": 0.918,
+   "ask": 0.924,
    "status": "live",
    "link": "https://polymarket.us/event/cfb-tenn-txam-2026-11-14",
    "other": null,
@@ -429,7 +429,7 @@
    "best_rank": 11,
    "usd": 235,
    "paid": 0.53,
-   "ask": 0.86,
+   "ask": 0.83,
    "status": "live",
    "link": "https://polymarket.us/event/cbb-airf-pacfc-2026-11-14",
    "other": null,
@@ -466,7 +466,7 @@
    "best_rank": 4,
    "usd": 208,
    "paid": 0.83,
-   "ask": 0.85,
+   "ask": 0.86,
    "status": "live",
    "link": "https://polymarket.us/event/cfb-oregst-boise-2026-11-14",
    "other": null,
@@ -1104,7 +1104,7 @@
    "best_rank": 40,
    "usd": 755,
    "paid": 0.165,
-   "ask": 0.16,
+   "ask": null,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-gsw-sas-2026-11-13",
    "other": {
@@ -1113,7 +1113,7 @@
     "usd": 750,
     "first": "2026-11-14T01:47:50Z"
    },
-   "exit_bid": 0.15,
+   "exit_bid": null,
    "kalshi_against": {
     "move": 15.0,
     "now": 84.5,
@@ -1135,7 +1135,7 @@
    "money_with": false,
    "grade": "watch",
    "fair_board": 0.152,
-   "inside_fair": false,
+   "inside_fair": null,
    "books": null
   },
   {
@@ -1147,14 +1147,14 @@
    "bet": "Clippers ML",
    "side": "Clippers",
    "flagged": "2026-11-12T19:06:25Z",
-   "why": "a top-50 account",
+   "why": "2 top-200 accounts",
    "proven": false,
-   "trigger": "top50",
-   "n_accounts": 1,
+   "trigger": "two",
+   "n_accounts": 2,
    "best_rank": 43,
-   "usd": 1912,
-   "paid": 0.21,
-   "ask": 0.3,
+   "usd": 2612,
+   "paid": 0.234,
+   "ask": 0.31,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-okc-lac-2026-11-13",
    "other": {
@@ -1163,7 +1163,7 @@
     "usd": 2458,
     "first": "2026-11-13T11:13:22Z"
    },
-   "exit_bid": 0.29,
+   "exit_bid": 0.3,
    "kalshi_against": null,
    "logged": true,
    "event_id": "401909304",
@@ -1179,7 +1179,7 @@
     "Kalshi bet back"
    ],
    "money_with": false,
-   "grade": "watch",
+   "grade": "B",
    "fair_board": 0.2866,
    "inside_fair": false,
    "books": null
@@ -1363,9 +1363,9 @@
     "usd": 315
    },
    "against": {
-    "n": 1,
+    "n": 2,
     "best_rank": 43,
-    "usd": 1912
+    "usd": 2612
    }
   }
  },
@@ -1440,35 +1440,28 @@
     "usd": 155
    }
   },
-  "401909302|ml": {
-   "away": {
-    "n": 1,
-    "best_rank": 40,
-    "usd": 755
-   },
-   "home": {
-    "n": 1,
-    "best_rank": 42,
-    "usd": 750
-   }
-  },
-  "401909302|total": {
-   "under": {
-    "n": 2,
-    "best_rank": 58,
-    "usd": 628
-   }
-  },
   "401909304|ml": {
    "home": {
-    "n": 1,
+    "n": 2,
     "best_rank": 43,
-    "usd": 1912
+    "usd": 2612
    },
    "away": {
     "n": 1,
     "best_rank": 43,
     "usd": 315
+   }
+  },
+  "401909304|spread": {
+   "home": {
+    "n": 1,
+    "best_rank": 112,
+    "usd": 3206
+   },
+   "away": {
+    "n": 1,
+    "best_rank": 112,
+    "usd": 3206
    }
   },
   "401909981|ml": {
@@ -1583,9 +1576,9 @@
   },
   "401924720|ml": {
    "home": {
-    "n": 1,
+    "n": 2,
     "best_rank": 4,
-    "usd": 114
+    "usd": 561
    }
   },
   "401917529|ml": {
