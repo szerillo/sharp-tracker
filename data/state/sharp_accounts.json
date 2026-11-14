@@ -1,5 +1,5 @@
 {
- "built": "2026-11-14T21:03:54Z",
+ "built": "2026-11-14T21:18:19Z",
  "rows": [
   {
    "cond": "0x06b77fae2b331bbd37f217de381c27ae7c2dbd55ae745f9d4c421fefcbd88ec9",
@@ -630,10 +630,6 @@
    "home_name": "Texas State Bobcats",
    "game_start": "2026-11-14T21:00Z",
    "side_std": "away",
-   "conflict": [
-    "Kalshi bet back",
-    "Kalshi move"
-   ],
    "money_with": false,
    "grade": "A",
    "inside_fair": false,
@@ -778,7 +774,7 @@
    "best_rank": 11,
    "usd": 1632,
    "paid": 0.37,
-   "ask": 0.47,
+   "ask": 0.31,
    "status": "live",
    "link": "https://polymarket.us/event/cfb-kan-wvir-2026-11-14",
    "other": null,
@@ -970,7 +966,7 @@
    "best_rank": 4,
    "usd": 2631,
    "paid": 0.49,
-   "ask": 0.52,
+   "ask": 0.53,
    "status": "live",
    "link": "https://polymarket.us/event/cbb-uwg-chsou-2026-11-14",
    "other": null,
@@ -1917,8 +1913,8 @@
    },
    "exit_bid": 0.74,
    "kalshi_against": {
-    "move": 4.5,
-    "now": 24.5,
+    "move": 5.5,
+    "now": 25.5,
     "state": "held"
    },
    "logged": true,
@@ -2130,15 +2126,15 @@
     "clv": -0.54
    }
   },
-  "n": 241,
-  "won": 105,
+  "n": 243,
+  "won": 106,
   "units": -16.31,
   "by_grade": {
    "A": {
-    "n": 158,
-    "won": 65,
+    "n": 160,
+    "won": 66,
     "units": -15.11,
-    "clv": -0.57
+    "clv": -0.56
    },
    "B": {
     "n": 55,
@@ -2153,7 +2149,7 @@
     "clv": -0.6
    }
   },
-  "units_1u": -37.43,
+  "units_1u": -37.47,
   "clv": -0.63,
   "n_venue": 119,
   "units_venue": -5.82,
@@ -2571,6 +2567,13 @@
     "n": 1,
     "best_rank": 132,
     "usd": 403
+   }
+  },
+  "401862827|total": {
+   "under": {
+    "n": 1,
+    "best_rank": 58,
+    "usd": 480
    }
   },
   "401925827|total": {
