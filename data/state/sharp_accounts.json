@@ -1,5 +1,5 @@
 {
- "built": "2026-11-14T20:17:35Z",
+ "built": "2026-11-14T20:24:50Z",
  "rows": [
   {
    "cond": "0x8a37958f5b7fcef52411cf0929b2d95296e85bf65f675b2bb00b96fdf70183ee",
@@ -493,9 +493,6 @@
    "home_name": "Texas A&M Aggies",
    "game_start": "2026-11-14T20:00Z",
    "side_std": "away",
-   "conflict": [
-    "big money"
-   ],
    "money_with": false,
    "grade": "B",
    "fair_board": null,
@@ -604,7 +601,7 @@
    "best_rank": 115,
    "usd": 4372,
    "paid": 0.48,
-   "ask": 0.51,
+   "ask": 0.52,
    "status": "live",
    "link": "https://polymarket.us/event/cfb-mtnst-librty-2026-11-14",
    "other": null,
@@ -717,7 +714,7 @@
    "best_rank": 58,
    "usd": 500,
    "paid": 0.5,
-   "ask": 0.52,
+   "ask": 0.54,
    "status": "live",
    "link": "https://polymarket.us/event/cfb-nevada-nill-2026-11-14",
    "other": null,
@@ -732,7 +729,7 @@
    "home_name": "Northern Illinois Huskies",
    "game_start": "2026-11-14T20:30Z",
    "side_std": "over",
-   "money_with": false,
+   "money_with": true,
    "grade": "A",
    "inside_fair": false,
    "fair_board": 0.4949,
@@ -922,7 +919,7 @@
    "best_rank": 12,
    "usd": 139,
    "paid": 0.48,
-   "ask": 0.5,
+   "ask": 0.52,
    "status": "live",
    "link": "https://polymarket.us/event/cfb-tulane-rice-2026-11-14",
    "other": null,
@@ -1926,7 +1923,7 @@
    "best_rank": 69,
    "usd": 113,
    "paid": 0.52,
-   "ask": 0.56,
+   "ask": 0.57,
    "status": "other side",
    "link": "https://polymarket.us/event/nhl-col-mon-2026-11-14",
    "other": {
@@ -1935,7 +1932,7 @@
     "usd": 431,
     "first": "2026-11-14T02:47:02Z"
    },
-   "exit_bid": 0.55,
+   "exit_bid": 0.56,
    "kalshi_against": null,
    "logged": true,
    "event_id": "401892711",
@@ -2109,8 +2106,8 @@
    },
    "exit_bid": 0.74,
    "kalshi_against": {
-    "move": 4.0,
-    "now": 24.0,
+    "move": 4.5,
+    "now": 24.5,
     "state": "fresh"
    },
    "logged": true,
@@ -2279,13 +2276,13 @@
     "clv": -0.59
    }
   },
-  "n": 235,
-  "won": 102,
+  "n": 236,
+  "won": 103,
   "units": -16.31,
   "by_grade": {
    "A": {
-    "n": 152,
-    "won": 62,
+    "n": 153,
+    "won": 63,
     "units": -15.11,
     "clv": -0.62
    },
@@ -2302,7 +2299,7 @@
     "clv": -0.6
    }
   },
-  "units_1u": -36.99,
+  "units_1u": -36.21,
   "clv": -0.67,
   "n_venue": 117,
   "units_venue": -5.82,
