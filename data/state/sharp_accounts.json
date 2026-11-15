@@ -1,5 +1,5 @@
 {
- "built": "2026-11-15T21:14:31Z",
+ "built": "2026-11-15T21:21:56Z",
  "rows": [
   {
    "cond": "0x0c637d60a9447423c980eaf62fd805a2a0a8cc27823c4b7ec2582525a754163b",
@@ -557,11 +557,11 @@
    "side_std": "home",
    "money_with": true,
    "grade": "A",
-   "fair_board": 0.5221,
+   "fair_board": 0.514,
    "inside_fair": false,
    "books": {
-    "at": "2026-11-15T20:49:24Z",
-    "fair": 0.5221,
+    "at": "2026-11-15T21:08:39Z",
+    "fair": 0.514,
     "q": {
      "DK": 0.5283,
      "Novig": 0.53,
@@ -579,13 +579,13 @@
    "bet": "Over 56.5",
    "side": "Over",
    "flagged": "2026-11-12T00:45:24Z",
-   "why": "a top-50 account",
+   "why": "2 top-200 accounts",
    "proven": false,
-   "trigger": "top50",
-   "n_accounts": 1,
+   "trigger": "two",
+   "n_accounts": 2,
    "best_rank": 12,
-   "usd": 155,
-   "paid": 0.47,
+   "usd": 339,
+   "paid": 0.475,
    "ask": 0.48,
    "status": "live",
    "link": "https://polymarket.us/event/nfl-sf-dal-2026-11-15",
@@ -606,6 +606,82 @@
    ],
    "money_with": false,
    "grade": "B",
+   "fair_board": null,
+   "inside_fair": null,
+   "books": null
+  },
+  {
+   "cond": "0xe8b4d1f979113b49eb42d93e62161ec4530734ffb093459ba6c70110bbb2966d",
+   "slug": "nfl-sf-dal-2026-11-15",
+   "title": "49ers vs. Cowboys",
+   "mtype": "spread",
+   "start": "2026-11-15T21:25:00Z",
+   "bet": "Cowboys +14.5",
+   "side": "Cowboys",
+   "flagged": "2026-11-15T21:16:52Z",
+   "why": "a top-50 account",
+   "proven": false,
+   "trigger": "top50",
+   "n_accounts": 1,
+   "best_rank": 12,
+   "usd": 102,
+   "paid": 0.8,
+   "ask": 0.81,
+   "status": "live",
+   "link": "https://polymarket.us/event/nfl-sf-dal-2026-11-15",
+   "other": null,
+   "kalshi_against": null,
+   "logged": false,
+   "ladder": true,
+   "event_id": "401873063",
+   "sport": "nfl",
+   "league": null,
+   "away": "SF",
+   "home": "DAL",
+   "away_name": "San Francisco 49ers",
+   "home_name": "Dallas Cowboys",
+   "game_start": "2026-11-15T21:25Z",
+   "side_std": "home",
+   "money_with": true,
+   "grade": "A",
+   "fair_board": null,
+   "inside_fair": null,
+   "books": null
+  },
+  {
+   "cond": "0x6210ec49e876c8c1ca9ffbf8227e34870177fb2573cbd30addee44255be4e6ea",
+   "slug": "nfl-sf-dal-2026-11-15",
+   "title": "49ers vs. Cowboys",
+   "mtype": "spread",
+   "start": "2026-11-15T21:25:00Z",
+   "bet": "Cowboys -3.5",
+   "side": "Cowboys",
+   "flagged": "2026-11-15T21:19:44Z",
+   "why": "a top-200 account also in this sport's top 50",
+   "proven": true,
+   "trigger": "proven",
+   "n_accounts": 1,
+   "best_rank": 143,
+   "usd": 4980,
+   "paid": 0.24,
+   "ask": 0.25,
+   "status": "live",
+   "link": "https://polymarket.us/event/nfl-sf-dal-2026-11-15",
+   "other": null,
+   "kalshi_against": null,
+   "logged": false,
+   "ladder": true,
+   "event_id": "401873063",
+   "sport": "nfl",
+   "league": null,
+   "away": "SF",
+   "home": "DAL",
+   "away_name": "San Francisco 49ers",
+   "home_name": "Dallas Cowboys",
+   "game_start": "2026-11-15T21:25Z",
+   "side_std": "home",
+   "money_with": true,
+   "grade": "A",
    "fair_board": null,
    "inside_fair": null,
    "books": null
@@ -646,7 +722,7 @@
    "inside_fair": false,
    "fair_board": 0.4786,
    "books": {
-    "at": "2026-11-15T20:49:24Z",
+    "at": "2026-11-15T21:08:39Z",
     "fair": 0.4975,
     "q": {
      "Novig": 0.5,
@@ -657,6 +733,86 @@
    }
   },
   {
+   "cond": "0x89bf7e74a1a559240e7a60604cd58864c0b55e2f8c925382309148abfae055c4",
+   "slug": "cbb-pepp-ore-2026-11-15",
+   "title": "Pepperdine Waves vs. Oregon Ducks",
+   "mtype": "spread",
+   "start": "2026-11-15T22:00:00Z",
+   "bet": "Oregon Ducks -16.5",
+   "side": "Oregon Ducks",
+   "flagged": "2026-11-15T21:20:11Z",
+   "why": "a top-50 account",
+   "proven": false,
+   "trigger": "top50",
+   "n_accounts": 1,
+   "best_rank": 4,
+   "usd": 197,
+   "paid": 0.48,
+   "ask": 0.5,
+   "status": "live",
+   "link": "https://polymarket.us/event/cbb-pepp-ore-2026-11-15",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401926073",
+   "sport": "cbb",
+   "league": null,
+   "away": "PEPP",
+   "home": "ORE",
+   "away_name": "Pepperdine Waves",
+   "home_name": "Oregon Ducks",
+   "game_start": "2026-11-15T22:00Z",
+   "side_std": "home",
+   "conflict": [
+    "Kalshi move"
+   ],
+   "money_with": false,
+   "grade": "B",
+   "fair_board": null,
+   "inside_fair": null,
+   "books": null
+  },
+  {
+   "cond": "0x51e7cd917fffae7e290f691042eaba4110f0c394cb3c560a628295a1cc4de85a",
+   "slug": "cbb-pepp-ore-2026-11-15",
+   "title": "Pepperdine Waves vs. Oregon Ducks",
+   "mtype": "total",
+   "start": "2026-11-15T22:00:00Z",
+   "bet": "Over 156.5",
+   "side": "Over",
+   "flagged": "2026-11-15T21:20:41Z",
+   "why": "a top-50 account",
+   "proven": false,
+   "trigger": "top50",
+   "n_accounts": 1,
+   "best_rank": 4,
+   "usd": 227,
+   "paid": 0.48,
+   "ask": 0.5,
+   "status": "live",
+   "link": "https://polymarket.us/event/cbb-pepp-ore-2026-11-15",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401926073",
+   "sport": "cbb",
+   "league": null,
+   "away": "PEPP",
+   "home": "ORE",
+   "away_name": "Pepperdine Waves",
+   "home_name": "Oregon Ducks",
+   "game_start": "2026-11-15T22:00Z",
+   "side_std": "over",
+   "conflict": [
+    "Kalshi move"
+   ],
+   "money_with": false,
+   "grade": "B",
+   "fair_board": null,
+   "inside_fair": null,
+   "books": null
+  },
+  {
    "cond": "0xee19747f7bbef1a4fc1322dc7d4c674ba14276baeeaec41b51612bd96be908f2",
    "slug": "nba-dal-bos-2026-11-15",
    "title": "Mavericks vs. Celtics",
@@ -665,14 +821,14 @@
    "bet": "Celtics -13.5",
    "side": "Celtics",
    "flagged": "2026-11-15T18:00:07Z",
-   "why": "a top-50 account",
+   "why": "2 top-200 accounts",
    "proven": false,
-   "trigger": "top50",
-   "n_accounts": 1,
+   "trigger": "two",
+   "n_accounts": 2,
    "best_rank": 40,
-   "usd": 4245,
-   "paid": 0.5,
-   "ask": 0.53,
+   "usd": 4821,
+   "paid": 0.505,
+   "ask": 0.57,
    "status": "live",
    "link": "https://polymarket.us/event/nba-dal-bos-2026-11-15",
    "other": null,
@@ -691,15 +847,62 @@
     "big money"
    ],
    "money_with": false,
-   "grade": "watch",
+   "grade": "B",
    "inside_fair": false,
-   "fair_board": 0.4922,
+   "fair_board": null,
    "books": {
-    "at": "2026-11-15T20:49:24Z",
+    "at": "2026-11-15T21:08:39Z",
     "fair": null,
     "q": {
      "Novig": 0.535,
      "Kalshi": 0.55
+    }
+   }
+  },
+  {
+   "cond": "0x7a0d6ff012e4ed0249e525b5480fbf9c3590ee56d516ac961ddf85a4d57002b1",
+   "slug": "nba-nyk-tor-2026-11-15",
+   "title": "Knicks vs. Raptors",
+   "mtype": "spread",
+   "start": "2026-11-15T23:00:00Z",
+   "bet": "Raptors +4.5",
+   "side": "Raptors",
+   "flagged": "2026-11-15T21:20:58Z",
+   "why": "2 top-200 accounts",
+   "proven": false,
+   "trigger": "two",
+   "n_accounts": 2,
+   "best_rank": 112,
+   "usd": 6917,
+   "paid": 0.47,
+   "ask": 0.51,
+   "status": "live",
+   "link": "https://polymarket.us/event/nba-nyk-tor-2026-11-15",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401909990",
+   "sport": "nba",
+   "league": null,
+   "away": "NY",
+   "home": "TOR",
+   "away_name": "New York Knicks",
+   "home_name": "Toronto Raptors",
+   "game_start": "2026-11-15T23:00Z",
+   "side_std": "home",
+   "conflict": [
+    "Kalshi move"
+   ],
+   "money_with": false,
+   "grade": "B",
+   "fair_board": null,
+   "inside_fair": null,
+   "books": {
+    "at": "2026-11-15T21:08:39Z",
+    "fair": null,
+    "q": {
+     "Novig": 0.46,
+     "Kalshi": 0.48
     }
    }
   },
@@ -739,7 +942,7 @@
    "inside_fair": false,
    "fair_board": 0.5068,
    "books": {
-    "at": "2026-11-15T20:49:24Z",
+    "at": "2026-11-15T21:08:39Z",
     "fair": null,
     "q": {
      "Novig": 0.565,
@@ -786,8 +989,8 @@
    "inside_fair": false,
    "fair_board": 0.6347,
    "books": {
-    "at": "2026-11-15T20:49:24Z",
-    "fair": 0.6388,
+    "at": "2026-11-15T21:08:39Z",
+    "fair": 0.6409,
     "q": {
      "Novig": 0.64,
      "Caesars": 0.6552,
@@ -832,7 +1035,7 @@
    "fair_board": null,
    "inside_fair": null,
    "books": {
-    "at": "2026-11-15T20:49:24Z",
+    "at": "2026-11-15T21:08:39Z",
     "fair": null,
     "q": {
      "Kalshi": 0.7
@@ -875,7 +1078,7 @@
    "fair_board": null,
    "inside_fair": null,
    "books": {
-    "at": "2026-11-15T20:49:24Z",
+    "at": "2026-11-15T21:08:39Z",
     "fair": null,
     "q": {
      "Kalshi": 0.5
@@ -1030,7 +1233,7 @@
    "best_rank": 4,
    "usd": 402,
    "paid": 0.888,
-   "ask": 0.547,
+   "ask": 0.544,
    "status": "live",
    "link": "https://polymarket.us/event/cbb-pepp-ore-2026-11-15",
    "other": null,
@@ -1057,7 +1260,7 @@
    "fair_board": null,
    "inside_fair": null,
    "books": {
-    "at": "2026-11-15T20:49:24Z",
+    "at": "2026-11-15T21:08:39Z",
     "fair": null,
     "q": {
      "Novig": 0.87,
@@ -1074,14 +1277,14 @@
    "bet": "Raptors ML",
    "side": "Raptors",
    "flagged": "2026-11-13T11:25:58Z",
-   "why": "a top-50 account",
+   "why": "3 top-200 accounts",
    "proven": false,
-   "trigger": "top50",
-   "n_accounts": 1,
-   "best_rank": 43,
-   "usd": 170,
-   "paid": 0.34,
-   "ask": 0.34,
+   "trigger": "two",
+   "n_accounts": 3,
+   "best_rank": 42,
+   "usd": 7757,
+   "paid": 0.36,
+   "ask": 0.38,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-nyk-tor-2026-11-15",
    "other": {
@@ -1090,7 +1293,7 @@
     "usd": 201,
     "first": "2026-11-14T20:47:52Z"
    },
-   "exit_bid": 0.33,
+   "exit_bid": 0.37,
    "kalshi_against": null,
    "logged": true,
    "event_id": "401909990",
@@ -1103,7 +1306,7 @@
    "game_start": "2026-11-15T23:00Z",
    "side_std": "home",
    "money_with": true,
-   "grade": "watch",
+   "grade": "A",
    "fair_board": 0.3424,
    "inside_fair": true,
    "books": null
@@ -1124,7 +1327,7 @@
    "best_rank": 40,
    "usd": 941,
    "paid": 0.86,
-   "ask": 0.88,
+   "ask": 0.89,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-dal-bos-2026-11-15",
    "other": {
@@ -1133,7 +1336,7 @@
     "usd": 855,
     "first": "2026-11-15T18:01:07Z"
    },
-   "exit_bid": 0.87,
+   "exit_bid": 0.88,
    "kalshi_against": null,
    "logged": true,
    "event_id": "401909989",
@@ -1194,7 +1397,7 @@
    "fair_board": null,
    "inside_fair": null,
    "books": {
-    "at": "2026-11-15T20:49:24Z",
+    "at": "2026-11-15T21:08:39Z",
     "fair": null,
     "q": {
      "Kalshi": 0.76
@@ -1244,7 +1447,7 @@
    "fair_board": null,
    "inside_fair": null,
    "books": {
-    "at": "2026-11-15T20:49:24Z",
+    "at": "2026-11-15T21:08:39Z",
     "fair": null,
     "q": {
      "Kalshi": 0.79
@@ -1304,27 +1507,27 @@
     "clv": -1.17
    },
    "outside": {
-    "n": 62,
-    "won": 31,
+    "n": 63,
+    "won": 32,
     "units": -0.96,
     "clv": -0.62
    }
   },
-  "n": 279,
-  "won": 121,
+  "n": 281,
+  "won": 123,
   "units": -16.31,
   "by_grade": {
    "A": {
-    "n": 185,
-    "won": 75,
+    "n": 186,
+    "won": 76,
     "units": -15.11,
     "clv": -0.48
    },
    "B": {
-    "n": 65,
-    "won": 36,
+    "n": 66,
+    "won": 37,
     "units": 0.89,
-    "clv": -1.76
+    "clv": -1.73
    },
    "watch": {
     "n": 29,
@@ -1333,12 +1536,12 @@
     "clv": -0.6
    }
   },
-  "units_1u": -46.72,
-  "clv": -0.79,
-  "n_venue": 129,
+  "units_1u": -44.91,
+  "clv": -0.78,
+  "n_venue": 130,
   "units_venue": -5.82,
   "clv_venue": 0.57,
-  "clv_poly_same": -1.04
+  "clv_poly_same": -1.03
  },
  "sys_tags": {
   "401909988:nba_bigfav_over": {
@@ -1353,16 +1556,16 @@
  "by_event": {
   "401873063|spread": {
    "home": {
-    "n": 4,
-    "best_rank": 49,
-    "usd": 1452
+    "n": 6,
+    "best_rank": 12,
+    "usd": 6535
    }
   },
   "401873063|total": {
    "over": {
-    "n": 1,
+    "n": 2,
     "best_rank": 12,
-    "usd": 155
+    "usd": 339
    }
   },
   "401873063|ml": {
@@ -1414,9 +1617,9 @@
   },
   "401909989|spread": {
    "home": {
-    "n": 2,
+    "n": 3,
     "best_rank": 40,
-    "usd": 4421
+    "usd": 4997
    }
   },
   "401909989|ml": {
@@ -1433,14 +1636,21 @@
   },
   "401909990|ml": {
    "home": {
-    "n": 1,
-    "best_rank": 43,
-    "usd": 170
+    "n": 3,
+    "best_rank": 42,
+    "usd": 7757
    },
    "away": {
     "n": 1,
     "best_rank": 43,
     "usd": 201
+   }
+  },
+  "401909990|spread": {
+   "home": {
+    "n": 2,
+    "best_rank": 112,
+    "usd": 6917
    }
   },
   "401909991|spread": {
@@ -1527,9 +1737,16 @@
   },
   "401926073|spread": {
    "home": {
+    "n": 2,
+    "best_rank": 4,
+    "usd": 1054
+   }
+  },
+  "401926073|total": {
+   "over": {
     "n": 1,
-    "best_rank": 65,
-    "usd": 857
+    "best_rank": 4,
+    "usd": 227
    }
   }
  },
