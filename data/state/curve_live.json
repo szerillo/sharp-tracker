@@ -1,5 +1,5 @@
 {
- "built": "2026-11-15T00:39:25Z",
+ "built": "2026-11-15T00:52:42Z",
  "record": {
   "cbb_1h_total_curve": {
    "n": 4,
@@ -25,7 +25,7 @@
    "units": -1.84,
    "clv": {
     "n": 12,
-    "avg": -2.42,
+    "avg": -2.29,
     "beat": 1
    },
    "line_value": {
@@ -388,13 +388,7 @@
    "pin_price": 1.87,
    "book": null,
    "price": null,
-   "flagged": "2026-11-14T21:19:15Z",
-   "close_ts": "2026-11-15T00:13:20Z",
-   "close_line": 16.5,
-   "line_value": 0.0,
-   "close_fair": 0.5105,
-   "clv": -2.43,
-   "beat_fair": 0.05
+   "flagged": "2026-11-14T21:19:15Z"
   },
   {
    "key": "nhl_p3_under_curve|7f07a205e325038963274f255cb856cc||under",
@@ -537,13 +531,7 @@
    "book_fair": 0.5411,
    "fair_gap": -0.4,
    "ev_curve": 3.8,
-   "flagged": "2026-11-14T22:16:01Z",
-   "close_ts": "2026-11-15T00:13:20Z",
-   "close_line": 34.5,
-   "line_value": 0.0,
-   "close_fair": 0.5375,
-   "clv": -4.05,
-   "beat_fair": 0.05
+   "flagged": "2026-11-14T22:16:01Z"
   },
   {
    "key": "cfb_q1_under_curve|ee91eb14cc4d725be5df58f3285bdaa6||under",
@@ -561,16 +549,16 @@
    "side": "under",
    "line": 16.5,
    "curve": 0.546,
-   "pin_fair": 0.448,
-   "gap": 9.7,
+   "pin_fair": 0.446,
+   "gap": 10.0,
    "full_total": 76.0,
    "full_spread": 2.0,
-   "pin_price": 2.13,
+   "pin_price": 2.14,
    "book": "DK",
    "price": 2.0,
-   "pin_fair_power": 0.4445,
+   "pin_fair_power": 0.4416,
    "book_fair": 0.4695,
-   "fair_gap": -2.1,
+   "fair_gap": -2.4,
    "ev_curve": 9.1,
    "flagged": "2026-11-14T23:15:03Z"
   },
@@ -684,32 +672,7 @@
    "book_fair": 0.5512,
    "fair_gap": 1.3,
    "ev_curve": 13.4,
-   "flagged": "2026-11-15T00:13:20Z"
-  },
-  {
-   "key": "cfb_tt_under_curve|320a213c475110f032710dcd06c94e8e|home|under",
-   "rule": "cfb_tt_under_curve",
-   "tier": "P",
-   "stake": 0.0,
-   "sport": "cfb",
-   "odds_id": "320a213c475110f032710dcd06c94e8e",
-   "espn": "401856863",
-   "game": "Texas Tech Red Raiders @ Oklahoma State Cowboys",
-   "start": "2026-11-15T02:30:00Z",
-   "market": "team_totals",
-   "team": "home",
-   "team_name": "Oklahoma State Cowboys",
-   "side": "under",
-   "line": 37.5,
-   "curve": 0.481,
-   "pin_fair": 0.43,
-   "gap": 5.1,
-   "full_total": 73.5,
-   "full_spread": -3.5,
-   "pin_price": 2.24,
-   "book": null,
-   "price": null,
-   "flagged": "2026-11-15T00:39:25Z"
+   "flagged": "2026-11-15T00:26:37Z"
   },
   {
    "key": "cfb_tt_under_curve|7b3c2958dadc616a19ce7b9b1dd2a7e4|home|under",
@@ -734,7 +697,7 @@
    "pin_price": 2.2,
    "book": null,
    "price": null,
-   "flagged": "2026-11-15T00:39:25Z"
+   "flagged": "2026-11-15T00:52:42Z"
   },
   {
    "key": "cfb_tt_under_curve|c3c46d55350226dd82d83ecf0b52891a|away|under",
@@ -763,7 +726,7 @@
    "book_fair": 0.5267,
    "fair_gap": 0.2,
    "ev_curve": 5.8,
-   "flagged": "2026-11-15T00:39:25Z"
+   "flagged": "2026-11-15T00:52:42Z"
   }
  ]
 }
