@@ -6913,10 +6913,23 @@
 "edge_pts": null,
 "why": "conference game, WIS on road game 2 in a row, +1.5, total 44.5"
 },
+"401858532:cfb_day_over": {
+"tag": "cfb_day_over",
+"fill_id": "35b60ac82ec3",
+"ts": "2026-11-15T16:50:38Z",
+"market": "total",
+"side": "over",
+"line": 48.5,
+"venue": "Kalshi",
+"price": -113,
+"fair": 0.5,
+"edge_pts": -3.0,
+"why": "3:30 PM ET kickoff, total 48.5: over (mined angle)"
+},
 "401873054:xch_homedog_fade:ml": {
 "tag": "xch_homedog_fade",
-"fill_id": "9e96ddf00fd1",
-"ts": "2026-11-15T16:38:26Z",
+"fill_id": "b301dc74043a",
+"ts": "2026-11-15T16:50:38Z",
 "market": "ml",
 "side": "away",
 "line": null,
@@ -6924,10 +6937,6 @@
 "price": -388,
 "fair": 0.79686,
 "edge_pts": 0.19,
-"why": "Novig home side mid 0.210 inside T-1.4h; audit band 20-35c",
-"now": {
-"venue": "Novig",
-"price": -388
-}
+"why": "Novig home side mid 0.210 inside T-1.2h; audit band 20-35c"
 }
 }
