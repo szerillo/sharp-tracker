@@ -1,5 +1,5 @@
 {
- "built": "2026-11-15T19:47:35Z",
+ "built": "2026-11-15T20:02:02Z",
  "rows": [
   {
    "cond": "0x0c637d60a9447423c980eaf62fd805a2a0a8cc27823c4b7ec2582525a754163b",
@@ -601,9 +601,6 @@
    "home_name": "Dallas Cowboys",
    "game_start": "2026-11-15T21:25Z",
    "side_std": "over",
-   "conflict": [
-    "big money"
-   ],
    "money_with": false,
    "grade": "B",
    "fair_board": null,
@@ -1342,7 +1339,16 @@
   "clv_venue": 0.57,
   "clv_poly_same": -1.04
  },
- "sys_tags": {},
+ "sys_tags": {
+  "401873062:xch_homedog_fade:ml": {
+   "with": null,
+   "against": {
+    "n": 1,
+    "best_rank": 182,
+    "usd": 294
+   }
+  }
+ },
  "by_event": {
   "401873062|spread": {
    "away": {
@@ -1528,6 +1534,13 @@
     "n": 1,
     "best_rank": 132,
     "usd": 1758
+   }
+  },
+  "401858527|total": {
+   "over": {
+    "n": 1,
+    "best_rank": 93,
+    "usd": 315
    }
   },
   "401928789|spread": {
