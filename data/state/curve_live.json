@@ -1,5 +1,5 @@
 {
- "built": "2026-11-15T03:53:13Z",
+ "built": "2026-11-15T04:06:46Z",
  "record": {
   "cbb_1h_total_curve": {
    "n": 4,
@@ -19,10 +19,10 @@
    }
   },
   "cfb_q1_under_curve": {
-   "n": 26,
-   "won": 9,
+   "n": 27,
+   "won": 10,
    "lost": 17,
-   "units": -3.6,
+   "units": -3.14,
    "clv": {
     "n": 13,
     "avg": -2.52,
@@ -88,41 +88,6 @@
   }
  },
  "rows": [
-  {
-   "key": "cfb_q1_under_curve|3b677ea4fddccce26e4468faf7079768||under",
-   "rule": "cfb_q1_under_curve",
-   "tier": "A",
-   "stake": 0.5,
-   "sport": "cfb",
-   "odds_id": "3b677ea4fddccce26e4468faf7079768",
-   "espn": "401858298",
-   "game": "Louisville Cardinals @ North Carolina Tar Heels",
-   "start": "2026-11-15T00:00:00Z",
-   "market": "totals_q1",
-   "team": null,
-   "team_name": null,
-   "side": "under",
-   "line": 13.5,
-   "curve": 0.57,
-   "pin_fair": 0.514,
-   "gap": 5.6,
-   "full_total": 58.0,
-   "full_spread": 3.5,
-   "pin_price": 1.85,
-   "book": "FD",
-   "price": 1.91,
-   "pin_fair_power": 0.5155,
-   "book_fair": 0.5,
-   "fair_gap": 1.4,
-   "ev_curve": 8.9,
-   "flagged": "2026-11-14T21:19:15Z",
-   "close_ts": "2026-11-14T23:58:18Z",
-   "close_line": 13.5,
-   "line_value": 0.0,
-   "close_fair": 0.5144,
-   "clv": -0.92,
-   "beat_fair": 0.04
-  },
   {
    "key": "cfb_q1_under_curve|018349e41d033e3b1fdbc14ce9b09325||under",
    "rule": "cfb_q1_under_curve",
