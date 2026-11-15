@@ -1,5 +1,5 @@
 {
- "built": "2026-11-15T01:18:13Z",
+ "built": "2026-11-15T01:29:16Z",
  "record": {
   "cbb_1h_total_curve": {
    "n": 4,
@@ -19,10 +19,10 @@
    }
   },
   "cfb_q1_under_curve": {
-   "n": 23,
+   "n": 24,
    "won": 9,
-   "lost": 14,
-   "units": -2.35,
+   "lost": 15,
+   "units": -2.6,
    "clv": {
     "n": 12,
     "avg": -2.29,
@@ -70,13 +70,13 @@
    }
   },
   "cfb_tt_under_curve": {
-   "n": 21,
-   "won": 7,
+   "n": 22,
+   "won": 8,
    "lost": 14,
-   "units": -1.99,
+   "units": -1.79,
    "clv": {
     "n": 8,
-    "avg": -2.55,
+    "avg": -2.83,
     "beat": 1
    },
    "line_value": {
@@ -88,37 +88,6 @@
   }
  },
  "rows": [
-  {
-   "key": "cfb_tt_under_curve|d03caba2636ec407098ec3e1fe18fcf7|away|under",
-   "rule": "cfb_tt_under_curve",
-   "tier": "P",
-   "stake": 0.0,
-   "sport": "cfb",
-   "odds_id": "d03caba2636ec407098ec3e1fe18fcf7",
-   "espn": "401862828",
-   "game": "Tulane Green Wave @ Rice Owls",
-   "start": "2026-11-14T21:30:00Z",
-   "market": "team_totals",
-   "team": "away",
-   "team_name": "Tulane Green Wave",
-   "side": "under",
-   "line": 23.5,
-   "curve": 0.585,
-   "pin_fair": 0.53,
-   "gap": 5.5,
-   "full_total": 48.5,
-   "full_spread": -3.5,
-   "pin_price": 1.82,
-   "book": null,
-   "price": null,
-   "flagged": "2026-11-14T19:08:39Z",
-   "close_ts": "2026-11-14T21:19:15Z",
-   "close_line": 23.5,
-   "line_value": 0.0,
-   "close_fair": 0.5195,
-   "clv": -3.0,
-   "beat_fair": -1.05
-  },
   {
    "key": "cfb_q1_under_curve|aa1c9ee516cf122de53e75ffec017edd||under",
    "rule": "cfb_q1_under_curve",
@@ -429,7 +398,13 @@
    "book_fair": 0.5,
    "fair_gap": -3.5,
    "ev_curve": -2.1,
-   "flagged": "2026-11-14T21:46:41Z"
+   "flagged": "2026-11-14T21:46:41Z",
+   "close_ts": "2026-11-15T00:26:37Z",
+   "close_line": 20.5,
+   "line_value": 0.0,
+   "close_fair": 0.4689,
+   "clv": -6.3,
+   "beat_fair": 0.39
   },
   {
    "key": "cfb_tt_under_curve|018349e41d033e3b1fdbc14ce9b09325|away|under",
@@ -545,7 +520,32 @@
    "book_fair": 0.4815,
    "fair_gap": -1.4,
    "ev_curve": 5.0,
-   "flagged": "2026-11-14T23:42:57Z"
+   "flagged": "2026-11-14T23:58:18Z"
+  },
+  {
+   "key": "cfb_tt_under_curve|320a213c475110f032710dcd06c94e8e|home|under",
+   "rule": "cfb_tt_under_curve",
+   "tier": "P",
+   "stake": 0.0,
+   "sport": "cfb",
+   "odds_id": "320a213c475110f032710dcd06c94e8e",
+   "espn": "401856863",
+   "game": "Texas Tech Red Raiders @ Oklahoma State Cowboys",
+   "start": "2026-11-15T02:30:00Z",
+   "market": "team_totals",
+   "team": "home",
+   "team_name": "Oklahoma State Cowboys",
+   "side": "under",
+   "line": 37.5,
+   "curve": 0.481,
+   "pin_fair": 0.43,
+   "gap": 5.1,
+   "full_total": 73.5,
+   "full_spread": -3.5,
+   "pin_price": 2.24,
+   "book": null,
+   "price": null,
+   "flagged": "2026-11-15T00:26:37Z"
   },
   {
    "key": "nhl_p3_under_curve|ce4dd515ea49344d4707778f27669fec||under",
