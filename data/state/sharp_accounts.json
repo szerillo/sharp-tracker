@@ -1,5 +1,5 @@
 {
- "built": "2026-11-15T16:43:54Z",
+ "built": "2026-11-15T16:51:11Z",
  "rows": [
   {
    "cond": "0x0c637d60a9447423c980eaf62fd805a2a0a8cc27823c4b7ec2582525a754163b",
@@ -47,13 +47,13 @@
    "bet": "Over 46.5",
    "side": "Over",
    "flagged": "2026-11-11T20:53:22Z",
-   "why": "2 top-200 accounts",
-   "proven": false,
+   "why": "3 top-200 accounts",
+   "proven": true,
    "trigger": "two",
-   "n_accounts": 2,
+   "n_accounts": 3,
    "best_rank": 12,
-   "usd": 381,
-   "paid": 0.517,
+   "usd": 33349,
+   "paid": 0.54,
    "ask": 0.55,
    "status": "live",
    "link": "https://polymarket.us/event/nfl-kc-atl-2026-11-15",
@@ -70,7 +70,7 @@
    "game_start": "2026-11-15T18:00Z",
    "side_std": "over",
    "money_with": false,
-   "grade": "B",
+   "grade": "A",
    "fair_board": null,
    "inside_fair": null,
    "books": null
@@ -373,6 +373,44 @@
    "home_name": "Indianapolis Colts",
    "game_start": "2026-11-15T18:00Z",
    "side_std": "home",
+   "money_with": false,
+   "grade": "A",
+   "fair_board": null,
+   "inside_fair": null,
+   "books": null
+  },
+  {
+   "cond": "0xfaabb9ed1fe8dc546e4b25ff1611a65fe6ce6385c5ed4b5f9509dc80f44165e8",
+   "slug": "nfl-kc-atl-2026-11-15",
+   "title": "Chiefs vs. Falcons",
+   "mtype": "total",
+   "start": "2026-11-15T18:00:00Z",
+   "bet": "Over 54.5",
+   "side": "Over",
+   "flagged": "2026-11-15T16:50:07Z",
+   "why": "2 top-200 accounts",
+   "proven": true,
+   "trigger": "two",
+   "n_accounts": 2,
+   "best_rank": 4,
+   "usd": 5889,
+   "paid": 0.268,
+   "ask": 0.28,
+   "status": "live",
+   "link": "https://polymarket.us/event/nfl-kc-atl-2026-11-15",
+   "other": null,
+   "kalshi_against": null,
+   "logged": false,
+   "ladder": true,
+   "event_id": "401873058",
+   "sport": "nfl",
+   "league": null,
+   "away": "KC",
+   "home": "ATL",
+   "away_name": "Kansas City Chiefs",
+   "home_name": "Atlanta Falcons",
+   "game_start": "2026-11-15T18:00Z",
+   "side_std": "over",
    "money_with": false,
    "grade": "A",
    "fair_board": null,
@@ -1211,9 +1249,9 @@
  "by_event": {
   "401873058|total": {
    "over": {
-    "n": 2,
-    "best_rank": 12,
-    "usd": 381
+    "n": 4,
+    "best_rank": 4,
+    "usd": 34603
    }
   },
   "401873058|spread": {
