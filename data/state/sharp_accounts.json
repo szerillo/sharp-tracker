@@ -1,5 +1,5 @@
 {
- "built": "2026-11-15T20:38:48Z",
+ "built": "2026-11-15T20:45:39Z",
  "rows": [
   {
    "cond": "0x0c637d60a9447423c980eaf62fd805a2a0a8cc27823c4b7ec2582525a754163b",
@@ -601,6 +601,9 @@
    "home_name": "Dallas Cowboys",
    "game_start": "2026-11-15T21:25Z",
    "side_std": "over",
+   "conflict": [
+    "big money"
+   ],
    "money_with": false,
    "grade": "B",
    "fair_board": null,
@@ -809,7 +812,7 @@
    "best_rank": 31,
    "usd": 5100,
    "paid": 0.66,
-   "ask": 0.68,
+   "ask": 0.69,
    "status": "live",
    "link": "https://polymarket.us/event/nba-phi-bkn-2026-11-16",
    "other": null,
@@ -1099,7 +1102,7 @@
    "home_name": "Toronto Raptors",
    "game_start": "2026-11-15T23:00Z",
    "side_std": "home",
-   "money_with": true,
+   "money_with": false,
    "grade": "watch",
    "fair_board": 0.3428,
    "inside_fair": false,
