@@ -1,5 +1,5 @@
 {
- "built": "2026-11-15T23:30:32Z",
+ "built": "2026-11-15T23:43:33Z",
  "record": {
   "n": 35,
   "won": 17,
@@ -33,5 +33,32 @@
    }
   }
  },
- "rows": []
+ "rows": [
+  {
+   "key": "488c2bc1e099361f06015cf126f95fd6|player_threes|Kevin Durant|1.5",
+   "sport": "nba",
+   "odds_id": "488c2bc1e099361f06015cf126f95fd6",
+   "espn": "401909991",
+   "game": "Houston Rockets @ Washington Wizards",
+   "start": "2026-11-16T00:10:00Z",
+   "market": "player_threes",
+   "player": "Kevin Durant",
+   "line": 1.5,
+   "side": "under",
+   "book": "FD",
+   "price": 2.18,
+   "fair": 0.4853,
+   "ev": 5.8,
+   "pin_under": 1.93,
+   "pin_over": 1.82,
+   "book_over": 1.67,
+   "fair_power": 0.4838,
+   "book_fair": 0.4338,
+   "fair_gap": 5.2,
+   "ev_strict": 5.5,
+   "pin_ts": "2026-11-15T23:42:34Z",
+   "book_ts": "2026-11-15T23:42:56Z",
+   "flagged": "2026-11-15T23:43:33Z"
+  }
+ ]
 }
