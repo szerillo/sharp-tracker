@@ -1,5 +1,5 @@
 {
- "built": "2026-11-15T17:34:49Z",
+ "built": "2026-11-15T17:46:49Z",
  "record": {
   "cbb_1h_total_curve": {
    "n": 4,
@@ -87,5 +87,60 @@
    }
   }
  },
- "rows": []
+ "rows": [
+  {
+   "key": "cfb_tt_under_curve|8ad669f4c9b70f38fdb057c114588776|away|under",
+   "rule": "cfb_tt_under_curve",
+   "tier": "C",
+   "stake": 0.25,
+   "sport": "cfb",
+   "odds_id": "8ad669f4c9b70f38fdb057c114588776",
+   "espn": "401856887",
+   "game": "Ole Miss Rebels @ Oklahoma Sooners",
+   "start": "2026-11-15T18:00:00Z",
+   "market": "team_totals",
+   "team": "away",
+   "team_name": "Ole Miss Rebels",
+   "side": "under",
+   "line": 23.5,
+   "curve": 0.546,
+   "pin_fair": 0.494,
+   "gap": 5.2,
+   "full_total": 48.5,
+   "full_spread": -2.5,
+   "pin_price": 1.95,
+   "book": "Caesars",
+   "price": 1.88,
+   "pin_fair_power": 0.4931,
+   "book_fair": 0.496,
+   "fair_gap": -0.2,
+   "ev_curve": 2.6,
+   "flagged": "2026-11-15T17:46:49Z"
+  },
+  {
+   "key": "cbb_1h_total_curve|6e7b60ce8a7b43c70fd1d56fe26c9a28||over",
+   "rule": "cbb_1h_total_curve",
+   "tier": "P",
+   "stake": 0.0,
+   "sport": "cbb",
+   "odds_id": "6e7b60ce8a7b43c70fd1d56fe26c9a28",
+   "espn": "401909774",
+   "game": "Niagara Purple Eagles @ Iowa State Cyclones",
+   "start": "2026-11-15T18:00:00Z",
+   "market": "totals_h1",
+   "team": null,
+   "team_name": null,
+   "side": "over",
+   "line": 68.0,
+   "curve": 0.552,
+   "pin_fair": 0.48,
+   "gap": 7.1,
+   "full_total": 143.5,
+   "full_spread": -39.5,
+   "pin_price": 1.99,
+   "book": null,
+   "price": null,
+   "flagged": "2026-11-15T17:46:49Z"
+  }
+ ]
 }
