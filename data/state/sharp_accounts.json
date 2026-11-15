@@ -1,5 +1,5 @@
 {
- "built": "2026-11-15T16:30:57Z",
+ "built": "2026-11-15T16:43:54Z",
  "rows": [
   {
    "cond": "0x0c637d60a9447423c980eaf62fd805a2a0a8cc27823c4b7ec2582525a754163b",
@@ -183,7 +183,7 @@
    "best_rank": 116,
    "usd": 253,
    "paid": 0.48,
-   "ask": 0.5,
+   "ask": 0.52,
    "status": "live",
    "link": "https://polymarket.us/event/cbb-niagra-iowast-2026-11-15",
    "other": null,
@@ -327,9 +327,6 @@
    "home_name": "New Orleans Saints",
    "game_start": "2026-11-15T18:00Z",
    "side_std": "away",
-   "conflict": [
-    "big money"
-   ],
    "money_with": false,
    "grade": "B",
    "inside_fair": false,
@@ -840,8 +837,8 @@
    },
    "exit_bid": 0.5,
    "kalshi_against": {
-    "move": 6.0,
-    "now": 48.0,
+    "move": 6.5,
+    "now": 48.5,
     "state": "reversed"
    },
    "logged": true,
@@ -926,7 +923,7 @@
    "best_rank": 4,
    "usd": 402,
    "paid": 0.888,
-   "ask": 0.569,
+   "ask": 0.559,
    "status": "live",
    "link": "https://polymarket.us/event/cbb-pepp-ore-2026-11-15",
    "other": null,
@@ -1355,6 +1352,13 @@
     "n": 4,
     "best_rank": 40,
     "usd": 7590
+   }
+  },
+  "401909985|spread": {
+   "home": {
+    "n": 1,
+    "best_rank": 132,
+    "usd": 145
    }
   },
   "401909986|ml": {
