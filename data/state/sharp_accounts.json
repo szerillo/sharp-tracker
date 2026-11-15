@@ -1,5 +1,5 @@
 {
- "built": "2026-11-15T13:25:03Z",
+ "built": "2026-11-15T13:35:23Z",
  "rows": [
   {
    "cond": "0x0c637d60a9447423c980eaf62fd805a2a0a8cc27823c4b7ec2582525a754163b",
@@ -91,7 +91,7 @@
    "best_rank": 58,
    "usd": 365,
    "paid": 0.84,
-   "ask": 0.84,
+   "ask": 0.83,
    "status": "live",
    "link": "https://polymarket.us/event/nfl-jax-ten-2026-11-15",
    "other": null,
@@ -355,7 +355,7 @@
    "best_rank": 143,
    "usd": 3733,
    "paid": 0.26,
-   "ask": 0.27,
+   "ask": 0.28,
    "status": "live",
    "link": "https://polymarket.us/event/nfl-mia-ind-2026-11-15",
    "other": null,
@@ -654,6 +654,55 @@
      "Caesars": 0.5238,
      "DK": 0.5238,
      "FD": 0.5349
+    }
+   }
+  },
+  {
+   "cond": "0x2c4bc1dc34eaa1cb08943f536d4ce630384f3e93e028f6fa7a20933438334853",
+   "slug": "nfl-pit-cin-2026-11-16",
+   "title": "Steelers vs. Bengals",
+   "mtype": "ml",
+   "start": "2026-11-16T01:20:00Z",
+   "bet": "Bengals ML",
+   "side": "Bengals",
+   "flagged": "2026-11-15T13:30:32Z",
+   "why": "a top-200 account also in this sport's top 50",
+   "proven": true,
+   "trigger": "proven",
+   "n_accounts": 1,
+   "best_rank": 143,
+   "usd": 124,
+   "paid": 0.64,
+   "ask": 0.65,
+   "status": "live",
+   "link": "https://polymarket.us/event/nfl-pit-cin-2026-11-16",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401873064",
+   "sport": "nfl",
+   "league": null,
+   "away": "PIT",
+   "home": "CIN",
+   "away_name": "Pittsburgh Steelers",
+   "home_name": "Cincinnati Bengals",
+   "game_start": "2026-11-16T01:20Z",
+   "side_std": "home",
+   "conflict": [
+    "Kalshi bet back"
+   ],
+   "money_with": true,
+   "grade": "A",
+   "fair_board": 0.6347,
+   "inside_fair": false,
+   "books": {
+    "at": "2026-11-15T07:25:33Z",
+    "fair": 0.6347,
+    "q": {
+     "Novig": 0.64,
+     "FD": 0.6403,
+     "Caesars": 0.6454,
+     "DK": 0.6491
     }
    }
   },
@@ -1259,9 +1308,9 @@
   },
   "401873063|spread": {
    "home": {
-    "n": 3,
+    "n": 4,
     "best_rank": 49,
-    "usd": 891
+    "usd": 1452
    }
   },
   "401873063|total": {
@@ -1269,6 +1318,13 @@
     "n": 1,
     "best_rank": 12,
     "usd": 155
+   }
+  },
+  "401873064|ml": {
+   "home": {
+    "n": 1,
+    "best_rank": 143,
+    "usd": 124
    }
   },
   "401909985|ml": {
