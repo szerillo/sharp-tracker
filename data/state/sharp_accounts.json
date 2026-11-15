@@ -1,5 +1,5 @@
 {
- "built": "2026-11-15T22:53:52Z",
+ "built": "2026-11-15T23:08:17Z",
  "rows": [
   {
    "cond": "0x3b773f3b5203b36a388f1a3f242b5012e7d4eb0b8fd6f3773f23185485b99c8f",
@@ -298,16 +298,7 @@
    "grade": "B",
    "inside_fair": false,
    "fair_board": 0.4786,
-   "books": {
-    "at": "2026-11-15T21:26:23Z",
-    "fair": 0.4842,
-    "q": {
-     "Novig": 0.485,
-     "Caesars": 0.5,
-     "DK": 0.5098,
-     "Kalshi": 0.51
-    }
-   }
+   "books": null
   },
   {
    "cond": "0x851e0c5fc2bd239af2ff1fde68825e3afcdef1ee3427972bd4fd23e3ebd348bb",
@@ -345,7 +336,7 @@
    "fair_board": null,
    "inside_fair": null,
    "books": {
-    "at": "2026-11-15T21:58:16Z",
+    "at": "2026-11-15T21:46:42Z",
     "fair": null,
     "q": {
      "Novig": 0.87,
@@ -443,7 +434,7 @@
    "best_rank": 40,
    "usd": 4821,
    "paid": 0.505,
-   "ask": 0.57,
+   "ask": null,
    "status": "live",
    "link": "https://polymarket.us/event/nba-dal-bos-2026-11-15",
    "other": null,
@@ -466,10 +457,10 @@
    "inside_fair": false,
    "fair_board": null,
    "books": {
-    "at": "2026-11-15T21:58:16Z",
+    "at": "2026-11-15T22:53:34Z",
     "fair": null,
     "q": {
-     "Novig": 0.57,
+     "Novig": 0.56,
      "Kalshi": 0.59
     }
    }
@@ -511,16 +502,16 @@
    ],
    "money_with": false,
    "grade": "B",
-   "fair_board": 0.5142,
+   "fair_board": 0.5145,
    "inside_fair": null,
    "books": {
-    "at": "2026-11-15T21:58:16Z",
-    "fair": 0.5142,
+    "at": "2026-11-15T22:53:34Z",
+    "fair": 0.5145,
     "q": {
      "Caesars": 0.5122,
      "Novig": 0.52,
-     "DK": 0.5238,
-     "FD": 0.5238
+     "FD": 0.5283,
+     "DK": 0.5392
     }
    }
   },
@@ -540,7 +531,7 @@
    "best_rank": 112,
    "usd": 6917,
    "paid": 0.47,
-   "ask": 0.53,
+   "ask": null,
    "status": "live",
    "link": "https://polymarket.us/event/nba-nyk-tor-2026-11-15",
    "other": null,
@@ -557,13 +548,15 @@
    "side_std": "home",
    "money_with": true,
    "grade": "A",
-   "fair_board": null,
+   "fair_board": 0.5222,
    "inside_fair": null,
    "books": {
-    "at": "2026-11-15T21:58:16Z",
-    "fair": null,
+    "at": "2026-11-15T22:53:34Z",
+    "fair": 0.5222,
     "q": {
      "Novig": 0.53,
+     "DK": 0.5349,
+     "FD": 0.5455,
      "Kalshi": 0.55
     }
    }
@@ -604,11 +597,11 @@
    "inside_fair": false,
    "fair_board": 0.5068,
    "books": {
-    "at": "2026-11-15T21:58:16Z",
+    "at": "2026-11-15T22:53:34Z",
     "fair": null,
     "q": {
-     "Novig": 0.56,
-     "Kalshi": 0.59
+     "Novig": 0.55,
+     "Kalshi": 0.58
     }
    }
   },
@@ -643,16 +636,13 @@
    "home_name": "Dallas Stars",
    "game_start": "2026-11-16T01:00Z",
    "side_std": "away",
-   "conflict": [
-    "big money"
-   ],
    "money_with": false,
    "grade": "A",
    "inside_fair": false,
    "fair_board": 0.4532,
    "books": {
-    "at": "2026-11-15T21:58:16Z",
-    "fair": 0.4532,
+    "at": "2026-11-15T22:53:34Z",
+    "fair": 0.4527,
     "q": {
      "Novig": 0.455,
      "FD": 0.4717,
@@ -700,12 +690,12 @@
    "inside_fair": false,
    "fair_board": 0.6347,
    "books": {
-    "at": "2026-11-15T21:58:16Z",
-    "fair": 0.6422,
+    "at": "2026-11-15T22:53:34Z",
+    "fair": 0.6412,
     "q": {
      "Novig": 0.645,
+     "FD": 0.6528,
      "Caesars": 0.6552,
-     "FD": 0.6552,
      "DK": 0.6575
     }
    }
@@ -746,10 +736,10 @@
    "fair_board": null,
    "inside_fair": null,
    "books": {
-    "at": "2026-11-15T21:58:16Z",
+    "at": "2026-11-15T22:53:34Z",
     "fair": null,
     "q": {
-     "Kalshi": 0.72
+     "Kalshi": 0.7
     }
    }
   },
@@ -789,10 +779,10 @@
    "fair_board": null,
    "inside_fair": null,
    "books": {
-    "at": "2026-11-15T21:58:16Z",
+    "at": "2026-11-15T22:53:34Z",
     "fair": null,
     "q": {
-     "Kalshi": 0.5
+     "Kalshi": 0.52
     }
    }
   },
@@ -835,7 +825,7 @@
    "side_std": "home",
    "money_with": false,
    "grade": "B",
-   "fair_board": 0.395,
+   "fair_board": null,
    "inside_fair": null,
    "books": null
   },
@@ -855,7 +845,7 @@
    "best_rank": 42,
    "usd": 7757,
    "paid": 0.36,
-   "ask": 0.4,
+   "ask": null,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-nyk-tor-2026-11-15",
    "other": {
@@ -864,7 +854,7 @@
     "usd": 201,
     "first": "2026-11-14T20:47:52Z"
    },
-   "exit_bid": 0.39,
+   "exit_bid": null,
    "kalshi_against": null,
    "logged": true,
    "event_id": "401909990",
@@ -876,9 +866,9 @@
    "home_name": "Toronto Raptors",
    "game_start": "2026-11-15T23:00Z",
    "side_std": "home",
-   "money_with": false,
-   "grade": "B",
-   "fair_board": 0.3805,
+   "money_with": true,
+   "grade": "A",
+   "fair_board": 0.3856,
    "inside_fair": null,
    "books": null
   },
@@ -898,7 +888,7 @@
    "best_rank": 40,
    "usd": 941,
    "paid": 0.86,
-   "ask": 0.88,
+   "ask": null,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-dal-bos-2026-11-15",
    "other": {
@@ -907,7 +897,7 @@
     "usd": 855,
     "first": "2026-11-15T18:01:07Z"
    },
-   "exit_bid": 0.87,
+   "exit_bid": null,
    "kalshi_against": null,
    "logged": true,
    "event_id": "401909989",
@@ -968,7 +958,7 @@
    "fair_board": null,
    "inside_fair": null,
    "books": {
-    "at": "2026-11-15T21:58:16Z",
+    "at": "2026-11-15T22:53:34Z",
     "fair": null,
     "q": {
      "Kalshi": 0.76
@@ -1018,10 +1008,10 @@
    "fair_board": null,
    "inside_fair": null,
    "books": {
-    "at": "2026-11-15T21:58:16Z",
+    "at": "2026-11-15T22:53:34Z",
     "fair": null,
     "q": {
-     "Kalshi": 0.79
+     "Kalshi": 0.77
     }
    }
   },
@@ -1050,8 +1040,12 @@
     "usd": 934,
     "first": "2026-11-13T10:27:49Z"
    },
-   "exit_bid": 0.36,
-   "kalshi_against": null,
+   "exit_bid": 0.35,
+   "kalshi_against": {
+    "move": 5.5,
+    "now": 63.5,
+    "state": "drift"
+   },
    "logged": true,
    "event_id": "401910000",
    "sport": "nba",
@@ -1062,6 +1056,9 @@
    "home_name": "New Orleans Pelicans",
    "game_start": "2026-11-17T01:00Z",
    "side_std": "home",
+   "conflict": [
+    "Kalshi move"
+   ],
    "money_with": false,
    "grade": "B",
    "fair_board": null,
@@ -1122,6 +1119,14 @@
     "best_rank": 79,
     "usd": 5355
    }
+  },
+  "401909991:xch_homedog_fade:ml": {
+   "with": {
+    "n": 1,
+    "best_rank": 132,
+    "usd": 731
+   },
+   "against": null
   }
  },
  "by_event": {
@@ -1137,6 +1142,13 @@
     "n": 2,
     "best_rank": 58,
     "usd": 4189
+   }
+  },
+  "401909991|ml": {
+   "away": {
+    "n": 1,
+    "best_rank": 132,
+    "usd": 731
    }
   },
   "401909992|total": {
