@@ -7086,7 +7086,10 @@
 "price": -122,
 "fair": null,
 "edge_pts": null,
-"why": "home favourite UL -8.5, total 51.5: under (mined angle)"
+"why": "home favourite UL -8.5, total 51.5: under (mined angle)",
+"void": true,
+"void_why": "rule no longer holds on the current line: home spread -4.5, total 51.5 (2026-11-15T22:50:40Z)",
+"void_at": "2026-11-15T22:50:40Z"
 },
 "401864543:cfb_road_dog_low_total": {
 "tag": "cfb_road_dog_low_total",
@@ -7170,10 +7173,36 @@
 "edge_pts": -3.5,
 "why": "conference game, ECU on road game 2 in a row, +4.5, total 40.5"
 },
+"401871080:cfb_road_dog_low_total": {
+"tag": "cfb_road_dog_low_total",
+"fill_id": "a9ec8bafe735",
+"ts": "2026-11-15T22:50:40Z",
+"market": "spread",
+"side": "away",
+"line": 13.5,
+"venue": "Novig",
+"price": -106,
+"fair": null,
+"edge_pts": null,
+"why": "conference game, WKU +13.5 on the road, total 44.5"
+},
+"401856755:cfb_homefav_7510_under": {
+"tag": "cfb_homefav_7510_under",
+"fill_id": "a34888814972",
+"ts": "2026-11-15T22:50:40Z",
+"market": "total",
+"side": "under",
+"line": 37.5,
+"venue": "Kalshi",
+"price": 133,
+"fair": null,
+"edge_pts": null,
+"why": "home favourite TEX -7.5, total 37.5: under (mined angle)"
+},
 "401909991:xch_homedog_fade:ml": {
 "tag": "xch_homedog_fade",
-"fill_id": "d5fcf0623721",
-"ts": "2026-11-15T22:36:59Z",
+"fill_id": "46d1618682da",
+"ts": "2026-11-15T22:50:40Z",
 "market": "ml",
 "side": "away",
 "line": null,
@@ -7181,10 +7210,6 @@
 "price": -300,
 "fair": 0.75113,
 "edge_pts": 0.11,
-"why": "Novig home side mid 0.253 inside T-1.4h; audit band 20-35c",
-"now": {
-"venue": "Novig",
-"price": -300
-}
+"why": "Novig home side mid 0.253 inside T-1.2h; audit band 20-35c"
 }
 }
