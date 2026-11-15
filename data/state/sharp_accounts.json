@@ -1,5 +1,5 @@
 {
- "built": "2026-11-14T23:38:45Z",
+ "built": "2026-11-14T23:59:08Z",
  "rows": [
   {
    "cond": "0xdf5fbe87d14410160ccf27fcc95e41f3866a6f74ec9a596712079e84f86f70ba",
@@ -565,9 +565,6 @@
    "home_name": "Boise State Broncos",
    "game_start": "2026-11-14T23:00Z",
    "side_std": "under",
-   "conflict": [
-    "big money"
-   ],
    "money_with": false,
    "grade": "A",
    "fair_board": 0.4873,
@@ -756,7 +753,7 @@
    "best_rank": 58,
    "usd": 470,
    "paid": 0.53,
-   "ask": 0.51,
+   "ask": 0.49,
    "status": "live",
    "link": "https://polymarket.us/event/cfb-sjst-airf-2026-11-14",
    "other": null,
@@ -1113,7 +1110,7 @@
    "best_rank": 104,
    "usd": 379,
    "paid": 0.49,
-   "ask": 0.51,
+   "ask": 0.5,
    "status": "live",
    "link": "https://polymarket.us/event/nba-dal-cle-2026-11-14",
    "other": null,
@@ -1151,7 +1148,7 @@
    "best_rank": 104,
    "usd": 176,
    "paid": 0.41,
-   "ask": 0.42,
+   "ask": 0.43,
    "status": "live",
    "link": "https://polymarket.us/event/nba-dal-cle-2026-11-14",
    "other": null,
@@ -1296,9 +1293,6 @@
    "home_name": "Oklahoma State Cowboys",
    "game_start": "2026-11-15T02:30Z",
    "side_std": "under",
-   "conflict": [
-    "Kalshi move"
-   ],
    "money_with": false,
    "grade": "A",
    "inside_fair": false,
@@ -1718,13 +1712,13 @@
    "bet": "Penguins ML",
    "side": "Penguins",
    "flagged": "2026-11-12T00:03:27Z",
-   "why": "a top-50 account",
+   "why": "2 top-200 accounts",
    "proven": false,
-   "trigger": "top50",
-   "n_accounts": 1,
+   "trigger": "two",
+   "n_accounts": 2,
    "best_rank": 12,
-   "usd": 212,
-   "paid": 0.49,
+   "usd": 658,
+   "paid": 0.463,
    "ask": 0.45,
    "status": "other side",
    "link": "https://polymarket.us/event/nhl-ott-pit-2026-11-14",
@@ -1818,13 +1812,13 @@
    "best_rank": 4,
    "usd": 18659,
    "paid": 0.521,
-   "ask": 0.68,
+   "ask": 0.69,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-dal-cle-2026-11-14",
    "other": {
     "n_accounts": 1,
     "best_rank": 112,
-    "usd": 2734,
+    "usd": 2998,
     "first": "2026-11-14T18:23:47Z"
    },
    "exit_bid": 0.67,
@@ -1862,7 +1856,7 @@
    "best_rank": 95,
    "usd": 1321,
    "paid": 0.543,
-   "ask": 0.62,
+   "ask": 0.63,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-dal-cle-2026-11-14",
    "other": {
@@ -1871,7 +1865,7 @@
     "usd": 777,
     "first": "2026-11-14T22:55:50Z"
    },
-   "exit_bid": 0.61,
+   "exit_bid": 0.62,
    "kalshi_against": null,
    "logged": false,
    "ladder": true,
@@ -1992,16 +1986,16 @@
    "best_rank": 75,
    "usd": 6364,
    "paid": 0.41,
-   "ask": 0.46,
+   "ask": 0.47,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-bkn-mem-2026-11-14",
    "other": {
-    "n_accounts": 1,
-    "best_rank": 112,
-    "usd": 6189,
+    "n_accounts": 2,
+    "best_rank": 75,
+    "usd": 6963,
     "first": "2026-11-14T23:20:41Z"
    },
-   "exit_bid": 0.45,
+   "exit_bid": 0.46,
    "kalshi_against": null,
    "logged": true,
    "event_id": "401909983",
@@ -2143,7 +2137,7 @@
     "usd": 201,
     "first": "2026-11-14T20:47:52Z"
    },
-   "exit_bid": 0.41,
+   "exit_bid": 0.4,
    "kalshi_against": null,
    "logged": true,
    "event_id": "401909990",
@@ -2302,21 +2296,21 @@
     "clv": -1.62
    },
    "outside": {
-    "n": 55,
-    "won": 28,
+    "n": 57,
+    "won": 29,
     "units": -0.96,
-    "clv": -0.52
+    "clv": -0.5
    }
   },
-  "n": 249,
-  "won": 108,
+  "n": 251,
+  "won": 109,
   "units": -16.31,
   "by_grade": {
    "A": {
-    "n": 164,
-    "won": 67,
+    "n": 166,
+    "won": 68,
     "units": -15.11,
-    "clv": -0.54
+    "clv": -0.53
    },
    "B": {
     "n": 57,
@@ -2331,12 +2325,12 @@
     "clv": -0.6
    }
   },
-  "units_1u": -40.59,
-  "clv": -0.61,
-  "n_venue": 120,
+  "units_1u": -40.63,
+  "clv": -0.6,
+  "n_venue": 122,
   "units_venue": -5.82,
-  "clv_venue": 0.66,
-  "clv_poly_same": -1.06
+  "clv_venue": 0.65,
+  "clv_poly_same": -1.03
  },
  "sys_tags": {
   "401864539:cfb_road_dog_low_total": {
@@ -2713,9 +2707,9 @@
   },
   "401892713|ml": {
    "home": {
-    "n": 1,
+    "n": 2,
     "best_rank": 12,
-    "usd": 212
+    "usd": 658
    },
    "away": {
     "n": 1,
