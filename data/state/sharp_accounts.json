@@ -1,5 +1,5 @@
 {
- "built": "2026-11-14T23:38:45Z",
+ "built": "2026-11-15T00:42:44Z",
  "rows": [
   {
    "cond": "0xe569f88488ba4b313938b751ab4c481ea925cdc1780b24623275e565a60d9deb",
@@ -374,7 +374,7 @@
    "side_std": "away",
    "money_with": false,
    "grade": "A",
-   "fair_board": 0.5821,
+   "fair_board": 0.5796,
    "inside_fair": null,
    "books": {
     "at": "2026-11-14T23:58:27Z",
@@ -477,7 +477,7 @@
    "best_rank": 58,
    "usd": 470,
    "paid": 0.53,
-   "ask": 0.51,
+   "ask": null,
    "status": "live",
    "link": "https://polymarket.us/event/cfb-sjst-airf-2026-11-14",
    "other": null,
@@ -514,7 +514,7 @@
    "best_rank": 58,
    "usd": 203,
    "paid": 0.52,
-   "ask": 0.54,
+   "ask": null,
    "status": "live",
    "link": "https://polymarket.us/event/cfb-flatl-tulsa-2026-11-14",
    "other": null,
@@ -747,7 +747,7 @@
    "best_rank": 104,
    "usd": 1509,
    "paid": 0.513,
-   "ask": 0.52,
+   "ask": null,
    "status": "live",
    "link": "https://polymarket.us/event/nba-dal-cle-2026-11-14",
    "other": null,
@@ -785,7 +785,7 @@
    "best_rank": 104,
    "usd": 104,
    "paid": 0.45,
-   "ask": 0.44,
+   "ask": null,
    "status": "live",
    "link": "https://polymarket.us/event/nba-dal-cle-2026-11-14",
    "other": null,
@@ -971,8 +971,8 @@
    "side_std": "under",
    "money_with": false,
    "grade": "A",
-   "fair_board": 0.4904,
-   "inside_fair": true,
+   "fair_board": 0.489,
+   "inside_fair": false,
    "books": {
     "at": "2026-11-14T23:58:27Z",
     "fair": 0.489,
@@ -1166,7 +1166,7 @@
    "best_rank": 116,
    "usd": 253,
    "paid": 0.48,
-   "ask": 0.53,
+   "ask": 0.52,
    "status": "live",
    "link": "https://polymarket.us/event/cbb-niagra-iowast-2026-11-15",
    "other": null,
@@ -1209,7 +1209,7 @@
    "best_rank": 43,
    "usd": 509,
    "paid": 0.4,
-   "ask": 0.41,
+   "ask": 0.4,
    "status": "live",
    "link": "https://polymarket.us/event/nba-lal-phx-2026-11-15",
    "other": null,
@@ -1464,7 +1464,7 @@
    "side_std": "home",
    "money_with": false,
    "grade": "B",
-   "fair_board": 0.4444,
+   "fair_board": 0.4462,
    "inside_fair": null,
    "books": null
   },
@@ -1507,7 +1507,7 @@
    "side_std": "home",
    "money_with": false,
    "grade": "A",
-   "fair_board": 0.5653,
+   "fair_board": 0.5638,
    "inside_fair": null,
    "books": null
   },
@@ -1527,7 +1527,7 @@
    "best_rank": 4,
    "usd": 18659,
    "paid": 0.521,
-   "ask": 0.71,
+   "ask": null,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-dal-cle-2026-11-14",
    "other": {
@@ -1536,7 +1536,7 @@
     "usd": 2998,
     "first": "2026-11-14T18:23:47Z"
    },
-   "exit_bid": 0.7,
+   "exit_bid": null,
    "kalshi_against": null,
    "logged": false,
    "ladder": true,
@@ -1711,7 +1711,7 @@
    "best_rank": 75,
    "usd": 6364,
    "paid": 0.41,
-   "ask": 0.5,
+   "ask": 0.49,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-bkn-mem-2026-11-14",
    "other": {
@@ -1720,7 +1720,7 @@
     "usd": 6963,
     "first": "2026-11-14T23:20:41Z"
    },
-   "exit_bid": 0.49,
+   "exit_bid": 0.48,
    "kalshi_against": null,
    "logged": true,
    "event_id": "401909983",
@@ -1758,7 +1758,7 @@
    "best_rank": 49,
    "usd": 2468,
    "paid": 0.539,
-   "ask": 0.53,
+   "ask": 0.52,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-chi-min-2026-11-14",
    "other": {
@@ -1767,7 +1767,7 @@
     "usd": 5473,
     "first": "2026-11-14T23:32:41Z"
    },
-   "exit_bid": 0.52,
+   "exit_bid": 0.51,
    "kalshi_against": null,
    "logged": false,
    "event_id": "401909984",
@@ -2051,7 +2051,7 @@
     "clv": -0.6
    }
   },
-  "units_1u": -39.91,
+  "units_1u": -41.91,
   "clv": -0.6,
   "n_venue": 123,
   "units_venue": -5.82,
@@ -2320,27 +2320,6 @@
     "n": 1,
     "best_rank": 182,
     "usd": 174
-   }
-  },
-  "401858299|total": {
-   "under": {
-    "n": 1,
-    "best_rank": 110,
-    "usd": 460
-   }
-  },
-  "401862826|total": {
-   "under": {
-    "n": 1,
-    "best_rank": 58,
-    "usd": 203
-   }
-  },
-  "401864539|spread": {
-   "away": {
-    "n": 1,
-    "best_rank": 132,
-    "usd": 403
    }
   },
   "401862827|total": {
