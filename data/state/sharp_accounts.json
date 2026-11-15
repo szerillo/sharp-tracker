@@ -1,5 +1,5 @@
 {
- "built": "2026-11-15T17:41:40Z",
+ "built": "2026-11-15T17:48:46Z",
  "rows": [
   {
    "cond": "0x0c637d60a9447423c980eaf62fd805a2a0a8cc27823c4b7ec2582525a754163b",
@@ -69,9 +69,6 @@
    "home_name": "Atlanta Falcons",
    "game_start": "2026-11-15T18:00Z",
    "side_std": "over",
-   "conflict": [
-    "big money"
-   ],
    "money_with": false,
    "grade": "A",
    "fair_board": null,
@@ -414,9 +411,6 @@
    "home_name": "Atlanta Falcons",
    "game_start": "2026-11-15T18:00Z",
    "side_std": "over",
-   "conflict": [
-    "big money"
-   ],
    "money_with": false,
    "grade": "A",
    "fair_board": null,
@@ -819,7 +813,7 @@
    "best_rank": 43,
    "usd": 6980,
    "paid": 0.732,
-   "ask": 0.72,
+   "ask": 0.71,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-ind-phi-2026-11-15",
    "other": {
@@ -828,7 +822,7 @@
     "usd": 17346,
     "first": "2026-11-14T06:50:34Z"
    },
-   "exit_bid": 0.71,
+   "exit_bid": 0.7,
    "kalshi_against": {
     "move": 7.5,
     "now": 27.5,
@@ -850,7 +844,7 @@
    "money_with": false,
    "grade": "B",
    "fair_board": 0.7187,
-   "inside_fair": false,
+   "inside_fair": true,
    "books": null
   },
   {
@@ -1325,9 +1319,9 @@
   },
   "401873059|spread": {
    "home": {
-    "n": 1,
-    "best_rank": 143,
-    "usd": 3733
+    "n": 2,
+    "best_rank": 115,
+    "usd": 44971
    }
   },
   "401873055|ml": {
