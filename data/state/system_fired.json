@@ -7054,12 +7054,54 @@
 "price": -144,
 "fair": null,
 "edge_pts": null,
-"why": "conference game, CSU on road game 2 in a row, +1.5, total 41.5"
+"why": "conference game, CSU on road game 2 in a row, +1.5, total 41.5",
+"void": true,
+"void_why": "rule no longer holds on the current line: home spread -1.5, total 64.5 (2026-11-15T19:55:40Z)",
+"void_at": "2026-11-15T19:55:40Z"
+},
+"401869946:cfb_day_over": {
+"tag": "cfb_day_over",
+"fill_id": "fa794bafe0cf",
+"ts": "2026-11-15T19:55:40Z",
+"market": "total",
+"side": "over",
+"line": 51.5,
+"venue": "Novig",
+"price": -122,
+"fair": null,
+"edge_pts": null,
+"why": "3:00 PM ET kickoff, total 51.5: over (mined angle)"
+},
+"401869946:cfb_homefav_7510_under": {
+"tag": "cfb_homefav_7510_under",
+"fill_id": "6129c82088e1",
+"ts": "2026-11-15T19:55:40Z",
+"market": "total",
+"side": "under",
+"line": 51.5,
+"venue": "Novig",
+"price": -122,
+"fair": null,
+"edge_pts": null,
+"why": "home favourite UL -8.5, total 51.5: under (mined angle)"
+},
+"401864543:cfb_road_dog_low_total": {
+"tag": "cfb_road_dog_low_total",
+"fill_id": "f1c22d7847cc",
+"ts": "2026-11-15T19:55:40Z",
+"market": "spread",
+"side": "away",
+"line": 24.5,
+"venue": "Novig",
+"price": -117,
+"fair": null,
+"edge_pts": null,
+"why": "conference game, NIU +24.5 on the road, total 28.5"
 },
 "401873062:xch_homedog_fade:ml": {
 "tag": "xch_homedog_fade",
-"fill_id": "17845faf7e10",
-"ts": "2026-11-15T19:45:17Z",
+"fill_id": "497bb6c44715",
+"ts": "2026-11-15T19:55:40Z",
 "market": "ml",
 "side": "away",
 "line": null,
@@ -7067,10 +7109,6 @@
 "price": -257,
 "fair": 0.72057,
 "edge_pts": 0.06,
-"why": "Novig home side mid 0.283 inside T-1.3h; audit band 20-35c",
-"now": {
-"venue": "Novig",
-"price": -257
-}
+"why": "Novig home side mid 0.283 inside T-1.2h; audit band 20-35c"
 }
 }
