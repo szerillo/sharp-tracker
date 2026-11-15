@@ -1,5 +1,5 @@
 {
- "built": "2026-11-15T18:11:00Z",
+ "built": "2026-11-15T18:03:27Z",
  "rows": [
   {
    "cond": "0x0c637d60a9447423c980eaf62fd805a2a0a8cc27823c4b7ec2582525a754163b",
@@ -113,9 +113,18 @@
    ],
    "money_with": false,
    "grade": "B",
-   "inside_fair": false,
    "fair_board": 0.4791,
-   "books": null
+   "inside_fair": null,
+   "books": {
+    "at": "2026-11-15T16:53:46Z",
+    "fair": 0.4791,
+    "q": {
+     "Novig": 0.485,
+     "Kalshi": 0.5,
+     "Caesars": 0.5122,
+     "DK": 0.5192
+    }
+   }
   },
   {
    "cond": "0x3edef02994f4d87944cb374f81bd892ee2af73869906f4d89f5ac9da98e6ad7c",
@@ -842,6 +851,98 @@
    }
   },
   {
+   "cond": "0xee19747f7bbef1a4fc1322dc7d4c674ba14276baeeaec41b51612bd96be908f2",
+   "slug": "nba-dal-bos-2026-11-15",
+   "title": "Mavericks vs. Celtics",
+   "mtype": "spread",
+   "start": "2026-11-15T23:00:00Z",
+   "bet": "Celtics -13.5",
+   "side": "Celtics",
+   "flagged": "2026-11-15T18:00:07Z",
+   "why": "a top-50 account",
+   "proven": false,
+   "trigger": "top50",
+   "n_accounts": 1,
+   "best_rank": 40,
+   "usd": 4245,
+   "paid": 0.5,
+   "ask": 0.54,
+   "status": "live",
+   "link": "https://polymarket.us/event/nba-dal-bos-2026-11-15",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401909989",
+   "sport": "nba",
+   "league": null,
+   "away": "DAL",
+   "home": "BOS",
+   "away_name": "Dallas Mavericks",
+   "home_name": "Boston Celtics",
+   "game_start": "2026-11-15T23:00Z",
+   "side_std": "home",
+   "money_with": false,
+   "grade": "watch",
+   "fair_board": 0.4922,
+   "inside_fair": false,
+   "books": {
+    "at": "2026-11-15T16:53:46Z",
+    "fair": 0.4922,
+    "q": {
+     "Novig": 0.495,
+     "DK": 0.5192,
+     "Kalshi": 0.52,
+     "Caesars": 0.5238
+    }
+   }
+  },
+  {
+   "cond": "0x64b095e879cb5f721d3a29b3f72dc0fe93d6f526f928d598a03d59fb73dee5e0",
+   "slug": "nba-dal-bos-2026-11-15",
+   "title": "Mavericks vs. Celtics",
+   "mtype": "ml",
+   "start": "2026-11-15T23:00:00Z",
+   "bet": "Celtics ML",
+   "side": "Celtics",
+   "flagged": "2026-11-15T18:00:08Z",
+   "why": "2 top-200 accounts",
+   "proven": false,
+   "trigger": "two",
+   "n_accounts": 2,
+   "best_rank": 40,
+   "usd": 941,
+   "paid": 0.86,
+   "ask": 0.87,
+   "status": "live",
+   "link": "https://polymarket.us/event/nba-dal-bos-2026-11-15",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401909989",
+   "sport": "nba",
+   "league": null,
+   "away": "DAL",
+   "home": "BOS",
+   "away_name": "Dallas Mavericks",
+   "home_name": "Boston Celtics",
+   "game_start": "2026-11-15T23:00Z",
+   "side_std": "home",
+   "money_with": false,
+   "grade": "B",
+   "fair_board": 0.8586,
+   "inside_fair": false,
+   "books": {
+    "at": "2026-11-15T16:53:46Z",
+    "fair": 0.8586,
+    "q": {
+     "Novig": 0.855,
+     "Kalshi": 0.87,
+     "Caesars": 0.875,
+     "DK": 0.8824
+    }
+   }
+  },
+  {
    "cond": "0xd42bdffea6aafbfb7c24feb0434fe68f890878d7aca7734b84015beaeb223299",
    "slug": "nba-hou-was-2026-11-15",
    "title": "Rockets vs. Wizards",
@@ -1023,7 +1124,7 @@
    ],
    "money_with": false,
    "grade": "B",
-   "fair_board": 0.7282,
+   "fair_board": 0.7187,
    "inside_fair": null,
    "books": null
   },
@@ -1522,9 +1623,9 @@
   },
   "401909989|spread": {
    "home": {
-    "n": 2,
+    "n": 1,
     "best_rank": 40,
-    "usd": 4421
+    "usd": 4245
    }
   },
   "401909989|ml": {
@@ -1532,11 +1633,6 @@
     "n": 2,
     "best_rank": 40,
     "usd": 941
-   },
-   "away": {
-    "n": 1,
-    "best_rank": 132,
-    "usd": 177
    }
   },
   "401909990|ml": {
