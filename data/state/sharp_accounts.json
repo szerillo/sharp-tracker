@@ -1,5 +1,5 @@
 {
- "built": "2026-11-15T08:46:35Z",
+ "built": "2026-11-15T09:17:07Z",
  "rows": [
   {
    "cond": "0x0c637d60a9447423c980eaf62fd805a2a0a8cc27823c4b7ec2582525a754163b",
@@ -74,6 +74,52 @@
    "fair_board": null,
    "inside_fair": null,
    "books": null
+  },
+  {
+   "cond": "0x3edef02994f4d87944cb374f81bd892ee2af73869906f4d89f5ac9da98e6ad7c",
+   "slug": "nfl-jax-ten-2026-11-15",
+   "title": "Jaguars vs. Titans",
+   "mtype": "ml",
+   "start": "2026-11-15T18:00:00Z",
+   "bet": "Jaguars ML",
+   "side": "Jaguars",
+   "flagged": "2026-11-15T09:12:38Z",
+   "why": "2 top-200 accounts",
+   "proven": false,
+   "trigger": "two",
+   "n_accounts": 2,
+   "best_rank": 58,
+   "usd": 365,
+   "paid": 0.84,
+   "ask": 0.84,
+   "status": "live",
+   "link": "https://polymarket.us/event/nfl-jax-ten-2026-11-15",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401873057",
+   "sport": "nfl",
+   "league": null,
+   "away": "JAX",
+   "home": "TEN",
+   "away_name": "Jacksonville Jaguars",
+   "home_name": "Tennessee Titans",
+   "game_start": "2026-11-15T18:00Z",
+   "side_std": "away",
+   "money_with": false,
+   "grade": "B",
+   "fair_board": 0.842,
+   "inside_fair": true,
+   "books": {
+    "at": "2026-11-15T07:25:33Z",
+    "fair": 0.842,
+    "q": {
+     "Novig": 0.84,
+     "Kalshi": 0.85,
+     "Caesars": 0.8551,
+     "DK": 0.875
+    }
+   }
   },
   {
    "cond": "0xd4fd4f17d132e71b78c39f0c122751209225f4cd6c6483998a9e8acd0e4dd7bb",
@@ -540,7 +586,7 @@
    "best_rank": 4,
    "usd": 402,
    "paid": 0.888,
-   "ask": 0.6,
+   "ask": 0.637,
    "status": "live",
    "link": "https://polymarket.us/event/cbb-pepp-ore-2026-11-15",
    "other": null,
@@ -807,9 +853,9 @@
   },
   "401873057|ml": {
    "away": {
-    "n": 1,
+    "n": 2,
     "best_rank": 58,
-    "usd": 160
+    "usd": 365
    }
   },
   "401873059|ml": {
