@@ -5974,7 +5974,10 @@
 "price": -122,
 "fair": 0.54983,
 "edge_pts": -0.02,
-"why": "home DAL lost its last game by 5, record 10-8 (56%): home moneyline (mined angle)"
+"why": "home DAL lost its last game by 5, record 10-8 (56%): home moneyline (mined angle)",
+"void": true,
+"void_why": "trigger no longer holds on current season records (2026-11-15T07:22:14Z)",
+"void_at": "2026-11-15T07:22:14Z"
 },
 "401925755:cbb_under_good_over_drop": {
 "tag": "cbb_under_good_over_drop",
@@ -6636,7 +6639,10 @@
 "price": -150,
 "fair": null,
 "edge_pts": null,
-"why": "conference game, CLEM +7.5 on the road, total 45.5"
+"why": "conference game, CLEM +7.5 on the road, total 45.5",
+"void": true,
+"void_why": "rule no longer holds on the current line: home spread -5.5, total 43.5 (2026-11-15T07:22:14Z)",
+"void_at": "2026-11-15T07:22:14Z"
 },
 "401858303:cfb_homefav_7510_under": {
 "tag": "cfb_homefav_7510_under",
@@ -6649,7 +6655,10 @@
 "price": -150,
 "fair": null,
 "edge_pts": null,
-"why": "home favourite DUKE -7.5, total 45.5: under (mined angle)"
+"why": "home favourite DUKE -7.5, total 45.5: under (mined angle)",
+"void": true,
+"void_why": "rule no longer holds on the current line: home spread -5.5, total 43.5 (2026-11-15T07:22:14Z)",
+"void_at": "2026-11-15T07:22:14Z"
 },
 "401856754:cfb_day_over": {
 "tag": "cfb_day_over",
@@ -6662,7 +6671,10 @@
 "price": -150,
 "fair": null,
 "edge_pts": null,
-"why": "3:30 PM ET kickoff, total 48.5: over (mined angle)"
+"why": "3:30 PM ET kickoff, total 48.5: over (mined angle)",
+"void": true,
+"void_why": "rule no longer holds on the current line: home spread -1.5, total 41.5 (2026-11-15T07:22:14Z)",
+"void_at": "2026-11-15T07:22:14Z"
 },
 "401909988:nba_bigfav_over": {
 "tag": "nba_bigfav_over",
@@ -6702,5 +6714,122 @@
 "fair": 0.69665,
 "edge_pts": -0.33,
 "why": "Novig home side mid 0.305 inside T-0.7h; audit band 20-35c"
+},
+"401909987:nba_badteams_under": {
+"tag": "nba_badteams_under",
+"fill_id": "72c8cb856531",
+"ts": "2026-11-15T07:22:14Z",
+"market": "total",
+"side": "under",
+"line": 215.5,
+"venue": "Novig",
+"price": -102,
+"fair": 0.49554,
+"edge_pts": -0.95,
+"why": "home LAC wins 27% (11 games), visitor CHA wins 33%: under"
+},
+"401909987:nba_under_good_home_over_small": {
+"tag": "nba_under_good_home_over_small",
+"fill_id": "44b6ee98d0c6",
+"ts": "2026-11-15T07:22:14Z",
+"market": "total",
+"side": "under",
+"line": 215.5,
+"venue": "Novig",
+"price": -102,
+"fair": 0.49554,
+"edge_pts": -0.95,
+"why": "home LAC over rate 63%, days since last game: home 2, visitor 3; total 216.5 -> 215.5"
+},
+"401909989:nba_bigfav_over": {
+"tag": "nba_bigfav_over",
+"fill_id": "47408327bba5",
+"ts": "2026-11-15T07:22:14Z",
+"market": "total",
+"side": "over",
+"line": 217.5,
+"venue": "Novig",
+"price": -104,
+"fair": 0.5,
+"edge_pts": -1.0,
+"why": "BOS is 87% on the moneyline: over (mined angle)"
+},
+"401892723:nhl_bounce_home_ml": {
+"tag": "nhl_bounce_home_ml",
+"fill_id": "8a1b407521eb",
+"ts": "2026-11-15T07:22:14Z",
+"market": "ml",
+"side": "home",
+"line": null,
+"venue": "Novig",
+"price": -144,
+"fair": 0.58549,
+"edge_pts": -0.45,
+"why": "home ANA lost its last game by 4, record 10-10 (50%): home moneyline (mined angle)"
+},
+"401892730:nhl_pl_fav_strong_opp": {
+"tag": "nhl_pl_fav_strong_opp",
+"fill_id": "5d4c1c2fe7bb",
+"ts": "2026-11-15T07:22:14Z",
+"market": "spread",
+"side": "home",
+"line": -1.5,
+"venue": "Kalshi",
+"price": 178,
+"fair": null,
+"edge_pts": null,
+"why": "opponent EDM wins 71% (15-6); favorite FLA -1.5 against a strong team"
+},
+"401892730:nhl_early_home_fav_qual": {
+"tag": "nhl_early_home_fav_qual",
+"fill_id": "6193b89e42f3",
+"ts": "2026-11-15T07:22:14Z",
+"market": "ml",
+"side": "home",
+"line": null,
+"venue": "Kalshi",
+"price": -133,
+"fair": 0.535,
+"edge_pts": -3.5,
+"why": "home favorite, game 22 of the season, opponent EDM wins 71% (15-6)"
+},
+"401892729:nhl_early_home_fav_qual": {
+"tag": "nhl_early_home_fav_qual",
+"fill_id": "99e426fa10e3",
+"ts": "2026-11-15T07:22:14Z",
+"market": "ml",
+"side": "home",
+"line": null,
+"venue": "Kalshi",
+"price": -170,
+"fair": 0.595,
+"edge_pts": -3.5,
+"why": "home favorite, game 21 of the season, opponent WSH wins 55% (10-8)"
+},
+"401892735:nhl_early_home_fav_qual": {
+"tag": "nhl_early_home_fav_qual",
+"fill_id": "9e16f0732b06",
+"ts": "2026-11-15T07:22:14Z",
+"market": "ml",
+"side": "home",
+"line": null,
+"venue": "Kalshi",
+"price": -213,
+"fair": 0.65,
+"edge_pts": -3.0,
+"why": "home favorite, game 23 of the season, opponent NSH wins 55% (11-9)"
+},
+"401892737:nhl_early_home_fav_qual": {
+"tag": "nhl_early_home_fav_qual",
+"fill_id": "5f40964177e7",
+"ts": "2026-11-15T07:22:14Z",
+"market": "ml",
+"side": "home",
+"line": null,
+"venue": "Kalshi",
+"price": -138,
+"fair": 0.545,
+"edge_pts": -3.5,
+"why": "home favorite, game 22 of the season, opponent DAL wins 57% (11-8)"
 }
 }
