@@ -1,18 +1,18 @@
 {
- "built": "2026-11-15T03:07:58Z",
+ "built": "2026-11-15T03:21:34Z",
  "record": {
-  "n": 125,
+  "n": 127,
   "won": 48,
-  "lost": 77,
-  "units": -5.22,
-  "roi": -16.7
+  "lost": 79,
+  "units": -5.72,
+  "roi": -18.0
  },
  "record_sb4": {
-  "n": 1,
+  "n": 2,
   "won": 1,
-  "lost": 0,
-  "units": 0.24,
-  "roi": 95.2
+  "lost": 1,
+  "units": -0.01,
+  "roi": -2.4
  },
  "rows": [
   {
@@ -54,46 +54,6 @@
    "move": 2.3,
    "flagged": "2026-11-14T09:49:30Z",
    "team": "BKN"
-  },
-  {
-   "key": "401909981|ml|away",
-   "sport": "nba",
-   "event_id": "401909981",
-   "game": "DAL @ CLE",
-   "start": "2026-11-15T00:30Z",
-   "market": "ml",
-   "side": "away",
-   "line": null,
-   "venue": "Novig",
-   "price": 0.46,
-   "fair": 0.4718,
-   "fair_power": 0.4706,
-   "venue_fair": 0.4577,
-   "fair_gap": 1.4,
-   "ev": 2.6,
-   "move": 1.1,
-   "flagged": "2026-11-14T10:39:29Z",
-   "team": "DAL"
-  },
-  {
-   "key": "401925108|ml|away",
-   "sport": "cbb",
-   "event_id": "401925108",
-   "game": "RGV @ UTA",
-   "start": "2026-11-15T00:00Z",
-   "market": "ml",
-   "side": "away",
-   "line": null,
-   "venue": "Novig",
-   "price": 0.355,
-   "fair": 0.3803,
-   "fair_power": 0.3732,
-   "venue_fair": 0.3532,
-   "fair_gap": 2.7,
-   "ev": 7.1,
-   "move": 2.5,
-   "flagged": "2026-11-14T17:15:24Z",
-   "team": "RGV"
   },
   {
    "key": "401911520|ml|away",
@@ -154,27 +114,6 @@
    "move": 1.9,
    "flagged": "2026-11-14T20:12:57Z",
    "team": "CGY"
-  },
-  {
-   "key": "sb4|401909981|ml|away",
-   "kind": "sb4",
-   "sport": "nba",
-   "event_id": "401909981",
-   "game": "DAL @ CLE",
-   "start": "2026-11-15T00:30Z",
-   "market": "ml",
-   "side": "away",
-   "line": null,
-   "venue": "Caesars",
-   "price": 0.6923,
-   "fair": 0.7579,
-   "fair_power": 0.7749,
-   "venue_fair": 0.6636,
-   "fair_gap": 9.4,
-   "ev": 9.5,
-   "move": 8.8,
-   "flagged": "2026-11-14T23:23:36Z",
-   "team": "DAL"
   },
   {
    "key": "sb4|401909983|ml|home",
