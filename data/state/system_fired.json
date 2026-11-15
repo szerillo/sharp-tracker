@@ -6430,7 +6430,10 @@
 "price": -117,
 "fair": 0.505,
 "edge_pts": -3.5,
-"why": "home favorite, game 22 of the season, opponent MTL wins 63% (12-7)"
+"why": "home favorite, game 22 of the season, opponent MTL wins 63% (12-7)",
+"void": true,
+"void_why": "trigger no longer holds on current season records (2026-11-15T17:54:51Z)",
+"void_at": "2026-11-15T17:54:51Z"
 },
 "401892727:nhl_pl_dog_bigml": {
 "tag": "nhl_pl_dog_bigml",
@@ -6938,5 +6941,70 @@
 "fair": 0.79686,
 "edge_pts": 0.19,
 "why": "Novig home side mid 0.210 inside T-1.2h; audit band 20-35c"
+},
+"401871078:cfb_road_streak_dog": {
+"tag": "cfb_road_streak_dog",
+"fill_id": "1dcee942e5f0",
+"ts": "2026-11-15T17:54:51Z",
+"market": "spread",
+"side": "away",
+"line": 1.5,
+"venue": "Kalshi",
+"price": -285,
+"fair": null,
+"edge_pts": null,
+"why": "conference game, FIU on road game 2 in a row, +1.5, total 23.5"
+},
+"401869953:cfb_road_streak_dog": {
+"tag": "cfb_road_streak_dog",
+"fill_id": "829d45ef1709",
+"ts": "2026-11-15T17:54:51Z",
+"market": "spread",
+"side": "away",
+"line": 1.5,
+"venue": "Kalshi",
+"price": null,
+"fair": null,
+"edge_pts": null,
+"why": "conference game, GASO on road game 2 in a row, +1.5, total 47.5"
+},
+"401864544:cfb_road_streak_dog": {
+"tag": "cfb_road_streak_dog",
+"fill_id": "a747d0d31d2c",
+"ts": "2026-11-15T17:54:51Z",
+"market": "spread",
+"side": "away",
+"line": 1.5,
+"venue": "Kalshi",
+"price": -300,
+"fair": null,
+"edge_pts": null,
+"why": "conference game, UNLV on road game 2 in a row, +1.5, total 29.5"
+},
+"401869938:cfb_road_streak_dog": {
+"tag": "cfb_road_streak_dog",
+"fill_id": "7a7d52d2f2c7",
+"ts": "2026-11-15T17:54:51Z",
+"market": "spread",
+"side": "away",
+"line": 1.5,
+"venue": "Kalshi",
+"price": -100,
+"fair": null,
+"edge_pts": null,
+"why": "conference game, ARST on road game 2 in a row, +1.5, total 30.5"
+},
+"401860919:cfb_road_streak_dog": {
+"tag": "cfb_road_streak_dog",
+"fill_id": "6d455b72e177",
+"ts": "2026-11-15T17:54:51Z",
+"market": "spread",
+"side": "away",
+"line": 1.5,
+"venue": "Kalshi",
+"price": -138,
+"fair": null,
+"edge_pts": null,
+"why": "conference game, USU on road game 2 in a row, +1.5, total 29.5"
 }
 }
