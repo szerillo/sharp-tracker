@@ -1,5 +1,5 @@
 {
- "built": "2026-11-15T02:17:32Z",
+ "built": "2026-11-15T02:30:23Z",
  "record": {
   "cbb_1h_total_curve": {
    "n": 4,
@@ -19,10 +19,10 @@
    }
   },
   "cfb_q1_under_curve": {
-   "n": 24,
+   "n": 25,
    "won": 9,
-   "lost": 15,
-   "units": -2.6,
+   "lost": 16,
+   "units": -3.1,
    "clv": {
     "n": 13,
     "avg": -2.52,
@@ -88,35 +88,6 @@
   }
  },
  "rows": [
-  {
-   "key": "cfb_q1_under_curve|aa1c9ee516cf122de53e75ffec017edd||under",
-   "rule": "cfb_q1_under_curve",
-   "tier": "A",
-   "stake": 0.5,
-   "sport": "cfb",
-   "odds_id": "aa1c9ee516cf122de53e75ffec017edd",
-   "espn": "401858521",
-   "game": "Washington Huskies @ Michigan State Spartans",
-   "start": "2026-11-14T22:30:00Z",
-   "market": "totals_q1",
-   "team": null,
-   "team_name": null,
-   "side": "under",
-   "line": 9.5,
-   "curve": 0.558,
-   "pin_fair": 0.497,
-   "gap": 6.1,
-   "full_total": 43.5,
-   "full_spread": 2.5,
-   "pin_price": 1.92,
-   "book": "FD",
-   "price": 1.89,
-   "pin_fair_power": 0.4972,
-   "book_fair": 0.5052,
-   "fair_gap": -0.8,
-   "ev_curve": 5.5,
-   "flagged": "2026-11-14T19:49:28Z"
-  },
   {
    "key": "cfb_tt_under_curve|558ce811ad052f49918a2855f3777baf|home|under",
    "rule": "cfb_tt_under_curve",
