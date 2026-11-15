@@ -1,5 +1,5 @@
 {
- "built": "2026-11-15T23:08:17Z",
+ "built": "2026-11-15T23:15:12Z",
  "rows": [
   {
    "cond": "0x3b773f3b5203b36a388f1a3f242b5012e7d4eb0b8fd6f3773f23185485b99c8f",
@@ -502,7 +502,7 @@
    ],
    "money_with": false,
    "grade": "B",
-   "fair_board": 0.5142,
+   "fair_board": 0.5145,
    "inside_fair": null,
    "books": {
     "at": "2026-11-15T22:53:34Z",
@@ -577,7 +577,7 @@
    "best_rank": 58,
    "usd": 4189,
    "paid": 0.519,
-   "ask": 0.55,
+   "ask": 0.57,
    "status": "live",
    "link": "https://polymarket.us/event/nba-hou-was-2026-11-15",
    "other": null,
@@ -868,7 +868,7 @@
    "side_std": "home",
    "money_with": false,
    "grade": "B",
-   "fair_board": 0.3805,
+   "fair_board": 0.3856,
    "inside_fair": null,
    "books": null
   },
@@ -1041,11 +1041,7 @@
     "first": "2026-11-13T10:27:49Z"
    },
    "exit_bid": 0.35,
-   "kalshi_against": {
-    "move": 5.5,
-    "now": 63.5,
-    "state": "drift"
-   },
+   "kalshi_against": null,
    "logged": true,
    "event_id": "401910000",
    "sport": "nba",
@@ -1119,6 +1115,14 @@
     "best_rank": 79,
     "usd": 5355
    }
+  },
+  "401909991:xch_homedog_fade:ml": {
+   "with": {
+    "n": 1,
+    "best_rank": 132,
+    "usd": 731
+   },
+   "against": null
   }
  },
  "by_event": {
