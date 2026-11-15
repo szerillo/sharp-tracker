@@ -6663,5 +6663,44 @@
 "fair": null,
 "edge_pts": null,
 "why": "3:30 PM ET kickoff, total 48.5: over (mined angle)"
+},
+"401909988:nba_bigfav_over": {
+"tag": "nba_bigfav_over",
+"fill_id": "85b7b9b80f8b",
+"ts": "2026-11-15T02:20:13Z",
+"market": "total",
+"side": "over",
+"line": 223.5,
+"venue": "Novig",
+"price": -106,
+"fair": 0.5045,
+"edge_pts": -1.05,
+"why": "SA is 93% on the moneyline: over (mined angle)"
+},
+"401909991:nba_roadtrip_over": {
+"tag": "nba_roadtrip_over",
+"fill_id": "7bbbc6456ff8",
+"ts": "2026-11-15T02:20:13Z",
+"market": "total",
+"side": "over",
+"line": 223.5,
+"venue": "Novig",
+"price": -104,
+"fair": 0.5,
+"edge_pts": -1.0,
+"why": "HOU off 3 straight home games, first road game: over (Bet Labs filter)"
+},
+"401892719:xch_homedog_fade:spread": {
+"tag": "xch_homedog_fade",
+"fill_id": "d61bf074888e",
+"ts": "2026-11-15T02:20:13Z",
+"market": "spread",
+"side": "away",
+"line": 1.5,
+"venue": "Novig",
+"price": -233,
+"fair": 0.69665,
+"edge_pts": -0.33,
+"why": "Novig home side mid 0.305 inside T-0.7h; audit band 20-35c"
 }
 }
