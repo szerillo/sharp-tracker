@@ -1,5 +1,5 @@
 {
- "built": "2026-11-15T12:14:23Z",
+ "built": "2026-11-15T12:24:23Z",
  "rows": [
   {
    "cond": "0x0c637d60a9447423c980eaf62fd805a2a0a8cc27823c4b7ec2582525a754163b",
@@ -287,6 +287,56 @@
      "Novig": 0.625,
      "FD": 0.6324,
      "Caesars": 0.6337
+    }
+   }
+  },
+  {
+   "cond": "0x35ebf9df56bde4e0134c4f88492f95a4756c5ad8705c6200bf2357639e3bbbde",
+   "slug": "nfl-car-no-2026-11-15",
+   "title": "Panthers vs. Saints",
+   "mtype": "spread",
+   "start": "2026-11-15T18:00:00Z",
+   "bet": "Panthers +1.5",
+   "side": "Panthers",
+   "flagged": "2026-11-15T12:16:08Z",
+   "why": "2 top-200 accounts",
+   "proven": false,
+   "trigger": "two",
+   "n_accounts": 2,
+   "best_rank": 58,
+   "usd": 524,
+   "paid": 0.515,
+   "ask": 0.53,
+   "status": "live",
+   "link": "https://polymarket.us/event/nfl-car-no-2026-11-15",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401873055",
+   "sport": "nfl",
+   "league": null,
+   "away": "CAR",
+   "home": "NO",
+   "away_name": "Carolina Panthers",
+   "home_name": "New Orleans Saints",
+   "game_start": "2026-11-15T18:00Z",
+   "side_std": "away",
+   "conflict": [
+    "Kalshi move",
+    "big money"
+   ],
+   "money_with": false,
+   "grade": "B",
+   "fair_board": 0.4902,
+   "inside_fair": false,
+   "books": {
+    "at": "2026-11-15T07:25:33Z",
+    "fair": 0.4902,
+    "q": {
+     "Novig": 0.495,
+     "FD": 0.5,
+     "DK": 0.5122,
+     "Caesars": 0.5122
     }
    }
   },
@@ -1086,9 +1136,9 @@
   },
   "401873055|spread": {
    "away": {
-    "n": 1,
-    "best_rank": 182,
-    "usd": 284
+    "n": 2,
+    "best_rank": 58,
+    "usd": 524
    }
   },
   "401873054|ml": {
