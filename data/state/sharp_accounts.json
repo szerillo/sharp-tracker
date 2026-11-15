@@ -1,5 +1,5 @@
 {
- "built": "2026-11-15T00:22:01Z",
+ "built": "2026-11-14T23:38:45Z",
  "rows": [
   {
    "cond": "0xa71b6b5761973b39d59e6fbac717728460dce340f4de53a7a4236fe2fe4e36ad",
@@ -586,7 +586,7 @@
    "side_std": "away",
    "money_with": false,
    "grade": "A",
-   "fair_board": 0.5796,
+   "fair_board": 0.5821,
    "inside_fair": null,
    "books": {
     "at": "2026-11-14T23:58:27Z",
@@ -689,7 +689,7 @@
    "best_rank": 58,
    "usd": 470,
    "paid": 0.53,
-   "ask": null,
+   "ask": 0.51,
    "status": "live",
    "link": "https://polymarket.us/event/cfb-sjst-airf-2026-11-14",
    "other": null,
@@ -726,7 +726,7 @@
    "best_rank": 58,
    "usd": 203,
    "paid": 0.52,
-   "ask": null,
+   "ask": 0.54,
    "status": "live",
    "link": "https://polymarket.us/event/cfb-flatl-tulsa-2026-11-14",
    "other": null,
@@ -1166,7 +1166,7 @@
    "best_rank": 58,
    "usd": 480,
    "paid": 0.48,
-   "ask": 0.5,
+   "ask": 0.49,
    "status": "live",
    "link": "https://polymarket.us/event/cfb-ntx-utsa-2026-11-14",
    "other": null,
@@ -1183,8 +1183,8 @@
    "side_std": "under",
    "money_with": false,
    "grade": "A",
-   "fair_board": 0.489,
-   "inside_fair": false,
+   "fair_board": 0.4904,
+   "inside_fair": true,
    "books": {
     "at": "2026-11-14T23:58:27Z",
     "fair": 0.489,
@@ -1421,7 +1421,7 @@
    "best_rank": 43,
    "usd": 509,
    "paid": 0.4,
-   "ask": 0.41,
+   "ask": 0.4,
    "status": "live",
    "link": "https://polymarket.us/event/nba-lal-phx-2026-11-15",
    "other": null,
@@ -1663,7 +1663,11 @@
     "first": "2026-11-13T11:39:00Z"
    },
    "exit_bid": null,
-   "kalshi_against": null,
+   "kalshi_against": {
+    "move": 5.0,
+    "now": 55.5,
+    "state": "held"
+   },
    "logged": true,
    "event_id": "401892713",
    "sport": "nhl",
@@ -1676,7 +1680,7 @@
    "side_std": "home",
    "money_with": false,
    "grade": "B",
-   "fair_board": 0.4462,
+   "fair_board": 0.4444,
    "inside_fair": null,
    "books": null
   },
@@ -1719,7 +1723,7 @@
    "side_std": "home",
    "money_with": false,
    "grade": "A",
-   "fair_board": 0.5638,
+   "fair_board": 0.5653,
    "inside_fair": null,
    "books": null
   },
@@ -2068,7 +2072,7 @@
     "usd": 201,
     "first": "2026-11-14T20:47:52Z"
    },
-   "exit_bid": 0.33,
+   "exit_bid": 0.39,
    "kalshi_against": null,
    "logged": true,
    "event_id": "401909990",
@@ -2233,13 +2237,13 @@
     "clv": -0.5
    }
   },
-  "n": 255,
-  "won": 111,
+  "n": 252,
+  "won": 110,
   "units": -16.31,
   "by_grade": {
    "A": {
-    "n": 170,
-    "won": 70,
+    "n": 167,
+    "won": 69,
     "units": -15.11,
     "clv": -0.52
    },
@@ -2256,7 +2260,7 @@
     "clv": -0.6
    }
   },
-  "units_1u": -40.91,
+  "units_1u": -39.91,
   "clv": -0.6,
   "n_venue": 123,
   "units_venue": -5.82,
@@ -2583,6 +2587,13 @@
     "n": 1,
     "best_rank": 110,
     "usd": 460
+   }
+  },
+  "401862826|total": {
+   "under": {
+    "n": 1,
+    "best_rank": 58,
+    "usd": 203
    }
   },
   "401864539|spread": {
