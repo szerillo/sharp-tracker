@@ -1,5 +1,5 @@
 {
- "built": "2026-11-15T18:39:02Z",
+ "built": "2026-11-15T19:26:27Z",
  "rows": [
   {
    "cond": "0x0c637d60a9447423c980eaf62fd805a2a0a8cc27823c4b7ec2582525a754163b",
@@ -842,6 +842,49 @@
    }
   },
   {
+   "cond": "0xc60598366a8358b18c8f9d81e2aa4bcb9ebd672fe4879b8026800ffcccd7c48b",
+   "slug": "nba-hou-mia-2026-11-16",
+   "title": "Rockets vs. Heat",
+   "mtype": "ml",
+   "start": "2026-11-17T00:30:00Z",
+   "bet": "Heat ML",
+   "side": "Heat",
+   "flagged": "2026-11-15T19:24:44Z",
+   "why": "a top-50 account",
+   "proven": false,
+   "trigger": "top50",
+   "n_accounts": 1,
+   "best_rank": 43,
+   "usd": 171,
+   "paid": 0.465,
+   "ask": 0.49,
+   "status": "live",
+   "link": "https://polymarket.us/event/nba-hou-mia-2026-11-16",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401909998",
+   "sport": "nba",
+   "league": null,
+   "away": "HOU",
+   "home": "MIA",
+   "away_name": "Houston Rockets",
+   "home_name": "Miami Heat",
+   "game_start": "2026-11-17T00:30Z",
+   "side_std": "home",
+   "money_with": false,
+   "grade": "watch",
+   "fair_board": null,
+   "inside_fair": null,
+   "books": {
+    "at": "2026-11-15T19:02:21Z",
+    "fair": null,
+    "q": {
+     "Kalshi": 0.49
+    }
+   }
+  },
+  {
    "cond": "0x6939f2859abf4a29b7e4587d96b0f2ff88597ffdcafae357af8435b083289f19",
    "slug": "nba-ind-phi-2026-11-15",
    "title": "Pacers vs. 76ers",
@@ -900,7 +943,7 @@
    "best_rank": 137,
    "usd": 161,
    "paid": 0.55,
-   "ask": 0.52,
+   "ask": null,
    "status": "other side",
    "link": "https://polymarket.us/event/cbb-wash-utah-2026-11-14",
    "other": {
@@ -909,12 +952,8 @@
     "usd": 108,
     "first": "2026-11-15T06:43:56Z"
    },
-   "exit_bid": 0.51,
-   "kalshi_against": {
-    "move": 4.5,
-    "now": 46.5,
-    "state": "reversed"
-   },
+   "exit_bid": null,
+   "kalshi_against": null,
    "logged": true,
    "event_id": "401921760",
    "sport": "cbb",
@@ -925,9 +964,6 @@
    "home_name": "Utah Utes",
    "game_start": "2026-11-15T19:00Z",
    "side_std": "home",
-   "conflict": [
-    "Kalshi move"
-   ],
    "money_with": false,
    "grade": "A",
    "fair_board": 0.5362,
@@ -1468,6 +1504,13 @@
     "usd": 5100
    }
   },
+  "401909998|ml": {
+   "home": {
+    "n": 1,
+    "best_rank": 43,
+    "usd": 171
+   }
+  },
   "401910000|ml": {
    "home": {
     "n": 2,
@@ -1481,13 +1524,6 @@
    }
   },
   "401892721|ml": {
-   "home": {
-    "n": 1,
-    "best_rank": 132,
-    "usd": 1758
-   }
-  },
-  "401921760|ml": {
    "home": {
     "n": 1,
     "best_rank": 132,
