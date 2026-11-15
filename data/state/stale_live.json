@@ -1,11 +1,11 @@
 {
- "built": "2026-11-15T21:38:14Z",
+ "built": "2026-11-15T21:49:45Z",
  "record": {
-  "n": 135,
-  "won": 52,
+  "n": 137,
+  "won": 54,
   "lost": 83,
-  "units": -5.36,
-  "roi": -15.9
+  "units": -4.66,
+  "roi": -13.6
  },
  "record_sb4": {
   "n": 3,
@@ -96,26 +96,6 @@
    "team": "PHX"
   },
   {
-   "key": "401873056|ml|home",
-   "sport": "nfl",
-   "event_id": "401873056",
-   "game": "HOU @ CLE",
-   "start": "2026-11-15T18:00Z",
-   "market": "ml",
-   "side": "home",
-   "line": null,
-   "venue": "Novig",
-   "price": 0.355,
-   "fair": 0.3624,
-   "fair_power": 0.3572,
-   "venue_fair": 0.3532,
-   "fair_gap": 0.9,
-   "ev": 2.1,
-   "move": 2.7,
-   "flagged": "2026-11-15T16:41:04Z",
-   "team": "CLE"
-  },
-  {
    "key": "401909493|total|over",
    "sport": "cbb",
    "event_id": "401909493",
@@ -133,26 +113,6 @@
    "ev": 4.0,
    "move": 1.8,
    "flagged": "2026-11-15T17:06:28Z",
-   "team": null
-  },
-  {
-   "key": "401873058|total|over",
-   "sport": "nfl",
-   "event_id": "401873058",
-   "game": "KC @ ATL",
-   "start": "2026-11-15T18:00Z",
-   "market": "total",
-   "side": "over",
-   "line": 47.5,
-   "venue": "Novig",
-   "price": 0.51,
-   "fair": 0.5216,
-   "fair_power": 0.5225,
-   "venue_fair": 0.505,
-   "fair_gap": 1.7,
-   "ev": 2.3,
-   "move": 1.4,
-   "flagged": "2026-11-15T17:30:49Z",
    "team": null
   },
   {
@@ -215,6 +175,47 @@
    "move": 2.7,
    "flagged": "2026-11-15T21:14:33Z",
    "team": "DAL"
+  },
+  {
+   "key": "sb4|401909990|ml|home",
+   "kind": "sb4",
+   "sport": "nba",
+   "event_id": "401909990",
+   "game": "NY @ TOR",
+   "start": "2026-11-15T23:00Z",
+   "market": "ml",
+   "side": "home",
+   "line": null,
+   "venue": "DK",
+   "price": 0.3584,
+   "fair": 0.3886,
+   "fair_power": 0.3844,
+   "venue_fair": 0.344,
+   "fair_gap": 4.5,
+   "ev": 8.4,
+   "move": 4.6,
+   "flagged": "2026-11-15T21:49:45Z",
+   "team": "TOR"
+  },
+  {
+   "key": "401909990|ml|home",
+   "sport": "nba",
+   "event_id": "401909990",
+   "game": "NY @ TOR",
+   "start": "2026-11-15T23:00Z",
+   "market": "ml",
+   "side": "home",
+   "line": null,
+   "venue": "DK",
+   "price": 0.3584,
+   "fair": 0.3886,
+   "fair_power": 0.3844,
+   "venue_fair": 0.344,
+   "fair_gap": 4.5,
+   "ev": 8.4,
+   "move": 4.6,
+   "flagged": "2026-11-15T21:49:45Z",
+   "team": "TOR"
   }
  ]
 }

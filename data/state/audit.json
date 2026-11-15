@@ -1,12 +1,12 @@
 {
- "built": "2026-11-15T21:44:24Z",
- "ok": true,
+ "built": "2026-11-15T21:54:15Z",
+ "ok": false,
  "checks": [
   {
    "name": "fresh: sharp signals (5-minute job)",
-   "ok": true,
+   "ok": false,
    "level": "error",
-   "detail": "last built 16 min ago (allowed 20)"
+   "detail": "last built 26 min ago (allowed 20)"
   },
   {
    "name": "fresh: big money / Kalshi moves (20-minute job)",
@@ -30,7 +30,7 @@
    "name": "fresh: system bets (3 runs a day)",
    "ok": true,
    "level": "error",
-   "detail": "last built 39 min ago (allowed 300)"
+   "detail": "last built 49 min ago (allowed 300)"
   },
   {
    "name": "sharp feed: Polymarket fills arriving",
