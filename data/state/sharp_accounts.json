@@ -497,7 +497,11 @@
     "first": "2026-11-15T06:43:56Z"
    },
    "exit_bid": 0.5,
-   "kalshi_against": null,
+   "kalshi_against": {
+    "move": 4.5,
+    "now": 46.5,
+    "state": "fresh"
+   },
    "logged": true,
    "event_id": "401921760",
    "sport": "cbb",
@@ -508,6 +512,9 @@
    "home_name": "Utah Utes",
    "game_start": "2026-11-15T19:00Z",
    "side_std": "home",
+   "conflict": [
+    "Kalshi move"
+   ],
    "money_with": false,
    "grade": "A",
    "fair_board": null,
@@ -629,8 +636,8 @@
    "link": "https://polymarket.us/event/nba-orl-bos-2026-11-16",
    "other": null,
    "kalshi_against": {
-    "move": 8.0,
-    "now": 26.5,
+    "move": 7.0,
+    "now": 25.5,
     "state": "held"
    },
    "logged": true,
