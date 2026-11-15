@@ -6739,7 +6739,10 @@
 "price": -102,
 "fair": 0.49554,
 "edge_pts": -0.95,
-"why": "home LAC over rate 63%, days since last game: home 2, visitor 3; total 216.5 -> 215.5"
+"why": "home LAC over rate 63%, days since last game: home 2, visitor 3; total 216.5 -> 215.5",
+"void": true,
+"void_why": "trigger no longer holds on current season records (2026-11-15T14:55:57Z)",
+"void_at": "2026-11-15T14:55:57Z"
 },
 "401909989:nba_bigfav_over": {
 "tag": "nba_bigfav_over",
@@ -6831,5 +6834,57 @@
 "fair": 0.545,
 "edge_pts": -3.5,
 "why": "home favorite, game 22 of the season, opponent DAL wins 57% (11-8)"
+},
+"401856755:cfb_road_dog_low_total": {
+"tag": "cfb_road_dog_low_total",
+"fill_id": "d2dcfa2d4101",
+"ts": "2026-11-15T14:55:57Z",
+"market": "spread",
+"side": "away",
+"line": 13.5,
+"venue": "Kalshi",
+"price": 127,
+"fair": null,
+"edge_pts": null,
+"why": "conference game, ARK +13.5 on the road, total 47.5"
+},
+"401856755:cfb_day_over": {
+"tag": "cfb_day_over",
+"fill_id": "09a8a5639dc2",
+"ts": "2026-11-15T14:55:57Z",
+"market": "total",
+"side": "over",
+"line": 47.5,
+"venue": "Kalshi",
+"price": -113,
+"fair": 0.5,
+"edge_pts": -3.0,
+"why": "3:30 PM ET kickoff, total 47.5: over (mined angle)"
+},
+"401858307:cfb_homefav_7510_under": {
+"tag": "cfb_homefav_7510_under",
+"fill_id": "6e3a3d72ee98",
+"ts": "2026-11-15T14:55:57Z",
+"market": "total",
+"side": "under",
+"line": 56.5,
+"venue": "Kalshi",
+"price": -144,
+"fair": null,
+"edge_pts": null,
+"why": "home favourite ND -9.5, total 56.5: under (mined angle)"
+},
+"401909987:nba_under_good_home_over": {
+"tag": "nba_under_good_home_over",
+"fill_id": "c8f2bae5ee15",
+"ts": "2026-11-15T14:55:57Z",
+"market": "total",
+"side": "under",
+"line": 214.5,
+"venue": "Novig",
+"price": -100,
+"fair": 0.49733,
+"edge_pts": -0.27,
+"why": "home LAC over rate 63%, days since last game: home 2, visitor 3; total 216.5 -> 214.5"
 }
 }

@@ -1,12 +1,48 @@
 {
- "built": "2026-11-15T14:53:10Z",
- "ok": true,
+ "built": "2026-11-15T15:06:44Z",
+ "ok": false,
  "checks": [
+  {
+   "name": "fresh: sharp signals (5-minute job)",
+   "ok": true,
+   "level": "error",
+   "detail": "last built 11 min ago (allowed 20)"
+  },
+  {
+   "name": "fresh: big money / Kalshi moves (20-minute job)",
+   "ok": true,
+   "level": "error",
+   "detail": "last built 22 min ago (allowed 60)"
+  },
+  {
+   "name": "fresh: tennis watch (20-minute job)",
+   "ok": true,
+   "level": "error",
+   "detail": "last built 22 min ago (allowed 60)"
+  },
+  {
+   "name": "fresh: bet tracker (20-minute job)",
+   "ok": true,
+   "level": "error",
+   "detail": "last built 15 min ago (allowed 60)"
+  },
+  {
+   "name": "fresh: system bets (3 runs a day)",
+   "ok": true,
+   "level": "error",
+   "detail": "last built 11 min ago (allowed 300)"
+  },
+  {
+   "name": "sharp feed: Polymarket fills arriving",
+   "ok": true,
+   "level": "warn",
+   "detail": "newest sharp fill 0.5 h ago"
+  },
   {
    "name": "open system bets all on the board",
    "ok": true,
    "level": "error",
-   "detail": "26 open, 0 missing"
+   "detail": "29 open, 0 missing"
   },
   {
    "name": "no duplicate bets in the records",
@@ -22,9 +58,9 @@
   },
   {
    "name": "bet tracker has every flagged bet",
-   "ok": true,
-   "level": "warn",
-   "detail": "647 in the records, 0 missing from the tracker"
+   "ok": false,
+   "level": "error",
+   "detail": "650 in the records, 4 missing from the tracker"
   }
  ]
 }
