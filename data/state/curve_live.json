@@ -1,5 +1,5 @@
 {
- "built": "2026-11-15T00:52:42Z",
+ "built": "2026-11-15T01:05:14Z",
  "record": {
   "cbb_1h_total_curve": {
    "n": 4,
@@ -19,10 +19,10 @@
    }
   },
   "cfb_q1_under_curve": {
-   "n": 22,
+   "n": 23,
    "won": 9,
-   "lost": 13,
-   "units": -1.84,
+   "lost": 14,
+   "units": -2.35,
    "clv": {
     "n": 12,
     "avg": -2.29,
@@ -70,13 +70,13 @@
    }
   },
   "cfb_tt_under_curve": {
-   "n": 20,
+   "n": 21,
    "won": 7,
-   "lost": 13,
-   "units": -1.74,
+   "lost": 14,
+   "units": -1.99,
    "clv": {
     "n": 8,
-    "avg": -2.83,
+    "avg": -2.55,
     "beat": 1
    },
    "line_value": {
@@ -88,72 +88,6 @@
   }
  },
  "rows": [
-  {
-   "key": "cfb_q1_under_curve|a21a2f1087d443fa1a1c71e1a03a0fe0||under",
-   "rule": "cfb_q1_under_curve",
-   "tier": "A",
-   "stake": 0.5,
-   "sport": "cfb",
-   "odds_id": "a21a2f1087d443fa1a1c71e1a03a0fe0",
-   "espn": "401860916",
-   "game": "Fresno State Bulldogs @ Texas State Bobcats",
-   "start": "2026-11-14T21:00:00Z",
-   "market": "totals_q1",
-   "team": null,
-   "team_name": null,
-   "side": "under",
-   "line": 13.5,
-   "curve": 0.56,
-   "pin_fair": 0.461,
-   "gap": 10.0,
-   "full_total": 60.5,
-   "full_spread": -10.0,
-   "pin_price": 2.07,
-   "book": "FD",
-   "price": 2.12,
-   "pin_fair_power": 0.4581,
-   "book_fair": 0.4508,
-   "fair_gap": 1.0,
-   "ev_curve": 18.8,
-   "flagged": "2026-11-14T18:02:24Z",
-   "close_ts": "2026-11-14T20:56:11Z",
-   "close_line": 13.5,
-   "line_value": 0.0,
-   "close_fair": 0.4571,
-   "clv": -1.46,
-   "beat_fair": -0.39
-  },
-  {
-   "key": "cfb_tt_under_curve|a21a2f1087d443fa1a1c71e1a03a0fe0|away|under",
-   "rule": "cfb_tt_under_curve",
-   "tier": "P",
-   "stake": 0.0,
-   "sport": "cfb",
-   "odds_id": "a21a2f1087d443fa1a1c71e1a03a0fe0",
-   "espn": "401860916",
-   "game": "Fresno State Bulldogs @ Texas State Bobcats",
-   "start": "2026-11-14T21:00:00Z",
-   "market": "team_totals",
-   "team": "away",
-   "team_name": "Fresno State Bulldogs",
-   "side": "under",
-   "line": 25.5,
-   "curve": 0.575,
-   "pin_fair": 0.521,
-   "gap": 5.5,
-   "full_total": 60.5,
-   "full_spread": -10.0,
-   "pin_price": 1.85,
-   "book": null,
-   "price": null,
-   "flagged": "2026-11-14T18:02:24Z",
-   "close_ts": "2026-11-14T20:56:11Z",
-   "close_line": 25.5,
-   "line_value": 0.0,
-   "close_fair": 0.5297,
-   "clv": -1.08,
-   "beat_fair": 0.87
-  },
   {
    "key": "cfb_q1_under_curve|d6d167714ff638b23e84d757ff522414||under",
    "rule": "cfb_q1_under_curve",
@@ -496,13 +430,7 @@
    "book_fair": 0.5,
    "fair_gap": -3.5,
    "ev_curve": -2.1,
-   "flagged": "2026-11-14T21:46:41Z",
-   "close_ts": "2026-11-15T00:26:37Z",
-   "close_line": 20.5,
-   "line_value": 0.0,
-   "close_fair": 0.4689,
-   "clv": -6.3,
-   "beat_fair": 0.39
+   "flagged": "2026-11-14T21:46:41Z"
   },
   {
    "key": "cfb_tt_under_curve|018349e41d033e3b1fdbc14ce9b09325|away|under",
@@ -618,32 +546,7 @@
    "book_fair": 0.4815,
    "fair_gap": -1.4,
    "ev_curve": 5.0,
-   "flagged": "2026-11-14T23:58:18Z"
-  },
-  {
-   "key": "cfb_tt_under_curve|320a213c475110f032710dcd06c94e8e|home|under",
-   "rule": "cfb_tt_under_curve",
-   "tier": "P",
-   "stake": 0.0,
-   "sport": "cfb",
-   "odds_id": "320a213c475110f032710dcd06c94e8e",
-   "espn": "401856863",
-   "game": "Texas Tech Red Raiders @ Oklahoma State Cowboys",
-   "start": "2026-11-15T02:30:00Z",
-   "market": "team_totals",
-   "team": "home",
-   "team_name": "Oklahoma State Cowboys",
-   "side": "under",
-   "line": 37.5,
-   "curve": 0.481,
-   "pin_fair": 0.43,
-   "gap": 5.1,
-   "full_total": 73.5,
-   "full_spread": -3.5,
-   "pin_price": 2.24,
-   "book": null,
-   "price": null,
-   "flagged": "2026-11-15T00:26:37Z"
+   "flagged": "2026-11-14T23:42:57Z"
   },
   {
    "key": "nhl_p3_under_curve|ce4dd515ea49344d4707778f27669fec||under",
