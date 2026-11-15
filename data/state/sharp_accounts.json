@@ -1,5 +1,5 @@
 {
- "built": "2026-11-15T21:21:56Z",
+ "built": "2026-11-15T21:14:31Z",
  "rows": [
   {
    "cond": "0x0c637d60a9447423c980eaf62fd805a2a0a8cc27823c4b7ec2582525a754163b",
@@ -1279,12 +1279,12 @@
    "flagged": "2026-11-13T11:25:58Z",
    "why": "3 top-200 accounts",
    "proven": false,
-   "trigger": "two",
-   "n_accounts": 3,
-   "best_rank": 42,
-   "usd": 7757,
-   "paid": 0.36,
-   "ask": 0.38,
+   "trigger": "top50",
+   "n_accounts": 1,
+   "best_rank": 43,
+   "usd": 170,
+   "paid": 0.34,
+   "ask": 0.34,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-nyk-tor-2026-11-15",
    "other": {
@@ -1293,7 +1293,7 @@
     "usd": 201,
     "first": "2026-11-14T20:47:52Z"
    },
-   "exit_bid": 0.37,
+   "exit_bid": 0.33,
    "kalshi_against": null,
    "logged": true,
    "event_id": "401909990",
@@ -1513,13 +1513,13 @@
     "clv": -0.62
    }
   },
-  "n": 281,
-  "won": 123,
+  "n": 279,
+  "won": 121,
   "units": -16.31,
   "by_grade": {
    "A": {
-    "n": 186,
-    "won": 76,
+    "n": 185,
+    "won": 75,
     "units": -15.11,
     "clv": -0.48
    },
@@ -1536,9 +1536,9 @@
     "clv": -0.6
    }
   },
-  "units_1u": -44.91,
-  "clv": -0.78,
-  "n_venue": 130,
+  "units_1u": -46.72,
+  "clv": -0.79,
+  "n_venue": 129,
   "units_venue": -5.82,
   "clv_venue": 0.57,
   "clv_poly_same": -1.03
