@@ -1,5 +1,5 @@
 {
- "built": "2026-11-15T00:26:37Z",
+ "built": "2026-11-15T00:39:25Z",
  "record": {
   "cbb_1h_total_curve": {
    "n": 4,
@@ -58,13 +58,13 @@
    "lost": 13,
    "units": -3.38,
    "clv": {
-    "n": 16,
-    "avg": -2.2,
+    "n": 13,
+    "avg": -2.32,
     "beat": 0
    },
    "line_value": {
-    "n": 17,
-    "avg": -0.03,
+    "n": 14,
+    "avg": -0.04,
     "better": 0,
     "worse": 1
    }
@@ -363,13 +363,7 @@
    "book_fair": 0.5,
    "fair_gap": 1.4,
    "ev_curve": 8.9,
-   "flagged": "2026-11-14T21:19:15Z",
-   "close_ts": "2026-11-14T23:58:18Z",
-   "close_line": 13.5,
-   "line_value": 0.0,
-   "close_fair": 0.5144,
-   "clv": -0.92,
-   "beat_fair": 0.04
+   "flagged": "2026-11-14T21:19:15Z"
   },
   {
    "key": "cfb_q1_under_curve|018349e41d033e3b1fdbc14ce9b09325||under",
@@ -429,13 +423,7 @@
    "book_fair": 0.5587,
    "fair_gap": -0.5,
    "ev_curve": 8.7,
-   "flagged": "2026-11-14T21:19:15Z",
-   "close_ts": "2026-11-14T23:58:18Z",
-   "close_line": 2.5,
-   "line_value": 0.0,
-   "close_fair": 0.5736,
-   "clv": -1.81,
-   "beat_fair": 1.96
+   "flagged": "2026-11-14T21:19:15Z"
   },
   {
    "key": "nhl_p3_under_curve|fa960f164539f05a9e76c85f358b93a6||under",
@@ -460,13 +448,7 @@
    "pin_price": 2.14,
    "book": null,
    "price": null,
-   "flagged": "2026-11-14T21:19:15Z",
-   "close_ts": "2026-11-14T23:58:18Z",
-   "close_line": 2.0,
-   "line_value": 0.0,
-   "close_fair": 0.4524,
-   "clv": -1.49,
-   "beat_fair": 0.24
+   "flagged": "2026-11-14T21:19:15Z"
   },
   {
    "key": "nhl_p3_under_curve|13ccf67b4b7c472d4e05fdda2b440b42||under",
@@ -491,13 +473,7 @@
    "pin_price": 2.15,
    "book": null,
    "price": null,
-   "flagged": "2026-11-14T21:19:15Z",
-   "close_ts": "2026-11-14T23:58:18Z",
-   "close_line": 2.0,
-   "line_value": 0.0,
-   "close_fair": 0.4487,
-   "clv": -1.64,
-   "beat_fair": -0.03
+   "flagged": "2026-11-14T21:19:15Z"
   },
   {
    "key": "cfb_tt_under_curve|5f45291a1a5e01525b2e3aebe791c436|away|under",
@@ -596,7 +572,7 @@
    "book_fair": 0.4695,
    "fair_gap": -2.1,
    "ev_curve": 9.1,
-   "flagged": "2026-11-14T23:28:01Z"
+   "flagged": "2026-11-14T23:15:03Z"
   },
   {
    "key": "cfb_q1_under_curve|320a213c475110f032710dcd06c94e8e||under",
@@ -619,13 +595,13 @@
    "full_total": 73.5,
    "full_spread": -3.5,
    "pin_price": 1.93,
-   "book": "DK",
-   "price": 2.05,
+   "book": "FD",
+   "price": 1.96,
    "pin_fair_power": 0.4929,
-   "book_fair": 0.4591,
-   "fair_gap": 3.4,
-   "ev_curve": 22.5,
-   "flagged": "2026-11-14T23:58:18Z"
+   "book_fair": 0.4869,
+   "fair_gap": 0.7,
+   "ev_curve": 17.1,
+   "flagged": "2026-11-14T23:42:57Z"
   },
   {
    "key": "cfb_tt_under_curve|320a213c475110f032710dcd06c94e8e|away|under",
@@ -708,7 +684,86 @@
    "book_fair": 0.5512,
    "fair_gap": 1.3,
    "ev_curve": 13.4,
-   "flagged": "2026-11-15T00:26:37Z"
+   "flagged": "2026-11-15T00:13:20Z"
+  },
+  {
+   "key": "cfb_tt_under_curve|320a213c475110f032710dcd06c94e8e|home|under",
+   "rule": "cfb_tt_under_curve",
+   "tier": "P",
+   "stake": 0.0,
+   "sport": "cfb",
+   "odds_id": "320a213c475110f032710dcd06c94e8e",
+   "espn": "401856863",
+   "game": "Texas Tech Red Raiders @ Oklahoma State Cowboys",
+   "start": "2026-11-15T02:30:00Z",
+   "market": "team_totals",
+   "team": "home",
+   "team_name": "Oklahoma State Cowboys",
+   "side": "under",
+   "line": 37.5,
+   "curve": 0.481,
+   "pin_fair": 0.43,
+   "gap": 5.1,
+   "full_total": 73.5,
+   "full_spread": -3.5,
+   "pin_price": 2.24,
+   "book": null,
+   "price": null,
+   "flagged": "2026-11-15T00:39:25Z"
+  },
+  {
+   "key": "cfb_tt_under_curve|7b3c2958dadc616a19ce7b9b1dd2a7e4|home|under",
+   "rule": "cfb_tt_under_curve",
+   "tier": "P",
+   "stake": 0.0,
+   "sport": "cfb",
+   "odds_id": "7b3c2958dadc616a19ce7b9b1dd2a7e4",
+   "espn": "401856864",
+   "game": "Utah Utes @ Arizona Wildcats",
+   "start": "2026-11-15T03:30:00Z",
+   "market": "team_totals",
+   "team": "home",
+   "team_name": "Arizona Wildcats",
+   "side": "under",
+   "line": 26.5,
+   "curve": 0.509,
+   "pin_fair": 0.437,
+   "gap": 7.1,
+   "full_total": 55.5,
+   "full_spread": 1.0,
+   "pin_price": 2.2,
+   "book": null,
+   "price": null,
+   "flagged": "2026-11-15T00:39:25Z"
+  },
+  {
+   "key": "cfb_tt_under_curve|c3c46d55350226dd82d83ecf0b52891a|away|under",
+   "rule": "cfb_tt_under_curve",
+   "tier": "C",
+   "stake": 0.25,
+   "sport": "cfb",
+   "odds_id": "c3c46d55350226dd82d83ecf0b52891a",
+   "espn": "401860917",
+   "game": "Colorado State Rams @ Washington State Cougars",
+   "start": "2026-11-15T03:30:00Z",
+   "market": "team_totals",
+   "team": "away",
+   "team_name": "Colorado State Rams",
+   "side": "under",
+   "line": 28.5,
+   "curve": 0.598,
+   "pin_fair": 0.528,
+   "gap": 6.9,
+   "full_total": 65.0,
+   "full_spread": -9.5,
+   "pin_price": 1.82,
+   "book": "Caesars",
+   "price": 1.77,
+   "pin_fair_power": 0.5302,
+   "book_fair": 0.5267,
+   "fair_gap": 0.2,
+   "ev_curve": 5.8,
+   "flagged": "2026-11-15T00:39:25Z"
   }
  ]
 }
