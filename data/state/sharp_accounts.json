@@ -1,5 +1,5 @@
 {
- "built": "2026-11-15T12:04:02Z",
+ "built": "2026-11-15T12:14:23Z",
  "rows": [
   {
    "cond": "0x0c637d60a9447423c980eaf62fd805a2a0a8cc27823c4b7ec2582525a754163b",
@@ -414,14 +414,14 @@
    "bet": "Cowboys +4.5",
    "side": "Cowboys",
    "flagged": "2026-11-09T06:08:28Z",
-   "why": "a top-50 account",
+   "why": "2 top-200 accounts",
    "proven": true,
    "trigger": "proven",
-   "n_accounts": 1,
+   "n_accounts": 2,
    "best_rank": 49,
-   "usd": 137,
-   "paid": 0.51,
-   "ask": 0.53,
+   "usd": 367,
+   "paid": 0.529,
+   "ask": 0.54,
    "status": "live",
    "link": "https://polymarket.us/event/nfl-sf-dal-2026-11-15",
    "other": null,
@@ -726,7 +726,7 @@
    "best_rank": 4,
    "usd": 402,
    "paid": 0.888,
-   "ask": 0.575,
+   "ask": 0.576,
    "status": "live",
    "link": "https://polymarket.us/event/cbb-pepp-ore-2026-11-15",
    "other": null,
@@ -864,7 +864,7 @@
    "best_rank": 43,
    "usd": 147,
    "paid": 0.74,
-   "ask": 0.76,
+   "ask": 0.75,
    "status": "live",
    "link": "https://polymarket.us/event/nba-chi-cle-2026-11-16",
    "other": null,
@@ -1077,6 +1077,20 @@
     "usd": 340
    }
   },
+  "401873055|ml": {
+   "away": {
+    "n": 1,
+    "best_rank": 182,
+    "usd": 296
+   }
+  },
+  "401873055|spread": {
+   "away": {
+    "n": 1,
+    "best_rank": 182,
+    "usd": 284
+   }
+  },
   "401873054|ml": {
    "away": {
     "n": 1,
@@ -1107,9 +1121,9 @@
   },
   "401873063|spread": {
    "home": {
-    "n": 2,
+    "n": 3,
     "best_rank": 49,
-    "usd": 661
+    "usd": 891
    }
   },
   "401873063|total": {
