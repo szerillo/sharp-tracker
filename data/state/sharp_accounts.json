@@ -1,80 +1,6 @@
 {
- "built": "2026-11-15T02:59:22Z",
+ "built": "2026-11-15T03:07:20Z",
  "rows": [
-  {
-   "cond": "0x5a4b9dde28142967904cf5957cf6af0788bfa2cc098fe09249fcd965a218e578",
-   "slug": "cfb-oregst-boise-2026-11-14",
-   "title": "Oregon State vs. Boise State",
-   "mtype": "ml",
-   "start": "2026-11-14T23:00:00Z",
-   "bet": "Boise State ML",
-   "side": "Boise State",
-   "flagged": "2026-11-14T00:13:37Z",
-   "why": "a top-50 account",
-   "proven": false,
-   "trigger": "top50",
-   "n_accounts": 1,
-   "best_rank": 4,
-   "usd": 208,
-   "paid": 0.83,
-   "ask": null,
-   "status": "live",
-   "link": "https://polymarket.us/event/cfb-oregst-boise-2026-11-14",
-   "other": null,
-   "kalshi_against": null,
-   "logged": true,
-   "event_id": "401860914",
-   "sport": "cfb",
-   "league": null,
-   "away": "ORST",
-   "home": "BOIS",
-   "away_name": "Oregon State Beavers",
-   "home_name": "Boise State Broncos",
-   "game_start": "2026-11-14T23:00Z",
-   "side_std": "home",
-   "money_with": false,
-   "grade": "B",
-   "inside_fair": true,
-   "fair_board": 0.8523,
-   "books": null
-  },
-  {
-   "cond": "0x9b5578ea88ccda0f948797736a8bb97fc20baeb3f73f64f495f634ab066108fe",
-   "slug": "cfb-oregst-boise-2026-11-14",
-   "title": "Oregon State vs. Boise State",
-   "mtype": "total",
-   "start": "2026-11-14T23:00:00Z",
-   "bet": "Under 65.5",
-   "side": "Under",
-   "flagged": "2026-11-14T21:22:46Z",
-   "why": "a top-200 account also in this sport's top 50",
-   "proven": true,
-   "trigger": "proven",
-   "n_accounts": 1,
-   "best_rank": 58,
-   "usd": 279,
-   "paid": 0.53,
-   "ask": null,
-   "status": "live",
-   "link": "https://polymarket.us/event/cfb-oregst-boise-2026-11-14",
-   "other": null,
-   "kalshi_against": null,
-   "logged": true,
-   "event_id": "401860914",
-   "sport": "cfb",
-   "league": null,
-   "away": "ORST",
-   "home": "BOIS",
-   "away_name": "Oregon State Beavers",
-   "home_name": "Boise State Broncos",
-   "game_start": "2026-11-14T23:00Z",
-   "side_std": "under",
-   "money_with": false,
-   "grade": "A",
-   "fair_board": null,
-   "inside_fair": null,
-   "books": null
-  },
   {
    "cond": "0x3973b1825585afc8ab2a6c2a2323937be97b911ceec9075d945a36ebce0b77b9",
    "slug": "cbb-loulaf-ncw-2026-11-14",
@@ -754,16 +680,7 @@
    "grade": "A",
    "inside_fair": false,
    "fair_board": 0.5081,
-   "books": {
-    "at": "2026-11-15T02:24:48Z",
-    "fair": 0.4863,
-    "q": {
-     "Novig": 0.485,
-     "DK": 0.5122,
-     "Kalshi": 0.52,
-     "Caesars": 0.5283
-    }
-   }
+   "books": null
   },
   {
    "cond": "0xbde42d97c464effaac840f9b9105ae05b6fab0a3315a6154da1abfec425621de",
@@ -781,7 +698,7 @@
    "best_rank": 79,
    "usd": 17150,
    "paid": 0.51,
-   "ask": 0.52,
+   "ask": null,
    "status": "live",
    "link": "https://polymarket.us/event/nhl-nyi-ana-2026-11-14",
    "other": null,
@@ -804,7 +721,7 @@
    "inside_fair": false,
    "fair_board": 0.5103,
    "books": {
-    "at": "2026-11-15T02:24:48Z",
+    "at": "2026-11-15T02:56:18Z",
     "fair": 0.5016,
     "q": {
      "Novig": 0.505,
@@ -941,7 +858,7 @@
    "best_rank": 137,
    "usd": 161,
    "paid": 0.55,
-   "ask": 0.55,
+   "ask": 0.56,
    "status": "live",
    "link": "https://polymarket.us/event/cbb-wash-utah-2026-11-14",
    "other": null,
@@ -961,11 +878,11 @@
    "fair_board": null,
    "inside_fair": null,
    "books": {
-    "at": "2026-11-15T02:24:48Z",
+    "at": "2026-11-15T02:56:18Z",
     "fair": null,
     "q": {
-     "Novig": 0.565,
-     "Kalshi": 0.63
+     "Novig": 0.59,
+     "Kalshi": 0.6
     }
    }
   },
@@ -1008,7 +925,7 @@
    "fair_board": null,
    "inside_fair": null,
    "books": {
-    "at": "2026-11-15T02:24:48Z",
+    "at": "2026-11-15T02:56:18Z",
     "fair": null,
     "q": {
      "Kalshi": 0.4
@@ -1593,7 +1510,7 @@
    ],
    "money_with": false,
    "grade": "watch",
-   "fair_board": 0.7207,
+   "fair_board": 0.7197,
    "inside_fair": false,
    "books": null
   },
@@ -1636,7 +1553,7 @@
    "side_std": "home",
    "money_with": false,
    "grade": "watch",
-   "fair_board": 0.3762,
+   "fair_board": 0.3746,
    "inside_fair": false,
    "books": null
   },
@@ -1787,13 +1704,13 @@
     "clv": -0.57
    }
   },
-  "n": 262,
-  "won": 114,
+  "n": 263,
+  "won": 115,
   "units": -16.31,
   "by_grade": {
    "A": {
-    "n": 173,
-    "won": 71,
+    "n": 174,
+    "won": 72,
     "units": -15.11,
     "clv": -0.57
    },
@@ -1810,7 +1727,7 @@
     "clv": -0.6
    }
   },
-  "units_1u": -42.79,
+  "units_1u": -42.07,
   "clv": -0.84,
   "n_venue": 125,
   "units_venue": -5.82,
@@ -1989,13 +1906,6 @@
     "n": 2,
     "best_rank": 43,
     "usd": 408
-   }
-  },
-  "401892719|ml": {
-   "home": {
-    "n": 1,
-    "best_rank": 79,
-    "usd": 17150
    }
   },
   "401921760|ml": {
