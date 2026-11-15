@@ -5965,19 +5965,16 @@
 },
 "401892722:nhl_bounce_home_ml": {
 "tag": "nhl_bounce_home_ml",
-"fill_id": "469263a061cc",
-"ts": "2026-11-13T14:52:35Z",
+"fill_id": "4f0294ed54dd",
+"ts": "2026-11-15T01:54:48Z",
 "market": "ml",
 "side": "home",
 "line": null,
-"venue": "Kalshi",
-"price": -144,
-"fair": 0.565,
-"edge_pts": -2.5,
-"why": "home DAL lost its last game by 5, record 10-8 (56%): home moneyline (mined angle)",
-"void": true,
-"void_why": "trigger no longer holds on current season records (2026-11-14T15:53:02Z)",
-"void_at": "2026-11-14T15:53:02Z"
+"venue": "Novig",
+"price": -122,
+"fair": 0.54983,
+"edge_pts": -0.02,
+"why": "home DAL lost its last game by 5, record 10-8 (56%): home moneyline (mined angle)"
 },
 "401925755:cbb_under_good_over_drop": {
 "tag": "cbb_under_good_over_drop",
@@ -6627,5 +6624,44 @@
 "venue": "Novig",
 "price": -257
 }
+},
+"401858303:cfb_road_dog_low_total": {
+"tag": "cfb_road_dog_low_total",
+"fill_id": "eda1e7e5cc50",
+"ts": "2026-11-15T01:54:48Z",
+"market": "spread",
+"side": "away",
+"line": 7.5,
+"venue": "Novig",
+"price": -150,
+"fair": null,
+"edge_pts": null,
+"why": "conference game, CLEM +7.5 on the road, total 45.5"
+},
+"401858303:cfb_homefav_7510_under": {
+"tag": "cfb_homefav_7510_under",
+"fill_id": "810b3aca826c",
+"ts": "2026-11-15T01:54:48Z",
+"market": "total",
+"side": "under",
+"line": 45.5,
+"venue": "Novig",
+"price": -150,
+"fair": null,
+"edge_pts": null,
+"why": "home favourite DUKE -7.5, total 45.5: under (mined angle)"
+},
+"401856754:cfb_day_over": {
+"tag": "cfb_day_over",
+"fill_id": "c4b31cce6f6c",
+"ts": "2026-11-15T01:54:48Z",
+"market": "total",
+"side": "over",
+"line": 48.5,
+"venue": "Novig",
+"price": -150,
+"fair": null,
+"edge_pts": null,
+"why": "3:30 PM ET kickoff, total 48.5: over (mined angle)"
 }
 }
