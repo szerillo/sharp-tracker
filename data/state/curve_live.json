@@ -1,5 +1,5 @@
 {
- "built": "2026-11-15T23:06:25Z",
+ "built": "2026-11-15T23:17:44Z",
  "record": {
   "cbb_1h_total_curve": {
    "n": 5,
@@ -116,6 +116,60 @@
    "fair_gap": 0.4,
    "ev_curve": 10.0,
    "flagged": "2026-11-15T22:31:18Z"
+  },
+  {
+   "key": "nhl_p3_under_curve|e52a5926735bcff42d3d0ce052a21938||under",
+   "rule": "nhl_p3_under_curve",
+   "tier": "P",
+   "stake": 0.0,
+   "sport": "nhl",
+   "odds_id": "e52a5926735bcff42d3d0ce052a21938",
+   "espn": "401892725",
+   "game": "Nashville Predators @ San Jose Sharks",
+   "start": "2026-11-16T02:10:00Z",
+   "market": "totals_p3",
+   "team": null,
+   "team_name": null,
+   "side": "under",
+   "line": 2.0,
+   "curve": 0.547,
+   "pin_fair": 0.446,
+   "gap": 10.1,
+   "full_total": 6.5,
+   "full_spread": 1.5,
+   "pin_price": 2.16,
+   "book": null,
+   "price": null,
+   "flagged": "2026-11-15T23:17:44Z"
+  },
+  {
+   "key": "nhl_p1_spread_curve|c4ac537963707b247ad9e4eab06c15de||away",
+   "rule": "nhl_p1_spread_curve",
+   "tier": "C",
+   "stake": 0.25,
+   "sport": "nhl",
+   "odds_id": "c4ac537963707b247ad9e4eab06c15de",
+   "espn": "401892724",
+   "game": "Vancouver Canucks @ Vegas Golden Knights",
+   "start": "2026-11-16T02:10:00Z",
+   "market": "spreads_p1",
+   "team": null,
+   "team_name": "Vancouver Canucks",
+   "side": "away",
+   "line": 0.5,
+   "curve": 0.581,
+   "pin_fair": 0.491,
+   "gap": 9.0,
+   "full_total": 6.5,
+   "full_spread": -2.5,
+   "pin_price": 1.96,
+   "book": "FD",
+   "price": 1.85,
+   "pin_fair_power": 0.4904,
+   "book_fair": 0.5106,
+   "fair_gap": -2.0,
+   "ev_curve": 7.4,
+   "flagged": "2026-11-15T23:17:44Z"
   }
  ]
 }
