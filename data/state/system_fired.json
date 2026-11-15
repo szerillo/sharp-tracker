@@ -6862,7 +6862,10 @@
 "price": -113,
 "fair": 0.5,
 "edge_pts": -3.0,
-"why": "3:30 PM ET kickoff, total 47.5: over (mined angle)"
+"why": "3:30 PM ET kickoff, total 47.5: over (mined angle)",
+"void": true,
+"void_why": "rule no longer holds on the current line: home spread -13.5, total 37.5 (2026-11-15T18:56:51Z)",
+"void_at": "2026-11-15T18:56:51Z"
 },
 "401858307:cfb_homefav_7510_under": {
 "tag": "cfb_homefav_7510_under",
@@ -7006,5 +7009,51 @@
 "fair": null,
 "edge_pts": null,
 "why": "conference game, USU on road game 2 in a row, +1.5, total 29.5"
+},
+"401873071:nfl_road_dog_7510": {
+"tag": "nfl_road_dog_7510",
+"fill_id": "1fc479457c2a",
+"ts": "2026-11-15T18:56:51Z",
+"market": "spread",
+"side": "away",
+"line": 9.5,
+"venue": "Novig",
+"price": -106,
+"fair": null,
+"edge_pts": null,
+"why": "NO +9.5 on the road"
+},
+"401873071:nfl_fade_fav_bye": {
+"tag": "nfl_fade_fav_bye",
+"stacked": true,
+"market": "spread",
+"side": "away",
+"why": "CHI (favourite) off 14 days: dog NO (same bet already taken by a higher-priority rule)"
+},
+"401858530:cfb_road_streak_dog": {
+"tag": "cfb_road_streak_dog",
+"fill_id": "64d28232bdae",
+"ts": "2026-11-15T18:56:51Z",
+"market": "spread",
+"side": "away",
+"line": 1.5,
+"venue": "Novig",
+"price": -669,
+"fair": null,
+"edge_pts": null,
+"why": "conference game, NU on road game 2 in a row, +1.5, total 43.5"
+},
+"401860918:cfb_road_streak_dog": {
+"tag": "cfb_road_streak_dog",
+"fill_id": "7bea0e91629b",
+"ts": "2026-11-15T18:56:51Z",
+"market": "spread",
+"side": "away",
+"line": 1.5,
+"venue": "Kalshi",
+"price": -144,
+"fair": null,
+"edge_pts": null,
+"why": "conference game, CSU on road game 2 in a row, +1.5, total 41.5"
 }
 }
