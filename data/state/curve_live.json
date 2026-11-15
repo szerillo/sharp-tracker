@@ -1,5 +1,5 @@
 {
- "built": "2026-11-15T01:05:14Z",
+ "built": "2026-11-15T01:18:13Z",
  "record": {
   "cbb_1h_total_curve": {
    "n": 4,
@@ -58,13 +58,13 @@
    "lost": 13,
    "units": -3.38,
    "clv": {
-    "n": 13,
-    "avg": -2.32,
+    "n": 16,
+    "avg": -2.2,
     "beat": 0
    },
    "line_value": {
-    "n": 14,
-    "avg": -0.04,
+    "n": 17,
+    "avg": -0.03,
     "better": 0,
     "worse": 1
    }
@@ -88,31 +88,6 @@
   }
  },
  "rows": [
-  {
-   "key": "cfb_q1_under_curve|d6d167714ff638b23e84d757ff522414||under",
-   "rule": "cfb_q1_under_curve",
-   "tier": "P",
-   "stake": 0.0,
-   "sport": "cfb",
-   "odds_id": "d6d167714ff638b23e84d757ff522414",
-   "espn": "401856886",
-   "game": "Auburn Tigers @ Mississippi State Bulldogs",
-   "start": "2026-11-14T21:15:00Z",
-   "market": "totals_q1",
-   "team": null,
-   "team_name": null,
-   "side": "under",
-   "line": 9.5,
-   "curve": 0.481,
-   "pin_fair": 0.429,
-   "gap": 5.2,
-   "full_total": 51.0,
-   "full_spread": 2.5,
-   "pin_price": 2.22,
-   "book": null,
-   "price": null,
-   "flagged": "2026-11-14T18:25:08Z"
-  },
   {
    "key": "cfb_tt_under_curve|d03caba2636ec407098ec3e1fe18fcf7|away|under",
    "rule": "cfb_tt_under_curve",
@@ -297,7 +272,13 @@
    "book_fair": 0.5,
    "fair_gap": 1.4,
    "ev_curve": 8.9,
-   "flagged": "2026-11-14T21:19:15Z"
+   "flagged": "2026-11-14T21:19:15Z",
+   "close_ts": "2026-11-14T23:58:18Z",
+   "close_line": 13.5,
+   "line_value": 0.0,
+   "close_fair": 0.5144,
+   "clv": -0.92,
+   "beat_fair": 0.04
   },
   {
    "key": "cfb_q1_under_curve|018349e41d033e3b1fdbc14ce9b09325||under",
@@ -351,7 +332,13 @@
    "book_fair": 0.5587,
    "fair_gap": -0.5,
    "ev_curve": 8.7,
-   "flagged": "2026-11-14T21:19:15Z"
+   "flagged": "2026-11-14T21:19:15Z",
+   "close_ts": "2026-11-14T23:58:18Z",
+   "close_line": 2.5,
+   "line_value": 0.0,
+   "close_fair": 0.5736,
+   "clv": -1.81,
+   "beat_fair": 1.96
   },
   {
    "key": "nhl_p3_under_curve|fa960f164539f05a9e76c85f358b93a6||under",
@@ -376,7 +363,13 @@
    "pin_price": 2.14,
    "book": null,
    "price": null,
-   "flagged": "2026-11-14T21:19:15Z"
+   "flagged": "2026-11-14T21:19:15Z",
+   "close_ts": "2026-11-14T23:58:18Z",
+   "close_line": 2.0,
+   "line_value": 0.0,
+   "close_fair": 0.4524,
+   "clv": -1.49,
+   "beat_fair": 0.24
   },
   {
    "key": "nhl_p3_under_curve|13ccf67b4b7c472d4e05fdda2b440b42||under",
@@ -401,7 +394,13 @@
    "pin_price": 2.15,
    "book": null,
    "price": null,
-   "flagged": "2026-11-14T21:19:15Z"
+   "flagged": "2026-11-14T21:19:15Z",
+   "close_ts": "2026-11-14T23:58:18Z",
+   "close_line": 2.0,
+   "line_value": 0.0,
+   "close_fair": 0.4487,
+   "clv": -1.64,
+   "beat_fair": -0.03
   },
   {
    "key": "cfb_tt_under_curve|5f45291a1a5e01525b2e3aebe791c436|away|under",
@@ -488,7 +487,7 @@
    "book_fair": 0.4695,
    "fair_gap": -2.4,
    "ev_curve": 9.1,
-   "flagged": "2026-11-14T23:15:03Z"
+   "flagged": "2026-11-14T23:28:01Z"
   },
   {
    "key": "cfb_q1_under_curve|320a213c475110f032710dcd06c94e8e||under",
@@ -511,13 +510,13 @@
    "full_total": 73.5,
    "full_spread": -3.5,
    "pin_price": 1.93,
-   "book": "FD",
-   "price": 1.96,
+   "book": "DK",
+   "price": 2.05,
    "pin_fair_power": 0.4929,
-   "book_fair": 0.4869,
-   "fair_gap": 0.7,
-   "ev_curve": 17.1,
-   "flagged": "2026-11-14T23:42:57Z"
+   "book_fair": 0.4591,
+   "fair_gap": 3.4,
+   "ev_curve": 22.5,
+   "flagged": "2026-11-14T23:58:18Z"
   },
   {
    "key": "cfb_tt_under_curve|320a213c475110f032710dcd06c94e8e|away|under",
