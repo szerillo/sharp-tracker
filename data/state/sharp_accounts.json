@@ -1,5 +1,5 @@
 {
- "built": "2026-11-15T05:43:23Z",
+ "built": "2026-11-15T05:57:06Z",
  "rows": [
   {
    "cond": "0xdebe7982500f8d644335dd435fc94748ccaed8a49e27501f00bee6650594cf84",
@@ -161,8 +161,8 @@
    "home_name": "Green Bay Packers",
    "game_start": "2026-11-15T18:00Z",
    "side_std": "away",
-   "money_with": false,
-   "grade": "B",
+   "money_with": true,
+   "grade": "A",
    "fair_board": null,
    "inside_fair": null,
    "books": null
@@ -514,7 +514,7 @@
    "home_name": "Dallas Cowboys",
    "game_start": "2026-11-15T21:25Z",
    "side_std": "home",
-   "money_with": true,
+   "money_with": false,
    "grade": "A",
    "fair_board": null,
    "inside_fair": null,
@@ -660,7 +660,7 @@
    "best_rank": 4,
    "usd": 402,
    "paid": 0.888,
-   "ask": 0.63,
+   "ask": 0.6,
    "status": "live",
    "link": "https://polymarket.us/event/cbb-pepp-ore-2026-11-15",
    "other": null,
@@ -841,15 +841,15 @@
     "clv": -0.57
    }
   },
-  "n": 274,
-  "won": 118,
+  "n": 275,
+  "won": 119,
   "units": -16.31,
   "by_grade": {
    "A": {
-    "n": 181,
-    "won": 73,
+    "n": 182,
+    "won": 74,
     "units": -15.11,
-    "clv": -0.47
+    "clv": -0.46
    },
    "B": {
     "n": 64,
@@ -864,8 +864,8 @@
     "clv": -0.6
    }
   },
-  "units_1u": -46.88,
-  "clv": -0.79,
+  "units_1u": -45.79,
+  "clv": -0.78,
   "n_venue": 127,
   "units_venue": -5.82,
   "clv_venue": 0.61,
