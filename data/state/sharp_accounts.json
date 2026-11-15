@@ -1,154 +1,6 @@
 {
- "built": "2026-11-15T00:49:37Z",
+ "built": "2026-11-15T01:05:45Z",
  "rows": [
-  {
-   "cond": "0xe569f88488ba4b313938b751ab4c481ea925cdc1780b24623275e565a60d9deb",
-   "slug": "cbb-airf-pacfc-2026-11-14",
-   "title": "Air Force Falcons vs. Pacific Tigers",
-   "mtype": "ml",
-   "start": "2026-11-14T21:00:00Z",
-   "bet": "Pacific Tigers ML",
-   "side": "Pacific Tigers",
-   "flagged": "2026-11-14T00:29:42Z",
-   "why": "a top-50 account",
-   "proven": false,
-   "trigger": "top50",
-   "n_accounts": 1,
-   "best_rank": 11,
-   "usd": 235,
-   "paid": 0.53,
-   "ask": null,
-   "status": "live",
-   "link": "https://polymarket.us/event/cbb-airf-pacfc-2026-11-14",
-   "other": null,
-   "kalshi_against": null,
-   "logged": true,
-   "event_id": "401917529",
-   "sport": "cbb",
-   "league": null,
-   "away": "AF",
-   "home": "PAC",
-   "away_name": "Air Force Falcons",
-   "home_name": "Pacific Tigers",
-   "game_start": "2026-11-14T21:00Z",
-   "side_std": "home",
-   "money_with": false,
-   "grade": "B",
-   "fair_board": null,
-   "inside_fair": null,
-   "books": null
-  },
-  {
-   "cond": "0x0ba773d41763b0867213fcc7893d91f3d8d5f56174e60245f4ee8d0937ee39f5",
-   "slug": "cfb-frest-txst-2026-11-14",
-   "title": "Fresno State vs. Texas State",
-   "mtype": "spread",
-   "start": "2026-11-14T21:00:00Z",
-   "bet": "Fresno State +9.5",
-   "side": "Fresno State",
-   "flagged": "2026-11-14T12:03:14Z",
-   "why": "a top-200 account also in this sport's top 50",
-   "proven": true,
-   "trigger": "proven",
-   "n_accounts": 1,
-   "best_rank": 115,
-   "usd": 7860,
-   "paid": 0.48,
-   "ask": null,
-   "status": "live",
-   "link": "https://polymarket.us/event/cfb-frest-txst-2026-11-14",
-   "other": null,
-   "kalshi_against": null,
-   "logged": true,
-   "event_id": "401860916",
-   "sport": "cfb",
-   "league": null,
-   "away": "FRES",
-   "home": "TXST",
-   "away_name": "Fresno State Bulldogs",
-   "home_name": "Texas State Bobcats",
-   "game_start": "2026-11-14T21:00Z",
-   "side_std": "away",
-   "money_with": false,
-   "grade": "A",
-   "inside_fair": false,
-   "fair_board": 0.4828,
-   "books": null
-  },
-  {
-   "cond": "0xe0937d9bde3c051d60db64718e5f01a8639e8a7b3889fdc5da35e1cc007c1691",
-   "slug": "cfb-frest-txst-2026-11-14",
-   "title": "Fresno State vs. Texas State",
-   "mtype": "total",
-   "start": "2026-11-14T21:00:00Z",
-   "bet": "Under 61.5",
-   "side": "Under",
-   "flagged": "2026-11-14T16:33:37Z",
-   "why": "a top-200 account also in this sport's top 50",
-   "proven": true,
-   "trigger": "proven",
-   "n_accounts": 1,
-   "best_rank": 58,
-   "usd": 460,
-   "paid": 0.54,
-   "ask": null,
-   "status": "live",
-   "link": "https://polymarket.us/event/cfb-frest-txst-2026-11-14",
-   "other": null,
-   "kalshi_against": null,
-   "logged": true,
-   "event_id": "401860916",
-   "sport": "cfb",
-   "league": null,
-   "away": "FRES",
-   "home": "TXST",
-   "away_name": "Fresno State Bulldogs",
-   "home_name": "Texas State Bobcats",
-   "game_start": "2026-11-14T21:00Z",
-   "side_std": "under",
-   "money_with": false,
-   "grade": "A",
-   "fair_board": null,
-   "inside_fair": null,
-   "books": null
-  },
-  {
-   "cond": "0x46013f4fcc90ebd023be3743443c34d052fc24c9ec9118c29dad7ecc50180ec1",
-   "slug": "cbb-sdkst-ncol-2026-11-14",
-   "title": "South Dakota State Jackrabbits vs. Northern Colorado Bears",
-   "mtype": "total",
-   "start": "2026-11-14T21:00:00Z",
-   "bet": "Under 150.5",
-   "side": "Under",
-   "flagged": "2026-11-14T20:17:02Z",
-   "why": "2 top-200 accounts",
-   "proven": false,
-   "trigger": "two",
-   "n_accounts": 2,
-   "best_rank": 110,
-   "usd": 1699,
-   "paid": 0.503,
-   "ask": null,
-   "status": "live",
-   "link": "https://polymarket.us/event/cbb-sdkst-ncol-2026-11-14",
-   "other": null,
-   "kalshi_against": null,
-   "logged": true,
-   "event_id": "401925889",
-   "sport": "cbb",
-   "league": null,
-   "away": "SDST",
-   "home": "UNCO",
-   "away_name": "South Dakota State Jackrabbits",
-   "home_name": "Northern Colorado Bears",
-   "game_start": "2026-11-14T21:00Z",
-   "side_std": "under",
-   "money_with": false,
-   "grade": "B",
-   "fair_board": null,
-   "inside_fair": null,
-   "books": null
-  },
   {
    "cond": "0xae4b872a55ee1048f896497f4fc7d8aa37833d5d39a3d439dc2b946b9a7fba7d",
    "slug": "cfb-tulane-rice-2026-11-14",
@@ -908,7 +760,7 @@
    "best_rank": 23,
    "usd": 2951,
    "paid": 0.65,
-   "ask": 0.61,
+   "ask": null,
    "status": "live",
    "link": "https://polymarket.us/event/nba-det-mia-2026-11-14",
    "other": null,
@@ -926,7 +778,7 @@
    "money_with": false,
    "grade": "watch",
    "fair_board": 0.6134,
-   "inside_fair": true,
+   "inside_fair": null,
    "books": {
     "at": "2026-11-14T23:58:27Z",
     "fair": 0.6134,
@@ -1209,7 +1061,7 @@
    "best_rank": 43,
    "usd": 509,
    "paid": 0.4,
-   "ask": 0.41,
+   "ask": 0.4,
    "status": "live",
    "link": "https://polymarket.us/event/nba-lal-phx-2026-11-15",
    "other": null,
@@ -1615,7 +1467,7 @@
    "best_rank": 49,
    "usd": 17356,
    "paid": 0.435,
-   "ask": 0.38,
+   "ask": null,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-bkn-mem-2026-11-14",
    "other": {
@@ -1624,7 +1476,7 @@
     "usd": 114820,
     "first": "2026-11-14T19:44:41Z"
    },
-   "exit_bid": 0.37,
+   "exit_bid": null,
    "kalshi_against": {
     "move": 4.5,
     "now": 64.5,
@@ -1646,7 +1498,7 @@
    "money_with": false,
    "grade": "B",
    "fair_board": 0.3997,
-   "inside_fair": true,
+   "inside_fair": null,
    "books": null
   },
   {
@@ -1665,7 +1517,7 @@
    "best_rank": 112,
    "usd": 91769,
    "paid": 0.501,
-   "ask": 0.43,
+   "ask": null,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-bkn-mem-2026-11-14",
    "other": {
@@ -1674,7 +1526,7 @@
     "usd": 66414,
     "first": "2026-11-14T19:42:41Z"
    },
-   "exit_bid": 0.42,
+   "exit_bid": null,
    "kalshi_against": null,
    "logged": false,
    "event_id": "401909983",
@@ -1711,7 +1563,7 @@
    "best_rank": 75,
    "usd": 6364,
    "paid": 0.41,
-   "ask": 0.48,
+   "ask": null,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-bkn-mem-2026-11-14",
    "other": {
@@ -1720,7 +1572,7 @@
     "usd": 6963,
     "first": "2026-11-14T23:20:41Z"
    },
-   "exit_bid": 0.47,
+   "exit_bid": null,
    "kalshi_against": null,
    "logged": true,
    "event_id": "401909983",
@@ -1757,7 +1609,7 @@
    "best_rank": 49,
    "usd": 2468,
    "paid": 0.539,
-   "ask": 0.52,
+   "ask": null,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-chi-min-2026-11-14",
    "other": {
@@ -1766,7 +1618,7 @@
     "usd": 5473,
     "first": "2026-11-14T23:32:41Z"
    },
-   "exit_bid": 0.51,
+   "exit_bid": null,
    "kalshi_against": null,
    "logged": false,
    "event_id": "401909984",
@@ -1814,8 +1666,8 @@
    },
    "exit_bid": 0.71,
    "kalshi_against": {
-    "move": 7.5,
-    "now": 27.5,
+    "move": 8.0,
+    "now": 28.0,
     "state": "held"
    },
    "logged": true,
@@ -1984,7 +1836,7 @@
    "best_rank": 43,
    "usd": 3328,
    "paid": 0.468,
-   "ask": 0.42,
+   "ask": 0.43,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-gsw-nop-2026-11-16",
    "other": {
@@ -2027,21 +1879,21 @@
     "clv": -0.57
    }
   },
-  "n": 257,
-  "won": 112,
+  "n": 259,
+  "won": 113,
   "units": -16.31,
   "by_grade": {
    "A": {
-    "n": 171,
+    "n": 172,
     "won": 71,
     "units": -15.11,
-    "clv": -0.55
+    "clv": -0.54
    },
    "B": {
-    "n": 58,
-    "won": 31,
+    "n": 59,
+    "won": 32,
     "units": 0.89,
-    "clv": -0.82
+    "clv": -0.84
    },
    "watch": {
     "n": 28,
@@ -2050,7 +1902,7 @@
     "clv": -0.6
    }
   },
-  "units_1u": -40.87,
+  "units_1u": -40.98,
   "clv": -0.62,
   "n_venue": 124,
   "units_venue": -5.82,
@@ -2073,18 +1925,6 @@
     "usd": 714
    },
    "against": null
-  },
-  "401909984:nba_ats_hot_home": {
-   "with": {
-    "n": 1,
-    "best_rank": 49,
-    "usd": 5473
-   },
-   "against": {
-    "n": 1,
-    "best_rank": 49,
-    "usd": 2468
-   }
   }
  },
  "by_event": {
@@ -2163,63 +2003,6 @@
     "n": 1,
     "best_rank": 12,
     "usd": 155
-   }
-  },
-  "401909982|ml": {
-   "away": {
-    "n": 1,
-    "best_rank": 23,
-    "usd": 2951
-   }
-  },
-  "401909982|total": {
-   "under": {
-    "n": 1,
-    "best_rank": 132,
-    "usd": 1027
-   }
-  },
-  "401909983|spread": {
-   "away": {
-    "n": 3,
-    "best_rank": 75,
-    "usd": 94157
-   },
-   "home": {
-    "n": 3,
-    "best_rank": 12,
-    "usd": 1523
-   }
-  },
-  "401909983|ml": {
-   "away": {
-    "n": 4,
-    "best_rank": 49,
-    "usd": 17356
-   },
-   "home": {
-    "n": 4,
-    "best_rank": 42,
-    "usd": 17999
-   }
-  },
-  "401909983|total": {
-   "under": {
-    "n": 1,
-    "best_rank": 132,
-    "usd": 928
-   }
-  },
-  "401909984|spread": {
-   "away": {
-    "n": 1,
-    "best_rank": 49,
-    "usd": 2468
-   },
-   "home": {
-    "n": 1,
-    "best_rank": 49,
-    "usd": 5473
    }
   },
   "401909985|ml": {
@@ -2326,13 +2109,6 @@
     "n": 1,
     "best_rank": 58,
     "usd": 480
-   }
-  },
-  "401925063|total": {
-   "under": {
-    "n": 1,
-    "best_rank": 132,
-    "usd": 259
    }
   },
   "401909774|total": {
