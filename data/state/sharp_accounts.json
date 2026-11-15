@@ -1,5 +1,5 @@
 {
- "built": "2026-11-15T18:03:27Z",
+ "built": "2026-11-15T18:18:14Z",
  "rows": [
   {
    "cond": "0x0c637d60a9447423c980eaf62fd805a2a0a8cc27823c4b7ec2582525a754163b",
@@ -106,25 +106,11 @@
    "home_name": "Cleveland Browns",
    "game_start": "2026-11-15T18:00Z",
    "side_std": "under",
-   "conflict": [
-    "Kalshi bet back",
-    "Kalshi move",
-    "big money"
-   ],
    "money_with": false,
    "grade": "B",
-   "fair_board": 0.4791,
+   "fair_board": null,
    "inside_fair": null,
-   "books": {
-    "at": "2026-11-15T16:53:46Z",
-    "fair": 0.4791,
-    "q": {
-     "Novig": 0.485,
-     "Kalshi": 0.5,
-     "Caesars": 0.5122,
-     "DK": 0.5192
-    }
-   }
+   "books": null
   },
   {
    "cond": "0x3edef02994f4d87944cb374f81bd892ee2af73869906f4d89f5ac9da98e6ad7c",
@@ -292,8 +278,8 @@
    "home_name": "Oklahoma Sooners",
    "game_start": "2026-11-15T18:00Z",
    "side_std": "away",
-   "money_with": true,
-   "grade": "A",
+   "money_with": false,
+   "grade": "B",
    "fair_board": null,
    "inside_fair": null,
    "books": null
@@ -329,9 +315,6 @@
    "home_name": "Atlanta Falcons",
    "game_start": "2026-11-15T18:00Z",
    "side_std": "away",
-   "conflict": [
-    "Kalshi bet back"
-   ],
    "money_with": false,
    "grade": "B",
    "inside_fair": false,
@@ -745,8 +728,8 @@
    "side_std": "home",
    "money_with": false,
    "grade": "watch",
-   "fair_board": 0.4939,
    "inside_fair": false,
+   "fair_board": 0.4922,
    "books": {
     "at": "2026-11-15T17:59:11Z",
     "fair": 0.4939,
@@ -755,190 +738,6 @@
      "Kalshi": 0.52,
      "Caesars": 0.5238,
      "FD": 0.5238
-    }
-   }
-  },
-  {
-   "cond": "0xee19747f7bbef1a4fc1322dc7d4c674ba14276baeeaec41b51612bd96be908f2",
-   "slug": "nba-dal-bos-2026-11-15",
-   "title": "Mavericks vs. Celtics",
-   "mtype": "spread",
-   "start": "2026-11-15T23:00:00Z",
-   "bet": "Celtics -13.5",
-   "side": "Celtics",
-   "flagged": "2026-11-15T18:00:07Z",
-   "why": "a top-50 account",
-   "proven": false,
-   "trigger": "top50",
-   "n_accounts": 1,
-   "best_rank": 40,
-   "usd": 4245,
-   "paid": 0.5,
-   "ask": 0.54,
-   "status": "live",
-   "link": "https://polymarket.us/event/nba-dal-bos-2026-11-15",
-   "other": null,
-   "kalshi_against": null,
-   "logged": true,
-   "event_id": "401909989",
-   "sport": "nba",
-   "league": null,
-   "away": "DAL",
-   "home": "BOS",
-   "away_name": "Dallas Mavericks",
-   "home_name": "Boston Celtics",
-   "game_start": "2026-11-15T23:00Z",
-   "side_std": "home",
-   "money_with": false,
-   "grade": "watch",
-   "fair_board": 0.4922,
-   "inside_fair": false,
-   "books": {
-    "at": "2026-11-15T16:53:46Z",
-    "fair": 0.4922,
-    "q": {
-     "Novig": 0.495,
-     "DK": 0.5192,
-     "Kalshi": 0.52,
-     "Caesars": 0.5238
-    }
-   }
-  },
-  {
-   "cond": "0x64b095e879cb5f721d3a29b3f72dc0fe93d6f526f928d598a03d59fb73dee5e0",
-   "slug": "nba-dal-bos-2026-11-15",
-   "title": "Mavericks vs. Celtics",
-   "mtype": "ml",
-   "start": "2026-11-15T23:00:00Z",
-   "bet": "Celtics ML",
-   "side": "Celtics",
-   "flagged": "2026-11-15T18:00:08Z",
-   "why": "2 top-200 accounts",
-   "proven": false,
-   "trigger": "two",
-   "n_accounts": 2,
-   "best_rank": 40,
-   "usd": 941,
-   "paid": 0.86,
-   "ask": 0.87,
-   "status": "live",
-   "link": "https://polymarket.us/event/nba-dal-bos-2026-11-15",
-   "other": null,
-   "kalshi_against": null,
-   "logged": true,
-   "event_id": "401909989",
-   "sport": "nba",
-   "league": null,
-   "away": "DAL",
-   "home": "BOS",
-   "away_name": "Dallas Mavericks",
-   "home_name": "Boston Celtics",
-   "game_start": "2026-11-15T23:00Z",
-   "side_std": "home",
-   "money_with": false,
-   "grade": "B",
-   "fair_board": 0.8586,
-   "inside_fair": false,
-   "books": {
-    "at": "2026-11-15T16:53:46Z",
-    "fair": 0.8586,
-    "q": {
-     "Novig": 0.855,
-     "Kalshi": 0.87,
-     "Caesars": 0.875,
-     "DK": 0.8824
-    }
-   }
-  },
-  {
-   "cond": "0xee19747f7bbef1a4fc1322dc7d4c674ba14276baeeaec41b51612bd96be908f2",
-   "slug": "nba-dal-bos-2026-11-15",
-   "title": "Mavericks vs. Celtics",
-   "mtype": "spread",
-   "start": "2026-11-15T23:00:00Z",
-   "bet": "Celtics -13.5",
-   "side": "Celtics",
-   "flagged": "2026-11-15T18:00:07Z",
-   "why": "a top-50 account",
-   "proven": false,
-   "trigger": "top50",
-   "n_accounts": 1,
-   "best_rank": 40,
-   "usd": 4245,
-   "paid": 0.5,
-   "ask": 0.54,
-   "status": "live",
-   "link": "https://polymarket.us/event/nba-dal-bos-2026-11-15",
-   "other": null,
-   "kalshi_against": null,
-   "logged": true,
-   "event_id": "401909989",
-   "sport": "nba",
-   "league": null,
-   "away": "DAL",
-   "home": "BOS",
-   "away_name": "Dallas Mavericks",
-   "home_name": "Boston Celtics",
-   "game_start": "2026-11-15T23:00Z",
-   "side_std": "home",
-   "money_with": false,
-   "grade": "watch",
-   "fair_board": 0.4922,
-   "inside_fair": false,
-   "books": {
-    "at": "2026-11-15T16:53:46Z",
-    "fair": 0.4922,
-    "q": {
-     "Novig": 0.495,
-     "DK": 0.5192,
-     "Kalshi": 0.52,
-     "Caesars": 0.5238
-    }
-   }
-  },
-  {
-   "cond": "0x64b095e879cb5f721d3a29b3f72dc0fe93d6f526f928d598a03d59fb73dee5e0",
-   "slug": "nba-dal-bos-2026-11-15",
-   "title": "Mavericks vs. Celtics",
-   "mtype": "ml",
-   "start": "2026-11-15T23:00:00Z",
-   "bet": "Celtics ML",
-   "side": "Celtics",
-   "flagged": "2026-11-15T18:00:08Z",
-   "why": "2 top-200 accounts",
-   "proven": false,
-   "trigger": "two",
-   "n_accounts": 2,
-   "best_rank": 40,
-   "usd": 941,
-   "paid": 0.86,
-   "ask": 0.87,
-   "status": "live",
-   "link": "https://polymarket.us/event/nba-dal-bos-2026-11-15",
-   "other": null,
-   "kalshi_against": null,
-   "logged": true,
-   "event_id": "401909989",
-   "sport": "nba",
-   "league": null,
-   "away": "DAL",
-   "home": "BOS",
-   "away_name": "Dallas Mavericks",
-   "home_name": "Boston Celtics",
-   "game_start": "2026-11-15T23:00Z",
-   "side_std": "home",
-   "money_with": false,
-   "grade": "B",
-   "fair_board": 0.8586,
-   "inside_fair": false,
-   "books": {
-    "at": "2026-11-15T16:53:46Z",
-    "fair": 0.8586,
-    "q": {
-     "Novig": 0.855,
-     "Kalshi": 0.87,
-     "Caesars": 0.875,
-     "DK": 0.8824
     }
    }
   },
@@ -1104,11 +903,7 @@
     "first": "2026-11-14T06:50:34Z"
    },
    "exit_bid": null,
-   "kalshi_against": {
-    "move": 7.5,
-    "now": 27.5,
-    "state": "held"
-   },
+   "kalshi_against": null,
    "logged": true,
    "event_id": "401909985",
    "sport": "nba",
@@ -1119,12 +914,9 @@
    "home_name": "Philadelphia 76ers",
    "game_start": "2026-11-15T18:00Z",
    "side_std": "home",
-   "conflict": [
-    "Kalshi move"
-   ],
    "money_with": false,
    "grade": "B",
-   "fair_board": 0.7187,
+   "fair_board": 0.7282,
    "inside_fair": null,
    "books": null
   },
@@ -1346,7 +1138,7 @@
    },
    "exit_bid": 0.86,
    "kalshi_against": null,
-   "logged": false,
+   "logged": true,
    "event_id": "401909989",
    "sport": "nba",
    "league": null,
@@ -1358,8 +1150,8 @@
    "side_std": "home",
    "money_with": false,
    "grade": "B",
-   "fair_board": 0.8612,
    "inside_fair": false,
+   "fair_board": 0.8586,
    "books": null
   },
   {
@@ -1619,13 +1411,18 @@
     "n": 1,
     "best_rank": 93,
     "usd": 180
+   },
+   "home": {
+    "n": 1,
+    "best_rank": 40,
+    "usd": 3391
    }
   },
   "401909989|spread": {
    "home": {
-    "n": 1,
+    "n": 2,
     "best_rank": 40,
-    "usd": 4245
+    "usd": 4421
    }
   },
   "401909989|ml": {
@@ -1633,6 +1430,11 @@
     "n": 2,
     "best_rank": 40,
     "usd": 941
+   },
+   "away": {
+    "n": 1,
+    "best_rank": 132,
+    "usd": 177
    }
   },
   "401909990|ml": {
