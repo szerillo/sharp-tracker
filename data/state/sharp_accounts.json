@@ -1,5 +1,5 @@
 {
- "built": "2026-11-15T16:17:19Z",
+ "built": "2026-11-15T16:30:57Z",
  "rows": [
   {
    "cond": "0x0c637d60a9447423c980eaf62fd805a2a0a8cc27823c4b7ec2582525a754163b",
@@ -772,13 +772,13 @@
    "bet": "76ers ML",
    "side": "76ers",
    "flagged": "2026-11-12T19:17:24Z",
-   "why": "a top-50 account",
+   "why": "2 top-200 accounts",
    "proven": false,
-   "trigger": "top50",
-   "n_accounts": 1,
+   "trigger": "two",
+   "n_accounts": 2,
    "best_rank": 43,
-   "usd": 230,
-   "paid": 0.79,
+   "usd": 6980,
+   "paid": 0.732,
    "ask": 0.73,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-ind-phi-2026-11-15",
@@ -808,7 +808,7 @@
     "Kalshi move"
    ],
    "money_with": false,
-   "grade": "watch",
+   "grade": "B",
    "fair_board": 0.7184,
    "inside_fair": false,
    "books": null
@@ -926,7 +926,7 @@
    "best_rank": 4,
    "usd": 402,
    "paid": 0.888,
-   "ask": 0.574,
+   "ask": 0.569,
    "status": "live",
    "link": "https://polymarket.us/event/cbb-pepp-ore-2026-11-15",
    "other": null,
@@ -1347,9 +1347,9 @@
   },
   "401909985|ml": {
    "home": {
-    "n": 1,
+    "n": 2,
     "best_rank": 43,
-    "usd": 230
+    "usd": 6980
    },
    "away": {
     "n": 4,
