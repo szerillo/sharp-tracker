@@ -1,5 +1,5 @@
 {
- "built": "2026-11-15T01:27:11Z",
+ "built": "2026-11-15T01:41:12Z",
  "rows": [
   {
    "cond": "0x64fe9f0d6efea4c2594dbb8fe2aa8569982401ae63d8ba53d1395dbfe500cbb9",
@@ -995,6 +995,50 @@
    }
   },
   {
+   "cond": "0x9736660f379ff17f8997b40e0bcfadde20d43c1f26347aef8206ee6ee9252395",
+   "slug": "cbb-wash-utah-2026-11-14",
+   "title": "Washington Huskies vs. Utah Utes",
+   "mtype": "ml",
+   "start": "2026-11-15T19:00:00Z",
+   "bet": "Utah Utes ML",
+   "side": "Utah Utes",
+   "flagged": "2026-11-15T01:38:32Z",
+   "why": "a top-200 account also in this sport's top 50",
+   "proven": true,
+   "trigger": "proven",
+   "n_accounts": 1,
+   "best_rank": 137,
+   "usd": 161,
+   "paid": 0.55,
+   "ask": 0.54,
+   "status": "live",
+   "link": "https://polymarket.us/event/cbb-wash-utah-2026-11-14",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401921760",
+   "sport": "cbb",
+   "league": null,
+   "away": "WASH",
+   "home": "UTAH",
+   "away_name": "Washington Huskies",
+   "home_name": "Utah Utes",
+   "game_start": "2026-11-15T19:00Z",
+   "side_std": "home",
+   "money_with": false,
+   "grade": "A",
+   "fair_board": null,
+   "inside_fair": null,
+   "books": {
+    "at": "2026-11-15T00:59:59Z",
+    "fair": null,
+    "q": {
+     "Novig": 0.575,
+     "Kalshi": 0.61
+    }
+   }
+  },
+  {
    "cond": "0x871a326d71e52ccaa1dd2d558e2ec507f6a197e64d8834864f9198ad5f7069ad",
    "slug": "nba-lal-phx-2026-11-15",
    "title": "Lakers vs. Suns",
@@ -1638,7 +1682,7 @@
    "best_rank": 43,
    "usd": 170,
    "paid": 0.34,
-   "ask": 0.34,
+   "ask": 0.37,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-nyk-tor-2026-11-15",
    "other": {
@@ -1647,7 +1691,7 @@
     "usd": 201,
     "first": "2026-11-14T20:47:52Z"
    },
-   "exit_bid": 0.33,
+   "exit_bid": 0.36,
    "kalshi_against": null,
    "logged": true,
    "event_id": "401909990",
@@ -2042,6 +2086,13 @@
     "n": 1,
     "best_rank": 58,
     "usd": 480
+   }
+  },
+  "401921760|ml": {
+   "home": {
+    "n": 1,
+    "best_rank": 137,
+    "usd": 161
    }
   },
   "401909774|total": {
