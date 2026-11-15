@@ -1,5 +1,5 @@
 {
-"built": "2026-11-15T18:29:41Z",
+"built": "2026-11-15T18:36:32Z",
 "sport": "nhl",
 "rule": "kalshi_nhl_flow",
 "tier": "P",
@@ -7,7 +7,28 @@
 "min_usd": 500.0,
 "window_h": 6,
 "fire_min": 90,
-"rows": [],
+"rows": [
+{
+"event_id": "401892721",
+"market": "ml",
+"line": null,
+"start": "2026-11-16T00:30Z",
+"side": "away",
+"yes_side": "home",
+"home": "Philadelphia Flyers",
+"away": "Edmonton Oilers",
+"game": "Edmonton Oilers @ Philadelphia Flyers",
+"bet": "Edmonton Oilers moneyline",
+"share": -0.526,
+"usd": 89,
+"trades": 8,
+"price": 0.57,
+"mins_to_start": 353,
+"flag": false,
+"ticker": "KXNHLGAME-26NOV15EDMPHI-EDM",
+"window_h": 6
+}
+],
 "record": {
 "n": 34,
 "won": 20,
