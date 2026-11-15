@@ -1,5 +1,5 @@
 {
- "built": "2026-11-15T18:19:01Z",
+ "built": "2026-11-15T18:31:05Z",
  "record": {
   "n": 29,
   "won": 15,
@@ -11,14 +11,14 @@
    "positive": 0
   },
   "clv": {
-   "n": 22,
-   "avg": 1.78,
-   "beat": 22,
+   "n": 16,
+   "avg": 1.71,
+   "beat": 16,
    "by_rule": {
     "anytime td": {
-     "n": 8,
-     "avg": 2.06,
-     "beat": 8
+     "n": 2,
+     "avg": 2.39,
+     "beat": 2
     },
     "nhl under": {
      "n": 10,
@@ -102,14 +102,33 @@
    "ev_strict": -4.1,
    "pin_yes": 3.15,
    "pin_no": 1.35,
-   "pin_ts": "2026-11-15T17:34:41Z",
-   "book_ts": "2026-11-15T17:33:58Z",
-   "flagged": "2026-11-15T17:34:48Z",
-   "close_ts": "2026-11-15T17:57:07Z",
-   "close_fair": 0.3,
-   "close_line": 0.5,
-   "clv": 0.59,
-   "beat_fair": 0.0
+   "pin_ts": "2026-11-15T17:23:22Z",
+   "book_ts": "2026-11-15T17:22:28Z",
+   "flagged": "2026-11-15T17:23:32Z"
+  },
+  {
+   "key": "e5aa20e1364dd639f042af1c2281bbe2|player_anytime_td|Chris Olave|yes",
+   "sport": "nfl",
+   "odds_id": "e5aa20e1364dd639f042af1c2281bbe2",
+   "espn": "401873055",
+   "game": "Carolina Panthers @ New Orleans Saints",
+   "start": "2026-11-15T18:05:00Z",
+   "market": "player_anytime_td",
+   "player": "Chris Olave",
+   "line": 0.5,
+   "side": "over",
+   "book": "FD",
+   "price": 2.6,
+   "rule": "anytime td",
+   "fair": 0.4046,
+   "fair_power": 0.3964,
+   "ev": 5.2,
+   "ev_strict": 3.1,
+   "pin_yes": 2.34,
+   "pin_no": 1.59,
+   "pin_ts": "2026-11-15T17:46:06Z",
+   "book_ts": "2026-11-15T17:46:06Z",
+   "flagged": "2026-11-15T17:46:46Z"
   }
  ]
 }
