@@ -1,5 +1,5 @@
 {
- "built": "2026-11-15T23:15:12Z",
+ "built": "2026-11-15T23:29:25Z",
  "rows": [
   {
    "cond": "0x3b773f3b5203b36a388f1a3f242b5012e7d4eb0b8fd6f3773f23185485b99c8f",
@@ -449,9 +449,6 @@
    "home_name": "Boston Celtics",
    "game_start": "2026-11-15T23:00Z",
    "side_std": "home",
-   "conflict": [
-    "big money"
-   ],
    "money_with": false,
    "grade": "B",
    "inside_fair": false,
@@ -497,9 +494,6 @@
    "home_name": "Boston Celtics",
    "game_start": "2026-11-15T23:00Z",
    "side_std": "home",
-   "conflict": [
-    "big money"
-   ],
    "money_with": false,
    "grade": "B",
    "fair_board": 0.5145,
@@ -546,8 +540,8 @@
    "home_name": "Toronto Raptors",
    "game_start": "2026-11-15T23:00Z",
    "side_std": "home",
-   "money_with": true,
-   "grade": "A",
+   "money_with": false,
+   "grade": "B",
    "fair_board": 0.5222,
    "inside_fair": null,
    "books": {
@@ -577,7 +571,7 @@
    "best_rank": 58,
    "usd": 4189,
    "paid": 0.519,
-   "ask": 0.57,
+   "ask": 0.56,
    "status": "live",
    "link": "https://polymarket.us/event/nba-hou-was-2026-11-15",
    "other": null,
@@ -636,6 +630,9 @@
    "home_name": "Dallas Stars",
    "game_start": "2026-11-16T01:00Z",
    "side_std": "away",
+   "conflict": [
+    "big money"
+   ],
    "money_with": false,
    "grade": "A",
    "inside_fair": false,
@@ -909,8 +906,8 @@
    "home_name": "Boston Celtics",
    "game_start": "2026-11-15T23:00Z",
    "side_std": "home",
-   "money_with": true,
-   "grade": "A",
+   "money_with": false,
+   "grade": "B",
    "inside_fair": false,
    "fair_board": 0.8612,
    "books": null
@@ -1031,7 +1028,7 @@
    "best_rank": 43,
    "usd": 3328,
    "paid": 0.468,
-   "ask": 0.37,
+   "ask": 0.36,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-gsw-nop-2026-11-16",
    "other": {
@@ -1052,9 +1049,6 @@
    "home_name": "New Orleans Pelicans",
    "game_start": "2026-11-17T01:00Z",
    "side_std": "home",
-   "conflict": [
-    "Kalshi move"
-   ],
    "money_with": false,
    "grade": "B",
    "fair_board": null,
