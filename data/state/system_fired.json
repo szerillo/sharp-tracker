@@ -6969,7 +6969,10 @@
 "price": null,
 "fair": null,
 "edge_pts": null,
-"why": "conference game, GASO on road game 2 in a row, +1.5, total 47.5"
+"why": "conference game, GASO on road game 2 in a row, +1.5, total 47.5",
+"void": true,
+"void_why": "rule no longer holds on the current line: home spread 8.5, total 47.5 (2026-11-15T21:55:07Z)",
+"void_at": "2026-11-15T21:55:07Z"
 },
 "401864544:cfb_road_streak_dog": {
 "tag": "cfb_road_streak_dog",
@@ -7140,5 +7143,31 @@
 "venue": "Novig",
 "price": -199
 }
+},
+"401866468:cfb_road_dog_low_total": {
+"tag": "cfb_road_dog_low_total",
+"fill_id": "cb95538c8750",
+"ts": "2026-11-15T21:55:07Z",
+"market": "spread",
+"side": "away",
+"line": 15.5,
+"venue": "Kalshi",
+"price": -113,
+"fair": 0.495,
+"edge_pts": -3.5,
+"why": "conference game, BGSU +15.5 on the road, total 45.5"
+},
+"401862831:cfb_road_streak_dog": {
+"tag": "cfb_road_streak_dog",
+"fill_id": "0e38beff2993",
+"ts": "2026-11-15T21:55:07Z",
+"market": "spread",
+"side": "away",
+"line": 4.5,
+"venue": "Kalshi",
+"price": -117,
+"fair": 0.505,
+"edge_pts": -3.5,
+"why": "conference game, ECU on road game 2 in a row, +4.5, total 40.5"
 }
 }
