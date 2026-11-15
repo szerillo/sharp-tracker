@@ -1,5 +1,5 @@
 {
- "built": "2026-11-15T13:14:56Z",
+ "built": "2026-11-15T13:25:03Z",
  "rows": [
   {
    "cond": "0x0c637d60a9447423c980eaf62fd805a2a0a8cc27823c4b7ec2582525a754163b",
@@ -257,7 +257,7 @@
    "best_rank": 58,
    "usd": 534,
    "paid": 0.637,
-   "ask": 0.63,
+   "ask": 0.64,
    "status": "live",
    "link": "https://polymarket.us/event/nfl-kc-atl-2026-11-15",
    "other": null,
@@ -338,6 +338,43 @@
      "Caesars": 0.5122
     }
    }
+  },
+  {
+   "cond": "0x17f755b491010e4f9531fec1f77898f5c2830bafb1bfc77f1930d6c715e1c63d",
+   "slug": "nfl-mia-ind-2026-11-15",
+   "title": "Dolphins vs. Colts",
+   "mtype": "spread",
+   "start": "2026-11-15T18:00:00Z",
+   "bet": "Colts -10.5",
+   "side": "Colts",
+   "flagged": "2026-11-15T13:18:17Z",
+   "why": "a top-200 account also in this sport's top 50",
+   "proven": true,
+   "trigger": "proven",
+   "n_accounts": 1,
+   "best_rank": 143,
+   "usd": 3733,
+   "paid": 0.26,
+   "ask": 0.27,
+   "status": "live",
+   "link": "https://polymarket.us/event/nfl-mia-ind-2026-11-15",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401873059",
+   "sport": "nfl",
+   "league": null,
+   "away": "MIA",
+   "home": "IND",
+   "away_name": "Miami Dolphins",
+   "home_name": "Indianapolis Colts",
+   "game_start": "2026-11-15T18:00Z",
+   "side_std": "home",
+   "money_with": false,
+   "grade": "A",
+   "fair_board": null,
+   "inside_fair": null,
+   "books": null
   },
   {
    "cond": "0x3b773f3b5203b36a388f1a3f242b5012e7d4eb0b8fd6f3773f23185485b99c8f",
@@ -684,8 +721,8 @@
    },
    "exit_bid": 0.72,
    "kalshi_against": {
-    "move": 8.5,
-    "now": 28.5,
+    "move": 7.5,
+    "now": 27.5,
     "state": "held"
    },
    "logged": true,
@@ -699,8 +736,7 @@
    "game_start": "2026-11-15T18:00Z",
    "side_std": "home",
    "conflict": [
-    "Kalshi move",
-    "big money"
+    "Kalshi move"
    ],
    "money_with": false,
    "grade": "watch",
@@ -821,7 +857,7 @@
    "best_rank": 4,
    "usd": 402,
    "paid": 0.888,
-   "ask": 0.534,
+   "ask": 0.576,
    "status": "live",
    "link": "https://polymarket.us/event/cbb-pepp-ore-2026-11-15",
    "other": null,
@@ -920,8 +956,8 @@
    "link": "https://polymarket.us/event/nba-orl-bos-2026-11-16",
    "other": null,
    "kalshi_against": {
-    "move": 8.5,
-    "now": 27.0,
+    "move": 8.0,
+    "now": 26.5,
     "state": "held"
    },
    "logged": true,
@@ -1170,6 +1206,13 @@
     "n": 1,
     "best_rank": 58,
     "usd": 340
+   }
+  },
+  "401873059|spread": {
+   "home": {
+    "n": 1,
+    "best_rank": 143,
+    "usd": 3733
    }
   },
   "401873055|ml": {
