@@ -1,5 +1,5 @@
 {
- "built": "2026-11-15T22:18:06Z",
+ "built": "2026-11-15T22:25:14Z",
  "rows": [
   {
    "cond": "0x3b773f3b5203b36a388f1a3f242b5012e7d4eb0b8fd6f3773f23185485b99c8f",
@@ -310,6 +310,50 @@
    }
   },
   {
+   "cond": "0x851e0c5fc2bd239af2ff1fde68825e3afcdef1ee3427972bd4fd23e3ebd348bb",
+   "slug": "cbb-pepp-ore-2026-11-15",
+   "title": "Pepperdine Waves vs. Oregon Ducks",
+   "mtype": "ml",
+   "start": "2026-11-15T22:00:00Z",
+   "bet": "Oregon Ducks ML",
+   "side": "Oregon Ducks",
+   "flagged": "2026-11-15T04:07:55Z",
+   "why": "a top-50 account",
+   "proven": false,
+   "trigger": "top50",
+   "n_accounts": 1,
+   "best_rank": 4,
+   "usd": 402,
+   "paid": 0.888,
+   "ask": null,
+   "status": "live",
+   "link": "https://polymarket.us/event/cbb-pepp-ore-2026-11-15",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401926073",
+   "sport": "cbb",
+   "league": null,
+   "away": "PEPP",
+   "home": "ORE",
+   "away_name": "Pepperdine Waves",
+   "home_name": "Oregon Ducks",
+   "game_start": "2026-11-15T22:00Z",
+   "side_std": "home",
+   "money_with": false,
+   "grade": "B",
+   "fair_board": null,
+   "inside_fair": null,
+   "books": {
+    "at": "2026-11-15T21:58:16Z",
+    "fair": null,
+    "q": {
+     "Novig": 0.87,
+     "Kalshi": 0.88
+    }
+   }
+  },
+  {
    "cond": "0x89bf7e74a1a559240e7a60604cd58864c0b55e2f8c925382309148abfae055c4",
    "slug": "cbb-pepp-ore-2026-11-15",
    "title": "Pepperdine Waves vs. Oregon Ducks",
@@ -340,9 +384,6 @@
    "home_name": "Oregon Ducks",
    "game_start": "2026-11-15T22:00Z",
    "side_std": "home",
-   "conflict": [
-    "Kalshi move"
-   ],
    "money_with": false,
    "grade": "B",
    "fair_board": null,
@@ -380,9 +421,6 @@
    "home_name": "Oregon Ducks",
    "game_start": "2026-11-15T22:00Z",
    "side_std": "over",
-   "conflict": [
-    "Kalshi move"
-   ],
    "money_with": false,
    "grade": "B",
    "fair_board": null,
@@ -575,6 +613,52 @@
    }
   },
   {
+   "cond": "0x775f9a02471cf3445de62d1ba337ad5587699e44c948e878f773d905bfbd728f",
+   "slug": "nhl-fla-dal-2026-11-15",
+   "title": "Panthers vs. Stars",
+   "mtype": "ml",
+   "start": "2026-11-16T01:00:00Z",
+   "bet": "Panthers ML",
+   "side": "Panthers",
+   "flagged": "2026-11-15T22:22:29Z",
+   "why": "a top-200 account also in this sport's top 50",
+   "proven": true,
+   "trigger": "proven",
+   "n_accounts": 1,
+   "best_rank": 79,
+   "usd": 5355,
+   "paid": 0.45,
+   "ask": 0.46,
+   "status": "live",
+   "link": "https://polymarket.us/event/nhl-fla-dal-2026-11-15",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401892722",
+   "sport": "nhl",
+   "league": null,
+   "away": "FLA",
+   "home": "DAL",
+   "away_name": "Florida Panthers",
+   "home_name": "Dallas Stars",
+   "game_start": "2026-11-16T01:00Z",
+   "side_std": "away",
+   "money_with": false,
+   "grade": "A",
+   "fair_board": 0.4532,
+   "inside_fair": false,
+   "books": {
+    "at": "2026-11-15T21:58:16Z",
+    "fair": 0.4532,
+    "q": {
+     "Novig": 0.455,
+     "FD": 0.4717,
+     "Caesars": 0.4739,
+     "DK": 0.4762
+    }
+   }
+  },
+  {
    "cond": "0x2c4bc1dc34eaa1cb08943f536d4ce630384f3e93e028f6fa7a20933438334853",
    "slug": "nfl-pit-cin-2026-11-16",
    "title": "Steelers vs. Bengals",
@@ -682,7 +766,7 @@
    "best_rank": 43,
    "usd": 171,
    "paid": 0.465,
-   "ask": 0.49,
+   "ask": 0.51,
    "status": "live",
    "link": "https://polymarket.us/event/nba-hou-mia-2026-11-16",
    "other": null,
@@ -794,57 +878,6 @@
    "fair_board": 0.395,
    "inside_fair": null,
    "books": null
-  },
-  {
-   "cond": "0x851e0c5fc2bd239af2ff1fde68825e3afcdef1ee3427972bd4fd23e3ebd348bb",
-   "slug": "cbb-pepp-ore-2026-11-15",
-   "title": "Pepperdine Waves vs. Oregon Ducks",
-   "mtype": "ml",
-   "start": "2026-11-15T22:00:00Z",
-   "bet": "Oregon Ducks ML",
-   "side": "Oregon Ducks",
-   "flagged": "2026-11-15T04:07:55Z",
-   "why": "a top-50 account",
-   "proven": false,
-   "trigger": "top50",
-   "n_accounts": 1,
-   "best_rank": 4,
-   "usd": 402,
-   "paid": 0.888,
-   "ask": null,
-   "status": "live",
-   "link": "https://polymarket.us/event/cbb-pepp-ore-2026-11-15",
-   "other": null,
-   "kalshi_against": {
-    "move": 9.5,
-    "now": 13.5,
-    "state": "held"
-   },
-   "logged": true,
-   "event_id": "401926073",
-   "sport": "cbb",
-   "league": null,
-   "away": "PEPP",
-   "home": "ORE",
-   "away_name": "Pepperdine Waves",
-   "home_name": "Oregon Ducks",
-   "game_start": "2026-11-15T22:00Z",
-   "side_std": "home",
-   "conflict": [
-    "Kalshi move"
-   ],
-   "money_with": true,
-   "grade": "A",
-   "fair_board": null,
-   "inside_fair": null,
-   "books": {
-    "at": "2026-11-15T21:58:16Z",
-    "fair": null,
-    "q": {
-     "Novig": 0.87,
-     "Kalshi": 0.88
-    }
-   }
   },
   {
    "cond": "0xb69fe3437bcc8c68cca5ef13f157052728db8470a5260041c7f3f2e76a71432f",
@@ -1122,6 +1155,14 @@
   "clv_poly_same": -1.05
  },
  "sys_tags": {
+  "401892722:nhl_early_home_fav_qual": {
+   "with": null,
+   "against": {
+    "n": 1,
+    "best_rank": 79,
+    "usd": 5355
+   }
+  },
   "401909990:xch_homedog_fade:ml": {
    "with": {
     "n": 1,
@@ -1247,6 +1288,13 @@
     "n": 1,
     "best_rank": 132,
     "usd": 1758
+   }
+  },
+  "401892722|ml": {
+   "away": {
+    "n": 1,
+    "best_rank": 79,
+    "usd": 5355
    }
   },
   "401858527|total": {
