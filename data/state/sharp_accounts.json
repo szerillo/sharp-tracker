@@ -1,5 +1,5 @@
 {
- "built": "2026-11-15T17:56:12Z",
+ "built": "2026-11-15T18:03:27Z",
  "rows": [
   {
    "cond": "0x0c637d60a9447423c980eaf62fd805a2a0a8cc27823c4b7ec2582525a754163b",
@@ -17,7 +17,7 @@
    "best_rank": 12,
    "usd": 104,
    "paid": 0.602,
-   "ask": 0.66,
+   "ask": null,
    "status": "live",
    "link": "https://polymarket.us/event/nfl-min-gb-2026-11-15",
    "other": null,
@@ -54,7 +54,7 @@
    "best_rank": 12,
    "usd": 33349,
    "paid": 0.54,
-   "ask": 0.55,
+   "ask": null,
    "status": "live",
    "link": "https://polymarket.us/event/nfl-kc-atl-2026-11-15",
    "other": null,
@@ -91,12 +91,12 @@
    "best_rank": 115,
    "usd": 1022,
    "paid": 0.486,
-   "ask": 0.51,
+   "ask": null,
    "status": "live",
    "link": "https://polymarket.us/event/nfl-hou-cle-2026-11-15",
    "other": null,
    "kalshi_against": null,
-   "logged": true,
+   "logged": false,
    "event_id": "401873056",
    "sport": "nfl",
    "league": null,
@@ -114,7 +114,7 @@
    "money_with": false,
    "grade": "B",
    "fair_board": 0.4791,
-   "inside_fair": false,
+   "inside_fair": null,
    "books": {
     "at": "2026-11-15T16:53:46Z",
     "fair": 0.4791,
@@ -142,7 +142,7 @@
    "best_rank": 58,
    "usd": 365,
    "paid": 0.84,
-   "ask": 0.83,
+   "ask": null,
    "status": "live",
    "link": "https://polymarket.us/event/nfl-jax-ten-2026-11-15",
    "other": null,
@@ -188,7 +188,7 @@
    "best_rank": 115,
    "usd": 4521,
    "paid": 0.412,
-   "ask": 0.44,
+   "ask": null,
    "status": "live",
    "link": "https://polymarket.us/event/nfl-min-gb-2026-11-15",
    "other": null,
@@ -234,7 +234,7 @@
    "best_rank": 116,
    "usd": 253,
    "paid": 0.48,
-   "ask": 0.51,
+   "ask": null,
    "status": "live",
    "link": "https://polymarket.us/event/cbb-niagra-iowast-2026-11-15",
    "other": null,
@@ -277,7 +277,7 @@
    "best_rank": 3,
    "usd": 244,
    "paid": 0.244,
-   "ask": 0.25,
+   "ask": null,
    "status": "live",
    "link": "https://polymarket.us/event/cfb-miss-okl-2026-11-14",
    "other": null,
@@ -314,7 +314,7 @@
    "best_rank": 58,
    "usd": 534,
    "paid": 0.637,
-   "ask": 0.64,
+   "ask": null,
    "status": "live",
    "link": "https://polymarket.us/event/nfl-kc-atl-2026-11-15",
    "other": null,
@@ -363,7 +363,7 @@
    "best_rank": 58,
    "usd": 524,
    "paid": 0.515,
-   "ask": 0.55,
+   "ask": null,
    "status": "live",
    "link": "https://polymarket.us/event/nfl-car-no-2026-11-15",
    "other": null,
@@ -409,7 +409,7 @@
    "best_rank": 143,
    "usd": 3733,
    "paid": 0.26,
-   "ask": 0.31,
+   "ask": null,
    "status": "live",
    "link": "https://polymarket.us/event/nfl-mia-ind-2026-11-15",
    "other": null,
@@ -446,7 +446,7 @@
    "best_rank": 4,
    "usd": 5889,
    "paid": 0.268,
-   "ask": 0.28,
+   "ask": null,
    "status": "live",
    "link": "https://polymarket.us/event/nfl-kc-atl-2026-11-15",
    "other": null,
@@ -713,6 +713,98 @@
    }
   },
   {
+   "cond": "0xee19747f7bbef1a4fc1322dc7d4c674ba14276baeeaec41b51612bd96be908f2",
+   "slug": "nba-dal-bos-2026-11-15",
+   "title": "Mavericks vs. Celtics",
+   "mtype": "spread",
+   "start": "2026-11-15T23:00:00Z",
+   "bet": "Celtics -13.5",
+   "side": "Celtics",
+   "flagged": "2026-11-15T18:00:07Z",
+   "why": "a top-50 account",
+   "proven": false,
+   "trigger": "top50",
+   "n_accounts": 1,
+   "best_rank": 40,
+   "usd": 4245,
+   "paid": 0.5,
+   "ask": 0.54,
+   "status": "live",
+   "link": "https://polymarket.us/event/nba-dal-bos-2026-11-15",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401909989",
+   "sport": "nba",
+   "league": null,
+   "away": "DAL",
+   "home": "BOS",
+   "away_name": "Dallas Mavericks",
+   "home_name": "Boston Celtics",
+   "game_start": "2026-11-15T23:00Z",
+   "side_std": "home",
+   "money_with": false,
+   "grade": "watch",
+   "fair_board": 0.4922,
+   "inside_fair": false,
+   "books": {
+    "at": "2026-11-15T16:53:46Z",
+    "fair": 0.4922,
+    "q": {
+     "Novig": 0.495,
+     "DK": 0.5192,
+     "Kalshi": 0.52,
+     "Caesars": 0.5238
+    }
+   }
+  },
+  {
+   "cond": "0x64b095e879cb5f721d3a29b3f72dc0fe93d6f526f928d598a03d59fb73dee5e0",
+   "slug": "nba-dal-bos-2026-11-15",
+   "title": "Mavericks vs. Celtics",
+   "mtype": "ml",
+   "start": "2026-11-15T23:00:00Z",
+   "bet": "Celtics ML",
+   "side": "Celtics",
+   "flagged": "2026-11-15T18:00:08Z",
+   "why": "2 top-200 accounts",
+   "proven": false,
+   "trigger": "two",
+   "n_accounts": 2,
+   "best_rank": 40,
+   "usd": 941,
+   "paid": 0.86,
+   "ask": 0.87,
+   "status": "live",
+   "link": "https://polymarket.us/event/nba-dal-bos-2026-11-15",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401909989",
+   "sport": "nba",
+   "league": null,
+   "away": "DAL",
+   "home": "BOS",
+   "away_name": "Dallas Mavericks",
+   "home_name": "Boston Celtics",
+   "game_start": "2026-11-15T23:00Z",
+   "side_std": "home",
+   "money_with": false,
+   "grade": "B",
+   "fair_board": 0.8586,
+   "inside_fair": false,
+   "books": {
+    "at": "2026-11-15T16:53:46Z",
+    "fair": 0.8586,
+    "q": {
+     "Novig": 0.855,
+     "Kalshi": 0.87,
+     "Caesars": 0.875,
+     "DK": 0.8824
+    }
+   }
+  },
+  {
    "cond": "0xd42bdffea6aafbfb7c24feb0434fe68f890878d7aca7734b84015beaeb223299",
    "slug": "nba-hou-was-2026-11-15",
    "title": "Rockets vs. Wizards",
@@ -864,7 +956,7 @@
    "best_rank": 43,
    "usd": 6980,
    "paid": 0.732,
-   "ask": 0.71,
+   "ask": null,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-ind-phi-2026-11-15",
    "other": {
@@ -873,7 +965,7 @@
     "usd": 17346,
     "first": "2026-11-14T06:50:34Z"
    },
-   "exit_bid": 0.7,
+   "exit_bid": null,
    "kalshi_against": {
     "move": 7.5,
     "now": 27.5,
@@ -895,7 +987,7 @@
    "money_with": false,
    "grade": "B",
    "fair_board": 0.7187,
-   "inside_fair": true,
+   "inside_fair": null,
    "books": null
   },
   {
@@ -1011,7 +1103,7 @@
    "best_rank": 4,
    "usd": 402,
    "paid": 0.888,
-   "ask": 0.56,
+   "ask": 0.566,
    "status": "live",
    "link": "https://polymarket.us/event/cbb-pepp-ore-2026-11-15",
    "other": null,
@@ -1278,124 +1370,8 @@
   "clv_venue": 0.57,
   "clv_poly_same": -1.04
  },
- "sys_tags": {
-  "401873056:wind1014": {
-   "with": {
-    "n": 2,
-    "best_rank": 115,
-    "usd": 1022
-   },
-   "against": null
-  },
-  "401873056:wind1014_1h": {
-   "with": {
-    "n": 2,
-    "best_rank": 115,
-    "usd": 1022
-   },
-   "against": null
-  },
-  "401873054:xch_homedog_fade:ml": {
-   "with": {
-    "n": 1,
-    "best_rank": 132,
-    "usd": 117
-   },
-   "against": null
-  }
- },
+ "sys_tags": {},
  "by_event": {
-  "401873058|total": {
-   "over": {
-    "n": 4,
-    "best_rank": 4,
-    "usd": 34603
-   }
-  },
-  "401873058|spread": {
-   "away": {
-    "n": 2,
-    "best_rank": 115,
-    "usd": 86252
-   }
-  },
-  "401873058|ml": {
-   "away": {
-    "n": 2,
-    "best_rank": 58,
-    "usd": 534
-   }
-  },
-  "401873056|total": {
-   "under": {
-    "n": 2,
-    "best_rank": 115,
-    "usd": 1022
-   }
-  },
-  "401873056|spread": {
-   "home": {
-    "n": 1,
-    "best_rank": 58,
-    "usd": 245
-   }
-  },
-  "401873060|spread": {
-   "away": {
-    "n": 2,
-    "best_rank": 12,
-    "usd": 319
-   }
-  },
-  "401873060|ml": {
-   "away": {
-    "n": 2,
-    "best_rank": 115,
-    "usd": 4521
-   }
-  },
-  "401873057|ml": {
-   "away": {
-    "n": 2,
-    "best_rank": 58,
-    "usd": 365
-   }
-  },
-  "401873059|ml": {
-   "home": {
-    "n": 1,
-    "best_rank": 58,
-    "usd": 340
-   }
-  },
-  "401873059|spread": {
-   "home": {
-    "n": 2,
-    "best_rank": 115,
-    "usd": 44971
-   }
-  },
-  "401873055|ml": {
-   "away": {
-    "n": 1,
-    "best_rank": 182,
-    "usd": 296
-   }
-  },
-  "401873055|spread": {
-   "away": {
-    "n": 2,
-    "best_rank": 58,
-    "usd": 524
-   }
-  },
-  "401873054|ml": {
-   "away": {
-    "n": 1,
-    "best_rank": 132,
-    "usd": 117
-   }
-  },
   "401873062|spread": {
    "away": {
     "n": 1,
@@ -1438,25 +1414,6 @@
     "usd": 124
    }
   },
-  "401909985|ml": {
-   "home": {
-    "n": 2,
-    "best_rank": 43,
-    "usd": 6980
-   },
-   "away": {
-    "n": 4,
-    "best_rank": 40,
-    "usd": 7590
-   }
-  },
-  "401909985|spread": {
-   "home": {
-    "n": 1,
-    "best_rank": 132,
-    "usd": 145
-   }
-  },
   "401909986|ml": {
    "home": {
     "n": 2,
@@ -1481,6 +1438,20 @@
     "n": 1,
     "best_rank": 93,
     "usd": 180
+   }
+  },
+  "401909989|spread": {
+   "home": {
+    "n": 1,
+    "best_rank": 40,
+    "usd": 4245
+   }
+  },
+  "401909989|ml": {
+   "home": {
+    "n": 2,
+    "best_rank": 40,
+    "usd": 941
    }
   },
   "401909990|ml": {
@@ -1549,13 +1520,6 @@
     "usd": 408
    }
   },
-  "401856887|spread": {
-   "away": {
-    "n": 1,
-    "best_rank": 3,
-    "usd": 244
-   }
-  },
   "401921760|ml": {
    "home": {
     "n": 1,
@@ -1566,13 +1530,6 @@
     "n": 1,
     "best_rank": 4,
     "usd": 108
-   }
-  },
-  "401909774|total": {
-   "over": {
-    "n": 1,
-    "best_rank": 116,
-    "usd": 253
    }
   },
   "401925812|total": {
