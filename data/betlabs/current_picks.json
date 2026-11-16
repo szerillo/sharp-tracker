@@ -1,936 +1,984 @@
 {
-"pulled": "2026-11-15T07:25:48Z",
-"source": "Bet Labs current system picks (your saved Tested: and Tracked: screens)",
-"screens": [
-{
-"id": 1799444,
-"name": "NBA Big Visitor Fav 85 Pct Over",
-"sport": "nba",
-"rules": [
-"nba_bigfav_over"
-]
-},
-{
-"id": 1799443,
-"name": "NBA Big Home Fav 85 Pct Over",
-"sport": "nba",
-"rules": [
-"nba_bigfav_over"
-]
-},
-{
-"id": 1799442,
-"name": "NBA Weak Visitor at Home Team Under 40 Pct Under (approx)",
-"sport": "nba",
-"rules": [
-"nba_badteams_under"
-]
-},
-{
-"id": 1799441,
-"name": "MLB Visitor Over 60 Pct Under",
-"sport": "mlb",
-"rules": [
-"mlb_road_over_under"
-]
-},
-{
-"id": 1799440,
-"name": "CFB Home Fav 7.5 to 10 Under",
-"sport": "cfb",
-"rules": [
-"cfb_homefav_7510_under"
-]
-},
-{
-"id": 1799439,
-"name": "CFB Afternoon Game 2-7pm ET Total 45 to 51.5 Over",
-"sport": "cfb",
-"rules": [
-"cfb_day_over"
-]
-},
-{
-"id": 1799438,
-"name": "NBA Visitor 4th Plus Straight Road Game Over",
-"sport": "nba",
-"rules": [
-"nba_roadtrip_over"
-]
-},
-{
-"id": 1799435,
-"name": "NFL Dog vs Favorite Off Bye ATS",
-"sport": "nfl",
-"rules": [
-"nfl_fade_fav_bye"
-]
-},
-{
-"id": 1799434,
-"name": "NFL Road Dog 7.5 to 10 ATS",
-"sport": "nfl",
-"rules": [
-"nfl_road_dog_7510"
-]
-},
-{
-"id": 1799433,
-"name": "NFL Home Dog 7.5 to 10 ATS",
-"sport": "nfl",
-"rules": [
-"nfl_home_dog_7510"
-]
-},
-{
-"id": 1799432,
-"name": "NBA Home ATS 60 Pct Rest 2 Days",
-"sport": "nba",
-"rules": [
-"nba_ats_hot_home"
-]
-},
-{
-"id": 1799431,
-"name": "NHL Road Off Win vs Home Lost 3 Plus PL",
-"sport": "nhl",
-"rules": [
-"nhl_skid_fade_road"
-]
-},
-{
-"id": 1799430,
-"name": "NHL Bounce Home Off 3 Plus Goal Loss ML",
-"sport": "nhl",
-"rules": [
-"nhl_bounce_home_ml"
-]
-},
-{
-"id": 1799428,
-"name": "NHL Home Lost 3 Straight Over",
-"sport": "nhl",
-"rules": [
-"nhl_loss_streak_over"
-]
-},
-{
-"id": 1792204,
-"name": "CFB Hot Weather Over Total 55 or Less",
-"sport": "cfb",
-"rules": [
-"cfb_hot_over_low_total"
-]
-},
-{
-"id": 1792198,
-"name": "CFB Conf Road Streak Dog Total 54 or Less",
-"sport": "cfb",
-"rules": [
-"cfb_road_streak_dog"
-]
-},
-{
-"id": 1792184,
-"name": "CBB Under Good Over Teams Total Down",
-"sport": "cbb",
-"rules": [
-"cbb_under_good_over_drop"
-]
-},
-{
-"id": 1789287,
-"name": "CBB Unranked Off 14 Plus Loss vs Top 5 Conf",
-"sport": "cbb",
-"rules": [
-"cbb_bigloss_vs_top5"
-]
-},
-{
-"id": 1789286,
-"name": "CFB Conf Road Dog 7 Plus Total 48 or Less",
-"sport": "cfb",
-"rules": [
-"cfb_road_dog_low_total"
-]
-},
-{
-"id": 1789285,
-"name": "NBA Under Good Home Over Team Rest Total Down",
-"sport": "nba",
-"rules": [
-"nba_under_good_home_over"
-]
-},
-{
-"id": 1789284,
-"name": "NHL Early Season Home Fav vs Quality Opp ML",
-"sport": "nhl",
-"rules": [
-"nhl_early_home_fav_qual"
-]
-},
-{
-"id": 1784158,
-"name": "NBA 1H Under Visitor Over Pct 71 Plus",
-"sport": "nba",
-"rules": [
-"nba_1h_under_hot_over"
-]
-},
-{
-"id": 1784156,
-"name": "NHL Puck Line Dog Open ML 181 to 196",
-"sport": "nhl",
-"rules": [
-"nhl_pl_dog_bigml"
-]
-},
-{
-"id": 1784155,
-"name": "NHL Puck Line Fav vs Opp Win Pct 66 Plus",
-"sport": "nhl",
-"rules": [
-"nhl_pl_fav_strong_opp"
-]
-},
-{
-"id": 1784154,
-"name": "NHL Puck Line Fav Win Pct Gap 22 Plus",
-"sport": "nhl",
-"rules": [
-"nhl_pl_fav_gap"
-]
-},
-{
-"id": 1783043,
-"name": "CFB Wind 14 Plus Under",
-"sport": "cfb",
-"rules": [
-"cfb_wind14"
-]
-},
-{
-"id": 1772963,
-"name": "NFL 1H Monday Night Under",
-"sport": "nfl",
-"rules": [
-"mnf_1h"
-]
-},
-{
-"id": 1772962,
-"name": "NFL 1H Visitor Off 8 to 30 Days Under",
-"sport": "nfl",
-"rules": [
-"vrest8_1h"
-]
-},
-{
-"id": 1772929,
-"name": "NFL 1H Blowout Bounce Dog ATS",
-"sport": "nfl",
-"rules": [
-"bounce15_1h"
-]
-},
-{
-"id": 1772776,
-"name": "NFL Awful-Team Dog ATS",
-"sport": "nfl",
-"rules": [
-"awfuldog"
-]
-},
-{
-"id": 1772775,
-"name": "NFL Wind 10-14 Under",
-"sport": "nfl",
-"rules": [
-"wind1014"
-]
-},
-{
-"id": 769171,
-"name": "NFL 1H Wind 10-13 Under",
-"sport": "nfl",
-"rules": [
-"wind1014_1h"
-]
-}
-],
-"picks": [
-{
-"sid": 1799444,
-"date": "2026-11-15",
-"play": "Over",
-"away": "San Antonio Spurs",
-"home": "Utah Jazz",
-"info": "Home Moneyline Range 900"
-},
-{
-"sid": 1799443,
-"date": "2026-11-15",
-"play": "Over",
-"away": "Dallas Mavericks",
-"home": "Boston Celtics",
-"info": "Home Moneyline Range -800"
-},
-{
-"sid": 1799442,
-"date": "2026-11-15",
-"play": "Under",
-"away": "Charlotte Hornets",
-"home": "Los Angeles Clippers",
-"info": "Home Team Game Number 12, Home Team Win % 27, Visitor Team Win % 33"
-},
-{
-"sid": 1799442,
-"date": "2026-11-18",
-"play": "Under",
-"away": "Phoenix Suns",
-"home": "Sacramento Kings",
-"info": "Home Team Game Number 14, Home Team Win % 8, Visitor Team Win % 45"
-},
-{
-"sid": 1799442,
-"date": "2026-11-20",
-"play": "Under",
-"away": "Phoenix Suns",
-"home": "Utah Jazz",
-"info": "Home Team Game Number 17, Home Team Win % 7, Visitor Team Win % 45"
-},
-{
-"sid": 1799442,
-"date": "2026-11-20",
-"play": "Under",
-"away": "Washington Wizards",
-"home": "Chicago Bulls",
-"info": "Home Team Game Number 15, Home Team Win % 25, Visitor Team Win % 30"
-},
-{
-"sid": 1799442,
-"date": "2026-11-20",
-"play": "Under",
-"away": "Orlando Magic",
-"home": "Brooklyn Nets",
-"info": "Home Team Game Number 15, Home Team Win % 25, Visitor Team Win % 41"
-},
-{
-"sid": 1799442,
-"date": "2026-11-22",
-"play": "Under",
-"away": "Orlando Magic",
-"home": "Washington Wizards",
-"info": "Home Team Game Number 18, Home Team Win % 30, Visitor Team Win % 41"
-},
-{
-"sid": 1799442,
-"date": "2026-11-23",
-"play": "Under",
-"away": "Phoenix Suns",
-"home": "New Orleans Pelicans",
-"info": "Home Team Game Number 19, Home Team Win % 28, Visitor Team Win % 45"
-},
-{
-"sid": 1799439,
-"date": "2026-11-17",
-"play": "Over",
-"away": "Eastern Michigan",
-"home": "Western Michigan",
-"info": "Time of Day 18, Closing Total Range 46.5"
-},
-{
-"sid": 1799439,
-"date": "2026-11-21",
-"play": "Over",
-"away": "Arkansas",
-"home": "Texas",
-"info": "Time of Day 15, Closing Total Range 48.5"
-},
-{
-"sid": 1799439,
-"date": "2026-11-21",
-"play": "Over",
-"away": "LSU",
-"home": "Tennessee",
-"info": "Time of Day 15, Closing Total Range 48"
-},
-{
-"sid": 1799440,
-"date": "2026-11-17",
-"play": "Under",
-"away": "Ball State",
-"home": "Ohio",
-"info": "Home Spread Range -9.5"
-},
-{
-"sid": 1799440,
-"date": "2026-11-20",
-"play": "Under",
-"away": "Clemson",
-"home": "Duke",
-"info": "Home Spread Range -9"
-},
-{
-"sid": 1799438,
-"date": "2026-11-15",
-"play": "Over",
-"away": "Houston Rockets",
-"home": "Washington Wizards",
-"info": "Visitor Prev Game Home/AwayStreak 3"
-},
-{
-"sid": 1799438,
-"date": "2026-11-16",
-"play": "Over",
-"away": "Philadelphia 76ers",
-"home": "Brooklyn Nets",
-"info": "Visitor Prev Game Home/AwayStreak 3"
-},
-{
-"sid": 1799438,
-"date": "2026-11-16",
-"play": "Over",
-"away": "Phoenix Suns",
-"home": "Denver Nuggets",
-"info": "Visitor Prev Game Home/AwayStreak 7"
-},
-{
-"sid": 1799438,
-"date": "2026-11-18",
-"play": "Over",
-"away": "Washington Wizards",
-"home": "Toronto Raptors",
-"info": "Visitor Prev Game Home/AwayStreak 3"
-},
-{
-"sid": 1799438,
-"date": "2026-11-19",
-"play": "Over",
-"away": "Los Angeles Clippers",
-"home": "San Antonio Spurs",
-"info": "Visitor Prev Game Home/AwayStreak 3"
-},
-{
-"sid": 1799438,
-"date": "2026-11-20",
-"play": "Over",
-"away": "Sacramento Kings",
-"home": "Los Angeles Lakers",
-"info": "Visitor Prev Game Home/AwayStreak 7"
-},
-{
-"sid": 1799438,
-"date": "2026-11-20",
-"play": "Over",
-"away": "Toronto Raptors",
-"home": "Detroit Pistons",
-"info": "Visitor Prev Game Home/AwayStreak 3"
-},
-{
-"sid": 1799438,
-"date": "2026-11-20",
-"play": "Over",
-"away": "New Orleans Pelicans",
-"home": "Oklahoma City Thunder",
-"info": "Visitor Prev Game Home/AwayStreak 5"
-},
-{
-"sid": 1799438,
-"date": "2026-11-22",
-"play": "Over",
-"away": "Denver Nuggets",
-"home": "Chicago Bulls",
-"info": "Visitor Prev Game Home/AwayStreak 3"
-},
-{
-"sid": 1799438,
-"date": "2026-11-23",
-"play": "Over",
-"away": "Cleveland Cavaliers",
-"home": "Chicago Bulls",
-"info": "Visitor Prev Game Home/AwayStreak 4"
-},
-{
-"sid": 1799438,
-"date": "2026-11-23",
-"play": "Over",
-"away": "Brooklyn Nets",
-"home": "Minnesota Timberwolves",
-"info": "Visitor Prev Game Home/AwayStreak 3"
-},
-{
-"sid": 1799438,
-"date": "2026-11-23",
-"play": "Over",
-"away": "San Antonio Spurs",
-"home": "Sacramento Kings",
-"info": "Visitor Prev Game Home/AwayStreak 3"
-},
-{
-"sid": 1799438,
-"date": "2026-11-25",
-"play": "Over",
-"away": "Minnesota Timberwolves",
-"home": "Oklahoma City Thunder",
-"info": "Visitor Prev Game Home/AwayStreak 8"
-},
-{
-"sid": 1799438,
-"date": "2026-11-25",
-"play": "Over",
-"away": "Miami Heat",
-"home": "Philadelphia 76ers",
-"info": "Visitor Prev Game Home/AwayStreak 5"
-},
-{
-"sid": 1799438,
-"date": "2026-11-25",
-"play": "Over",
-"away": "Chicago Bulls",
-"home": "Charlotte Hornets",
-"info": "Visitor Prev Game Home/AwayStreak 3"
-},
-{
-"sid": 1799438,
-"date": "2026-11-27",
-"play": "Over",
-"away": "Philadelphia 76ers",
-"home": "Indiana Pacers",
-"info": "Visitor Prev Game Home/AwayStreak 3"
-},
-{
-"sid": 1799438,
-"date": "2026-11-27",
-"play": "Over",
-"away": "Los Angeles Lakers",
-"home": "San Antonio Spurs",
-"info": "Visitor Prev Game Home/AwayStreak 4"
-},
-{
-"sid": 1799433,
-"date": "2026-11-15",
-"play": "New York Jets",
-"away": "Buffalo Bills",
-"home": "New York Jets",
-"info": "Spread Range 7.5"
-},
-{
-"sid": 1799433,
-"date": "2026-11-15",
-"play": "Arizona Cardinals",
-"away": "Los Angeles Rams",
-"home": "Arizona Cardinals",
-"info": "Spread Range 9.5"
-},
-{
-"sid": 1799435,
-"date": "2026-11-15",
-"play": "Tennessee Titans",
-"away": "Jacksonville Jaguars",
-"home": "Tennessee Titans",
-"info": "Opp Days Between games 10"
-},
-{
-"sid": 1799435,
-"date": "2026-11-16",
-"play": "Los Angeles Chargers",
-"away": "Los Angeles Chargers",
-"home": "Baltimore Ravens",
-"info": "Opp Days Between games 11"
-},
-{
-"sid": 1799435,
-"date": "2026-11-22",
-"play": "Las Vegas Raiders",
-"away": "Las Vegas Raiders",
-"home": "Denver Broncos",
-"info": "Opp Days Between games 14"
-},
-{
-"sid": 1799435,
-"date": "2026-11-22",
-"play": "New Orleans Saints",
-"away": "New Orleans Saints",
-"home": "Chicago Bears",
-"info": "Opp Days Between games 14"
-},
-{
-"sid": 1799435,
-"date": "2026-11-23",
-"play": "Washington Commanders",
-"away": "Cincinnati Bengals",
-"home": "Washington Commanders",
-"info": "Opp Days Between games 8"
-},
-{
-"sid": 1799434,
-"date": "2026-11-19",
-"play": "Indianapolis Colts",
-"away": "Indianapolis Colts",
-"home": "Houston Texans",
-"info": "Spread Range 10"
-},
-{
-"sid": 1799434,
-"date": "2026-11-22",
-"play": "Las Vegas Raiders",
-"away": "Las Vegas Raiders",
-"home": "Denver Broncos",
-"info": "Spread Range 7.5"
-},
-{
-"sid": 1799434,
-"date": "2026-11-22",
-"play": "Tennessee Titans",
-"away": "Tennessee Titans",
-"home": "Dallas Cowboys",
-"info": "Spread Range 7.5"
-},
-{
-"sid": 1799434,
-"date": "2026-11-22",
-"play": "New Orleans Saints",
-"away": "New Orleans Saints",
-"home": "Chicago Bears",
-"info": "Spread Range 9.5"
-},
-{
-"sid": 1799432,
-"date": "2026-11-16",
-"play": "Minnesota Timberwolves",
-"away": "Portland Trail Blazers",
-"home": "Minnesota Timberwolves",
-"info": "Game Number 14, Days Between games 2, Team ATS % 84"
-},
-{
-"sid": 1799432,
-"date": "2026-11-17",
-"play": "Los Angeles Lakers",
-"away": "Charlotte Hornets",
-"home": "Los Angeles Lakers",
-"info": "Game Number 15, Days Between games 2, Team ATS % 69"
-},
-{
-"sid": 1799432,
-"date": "2026-11-19",
-"play": "Minnesota Timberwolves",
-"away": "New York Knicks",
-"home": "Minnesota Timberwolves",
-"info": "Game Number 16, Days Between games 2, Team ATS % 84"
-},
-{
-"sid": 1799432,
-"date": "2026-11-20",
-"play": "Los Angeles Lakers",
-"away": "Sacramento Kings",
-"home": "Los Angeles Lakers",
-"info": "Game Number 17, Days Between games 2, Team ATS % 69"
-},
-{
-"sid": 1799432,
-"date": "2026-11-21",
-"play": "Minnesota Timberwolves",
-"away": "Memphis Grizzlies",
-"home": "Minnesota Timberwolves",
-"info": "Game Number 17, Days Between games 2, Team ATS % 84"
-},
-{
-"sid": 1799432,
-"date": "2026-11-23",
-"play": "Minnesota Timberwolves",
-"away": "Brooklyn Nets",
-"home": "Minnesota Timberwolves",
-"info": "Game Number 18, Days Between games 2, Team ATS % 84"
-},
-{
-"sid": 1799432,
-"date": "2026-11-25",
-"play": "Portland Trail Blazers",
-"away": "San Antonio Spurs",
-"home": "Portland Trail Blazers",
-"info": "Game Number 18, Days Between games 2, Team ATS % 66"
-},
-{
-"sid": 1799432,
-"date": "2026-11-25",
-"play": "Houston Rockets",
-"away": "Phoenix Suns",
-"home": "Houston Rockets",
-"info": "Game Number 19, Days Between games 2, Team ATS % 69"
-},
-{
-"sid": 1799432,
-"date": "2026-11-25",
-"play": "Memphis Grizzlies",
-"away": "Los Angeles Clippers",
-"home": "Memphis Grizzlies",
-"info": "Game Number 19, Days Between games 2, Team ATS % 69"
-},
-{
-"sid": 1799432,
-"date": "2026-11-27",
-"play": "Portland Trail Blazers",
-"away": "Golden State Warriors",
-"home": "Portland Trail Blazers",
-"info": "Game Number 19, Days Between games 2, Team ATS % 66"
-},
-{
-"sid": 1799432,
-"date": "2026-11-27",
-"play": "Minnesota Timberwolves",
-"away": "Memphis Grizzlies",
-"home": "Minnesota Timberwolves",
-"info": "Game Number 20, Days Between games 2, Team ATS % 84"
-},
-{
-"sid": 1799430,
-"date": "2026-11-15",
-"play": "Anaheim Ducks",
-"away": "Calgary Flames",
-"home": "Anaheim Ducks",
-"info": "Team Win % 50, Previous Game Margin -4"
-},
-{
-"sid": 1799430,
-"date": "2026-11-19",
-"play": "Seattle Kraken",
-"away": "Vancouver Canucks",
-"home": "Seattle Kraken",
-"info": "Team Win % 50, Previous Game Margin -4"
-},
-{
-"sid": 1789286,
-"date": "2026-11-17",
-"play": "Eastern Michigan",
-"away": "Eastern Michigan",
-"home": "Western Michigan",
-"info": "Conference/Non-Conference Conference, Spread Range 13.5, Closing Total Range 46.5"
-},
-{
-"sid": 1789286,
-"date": "2026-11-20",
-"play": "Clemson",
-"away": "Clemson",
-"home": "Duke",
-"info": "Conference/Non-Conference Conference, Spread Range 9, Closing Total Range 44.5"
-},
-{
-"sid": 1789285,
-"date": "2026-11-15",
-"play": "Under",
-"away": "Charlotte Hornets",
-"home": "Los Angeles Clippers",
-"info": "O/U Change Open to Close -1, Visitor Days Between games 3, Home Days Between games 2, Home Over Win % 63"
-},
-{
-"sid": 1789284,
-"date": "2026-11-15",
-"play": "Dallas Stars",
-"away": "Florida Panthers",
-"home": "Dallas Stars",
-"info": "Opponent Win % 57, Game Number 20"
-},
-{
-"sid": 1789284,
-"date": "2026-11-16",
-"play": "New York Rangers",
-"away": "Montreal Canadiens",
-"home": "New York Rangers",
-"info": "Opponent Win % 60, Game Number 22"
-},
-{
-"sid": 1784156,
-"date": "2026-11-16",
-"play": "Vancouver Canucks",
-"away": "Vancouver Canucks",
-"home": "Utah Mammoth",
-"info": "Open Moneyline Range 190"
-},
-{
-"sid": 1772963,
-"date": "2026-11-16",
-"play": "Under",
-"away": "Los Angeles Chargers",
-"home": "Baltimore Ravens",
-"info": "Day Of Week Monday, Dome Closed N"
-},
-{
-"sid": 1772963,
-"date": "2026-11-23",
-"play": "Under",
-"away": "Cincinnati Bengals",
-"home": "Washington Commanders",
-"info": "Day Of Week Monday, Dome Closed N"
-},
-{
-"sid": 1772962,
-"date": "2026-11-15",
-"play": "Under",
-"away": "Pittsburgh Steelers",
-"home": "Cincinnati Bengals",
-"info": "Visitor Days Between games 14, Dome Closed N"
-},
-{
-"sid": 1772962,
-"date": "2026-11-15",
-"play": "Under",
-"away": "Jacksonville Jaguars",
-"home": "Tennessee Titans",
-"info": "Visitor Days Between games 10, Dome Closed N"
-},
-{
-"sid": 1772962,
-"date": "2026-11-16",
-"play": "Under",
-"away": "Los Angeles Chargers",
-"home": "Baltimore Ravens",
-"info": "Visitor Days Between games 8, Dome Closed N"
-},
-{
-"sid": 1772962,
-"date": "2026-11-23",
-"play": "Under",
-"away": "Cincinnati Bengals",
-"home": "Washington Commanders",
-"info": "Visitor Days Between games 8, Dome Closed N"
-},
-{
-"sid": 1772962,
-"date": "2026-11-25",
-"play": "Under",
-"away": "Green Bay Packers",
-"home": "Los Angeles Rams",
-"info": "Visitor Days Between games 10, Dome Closed N"
-},
-{
-"sid": 769171,
-"date": "2026-11-15",
-"play": "Under",
-"away": "Houston Texans",
-"home": "Cleveland Browns",
-"info": "Avg Wind Speed 13, Dome Closed N"
-},
-{
-"sid": 769171,
-"date": "2026-11-15",
-"play": "Under",
-"away": "Buffalo Bills",
-"home": "New York Jets",
-"info": "Avg Wind Speed 11, Dome Closed N"
-},
-{
-"sid": 769171,
-"date": "2026-11-22",
-"play": "Under",
-"away": "Arizona Cardinals",
-"home": "Kansas City Chiefs",
-"info": "Avg Wind Speed 13, Dome Closed N"
-},
-{
-"sid": 769171,
-"date": "2026-11-22",
-"play": "Under",
-"away": "Miami Dolphins",
-"home": "Buffalo Bills",
-"info": "Avg Wind Speed 13, Dome Closed N"
-},
-{
-"sid": 769171,
-"date": "2026-11-23",
-"play": "Under",
-"away": "Cincinnati Bengals",
-"home": "Washington Commanders",
-"info": "Avg Wind Speed 13, Dome Closed N"
-},
-{
-"sid": 1772929,
-"date": "2026-11-15",
-"play": "New England Patriots",
-"away": "New England Patriots",
-"home": "Detroit Lions",
-"info": "Previous Game ATS Margin -21"
-},
-{
-"sid": 1772929,
-"date": "2026-11-16",
-"play": "Los Angeles Chargers",
-"away": "Los Angeles Chargers",
-"home": "Baltimore Ravens",
-"info": "Previous Game ATS Margin -16.5"
-},
-{
-"sid": 1772775,
-"date": "2026-11-15",
-"play": "Under",
-"away": "Buffalo Bills",
-"home": "New York Jets",
-"info": "Avg Wind Speed 11"
-},
-{
-"sid": 1772775,
-"date": "2026-11-15",
-"play": "Under",
-"away": "Houston Texans",
-"home": "Cleveland Browns",
-"info": "Avg Wind Speed 13"
-},
-{
-"sid": 1772775,
-"date": "2026-11-22",
-"play": "Under",
-"away": "Miami Dolphins",
-"home": "Buffalo Bills",
-"info": "Avg Wind Speed 13"
-},
-{
-"sid": 1772775,
-"date": "2026-11-22",
-"play": "Under",
-"away": "Arizona Cardinals",
-"home": "Kansas City Chiefs",
-"info": "Avg Wind Speed 13"
-},
-{
-"sid": 1772775,
-"date": "2026-11-23",
-"play": "Under",
-"away": "Cincinnati Bengals",
-"home": "Washington Commanders",
-"info": "Avg Wind Speed 13"
-},
-{
-"sid": 1783043,
-"date": "2026-11-21",
-"play": "Under",
-"away": "Wisconsin",
-"home": "Purdue",
-"info": "Avg Wind Speed 16"
-},
-{
-"sid": 1783043,
-"date": "2026-11-21",
-"play": "Under",
-"away": "Texas A&M",
-"home": "Oklahoma",
-"info": "Avg Wind Speed 15"
-},
-{
-"sid": 1783043,
-"date": "2026-11-21",
-"play": "Under",
-"away": "Iowa",
-"home": "Illinois",
-"info": "Avg Wind Speed 14"
-},
-{
-"sid": 1783043,
-"date": "2026-11-21",
-"play": "Under",
-"away": "UCLA",
-"home": "Michigan",
-"info": "Avg Wind Speed 14"
-}
-]
+ "pulled": "2026-11-16T09:37:06.544Z",
+ "source": "Bet Labs current system picks (your saved Tested: and Tracked: screens)",
+ "screens": [
+  {
+   "id": 1799444,
+   "name": "NBA Big Visitor Fav 85 Pct Over",
+   "sport": "nba",
+   "rules": [
+    "nba_bigfav_over"
+   ]
+  },
+  {
+   "id": 1799443,
+   "name": "NBA Big Home Fav 85 Pct Over",
+   "sport": "nba",
+   "rules": [
+    "nba_bigfav_over"
+   ]
+  },
+  {
+   "id": 1799442,
+   "name": "NBA Weak Visitor at Home Team Under 40 Pct Under (approx)",
+   "sport": "nba",
+   "rules": [
+    "nba_badteams_under"
+   ]
+  },
+  {
+   "id": 1799441,
+   "name": "MLB Visitor Over 60 Pct Under",
+   "sport": "mlb",
+   "rules": [
+    "mlb_road_over_under"
+   ]
+  },
+  {
+   "id": 1799440,
+   "name": "CFB Home Fav 7.5 to 10 Under",
+   "sport": "cfb",
+   "rules": [
+    "cfb_homefav_7510_under"
+   ]
+  },
+  {
+   "id": 1799439,
+   "name": "CFB Afternoon Game 2-7pm ET Total 45 to 51.5 Over",
+   "sport": "cfb",
+   "rules": [
+    "cfb_day_over"
+   ]
+  },
+  {
+   "id": 1799438,
+   "name": "NBA Visitor 4th Plus Straight Road Game Over",
+   "sport": "nba",
+   "rules": [
+    "nba_roadtrip_over"
+   ]
+  },
+  {
+   "id": 1799435,
+   "name": "NFL Dog vs Favorite Off Bye ATS",
+   "sport": "nfl",
+   "rules": [
+    "nfl_fade_fav_bye"
+   ]
+  },
+  {
+   "id": 1799434,
+   "name": "NFL Road Dog 7.5 to 10 ATS",
+   "sport": "nfl",
+   "rules": [
+    "nfl_road_dog_7510"
+   ]
+  },
+  {
+   "id": 1799433,
+   "name": "NFL Home Dog 7.5 to 10 ATS",
+   "sport": "nfl",
+   "rules": [
+    "nfl_home_dog_7510"
+   ]
+  },
+  {
+   "id": 1799432,
+   "name": "NBA Home ATS 60 Pct Rest 2 Days",
+   "sport": "nba",
+   "rules": [
+    "nba_ats_hot_home"
+   ]
+  },
+  {
+   "id": 1799431,
+   "name": "NHL Road Off Win vs Home Lost 3 Plus PL",
+   "sport": "nhl",
+   "rules": [
+    "nhl_skid_fade_road"
+   ]
+  },
+  {
+   "id": 1799430,
+   "name": "NHL Bounce Home Off 3 Plus Goal Loss ML",
+   "sport": "nhl",
+   "rules": [
+    "nhl_bounce_home_ml"
+   ]
+  },
+  {
+   "id": 1799428,
+   "name": "NHL Home Lost 3 Straight Over",
+   "sport": "nhl",
+   "rules": [
+    "nhl_loss_streak_over"
+   ]
+  },
+  {
+   "id": 1792204,
+   "name": "CFB Hot Weather Over Total 55 or Less",
+   "sport": "cfb",
+   "rules": [
+    "cfb_hot_over_low_total"
+   ]
+  },
+  {
+   "id": 1792198,
+   "name": "CFB Conf Road Streak Dog Total 54 or Less",
+   "sport": "cfb",
+   "rules": [
+    "cfb_road_streak_dog"
+   ]
+  },
+  {
+   "id": 1792184,
+   "name": "CBB Under Good Over Teams Total Down",
+   "sport": "cbb",
+   "rules": [
+    "cbb_under_good_over_drop"
+   ]
+  },
+  {
+   "id": 1789287,
+   "name": "CBB Unranked Off 14 Plus Loss vs Top 5 Conf",
+   "sport": "cbb",
+   "rules": [
+    "cbb_bigloss_vs_top5"
+   ]
+  },
+  {
+   "id": 1789286,
+   "name": "CFB Conf Road Dog 7 Plus Total 48 or Less",
+   "sport": "cfb",
+   "rules": [
+    "cfb_road_dog_low_total"
+   ]
+  },
+  {
+   "id": 1789285,
+   "name": "NBA Under Good Home Over Team Rest Total Down",
+   "sport": "nba",
+   "rules": [
+    "nba_under_good_home_over"
+   ]
+  },
+  {
+   "id": 1789284,
+   "name": "NHL Early Season Home Fav vs Quality Opp ML",
+   "sport": "nhl",
+   "rules": [
+    "nhl_early_home_fav_qual"
+   ]
+  },
+  {
+   "id": 1784158,
+   "name": "NBA 1H Under Visitor Over Pct 71 Plus",
+   "sport": "nba",
+   "rules": [
+    "nba_1h_under_hot_over"
+   ]
+  },
+  {
+   "id": 1784156,
+   "name": "NHL Puck Line Dog Open ML 181 to 196",
+   "sport": "nhl",
+   "rules": [
+    "nhl_pl_dog_bigml"
+   ]
+  },
+  {
+   "id": 1784155,
+   "name": "NHL Puck Line Fav vs Opp Win Pct 66 Plus",
+   "sport": "nhl",
+   "rules": [
+    "nhl_pl_fav_strong_opp"
+   ]
+  },
+  {
+   "id": 1784154,
+   "name": "NHL Puck Line Fav Win Pct Gap 22 Plus",
+   "sport": "nhl",
+   "rules": [
+    "nhl_pl_fav_gap"
+   ]
+  },
+  {
+   "id": 1783043,
+   "name": "CFB Wind 14 Plus Under",
+   "sport": "cfb",
+   "rules": [
+    "cfb_wind14"
+   ]
+  },
+  {
+   "id": 1772963,
+   "name": "NFL 1H Monday Night Under",
+   "sport": "nfl",
+   "rules": [
+    "mnf_1h"
+   ]
+  },
+  {
+   "id": 1772962,
+   "name": "NFL 1H Visitor Off 8 to 30 Days Under",
+   "sport": "nfl",
+   "rules": [
+    "vrest8_1h"
+   ]
+  },
+  {
+   "id": 1772929,
+   "name": "NFL 1H Blowout Bounce Dog ATS",
+   "sport": "nfl",
+   "rules": [
+    "bounce15_1h"
+   ]
+  },
+  {
+   "id": 1772776,
+   "name": "NFL Awful-Team Dog ATS",
+   "sport": "nfl",
+   "rules": [
+    "awfuldog"
+   ]
+  },
+  {
+   "id": 1772775,
+   "name": "NFL Wind 10-14 Under",
+   "sport": "nfl",
+   "rules": [
+    "wind1014"
+   ]
+  },
+  {
+   "id": 769171,
+   "name": "NFL 1H Wind 10-13 Under",
+   "sport": "nfl",
+   "rules": [
+    "wind1014_1h"
+   ]
+  }
+ ],
+ "picks": [
+  {
+   "sid": 1799442,
+   "date": "2026-11-18",
+   "play": "Under",
+   "away": "Phoenix Suns",
+   "home": "Sacramento Kings",
+   "info": "Home Team Game Number 14, Home Team Win % 7, Visitor Team Win % 41, Over / Under Under, Season Type Regular"
+  },
+  {
+   "sid": 1799442,
+   "date": "2026-11-20",
+   "play": "Under",
+   "away": "Phoenix Suns",
+   "home": "Utah Jazz",
+   "info": "Home Team Game Number 17, Home Team Win % 7, Visitor Team Win % 41, Over / Under Under, Season Type Regular"
+  },
+  {
+   "sid": 1799442,
+   "date": "2026-11-20",
+   "play": "Under",
+   "away": "Orlando Magic",
+   "home": "Brooklyn Nets",
+   "info": "Home Team Game Number 15, Home Team Win % 25, Visitor Team Win % 41, Over / Under Under, Season Type Regular"
+  },
+  {
+   "sid": 1799442,
+   "date": "2026-11-22",
+   "play": "Under",
+   "away": "Orlando Magic",
+   "home": "Washington Wizards",
+   "info": "Home Team Game Number 18, Home Team Win % 28, Visitor Team Win % 41, Over / Under Under, Season Type Regular"
+  },
+  {
+   "sid": 1799442,
+   "date": "2026-11-23",
+   "play": "Under",
+   "away": "Phoenix Suns",
+   "home": "New Orleans Pelicans",
+   "info": "Home Team Game Number 19, Home Team Win % 28, Visitor Team Win % 41, Over / Under Under, Season Type Regular"
+  },
+  {
+   "sid": 1799442,
+   "date": "2026-11-28",
+   "play": "Under",
+   "away": "Orlando Magic",
+   "home": "Washington Wizards",
+   "info": "Home Team Game Number 20, Home Team Win % 28, Visitor Team Win % 41, Over / Under Under, Season Type Regular"
+  },
+  {
+   "sid": 1799442,
+   "date": "2026-11-28",
+   "play": "Under",
+   "away": "Indiana Pacers",
+   "home": "Chicago Bulls",
+   "info": "Home Team Game Number 19, Home Team Win % 25, Visitor Team Win % 35, Over / Under Under, Season Type Regular"
+  },
+  {
+   "sid": 1799442,
+   "date": "2026-11-29",
+   "play": "Under",
+   "away": "Phoenix Suns",
+   "home": "Utah Jazz",
+   "info": "Home Team Game Number 21, Home Team Win % 7, Visitor Team Win % 41, Over / Under Under, Season Type Regular"
+  },
+  {
+   "sid": 1799440,
+   "date": "2026-11-21",
+   "play": "Under",
+   "away": "Utah State",
+   "home": "Oregon State",
+   "info": "Home Spread Range -9.5, Over / Under Under, Season Type Regular"
+  },
+  {
+   "sid": 1799440,
+   "date": "2026-11-21",
+   "play": "Under",
+   "away": "NC State",
+   "home": "Florida State",
+   "info": "Home Spread Range -9.5, Over / Under Under, Season Type Regular"
+  },
+  {
+   "sid": 1799440,
+   "date": "2026-11-21",
+   "play": "Under",
+   "away": "Texas A&M",
+   "home": "Oklahoma",
+   "info": "Home Spread Range -7.5, Over / Under Under, Season Type Regular"
+  },
+  {
+   "sid": 1799439,
+   "date": "2026-11-17",
+   "play": "Over",
+   "away": "Eastern Michigan",
+   "home": "Western Michigan",
+   "info": "Time of Day 18, Closing Total Range 46.5, Over / Under Over, Season Type Regular"
+  },
+  {
+   "sid": 1799439,
+   "date": "2026-11-21",
+   "play": "Over",
+   "away": "Northern Illinois",
+   "home": "North Dakota State",
+   "info": "Time of Day 16, Closing Total Range 45.5, Over / Under Over, Season Type Regular"
+  },
+  {
+   "sid": 1799439,
+   "date": "2026-11-21",
+   "play": "Over",
+   "away": "Old Dominion",
+   "home": "UConn Huskies",
+   "info": "Time of Day 15, Closing Total Range 47.5, Over / Under Over, Season Type Regular"
+  },
+  {
+   "sid": 1799439,
+   "date": "2026-11-21",
+   "play": "Over",
+   "away": "Middle Tenn St",
+   "home": "Sam Houston State",
+   "info": "Time of Day 14, Closing Total Range 48.5, Over / Under Over, Season Type Regular"
+  },
+  {
+   "sid": 1799439,
+   "date": "2026-11-21",
+   "play": "Over",
+   "away": "Arkansas",
+   "home": "Texas",
+   "info": "Time of Day 15, Closing Total Range 46.5, Over / Under Over, Season Type Regular"
+  },
+  {
+   "sid": 1799439,
+   "date": "2026-11-21",
+   "play": "Over",
+   "away": "LSU",
+   "home": "Tennessee",
+   "info": "Time of Day 15, Closing Total Range 45.5, Over / Under Over, Season Type Regular"
+  },
+  {
+   "sid": 1799439,
+   "date": "2026-11-21",
+   "play": "Over",
+   "away": "Georgia Southern",
+   "home": "Troy",
+   "info": "Time of Day 16, Closing Total Range 48.5, Over / Under Over, Season Type Regular"
+  },
+  {
+   "sid": 1799439,
+   "date": "2026-11-21",
+   "play": "Over",
+   "away": "Rutgers",
+   "home": "Penn State",
+   "info": "Time of Day 15, Closing Total Range 50.5, Over / Under Over, Season Type Regular"
+  },
+  {
+   "sid": 1799439,
+   "date": "2026-11-21",
+   "play": "Over",
+   "away": "UL Monroe",
+   "home": "Appalachian St",
+   "info": "Time of Day 14, Closing Total Range 50.5, Over / Under Over, Season Type Regular"
+  },
+  {
+   "sid": 1799439,
+   "date": "2026-11-21",
+   "play": "Over",
+   "away": "Coastal Carolina",
+   "home": "Louisiana",
+   "info": "Time of Day 15, Closing Total Range 51.5, Over / Under Over, Season Type Regular"
+  },
+  {
+   "sid": 1799438,
+   "date": "2026-11-16",
+   "play": "Over",
+   "away": "Philadelphia 76ers",
+   "home": "Brooklyn Nets",
+   "info": "Visitor Prev Game Home/AwayStreak 3, Over / Under Over, Season Type Regular"
+  },
+  {
+   "sid": 1799438,
+   "date": "2026-11-16",
+   "play": "Over",
+   "away": "Phoenix Suns",
+   "home": "Denver Nuggets",
+   "info": "Visitor Prev Game Home/AwayStreak 7, Over / Under Over, Season Type Regular"
+  },
+  {
+   "sid": 1799438,
+   "date": "2026-11-18",
+   "play": "Over",
+   "away": "Washington Wizards",
+   "home": "Toronto Raptors",
+   "info": "Visitor Prev Game Home/AwayStreak 3, Over / Under Over, Season Type Regular"
+  },
+  {
+   "sid": 1799438,
+   "date": "2026-11-19",
+   "play": "Over",
+   "away": "Los Angeles Clippers",
+   "home": "San Antonio Spurs",
+   "info": "Visitor Prev Game Home/AwayStreak 3, Over / Under Over, Season Type Regular"
+  },
+  {
+   "sid": 1799438,
+   "date": "2026-11-20",
+   "play": "Over",
+   "away": "Sacramento Kings",
+   "home": "Los Angeles Lakers",
+   "info": "Visitor Prev Game Home/AwayStreak 7, Over / Under Over, Season Type Regular"
+  },
+  {
+   "sid": 1799438,
+   "date": "2026-11-20",
+   "play": "Over",
+   "away": "Toronto Raptors",
+   "home": "Detroit Pistons",
+   "info": "Visitor Prev Game Home/AwayStreak 3, Over / Under Over, Season Type Regular"
+  },
+  {
+   "sid": 1799438,
+   "date": "2026-11-20",
+   "play": "Over",
+   "away": "New Orleans Pelicans",
+   "home": "Oklahoma City Thunder",
+   "info": "Visitor Prev Game Home/AwayStreak 5, Over / Under Over, Season Type Regular"
+  },
+  {
+   "sid": 1799438,
+   "date": "2026-11-22",
+   "play": "Over",
+   "away": "Denver Nuggets",
+   "home": "Chicago Bulls",
+   "info": "Visitor Prev Game Home/AwayStreak 3, Over / Under Over, Season Type Regular"
+  },
+  {
+   "sid": 1799438,
+   "date": "2026-11-23",
+   "play": "Over",
+   "away": "Cleveland Cavaliers",
+   "home": "Chicago Bulls",
+   "info": "Visitor Prev Game Home/AwayStreak 4, Over / Under Over, Season Type Regular"
+  },
+  {
+   "sid": 1799438,
+   "date": "2026-11-23",
+   "play": "Over",
+   "away": "Brooklyn Nets",
+   "home": "Minnesota Timberwolves",
+   "info": "Visitor Prev Game Home/AwayStreak 3, Over / Under Over, Season Type Regular"
+  },
+  {
+   "sid": 1799438,
+   "date": "2026-11-23",
+   "play": "Over",
+   "away": "San Antonio Spurs",
+   "home": "Sacramento Kings",
+   "info": "Visitor Prev Game Home/AwayStreak 3, Over / Under Over, Season Type Regular"
+  },
+  {
+   "sid": 1799438,
+   "date": "2026-11-25",
+   "play": "Over",
+   "away": "Minnesota Timberwolves",
+   "home": "Oklahoma City Thunder",
+   "info": "Visitor Prev Game Home/AwayStreak 8, Over / Under Over, Season Type Regular"
+  },
+  {
+   "sid": 1799438,
+   "date": "2026-11-25",
+   "play": "Over",
+   "away": "Miami Heat",
+   "home": "Philadelphia 76ers",
+   "info": "Visitor Prev Game Home/AwayStreak 5, Over / Under Over, Season Type Regular"
+  },
+  {
+   "sid": 1799438,
+   "date": "2026-11-25",
+   "play": "Over",
+   "away": "Chicago Bulls",
+   "home": "Charlotte Hornets",
+   "info": "Visitor Prev Game Home/AwayStreak 3, Over / Under Over, Season Type Regular"
+  },
+  {
+   "sid": 1799438,
+   "date": "2026-11-27",
+   "play": "Over",
+   "away": "Philadelphia 76ers",
+   "home": "Indiana Pacers",
+   "info": "Visitor Prev Game Home/AwayStreak 3, Over / Under Over, Season Type Regular"
+  },
+  {
+   "sid": 1799438,
+   "date": "2026-11-27",
+   "play": "Over",
+   "away": "Los Angeles Lakers",
+   "home": "San Antonio Spurs",
+   "info": "Visitor Prev Game Home/AwayStreak 4, Over / Under Over, Season Type Regular"
+  },
+  {
+   "sid": 1799435,
+   "date": "2026-11-16",
+   "play": "Los Angeles Chargers",
+   "away": "Los Angeles Chargers",
+   "home": "Baltimore Ravens",
+   "info": "Opp Days Between games 11, Favorite / Dog Dog, Season Type Regular"
+  },
+  {
+   "sid": 1799435,
+   "date": "2026-11-22",
+   "play": "Las Vegas Raiders",
+   "away": "Las Vegas Raiders",
+   "home": "Denver Broncos",
+   "info": "Opp Days Between games 14, Favorite / Dog Dog, Season Type Regular"
+  },
+  {
+   "sid": 1799435,
+   "date": "2026-11-22",
+   "play": "New Orleans Saints",
+   "away": "New Orleans Saints",
+   "home": "Chicago Bears",
+   "info": "Opp Days Between games 14, Favorite / Dog Dog, Season Type Regular"
+  },
+  {
+   "sid": 1799435,
+   "date": "2026-11-23",
+   "play": "Washington Commanders",
+   "away": "Cincinnati Bengals",
+   "home": "Washington Commanders",
+   "info": "Opp Days Between games 8, Favorite / Dog Dog, Season Type Regular"
+  },
+  {
+   "sid": 1799434,
+   "date": "2026-11-19",
+   "play": "Indianapolis Colts",
+   "away": "Indianapolis Colts",
+   "home": "Houston Texans",
+   "info": "Spread Range 10, Favorite / Dog Dog, Home / Visitor Visitor, Season Type Regular"
+  },
+  {
+   "sid": 1799434,
+   "date": "2026-11-22",
+   "play": "Las Vegas Raiders",
+   "away": "Las Vegas Raiders",
+   "home": "Denver Broncos",
+   "info": "Spread Range 10, Favorite / Dog Dog, Home / Visitor Visitor, Season Type Regular"
+  },
+  {
+   "sid": 1799434,
+   "date": "2026-11-22",
+   "play": "Tennessee Titans",
+   "away": "Tennessee Titans",
+   "home": "Dallas Cowboys",
+   "info": "Spread Range 7.5, Favorite / Dog Dog, Home / Visitor Visitor, Season Type Regular"
+  },
+  {
+   "sid": 1799434,
+   "date": "2026-11-22",
+   "play": "New Orleans Saints",
+   "away": "New Orleans Saints",
+   "home": "Chicago Bears",
+   "info": "Spread Range 10, Favorite / Dog Dog, Home / Visitor Visitor, Season Type Regular"
+  },
+  {
+   "sid": 1799432,
+   "date": "2026-11-16",
+   "play": "Minnesota Timberwolves",
+   "away": "Portland Trail Blazers",
+   "home": "Minnesota Timberwolves",
+   "info": "Game Number 14, Days Between games 2, Team ATS % 84, Home / Visitor Home, Season Type Regular"
+  },
+  {
+   "sid": 1799432,
+   "date": "2026-11-17",
+   "play": "Los Angeles Lakers",
+   "away": "Charlotte Hornets",
+   "home": "Los Angeles Lakers",
+   "info": "Game Number 15, Days Between games 2, Team ATS % 71, Home / Visitor Home, Season Type Regular"
+  },
+  {
+   "sid": 1799432,
+   "date": "2026-11-19",
+   "play": "Minnesota Timberwolves",
+   "away": "New York Knicks",
+   "home": "Minnesota Timberwolves",
+   "info": "Game Number 16, Days Between games 2, Team ATS % 84, Home / Visitor Home, Season Type Regular"
+  },
+  {
+   "sid": 1799432,
+   "date": "2026-11-20",
+   "play": "Los Angeles Lakers",
+   "away": "Sacramento Kings",
+   "home": "Los Angeles Lakers",
+   "info": "Game Number 17, Days Between games 2, Team ATS % 71, Home / Visitor Home, Season Type Regular"
+  },
+  {
+   "sid": 1799432,
+   "date": "2026-11-21",
+   "play": "Minnesota Timberwolves",
+   "away": "Memphis Grizzlies",
+   "home": "Minnesota Timberwolves",
+   "info": "Game Number 17, Days Between games 2, Team ATS % 84, Home / Visitor Home, Season Type Regular"
+  },
+  {
+   "sid": 1799432,
+   "date": "2026-11-23",
+   "play": "Minnesota Timberwolves",
+   "away": "Brooklyn Nets",
+   "home": "Minnesota Timberwolves",
+   "info": "Game Number 18, Days Between games 2, Team ATS % 84, Home / Visitor Home, Season Type Regular"
+  },
+  {
+   "sid": 1799432,
+   "date": "2026-11-25",
+   "play": "Memphis Grizzlies",
+   "away": "Los Angeles Clippers",
+   "home": "Memphis Grizzlies",
+   "info": "Game Number 19, Days Between games 2, Team ATS % 69, Home / Visitor Home, Season Type Regular"
+  },
+  {
+   "sid": 1799432,
+   "date": "2026-11-25",
+   "play": "Houston Rockets",
+   "away": "Phoenix Suns",
+   "home": "Houston Rockets",
+   "info": "Game Number 19, Days Between games 2, Team ATS % 71, Home / Visitor Home, Season Type Regular"
+  },
+  {
+   "sid": 1799432,
+   "date": "2026-11-25",
+   "play": "Portland Trail Blazers",
+   "away": "San Antonio Spurs",
+   "home": "Portland Trail Blazers",
+   "info": "Game Number 18, Days Between games 2, Team ATS % 66, Home / Visitor Home, Season Type Regular"
+  },
+  {
+   "sid": 1799432,
+   "date": "2026-11-27",
+   "play": "Minnesota Timberwolves",
+   "away": "Memphis Grizzlies",
+   "home": "Minnesota Timberwolves",
+   "info": "Game Number 20, Days Between games 2, Team ATS % 84, Home / Visitor Home, Season Type Regular"
+  },
+  {
+   "sid": 1799432,
+   "date": "2026-11-27",
+   "play": "Portland Trail Blazers",
+   "away": "Golden State Warriors",
+   "home": "Portland Trail Blazers",
+   "info": "Game Number 19, Days Between games 2, Team ATS % 66, Home / Visitor Home, Season Type Regular"
+  },
+  {
+   "sid": 1799432,
+   "date": "2026-11-29",
+   "play": "Golden State Warriors",
+   "away": "Los Angeles Clippers",
+   "home": "Golden State Warriors",
+   "info": "Game Number 20, Days Between games 2, Team ATS % 61, Home / Visitor Home, Season Type Regular"
+  },
+  {
+   "sid": 1799432,
+   "date": "2026-11-29",
+   "play": "Portland Trail Blazers",
+   "away": "New Orleans Pelicans",
+   "home": "Portland Trail Blazers",
+   "info": "Game Number 20, Days Between games 2, Team ATS % 66, Home / Visitor Home, Season Type Regular"
+  },
+  {
+   "sid": 1799432,
+   "date": "2026-11-29",
+   "play": "Memphis Grizzlies",
+   "away": "Los Angeles Lakers",
+   "home": "Memphis Grizzlies",
+   "info": "Game Number 21, Days Between games 2, Team ATS % 69, Home / Visitor Home, Season Type Regular"
+  },
+  {
+   "sid": 1799431,
+   "date": "2026-11-16",
+   "play": "Vancouver Canucks",
+   "away": "Vancouver Canucks",
+   "home": "Utah Mammoth",
+   "info": "Opponent Win/Loss Streak -5, Previous Game Margin 3, Home / Visitor Visitor, Season Type Regular"
+  },
+  {
+   "sid": 1799430,
+   "date": "2026-11-17",
+   "play": "Vegas Golden Knights",
+   "away": "Dallas Stars",
+   "home": "Vegas Golden Knights",
+   "info": "Team Win % 59, Previous Game Margin -3, Home / Visitor Home, Season Type Regular"
+  },
+  {
+   "sid": 1799430,
+   "date": "2026-11-19",
+   "play": "Seattle Kraken",
+   "away": "Vancouver Canucks",
+   "home": "Seattle Kraken",
+   "info": "Team Win % 50, Previous Game Margin -4, Home / Visitor Home, Season Type Regular"
+  },
+  {
+   "sid": 1789286,
+   "date": "2026-11-17",
+   "play": "Eastern Michigan",
+   "away": "Eastern Michigan",
+   "home": "Western Michigan",
+   "info": "Conference/Non-Conference Conference, Spread Range 14.5, Home / Visitor Visitor, Closing Total Range 46.5, Season Type Regular"
+  },
+  {
+   "sid": 1789286,
+   "date": "2026-11-20",
+   "play": "Clemson",
+   "away": "Clemson",
+   "home": "Duke",
+   "info": "Conference/Non-Conference Conference, Spread Range 12.5, Home / Visitor Visitor, Closing Total Range 43.5, Season Type Regular"
+  },
+  {
+   "sid": 1789286,
+   "date": "2026-11-21",
+   "play": "Arkansas",
+   "away": "Arkansas",
+   "home": "Texas",
+   "info": "Conference/Non-Conference Conference, Spread Range 21, Home / Visitor Visitor, Closing Total Range 46.5, Season Type Regular"
+  },
+  {
+   "sid": 1789286,
+   "date": "2026-11-21",
+   "play": "Vanderbilt",
+   "away": "Vanderbilt",
+   "home": "Florida",
+   "info": "Conference/Non-Conference Conference, Spread Range 13.5, Home / Visitor Visitor, Closing Total Range 47.5, Season Type Regular"
+  },
+  {
+   "sid": 1789286,
+   "date": "2026-11-21",
+   "play": "Texas A&M",
+   "away": "Texas A&M",
+   "home": "Oklahoma",
+   "info": "Conference/Non-Conference Conference, Spread Range 7.5, Home / Visitor Visitor, Closing Total Range 39.5, Season Type Regular"
+  },
+  {
+   "sid": 1789285,
+   "date": "2026-11-16",
+   "play": "Under",
+   "away": "Philadelphia 76ers",
+   "home": "Brooklyn Nets",
+   "info": "O/U Change Open to Close -2, Visitor Days Between games 1, Home Days Between games 2, Home Over Win % 58, Over / Under Under, Season Type Regular"
+  },
+  {
+   "sid": 1789284,
+   "date": "2026-11-17",
+   "play": "Florida Panthers",
+   "away": "Edmonton Oilers",
+   "home": "Florida Panthers",
+   "info": "Season Type Regular, Home / Visitor Home, Favorite / Dog Favorite, Opponent Win % 72, Game Number 23"
+  },
+  {
+   "sid": 1789284,
+   "date": "2026-11-17",
+   "play": "Tampa Bay Lightning",
+   "away": "Washington Capitals",
+   "home": "Tampa Bay Lightning",
+   "info": "Season Type Regular, Home / Visitor Home, Favorite / Dog Favorite, Opponent Win % 55, Game Number 21"
+  },
+  {
+   "sid": 1789284,
+   "date": "2026-11-17",
+   "play": "Minnesota Wild",
+   "away": "Nashville Predators",
+   "home": "Minnesota Wild",
+   "info": "Season Type Regular, Home / Visitor Home, Favorite / Dog Favorite, Opponent Win % 52, Game Number 23"
+  },
+  {
+   "sid": 1789284,
+   "date": "2026-11-17",
+   "play": "St. Louis Blues",
+   "away": "Anaheim Ducks",
+   "home": "St. Louis Blues",
+   "info": "Season Type Regular, Home / Visitor Home, Favorite / Dog Favorite, Opponent Win % 52, Game Number 21"
+  },
+  {
+   "sid": 1789284,
+   "date": "2026-11-17",
+   "play": "Vegas Golden Knights",
+   "away": "Dallas Stars",
+   "home": "Vegas Golden Knights",
+   "info": "Season Type Regular, Home / Visitor Home, Favorite / Dog Favorite, Opponent Win % 60, Game Number 23"
+  },
+  {
+   "sid": 1784158,
+   "date": "2026-11-27",
+   "play": "Under",
+   "away": "Los Angeles Lakers",
+   "home": "San Antonio Spurs",
+   "info": "Visitor Over Win % 71, Over / Under Under, Season Type Regular"
+  },
+  {
+   "sid": 1784158,
+   "date": "2026-11-29",
+   "play": "Under",
+   "away": "Los Angeles Lakers",
+   "home": "Memphis Grizzlies",
+   "info": "Visitor Over Win % 71, Over / Under Under, Season Type Regular"
+  },
+  {
+   "sid": 1784156,
+   "date": "2026-11-16",
+   "play": "Vancouver Canucks",
+   "away": "Vancouver Canucks",
+   "home": "Utah Mammoth",
+   "info": "Open Moneyline Range 190, Favorite / Dog Dog, Season Type Regular"
+  },
+  {
+   "sid": 1784155,
+   "date": "2026-11-17",
+   "play": "Florida Panthers",
+   "away": "Edmonton Oilers",
+   "home": "Florida Panthers",
+   "info": "Opponent Win % 72, Favorite / Dog Favorite, Season Type Regular"
+  },
+  {
+   "sid": 1783043,
+   "date": "2026-11-21",
+   "play": "Under",
+   "away": "Wisconsin",
+   "home": "Purdue",
+   "info": "Season Type Regular, Avg Wind Speed 16, Over / Under Under"
+  },
+  {
+   "sid": 1783043,
+   "date": "2026-11-21",
+   "play": "Under",
+   "away": "BYU",
+   "home": "Kansas",
+   "info": "Season Type Regular, Avg Wind Speed 14, Over / Under Under"
+  },
+  {
+   "sid": 1783043,
+   "date": "2026-11-21",
+   "play": "Under",
+   "away": "Ohio State",
+   "home": "Nebraska",
+   "info": "Season Type Regular, Avg Wind Speed 16, Over / Under Under"
+  },
+  {
+   "sid": 1783043,
+   "date": "2026-11-21",
+   "play": "Under",
+   "away": "Iowa",
+   "home": "Illinois",
+   "info": "Season Type Regular, Avg Wind Speed 16, Over / Under Under"
+  },
+  {
+   "sid": 1772963,
+   "date": "2026-11-16",
+   "play": "Under",
+   "away": "Los Angeles Chargers",
+   "home": "Baltimore Ravens",
+   "info": "Day Of Week Monday, Over / Under Under, Dome Closed N, Season Type Regular"
+  },
+  {
+   "sid": 1772963,
+   "date": "2026-11-23",
+   "play": "Under",
+   "away": "Cincinnati Bengals",
+   "home": "Washington Commanders",
+   "info": "Day Of Week Monday, Over / Under Under, Dome Closed N, Season Type Regular"
+  },
+  {
+   "sid": 1772962,
+   "date": "2026-11-16",
+   "play": "Under",
+   "away": "Los Angeles Chargers",
+   "home": "Baltimore Ravens",
+   "info": "Visitor Days Between games 8, Season Type Regular, Dome Closed N, Over / Under Under"
+  },
+  {
+   "sid": 1772962,
+   "date": "2026-11-23",
+   "play": "Under",
+   "away": "Cincinnati Bengals",
+   "home": "Washington Commanders",
+   "info": "Visitor Days Between games 8, Season Type Regular, Dome Closed N, Over / Under Under"
+  },
+  {
+   "sid": 1772962,
+   "date": "2026-11-25",
+   "play": "Under",
+   "away": "Green Bay Packers",
+   "home": "Los Angeles Rams",
+   "info": "Visitor Days Between games 10, Season Type Regular, Dome Closed N, Over / Under Under"
+  },
+  {
+   "sid": 1772962,
+   "date": "2026-11-29",
+   "play": "Under",
+   "away": "New England Patriots",
+   "home": "Los Angeles Chargers",
+   "info": "Visitor Days Between games 14, Season Type Regular, Dome Closed N, Over / Under Under"
+  },
+  {
+   "sid": 1772962,
+   "date": "2026-11-29",
+   "play": "Under",
+   "away": "Seattle Seahawks",
+   "home": "San Francisco 49ers",
+   "info": "Visitor Days Between games 14, Season Type Regular, Dome Closed N, Over / Under Under"
+  },
+  {
+   "sid": 1772929,
+   "date": "2026-11-16",
+   "play": "Los Angeles Chargers",
+   "away": "Los Angeles Chargers",
+   "home": "Baltimore Ravens",
+   "info": "Previous Game ATS Margin -16.5, Favorite / Dog Dog, Season Type Regular"
+  },
+  {
+   "sid": 1772929,
+   "date": "2026-11-22",
+   "play": "Arizona Cardinals",
+   "away": "Arizona Cardinals",
+   "home": "Kansas City Chiefs",
+   "info": "Previous Game ATS Margin -18, Favorite / Dog Dog, Season Type Regular"
+  }
+ ]
 }
