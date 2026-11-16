@@ -84,6 +84,7 @@ class Registry:
         for k, m in (json.load(open(sp)) if os.path.exists(sp) else {}).items():
             if not m.get('start'): continue
             e = self.ev.setdefault(k, dict(event_id=k))
+            e.setdefault('start', m['start'])  # first rollout: old schedule files have no checked_at
             e.update(home=surname(m['p1']).upper(), away=surname(m['p2']).upper(),
                      home_team=dict(displayName=m['p1']), away_team=dict(displayName=m['p2']),
                      tour=m.get('tour'), tournament=m.get('tournament'), round=m.get('round'), source='espn')
