@@ -1,5 +1,5 @@
 {
- "built": "2026-11-16T00:18:15Z",
+ "built": "2026-11-16T00:32:03Z",
  "rows": [
   {
    "cond": "0x3b773f3b5203b36a388f1a3f242b5012e7d4eb0b8fd6f3773f23185485b99c8f",
@@ -598,6 +598,9 @@
    "home_name": "Dallas Stars",
    "game_start": "2026-11-16T01:00Z",
    "side_std": "away",
+   "conflict": [
+    "big money"
+   ],
    "money_with": false,
    "grade": "A",
    "inside_fair": false,
@@ -721,7 +724,7 @@
    "best_rank": 43,
    "usd": 171,
    "paid": 0.465,
-   "ask": 0.49,
+   "ask": 0.48,
    "status": "live",
    "link": "https://polymarket.us/event/nba-hou-mia-2026-11-16",
    "other": null,
@@ -943,7 +946,7 @@
    "best_rank": 43,
    "usd": 147,
    "paid": 0.74,
-   "ask": 0.77,
+   "ask": 0.79,
    "status": "live",
    "link": "https://polymarket.us/event/nba-chi-cle-2026-11-16",
    "other": null,
@@ -1037,27 +1040,27 @@
     "clv": -1.2
    },
    "outside": {
-    "n": 65,
+    "n": 66,
     "won": 34,
     "units": -0.96,
     "clv": -0.56
    }
   },
-  "n": 290,
-  "won": 127,
+  "n": 292,
+  "won": 128,
   "units": -15.81,
   "by_grade": {
    "A": {
-    "n": 190,
+    "n": 191,
     "won": 77,
     "units": -14.61,
     "clv": -0.49
    },
    "B": {
-    "n": 71,
-    "won": 40,
+    "n": 72,
+    "won": 41,
     "units": 0.89,
-    "clv": -1.58
+    "clv": -1.54
    },
    "watch": {
     "n": 29,
@@ -1066,9 +1069,9 @@
     "clv": -0.6
    }
   },
-  "units_1u": -47.46,
-  "clv": -0.77,
-  "n_venue": 136,
+  "units_1u": -47.33,
+  "clv": -0.76,
+  "n_venue": 137,
   "units_venue": -5.32,
   "clv_venue": 0.57,
   "clv_poly_same": -1.05
@@ -1143,13 +1146,6 @@
     "n": 2,
     "best_rank": 43,
     "usd": 408
-   }
-  },
-  "401892721|ml": {
-   "home": {
-    "n": 1,
-    "best_rank": 132,
-    "usd": 1758
    }
   },
   "401892722|ml": {
