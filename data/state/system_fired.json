@@ -6878,7 +6878,10 @@
 "price": -144,
 "fair": null,
 "edge_pts": null,
-"why": "home favourite ND -9.5, total 56.5: under (mined angle)"
+"why": "home favourite ND -9.5, total 56.5: under (mined angle)",
+"void": true,
+"void_why": "rule no longer holds on the current line: home spread -21.0, total 57.0 (2026-11-16T01:51:23Z)",
+"void_at": "2026-11-16T01:51:23Z"
 },
 "401909987:nba_under_good_home_over": {
 "tag": "nba_under_good_home_over",
@@ -7053,7 +7056,10 @@
 "price": -669,
 "fair": null,
 "edge_pts": null,
-"why": "conference game, NU on road game 2 in a row, +1.5, total 43.5"
+"why": "conference game, NU on road game 2 in a row, +1.5, total 43.5",
+"void": true,
+"void_why": "rule no longer holds on the current line: home spread 3.0, total 43.0 (2026-11-16T01:51:23Z)",
+"void_at": "2026-11-16T01:51:23Z"
 },
 "401860918:cfb_road_streak_dog": {
 "tag": "cfb_road_streak_dog",
@@ -7196,7 +7202,10 @@
 "price": -106,
 "fair": null,
 "edge_pts": null,
-"why": "conference game, WKU +13.5 on the road, total 44.5"
+"why": "conference game, WKU +13.5 on the road, total 44.5",
+"void": true,
+"void_why": "rule no longer holds on the current line: home spread -16.5, total 53.5 (2026-11-16T01:51:23Z)",
+"void_at": "2026-11-16T01:51:23Z"
 },
 "401856755:cfb_homefav_7510_under": {
 "tag": "cfb_homefav_7510_under",
@@ -7303,7 +7312,10 @@
 "price": 125,
 "fair": null,
 "edge_pts": null,
-"why": "conference game, CLT +13.5 on the road, total 44.5"
+"why": "conference game, CLT +13.5 on the road, total 44.5",
+"void": true,
+"void_why": "rule no longer holds on the current line: home spread -22.5, total 52.5 (2026-11-16T01:51:23Z)",
+"void_at": "2026-11-16T01:51:23Z"
 },
 "401871077:cfb_day_over": {
 "tag": "cfb_day_over",
@@ -7316,7 +7328,10 @@
 "price": -144,
 "fair": null,
 "edge_pts": null,
-"why": "3:00 PM ET kickoff, total 51.5: over (mined angle)"
+"why": "3:00 PM ET kickoff, total 51.5: over (mined angle)",
+"void": true,
+"void_why": "rule no longer holds on the current line: home spread 3.5, total 53.5 (2026-11-16T01:51:23Z)",
+"void_at": "2026-11-16T01:51:23Z"
 },
 "401858308:cfb_road_streak_dog": {
 "tag": "cfb_road_streak_dog",
@@ -7329,7 +7344,10 @@
 "price": -170,
 "fair": null,
 "edge_pts": null,
-"why": "conference game, STAN on road game 3 in a row, +1.5, total 41.5"
+"why": "conference game, STAN on road game 3 in a row, +1.5, total 41.5",
+"void": true,
+"void_why": "rule no longer holds on the current line: home spread 2.5, total 55.5 (2026-11-16T01:51:23Z)",
+"void_at": "2026-11-16T01:51:23Z"
 },
 "401856872:cfb_road_streak_dog": {
 "tag": "cfb_road_streak_dog",
@@ -7342,6 +7360,68 @@
 "price": -376,
 "fair": null,
 "edge_pts": null,
-"why": "conference game, UTAH on road game 2 in a row, +1.5, total 37.5"
+"why": "conference game, UTAH on road game 2 in a row, +1.5, total 37.5",
+"void": true,
+"void_why": "rule no longer holds on the current line: home spread 6.5, total 46.5 (2026-11-16T01:51:23Z)",
+"void_at": "2026-11-16T01:51:23Z"
+},
+"401873067:bounce15_1h": {
+"tag": "bounce15_1h",
+"fill_id": "ae72e0aba592",
+"ts": "2026-11-16T01:51:23Z",
+"market": "1h_spread",
+"side": "away",
+"line": 9.5,
+"venue": "Novig",
+"price": -106,
+"fair": 0.48691,
+"edge_pts": -2.81,
+"why": "ARI previous game ATS margin -19.5"
+},
+"401873075:nfl_road_dog_7510": {
+"tag": "nfl_road_dog_7510",
+"stacked": true,
+"market": "spread",
+"side": "away",
+"why": "LV +9 on the road (same bet already taken by a higher-priority rule)"
+},
+"401864543:cfb_day_over": {
+"tag": "cfb_day_over",
+"fill_id": "c0be169d95fb",
+"ts": "2026-11-16T01:51:23Z",
+"market": "total",
+"side": "over",
+"line": 45.5,
+"venue": "Novig",
+"price": -113,
+"fair": 0.50232,
+"edge_pts": -2.77,
+"why": "4:00 PM ET kickoff, total 45.5: over (mined angle)"
+},
+"401860919:cfb_homefav_7510_under": {
+"tag": "cfb_homefav_7510_under",
+"fill_id": "724fba6813f8",
+"ts": "2026-11-16T01:51:23Z",
+"market": "total",
+"side": "under",
+"line": 51.5,
+"venue": "Novig",
+"price": -111,
+"fair": 0.5,
+"edge_pts": -2.5,
+"why": "home favourite ORST -8.0, total 51.5: under (mined angle)"
+},
+"401909999:nba_ats_hot_home": {
+"tag": "nba_ats_hot_home",
+"fill_id": "5cfff39e3e56",
+"ts": "2026-11-16T01:51:23Z",
+"market": "spread",
+"side": "home",
+"line": -2.5,
+"venue": "Caesars",
+"price": -110,
+"fair": 0.5,
+"edge_pts": -2.38,
+"why": "home MIN covers 85% of spreads this season (13 games), 2 days rest: home spread (mined angle)"
 }
 }
