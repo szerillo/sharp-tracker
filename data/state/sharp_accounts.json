@@ -1,5 +1,5 @@
 {
- "built": "2026-11-16T18:59:36Z",
+ "built": "2026-11-16T19:06:04Z",
  "rows": [
   {
    "cond": "0x1e392b5d80711a000230f6eec6b7b67cf1b4a7ee793d83c8e432680e37217c4f",
@@ -32,17 +32,20 @@
    "home_name": "New York Rangers",
    "game_start": "2026-11-17T00:30Z",
    "side_std": "away",
+   "conflict": [
+    "big money"
+   ],
    "money_with": false,
    "grade": "A",
    "inside_fair": false,
    "fair_board": 0.5081,
    "books": {
-    "at": "2026-11-16T17:57:43Z",
-    "fair": 0.5051,
+    "at": "2026-11-16T18:55:25Z",
+    "fair": 0.5004,
     "q": {
-     "Novig": 0.505,
-     "Caesars": 0.5261,
-     "Kalshi": 0.53,
+     "Novig": 0.5,
+     "Kalshi": 0.52,
+     "Caesars": 0.5238,
      "FD": 0.5327
     }
    }
@@ -117,14 +120,16 @@
    "side_std": "home",
    "money_with": false,
    "grade": "A",
-   "fair_board": null,
-   "inside_fair": null,
+   "fair_board": 0.5203,
+   "inside_fair": true,
    "books": {
-    "at": "2026-11-16T17:57:43Z",
-    "fair": null,
+    "at": "2026-11-16T18:55:25Z",
+    "fair": 0.5203,
     "q": {
-     "Novig": 0.545,
-     "Kalshi": 0.57
+     "Novig": 0.525,
+     "DK": 0.5283,
+     "Caesars": 0.5305,
+     "FD": 0.5455
     }
    }
   },
@@ -161,14 +166,16 @@
    "side_std": "away",
    "money_with": false,
    "grade": "A",
-   "fair_board": null,
-   "inside_fair": null,
+   "fair_board": 0.4382,
+   "inside_fair": false,
    "books": {
-    "at": "2026-11-16T17:57:43Z",
-    "fair": null,
+    "at": "2026-11-16T18:55:25Z",
+    "fair": 0.4382,
     "q": {
      "Novig": 0.445,
-     "Kalshi": 0.46
+     "FD": 0.4505,
+     "Kalshi": 0.46,
+     "Caesars": 0.4608
     }
    }
   },
@@ -211,10 +218,10 @@
    "fair_board": null,
    "inside_fair": null,
    "books": {
-    "at": "2026-11-16T17:57:43Z",
+    "at": "2026-11-16T18:55:25Z",
     "fair": null,
     "q": {
-     "Kalshi": 0.23
+     "Kalshi": 0.24
     }
    }
   },
@@ -291,7 +298,7 @@
    ],
    "money_with": false,
    "grade": "watch",
-   "fair_board": 0.7581,
+   "fair_board": 0.7627,
    "inside_fair": false,
    "books": null
   },
@@ -341,7 +348,7 @@
    ],
    "money_with": true,
    "grade": "watch",
-   "fair_board": 0.7597,
+   "fair_board": 0.7586,
    "inside_fair": false,
    "books": null
   },
@@ -384,8 +391,8 @@
    "side_std": "away",
    "money_with": false,
    "grade": "watch",
-   "fair_board": 0.6764,
-   "inside_fair": true,
+   "fair_board": 0.6556,
+   "inside_fair": false,
    "books": null
   },
   {
@@ -425,10 +432,10 @@
    "home_name": "Miami Heat",
    "game_start": "2026-11-17T00:30Z",
    "side_std": "home",
-   "money_with": false,
-   "grade": "B",
-   "fair_board": 0.4354,
-   "inside_fair": false,
+   "money_with": true,
+   "grade": "A",
+   "fair_board": 0.4622,
+   "inside_fair": true,
    "books": null
   },
   {
@@ -470,7 +477,7 @@
    "side_std": "home",
    "money_with": false,
    "grade": "B",
-   "fair_board": 0.4098,
+   "fair_board": 0.4041,
    "inside_fair": false,
    "books": null
   }
