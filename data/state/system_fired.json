@@ -6965,7 +6965,10 @@
 "price": -285,
 "fair": null,
 "edge_pts": null,
-"why": "conference game, FIU on road game 2 in a row, +1.5, total 23.5"
+"why": "conference game, FIU on road game 2 in a row, +1.5, total 23.5",
+"void": true,
+"void_why": "rule no longer holds on the current line: home spread -3.5, total 45.0 (2026-11-16T08:26:32Z)",
+"void_at": "2026-11-16T08:26:32Z"
 },
 "401869953:cfb_road_streak_dog": {
 "tag": "cfb_road_streak_dog",
@@ -7010,7 +7013,10 @@
 "price": -100,
 "fair": null,
 "edge_pts": null,
-"why": "conference game, ARST on road game 2 in a row, +1.5, total 30.5"
+"why": "conference game, ARST on road game 2 in a row, +1.5, total 30.5",
+"void": true,
+"void_why": "rule no longer holds on the current line: home spread -14.0, total 53.0 (2026-11-16T08:26:32Z)",
+"void_at": "2026-11-16T08:26:32Z"
 },
 "401860919:cfb_road_streak_dog": {
 "tag": "cfb_road_streak_dog",
@@ -7023,7 +7029,10 @@
 "price": -138,
 "fair": null,
 "edge_pts": null,
-"why": "conference game, USU on road game 2 in a row, +1.5, total 29.5"
+"why": "conference game, USU on road game 2 in a row, +1.5, total 29.5",
+"void": true,
+"void_why": "rule no longer holds on the current line: home spread -9.5, total 51.5 (2026-11-16T08:26:32Z)",
+"void_at": "2026-11-16T08:26:32Z"
 },
 "401873071:nfl_road_dog_7510": {
 "tag": "nfl_road_dog_7510",
@@ -7088,7 +7097,10 @@
 "price": -122,
 "fair": null,
 "edge_pts": null,
-"why": "3:00 PM ET kickoff, total 51.5: over (mined angle)"
+"why": "3:00 PM ET kickoff, total 51.5: over (mined angle)",
+"void": true,
+"void_why": "rule no longer holds on the current line: home spread 1.5, total 33.5 (2026-11-16T08:26:32Z)",
+"void_at": "2026-11-16T08:26:32Z"
 },
 "401869946:cfb_homefav_7510_under": {
 "tag": "cfb_homefav_7510_under",
@@ -7189,7 +7201,10 @@
 "price": -117,
 "fair": 0.505,
 "edge_pts": -3.5,
-"why": "conference game, ECU on road game 2 in a row, +4.5, total 40.5"
+"why": "conference game, ECU on road game 2 in a row, +4.5, total 40.5",
+"void": true,
+"void_why": "rule no longer holds on the current line: home spread -4.5, total 44.0 (2026-11-16T08:26:32Z)",
+"void_at": "2026-11-16T08:26:32Z"
 },
 "401871080:cfb_road_dog_low_total": {
 "tag": "cfb_road_dog_low_total",
@@ -7448,6 +7463,126 @@
 "price": -108,
 "fair": 0.509,
 "edge_pts": -1.1,
-"why": "home BKN over rate 58%, days since last game: home 2, visitor 1; total 227.5 -> 226.5"
+"why": "home BKN over rate 58%, days since last game: home 2, visitor 1; total 227.5 -> 226.5",
+"void": true,
+"void_why": "trigger no longer holds on current season records (2026-11-16T08:26:32Z)",
+"void_at": "2026-11-16T08:26:32Z"
+},
+"401873076:nfl_fade_fav_bye": {
+"tag": "nfl_fade_fav_bye",
+"fill_id": "58c85ff23c04",
+"ts": "2026-11-16T08:26:32Z",
+"market": "spread",
+"side": "away",
+"line": 1.5,
+"venue": "Novig",
+"price": -388,
+"fair": null,
+"edge_pts": null,
+"why": "PHI (favourite) off 14 days: dog PIT"
+},
+"401909997:nba_under_good_home_over": {
+"tag": "nba_under_good_home_over",
+"fill_id": "84b10ef487df",
+"ts": "2026-11-16T08:26:32Z",
+"market": "total",
+"side": "under",
+"line": 225.5,
+"venue": "Novig",
+"price": -104,
+"fair": 0.503,
+"edge_pts": -0.7,
+"why": "home BKN over rate 58%, days since last game: home 2, visitor 1; total 227.5 -> 225.5"
+},
+"401910001:nba_roadtrip_over": {
+"tag": "nba_roadtrip_over",
+"fill_id": "5cf48e4b6a2a",
+"ts": "2026-11-16T08:26:32Z",
+"market": "total",
+"side": "over",
+"line": 228.5,
+"venue": "Novig",
+"price": -102,
+"fair": 0.50089,
+"edge_pts": -0.41,
+"why": "PHX off 7 straight home games, first road game: over (Bet Labs filter)"
+},
+"401892727:nhl_skid_fade_road": {
+"tag": "nhl_skid_fade_road",
+"fill_id": "c4011f79b702",
+"ts": "2026-11-16T08:26:32Z",
+"market": "spread",
+"side": "away",
+"line": 1.5,
+"venue": "Novig",
+"price": 125,
+"fair": 0.43555,
+"edge_pts": -0.95,
+"why": "VAN off a win, home UTA has lost 5 straight: road puck line (mined angle)"
+},
+"401892734:nhl_early_home_fav_qual": {
+"tag": "nhl_early_home_fav_qual",
+"fill_id": "c054afbbc3d4",
+"ts": "2026-11-16T08:26:32Z",
+"market": "ml",
+"side": "home",
+"line": null,
+"venue": "Kalshi",
+"price": -156,
+"fair": 0.58,
+"edge_pts": -3.0,
+"why": "home favorite, game 21 of the season, opponent ANA wins 52% (11-10)"
+},
+"401892737:nhl_bounce_home_ml": {
+"tag": "nhl_bounce_home_ml",
+"fill_id": "9b42b284106d",
+"ts": "2026-11-16T08:26:32Z",
+"market": "ml",
+"side": "home",
+"line": null,
+"venue": "Kalshi",
+"price": -138,
+"fair": 0.55,
+"edge_pts": -3.0,
+"why": "home VGK lost its last game by 3, record 13-9 (59%): home moneyline (mined angle)"
+},
+"401892739:nhl_pl_fav_gap": {
+"tag": "nhl_pl_fav_gap",
+"fill_id": "cc6099d88801",
+"ts": "2026-11-16T08:26:32Z",
+"market": "spread",
+"side": "home",
+"line": -1.5,
+"venue": "Kalshi",
+"price": 178,
+"fair": null,
+"edge_pts": null,
+"why": "favorite DET is 38% (8-13) but opponent BOS is 65% (13-7): opponent's win% higher by 27 pts"
+},
+"401892739:nhl_early_home_fav_qual": {
+"tag": "nhl_early_home_fav_qual",
+"fill_id": "1dde3dff3457",
+"ts": "2026-11-16T08:26:32Z",
+"market": "ml",
+"side": "home",
+"line": null,
+"venue": "Kalshi",
+"price": -117,
+"fair": 0.515,
+"edge_pts": -2.5,
+"why": "home favorite, game 22 of the season, opponent BOS wins 65% (13-7)"
+},
+"401892740:nhl_early_home_fav_qual": {
+"tag": "nhl_early_home_fav_qual",
+"fill_id": "ddbd187d5dd3",
+"ts": "2026-11-16T08:26:32Z",
+"market": "ml",
+"side": "home",
+"line": null,
+"venue": "Kalshi",
+"price": -170,
+"fair": 0.6,
+"edge_pts": -3.0,
+"why": "home favorite, game 22 of the season, opponent MTL wins 60% (12-8)"
 }
 }
