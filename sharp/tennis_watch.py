@@ -13,6 +13,7 @@ last pregame no-vig set-1 price minus the price taken.
 Writes data/state/tennis_watch.json. Usage: python3 sharp/tennis_watch.py"""
 import os, sys, json, gzip, glob, math, datetime as dt
 HERE = os.path.dirname(os.path.abspath(__file__)); ROOT = os.path.abspath(os.path.join(HERE, '..')); sys.path.insert(0, ROOT)
+from sharp import tennis_timing as timing
 TD = os.path.join(ROOT, 'data', 'tennis'); OUT = os.path.join(ROOT, 'data', 'state', 'tennis_watch.json'); PAPER = os.path.join(TD, 'fs_paper.jsonl')
 NOW = dt.datetime.fromisoformat(os.environ['TENNIS_NOW'].replace('Z', '+00:00')) if os.environ.get('TENNIS_NOW') else dt.datetime.now(dt.timezone.utc);   # TENNIS_NOW replays a past run (backfill)
 GAP = 0.033; MIN_FAV = 0.55; MIN_EDGE = 0.01; KFEE = 0.07; STALE_MIN = 45
@@ -223,7 +224,7 @@ def main():
     rows = []; new = []; new_hot = []; new_serve = []; new_hotdog = []
     for ev in evs:
         e = E.get(ev)
-        if not e or ts(e['start']) <= NOW: continue
+        if not e or not timing.retain(e, NOW) or e.get('match_status') in timing.STOP: continue
         pm = novig_pin_p(L, ev, 'ml', 'home'); src = 'Pinnacle'
         if pm is None:
             pm = mid(L, ev, 'ml', 'Kalshi', 'home') or mid(L, ev, 'ml', 'Novig', 'home'); src = 'exchange mid'
@@ -254,7 +255,8 @@ def main():
                    match_p=round(pf, 4), match_src=src, model=round(model, 4), fair=round(fair, 4), fair_old=round(fair_old, 4), fair_src=fair_src, serve=sv[1] if sv else None,
                    profiles=dict(fav=pf_prof and dict(elo=pf_prof['elo'], hold=pf_prof['hold'], last=pf_prof['last']), opp=po_prof and dict(elo=po_prof['elo'], hold=po_prof['hold'], last=po_prof['last'])), pin_set1=round(pin1, 4) if pin1 else None,
                    best=best, prices=prices, edge=round(fair - best['cost'], 4) if best else None)
-        row['flag'] = bool(best and pf >= MIN_FAV and row['edge'] >= MIN_EDGE)
+        row.update(timing.metadata(e, NOW))
+        row['flag'] = bool(timing.pregame(e, NOW) and best and pf >= MIN_FAV and row['edge'] >= MIN_EDGE)
         if ev in paper:                           # already paper-logged: stays on the page even if the price has since gone (11/2)
             row['logged'] = dict(ts=paper[ev]['ts'], venue=paper[ev]['venue'], price=paper[ev]['price'], edge=round(paper[ev]['fair'] - paper[ev]['price'], 4))
         # hot favourite (paper, no units): Pinnacle favourite 60-85% whose last-10 win rate is 30%+ above the opponent's; bet the match
@@ -290,7 +292,7 @@ def main():
         # picks stay paper. New paper line: the hot dog (dog's last-10 is 10-30% better than the favourite's), bet the dog.
         row['tour_level'] = g in ('atp_tour', 'wta_tour', 'atp_tour_bo5', 'wta_tour_bo5')
         row['settled'] = settled(name, e) if row['hot'] else None
-        row['hot_live'] = bool(row['hot'] and row['tour_level'] and row['settled'] and row['settled']['ok'])   # 11/5: tier C only when settled; the rest is paper
+        row['hot_live'] = bool(timing.pregame(e, NOW) and row['hot'] and row['tour_level'] and row['settled'] and row['settled']['ok'])   # 11/5: tier C only when settled; the rest is paper
         dbest = match_best('away' if fav == 'home' else 'home')
         row['hot_dog'] = bool(src == 'Pinnacle' and ff and fo and 0.5 <= pf <= 0.85 and 0.10 <= fo[0] - ff[0] < 0.30 and dbest and g in ('atp_tour', 'atp_chall', 'wta_tour', 'atp_tour_bo5', 'wta_tour_bo5'))
         row['hot_dog_best'] = dbest
@@ -305,6 +307,9 @@ def main():
             rec = dict(event_id=ev, ts=NOW.strftime('%Y-%m-%dT%H:%M:%SZ'), start=e['start'], fav=fav, side='away' if fav == 'home' else 'home', fav_name=name, opp_name=opp, pick_name=opp, match_p=round(pf, 4), form_fav=round(ff[0], 2), form_opp=round(fo[0], 2),
                        venue=dbest['venue'], price=dbest['cost'], rule='tennis_hot_dog', level=g, slam=row['slam'])
             new_hotdog.append(rec); hotdog_paper[ev] = rec
+        if not timing.pregame(e, NOW):
+            row['hot_live'] = False
+            row['timing_hold'] = True
         rows.append(row)
         # the same match can carry two ids (a Pinnacle-made id before ESPN lists it, then ESPN's): one pick per match (11/4, Tiafoe set 1)
         same = next((k for k, p in paper.items() if k != ev and {p.get('fav_name'), p.get('opp_name')} == {name, opp} and abs((ts(p['start']) - ts(e['start'])).total_seconds()) <= 6 * 3600), None)
@@ -384,6 +389,18 @@ def main():
     json.dump(hot_graded, open(os.path.join(TD, 'hot_graded.json'), 'w'), separators=(',', ':'))
     hcl = [g['clv'] for g in hot_graded if g.get('clv') is not None]
     hot_rec = dict(n=len(hot_graded), won=sum(g['won'] for g in hot_graded), units=round(sum(g['pnl'] for g in hot_graded), 2), clv=round(sum(hcl) / len(hcl), 2) if hcl else None, clv_n=len(hcl)) if hot_graded else dict(n=0)
+    # Retain previously flagged unstarted rows through a missing/stale quote snapshot.
+    # Stale prices are display-only and never authorize an automatic wager.
+    previous = json.load(open(OUT)).get('rows', []) if os.path.exists(OUT) else []
+    present = {r['event_id'] for r in rows}
+    completed = {r['event_id'] for r in graded + hot_graded + hotdog_graded + serve_graded}
+    for old in previous:
+        ev = old['event_id']; e = E.get(ev)
+        if ev in present or ev in completed or not e or not timing.retain(e, NOW) or e.get('match_status') in timing.STOP: continue
+        if not any(old.get(k) for k in ('logged', 'hot_logged', 'hot_dog_logged', 'serve_logged')): continue
+        old.update(start=e['start'], **timing.metadata(e, NOW), timing_hold=True, flag=False, hot_live=False)
+        old['best'] = None; old['hot_best'] = None; old['hot_dog_best'] = None
+        rows.append(old)
     rows.sort(key=lambda r: (not r['flag'], r['start']))
     cl = [g['clv'] for g in graded if g.get('clv') is not None]
     rec = dict(n=len(graded), won=sum(g['won'] for g in graded), units=round(sum(g['pnl'] for g in graded), 2),

@@ -485,7 +485,12 @@ function restLine(o, started) {
 function sRow(o) {
   // 11/6 (Sean): main table is Start / Bet / Size / Price; why it flagged, the record and the rule details open on click
   const id = String(o.id).replace(/['"\\]/g, ''), open = window._wo[id];
-  const started = o.start && new Date(o.start) <= Date.now();
+  const tennis = o.timing;
+  const started = tennis ? ['live', 'finished'].includes(tennis.match_status) : o.start && new Date(o.start) <= Date.now();
+  const timingHold = tennis && (tennis.timing_hold || tennis.pregame_confirmed !== true) && !started;
+  if (timingHold) o = {...o, status: ['held', tennis.awaiting_start ? 'Awaiting start · schedule estimate passed' : 'Schedule check needed'], action: ['hold', 'Waiting for fresh pre-match confirmation']};
+  const timeNote = tennis ? (started ? 'In progress' : tennis.awaiting_start ? 'Awaiting start' : 'Estimated start') : until(o.start);
+  const sourceNote = tennis && tennis.schedule_checked_at ? ` · checked ${TM(tennis.schedule_checked_at)}` : '';
   const more = !!(o.detail || o.why || o.rec);
   // 11/7 (Sean): an action under the start time. BET = sized and live; HOLD = a signal against (it can come back); PASS = price gone,
   // bought out, lapsed, or paper; WATCH = shown for information, no size by design. Live bets sort first in every table.
@@ -497,9 +502,9 @@ function sRow(o) {
     // 11/7 (Sean: "one bet should be in one spot"): market, a short label and units, so rows on the same game, market and side merge into one
     + (o.mk ? ` data-mk="${esc(mkN(o.mk))}"` : '') + ` data-u="${(/([\d.]+)u/.exec(String(o.size || '').replace(/<[^>]+>/g, '')) || [])[1] || 0}"`
     + ` data-lbl="${esc(`${String(o.bet || '').replace(/<[^>]+>/g, '')} · ${String(o.sub || '').replace(/<[^>]+>/g, '')}`.replace(/\s+/g, ' ').slice(0, 110))}"`;   // 11/7: flagged time, for the Card's Newest sort
-  const tagA = tierA + ` data-rank="${rank}" data-t="${o.start ? Date.parse(o.start) || 0 : 0}"` + (o.ev ? ` data-ev="${esc(String(o.ev))}" data-side="${esc(String(o.side || ''))}" data-sized="${o.size ? 1 : 0}"` : '');   // 11/6: read by the board check (sharp/board_check.js)
+  const tagA = tierA + ` data-rank="${rank}"${timingHold ? ' data-timing="1"' : ''} data-t="${o.start ? Date.parse(o.start) || 0 : 0}"` + (o.ev ? ` data-ev="${esc(String(o.ev))}" data-side="${esc(String(o.side || ''))}" data-sized="${o.size ? 1 : 0}"` : '');   // 11/6: read by the board check (sharp/board_check.js)
   const head = `<tr class="erow${o.gone ? ' gone' : ''}${more ? ' click' : ''}"${tagA}${started ? ' data-live="1"' : ''}${more ? ` onclick="_wo['${id}']=!_wo['${id}'];draw()"` : ''}>
-    <td class="c-when"><b>${TM(o.start)}</b><div class="small dim">${until(o.start)}</div>${actHtml}</td>
+    <td class="c-when"><b>${TM(o.start)}</b><div class="small dim">${timeNote}${sourceNote}</div>${actHtml}</td>
     <td class="c-bet">${more ? `<span class="chev">${open ? '▾' : '▸'}</span>` : ''}<span class="bet">${o.bet}</span>${o.start && new Date(o.start) > Date.now() ? movedAgainst(o) : ''}${o.unchecked ? ' <span class="tag-against" title="No odds, Kalshi or money data for this game (FCS). Only sharp accounts on the other side were checked.">only sharp accounts checked</span>' : ''}${o.flagged && Date.now() - Date.parse(o.flagged) < 3600e3 ? ' <span class="newpill" title="flagged in the last hour">new</span>' : ''} <span class="small dim">${o.sub || ''}</span>${o.status ? ` <div class="stat stat-${o.status[0]}" style="margin-left:6px">${o.status[1]}</div>` : ''}<div class="small dim"><span class="badge b-sport">${esc(o.sportLabel)}</span> ${o.game}</div><!--ALSO--></td>
     <td class="c-size">${o.size || '<span class="dim">—</span>'}</td>
     <td class="c-price">${o.price || '<span class="dim">—</span>'}${restLine(o, started)}${o.link ? `<div class="go">${o.link}</div>` : ''}</td></tr>`;
@@ -668,8 +673,9 @@ function renderToday() {
       market: yn ? 'yesno:' + r.cond : r.mtype, side: r.side_std || r.side, bet: r.bet, n: r.n_accounts, link: r.link, trigger: r.trigger, proven: r.proven, grade: r.grade, logged: r.logged, status: r.status, other: r.other, books: r.books, paid: r.paid, ask: r.ask, flagged: r.flagged, usd: r.usd,
       why: `${r.n_accounts} sharp account${r.n_accounts === 1 ? '' : 's'}, flagged ${ET(r.flagged)}; sharps paid ${(100 * r.paid).toFixed(1)}¢, ask now ${r.ask != null ? (100 * r.ask).toFixed(1) + '¢' : '—'}${r.ask != null && r.ask - r.paid > 0.05 ? ' (price has moved: most of the edge is gone)' : ''}`,
       price: r.ask != null ? `Polymarket ask ${(100 * r.ask).toFixed(1)}¢ (${toAm(r.ask)})` : '', p: r.ask, venue: 'Polymarket'}); }
+  const tennisVisible = r => !['finished', 'cancelled'].includes(r.match_status) && (new Date(r.start) > Date.now() - 72 * 36e5);
   // ---- 4. tennis first-set rule (tier C, its own shape)
-  const tw = TW ? (TW.rows || []).filter(r => (r.flag || r.logged) && future(r.start)).map(r => ({...r, sport: 'tennis', league: r.league})) : [];
+  const tw = TW ? (TW.rows || []).filter(r => (r.flag || r.logged) && tennisVisible(r)).map(r => ({...r, sport: 'tennis', league: r.league})) : [];
   // ---- filters: counts for the sport chips use the time window; counts for the time chips use the sport filter
   // chip counts (Sean, 11/4): only rows that show in the three tables (system bets, leans, sharp signals). Rules that fired without a bet
   // and the watch-only signals live in their own dropdowns with their own counts, so they no longer inflate the chips.
@@ -688,7 +694,7 @@ function renderToday() {
     const fl = lg ? `<b>${toAm(lg.price)}</b> <span class="small dim">${VS(lg.venue)}</span>` : (b ? `<b>${toAm(b.cost)}</b> <span class="small dim">${VS(b.venue)}</span>` : '');
     const st = !r.flag ? '<span class="neg">price gone</span>' : (lg && b && b.cost > lg.price + 0.002 ? `<span class="moved-chip">now ${toAm(b.cost)} ${VS(b.venue)}</span>` : '<span class="ok-chip">still there</span>');
     const link = r.flag && b && b.venue === 'Kalshi' && b.ticker ? `<a class="betbtn" target="_blank" rel="noopener" onclick="event.stopPropagation()" href="https://kalshi.com/markets/${b.ticker.toLowerCase().split('-')[0]}/x/${b.ticker.toLowerCase().split('-').slice(0, -1).join('-')}">Bet at Kalshi ↗</a>` : (r.flag && b && b.venue === 'Novig' ? `<a class="betbtn" target="_blank" rel="noopener" onclick="event.stopPropagation()" href="https://novig.com/">Bet at Novig ↗</a>` : '');
-    return sRow({id: `t|${r.start}|${r.fav_name}`, flagged: r.flagged || r.ts, tier: 'C', start: r.start, sportLabel: (r.tour || 'tennis').toUpperCase(), game: `${esc(r.fav_name || '')} vs ${esc(r.opp_name || '')}`,
+    return sRow({timing: r, id: `t|${r.event_id}|${r.fav_name}`, flagged: r.flagged || r.ts, tier: 'C', start: r.start, sportLabel: (r.tour || 'tennis').toUpperCase(), game: `${esc(r.fav_name || '')} vs ${esc(r.opp_name || '')}`,
       bet: `${esc(r.fav_name || 'Favourite')} set 1`, sub: 'Set 1 winner · tier C', gone: !r.flag, status: r.flag ? null : ['gone', 'Price gone: no longer under the curve'], size: unitText(SLIP.small, lg ? lg.price : p), price: fl ? fl + `<div class="small">${st}</div>` : '', link,
       why: `Set-1 price under fair (${r.fair_src && r.fair_src.startsWith('Tennis Abstract') ? 'Tennis Abstract model' : 'curve'}): fair ${(100 * r.fair).toFixed(1)}%, ${b ? `best ${(100 * b.cost).toFixed(1)}% (${r.edge >= 0 ? '+' : ''}${(100 * r.edge).toFixed(1)}%)` : 'no price now'}`,
       rec: lbl('Tracker', twRec),
@@ -830,7 +836,7 @@ function renderToday() {
   // last 10 on it, 8-27 days since that event started, first match here): +8.7% vs the close, positive every year. Those are tier C; the rest paper.
   const hRow = r => { const b = r.hot_best, lg = r.hot_logged, p = lg ? lg.price : (b ? b.cost : null), st = r.settled || {}, live = r.hot_live || (lg && st.ok && r.tour_level);
     const whyNot = !r.tour_level ? 'Challenger' : st.in_event ? 'already played this event' : st.prev_surface && st.prev_surface !== st.surface ? `off ${st.prev_surface.toLowerCase()}` : st.rest != null && st.rest < 8 ? 'quick turnaround' : st.rest != null && st.rest > 27 ? 'layoff' : st.same_share != null && st.same_share < 0.4 ? 'form from another surface' : 'not settled';
-    return sRow({id: `th|${r.start}|${r.fav_name}`, tier: 'B', flagged: (r.hot_logged && r.hot_logged.ts) || r.ts, start: r.start, sportLabel: (r.tour || 'tennis').toUpperCase(), game: `${esc(r.fav_name || '')} vs ${esc(r.opp_name || '')}`,
+    return sRow({timing: r, id: `th|${r.event_id}|${r.fav_name}`, tier: 'B', flagged: (r.hot_logged && r.hot_logged.ts) || r.ts, start: r.start, sportLabel: (r.tour || 'tennis').toUpperCase(), game: `${esc(r.fav_name || '')} vs ${esc(r.opp_name || '')}`,
       bet: `${esc(r.fav_name || 'Favourite')} to win`, sub: live ? 'Match winner · settled favourite, tier B' : `Match winner · paper (${whyNot})`, gone: !r.hot, status: r.hot ? null : ['gone', 'Price gone or form changed'], size: live ? unitText(SLIP.big, p) : '<span class="dim">paper</span>',
       price: p != null ? `<b>${toAm(p)}</b> <span class="small dim">${VS(lg ? lg.venue : b.venue)}</span>` : '', link: '',
       why: `Hot favourite: match ${(100 * r.match_p).toFixed(1)}% at Pinnacle, last 10: ${r.form && r.form.fav ? (100 * r.form.fav.rate).toFixed(0) + '%' : '?'} vs ${r.form && r.form.opp ? (100 * r.form.opp.rate).toFixed(0) + '%' : '?'}`,
@@ -841,21 +847,21 @@ function renderToday() {
         ['Flagged', lg ? `${DAYT(lg.ts)} at ${VS(lg.venue)} ${(100 * lg.price).toFixed(1)}¢` : ''], ['Now', b ? `${VS(b.venue)} ${(100 * b.cost).toFixed(1)}¢ (${toAm(b.cost)})` : 'no price']])}); };
   // 11/4 (Sean): the hot-favourite and serve angles were only priced at slams, so the board shows them at slams only; every tour and
   // Challenger pick is still paper-logged and graded (tennis_watch.json hot_record / serve_record) so the record builds by level.
-  const TH = TW ? (TW.rows || []).filter(r => (r.tour_level || r.slam) && (r.hot || r.hot_logged) && future(r.start) && passW(r.start) && passS('tennis', r.league)) : [];
+  const TH = TW ? (TW.rows || []).filter(r => (r.tour_level || r.slam) && (r.hot || r.hot_logged) && tennisVisible(r) && passW(r.start) && passS('tennis', r.league)) : [];
   // hot dog (paper, no units; Odds API tour-level 2026: +4.7% vs close on 154, +10.8% ROI): dog's last-10 is 10-30% better than the favourite's
   const dRow = r => { const b = r.hot_dog_best, lg = r.hot_dog_logged, p = lg ? lg.price : (b ? b.cost : null);
-    return sRow({id: `td|${r.start}|${r.opp_name}`, flagged: r.flagged || r.ts, tier: 'C', start: r.start, sportLabel: (r.tour || 'tennis').toUpperCase(), game: `${esc(r.fav_name || '')} vs ${esc(r.opp_name || '')}`,
+    return sRow({timing: r, id: `td|${r.event_id}|${r.opp_name}`, flagged: r.flagged || r.ts, tier: 'C', start: r.start, sportLabel: (r.tour || 'tennis').toUpperCase(), game: `${esc(r.fav_name || '')} vs ${esc(r.opp_name || '')}`,
       bet: `${esc(r.opp_name || 'Dog')} to win`, sub: 'Match winner · paper, no units', gone: !r.hot_dog, status: r.hot_dog ? null : ['gone', 'Price gone or form changed'], size: '<span class="dim">paper</span>',
       price: p != null ? `<b>${toAm(p)}</b> <span class="small dim">${VS(lg ? lg.venue : b.venue)}</span>` : '', link: '',
       why: `Hot dog: match ${(100 * (1 - r.match_p)).toFixed(1)}% at Pinnacle, last 10: ${r.form && r.form.opp ? (100 * r.form.opp.rate).toFixed(0) + '%' : '?'} vs favourite ${r.form && r.form.fav ? (100 * r.form.fav.rate).toFixed(0) + '%' : '?'}`,
       rec: lbl('Backtest', '+4.7% vs close, tour 2026') + ' ' + lbl('Tracker', TW && TW.hotdog_record && TW.hotdog_record.n ? `${TW.hotdog_record.won}-${TW.hotdog_record.n - TW.hotdog_record.won}, ${TW.hotdog_record.units > 0 ? '+' : ''}${TW.hotdog_record.units}u` : 'no graded picks yet'),
       detail: facts([['Rule', 'Tennis hot dog (tennis_hot_dog, paper): Pinnacle favourite 50-85%, the dog\'s last-10 win rate 10-30% above the favourite\'s; bet the dog. Odds API tour-level 2026: +4.7% over the close on 154, +10.8% flat ROI. One sample; paper until it has a record.'],
         ['Flagged', lg ? `${DAYT(lg.ts)} at ${VS(lg.venue)} ${(100 * lg.price).toFixed(1)}¢` : ''], ['Now', b ? `${VS(b.venue)} ${(100 * b.cost).toFixed(1)}¢ (${toAm(b.cost)})` : 'no price']])}); };
-  const TD = TW ? (TW.rows || []).filter(r => (r.tour_level || r.slam) && (r.hot_dog || r.hot_dog_logged) && future(r.start) && passW(r.start) && passS('tennis', r.league)) : [];
+  const TD = TW ? (TW.rows || []).filter(r => (r.tour_level || r.slam) && (r.hot_dog || r.hot_dog_logged) && tennisVisible(r) && passW(r.start) && passS('tennis', r.league)) : [];
   // serve-profile angles (paper, no units; section 9b): dog is the bigger server; fav 50-60% -> bet the dog, 70-80% -> bet the fav
   const vRow = r => { const sr = r.serve_rule, lg = r.serve_logged, rule = (sr || lg || {}).rule, pick = (sr || lg || {}).name, b = sr ? sr.best : null, p = lg ? lg.price : (b ? b.cost : null);
     const rec = TW && TW.serve_record && TW.serve_record[rule] && TW.serve_record[rule].n ? `${TW.serve_record[rule].won}-${TW.serve_record[rule].n - TW.serve_record[rule].won}, ${TW.serve_record[rule].units > 0 ? '+' : ''}${TW.serve_record[rule].units}u` : 'no graded picks yet';
-    return sRow({id: `tv|${r.start}|${r.fav_name}`, flagged: r.flagged || r.ts, tier: 'C', start: r.start, sportLabel: (r.tour || 'tennis').toUpperCase(), game: `${esc(r.fav_name || '')} vs ${esc(r.opp_name || '')}`,
+    return sRow({timing: r, id: `tv|${r.event_id}|${r.fav_name}`, flagged: r.flagged || r.ts, tier: 'C', start: r.start, sportLabel: (r.tour || 'tennis').toUpperCase(), game: `${esc(r.fav_name || '')} vs ${esc(r.opp_name || '')}`,
       bet: `${esc(pick || '')} to win`, sub: 'Match winner · paper, no units', gone: !sr, status: sr ? null : ['gone', 'Price gone or the match price left the band'], size: '<span class="dim">paper</span>',
       price: p != null ? `<b>${toAm(p)}</b> <span class="small dim">${VS(lg ? lg.venue : b.venue)}</span>` : '', link: '',
       why: `${rule === 'tennis_serve_dog' ? 'Big-serving dog near a coin flip' : 'Favourite 70-80% against a bigger server'}: match ${(100 * r.match_p).toFixed(1)}% at Pinnacle; ${r.serve ? esc(r.serve) : ''}`,
@@ -863,9 +869,9 @@ function renderToday() {
       detail: facts([['Rule', rule === 'tennis_serve_dog' ? 'Tennis big-serving dog (tennis_serve_dog, paper): Pinnacle favourite 50-60% and the dog holds serve 3%+ more often (Tennis Abstract trailing hold rates); bet the dog. Slam test 2015-2023: +7.4% over the close on 339 matches, +13% flat ROI, positive in 7 of 9 years.' : 'Tennis favourite vs a bigger server (tennis_serve_fav, paper): Pinnacle favourite 70-80% and the dog holds serve 3%+ more often; bet the favourite. Slam test 2015-2023: +8.0% over the close on 226 matches, +7.9% flat ROI, positive in 8 of 8 years.'],
         ['Caution', 'One feature pointing two ways across price bands is the kind of result that fails to replicate; paper only until it has a record of its own'],
         ['Flagged', lg ? `${DAYT(lg.ts)} at ${VS(lg.venue)} ${(100 * lg.price).toFixed(1)}¢` : ''], ['Now', b ? `${VS(b.venue)} ${(100 * b.cost).toFixed(1)}¢ (${toAm(b.cost)})` : 'no price']])}); };
-  const TV = TW ? (TW.rows || []).filter(r => r.slam && (r.serve_rule || r.serve_logged) && future(r.start) && passW(r.start) && passS('tennis', r.league)) : [];
-  const THall = TW ? (TW.rows || []).filter(r => (r.tour_level || r.slam) && ((r.hot || r.hot_logged) || (r.hot_dog || r.hot_dog_logged)) && future(r.start)).map(r => ({start: r.start, sport: 'tennis', league: r.league})) : [];
-  const TVall = TW ? (TW.rows || []).filter(r => r.slam && (r.serve_rule || r.serve_logged) && future(r.start)).map(r => ({start: r.start, sport: 'tennis', league: r.league})) : [];
+  const TV = TW ? (TW.rows || []).filter(r => r.slam && (r.serve_rule || r.serve_logged) && tennisVisible(r) && passW(r.start) && passS('tennis', r.league)) : [];
+  const THall = TW ? (TW.rows || []).filter(r => (r.tour_level || r.slam) && ((r.hot || r.hot_logged) || (r.hot_dog || r.hot_dog_logged)) && tennisVisible(r)).map(r => ({start: r.start, sport: 'tennis', league: r.league})) : [];
+  const TVall = TW ? (TW.rows || []).filter(r => r.slam && (r.serve_rule || r.serve_logged) && tennisVisible(r)).map(r => ({start: r.start, sport: 'tennis', league: r.league})) : [];
   // MMA steam favourite (11/5, Odds API replay 2022-26: a 6+ point no-vig move toward the favourite from Pinnacle's open is still 136-53,
   // +6.6% at the close, 4 of 5 years; fading it -19.7%). Tier C, 0.25u. Rows from data/state/mma_steam.json (sharp/mma_steam.py).
   const mRow = r => { const lg = r.logged, b = r.best, p = lg ? lg.price : (b ? b.cost : null), MSr = window._MS && window._MS.record;
@@ -998,6 +1004,7 @@ function renderToday() {
   const tierRank = r => ({A: 0, B: 1, C: 2})[AT(r, 'tier')] ?? 3;
   const backer = r => ['sys', 'sharp'].includes(kindOf(r));
   const bucketOf = L => {
+    if (L.some(r => AT(r, 'timing') === '1')) return 'timing';
     if (L.some(r => backer(r) && rankOf(r) === 2)) return 'opposed';
     const bets = L.filter(r => backer(r) && isBet(r)), sy = bets.some(r => kindOf(r) === 'sys'), sh = bets.some(r => kindOf(r) === 'sharp');
     if (sy && sh) return 'both'; if (sy) return 'sys'; if (sh) return 'sharp';
@@ -1006,7 +1013,7 @@ function renderToday() {
     const pr = r => b === 'opposed' ? (backer(r) && rankOf(r) === 2 ? 0 : backer(r) ? 1 : 2) : ['sys', 'sharp', 'both'].includes(b) ? (backer(r) && isBet(r) ? 0 : 1) : rankOf(r);
     return pr(x) - pr(y) || (b === 'both' ? uOf(y) - uOf(x) : 0) || (kindOf(x) === 'sys' ? 0 : 1) - (kindOf(y) === 'sys' ? 0 : 1) || tierRank(x) - tierRank(y); })[0];
   const alsoLine = (rows, lead) => rows.length ? `<div class="small also">${lead}: ${rows.map(r => `${KW[kindOf(r)] || ''} (${ACTW(r)}): ${AT(r, 'lbl')}`).join(' · ')}</div>` : '';
-  const placed = {both: [], sys: [], sharp: [], opposed: [], paper: [], other: []}, done = new Set();
+  const placed = {timing: [], both: [], sys: [], sharp: [], opposed: [], paper: [], other: []}, done = new Set();
   for (const [k, L] of groups) {
     if (done.has(k)) continue; done.add(k);
     let b = bucketOf(L); const [ev, mk, sd] = k.startsWith('solo') ? [] : k.split('|');
@@ -1054,7 +1061,7 @@ function renderToday() {
   const cardHtml = `${H('Card', `every bet to make right now, nothing against it · ${nCard} bet${nCard === 1 ? '' : 's'}${cardSharp.length ? ` + ${cardSharp.length} sharp flag${cardSharp.length === 1 ? '' : 's'} (paper)` : ''} · ${_cs === 'new' ? 'newest flagged first' : 'by game time'} within each tier · each bet shows once`)}
     <div class="controls" style="margin:0 0 6px">${cardSort}</div>
     ${cardBoth.length ? `<div class="cardcol">System + sharp <span class="small dim">a system bet and an unopposed sharp flag on the same side</span></div>${cardTable(cardBoth, 'Tier')}` : ''}
-    <div class="cardgrid"><!--SY--><div><div class="cardcol">Systems <span class="small dim">systems, leans, curve and prop rules</span></div>${cardSys.length ? cardTable(cardSys, 'Tier') : '<div class="small dim">No system bet to make right now.</div>'}</div><!--/SY-->
+    <div class="cardgrid"><!--SY--><div><div class="cardcol">Systems <span class="small dim">systems, leans, curve and prop rules</span></div>${cardSys.length ? cardTable(cardSys, 'Tier') : '<div class="small dim">No system bet to make right now.</div>'}${placed.timing.length ? '<h3>Awaiting start / schedule confirmation</h3>' + sTable(placed.timing) : ''}</div><!--/SY-->
     <!--SH--><div><div class="cardcol">Sharp <span class="small dim">sharp flags with nothing against · paper, no units since 11/10</span></div>${cardSharp.length ? cardTable(cardSharp, 'Grade') : '<div class="small dim">No sharp flag to bet right now.</div>'}</div><!--/SH--></div>`;
   window._sec = window._sec || 'all';
   const secBar = `<span class="tabs inline">${[['all', 'All'], ['sharp', 'Sharp'], ['systems', 'Systems']].map(([k, l]) => `<button class="${_sec === k ? 'on' : ''}" onclick="_sec='${k}';draw()">${l}</button>`).join('')}</span>`;
