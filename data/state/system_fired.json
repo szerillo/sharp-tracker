@@ -6904,7 +6904,10 @@
 "price": -270,
 "fair": null,
 "edge_pts": null,
-"why": "conference game, SYR on road game 2 in a row, +1.5, total 50.5"
+"why": "conference game, SYR on road game 2 in a row, +1.5, total 50.5",
+"void": true,
+"void_why": "rule no longer holds on the current line: home spread 3.0, total 51.0 (2026-11-16T00:53:07Z)",
+"void_at": "2026-11-16T00:53:07Z"
 },
 "401858533:cfb_road_streak_dog": {
 "tag": "cfb_road_streak_dog",
@@ -6917,7 +6920,10 @@
 "price": -300,
 "fair": null,
 "edge_pts": null,
-"why": "conference game, WIS on road game 2 in a row, +1.5, total 44.5"
+"why": "conference game, WIS on road game 2 in a row, +1.5, total 44.5",
+"void": true,
+"void_why": "rule no longer holds on the current line: home spread 5.5, total 44.5 (2026-11-16T00:53:07Z)",
+"void_at": "2026-11-16T00:53:07Z"
 },
 "401858532:cfb_day_over": {
 "tag": "cfb_day_over",
@@ -7161,7 +7167,10 @@
 "price": -113,
 "fair": 0.495,
 "edge_pts": -3.5,
-"why": "conference game, BGSU +15.5 on the road, total 45.5"
+"why": "conference game, BGSU +15.5 on the road, total 45.5",
+"void": true,
+"void_why": "rule no longer holds on the current line: home spread -15.5, total 48.5 (2026-11-16T00:53:07Z)",
+"void_at": "2026-11-16T00:53:07Z"
 },
 "401862831:cfb_road_streak_dog": {
 "tag": "cfb_road_streak_dog",
@@ -7269,5 +7278,70 @@
 "fair": 0.67571,
 "edge_pts": -0.43,
 "why": "Novig home side mid 0.323 inside T-1.1h; audit band 20-35c"
+},
+"401856748:cfb_road_dog_low_total": {
+"tag": "cfb_road_dog_low_total",
+"fill_id": "afdee04f474b",
+"ts": "2026-11-16T00:53:07Z",
+"market": "spread",
+"side": "away",
+"line": 13.5,
+"venue": "Novig",
+"price": -115,
+"fair": 0.5131,
+"edge_pts": -2.19,
+"why": "conference game, VAN +13.5 on the road, total 47.0"
+},
+"401862832:cfb_road_dog_low_total": {
+"tag": "cfb_road_dog_low_total",
+"fill_id": "be1400a88632",
+"ts": "2026-11-16T00:53:07Z",
+"market": "spread",
+"side": "away",
+"line": 13.5,
+"venue": "Novig",
+"price": 125,
+"fair": null,
+"edge_pts": null,
+"why": "conference game, CLT +13.5 on the road, total 44.5"
+},
+"401871077:cfb_day_over": {
+"tag": "cfb_day_over",
+"fill_id": "f23adaac2458",
+"ts": "2026-11-16T00:53:07Z",
+"market": "total",
+"side": "over",
+"line": 51.5,
+"venue": "Kalshi",
+"price": -144,
+"fair": null,
+"edge_pts": null,
+"why": "3:00 PM ET kickoff, total 51.5: over (mined angle)"
+},
+"401858308:cfb_road_streak_dog": {
+"tag": "cfb_road_streak_dog",
+"fill_id": "ecf7dd880dce",
+"ts": "2026-11-16T00:53:07Z",
+"market": "spread",
+"side": "away",
+"line": 1.5,
+"venue": "Kalshi",
+"price": -170,
+"fair": null,
+"edge_pts": null,
+"why": "conference game, STAN on road game 3 in a row, +1.5, total 41.5"
+},
+"401856872:cfb_road_streak_dog": {
+"tag": "cfb_road_streak_dog",
+"fill_id": "874c163c9cac",
+"ts": "2026-11-16T00:53:07Z",
+"market": "spread",
+"side": "away",
+"line": 1.5,
+"venue": "Kalshi",
+"price": -376,
+"fair": null,
+"edge_pts": null,
+"why": "conference game, UTAH on road game 2 in a row, +1.5, total 37.5"
 }
 }
