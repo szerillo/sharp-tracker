@@ -7439,19 +7439,16 @@
 },
 "401909997:nba_under_good_home_over_small": {
 "tag": "nba_under_good_home_over_small",
-"fill_id": "cb0d6f1ae084",
-"ts": "2026-11-16T02:56:27Z",
+"fill_id": "b03853c98d6e",
+"ts": "2026-11-16T16:53:47Z",
 "market": "total",
 "side": "under",
 "line": 226.5,
 "venue": "Novig",
-"price": -108,
-"fair": 0.509,
-"edge_pts": -1.1,
-"why": "home BKN over rate 58%, days since last game: home 2, visitor 1; total 227.5 -> 226.5",
-"void": true,
-"void_why": "trigger no longer holds on current season records (2026-11-16T08:26:32Z)",
-"void_at": "2026-11-16T08:26:32Z"
+"price": -106,
+"fair": 0.51164,
+"edge_pts": -0.34,
+"why": "home BKN over rate 58%, days since last game: home 2, visitor 1; total 227.5 -> 226.5"
 },
 "401873076:nfl_fade_fav_bye": {
 "tag": "nfl_fade_fav_bye",
@@ -7477,7 +7474,10 @@
 "price": -104,
 "fair": 0.503,
 "edge_pts": -0.7,
-"why": "home BKN over rate 58%, days since last game: home 2, visitor 1; total 227.5 -> 225.5"
+"why": "home BKN over rate 58%, days since last game: home 2, visitor 1; total 227.5 -> 225.5",
+"void": true,
+"void_why": "trigger no longer holds on current season records (2026-11-16T16:53:47Z)",
+"void_at": "2026-11-16T16:53:47Z"
 },
 "401910001:nba_roadtrip_over": {
 "tag": "nba_roadtrip_over",
@@ -7673,5 +7673,18 @@
 "fair": 0.50069,
 "edge_pts": -0.43,
 "why": "home NO over rate 64%, days since last game: home 2, visitor 3; total 225.5 -> 223.5"
+},
+"401860920:cfb_homefav_7510_under": {
+"tag": "cfb_homefav_7510_under",
+"fill_id": "e74bcaf1aeac",
+"ts": "2026-11-16T16:53:47Z",
+"market": "total",
+"side": "under",
+"line": 60.5,
+"venue": "Caesars",
+"price": -110,
+"fair": 0.5063,
+"edge_pts": -1.75,
+"why": "home favourite TXST -10.0, total 60.5: under (mined angle)"
 }
 }
