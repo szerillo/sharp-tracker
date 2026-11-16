@@ -1,19 +1,19 @@
 {
- "built": "2026-11-16T00:47:58Z",
+ "built": "2026-11-16T01:00:18Z",
  "record": {
   "n": 35,
   "won": 17,
   "lost": 18,
   "units": 0.18,
   "line_value": {
-   "n": 14,
+   "n": 16,
    "avg": 0.0,
    "positive": 0
   },
   "clv": {
-   "n": 22,
-   "avg": 1.78,
-   "beat": 22,
+   "n": 24,
+   "avg": 1.55,
+   "beat": 23,
    "by_rule": {
     "anytime td": {
      "n": 8,
@@ -21,9 +21,9 @@
      "beat": 8
     },
     "nhl under": {
-     "n": 10,
-     "avg": 1.47,
-     "beat": 10
+     "n": 11,
+     "avg": 1.44,
+     "beat": 11
     },
     "threes under": {
      "n": 4,
@@ -90,7 +90,13 @@
    "ev_strict": 1.1,
    "pin_ts": "2026-11-16T00:33:28Z",
    "book_ts": "2026-11-16T00:32:24Z",
-   "flagged": "2026-11-16T00:33:54Z"
+   "flagged": "2026-11-16T00:33:54Z",
+   "close_ts": "2026-11-16T01:00:18Z",
+   "close_line": 1.5,
+   "close_fair": 0.4119,
+   "clv": 1.19,
+   "beat_fair": -0.22,
+   "line_value": 0.0
   },
   {
    "key": "48e497c230e6c9afcb3b600091d28e17|player_anytime_td|Darnell Washington|yes",
