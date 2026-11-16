@@ -1,5 +1,5 @@
 {
- "built": "2026-11-16T00:20:16Z",
+ "built": "2026-11-16T00:33:54Z",
  "record": {
   "n": 35,
   "won": 17,
@@ -58,7 +58,13 @@
    "ev_strict": 5.5,
    "pin_ts": "2026-11-15T23:42:34Z",
    "book_ts": "2026-11-15T23:42:56Z",
-   "flagged": "2026-11-15T23:43:33Z"
+   "flagged": "2026-11-15T23:43:33Z",
+   "close_ts": "2026-11-16T00:08:53Z",
+   "close_line": 1.5,
+   "close_fair": 0.4267,
+   "clv": -3.2,
+   "beat_fair": -5.86,
+   "line_value": 0.0
   },
   {
    "key": "539a387d9fd0da9af213bf8002fdb0d4|player_shots_on_goal|Mikael Backlund|1.5",
@@ -82,33 +88,9 @@
    "book_fair": 0.3766,
    "fair_gap": 3.8,
    "ev_strict": 1.1,
-   "pin_ts": "2026-11-16T00:19:53Z",
-   "book_ts": "2026-11-16T00:20:11Z",
-   "flagged": "2026-11-16T00:20:16Z"
-  },
-  {
-   "key": "48e497c230e6c9afcb3b600091d28e17|player_anytime_td|DK Metcalf|yes",
-   "sport": "nfl",
-   "odds_id": "48e497c230e6c9afcb3b600091d28e17",
-   "espn": "401873064",
-   "game": "Pittsburgh Steelers @ Cincinnati Bengals",
-   "start": "2026-11-16T01:20:00Z",
-   "market": "player_anytime_td",
-   "player": "DK Metcalf",
-   "line": 0.5,
-   "side": "over",
-   "book": "DK",
-   "price": 3.05,
-   "rule": "anytime td",
-   "fair": 0.3397,
-   "fair_power": 0.3251,
-   "ev": 3.6,
-   "ev_strict": -0.9,
-   "pin_yes": 2.78,
-   "pin_no": 1.43,
-   "pin_ts": "2026-11-16T00:19:50Z",
-   "book_ts": "2026-11-16T00:19:15Z",
-   "flagged": "2026-11-16T00:20:16Z"
+   "pin_ts": "2026-11-16T00:33:28Z",
+   "book_ts": "2026-11-16T00:32:24Z",
+   "flagged": "2026-11-16T00:33:54Z"
   },
   {
    "key": "48e497c230e6c9afcb3b600091d28e17|player_anytime_td|Darnell Washington|yes",
@@ -130,9 +112,9 @@
    "ev_strict": -0.1,
    "pin_yes": 3.11,
    "pin_no": 1.38,
-   "pin_ts": "2026-11-16T00:19:50Z",
-   "book_ts": "2026-11-16T00:19:40Z",
-   "flagged": "2026-11-16T00:20:16Z"
+   "pin_ts": "2026-11-16T00:33:28Z",
+   "book_ts": "2026-11-16T00:33:17Z",
+   "flagged": "2026-11-16T00:33:54Z"
   },
   {
    "key": "48e497c230e6c9afcb3b600091d28e17|player_anytime_td|Germie Bernard|yes",
@@ -154,9 +136,9 @@
    "ev_strict": -3.3,
    "pin_yes": 3.69,
    "pin_no": 1.29,
-   "pin_ts": "2026-11-16T00:19:50Z",
-   "book_ts": "2026-11-16T00:19:15Z",
-   "flagged": "2026-11-16T00:20:16Z"
+   "pin_ts": "2026-11-16T00:33:28Z",
+   "book_ts": "2026-11-16T00:32:40Z",
+   "flagged": "2026-11-16T00:33:54Z"
   }
  ]
 }
