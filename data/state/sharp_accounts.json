@@ -1,5 +1,5 @@
 {
- "built": "2026-11-16T13:05:06Z",
+ "built": "2026-11-16T13:16:30Z",
  "rows": [
   {
    "cond": "0x92e4d5e6d48986c1daa03069ca16489235744305f927dfaf1bfcb6094e633c0d",
@@ -168,14 +168,16 @@
    "usd": 197,
    "paid": 0.73,
    "ask": 0.78,
-   "status": "live",
+   "status": "other side",
    "link": "https://polymarket.us/event/nba-orl-bos-2026-11-16",
-   "other": null,
-   "kalshi_against": {
-    "move": 5.0,
-    "now": 23.5,
-    "state": "reversed"
+   "other": {
+    "n_accounts": 1,
+    "best_rank": 43,
+    "usd": 254,
+    "first": "2026-11-16T13:10:53Z"
    },
+   "exit_bid": 0.77,
+   "kalshi_against": null,
    "logged": true,
    "event_id": "401909994",
    "sport": "nba",
@@ -186,23 +188,11 @@
    "home_name": "Boston Celtics",
    "game_start": "2026-11-17T00:00Z",
    "side_std": "home",
-   "conflict": [
-    "Kalshi move"
-   ],
    "money_with": false,
    "grade": "watch",
    "fair_board": 0.7694,
    "inside_fair": false,
-   "books": {
-    "at": "2026-11-16T08:29:47Z",
-    "fair": 0.7694,
-    "q": {
-     "Novig": 0.77,
-     "DK": 0.7908,
-     "Kalshi": 0.8,
-     "FD": 0.8
-    }
-   }
+   "books": null
   },
   {
    "cond": "0xaac8a6b71e71bd75ad1134e7f56c6b7ea7599113b6906cb6a6af832b692102b1",
@@ -221,12 +211,18 @@
    "usd": 147,
    "paid": 0.74,
    "ask": 0.78,
-   "status": "live",
+   "status": "other side",
    "link": "https://polymarket.us/event/nba-chi-cle-2026-11-16",
-   "other": null,
+   "other": {
+    "n_accounts": 1,
+    "best_rank": 43,
+    "usd": 648,
+    "first": "2026-11-16T13:10:35Z"
+   },
+   "exit_bid": 0.77,
    "kalshi_against": {
-    "move": 6.5,
-    "now": 23.5,
+    "move": 6.0,
+    "now": 23.0,
     "state": "reversed"
    },
    "logged": true,
@@ -246,16 +242,7 @@
    "grade": "watch",
    "fair_board": 0.7714,
    "inside_fair": false,
-   "books": {
-    "at": "2026-11-16T08:29:47Z",
-    "fair": 0.7714,
-    "q": {
-     "Novig": 0.775,
-     "FD": 0.7826,
-     "DK": 0.798,
-     "Kalshi": 0.8
-    }
-   }
+   "books": null
   },
   {
    "cond": "0xc60598366a8358b18c8f9d81e2aa4bcb9ebd672fe4879b8026800ffcccd7c48b",
@@ -273,7 +260,7 @@
    "best_rank": 43,
    "usd": 171,
    "paid": 0.465,
-   "ask": 0.45,
+   "ask": 0.44,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-hou-mia-2026-11-16",
    "other": {
@@ -282,7 +269,7 @@
     "usd": 1362,
     "first": "2026-11-16T10:04:59Z"
    },
-   "exit_bid": 0.44,
+   "exit_bid": 0.43,
    "kalshi_against": null,
    "logged": true,
    "event_id": "401909998",
@@ -322,7 +309,7 @@
    "other": {
     "n_accounts": 2,
     "best_rank": 43,
-    "usd": 934,
+    "usd": 3036,
     "first": "2026-11-13T10:27:49Z"
    },
    "exit_bid": 0.4,
@@ -413,6 +400,11 @@
     "n": 1,
     "best_rank": 43,
     "usd": 197
+   },
+   "away": {
+    "n": 1,
+    "best_rank": 43,
+    "usd": 254
    }
   },
   "401909995|ml": {
@@ -420,6 +412,11 @@
     "n": 1,
     "best_rank": 43,
     "usd": 147
+   },
+   "away": {
+    "n": 1,
+    "best_rank": 43,
+    "usd": 648
    }
   },
   "401909996|ml": {
