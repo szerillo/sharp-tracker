@@ -1,5 +1,5 @@
 {
- "built": "2026-11-16T06:30:36Z",
+ "built": "2026-11-16T06:51:08Z",
  "rows": [
   {
    "cond": "0xd52bf2df8eebb1aa0f1e87662421f431d730474c81932a434e4c66d82fa00725",
@@ -123,7 +123,7 @@
    "home_name": "Miami Heat",
    "game_start": "2026-11-17T00:30Z",
    "side_std": "home",
-   "money_with": true,
+   "money_with": false,
    "grade": "watch",
    "fair_board": null,
    "inside_fair": null,
@@ -134,6 +134,46 @@
      "Kalshi": 0.47
     }
    }
+  },
+  {
+   "cond": "0x43cd2b241bfa0a17f1835ea5600c3018cd059eebd73ed30299b70922426b043b",
+   "slug": "nba-cha-lal-2026-11-17",
+   "title": "Hornets vs. Lakers",
+   "mtype": "ml",
+   "start": "2026-11-18T04:00:00Z",
+   "bet": "Hornets ML",
+   "side": "Hornets",
+   "flagged": "2026-11-16T06:44:52Z",
+   "why": "a top-50 account",
+   "proven": false,
+   "trigger": "top50",
+   "n_accounts": 1,
+   "best_rank": 43,
+   "usd": 456,
+   "paid": 0.21,
+   "ask": 0.22,
+   "status": "live",
+   "link": "https://polymarket.us/event/nba-cha-lal-2026-11-17",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401910005",
+   "sport": "nba",
+   "league": null,
+   "away": "CHA",
+   "home": "LAL",
+   "away_name": "Charlotte Hornets",
+   "home_name": "Los Angeles Lakers",
+   "game_start": "2026-11-18T04:00Z",
+   "side_std": "away",
+   "conflict": [
+    "Kalshi bet back"
+   ],
+   "money_with": false,
+   "grade": "watch",
+   "fair_board": null,
+   "inside_fair": null,
+   "books": null
   },
   {
    "cond": "0x3d7dbc94a54253fc5dd4aad1868cbbfc3abe3bb21dc75fc2a8a666afb3dbb60e",
@@ -350,6 +390,13 @@
     "n": 2,
     "best_rank": 43,
     "usd": 408
+   }
+  },
+  "401910005|ml": {
+   "away": {
+    "n": 1,
+    "best_rank": 43,
+    "usd": 456
    }
   },
   "401858527|total": {
