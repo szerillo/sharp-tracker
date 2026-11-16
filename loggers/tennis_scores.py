@@ -45,6 +45,7 @@ def parse(tour, ev, grp, c):
                        tb=[l.get('tiebreak') for l in x.get('linescores', [])]))
     rnd = (c.get('round') or {}).get('displayName') or (c.get('type') or {}).get('text')
     rec = dict(match_id=str(c.get('id')), tour=tour, tournament=ev.get('name'), tournament_id=ev.get('id'), draw=grp, round=rnd, start=c.get('date'),
+               checked_at=dt.datetime.now(dt.timezone.utc).isoformat().replace('+00:00', 'Z'),
                status=st.get('name'), detail=st.get('detail') or st.get('shortDetail'), venue=((c.get('venue') or {}).get('fullName')),
                p1=pl[0]['name'], p2=pl[1]['name'], p1_id=pl[0]['id'], p2_id=pl[1]['id'])
     if st.get('completed'):
