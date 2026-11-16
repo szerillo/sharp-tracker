@@ -6,7 +6,7 @@ Events: ESPN tour matches (data/tennis/schedule.json from loggers/tennis_scores.
 Challenger / ITF matches ESPN does not carry. Every vendor match is keyed by the two players' surnames and the date, so the
 same match lines up across venues whatever the first-name spelling ("T. Seyboth Wild" / "Thiago Seyboth Wild").
 event_id = the ESPN match id when ESPN has it, else "x:<YYYYMMDD>:<surname>-<surname>" (alphabetical). Sides: home = player 1
-(ESPN order; alphabetical for x: events), away = player 2. Ticks stop at the match start (ESPN, else Pinnacle).
+(ESPN order; alphabetical for x: events), away = player 2. Schedules refresh in place; ticks stop on live/final status, not an estimated start time.
 
 Markets (same tick format as loggers/lines.py, so the move tape and flow code read them unchanged):
   ml        match winner               Pinnacle (main matchup, period 0), Kalshi *MATCH series, Novig MONEY
@@ -27,6 +27,7 @@ TD = os.path.join(ROOT, 'data', 'tennis'); OUTD = os.path.join(TD, 'ticks5' if F
 EVENTS = os.path.join(TD, 'events.json'); KMETA = os.path.join(ROOT, 'data', 'kalshi', 'fast_meta_tennis.json')
 NOW = dt.datetime.now(dt.timezone.utc); TS = NOW.strftime('%Y-%m-%dT%H:%M:%SZ'); ET = __import__('zoneinfo').ZoneInfo('America/New_York')
 PIN = "https://guest.api.arcadia.pinnacle.com/0.1"; KAPI = "https://api.elections.kalshi.com/trade-api/v2"; NOVP = "https://api.novig.com/v3/public/catalog"
+from sharp import tennis_timing as timing
 HORIZON_H = 36
 K_MATCH = ['KXATPMATCH', 'KXWTAMATCH', 'KXATPCHALLENGERMATCH', 'KXWTACHALLENGERMATCH', 'KXITFMATCH', 'KXITFWMATCH']
 K_SET = ['KXATPSETWINNER', 'KXWTASETWINNER']
@@ -81,10 +82,14 @@ class Registry:
         self.ev = {k: v for k, v in old.items() if (v.get('start') or '9') >= cut[:10]}
         sp = os.path.join(TD, 'schedule.json')
         for k, m in (json.load(open(sp)) if os.path.exists(sp) else {}).items():
-            if not m.get('start') or m.get('status') in ('STATUS_FINAL',): continue
-            self.ev[k] = dict(event_id=k, start=m['start'], home=surname(m['p1']).upper(), away=surname(m['p2']).upper(),
-                              home_team=dict(displayName=m['p1']), away_team=dict(displayName=m['p2']), tour=m.get('tour'), tournament=m.get('tournament'),
-                              round=m.get('round'), source='espn')
+            if not m.get('start'): continue
+            e = self.ev.setdefault(k, dict(event_id=k))
+            e.update(home=surname(m['p1']).upper(), away=surname(m['p2']).upper(),
+                     home_team=dict(displayName=m['p1']), away_team=dict(displayName=m['p2']),
+                     tour=m.get('tour'), tournament=m.get('tournament'), round=m.get('round'), source='espn')
+            # Do not make a stale schedule look newly checked on every price run.
+            if m.get('checked_at'):
+                timing.observe(e, m['start'], 'espn', m.get('status'), NOW, m['checked_at'])
 
     def find(self, n1, n2, when):
         """-> (event_id, n1 is home) or (None, None). when: vendor start time (may be rough)."""
@@ -101,6 +106,8 @@ class Registry:
 
     def add(self, n1, n2, when, tour=None, tournament=None):
         """A match ESPN does not carry (Challenger / ITF), from Pinnacle or Novig (exact starts): synthetic id, alphabetical sides."""
+        existing, orient = self.find(n1, n2, when)
+        if existing: return existing, orient
         p = sorted([n1, n2], key=lambda n: surname(n))
         k = f"x:{when.astimezone(ET).strftime('%Y%m%d')}:{surname(p[0])}-{surname(p[1])}"
         if k not in self.ev:
@@ -108,8 +115,12 @@ class Registry:
                               home_team=dict(displayName=p[0]), away_team=dict(displayName=p[1]), tour=tour, tournament=tournament, source='pinnacle')
         return k, n1 == p[0]
 
+    def observe(self, k, when, source, status):
+        timing.observe(self.ev[k], when.strftime('%Y-%m-%dT%H:%M:%SZ'), source, status, NOW)
+
     def started(self, k):
-        e = self.ev.get(k); return bool(e) and ts(e['start']) <= NOW
+        # Unknown/stale timing is not permission to collect potentially live prices.
+        return not timing.pregame(self.ev.get(k, {}), NOW)
 
 
 ROWS = []
@@ -133,12 +144,13 @@ def pinnacle(R):
     for m in pm:
         if m.get('type') != 'matchup' or len(m.get('participants', [])) != 2: continue
         st = ts(m['startTime'])
-        if st <= NOW or st > NOW + dt.timedelta(hours=HORIZON_H): continue
+        if st < NOW - dt.timedelta(hours=36) or st > NOW + dt.timedelta(hours=HORIZON_H): continue
         ps = {p['alignment']: re.sub(r'\s*\((Games|Sets)\)\s*$', '', p['name']) for p in m['participants']}
         lg = (m.get('league') or {}).get('name') or ''
         if 'doubles' in lg.lower() or '/' in ps.get('home', ''): continue
         ev, o = R.find(ps['home'], ps['away'], st)
         if not ev: ev, o = R.add(ps['home'], ps['away'], st, tour=lg.split()[0] if lg else None, tournament=lg)
+        R.observe(ev, st, 'pinnacle', 'live' if m.get('isLive') else 'scheduled' if m.get('isLive') is False and m.get('status') == 'pending' else 'unknown')
         if R.ev[ev].get('source') == 'espn' and st < ts(R.ev[ev]['start']): R.ev[ev]['start_pin'] = m['startTime']
         side = {'home': 'home' if o else 'away', 'away': 'away' if o else 'home'}      # Pinnacle alignment -> registry side
         games = '(Games)' in m['participants'][0]['name']
@@ -175,7 +187,7 @@ def action_network(R):
             for c in x.get('competitions') or []:
                 if c.get('status') != 'scheduled': continue
                 st = ts(c['start_time'].replace('.000Z', 'Z'))
-                if st <= NOW or st > NOW + dt.timedelta(hours=HORIZON_H): continue
+                if st > NOW + dt.timedelta(hours=HORIZON_H): continue
                 cp = {p['id']: (p.get('player') or {}).get('full_name') for p in c.get('competitors') or []}
                 ah = {p['side']: cp[p['id']] for p in c.get('competitors') or []}
                 if not ah.get('home') or not ah.get('away'): continue
@@ -248,11 +260,12 @@ def novig(R, meta):
         for e in (nv('/events', f"league={lg}&status=OPEN_PREGAME&limit=500") or {}).get('items', []):
             if '@' not in e.get('description', ''): continue
             st = ts(e['startsTs'])
-            if st <= NOW or st > NOW + dt.timedelta(hours=HORIZON_H): continue
+            if st < NOW - dt.timedelta(hours=36) or st > NOW + dt.timedelta(hours=HORIZON_H): continue
             d = re.sub(ROUND_RE, '', e['description'])
             a, h = [s.strip() for s in d.split('@', 1)]
             ev, o = R.find(h, a, st)
             if not ev: ev, o = R.add(h, a, st, tour=lg, tournament=None); STATS['novig_new_events'] += 1     # Novig start times are exact
+            R.observe(ev, st, 'novig', e.get('status'))
             todo.append((ev, e))
             continue
     def mk_list(x):
