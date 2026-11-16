@@ -1,5 +1,5 @@
 {
- "built": "2026-11-16T09:42:53Z",
+ "built": "2026-11-16T10:13:07Z",
  "rows": [
   {
    "cond": "0x92e4d5e6d48986c1daa03069ca16489235744305f927dfaf1bfcb6094e633c0d",
@@ -44,52 +44,6 @@
      "Novig": 0.7,
      "DK": 0.7041,
      "FD": 0.7101
-    }
-   }
-  },
-  {
-   "cond": "0xc60598366a8358b18c8f9d81e2aa4bcb9ebd672fe4879b8026800ffcccd7c48b",
-   "slug": "nba-hou-mia-2026-11-16",
-   "title": "Rockets vs. Heat",
-   "mtype": "ml",
-   "start": "2026-11-17T00:30:00Z",
-   "bet": "Heat ML",
-   "side": "Heat",
-   "flagged": "2026-11-15T19:24:44Z",
-   "why": "a top-50 account",
-   "proven": false,
-   "trigger": "top50",
-   "n_accounts": 1,
-   "best_rank": 43,
-   "usd": 171,
-   "paid": 0.465,
-   "ask": 0.46,
-   "status": "live",
-   "link": "https://polymarket.us/event/nba-hou-mia-2026-11-16",
-   "other": null,
-   "kalshi_against": null,
-   "logged": true,
-   "event_id": "401909998",
-   "sport": "nba",
-   "league": null,
-   "away": "HOU",
-   "home": "MIA",
-   "away_name": "Houston Rockets",
-   "home_name": "Miami Heat",
-   "game_start": "2026-11-17T00:30Z",
-   "side_std": "home",
-   "money_with": false,
-   "grade": "watch",
-   "fair_board": 0.4542,
-   "inside_fair": false,
-   "books": {
-    "at": "2026-11-16T08:29:47Z",
-    "fair": 0.4542,
-    "q": {
-     "Novig": 0.46,
-     "DK": 0.4673,
-     "FD": 0.4762,
-     "Caesars": 0.4762
     }
    }
   },
@@ -234,8 +188,8 @@
    "link": "https://polymarket.us/event/nba-chi-cle-2026-11-16",
    "other": null,
    "kalshi_against": {
-    "move": 6.0,
-    "now": 23.0,
+    "move": 5.5,
+    "now": 22.5,
     "state": "reversed"
    },
    "logged": true,
@@ -265,6 +219,49 @@
      "Kalshi": 0.8
     }
    }
+  },
+  {
+   "cond": "0xc60598366a8358b18c8f9d81e2aa4bcb9ebd672fe4879b8026800ffcccd7c48b",
+   "slug": "nba-hou-mia-2026-11-16",
+   "title": "Rockets vs. Heat",
+   "mtype": "ml",
+   "start": "2026-11-17T00:30:00Z",
+   "bet": "Heat ML",
+   "side": "Heat",
+   "flagged": "2026-11-15T19:24:44Z",
+   "why": "a top-50 account",
+   "proven": false,
+   "trigger": "top50",
+   "n_accounts": 1,
+   "best_rank": 43,
+   "usd": 171,
+   "paid": 0.465,
+   "ask": 0.47,
+   "status": "other side",
+   "link": "https://polymarket.us/event/nba-hou-mia-2026-11-16",
+   "other": {
+    "n_accounts": 1,
+    "best_rank": 43,
+    "usd": 169,
+    "first": "2026-11-16T10:04:59Z"
+   },
+   "exit_bid": 0.46,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401909998",
+   "sport": "nba",
+   "league": null,
+   "away": "HOU",
+   "home": "MIA",
+   "away_name": "Houston Rockets",
+   "home_name": "Miami Heat",
+   "game_start": "2026-11-17T00:30Z",
+   "side_std": "home",
+   "money_with": false,
+   "grade": "watch",
+   "fair_board": 0.4542,
+   "inside_fair": false,
+   "books": null
   },
   {
    "cond": "0xa4205ef4d7859ca4bbfbe3bf42454f854489c4187133b895d17a21175d4d668b",
@@ -399,6 +396,11 @@
     "n": 1,
     "best_rank": 43,
     "usd": 171
+   },
+   "away": {
+    "n": 1,
+    "best_rank": 43,
+    "usd": 169
    }
   },
   "401909999|spread": {
