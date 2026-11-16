@@ -5910,19 +5910,16 @@
 },
 "401866465:cfb_road_dog_low_total": {
 "tag": "cfb_road_dog_low_total",
-"fill_id": "ab6f5f0d542a",
-"ts": "2026-11-13T14:52:35Z",
+"fill_id": "c946430ba509",
+"ts": "2026-11-15T23:56:12Z",
 "market": "spread",
 "side": "away",
-"line": 13.5,
-"venue": "Kalshi",
-"price": -122,
-"fair": null,
-"edge_pts": null,
-"why": "conference game, EMU +13.5 on the road, total 26.5",
-"void": true,
-"void_why": "rule no longer holds on the current line: home spread -1.5, total 38.5 (2026-11-13T17:57:06Z)",
-"void_at": "2026-11-13T17:57:06Z"
+"line": 14.5,
+"venue": "Novig",
+"price": -106,
+"fair": 0.50255,
+"edge_pts": -1.24,
+"why": "conference game, EMU +14.5 on the road, total 46.5"
 },
 "401892717:nhl_bounce_home_ml": {
 "tag": "nhl_bounce_home_ml",
@@ -6849,7 +6846,10 @@
 "price": 127,
 "fair": null,
 "edge_pts": null,
-"why": "conference game, ARK +13.5 on the road, total 47.5"
+"why": "conference game, ARK +13.5 on the road, total 47.5",
+"void": true,
+"void_why": "rule no longer holds on the current line: home spread -5.5, total 37.5 (2026-11-15T23:56:12Z)",
+"void_at": "2026-11-15T23:56:12Z"
 },
 "401856755:cfb_day_over": {
 "tag": "cfb_day_over",
@@ -6985,7 +6985,10 @@
 "price": -300,
 "fair": null,
 "edge_pts": null,
-"why": "conference game, UNLV on road game 2 in a row, +1.5, total 29.5"
+"why": "conference game, UNLV on road game 2 in a row, +1.5, total 29.5",
+"void": true,
+"void_why": "rule no longer holds on the current line: home spread 4.5, total 47.5 (2026-11-15T23:56:12Z)",
+"void_at": "2026-11-15T23:56:12Z"
 },
 "401869938:cfb_road_streak_dog": {
 "tag": "cfb_road_streak_dog",
@@ -7197,7 +7200,10 @@
 "price": 133,
 "fair": null,
 "edge_pts": null,
-"why": "home favourite TEX -7.5, total 37.5: under (mined angle)"
+"why": "home favourite TEX -7.5, total 37.5: under (mined angle)",
+"void": true,
+"void_why": "rule no longer holds on the current line: home spread -5.5, total 37.5 (2026-11-15T23:56:12Z)",
+"void_at": "2026-11-15T23:56:12Z"
 },
 "401909991:xch_homedog_fade:ml": {
 "tag": "xch_homedog_fade",
@@ -7212,38 +7218,56 @@
 "edge_pts": 0.11,
 "why": "Novig home side mid 0.253 inside T-1.2h; audit band 20-35c"
 },
+"401873075:nfl_fade_fav_bye": {
+"tag": "nfl_fade_fav_bye",
+"fill_id": "a2e7299752c4",
+"ts": "2026-11-15T23:56:12Z",
+"market": "spread",
+"side": "away",
+"line": 1.5,
+"venue": "Kalshi",
+"price": 194,
+"fair": null,
+"edge_pts": null,
+"why": "DEN (favourite) off 14 days: dog LV"
+},
+"401866465:cfb_day_over": {
+"tag": "cfb_day_over",
+"fill_id": "4ec5b7121101",
+"ts": "2026-11-15T23:56:12Z",
+"market": "total",
+"side": "over",
+"line": 46.5,
+"venue": "Novig",
+"price": -104,
+"fair": 0.4985,
+"edge_pts": -1.15,
+"why": "6:00 PM ET kickoff, total 46.5: over (mined angle)"
+},
 "401909992:xch_homedog_fade:ml": {
 "tag": "xch_homedog_fade",
-"fill_id": "ed1b666faa17",
-"ts": "2026-11-15T23:36:09Z",
+"fill_id": "2e11d360682d",
+"ts": "2026-11-15T23:56:12Z",
 "market": "ml",
 "side": "away",
 "line": null,
 "venue": "Novig",
 "price": -300,
-"fair": 0.74684,
-"edge_pts": -0.32,
-"why": "Novig home side mid 0.255 inside T-1.4h; audit band 20-35c",
-"now": {
-"venue": "Novig",
-"price": -300
-}
+"fair": 0.74767,
+"edge_pts": -0.23,
+"why": "Novig home side mid 0.253 inside T-1.1h; audit band 20-35c"
 },
 "401892722:xch_homedog_fade:spread": {
 "tag": "xch_homedog_fade",
-"fill_id": "1317bda83209",
-"ts": "2026-11-15T23:36:09Z",
+"fill_id": "df70fd135f2f",
+"ts": "2026-11-15T23:56:12Z",
 "market": "spread",
 "side": "away",
 "line": 1.5,
 "venue": "Novig",
 "price": -212,
-"fair": 0.67565,
-"edge_pts": -0.44,
-"why": "Novig home side mid 0.323 inside T-1.4h; audit band 20-35c",
-"now": {
-"venue": "Novig",
-"price": -212
-}
+"fair": 0.67571,
+"edge_pts": -0.43,
+"why": "Novig home side mid 0.323 inside T-1.1h; audit band 20-35c"
 }
 }
