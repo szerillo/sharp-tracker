@@ -1,52 +1,6 @@
 {
- "built": "2026-11-16T17:59:44Z",
+ "built": "2026-11-16T18:05:31Z",
  "rows": [
-  {
-   "cond": "0x92e4d5e6d48986c1daa03069ca16489235744305f927dfaf1bfcb6094e633c0d",
-   "slug": "nba-phi-bkn-2026-11-16",
-   "title": "76ers vs. Nets",
-   "mtype": "ml",
-   "start": "2026-11-17T00:30:00Z",
-   "bet": "76ers ML",
-   "side": "76ers",
-   "flagged": "2026-11-14T10:28:23Z",
-   "why": "a top-50 account",
-   "proven": true,
-   "trigger": "proven",
-   "n_accounts": 1,
-   "best_rank": 31,
-   "usd": 5100,
-   "paid": 0.66,
-   "ask": 0.68,
-   "status": "live",
-   "link": "https://polymarket.us/event/nba-phi-bkn-2026-11-16",
-   "other": null,
-   "kalshi_against": null,
-   "logged": true,
-   "event_id": "401909997",
-   "sport": "nba",
-   "league": null,
-   "away": "PHI",
-   "home": "BKN",
-   "away_name": "Philadelphia 76ers",
-   "home_name": "Brooklyn Nets",
-   "game_start": "2026-11-17T00:30Z",
-   "side_std": "away",
-   "money_with": false,
-   "grade": "watch",
-   "fair_board": 0.6734,
-   "inside_fair": false,
-   "books": {
-    "at": "2026-11-16T16:57:51Z",
-    "fair": 0.6734,
-    "q": {
-     "Novig": 0.675,
-     "DK": 0.6845,
-     "Caesars": 0.6923,
-     "FD": 0.697
-    }
-   }
-  },
   {
    "cond": "0x1e392b5d80711a000230f6eec6b7b67cf1b4a7ee793d83c8e432680e37217c4f",
    "slug": "nhl-mon-nyr-2026-11-16",
@@ -390,6 +344,49 @@
    "books": null
   },
   {
+   "cond": "0x92e4d5e6d48986c1daa03069ca16489235744305f927dfaf1bfcb6094e633c0d",
+   "slug": "nba-phi-bkn-2026-11-16",
+   "title": "76ers vs. Nets",
+   "mtype": "ml",
+   "start": "2026-11-17T00:30:00Z",
+   "bet": "76ers ML",
+   "side": "76ers",
+   "flagged": "2026-11-14T10:28:23Z",
+   "why": "a top-50 account",
+   "proven": true,
+   "trigger": "proven",
+   "n_accounts": 1,
+   "best_rank": 31,
+   "usd": 5100,
+   "paid": 0.66,
+   "ask": 0.64,
+   "status": "other side",
+   "link": "https://polymarket.us/event/nba-phi-bkn-2026-11-16",
+   "other": {
+    "n_accounts": 1,
+    "best_rank": 42,
+    "usd": 5516,
+    "first": "2026-11-16T18:00:14Z"
+   },
+   "exit_bid": 0.63,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401909997",
+   "sport": "nba",
+   "league": null,
+   "away": "PHI",
+   "home": "BKN",
+   "away_name": "Philadelphia 76ers",
+   "home_name": "Brooklyn Nets",
+   "game_start": "2026-11-17T00:30Z",
+   "side_std": "away",
+   "money_with": false,
+   "grade": "watch",
+   "fair_board": 0.6734,
+   "inside_fair": true,
+   "books": null
+  },
+  {
    "cond": "0xc60598366a8358b18c8f9d81e2aa4bcb9ebd672fe4879b8026800ffcccd7c48b",
    "slug": "nba-hou-mia-2026-11-16",
    "title": "Rockets vs. Heat",
@@ -398,14 +395,14 @@
    "bet": "Heat ML",
    "side": "Heat",
    "flagged": "2026-11-15T19:24:44Z",
-   "why": "a top-50 account",
+   "why": "3 top-200 accounts",
    "proven": false,
-   "trigger": "top50",
-   "n_accounts": 1,
-   "best_rank": 43,
-   "usd": 171,
-   "paid": 0.465,
-   "ask": 0.44,
+   "trigger": "two",
+   "n_accounts": 3,
+   "best_rank": 42,
+   "usd": 14471,
+   "paid": 0.44,
+   "ask": 0.46,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-hou-mia-2026-11-16",
    "other": {
@@ -414,7 +411,7 @@
     "usd": 64387,
     "first": "2026-11-16T10:04:59Z"
    },
-   "exit_bid": 0.43,
+   "exit_bid": 0.45,
    "kalshi_against": null,
    "logged": true,
    "event_id": "401909998",
@@ -427,7 +424,7 @@
    "game_start": "2026-11-17T00:30Z",
    "side_std": "home",
    "money_with": false,
-   "grade": "watch",
+   "grade": "B",
    "fair_board": 0.4345,
    "inside_fair": false,
    "books": null
@@ -600,6 +597,11 @@
     "n": 1,
     "best_rank": 76,
     "usd": 786
+   },
+   "home": {
+    "n": 1,
+    "best_rank": 43,
+    "usd": 10084
    }
   },
   "401909997|ml": {
@@ -607,6 +609,11 @@
     "n": 1,
     "best_rank": 31,
     "usd": 5100
+   },
+   "home": {
+    "n": 1,
+    "best_rank": 42,
+    "usd": 116
    }
   },
   "401909997|spread": {
@@ -618,9 +625,9 @@
   },
   "401909998|ml": {
    "home": {
-    "n": 1,
-    "best_rank": 43,
-    "usd": 171
+    "n": 3,
+    "best_rank": 42,
+    "usd": 14471
    },
    "away": {
     "n": 2,
