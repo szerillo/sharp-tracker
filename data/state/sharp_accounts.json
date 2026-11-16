@@ -1,5 +1,5 @@
 {
- "built": "2026-11-16T00:59:09Z",
+ "built": "2026-11-16T01:04:55Z",
  "rows": [
   {
    "cond": "0x3b773f3b5203b36a388f1a3f242b5012e7d4eb0b8fd6f3773f23185485b99c8f",
@@ -583,7 +583,7 @@
    "best_rank": 79,
    "usd": 5355,
    "paid": 0.45,
-   "ask": 0.46,
+   "ask": null,
    "status": "live",
    "link": "https://polymarket.us/event/nhl-fla-dal-2026-11-15",
    "other": null,
@@ -795,49 +795,6 @@
    }
   },
   {
-   "cond": "0x871a326d71e52ccaa1dd2d558e2ec507f6a197e64d8834864f9198ad5f7069ad",
-   "slug": "nba-lal-phx-2026-11-15",
-   "title": "Lakers vs. Suns",
-   "mtype": "ml",
-   "start": "2026-11-15T21:00:00Z",
-   "bet": "Suns ML",
-   "side": "Suns",
-   "flagged": "2026-11-14T19:56:37Z",
-   "why": "2 top-200 accounts",
-   "proven": false,
-   "trigger": "two",
-   "n_accounts": 2,
-   "best_rank": 43,
-   "usd": 509,
-   "paid": 0.4,
-   "ask": null,
-   "status": "other side",
-   "link": "https://polymarket.us/event/nba-lal-phx-2026-11-15",
-   "other": {
-    "n_accounts": 2,
-    "best_rank": 43,
-    "usd": 4807,
-    "first": "2026-11-15T11:42:49Z"
-   },
-   "exit_bid": null,
-   "kalshi_against": null,
-   "logged": true,
-   "event_id": "401909986",
-   "sport": "nba",
-   "league": null,
-   "away": "LAL",
-   "home": "PHX",
-   "away_name": "Los Angeles Lakers",
-   "home_name": "Phoenix Suns",
-   "game_start": "2026-11-15T21:00Z",
-   "side_std": "home",
-   "money_with": false,
-   "grade": "B",
-   "fair_board": null,
-   "inside_fair": null,
-   "books": null
-  },
-  {
    "cond": "0xb69fe3437bcc8c68cca5ef13f157052728db8470a5260041c7f3f2e76a71432f",
    "slug": "nba-nyk-tor-2026-11-15",
    "title": "Knicks vs. Raptors",
@@ -939,13 +896,13 @@
    "best_rank": 43,
    "usd": 197,
    "paid": 0.73,
-   "ask": 0.68,
+   "ask": 0.83,
    "status": "live",
    "link": "https://polymarket.us/event/nba-orl-bos-2026-11-16",
    "other": null,
    "kalshi_against": {
-    "move": 9.0,
-    "now": 27.5,
+    "move": 12.5,
+    "now": 31.0,
     "state": "held"
    },
    "logged": true,
@@ -994,8 +951,8 @@
    "link": "https://polymarket.us/event/nba-chi-cle-2026-11-16",
    "other": null,
    "kalshi_against": {
-    "move": 7.5,
-    "now": 24.5,
+    "move": 4.5,
+    "now": 21.5,
     "state": "reversed"
    },
    "logged": true,
@@ -1052,7 +1009,7 @@
    "kalshi_against": {
     "move": 8.0,
     "now": 66.0,
-    "state": "fresh"
+    "state": "held"
    },
    "logged": true,
    "event_id": "401910000",
@@ -1089,15 +1046,15 @@
     "clv": -0.56
    }
   },
-  "n": 292,
+  "n": 293,
   "won": 128,
-  "units": -15.81,
+  "units": -16.35,
   "by_grade": {
    "A": {
-    "n": 191,
+    "n": 192,
     "won": 77,
-    "units": -14.61,
-    "clv": -0.49
+    "units": -15.16,
+    "clv": -0.46
    },
    "B": {
     "n": 72,
@@ -1112,23 +1069,14 @@
     "clv": -0.6
    }
   },
-  "units_1u": -47.33,
-  "clv": -0.76,
-  "n_venue": 137,
-  "units_venue": -5.32,
-  "clv_venue": 0.57,
-  "clv_poly_same": -1.05
+  "units_1u": -48.33,
+  "clv": -0.74,
+  "n_venue": 138,
+  "units_venue": -5.86,
+  "clv_venue": 0.6,
+  "clv_poly_same": -1.01
  },
- "sys_tags": {
-  "401892722:nhl_early_home_fav_qual": {
-   "with": null,
-   "against": {
-    "n": 1,
-    "best_rank": 79,
-    "usd": 5355
-   }
-  }
- },
+ "sys_tags": {},
  "by_event": {
   "401873064|ml": {
    "home": {
@@ -1137,11 +1085,11 @@
     "usd": 124
    }
   },
-  "401909992|total": {
-   "under": {
-    "n": 2,
-    "best_rank": 58,
-    "usd": 674
+  "401909993|spread": {
+   "away": {
+    "n": 1,
+    "best_rank": 112,
+    "usd": 8241
    }
   },
   "401909994|ml": {
@@ -1189,13 +1137,6 @@
     "n": 2,
     "best_rank": 43,
     "usd": 408
-   }
-  },
-  "401892722|ml": {
-   "away": {
-    "n": 1,
-    "best_rank": 79,
-    "usd": 5355
    }
   },
   "401892724|ml": {
