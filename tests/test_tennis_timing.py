@@ -66,6 +66,14 @@ class TennisTimingTests(unittest.TestCase):
             self.assertEqual(k, k2); self.assertEqual(len(r.ev), 1)
             self.assertEqual(T.timestamp(r.ev[k]['start']), later)
 
+    def test_legacy_schedule_without_checked_at_still_has_start(self):
+        with tempfile.TemporaryDirectory() as td, patch.object(L, 'TD', td), patch.object(L, 'EVENTS', str(Path(td)/'events.json')), patch.object(L, 'NOW', NOW):
+            Path(td, 'schedule.json').write_text(json.dumps({'123': {'start':'2026-11-17T12:00:00Z','p1':'A. Player','p2':'B. Other','status':'STATUS_SCHEDULED'}}))
+            r = L.Registry()
+            self.assertEqual(r.ev['123']['start'], '2026-11-17T12:00:00Z')
+            self.assertIsNotNone(r.find('A. Player','B. Other', NOW)[0])
+            self.assertTrue(r.started('123'))  # unconfirmed, do not ingest possibly live quotes
+
     def test_no_ticks_from_live_unknown_or_stale_matches(self):
         with tempfile.TemporaryDirectory() as td, patch.object(L, 'TD', td), patch.object(L, 'EVENTS', str(Path(td)/'events.json')), patch.object(L, 'NOW', NOW), patch.object(L, 'ROWS', []):
             r = L.Registry(); k, _ = r.add('A. Player', 'B. Other', NOW)
