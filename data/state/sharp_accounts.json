@@ -1,5 +1,5 @@
 {
- "built": "2026-11-16T15:03:31Z",
+ "built": "2026-11-16T14:56:35Z",
  "rows": [
   {
    "cond": "0x92e4d5e6d48986c1daa03069ca16489235744305f927dfaf1bfcb6094e633c0d",
@@ -257,7 +257,11 @@
     "first": "2026-11-16T13:10:53Z"
    },
    "exit_bid": 0.76,
-   "kalshi_against": null,
+   "kalshi_against": {
+    "move": 5.0,
+    "now": 23.5,
+    "state": "reversed"
+   },
    "logged": true,
    "event_id": "401909994",
    "sport": "nba",
