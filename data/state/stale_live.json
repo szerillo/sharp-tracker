@@ -1,60 +1,18 @@
 {
- "built": "2026-11-16T02:08:08Z",
+ "built": "2026-11-16T02:21:03Z",
  "record": {
-  "n": 144,
+  "n": 145,
   "won": 57,
-  "lost": 87,
-  "units": -4.75,
-  "roi": -13.2
+  "lost": 88,
+  "units": -5.0,
+  "roi": -13.8
  },
  "record_sb4": {
-  "n": 4,
+  "n": 5,
   "won": 2,
-  "lost": 2,
-  "units": -0.07,
-  "roi": -7.0
+  "lost": 3,
+  "units": -0.32,
+  "roi": -25.6
  },
- "rows": [
-  {
-   "key": "sb4|401909990|ml|home",
-   "kind": "sb4",
-   "sport": "nba",
-   "event_id": "401909990",
-   "game": "NY @ TOR",
-   "start": "2026-11-15T23:00Z",
-   "market": "ml",
-   "side": "home",
-   "line": null,
-   "venue": "DK",
-   "price": 0.3584,
-   "fair": 0.3886,
-   "fair_power": 0.3844,
-   "venue_fair": 0.344,
-   "fair_gap": 4.5,
-   "ev": 8.4,
-   "move": 4.6,
-   "flagged": "2026-11-15T22:00:42Z",
-   "team": "TOR"
-  },
-  {
-   "key": "401909990|ml|home",
-   "sport": "nba",
-   "event_id": "401909990",
-   "game": "NY @ TOR",
-   "start": "2026-11-15T23:00Z",
-   "market": "ml",
-   "side": "home",
-   "line": null,
-   "venue": "DK",
-   "price": 0.3584,
-   "fair": 0.3886,
-   "fair_power": 0.3844,
-   "venue_fair": 0.344,
-   "fair_gap": 4.5,
-   "ev": 8.4,
-   "move": 4.6,
-   "flagged": "2026-11-15T22:00:42Z",
-   "team": "TOR"
-  }
- ]
+ "rows": []
 }
