@@ -1,5 +1,5 @@
 {
- "built": "2026-11-16T01:32:19Z",
+ "built": "2026-11-16T01:45:21Z",
  "rows": [
   {
    "cond": "0x851e0c5fc2bd239af2ff1fde68825e3afcdef1ee3427972bd4fd23e3ebd348bb",
@@ -345,10 +345,7 @@
    "home_name": "Cincinnati Bengals",
    "game_start": "2026-11-16T01:20Z",
    "side_std": "home",
-   "conflict": [
-    "Kalshi bet back"
-   ],
-   "money_with": true,
+   "money_with": false,
    "grade": "A",
    "inside_fair": false,
    "fair_board": 0.6347,
@@ -425,7 +422,7 @@
    "best_rank": 43,
    "usd": 197,
    "paid": 0.73,
-   "ask": 0.82,
+   "ask": 0.8,
    "status": "live",
    "link": "https://polymarket.us/event/nba-orl-bos-2026-11-16",
    "other": null,
@@ -645,8 +642,8 @@
    "link": "https://polymarket.us/event/nba-chi-cle-2026-11-16",
    "other": null,
    "kalshi_against": {
-    "move": 6.0,
-    "now": 23.0,
+    "move": 6.5,
+    "now": 23.5,
     "state": "reversed"
    },
    "logged": true,
@@ -700,11 +697,7 @@
     "first": "2026-11-13T10:27:49Z"
    },
    "exit_bid": 0.45,
-   "kalshi_against": {
-    "move": 7.5,
-    "now": 65.5,
-    "state": "held"
-   },
+   "kalshi_against": null,
    "logged": true,
    "event_id": "401910000",
    "sport": "nba",
@@ -715,9 +708,6 @@
    "home_name": "New Orleans Pelicans",
    "game_start": "2026-11-17T01:00Z",
    "side_std": "home",
-   "conflict": [
-    "Kalshi move"
-   ],
    "money_with": false,
    "grade": "B",
    "fair_board": null,
