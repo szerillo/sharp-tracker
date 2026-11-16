@@ -293,6 +293,9 @@ def main():
             bets.append(dict(id=f"wc:{p['key']}", src='paper', cat='paper P', rule=p['rule'], sport='wncaab', event_id=p.get('espn') or p['event_id'], game=p['game'],
                              start=p['start'], market='spread', side=p['side'], line=p['line'], flagged=p['flagged'], venue=p['book'], price=p['price'],
                              won=W_(p.get('won')), bet=p.get('bet')))
+    # Current schedule, not immutable flag-time estimates, drives upcoming tennis.
+    from sharp.tennis_timing import reconcile_bet
+    for b in bets: reconcile_bet(b, S, dt.datetime.now(dt.timezone.utc))
     # ---- price paths
     # 11/7 (Sean: "have it update quicker"): the tape is the slow part (43.7M tick lines a run, 95% of this step). A game 12+ hours past its
     # start has a final close, CLV and line movement, so those fields are kept in data/state/bet_paths.json and its tape is not read again.
