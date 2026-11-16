@@ -7439,19 +7439,16 @@
 },
 "401909997:nba_under_good_home_over_small": {
 "tag": "nba_under_good_home_over_small",
-"fill_id": "b03853c98d6e",
-"ts": "2026-11-16T16:53:47Z",
+"fill_id": "82fb0e8a31b0",
+"ts": "2026-11-16T20:51:53Z",
 "market": "total",
 "side": "under",
 "line": 226.5,
 "venue": "Novig",
 "price": -106,
-"fair": 0.51164,
-"edge_pts": -0.34,
-"why": "home BKN over rate 58%, days since last game: home 2, visitor 1; total 227.5 -> 226.5",
-"void": true,
-"void_why": "trigger no longer holds on current season records (2026-11-16T17:54:21Z)",
-"void_at": "2026-11-16T17:54:21Z"
+"fair": 0.50739,
+"edge_pts": -0.76,
+"why": "home BKN over rate 58%, days since last game: home 2, visitor 1; total 227.5 -> 226.5"
 },
 "401873076:nfl_fade_fav_bye": {
 "tag": "nfl_fade_fav_bye",
@@ -7477,7 +7474,10 @@
 "price": -105,
 "fair": 0.49304,
 "edge_pts": -1.92,
-"why": "home BKN over rate 58%, days since last game: home 2, visitor 1; total 227.5 -> 226.0"
+"why": "home BKN over rate 58%, days since last game: home 2, visitor 1; total 227.5 -> 226.0",
+"void": true,
+"void_why": "trigger no longer holds on current season records (2026-11-16T20:51:53Z)",
+"void_at": "2026-11-16T20:51:53Z"
 },
 "401910001:nba_roadtrip_over": {
 "tag": "nba_roadtrip_over",
