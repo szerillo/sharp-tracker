@@ -7384,7 +7384,10 @@
 "price": -113,
 "fair": 0.50232,
 "edge_pts": -2.77,
-"why": "4:00 PM ET kickoff, total 45.5: over (mined angle)"
+"why": "4:00 PM ET kickoff, total 45.5: over (mined angle)",
+"void": true,
+"void_why": "rule no longer holds on the current line: home spread -25.5, total 43.5 (2026-11-17T17:54:10Z)",
+"void_at": "2026-11-17T17:54:10Z"
 },
 "401860919:cfb_homefav_7510_under": {
 "tag": "cfb_homefav_7510_under",
@@ -7880,5 +7883,18 @@
 "fair": 0.545,
 "edge_pts": -3.5,
 "why": "home favorite, game 23 of the season, opponent DAL wins 60% (12-8)"
+},
+"401892741:nhl_early_home_fav_qual": {
+"tag": "nhl_early_home_fav_qual",
+"fill_id": "a0339d4669bb",
+"ts": "2026-11-17T17:54:10Z",
+"market": "ml",
+"side": "home",
+"line": null,
+"venue": "Kalshi",
+"price": -104,
+"fair": 0.50145,
+"edge_pts": -0.86,
+"why": "home favorite, game 23 of the season, opponent COL wins 57% (12-9)"
 }
 }
