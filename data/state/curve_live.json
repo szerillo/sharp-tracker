@@ -1,5 +1,5 @@
 {
- "built": "2026-11-17T20:54:49Z",
+ "built": "2026-11-17T21:05:52Z",
  "record": {
   "cbb_1h_total_curve": {
    "n": 5,
@@ -87,5 +87,35 @@
    }
   }
  },
- "rows": []
+ "rows": [
+  {
+   "key": "cbb_1h_total_curve|7a85a1ae1355a8d9ca51c417db95f5ff||over",
+   "rule": "cbb_1h_total_curve",
+   "tier": "C",
+   "stake": 0.25,
+   "sport": "cbb",
+   "odds_id": "7a85a1ae1355a8d9ca51c417db95f5ff",
+   "espn": null,
+   "game": "Ball State Cardinals @ Florida St Seminoles",
+   "start": "2026-11-18T00:00:00Z",
+   "market": "totals_h1",
+   "team": null,
+   "team_name": null,
+   "side": "over",
+   "line": 70.5,
+   "curve": 0.572,
+   "pin_fair": 0.495,
+   "gap": 7.7,
+   "full_total": 150.5,
+   "full_spread": -26.5,
+   "pin_price": 1.93,
+   "book": "Caesars",
+   "price": 1.87,
+   "pin_fair_power": 0.4944,
+   "book_fair": 0.5,
+   "fair_gap": -0.5,
+   "ev_curve": 6.9,
+   "flagged": "2026-11-17T21:05:52Z"
+  }
+ ]
 }
