@@ -240,6 +240,25 @@ def main():
             bets.append(dict(id=f"{'th' if rule == 'tennis_hot_fav' else 'td'}:{p['event_id']}", src='tennis', cat='system B' if live else 'paper P', rule=rule, sport='tennis', event_id=p['event_id'],   # 11/5 (Sean): settled favourites are tier B, 0.5u
                              game=f"{p.get('fav_name')} vs {p.get('opp_name')}", start=p['start'], market='ml', side=side, line=None, flagged=p['ts'], venue=p['venue'], price=p['price'],
                              won=None if not g_ else (1 if g_['won'] else 0), bet=f"{pick} to win"))
+    # Serve-profile logs are simulated records, not exchange fill evidence.
+    sp = os.path.join(ROOT, 'data', 'tennis', 'serve_paper.jsonl')
+    sg = os.path.join(ROOT, 'data', 'tennis', 'serve_graded.json')
+    if os.path.exists(sp):
+        GS = {g['event_id']: g for g in (json.load(open(sg)) if os.path.exists(sg) else [])}
+        seen_serve = set()
+        for line in open(sp):
+            p = json.loads(line)
+            key = (p['event_id'], p['rule'], p['side'])
+            if key in seen_serve: continue
+            seen_serve.add(key)
+            g_ = GS.get(p['event_id'])
+            bets.append(dict(id=f"tv:{p['event_id']}:{p['rule']}", src='tennis', cat='paper P',
+                             rule=p['rule'], sport='tennis', event_id=p['event_id'],
+                             game=f"{p.get('fav_name')} vs {p.get('opp_name')}", start=p['start'],
+                             market='ml', side=p['side'], line=None, flagged=p['ts'],
+                             venue=p['venue'], price=p['price'],
+                             won=None if not g_ else (1 if g_['won'] else 0),
+                             bet=f"{p.get('pick_name')} to win"))
     # ---- MMA steam favourite (11/5, tier C 0.25u): sharp/mma_steam.py paper log, graded from ESPN
     mp = os.path.join(ROOT, 'data', 'mma', 'steam_paper.jsonl'); mg = os.path.join(ROOT, 'data', 'mma', 'steam_graded.json')
     if os.path.exists(mp):
