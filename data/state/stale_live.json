@@ -1,5 +1,5 @@
 {
- "built": "2026-11-17T16:18:03Z",
+ "built": "2026-11-17T16:29:05Z",
  "record": {
   "n": 152,
   "won": 61,
@@ -114,6 +114,66 @@
    "move": 3.7,
    "flagged": "2026-11-17T15:15:21Z",
    "team": "IU"
+  },
+  {
+   "key": "401906851|total|under",
+   "sport": "cbb",
+   "event_id": "401906851",
+   "game": "MSU @ TENN",
+   "start": "2026-11-18T02:00Z",
+   "market": "total",
+   "side": "under",
+   "line": 149.5,
+   "venue": "Novig",
+   "price": 0.5,
+   "fair": 0.5118,
+   "fair_power": 0.5127,
+   "venue_fair": 0.4902,
+   "fair_gap": 2.2,
+   "ev": 2.4,
+   "move": 1.8,
+   "flagged": "2026-11-17T16:29:05Z",
+   "team": null
+  },
+  {
+   "key": "401925775|ml|away",
+   "sport": "cbb",
+   "event_id": "401925775",
+   "game": "CLT @ DAV",
+   "start": "2026-11-18T00:00Z",
+   "market": "ml",
+   "side": "away",
+   "line": null,
+   "venue": "Novig",
+   "price": 0.39,
+   "fair": 0.4025,
+   "fair_power": 0.3967,
+   "venue_fair": 0.3881,
+   "fair_gap": 1.4,
+   "ev": 3.2,
+   "move": 1.6,
+   "flagged": "2026-11-17T16:29:05Z",
+   "team": "CLT"
+  },
+  {
+   "key": "401909504|spread|home",
+   "sport": "cbb",
+   "event_id": "401909504",
+   "game": "UMES @ DEP",
+   "start": "2026-11-18T01:00Z",
+   "market": "spread",
+   "side": "home",
+   "line": -32.5,
+   "venue": "Novig",
+   "price": 0.48,
+   "fair": 0.5,
+   "fair_power": 0.5,
+   "venue_fair": 0.4706,
+   "fair_gap": 2.9,
+   "ev": 4.2,
+   "move": 1.1,
+   "flagged": "2026-11-17T16:29:05Z",
+   "team": "DEP"
   }
  ]
 }
