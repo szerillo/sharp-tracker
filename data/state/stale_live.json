@@ -1,11 +1,11 @@
 {
- "built": "2026-11-17T03:53:11Z",
+ "built": "2026-11-17T04:04:26Z",
  "record": {
-  "n": 150,
-  "won": 59,
+  "n": 151,
+  "won": 60,
   "lost": 91,
-  "units": -5.19,
-  "roi": -13.9
+  "units": -4.94,
+  "roi": -13.1
  },
  "record_sb4": {
   "n": 6,
@@ -15,26 +15,6 @@
   "roi": -38.0
  },
  "rows": [
-  {
-   "key": "401909999|total|under",
-   "sport": "nba",
-   "event_id": "401909999",
-   "game": "POR @ MIN",
-   "start": "2026-11-17T01:00Z",
-   "market": "total",
-   "side": "under",
-   "line": 228.5,
-   "venue": "Novig",
-   "price": 0.5,
-   "fair": 0.5136,
-   "fair_power": 0.5142,
-   "venue_fair": 0.495,
-   "fair_gap": 1.9,
-   "ev": 2.7,
-   "move": 1.6,
-   "flagged": "2026-11-16T10:51:18Z",
-   "team": null
-  },
   {
    "key": "401892727|total|under",
    "sport": "nhl",
@@ -54,6 +34,46 @@
    "move": 1.9,
    "flagged": "2026-11-17T00:51:47Z",
    "team": null
+  },
+  {
+   "key": "401910005|total|over",
+   "sport": "nba",
+   "event_id": "401910005",
+   "game": "CHA @ LAL",
+   "start": "2026-11-18T04:00Z",
+   "market": "total",
+   "side": "over",
+   "line": 218.5,
+   "venue": "Novig",
+   "price": 0.48,
+   "fair": 0.5023,
+   "fair_power": 0.5024,
+   "venue_fair": 0.4776,
+   "fair_gap": 2.5,
+   "ev": 4.6,
+   "move": 1.4,
+   "flagged": "2026-11-17T04:04:26Z",
+   "team": null
+  },
+  {
+   "key": "401892729|ml|away",
+   "sport": "nhl",
+   "event_id": "401892729",
+   "game": "WSH @ TB",
+   "start": "2026-11-18T00:30Z",
+   "market": "ml",
+   "side": "away",
+   "line": null,
+   "venue": "Novig",
+   "price": 0.4,
+   "fair": 0.4097,
+   "fair_power": 0.4057,
+   "venue_fair": 0.398,
+   "fair_gap": 1.2,
+   "ev": 2.4,
+   "move": 1.2,
+   "flagged": "2026-11-17T04:04:26Z",
+   "team": "WSH"
   }
  ]
 }
