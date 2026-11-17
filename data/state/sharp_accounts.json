@@ -1,5 +1,5 @@
 {
- "built": "2026-11-17T22:40:40Z",
+ "built": "2026-11-17T22:47:14Z",
  "rows": [
   {
    "cond": "0xb5346e4b9327fb397a12afb8993956855abe75a8cd43428b85cedca83c66e38c",
@@ -119,6 +119,49 @@
      "Caesars": 0.5556,
      "DK": 0.5556,
      "FD": 0.5575
+    }
+   }
+  },
+  {
+   "cond": "0x5a0f5d9fe61995f5be0d507ba01d04d13a777af579dc8185c291dfcdbeb5e8ea",
+   "slug": "cfb-miaoh-kentst-2026-11-17",
+   "title": "Miami (OH) vs. Kent State",
+   "mtype": "total",
+   "start": "2026-11-18T00:00:00Z",
+   "bet": "Over 45.5",
+   "side": "Over",
+   "flagged": "2026-11-17T22:40:37Z",
+   "why": "a top-200 account also in this sport's top 50",
+   "proven": true,
+   "trigger": "proven",
+   "n_accounts": 1,
+   "best_rank": 115,
+   "usd": 662,
+   "paid": 0.49,
+   "ask": 0.5,
+   "status": "live",
+   "link": "https://polymarket.us/event/cfb-miaoh-kentst-2026-11-17",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401866466",
+   "sport": "cfb",
+   "league": null,
+   "away": "M-OH",
+   "home": "KENT",
+   "away_name": "Miami (OH) RedHawks",
+   "home_name": "Kent State Golden Flashes",
+   "game_start": "2026-11-18T00:00Z",
+   "side_std": "over",
+   "money_with": false,
+   "grade": "A",
+   "fair_board": null,
+   "inside_fair": null,
+   "books": {
+    "at": "2026-11-17T21:57:16Z",
+    "fair": null,
+    "q": {
+     "FD": 0.5122
     }
    }
   },
@@ -423,16 +466,16 @@
    "best_rank": 43,
    "usd": 35577,
    "paid": 0.582,
-   "ask": 0.62,
+   "ask": 0.58,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-nyk-tor-2026-11-17",
    "other": {
     "n_accounts": 2,
     "best_rank": 43,
-    "usd": 11577,
+    "usd": 32388,
     "first": "2026-11-17T19:24:38Z"
    },
-   "exit_bid": 0.61,
+   "exit_bid": 0.57,
    "kalshi_against": null,
    "logged": true,
    "event_id": "401910002",
@@ -466,16 +509,16 @@
    "best_rank": 12,
    "usd": 16271,
    "paid": 0.539,
-   "ask": 0.56,
+   "ask": 0.53,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-nyk-tor-2026-11-17",
    "other": {
     "n_accounts": 1,
     "best_rank": 112,
-    "usd": 5495,
+    "usd": 6954,
     "first": "2026-11-17T19:46:04Z"
    },
-   "exit_bid": 0.55,
+   "exit_bid": 0.52,
    "kalshi_against": null,
    "logged": true,
    "event_id": "401910002",
@@ -933,6 +976,13 @@
     "n": 1,
     "best_rank": 110,
     "usd": 907
+   }
+  },
+  "401866466|total": {
+   "over": {
+    "n": 1,
+    "best_rank": 115,
+    "usd": 662
    }
   },
   "401858527|total": {
