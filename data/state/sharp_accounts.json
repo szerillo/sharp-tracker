@@ -1,5 +1,5 @@
 {
- "built": "2026-11-17T05:51:02Z",
+ "built": "2026-11-17T06:04:44Z",
  "rows": [
   {
    "cond": "0x293f36d9dcf13d2126b1d188973ce9742ac3b569bc4d9e586f9dad46601091f1",
@@ -325,6 +325,14 @@
     "best_rank": 69,
     "usd": 345
    }
+  },
+  "401910005:nba_ats_hot_home": {
+   "with": null,
+   "against": {
+    "n": 1,
+    "best_rank": 119,
+    "usd": 295
+   }
   }
  },
  "by_event": {
@@ -345,6 +353,13 @@
     "n": 4,
     "best_rank": 42,
     "usd": 2387
+   }
+  },
+  "401910005|spread": {
+   "away": {
+    "n": 1,
+    "best_rank": 119,
+    "usd": 295
    }
   },
   "401910009|ml": {
