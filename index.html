@@ -1515,7 +1515,7 @@ const BLW = {all: ['All dates', () => true], live: ['In progress', b => ['live',
 // 11/5 (Sean): the tracker is organised sport first, then group (Systems / Sharp / Paper rules); the rules or grades of a group appear
 // only once the group is picked, and only for the chosen sport. Tennis is a sport, not a category. Records are coloured.
 const BLG = {all: 'All bets', systems: 'Systems', sharp: 'Sharp', paper: 'Paper rules'};
-const blGroup = b => b.cat === 'paper P' ? 'paper' : /^sharp/.test(b.cat) ? 'sharp' : ['system A', 'system B', 'lean C', 'tennis'].includes(b.cat) ? 'systems' : 'watch';
+const blGroup = b => b.sport === 'tennis' ? (b.rule === 'tennis_serve_dog' ? 'systems' : 'paper') : b.cat === 'paper P' ? 'paper' : /^sharp/.test(b.cat) ? 'sharp' : ['system A', 'system B', 'lean C', 'tennis'].includes(b.cat) ? 'systems' : 'watch';
 const blRule = b => b.rule ? String(b.rule).split(' | ')[0] : (b.cat === 'tennis' ? 'tennis_hot_fav' : null);
 // 11/14 (Sean): short, consistent rule names: sport first, then the bet in a few words. The long rule text stays on the Systems page.
 const RULE_NAME = {
@@ -1535,6 +1535,7 @@ const RULE_NAME = {
   cbb_1h_total_curve: 'CBB 1H total', cbb_bigloss_vs_top5: 'CBB bounce-back vs a top 5', cbb_under_good_over_drop: 'CBB under, total dropped',
   wncaab_dog_7_10: 'WCBB dog +7 to +10', wncaab_move_follow: 'WCBB follow the move',
   mlb_road_over_under: 'MLB over-team under', mma_steam_fav: 'MMA steam favorite',
+  tennis_serve_dog: 'Tennis big-serving underdog', tennis_serve_fav: 'Tennis favorite vs bigger server',
   tennis_hot_fav: 'Tennis hot favorite', tennis_hot_dog: 'Tennis hot dog', tennis_fs_fav: 'Tennis first-set favorite',
   xch_homedog_fade: 'Fade the home dog (exchange)', stale_book: 'Stale book price', stale_book_sb4: 'Stale book moneyline (4%+)'};
 const ruleName = r => RULE_NAME[r] || String(r).replace(/_/g, ' ');
@@ -1548,14 +1549,14 @@ window._lg = window._lg || 'bets'; window._ls = window._ls || 'all'; window._lsu
 window._lr = window._lr || 'all'; window._lh = window._lh || 'play'; window._lsig = window._lsig || 'all'; window._lq = window._lq || ''; window._ldet = window._ldet || false;
 window.setTF = (k, v) => { window[k] = v; if (k === '_lg' || k === '_ls') window._lsub = 'all'; draw(); };
 window.clearTF = () => { Object.assign(window, {_lh: 'play', _ls: 'all', _lsub: 'all', _lw: 'all', _lm: 'all', _lr: 'all', _lsig: 'all', _lq: ''}); draw(); };
-const tierLetter = b => (/^(system|lean|paper|sharp) ([ABCP])$/.exec(b.cat || '') || [])[2] || (b.cat === 'tennis' ? 'B' : '');
+const tierLetter = b => b.sport === 'tennis' ? (b.rule === 'tennis_serve_dog' ? 'B' : 'C') : (/^(system|lean|paper|sharp) ([ABCP])$/.exec(b.cat || '') || [])[2] || (b.cat === 'tennis' ? 'B' : '');
 function renderBetLog() {
   if (!BL) return '<div class="banner">The bet tracker builds with the next tracker run.</div>';
   BLW.w7 = BLW.w7 || ['Last 7 days', b => { const t = new Date(b.start); return t <= Date.now() && Date.now() - t <= 7 * 864e5; }];
   const GRP = {bets: ['Bets', b => blGroup(b) === 'systems'], sharp: ['Sharp flags', b => blGroup(b) === 'sharp' && b.cat !== 'sharp watch'], paper: ['Paper rules', b => blGroup(b) === 'paper']};
   if (!GRP[_lg]) window._lg = 'bets';
-  const MF = {all: 'Any bet type', ml: 'Moneyline', spread: 'Spread', over: 'Over', under: 'Under', fh: 'First half / quarter / period', prop: 'Player props'};
-  const mOk = b => { const t = b.bet_type || '', m = b.market || ''; return _lm === 'all' || (_lm === 'ml' && /ml$/.test(t)) || (_lm === 'spread' && /spread$/.test(t)) ||
+  const MF = {all: 'Any bet type', ml: 'Moneyline', fs: 'First set', spread: 'Spread', over: 'Over', under: 'Under', fh: 'First half / quarter / period', prop: 'Player props'};
+  const mOk = b => { const t = b.bet_type || '', m = b.market || ''; return _lm === 'all' || (_lm === 'fs' && /1s_ml|set1_ml/.test(t + m)) || (_lm === 'ml' && /ml$/.test(t)) || (_lm === 'spread' && /spread$/.test(t)) ||
     (_lm === 'over' && /total/.test(t + m) && b.side === 'over') || (_lm === 'under' && /total|prop/.test(t + m) && b.side === 'under') || (_lm === 'fh' && /^1[hqp]_/.test(t || m)) || (_lm === 'prop' && /^prop_/.test(t || m)); };
   const RES = {all: 'All', open: 'Open', won: 'Won', lost: 'Lost'};
   const rOk = b => _lr === 'all' || (_lr === 'open' && b.won == null) || (_lr === 'won' && b.won === 1) || (_lr === 'lost' && b.won === 0);
@@ -1578,8 +1579,8 @@ function renderBetLog() {
   const cnt = L => _lg === 'paper' ? L : blCounted(L);
   // ---- filter bar
   const seg = (k, opts, cur) => `<span class="seg">${Object.entries(opts).map(([v, l]) => `<button class="${cur === v ? 'on' : ''}" onclick="setTF('${k}','${v}')">${l}</button>`).join('')}</span>`;
-  const sel = (k, opts, cur) => `<select onchange="setTF('${k}',this.value)">${opts.map(([v, l]) => `<option value="${esc(v)}"${v === cur ? ' selected' : ''}>${esc(l)}</option>`).join('')}</select>`;
-  const sports = [...new Set(inG.map(b => b.sport).filter(Boolean))].sort((a, b) => inG.filter(x => x.sport === b).length - inG.filter(x => x.sport === a).length);
+  const sel = (k, opts, cur) => `<select aria-label="${({_ls:'Sport',_lw:'Dates',_lsub:'Rule',_lm:'Bet type',_lsig:'Signals'})[k] || k}" onchange="setTF('${k}',this.value)">${opts.map(([v, l]) => `<option value="${esc(v)}"${v === cur ? ' selected' : ''}>${esc(l)}</option>`).join('')}</select>`;
+  const sports = [...new Set(BL.rows.map(b => b.sport).filter(Boolean))].sort((a, b) => inG.filter(x => x.sport === b).length - inG.filter(x => x.sport === a).length);
   const rules = [...new Set(inSport.map(ruleKey))].sort((a, b) => ruleLbl(a).localeCompare(ruleLbl(b)));
   if (_lsub !== 'all' && !rules.includes(_lsub)) rules.unshift(_lsub);
   const dirty = _ls !== 'all' || _lsub !== 'all' || _lw !== 'all' || _lm !== 'all' || _lr !== 'all' || _lsig !== 'all' || q;
