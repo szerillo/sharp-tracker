@@ -1,0 +1,53 @@
+Signal review for 2026-11-16 (ET): 44 games, 36 final
+
+Results (flat 1u at the signal mid; systems at the fill price, stake as flagged)
+family         sport     n graded     W-L-P   units  CLV pts
+moves_notable  nhl       1      1     0-1-0   -1.00    +0.00
+moves_notable  cbb       9      9     8-1-0   +6.56    -1.34
+moves_notable  all      10     10     8-2-0   +5.56    -1.17
+moves_other    nba      29     29   13-16-0   +0.59    -0.43
+moves_other    nhl       2      2     1-1-0   +0.20    +0.00
+moves_other    cbb      16     16    11-5-0   +2.87    -0.28
+moves_other    all      47     47   25-22-0   +3.66    -0.36
+bigsmall       nfl       2      2     1-1-0   +0.02    +0.50
+bigsmall       nba      11     11     6-5-0   +1.06    +0.56
+bigsmall       cbb       5      5     2-3-0   -1.25    -0.50
+bigsmall       all      18     18     9-9-0   -0.17    +0.32
+kmove4         nba      19     19    10-9-0   +1.54    -0.29
+kmove4         cbb      26     26   16-10-0   +2.05    -0.73
+kmove4         all      45     45   26-19-0   +3.59    -0.54
+systems        nfl       3      3     2-1-0   +0.36     +nan
+systems        nba       6      6     4-2-0   +0.65    +0.46
+systems        nhl       2      2     2-0-0   +1.12    +2.00
+systems        all      11     11     8-3-0   +2.13    +0.84
+
+Timing: side probability change after the signal, in points (positive = price got worse, tailing at once was better)
+family         sport          +15m         +1h         +3h        T-1h       close
+moves_notable  nhl               —           —           —           —    +0.0 0/0
+moves_notable  cbb        +0.0 0/0    -0.0 0/0    -0.8 0/4    -2.0 0/3    -1.3 0/4
+moves_notable  all        +0.0 0/0    -0.0 0/0    -0.8 0/4    -2.0 0/3    -1.2 0/4
+moves_other    nba        +0.5 7/7  +0.5 12/10  +0.3 10/15  -0.3 13/14  -0.4 13/15
+moves_other    nhl        +0.0 0/0    +0.0 0/0    +0.0 0/0    +0.5 1/0    +0.0 0/0
+moves_other    cbb        -0.1 1/2    -0.0 3/4    +0.7 7/4    -0.1 9/5    -0.3 9/5
+moves_other    all        +0.3 8/9  +0.3 15/14  +0.4 17/19  -0.2 23/19  -0.4 22/20
+bigsmall       nfl        +0.0 0/0    +0.0 0/0    +0.0 0/0    +1.0 2/0    +0.5 1/0
+bigsmall       nba        +0.5 2/0    +0.5 2/0    -0.8 1/2    +0.2 2/3    +0.6 4/3
+bigsmall       cbb        +0.0 1/1    +0.5 1/0    -0.5 0/1    -0.5 0/1    -0.5 0/2
+bigsmall       all        +0.3 3/1    +0.4 3/0    -0.5 1/3    +0.3 4/4    +0.3 5/5
+kmove4         nba        -0.1 1/2    -0.3 3/6   -0.6 6/11   -0.7 7/10    -0.3 8/9
+kmove4         cbb        +0.0 4/3    +0.1 7/5    +0.0 7/5  -0.9 11/12  -0.7 12/12
+kmove4         all        +0.0 5/5  -0.1 10/11  -0.2 13/16  -0.8 18/22  -0.5 20/21
+systems        nba        +0.2 2/0    -0.3 1/1    -1.7 0/5    +0.1 3/3    +0.5 4/2
+systems        nhl        +0.3 1/0    +0.3 1/0    +1.3 2/0    +3.0 2/0    +2.0 2/0
+systems        all        +0.2 3/0    -0.2 2/1    -0.8 2/5    +0.8 5/3    +0.8 6/2
+  (cells: mean change, then count worse/better by more than half a point)
+
+By lead time (all families but systems): signal more than 6h before start vs inside 6h
+  moves_notable  >6h   n   4  units  +3.76  CLV -1.96
+  moves_notable  <=6h  n   6  units  +1.80  CLV -0.70
+  moves_other    >6h   n  42  units  +6.78  CLV -0.52
+  moves_other    <=6h  n   5  units  -3.12  CLV +1.00
+  bigsmall       >6h   n   5  units  +2.59  CLV +1.40
+  bigsmall       <=6h  n   9  units  -2.76  CLV -0.28
+  kmove4         >6h   n  43  units  +2.09  CLV -0.59
+  kmove4         <=6h  n   2  units  +1.50  CLV +0.50
