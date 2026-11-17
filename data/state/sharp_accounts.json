@@ -1,5 +1,5 @@
 {
- "built": "2026-11-17T15:57:31Z",
+ "built": "2026-11-17T16:11:43Z",
  "rows": [
   {
    "cond": "0x293f36d9dcf13d2126b1d188973ce9742ac3b569bc4d9e586f9dad46601091f1",
@@ -34,16 +34,16 @@
    "side_std": "home",
    "money_with": false,
    "grade": "A",
-   "fair_board": 0.5203,
+   "fair_board": 0.5308,
    "inside_fair": false,
    "books": {
-    "at": "2026-11-17T02:55:16Z",
-    "fair": 0.5203,
+    "at": "2026-11-17T15:56:00Z",
+    "fair": 0.5308,
     "q": {
-     "Novig": 0.52,
+     "Novig": 0.535,
      "Caesars": 0.5392,
      "DK": 0.5455,
-     "FD": 0.5455
+     "FD": 0.5495
     }
    }
   },
@@ -80,16 +80,16 @@
    "side_std": "away",
    "money_with": false,
    "grade": "A",
-   "fair_board": 0.4391,
+   "fair_board": 0.4335,
    "inside_fair": false,
    "books": {
-    "at": "2026-11-17T02:55:16Z",
-    "fair": 0.4391,
+    "at": "2026-11-17T15:56:00Z",
+    "fair": 0.4335,
     "q": {
-     "Novig": 0.445,
-     "FD": 0.4505,
+     "Novig": 0.435,
      "Caesars": 0.4525,
-     "DK": 0.4545
+     "DK": 0.4545,
+     "FD": 0.4545
     }
    }
   },
@@ -129,16 +129,16 @@
    ],
    "money_with": false,
    "grade": "B",
-   "fair_board": 0.2222,
+   "fair_board": 0.2667,
    "inside_fair": false,
    "books": {
-    "at": "2026-11-17T02:55:16Z",
-    "fair": 0.2222,
+    "at": "2026-11-17T15:56:00Z",
+    "fair": 0.2667,
     "q": {
-     "Novig": 0.23,
-     "FD": 0.241,
-     "Caesars": 0.2439,
-     "DK": 0.2488
+     "Novig": 0.27,
+     "DK": 0.2874,
+     "Kalshi": 0.29,
+     "Caesars": 0.2941
     }
    }
   },
@@ -180,7 +180,59 @@
    "grade": "B",
    "fair_board": null,
    "inside_fair": null,
-   "books": null
+   "books": {
+    "at": "2026-11-17T15:56:00Z",
+    "fair": null,
+    "q": {
+     "Kalshi": 0.23
+    }
+   }
+  },
+  {
+   "cond": "0x22bd72030a3b39b69009b60a1e276842d8a6669528c65ca6f07eb97d046bb896",
+   "slug": "nba-det-nop-2026-11-18",
+   "title": "Pistons vs. Pelicans",
+   "mtype": "ml",
+   "start": "2026-11-19T01:00:00Z",
+   "bet": "Pelicans ML",
+   "side": "Pelicans",
+   "flagged": "2026-11-17T16:06:28Z",
+   "why": "a top-50 account",
+   "proven": false,
+   "trigger": "top50",
+   "n_accounts": 1,
+   "best_rank": 43,
+   "usd": 204,
+   "paid": 0.3,
+   "ask": 0.31,
+   "status": "live",
+   "link": "https://polymarket.us/event/nba-det-nop-2026-11-18",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401910013",
+   "sport": "nba",
+   "league": null,
+   "away": "DET",
+   "home": "NO",
+   "away_name": "Detroit Pistons",
+   "home_name": "New Orleans Pelicans",
+   "game_start": "2026-11-19T01:00Z",
+   "side_std": "home",
+   "conflict": [
+    "Kalshi bet back"
+   ],
+   "money_with": false,
+   "grade": "watch",
+   "fair_board": null,
+   "inside_fair": null,
+   "books": {
+    "at": "2026-11-17T15:56:00Z",
+    "fair": null,
+    "q": {
+     "Kalshi": 0.33
+    }
+   }
   },
   {
    "cond": "0x3d7dbc94a54253fc5dd4aad1868cbbfc3abe3bb21dc75fc2a8a666afb3dbb60e",
@@ -257,7 +309,7 @@
    ],
    "money_with": false,
    "grade": "watch",
-   "fair_board": 0.2389,
+   "fair_board": 0.2151,
    "inside_fair": true,
    "books": null
   },
@@ -458,6 +510,13 @@
     "n": 1,
     "best_rank": 76,
     "usd": 1048
+   }
+  },
+  "401910013|ml": {
+   "home": {
+    "n": 1,
+    "best_rank": 43,
+    "usd": 204
    }
   },
   "401910015|ml": {
