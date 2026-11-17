@@ -1,6 +1,81 @@
 {
- "built": "2026-11-17T22:34:28Z",
+ "built": "2026-11-17T22:40:40Z",
  "rows": [
+  {
+   "cond": "0xb5346e4b9327fb397a12afb8993956855abe75a8cd43428b85cedca83c66e38c",
+   "slug": "cfb-emich-wmich-2026-11-17",
+   "title": "Eastern Michigan vs. Western Michigan",
+   "mtype": "total",
+   "start": "2026-11-17T23:00:00Z",
+   "bet": "Under 47.5",
+   "side": "Under",
+   "flagged": "2026-11-17T22:35:02Z",
+   "why": "a top-200 account also in this sport's top 50",
+   "proven": true,
+   "trigger": "proven",
+   "n_accounts": 1,
+   "best_rank": 110,
+   "usd": 907,
+   "paid": 0.55,
+   "ask": 0.56,
+   "status": "live",
+   "link": "https://polymarket.us/event/cfb-emich-wmich-2026-11-17",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401866465",
+   "sport": "cfb",
+   "league": null,
+   "away": "EMU",
+   "home": "WMU",
+   "away_name": "Eastern Michigan Eagles",
+   "home_name": "Western Michigan Broncos",
+   "game_start": "2026-11-17T23:00Z",
+   "side_std": "under",
+   "money_with": false,
+   "grade": "A",
+   "fair_board": null,
+   "inside_fair": null,
+   "books": null
+  },
+  {
+   "cond": "0x3d2cf53c4a0a389f5588dc247fd69a4828e73f6ac72f0c1cf9aeae9668a98c54",
+   "slug": "cfb-emich-wmich-2026-11-17",
+   "title": "Eastern Michigan vs. Western Michigan",
+   "mtype": "total",
+   "start": "2026-11-17T23:00:00Z",
+   "bet": "Under 49.5",
+   "side": "Under",
+   "flagged": "2026-11-17T22:35:13Z",
+   "why": "a top-200 account also in this sport's top 50",
+   "proven": true,
+   "trigger": "proven",
+   "n_accounts": 1,
+   "best_rank": 110,
+   "usd": 735,
+   "paid": 0.62,
+   "ask": 0.63,
+   "status": "live",
+   "link": "https://polymarket.us/event/cfb-emich-wmich-2026-11-17",
+   "other": null,
+   "kalshi_against": null,
+   "logged": false,
+   "ladder": true,
+   "event_id": "401866465",
+   "sport": "cfb",
+   "league": null,
+   "away": "EMU",
+   "home": "WMU",
+   "away_name": "Eastern Michigan Eagles",
+   "home_name": "Western Michigan Broncos",
+   "game_start": "2026-11-17T23:00Z",
+   "side_std": "under",
+   "money_with": false,
+   "grade": "A",
+   "fair_board": null,
+   "inside_fair": null,
+   "books": null
+  },
   {
    "cond": "0x293f36d9dcf13d2126b1d188973ce9742ac3b569bc4d9e586f9dad46601091f1",
    "slug": "nhl-edm-fla-2026-11-17",
@@ -456,7 +531,8 @@
    "game_start": "2026-11-18T01:00Z",
    "side_std": "away",
    "conflict": [
-    "Kalshi bet back"
+    "Kalshi bet back",
+    "big money"
    ],
    "money_with": false,
    "grade": "watch",
@@ -615,6 +691,14 @@
     "usd": 128
    },
    "against": null
+  },
+  "401866465:cfb_day_over": {
+   "with": null,
+   "against": {
+    "n": 1,
+    "best_rank": 110,
+    "usd": 907
+   }
   },
   "401892734:nhl_early_home_fav_qual": {
    "with": null,
@@ -842,6 +926,13 @@
     "n": 1,
     "best_rank": 132,
     "usd": 107
+   }
+  },
+  "401866465|total": {
+   "under": {
+    "n": 1,
+    "best_rank": 110,
+    "usd": 907
    }
   },
   "401858527|total": {
