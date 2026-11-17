@@ -1,5 +1,5 @@
 {
- "built": "2026-11-17T00:23:16Z",
+ "built": "2026-11-17T00:37:10Z",
  "rows": [
   {
    "cond": "0xb753db7ec2f5ec4759629bd0d523f23ac669d19055a9df25e01b37810ceef241",
@@ -17,7 +17,7 @@
    "best_rank": 119,
    "usd": 432,
    "paid": 0.54,
-   "ask": 0.55,
+   "ask": null,
    "status": "live",
    "link": "https://polymarket.us/event/nba-phi-bkn-2026-11-16",
    "other": null,
@@ -61,7 +61,7 @@
    "best_rank": 79,
    "usd": 14700,
    "paid": 0.51,
-   "ask": 0.53,
+   "ask": null,
    "status": "live",
    "link": "https://polymarket.us/event/nhl-mon-nyr-2026-11-16",
    "other": null,
@@ -168,8 +168,8 @@
    "home_name": "Baltimore Ravens",
    "game_start": "2026-11-17T01:15Z",
    "side_std": "away",
-   "money_with": true,
-   "grade": "A",
+   "money_with": false,
+   "grade": "B",
    "fair_board": null,
    "inside_fair": null,
    "books": null
@@ -282,7 +282,7 @@
    "best_rank": 43,
    "usd": 642,
    "paid": 0.234,
-   "ask": 0.28,
+   "ask": 0.27,
    "status": "live",
    "link": "https://polymarket.us/event/nba-det-sas-2026-11-17",
    "other": null,
@@ -480,14 +480,14 @@
    "bet": "76ers ML",
    "side": "76ers",
    "flagged": "2026-11-14T10:28:23Z",
-   "why": "3 top-200 accounts",
+   "why": "4 top-200 accounts",
    "proven": true,
    "trigger": "proven",
-   "n_accounts": 3,
+   "n_accounts": 4,
    "best_rank": 31,
-   "usd": 7171,
+   "usd": 7447,
    "paid": 0.666,
-   "ask": 0.67,
+   "ask": null,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-phi-bkn-2026-11-16",
    "other": {
@@ -496,7 +496,7 @@
     "usd": 5516,
     "first": "2026-11-16T18:00:14Z"
    },
-   "exit_bid": 0.66,
+   "exit_bid": null,
    "kalshi_against": null,
    "logged": true,
    "event_id": "401909997",
@@ -511,7 +511,7 @@
    "money_with": false,
    "grade": "A",
    "fair_board": 0.6682,
-   "inside_fair": false,
+   "inside_fair": null,
    "books": null
   },
   {
@@ -554,7 +554,7 @@
    "money_with": true,
    "grade": "A",
    "fair_board": 0.4488,
-   "inside_fair": false,
+   "inside_fair": null,
    "books": null
   },
   {
@@ -594,8 +594,8 @@
    "home_name": "New Orleans Pelicans",
    "game_start": "2026-11-17T01:00Z",
    "side_std": "home",
-   "money_with": false,
-   "grade": "B",
+   "money_with": true,
+   "grade": "A",
    "fair_board": 0.4056,
    "inside_fair": true,
    "books": null
@@ -694,18 +694,6 @@
     "best_rank": 69,
     "usd": 345
    }
-  },
-  "401909997:xch_homedog_fade:ml": {
-   "with": {
-    "n": 3,
-    "best_rank": 31,
-    "usd": 7171
-   },
-   "against": {
-    "n": 1,
-    "best_rank": 42,
-    "usd": 116
-   }
   }
  },
  "by_event": {
@@ -714,49 +702,6 @@
     "n": 2,
     "best_rank": 4,
     "usd": 2019
-   }
-  },
-  "401909997|ml": {
-   "away": {
-    "n": 3,
-    "best_rank": 31,
-    "usd": 7171
-   },
-   "home": {
-    "n": 1,
-    "best_rank": 42,
-    "usd": 116
-   }
-  },
-  "401909997|spread": {
-   "home": {
-    "n": 2,
-    "best_rank": 119,
-    "usd": 432
-   }
-  },
-  "401909998|ml": {
-   "home": {
-    "n": 3,
-    "best_rank": 42,
-    "usd": 14471
-   },
-   "away": {
-    "n": 3,
-    "best_rank": 43,
-    "usd": 1450
-   }
-  },
-  "401909998|spread": {
-   "away": {
-    "n": 1,
-    "best_rank": 58,
-    "usd": 470
-   },
-   "home": {
-    "n": 3,
-    "best_rank": 110,
-    "usd": 8557
    }
   },
   "401909999|spread": {
