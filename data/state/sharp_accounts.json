@@ -1,5 +1,5 @@
 {
- "built": "2026-11-17T01:04:19Z",
+ "built": "2026-11-17T01:18:07Z",
  "rows": [
   {
    "cond": "0xb753db7ec2f5ec4759629bd0d523f23ac669d19055a9df25e01b37810ceef241",
@@ -153,7 +153,7 @@
    "best_rank": 4,
    "usd": 561,
    "paid": 0.37,
-   "ask": 0.38,
+   "ask": null,
    "status": "live",
    "link": "https://polymarket.us/event/nfl-lac-bal-2026-11-17",
    "other": null,
@@ -321,14 +321,14 @@
    "bet": "Hornets ML",
    "side": "Hornets",
    "flagged": "2026-11-16T06:44:52Z",
-   "why": "2 top-200 accounts",
+   "why": "3 top-200 accounts",
    "proven": false,
    "trigger": "two",
-   "n_accounts": 2,
+   "n_accounts": 3,
    "best_rank": 42,
-   "usd": 557,
-   "paid": 0.217,
-   "ask": 0.23,
+   "usd": 990,
+   "paid": 0.223,
+   "ask": 0.22,
    "status": "live",
    "link": "https://polymarket.us/event/nba-cha-lal-2026-11-17",
    "other": null,
@@ -594,9 +594,9 @@
    "home_name": "New Orleans Pelicans",
    "game_start": "2026-11-17T01:00Z",
    "side_std": "home",
-   "money_with": true,
-   "grade": "A",
-   "fair_board": 0.4056,
+   "money_with": false,
+   "grade": "B",
+   "fair_board": 0.4052,
    "inside_fair": null,
    "books": null
   }
@@ -647,22 +647,6 @@
   "clv_poly_same": -0.91
  },
  "sys_tags": {
-  "401873065:bounce15_1h": {
-   "with": {
-    "n": 2,
-    "best_rank": 4,
-    "usd": 2019
-   },
-   "against": null
-  },
-  "401873065:nfl_fade_fav_bye": {
-   "with": {
-    "n": 2,
-    "best_rank": 4,
-    "usd": 2019
-   },
-   "against": null
-  },
   "401892730:nhl_early_home_fav_qual": {
    "with": {
     "n": 1,
@@ -689,13 +673,6 @@
   }
  },
  "by_event": {
-  "401873065|spread": {
-   "away": {
-    "n": 2,
-    "best_rank": 4,
-    "usd": 2019
-   }
-  },
   "401910004|ml": {
    "away": {
     "n": 1,
@@ -705,9 +682,9 @@
   },
   "401910005|ml": {
    "away": {
-    "n": 2,
+    "n": 3,
     "best_rank": 42,
-    "usd": 557
+    "usd": 990
    }
   },
   "401910010|ml": {
