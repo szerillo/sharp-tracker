@@ -1,5 +1,5 @@
 {
- "built": "2026-11-17T21:42:44Z",
+ "built": "2026-11-17T21:50:18Z",
  "rows": [
   {
    "cond": "0x293f36d9dcf13d2126b1d188973ce9742ac3b569bc4d9e586f9dad46601091f1",
@@ -17,7 +17,7 @@
    "best_rank": 197,
    "usd": 122,
    "paid": 0.53,
-   "ask": 0.55,
+   "ask": 0.54,
    "status": "live",
    "link": "https://polymarket.us/event/nhl-edm-fla-2026-11-17",
    "other": null,
@@ -35,7 +35,7 @@
    "money_with": false,
    "grade": "A",
    "fair_board": 0.547,
-   "inside_fair": false,
+   "inside_fair": true,
    "books": {
     "at": "2026-11-17T20:56:05Z",
     "fair": 0.547,
@@ -451,7 +451,7 @@
     "usd": 117,
     "first": "2026-11-17T21:29:29Z"
    },
-   "exit_bid": 0.17,
+   "exit_bid": 0.16,
    "kalshi_against": null,
    "logged": true,
    "event_id": "401910009",
@@ -593,9 +593,9 @@
     "usd": 416
    },
    "against": {
-    "n": 1,
+    "n": 2,
     "best_rank": 119,
-    "usd": 295
+    "usd": 535
    }
   }
  },
@@ -683,9 +683,9 @@
   },
   "401910005|spread": {
    "away": {
-    "n": 1,
+    "n": 2,
     "best_rank": 119,
-    "usd": 295
+    "usd": 535
    },
    "home": {
     "n": 1,
