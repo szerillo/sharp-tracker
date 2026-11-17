@@ -1,6 +1,50 @@
 {
- "built": "2026-11-17T00:09:15Z",
+ "built": "2026-11-17T00:23:16Z",
  "rows": [
+  {
+   "cond": "0xb753db7ec2f5ec4759629bd0d523f23ac669d19055a9df25e01b37810ceef241",
+   "slug": "nba-phi-bkn-2026-11-16",
+   "title": "76ers vs. Nets",
+   "mtype": "spread",
+   "start": "2026-11-17T00:30:00Z",
+   "bet": "Nets +6.5",
+   "side": "Nets",
+   "flagged": "2026-11-17T00:22:29Z",
+   "why": "2 top-200 accounts",
+   "proven": false,
+   "trigger": "two",
+   "n_accounts": 2,
+   "best_rank": 119,
+   "usd": 432,
+   "paid": 0.54,
+   "ask": 0.55,
+   "status": "live",
+   "link": "https://polymarket.us/event/nba-phi-bkn-2026-11-16",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401909997",
+   "sport": "nba",
+   "league": null,
+   "away": "PHI",
+   "home": "BKN",
+   "away_name": "Philadelphia 76ers",
+   "home_name": "Brooklyn Nets",
+   "game_start": "2026-11-17T00:30Z",
+   "side_std": "home",
+   "money_with": false,
+   "grade": "B",
+   "fair_board": null,
+   "inside_fair": null,
+   "books": {
+    "at": "2026-11-17T00:13:15Z",
+    "fair": null,
+    "q": {
+     "Novig": 0.56,
+     "Kalshi": 0.58
+    }
+   }
+  },
   {
    "cond": "0x1e392b5d80711a000230f6eec6b7b67cf1b4a7ee793d83c8e432680e37217c4f",
    "slug": "nhl-mon-nyr-2026-11-16",
@@ -17,7 +61,7 @@
    "best_rank": 79,
    "usd": 14700,
    "paid": 0.51,
-   "ask": 0.52,
+   "ask": 0.53,
    "status": "live",
    "link": "https://polymarket.us/event/nhl-mon-nyr-2026-11-16",
    "other": null,
@@ -37,8 +81,8 @@
    "inside_fair": false,
    "fair_board": 0.5081,
    "books": {
-    "at": "2026-11-16T23:55:49Z",
-    "fair": 0.5076,
+    "at": "2026-11-17T00:13:15Z",
+    "fair": 0.5078,
     "q": {
      "Novig": 0.51,
      "Kalshi": 0.53,
@@ -83,13 +127,13 @@
    "inside_fair": false,
    "fair_board": 0.5187,
    "books": {
-    "at": "2026-11-16T23:55:49Z",
-    "fair": 0.5046,
+    "at": "2026-11-17T00:13:15Z",
+    "fair": 0.5192,
     "q": {
-     "Novig": 0.505,
+     "DK": 0.5192,
+     "Caesars": 0.5238,
      "Kalshi": 0.53,
-     "DK": 0.537,
-     "FD": 0.5413
+     "Novig": 0.535
     }
    }
   },
@@ -163,15 +207,15 @@
    "side_std": "home",
    "money_with": false,
    "grade": "A",
-   "fair_board": 0.5193,
+   "fair_board": 0.5203,
    "inside_fair": false,
    "books": {
-    "at": "2026-11-16T23:55:49Z",
-    "fair": 0.5193,
+    "at": "2026-11-17T00:13:15Z",
+    "fair": 0.5203,
     "q": {
      "Novig": 0.52,
-     "DK": 0.5349,
      "Caesars": 0.5392,
+     "DK": 0.5455,
      "FD": 0.5455
     }
    }
@@ -212,7 +256,7 @@
    "fair_board": 0.4391,
    "inside_fair": false,
    "books": {
-    "at": "2026-11-16T23:55:49Z",
+    "at": "2026-11-17T00:13:15Z",
     "fair": 0.4391,
     "q": {
      "Novig": 0.445,
@@ -261,10 +305,10 @@
    "fair_board": null,
    "inside_fair": null,
    "books": {
-    "at": "2026-11-16T23:55:49Z",
+    "at": "2026-11-17T00:13:15Z",
     "fair": null,
     "q": {
-     "Kalshi": 0.31
+     "Kalshi": 0.3
     }
    }
   },
@@ -307,7 +351,7 @@
    "fair_board": null,
    "inside_fair": null,
    "books": {
-    "at": "2026-11-16T23:55:49Z",
+    "at": "2026-11-17T00:13:15Z",
     "fair": null,
     "q": {
      "Kalshi": 0.24
@@ -367,11 +411,7 @@
     "first": "2026-11-16T13:10:53Z"
    },
    "exit_bid": null,
-   "kalshi_against": {
-    "move": 5.0,
-    "now": 23.5,
-    "state": "reversed"
-   },
+   "kalshi_against": null,
    "logged": true,
    "event_id": "401909994",
    "sport": "nba",
@@ -384,7 +424,7 @@
    "side_std": "home",
    "money_with": false,
    "grade": "watch",
-   "fair_board": 0.7706,
+   "fair_board": 0.7686,
    "inside_fair": null,
    "books": null
   },
@@ -414,11 +454,7 @@
     "first": "2026-11-16T13:10:35Z"
    },
    "exit_bid": null,
-   "kalshi_against": {
-    "move": 8.5,
-    "now": 25.5,
-    "state": "reversed"
-   },
+   "kalshi_against": null,
    "logged": true,
    "event_id": "401909995",
    "sport": "nba",
@@ -431,7 +467,7 @@
    "side_std": "home",
    "money_with": false,
    "grade": "watch",
-   "fair_board": 0.7483,
+   "fair_board": 0.7467,
    "inside_fair": null,
    "books": null
   },
@@ -444,14 +480,14 @@
    "bet": "76ers ML",
    "side": "76ers",
    "flagged": "2026-11-14T10:28:23Z",
-   "why": "2 top-200 accounts",
+   "why": "3 top-200 accounts",
    "proven": true,
    "trigger": "proven",
-   "n_accounts": 2,
+   "n_accounts": 3,
    "best_rank": 31,
-   "usd": 6700,
-   "paid": 0.665,
-   "ask": 0.68,
+   "usd": 7171,
+   "paid": 0.666,
+   "ask": 0.67,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-phi-bkn-2026-11-16",
    "other": {
@@ -460,7 +496,7 @@
     "usd": 5516,
     "first": "2026-11-16T18:00:14Z"
    },
-   "exit_bid": 0.67,
+   "exit_bid": 0.66,
    "kalshi_against": null,
    "logged": true,
    "event_id": "401909997",
@@ -474,7 +510,7 @@
    "side_std": "away",
    "money_with": false,
    "grade": "A",
-   "fair_board": 0.6657,
+   "fair_board": 0.6682,
    "inside_fair": false,
    "books": null
   },
@@ -517,7 +553,7 @@
    "side_std": "home",
    "money_with": true,
    "grade": "A",
-   "fair_board": 0.4394,
+   "fair_board": 0.4488,
    "inside_fair": false,
    "books": null
   },
@@ -560,7 +596,7 @@
    "side_std": "home",
    "money_with": false,
    "grade": "B",
-   "fair_board": 0.4052,
+   "fair_board": 0.4056,
    "inside_fair": true,
    "books": null
   }
@@ -661,9 +697,9 @@
   },
   "401909997:xch_homedog_fade:ml": {
    "with": {
-    "n": 2,
+    "n": 3,
     "best_rank": 31,
-    "usd": 6700
+    "usd": 7171
    },
    "against": {
     "n": 1,
@@ -682,9 +718,9 @@
   },
   "401909997|ml": {
    "away": {
-    "n": 2,
+    "n": 3,
     "best_rank": 31,
-    "usd": 6700
+    "usd": 7171
    },
    "home": {
     "n": 1,
@@ -694,9 +730,9 @@
   },
   "401909997|spread": {
    "home": {
-    "n": 1,
-    "best_rank": 132,
-    "usd": 229
+    "n": 2,
+    "best_rank": 119,
+    "usd": 432
    }
   },
   "401909998|ml": {
