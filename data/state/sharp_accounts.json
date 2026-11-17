@@ -1,5 +1,5 @@
 {
- "built": "2026-11-17T05:16:16Z",
+ "built": "2026-11-17T05:22:39Z",
  "rows": [
   {
    "cond": "0x293f36d9dcf13d2126b1d188973ce9742ac3b569bc4d9e586f9dad46601091f1",
@@ -90,55 +90,6 @@
      "FD": 0.4505,
      "Caesars": 0.4525,
      "DK": 0.4545
-    }
-   }
-  },
-  {
-   "cond": "0xef2c36e28301beaf3dfbf8cd9c98e31bddd47902840e25a5ea490ef7157f2ba6",
-   "slug": "nba-det-sas-2026-11-17",
-   "title": "Pistons vs. Spurs",
-   "mtype": "ml",
-   "start": "2026-11-18T01:00:00Z",
-   "bet": "Pistons ML",
-   "side": "Pistons",
-   "flagged": "2026-11-16T22:33:52Z",
-   "why": "a top-50 account",
-   "proven": false,
-   "trigger": "top50",
-   "n_accounts": 1,
-   "best_rank": 43,
-   "usd": 642,
-   "paid": 0.234,
-   "ask": 0.25,
-   "status": "live",
-   "link": "https://polymarket.us/event/nba-det-sas-2026-11-17",
-   "other": null,
-   "kalshi_against": null,
-   "logged": true,
-   "event_id": "401910004",
-   "sport": "nba",
-   "league": null,
-   "away": "DET",
-   "home": "SA",
-   "away_name": "Detroit Pistons",
-   "home_name": "San Antonio Spurs",
-   "game_start": "2026-11-18T01:00Z",
-   "side_std": "away",
-   "conflict": [
-    "Kalshi bet back"
-   ],
-   "money_with": false,
-   "grade": "watch",
-   "fair_board": 0.2389,
-   "inside_fair": false,
-   "books": {
-    "at": "2026-11-17T02:55:16Z",
-    "fair": 0.2389,
-    "q": {
-     "Novig": 0.245,
-     "FD": 0.2564,
-     "Kalshi": 0.26,
-     "Caesars": 0.2646
     }
    }
   },
@@ -257,6 +208,52 @@
    "fair_board": null,
    "inside_fair": null,
    "books": null
+  },
+  {
+   "cond": "0xef2c36e28301beaf3dfbf8cd9c98e31bddd47902840e25a5ea490ef7157f2ba6",
+   "slug": "nba-det-sas-2026-11-17",
+   "title": "Pistons vs. Spurs",
+   "mtype": "ml",
+   "start": "2026-11-18T01:00:00Z",
+   "bet": "Pistons ML",
+   "side": "Pistons",
+   "flagged": "2026-11-16T22:33:52Z",
+   "why": "a top-50 account",
+   "proven": false,
+   "trigger": "top50",
+   "n_accounts": 1,
+   "best_rank": 43,
+   "usd": 642,
+   "paid": 0.234,
+   "ask": 0.24,
+   "status": "other side",
+   "link": "https://polymarket.us/event/nba-det-sas-2026-11-17",
+   "other": {
+    "n_accounts": 1,
+    "best_rank": 119,
+    "usd": 2718,
+    "first": "2026-11-17T05:19:50Z"
+   },
+   "exit_bid": 0.23,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401910004",
+   "sport": "nba",
+   "league": null,
+   "away": "DET",
+   "home": "SA",
+   "away_name": "Detroit Pistons",
+   "home_name": "San Antonio Spurs",
+   "game_start": "2026-11-18T01:00Z",
+   "side_std": "away",
+   "conflict": [
+    "Kalshi bet back"
+   ],
+   "money_with": false,
+   "grade": "watch",
+   "fair_board": 0.2389,
+   "inside_fair": false,
+   "books": null
   }
  ],
  "record": {
@@ -336,6 +333,11 @@
     "n": 1,
     "best_rank": 43,
     "usd": 642
+   },
+   "home": {
+    "n": 1,
+    "best_rank": 119,
+    "usd": 2718
    }
   },
   "401910005|ml": {
