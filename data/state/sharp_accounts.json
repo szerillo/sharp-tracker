@@ -1,5 +1,5 @@
 {
- "built": "2026-11-17T01:53:01Z",
+ "built": "2026-11-17T02:06:57Z",
  "rows": [
   {
    "cond": "0xb753db7ec2f5ec4759629bd0d523f23ac669d19055a9df25e01b37810ceef241",
@@ -359,6 +359,43 @@
    }
   },
   {
+   "cond": "0xc5a9b485dcf72b254bf0385573d9e448d6210ad8170ae421003aa87a2a6784cc",
+   "slug": "nba-mil-mia-2026-11-18",
+   "title": "Bucks vs. Heat",
+   "mtype": "ml",
+   "start": "2026-11-19T00:00:00Z",
+   "bet": "Bucks ML",
+   "side": "Bucks",
+   "flagged": "2026-11-17T02:01:17Z",
+   "why": "2 top-200 accounts",
+   "proven": false,
+   "trigger": "two",
+   "n_accounts": 2,
+   "best_rank": 24,
+   "usd": 281,
+   "paid": 0.179,
+   "ask": 0.2,
+   "status": "live",
+   "link": "https://polymarket.us/event/nba-mil-mia-2026-11-18",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401910009",
+   "sport": "nba",
+   "league": null,
+   "away": "MIL",
+   "home": "MIA",
+   "away_name": "Milwaukee Bucks",
+   "home_name": "Miami Heat",
+   "game_start": "2026-11-19T00:00Z",
+   "side_std": "away",
+   "money_with": false,
+   "grade": "B",
+   "fair_board": null,
+   "inside_fair": null,
+   "books": null
+  },
+  {
    "cond": "0x3d7dbc94a54253fc5dd4aad1868cbbfc3abe3bb21dc75fc2a8a666afb3dbb60e",
    "slug": "nhl-col-utah-2026-11-18",
    "title": "Avalanche vs. Utah",
@@ -685,6 +722,13 @@
     "n": 3,
     "best_rank": 42,
     "usd": 990
+   }
+  },
+  "401910009|ml": {
+   "away": {
+    "n": 2,
+    "best_rank": 24,
+    "usd": 281
    }
   },
   "401910010|ml": {
