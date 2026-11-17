@@ -1,5 +1,5 @@
 {
- "built": "2026-11-17T03:03:05Z",
+ "built": "2026-11-17T03:10:14Z",
  "rows": [
   {
    "cond": "0xb753db7ec2f5ec4759629bd0d523f23ac669d19055a9df25e01b37810ceef241",
@@ -36,14 +36,7 @@
    "grade": "B",
    "fair_board": null,
    "inside_fair": null,
-   "books": {
-    "at": "2026-11-17T00:25:43Z",
-    "fair": null,
-    "q": {
-     "Novig": 0.54,
-     "Kalshi": 0.56
-    }
-   }
+   "books": null
   },
   {
    "cond": "0x1e392b5d80711a000230f6eec6b7b67cf1b4a7ee793d83c8e432680e37217c4f",
@@ -80,16 +73,7 @@
    "grade": "A",
    "inside_fair": false,
    "fair_board": 0.5081,
-   "books": {
-    "at": "2026-11-17T00:25:50Z",
-    "fair": 0.5257,
-    "q": {
-     "Novig": 0.53,
-     "DK": 0.5349,
-     "Caesars": 0.5475,
-     "Kalshi": 0.55
-    }
-   }
+   "books": null
   },
   {
    "cond": "0x81facc9948195e1264f93cce78dab7d64ef077be45b3e9db75f07cb94d1e5f91",
@@ -126,16 +110,7 @@
    "grade": "B",
    "inside_fair": false,
    "fair_board": 0.5187,
-   "books": {
-    "at": "2026-11-17T00:25:43Z",
-    "fair": 0.5126,
-    "q": {
-     "DK": 0.5192,
-     "Caesars": 0.5238,
-     "FD": 0.5413,
-     "Novig": 0.555
-    }
-   }
+   "books": null
   },
   {
    "cond": "0x5ab1e0c7d4760f72fbaf240276e3258c51c9b686cd369df63215b1ba2bd34f85",
@@ -210,7 +185,7 @@
    "fair_board": 0.5203,
    "inside_fair": false,
    "books": {
-    "at": "2026-11-17T00:57:11Z",
+    "at": "2026-11-17T02:55:16Z",
     "fair": 0.5203,
     "q": {
      "Novig": 0.52,
@@ -256,7 +231,7 @@
    "fair_board": 0.4391,
    "inside_fair": false,
    "books": {
-    "at": "2026-11-17T00:57:11Z",
+    "at": "2026-11-17T02:55:16Z",
     "fair": 0.4391,
     "q": {
      "Novig": 0.445,
@@ -302,13 +277,16 @@
    ],
    "money_with": false,
    "grade": "watch",
-   "fair_board": null,
-   "inside_fair": null,
+   "fair_board": 0.2389,
+   "inside_fair": false,
    "books": {
-    "at": "2026-11-17T00:57:11Z",
-    "fair": null,
+    "at": "2026-11-17T02:55:16Z",
+    "fair": 0.2389,
     "q": {
-     "Kalshi": 0.3
+     "Novig": 0.245,
+     "FD": 0.2564,
+     "Kalshi": 0.26,
+     "Caesars": 0.2646
     }
    }
   },
@@ -328,7 +306,7 @@
    "best_rank": 42,
    "usd": 990,
    "paid": 0.223,
-   "ask": 0.25,
+   "ask": 0.26,
    "status": "live",
    "link": "https://polymarket.us/event/nba-cha-lal-2026-11-17",
    "other": null,
@@ -348,13 +326,16 @@
    ],
    "money_with": false,
    "grade": "B",
-   "fair_board": null,
-   "inside_fair": null,
+   "fair_board": 0.2222,
+   "inside_fair": false,
    "books": {
-    "at": "2026-11-17T00:57:11Z",
-    "fair": null,
+    "at": "2026-11-17T02:55:16Z",
+    "fair": 0.2222,
     "q": {
-     "Kalshi": 0.24
+     "Novig": 0.23,
+     "FD": 0.241,
+     "Caesars": 0.2439,
+     "DK": 0.2488
     }
    }
   },
@@ -461,7 +442,7 @@
    "side_std": "home",
    "money_with": false,
    "grade": "watch",
-   "fair_board": 0.7686,
+   "fair_board": null,
    "inside_fair": null,
    "books": null
   },
@@ -504,7 +485,7 @@
    "side_std": "home",
    "money_with": false,
    "grade": "watch",
-   "fair_board": 0.7467,
+   "fair_board": null,
    "inside_fair": null,
    "books": null
   },
@@ -547,7 +528,7 @@
    "side_std": "away",
    "money_with": false,
    "grade": "A",
-   "fair_board": 0.6718,
+   "fair_board": null,
    "inside_fair": null,
    "books": null
   },
@@ -590,7 +571,7 @@
    "side_std": "home",
    "money_with": false,
    "grade": "B",
-   "fair_board": 0.4798,
+   "fair_board": null,
    "inside_fair": null,
    "books": null
   },
@@ -633,7 +614,7 @@
    "side_std": "home",
    "money_with": false,
    "grade": "B",
-   "fair_board": 0.4052,
+   "fair_board": null,
    "inside_fair": null,
    "books": null
   }
