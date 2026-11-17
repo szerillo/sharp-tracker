@@ -1,5 +1,5 @@
 {
-"built": "2026-11-17T01:43:55Z",
+"built": "2026-11-17T01:50:38Z",
 "sport": "nhl",
 "rule": "kalshi_nhl_flow",
 "tier": "P",
@@ -19,33 +19,13 @@
 "away": "Vancouver Canucks",
 "game": "Vancouver Canucks @ Utah Mammoth",
 "bet": "Utah Mammoth moneyline",
-"share": 0.789,
-"usd": 8158,
-"trades": 206,
+"share": 0.66,
+"usd": 5710,
+"trades": 207,
 "price": 0.74,
-"mins_to_start": 46,
+"mins_to_start": 39,
 "flag": true,
 "ticker": "KXNHLGAME-26NOV16VANUTA-VAN",
-"window_h": 6
-},
-{
-"event_id": "401892727",
-"market": "spread",
-"line": -1.5,
-"start": "2026-11-17T02:30Z",
-"side": "home",
-"yes_side": "home",
-"home": "Utah Mammoth",
-"away": "Vancouver Canucks",
-"game": "Vancouver Canucks @ Utah Mammoth",
-"bet": "Utah Mammoth -1.5",
-"share": 0.348,
-"usd": 4379,
-"trades": 82,
-"price": 0.54,
-"mins_to_start": 46,
-"flag": true,
-"ticker": "KXNHLSPREAD-26NOV16VANUTA-UTA2",
 "window_h": 6
 },
 {
@@ -63,7 +43,7 @@
 "usd": 3101,
 "trades": 45,
 "price": 0.52,
-"mins_to_start": 46,
+"mins_to_start": 39,
 "flag": true,
 "ticker": "KXNHLTOTAL-26NOV16VANUTA-7",
 "window_h": 6
@@ -79,11 +59,11 @@
 "away": "Montreal Canadiens",
 "game": "Montreal Canadiens @ New York Rangers",
 "bet": "Montreal Canadiens -1.5",
-"share": -0.406,
-"usd": 2671,
-"trades": 42,
-"price": 0.31,
-"mins_to_start": -74,
+"share": -0.261,
+"usd": 1177,
+"trades": 32,
+"price": 0.3,
+"mins_to_start": -81,
 "flag": false,
 "ticker": "KXNHLSPREAD-26NOV16MTLNYR-MTL2",
 "window_h": 6
@@ -103,7 +83,7 @@
 "usd": 30132,
 "trades": 515,
 "price": 0.52,
-"mins_to_start": -74,
+"mins_to_start": -81,
 "flag": false,
 "ticker": "KXNHLGAME-26NOV16MTLNYR-NYR",
 "window_h": 6
@@ -123,7 +103,7 @@
 "usd": 7458,
 "trades": 95,
 "price": 0.56,
-"mins_to_start": -74,
+"mins_to_start": -81,
 "flag": false,
 "ticker": "KXNHLTOTAL-26NOV16MTLNYR-7",
 "window_h": 6
@@ -139,11 +119,11 @@
 "away": "Vancouver Canucks",
 "game": "Vancouver Canucks @ Utah Mammoth",
 "bet": "Utah Mammoth -1.5",
-"share": 0.269,
-"usd": 4094,
-"trades": 83,
+"share": 0.297,
+"usd": 4326,
+"trades": 86,
 "price": 0.54,
-"mins_to_start": 53,
+"mins_to_start": 39,
 "flag": false,
 "ticker": "KXNHLSPREAD-26NOV16VANUTA-UTA2",
 "window_h": 6
@@ -154,5 +134,5 @@
 "won": 20,
 "units": 0.13
 },
-"n_flagged": 3
+"n_flagged": 2
 }
