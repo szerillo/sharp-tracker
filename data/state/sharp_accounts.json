@@ -1,5 +1,5 @@
 {
- "built": "2026-11-17T17:51:55Z",
+ "built": "2026-11-17T17:44:43Z",
  "rows": [
   {
    "cond": "0x293f36d9dcf13d2126b1d188973ce9742ac3b569bc4d9e586f9dad46601091f1",
@@ -351,6 +351,59 @@
    "fair_board": null,
    "inside_fair": null,
    "books": null
+  },
+  {
+   "cond": "0xefe674eda5754a93610852d10432a50de79ea696b2583119634c5fe8944753b1",
+   "slug": "nba-nyk-tor-2026-11-17",
+   "title": "Knicks vs. Raptors",
+   "mtype": "ml",
+   "start": "2026-11-18T00:30:00Z",
+   "bet": "Knicks ML",
+   "side": "Knicks",
+   "flagged": "2026-11-17T17:26:01Z",
+   "why": "2 top-200 accounts",
+   "proven": false,
+   "trigger": "two",
+   "n_accounts": 2,
+   "best_rank": 43,
+   "usd": 35577,
+   "paid": 0.582,
+   "ask": 0.62,
+   "status": "live",
+   "link": "https://polymarket.us/event/nba-nyk-tor-2026-11-17",
+   "other": null,
+   "kalshi_against": {
+    "move": 6.0,
+    "now": 43.5,
+    "state": "reversed"
+   },
+   "logged": true,
+   "event_id": "401910002",
+   "sport": "nba",
+   "league": null,
+   "away": "NY",
+   "home": "TOR",
+   "away_name": "New York Knicks",
+   "home_name": "Toronto Raptors",
+   "game_start": "2026-11-18T00:30Z",
+   "side_std": "away",
+   "conflict": [
+    "Kalshi move"
+   ],
+   "money_with": false,
+   "grade": "B",
+   "inside_fair": false,
+   "fair_board": 0.566,
+   "books": {
+    "at": "2026-11-17T16:53:53Z",
+    "fair": 0.566,
+    "q": {
+     "Novig": 0.57,
+     "DK": 0.5868,
+     "Kalshi": 0.59,
+     "FD": 0.5902
+    }
+   }
   },
   {
    "cond": "0xef2c36e28301beaf3dfbf8cd9c98e31bddd47902840e25a5ea490ef7157f2ba6",
