@@ -1550,6 +1550,46 @@ window._lr = window._lr || 'all'; window._lh = window._lh || 'play'; window._lsi
 window.setTF = (k, v) => { window[k] = v; if (k === '_lg' || k === '_ls') window._lsub = 'all'; draw(); };
 window.clearTF = () => { Object.assign(window, {_lh: 'play', _ls: 'all', _lsub: 'all', _lw: 'all', _lm: 'all', _lr: 'all', _lsig: 'all', _lq: ''}); draw(); };
 const tierLetter = b => b.sport === 'tennis' ? (b.rule === 'tennis_serve_dog' ? 'B' : 'C') : (/^(system|lean|paper|sharp) ([ABCP])$/.exec(b.cat || '') || [])[2] || (b.cat === 'tennis' ? 'B' : '');
+// Filtered tracker performance, not an exchange-account P/L statement.
+function blProfitSeries(rows, sized) {
+  const days = new Map();
+  for (const b of rows) {
+    if (![0, 0.5, 1].includes(b.won) || !(b.price > 0 && b.price < 1) || !Number.isFinite(Date.parse(b.start))) continue;
+    const profit = sized ? b.units : b.won === 0.5 ? 0 : b.won === 1 ? 1 / b.price - 1 : -1;
+    if (!Number.isFinite(profit)) continue;
+    const day = etDay(b.start), item = days.get(day) || {day, profit: 0, count: 0};
+    item.profit += profit; item.count++; days.set(day, item);
+  }
+  let cumulative = 0;
+  return [...days.values()].sort((a, b) => a.day.localeCompare(b.day)).map(d => ({...d, cumulative: cumulative += d.profit}));
+}
+function blProfitChart(rows, sized, label) {
+  const data = blProfitSeries(rows, sized);
+  const note = sized ? 'Normalized tracker units: favorites to win 1u; plus money risks 1u. Not actual account profit.' : 'Simulated flat-risk units: 1u risk per paper/sharp pick. Not actual account profit.';
+  if (!data.length) return `<section class="sec" aria-label="Filtered cumulative profit"><div class="sec-h"><span class="name">Profit trend</span></div><p class="small dim" style="padding:12px">No graded results match these filters. Open bets do not count toward profit.</p></section>`;
+  const W = 900, H = 245, left = 66, right = 28, top = 20, bottom = 45;
+  const first = Date.parse(data[0].day + 'T12:00:00Z'), last = Date.parse(data[data.length - 1].day + 'T12:00:00Z');
+  const vals = [0, ...data.map(d => d.cumulative)], lo = Math.min(...vals), hi = Math.max(...vals), pad = Math.max((hi - lo) * .12, .25);
+  const min = lo - pad, max = hi + pad;
+  const x = t => left + (W - left - right) * (last === first ? .5 : (t - first) / (last - first));
+  const y = u => top + (H - top - bottom) * (max - u) / (max - min);
+  const fmt = u => `${u > 0 ? '+' : ''}${u.toFixed(2)}u`, end = data[data.length - 1].cumulative;
+  const color = end < -.004 ? '#dc5262' : '#219b75';
+  const points = data.map(d => ({...d, x: x(Date.parse(d.day + 'T12:00:00Z')), y: y(d.cumulative)}));
+  // Start each selected slice at zero, not at the account's previous lifetime balance.
+  const path = `M${left},${y(0)} ` + points.map(p => `L${p.x.toFixed(2)},${p.y.toFixed(2)}`).join(' ');
+  const grid = Array.from({length: 5}, (_, i) => { const u = min + (max - min) * i / 4, py = y(u); return `<line x1="${left}" x2="${W - right}" y1="${py}" y2="${py}" stroke="currentColor" opacity=".10"/><text x="${left - 10}" y="${py + 4}" text-anchor="end" font-size="12" fill="currentColor">${u.toFixed(1)}u</text>`; }).join('');
+  const labels = data.length === 1 ? [points[0]] : [points[0], points[Math.floor((points.length - 1) / 2)], points[points.length - 1]];
+  const dates = [...new Map(labels.map(d => [d.day, d])).values()].map(d => `<text x="${d.x}" y="${H - 14}" text-anchor="middle" font-size="12" fill="currentColor">${d.day}</text>`).join('');
+  return `<section class="sec" aria-label="Filtered cumulative profit"><div class="sec-h"><span class="name">Profit trend</span><span class="meta">${fmt(end)} · ${data.reduce((n, d) => n + d.count, 0)} graded · ${data[0].day} to ${data[data.length - 1].day}</span></div>
+    <div class="small dim" style="padding:8px 12px 0">${esc(label)} · Cumulative within the selected filters; grouped by event date (ET), not settlement date.</div>
+    <svg viewBox="0 0 ${W} ${H}" style="display:block;width:100%;height:auto;min-height:150px;color:var(--muted, #87929f)" role="img" aria-label="${esc(label)}: cumulative profit ${fmt(end)} across ${data.length} event dates">
+      <title>${esc(label)}: ${fmt(end)}</title>${grid}<line x1="${left}" x2="${W - right}" y1="${y(0)}" y2="${y(0)}" stroke="currentColor" stroke-dasharray="4 4" opacity=".6"/>
+      <path d="${path}" fill="none" stroke="${color}" stroke-width="2.5" stroke-linejoin="round"/>
+      ${points.map(p => `<circle cx="${p.x}" cy="${p.y}" r="4" fill="${color}" tabindex="0" aria-label="${p.day}: ${fmt(p.cumulative)} cumulative, ${fmt(p.profit)} on ${p.count} graded bets"><title>${p.day}: ${fmt(p.cumulative)} cumulative; ${fmt(p.profit)} day; ${p.count} graded</title></circle>`).join('')}${dates}
+    </svg><div class="small dim" style="padding:0 12px 12px">${note} Zero line is the start of this filtered slice. Hover or focus a point for its daily result.</div></section>`;
+}
+
 function renderBetLog() {
   if (!BL) return '<div class="banner">The bet tracker builds with the next tracker run.</div>';
   BLW.w7 = BLW.w7 || ['Last 7 days', b => { const t = new Date(b.start); return t <= Date.now() && Date.now() - t <= 7 * 864e5; }];
@@ -1636,7 +1676,7 @@ function renderBetLog() {
     'sharp move with', 'sharp move against', 'any signal against', 'no signal against', 'system also', 'sharp flag also', 'same-market conflict', 'middle'];
   const pool = cnt(rows); const seen = TAGS.filter(t => pool.some(b => tg(b).includes(t)));
   const tagT = seen.length ? `<details class="how"><summary>Signals around these bets (for digging; the Signals filter above is the short version)</summary><table class="rtab">${head('Signal')}<tbody>${seen.map(t => `<tr><td>${esc(t)}</td>${line(pool.filter(b => tg(b).includes(t)))}</tr>`).join('')}</tbody></table></details>` : '';
-  return `${bar}${rec}<div class="rgrid">${byRule}${bySport}</div>${list}${tagT}
+  return `${bar}${rec}${blProfitChart(cnt(rows), units, what)}<div class="rgrid">${byRule}${bySport}</div>${list}${tagT}
     ${BL.rest ? (() => { const R = BL.rest, f = x => !x || !x.n ? '—' : `${x.w}-${x.l}, ${x.roi > 0 ? '+' : ''}${x.roi}% (${x.n})`;
       const row = (k, x) => `<tr><td>${esc(k)}</td><td class="num">${f(x.filled_at_rest)}</td><td class="num">${f(x.filled_at_flag)}</td><td class="num">${f(x.never_at_flag)}</td><td class="num">${f(x.all_at_flag)}</td></tr>`;
       const tbl = X => `<table class="small"><thead><tr><th>Group</th><th class="num">Came back, at the rest price</th><th class="num">Same bets at the flag price</th><th class="num">Never came back, at the flag price</th><th class="num">All, at the flag price</th></tr></thead><tbody>${['bets', 'systems and leans', 'sharp flags', 'paper rules', 'watch signals', 'everything'].filter(k => X[k]).map(k => row(k, X[k])).join('')}</tbody></table>`;
