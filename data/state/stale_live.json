@@ -1,18 +1,18 @@
 {
- "built": "2026-11-17T03:32:22Z",
+ "built": "2026-11-17T03:42:50Z",
  "record": {
-  "n": 148,
+  "n": 150,
   "won": 59,
-  "lost": 89,
-  "units": -4.69,
-  "roi": -12.7
+  "lost": 91,
+  "units": -5.19,
+  "roi": -13.9
  },
  "record_sb4": {
-  "n": 5,
+  "n": 6,
   "won": 2,
-  "lost": 3,
-  "units": -0.32,
-  "roi": -25.6
+  "lost": 4,
+  "units": -0.57,
+  "roi": -38.0
  },
  "rows": [
   {
@@ -33,67 +33,6 @@
    "ev": 2.7,
    "move": 1.6,
    "flagged": "2026-11-16T10:51:18Z",
-   "team": null
-  },
-  {
-   "key": "sb4|401909997|ml|home",
-   "kind": "sb4",
-   "sport": "nba",
-   "event_id": "401909997",
-   "game": "PHI @ BKN",
-   "start": "2026-11-17T00:30Z",
-   "market": "ml",
-   "side": "home",
-   "line": null,
-   "venue": "FD",
-   "price": 0.3448,
-   "fair": 0.3762,
-   "fair_power": 0.3713,
-   "venue_fair": 0.331,
-   "fair_gap": 4.5,
-   "ev": 9.1,
-   "move": 4.6,
-   "flagged": "2026-11-16T18:40:36Z",
-   "team": "BKN"
-  },
-  {
-   "key": "401909997|ml|home",
-   "sport": "nba",
-   "event_id": "401909997",
-   "game": "PHI @ BKN",
-   "start": "2026-11-17T00:30Z",
-   "market": "ml",
-   "side": "home",
-   "line": null,
-   "venue": "FD",
-   "price": 0.3448,
-   "fair": 0.3762,
-   "fair_power": 0.3713,
-   "venue_fair": 0.331,
-   "fair_gap": 4.5,
-   "ev": 9.1,
-   "move": 4.6,
-   "flagged": "2026-11-16T18:40:36Z",
-   "team": "BKN"
-  },
-  {
-   "key": "401917964|total|over",
-   "sport": "cbb",
-   "event_id": "401917964",
-   "game": "ACU @ MOST",
-   "start": "2026-11-17T01:00Z",
-   "market": "total",
-   "side": "over",
-   "line": 139.5,
-   "venue": "Novig",
-   "price": 0.505,
-   "fair": 0.5205,
-   "fair_power": 0.522,
-   "venue_fair": 0.5025,
-   "fair_gap": 1.8,
-   "ev": 3.1,
-   "move": 1.6,
-   "flagged": "2026-11-16T23:18:29Z",
    "team": null
   },
   {
