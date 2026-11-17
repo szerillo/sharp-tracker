@@ -7689,5 +7689,19 @@
 "void": true,
 "void_why": "rule no longer holds on the current line: home spread -10.5, total 60.5 (2026-11-16T17:54:21Z)",
 "void_at": "2026-11-16T17:54:21Z"
+},
+"401909997:xch_homedog_fade:ml": {
+"tag": "xch_homedog_fade",
+"fill_id": "e3f1cb3cfdc8",
+"ts": "2026-11-16T23:03:45Z",
+"market": "ml",
+"side": "away",
+"line": null,
+"venue": "Novig",
+"price": -203,
+"fair": 0.66625,
+"edge_pts": -0.38,
+"why": "Novig home side mid 0.333 inside T-1.4h; audit band 20-35c",
+"restored": true
 }
 }
