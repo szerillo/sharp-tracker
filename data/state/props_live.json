@@ -1,5 +1,5 @@
 {
- "built": "2026-11-17T23:06:01Z",
+ "built": "2026-11-17T23:19:12Z",
  "record": {
   "n": 43,
   "won": 19,
@@ -33,5 +33,32 @@
    }
   }
  },
- "rows": []
+ "rows": [
+  {
+   "key": "c5e76339fef03145801250ff2216947b|player_shots_on_goal|Josh Doan|1.5",
+   "sport": "nhl",
+   "odds_id": "c5e76339fef03145801250ff2216947b",
+   "espn": "401892732",
+   "game": "Buffalo Sabres @ Philadelphia Flyers",
+   "start": "2026-11-18T00:10:00Z",
+   "market": "player_shots_on_goal",
+   "player": "Josh Doan",
+   "line": 1.5,
+   "side": "under",
+   "book": "DK",
+   "price": 2.1,
+   "fair": 0.492,
+   "ev": 3.3,
+   "pin_under": 1.9,
+   "pin_over": 1.84,
+   "book_over": 1.69,
+   "fair_power": 0.4911,
+   "book_fair": 0.4459,
+   "fair_gap": 4.6,
+   "ev_strict": 3.1,
+   "pin_ts": "2026-11-17T23:19:11Z",
+   "book_ts": "2026-11-17T23:18:27Z",
+   "flagged": "2026-11-17T23:19:12Z"
+  }
+ ]
 }
