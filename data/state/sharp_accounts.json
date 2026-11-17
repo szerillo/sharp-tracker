@@ -1,5 +1,5 @@
 {
- "built": "2026-11-17T00:23:16Z",
+ "built": "2026-11-17T00:30:09Z",
  "rows": [
   {
    "cond": "0xb753db7ec2f5ec4759629bd0d523f23ac669d19055a9df25e01b37810ceef241",
@@ -17,12 +17,12 @@
    "best_rank": 119,
    "usd": 432,
    "paid": 0.54,
-   "ask": 0.55,
+   "ask": null,
    "status": "live",
    "link": "https://polymarket.us/event/nba-phi-bkn-2026-11-16",
    "other": null,
    "kalshi_against": null,
-   "logged": true,
+   "logged": false,
    "event_id": "401909997",
    "sport": "nba",
    "league": null,
@@ -61,7 +61,7 @@
    "best_rank": 79,
    "usd": 14700,
    "paid": 0.51,
-   "ask": 0.53,
+   "ask": null,
    "status": "live",
    "link": "https://polymarket.us/event/nhl-mon-nyr-2026-11-16",
    "other": null,
@@ -107,7 +107,7 @@
    "best_rank": 119,
    "usd": 8184,
    "paid": 0.528,
-   "ask": 0.55,
+   "ask": null,
    "status": "live",
    "link": "https://polymarket.us/event/nba-hou-mia-2026-11-16",
    "other": null,
@@ -480,14 +480,14 @@
    "bet": "76ers ML",
    "side": "76ers",
    "flagged": "2026-11-14T10:28:23Z",
-   "why": "3 top-200 accounts",
+   "why": "4 top-200 accounts",
    "proven": true,
    "trigger": "proven",
-   "n_accounts": 3,
+   "n_accounts": 4,
    "best_rank": 31,
-   "usd": 7171,
+   "usd": 7447,
    "paid": 0.666,
-   "ask": 0.67,
+   "ask": null,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-phi-bkn-2026-11-16",
    "other": {
@@ -496,7 +496,7 @@
     "usd": 5516,
     "first": "2026-11-16T18:00:14Z"
    },
-   "exit_bid": 0.66,
+   "exit_bid": null,
    "kalshi_against": null,
    "logged": true,
    "event_id": "401909997",
@@ -511,7 +511,7 @@
    "money_with": false,
    "grade": "A",
    "fair_board": 0.6682,
-   "inside_fair": false,
+   "inside_fair": null,
    "books": null
   },
   {
@@ -530,7 +530,7 @@
    "best_rank": 42,
    "usd": 14471,
    "paid": 0.44,
-   "ask": 0.48,
+   "ask": null,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-hou-mia-2026-11-16",
    "other": {
@@ -539,7 +539,7 @@
     "usd": 64941,
     "first": "2026-11-16T10:04:59Z"
    },
-   "exit_bid": 0.47,
+   "exit_bid": null,
    "kalshi_against": null,
    "logged": true,
    "event_id": "401909998",
@@ -554,7 +554,7 @@
    "money_with": true,
    "grade": "A",
    "fair_board": 0.4488,
-   "inside_fair": false,
+   "inside_fair": null,
    "books": null
   },
   {
@@ -573,7 +573,7 @@
    "best_rank": 43,
    "usd": 3328,
    "paid": 0.468,
-   "ask": 0.41,
+   "ask": 0.4,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-gsw-nop-2026-11-16",
    "other": {
@@ -582,7 +582,7 @@
     "usd": 3036,
     "first": "2026-11-13T10:27:49Z"
    },
-   "exit_bid": 0.4,
+   "exit_bid": 0.39,
    "kalshi_against": null,
    "logged": true,
    "event_id": "401910000",
@@ -694,18 +694,6 @@
     "best_rank": 69,
     "usd": 345
    }
-  },
-  "401909997:xch_homedog_fade:ml": {
-   "with": {
-    "n": 3,
-    "best_rank": 31,
-    "usd": 7171
-   },
-   "against": {
-    "n": 1,
-    "best_rank": 42,
-    "usd": 116
-   }
   }
  },
  "by_event": {
@@ -714,49 +702,6 @@
     "n": 2,
     "best_rank": 4,
     "usd": 2019
-   }
-  },
-  "401909997|ml": {
-   "away": {
-    "n": 3,
-    "best_rank": 31,
-    "usd": 7171
-   },
-   "home": {
-    "n": 1,
-    "best_rank": 42,
-    "usd": 116
-   }
-  },
-  "401909997|spread": {
-   "home": {
-    "n": 2,
-    "best_rank": 119,
-    "usd": 432
-   }
-  },
-  "401909998|ml": {
-   "home": {
-    "n": 3,
-    "best_rank": 42,
-    "usd": 14471
-   },
-   "away": {
-    "n": 3,
-    "best_rank": 43,
-    "usd": 1450
-   }
-  },
-  "401909998|spread": {
-   "away": {
-    "n": 1,
-    "best_rank": 58,
-    "usd": 470
-   },
-   "home": {
-    "n": 3,
-    "best_rank": 110,
-    "usd": 8557
    }
   },
   "401909999|spread": {
@@ -804,13 +749,6 @@
     "n": 1,
     "best_rank": 93,
     "usd": 151
-   }
-  },
-  "401892726|ml": {
-   "away": {
-    "n": 1,
-    "best_rank": 79,
-    "usd": 14700
    }
   },
   "401892728|ml": {
