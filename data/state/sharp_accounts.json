@@ -1,5 +1,5 @@
 {
- "built": "2026-11-17T22:34:28Z",
+ "built": "2026-11-17T23:09:03Z",
  "rows": [
   {
    "cond": "0xb5346e4b9327fb397a12afb8993956855abe75a8cd43428b85cedca83c66e38c",
@@ -138,7 +138,7 @@
    "best_rank": 115,
    "usd": 662,
    "paid": 0.49,
-   "ask": 0.5,
+   "ask": 0.53,
    "status": "live",
    "link": "https://polymarket.us/event/cfb-miaoh-kentst-2026-11-17",
    "other": null,
@@ -164,6 +164,82 @@
      "FD": 0.5122
     }
    }
+  },
+  {
+   "cond": "0x287274363e5200fc91b32429f871feed4aa17f4c6d2b4ce376cb67d0e179db9f",
+   "slug": "cfb-miaoh-kentst-2026-11-17",
+   "title": "Miami (OH) vs. Kent State",
+   "mtype": "total",
+   "start": "2026-11-18T00:00:00Z",
+   "bet": "Over 43.5",
+   "side": "Over",
+   "flagged": "2026-11-17T23:01:40Z",
+   "why": "a top-200 account also in this sport's top 50",
+   "proven": true,
+   "trigger": "proven",
+   "n_accounts": 1,
+   "best_rank": 110,
+   "usd": 2198,
+   "paid": 0.58,
+   "ask": 0.59,
+   "status": "live",
+   "link": "https://polymarket.us/event/cfb-miaoh-kentst-2026-11-17",
+   "other": null,
+   "kalshi_against": null,
+   "logged": false,
+   "ladder": true,
+   "event_id": "401866466",
+   "sport": "cfb",
+   "league": null,
+   "away": "M-OH",
+   "home": "KENT",
+   "away_name": "Miami (OH) RedHawks",
+   "home_name": "Kent State Golden Flashes",
+   "game_start": "2026-11-18T00:00Z",
+   "side_std": "over",
+   "money_with": false,
+   "grade": "A",
+   "fair_board": null,
+   "inside_fair": null,
+   "books": null
+  },
+  {
+   "cond": "0x2ad19d0b4244806235969d7ebab9d3bc3b958f3da5793e115ffde4fe1a2d053c",
+   "slug": "cfb-miaoh-kentst-2026-11-17",
+   "title": "Miami (OH) vs. Kent State",
+   "mtype": "total",
+   "start": "2026-11-18T00:00:00Z",
+   "bet": "Over 41.5",
+   "side": "Over",
+   "flagged": "2026-11-17T23:02:02Z",
+   "why": "a top-200 account also in this sport's top 50",
+   "proven": true,
+   "trigger": "proven",
+   "n_accounts": 1,
+   "best_rank": 110,
+   "usd": 557,
+   "paid": 0.61,
+   "ask": 0.63,
+   "status": "live",
+   "link": "https://polymarket.us/event/cfb-miaoh-kentst-2026-11-17",
+   "other": null,
+   "kalshi_against": null,
+   "logged": false,
+   "ladder": true,
+   "event_id": "401866466",
+   "sport": "cfb",
+   "league": null,
+   "away": "M-OH",
+   "home": "KENT",
+   "away_name": "Miami (OH) RedHawks",
+   "home_name": "Kent State Golden Flashes",
+   "game_start": "2026-11-18T00:00Z",
+   "side_std": "over",
+   "money_with": false,
+   "grade": "A",
+   "fair_board": null,
+   "inside_fair": null,
+   "books": null
   },
   {
    "cond": "0xd20c8f180292dbd539a49c69cb45dd3226ace39ff87781eb78ae7de0e6fb1da7",
@@ -515,7 +591,7 @@
    "other": {
     "n_accounts": 1,
     "best_rank": 112,
-    "usd": 6954,
+    "usd": 9754,
     "first": "2026-11-17T19:46:04Z"
    },
    "exit_bid": 0.49,
@@ -556,9 +632,9 @@
    "status": "other side",
    "link": "https://polymarket.us/event/nba-det-sas-2026-11-17",
    "other": {
-    "n_accounts": 1,
-    "best_rank": 119,
-    "usd": 2718,
+    "n_accounts": 2,
+    "best_rank": 43,
+    "usd": 3454,
     "first": "2026-11-17T05:19:50Z"
    },
    "exit_bid": 0.21,
@@ -607,7 +683,7 @@
     "usd": 117,
     "first": "2026-11-17T21:29:29Z"
    },
-   "exit_bid": 0.14,
+   "exit_bid": 0.13,
    "kalshi_against": null,
    "logged": true,
    "event_id": "401910009",
@@ -644,7 +720,7 @@
    "best_rank": 43,
    "usd": 470,
    "paid": 0.145,
-   "ask": 0.16,
+   "ask": 0.17,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-uta-lal-2026-11-18",
    "other": {
@@ -653,7 +729,7 @@
     "usd": 230,
     "first": "2026-11-17T15:01:22Z"
    },
-   "exit_bid": 0.15,
+   "exit_bid": 0.16,
    "kalshi_against": null,
    "logged": true,
    "event_id": "401910017",
@@ -818,9 +894,9 @@
     "usd": 642
    },
    "home": {
-    "n": 1,
-    "best_rank": 119,
-    "usd": 2718
+    "n": 2,
+    "best_rank": 43,
+    "usd": 3454
    }
   },
   "401910004|total": {
@@ -967,13 +1043,6 @@
     "n": 2,
     "best_rank": 110,
     "usd": 2861
-   }
-  },
-  "401866466|total": {
-   "over": {
-    "n": 1,
-    "best_rank": 115,
-    "usd": 662
    }
   },
   "401858527|total": {
