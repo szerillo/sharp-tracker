@@ -6953,7 +6953,10 @@
 "price": -106,
 "fair": 0.50236,
 "edge_pts": -1.26,
-"why": "conference game, FIU on road game 2 in a row, +3.5, total 44.5"
+"why": "conference game, FIU on road game 2 in a row, +3.5, total 44.5",
+"void": true,
+"void_why": "rule no longer holds on the current line: home spread -3.5, total 44.5 (2026-11-18T17:54:28Z)",
+"void_at": "2026-11-18T17:54:28Z"
 },
 "401869953:cfb_road_streak_dog": {
 "tag": "cfb_road_streak_dog",
@@ -6998,7 +7001,10 @@
 "price": -104,
 "fair": 0.49575,
 "edge_pts": -1.42,
-"why": "conference game, ARST on road game 2 in a row, +13.5, total 53.0"
+"why": "conference game, ARST on road game 2 in a row, +13.5, total 53.0",
+"void": true,
+"void_why": "rule no longer holds on the current line: home spread -13.5, total 53.5 (2026-11-18T17:54:28Z)",
+"void_at": "2026-11-18T17:54:28Z"
 },
 "401860919:cfb_road_streak_dog": {
 "tag": "cfb_road_streak_dog",
@@ -7011,7 +7017,10 @@
 "price": -108,
 "fair": 0.49877,
 "edge_pts": -2.05,
-"why": "conference game, USU on road game 2 in a row, +9.5, total 51.5"
+"why": "conference game, USU on road game 2 in a row, +9.5, total 51.5",
+"void": true,
+"void_why": "rule no longer holds on the current line: home spread -9.5, total 50.5 (2026-11-18T17:54:28Z)",
+"void_at": "2026-11-18T17:54:28Z"
 },
 "401873071:nfl_road_dog_7510": {
 "tag": "nfl_road_dog_7510",
@@ -7177,7 +7186,10 @@
 "price": -106,
 "fair": 0.50422,
 "edge_pts": -1.08,
-"why": "conference game, ECU on road game 2 in a row, +5.5, total 44.5"
+"why": "conference game, ECU on road game 2 in a row, +5.5, total 44.5",
+"void": true,
+"void_why": "rule no longer holds on the current line: home spread -6.0, total 45.5 (2026-11-18T17:54:28Z)",
+"void_at": "2026-11-18T17:54:28Z"
 },
 "401871080:cfb_road_dog_low_total": {
 "tag": "cfb_road_dog_low_total",
@@ -7617,7 +7629,10 @@
 "price": -100,
 "fair": 0.47677,
 "edge_pts": -2.32,
-"why": "home favourite FSU -9.5, total 54.5: under (mined angle)"
+"why": "home favourite FSU -9.5, total 54.5: under (mined angle)",
+"void": true,
+"void_why": "rule no longer holds on the current line: home spread -10.5, total 56.5 (2026-11-18T17:54:28Z)",
+"void_at": "2026-11-18T17:54:28Z"
 },
 "401856752:cfb_road_dog_low_total": {
 "tag": "cfb_road_dog_low_total",
@@ -8100,5 +8115,18 @@
 "fair": 0.705,
 "edge_pts": -3.5,
 "why": "DAL off a win, home VGK has lost 3 straight: road puck line (mined angle)"
+},
+"401892742:nhl_loss_streak_over": {
+"tag": "nhl_loss_streak_over",
+"fill_id": "c9ac54cded97",
+"ts": "2026-11-18T17:54:28Z",
+"market": "total",
+"side": "over",
+"line": 6.5,
+"venue": "DK",
+"price": 102,
+"fair": 0.47835,
+"edge_pts": -1.67,
+"why": "home TOR has lost 7 straight, season over rate 57%: over (mined angle)"
 }
 }
