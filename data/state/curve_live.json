@@ -1,5 +1,5 @@
 {
- "built": "2026-11-18T00:36:42Z",
+ "built": "2026-11-18T00:49:59Z",
  "record": {
   "cbb_1h_total_curve": {
    "n": 5,
@@ -12,9 +12,9 @@
     "beat": 0
    },
    "line_value": {
-    "n": 4,
-    "avg": 0.0,
-    "better": 0,
+    "n": 5,
+    "avg": 0.2,
+    "better": 1,
     "worse": 0
    }
   },
@@ -177,7 +177,10 @@
    "pin_price": 1.88,
    "book": null,
    "price": null,
-   "flagged": "2026-11-17T22:24:48Z"
+   "flagged": "2026-11-17T22:24:48Z",
+   "close_ts": "2026-11-18T00:49:59Z",
+   "close_line": 70.0,
+   "line_value": 1.0
   },
   {
    "key": "cfb_q1_under_curve|792875fa96ecdf75559454c19c011768||under",

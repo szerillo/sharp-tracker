@@ -1,5 +1,5 @@
 {
- "built": "2026-11-18T00:45:48Z",
+ "built": "2026-11-18T00:32:01Z",
  "rows": [
   {
    "cond": "0xb5346e4b9327fb397a12afb8993956855abe75a8cd43428b85cedca83c66e38c",
@@ -297,7 +297,7 @@
    "best_rank": 119,
    "usd": 447,
    "paid": 0.514,
-   "ask": 0.53,
+   "ask": 0.52,
    "status": "live",
    "link": "https://polymarket.us/event/nba-por-min-2026-11-17",
    "other": null,
@@ -372,6 +372,50 @@
    "usd": 18101,
    "paid": 0.473,
    "ask": 0.53,
+   "status": "live",
+   "link": "https://polymarket.us/event/nba-por-min-2026-11-17",
+   "other": null,
+   "kalshi_against": null,
+   "logged": false,
+   "ladder": true,
+   "event_id": "401910003",
+   "sport": "nba",
+   "league": null,
+   "away": "POR",
+   "home": "MIN",
+   "away_name": "Portland Trail Blazers",
+   "home_name": "Minnesota Timberwolves",
+   "game_start": "2026-11-18T01:00Z",
+   "side_std": "home",
+   "money_with": false,
+   "grade": "B",
+   "fair_board": null,
+   "inside_fair": null,
+   "books": {
+    "at": "2026-11-17T23:55:43Z",
+    "fair": null,
+    "q": {
+     "Novig": 0.495
+    }
+   }
+  },
+  {
+   "cond": "0xf1a85c314f4bfded1112d3621b501a0e831accb229794d7aed7b60887d69dd0e",
+   "slug": "nba-por-min-2026-11-17",
+   "title": "Trail Blazers vs. Timberwolves",
+   "mtype": "spread",
+   "start": "2026-11-18T01:00:00Z",
+   "bet": "Timberwolves -3.5",
+   "side": "Timberwolves",
+   "flagged": "2026-11-18T00:25:02Z",
+   "why": "2 top-200 accounts",
+   "proven": false,
+   "trigger": "two",
+   "n_accounts": 2,
+   "best_rank": 12,
+   "usd": 18101,
+   "paid": 0.473,
+   "ask": 0.52,
    "status": "live",
    "link": "https://polymarket.us/event/nba-por-min-2026-11-17",
    "other": null,
@@ -652,8 +696,7 @@
    "game_start": "2026-11-18T00:30Z",
    "side_std": "away",
    "conflict": [
-    "Kalshi bet back",
-    "big money"
+    "Kalshi bet back"
    ],
    "money_with": false,
    "grade": "B",
@@ -723,16 +766,16 @@
    "best_rank": 40,
    "usd": 14118,
    "paid": 0.557,
-   "ask": 0.57,
+   "ask": 0.58,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-por-min-2026-11-17",
    "other": {
-    "n_accounts": 2,
+    "n_accounts": 1,
     "best_rank": 112,
-    "usd": 881,
+    "usd": 685,
     "first": "2026-11-18T00:26:11Z"
    },
-   "exit_bid": 0.56,
+   "exit_bid": 0.57,
    "kalshi_against": null,
    "logged": true,
    "event_id": "401910003",
@@ -934,9 +977,9 @@
   },
   "401910003|spread": {
    "away": {
-    "n": 3,
+    "n": 2,
     "best_rank": 112,
-    "usd": 3433
+    "usd": 3237
    },
    "home": {
     "n": 5,
