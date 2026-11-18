@@ -1,5 +1,5 @@
 {
- "built": "2026-11-18T17:55:18Z",
+ "built": "2026-11-18T18:09:57Z",
  "rows": [
   {
    "cond": "0x85b1b9241e3253609ac1b9b9c955df87cfa41e4bb5b04342ac51a4df6b34d91a",
@@ -34,16 +34,16 @@
    "side_std": "home",
    "money_with": false,
    "grade": "watch",
-   "fair_board": 0.6426,
-   "inside_fair": true,
+   "fair_board": 0.6373,
+   "inside_fair": false,
    "books": {
-    "at": "2026-11-18T16:56:11Z",
-    "fair": 0.6426,
+    "at": "2026-11-18T17:58:30Z",
+    "fair": 0.6373,
     "q": {
      "Novig": 0.64,
-     "FD": 0.6599,
      "Kalshi": 0.66,
-     "Caesars": 0.661
+     "Caesars": 0.661,
+     "DK": 0.6622
     }
    }
   },
@@ -86,11 +86,11 @@
    "inside_fair": false,
    "fair_board": 0.4783,
    "books": {
-    "at": "2026-11-18T16:56:11Z",
-    "fair": 0.5017,
+    "at": "2026-11-18T17:58:30Z",
+    "fair": 0.502,
     "q": {
      "Novig": 0.505,
-     "Caesars": 0.5122,
+     "Caesars": 0.5238,
      "DK": 0.5238,
      "FD": 0.5238
     }
@@ -169,16 +169,16 @@
    ],
    "money_with": false,
    "grade": "watch",
-   "fair_board": 0.2995,
-   "inside_fair": false,
+   "fair_board": 0.302,
+   "inside_fair": true,
    "books": {
-    "at": "2026-11-18T16:56:11Z",
-    "fair": 0.2995,
+    "at": "2026-11-18T17:58:30Z",
+    "fair": 0.302,
     "q": {
      "Novig": 0.305,
      "DK": 0.3155,
-     "Kalshi": 0.32,
-     "Caesars": 0.3226
+     "Caesars": 0.3226,
+     "Kalshi": 0.33
     }
    }
   },
@@ -218,10 +218,10 @@
    "fair_board": null,
    "inside_fair": null,
    "books": {
-    "at": "2026-11-18T16:56:11Z",
+    "at": "2026-11-18T17:58:30Z",
     "fair": null,
     "q": {
-     "Novig": 0.971
+     "Novig": 0.97
     }
    }
   },
@@ -291,7 +291,7 @@
    "fair_board": null,
    "inside_fair": null,
    "books": {
-    "at": "2026-11-18T16:56:11Z",
+    "at": "2026-11-18T17:58:30Z",
     "fair": null,
     "q": {
      "Kalshi": 0.16
@@ -340,7 +340,7 @@
    ],
    "money_with": false,
    "grade": "B",
-   "fair_board": 0.1463,
+   "fair_board": 0.1501,
    "inside_fair": false,
    "books": null
   },
@@ -386,7 +386,7 @@
    ],
    "money_with": false,
    "grade": "B",
-   "fair_board": 0.3074,
+   "fair_board": 0.3063,
    "inside_fair": false,
    "books": null
   },
@@ -429,7 +429,7 @@
    "side_std": "away",
    "money_with": false,
    "grade": "A",
-   "fair_board": 0.2089,
+   "fair_board": 0.206,
    "inside_fair": false,
    "books": null
   }
