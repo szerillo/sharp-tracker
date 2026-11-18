@@ -1,5 +1,5 @@
 {
- "built": "2026-11-18T20:09:10Z",
+ "built": "2026-11-18T20:16:28Z",
  "rows": [
   {
    "cond": "0x07cdb7ff59205f9f5de337bca7a76e39b68d71397bc6159fb040084e2711905c",
@@ -121,8 +121,8 @@
    "conflict": [
     "Kalshi bet back"
    ],
-   "money_with": false,
-   "grade": "B",
+   "money_with": true,
+   "grade": "A",
    "fair_board": 0.3616,
    "inside_fair": false,
    "books": {
@@ -658,6 +658,11 @@
     "n": 1,
     "best_rank": 110,
     "usd": 125
+   },
+   "under": {
+    "n": 1,
+    "best_rank": 119,
+    "usd": 2074
    }
   },
   "401910010|ml": {
