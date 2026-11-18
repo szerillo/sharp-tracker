@@ -1,5 +1,5 @@
 {
- "built": "2026-11-18T07:43:25Z",
+ "built": "2026-11-18T07:53:22Z",
  "rows": [
   {
    "cond": "0x85b1b9241e3253609ac1b9b9c955df87cfa41e4bb5b04342ac51a4df6b34d91a",
@@ -267,7 +267,7 @@
    "best_rank": 43,
    "usd": 470,
    "paid": 0.145,
-   "ask": 0.22,
+   "ask": 0.23,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-uta-lal-2026-11-18",
    "other": {
@@ -276,7 +276,7 @@
     "usd": 230,
     "first": "2026-11-17T15:01:22Z"
    },
-   "exit_bid": 0.21,
+   "exit_bid": 0.22,
    "kalshi_against": null,
    "logged": true,
    "event_id": "401910017",
@@ -411,6 +411,13 @@
     "n": 1,
     "best_rank": 93,
     "usd": 230
+   }
+  },
+  "401910017|spread": {
+   "away": {
+    "n": 1,
+    "best_rank": 132,
+    "usd": 128
    }
   },
   "401910018|ml": {
