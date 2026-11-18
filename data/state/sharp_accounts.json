@@ -1,6 +1,52 @@
 {
- "built": "2026-11-18T21:35:21Z",
+ "built": "2026-11-18T22:25:07Z",
  "rows": [
+  {
+   "cond": "0x5ee92964df4c1577000768dddeafcd690e299a16c720bfef16030dab56dbaffa",
+   "slug": "nba-hou-ind-2026-11-18",
+   "title": "Rockets vs. Pacers",
+   "mtype": "spread",
+   "start": "2026-11-19T00:00:00Z",
+   "bet": "Rockets -7.5",
+   "side": "Rockets",
+   "flagged": "2026-11-18T22:22:38Z",
+   "why": "a top-50 account",
+   "proven": false,
+   "trigger": "top50",
+   "n_accounts": 1,
+   "best_rank": 49,
+   "usd": 1605,
+   "paid": 0.52,
+   "ask": 0.53,
+   "status": "live",
+   "link": "https://polymarket.us/event/nba-hou-ind-2026-11-18",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401910008",
+   "sport": "nba",
+   "league": null,
+   "away": "HOU",
+   "home": "IND",
+   "away_name": "Houston Rockets",
+   "home_name": "Indiana Pacers",
+   "game_start": "2026-11-19T00:00Z",
+   "side_std": "away",
+   "money_with": true,
+   "grade": "watch",
+   "fair_board": 0.5017,
+   "inside_fair": false,
+   "books": {
+    "at": "2026-11-18T21:57:30Z",
+    "fair": 0.5017,
+    "q": {
+     "Novig": 0.505,
+     "Caesars": 0.5238,
+     "DK": 0.5283,
+     "FD": 0.5283
+    }
+   }
+  },
   {
    "cond": "0xb761a572952a92b5b1b1403ca7508669726f3328855663bc06f48e05eedf64ee",
    "slug": "nba-chi-bkn-2026-11-18",
@@ -39,7 +85,6 @@
    "grade": "B",
    "fair_board": 0.4357,
    "inside_fair": false,
-   "fair_board": 0.4382,
    "books": {
     "at": "2026-11-18T21:57:30Z",
     "fair": 0.4357,
@@ -128,8 +173,8 @@
    "home_name": "Toronto Raptors",
    "game_start": "2026-11-19T00:30Z",
    "side_std": "under",
-   "money_with": false,
-   "grade": "B",
+   "money_with": true,
+   "grade": "A",
    "inside_fair": false,
    "fair_board": null,
    "books": null
@@ -168,8 +213,8 @@
    "conflict": [
     "Kalshi bet back"
    ],
-   "money_with": false,
-   "grade": "B",
+   "money_with": true,
+   "grade": "A",
    "fair_board": 0.3635,
    "inside_fair": false,
    "books": {
@@ -737,6 +782,13 @@
     "n": 1,
     "best_rank": 155,
     "usd": 107
+   }
+  },
+  "401910008|spread": {
+   "away": {
+    "n": 1,
+    "best_rank": 49,
+    "usd": 1605
    }
   },
   "401910009|ml": {
