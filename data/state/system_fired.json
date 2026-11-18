@@ -7545,7 +7545,11 @@
 "price": 239,
 "fair": 0.28719,
 "edge_pts": -0.78,
-"why": "favorite DET is 38% (8-13) but opponent BOS is 61% (13-8): opponent's win% higher by 23 pts"
+"why": "favorite DET is 38% (8-13) but opponent BOS is 61% (13-8): opponent's win% higher by 23 pts",
+"void": true,
+"void_why": "Untracked: systems conflict (nhl_pl_fav_gap vs xch_homedog_fade)",
+"void_at": "2026-11-18T23:09:10Z",
+"untracked": "nhl_pl_fav_gap vs xch_homedog_fade"
 },
 "401892739:nhl_early_home_fav_qual": {
 "tag": "nhl_early_home_fav_qual",
@@ -7558,7 +7562,11 @@
 "price": -104,
 "fair": 0.5066,
 "edge_pts": -0.34,
-"why": "home favorite, game 22 of the season, opponent BOS wins 61% (13-8)"
+"why": "home favorite, game 22 of the season, opponent BOS wins 61% (13-8)",
+"void": true,
+"void_why": "Untracked: systems conflict (nhl_early_home_fav_qual vs xch_homedog_fade)",
+"void_at": "2026-11-18T23:09:10Z",
+"untracked": "nhl_early_home_fav_qual vs xch_homedog_fade"
 },
 "401892740:nhl_early_home_fav_qual": {
 "tag": "nhl_early_home_fav_qual",
@@ -8178,5 +8186,22 @@
 "fair": 0.73793,
 "edge_pts": -0.71,
 "why": "Novig home side mid 0.258 inside T-1.1h; audit band 20-35c"
+},
+"401892739:xch_homedog_fade:spread": {
+"tag": "xch_homedog_fade",
+"fill_id": "10d853346884",
+"ts": "2026-11-18T23:09:10Z",
+"market": "spread",
+"side": "away",
+"line": 1.5,
+"venue": "Novig",
+"price": -245,
+"fair": 0.71219,
+"edge_pts": 0.22,
+"why": "Novig home side mid 0.292 inside T-1.3h; audit band 20-35c",
+"void": true,
+"void_why": "Untracked: systems conflict (xch_homedog_fade vs nhl_pl_fav_gap)",
+"void_at": "2026-11-18T23:09:10Z",
+"untracked": "xch_homedog_fade vs nhl_pl_fav_gap"
 }
 }
