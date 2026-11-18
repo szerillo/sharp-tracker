@@ -1,5 +1,5 @@
 {
- "built": "2026-11-18T00:32:01Z",
+ "built": "2026-11-18T00:39:00Z",
  "rows": [
   {
    "cond": "0xb5346e4b9327fb397a12afb8993956855abe75a8cd43428b85cedca83c66e38c",
@@ -251,7 +251,7 @@
    "best_rank": 69,
    "usd": 345,
    "paid": 0.43,
-   "ask": 0.46,
+   "ask": 0.45,
    "status": "live",
    "link": "https://polymarket.us/event/nhl-ana-stl-2026-11-17",
    "other": null,
@@ -297,7 +297,7 @@
    "best_rank": 119,
    "usd": 447,
    "paid": 0.514,
-   "ask": 0.52,
+   "ask": 0.53,
    "status": "live",
    "link": "https://polymarket.us/event/nba-por-min-2026-11-17",
    "other": null,
@@ -334,7 +334,7 @@
    "best_rank": 110,
    "usd": 2158,
    "paid": 0.53,
-   "ask": 0.55,
+   "ask": 0.54,
    "status": "live",
    "link": "https://polymarket.us/event/nba-det-sas-2026-11-17",
    "other": null,
@@ -371,7 +371,7 @@
    "best_rank": 12,
    "usd": 18101,
    "paid": 0.473,
-   "ask": 0.52,
+   "ask": 0.53,
    "status": "live",
    "link": "https://polymarket.us/event/nba-por-min-2026-11-17",
    "other": null,
@@ -722,16 +722,16 @@
    "best_rank": 40,
    "usd": 14118,
    "paid": 0.557,
-   "ask": 0.58,
+   "ask": 0.57,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-por-min-2026-11-17",
    "other": {
-    "n_accounts": 1,
+    "n_accounts": 2,
     "best_rank": 112,
-    "usd": 685,
+    "usd": 881,
     "first": "2026-11-18T00:26:11Z"
    },
-   "exit_bid": 0.57,
+   "exit_bid": 0.56,
    "kalshi_against": null,
    "logged": true,
    "event_id": "401910003",
@@ -787,8 +787,7 @@
    "game_start": "2026-11-19T00:00Z",
    "side_std": "away",
    "conflict": [
-    "Kalshi bet back",
-    "Kalshi move"
+    "Kalshi bet back"
    ],
    "money_with": false,
    "grade": "B",
@@ -934,9 +933,9 @@
   },
   "401910003|spread": {
    "away": {
-    "n": 2,
+    "n": 3,
     "best_rank": 112,
-    "usd": 3237
+    "usd": 3433
    },
    "home": {
     "n": 5,
