@@ -1,5 +1,5 @@
 {
- "built": "2026-11-18T00:32:01Z",
+ "built": "2026-11-18T00:52:59Z",
  "rows": [
   {
    "cond": "0xb5346e4b9327fb397a12afb8993956855abe75a8cd43428b85cedca83c66e38c",
@@ -696,7 +696,8 @@
    "game_start": "2026-11-18T00:30Z",
    "side_std": "away",
    "conflict": [
-    "Kalshi bet back"
+    "Kalshi bet back",
+    "big money"
    ],
    "money_with": false,
    "grade": "B",
@@ -929,6 +930,14 @@
   "clv_poly_same": -0.87
  },
  "sys_tags": {
+  "401892735:nhl_early_home_fav_qual": {
+   "with": null,
+   "against": {
+    "n": 1,
+    "best_rank": 115,
+    "usd": 23365
+   }
+  },
   "401892734:nhl_early_home_fav_qual": {
    "with": null,
    "against": {
@@ -1101,6 +1110,13 @@
     "n": 1,
     "best_rank": 69,
     "usd": 345
+   }
+  },
+  "401892735|ml": {
+   "away": {
+    "n": 1,
+    "best_rank": 115,
+    "usd": 23365
    }
   },
   "401892738|ml": {
