@@ -1,5 +1,5 @@
 {
- "built": "2026-11-18T23:17:11Z",
+ "built": "2026-11-18T23:24:20Z",
  "rows": [
   {
    "cond": "0x5ee92964df4c1577000768dddeafcd690e299a16c720bfef16030dab56dbaffa",
@@ -520,14 +520,14 @@
    "bet": "Bucks ML",
    "side": "Bucks",
    "flagged": "2026-11-17T02:01:17Z",
-   "why": "3 top-200 accounts",
+   "why": "4 top-200 accounts",
    "proven": false,
    "trigger": "two",
-   "n_accounts": 3,
+   "n_accounts": 4,
    "best_rank": 24,
-   "usd": 923,
-   "paid": 0.186,
-   "ask": 0.15,
+   "usd": 1343,
+   "paid": 0.171,
+   "ask": 0.14,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-mil-mia-2026-11-18",
    "other": {
@@ -536,7 +536,7 @@
     "usd": 1017,
     "first": "2026-11-17T21:29:29Z"
    },
-   "exit_bid": 0.14,
+   "exit_bid": 0.13,
    "kalshi_against": null,
    "logged": true,
    "event_id": "401910009",
@@ -554,7 +554,7 @@
    "money_with": false,
    "grade": "B",
    "fair_board": 0.1496,
-   "inside_fair": false,
+   "inside_fair": true,
    "books": null
   },
   {
@@ -573,7 +573,7 @@
    "best_rank": 43,
    "usd": 142,
    "paid": 0.623,
-   "ask": 0.63,
+   "ask": 0.62,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-mem-cle-2026-11-18",
    "other": {
@@ -582,7 +582,7 @@
     "usd": 1807,
     "first": "2026-11-18T19:06:56Z"
    },
-   "exit_bid": 0.62,
+   "exit_bid": 0.61,
    "kalshi_against": null,
    "logged": true,
    "event_id": "401910007",
@@ -856,9 +856,9 @@
   },
   "401910009|ml": {
    "away": {
-    "n": 3,
+    "n": 4,
     "best_rank": 24,
-    "usd": 923
+    "usd": 1343
    },
    "home": {
     "n": 2,
@@ -1029,9 +1029,9 @@
   },
   "401910017|total": {
    "under": {
-    "n": 1,
-    "best_rank": 132,
-    "usd": 215
+    "n": 2,
+    "best_rank": 95,
+    "usd": 489
    }
   },
   "401910018|ml": {
