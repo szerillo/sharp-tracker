@@ -1,5 +1,5 @@
 {
- "built": "2026-11-18T04:19:19Z",
+ "built": "2026-11-18T04:25:21Z",
  "rows": [
   {
    "cond": "0xd20c8f180292dbd539a49c69cb45dd3226ace39ff87781eb78ae7de0e6fb1da7",
@@ -494,7 +494,7 @@
    "best_rank": 42,
    "usd": 2387,
    "paid": 0.245,
-   "ask": 0.28,
+   "ask": null,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-cha-lal-2026-11-17",
    "other": {
@@ -503,7 +503,7 @@
     "usd": 872,
     "first": "2026-11-18T03:46:19Z"
    },
-   "exit_bid": 0.27,
+   "exit_bid": null,
    "kalshi_against": null,
    "logged": true,
    "event_id": "401910005",
@@ -515,9 +515,6 @@
    "home_name": "Los Angeles Lakers",
    "game_start": "2026-11-18T04:00Z",
    "side_std": "away",
-   "conflict": [
-    "Kalshi bet back"
-   ],
    "money_with": false,
    "grade": "B",
    "fair_board": 0.275,
