@@ -1,5 +1,5 @@
 {
- "built": "2026-11-18T16:03:32Z",
+ "built": "2026-11-18T16:11:27Z",
  "rows": [
   {
    "cond": "0x85b1b9241e3253609ac1b9b9c955df87cfa41e4bb5b04342ac51a4df6b34d91a",
@@ -34,16 +34,16 @@
    "side_std": "home",
    "money_with": false,
    "grade": "watch",
-   "fair_board": 0.6384,
+   "fair_board": 0.637,
    "inside_fair": false,
    "books": {
-    "at": "2026-11-18T14:58:41Z",
-    "fair": 0.6384,
+    "at": "2026-11-18T15:54:11Z",
+    "fair": 0.637,
     "q": {
      "Novig": 0.64,
-     "FD": 0.6599,
+     "Caesars": 0.6552,
      "Kalshi": 0.66,
-     "Caesars": 0.661
+     "FD": 0.6622
     }
    }
   },
@@ -86,13 +86,59 @@
    "inside_fair": false,
    "fair_board": 0.4783,
    "books": {
-    "at": "2026-11-18T14:58:41Z",
-    "fair": 0.5022,
+    "at": "2026-11-18T15:54:11Z",
+    "fair": 0.5019,
     "q": {
      "Novig": 0.505,
      "Caesars": 0.5122,
      "DK": 0.5238,
      "FD": 0.5238
+    }
+   }
+  },
+  {
+   "cond": "0xaa25bffd417da05772ff3240d0c501be659d07587c0f45a6b58944c54c924241",
+   "slug": "nba-was-tor-2026-11-18",
+   "title": "Wizards vs. Raptors",
+   "mtype": "total",
+   "start": "2026-11-19T00:30:00Z",
+   "bet": "Under 227.5",
+   "side": "Under",
+   "flagged": "2026-11-18T16:04:08Z",
+   "why": "2 top-200 accounts",
+   "proven": false,
+   "trigger": "two",
+   "n_accounts": 2,
+   "best_rank": 12,
+   "usd": 902,
+   "paid": 0.502,
+   "ask": 0.52,
+   "status": "live",
+   "link": "https://polymarket.us/event/nba-was-tor-2026-11-18",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401910012",
+   "sport": "nba",
+   "league": null,
+   "away": "WSH",
+   "home": "TOR",
+   "away_name": "Washington Wizards",
+   "home_name": "Toronto Raptors",
+   "game_start": "2026-11-19T00:30Z",
+   "side_std": "under",
+   "money_with": false,
+   "grade": "B",
+   "fair_board": 0.4923,
+   "inside_fair": false,
+   "books": {
+    "at": "2026-11-18T15:54:11Z",
+    "fair": 0.4923,
+    "q": {
+     "Novig": 0.49,
+     "Kalshi": 0.52,
+     "FD": 0.5283,
+     "DK": 0.5283
     }
    }
   },
@@ -132,16 +178,16 @@
    ],
    "money_with": false,
    "grade": "watch",
-   "fair_board": 0.2963,
+   "fair_board": 0.2979,
    "inside_fair": false,
    "books": {
-    "at": "2026-11-18T14:58:41Z",
-    "fair": 0.2963,
+    "at": "2026-11-18T15:54:11Z",
+    "fair": 0.2979,
     "q": {
      "Novig": 0.3,
-     "DK": 0.3058,
-     "Caesars": 0.3106,
-     "FD": 0.3279
+     "DK": 0.3155,
+     "Kalshi": 0.32,
+     "Caesars": 0.3226
     }
    }
   },
@@ -181,7 +227,7 @@
    "fair_board": null,
    "inside_fair": null,
    "books": {
-    "at": "2026-11-18T14:58:41Z",
+    "at": "2026-11-18T15:54:11Z",
     "fair": null,
     "q": {
      "Novig": 0.972
@@ -197,14 +243,14 @@
    "bet": "Utah ML",
    "side": "Utah",
    "flagged": "2026-11-16T04:13:59Z",
-   "why": "a top-200 account also in this sport's top 50",
+   "why": "2 top-200 accounts",
    "proven": true,
    "trigger": "proven",
-   "n_accounts": 1,
-   "best_rank": 104,
-   "usd": 249,
-   "paid": 0.47,
-   "ask": 0.51,
+   "n_accounts": 2,
+   "best_rank": 79,
+   "usd": 10450,
+   "paid": 0.509,
+   "ask": 0.52,
    "status": "live",
    "link": "https://polymarket.us/event/nhl-col-utah-2026-11-18",
    "other": null,
@@ -254,10 +300,10 @@
    "fair_board": null,
    "inside_fair": null,
    "books": {
-    "at": "2026-11-18T14:58:41Z",
+    "at": "2026-11-18T15:54:11Z",
     "fair": null,
     "q": {
-     "Kalshi": 0.16
+     "Kalshi": 0.17
     }
    }
   },
@@ -303,7 +349,7 @@
    ],
    "money_with": false,
    "grade": "B",
-   "fair_board": 0.1496,
+   "fair_board": 0.1457,
    "inside_fair": false,
    "books": null
   },
@@ -346,7 +392,7 @@
    "side_std": "away",
    "money_with": false,
    "grade": "watch",
-   "fair_board": 0.2074,
+   "fair_board": 0.2083,
    "inside_fair": false,
    "books": null
   }
@@ -397,12 +443,12 @@
   "clv_poly_same": -0.9
  },
  "sys_tags": {
-  "401892739:nhl_early_home_fav_qual": {
+  "401910012:nba_roadtrip_over": {
    "with": null,
    "against": {
-    "n": 1,
-    "best_rank": 197,
-    "usd": 1000
+    "n": 2,
+    "best_rank": 12,
+    "usd": 902
    }
   }
  },
@@ -457,6 +503,13 @@
     "n": 1,
     "best_rank": 76,
     "usd": 1048
+   }
+  },
+  "401910012|total": {
+   "under": {
+    "n": 2,
+    "best_rank": 12,
+    "usd": 902
    }
   },
   "401910013|ml": {
@@ -567,6 +620,13 @@
     "n": 1,
     "best_rank": 110,
     "usd": 466
+   }
+  },
+  "401911232|total": {
+   "under": {
+    "n": 1,
+    "best_rank": 110,
+    "usd": 980
    }
   },
   "401906805|ml": {
