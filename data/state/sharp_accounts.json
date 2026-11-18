@@ -1,5 +1,5 @@
 {
- "built": "2026-11-18T15:27:28Z",
+ "built": "2026-11-18T15:34:44Z",
  "rows": [
   {
    "cond": "0x85b1b9241e3253609ac1b9b9c955df87cfa41e4bb5b04342ac51a4df6b34d91a",
@@ -142,6 +142,49 @@
      "DK": 0.3058,
      "Caesars": 0.3106,
      "FD": 0.3279
+    }
+   }
+  },
+  {
+   "cond": "0xd74722e0219346b0657878c2bd05613484a5db1528d86576eebb4b98fdcbe9b5",
+   "slug": "cbb-camp-okl-2026-11-18",
+   "title": "Campbell Fighting Camels vs. Oklahoma Sooners",
+   "mtype": "ml",
+   "start": "2026-11-19T01:00:00Z",
+   "bet": "Oklahoma Sooners ML",
+   "side": "Oklahoma Sooners",
+   "flagged": "2026-11-18T15:30:32Z",
+   "why": "a top-50 account",
+   "proven": false,
+   "trigger": "top50",
+   "n_accounts": 1,
+   "best_rank": 4,
+   "usd": 142,
+   "paid": 0.966,
+   "ask": 0.974,
+   "status": "live",
+   "link": "https://polymarket.us/event/cbb-camp-okl-2026-11-18",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401906805",
+   "sport": "cbb",
+   "league": null,
+   "away": "CAM",
+   "home": "OU",
+   "away_name": "Campbell Fighting Camels",
+   "home_name": "Oklahoma Sooners",
+   "game_start": "2026-11-19T01:00Z",
+   "side_std": "home",
+   "money_with": false,
+   "grade": "B",
+   "fair_board": null,
+   "inside_fair": null,
+   "books": {
+    "at": "2026-11-18T14:58:41Z",
+    "fair": null,
+    "q": {
+     "Novig": 0.972
     }
    }
   },
@@ -524,6 +567,13 @@
     "n": 1,
     "best_rank": 110,
     "usd": 466
+   }
+  },
+  "401906805|ml": {
+   "home": {
+    "n": 1,
+    "best_rank": 4,
+    "usd": 142
    }
   }
  },
