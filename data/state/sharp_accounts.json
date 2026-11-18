@@ -1,5 +1,5 @@
 {
- "built": "2026-11-18T04:45:45Z",
+ "built": "2026-11-18T04:52:37Z",
  "rows": [
   {
    "cond": "0xd20c8f180292dbd539a49c69cb45dd3226ace39ff87781eb78ae7de0e6fb1da7",
@@ -212,7 +212,7 @@
    "best_rank": 43,
    "usd": 204,
    "paid": 0.3,
-   "ask": 0.31,
+   "ask": 0.29,
    "status": "live",
    "link": "https://polymarket.us/event/nba-det-nop-2026-11-18",
    "other": null,
@@ -285,7 +285,7 @@
    "best_rank": 24,
    "usd": 106,
    "paid": 0.138,
-   "ask": 0.23,
+   "ask": 0.22,
    "status": "live",
    "link": "https://polymarket.us/event/nba-lac-sas-2026-11-19",
    "other": null,
@@ -461,7 +461,11 @@
     "first": "2026-11-17T21:29:29Z"
    },
    "exit_bid": 0.14,
-   "kalshi_against": null,
+   "kalshi_against": {
+    "move": 4.0,
+    "now": 86.5,
+    "state": "reversed"
+   },
    "logged": true,
    "event_id": "401910009",
    "sport": "nba",
@@ -473,7 +477,8 @@
    "game_start": "2026-11-19T00:00Z",
    "side_std": "away",
    "conflict": [
-    "Kalshi bet back"
+    "Kalshi bet back",
+    "Kalshi move"
    ],
    "money_with": false,
    "grade": "B",
