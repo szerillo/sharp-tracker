@@ -7956,5 +7956,31 @@
 "fair": 0.67569,
 "edge_pts": -0.43,
 "why": "Novig home side mid 0.325 inside T-1.1h; audit band 20-35c"
+},
+"401910009:nba_bigfav_over": {
+"tag": "nba_bigfav_over",
+"fill_id": "d0710516ccaf",
+"ts": "2026-11-18T00:54:51Z",
+"market": "total",
+"side": "over",
+"line": 236.5,
+"venue": "DK",
+"price": -106,
+"fair": 0.50139,
+"edge_pts": -1.32,
+"why": "MIA is 86% on the moneyline: over (mined angle)"
+},
+"401892746:nhl_bounce_home_ml": {
+"tag": "nhl_bounce_home_ml",
+"fill_id": "d60b7f3300d5",
+"ts": "2026-11-18T00:54:51Z",
+"market": "ml",
+"side": "home",
+"line": null,
+"venue": "Kalshi",
+"price": -144,
+"fair": 0.56,
+"edge_pts": -3.0,
+"why": "home WSH lost its last game by 3, record 10-8 (56%): home moneyline (mined angle)"
 }
 }
