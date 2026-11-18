@@ -1,5 +1,5 @@
 {
- "built": "2026-11-18T21:35:21Z",
+ "built": "2026-11-18T22:12:07Z",
  "rows": [
   {
    "cond": "0xb761a572952a92b5b1b1403ca7508669726f3328855663bc06f48e05eedf64ee",
@@ -17,7 +17,7 @@
    "best_rank": 76,
    "usd": 1375,
    "paid": 0.425,
-   "ask": 0.45,
+   "ask": 0.47,
    "status": "live",
    "link": "https://polymarket.us/event/nba-chi-bkn-2026-11-18",
    "other": null,
@@ -37,15 +37,15 @@
    ],
    "money_with": false,
    "grade": "B",
-   "fair_board": 0.4382,
    "inside_fair": false,
+   "fair_board": 0.4382,
    "books": {
-    "at": "2026-11-18T20:58:21Z",
-    "fair": 0.4382,
+    "at": "2026-11-18T21:57:30Z",
+    "fair": 0.4357,
     "q": {
-     "FD": 0.4386,
+     "Novig": 0.44,
      "Caesars": 0.4425,
-     "Novig": 0.445,
+     "FD": 0.4545,
      "DK": 0.4545
     }
    }
@@ -86,10 +86,10 @@
    "inside_fair": false,
    "fair_board": 0.4783,
    "books": {
-    "at": "2026-11-18T20:58:21Z",
-    "fair": 0.4997,
+    "at": "2026-11-18T21:57:30Z",
+    "fair": 0.4986,
     "q": {
-     "Novig": 0.505,
+     "Novig": 0.5,
      "Caesars": 0.5238,
      "DK": 0.5238,
      "FD": 0.5238
@@ -127,8 +127,8 @@
    "home_name": "Toronto Raptors",
    "game_start": "2026-11-19T00:30Z",
    "side_std": "under",
-   "money_with": true,
-   "grade": "A",
+   "money_with": false,
+   "grade": "B",
    "inside_fair": false,
    "fair_board": null,
    "books": null
@@ -167,12 +167,12 @@
    "conflict": [
     "Kalshi bet back"
    ],
-   "money_with": true,
-   "grade": "A",
+   "money_with": false,
+   "grade": "B",
    "fair_board": 0.3635,
    "inside_fair": false,
    "books": {
-    "at": "2026-11-18T20:58:21Z",
+    "at": "2026-11-18T21:57:30Z",
     "fair": 0.3635,
     "q": {
      "Novig": 0.365,
@@ -198,7 +198,7 @@
    "best_rank": 4,
    "usd": 142,
    "paid": 0.966,
-   "ask": 0.968,
+   "ask": 0.97,
    "status": "live",
    "link": "https://polymarket.us/event/cbb-camp-okl-2026-11-18",
    "other": null,
@@ -218,10 +218,10 @@
    "fair_board": null,
    "inside_fair": null,
    "books": {
-    "at": "2026-11-18T20:58:21Z",
+    "at": "2026-11-18T21:57:30Z",
     "fair": null,
     "q": {
-     "Novig": 0.968
+     "Novig": 0.97
     }
    }
   },
@@ -241,7 +241,7 @@
    "best_rank": 110,
    "usd": 5756,
    "paid": 0.628,
-   "ask": 0.67,
+   "ask": 0.68,
    "status": "live",
    "link": "https://polymarket.us/event/nba-det-nop-2026-11-18",
    "other": null,
@@ -364,14 +364,15 @@
    ],
    "money_with": false,
    "grade": "B",
-   "fair_board": null,
-   "inside_fair": null,
+   "fair_board": 0.4936,
+   "inside_fair": false,
    "books": {
-    "at": "2026-11-18T20:58:21Z",
-    "fair": null,
+    "at": "2026-11-18T21:57:30Z",
+    "fair": 0.4936,
     "q": {
-     "Novig": 0.56,
-     "Kalshi": 0.58
+     "Novig": 0.495,
+     "Caesars": 0.5122,
+     "Kalshi": 0.52
     }
    }
   },
@@ -414,7 +415,7 @@
    "fair_board": null,
    "inside_fair": null,
    "books": {
-    "at": "2026-11-18T20:58:21Z",
+    "at": "2026-11-18T21:57:30Z",
     "fair": null,
     "q": {
      "Kalshi": 0.15
@@ -463,7 +464,7 @@
    ],
    "money_with": false,
    "grade": "B",
-   "fair_board": 0.1525,
+   "fair_board": 0.1505,
    "inside_fair": true,
    "books": null
   },
@@ -506,7 +507,7 @@
    "side_std": "home",
    "money_with": false,
    "grade": "watch",
-   "fair_board": 0.6326,
+   "fair_board": 0.6405,
    "inside_fair": true,
    "books": null
   },
@@ -552,7 +553,7 @@
    ],
    "money_with": false,
    "grade": "B",
-   "fair_board": 0.36,
+   "fair_board": 0.3585,
    "inside_fair": false,
    "books": null
   },
@@ -641,8 +642,8 @@
    ],
    "money_with": false,
    "grade": "A",
-   "fair_board": 0.2124,
-   "inside_fair": true,
+   "fair_board": 0.1786,
+   "inside_fair": false,
    "books": null
   }
  ],
@@ -707,14 +708,6 @@
     "best_rank": 12,
     "usd": 902
    }
-  },
-  "401910017:nba_under_good_home_over": {
-   "with": {
-    "n": 1,
-    "best_rank": 132,
-    "usd": 215
-   },
-   "against": null
   },
   "401910013:nba_under_good_home_over": {
    "with": null,
@@ -786,6 +779,13 @@
     "n": 2,
     "best_rank": 76,
     "usd": 1375
+   }
+  },
+  "401910011|spread": {
+   "away": {
+    "n": 1,
+    "best_rank": 110,
+    "usd": 351
    }
   },
   "401910012|total": {
