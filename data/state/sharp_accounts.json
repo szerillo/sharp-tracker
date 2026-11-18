@@ -1,5 +1,5 @@
 {
- "built": "2026-11-18T18:09:57Z",
+ "built": "2026-11-18T18:17:12Z",
  "rows": [
   {
    "cond": "0x85b1b9241e3253609ac1b9b9c955df87cfa41e4bb5b04342ac51a4df6b34d91a",
@@ -360,16 +360,16 @@
    "best_rank": 55,
    "usd": 14315,
    "paid": 0.333,
-   "ask": 0.37,
+   "ask": 0.36,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-was-tor-2026-11-18",
    "other": {
-    "n_accounts": 1,
-    "best_rank": 112,
-    "usd": 7051,
+    "n_accounts": 2,
+    "best_rank": 55,
+    "usd": 7334,
     "first": "2026-11-18T17:43:58Z"
    },
-   "exit_bid": 0.36,
+   "exit_bid": 0.35,
    "kalshi_against": null,
    "logged": false,
    "event_id": "401910012",
@@ -382,7 +382,8 @@
    "game_start": "2026-11-19T00:30Z",
    "side_std": "away",
    "conflict": [
-    "Kalshi bet back"
+    "Kalshi bet back",
+    "big money"
    ],
    "money_with": false,
    "grade": "B",
@@ -576,9 +577,9 @@
     "usd": 14315
    },
    "home": {
-    "n": 1,
-    "best_rank": 112,
-    "usd": 2320
+    "n": 2,
+    "best_rank": 55,
+    "usd": 2603
    }
   },
   "401910013|ml": {
@@ -593,6 +594,20 @@
     "n": 1,
     "best_rank": 132,
     "usd": 1597
+   }
+  },
+  "401910016|spread": {
+   "away": {
+    "n": 1,
+    "best_rank": 155,
+    "usd": 100
+   }
+  },
+  "401910016|ml": {
+   "away": {
+    "n": 1,
+    "best_rank": 155,
+    "usd": 144
    }
   },
   "401910015|ml": {
