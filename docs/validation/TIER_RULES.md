@@ -35,6 +35,29 @@ tuned afterwards; any later change is dated at the bottom with its reason. Recom
 - WF N of 100 and 60: below about 60 blind bets at -110 the standard error of ROI is above 12 points, wider than any edge here.
 - +5% WF ROI for full size: below that, ordinary price variation between shops and the close eats most of the edge.
 
+## Version 2 (11/18/2026, after Sean's pushback): full backtest as the primary evidence
+
+Written before re-scoring. Supersedes the tiers above; version 1 is kept for the record. Recommendations only, and nothing is retired.
+
+Primary evidence: the Bet Labs record on Sean's saved screen, by window as Bet Labs reports it at its own prices (data/research/betlabs_windows.json:
+all years from 2003, 2003 to Feb 2021, Mar 2021 on). Significance is a one-sided z-test of ROI, with each window's per-bet spread worked out from
+its own W-L and ROI (the average payout implied by them).
+
+- **Tier A, full size.** Bet Labs all-time N >= 300 and p < 0.01; both eras (2003 to Feb 2021, Mar 2021 on) positive; the Mar 2021 on era p < 0.10.
+- **Tier B, reduced size.** Not A, and: all-time p < 0.05 with both eras positive.
+- **Tier C, paper.** Everything else, including any system whose edge exists only from 2020 on in Bet Labs (2003 to Feb 2021 negative or flat).
+
+Overfitting checks (each moves a system down at most one tier, and each is written as one plain sentence in PUSHBACK.md):
+
+1. Our own rebuild, on the same kind of data, shows no edge: in-sample ROI <= 0 and blind walk-forward ROI <= 0. If our rebuild used a different
+   data source than Bet Labs (Open-Meteo instead of Bet Labs' wind, a US-book or Pinnacle 1H line, a different filter definition), it does not move
+   the tier; it is flagged as "our rebuild may be the weak part".
+2. The tool's live filter differs from the saved screen it is tested on ("different filters" in the 11/18 inventory): flagged, no move.
+
+Not used: the live paper record (only as a tiebreak between two otherwise equal systems; none needed it), and the search-adjusted p, since the
+variants Sean tried are not recorded anywhere. The plain single-filter p is shown instead.
+
 ## Changes
 
 - 11/18/2026: written.
+- 11/18/2026, later: version 2 added after Sean's pushback (full Bet Labs backtest as primary evidence).
