@@ -578,7 +578,7 @@ function sysRow({g, f, tag}) {
       : kAg ? ['held', 'Held: Kalshi moved the other way']
       : f.lapsed ? ['lapsed', 'Trigger no longer met'] : windWait(tag, g.start_utc) ? ['wait', WIND_WAIT] : f.now === null ? ['gone', 'Price gone: no bettable price'] : e.tier === 'P' ? ['gone', `Paper: ${e.paper_why || 'thin or untested forward'}`] : null,
     size: held || e.tier === 'P' || f.lapsed ? '' : unitText(['A', 'B'].includes(e.tier) || HALF_U.has(tag) ? SLIP.big : SLIP.small, amProb(f.now ? f.now.price : f.price)),
-    price: priceOf(f, g), link: gone || e.tier === 'P' ? '' : betLink((f.now && f.now.venue) || f.venue, g.event_id, f.market),
+    price: priceOf(f, g), link: gone || e.tier === 'P' || windWait(tag, g.start_utc) ? '' : betLink((f.now && f.now.venue) || f.venue, g.event_id, f.market),
     why: `${esc(r.desc || tag)}${sp ? `<div>${sp}</div>` : ''}`,
     rec: ruleRec(tag), gone,
     detail: facts([['Rule', esc(r.desc || tag)], ['This game', esc((g.triggers || {})[tag] || f.why || '')],
