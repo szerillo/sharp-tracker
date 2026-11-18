@@ -1,5 +1,5 @@
 {
- "built": "2026-11-18T15:04:41Z",
+ "built": "2026-11-18T15:11:49Z",
  "rows": [
   {
    "cond": "0x85b1b9241e3253609ac1b9b9c955df87cfa41e4bb5b04342ac51a4df6b34d91a",
@@ -34,16 +34,16 @@
    "side_std": "home",
    "money_with": false,
    "grade": "watch",
-   "fair_board": 0.6458,
-   "inside_fair": true,
+   "fair_board": 0.6384,
+   "inside_fair": false,
    "books": {
-    "at": "2026-11-18T02:52:58Z",
-    "fair": 0.6458,
+    "at": "2026-11-18T14:58:41Z",
+    "fair": 0.6384,
     "q": {
-     "Novig": 0.65,
-     "Caesars": 0.661,
-     "DK": 0.6622,
-     "FD": 0.6622
+     "Novig": 0.64,
+     "FD": 0.6599,
+     "Kalshi": 0.66,
+     "Caesars": 0.661
     }
    }
   },
@@ -63,7 +63,7 @@
    "best_rank": 197,
    "usd": 1000,
    "paid": 0.5,
-   "ask": 0.5,
+   "ask": 0.51,
    "status": "live",
    "link": "https://polymarket.us/event/nhl-bos-det-2026-11-18",
    "other": null,
@@ -86,13 +86,13 @@
    "inside_fair": false,
    "fair_board": 0.4783,
    "books": {
-    "at": "2026-11-18T02:52:58Z",
-    "fair": 0.4783,
+    "at": "2026-11-18T14:58:41Z",
+    "fair": 0.5022,
     "q": {
-     "Novig": 0.485,
-     "Caesars": 0.4878,
-     "DK": 0.495,
-     "FD": 0.495
+     "Novig": 0.505,
+     "Caesars": 0.5122,
+     "DK": 0.5238,
+     "FD": 0.5238
     }
    }
   },
@@ -132,13 +132,16 @@
    ],
    "money_with": false,
    "grade": "watch",
-   "fair_board": null,
-   "inside_fair": null,
+   "fair_board": 0.2963,
+   "inside_fair": false,
    "books": {
-    "at": "2026-11-18T02:52:58Z",
-    "fair": null,
+    "at": "2026-11-18T14:58:41Z",
+    "fair": 0.2963,
     "q": {
-     "Kalshi": 0.33
+     "Novig": 0.3,
+     "DK": 0.3058,
+     "Caesars": 0.3106,
+     "FD": 0.3279
     }
    }
   },
@@ -207,7 +210,13 @@
    "grade": "watch",
    "fair_board": null,
    "inside_fair": null,
-   "books": null
+   "books": {
+    "at": "2026-11-18T14:58:41Z",
+    "fair": null,
+    "q": {
+     "Kalshi": 0.16
+    }
+   }
   },
   {
    "cond": "0xc5a9b485dcf72b254bf0385573d9e448d6210ad8170ae421003aa87a2a6784cc",
@@ -251,7 +260,7 @@
    ],
    "money_with": false,
    "grade": "B",
-   "fair_board": 0.1332,
+   "fair_board": 0.1496,
    "inside_fair": false,
    "books": null
   },
@@ -294,8 +303,8 @@
    "side_std": "away",
    "money_with": false,
    "grade": "watch",
-   "fair_board": null,
-   "inside_fair": null,
+   "fair_board": 0.2074,
+   "inside_fair": false,
    "books": null
   }
  ],
@@ -352,14 +361,6 @@
     "best_rank": 197,
     "usd": 1000
    }
-  },
-  "401910009:nba_bigfav_over": {
-   "with": {
-    "n": 1,
-    "best_rank": 110,
-    "usd": 125
-   },
-   "against": null
   }
  },
  "by_event": {
