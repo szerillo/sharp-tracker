@@ -7747,7 +7747,11 @@
 "price": 194,
 "fair": 0.3,
 "edge_pts": -4.0,
-"why": "COL off a win, home UTA has lost 5 straight: road puck line (mined angle)"
+"why": "COL off a win, home UTA has lost 5 straight: road puck line (mined angle)",
+"void": true,
+"void_why": "Untracked: systems conflict (nhl_skid_fade_road vs nhl_early_home_fav_qual)",
+"void_at": "2026-11-18T20:34:25Z",
+"untracked": "nhl_skid_fade_road vs nhl_early_home_fav_qual"
 },
 "401873073:nfl_road_dog_7510": {
 "tag": "nfl_road_dog_7510",
@@ -7874,7 +7878,11 @@
 "price": -186,
 "fair": 0.62,
 "edge_pts": -3.0,
-"why": "home SEA lost its last game by 4, record 9-9 (50%): home moneyline (mined angle)"
+"why": "home SEA lost its last game by 4, record 9-9 (50%): home moneyline (mined angle)",
+"void": true,
+"void_why": "Untracked: systems conflict (nhl_bounce_home_ml vs nhl_skid_fade_road)",
+"void_at": "2026-11-18T20:34:25Z",
+"untracked": "nhl_bounce_home_ml vs nhl_skid_fade_road"
 },
 "401892752:nhl_skid_fade_road": {
 "tag": "nhl_skid_fade_road",
@@ -7887,7 +7895,11 @@
 "price": -178,
 "fair": 0.6,
 "edge_pts": -4.0,
-"why": "VAN off a win, home SEA has lost 3 straight: road puck line (mined angle)"
+"why": "VAN off a win, home SEA has lost 3 straight: road puck line (mined angle)",
+"void": true,
+"void_why": "Untracked: systems conflict (nhl_skid_fade_road vs nhl_bounce_home_ml)",
+"void_at": "2026-11-18T20:34:25Z",
+"untracked": "nhl_skid_fade_road vs nhl_bounce_home_ml"
 },
 "401892753:nhl_early_home_fav_qual": {
 "tag": "nhl_early_home_fav_qual",
@@ -7900,7 +7912,11 @@
 "price": -138,
 "fair": 0.545,
 "edge_pts": -3.5,
-"why": "home favorite, game 23 of the season, opponent DAL wins 60% (12-8)"
+"why": "home favorite, game 23 of the season, opponent DAL wins 60% (12-8)",
+"void": true,
+"void_why": "Untracked: systems conflict (nhl_early_home_fav_qual vs nhl_skid_fade_road)",
+"void_at": "2026-11-18T20:34:25Z",
+"untracked": "nhl_early_home_fav_qual vs nhl_skid_fade_road"
 },
 "401892741:nhl_early_home_fav_qual": {
 "tag": "nhl_early_home_fav_qual",
@@ -7913,7 +7929,11 @@
 "price": -104,
 "fair": 0.50145,
 "edge_pts": -0.86,
-"why": "home favorite, game 23 of the season, opponent COL wins 57% (12-9)"
+"why": "home favorite, game 23 of the season, opponent COL wins 57% (12-9)",
+"void": true,
+"void_why": "Untracked: systems conflict (nhl_early_home_fav_qual vs nhl_skid_fade_road)",
+"void_at": "2026-11-18T20:34:25Z",
+"untracked": "nhl_early_home_fav_qual vs nhl_skid_fade_road"
 },
 "401856869:cfb_day_over": {
 "tag": "cfb_day_over",
@@ -8111,7 +8131,11 @@
 "price": -285,
 "fair": 0.705,
 "edge_pts": -3.5,
-"why": "DAL off a win, home VGK has lost 3 straight: road puck line (mined angle)"
+"why": "DAL off a win, home VGK has lost 3 straight: road puck line (mined angle)",
+"void": true,
+"void_why": "Untracked: systems conflict (nhl_skid_fade_road vs nhl_early_home_fav_qual)",
+"void_at": "2026-11-18T20:34:25Z",
+"untracked": "nhl_skid_fade_road vs nhl_early_home_fav_qual"
 },
 "401892742:nhl_loss_streak_over": {
 "tag": "nhl_loss_streak_over",
