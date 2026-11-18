@@ -128,3 +128,4 @@ docs/validation/SUMMARY.md, data/research/validation.json. Nothing is computed b
 ## Changes
 
 - 11/18/2026: registered.
+- 11/18/2026, during the run (data cleaning, not a change of method): the CFB schedule carries no season type, so bowl and playoff games were dropped by date (Dec 14 on and January, Army-Navy kept). A sorting bug that picked the wrong plateau neighbours on grids mixing whole and half points was fixed; gate numbers were unchanged (fixed seed). The six second-batch and AP-rank rules are listed as insufficient data with the reason.
