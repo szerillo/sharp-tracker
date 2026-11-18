@@ -1,5 +1,5 @@
 {
- "built": "2026-11-18T23:17:11Z",
+ "built": "2026-11-18T23:31:37Z",
  "rows": [
   {
    "cond": "0x5ee92964df4c1577000768dddeafcd690e299a16c720bfef16030dab56dbaffa",
@@ -48,6 +48,89 @@
    }
   },
   {
+   "cond": "0x5039871c61d02caab4292d60e202b8ed2865e03980a571e7b13efa88fa779d68",
+   "slug": "nba-phi-orl-2026-11-18",
+   "title": "76ers vs. Magic",
+   "mtype": "spread",
+   "start": "2026-11-19T00:00:00Z",
+   "bet": "Magic -2.5",
+   "side": "Magic",
+   "flagged": "2026-11-18T23:30:07Z",
+   "why": "3 top-200 accounts",
+   "proven": false,
+   "trigger": "two",
+   "n_accounts": 3,
+   "best_rank": 12,
+   "usd": 18994,
+   "paid": 0.468,
+   "ask": 0.54,
+   "status": "live",
+   "link": "https://polymarket.us/event/nba-phi-orl-2026-11-18",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401910010",
+   "sport": "nba",
+   "league": null,
+   "away": "PHI",
+   "home": "ORL",
+   "away_name": "Philadelphia 76ers",
+   "home_name": "Orlando Magic",
+   "game_start": "2026-11-19T00:00Z",
+   "side_std": "home",
+   "money_with": true,
+   "grade": "A",
+   "fair_board": null,
+   "inside_fair": null,
+   "books": null
+  },
+  {
+   "cond": "0x3ee6da8c2d6c327fe4b1dd002c2fb2bfeb45c21671a06c9b0b5f79c34a6474db",
+   "slug": "nba-phi-orl-2026-11-18",
+   "title": "76ers vs. Magic",
+   "mtype": "spread",
+   "start": "2026-11-19T00:00:00Z",
+   "bet": "Magic -1.5",
+   "side": "Magic",
+   "flagged": "2026-11-18T23:30:08Z",
+   "why": "2 top-200 accounts",
+   "proven": false,
+   "trigger": "two",
+   "n_accounts": 2,
+   "best_rank": 112,
+   "usd": 5277,
+   "paid": 0.53,
+   "ask": 0.58,
+   "status": "live",
+   "link": "https://polymarket.us/event/nba-phi-orl-2026-11-18",
+   "other": null,
+   "kalshi_against": null,
+   "logged": false,
+   "ladder": true,
+   "event_id": "401910010",
+   "sport": "nba",
+   "league": null,
+   "away": "PHI",
+   "home": "ORL",
+   "away_name": "Philadelphia 76ers",
+   "home_name": "Orlando Magic",
+   "game_start": "2026-11-19T00:00Z",
+   "side_std": "home",
+   "money_with": true,
+   "grade": "A",
+   "fair_board": 0.4734,
+   "inside_fair": false,
+   "books": {
+    "at": "2026-11-18T22:57:39Z",
+    "fair": 0.4734,
+    "q": {
+     "Novig": 0.475,
+     "Kalshi": 0.5,
+     "FD": 0.5
+    }
+   }
+  },
+  {
    "cond": "0xbd90006882bbd505c56b2fec1cba4597a5aae9b000ded1704c9ac92f61679177",
    "slug": "nba-phi-orl-2026-11-18",
    "title": "76ers vs. Magic",
@@ -63,7 +146,7 @@
    "best_rank": 12,
    "usd": 120,
    "paid": 0.53,
-   "ask": 0.56,
+   "ask": 0.58,
    "status": "live",
    "link": "https://polymarket.us/event/nba-phi-orl-2026-11-18",
    "other": null,
@@ -92,6 +175,44 @@
      "DK": 0.5169
     }
    }
+  },
+  {
+   "cond": "0xf62d5bf7b62589d9dabfea78c77ae319bdacbc2c9859dd3ac815349088be0f76",
+   "slug": "nba-phi-orl-2026-11-18",
+   "title": "76ers vs. Magic",
+   "mtype": "total",
+   "start": "2026-11-19T00:00:00Z",
+   "bet": "Under 219.5",
+   "side": "Under",
+   "flagged": "2026-11-18T23:31:20Z",
+   "why": "a top-50 account",
+   "proven": false,
+   "trigger": "top50",
+   "n_accounts": 1,
+   "best_rank": 43,
+   "usd": 3766,
+   "paid": 0.529,
+   "ask": 0.53,
+   "status": "live",
+   "link": "https://polymarket.us/event/nba-phi-orl-2026-11-18",
+   "other": null,
+   "kalshi_against": null,
+   "logged": false,
+   "ladder": true,
+   "event_id": "401910010",
+   "sport": "nba",
+   "league": null,
+   "away": "PHI",
+   "home": "ORL",
+   "away_name": "Philadelphia 76ers",
+   "home_name": "Orlando Magic",
+   "game_start": "2026-11-19T00:00Z",
+   "side_std": "under",
+   "money_with": false,
+   "grade": "watch",
+   "fair_board": null,
+   "inside_fair": null,
+   "books": null
   },
   {
    "cond": "0xb761a572952a92b5b1b1403ca7508669726f3328855663bc06f48e05eedf64ee",
@@ -124,6 +245,9 @@
    "home_name": "Brooklyn Nets",
    "game_start": "2026-11-19T00:30Z",
    "side_std": "away",
+   "conflict": [
+    "big money"
+   ],
    "money_with": false,
    "grade": "B",
    "inside_fair": false,
@@ -256,8 +380,8 @@
    "conflict": [
     "Kalshi bet back"
    ],
-   "money_with": false,
-   "grade": "B",
+   "money_with": true,
+   "grade": "A",
    "fair_board": 0.3655,
    "inside_fair": false,
    "books": {
@@ -330,7 +454,7 @@
    "best_rank": 110,
    "usd": 5756,
    "paid": 0.628,
-   "ask": 0.67,
+   "ask": 0.68,
    "status": "live",
    "link": "https://polymarket.us/event/nba-det-nop-2026-11-18",
    "other": null,
@@ -481,7 +605,7 @@
    "best_rank": 24,
    "usd": 106,
    "paid": 0.138,
-   "ask": 0.16,
+   "ask": 0.17,
    "status": "live",
    "link": "https://polymarket.us/event/nba-lac-sas-2026-11-19",
    "other": null,
@@ -554,7 +678,7 @@
    "money_with": false,
    "grade": "B",
    "fair_board": 0.1496,
-   "inside_fair": false,
+   "inside_fair": true,
    "books": null
   },
   {
@@ -616,7 +740,7 @@
    "best_rank": 55,
    "usd": 14315,
    "paid": 0.333,
-   "ask": 0.35,
+   "ask": 0.39,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-was-tor-2026-11-18",
    "other": {
@@ -625,7 +749,7 @@
     "usd": 7334,
     "first": "2026-11-18T17:43:58Z"
    },
-   "exit_bid": 0.34,
+   "exit_bid": 0.38,
    "kalshi_against": null,
    "logged": false,
    "event_id": "401910012",
@@ -782,14 +906,6 @@
   "clv_poly_same": -0.9
  },
  "sys_tags": {
-  "401892739:nhl_early_home_fav_qual": {
-   "with": null,
-   "against": {
-    "n": 2,
-    "best_rank": 79,
-    "usd": 2616
-   }
-  },
   "401910012:nba_roadtrip_over": {
    "with": null,
    "against": {
@@ -885,23 +1001,23 @@
     "usd": 1167
    },
    "home": {
-    "n": 7,
+    "n": 8,
     "best_rank": 43,
-    "usd": 77954
+    "usd": 78071
    }
   },
   "401910010|spread": {
    "home": {
-    "n": 2,
-    "best_rank": 112,
-    "usd": 18767
+    "n": 4,
+    "best_rank": 12,
+    "usd": 19620
    }
   },
   "401910010|total": {
    "under": {
-    "n": 1,
+    "n": 2,
     "best_rank": 12,
-    "usd": 120
+    "usd": 3886
    }
   },
   "401910011|ml": {
@@ -1095,20 +1211,6 @@
     "n": 1,
     "best_rank": 93,
     "usd": 315
-   }
-  },
-  "401922292|total": {
-   "over": {
-    "n": 1,
-    "best_rank": 110,
-    "usd": 674
-   }
-  },
-  "401909516|total": {
-   "over": {
-    "n": 1,
-    "best_rank": 110,
-    "usd": 359
    }
   },
   "401926838|total": {
