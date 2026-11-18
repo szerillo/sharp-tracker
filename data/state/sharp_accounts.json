@@ -1,6 +1,55 @@
 {
- "built": "2026-11-18T21:42:31Z",
+ "built": "2026-11-18T21:49:41Z",
  "rows": [
+  {
+   "cond": "0xb761a572952a92b5b1b1403ca7508669726f3328855663bc06f48e05eedf64ee",
+   "slug": "nba-chi-bkn-2026-11-18",
+   "title": "Bulls vs. Nets",
+   "mtype": "ml",
+   "start": "2026-11-19T00:30:00Z",
+   "bet": "Bulls ML",
+   "side": "Bulls",
+   "flagged": "2026-11-18T21:45:58Z",
+   "why": "2 top-200 accounts",
+   "proven": false,
+   "trigger": "two",
+   "n_accounts": 2,
+   "best_rank": 76,
+   "usd": 1375,
+   "paid": 0.425,
+   "ask": 0.45,
+   "status": "live",
+   "link": "https://polymarket.us/event/nba-chi-bkn-2026-11-18",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401910011",
+   "sport": "nba",
+   "league": null,
+   "away": "CHI",
+   "home": "BKN",
+   "away_name": "Chicago Bulls",
+   "home_name": "Brooklyn Nets",
+   "game_start": "2026-11-19T00:30Z",
+   "side_std": "away",
+   "conflict": [
+    "big money"
+   ],
+   "money_with": false,
+   "grade": "B",
+   "fair_board": 0.4382,
+   "inside_fair": false,
+   "books": {
+    "at": "2026-11-18T20:58:21Z",
+    "fair": 0.4382,
+    "q": {
+     "FD": 0.4386,
+     "Caesars": 0.4425,
+     "Novig": 0.445,
+     "DK": 0.4545
+    }
+   }
+  },
   {
    "cond": "0x07cdb7ff59205f9f5de337bca7a76e39b68d71397bc6159fb040084e2711905c",
    "slug": "nhl-bos-det-2026-11-18",
@@ -78,8 +127,8 @@
    "home_name": "Toronto Raptors",
    "game_start": "2026-11-19T00:30Z",
    "side_std": "under",
-   "money_with": false,
-   "grade": "B",
+   "money_with": true,
+   "grade": "A",
    "inside_fair": false,
    "fair_board": null,
    "books": null
@@ -118,8 +167,8 @@
    "conflict": [
     "Kalshi bet back"
    ],
-   "money_with": false,
-   "grade": "B",
+   "money_with": true,
+   "grade": "A",
    "fair_board": 0.3635,
    "inside_fair": false,
    "books": {
@@ -192,7 +241,7 @@
    "best_rank": 110,
    "usd": 5756,
    "paid": 0.628,
-   "ask": 0.68,
+   "ask": 0.67,
    "status": "live",
    "link": "https://polymarket.us/event/nba-det-nop-2026-11-18",
    "other": null,
@@ -434,7 +483,7 @@
    "best_rank": 43,
    "usd": 142,
    "paid": 0.623,
-   "ask": 0.64,
+   "ask": 0.63,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-mem-cle-2026-11-18",
    "other": {
@@ -443,7 +492,7 @@
     "usd": 1807,
     "first": "2026-11-18T19:06:56Z"
    },
-   "exit_bid": 0.63,
+   "exit_bid": 0.62,
    "kalshi_against": null,
    "logged": true,
    "event_id": "401910007",
@@ -458,7 +507,7 @@
    "money_with": false,
    "grade": "watch",
    "fair_board": 0.6326,
-   "inside_fair": false,
+   "inside_fair": true,
    "books": null
   },
   {
@@ -734,9 +783,9 @@
   },
   "401910011|ml": {
    "away": {
-    "n": 1,
+    "n": 2,
     "best_rank": 76,
-    "usd": 1048
+    "usd": 1375
    }
   },
   "401910012|total": {
