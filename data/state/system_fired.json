@@ -8176,32 +8176,28 @@
 },
 "401910008:xch_homedog_fade:ml": {
 "tag": "xch_homedog_fade",
-"fill_id": "c689b1dbedb1",
-"ts": "2026-11-18T22:53:14Z",
+"fill_id": "b2dd05485e53",
+"ts": "2026-11-18T23:17:12Z",
 "market": "ml",
 "side": "away",
 "line": null,
 "venue": "Novig",
 "price": -292,
-"fair": 0.73793,
-"edge_pts": -0.71,
-"why": "Novig home side mid 0.258 inside T-1.1h; audit band 20-35c"
+"fair": null,
+"edge_pts": null,
+"why": "Novig home side mid 0.258 inside T-0.7h; audit band 20-35c"
 },
 "401892739:xch_homedog_fade:spread": {
 "tag": "xch_homedog_fade",
-"fill_id": "10d853346884",
-"ts": "2026-11-18T23:09:10Z",
+"fill_id": "a4781df8e6a7",
+"ts": "2026-11-18T23:17:12Z",
 "market": "spread",
 "side": "away",
 "line": 1.5,
 "venue": "Novig",
 "price": -245,
-"fair": 0.71219,
-"edge_pts": 0.22,
-"why": "Novig home side mid 0.292 inside T-1.3h; audit band 20-35c",
-"void": true,
-"void_why": "Untracked: systems conflict (xch_homedog_fade vs nhl_pl_fav_gap)",
-"void_at": "2026-11-18T23:09:10Z",
-"untracked": "xch_homedog_fade vs nhl_pl_fav_gap"
+"fair": null,
+"edge_pts": null,
+"why": "Novig home side mid 0.292 inside T-1.2h; audit band 20-35c"
 }
 }
