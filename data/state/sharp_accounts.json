@@ -1,5 +1,5 @@
 {
- "built": "2026-11-18T14:13:11Z",
+ "built": "2026-11-18T14:33:23Z",
  "rows": [
   {
    "cond": "0x85b1b9241e3253609ac1b9b9c955df87cfa41e4bb5b04342ac51a4df6b34d91a",
@@ -352,6 +352,14 @@
     "best_rank": 197,
     "usd": 1000
    }
+  },
+  "401910009:nba_bigfav_over": {
+   "with": {
+    "n": 1,
+    "best_rank": 110,
+    "usd": 125
+   },
+   "against": null
   }
  },
  "by_event": {
@@ -379,6 +387,13 @@
     "n": 1,
     "best_rank": 40,
     "usd": 117
+   }
+  },
+  "401910009|total": {
+   "over": {
+    "n": 1,
+    "best_rank": 110,
+    "usd": 125
    }
   },
   "401910010|ml": {
