@@ -1,5 +1,5 @@
 {
- "built": "2026-11-18T17:55:18Z",
+ "built": "2026-11-18T18:02:27Z",
  "rows": [
   {
    "cond": "0x85b1b9241e3253609ac1b9b9c955df87cfa41e4bb5b04342ac51a4df6b34d91a",
@@ -127,8 +127,8 @@
    "home_name": "Toronto Raptors",
    "game_start": "2026-11-19T00:30Z",
    "side_std": "under",
-   "money_with": false,
-   "grade": "B",
+   "money_with": true,
+   "grade": "A",
    "inside_fair": false,
    "fair_board": null,
    "books": null
@@ -318,9 +318,9 @@
    "status": "other side",
    "link": "https://polymarket.us/event/nba-mil-mia-2026-11-18",
    "other": {
-    "n_accounts": 1,
+    "n_accounts": 2,
     "best_rank": 40,
-    "usd": 117,
+    "usd": 1017,
     "first": "2026-11-17T21:29:29Z"
    },
    "exit_bid": 0.15,
@@ -360,16 +360,16 @@
    "best_rank": 55,
    "usd": 14315,
    "paid": 0.333,
-   "ask": 0.38,
+   "ask": 0.37,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-was-tor-2026-11-18",
    "other": {
     "n_accounts": 1,
     "best_rank": 112,
-    "usd": 2701,
+    "usd": 7051,
     "first": "2026-11-18T17:43:58Z"
    },
-   "exit_bid": 0.37,
+   "exit_bid": 0.36,
    "kalshi_against": null,
    "logged": false,
    "event_id": "401910012",
@@ -519,9 +519,9 @@
     "usd": 923
    },
    "home": {
-    "n": 1,
+    "n": 2,
     "best_rank": 40,
-    "usd": 117
+    "usd": 1017
    }
   },
   "401910009|total": {
