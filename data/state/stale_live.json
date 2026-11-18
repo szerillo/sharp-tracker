@@ -1,11 +1,11 @@
 {
- "built": "2026-11-18T03:09:24Z",
+ "built": "2026-11-18T03:22:37Z",
  "record": {
-  "n": 154,
-  "won": 63,
+  "n": 156,
+  "won": 65,
   "lost": 91,
-  "units": -3.98,
-  "roi": -10.3
+  "units": -3.42,
+  "roi": -8.8
  },
  "record_sb4": {
   "n": 6,
@@ -76,26 +76,6 @@
    "team": null
   },
   {
-   "key": "401916289|ml|home",
-   "sport": "cbb",
-   "event_id": "401916289",
-   "game": "ARK @ IU",
-   "start": "2026-11-18T00:30Z",
-   "market": "ml",
-   "side": "home",
-   "line": null,
-   "venue": "Novig",
-   "price": 0.465,
-   "fair": 0.4789,
-   "fair_power": 0.4777,
-   "venue_fair": 0.4627,
-   "fair_gap": 1.6,
-   "ev": 3.0,
-   "move": 3.7,
-   "flagged": "2026-11-17T15:15:21Z",
-   "team": "IU"
-  },
-  {
    "key": "401906851|total|under",
    "sport": "cbb",
    "event_id": "401906851",
@@ -114,26 +94,6 @@
    "move": 1.8,
    "flagged": "2026-11-17T16:29:05Z",
    "team": null
-  },
-  {
-   "key": "401909504|spread|home",
-   "sport": "cbb",
-   "event_id": "401909504",
-   "game": "UMES @ DEP",
-   "start": "2026-11-18T01:00Z",
-   "market": "spread",
-   "side": "home",
-   "line": -32.5,
-   "venue": "Novig",
-   "price": 0.48,
-   "fair": 0.5,
-   "fair_power": 0.5,
-   "venue_fair": 0.4706,
-   "fair_gap": 2.9,
-   "ev": 4.2,
-   "move": 1.1,
-   "flagged": "2026-11-17T16:29:05Z",
-   "team": "DEP"
   },
   {
    "key": "401920720|spread|away",
