@@ -1,5 +1,5 @@
 {
- "built": "2026-11-18T03:00:33Z",
+ "built": "2026-11-18T03:13:56Z",
  "record": {
   "cbb_1h_total_curve": {
    "n": 5,
@@ -53,10 +53,10 @@
    }
   },
   "nhl_p3_under_curve": {
-   "n": 30,
+   "n": 31,
    "won": 6,
-   "lost": 15,
-   "units": -3.53,
+   "lost": 16,
+   "units": -3.78,
    "clv": {
     "n": 20,
     "avg": -2.21,
@@ -210,37 +210,6 @@
    "close_fair": 0.4895,
    "clv": -1.05,
    "beat_fair": -0.05
-  },
-  {
-   "key": "nhl_p3_under_curve|c5e76339fef03145801250ff2216947b||under",
-   "rule": "nhl_p3_under_curve",
-   "tier": "P",
-   "stake": 0.0,
-   "sport": "nhl",
-   "odds_id": "c5e76339fef03145801250ff2216947b",
-   "espn": "401892732",
-   "game": "Buffalo Sabres @ Philadelphia Flyers",
-   "start": "2026-11-18T00:10:00Z",
-   "market": "totals_p3",
-   "team": null,
-   "team_name": null,
-   "side": "under",
-   "line": 2.0,
-   "curve": 0.547,
-   "pin_fair": 0.473,
-   "gap": 7.4,
-   "full_total": 6.5,
-   "full_spread": 1.5,
-   "pin_price": 2.04,
-   "book": null,
-   "price": null,
-   "flagged": "2026-11-17T23:33:26Z",
-   "close_ts": "2026-11-17T23:59:15Z",
-   "close_line": 2.0,
-   "line_value": 0.0,
-   "close_fair": 0.4651,
-   "clv": -2.51,
-   "beat_fair": -0.79
   }
  ]
 }
