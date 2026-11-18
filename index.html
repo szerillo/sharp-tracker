@@ -134,7 +134,8 @@
   .act-bet{background:var(--green,#16a34a);color:#fff} .act-hold{background:var(--badbg);color:var(--badink);box-shadow:inset 0 0 0 1px var(--badbd)}
   .act-pass{background:var(--line);color:var(--ink2,#555)} .act-watch{background:transparent;color:var(--ink2,#666);box-shadow:inset 0 0 0 1px var(--line)}
   .stat-held{background:var(--badbg);color:var(--badink);box-shadow:inset 0 0 0 1px var(--badbd)} .stat-fit{background:var(--okbg,#e8f5ec);color:var(--greenink);box-shadow:inset 0 0 0 1px var(--greenink)} .stat-gone{background:var(--gonebg);color:var(--goneink);box-shadow:inset 0 0 0 1px var(--gonebd)}
-  .stat-lapsed{background:var(--warnbg);color:var(--warnink);box-shadow:inset 0 0 0 1px var(--warnbd)}
+  .stat-lapsed{background:var(--warnbg);color:var(--warnink);box-shadow:inset 0 0 0 1px var(--warnbd)} .stat-wait{background:var(--warnbg);color:var(--warnink);box-shadow:inset 0 0 0 1px var(--warnbd)}
+  .act-wait{background:var(--warnbg);color:var(--warnink);box-shadow:inset 0 0 0 1px var(--warnbd)}
   @media (max-width:760px){.slipt thead,.slipt .c-game,.slipt .c-why,.slipt .c-rec{display:none} .show-m{display:block}
     .slipt,.slipt tbody{display:block} .slipt tr.erow{display:grid;grid-template-columns:1fr auto;grid-template-areas:"bet price" "when size";gap:4px 12px;padding:11px 12px;border-top:1px solid var(--border)}
     .slipt tr.erow:first-child{border-top:0} .slipt tr.erow td{display:block;border:0;padding:0;width:auto} .slipt .c-bet{grid-area:bet} .slipt .c-price{grid-area:price;text-align:right}
@@ -482,6 +483,9 @@ function restLine(o, started) {
   const b = window._RESTM.M[`${o.ev}|${mkN(o.mk)}|${o.side}`]; if (!b) return '';
   return `<div class="small dim" title="Rest this price on Novig or Kalshi instead of taking: 1c under Pinnacle's fair price when it flagged (${(100 * (b.rest + 0.01)).toFixed(1)}%). Paper test since 11/10: filled against never filled.">rest <b>${toAm(b.rest)}</b>${b.rest_filled ? ` · <span class="tag-with">was there${b.best_at ? ' ' + DAYT(b.best_at) : ''}</span>` : ' · not there yet'}</div>`;
 }
+// 11/18 (Sean): NFL and CFB wind bets do not lock until 12 hours before kickoff; before that the forecast can still move. Shown as WAIT.
+const WIND_LOCK_H = 12, WIND_WAIT = `Wait: wind locks ${WIND_LOCK_H}h before kickoff`;
+const windWait = (tag, start) => /wind/.test(tag || '') && (new Date(start) - Date.now()) / 3.6e6 > WIND_LOCK_H;
 function sRow(o) {
   // 11/6 (Sean): main table is Start / Bet / Size / Price; why it flagged, the record and the rule details open on click
   const id = String(o.id).replace(/['"\\]/g, ''), open = window._wo[id];
@@ -495,8 +499,8 @@ function sRow(o) {
   // 11/7 (Sean): an action under the start time. BET = sized and live; HOLD = a signal against (it can come back); PASS = price gone,
   // bought out, lapsed, or paper; WATCH = shown for information, no size by design. Live bets sort first in every table.
   const st0 = o.status && o.status[0];
-  const act = o.action || (st0 === 'held' ? ['hold', o.status[1]] : (st0 === 'gone' || st0 === 'lapsed' || (o.gone && !o.size)) ? ['pass', o.status ? o.status[1] : 'no bettable price'] : o.size ? ['bet', ''] : ['watch', '']);
-  const rank = {bet: 0, watch: 1, hold: 2, pass: 3}[act[0]];
+  const act = o.action || (st0 === 'wait' ? ['wait', o.status[1]] : st0 === 'held' ? ['hold', o.status[1]] : (st0 === 'gone' || st0 === 'lapsed' || (o.gone && !o.size)) ? ['pass', o.status ? o.status[1] : 'no bettable price'] : o.size ? ['bet', ''] : ['watch', '']);
+  const rank = {bet: 0, wait: 1, watch: 1, hold: 2, pass: 3}[act[0]];
   const actHtml = `<div><span class="act act-${act[0]}" title="${esc(String(act[1] || '').replace(/<[^>]+>/g, ''))}">${act[0].toUpperCase()}</span></div>`;
   const tierA = (o.tier ? ` data-tier="${esc(String(o.tier))}"` : '') + ` data-f="${o.flagged ? Date.parse(o.flagged) || 0 : 0}"`
     // 11/7 (Sean: "one bet should be in one spot"): market, a short label and units, so rows on the same game, market and side merge into one
@@ -572,7 +576,7 @@ function sysRow({g, f, tag}) {
       return ag.length ? ` <span class="stat stat-held" style="margin:2px 0 0 6px;white-space:nowrap" title="Signals on the other side of this bet; open the row for detail">Against: ${esc(ag.join(', '))}</span>` : ''; })()}`,
     status: f._conf ? ['held', 'Held: a stronger rule is on the other side']
       : kAg ? ['held', 'Held: Kalshi moved the other way']
-      : f.lapsed ? ['lapsed', 'Trigger no longer met'] : f.now === null ? ['gone', 'Price gone: no bettable price'] : e.tier === 'P' ? ['gone', `Paper: ${e.paper_why || 'thin or untested forward'}`] : null,
+      : f.lapsed ? ['lapsed', 'Trigger no longer met'] : windWait(tag, g.start_utc) ? ['wait', WIND_WAIT] : f.now === null ? ['gone', 'Price gone: no bettable price'] : e.tier === 'P' ? ['gone', `Paper: ${e.paper_why || 'thin or untested forward'}`] : null,
     size: held || e.tier === 'P' || f.lapsed ? '' : unitText(['A', 'B'].includes(e.tier) || HALF_U.has(tag) ? SLIP.big : SLIP.small, amProb(f.now ? f.now.price : f.price)),
     price: priceOf(f, g), link: gone || e.tier === 'P' ? '' : betLink((f.now && f.now.venue) || f.venue, g.event_id, f.market),
     why: `${esc(r.desc || tag)}${sp ? `<div>${sp}</div>` : ''}`,
@@ -583,7 +587,7 @@ function sysRow({g, f, tag}) {
       ['Tracker', `${trk}${x && x.clv_avg != null ? ` · CLV ${x.clv_avg >= 0 ? '+' : ''}${x.clv_avg}% (diagnostic only for a system)` : ''}`],
       ['Polymarket sharps', sp],
       ['Other numbers', (f.ladder || []).length ? (f.ladder || []).map(x => `${esc(betText({...f, line: x.line}, g))}: ${am(x.price)} ${VS(x.venue)}${x.loss != null ? ` <span class="${x.loss <= 0.02 ? 'ok-chip' : 'dim'}">(${x.loss <= 0 ? '+' : '-'}${Math.abs(100 * x.loss).toFixed(1)}% vs the flagged number)</span>` : ''}`).join('<br>') : ''], ['Flagged', f.ts ? `${DAYT(f.ts)} at ${VS(f.venue)} ${am(f.price)}` : `${VS(f.venue)} ${am(f.price)}`],
-      ['Status', f._conf ? `Held, not a bet: conflicts with ${esc(f._conf)}, the stronger rule on this game. The board keeps one side per game; the fill stays in the ledger and is graded.` : kAg ? 'Held, not a bet: Kalshi moved the other way. Since 11/14 that is the only market signal that holds a bet (29-67 against it across systems and paper); the fill stays in the ledger and is graded' : f.lapsed ? 'The trigger is no longer met on the latest data (for wind: the forecast moved out of the band). Stays in the ledger and is graded either way; not a new bet.' : (f.now === null ? 'No bettable price right now. Still counted at the flagged price.' : '')],
+      ['Status', f._conf ? `Held, not a bet: conflicts with ${esc(f._conf)}, the stronger rule on this game. The board keeps one side per game; the fill stays in the ledger and is graded.` : kAg ? 'Held, not a bet: Kalshi moved the other way. Since 11/14 that is the only market signal that holds a bet (29-67 against it across systems and paper); the fill stays in the ledger and is graded' : windWait(tag, g.start_utc) ? `Wait to bet: wind does not lock until ${WIND_LOCK_H} hours before kickoff, because the forecast can still move. Flagged and logged now; bet it once inside ${WIND_LOCK_H} hours if the trigger still holds.` : f.lapsed ? 'The trigger is no longer met on the latest data (for wind: the forecast moved out of the band). Stays in the ledger and is graded either way; not a new bet.' : (f.now === null ? 'No bettable price right now. Still counted at the flagged price.' : '')],
       ['Links', r.labs ? `<a target="_blank" href="https://sportsinsights.actionnetwork.com/betlabs/screen?ScreenId=${r.labs.id}">Bet Labs screen ↗</a>` : '']])});
 }
 function gameHead(x) {
@@ -624,7 +628,7 @@ function renderToday() {
       const reason = (g.late || []).includes(tag) ? `Fired, but there is no bet: inside ${(SY.window_h || [2, 30])[0]} hours of the start, and rules only take a price ${(SY.window_h || [2, 30])[0]}-${(SY.window_h || [2, 30])[1]} hours out. If it had been eligible earlier, check the rule card's history (a voided or stacked fill can block it).`
         : tag === 'wind_msw_only' ? 'Weather sources disagree: one forecast has the wind in range but the average of Open-Meteo and MySportsWeather (what the rule fires on, the closest match to Bet Labs) does not. Worth a look if the forecasts converge.'
         : (f && f.stacked ? 'Same bet already flagged by a stronger rule on this game.'
-        : ((new Date(g.start_utc) - now) / 3.6e6 > (((SY.rules || {})[tag] || {}).max_h || (SY.window_h || [2, 30])[1]) ? `Weather rule: becomes a bet inside ${(SY.window_h || [2, 30])[1]} hours of the start, when the forecast is firm.`
+        : ((new Date(g.start_utc) - now) / 3.6e6 > (((SY.rules || {})[tag] || {}).max_h || (SY.window_h || [2, 30])[1]) ? (/wind/.test(tag) ? `Wind rule: flagged inside ${(SY.window_h || [2, 30])[1]} hours of the start; do not bet until it locks ${WIND_LOCK_H} hours before kickoff.` : `Weather rule: becomes a bet inside ${(SY.window_h || [2, 30])[1]} hours of the start, when the forecast is firm.`)
         : 'Fired, but no bettable book had a usable price at that moment. If you can find the number, it is the same bet.'));
       flags.push({g, tag, why, reason, start: g.start_utc, sport: g.sport, league: g.league}); } }
   // ---- 3. sharp-money watch signals: structured (kind, market, side, bet), merged per game x market below
