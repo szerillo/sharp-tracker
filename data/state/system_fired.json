@@ -7843,7 +7843,10 @@
 "price": -150,
 "fair": 0.57,
 "edge_pts": -3.0,
-"why": "home favorite, game 22 of the season, opponent ANA wins 52% (11-10)"
+"why": "home favorite, game 22 of the season, opponent ANA wins 52% (11-10)",
+"void": true,
+"void_why": "trigger no longer holds on current season records (2026-11-18T14:54:33Z)",
+"void_at": "2026-11-18T14:54:33Z"
 },
 "401892752:nhl_bounce_home_ml": {
 "tag": "nhl_bounce_home_ml",
@@ -7968,7 +7971,10 @@
 "price": -106,
 "fair": 0.50139,
 "edge_pts": -1.32,
-"why": "MIA is 86% on the moneyline: over (mined angle)"
+"why": "MIA is 86% on the moneyline: over (mined angle)",
+"void": true,
+"void_why": "trigger no longer holds on current season records (2026-11-18T14:54:33Z)",
+"void_at": "2026-11-18T14:54:33Z"
 },
 "401892746:nhl_bounce_home_ml": {
 "tag": "nhl_bounce_home_ml",
@@ -8029,5 +8035,64 @@
 "fair": 0.695,
 "edge_pts": -3.5,
 "why": "LA off a win, home TOR has lost 6 straight: road puck line (mined angle)"
+},
+"401873078:wind1014_1h": {
+"tag": "wind1014_1h",
+"stacked": true,
+"market": "1h_total",
+"side": "under",
+"why": "MySportsWeather 10 mph, gusts 18 (Open-Meteo 12.1 at T-131h), gust 27.3, 47.9F (same bet already taken by a higher-priority rule)"
+},
+"401910012:nba_roadtrip_over": {
+"tag": "nba_roadtrip_over",
+"fill_id": "51184e13ed8d",
+"ts": "2026-11-18T14:54:33Z",
+"market": "total",
+"side": "over",
+"line": 227.5,
+"venue": "Novig",
+"price": -104,
+"fair": 0.50808,
+"edge_pts": -0.19,
+"why": "WSH off 3 straight home games, first road game: over (Bet Labs filter)"
+},
+"401910013:nba_under_good_home_over_small": {
+"tag": "nba_under_good_home_over_small",
+"fill_id": "3699ed10e381",
+"ts": "2026-11-18T14:54:33Z",
+"market": "total",
+"side": "under",
+"line": 227.5,
+"venue": "Novig",
+"price": -108,
+"fair": 0.51246,
+"edge_pts": -0.75,
+"why": "home NO over rate 60%, days since last game: home 2, visitor 1; total 228.5 -> 227.5"
+},
+"401910017:nba_under_good_home_over": {
+"tag": "nba_under_good_home_over",
+"fill_id": "7d45a24d82ea",
+"ts": "2026-11-18T14:54:33Z",
+"market": "total",
+"side": "under",
+"line": 228.5,
+"venue": "Novig",
+"price": -104,
+"fair": 0.50453,
+"edge_pts": -0.55,
+"why": "home LAL over rate 73%, days since last game: home 1, visitor 1; total 230.5 -> 228.5"
+},
+"401892753:nhl_skid_fade_road": {
+"tag": "nhl_skid_fade_road",
+"fill_id": "0363da4da3b0",
+"ts": "2026-11-18T14:54:33Z",
+"market": "spread",
+"side": "away",
+"line": 1.5,
+"venue": "Kalshi",
+"price": -285,
+"fair": 0.705,
+"edge_pts": -3.5,
+"why": "DAL off a win, home VGK has lost 3 straight: road puck line (mined angle)"
 }
 }
