@@ -1,5 +1,5 @@
 {
- "built": "2026-11-18T20:57:58Z",
+ "built": "2026-11-18T21:11:50Z",
  "rows": [
   {
    "cond": "0x07cdb7ff59205f9f5de337bca7a76e39b68d71397bc6159fb040084e2711905c",
@@ -32,15 +32,18 @@
    "home_name": "Detroit Red Wings",
    "game_start": "2026-11-19T00:30Z",
    "side_std": "away",
+   "conflict": [
+    "big money"
+   ],
    "money_with": false,
    "grade": "A",
    "inside_fair": false,
    "fair_board": 0.4783,
    "books": {
-    "at": "2026-11-18T19:56:58Z",
-    "fair": 0.4984,
+    "at": "2026-11-18T20:58:21Z",
+    "fair": 0.4997,
     "q": {
-     "Novig": 0.5,
+     "Novig": 0.505,
      "Caesars": 0.5238,
      "DK": 0.5238,
      "FD": 0.5238
@@ -120,11 +123,11 @@
    ],
    "money_with": true,
    "grade": "A",
-   "fair_board": 0.3616,
+   "fair_board": 0.3635,
    "inside_fair": false,
    "books": {
-    "at": "2026-11-18T19:56:58Z",
-    "fair": 0.3616,
+    "at": "2026-11-18T20:58:21Z",
+    "fair": 0.3635,
     "q": {
      "Novig": 0.365,
      "Kalshi": 0.38,
@@ -169,7 +172,7 @@
    "fair_board": null,
    "inside_fair": null,
    "books": {
-    "at": "2026-11-18T19:56:58Z",
+    "at": "2026-11-18T20:58:21Z",
     "fair": null,
     "q": {
      "Novig": 0.968
@@ -295,7 +298,7 @@
    "best_rank": 24,
    "usd": 106,
    "paid": 0.138,
-   "ask": 0.14,
+   "ask": 0.13,
    "status": "live",
    "link": "https://polymarket.us/event/nba-lac-sas-2026-11-19",
    "other": null,
@@ -318,10 +321,10 @@
    "fair_board": null,
    "inside_fair": null,
    "books": {
-    "at": "2026-11-18T19:56:58Z",
+    "at": "2026-11-18T20:58:21Z",
     "fair": null,
     "q": {
-     "Kalshi": 0.16
+     "Kalshi": 0.15
     }
    }
   },
@@ -341,7 +344,7 @@
    "best_rank": 24,
    "usd": 923,
    "paid": 0.186,
-   "ask": 0.16,
+   "ask": 0.15,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-mil-mia-2026-11-18",
    "other": {
@@ -350,7 +353,7 @@
     "usd": 1017,
     "first": "2026-11-17T21:29:29Z"
    },
-   "exit_bid": 0.15,
+   "exit_bid": 0.14,
    "kalshi_against": null,
    "logged": true,
    "event_id": "401910009",
@@ -367,8 +370,8 @@
    ],
    "money_with": false,
    "grade": "B",
-   "fair_board": 0.1539,
-   "inside_fair": false,
+   "fair_board": 0.1525,
+   "inside_fair": true,
    "books": null
   },
   {
@@ -410,7 +413,7 @@
    "side_std": "home",
    "money_with": false,
    "grade": "watch",
-   "fair_board": 0.6355,
+   "fair_board": 0.6326,
    "inside_fair": false,
    "books": null
   },
@@ -456,8 +459,8 @@
    ],
    "money_with": false,
    "grade": "B",
-   "fair_board": 0.3635,
-   "inside_fair": true,
+   "fair_board": 0.36,
+   "inside_fair": false,
    "books": null
   },
   {
@@ -519,7 +522,7 @@
    "best_rank": 23,
    "usd": 3770,
    "paid": 0.211,
-   "ask": 0.19,
+   "ask": 0.18,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-uta-lal-2026-11-18",
    "other": {
@@ -528,7 +531,7 @@
     "usd": 1122,
     "first": "2026-11-17T15:01:22Z"
    },
-   "exit_bid": 0.18,
+   "exit_bid": 0.17,
    "kalshi_against": null,
    "logged": true,
    "event_id": "401910017",
@@ -542,7 +545,7 @@
    "side_std": "away",
    "money_with": false,
    "grade": "A",
-   "fair_board": 0.2099,
+   "fair_board": 0.2124,
    "inside_fair": true,
    "books": null
   }
