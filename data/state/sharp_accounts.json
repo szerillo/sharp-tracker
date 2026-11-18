@@ -1,5 +1,5 @@
 {
- "built": "2026-11-18T02:12:26Z",
+ "built": "2026-11-18T02:19:27Z",
  "rows": [
   {
    "cond": "0xb5346e4b9327fb397a12afb8993956855abe75a8cd43428b85cedca83c66e38c",
@@ -756,7 +756,11 @@
     "first": "2026-11-17T21:29:29Z"
    },
    "exit_bid": 0.13,
-   "kalshi_against": null,
+   "kalshi_against": {
+    "move": 4.0,
+    "now": 86.5,
+    "state": "reversed"
+   },
    "logged": true,
    "event_id": "401910009",
    "sport": "nba",
@@ -768,7 +772,8 @@
    "game_start": "2026-11-19T00:00Z",
    "side_std": "away",
    "conflict": [
-    "Kalshi bet back"
+    "Kalshi bet back",
+    "Kalshi move"
    ],
    "money_with": false,
    "grade": "B",
