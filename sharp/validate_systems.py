@@ -356,7 +356,7 @@ def run(rule, cfg, rows, rng):
                 flags=[x for x in ('N < 100 (thin)' if n1 < 100 else None, 'ROI above +25%: check for leakage' if (r1 or 0) > 0.25 else None) if x],
                 p_grid=p2, p_single=p2s, grid_size=len(grid), perm_best=best.tolist(),
                 wf=[{k: v for k, v in w.items() if k != 'idx'} for w in wf], oos_roi=r_oos, oos_n=n_oos, wf_roi=r_all, wf_n=n_all, p_wf=p4, wf_bar=bar4,
-                holdout_roi=ho_r, holdout_n=ho[0]['n'] if ho else 0, plateau=plateau, neighbours=neigh, grid_rois=grid_rois, verdict=verdict,
+                holdout_roi=ho_r, wf_sd=float(pr[m_wf].std(ddof=1)) if m_wf.sum() > 1 else None, wf_units=float(pr[m_wf].sum()), wf_record=f"{int((won[m_wf] == 1).sum())}-{int((won[m_wf] == 0).sum())}", holdout_n=ho[0]['n'] if ho else 0, plateau=plateau, neighbours=neigh, grid_rois=grid_rois, verdict=verdict,
                 n_bets_base=int(len(won)))
 
 

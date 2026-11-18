@@ -101,6 +101,9 @@
   "p_wf": 0.0,
   "wf_bar": 0.01,
   "holdout_roi": 0.57,
+  "wf_sd": 0.9189650994436726,
+  "wf_units": 29.429999999999993,
+  "wf_record": "69-35",
   "holdout_n": 22,
   "plateau": true,
   "neighbours": [
@@ -433,6 +436,9 @@
   "p_wf": 0.18,
   "wf_bar": 0.05,
   "holdout_roi": 0.08359999999999998,
+  "wf_sd": 0.9852236632697504,
+  "wf_units": 2.0899999999999994,
+  "wf_record": "14-11",
   "holdout_n": 25,
   "plateau": false,
   "neighbours": [
@@ -803,6 +809,9 @@
   "p_wf": 0.39,
   "wf_bar": 0.01,
   "holdout_roi": 0.9274999999999999,
+  "wf_sd": 0.9542960777122622,
+  "wf_units": -5.320000000000004,
+  "wf_record": "63-63",
   "holdout_n": 4,
   "plateau": false,
   "neighbours": [
@@ -1003,6 +1012,9 @@
   "p_wf": 0.02,
   "wf_bar": 0.01,
   "holdout_roi": 0.20703703703703702,
+  "wf_sd": 0.939761642209075,
+  "wf_units": 21.21,
+  "wf_record": "73-46",
   "holdout_n": 27,
   "plateau": true,
   "neighbours": [
@@ -1901,6 +1913,9 @@
   "p_wf": 0.1,
   "wf_bar": 0.01,
   "holdout_roi": 0.12034482758620688,
+  "wf_sd": 0.9250352799494398,
+  "wf_units": 8.899999999999999,
+  "wf_record": "39-27",
   "holdout_n": 29,
   "plateau": true,
   "neighbours": [
@@ -2070,6 +2085,9 @@
   "p_wf": 0.23,
   "wf_bar": 0.01,
   "holdout_roi": 0.25166666666666665,
+  "wf_sd": 0.9212759871202789,
+  "wf_units": 4.45,
+  "wf_record": "21-14",
   "holdout_n": 6,
   "plateau": true,
   "neighbours": [
@@ -2410,6 +2428,9 @@
   "p_wf": 0.02,
   "wf_bar": 0.05,
   "holdout_roi": 0.3741666666666666,
+  "wf_sd": 0.9032786496096205,
+  "wf_units": 8.979999999999999,
+  "wf_record": "17-7",
   "holdout_n": 24,
   "plateau": false,
   "neighbours": [
@@ -2620,6 +2641,9 @@
   "p_wf": 0.09,
   "wf_bar": 0.05,
   "holdout_roi": 0.24119999999999997,
+  "wf_sd": 0.9531409479540089,
+  "wf_units": 6.029999999999999,
+  "wf_record": "16-9",
   "holdout_n": 25,
   "plateau": false,
   "neighbours": [
@@ -2766,6 +2790,9 @@
   "p_wf": 0.015,
   "wf_bar": 0.01,
   "holdout_roi": 0.35810810810810806,
+  "wf_sd": 0.9558819119907082,
+  "wf_units": 15.619999999999992,
+  "wf_record": "101-78",
   "holdout_n": 37,
   "plateau": true,
   "neighbours": [
@@ -3144,6 +3171,9 @@
   "p_wf": 0.2,
   "wf_bar": 0.01,
   "holdout_roi": 0.10139705882352938,
+  "wf_sd": 0.9569750738779621,
+  "wf_units": 10.059999999999985,
+  "wf_record": "193-170",
   "holdout_n": 136,
   "plateau": true,
   "neighbours": [
@@ -3323,6 +3353,9 @@
   "p_wf": 0.15,
   "wf_bar": 0.01,
   "holdout_roi": 0.036249999999999984,
+  "wf_sd": 0.9671838208912421,
+  "wf_units": 7.209999999999995,
+  "wf_record": "102-89",
   "holdout_n": 72,
   "plateau": false,
   "neighbours": [
@@ -3812,6 +3845,9 @@
   "p_wf": 0.325,
   "wf_bar": 0.01,
   "holdout_roi": -0.01833333333333335,
+  "wf_sd": 0.9848319101001071,
+  "wf_units": 2.3799999999999972,
+  "wf_record": "39-35",
   "holdout_n": 12,
   "plateau": false,
   "neighbours": [
@@ -4051,17 +4087,12 @@
   "p_wf": 0.61,
   "wf_bar": 0.01,
   "holdout_roi": -0.385625,
+  "wf_sd": 0.970125685750999,
+  "wf_units": -7.510000000000003,
+  "wf_record": "29-35",
   "holdout_n": 16,
   "plateau": false,
   "neighbours": [
-   {
-    "variant": {
-     "d": 0.5,
-     "o": 58
-    },
-    "roi": -0.024169096209912564,
-    "n": 343
-   },
    {
     "variant": {
      "d": 1,
@@ -4069,6 +4100,14 @@
     },
     "roi": 0.015340136054421732,
     "n": 294
+   },
+   {
+    "variant": {
+     "d": 2,
+     "o": 58
+    },
+    "roi": 0.018155339805825208,
+    "n": 206
    },
    {
     "variant": {
@@ -4394,6 +4433,9 @@
   "p_wf": 0.015,
   "wf_bar": 0.01,
   "holdout_roi": 0.17861538461538462,
+  "wf_sd": 0.8006577286830231,
+  "wf_units": 20.599999999999994,
+  "wf_record": "146-76",
   "holdout_n": 65,
   "plateau": true,
   "neighbours": [
@@ -4742,6 +4784,9 @@
   "p_wf": 0.175,
   "wf_bar": 0.01,
   "holdout_roi": 0.52,
+  "wf_sd": 0.9693540625365556,
+  "wf_units": 3.750000000000002,
+  "wf_record": "64-50",
   "holdout_n": 13,
   "plateau": true,
   "neighbours": [
@@ -5145,6 +5190,9 @@
   "p_wf": 0.23,
   "wf_bar": 0.01,
   "holdout_roi": -0.4878947368421053,
+  "wf_sd": 1.063085686286724,
+  "wf_units": 13.540000000000001,
+  "wf_record": "91-78",
   "holdout_n": 19,
   "plateau": true,
   "neighbours": [
