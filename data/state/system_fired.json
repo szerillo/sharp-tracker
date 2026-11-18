@@ -8082,7 +8082,10 @@
 "price": -108,
 "fair": 0.51246,
 "edge_pts": -0.75,
-"why": "home NO over rate 60%, days since last game: home 2, visitor 1; total 228.5 -> 227.5"
+"why": "home NO over rate 60%, days since last game: home 2, visitor 1; total 228.5 -> 227.5",
+"void": true,
+"void_why": "trigger no longer holds on current season records (2026-11-18T19:53:36Z)",
+"void_at": "2026-11-18T19:53:36Z"
 },
 "401910017:nba_under_good_home_over": {
 "tag": "nba_under_good_home_over",
@@ -8122,5 +8125,18 @@
 "fair": 0.47835,
 "edge_pts": -1.67,
 "why": "home TOR has lost 7 straight, season over rate 57%: over (mined angle)"
+},
+"401910013:nba_under_good_home_over": {
+"tag": "nba_under_good_home_over",
+"fill_id": "18a9a6751c4d",
+"ts": "2026-11-18T19:53:36Z",
+"market": "total",
+"side": "under",
+"line": 226.5,
+"venue": "Novig",
+"price": -104,
+"fair": 0.50914,
+"edge_pts": -0.09,
+"why": "home NO over rate 60%, days since last game: home 2, visitor 1; total 228.5 -> 226.5"
 }
 }
