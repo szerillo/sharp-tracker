@@ -1,5 +1,5 @@
 {
- "built": "2026-11-18T07:13:23Z",
+ "built": "2026-11-18T07:22:50Z",
  "rows": [
   {
    "cond": "0x85b1b9241e3253609ac1b9b9c955df87cfa41e4bb5b04342ac51a4df6b34d91a",
@@ -216,7 +216,7 @@
    "best_rank": 24,
    "usd": 923,
    "paid": 0.186,
-   "ask": 0.15,
+   "ask": 0.14,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-mil-mia-2026-11-18",
    "other": {
@@ -225,8 +225,12 @@
     "usd": 117,
     "first": "2026-11-17T21:29:29Z"
    },
-   "exit_bid": 0.14,
-   "kalshi_against": null,
+   "exit_bid": 0.13,
+   "kalshi_against": {
+    "move": 4.0,
+    "now": 86.5,
+    "state": "reversed"
+   },
    "logged": true,
    "event_id": "401910009",
    "sport": "nba",
@@ -238,7 +242,8 @@
    "game_start": "2026-11-19T00:00Z",
    "side_std": "away",
    "conflict": [
-    "Kalshi bet back"
+    "Kalshi bet back",
+    "Kalshi move"
    ],
    "money_with": false,
    "grade": "B",
@@ -305,7 +310,7 @@
     "clv": -0.53
    }
   },
-  "n": 321,
+  "n": 322,
   "won": 144,
   "units": -16.35,
   "by_grade": {
@@ -316,7 +321,7 @@
     "clv": -0.4
    },
    "B": {
-    "n": 81,
+    "n": 82,
     "won": 46,
     "units": 0.89,
     "clv": -0.98
@@ -328,9 +333,9 @@
     "clv": -0.72
    }
   },
-  "units_1u": -45.42,
+  "units_1u": -46.42,
   "clv": -0.58,
-  "n_venue": 157,
+  "n_venue": 158,
   "units_venue": -5.86,
   "clv_venue": 0.63,
   "clv_poly_same": -0.9
