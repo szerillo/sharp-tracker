@@ -1,5 +1,5 @@
 {
- "built": "2026-11-18T00:17:01Z",
+ "built": "2026-11-18T00:24:46Z",
  "rows": [
   {
    "cond": "0xb5346e4b9327fb397a12afb8993956855abe75a8cd43428b85cedca83c66e38c",
@@ -290,14 +290,14 @@
    "bet": "Timberwolves -1.5",
    "side": "Timberwolves",
    "flagged": "2026-11-17T19:15:05Z",
-   "why": "a top-50 account",
+   "why": "4 top-200 accounts",
    "proven": false,
-   "trigger": "top50",
-   "n_accounts": 1,
+   "trigger": "two",
+   "n_accounts": 4,
    "best_rank": 40,
-   "usd": 2619,
-   "paid": 0.54,
-   "ask": 0.53,
+   "usd": 14118,
+   "paid": 0.557,
+   "ask": 0.59,
    "status": "live",
    "link": "https://polymarket.us/event/nba-por-min-2026-11-17",
    "other": null,
@@ -313,7 +313,7 @@
    "game_start": "2026-11-18T01:00Z",
    "side_std": "home",
    "money_with": false,
-   "grade": "watch",
+   "grade": "B",
    "fair_board": null,
    "inside_fair": null,
    "books": null
@@ -420,7 +420,7 @@
    "best_rank": 43,
    "usd": 142,
    "paid": 0.623,
-   "ask": 0.66,
+   "ask": 0.65,
    "status": "live",
    "link": "https://polymarket.us/event/nba-mem-cle-2026-11-18",
    "other": null,
@@ -587,7 +587,7 @@
    "best_rank": 12,
    "usd": 16271,
    "paid": 0.539,
-   "ask": 0.5,
+   "ask": 0.49,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-nyk-tor-2026-11-17",
    "other": {
@@ -596,7 +596,7 @@
     "usd": 9754,
     "first": "2026-11-17T19:46:04Z"
    },
-   "exit_bid": 0.49,
+   "exit_bid": 0.48,
    "kalshi_against": null,
    "logged": true,
    "event_id": "401910002",
@@ -689,7 +689,7 @@
     "usd": 117,
     "first": "2026-11-17T21:29:29Z"
    },
-   "exit_bid": 0.15,
+   "exit_bid": 0.14,
    "kalshi_against": {
     "move": 4.0,
     "now": 86.5,
@@ -706,7 +706,8 @@
    "game_start": "2026-11-19T00:00Z",
    "side_std": "away",
    "conflict": [
-    "Kalshi bet back"
+    "Kalshi bet back",
+    "Kalshi move"
    ],
    "money_with": false,
    "grade": "B",
@@ -888,9 +889,9 @@
     "usd": 172
    },
    "home": {
-    "n": 2,
+    "n": 4,
     "best_rank": 40,
-    "usd": 26412
+    "usd": 29198
    }
   },
   "401910004|ml": {
