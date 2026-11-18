@@ -20,7 +20,7 @@ HORIZON_H = float(os.environ.get('CURVE_H', 3))
 BOOKS = {'fanduel': 'FD', 'williamhill_us': 'Caesars', 'draftkings': 'DK'}
 RULES = {
     'cbb_1h_total_curve': dict(sport='cbb', key='basketball_ncaab', mk='totals_h1', per=(0, 1), gap=0.07, sides=('over', 'under'), tier='C', stake=0.25),
-    'cfb_q1_under_curve': dict(sport='cfb', key='americanfootball_ncaaf', mk='totals_q1', per=(0, 1), gap=0.05, sides=('under',), tier='A', stake=0.5),    # 11/6: B after the T-2h test (296-189, +15.0%; every season +10 to +19); A on Sean's call
+    'cfb_q1_under_curve': dict(sport='cfb', key='americanfootball_ncaaf', mk='totals_q1', per=(0, 1), gap=0.05, sides=('under',), tier='A', stake=0.25),   # 11/18 (Sean): everything 0.25u for now;    # 11/6: B after the T-2h test (296-189, +15.0%; every season +10 to +19); A on Sean's call
     # 11/6 paper: NHL period markets off the curve at kickoff (validate at 6 hours before the start when that pull lands)
     'nhl_p1_spread_curve': dict(sport='nhl', key='icehockey_nhl', mk='spreads_p1', per=(0, 1), gap=0.07, sides=('home', 'away'), kind='spread', tier='C', stake=0.25),
     # 11/6 9am: B after the 6-hours-before test: 243-185, +13.3%, every season (+19.7 / +5.3 / +17.9); kickoff 241-194, +10.9%

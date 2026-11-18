@@ -97,7 +97,9 @@ def alerts(rows):
         if 'flag' not in s:
             ok = r['status'] == 'live' and not r.get('kalshi_against') and not r.get('conflict') and r.get('ask') is not None and r['ask'] - r['paid'] <= 0.05
             if ok and not first:
-                ntfy(f"Sharp: {r['bet']}", f"{r['title']} · {when}\n{r['n_accounts']} sharp account{'s' if r['n_accounts'] != 1 else ''}, ${r['usd']:,}\nSharps paid {c(r['paid'])}, ask now {c(r['ask'])}",
+                # 11/18 (Sean): for CFB only rows on the board are bets; a CFB sharp push is marked as a lean, not a bet
+                nb = 'NOT A BET (CFB lean, only board rows are bets). ' if (r.get('sport') or '').lower() == 'cfb' else ''
+                ntfy(f"{'CFB lean, not a bet' if nb else 'Sharp'}: {r['bet']}", f"{nb}{r['title']} · {when}\n{r['n_accounts']} sharp account{'s' if r['n_accounts'] != 1 else ''}, ${r['usd']:,}\nSharps paid {c(r['paid'])}, ask now {c(r['ask'])}",
                      r['link'], 'chart_with_upwards_trend')
             s['flag'] = int(NOW) if ok or first else None
             if not (ok or first): del st[r['cond']]
@@ -105,7 +107,7 @@ def alerts(rows):
         elif r['status'] == 'other side' and s.get('flag') and 'other' not in s:
             o = r['other']
             if not first:
-                ntfy(f"Sharp on the other side: {r['bet']}", f"{r['title']} · {when}\n{o['n_accounts']} sharp account{'s' if o['n_accounts'] != 1 else ''} bet the other side (${o['usd']:,}). "
+                ntfy(f"Sharp on the other side: {r['bet']}", f"{'NOT A BET (CFB lean). ' if (r.get('sport') or '').lower() == 'cfb' else ''}{r['title']} · {when}\n{o['n_accounts']} sharp account{'s' if o['n_accounts'] != 1 else ''} bet the other side (${o['usd']:,}). "
                      f"Backtest: holding still beat getting out (+1.12 vs +0.89 pts).{' Sell about ' + c(r['exit_bid']) + '.' if r.get('exit_bid') else ''}",
                      r['link'], 'warning', 'default')
             s['other'] = int(NOW)

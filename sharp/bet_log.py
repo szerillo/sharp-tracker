@@ -34,8 +34,12 @@ SHARP_PAPER_FROM = '2026-11-10T10:00:00Z'
 # 11/14: a rule promoted from paper counts as a bet only for fills logged from its promotion on; its earlier paper fills stay paper, so
 # no units are backdated into the record.
 PROMOTED_FROM = {'xch_homedog_fade': '2026-11-14T08:30:00Z'}     # Sean 11/14: paper -> tier C
+# 11/18 (Sean): everything is 0.25u for now, every tier (favourite: to win 0.25u; plus money: risk 0.25u). Bets flagged before this keep
+# the size they were tracked at, so nothing is resized backwards.
+FLAT_QUARTER_FROM = '2026-11-18T20:30:00Z'
 def size_units(cat, rule=None, sport=None, flagged=None):
     if cat == 'watch' or (cat.startswith('sharp') and (flagged or '') >= SHARP_PAPER_FROM): return 0.0
+    if (flagged or '') >= FLAT_QUARTER_FROM: return 0.25
     return 0.5 if (cat in ('system A', 'system B') or (cat == 'sharp A' and sport != 'soccer') or rule in HALF_U) else 0.25
 
 

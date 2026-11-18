@@ -135,6 +135,7 @@
   .act-pass{background:var(--line);color:var(--ink2,#555)} .act-watch{background:transparent;color:var(--ink2,#666);box-shadow:inset 0 0 0 1px var(--line)}
   .stat-held{background:var(--badbg);color:var(--badink);box-shadow:inset 0 0 0 1px var(--badbd)} .stat-fit{background:var(--okbg,#e8f5ec);color:var(--greenink);box-shadow:inset 0 0 0 1px var(--greenink)} .stat-gone{background:var(--gonebg);color:var(--goneink);box-shadow:inset 0 0 0 1px var(--gonebd)}
   .stat-lapsed{background:var(--warnbg);color:var(--warnink);box-shadow:inset 0 0 0 1px var(--warnbd)} .stat-wait{background:var(--warnbg);color:var(--warnink);box-shadow:inset 0 0 0 1px var(--warnbd)}
+  .act-untracked{background:var(--gonebg);color:var(--goneink);box-shadow:inset 0 0 0 1px var(--gonebd)}
   .act-wait{background:var(--warnbg);color:var(--warnink);box-shadow:inset 0 0 0 1px var(--warnbd)}
   @media (max-width:760px){.slipt thead,.slipt .c-game,.slipt .c-why,.slipt .c-rec{display:none} .show-m{display:block}
     .slipt,.slipt tbody{display:block} .slipt tr.erow{display:grid;grid-template-columns:1fr auto;grid-template-areas:"bet price" "when size";gap:4px 12px;padding:11px 12px;border-top:1px solid var(--border)}
@@ -442,7 +443,9 @@ function sharpTag(g, tag) {
 // ---- sizing (Sean, 11/2): shown in units ($500 unit). Tier A/B system bets 0.5u, tier C leans, tennis, grade B/C sharp signals 0.25u; grade A sharp signals 0.5u;
 // 11/10: sharp flags of every grade are paper (no units) until they beat Pinnacle's close.
 // to WIN when laying juice (price over 50%), to RISK when getting plus money.
-const UNIT = 500, SLIP = {big: 250, small: 125};
+// 11/18 (Sean): EVERYTHING is 0.25u for now, every tier and source (favourite: to win 0.25u; plus money: risk 0.25u). The tier labels stay;
+// 'big' is kept as a name so the tier sizes can come back later.
+const UNIT = 500, SLIP = {big: 125, small: 125};
 const HALF_U = new Set(['nba_1h_under_hot_over']);     // tier C rules Sean sizes at 0.5u (11/4: NBA 1H under)
 const amProb = a => a == null ? null : (a < 0 ? -a / (-a + 100) : 100 / (a + 100));
 function unitText(size, p) {
@@ -500,7 +503,7 @@ function sRow(o) {
   // bought out, lapsed, or paper; WATCH = shown for information, no size by design. Live bets sort first in every table.
   const st0 = o.status && o.status[0];
   const act = o.action || (st0 === 'wait' ? ['wait', o.status[1]] : st0 === 'held' ? ['hold', o.status[1]] : (st0 === 'gone' || st0 === 'lapsed' || (o.gone && !o.size)) ? ['pass', o.status ? o.status[1] : 'no bettable price'] : o.size ? ['bet', ''] : ['watch', '']);
-  const rank = {bet: 0, wait: 1, watch: 1, hold: 2, pass: 3}[act[0]];
+  const rank = {bet: 0, wait: 1, watch: 1, hold: 2, pass: 3, untracked: 3}[act[0]];
   const actHtml = `<div><span class="act act-${act[0]}" title="${esc(String(act[1] || '').replace(/<[^>]+>/g, ''))}">${act[0].toUpperCase()}</span></div>`;
   const tierA = (o.tier ? ` data-tier="${esc(String(o.tier))}"` : '') + ` data-f="${o.flagged ? Date.parse(o.flagged) || 0 : 0}"`
     // 11/7 (Sean: "one bet should be in one spot"): market, a short label and units, so rows on the same game, market and side merge into one
@@ -561,7 +564,8 @@ function sysRow({g, f, tag}) {
   // 11/14 (Sean): only two things hold a system or lean now: a stronger rule on the other side, and a Kalshi move against (29-67 across
   // systems and paper). Sharp accounts, bet back, big money, sharp move and sharp flags against are shown and graded, not held.
   const kAg = mkAgainst.includes('Kalshi move');
-  const held = !!f._conf || kAg;
+  const untr = f._untr || f._conf;      // 11/18 (Sean): two rules on opposite sides of a game: both untracked, no bet, not graded
+  const held = !!untr || kAg;
   const per = /^(1h|1q|1p)_/.test(f.market) ? '1st half' : 'Full game', gone = f.lapsed || f.now === null || held;     // 11/5 (Sean): held bets stay on the board, greyed, with the Held note
   // 11/5 (Sean): a system bet that a graded sharp signal also landed on is annotated here (and the sharp row says "with your system bet")
   const sm = (window._strongMap || {})[`${g.event_id}|${(f.market || '').replace(/^(1h|1q|1p)_/, '')}|${f.side}`];
@@ -574,10 +578,11 @@ function sysRow({g, f, tag}) {
   return sRow({id: `s|${g.event_id}|${tag}|${f.market}`, tier: e.tier, flagged: f.ts, mk: f.market, ev: g.event_id, side: f.side, start: g.start_utc, sportLabel: SPORT_LABEL[g.sport] || g.sport, game: `${esc(g.away_name || g.away)} @ ${esc(g.home_name || g.home)}`,
     bet: esc(betText(f, g)), sub: `${per} · tier ${e.tier || '?'}${(() => { const ag = [...(t && t.against ? [`${t.against.n} sharp acct${t.against.n === 1 ? '' : 's'}`] : []), ...mk.filter(x => x.endsWith('against')).map(x => x.replace(/ against$/, ''))];
       return ag.length ? ` <span class="stat stat-held" style="margin:2px 0 0 6px;white-space:nowrap" title="Signals on the other side of this bet; open the row for detail">Against: ${esc(ag.join(', '))}</span>` : ''; })()}`,
-    status: f._conf ? ['held', 'Held: a stronger rule is on the other side']
+    action: untr ? ['untracked', `Untracked: systems conflict (${untr})`] : undefined,
+    status: untr ? ['held', `Untracked: systems conflict (${esc(untr)})`]
       : kAg ? ['held', 'Held: Kalshi moved the other way']
       : f.lapsed ? ['lapsed', 'Trigger no longer met'] : windWait(tag, g.start_utc) ? ['wait', WIND_WAIT] : f.now === null ? ['gone', 'Price gone: no bettable price'] : e.tier === 'P' ? ['gone', `Paper: ${e.paper_why || 'thin or untested forward'}`] : null,
-    size: held || e.tier === 'P' || f.lapsed ? '' : unitText(['A', 'B'].includes(e.tier) || HALF_U.has(tag) ? SLIP.big : SLIP.small, amProb(f.now ? f.now.price : f.price)),
+    size: held || e.tier === 'P' || f.lapsed ? '' : unitText(SLIP.small, amProb(f.now ? f.now.price : f.price)),
     price: priceOf(f, g), link: gone || e.tier === 'P' || windWait(tag, g.start_utc) ? '' : betLink((f.now && f.now.venue) || f.venue, g.event_id, f.market),
     why: `${esc(r.desc || tag)}${sp ? `<div>${sp}</div>` : ''}`,
     rec: ruleRec(tag), gone,
@@ -587,7 +592,7 @@ function sysRow({g, f, tag}) {
       ['Tracker', `${trk}${x && x.clv_avg != null ? ` · CLV ${x.clv_avg >= 0 ? '+' : ''}${x.clv_avg}% (diagnostic only for a system)` : ''}`],
       ['Polymarket sharps', sp],
       ['Other numbers', (f.ladder || []).length ? (f.ladder || []).map(x => `${esc(betText({...f, line: x.line}, g))}: ${am(x.price)} ${VS(x.venue)}${x.loss != null ? ` <span class="${x.loss <= 0.02 ? 'ok-chip' : 'dim'}">(${x.loss <= 0 ? '+' : '-'}${Math.abs(100 * x.loss).toFixed(1)}% vs the flagged number)</span>` : ''}`).join('<br>') : ''], ['Flagged', f.ts ? `${DAYT(f.ts)} at ${VS(f.venue)} ${am(f.price)}` : `${VS(f.venue)} ${am(f.price)}`],
-      ['Status', f._conf ? `Held, not a bet: conflicts with ${esc(f._conf)}, the stronger rule on this game. The board keeps one side per game; the fill stays in the ledger and is graded.` : kAg ? 'Held, not a bet: Kalshi moved the other way. Since 11/14 that is the only market signal that holds a bet (29-67 against it across systems and paper); the fill stays in the ledger and is graded' : windWait(tag, g.start_utc) ? `Wait to bet: wind does not lock until ${WIND_LOCK_H} hours before kickoff, because the forecast can still move. Flagged and logged now; bet it once inside ${WIND_LOCK_H} hours if the trigger still holds.` : f.lapsed ? 'The trigger is no longer met on the latest data (for wind: the forecast moved out of the band). Stays in the ledger and is graded either way; not a new bet.' : (f.now === null ? 'No bettable price right now. Still counted at the flagged price.' : '')],
+      ['Status', untr ? `Untracked, not a bet: ${esc(untr)} take opposite sides of this game, so both sides are untracked (Sean, 11/18). No fill is graded and neither side counts in any record, until a backtest shows a stronger tier should override.` : kAg ? 'Held, not a bet: Kalshi moved the other way. Since 11/14 that is the only market signal that holds a bet (29-67 against it across systems and paper); the fill stays in the ledger and is graded' : windWait(tag, g.start_utc) ? `Wait to bet: wind does not lock until ${WIND_LOCK_H} hours before kickoff, because the forecast can still move. Flagged and logged now; bet it once inside ${WIND_LOCK_H} hours if the trigger still holds.` : f.lapsed ? 'The trigger is no longer met on the latest data (for wind: the forecast moved out of the band). Stays in the ledger and is graded either way; not a new bet.' : (f.now === null ? 'No bettable price right now. Still counted at the flagged price.' : '')],
       ['Links', r.labs ? `<a target="_blank" href="https://sportsinsights.actionnetwork.com/betlabs/screen?ScreenId=${r.labs.id}">Bet Labs screen ↗</a>` : '']])});
 }
 function gameHead(x) {
@@ -605,32 +610,36 @@ function renderToday() {
   // ---- 1. system bets (cards), keyed by game
   const bets = [];
   for (const g of SY.games || []) { if (!future(g.start_utc)) continue;
-    for (const f of g.fills || []) if (f.fill_id && !f.stacked) bets.push({g, f, tag: f.tag, start: g.start_utc, sport: g.sport, league: g.league}); }
+    for (const f of g.fills || []) if (f.fill_id && !f.stacked) bets.push({g, f, tag: f.tag, start: g.start_utc, sport: g.sport, league: g.league});
+    // 11/18 (Sean): rules on opposite sides of a game cancel: both fills are voided by the tracker and listed here, greyed, never a bet
+    for (const u of g.untracked || []) bets.push({g, f: {...u, _untr: u.untracked}, tag: u.tag, start: g.start_utc, sport: g.sport, league: g.league}); }
   const tierOf = it => (((SY.rules || {})[it.tag] || {}).evidence || {}).tier || '?';
   const sysSide = {};       // event_id -> [{market base, side, label}] for the "with / against your system bet" tags below
   for (const b of bets) if (tierOf(b) !== 'P') (sysSide[b.g.event_id] = sysSide[b.g.event_id] || []).push({m: b.f.market, side: b.f.side, label: betText(b.f, b.g), tier: tierOf(b)});
-  // ---- conflict-free board (Sean, 11/2): when two rules point opposite ways on one game (a team side: moneyline / spread, any period; or
-  // the total), the stronger rule keeps the bet and the other is held. Stronger = higher tier, then higher holdout ROI from its backtest.
+  // ---- conflicting systems cancel (Sean, 11/18; was 11/2 "the stronger rule keeps the bet"): when two rules of any tier, paper included,
+  // point opposite ways on one game (a team side: moneyline / spread, any period; or over vs under on the same total), BOTH are untracked.
+  // The tracker voids both fills (sharp/systems.py conflict_pass); this catches any pair the last tracker run has not seen yet.
   const TR = {A: 3, B: 2, C: 1}, holdRoi = tag => { const m = /([+-]?\d+(?:\.\d+)?)%/.exec((((SY.rules || {})[tag] || {}).evidence || {}).hold || ''); return m ? +m[1] : -99; };
   const famOf = f => { const b = f.market.replace(/^(1h|1q|1p)_/, ''); return b === 'total' ? 'total' : (b === 'ml' || b === 'spread') ? 'side' : null; };
   const byGF = {};
-  for (const b of bets) { if (tierOf(b) === 'P' || b.f.lapsed || b.f.now === null) continue; const fm = famOf(b.f); if (!fm) continue; (byGF[b.g.event_id + '|' + fm] = byGF[b.g.event_id + '|' + fm] || []).push(b); }
+  for (const b of bets) { if (b.f._untr) continue; const fm = famOf(b.f); if (!fm) continue; const k = b.g.event_id + '|' + (fm === 'total' ? b.f.market : fm); (byGF[k] = byGF[k] || []).push(b); }
   for (const L of Object.values(byGF)) {
     if (new Set(L.map(b => b.f.side)).size < 2) continue;
-    const best = [...L].sort((x, y) => (TR[tierOf(y)] || 0) - (TR[tierOf(x)] || 0) || holdRoi(y.tag) - holdRoi(x.tag))[0];
-    for (const b of L) if (b.f.side !== best.f.side) b.f._conf = `${betText(best.f, best.g)} (tier ${tierOf(best)}${holdRoi(best.tag) > -99 ? `, holdout ${holdRoi(best.tag) > 0 ? '+' : ''}${holdRoi(best.tag)}%` : ''})`;
+    for (const b of L) { const o = L.filter(x => x.f.side !== b.f.side).map(x => x.tag); b.f._conf = `${b.tag} vs ${[...new Set(o)].join(', ')}`; }
   }
   // ---- 2. rules that fired without a bet
   const flags = [];
   for (const g of SY.games || []) { if (!future(g.start_utc)) continue;
     for (const [tag, why] of Object.entries(g.triggers || {})) { const f = (g.fills || []).find(x => x.tag === tag);
       if (f && f.fill_id && !f.stacked) continue;
+      if ((g.untracked || []).some(u => u.tag === tag)) continue;      // shown greyed as untracked (systems conflict)
       const reason = (g.late || []).includes(tag) ? `Fired, but there is no bet: inside ${(SY.window_h || [2, 30])[0]} hours of the start, and rules only take a price ${(SY.window_h || [2, 30])[0]}-${(SY.window_h || [2, 30])[1]} hours out. If it had been eligible earlier, check the rule card's history (a voided or stacked fill can block it).`
         : tag === 'wind_msw_only' ? 'Weather sources disagree: one forecast has the wind in range but the average of Open-Meteo and MySportsWeather (what the rule fires on, the closest match to Bet Labs) does not. Worth a look if the forecasts converge.'
         : (f && f.stacked ? 'Same bet already flagged by a stronger rule on this game.'
         : ((new Date(g.start_utc) - now) / 3.6e6 > (((SY.rules || {})[tag] || {}).max_h || (SY.window_h || [2, 30])[1]) ? (/wind/.test(tag) ? `Wind rule: flagged inside ${(SY.window_h || [2, 30])[1]} hours of the start; do not bet until it locks ${WIND_LOCK_H} hours before kickoff.` : `Weather rule: becomes a bet inside ${(SY.window_h || [2, 30])[1]} hours of the start, when the forecast is firm.`)
         : 'Fired, but no bettable book had a usable price at that moment. If you can find the number, it is the same bet.'));
-      flags.push({g, tag, why, reason, start: g.start_utc, sport: g.sport, league: g.league}); } }
+      // 11/18 (Sean): for CFB only rows on the board are bets; a CFB rule that fired without a bet is labelled as not a bet
+      flags.push({g, tag, why, reason: g.sport === 'cfb' ? `Not a bet (CFB: only board rows are bets). ${reason}` : reason, start: g.start_utc, sport: g.sport, league: g.league}); } }
   // ---- 3. sharp-money watch signals: structured (kind, market, side, bet), merged per game x market below
   const sig = [];
   const sysTag = (ev, market, side) => { const L = sysSide[ev] || []; const base = market.replace(/^(1h|1q|1p)_/, '');
@@ -1370,7 +1379,7 @@ function renderBetLabs() {
     <div class="small dim" style="margin:6px 0 10px">Both: Bet Labs and the tool picked the game. Bet Labs only or Tool only: a gap to check (data source, line, or rule definition). Definition differs: the Bet Labs screen is an approximation of the tool's rule, or the wind source differs by design. Not rated yet: the tool has not run its rules on that game since Bet Labs listed it.</div>
     <table class="tbets"><thead><tr><th>Date</th><th>System</th><th>Pick</th><th>Game</th><th>Status</th></tr></thead><tbody>
     ${V.map(r => `<tr><td class="nowrap">${r.date.slice(5).replace('-', '/')}</td><td><b>${esc(r.rule ? ruleName(r.rule) : r.name)}</b>${r.rule && tier(r.rule) ? ` <span class="tierl">${tier(r.rule)}</span>` : ''}<div class="small dim">${esc(r.name)} · <a target="_blank" href="https://sportsinsights.actionnetwork.com/betlabs/screen?ScreenId=${r.sid}">screen</a></div></td>
-      <td>${esc(r.pick)}</td><td>${esc(r.game)}</td><td><span class="${SL[r.status][0]}" style="margin:0">${SL[r.status][1]}</span><div class="small dim">${esc(r.note).slice(0, 160)}</div></td></tr>`).join('') || '<tr><td colspan="5" class="dim">Nothing here.</td></tr>'}
+      <td>${esc(r.pick)}${/^cfb$/i.test(r.sport) ? '<div class="small"><span class="tag-against">Not a bet: CFB bets are only the rows on the board</span></div>' : ''}</td><td>${esc(r.game)}</td><td><span class="${SL[r.status][0]}" style="margin:0">${SL[r.status][1]}</span><div class="small dim">${esc(r.note).slice(0, 160)}</div></td></tr>`).join('') || '<tr><td colspan="5" class="dim">Nothing here.</td></tr>'}
     </tbody></table>`;
 }
 function renderSystems() {

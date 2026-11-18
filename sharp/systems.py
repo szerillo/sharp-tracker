@@ -5,7 +5,7 @@ rule_tag 'paper:<tag>', graded like any fill with CLV vs the ruler. State: data/
 twice). View: data/state/system_fires.json (games with triggers, fills, per-tag record, rule descriptions in DESC).
 Rules and their sources: RULES / DESC below; audits in docs/betlabs_*.md and docs/exchange_signals_audit_2026-10-29.md.
 Stacking: one bet per game per market x side. Publication gate per tag: 100 graded fills AND positive CLV."""
-import os, sys, json, uuid, sqlite3, datetime as dt, collections, math
+import os, re, sys, json, uuid, sqlite3, datetime as dt, collections, math
 HERE = os.path.dirname(os.path.abspath(__file__)); sys.path.insert(0, os.path.dirname(HERE))
 from sharp import norm as N, fair as F, constants as C, season as SEA, fills as FI
 
@@ -384,12 +384,76 @@ def void_fill(fired, key, why):
     print(f"[systems] voided {key}: {why}")
 
 
+# 11/18 (Sean): conflicting systems cancel. When two rules (any tiers, paper included) take opposite sides of one game (a team side:
+# moneyline / spread, any period, e.g. home ML vs the road team's puck line; or over vs under on the same total), BOTH sides are untracked:
+# no bet, the fills are voided (never graded in any record), and the board shows them greyed as "Untracked: systems conflict (A vs B)".
+# This holds until a backtest shows a stronger tier should override (docs/conflict_backtest_2026-11-18.md).
+CONFLICT_WHY = 'Untracked: systems conflict'
+STAKE_ALL = 0.25
+OPPO = {'home': 'away', 'away': 'home', 'over': 'under', 'under': 'over'}
+
+
+def conflict_fam(market):
+    base = re.sub(r'^(1h|1q|1p)_', '', market or '')
+    return 'side' if base in ('ml', 'spread') else f'total:{market}' if base == 'total' else None
+
+
+def conflict_pass(fired):
+    """Void both sides of every opposing pair of rule fills on a game; a side already untracked still counts, so a third rule that
+    joins either side later is untracked too. Returns the number of fills newly untracked."""
+    # pregame only: graded history is left as it was (11/18: the rule starts now; past conflicts are in docs/conflict_backtest_2026-11-18.md)
+    start = {r['fill_id']: r.get('start_utc') for r in FI.load()}
+    byev = collections.defaultdict(list)
+    for k, f in fired.items():
+        if not isinstance(f, dict) or not f.get('fill_id') or f.get('stacked'): continue
+        if f.get('void') and not f.get('untracked'): continue
+        st = start.get(f['fill_id'])
+        if not st or N.parse_ts(st) <= NOW: continue
+        byev[k.split(':')[0]].append((k, f))
+    n = 0
+    for ev, L in byev.items():
+        for i, (ka, a) in enumerate(L):
+            for kb, b in L[i + 1:]:
+                fa = conflict_fam(a.get('market'))
+                if not fa or fa != conflict_fam(b.get('market')) or OPPO.get(a.get('side')) != b.get('side'): continue
+                for k, f, o in ((ka, a, b), (kb, b, a)):
+                    if f.get('untracked'): continue
+                    desc = f"{f['tag']} vs {o['tag']}"
+                    void_fill(fired, k, f"{CONFLICT_WHY} ({desc})"); f['untracked'] = desc; n += 1
+    return n
+
+
+def untracked_by_event(fired):
+    U = collections.defaultdict(list)
+    for k, f in fired.items():
+        if isinstance(f, dict) and f.get('untracked') and f.get('fill_id'): U[k.split(':')[0]].append({x: v for x, v in f.items() if x not in ('void', 'void_at')})
+    return U
+
+
+def attach_untracked(fired, games):
+    """Board view: untracked fills leave g['fills'] and are listed in g['untracked'] (shown greyed, never a bet)."""
+    U = untracked_by_event(fired)
+    for g in games:
+        L = U.get(str(g['event_id']), [])
+        ids = {u['fill_id'] for u in L}
+        g['fills'] = [f for f in g.get('fills', []) if f.get('fill_id') not in ids]
+        if L: g['untracked'] = L
+        else: g.pop('untracked', None)
+
+
+def conflict_blocked(ev, tag):
+    """A rule untracked by a conflict on this game never fills again on it."""
+    return any(r['event_id'] == ev and (r.get('rule_tag') or '') == f'paper:{tag}' and CONFLICT_WHY in (r.get('note') or '') for r in FI.load())
+
+
 def paper_fill(conn, eq, ev, start, market, line, side, part, tag, stake, note, venue=None, min_h=None):
     ttk = (N.parse_ts(start) - NOW).total_seconds() / 3600
     if ttk < (WINDOW_H[0] if min_h is None else min_h): return None      # inside the last hours a new trigger is shown, not filled
     if ttk > max_h(tag): return None      # weather rules: shown as an upcoming trigger, filled inside 30h; everything else fills when it triggers
     # one bet per rule per game (11/4): the fills ledger is the record, so a lost or voided state entry can never fire the same rule twice
     if any(r['event_id'] == ev and r.get('rule_tag') == f'paper:{tag}' and r.get('market') == market and r.get('result') != 'void' for r in FI.load()): return None
+    if conflict_blocked(ev, tag): return None
+    stake = STAKE_ALL      # 11/18 (Sean): everything is 0.25u for now, every tier
     best = F.best_price(eq, market, line, side, NOW_S, part)
     if venue: best = [b for b in best if b['venue'] == venue]
     if not best: return None
@@ -815,6 +879,8 @@ def main():
     # a placed bet stays on the board until its game starts (Sean, 11/4: the NBA unders vanished twice). A rule that is re-checked and
     # no longer holds voids its fill explicitly above; anything else that fired and is not void is shown, even if this run did not
     # re-evaluate its trigger (missing season data, the open line outside the 4-day price window, a skipped sport loop).
+    nconf = conflict_pass(fired)
+    if nconf: print(f"[systems] {nconf} fills untracked: systems conflict")
     shown = {f.get('fill_id') for g in view_games for f in g.get('fills', [])}
     byev = {g['event_id']: g for g in view_games}
     for k, f in fired.items():
@@ -842,7 +908,18 @@ def main():
             g['late'] = [t for t in g['triggers'] if t not in fired_tags and not t.startswith(('xch_', 'nba_momentum'))]
         g['fills'] = [f for f in g.get('fills', []) if not f.get('void')]
         refresh_fills(conn, g)
-    view_games = [g for g in view_games if g['triggers'] or any(f.get('fill_id') for f in g.get('fills', []))]      # a lapsed bet keeps its game on the board
+    # 11/18: untracked (conflicting) fills stay visible, greyed, until 4h into the game
+    U = untracked_by_event(fired); byev = {g['event_id']: g for g in view_games}
+    for ev_, L in U.items():
+        if ev_ in byev: continue
+        row = conn.execute("SELECT sport, start_utc, away, home FROM events WHERE event_id=?", (ev_,)).fetchone() or fill_header(ev_, L[0])
+        if not row or N.parse_ts(row[1]) <= NOW - dt.timedelta(hours=4): continue
+        r_ = sched_rec(row[0], ev_)
+        g = dict(event_id=ev_, away=row[2], home=row[3], start_utc=row[1], hours_to_kickoff=round((N.parse_ts(row[1]) - NOW).total_seconds() / 3600, 1), spread_home=None, dog=None,
+                 triggers={}, fills=[], sport=row[0], away_name=(r_.get('away_team') or {}).get('displayName') or row[2], home_name=(r_.get('home_team') or {}).get('displayName') or row[3], league=r_.get('league'))
+        view_games.append(g); byev[ev_] = g
+    attach_untracked(fired, view_games)
+    view_games = [g for g in view_games if g['triggers'] or g.get('untracked') or any(f.get('fill_id') for f in g.get('fills', []))]      # a lapsed bet keeps its game on the board
     json.dump(dict(built=NOW_S, window_h=WINDOW_H, rules={k: dict(v, tag=k, max_h=max_h(k), desc=DESC.get(k, ''), evidence=EVIDENCE.get(k), labs=(dict(id=LABS[k][0], name=LABS[k][1]) if k in LABS else None), wc=(dict(zip(('years', 'w', 'l', 'roi', 'note'), WC[k])) if k in WC else None), labsw=LABW.get(k)) for k, v in RULES.items()}, games=view_games, fired_now=fires_now, record=dict(rec)),
               open(VIEW, 'w'), default=str, separators=(',', ':'))
     print(f"[systems] {len(view_games)} games with triggers (shown up to {VIEW_H}h out, filled {WINDOW_H[0]}-{WINDOW_H[1]}h); {len(fires_now)} new paper fills; tags on file {dict((k, v['n']) for k, v in rec.items())}")

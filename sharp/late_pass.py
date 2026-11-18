@@ -33,6 +33,10 @@ def main():
         else:
             r_ = S.sched_rec(g['sport'], g['event_id']); g['away_name'] = (r_.get('away_team') or {}).get('displayName') or g['away']; g['home_name'] = (r_.get('home_team') or {}).get('displayName') or g['home']
             g['league'] = r_.get('league'); games[g['event_id']] = g; view.setdefault('games', []).append(g)
+    # 11/18 (Sean): two rules on opposite sides of a game cancel; both fills are voided and shown greyed as untracked
+    nconf = S.conflict_pass(fired)
+    if nconf: print(f"[late] {nconf} fills untracked: systems conflict")
+    S.attach_untracked(fired, view.get('games', []))
     changed = json.dumps(fired, sort_keys=True) != before
     # refresh Price / Bet to on every fill of the games starting soon
     soon = {e[0] for e in evs}
