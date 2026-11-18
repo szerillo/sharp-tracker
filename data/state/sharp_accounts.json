@@ -1,5 +1,5 @@
 {
- "built": "2026-11-18T22:47:59Z",
+ "built": "2026-11-18T22:55:39Z",
  "rows": [
   {
    "cond": "0x5ee92964df4c1577000768dddeafcd690e299a16c720bfef16030dab56dbaffa",
@@ -32,7 +32,7 @@
    "home_name": "Indiana Pacers",
    "game_start": "2026-11-19T00:00Z",
    "side_std": "away",
-   "money_with": true,
+   "money_with": false,
    "grade": "watch",
    "inside_fair": false,
    "fair_board": 0.5017,
@@ -158,7 +158,7 @@
    "best_rank": 12,
    "usd": 902,
    "paid": 0.502,
-   "ask": 0.55,
+   "ask": 0.58,
    "status": "live",
    "link": "https://polymarket.us/event/nba-was-tor-2026-11-18",
    "other": null,
@@ -195,7 +195,7 @@
    "best_rank": 40,
    "usd": 22422,
    "paid": 0.331,
-   "ask": 0.37,
+   "ask": 0.36,
    "status": "live",
    "link": "https://polymarket.us/event/nba-det-nop-2026-11-18",
    "other": null,
@@ -216,7 +216,7 @@
    "money_with": true,
    "grade": "A",
    "fair_board": 0.3635,
-   "inside_fair": false,
+   "inside_fair": true,
    "books": {
     "at": "2026-11-18T21:57:30Z",
     "fair": 0.3635,
@@ -406,7 +406,8 @@
    "game_start": "2026-11-19T03:00Z",
    "side_std": "away",
    "conflict": [
-    "Kalshi bet back"
+    "Kalshi bet back",
+    "Kalshi move"
    ],
    "money_with": false,
    "grade": "B",
@@ -438,7 +439,7 @@
    "best_rank": 24,
    "usd": 106,
    "paid": 0.138,
-   "ask": 0.14,
+   "ask": 0.16,
    "status": "live",
    "link": "https://polymarket.us/event/nba-lac-sas-2026-11-19",
    "other": null,
@@ -573,7 +574,7 @@
    "best_rank": 55,
    "usd": 14315,
    "paid": 0.333,
-   "ask": 0.35,
+   "ask": 0.4,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-was-tor-2026-11-18",
    "other": {
@@ -582,7 +583,7 @@
     "usd": 7334,
     "first": "2026-11-18T17:43:58Z"
    },
-   "exit_bid": 0.34,
+   "exit_bid": 0.39,
    "kalshi_against": null,
    "logged": false,
    "event_id": "401910012",
@@ -762,6 +763,14 @@
     "best_rank": 132,
     "usd": 1597
    }
+  },
+  "401910008:xch_homedog_fade:ml": {
+   "with": {
+    "n": 1,
+    "best_rank": 155,
+    "usd": 107
+   },
+   "against": null
   }
  },
  "by_event": {
@@ -822,9 +831,16 @@
     "usd": 572
    },
    "home": {
-    "n": 5,
+    "n": 7,
     "best_rank": 43,
-    "usd": 6907
+    "usd": 77954
+   }
+  },
+  "401910010|spread": {
+   "home": {
+    "n": 2,
+    "best_rank": 112,
+    "usd": 18767
    }
   },
   "401910011|ml": {
