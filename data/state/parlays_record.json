@@ -1,40 +1,40 @@
 {
-"updated": "2026-11-18T20:19:38Z",
-"logged": 16563,
-"settled": 17879,
+"updated": "2026-11-18T20:32:56Z",
+"logged": 16633,
+"settled": 17883,
 "rows": {
 "2 legs": {
-"n": 8309,
-"stake": 924965,
-"maker_pnl": 11877,
-"pct_of_stakes": 1.3,
-"expected_from_legs": 4.4,
+"n": 8311,
+"stake": 926401,
+"maker_pnl": 13313,
+"pct_of_stakes": 1.4,
+"expected_from_legs": 4.5,
 "hit": 34.2,
 "days": 9
 },
 "3 legs": {
-"n": 7509,
-"stake": 561713,
-"maker_pnl": -21802,
-"pct_of_stakes": -3.9,
+"n": 7511,
+"stake": 561958,
+"maker_pnl": -21556,
+"pct_of_stakes": -3.8,
 "expected_from_legs": 6.1,
 "hit": 26.9,
 "days": 9
 },
 "all": {
-"n": 15818,
-"stake": 1486677,
-"maker_pnl": -9925,
-"pct_of_stakes": -0.7,
+"n": 15822,
+"stake": 1488359,
+"maker_pnl": -8243,
+"pct_of_stakes": -0.6,
 "expected_from_legs": 5.1,
-"hit": 30.8,
+"hit": 30.7,
 "days": 9
 },
 "different games": {
-"n": 10373,
-"stake": 1081086,
-"maker_pnl": -36774,
-"pct_of_stakes": -3.4,
+"n": 10376,
+"stake": 1082762,
+"maker_pnl": -35099,
+"pct_of_stakes": -3.2,
 "expected_from_legs": 2.9,
 "hit": 31.2,
 "days": 9
@@ -49,20 +49,20 @@
 "days": 9
 },
 "different games | 3-8% over": {
-"n": 3238,
-"stake": 372079,
-"maker_pnl": -14049,
+"n": 3239,
+"stake": 372135,
+"maker_pnl": -13992,
 "pct_of_stakes": -3.8,
 "expected_from_legs": 4.1,
 "hit": 25.1,
 "days": 9
 },
 "different games | 8%+ over": {
-"n": 995,
-"stake": 73736,
-"maker_pnl": 9251,
-"pct_of_stakes": 12.5,
-"expected_from_legs": 15.1,
+"n": 997,
+"stake": 75355,
+"maker_pnl": 10870,
+"pct_of_stakes": 14.4,
+"expected_from_legs": 15.0,
 "hit": 19.3,
 "days": 9
 },
@@ -76,9 +76,9 @@
 "days": 9
 },
 "same game": {
-"n": 5445,
-"stake": 405591,
-"maker_pnl": 26850,
+"n": 5446,
+"stake": 405597,
+"maker_pnl": 26856,
 "pct_of_stakes": 6.6,
 "expected_from_legs": 11.0,
 "hit": 29.9,
@@ -103,9 +103,9 @@
 "days": 9
 },
 "same game | 8%+ over": {
-"n": 2580,
-"stake": 185702,
-"maker_pnl": 12122,
+"n": 2581,
+"stake": 185708,
+"maker_pnl": 12128,
 "pct_of_stakes": 6.5,
 "expected_from_legs": 27.6,
 "hit": 28.2,
