@@ -1,5 +1,5 @@
 {
- "built": "2026-11-18T02:47:48Z",
+ "built": "2026-11-18T03:36:30Z",
  "rows": [
   {
    "cond": "0x293f36d9dcf13d2126b1d188973ce9742ac3b569bc4d9e586f9dad46601091f1",
@@ -469,6 +469,43 @@
    "books": null
   },
   {
+   "cond": "0xa2e36e8bcbfb990c2877acdb33cfb76e3e27f700c60fd5222a7e1d22c5b854fe",
+   "slug": "nba-lac-sas-2026-11-19",
+   "title": "Clippers vs. Spurs",
+   "mtype": "ml",
+   "start": "2026-11-20T01:00:00Z",
+   "bet": "Clippers ML",
+   "side": "Clippers",
+   "flagged": "2026-11-18T03:31:25Z",
+   "why": "a top-50 account",
+   "proven": false,
+   "trigger": "top50",
+   "n_accounts": 1,
+   "best_rank": 24,
+   "usd": 106,
+   "paid": 0.138,
+   "ask": 0.21,
+   "status": "live",
+   "link": "https://polymarket.us/event/nba-lac-sas-2026-11-19",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401910022",
+   "sport": "nba",
+   "league": null,
+   "away": "LAC",
+   "home": "SA",
+   "away_name": "LA Clippers",
+   "home_name": "San Antonio Spurs",
+   "game_start": "2026-11-20T01:00Z",
+   "side_std": "away",
+   "money_with": false,
+   "grade": "watch",
+   "fair_board": null,
+   "inside_fair": null,
+   "books": null
+  },
+  {
    "cond": "0xefe674eda5754a93610852d10432a50de79ea696b2583119634c5fe8944753b1",
    "slug": "nba-nyk-tor-2026-11-17",
    "title": "Knicks vs. Raptors",
@@ -744,14 +781,14 @@
     "clv": -1.2
    },
    "outside": {
-    "n": 74,
-    "won": 38,
+    "n": 76,
+    "won": 40,
     "units": -0.96,
-    "clv": -0.42
+    "clv": -0.53
    }
   },
-  "n": 314,
-  "won": 139,
+  "n": 316,
+  "won": 141,
   "units": -16.35,
   "by_grade": {
    "A": {
@@ -761,10 +798,10 @@
     "clv": -0.4
    },
    "B": {
-    "n": 77,
-    "won": 43,
+    "n": 79,
+    "won": 45,
     "units": 0.89,
-    "clv": -0.91
+    "clv": -1.02
    },
    "watch": {
     "n": 31,
@@ -773,12 +810,12 @@
     "clv": -0.72
    }
   },
-  "units_1u": -49.17,
-  "clv": -0.55,
-  "n_venue": 154,
+  "units_1u": -47.77,
+  "clv": -0.58,
+  "n_venue": 156,
   "units_venue": -5.86,
-  "clv_venue": 0.66,
-  "clv_poly_same": -0.84
+  "clv_venue": 0.63,
+  "clv_poly_same": -0.9
  },
  "sys_tags": {
   "401910005:nba_ats_hot_home": {
@@ -897,6 +934,13 @@
     "n": 1,
     "best_rank": 93,
     "usd": 322
+   }
+  },
+  "401910022|ml": {
+   "away": {
+    "n": 1,
+    "best_rank": 24,
+    "usd": 106
    }
   },
   "401858527|total": {
