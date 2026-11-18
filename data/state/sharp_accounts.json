@@ -1,5 +1,5 @@
 {
- "built": "2026-11-18T00:52:59Z",
+ "built": "2026-11-18T01:00:09Z",
  "rows": [
   {
    "cond": "0xb5346e4b9327fb397a12afb8993956855abe75a8cd43428b85cedca83c66e38c",
@@ -251,7 +251,7 @@
    "best_rank": 69,
    "usd": 345,
    "paid": 0.43,
-   "ask": 0.45,
+   "ask": null,
    "status": "live",
    "link": "https://polymarket.us/event/nhl-ana-stl-2026-11-17",
    "other": null,
@@ -269,7 +269,7 @@
    "money_with": false,
    "grade": "A",
    "fair_board": 0.461,
-   "inside_fair": true,
+   "inside_fair": null,
    "books": {
     "at": "2026-11-17T23:55:43Z",
     "fair": 0.461,
@@ -297,7 +297,7 @@
    "best_rank": 119,
    "usd": 447,
    "paid": 0.514,
-   "ask": 0.52,
+   "ask": null,
    "status": "live",
    "link": "https://polymarket.us/event/nba-por-min-2026-11-17",
    "other": null,
@@ -334,7 +334,7 @@
    "best_rank": 110,
    "usd": 2158,
    "paid": 0.53,
-   "ask": 0.54,
+   "ask": null,
    "status": "live",
    "link": "https://polymarket.us/event/nba-det-sas-2026-11-17",
    "other": null,
@@ -349,8 +349,8 @@
    "home_name": "San Antonio Spurs",
    "game_start": "2026-11-18T01:00Z",
    "side_std": "under",
-   "money_with": true,
-   "grade": "A",
+   "money_with": false,
+   "grade": "B",
    "fair_board": null,
    "inside_fair": null,
    "books": null
@@ -371,7 +371,7 @@
    "best_rank": 12,
    "usd": 18101,
    "paid": 0.473,
-   "ask": 0.53,
+   "ask": null,
    "status": "live",
    "link": "https://polymarket.us/event/nba-por-min-2026-11-17",
    "other": null,
@@ -387,52 +387,8 @@
    "home_name": "Minnesota Timberwolves",
    "game_start": "2026-11-18T01:00Z",
    "side_std": "home",
-   "money_with": false,
-   "grade": "B",
-   "fair_board": null,
-   "inside_fair": null,
-   "books": {
-    "at": "2026-11-17T23:55:43Z",
-    "fair": null,
-    "q": {
-     "Novig": 0.495
-    }
-   }
-  },
-  {
-   "cond": "0xf1a85c314f4bfded1112d3621b501a0e831accb229794d7aed7b60887d69dd0e",
-   "slug": "nba-por-min-2026-11-17",
-   "title": "Trail Blazers vs. Timberwolves",
-   "mtype": "spread",
-   "start": "2026-11-18T01:00:00Z",
-   "bet": "Timberwolves -3.5",
-   "side": "Timberwolves",
-   "flagged": "2026-11-18T00:25:02Z",
-   "why": "2 top-200 accounts",
-   "proven": false,
-   "trigger": "two",
-   "n_accounts": 2,
-   "best_rank": 12,
-   "usd": 18101,
-   "paid": 0.473,
-   "ask": 0.52,
-   "status": "live",
-   "link": "https://polymarket.us/event/nba-por-min-2026-11-17",
-   "other": null,
-   "kalshi_against": null,
-   "logged": false,
-   "ladder": true,
-   "event_id": "401910003",
-   "sport": "nba",
-   "league": null,
-   "away": "POR",
-   "home": "MIN",
-   "away_name": "Portland Trail Blazers",
-   "home_name": "Minnesota Timberwolves",
-   "game_start": "2026-11-18T01:00Z",
-   "side_std": "home",
-   "money_with": false,
-   "grade": "B",
+   "money_with": true,
+   "grade": "A",
    "fair_board": null,
    "inside_fair": null,
    "books": {
@@ -634,11 +590,7 @@
     "first": "2026-11-17T19:24:38Z"
    },
    "exit_bid": null,
-   "kalshi_against": {
-    "move": 6.0,
-    "now": 43.5,
-    "state": "reversed"
-   },
+   "kalshi_against": null,
    "logged": true,
    "event_id": "401910002",
    "sport": "nba",
@@ -649,9 +601,6 @@
    "home_name": "Toronto Raptors",
    "game_start": "2026-11-18T00:30Z",
    "side_std": "away",
-   "conflict": [
-    "Kalshi move"
-   ],
    "money_with": false,
    "grade": "B",
    "inside_fair": false,
@@ -695,10 +644,6 @@
    "home_name": "Toronto Raptors",
    "game_start": "2026-11-18T00:30Z",
    "side_std": "away",
-   "conflict": [
-    "Kalshi bet back",
-    "big money"
-   ],
    "money_with": false,
    "grade": "B",
    "inside_fair": false,
@@ -721,7 +666,7 @@
    "best_rank": 43,
    "usd": 642,
    "paid": 0.234,
-   "ask": 0.22,
+   "ask": null,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-det-sas-2026-11-17",
    "other": {
@@ -730,7 +675,7 @@
     "usd": 3454,
     "first": "2026-11-17T05:19:50Z"
    },
-   "exit_bid": 0.21,
+   "exit_bid": null,
    "kalshi_against": null,
    "logged": true,
    "event_id": "401910004",
@@ -748,7 +693,7 @@
    "money_with": false,
    "grade": "watch",
    "fair_board": 0.2146,
-   "inside_fair": false,
+   "inside_fair": null,
    "books": null
   },
   {
@@ -767,16 +712,16 @@
    "best_rank": 40,
    "usd": 14118,
    "paid": 0.557,
-   "ask": 0.58,
+   "ask": null,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-por-min-2026-11-17",
    "other": {
-    "n_accounts": 1,
+    "n_accounts": 2,
     "best_rank": 112,
-    "usd": 685,
+    "usd": 4679,
     "first": "2026-11-18T00:26:11Z"
    },
-   "exit_bid": 0.57,
+   "exit_bid": null,
    "kalshi_against": null,
    "logged": true,
    "event_id": "401910003",
@@ -788,8 +733,8 @@
    "home_name": "Minnesota Timberwolves",
    "game_start": "2026-11-18T01:00Z",
    "side_std": "home",
-   "money_with": false,
-   "grade": "B",
+   "money_with": true,
+   "grade": "A",
    "fair_board": null,
    "inside_fair": null,
    "books": null
@@ -930,22 +875,6 @@
   "clv_poly_same": -0.87
  },
  "sys_tags": {
-  "401892735:nhl_early_home_fav_qual": {
-   "with": null,
-   "against": {
-    "n": 1,
-    "best_rank": 115,
-    "usd": 23365
-   }
-  },
-  "401892734:nhl_early_home_fav_qual": {
-   "with": null,
-   "against": {
-    "n": 1,
-    "best_rank": 69,
-    "usd": 345
-   }
-  },
   "401910005:nba_ats_hot_home": {
    "with": {
     "n": 1,
@@ -960,61 +889,6 @@
   }
  },
  "by_event": {
-  "401910003|ml": {
-   "away": {
-    "n": 3,
-    "best_rank": 43,
-    "usd": 1501
-   },
-   "home": {
-    "n": 4,
-    "best_rank": 40,
-    "usd": 5770
-   }
-  },
-  "401910003|total": {
-   "under": {
-    "n": 2,
-    "best_rank": 119,
-    "usd": 447
-   },
-   "over": {
-    "n": 1,
-    "best_rank": 132,
-    "usd": 165
-   }
-  },
-  "401910003|spread": {
-   "away": {
-    "n": 2,
-    "best_rank": 112,
-    "usd": 3237
-   },
-   "home": {
-    "n": 5,
-    "best_rank": 12,
-    "usd": 29301
-   }
-  },
-  "401910004|ml": {
-   "away": {
-    "n": 1,
-    "best_rank": 43,
-    "usd": 642
-   },
-   "home": {
-    "n": 2,
-    "best_rank": 43,
-    "usd": 3454
-   }
-  },
-  "401910004|total": {
-   "under": {
-    "n": 2,
-    "best_rank": 110,
-    "usd": 2158
-   }
-  },
   "401910005|ml": {
    "away": {
     "n": 4,
@@ -1105,20 +979,6 @@
     "usd": 151
    }
   },
-  "401892734|ml": {
-   "away": {
-    "n": 1,
-    "best_rank": 69,
-    "usd": 345
-   }
-  },
-  "401892735|ml": {
-   "away": {
-    "n": 1,
-    "best_rank": 115,
-    "usd": 23365
-   }
-  },
   "401892738|ml": {
    "home": {
     "n": 1,
@@ -1131,13 +991,6 @@
     "n": 1,
     "best_rank": 93,
     "usd": 315
-   }
-  },
-  "401925012|total": {
-   "over": {
-    "n": 1,
-    "best_rank": 110,
-    "usd": 100
    }
   }
  },
