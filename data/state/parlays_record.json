@@ -1,40 +1,40 @@
 {
-"updated": "2026-11-18T22:21:55Z",
-"logged": 16820,
+"updated": "2026-11-18T22:33:41Z",
+"logged": 16779,
 "settled": 17920,
 "rows": {
 "2 legs": {
-"n": 8330,
-"stake": 927733,
-"maker_pnl": 13367,
+"n": 8331,
+"stake": 929153,
+"maker_pnl": 12745,
 "pct_of_stakes": 1.4,
 "expected_from_legs": 4.4,
-"hit": 34.2,
+"hit": 34.3,
 "days": 9
 },
 "3 legs": {
-"n": 7529,
-"stake": 570465,
-"maker_pnl": -15019,
-"pct_of_stakes": -2.6,
+"n": 7528,
+"stake": 563172,
+"maker_pnl": -22125,
+"pct_of_stakes": -3.9,
 "expected_from_legs": 6.1,
 "hit": 27.0,
 "days": 9
 },
 "all": {
 "n": 15859,
-"stake": 1498198,
-"maker_pnl": -1652,
-"pct_of_stakes": -0.1,
+"stake": 1492325,
+"maker_pnl": -9380,
+"pct_of_stakes": -0.6,
 "expected_from_legs": 5.1,
 "hit": 30.8,
 "days": 9
 },
 "different games": {
-"n": 10410,
-"stake": 1092467,
-"maker_pnl": -28611,
-"pct_of_stakes": -2.6,
+"n": 10404,
+"stake": 1086427,
+"maker_pnl": -36158,
+"pct_of_stakes": -3.3,
 "expected_from_legs": 2.9,
 "hit": 31.2,
 "days": 9
@@ -67,21 +67,21 @@
 "days": 9
 },
 "different games | under legs": {
-"n": 1769,
-"stake": 116897,
-"maker_pnl": 12341,
-"pct_of_stakes": 10.6,
+"n": 1765,
+"stake": 116745,
+"maker_pnl": 11348,
+"pct_of_stakes": 9.7,
 "expected_from_legs": -3.9,
 "hit": 33.2,
 "days": 9
 },
 "same game": {
-"n": 5449,
-"stake": 405731,
-"maker_pnl": 26959,
+"n": 5455,
+"stake": 405898,
+"maker_pnl": 26778,
 "pct_of_stakes": 6.6,
 "expected_from_legs": 11.0,
-"hit": 29.9,
+"hit": 30.0,
 "days": 9
 },
 "same game | 0-3% over": {
@@ -94,21 +94,21 @@
 "days": 9
 },
 "same game | 3-8% over": {
-"n": 922,
-"stake": 96861,
-"maker_pnl": 22881,
+"n": 923,
+"stake": 96890,
+"maker_pnl": 22909,
 "pct_of_stakes": 23.6,
 "expected_from_legs": 5.0,
-"hit": 34.1,
+"hit": 34.0,
 "days": 9
 },
 "same game | 8%+ over": {
-"n": 2584,
-"stake": 185842,
-"maker_pnl": 12231,
-"pct_of_stakes": 6.6,
+"n": 2589,
+"stake": 185981,
+"maker_pnl": 12023,
+"pct_of_stakes": 6.5,
 "expected_from_legs": 27.6,
-"hit": 28.2,
+"hit": 28.3,
 "days": 9
 },
 "same game | under legs": {
