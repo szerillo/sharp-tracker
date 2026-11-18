@@ -1,5 +1,5 @@
 {
- "built": "2026-11-18T18:54:00Z",
+ "built": "2026-11-18T19:02:06Z",
  "rows": [
   {
    "cond": "0x85b1b9241e3253609ac1b9b9c955df87cfa41e4bb5b04342ac51a4df6b34d91a",
@@ -142,14 +142,14 @@
    "bet": "Pelicans ML",
    "side": "Pelicans",
    "flagged": "2026-11-17T16:06:28Z",
-   "why": "a top-50 account",
+   "why": "5 top-200 accounts",
    "proven": false,
-   "trigger": "top50",
-   "n_accounts": 1,
-   "best_rank": 43,
-   "usd": 204,
-   "paid": 0.3,
-   "ask": 0.3,
+   "trigger": "two",
+   "n_accounts": 5,
+   "best_rank": 40,
+   "usd": 22422,
+   "paid": 0.331,
+   "ask": 0.36,
    "status": "live",
    "link": "https://polymarket.us/event/nba-det-nop-2026-11-18",
    "other": null,
@@ -168,9 +168,9 @@
     "Kalshi bet back"
    ],
    "money_with": false,
-   "grade": "watch",
+   "grade": "B",
    "fair_board": 0.302,
-   "inside_fair": true,
+   "inside_fair": false,
    "books": {
     "at": "2026-11-18T17:58:30Z",
     "fair": 0.302,
@@ -224,6 +224,90 @@
      "Novig": 0.97
     }
    }
+  },
+  {
+   "cond": "0x62cfbb499c4aa367e60a30d56ad2e0af173519631892ad13410bfcefafc75580",
+   "slug": "nba-det-nop-2026-11-18",
+   "title": "Pistons vs. Pelicans",
+   "mtype": "spread",
+   "start": "2026-11-19T01:00:00Z",
+   "bet": "Pelicans +6.5",
+   "side": "Pelicans",
+   "flagged": "2026-11-18T19:00:08Z",
+   "why": "5 top-200 accounts",
+   "proven": false,
+   "trigger": "two",
+   "n_accounts": 5,
+   "best_rank": 40,
+   "usd": 16621,
+   "paid": 0.533,
+   "ask": 0.56,
+   "status": "live",
+   "link": "https://polymarket.us/event/nba-det-nop-2026-11-18",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401910013",
+   "sport": "nba",
+   "league": null,
+   "away": "DET",
+   "home": "NO",
+   "away_name": "Detroit Pistons",
+   "home_name": "New Orleans Pelicans",
+   "game_start": "2026-11-19T01:00Z",
+   "side_std": "home",
+   "money_with": false,
+   "grade": "B",
+   "fair_board": 0.5017,
+   "inside_fair": false,
+   "books": {
+    "at": "2026-11-18T17:58:30Z",
+    "fair": 0.5017,
+    "q": {
+     "Novig": 0.505,
+     "FD": 0.5146,
+     "Caesars": 0.5238,
+     "DK": 0.5283
+    }
+   }
+  },
+  {
+   "cond": "0xe99db0912d2a522942706314a31e73ec0a108dffc6ffc0f9c2baaf61c851d7f0",
+   "slug": "nba-det-nop-2026-11-18",
+   "title": "Pistons vs. Pelicans",
+   "mtype": "spread",
+   "start": "2026-11-19T01:00:00Z",
+   "bet": "Pelicans +5.5",
+   "side": "Pelicans",
+   "flagged": "2026-11-18T19:01:17Z",
+   "why": "2 top-200 accounts",
+   "proven": false,
+   "trigger": "two",
+   "n_accounts": 2,
+   "best_rank": 12,
+   "usd": 2947,
+   "paid": 0.546,
+   "ask": 0.55,
+   "status": "live",
+   "link": "https://polymarket.us/event/nba-det-nop-2026-11-18",
+   "other": null,
+   "kalshi_against": null,
+   "logged": false,
+   "ladder": true,
+   "event_id": "401910013",
+   "sport": "nba",
+   "league": null,
+   "away": "DET",
+   "home": "NO",
+   "away_name": "Detroit Pistons",
+   "home_name": "New Orleans Pelicans",
+   "game_start": "2026-11-19T01:00Z",
+   "side_std": "home",
+   "money_with": false,
+   "grade": "B",
+   "fair_board": null,
+   "inside_fair": null,
+   "books": null
   },
   {
    "cond": "0x3d7dbc94a54253fc5dd4aad1868cbbfc3abe3bb21dc75fc2a8a666afb3dbb60e",
@@ -538,9 +622,9 @@
     "usd": 572
    },
    "home": {
-    "n": 4,
+    "n": 5,
     "best_rank": 43,
-    "usd": 3603
+    "usd": 6907
    }
   },
   "401910011|ml": {
@@ -583,9 +667,9 @@
   },
   "401910013|ml": {
    "home": {
-    "n": 1,
-    "best_rank": 43,
-    "usd": 204
+    "n": 5,
+    "best_rank": 40,
+    "usd": 22422
    }
   },
   "401910013|total": {
@@ -593,6 +677,13 @@
     "n": 1,
     "best_rank": 132,
     "usd": 1597
+   }
+  },
+  "401910013|spread": {
+   "home": {
+    "n": 7,
+    "best_rank": 12,
+    "usd": 19568
    }
   },
   "401910016|spread": {
