@@ -1,0 +1,1029 @@
+[
+ {
+  "rule": "wind1014",
+  "origin": "Sean's Bet Labs screen",
+  "screen": 1772775,
+  "screen_status": "MATCHES",
+  "bl_all": {
+   "w": 535,
+   "l": 378,
+   "p": 7,
+   "roi": 13.2
+  },
+  "bl_to2020": {
+   "w": 384,
+   "l": 293,
+   "p": 6,
+   "roi": 10.1
+  },
+  "bl_since2021": {
+   "w": 151,
+   "l": 85,
+   "p": 1,
+   "roi": 22.2
+  },
+  "p_all": 1.3841423473381909e-05,
+  "p_to2020": 0.003142782340820327,
+  "p_since2021": 9.969979633717152e-05,
+  "rebuild": {
+   "n_in": 211,
+   "roi_in": 0.1468341232227488,
+   "n_hold": 22,
+   "roi_hold": 0.57,
+   "wf_n": 104,
+   "wf_roi": 0.28298076923076915,
+   "seasons": [
+    "2020",
+    "2021",
+    "2022",
+    "2023",
+    "2024",
+    "2025"
+   ],
+   "price": "Pinnacle full-game close",
+   "p_single": 0.056
+  },
+  "live": {
+   "w": 8,
+   "l": 4,
+   "p": 0,
+   "units": 3.594000000000001,
+   "risk": 12.0,
+   "first": "2026-10-31T14:17:53Z",
+   "n": 12,
+   "roi": 0.29950000000000004
+  },
+  "old_tier": "B",
+  "base": "A",
+  "tier": "A",
+  "notes": [
+   "Meets every Tier A bar on the full Bet Labs backtest."
+  ],
+  "rebuild_flag": "Our rebuild used Open-Meteo archive wind, not Bet Labs' wind.",
+  "reproduces": "yes"
+ },
+ {
+  "rule": "wind1014_1h",
+  "origin": "Sean's Bet Labs screen",
+  "screen": 769171,
+  "screen_status": "MATCHES",
+  "bl_all": {
+   "w": 404,
+   "l": 302,
+   "p": 109,
+   "roi": 9
+  },
+  "bl_to2020": {
+   "w": 291,
+   "l": 212,
+   "p": 12,
+   "roi": 11.9
+  },
+  "bl_since2021": {
+   "w": 113,
+   "l": 90,
+   "p": 4,
+   "roi": 5.9
+  },
+  "p_all": 0.005582412931295577,
+  "p_to2020": 0.0026002789209942367,
+  "p_since2021": 0.18688036775381756,
+  "rebuild": {
+   "n_in": 82,
+   "roi_in": -0.08890243902439024,
+   "n_hold": 25,
+   "roi_hold": 0.08359999999999998,
+   "wf_n": 25,
+   "wf_roi": 0.08359999999999998,
+   "seasons": [
+    "2023",
+    "2024",
+    "2025"
+   ],
+   "price": "1H line 10 min before kickoff: Pinnacle, else US-book median",
+   "p_single": 0.381
+  },
+  "live": {
+   "w": 7,
+   "l": 2,
+   "p": 0,
+   "units": 2.3388000000000004,
+   "risk": 4.5,
+   "first": "2026-10-31T14:17:53Z",
+   "n": 9,
+   "roi": 0.5197333333333334
+  },
+  "old_tier": "C",
+  "base": "B",
+  "tier": "B",
+  "notes": [
+   "Reduced size because the Mar 2021 on era (113-90, +5.9%) is not significant on its own (p 0.19)."
+  ],
+  "rebuild_flag": "Our rebuild used Open-Meteo wind and a Pinnacle or US-book 1H line from 2023 only.",
+  "reproduces": "no"
+ },
+ {
+  "rule": "cfb_wind14",
+  "origin": "Sean's Bet Labs screen",
+  "screen": 1783043,
+  "screen_status": "MATCHES",
+  "bl_all": {
+   "w": 555,
+   "l": 402,
+   "p": 12,
+   "roi": 12.2
+  },
+  "bl_to2020": {
+   "w": 423,
+   "l": 307,
+   "p": 10,
+   "roi": 12.6
+  },
+  "bl_since2021": {
+   "w": 132,
+   "l": 95,
+   "p": 2,
+   "roi": 10.7
+  },
+  "p_all": 3.869223115027243e-05,
+  "p_to2020": 0.00019341706685604976,
+  "p_since2021": 0.04302428388652746,
+  "rebuild": {
+   "n_in": 186,
+   "roi_in": 0.0011827956989246965,
+   "n_hold": 4,
+   "roi_hold": 0.9274999999999999,
+   "wf_n": 128,
+   "wf_roi": -0.04156250000000003,
+   "seasons": [
+    "2020",
+    "2021",
+    "2022",
+    "2023",
+    "2024",
+    "2025"
+   ],
+   "price": "Pinnacle full-game close",
+   "p_single": 0.306
+  },
+  "live": {
+   "w": 13,
+   "l": 3,
+   "p": 0,
+   "units": 9.8956,
+   "risk": 16.0,
+   "first": "2026-10-30T19:16:21Z",
+   "n": 16,
+   "roi": 0.618475
+  },
+  "old_tier": "C",
+  "base": "A",
+  "tier": "A",
+  "notes": [
+   "Meets every Tier A bar on the full Bet Labs backtest.",
+   "Flag, no move: our blind walk-forward was -4.2% on 128 bets."
+  ],
+  "rebuild_flag": "Our rebuild used Open-Meteo archive wind, not Bet Labs' wind.",
+  "reproduces": "partly"
+ },
+ {
+  "rule": "cfb_hot_over_low_total",
+  "origin": "Sean's Bet Labs screen",
+  "screen": 1792204,
+  "screen_status": "MATCHES",
+  "bl_all": {
+   "w": 175,
+   "l": 120,
+   "p": 6,
+   "roi": 14.2
+  },
+  "bl_to2020": {
+   "w": 122,
+   "l": 81,
+   "p": 6,
+   "roi": 15.9
+  },
+  "bl_since2021": {
+   "w": 53,
+   "l": 39,
+   "p": 0,
+   "roi": 10.1
+  },
+  "p_all": 0.00495346150724596,
+  "p_to2020": 0.008223818787771453,
+  "p_since2021": 0.15250913287479384,
+  "rebuild": {
+   "n_in": 69,
+   "roi_in": 0.20028985507246375,
+   "n_hold": 27,
+   "roi_hold": 0.20703703703703702,
+   "wf_n": 119,
+   "wf_roi": 0.17823529411764708,
+   "seasons": [
+    "2020",
+    "2021",
+    "2022",
+    "2023",
+    "2024",
+    "2025"
+   ],
+   "price": "Pinnacle full-game close",
+   "p_single": 0.038
+  },
+  "live": {},
+  "old_tier": "B",
+  "base": "B",
+  "tier": "B",
+  "notes": [
+   "Reduced size because only 295 all-time bets and the Mar 2021 on era (53-39, +10.1%) is not significant on its own (p 0.15)."
+  ],
+  "rebuild_flag": "Our rebuild used Open-Meteo archive temperature and wind, not Bet Labs' weather.",
+  "reproduces": "yes"
+ },
+ {
+  "rule": "awfuldog",
+  "origin": "Sean's Bet Labs screen",
+  "screen": 1772776,
+  "screen_status": "MATCHES",
+  "bl_all": {
+   "w": 254,
+   "l": 164,
+   "p": 7,
+   "roi": 17.2
+  },
+  "bl_to2020": {
+   "w": 203,
+   "l": 133,
+   "p": 4,
+   "roi": 16.8
+  },
+  "bl_since2021": {
+   "w": 51,
+   "l": 31,
+   "p": 3,
+   "roi": 18.6
+  },
+  "p_all": 9.420036261653664e-05,
+  "p_to2020": 0.0005623797667546615,
+  "p_since2021": 0.03426217992380198,
+  "rebuild": {
+   "n_in": 62,
+   "roi_in": 0.06741935483870964,
+   "n_hold": 29,
+   "roi_hold": 0.12034482758620688,
+   "wf_n": 70,
+   "wf_roi": 0.1271428571428571,
+   "seasons": [
+    "2020",
+    "2021",
+    "2022",
+    "2023",
+    "2024",
+    "2025"
+   ],
+   "price": "Pinnacle full-game close",
+   "p_single": 0.245
+  },
+  "live": {
+   "w": 0,
+   "l": 4,
+   "p": 0,
+   "units": -2.0,
+   "risk": 2.0,
+   "first": "2026-11-05T20:13:53Z",
+   "n": 4,
+   "roi": -1.0
+  },
+  "old_tier": "C",
+  "base": "A",
+  "tier": "A",
+  "notes": [
+   "Meets every Tier A bar on the full Bet Labs backtest."
+  ],
+  "rebuild_flag": null,
+  "reproduces": "partly"
+ },
+ {
+  "rule": "nfl_home_dog_7510",
+  "origin": "mined from our 2020-26 data, screen saved 11/5-11/6",
+  "screen": 1799433,
+  "screen_status": "MATCHES",
+  "bl_all": {
+   "w": 119,
+   "l": 84,
+   "p": 2,
+   "roi": 11.2
+  },
+  "bl_to2020": {
+   "w": 83,
+   "l": 67,
+   "p": 1,
+   "roi": 4.9
+  },
+  "bl_since2021": {
+   "w": 36,
+   "l": 18,
+   "p": 1,
+   "roi": 26.5
+  },
+  "p_all": 0.04381553484388012,
+  "p_to2020": 0.2621443690052927,
+  "p_since2021": 0.014738638680439342,
+  "rebuild": {
+   "n_in": 57,
+   "roi_in": 0.21263157894736845,
+   "n_hold": 6,
+   "roi_hold": 0.25166666666666665,
+   "wf_n": 36,
+   "wf_roi": 0.12361111111111112,
+   "seasons": [
+    "2020",
+    "2021",
+    "2022",
+    "2023",
+    "2024",
+    "2025"
+   ],
+   "price": "Pinnacle full-game close",
+   "p_single": 0.053
+  },
+  "live": {
+   "w": 0,
+   "l": 4,
+   "p": 0,
+   "units": -2.0,
+   "risk": 2.0,
+   "first": "2026-11-05T20:13:53Z",
+   "n": 4,
+   "roi": -1.0
+  },
+  "old_tier": "C",
+  "base": "B",
+  "tier": "B",
+  "notes": [
+   "Reduced size because only 203 all-time bets and all-time p 0.044, above 0.01."
+  ],
+  "rebuild_flag": null,
+  "reproduces": "yes"
+ },
+ {
+  "rule": "vrest8_1h",
+  "origin": "Sean's Bet Labs screen",
+  "screen": 1772962,
+  "screen_status": "DIFFERENT FILTERS",
+  "bl_all": {
+   "w": 458,
+   "l": 359,
+   "p": 81,
+   "roi": 7.3
+  },
+  "bl_to2020": {
+   "w": 319,
+   "l": 271,
+   "p": 20,
+   "roi": 4.5
+  },
+  "bl_since2021": {
+   "w": 139,
+   "l": 88,
+   "p": 1,
+   "roi": 16.7
+  },
+  "p_all": 0.014030171709096706,
+  "p_to2020": 0.12822211776300585,
+  "p_since2021": 0.0033669893826000497,
+  "rebuild": {
+   "n_in": 79,
+   "roi_in": -0.01658227848101267,
+   "n_hold": 24,
+   "roi_hold": 0.3741666666666666,
+   "wf_n": 24,
+   "wf_roi": 0.3741666666666666,
+   "seasons": [
+    "2023",
+    "2024",
+    "2025"
+   ],
+   "price": "1H line 10 min before kickoff: Pinnacle, else US-book median",
+   "p_single": 0.157
+  },
+  "live": {
+   "w": 3,
+   "l": 5,
+   "p": 0,
+   "units": -1.0305,
+   "risk": 4.0,
+   "first": "2026-11-01T19:41:01Z",
+   "n": 8,
+   "roi": -0.257625
+  },
+  "old_tier": "C",
+  "base": "B",
+  "tier": "B",
+  "notes": [
+   "Reduced size because all-time p 0.014, above 0.01.",
+   "Flag, no move: the tool's live filter differs from this saved screen (11/18 inventory)."
+  ],
+  "rebuild_flag": "Our rebuild used Pinnacle or US-book 1H line from 2023 only.",
+  "reproduces": "no"
+ },
+ {
+  "rule": "mnf_1h",
+  "origin": "Sean's Bet Labs screen",
+  "screen": 1772963,
+  "screen_status": "DIFFERENT FILTERS",
+  "bl_all": {
+   "w": 169,
+   "l": 119,
+   "p": 37,
+   "roi": 11.1
+  },
+  "bl_to2020": {
+   "w": 122,
+   "l": 87,
+   "p": 9,
+   "roi": 11.4
+  },
+  "bl_since2021": {
+   "w": 47,
+   "l": 32,
+   "p": 0,
+   "roi": 14
+  },
+  "p_all": 0.02166187505135775,
+  "p_to2020": 0.03989419111126713,
+  "p_since2021": 0.092942598353986,
+  "rebuild": {
+   "n_in": 29,
+   "roi_in": -0.12310344827586209,
+   "n_hold": 25,
+   "roi_hold": 0.24119999999999997,
+   "wf_n": 25,
+   "wf_roi": 0.24119999999999997,
+   "seasons": [
+    "2023",
+    "2024",
+    "2025"
+   ],
+   "price": "1H line 10 min before kickoff: Pinnacle, else US-book median",
+   "p_single": 0.508
+  },
+  "live": {},
+  "old_tier": "C",
+  "base": "B",
+  "tier": "B",
+  "notes": [
+   "Reduced size because only 288 all-time bets and all-time p 0.022, above 0.01.",
+   "Flag, no move: the tool's live filter differs from this saved screen (11/18 inventory)."
+  ],
+  "rebuild_flag": "Our rebuild used Pinnacle or US-book 1H line from 2023 only.",
+  "reproduces": "no"
+ },
+ {
+  "rule": "cfb_homefav_7510_under",
+  "origin": "mined from our 2020-26 data, screen saved 11/5-11/6",
+  "screen": 1799440,
+  "screen_status": "MATCHES",
+  "bl_all": {
+   "w": 611,
+   "l": 523,
+   "p": 13,
+   "roi": 4.1
+  },
+  "bl_to2020": {
+   "w": 436,
+   "l": 395,
+   "p": 10,
+   "roi": 2
+  },
+  "bl_since2021": {
+   "w": 175,
+   "l": 128,
+   "p": 3,
+   "roi": 10.1
+  },
+  "p_all": 0.07585197682574918,
+  "p_to2020": 0.2763070121175679,
+  "p_since2021": 0.03094326309755413,
+  "rebuild": {
+   "n_in": 212,
+   "roi_in": 0.10788679245283016,
+   "n_hold": 37,
+   "roi_hold": 0.35810810810810806,
+   "wf_n": 180,
+   "wf_roi": 0.08677777777777773,
+   "seasons": [
+    "2020",
+    "2021",
+    "2022",
+    "2023",
+    "2024",
+    "2025"
+   ],
+   "price": "Pinnacle full-game close",
+   "p_single": 0.007
+  },
+  "live": {
+   "w": 4,
+   "l": 6,
+   "p": 0,
+   "units": -1.0989000000000002,
+   "risk": 5.0,
+   "first": "2026-11-05T20:13:53Z",
+   "n": 10,
+   "roi": -0.21978
+  },
+  "old_tier": "C",
+  "base": "C",
+  "tier": "C",
+  "notes": [
+   "Bet Labs' all-time record (611-523, +4.1%) is not strong enough to rule out luck (p 0.076)."
+  ],
+  "rebuild_flag": null,
+  "reproduces": "yes"
+ },
+ {
+  "rule": "nba_bigfav_over",
+  "origin": "mined from our 2020-26 data, screen saved 11/5-11/6",
+  "screen": 1799443,
+  "screen_status": "DIFFERENT FILTERS",
+  "bl_all": {
+   "w": 1346,
+   "l": 1338,
+   "p": 40,
+   "roi": -2.6
+  },
+  "bl_to2020": {
+   "w": 1022,
+   "l": 1042,
+   "p": 37,
+   "roi": -3.4
+  },
+  "bl_since2021": {
+   "w": 324,
+   "l": 296,
+   "p": 2,
+   "roi": 0
+  },
+  "p_all": 0.9172906384235711,
+  "p_to2020": 0.9433587474157035,
+  "p_since2021": 0.5,
+  "rebuild": {
+   "n_in": 446,
+   "roi_in": 0.0823094170403587,
+   "n_hold": 136,
+   "roi_hold": 0.10139705882352938,
+   "wf_n": 370,
+   "wf_roi": 0.027189189189189146,
+   "seasons": [
+    "2020-21",
+    "2021-22",
+    "2022-23",
+    "2023-24",
+    "2024-25",
+    "2025-26"
+   ],
+   "price": "Pinnacle full-game close",
+   "p_single": 0.018
+  },
+  "live": {
+   "w": 5,
+   "l": 4,
+   "p": 0,
+   "units": 0.3748000000000001,
+   "risk": 4.5,
+   "first": "2026-11-05T21:52:25Z",
+   "n": 9,
+   "roi": 0.08328888888888891
+  },
+  "old_tier": "C",
+  "base": "C",
+  "tier": "C",
+  "notes": [
+   "Bet Labs' own record before 2021 is 1022-1042, -3.4%: the edge exists only from 2020 on, which is the same window it was found in.",
+   "Flag, no move: the tool's live filter differs from this saved screen (11/18 inventory)."
+  ],
+  "rebuild_flag": null,
+  "reproduces": "n/a (Bet Labs negative too)"
+ },
+ {
+  "rule": "nba_badteams_under",
+  "origin": "mined from our 2020-26 data, screen saved 11/5-11/6",
+  "screen": 1799442,
+  "screen_status": "DIFFERENT FILTERS",
+  "bl_all": {
+   "w": 974,
+   "l": 947,
+   "p": 23,
+   "roi": -1.2
+  },
+  "bl_to2020": {
+   "w": 786,
+   "l": 786,
+   "p": 19,
+   "roi": -2.2
+  },
+  "bl_since2021": {
+   "w": 188,
+   "l": 161,
+   "p": 4,
+   "roi": 3.3
+  },
+  "p_all": 0.7053580610481743,
+  "p_to2020": 0.8137733931742619,
+  "p_since2021": 0.259496024008539,
+  "rebuild": {
+   "n_in": 308,
+   "roi_in": 0.021590909090909067,
+   "n_hold": 72,
+   "roi_hold": 0.036249999999999984,
+   "wf_n": 193,
+   "wf_roi": 0.037357512953367845,
+   "seasons": [
+    "2020-21",
+    "2021-22",
+    "2022-23",
+    "2023-24",
+    "2024-25",
+    "2025-26"
+   ],
+   "price": "Pinnacle full-game close",
+   "p_single": 0.121
+  },
+  "live": {
+   "w": 3,
+   "l": 1,
+   "p": 0,
+   "units": 0.7296,
+   "risk": 2.0,
+   "first": "2026-11-07T23:51:02Z",
+   "n": 4,
+   "roi": 0.3648
+  },
+  "old_tier": "C",
+  "base": "C",
+  "tier": "C",
+  "notes": [
+   "Bet Labs' own record before 2021 is 786-786, -2.2%: the edge exists only from 2020 on, which is the same window it was found in.",
+   "Flag, no move: the tool's live filter differs from this saved screen (11/18 inventory)."
+  ],
+  "rebuild_flag": null,
+  "reproduces": "yes"
+ },
+ {
+  "rule": "nba_ats_hot_home",
+  "origin": "mined from our 2020-26 data, screen saved 11/5-11/6",
+  "screen": 1799432,
+  "screen_status": "DIFFERENT FILTERS",
+  "bl_all": {
+   "w": 872,
+   "l": 847,
+   "p": 24,
+   "roi": -1.5
+  },
+  "bl_to2020": {
+   "w": 624,
+   "l": 649,
+   "p": 14,
+   "roi": -4.3
+  },
+  "bl_since2021": {
+   "w": 248,
+   "l": 198,
+   "p": 10,
+   "roi": 6.4
+  },
+  "p_all": 0.7391195179912358,
+  "p_to2020": 0.9420197397608729,
+  "p_since2021": 0.07756093120276875,
+  "rebuild": {
+   "n_in": 432,
+   "roi_in": 0.11138888888888886,
+   "n_hold": 12,
+   "roi_hold": -0.01833333333333335,
+   "wf_n": 74,
+   "wf_roi": 0.032162162162162125,
+   "seasons": [
+    "2020-21",
+    "2021-22",
+    "2022-23",
+    "2023-24",
+    "2024-25",
+    "2025-26"
+   ],
+   "price": "Pinnacle full-game close",
+   "p_single": 0.0
+  },
+  "live": {
+   "w": 9,
+   "l": 6,
+   "p": 0,
+   "units": 1.0267,
+   "risk": 7.5,
+   "first": "2026-11-05T21:52:25Z",
+   "n": 15,
+   "roi": 0.13689333333333334
+  },
+  "old_tier": "C",
+  "base": "C",
+  "tier": "C",
+  "notes": [
+   "Bet Labs' own record before 2021 is 624-649, -4.3%: the edge exists only from 2020 on, which is the same window it was found in.",
+   "Flag, no move: the tool's live filter differs from this saved screen (11/18 inventory)."
+  ],
+  "rebuild_flag": null,
+  "reproduces": "yes"
+ },
+ {
+  "rule": "nba_under_good_home_over",
+  "origin": "Sean's Bet Labs screen",
+  "screen": 1789285,
+  "screen_status": "MATCHES",
+  "bl_all": {
+   "w": 750,
+   "l": 579,
+   "p": 19,
+   "roi": 9.6
+  },
+  "bl_to2020": {
+   "w": 555,
+   "l": 423,
+   "p": 14,
+   "roi": 10.7
+  },
+  "bl_since2021": {
+   "w": 196,
+   "l": 156,
+   "p": 5,
+   "roi": 6.6
+  },
+  "p_all": 0.00013939648442606867,
+  "p_to2020": 0.00026765351455648734,
+  "p_since2021": 0.09645162625205361,
+  "rebuild": {
+   "n_in": 246,
+   "roi_in": 0.054186991869918655,
+   "n_hold": 16,
+   "roi_hold": -0.385625,
+   "wf_n": 65,
+   "wf_roi": -0.11553846153846159,
+   "seasons": [
+    "2020-21",
+    "2021-22",
+    "2022-23",
+    "2023-24",
+    "2024-25",
+    "2025-26"
+   ],
+   "price": "Pinnacle full-game close",
+   "p_single": 0.04
+  },
+  "live": {
+   "w": 9,
+   "l": 4,
+   "p": 0,
+   "units": 2.2553,
+   "risk": 6.5,
+   "first": "2026-11-01T06:37:03Z",
+   "n": 13,
+   "roi": 0.3469692307692308
+  },
+  "old_tier": "C",
+  "base": "A",
+  "tier": "A",
+  "notes": [
+   "Meets every Tier A bar on the full Bet Labs backtest.",
+   "Flag, no move: our blind walk-forward was -11.6% on 65 bets."
+  ],
+  "rebuild_flag": "Our rebuild used the tool's 1.5-point total drop (the screen starts at 0.5).",
+  "reproduces": "yes"
+ },
+ {
+  "rule": "nhl_early_home_fav_qual",
+  "origin": "Sean's Bet Labs screen",
+  "screen": 1789284,
+  "screen_status": "MATCHES",
+  "bl_all": {
+   "w": 1174,
+   "l": 754,
+   "p": 0,
+   "roi": 3.8
+  },
+  "bl_to2020": {
+   "w": 873,
+   "l": 586,
+   "p": 0,
+   "roi": 3
+  },
+  "bl_since2021": {
+   "w": 301,
+   "l": 170,
+   "p": 0,
+   "roi": 6
+  },
+  "p_all": 0.02243867051190973,
+  "p_to2020": 0.08724661647301346,
+  "p_since2021": 0.05106522774971345,
+  "rebuild": {
+   "n_in": 328,
+   "roi_in": 0.10140243902439024,
+   "n_hold": 65,
+   "roi_hold": 0.17861538461538462,
+   "wf_n": 222,
+   "wf_roi": 0.09279279279279276,
+   "seasons": [
+    "2020-21",
+    "2021-22",
+    "2022-23",
+    "2023-24",
+    "2024-25",
+    "2025-26"
+   ],
+   "price": "Pinnacle full-game close",
+   "p_single": 0.012
+  },
+  "live": {
+   "w": 12,
+   "l": 10,
+   "p": 0,
+   "units": -1.0025,
+   "risk": 11.0,
+   "first": "2026-10-31T17:20:10Z",
+   "n": 22,
+   "roi": -0.09113636363636365
+  },
+  "old_tier": "B",
+  "base": "B",
+  "tier": "B",
+  "notes": [
+   "Reduced size because all-time p 0.022, above 0.01."
+  ],
+  "rebuild_flag": null,
+  "reproduces": "yes"
+ },
+ {
+  "rule": "nhl_bounce_home_ml",
+  "origin": "mined from our 2020-26 data, screen saved 11/5-11/6",
+  "screen": 1799430,
+  "screen_status": "DIFFERENT FILTERS",
+  "bl_all": {
+   "w": 876,
+   "l": 589,
+   "p": 0,
+   "roi": 1.7
+  },
+  "bl_to2020": {
+   "w": 568,
+   "l": 402,
+   "p": 0,
+   "roi": -0.5
+  },
+  "bl_since2021": {
+   "w": 308,
+   "l": 188,
+   "p": 0,
+   "roi": 5.7
+  },
+  "p_all": 0.21761795169228315,
+  "p_to2020": 0.5737912207813175,
+  "p_since2021": 0.06211923950180909,
+  "rebuild": {
+   "n_in": 387,
+   "roi_in": 0.0793798449612403,
+   "n_hold": 13,
+   "roi_hold": 0.52,
+   "wf_n": 114,
+   "wf_roi": 0.03289473684210528,
+   "seasons": [
+    "2020-21",
+    "2021-22",
+    "2022-23",
+    "2023-24",
+    "2024-25",
+    "2025-26"
+   ],
+   "price": "Pinnacle full-game close",
+   "p_single": 0.012
+  },
+  "live": {
+   "w": 2,
+   "l": 4,
+   "p": 0,
+   "units": -1.3192000000000002,
+   "risk": 3.0,
+   "first": "2026-11-05T21:52:25Z",
+   "n": 6,
+   "roi": -0.4397333333333333
+  },
+  "old_tier": "C",
+  "base": "C",
+  "tier": "C",
+  "notes": [
+   "Bet Labs' own record before 2021 is 568-402, -0.5%: the edge exists only from 2020 on, which is the same window it was found in.",
+   "Flag, no move: the tool's live filter differs from this saved screen (11/18 inventory)."
+  ],
+  "rebuild_flag": null,
+  "reproduces": "yes"
+ },
+ {
+  "rule": "nhl_skid_fade_road",
+  "origin": "mined from our 2020-26 data, screen saved 11/5-11/6",
+  "screen": 1799431,
+  "screen_status": "DIFFERENT FILTERS",
+  "bl_all": {
+   "w": 860,
+   "l": 887,
+   "p": 0,
+   "roi": -3.1
+  },
+  "bl_to2020": {
+   "w": 580,
+   "l": 632,
+   "p": 0,
+   "roi": -7.3
+  },
+  "bl_since2021": {
+   "w": 281,
+   "l": 255,
+   "p": 0,
+   "roi": 6.6
+  },
+  "p_all": 0.9060227474431162,
+  "p_to2020": 0.9956844912153637,
+  "p_since2021": 0.06619959809148401,
+  "rebuild": {
+   "n_in": 447,
+   "roi_in": 0.07246085011185682,
+   "n_hold": 19,
+   "roi_hold": -0.4878947368421053,
+   "wf_n": 169,
+   "wf_roi": 0.08011834319526628,
+   "seasons": [
+    "2020-21",
+    "2021-22",
+    "2022-23",
+    "2023-24",
+    "2024-25",
+    "2025-26"
+   ],
+   "price": "Pinnacle close on the main NHL spread (puck line)",
+   "p_single": 0.05
+  },
+  "live": {
+   "w": 6,
+   "l": 1,
+   "p": 0,
+   "units": 3.5152,
+   "risk": 3.5,
+   "first": "2026-11-05T21:52:25Z",
+   "n": 7,
+   "roi": 1.0043428571428572
+  },
+  "old_tier": "C",
+  "base": "C",
+  "tier": "C",
+  "notes": [
+   "Bet Labs' own record before 2021 is 580-632, -7.3%: the edge exists only from 2020 on, which is the same window it was found in.",
+   "Flag, no move: the tool's live filter differs from this saved screen (11/18 inventory)."
+  ],
+  "rebuild_flag": null,
+  "reproduces": "yes"
+ },
+ {
+  "rule": "cbb_bigloss_vs_top5",
+  "origin": "Sean's Bet Labs screen",
+  "screen": 1789287,
+  "screen_status": "MATCHES",
+  "bl_all": {
+   "w": 151,
+   "l": 92,
+   "p": 1,
+   "roi": 20.3
+  },
+  "bl_to2020": {
+   "w": 112,
+   "l": 65,
+   "p": 1,
+   "roi": 23
+  },
+  "bl_since2021": {
+   "w": 39,
+   "l": 27,
+   "p": 0,
+   "roi": 13
+  },
+  "p_all": 0.00037585990087696253,
+  "p_to2020": 0.0005461809477964596,
+  "p_since2021": 0.13065969749202644,
+  "rebuild": null,
+  "live": {},
+  "old_tier": "C",
+  "base": "B",
+  "tier": "B",
+  "notes": [
+   "Reduced size because only 243 all-time bets and the Mar 2021 on era (39-27, +13.0%) is not significant on its own (p 0.13)."
+  ],
+  "rebuild_flag": null,
+  "reproduces": null
+ }
+]
