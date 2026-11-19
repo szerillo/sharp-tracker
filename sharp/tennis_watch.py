@@ -333,7 +333,7 @@ def main():
     if new_serve:
         with open(SERVE_PAPER, 'a') as f:
             for r in new_serve: f.write(json.dumps(r) + '\n')
-    # grade paper entries from ESPN (ESPN ids only; x: matches stay ungraded until a Kalshi/Novig settlement path is added)
+    # grade paper entries from ESPN (ESPN ids); x: matches in the match-winner logs are graded from Kalshi settlements (grade_match below)
     res = {}
     rp = os.path.join(TD, 'results.jsonl')
     if os.path.exists(rp):
@@ -363,11 +363,20 @@ def main():
                     k = (r['event_id'], r['side'])
                     if k not in mclose or r['ts'] > mclose[k]['ts']: mclose[k] = r
             except (EOFError, OSError): pass
+    # 11/19: x: matches (Challenger / ITF, not on ESPN) are graded from Kalshi match-winner settlements (sharp/tennis_kalshi_results.py)
+    import sharp.tennis_kalshi_results as KR
+    try: KR.build()
+    except Exception as e_: print(f'[tennis] Kalshi results not refreshed: {e_}')
+    KRES = KR.load()
     def grade_match(paper_):
         out = []
         for ev, p in paper_.items():
             if ts(p['start']) > NOW: continue
             r = res.get(ev)
+            if not r and str(ev).startswith('x:'):
+                hn, an = (p.get('fav_name'), p.get('opp_name')) if p.get('fav') == 'home' else (p.get('opp_name'), p.get('fav_name'))
+                w = KR.winner_side(hn, an, p['start'], KRES)
+                if w: r = dict(winner=w, src='Kalshi')
             if not r or not r.get('winner') or r.get('walkover'): continue
             side = p.get('side') or p['fav']
             won = (r['winner'] == 'p1') == (side == 'home')

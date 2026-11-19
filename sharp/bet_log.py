@@ -42,6 +42,13 @@ PROMOTED_BY_START = set(PROMOTED_FROM) - {'xch_homedog_fade'}
 # 11/18 (Sean): everything is 0.25u for now, every tier (favourite: to win 0.25u; plus money: risk 0.25u). Bets flagged before this keep
 # the size they were tracked at, so nothing is resized backwards.
 FLAT_QUARTER_FROM = '2026-11-18T20:30:00Z'
+# 11/16 evening (Sean, tools/betting/AUTO_TENNIS_PROPS.md): the only real-money tennis angle is the big-serving underdog (tennis_serve_dog);
+# every other tennis angle (set-1 favourite, settled / hot favourite, hot dog, serve favourite) is paper. Matches starting from here are
+# logged that way, so serve dogs are graded as bets and the rest as paper; earlier matches keep the category they were tracked under.
+TENNIS_POLICY_FROM = '2026-11-17T04:00:00Z'
+def tennis_cat(rule, start, old):
+    if (start or '') < TENNIS_POLICY_FROM: return old
+    return 'tennis' if rule == 'tennis_serve_dog' else 'paper P'
 def size_units(cat, rule=None, sport=None, flagged=None):
     if cat == 'watch' or (cat.startswith('sharp') and (flagged or '') >= SHARP_PAPER_FROM): return 0.0
     if (flagged or '') >= FLAT_QUARTER_FROM: return 0.25
@@ -208,7 +215,7 @@ def main():
     if os.path.exists(tp):
         for l in open(tp):
             p = json.loads(l); g_ = G.get(p['event_id'])
-            bets.append(dict(id='t:' + p['event_id'], src='tennis', cat='tennis', rule='tennis_fs_fav', sport='tennis', event_id=p['event_id'], game=f"{p.get('fav_name')} vs {p.get('opp_name')}",
+            bets.append(dict(id='t:' + p['event_id'], src='tennis', cat=tennis_cat('tennis_fs_fav', p['start'], 'tennis'), rule='tennis_fs_fav', sport='tennis', event_id=p['event_id'], game=f"{p.get('fav_name')} vs {p.get('opp_name')}",
                              start=p['start'], market='1s_ml', side=p['fav'], line=None, flagged=p['ts'], venue=p['venue'], price=p['price'],
                              won=None if not g_ else (1 if g_['won'] else 0), bet=f"{p.get('fav_name')} set 1"))
     # ---- watch-only sharp-money signals (Sean, 11/4: "signals have appeared all week, MMA for instance, why aren't those in the tracker?"):
@@ -246,7 +253,7 @@ def main():
             p = json.loads(l); g_ = G2.get(p['event_id'])
             live = rule == 'tennis_hot_fav' and p.get('level') in TOUR and bool((p.get('settled') or {}).get('ok'))   # 11/5: settled favourites only
             side = p.get('side') or p['fav']; pick = p.get('pick_name') or p.get('fav_name')
-            bets.append(dict(id=f"{'th' if rule == 'tennis_hot_fav' else 'td'}:{p['event_id']}", src='tennis', cat='system B' if live else 'paper P', rule=rule, sport='tennis', event_id=p['event_id'],   # 11/5 (Sean): settled favourites are tier B, 0.5u
+            bets.append(dict(id=f"{'th' if rule == 'tennis_hot_fav' else 'td'}:{p['event_id']}", src='tennis', cat=tennis_cat(rule, p['start'], 'system B' if live else 'paper P'), rule=rule, sport='tennis', event_id=p['event_id'],   # 11/5 (Sean): settled favourites are tier B, 0.5u
                              game=f"{p.get('fav_name')} vs {p.get('opp_name')}", start=p['start'], market='ml', side=side, line=None, flagged=p['ts'], venue=p['venue'], price=p['price'],
                              won=None if not g_ else (1 if g_['won'] else 0), bet=f"{pick} to win"))
     # Serve-profile logs are simulated records, not exchange fill evidence.
@@ -261,7 +268,7 @@ def main():
             if key in seen_serve: continue
             seen_serve.add(key)
             g_ = GS.get(p['event_id'])
-            bets.append(dict(id=f"tv:{p['event_id']}:{p['rule']}", src='tennis', cat='paper P',
+            bets.append(dict(id=f"tv:{p['event_id']}:{p['rule']}", src='tennis', cat=tennis_cat(p['rule'], p['start'], 'paper P'),
                              rule=p['rule'], sport='tennis', event_id=p['event_id'],
                              game=f"{p.get('fav_name')} vs {p.get('opp_name')}", start=p['start'],
                              market='ml', side=p['side'], line=None, flagged=p['ts'],
