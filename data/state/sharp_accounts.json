@@ -1,5 +1,5 @@
 {
- "built": "2026-11-19T18:00:24Z",
+ "built": "2026-11-19T18:07:48Z",
  "rows": [
   {
    "cond": "0xc276afa6849935037a986177548243bc2953367fa2bad08b47a4ef1e82309d10",
@@ -127,52 +127,6 @@
      "Caesars": 0.5556,
      "Novig": 0.56,
      "DK": 0.5745
-    }
-   }
-  },
-  {
-   "cond": "0xd8c25b81841dd21fcc9b9cdd66062b452cf973c9cb4fcab8cff70ea93a8ea142",
-   "slug": "nba-nyk-min-2026-11-19",
-   "title": "Knicks vs. Timberwolves",
-   "mtype": "ml",
-   "start": "2026-11-20T01:00:00Z",
-   "bet": "Knicks ML",
-   "side": "Knicks",
-   "flagged": "2026-11-19T00:13:38Z",
-   "why": "2 top-200 accounts",
-   "proven": false,
-   "trigger": "two",
-   "n_accounts": 2,
-   "best_rank": 43,
-   "usd": 844,
-   "paid": 0.472,
-   "ask": 0.51,
-   "status": "live",
-   "link": "https://polymarket.us/event/nba-nyk-min-2026-11-19",
-   "other": null,
-   "kalshi_against": null,
-   "logged": true,
-   "event_id": "401910021",
-   "sport": "nba",
-   "league": null,
-   "away": "NY",
-   "home": "MIN",
-   "away_name": "New York Knicks",
-   "home_name": "Minnesota Timberwolves",
-   "game_start": "2026-11-20T01:00Z",
-   "side_std": "away",
-   "money_with": true,
-   "grade": "A",
-   "fair_board": 0.5076,
-   "inside_fair": false,
-   "books": {
-    "at": "2026-11-19T16:56:15Z",
-    "fair": 0.5076,
-    "q": {
-     "Novig": 0.51,
-     "Kalshi": 0.53,
-     "DK": 0.5305,
-     "Caesars": 0.5349
     }
    }
   },
@@ -340,6 +294,49 @@
    "books": null
   },
   {
+   "cond": "0xd8c25b81841dd21fcc9b9cdd66062b452cf973c9cb4fcab8cff70ea93a8ea142",
+   "slug": "nba-nyk-min-2026-11-19",
+   "title": "Knicks vs. Timberwolves",
+   "mtype": "ml",
+   "start": "2026-11-20T01:00:00Z",
+   "bet": "Knicks ML",
+   "side": "Knicks",
+   "flagged": "2026-11-19T00:13:38Z",
+   "why": "2 top-200 accounts",
+   "proven": false,
+   "trigger": "two",
+   "n_accounts": 2,
+   "best_rank": 43,
+   "usd": 844,
+   "paid": 0.472,
+   "ask": 0.51,
+   "status": "other side",
+   "link": "https://polymarket.us/event/nba-nyk-min-2026-11-19",
+   "other": {
+    "n_accounts": 1,
+    "best_rank": 43,
+    "usd": 667,
+    "first": "2026-11-19T18:03:55Z"
+   },
+   "exit_bid": 0.5,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401910021",
+   "sport": "nba",
+   "league": null,
+   "away": "NY",
+   "home": "MIN",
+   "away_name": "New York Knicks",
+   "home_name": "Minnesota Timberwolves",
+   "game_start": "2026-11-20T01:00Z",
+   "side_std": "away",
+   "money_with": true,
+   "grade": "A",
+   "fair_board": 0.5076,
+   "inside_fair": false,
+   "books": null
+  },
+  {
    "cond": "0xadcd89ffe92c7636b515a73c47c9bfaa0aa93525a5389d4b5a6bfa332cc59a48",
    "slug": "nhl-ana-col-2026-11-19",
    "title": "Ducks vs. Avalanche",
@@ -491,6 +488,11 @@
     "n": 2,
     "best_rank": 43,
     "usd": 844
+   },
+   "home": {
+    "n": 1,
+    "best_rank": 43,
+    "usd": 667
    }
   },
   "401910021|total": {
