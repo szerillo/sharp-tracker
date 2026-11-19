@@ -1,5 +1,5 @@
 {
- "built": "2026-11-19T00:14:35Z",
+ "built": "2026-11-19T00:22:06Z",
  "rows": [
   {
    "cond": "0x5ee92964df4c1577000768dddeafcd690e299a16c720bfef16030dab56dbaffa",
@@ -79,8 +79,8 @@
    "home_name": "Orlando Magic",
    "game_start": "2026-11-19T00:00Z",
    "side_std": "home",
-   "money_with": true,
-   "grade": "A",
+   "money_with": false,
+   "grade": "B",
    "fair_board": null,
    "inside_fair": null,
    "books": null
@@ -267,7 +267,7 @@
    "best_rank": 40,
    "usd": 22422,
    "paid": 0.331,
-   "ask": 0.35,
+   "ask": 0.34,
    "status": "live",
    "link": "https://polymarket.us/event/nba-det-nop-2026-11-18",
    "other": null,
@@ -285,8 +285,8 @@
    "conflict": [
     "Kalshi bet back"
    ],
-   "money_with": false,
-   "grade": "B",
+   "money_with": true,
+   "grade": "A",
    "fair_board": 0.3694,
    "inside_fair": true,
    "books": {
@@ -359,7 +359,7 @@
    "best_rank": 110,
    "usd": 5756,
    "paid": 0.628,
-   "ask": 0.67,
+   "ask": 0.65,
    "status": "live",
    "link": "https://polymarket.us/event/nba-det-nop-2026-11-18",
    "other": null,
@@ -397,7 +397,7 @@
    "best_rank": 12,
    "usd": 2947,
    "paid": 0.546,
-   "ask": 0.53,
+   "ask": 0.5,
    "status": "live",
    "link": "https://polymarket.us/event/nba-det-nop-2026-11-18",
    "other": null,
@@ -578,9 +578,6 @@
    "home_name": "Miami Heat",
    "game_start": "2026-11-19T00:00Z",
    "side_std": "away",
-   "conflict": [
-    "Kalshi bet back"
-   ],
    "money_with": false,
    "grade": "B",
    "fair_board": 0.1423,
@@ -667,8 +664,8 @@
    "home_name": "Orlando Magic",
    "game_start": "2026-11-19T00:00Z",
    "side_std": "home",
-   "money_with": true,
-   "grade": "A",
+   "money_with": false,
+   "grade": "B",
    "fair_board": 0.483,
    "inside_fair": null,
    "books": null
@@ -779,7 +776,7 @@
    "best_rank": 40,
    "usd": 16621,
    "paid": 0.533,
-   "ask": 0.57,
+   "ask": 0.54,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-det-nop-2026-11-18",
    "other": {
@@ -788,7 +785,7 @@
     "usd": 1223,
     "first": "2026-11-18T19:20:04Z"
    },
-   "exit_bid": 0.56,
+   "exit_bid": 0.53,
    "kalshi_against": null,
    "logged": true,
    "event_id": "401910013",
@@ -868,7 +865,7 @@
    "best_rank": 43,
    "usd": 844,
    "paid": 0.472,
-   "ask": 0.49,
+   "ask": 0.5,
    "status": "live",
    "link": "https://polymarket.us/event/nba-nyk-min-2026-11-19",
    "other": null,
@@ -1036,6 +1033,13 @@
     "n": 1,
     "best_rank": 112,
     "usd": 1223
+   }
+  },
+  "401910014|ml": {
+   "home": {
+    "n": 1,
+    "best_rank": 119,
+    "usd": 480
    }
   },
   "401910016|spread": {
