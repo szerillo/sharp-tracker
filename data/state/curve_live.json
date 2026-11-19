@@ -1,5 +1,5 @@
 {
- "built": "2026-11-19T23:02:56Z",
+ "built": "2026-11-19T23:17:01Z",
  "record": {
   "cbb_1h_total_curve": {
    "n": 6,
@@ -141,6 +141,35 @@
    "book": null,
    "price": null,
    "flagged": "2026-11-19T21:37:16Z"
+  },
+  {
+   "key": "nhl_p3_under_curve|8689e63a36a8d62c4eba2fc402bb4f0c||under",
+   "rule": "nhl_p3_under_curve",
+   "tier": "C",
+   "stake": 0.25,
+   "sport": "nhl",
+   "odds_id": "8689e63a36a8d62c4eba2fc402bb4f0c",
+   "espn": "401892751",
+   "game": "Anaheim Ducks @ Colorado Avalanche",
+   "start": "2026-11-20T02:10:00Z",
+   "market": "totals_p3",
+   "team": null,
+   "team_name": null,
+   "side": "under",
+   "line": 2.5,
+   "curve": 0.663,
+   "pin_fair": 0.558,
+   "gap": 10.5,
+   "full_total": 6.5,
+   "full_spread": -1.5,
+   "pin_price": 1.73,
+   "book": "DK",
+   "price": 1.69,
+   "pin_fair_power": 0.5607,
+   "book_fair": 0.5587,
+   "fair_gap": -0.1,
+   "ev_curve": 12.0,
+   "flagged": "2026-11-19T23:17:01Z"
   }
  ]
 }
