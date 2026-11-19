@@ -1,5 +1,5 @@
 {
- "built": "2026-11-19T01:52:41Z",
+ "built": "2026-11-19T02:00:25Z",
  "rows": [
   {
    "cond": "0x5ee92964df4c1577000768dddeafcd690e299a16c720bfef16030dab56dbaffa",
@@ -339,7 +339,7 @@
    "best_rank": 79,
    "usd": 10450,
    "paid": 0.509,
-   "ask": 0.51,
+   "ask": null,
    "status": "live",
    "link": "https://polymarket.us/event/nhl-col-utah-2026-11-18",
    "other": null,
@@ -382,7 +382,8 @@
    "game_start": "2026-11-19T03:00Z",
    "side_std": "away",
    "conflict": [
-    "Kalshi bet back"
+    "Kalshi bet back",
+    "Kalshi move"
    ],
    "money_with": false,
    "grade": "B",
@@ -414,7 +415,7 @@
    "best_rank": 24,
    "usd": 106,
    "paid": 0.138,
-   "ask": 0.12,
+   "ask": 0.11,
    "status": "live",
    "link": "https://polymarket.us/event/nba-lac-sas-2026-11-19",
    "other": null,
@@ -857,8 +858,8 @@
    "link": "https://polymarket.us/event/nba-nyk-min-2026-11-19",
    "other": null,
    "kalshi_against": {
-    "move": 6.0,
-    "now": 52.0,
+    "move": 7.0,
+    "now": 53.0,
     "state": "reversed"
    },
    "logged": true,
@@ -932,7 +933,16 @@
   "clv_venue": 0.63,
   "clv_poly_same": -0.9
  },
- "sys_tags": {},
+ "sys_tags": {
+  "401910018:xch_homedog_fade:ml": {
+   "with": {
+    "n": 1,
+    "best_rank": 93,
+    "usd": 151
+   },
+   "against": null
+  }
+ },
  "by_event": {
   "401910015|ml": {
    "home": {
