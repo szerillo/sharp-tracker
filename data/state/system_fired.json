@@ -8381,5 +8381,18 @@
 "void_why": "Untracked: systems conflict (cfb_wind14 vs cfb_day_over)",
 "void_at": "2026-11-19T18:06:13Z",
 "untracked": "cfb_wind14 vs cfb_day_over"
+},
+"401910019:nba_under_good_home_over_small": {
+"tag": "nba_under_good_home_over_small",
+"fill_id": "8ba45ec132f0",
+"ts": "2026-11-19T19:54:03Z",
+"market": "total",
+"side": "under",
+"line": 224.5,
+"venue": "FD",
+"price": -108,
+"fair": 0.49786,
+"edge_pts": -2.14,
+"why": "home MEM over rate 60%, days since last game: home 1, visitor 1; total 225.5 -> 224.5"
 }
 }
