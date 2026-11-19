@@ -8246,5 +8246,31 @@
 "void_why": "Untracked: systems conflict (xch_homedog_fade vs nhl_early_home_fav_qual)",
 "void_at": "2026-11-19T02:12:29Z",
 "untracked": "xch_homedog_fade vs nhl_early_home_fav_qual"
+},
+"401910022:nba_bigfav_over": {
+"tag": "nba_bigfav_over",
+"fill_id": "97dca997f083",
+"ts": "2026-11-19T02:52:23Z",
+"market": "total",
+"side": "over",
+"line": 225.5,
+"venue": "Novig",
+"price": -108,
+"fair": 0.5,
+"edge_pts": -2.0,
+"why": "SA is 90% on the moneyline: over (mined angle)"
+},
+"401910022:nba_roadtrip_over": {
+"tag": "nba_roadtrip_over",
+"fill_id": "37d6af8b9969",
+"ts": "2026-11-19T02:52:23Z",
+"market": "total",
+"side": "over",
+"line": 225.5,
+"venue": "Novig",
+"price": -108,
+"fair": 0.5,
+"edge_pts": -2.0,
+"why": "LAC off 3 straight home games, first road game: over (Bet Labs filter)"
 }
 }
