@@ -1,5 +1,5 @@
 {
- "built": "2026-11-19T08:25:06Z",
+ "built": "2026-11-19T08:59:01Z",
  "rows": [
   {
    "cond": "0xc276afa6849935037a986177548243bc2953367fa2bad08b47a4ef1e82309d10",
@@ -34,8 +34,8 @@
    "side_std": "home",
    "money_with": false,
    "grade": "A",
-   "fair_board": 0.7096,
    "inside_fair": false,
+   "fair_board": 0.7096,
    "books": {
     "at": "2026-11-19T02:56:10Z",
     "fair": 0.7096,
@@ -193,9 +193,15 @@
    "usd": 657,
    "paid": 0.44,
    "ask": 0.45,
-   "status": "live",
+   "status": "other side",
    "link": "https://polymarket.us/event/nhl-ana-col-2026-11-19",
-   "other": null,
+   "other": {
+    "n_accounts": 1,
+    "best_rank": 197,
+    "usd": 1034,
+    "first": "2026-11-19T08:53:14Z"
+   },
+   "exit_bid": 0.44,
    "kalshi_against": {
     "move": 8.0,
     "now": 46.5,
@@ -215,16 +221,7 @@
    "grade": "A",
    "inside_fair": false,
    "fair_board": 0.4218,
-   "books": {
-    "at": "2026-11-19T02:56:10Z",
-    "fair": 0.4218,
-    "q": {
-     "Novig": 0.43,
-     "Caesars": 0.4425,
-     "FD": 0.4425,
-     "DK": 0.4464
-    }
-   }
+   "books": null
   }
  ],
  "record": {
@@ -354,6 +351,11 @@
     "n": 1,
     "best_rank": 79,
     "usd": 657
+   },
+   "home": {
+    "n": 1,
+    "best_rank": 197,
+    "usd": 1034
    }
   },
   "401858527|total": {
