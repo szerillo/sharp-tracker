@@ -95,8 +95,9 @@ EVIDENCE = {'wind1014': dict(tier='A', train='Bet Labs 533-376 all-time (2003-),
 # was bettable moves to paper (a C stays a bettable tier C bet), and every paper rule moves up to tier C. Size is 0.25u for every tier.
 # Bet-tracker history of the promoted rules stays paper (sharp/bet_log.py PROMOTED_FROM); new fills count as tier C from 11/18 evening.
 TIER_1118 = {'wind1014': 'A', 'cfb_wind14': 'A', 'awfuldog': 'A', 'nba_under_good_home_over': 'A',
-             'wind1014_1h': 'B', 'cfb_hot_over_low_total': 'B', 'nfl_home_dog_7510': 'B', 'vrest8_1h': 'B', 'mnf_1h': 'B', 'nhl_early_home_fav_qual': 'B', 'cbb_bigloss_vs_top5': 'B',
-             'cfb_homefav_7510_under': 'C', 'nba_bigfav_over': 'C', 'nba_badteams_under': 'C', 'nba_ats_hot_home': 'C', 'nhl_bounce_home_ml': 'C', 'nhl_skid_fade_road': 'C'}
+             'wind1014_1h': 'B', 'cfb_hot_over_low_total': 'B', 'vrest8_1h': 'B', 'mnf_1h': 'B', 'nhl_early_home_fav_qual': 'B', 'cbb_bigloss_vs_top5': 'B',
+             'cfb_homefav_7510_under': 'C', 'nfl_home_dog_7510': 'C',  # 11/19 (Sean): B -> C per PUSHBACK.md re-score (0-3 since saved, all-time p 0.071); bettable C
+             'nba_bigfav_over': 'C', 'nba_badteams_under': 'C', 'nba_ats_hot_home': 'C', 'nhl_bounce_home_ml': 'C', 'nhl_skid_fade_road': 'C'}
 PAPER_TO_C_1118 = ['awfuldog_deep', 'wind1014_cold', 'nfl_road_dog_7510', 'nhl_loss_streak_over', 'mlb_road_over_under', 'nba_roadtrip_over', 'cfb_day_over', 'nfl_fade_fav_bye',
                    'bounce15_1h', 'nba_momentum', 'nhl_pl_fav_gap', 'nhl_pl_fav_strong_opp', 'nhl_pl_dog_bigml', 'nba_1h_under_hot_over', 'nba_under_good_home_over_small',
                    'cfb_road_dog_low_total', 'cfb_road_streak_dog', 'cbb_under_good_over_drop']

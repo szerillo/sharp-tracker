@@ -2,7 +2,7 @@
 
 Built by sharp/validate_pushback.py. Tier rules: [TIER_RULES.md](TIER_RULES.md), version 2, committed before this scoring. Recommendations only: no tier in the tool was changed and nothing is retired.
 
-Bet Labs numbers: data/betlabs/records.json, pulled 2026-11-19 (sharp/betlabs_records.py; the full backtest of each saved screen, refreshed with the Bet Labs pull). Re-scored 11/19 on it: the only tier that moves against the 11/18 scoring is nfl_home_dog_7510, B to C, after its 0-3 start since it was saved (all-time 119-87 now, p 0.071). The board was not changed; tiers stay Sean's call.
+Bet Labs numbers: data/betlabs/records.json, pulled 2026-11-19 (sharp/betlabs_records.py; the full backtest of each saved screen, refreshed with the Bet Labs pull). Re-scored 11/19 on it: the only tier that moves against the 11/18 scoring is nfl_home_dog_7510, B to C, after its 0-3 start since it was saved (all-time 119-87 now, p 0.071). Sean approved it on 11/19 and the board now shows it as Tier C (still bettable at 0.25u).
 
 ## Short answer
 
@@ -25,15 +25,15 @@ One caution that still applies to the Bet Labs numbers: Sean's saved Tested:/Tra
 | awfuldog | Sean's Bet Labs screen | 254-164, +17.2% (p 0.000) | 203-133, +16.8% | 51-31, +18.6% | 62 bets, +6.7% (2020 to 2024) | 29, +12.0% | Pinnacle full-game close | 0-4, -2.0u | partly |
 | nfl_home_dog_7510 | mined from our 2020-26 data, screen saved 10/28 to 11/3 | 119-87, +9.6% (p 0.071) | 83-67, +4.9% | 36-20, +22.1% | 57 bets, +21.3% (2020 to 2024) | 6, +25.2% | Pinnacle full-game close | 0-4, -2.0u | yes |
 | vrest8_1h | Sean's Bet Labs screen | 459-364, +6.8% (p 0.020) | 319-271, +4.5% | 140-93, +14.5% | 79 bets, -1.7% (2023 to 2024) | 24, +37.4% | Pinnacle or US-book 1H line from 2023 only | 3-5, -1.0u | no |
-| mnf_1h | Sean's Bet Labs screen | 169-120, +10.7% (p 0.026) | 122-87, +11.4% | 47-33, +12.6% | 29 bets, -12.3% (2023 to 2024) | 25, +24.1% | Pinnacle or US-book 1H line from 2023 only | none | no |
-| cfb_homefav_7510_under | mined from our 2020-26 data, screen saved 10/28 to 11/3 | 618-528, +4.1% (p 0.075) | 436-395, +2.0% | 181-134, +9.5% | 212 bets, +10.8% (2020 to 2024) | 37, +35.8% | Pinnacle full-game close | 4-6, -1.1u | yes |
+| mnf_1h | Sean's Bet Labs screen | 169-120, +11.7% (p 0.017) | 122-87, +11.4% | 47-33, +12.6% | 29 bets, -12.3% (2023 to 2024) | 25, +24.1% | Pinnacle or US-book 1H line from 2023 only | none | no |
+| cfb_homefav_7510_under | mined from our 2020-26 data, screen saved 10/28 to 11/3 | 617-529, +4.0% (p 0.080) | 436-395, +2.0% | 181-134, +9.5% | 212 bets, +10.8% (2020 to 2024) | 37, +35.8% | Pinnacle full-game close | 4-6, -1.1u | yes |
 | nba_bigfav_over | mined from our 2020-26 data, screen saved 10/28 to 11/3 | 1349-1343, -2.7% (p 0.925) | 1045-1068, -3.5% | 304-275, +0.4% | 446 bets, +8.2% (2020-21 to 2024-25) | 136, +10.1% | Pinnacle full-game close | 5-4, +0.4u | yes |
 | nba_badteams_under | mined from our 2020-26 data, screen saved 10/28 to 11/3 | 978-950, -1.2% (p 0.706) | 808-807, -2.2% | 170-143, +3.8% | 308 bets, +2.2% (2020-21 to 2024-25) | 72, +3.6% | Pinnacle full-game close | 3-1, +0.7u | yes |
 | nba_ats_hot_home | mined from our 2020-26 data, screen saved 10/28 to 11/3 | 880-854, -1.5% (p 0.740) | 644-665, -4.0% | 236-189, +6.1% | 432 bets, +11.1% (2020-21 to 2024-25) | 12, -1.8% | Pinnacle full-game close | 9-6, +1.0u | yes |
-| nba_under_good_home_over | Sean's Bet Labs screen | 755-581, +9.7% (p 0.000) | 575-439, +10.6% | 181-142, +7.1% | 246 bets, +5.4% (2020-21 to 2024-25) | 16, -38.6% | the tool's 1.5-point total drop (the screen starts at 0.5) | 9-4, +2.3u | yes |
-| nhl_early_home_fav_qual | Sean's Bet Labs screen | 1184-763, +3.7% (p 0.025) | 880-591, +3.0% | 305-172, +6.0% | 328 bets, +10.1% (2020-21 to 2024-25) | 65, +17.9% | Pinnacle full-game close | 12-10, -1.0u | yes |
+| nba_under_good_home_over | Sean's Bet Labs screen | 756-581, +9.8% (p 0.000) | 575-439, +10.6% | 181-142, +7.1% | 246 bets, +5.4% (2020-21 to 2024-25) | 16, -38.6% | the tool's 1.5-point total drop (the screen starts at 0.5) | 9-4, +2.3u | yes |
+| nhl_early_home_fav_qual | Sean's Bet Labs screen | 1185-763, +3.7% (p 0.025) | 880-591, +3.0% | 305-172, +6.0% | 328 bets, +10.1% (2020-21 to 2024-25) | 65, +17.9% | Pinnacle full-game close | 12-10, -1.0u | yes |
 | nhl_bounce_home_ml | mined from our 2020-26 data, screen saved 10/28 to 11/3 | 878-593, +1.5% (p 0.245) | 580-410, -0.4% | 298-183, +5.4% | 387 bets, +7.9% (2020-21 to 2024-25) | 13, +52.0% | Pinnacle full-game close | 2-4, -1.3u | yes |
-| nhl_skid_fade_road | mined from our 2020-26 data, screen saved 10/28 to 11/3 | 864-889, -3.0% (p 0.899) | 607-660, -6.6% | 257-230, +6.3% | 447 bets, +7.2% (2020-21 to 2024-25) | 19, -48.8% | Pinnacle close on the main NHL spread (puck line) | 6-1, +3.5u | yes |
+| nhl_skid_fade_road | mined from our 2020-26 data, screen saved 10/28 to 11/3 | 864-890, -3.0% (p 0.899) | 607-660, -6.6% | 257-230, +6.3% | 447 bets, +7.2% (2020-21 to 2024-25) | 19, -48.8% | Pinnacle close on the main NHL spread (puck line) | 6-1, +3.5u | yes |
 | cbb_bigloss_vs_top5 | Sean's Bet Labs screen | 151-92, +20.3% (p 0.000) | 113-65, +23.4% | 38-27, +11.8% | not rebuilt | | AP ranks not in our data | none | n/a |
 
 Our rebuild is less than a third the size of the Bet Labs sample for 16 of 17 systems (wind1014, wind1014_1h, cfb_wind14, cfb_hot_over_low_total, awfuldog, nfl_home_dog_7510, vrest8_1h, mnf_1h, cfb_homefav_7510_under, nba_bigfav_over, nba_badteams_under, nba_ats_hot_home, nba_under_good_home_over, nhl_early_home_fav_qual, nhl_bounce_home_ml, nhl_skid_fade_road), because the Odds API history starts in 2020 and Bet Labs goes back to 2003. Bet Labs' records are at its own prices, not Pinnacle's close.
@@ -59,8 +59,8 @@ The variant counts were my guess, not a record of what Sean or Bet Labs tried. F
 | awfuldog | C | **A** | 0.0001 | 0.034 | Meets every Tier A bar on the full Bet Labs backtest. |
 | nfl_home_dog_7510 | C | **C** | 0.0707 | 0.035 | Bet Labs' all-time record (119-87, +9.6%) is not strong enough to rule out luck (p 0.071). |
 | vrest8_1h | C | **B** | 0.0201 | 0.009 | Reduced size because all-time p 0.020, above 0.01. Flag, no move: the tool's live filter differs from this saved screen (11/18 inventory). Our rebuild used Pinnacle or US-book 1H line from 2023 only. |
-| mnf_1h | C | **B** | 0.0256 | 0.116 | Reduced size because only 289 all-time bets and all-time p 0.026, above 0.01 and the Mar 2021 on era (47-33, +12.6%) is not significant on its own (p 0.12). Flag, no move: the tool's live filter differs from this saved screen (11/18 inventory). Our rebuild used Pinnacle or US-book 1H line from 2023 only. |
-| cfb_homefav_7510_under | C | **C** | 0.0746 | 0.037 | Bet Labs' all-time record (618-528, +4.1%) is not strong enough to rule out luck (p 0.075). |
+| mnf_1h | C | **B** | 0.0173 | 0.116 | Reduced size because only 289 all-time bets and all-time p 0.017, above 0.01 and the Mar 2021 on era (47-33, +12.6%) is not significant on its own (p 0.12). Flag, no move: the tool's live filter differs from this saved screen (11/18 inventory). Our rebuild used Pinnacle or US-book 1H line from 2023 only. |
+| cfb_homefav_7510_under | C | **C** | 0.0798 | 0.037 | Bet Labs' all-time record (617-529, +4.0%) is not strong enough to rule out luck (p 0.080). |
 | nba_bigfav_over | C | **C** | 0.9255 | 0.460 | Bet Labs' own record before 2021 is 1045-1068, -3.5%: the edge exists only from 2020 on, which is the same window it was found in. Flag, no move: the tool's live filter differs from this saved screen (11/18 inventory). |
 | nba_badteams_under | C | **C** | 0.7058 | 0.240 | Bet Labs' own record before 2021 is 808-807, -2.2%: the edge exists only from 2020 on, which is the same window it was found in. Flag, no move: the tool's live filter differs from this saved screen (11/18 inventory). |
 | nba_ats_hot_home | C | **C** | 0.7401 | 0.093 | Bet Labs' own record before 2021 is 644-665, -4.0%: the edge exists only from 2020 on, which is the same window it was found in. Flag, no move: the tool's live filter differs from this saved screen (11/18 inventory). |

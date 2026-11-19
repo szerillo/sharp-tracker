@@ -64,3 +64,4 @@ variants Sean tried are not recorded anywhere. The plain single-filter p is show
 - 11/18/2026: written.
 - 11/18/2026, later: version 2 added after Sean's pushback (full Bet Labs backtest as primary evidence).
 - 11/19/2026: primary evidence source moved to data/betlabs/records.json (Sean's saved screens' full backtests, logged on every Bet Labs pull). Thresholds unchanged.
+- 11/19/2026: nfl_home_dog_7510 moved from Tier B to Tier C on the board (Sean approved the PUSHBACK.md re-score: 0-3 since saved, all-time 119-87, p 0.071). Still bettable at 0.25u.

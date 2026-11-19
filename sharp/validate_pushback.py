@@ -102,7 +102,7 @@ D = ['# Pushback on the tiers (board_r10, Sean 11/18)', '',
      'was changed and nothing is retired.', '',
      f"Bet Labs numbers: {SRC} (sharp/betlabs_records.py; the full backtest of each saved screen, refreshed with the Bet Labs pull). "
      "Re-scored 11/19 on it: the only tier that moves against the 11/18 scoring is nfl_home_dog_7510, B to C, after its 0-3 start since it was saved "
-     "(all-time 119-87 now, p 0.071). The board was not changed; tiers stay Sean's call.", '',
+     "(all-time 119-87 now, p 0.071). Sean approved it on 11/19 and the board now shows it as Tier C (still bettable at 0.25u).", '',
      '## Short answer', '',
      "Sean is right about the evidence that drove the first verdicts. They rested on our rebuild, which only covers 2020 to 2025 (the Odds API history starts in 2020), uses "
      "Pinnacle closes, and uses our own weather and 1H data. His systems were selected on Bet Labs backtests that go back to 2003 and are often 3 to 5 times larger. For "

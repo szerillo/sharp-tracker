@@ -414,7 +414,7 @@
   "bl_all": {
    "w": 169,
    "l": 120,
-   "roi": 10.7
+   "roi": 11.7
   },
   "bl_to2020": {
    "w": 122,
@@ -426,7 +426,7 @@
    "l": 33,
    "roi": 12.6
   },
-  "p_all": 0.02558720430807837,
+  "p_all": 0.017293130255721323,
   "p_to2020": 0.03989419111126713,
   "p_since2021": 0.11615038530857613,
   "rebuild": {
@@ -449,7 +449,7 @@
   "base": "B",
   "tier": "B",
   "notes": [
-   "Reduced size because only 289 all-time bets and all-time p 0.026, above 0.01 and the Mar 2021 on era (47-33, +12.6%) is not significant on its own (p 0.12).",
+   "Reduced size because only 289 all-time bets and all-time p 0.017, above 0.01 and the Mar 2021 on era (47-33, +12.6%) is not significant on its own (p 0.12).",
    "Flag, no move: the tool's live filter differs from this saved screen (11/18 inventory)."
   ],
   "rebuild_flag": "Our rebuild used Pinnacle or US-book 1H line from 2023 only.",
@@ -461,9 +461,9 @@
   "screen": 1799440,
   "screen_status": "MATCHES",
   "bl_all": {
-   "w": 618,
-   "l": 528,
-   "roi": 4.1
+   "w": 617,
+   "l": 529,
+   "roi": 4
   },
   "bl_to2020": {
    "w": 436,
@@ -475,7 +475,7 @@
    "l": 134,
    "roi": 9.5
   },
-  "p_all": 0.07458682333470401,
+  "p_all": 0.07983880589874015,
   "p_to2020": 0.2763070121175679,
   "p_since2021": 0.03676055112098253,
   "rebuild": {
@@ -510,7 +510,7 @@
   "base": "C",
   "tier": "C",
   "notes": [
-   "Bet Labs' all-time record (618-528, +4.1%) is not strong enough to rule out luck (p 0.075)."
+   "Bet Labs' all-time record (617-529, +4.0%) is not strong enough to rule out luck (p 0.080)."
   ],
   "rebuild_flag": null,
   "reproduces": "yes"
@@ -704,9 +704,9 @@
   "screen": 1789285,
   "screen_status": "MATCHES",
   "bl_all": {
-   "w": 755,
+   "w": 756,
    "l": 581,
-   "roi": 9.7
+   "roi": 9.8
   },
   "bl_to2020": {
    "w": 575,
@@ -718,7 +718,7 @@
    "l": 142,
    "roi": 7.1
   },
-  "p_all": 0.00011467074384086118,
+  "p_all": 9.853767175205252e-05,
   "p_to2020": 0.00023900902316575934,
   "p_since2021": 0.08929113053139992,
   "rebuild": {
@@ -765,7 +765,7 @@
   "screen": 1789284,
   "screen_status": "MATCHES",
   "bl_all": {
-   "w": 1184,
+   "w": 1185,
    "l": 763,
    "roi": 3.7
   },
@@ -779,7 +779,7 @@
    "l": 172,
    "roi": 6.0
   },
-  "p_all": 0.024928469522036645,
+  "p_all": 0.024850919212922484,
   "p_to2020": 0.08642043246607667,
   "p_since2021": 0.04985830146423664,
   "rebuild": {
@@ -887,7 +887,7 @@
   "screen_status": "DIFFERENT FILTERS",
   "bl_all": {
    "w": 864,
-   "l": 889,
+   "l": 890,
    "roi": -3
   },
   "bl_to2020": {
@@ -900,7 +900,7 @@
    "l": 230,
    "roi": 6.3
   },
-  "p_all": 0.8991239032993668,
+  "p_all": 0.8990614502522318,
   "p_to2020": 0.9920710369872732,
   "p_since2021": 0.08340458839994636,
   "rebuild": {
