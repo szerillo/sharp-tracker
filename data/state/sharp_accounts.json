@@ -1,5 +1,5 @@
 {
- "built": "2026-11-19T04:41:07Z",
+ "built": "2026-11-19T04:46:54Z",
  "rows": [
   {
    "cond": "0xd74722e0219346b0657878c2bd05613484a5db1528d86576eebb4b98fdcbe9b5",
@@ -145,6 +145,49 @@
      "Novig": 0.5,
      "DK": 0.5122,
      "Kalshi": 0.52
+    }
+   }
+  },
+  {
+   "cond": "0xd8c25b81841dd21fcc9b9cdd66062b452cf973c9cb4fcab8cff70ea93a8ea142",
+   "slug": "nba-nyk-min-2026-11-19",
+   "title": "Knicks vs. Timberwolves",
+   "mtype": "ml",
+   "start": "2026-11-20T01:00:00Z",
+   "bet": "Knicks ML",
+   "side": "Knicks",
+   "flagged": "2026-11-19T00:13:38Z",
+   "why": "2 top-200 accounts",
+   "proven": false,
+   "trigger": "two",
+   "n_accounts": 2,
+   "best_rank": 43,
+   "usd": 844,
+   "paid": 0.472,
+   "ask": 0.51,
+   "status": "live",
+   "link": "https://polymarket.us/event/nba-nyk-min-2026-11-19",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401910021",
+   "sport": "nba",
+   "league": null,
+   "away": "NY",
+   "home": "MIN",
+   "away_name": "New York Knicks",
+   "home_name": "Minnesota Timberwolves",
+   "game_start": "2026-11-20T01:00Z",
+   "side_std": "away",
+   "money_with": false,
+   "grade": "B",
+   "fair_board": null,
+   "inside_fair": null,
+   "books": {
+    "at": "2026-11-19T02:56:10Z",
+    "fair": null,
+    "q": {
+     "Kalshi": 0.5
     }
    }
   },
@@ -320,56 +363,6 @@
    "fair_board": 0.174,
    "inside_fair": null,
    "books": null
-  },
-  {
-   "cond": "0xd8c25b81841dd21fcc9b9cdd66062b452cf973c9cb4fcab8cff70ea93a8ea142",
-   "slug": "nba-nyk-min-2026-11-19",
-   "title": "Knicks vs. Timberwolves",
-   "mtype": "ml",
-   "start": "2026-11-20T01:00:00Z",
-   "bet": "Knicks ML",
-   "side": "Knicks",
-   "flagged": "2026-11-19T00:13:38Z",
-   "why": "2 top-200 accounts",
-   "proven": false,
-   "trigger": "two",
-   "n_accounts": 2,
-   "best_rank": 43,
-   "usd": 844,
-   "paid": 0.472,
-   "ask": 0.51,
-   "status": "live",
-   "link": "https://polymarket.us/event/nba-nyk-min-2026-11-19",
-   "other": null,
-   "kalshi_against": {
-    "move": 5.5,
-    "now": 51.5,
-    "state": "reversed"
-   },
-   "logged": true,
-   "event_id": "401910021",
-   "sport": "nba",
-   "league": null,
-   "away": "NY",
-   "home": "MIN",
-   "away_name": "New York Knicks",
-   "home_name": "Minnesota Timberwolves",
-   "game_start": "2026-11-20T01:00Z",
-   "side_std": "away",
-   "conflict": [
-    "Kalshi move"
-   ],
-   "money_with": false,
-   "grade": "B",
-   "fair_board": null,
-   "inside_fair": null,
-   "books": {
-    "at": "2026-11-19T02:56:10Z",
-    "fair": null,
-    "q": {
-     "Kalshi": 0.5
-    }
-   }
   },
   {
    "cond": "0xa2e36e8bcbfb990c2877acdb33cfb76e3e27f700c60fd5222a7e1d22c5b854fe",
