@@ -34,10 +34,11 @@ SHARP_PAPER_FROM = '2026-11-10T10:00:00Z'
 # 11/14: a rule promoted from paper counts as a bet only for fills logged from its promotion on; its earlier paper fills stay paper, so
 # no units are backdated into the record.
 PROMOTED_FROM = {'xch_homedog_fade': '2026-11-14T08:30:00Z'}     # Sean 11/14: paper -> tier C
-# Sean 11/18: every paper rule -> tier C; their earlier fills stay paper in the record
+# Sean 11/18: every paper rule -> tier C; games that started before the switch stay paper in the record, open ones count as tier C (they show as bets)
 PROMOTED_FROM.update({k: '2026-11-19T04:00:00Z' for k in ['awfuldog_deep', 'wind1014_cold', 'nfl_road_dog_7510', 'nhl_loss_streak_over', 'mlb_road_over_under', 'nba_roadtrip_over',
     'cfb_day_over', 'nfl_fade_fav_bye', 'bounce15_1h', 'nba_momentum', 'nhl_pl_fav_gap', 'nhl_pl_fav_strong_opp', 'nhl_pl_dog_bigml', 'nba_1h_under_hot_over',
     'nba_under_good_home_over_small', 'cfb_road_dog_low_total', 'cfb_road_streak_dog', 'cbb_under_good_over_drop']})
+PROMOTED_BY_START = set(PROMOTED_FROM) - {'xch_homedog_fade'}
 # 11/18 (Sean): everything is 0.25u for now, every tier (favourite: to win 0.25u; plus money: risk 0.25u). Bets flagged before this keep
 # the size they were tracked at, so nothing is resized backwards.
 FLAT_QUARTER_FROM = '2026-11-18T20:30:00Z'
@@ -168,7 +169,7 @@ def main():
         if r.get('result') == 'void' or r.get('mclass', 'game') != 'game': continue
         tag = str(r.get('rule_tag', '')).replace('paper:', ''); tier = tiers.get(tag)
         cat = {'A': 'system A', 'B': 'system B', 'C': 'lean C', 'P': 'paper P'}.get(tier, 'paper P')
-        if tag in PROMOTED_FROM and (r.get('ts_utc') or '') < PROMOTED_FROM[tag]: cat = 'paper P'
+        if tag in PROMOTED_FROM and (r.get('start_utc' if tag in PROMOTED_BY_START else 'ts_utc') or '') < PROMOTED_FROM[tag]: cat = 'paper P'
         e = S.get(r['event_id']) or {}
         won = {'W': 1, 'L': 0, 'P': 0.5}.get(r.get('result'))
         bets.append(dict(id='s:' + r['fill_id'], src='system', cat=cat, rule=tag, sport=e.get('sport'), event_id=r['event_id'], game=f"{e.get('away', '?')} @ {e.get('home', '?')}",
