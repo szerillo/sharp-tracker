@@ -1,5 +1,5 @@
 {
- "built": "2026-11-19T16:47:53Z",
+ "built": "2026-11-19T17:02:30Z",
  "rows": [
   {
    "cond": "0xc276afa6849935037a986177548243bc2953367fa2bad08b47a4ef1e82309d10",
@@ -17,7 +17,7 @@
    "best_rank": 197,
    "usd": 311,
    "paid": 0.7,
-   "ask": 0.73,
+   "ask": 0.74,
    "status": "live",
    "link": "https://polymarket.us/event/nhl-mon-car-2026-11-19",
    "other": null,
@@ -303,6 +303,46 @@
    "books": null
   },
   {
+   "cond": "0xe5ca25046b18e1d0064a850167b85e5e255117146294a008dd44ea8c9c222a56",
+   "slug": "nfl-tb-det-2026-11-22",
+   "title": "Buccaneers vs. Lions",
+   "mtype": "spread",
+   "start": "2026-11-22T18:00:00Z",
+   "bet": "Buccaneers +10.5",
+   "side": "Buccaneers",
+   "flagged": "2026-11-19T16:55:17Z",
+   "why": "a top-50 account",
+   "proven": false,
+   "trigger": "top50",
+   "n_accounts": 1,
+   "best_rank": 12,
+   "usd": 228,
+   "paid": 0.65,
+   "ask": 0.68,
+   "status": "live",
+   "link": "https://polymarket.us/event/nfl-tb-det-2026-11-22",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401873072",
+   "sport": "nfl",
+   "league": null,
+   "away": "TB",
+   "home": "DET",
+   "away_name": "Tampa Bay Buccaneers",
+   "home_name": "Detroit Lions",
+   "game_start": "2026-11-22T18:00Z",
+   "side_std": "away",
+   "conflict": [
+    "Kalshi move"
+   ],
+   "money_with": false,
+   "grade": "B",
+   "fair_board": null,
+   "inside_fair": null,
+   "books": null
+  },
+  {
    "cond": "0xadcd89ffe92c7636b515a73c47c9bfaa0aa93525a5389d4b5a6bfa332cc59a48",
    "slug": "nhl-ana-col-2026-11-19",
    "title": "Ducks vs. Avalanche",
@@ -418,6 +458,13 @@
   }
  },
  "by_event": {
+  "401873072|spread": {
+   "away": {
+    "n": 1,
+    "best_rank": 12,
+    "usd": 228
+   }
+  },
   "401910019|ml": {
    "home": {
     "n": 1,
