@@ -1,5 +1,5 @@
 {
- "built": "2026-11-19T02:42:56Z",
+ "built": "2026-11-19T03:03:54Z",
  "rows": [
   {
    "cond": "0x5ee92964df4c1577000768dddeafcd690e299a16c720bfef16030dab56dbaffa",
@@ -348,7 +348,7 @@
    "best_rank": 115,
    "usd": 43737,
    "paid": 0.5,
-   "ask": 0.5,
+   "ask": null,
    "status": "live",
    "link": "https://polymarket.us/event/nba-uta-lal-2026-11-18",
    "other": null,
@@ -369,7 +369,7 @@
    "money_with": false,
    "grade": "B",
    "fair_board": 0.495,
-   "inside_fair": false,
+   "inside_fair": null,
    "books": {
     "at": "2026-11-19T01:55:46Z",
     "fair": 0.495,
@@ -789,7 +789,7 @@
    "best_rank": 23,
    "usd": 3770,
    "paid": 0.211,
-   "ask": 0.18,
+   "ask": null,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-uta-lal-2026-11-18",
    "other": {
@@ -798,7 +798,7 @@
     "usd": 7354,
     "first": "2026-11-17T15:01:22Z"
    },
-   "exit_bid": 0.17,
+   "exit_bid": null,
    "kalshi_against": null,
    "logged": true,
    "event_id": "401910017",
@@ -816,7 +816,7 @@
    "money_with": false,
    "grade": "A",
    "fair_board": 0.1764,
-   "inside_fair": false,
+   "inside_fair": null,
    "books": null
   },
   {
@@ -879,21 +879,21 @@
     "clv": -1.2
    },
    "outside": {
-    "n": 76,
-    "won": 40,
+    "n": 78,
+    "won": 41,
     "units": -0.96,
     "clv": -0.53
    }
   },
-  "n": 322,
-  "won": 144,
+  "n": 326,
+  "won": 145,
   "units": -16.35,
   "by_grade": {
    "A": {
-    "n": 208,
+    "n": 209,
     "won": 86,
     "units": -15.16,
-    "clv": -0.4
+    "clv": -0.38
    },
    "B": {
     "n": 82,
@@ -902,73 +902,21 @@
     "clv": -0.98
    },
    "watch": {
-    "n": 32,
-    "won": 12,
+    "n": 35,
+    "won": 13,
     "units": -2.09,
-    "clv": -0.72
+    "clv": -0.69
    }
   },
-  "units_1u": -46.42,
-  "clv": -0.58,
-  "n_venue": 158,
+  "units_1u": -48.57,
+  "clv": -0.56,
+  "n_venue": 161,
   "units_venue": -5.86,
-  "clv_venue": 0.63,
-  "clv_poly_same": -0.9
+  "clv_venue": 0.69,
+  "clv_poly_same": -0.89
  },
- "sys_tags": {
-  "401910018:xch_homedog_fade:ml": {
-   "with": {
-    "n": 1,
-    "best_rank": 93,
-    "usd": 151
-   },
-   "against": null
-  }
- },
+ "sys_tags": {},
  "by_event": {
-  "401910017|ml": {
-   "away": {
-    "n": 2,
-    "best_rank": 23,
-    "usd": 3770
-   },
-   "home": {
-    "n": 5,
-    "best_rank": 23,
-    "usd": 7354
-   }
-  },
-  "401910017|spread": {
-   "away": {
-    "n": 2,
-    "best_rank": 115,
-    "usd": 43737
-   },
-   "home": {
-    "n": 1,
-    "best_rank": 110,
-    "usd": 129
-   }
-  },
-  "401910017|total": {
-   "under": {
-    "n": 2,
-    "best_rank": 95,
-    "usd": 489
-   },
-   "over": {
-    "n": 1,
-    "best_rank": 132,
-    "usd": 250
-   }
-  },
-  "401910018|ml": {
-   "away": {
-    "n": 1,
-    "best_rank": 93,
-    "usd": 151
-   }
-  },
   "401910021|ml": {
    "away": {
     "n": 2,
