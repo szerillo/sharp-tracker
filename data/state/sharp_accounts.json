@@ -1,5 +1,5 @@
 {
- "built": "2026-11-19T19:40:34Z",
+ "built": "2026-11-19T19:50:26Z",
  "rows": [
   {
    "cond": "0xc276afa6849935037a986177548243bc2953367fa2bad08b47a4ef1e82309d10",
@@ -120,6 +120,52 @@
    "inside_fair": false,
    "fair_board": 0.526,
    "books": null
+  },
+  {
+   "cond": "0x2e0a842f68252837dd61851665257facea375b3111901464a941a60a79c5fc0a",
+   "slug": "nhl-lak-tor-2026-11-19",
+   "title": "Kings vs. Maple Leafs",
+   "mtype": "ml",
+   "start": "2026-11-20T00:00:00Z",
+   "bet": "Maple Leafs ML",
+   "side": "Maple Leafs",
+   "flagged": "2026-11-19T19:44:47Z",
+   "why": "a top-200 account also in this sport's top 50",
+   "proven": true,
+   "trigger": "proven",
+   "n_accounts": 1,
+   "best_rank": 79,
+   "usd": 5775,
+   "paid": 0.52,
+   "ask": 0.53,
+   "status": "live",
+   "link": "https://polymarket.us/event/nhl-lak-tor-2026-11-19",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401892742",
+   "sport": "nhl",
+   "league": null,
+   "away": "LA",
+   "home": "TOR",
+   "away_name": "Los Angeles Kings",
+   "home_name": "Toronto Maple Leafs",
+   "game_start": "2026-11-20T00:00Z",
+   "side_std": "home",
+   "money_with": false,
+   "grade": "A",
+   "fair_board": 0.5148,
+   "inside_fair": false,
+   "books": {
+    "at": "2026-11-19T19:01:09Z",
+    "fair": 0.5148,
+    "q": {
+     "Caesars": 0.5192,
+     "Novig": 0.52,
+     "FD": 0.5238,
+     "DK": 0.5349
+    }
+   }
   },
   {
    "cond": "0x62acd5d0e0670cd37660f14845bc874ad0eef8005998b8dd3060a951a2da1b12",
@@ -398,7 +444,7 @@
    "other": {
     "n_accounts": 1,
     "best_rank": 43,
-    "usd": 8391,
+    "usd": 13898,
     "first": "2026-11-19T18:48:28Z"
    },
    "exit_bid": 0.46,
@@ -639,6 +685,13 @@
     "n": 1,
     "best_rank": 93,
     "usd": 290
+   }
+  },
+  "401892742|ml": {
+   "home": {
+    "n": 1,
+    "best_rank": 79,
+    "usd": 5775
    }
   },
   "401892743|total": {
