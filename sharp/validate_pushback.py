@@ -6,6 +6,20 @@ import os, json, math
 ROOT = os.path.abspath(os.path.join(os.path.dirname(os.path.abspath(__file__)), '..'))
 rd = lambda *p: json.load(open(os.path.join(ROOT, *p)))
 J = rd('data', 'research', 'validation.json'); F = rd('data', 'research', 'validation_followup.json'); BW = rd('data', 'research', 'betlabs_windows.json')
+# 11/19: primary source is now data/betlabs/records.json (Sean's saved screens, full backtest, per-season splits; sharp/betlabs_records.py).
+# Eras from its per-season splits: seasons starting 2020 or earlier vs 2021 on. betlabs_windows.json (pulled 11/6) is the fallback.
+REC = rd('data', 'betlabs', 'records.json') if os.path.exists(os.path.join(ROOT, 'data', 'betlabs', 'records.json')) else None
+SRC = 'data/betlabs/records.json, pulled ' + REC['pulled_at'][:10] if REC else 'betlabs_windows.json, pulled 11/6'
+def rec_windows(k):
+    if not REC: return None
+    S = [s for s in REC['screens'].values() if k in s.get('rules', [])]
+    if not S: return None
+    s = S[0]; out = {'all': dict(w=s['all_time']['w'], l=s['all_time']['l'], roi=s['all_time']['roi'])}
+    for name, keep in (('to2020', lambda y: y <= 2020), ('since2021', lambda y: y >= 2021)):
+        rows = [v for kk, v in s['seasons'].items() if keep(int(kk[:4]))]
+        w, l, p_, u = sum(r[0] for r in rows), sum(r[1] for r in rows), sum(r[2] for r in rows), sum(r[3] for r in rows)
+        out[name] = dict(w=w, l=l, roi=round(100 * u / max(1, w + l + p_), 1))
+    return out
 INV = {s['rule']: s for s in rd('data', 'state', 'betlabs_inventory.json')['screens'] if s.get('rule')}
 OUT = os.path.join(ROOT, 'docs', 'validation', 'PUSHBACK.md'); OUTJ = os.path.join(ROOT, 'data', 'research', 'validation_pushback.json')
 Phi = lambda z: 0.5 * (1 + math.erf(z / math.sqrt(2)))
@@ -36,7 +50,7 @@ def rec(x): return f"{x['w']}-{x['l']}, {x['roi']:+.1f}%" if x else 'n/a'
 
 rows = []
 for k in ORDER:
-    W = BW['rules'].get(k, {}); A, E1, E2 = W.get('all'), W.get('to2020'), W.get('since2021'); I = INV.get(k, {})
+    W = rec_windows(k) or BW['rules'].get(k, {}); A, E1, E2 = W.get('all'), W.get('to2020'), W.get('since2021'); I = INV.get(k, {})
     za, pa = ztest(A['w'], A['l'], A['roi']) if A else (None, None)
     z1, p1 = ztest(E1['w'], E1['l'], E1['roi']) if E1 else (None, None)
     z2, p2 = ztest(E2['w'], E2['l'], E2['roi']) if E2 else (None, None)
@@ -77,7 +91,7 @@ for k in ORDER:
             rebuild_flag = f"Our rebuild {'only partly reproduces' if repro == 'partly' else 'does not reproduce'} Bet Labs ({pct(ours)} vs {E2['roi']:+.1f}% since 2021), but it used {DIFFSRC[k]}; our rebuild may be the weak part, so no downgrade."
     if R and (R['wf_roi'] or 0) <= 0 and not any('Down one tier' in x for x in notes):
         notes.append(f"Flag, no move: our blind walk-forward was {pct(R['wf_roi'])} on {R['wf_n']} bets.")
-    rows.append(dict(rule=k, origin='mined from our 2020-26 data, screen saved 11/5-11/6' if k in MINED else "Sean's Bet Labs screen", screen=I.get('id'),
+    rows.append(dict(rule=k, origin='mined from our 2020-26 data, screen saved 10/28 to 11/3' if k in MINED else "Sean's Bet Labs screen", screen=I.get('id'),
                      screen_status=I.get('status'), bl_all=A, bl_to2020=E1, bl_since2021=E2, p_all=pa, p_to2020=p1, p_since2021=p2,
                      rebuild=dict(n_in=R['n'], roi_in=R['roi'], n_hold=R['holdout_n'], roi_hold=R['holdout_roi'], wf_n=R['wf_n'], wf_roi=R['wf_roi'], seasons=R['seasons'],
                                   price=R['price'], p_single=R['p_single']) if R else None,
@@ -86,21 +100,24 @@ for k in ORDER:
 D = ['# Pushback on the tiers (board_r10, Sean 11/18)', '',
      'Built by sharp/validate_pushback.py. Tier rules: [TIER_RULES.md](TIER_RULES.md), version 2, committed before this scoring. Recommendations only: no tier in the tool '
      'was changed and nothing is retired.', '',
+     f"Bet Labs numbers: {SRC} (sharp/betlabs_records.py; the full backtest of each saved screen, refreshed with the Bet Labs pull). "
+     "Re-scored 11/19 on it: the only tier that moves against the 11/18 scoring is nfl_home_dog_7510, B to C, after its 0-3 start since it was saved "
+     "(all-time 119-87 now, p 0.071). The board was not changed; tiers stay Sean's call.", '',
      '## Short answer', '',
      "Sean is right about the evidence that drove the first verdicts. They rested on our rebuild, which only covers 2020 to 2025 (the Odds API history starts in 2020), uses "
      "Pinnacle closes, and uses our own weather and 1H data. His systems were selected on Bet Labs backtests that go back to 2003 and are often 3 to 5 times larger. For "
      "his own Bet Labs screens the bigger backtest should be the primary evidence, and the re-tier below uses it.", '',
-     "Two things still hold. First, seven of the live rules were not Bet Labs screens to begin with. They were mined from our 2020-26 data in early November (out of "
+     "Two things still hold. First, seven of the live rules were not Bet Labs screens to begin with. They were mined from our 2020-26 data in late October (out of "
      "roughly 100,000 tests per sport) and saved as screens afterwards. For those, the 2020-26 record is the sample they were picked on, and Bet Labs' record before 2021 is "
      "the real test: for five of the seven, it is negative. Second, where our rebuild could not reproduce a Bet Labs record because it used different data (wind, 1H lines), "
      "that is now treated as a weakness in our rebuild, not in the system.", '',
      "One caution that still applies to the Bet Labs numbers: Sean's saved Tested:/Tracked: screens are the survivors of the screens he built on that same Bet Labs history, so "
      "their p-values are in-sample too. That is why Tier A also needs both eras positive and the Mar 2021 on era to stand on its own (p < 0.10).", '',
      '## 1. Which sample drove each verdict', '',
-     "(a) Bet Labs as reported on the saved screen, at Bet Labs' prices, all years from 2003 (betlabs_windows.json, pulled 11/6). (b) Our rebuild: Odds API, Pinnacle close, "
+     f"(a) Bet Labs as reported on the saved screen, at Bet Labs' prices, all years from 2003 ({SRC}; eras split by season: 2020 and earlier vs 2021 on). (b) Our rebuild: Odds API, Pinnacle close, "
      "2020 to 2025 (NFL 1H 2023 to 2025), in-sample plus the 2025 / 2025-26 holdout. (c) Live paper record from fills.jsonl. \"Reproduces\" = our rebuild and Bet Labs' "
      "Mar 2021 on record are both positive, ours at least half of Bet Labs' ROI; partly = ours positive but smaller.", '',
-     '| System | Origin | (a) Bet Labs all-time | (a) 2003 to Feb 2021 | (a) Mar 2021 on | (b) Our rebuild in-sample | (b) Holdout | (b) Data | (c) Live | Reproduces |',
+     '| System | Origin | (a) Bet Labs all-time | (a) seasons to 2020 | (a) seasons 2021 on | (b) Our rebuild in-sample | (b) Holdout | (b) Data | (c) Live | Reproduces |',
      '|---|---|---|---|---|---|---|---|---|---|']
 for r in rows:
     b = r['rebuild']; L = r['live'] or {}

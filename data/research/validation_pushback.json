@@ -5,26 +5,23 @@
   "screen": 1772775,
   "screen_status": "MATCHES",
   "bl_all": {
-   "w": 535,
-   "l": 378,
-   "p": 7,
-   "roi": 13.2
+   "w": 537,
+   "l": 380,
+   "roi": 13.1
   },
   "bl_to2020": {
    "w": 384,
    "l": 293,
-   "p": 6,
    "roi": 10.1
   },
   "bl_since2021": {
-   "w": 151,
-   "l": 85,
-   "p": 1,
-   "roi": 22.2
+   "w": 153,
+   "l": 87,
+   "roi": 21.8
   },
-  "p_all": 1.3841423473381909e-05,
+  "p_all": 1.5260393270599693e-05,
   "p_to2020": 0.003142782340820327,
-  "p_since2021": 9.969979633717152e-05,
+  "p_since2021": 0.00011796800189256551,
   "rebuild": {
    "n_in": 211,
    "roi_in": 0.1468341232227488,
@@ -68,26 +65,23 @@
   "screen": 769171,
   "screen_status": "MATCHES",
   "bl_all": {
-   "w": 404,
-   "l": 302,
-   "p": 109,
-   "roi": 9
+   "w": 407,
+   "l": 303,
+   "roi": 9.2
   },
   "bl_to2020": {
    "w": 291,
    "l": 212,
-   "p": 12,
    "roi": 11.9
   },
   "bl_since2021": {
-   "w": 113,
-   "l": 90,
-   "p": 4,
-   "roi": 5.9
+   "w": 116,
+   "l": 91,
+   "roi": 6.6
   },
-  "p_all": 0.005582412931295577,
+  "p_all": 0.004637091906708024,
   "p_to2020": 0.0026002789209942367,
-  "p_since2021": 0.18688036775381756,
+  "p_since2021": 0.15727340413851976,
   "rebuild": {
    "n_in": 82,
    "roi_in": -0.08890243902439024,
@@ -117,7 +111,7 @@
   "base": "B",
   "tier": "B",
   "notes": [
-   "Reduced size because the Mar 2021 on era (113-90, +5.9%) is not significant on its own (p 0.19)."
+   "Reduced size because the Mar 2021 on era (116-91, +6.6%) is not significant on its own (p 0.16)."
   ],
   "rebuild_flag": "Our rebuild used Open-Meteo wind and a Pinnacle or US-book 1H line from 2023 only.",
   "reproduces": "no"
@@ -128,26 +122,23 @@
   "screen": 1783043,
   "screen_status": "MATCHES",
   "bl_all": {
-   "w": 555,
-   "l": 402,
-   "p": 12,
+   "w": 557,
+   "l": 403,
    "roi": 12.2
   },
   "bl_to2020": {
    "w": 423,
    "l": 307,
-   "p": 10,
    "roi": 12.6
   },
   "bl_since2021": {
-   "w": 132,
-   "l": 95,
-   "p": 2,
-   "roi": 10.7
+   "w": 134,
+   "l": 96,
+   "roi": 10.9
   },
-  "p_all": 3.869223115027243e-05,
+  "p_all": 3.735702831131338e-05,
   "p_to2020": 0.00019341706685604976,
-  "p_since2021": 0.04302428388652746,
+  "p_since2021": 0.03911360956177756,
   "rebuild": {
    "n_in": 186,
    "roi_in": 0.0011827956989246965,
@@ -194,19 +185,16 @@
   "bl_all": {
    "w": 175,
    "l": 120,
-   "p": 6,
    "roi": 14.2
   },
   "bl_to2020": {
    "w": 122,
    "l": 81,
-   "p": 6,
    "roi": 15.9
   },
   "bl_since2021": {
    "w": 53,
    "l": 39,
-   "p": 0,
    "roi": 10.1
   },
   "p_all": 0.00495346150724596,
@@ -248,19 +236,16 @@
   "bl_all": {
    "w": 254,
    "l": 164,
-   "p": 7,
    "roi": 17.2
   },
   "bl_to2020": {
    "w": 203,
    "l": 133,
-   "p": 4,
    "roi": 16.8
   },
   "bl_since2021": {
    "w": 51,
    "l": 31,
-   "p": 3,
    "roi": 18.6
   },
   "p_all": 9.420036261653664e-05,
@@ -305,30 +290,27 @@
  },
  {
   "rule": "nfl_home_dog_7510",
-  "origin": "mined from our 2020-26 data, screen saved 11/5-11/6",
+  "origin": "mined from our 2020-26 data, screen saved 10/28 to 11/3",
   "screen": 1799433,
   "screen_status": "MATCHES",
   "bl_all": {
    "w": 119,
-   "l": 84,
-   "p": 2,
-   "roi": 11.2
+   "l": 87,
+   "roi": 9.6
   },
   "bl_to2020": {
    "w": 83,
    "l": 67,
-   "p": 1,
    "roi": 4.9
   },
   "bl_since2021": {
    "w": 36,
-   "l": 18,
-   "p": 1,
-   "roi": 26.5
+   "l": 20,
+   "roi": 22.1
   },
-  "p_all": 0.04381553484388012,
+  "p_all": 0.07073925868349362,
   "p_to2020": 0.2621443690052927,
-  "p_since2021": 0.014738638680439342,
+  "p_since2021": 0.03459191930680072,
   "rebuild": {
    "n_in": 57,
    "roi_in": 0.21263157894736845,
@@ -358,10 +340,10 @@
    "roi": -1.0
   },
   "old_tier": "C",
-  "base": "B",
-  "tier": "B",
+  "base": "C",
+  "tier": "C",
   "notes": [
-   "Reduced size because only 203 all-time bets and all-time p 0.044, above 0.01."
+   "Bet Labs' all-time record (119-87, +9.6%) is not strong enough to rule out luck (p 0.071)."
   ],
   "rebuild_flag": null,
   "reproduces": "yes"
@@ -372,26 +354,23 @@
   "screen": 1772962,
   "screen_status": "DIFFERENT FILTERS",
   "bl_all": {
-   "w": 458,
-   "l": 359,
-   "p": 81,
-   "roi": 7.3
+   "w": 459,
+   "l": 364,
+   "roi": 6.8
   },
   "bl_to2020": {
    "w": 319,
    "l": 271,
-   "p": 20,
    "roi": 4.5
   },
   "bl_since2021": {
-   "w": 139,
-   "l": 88,
-   "p": 1,
-   "roi": 16.7
+   "w": 140,
+   "l": 93,
+   "roi": 14.5
   },
-  "p_all": 0.014030171709096706,
+  "p_all": 0.020127134621014786,
   "p_to2020": 0.12822211776300585,
-  "p_since2021": 0.0033669893826000497,
+  "p_since2021": 0.008852803122629926,
   "rebuild": {
    "n_in": 79,
    "roi_in": -0.01658227848101267,
@@ -421,7 +400,7 @@
   "base": "B",
   "tier": "B",
   "notes": [
-   "Reduced size because all-time p 0.014, above 0.01.",
+   "Reduced size because all-time p 0.020, above 0.01.",
    "Flag, no move: the tool's live filter differs from this saved screen (11/18 inventory)."
   ],
   "rebuild_flag": "Our rebuild used Pinnacle or US-book 1H line from 2023 only.",
@@ -434,25 +413,22 @@
   "screen_status": "DIFFERENT FILTERS",
   "bl_all": {
    "w": 169,
-   "l": 119,
-   "p": 37,
-   "roi": 11.1
+   "l": 120,
+   "roi": 10.7
   },
   "bl_to2020": {
    "w": 122,
    "l": 87,
-   "p": 9,
    "roi": 11.4
   },
   "bl_since2021": {
    "w": 47,
-   "l": 32,
-   "p": 0,
-   "roi": 14
+   "l": 33,
+   "roi": 12.6
   },
-  "p_all": 0.02166187505135775,
+  "p_all": 0.02558720430807837,
   "p_to2020": 0.03989419111126713,
-  "p_since2021": 0.092942598353986,
+  "p_since2021": 0.11615038530857613,
   "rebuild": {
    "n_in": 29,
    "roi_in": -0.12310344827586209,
@@ -473,7 +449,7 @@
   "base": "B",
   "tier": "B",
   "notes": [
-   "Reduced size because only 288 all-time bets and all-time p 0.022, above 0.01.",
+   "Reduced size because only 289 all-time bets and all-time p 0.026, above 0.01 and the Mar 2021 on era (47-33, +12.6%) is not significant on its own (p 0.12).",
    "Flag, no move: the tool's live filter differs from this saved screen (11/18 inventory)."
   ],
   "rebuild_flag": "Our rebuild used Pinnacle or US-book 1H line from 2023 only.",
@@ -481,30 +457,27 @@
  },
  {
   "rule": "cfb_homefav_7510_under",
-  "origin": "mined from our 2020-26 data, screen saved 11/5-11/6",
+  "origin": "mined from our 2020-26 data, screen saved 10/28 to 11/3",
   "screen": 1799440,
   "screen_status": "MATCHES",
   "bl_all": {
-   "w": 611,
-   "l": 523,
-   "p": 13,
+   "w": 618,
+   "l": 528,
    "roi": 4.1
   },
   "bl_to2020": {
    "w": 436,
    "l": 395,
-   "p": 10,
-   "roi": 2
+   "roi": 2.0
   },
   "bl_since2021": {
-   "w": 175,
-   "l": 128,
-   "p": 3,
-   "roi": 10.1
+   "w": 181,
+   "l": 134,
+   "roi": 9.5
   },
-  "p_all": 0.07585197682574918,
+  "p_all": 0.07458682333470401,
   "p_to2020": 0.2763070121175679,
-  "p_since2021": 0.03094326309755413,
+  "p_since2021": 0.03676055112098253,
   "rebuild": {
    "n_in": 212,
    "roi_in": 0.10788679245283016,
@@ -537,37 +510,34 @@
   "base": "C",
   "tier": "C",
   "notes": [
-   "Bet Labs' all-time record (611-523, +4.1%) is not strong enough to rule out luck (p 0.076)."
+   "Bet Labs' all-time record (618-528, +4.1%) is not strong enough to rule out luck (p 0.075)."
   ],
   "rebuild_flag": null,
   "reproduces": "yes"
  },
  {
   "rule": "nba_bigfav_over",
-  "origin": "mined from our 2020-26 data, screen saved 11/5-11/6",
+  "origin": "mined from our 2020-26 data, screen saved 10/28 to 11/3",
   "screen": 1799443,
   "screen_status": "DIFFERENT FILTERS",
   "bl_all": {
-   "w": 1346,
-   "l": 1338,
-   "p": 40,
-   "roi": -2.6
+   "w": 1349,
+   "l": 1343,
+   "roi": -2.7
   },
   "bl_to2020": {
-   "w": 1022,
-   "l": 1042,
-   "p": 37,
-   "roi": -3.4
+   "w": 1045,
+   "l": 1068,
+   "roi": -3.5
   },
   "bl_since2021": {
-   "w": 324,
-   "l": 296,
-   "p": 2,
-   "roi": 0
+   "w": 304,
+   "l": 275,
+   "roi": 0.4
   },
-  "p_all": 0.9172906384235711,
-  "p_to2020": 0.9433587474157035,
-  "p_since2021": 0.5,
+  "p_all": 0.9254851261041511,
+  "p_to2020": 0.9504426499376126,
+  "p_since2021": 0.459856872905408,
   "rebuild": {
    "n_in": 446,
    "roi_in": 0.0823094170403587,
@@ -600,38 +570,35 @@
   "base": "C",
   "tier": "C",
   "notes": [
-   "Bet Labs' own record before 2021 is 1022-1042, -3.4%: the edge exists only from 2020 on, which is the same window it was found in.",
+   "Bet Labs' own record before 2021 is 1045-1068, -3.5%: the edge exists only from 2020 on, which is the same window it was found in.",
    "Flag, no move: the tool's live filter differs from this saved screen (11/18 inventory)."
   ],
   "rebuild_flag": null,
-  "reproduces": "n/a (Bet Labs negative too)"
+  "reproduces": "yes"
  },
  {
   "rule": "nba_badteams_under",
-  "origin": "mined from our 2020-26 data, screen saved 11/5-11/6",
+  "origin": "mined from our 2020-26 data, screen saved 10/28 to 11/3",
   "screen": 1799442,
   "screen_status": "DIFFERENT FILTERS",
   "bl_all": {
-   "w": 974,
-   "l": 947,
-   "p": 23,
+   "w": 978,
+   "l": 950,
    "roi": -1.2
   },
   "bl_to2020": {
-   "w": 786,
-   "l": 786,
-   "p": 19,
+   "w": 808,
+   "l": 807,
    "roi": -2.2
   },
   "bl_since2021": {
-   "w": 188,
-   "l": 161,
-   "p": 4,
-   "roi": 3.3
+   "w": 170,
+   "l": 143,
+   "roi": 3.8
   },
-  "p_all": 0.7053580610481743,
-  "p_to2020": 0.8137733931742619,
-  "p_since2021": 0.259496024008539,
+  "p_all": 0.7057840659029979,
+  "p_to2020": 0.8171516287292786,
+  "p_since2021": 0.2400383861207389,
   "rebuild": {
    "n_in": 308,
    "roi_in": 0.021590909090909067,
@@ -664,7 +631,7 @@
   "base": "C",
   "tier": "C",
   "notes": [
-   "Bet Labs' own record before 2021 is 786-786, -2.2%: the edge exists only from 2020 on, which is the same window it was found in.",
+   "Bet Labs' own record before 2021 is 808-807, -2.2%: the edge exists only from 2020 on, which is the same window it was found in.",
    "Flag, no move: the tool's live filter differs from this saved screen (11/18 inventory)."
   ],
   "rebuild_flag": null,
@@ -672,30 +639,27 @@
  },
  {
   "rule": "nba_ats_hot_home",
-  "origin": "mined from our 2020-26 data, screen saved 11/5-11/6",
+  "origin": "mined from our 2020-26 data, screen saved 10/28 to 11/3",
   "screen": 1799432,
   "screen_status": "DIFFERENT FILTERS",
   "bl_all": {
-   "w": 872,
-   "l": 847,
-   "p": 24,
+   "w": 880,
+   "l": 854,
    "roi": -1.5
   },
   "bl_to2020": {
-   "w": 624,
-   "l": 649,
-   "p": 14,
-   "roi": -4.3
+   "w": 644,
+   "l": 665,
+   "roi": -4.0
   },
   "bl_since2021": {
-   "w": 248,
-   "l": 198,
-   "p": 10,
-   "roi": 6.4
+   "w": 236,
+   "l": 189,
+   "roi": 6.1
   },
-  "p_all": 0.7391195179912358,
-  "p_to2020": 0.9420197397608729,
-  "p_since2021": 0.07756093120276875,
+  "p_all": 0.7401190746432343,
+  "p_to2020": 0.931030616456353,
+  "p_since2021": 0.09267760469955433,
   "rebuild": {
    "n_in": 432,
    "roi_in": 0.11138888888888886,
@@ -728,7 +692,7 @@
   "base": "C",
   "tier": "C",
   "notes": [
-   "Bet Labs' own record before 2021 is 624-649, -4.3%: the edge exists only from 2020 on, which is the same window it was found in.",
+   "Bet Labs' own record before 2021 is 644-665, -4.0%: the edge exists only from 2020 on, which is the same window it was found in.",
    "Flag, no move: the tool's live filter differs from this saved screen (11/18 inventory)."
   ],
   "rebuild_flag": null,
@@ -740,26 +704,23 @@
   "screen": 1789285,
   "screen_status": "MATCHES",
   "bl_all": {
-   "w": 750,
-   "l": 579,
-   "p": 19,
-   "roi": 9.6
+   "w": 755,
+   "l": 581,
+   "roi": 9.7
   },
   "bl_to2020": {
-   "w": 555,
-   "l": 423,
-   "p": 14,
-   "roi": 10.7
+   "w": 575,
+   "l": 439,
+   "roi": 10.6
   },
   "bl_since2021": {
-   "w": 196,
-   "l": 156,
-   "p": 5,
-   "roi": 6.6
+   "w": 181,
+   "l": 142,
+   "roi": 7.1
   },
-  "p_all": 0.00013939648442606867,
-  "p_to2020": 0.00026765351455648734,
-  "p_since2021": 0.09645162625205361,
+  "p_all": 0.00011467074384086118,
+  "p_to2020": 0.00023900902316575934,
+  "p_since2021": 0.08929113053139992,
   "rebuild": {
    "n_in": 246,
    "roi_in": 0.054186991869918655,
@@ -804,26 +765,23 @@
   "screen": 1789284,
   "screen_status": "MATCHES",
   "bl_all": {
-   "w": 1174,
-   "l": 754,
-   "p": 0,
-   "roi": 3.8
+   "w": 1184,
+   "l": 763,
+   "roi": 3.7
   },
   "bl_to2020": {
-   "w": 873,
-   "l": 586,
-   "p": 0,
-   "roi": 3
+   "w": 880,
+   "l": 591,
+   "roi": 3.0
   },
   "bl_since2021": {
-   "w": 301,
-   "l": 170,
-   "p": 0,
-   "roi": 6
+   "w": 305,
+   "l": 172,
+   "roi": 6.0
   },
-  "p_all": 0.02243867051190973,
-  "p_to2020": 0.08724661647301346,
-  "p_since2021": 0.05106522774971345,
+  "p_all": 0.024928469522036645,
+  "p_to2020": 0.08642043246607667,
+  "p_since2021": 0.04985830146423664,
   "rebuild": {
    "n_in": 328,
    "roi_in": 0.10140243902439024,
@@ -856,37 +814,34 @@
   "base": "B",
   "tier": "B",
   "notes": [
-   "Reduced size because all-time p 0.022, above 0.01."
+   "Reduced size because all-time p 0.025, above 0.01."
   ],
   "rebuild_flag": null,
   "reproduces": "yes"
  },
  {
   "rule": "nhl_bounce_home_ml",
-  "origin": "mined from our 2020-26 data, screen saved 11/5-11/6",
+  "origin": "mined from our 2020-26 data, screen saved 10/28 to 11/3",
   "screen": 1799430,
   "screen_status": "DIFFERENT FILTERS",
   "bl_all": {
-   "w": 876,
-   "l": 589,
-   "p": 0,
-   "roi": 1.7
+   "w": 878,
+   "l": 593,
+   "roi": 1.5
   },
   "bl_to2020": {
-   "w": 568,
-   "l": 402,
-   "p": 0,
-   "roi": -0.5
+   "w": 580,
+   "l": 410,
+   "roi": -0.4
   },
   "bl_since2021": {
-   "w": 308,
-   "l": 188,
-   "p": 0,
-   "roi": 5.7
+   "w": 298,
+   "l": 183,
+   "roi": 5.4
   },
-  "p_all": 0.21761795169228315,
-  "p_to2020": 0.5737912207813175,
-  "p_since2021": 0.06211923950180909,
+  "p_all": 0.24519580886610115,
+  "p_to2020": 0.5597334859267132,
+  "p_since2021": 0.07580539086922644,
   "rebuild": {
    "n_in": 387,
    "roi_in": 0.0793798449612403,
@@ -919,7 +874,7 @@
   "base": "C",
   "tier": "C",
   "notes": [
-   "Bet Labs' own record before 2021 is 568-402, -0.5%: the edge exists only from 2020 on, which is the same window it was found in.",
+   "Bet Labs' own record before 2021 is 580-410, -0.4%: the edge exists only from 2020 on, which is the same window it was found in.",
    "Flag, no move: the tool's live filter differs from this saved screen (11/18 inventory)."
   ],
   "rebuild_flag": null,
@@ -927,30 +882,27 @@
  },
  {
   "rule": "nhl_skid_fade_road",
-  "origin": "mined from our 2020-26 data, screen saved 11/5-11/6",
+  "origin": "mined from our 2020-26 data, screen saved 10/28 to 11/3",
   "screen": 1799431,
   "screen_status": "DIFFERENT FILTERS",
   "bl_all": {
-   "w": 860,
-   "l": 887,
-   "p": 0,
-   "roi": -3.1
+   "w": 864,
+   "l": 889,
+   "roi": -3
   },
   "bl_to2020": {
-   "w": 580,
-   "l": 632,
-   "p": 0,
-   "roi": -7.3
+   "w": 607,
+   "l": 660,
+   "roi": -6.6
   },
   "bl_since2021": {
-   "w": 281,
-   "l": 255,
-   "p": 0,
-   "roi": 6.6
+   "w": 257,
+   "l": 230,
+   "roi": 6.3
   },
-  "p_all": 0.9060227474431162,
-  "p_to2020": 0.9956844912153637,
-  "p_since2021": 0.06619959809148401,
+  "p_all": 0.8991239032993668,
+  "p_to2020": 0.9920710369872732,
+  "p_since2021": 0.08340458839994636,
   "rebuild": {
    "n_in": 447,
    "roi_in": 0.07246085011185682,
@@ -983,7 +935,7 @@
   "base": "C",
   "tier": "C",
   "notes": [
-   "Bet Labs' own record before 2021 is 580-632, -7.3%: the edge exists only from 2020 on, which is the same window it was found in.",
+   "Bet Labs' own record before 2021 is 607-660, -6.6%: the edge exists only from 2020 on, which is the same window it was found in.",
    "Flag, no move: the tool's live filter differs from this saved screen (11/18 inventory)."
   ],
   "rebuild_flag": null,
@@ -997,31 +949,28 @@
   "bl_all": {
    "w": 151,
    "l": 92,
-   "p": 1,
    "roi": 20.3
   },
   "bl_to2020": {
-   "w": 112,
+   "w": 113,
    "l": 65,
-   "p": 1,
-   "roi": 23
+   "roi": 23.4
   },
   "bl_since2021": {
-   "w": 39,
+   "w": 38,
    "l": 27,
-   "p": 0,
-   "roi": 13
+   "roi": 11.8
   },
   "p_all": 0.00037585990087696253,
-  "p_to2020": 0.0005461809477964596,
-  "p_since2021": 0.13065969749202644,
+  "p_to2020": 0.0004253511006142574,
+  "p_since2021": 0.15636718617250922,
   "rebuild": null,
   "live": {},
   "old_tier": "C",
   "base": "B",
   "tier": "B",
   "notes": [
-   "Reduced size because only 243 all-time bets and the Mar 2021 on era (39-27, +13.0%) is not significant on its own (p 0.13)."
+   "Reduced size because only 243 all-time bets and the Mar 2021 on era (38-27, +11.8%) is not significant on its own (p 0.16)."
   ],
   "rebuild_flag": null,
   "reproduces": null

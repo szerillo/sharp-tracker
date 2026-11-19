@@ -39,7 +39,9 @@ tuned afterwards; any later change is dated at the bottom with its reason. Recom
 
 Written before re-scoring. Supersedes the tiers above; version 1 is kept for the record. Recommendations only, and nothing is retired.
 
-Primary evidence: the Bet Labs record on Sean's saved screen, by window as Bet Labs reports it at its own prices (data/research/betlabs_windows.json:
+Primary evidence: the Bet Labs record on Sean's saved screen as Bet Labs reports it at its own prices. Source from 11/19: data/betlabs/records.json
+(sharp/betlabs_records.py; all-time record, per-season splits, record since saved, refreshed with the Bet Labs pull; history in records_history.jsonl).
+Eras: seasons starting 2020 or earlier vs 2021 on, summed from its per-season splits. Before 11/19: data/research/betlabs_windows.json (pulled 11/6;
 all years from 2003, 2003 to Feb 2021, Mar 2021 on). Significance is a one-sided z-test of ROI, with each window's per-bet spread worked out from
 its own W-L and ROI (the average payout implied by them).
 
@@ -61,3 +63,4 @@ variants Sean tried are not recorded anywhere. The plain single-filter p is show
 
 - 11/18/2026: written.
 - 11/18/2026, later: version 2 added after Sean's pushback (full Bet Labs backtest as primary evidence).
+- 11/19/2026: primary evidence source moved to data/betlabs/records.json (Sean's saved screens' full backtests, logged on every Bet Labs pull). Thresholds unchanged.
