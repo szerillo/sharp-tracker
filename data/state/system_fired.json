@@ -7951,7 +7951,11 @@
 "price": -106,
 "fair": 0.50222,
 "edge_pts": -1.28,
-"why": "6:00 PM ET kickoff, total 49.5: over (mined angle)"
+"why": "6:00 PM ET kickoff, total 49.5: over (mined angle)",
+"void": true,
+"void_why": "Untracked: systems conflict (cfb_day_over vs cfb_wind14)",
+"void_at": "2026-11-19T18:06:13Z",
+"untracked": "cfb_day_over vs cfb_wind14"
 },
 "401892730:xch_homedog_fade:spread": {
 "tag": "xch_homedog_fade",
@@ -8372,6 +8376,10 @@
 "price": -102,
 "fair": 0.50599,
 "edge_pts": 0.1,
-"why": "MySportsWeather 15 mph, gusts 25 (Open-Meteo 12.2 at T-30h), gust 28.9, 70.9F"
+"why": "MySportsWeather 15 mph, gusts 25 (Open-Meteo 12.2 at T-30h), gust 28.9, 70.9F",
+"void": true,
+"void_why": "Untracked: systems conflict (cfb_wind14 vs cfb_day_over)",
+"void_at": "2026-11-19T18:06:13Z",
+"untracked": "cfb_wind14 vs cfb_day_over"
 }
 }
