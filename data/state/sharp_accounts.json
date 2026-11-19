@@ -1,5 +1,5 @@
 {
- "built": "2026-11-19T00:52:07Z",
+ "built": "2026-11-19T01:06:21Z",
  "rows": [
   {
    "cond": "0x5ee92964df4c1577000768dddeafcd690e299a16c720bfef16030dab56dbaffa",
@@ -267,7 +267,7 @@
    "best_rank": 4,
    "usd": 142,
    "paid": 0.966,
-   "ask": 0.97,
+   "ask": null,
    "status": "live",
    "link": "https://polymarket.us/event/cbb-camp-okl-2026-11-18",
    "other": null,
@@ -310,7 +310,7 @@
    "best_rank": 110,
    "usd": 5756,
    "paid": 0.628,
-   "ask": 0.67,
+   "ask": null,
    "status": "live",
    "link": "https://polymarket.us/event/nba-det-nop-2026-11-18",
    "other": null,
@@ -351,7 +351,7 @@
    "best_rank": 79,
    "usd": 10450,
    "paid": 0.509,
-   "ask": 0.51,
+   "ask": 0.5,
    "status": "live",
    "link": "https://polymarket.us/event/nhl-col-utah-2026-11-18",
    "other": null,
@@ -394,8 +394,7 @@
    "game_start": "2026-11-19T03:00Z",
    "side_std": "away",
    "conflict": [
-    "Kalshi bet back",
-    "Kalshi move"
+    "Kalshi bet back"
    ],
    "money_with": false,
    "grade": "B",
@@ -689,7 +688,7 @@
    "best_rank": 40,
    "usd": 22647,
    "paid": 0.332,
-   "ask": 0.38,
+   "ask": null,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-det-nop-2026-11-18",
    "other": {
@@ -698,7 +697,7 @@
     "usd": 9338,
     "first": "2026-11-19T00:42:11Z"
    },
-   "exit_bid": 0.37,
+   "exit_bid": null,
    "kalshi_against": null,
    "logged": true,
    "event_id": "401910013",
@@ -716,7 +715,7 @@
    "money_with": false,
    "grade": "B",
    "fair_board": 0.3694,
-   "inside_fair": false,
+   "inside_fair": null,
    "books": null
   },
   {
@@ -735,7 +734,7 @@
    "best_rank": 40,
    "usd": 16621,
    "paid": 0.533,
-   "ask": 0.54,
+   "ask": null,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-det-nop-2026-11-18",
    "other": {
@@ -744,7 +743,7 @@
     "usd": 5814,
     "first": "2026-11-18T19:20:04Z"
    },
-   "exit_bid": 0.53,
+   "exit_bid": null,
    "kalshi_against": null,
    "logged": true,
    "event_id": "401910013",
@@ -781,16 +780,16 @@
    "best_rank": 12,
    "usd": 31622,
    "paid": 0.51,
-   "ask": 0.52,
+   "ask": null,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-det-nop-2026-11-18",
    "other": {
     "n_accounts": 1,
     "best_rank": 112,
-    "usd": 15989,
+    "usd": 22451,
     "first": "2026-11-19T00:44:37Z"
    },
-   "exit_bid": 0.51,
+   "exit_bid": null,
    "kalshi_against": null,
    "logged": false,
    "ladder": true,
@@ -803,6 +802,9 @@
    "home_name": "New Orleans Pelicans",
    "game_start": "2026-11-19T01:00Z",
    "side_std": "home",
+   "conflict": [
+    "Kalshi bet back"
+   ],
    "money_with": false,
    "grade": "B",
    "fair_board": null,
@@ -871,7 +873,7 @@
    "best_rank": 43,
    "usd": 844,
    "paid": 0.472,
-   "ask": 0.5,
+   "ask": 0.49,
    "status": "live",
    "link": "https://polymarket.us/event/nba-nyk-min-2026-11-19",
    "other": null,
@@ -951,76 +953,8 @@
   "clv_venue": 0.63,
   "clv_poly_same": -0.9
  },
- "sys_tags": {
-  "401910013:nba_under_good_home_over": {
-   "with": null,
-   "against": {
-    "n": 1,
-    "best_rank": 132,
-    "usd": 1597
-   }
-  }
- },
+ "sys_tags": {},
  "by_event": {
-  "401910013|ml": {
-   "home": {
-    "n": 6,
-    "best_rank": 40,
-    "usd": 22647
-   },
-   "away": {
-    "n": 2,
-    "best_rank": 43,
-    "usd": 9338
-   }
-  },
-  "401910013|total": {
-   "over": {
-    "n": 1,
-    "best_rank": 132,
-    "usd": 1597
-   }
-  },
-  "401910013|spread": {
-   "home": {
-    "n": 7,
-    "best_rank": 12,
-    "usd": 19568
-   },
-   "away": {
-    "n": 2,
-    "best_rank": 112,
-    "usd": 11535
-   }
-  },
-  "401910014|ml": {
-   "home": {
-    "n": 1,
-    "best_rank": 119,
-    "usd": 480
-   }
-  },
-  "401910014|ml": {
-   "home": {
-    "n": 1,
-    "best_rank": 119,
-    "usd": 480
-   }
-  },
-  "401910016|spread": {
-   "away": {
-    "n": 1,
-    "best_rank": 155,
-    "usd": 100
-   }
-  },
-  "401910016|ml": {
-   "away": {
-    "n": 1,
-    "best_rank": 155,
-    "usd": 144
-   }
-  },
   "401910015|ml": {
    "home": {
     "n": 1,
@@ -1106,27 +1040,6 @@
     "n": 1,
     "best_rank": 93,
     "usd": 315
-   }
-  },
-  "401911232|total": {
-   "under": {
-    "n": 1,
-    "best_rank": 110,
-    "usd": 980
-   }
-  },
-  "401906805|ml": {
-   "home": {
-    "n": 1,
-    "best_rank": 4,
-    "usd": 142
-   }
-  },
-  "401906805|total": {
-   "over": {
-    "n": 1,
-    "best_rank": 110,
-    "usd": 906
    }
   }
  },
