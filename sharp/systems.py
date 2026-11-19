@@ -91,6 +91,19 @@ EVIDENCE = {'wind1014': dict(tier='A', train='Bet Labs 533-376 all-time (2003-),
             'cfb_hot_over_low_total': dict(tier='B', train='Bet Labs 203, +16.4% (to 2021); hold 92, +10.1%', hold='Odds API 2020-26 with NASA POWER kickoff temperature: non-conference 117-71-3 (+19.5%), 6 of 6 seasons; the conference version is 37-38', seasons='6 of 6', labs_check='two independent tests agree; mechanism: heat wears out thinner non-conference defences, low totals price it least; to B 11/5', src='docs/cfb_weather_2026-11-05.md'),
             'cfb_road_streak_dog': dict(tier='P', train='Bet Labs 214, +20.7%', hold='Odds API 2020-26: 212-228-9, -6.4%', seasons='2 of 7', paper_why='Bet Labs uses a bet-volume filter we cannot see; -2% in our replay', src='data/research/rule_replay.json'),   # 11/5: paper
             'cbb_under_good_over_drop': dict(tier='P', train='Bet Labs 949, +7.6%', hold="Bet Labs' own picks +3.5% (3 of the last 4 seasons negative); ours with real opens 495-498-11, -5.0%", seasons='1 of 6 (ours)', paper_why='1 of 6 seasons positive in our replay; Bet Labs 3 of last 4 negative', src='docs/systems_test_2026-11-05.md')}   # 11/5 pm: paper
+# 11/18 (Sean): tiers from docs/validation/PUSHBACK.md (full Bet Labs backtest as the primary evidence), with two constraints: nothing that
+# was bettable moves to paper (a C stays a bettable tier C bet), and every paper rule moves up to tier C. Size is 0.25u for every tier.
+# Bet-tracker history of the promoted rules stays paper (sharp/bet_log.py PROMOTED_FROM); new fills count as tier C from 11/18 evening.
+TIER_1118 = {'wind1014': 'A', 'cfb_wind14': 'A', 'awfuldog': 'A', 'nba_under_good_home_over': 'A',
+             'wind1014_1h': 'B', 'cfb_hot_over_low_total': 'B', 'nfl_home_dog_7510': 'B', 'vrest8_1h': 'B', 'mnf_1h': 'B', 'nhl_early_home_fav_qual': 'B', 'cbb_bigloss_vs_top5': 'B',
+             'cfb_homefav_7510_under': 'C', 'nba_bigfav_over': 'C', 'nba_badteams_under': 'C', 'nba_ats_hot_home': 'C', 'nhl_bounce_home_ml': 'C', 'nhl_skid_fade_road': 'C'}
+PAPER_TO_C_1118 = ['awfuldog_deep', 'wind1014_cold', 'nfl_road_dog_7510', 'nhl_loss_streak_over', 'mlb_road_over_under', 'nba_roadtrip_over', 'cfb_day_over', 'nfl_fade_fav_bye',
+                   'bounce15_1h', 'nba_momentum', 'nhl_pl_fav_gap', 'nhl_pl_fav_strong_opp', 'nhl_pl_dog_bigml', 'nba_1h_under_hot_over', 'nba_under_good_home_over_small',
+                   'cfb_road_dog_low_total', 'cfb_road_streak_dog', 'cbb_under_good_over_drop']
+for _k, _t in TIER_1118.items(): EVIDENCE[_k]['tier'] = _t
+for _k in PAPER_TO_C_1118:
+    assert EVIDENCE[_k]['tier'] == 'P', _k
+    EVIDENCE[_k]['tier'] = 'C'; EVIDENCE[_k]['was_paper'] = EVIDENCE[_k].pop('paper_why', None) or 'paper'
 # nhl_over_busy_goalie retired 10/30: positive in 2 of 7 seasons and the goalie-saves field thins to a handful of games after 2023.
 DESC = {'wind1014': 'NFL outdoor, wind 10-14 mph (average of the latest Open-Meteo and MySportsWeather forecasts, whole mph): full-game under', 'wind1014_1h': 'same wind, 10-13 mph: first-half under',
         'cfb_wind14': 'CFB outdoor, wind 14+ mph (same two-source average): full-game under', 'vrest8_1h': 'NFL visitor off 8-30 days: first-half under', 'mnf_1h': 'Monday night: first-half under',
