@@ -1,10 +1,10 @@
 {
- "built": "2026-11-19T05:32:35Z",
+ "built": "2026-11-19T05:46:30Z",
  "record": {
-  "n": 48,
-  "won": 21,
+  "n": 49,
+  "won": 22,
   "lost": 27,
-  "units": -1.02,
+  "units": -0.73,
   "line_value": {
    "n": 19,
    "avg": 0.0,
@@ -33,38 +33,5 @@
    }
   }
  },
- "rows": [
-  {
-   "key": "ffeefa47d95e7ee9505d1955c62e3ae4|player_threes|Jamal Murray|2.5",
-   "sport": "nba",
-   "odds_id": "ffeefa47d95e7ee9505d1955c62e3ae4",
-   "espn": "401910015",
-   "game": "Boston Celtics @ Denver Nuggets",
-   "start": "2026-11-19T02:10:00Z",
-   "market": "player_threes",
-   "player": "Jamal Murray",
-   "line": 2.5,
-   "side": "under",
-   "book": "DK",
-   "price": 2.14,
-   "fair": 0.504,
-   "ev": 7.9,
-   "pin_under": 1.85,
-   "pin_over": 1.88,
-   "book_over": 1.67,
-   "fair_power": 0.5045,
-   "book_fair": 0.4383,
-   "fair_gap": 6.6,
-   "ev_strict": 7.9,
-   "pin_ts": "2026-11-19T01:37:09Z",
-   "book_ts": "2026-11-19T01:34:48Z",
-   "flagged": "2026-11-19T01:37:29Z",
-   "close_ts": "2026-11-19T02:06:24Z",
-   "close_line": 2.5,
-   "close_fair": 0.4773,
-   "clv": 1.0,
-   "beat_fair": -2.67,
-   "line_value": 0.0
-  }
- ]
+ "rows": []
 }
