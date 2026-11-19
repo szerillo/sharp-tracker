@@ -1,5 +1,5 @@
 {
- "built": "2026-11-19T13:24:28Z",
+ "built": "2026-11-19T13:34:34Z",
  "rows": [
   {
    "cond": "0xc276afa6849935037a986177548243bc2953367fa2bad08b47a4ef1e82309d10",
@@ -115,8 +115,8 @@
    "home_name": "Minnesota Timberwolves",
    "game_start": "2026-11-20T01:00Z",
    "side_std": "away",
-   "money_with": false,
-   "grade": "B",
+   "money_with": true,
+   "grade": "A",
    "fair_board": null,
    "inside_fair": null,
    "books": {
@@ -350,6 +350,13 @@
     "n": 2,
     "best_rank": 43,
     "usd": 844
+   }
+  },
+  "401910021|total": {
+   "under": {
+    "n": 1,
+    "best_rank": 132,
+    "usd": 5326
    }
   },
   "401910022|ml": {
