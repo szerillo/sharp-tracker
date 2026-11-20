@@ -1,5 +1,5 @@
 {
- "built": "2026-11-19T22:07:55Z",
+ "built": "2026-11-20T14:12:14Z",
  "source": "window.analyticsData.AllScreens on any Bet Labs screen page (Tested:/Tracked: only)",
  "total": 32,
  "screens": [
@@ -28,7 +28,7 @@
    "filters": "Home Moneyline Range -10000..-650, Over / Under Over, SeasonType Regular",
    "grade": "D",
    "roi": -2.7,
-   "record": "1349-1343",
+   "record": "1350-1343",
    "rule": "nba_bigfav_over",
    "status": "DIFFERENT FILTERS",
    "note": "fixed: was 85% no-vig and a 3-game minimum",
@@ -108,7 +108,7 @@
    "filters": "Over / Under Over, SeasonType Regular, Visitor Prev Game Home/AwayStreak 3..30",
    "grade": "D",
    "roi": -2.9,
-   "record": "1690-1689",
+   "record": "1691-1689",
    "rule": "nba_roadtrip_over",
    "status": "DIFFERENT FILTERS",
    "note": "fixed: Bet Labs' filter is the visitor's previous-game HOME streak 3+ (off a 3+ game homestand), not a road trip as the name says; the tool now fires on the filter",
@@ -172,7 +172,7 @@
    "filters": "Days Between games 2..2, Game Number 9..82, Home / Visitor Home, SeasonType Regular, Team ATS % 60..100",
    "grade": "D",
    "roi": -1.5,
-   "record": "880-854",
+   "record": "880-855",
    "rule": "nba_ats_hot_home",
    "status": "DIFFERENT FILTERS",
    "note": "fixed: games played 8+ (was 8 spreads), whole-percent ATS",
