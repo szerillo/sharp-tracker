@@ -1,5 +1,5 @@
 {
- "built": "2026-11-20T00:57:20Z",
+ "built": "2026-11-20T01:04:20Z",
  "rows": [
   {
    "cond": "0xc276afa6849935037a986177548243bc2953367fa2bad08b47a4ef1e82309d10",
@@ -229,7 +229,7 @@
    "best_rank": 24,
    "usd": 106,
    "paid": 0.138,
-   "ask": 0.12,
+   "ask": null,
    "status": "live",
    "link": "https://polymarket.us/event/nba-lac-sas-2026-11-19",
    "other": null,
@@ -250,7 +250,7 @@
    "money_with": false,
    "grade": "watch",
    "fair_board": 0.1137,
-   "inside_fair": false,
+   "inside_fair": null,
    "books": {
     "at": "2026-11-19T23:58:57Z",
     "fair": 0.1137,
@@ -278,7 +278,7 @@
    "best_rank": 104,
    "usd": 102,
    "paid": 0.6,
-   "ask": 0.61,
+   "ask": null,
    "status": "live",
    "link": "https://polymarket.us/event/nba-gsw-mem-2026-11-19",
    "other": null,
@@ -318,7 +318,7 @@
    "best_rank": 112,
    "usd": 6688,
    "paid": 0.495,
-   "ask": 0.56,
+   "ask": null,
    "status": "live",
    "link": "https://polymarket.us/event/nba-por-mil-2026-11-19",
    "other": null,
@@ -436,7 +436,7 @@
    "best_rank": 43,
    "usd": 8571,
    "paid": 0.497,
-   "ask": 0.52,
+   "ask": null,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-nyk-min-2026-11-19",
    "other": {
@@ -445,7 +445,7 @@
     "usd": 667,
     "first": "2026-11-19T18:03:55Z"
    },
-   "exit_bid": 0.51,
+   "exit_bid": null,
    "kalshi_against": null,
    "logged": true,
    "event_id": "401910021",
@@ -460,7 +460,7 @@
    "money_with": false,
    "grade": "B",
    "fair_board": 0.5069,
-   "inside_fair": false,
+   "inside_fair": null,
    "books": null
   },
   {
@@ -479,7 +479,7 @@
    "best_rank": 43,
    "usd": 14588,
    "paid": 0.5,
-   "ask": 0.46,
+   "ask": null,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-gsw-mem-2026-11-19",
    "other": {
@@ -488,7 +488,7 @@
     "usd": 13898,
     "first": "2026-11-19T18:48:28Z"
    },
-   "exit_bid": 0.45,
+   "exit_bid": null,
    "kalshi_against": null,
    "logged": false,
    "event_id": "401910019",
@@ -602,137 +602,13 @@
   "clv_venue": 0.69,
   "clv_poly_same": -0.87
  },
- "sys_tags": {
-  "401910019:nba_under_good_home_over_small": {
-   "with": {
-    "n": 3,
-    "best_rank": 104,
-    "usd": 1781
-   },
-   "against": {
-    "n": 1,
-    "best_rank": 93,
-    "usd": 360
-   }
-  },
-  "401892750:xch_homedog_fade:ml": {
-   "with": {
-    "n": 1,
-    "best_rank": 143,
-    "usd": 389
-   },
-   "against": null
-  },
-  "401910020:xch_homedog_fade:ml": {
-   "with": null,
-   "against": {
-    "n": 1,
-    "best_rank": 119,
-    "usd": 5199
-   }
-  }
- },
+ "sys_tags": {},
  "by_event": {
   "401873072|spread": {
    "away": {
     "n": 1,
     "best_rank": 12,
     "usd": 228
-   }
-  },
-  "401910019|ml": {
-   "home": {
-    "n": 3,
-    "best_rank": 40,
-    "usd": 392
-   },
-   "away": {
-    "n": 4,
-    "best_rank": 43,
-    "usd": 2323
-   }
-  },
-  "401910019|total": {
-   "over": {
-    "n": 1,
-    "best_rank": 93,
-    "usd": 360
-   },
-   "under": {
-    "n": 3,
-    "best_rank": 104,
-    "usd": 1781
-   }
-  },
-  "401910019|spread": {
-   "home": {
-    "n": 1,
-    "best_rank": 43,
-    "usd": 14588
-   },
-   "away": {
-    "n": 2,
-    "best_rank": 43,
-    "usd": 7690
-   }
-  },
-  "401910020|spread": {
-   "home": {
-    "n": 2,
-    "best_rank": 112,
-    "usd": 6688
-   }
-  },
-  "401910020|total": {
-   "under": {
-    "n": 1,
-    "best_rank": 132,
-    "usd": 136
-   }
-  },
-  "401910020|ml": {
-   "home": {
-    "n": 1,
-    "best_rank": 119,
-    "usd": 5199
-   }
-  },
-  "401910021|ml": {
-   "away": {
-    "n": 3,
-    "best_rank": 43,
-    "usd": 8571
-   },
-   "home": {
-    "n": 1,
-    "best_rank": 43,
-    "usd": 667
-   }
-  },
-  "401910021|total": {
-   "under": {
-    "n": 1,
-    "best_rank": 132,
-    "usd": 5326
-   }
-  },
-  "401910022|ml": {
-   "away": {
-    "n": 1,
-    "best_rank": 24,
-    "usd": 106
-   }
-  },
-  "401910022|spread": {
-   "away": {
-    "n": 1,
-    "best_rank": 119,
-    "usd": 1212
-   },
-   "home": {
-    "n": 1,
-    "best_rank": 119,
-    "usd": 14100
    }
   },
   "401909307|ml": {
@@ -761,13 +637,6 @@
     "usd": 290
    }
   },
-  "401892750|ml": {
-   "away": {
-    "n": 1,
-    "best_rank": 143,
-    "usd": 389
-   }
-  },
   "401892751|ml": {
    "away": {
     "n": 1,
@@ -792,13 +661,6 @@
     "n": 1,
     "best_rank": 12,
     "usd": 287
-   }
-  },
-  "401921028|total": {
-   "over": {
-    "n": 1,
-    "best_rank": 93,
-    "usd": 218
    }
   }
  },
