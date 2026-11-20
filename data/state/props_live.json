@@ -1,19 +1,19 @@
 {
- "built": "2026-11-19T23:48:14Z",
+ "built": "2026-11-20T00:04:23Z",
  "record": {
   "n": 49,
   "won": 22,
   "lost": 27,
   "units": -0.73,
   "line_value": {
-   "n": 19,
+   "n": 23,
    "avg": 0.0,
    "positive": 0
   },
   "clv": {
-   "n": 29,
-   "avg": 1.54,
-   "beat": 28,
+   "n": 33,
+   "avg": 1.55,
+   "beat": 32,
    "by_rule": {
     "anytime td": {
      "n": 10,
@@ -21,9 +21,9 @@
      "beat": 10
     },
     "nhl under": {
-     "n": 12,
-     "avg": 1.52,
-     "beat": 12
+     "n": 16,
+     "avg": 1.54,
+     "beat": 16
     },
     "threes under": {
      "n": 7,
@@ -58,7 +58,13 @@
    "ev_strict": 2.7,
    "pin_ts": "2026-11-19T23:31:45Z",
    "book_ts": "2026-11-19T23:32:28Z",
-   "flagged": "2026-11-19T23:32:29Z"
+   "flagged": "2026-11-19T23:32:29Z",
+   "close_ts": "2026-11-20T00:04:23Z",
+   "close_line": 3.5,
+   "close_fair": 0.5632,
+   "clv": 0.76,
+   "beat_fair": -0.71,
+   "line_value": 0.0
   },
   {
    "key": "3449054d3b59c2c7fc8cf914dbd45ea6|player_shots_on_goal|Taylor Hall|1.5",
@@ -84,7 +90,13 @@
    "ev_strict": 4.5,
    "pin_ts": "2026-11-19T23:31:46Z",
    "book_ts": "2026-11-19T23:32:24Z",
-   "flagged": "2026-11-19T23:32:29Z"
+   "flagged": "2026-11-19T23:32:29Z",
+   "close_ts": "2026-11-20T00:04:23Z",
+   "close_line": 1.5,
+   "close_fair": 0.4773,
+   "clv": 2.28,
+   "beat_fair": 0.0,
+   "line_value": 0.0
   },
   {
    "key": "3449054d3b59c2c7fc8cf914dbd45ea6|player_shots_on_goal|Noah Dobson|1.5",
@@ -110,7 +122,13 @@
    "ev_strict": 3.9,
    "pin_ts": "2026-11-19T23:31:46Z",
    "book_ts": "2026-11-19T23:32:24Z",
-   "flagged": "2026-11-19T23:32:29Z"
+   "flagged": "2026-11-19T23:32:29Z",
+   "close_ts": "2026-11-20T00:04:23Z",
+   "close_line": 1.5,
+   "close_fair": 0.5556,
+   "clv": 2.08,
+   "beat_fair": 0.0,
+   "line_value": 0.0
   },
   {
    "key": "84d6f3a55d9aac25cd001f3d94aab44b|player_shots_on_goal|Trevor Zegras|1.5",
@@ -136,7 +154,13 @@
    "ev_strict": 2.3,
    "pin_ts": "2026-11-19T23:31:47Z",
    "book_ts": "2026-11-19T23:31:53Z",
-   "flagged": "2026-11-19T23:32:29Z"
+   "flagged": "2026-11-19T23:32:29Z",
+   "close_ts": "2026-11-20T00:04:23Z",
+   "close_line": 1.5,
+   "close_fair": 0.48,
+   "clv": 1.27,
+   "beat_fair": 0.0,
+   "line_value": 0.0
   }
  ]
 }

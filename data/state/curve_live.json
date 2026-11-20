@@ -1,5 +1,5 @@
 {
- "built": "2026-11-19T23:48:15Z",
+ "built": "2026-11-20T00:04:23Z",
  "record": {
   "cbb_1h_total_curve": {
    "n": 6,
@@ -58,12 +58,12 @@
    "lost": 18,
    "units": -4.28,
    "clv": {
-    "n": 21,
-    "avg": -2.19,
+    "n": 23,
+    "avg": -2.2,
     "beat": 0
    },
    "line_value": {
-    "n": 22,
+    "n": 24,
     "avg": -0.02,
     "better": 0,
     "worse": 1
@@ -115,7 +115,13 @@
    "book_fair": 0.5714,
    "fair_gap": -0.1,
    "ev_curve": 9.4,
-   "flagged": "2026-11-19T21:37:16Z"
+   "flagged": "2026-11-19T21:37:16Z",
+   "close_ts": "2026-11-20T00:04:23Z",
+   "close_line": 2.5,
+   "line_value": 0.0,
+   "close_fair": 0.5736,
+   "clv": -3.25,
+   "beat_fair": 0.36
   },
   {
    "key": "nhl_p3_under_curve|8cd65f19317595a31a8e98aee88027a5||under",
@@ -140,7 +146,13 @@
    "pin_price": 2.14,
    "book": null,
    "price": null,
-   "flagged": "2026-11-19T21:37:16Z"
+   "flagged": "2026-11-19T21:37:16Z",
+   "close_ts": "2026-11-20T00:04:23Z",
+   "close_line": 2.0,
+   "line_value": 0.0,
+   "close_fair": 0.4524,
+   "clv": -1.49,
+   "beat_fair": 0.24
   },
   {
    "key": "nhl_p3_under_curve|8689e63a36a8d62c4eba2fc402bb4f0c||under",
