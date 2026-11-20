@@ -1,19 +1,19 @@
 {
- "built": "2026-11-20T01:46:40Z",
+ "built": "2026-11-20T02:00:49Z",
  "record": {
   "n": 49,
   "won": 22,
   "lost": 27,
   "units": -0.73,
   "line_value": {
-   "n": 23,
+   "n": 24,
    "avg": 0.0,
    "positive": 0
   },
   "clv": {
-   "n": 33,
-   "avg": 1.55,
-   "beat": 32,
+   "n": 34,
+   "avg": 1.59,
+   "beat": 33,
    "by_rule": {
     "anytime td": {
      "n": 10,
@@ -21,9 +21,9 @@
      "beat": 10
     },
     "nhl under": {
-     "n": 16,
-     "avg": 1.54,
-     "beat": 16
+     "n": 17,
+     "avg": 1.63,
+     "beat": 17
     },
     "threes under": {
      "n": 7,
@@ -213,6 +213,38 @@
    "pin_ts": "2026-11-20T00:57:33Z",
    "book_ts": "2026-11-20T00:57:42Z",
    "flagged": "2026-11-20T00:57:50Z"
+  },
+  {
+   "key": "8689e63a36a8d62c4eba2fc402bb4f0c|player_shots_on_goal|Devon Toews|1.5",
+   "sport": "nhl",
+   "odds_id": "8689e63a36a8d62c4eba2fc402bb4f0c",
+   "espn": "401892751",
+   "game": "Anaheim Ducks @ Colorado Avalanche",
+   "start": "2026-11-20T02:10:00Z",
+   "market": "player_shots_on_goal",
+   "player": "Devon Toews",
+   "line": 1.5,
+   "side": "under",
+   "book": "DK",
+   "price": 2.2,
+   "fair": 0.484,
+   "ev": 6.5,
+   "pin_under": 1.93,
+   "pin_over": 1.81,
+   "book_over": 1.62,
+   "fair_power": 0.4822,
+   "book_fair": 0.4241,
+   "fair_gap": 6.0,
+   "ev_strict": 6.1,
+   "pin_ts": "2026-11-20T02:00:01Z",
+   "book_ts": "2026-11-20T02:00:03Z",
+   "flagged": "2026-11-20T02:00:49Z",
+   "close_ts": "2026-11-20T02:00:49Z",
+   "close_line": 1.5,
+   "close_fair": 0.484,
+   "clv": 2.95,
+   "beat_fair": 0.0,
+   "line_value": 0.0
   }
  ]
 }
