@@ -8578,5 +8578,22 @@
 "void_why": "Untracked: systems conflict (xch_homedog_fade vs nhl_bounce_home_ml)",
 "void_at": "2026-11-20T01:05:11Z",
 "untracked": "xch_homedog_fade vs nhl_bounce_home_ml"
+},
+"401892753:xch_homedog_fade:spread": {
+"tag": "xch_homedog_fade",
+"fill_id": "6c7729a0ab45",
+"ts": "2026-11-20T01:38:08Z",
+"market": "spread",
+"side": "away",
+"line": 1.5,
+"venue": "Novig",
+"price": -233,
+"fair": 0.69647,
+"edge_pts": -0.35,
+"why": "Novig home side mid 0.305 inside T-1.4h; audit band 20-35c",
+"void": true,
+"void_why": "Untracked: systems conflict (xch_homedog_fade vs nhl_early_home_fav_qual)",
+"void_at": "2026-11-20T01:38:08Z",
+"untracked": "xch_homedog_fade vs nhl_early_home_fav_qual"
 }
 }
