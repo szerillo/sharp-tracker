@@ -1,5 +1,5 @@
 {
- "built": "2026-11-20T15:11:17Z",
+ "built": "2026-11-20T15:19:16Z",
  "rows": [
   {
    "cond": "0xdf764f8f0a9fa64c68f3b15cbbef3b20e215496212062a575d39c9937d11ed57",
@@ -111,10 +111,10 @@
    "inside_fair": false,
    "fair_board": 0.2338,
    "books": {
-    "at": "2026-11-20T03:04:37Z",
-    "fair": 0.2338,
+    "at": "2026-11-20T15:03:00Z",
+    "fair": 0.2363,
     "q": {
-     "Novig": 0.235,
+     "Novig": 0.24,
      "DK": 0.2532,
      "FD": 0.2564
     }
@@ -155,7 +155,13 @@
    "grade": "A",
    "fair_board": null,
    "inside_fair": null,
-   "books": null
+   "books": {
+    "at": "2026-11-20T15:03:00Z",
+    "fair": null,
+    "q": {
+     "Kalshi": 0.41
+    }
+   }
   },
   {
    "cond": "0xc5a0afee8b74d469b11297c8b6950abd939b3d57344f86aac0219aa1baaef25f",
@@ -301,7 +307,7 @@
    "best_rank": 57,
    "usd": 674,
    "paid": 0.631,
-   "ask": 0.65,
+   "ask": 0.63,
    "status": "live",
    "link": "https://polymarket.us/event/ucl-spo-mnu-2026-11-25-more-markets",
    "other": null,
