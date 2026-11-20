@@ -8791,6 +8791,10 @@
 "price": -106,
 "fair": 0.50595,
 "edge_pts": -0.91,
-"why": "home LAL over rate 68%, days since last game: home 2, visitor 2; total 230.5 -> 229.5"
+"why": "home LAL over rate 68%, days since last game: home 2, visitor 2; total 230.5 -> 229.5",
+"void": true,
+"void_why": "Untracked: systems conflict (nba_under_good_home_over_small vs nba_bigfav_over)",
+"void_at": "2026-11-20T17:16:31Z",
+"untracked": "nba_under_good_home_over_small vs nba_bigfav_over"
 }
 }
