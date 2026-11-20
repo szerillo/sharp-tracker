@@ -1,19 +1,19 @@
 {
- "built": "2026-11-20T02:44:47Z",
+ "built": "2026-11-20T02:59:42Z",
  "record": {
   "n": 49,
   "won": 22,
   "lost": 27,
   "units": -0.73,
   "line_value": {
-   "n": 23,
+   "n": 26,
    "avg": 0.0,
    "positive": 0
   },
   "clv": {
-   "n": 33,
-   "avg": 1.55,
-   "beat": 32,
+   "n": 36,
+   "avg": 1.5,
+   "beat": 34,
    "by_rule": {
     "anytime td": {
      "n": 10,
@@ -21,9 +21,9 @@
      "beat": 10
     },
     "nhl under": {
-     "n": 16,
-     "avg": 1.54,
-     "beat": 16
+     "n": 19,
+     "avg": 1.46,
+     "beat": 18
     },
     "threes under": {
      "n": 7,
@@ -215,15 +215,15 @@
    "flagged": "2026-11-20T00:57:50Z"
   },
   {
-   "key": "6c4d4bc698a434e4b1d5492b9bff28cb|player_total_saves|Jake Oettinger|23.5",
+   "key": "8689e63a36a8d62c4eba2fc402bb4f0c|player_shots_on_goal|Devon Toews|1.5",
    "sport": "nhl",
-   "odds_id": "6c4d4bc698a434e4b1d5492b9bff28cb",
-   "espn": "401892753",
-   "game": "Dallas Stars @ Vegas Golden Knights",
-   "start": "2026-11-20T03:10:00Z",
-   "market": "player_total_saves",
-   "player": "Jake Oettinger",
-   "line": 23.5,
+   "odds_id": "8689e63a36a8d62c4eba2fc402bb4f0c",
+   "espn": "401892751",
+   "game": "Anaheim Ducks @ Colorado Avalanche",
+   "start": "2026-11-20T02:10:00Z",
+   "market": "player_shots_on_goal",
+   "player": "Devon Toews",
+   "line": 1.5,
    "side": "under",
    "book": "DK",
    "price": 2.2,
@@ -268,9 +268,15 @@
    "book_fair": 0.5,
    "fair_gap": 5.0,
    "ev_strict": 2.9,
-   "pin_ts": "2026-11-20T02:15:28Z",
-   "book_ts": "2026-11-20T02:15:28Z",
-   "flagged": "2026-11-20T02:15:37Z"
+   "pin_ts": "2026-11-20T02:29:50Z",
+   "book_ts": "2026-11-20T02:29:43Z",
+   "flagged": "2026-11-20T02:30:28Z",
+   "close_ts": "2026-11-20T02:59:42Z",
+   "close_line": 23.5,
+   "close_fair": 0.5266,
+   "clv": -0.82,
+   "beat_fair": -2.37,
+   "line_value": 0.0
   },
   {
    "key": "6c4d4bc698a434e4b1d5492b9bff28cb|player_shots_on_goal|Victor Olofsson|1.5",
@@ -294,9 +300,15 @@
    "book_fair": 0.3959,
    "fair_gap": 3.8,
    "ev_strict": 0.3,
-   "pin_ts": "2026-11-20T02:43:31Z",
-   "book_ts": "2026-11-20T02:44:38Z",
-   "flagged": "2026-11-20T02:44:47Z"
+   "pin_ts": "2026-11-20T02:57:43Z",
+   "book_ts": "2026-11-20T02:58:43Z",
+   "flagged": "2026-11-20T02:59:42Z",
+   "close_ts": "2026-11-20T02:59:42Z",
+   "close_line": 1.5,
+   "close_fair": 0.4342,
+   "clv": 0.87,
+   "beat_fair": 0.0,
+   "line_value": 0.0
   }
  ]
 }
