@@ -1,5 +1,5 @@
 {
- "built": "2026-11-20T00:04:56Z",
+ "built": "2026-11-20T00:13:27Z",
  "rows": [
   {
    "cond": "0xc276afa6849935037a986177548243bc2953367fa2bad08b47a4ef1e82309d10",
@@ -37,13 +37,13 @@
    "inside_fair": false,
    "fair_board": 0.7096,
    "books": {
-    "at": "2026-11-19T23:16:37Z",
-    "fair": 0.7518,
+    "at": "2026-11-19T23:58:57Z",
+    "fair": 0.7524,
     "q": {
      "Novig": 0.755,
-     "FD": 0.7561,
+     "FD": 0.7619,
      "Caesars": 0.7727,
-     "Kalshi": 0.78
+     "DK": 0.7753
     }
    }
   },
@@ -157,13 +157,13 @@
    "inside_fair": false,
    "fair_board": 0.5148,
    "books": {
-    "at": "2026-11-19T23:16:37Z",
-    "fair": 0.5221,
+    "at": "2026-11-19T23:58:57Z",
+    "fair": 0.5244,
     "q": {
      "Novig": 0.535,
-     "Kalshi": 0.54,
      "Caesars": 0.5413,
-     "DK": 0.5455
+     "DK": 0.5455,
+     "FD": 0.5455
     }
    }
   },
@@ -176,12 +176,12 @@
    "bet": "Oilers ML",
    "side": "Oilers",
    "flagged": "2026-11-19T19:32:19Z",
-   "why": "a top-200 account also in this sport's top 50",
+   "why": "2 top-200 accounts",
    "proven": true,
    "trigger": "proven",
-   "n_accounts": 1,
+   "n_accounts": 2,
    "best_rank": 79,
-   "usd": 789,
+   "usd": 1022,
    "paid": 0.42,
    "ask": 0.42,
    "status": "live",
@@ -203,10 +203,10 @@
    "inside_fair": false,
    "fair_board": 0.4275,
    "books": {
-    "at": "2026-11-19T23:16:37Z",
-    "fair": 0.4289,
+    "at": "2026-11-19T23:58:57Z",
+    "fair": 0.4293,
     "q": {
-     "Novig": 0.43,
+     "Novig": 0.435,
      "Caesars": 0.4464,
      "Kalshi": 0.45,
      "DK": 0.4545
@@ -249,15 +249,15 @@
    ],
    "money_with": false,
    "grade": "watch",
-   "fair_board": 0.1136,
+   "fair_board": 0.1137,
    "inside_fair": false,
    "books": {
-    "at": "2026-11-19T22:27:10Z",
-    "fair": 0.1136,
+    "at": "2026-11-19T23:58:57Z",
+    "fair": 0.1137,
     "q": {
      "Novig": 0.12,
-     "DK": 0.1299,
      "FD": 0.1316,
+     "DK": 0.1316,
      "Caesars": 0.1333
     }
    }
@@ -278,7 +278,7 @@
    "best_rank": 104,
    "usd": 102,
    "paid": 0.6,
-   "ask": 0.63,
+   "ask": 0.62,
    "status": "live",
    "link": "https://polymarket.us/event/nba-gsw-mem-2026-11-19",
    "other": null,
@@ -415,7 +415,7 @@
    "side_std": "away",
    "money_with": false,
    "grade": "B",
-   "fair_board": 0.5027,
+   "fair_board": 0.5069,
    "inside_fair": false,
    "books": null
   },
@@ -562,9 +562,9 @@
   "401892744:nhl_early_home_fav_qual": {
    "with": null,
    "against": {
-    "n": 1,
+    "n": 2,
     "best_rank": 79,
-    "usd": 789
+    "usd": 1022
    }
   },
   "401892751:nhl_bounce_home_ml": {
@@ -705,9 +705,9 @@
   },
   "401892744|ml": {
    "away": {
-    "n": 1,
+    "n": 2,
     "best_rank": 79,
-    "usd": 789
+    "usd": 1022
    }
   },
   "401892750|ml": {
