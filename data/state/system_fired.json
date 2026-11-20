@@ -8310,7 +8310,11 @@
 "price": -122,
 "fair": 0.54904,
 "edge_pts": -0.1,
-"why": "home COL lost its last game by 3, record 12-10 (55%): home moneyline (mined angle)"
+"why": "home COL lost its last game by 3, record 12-10 (55%): home moneyline (mined angle)",
+"void": true,
+"void_why": "Untracked: systems conflict (nhl_bounce_home_ml vs xch_homedog_fade)",
+"void_at": "2026-11-20T00:37:09Z",
+"untracked": "nhl_bounce_home_ml vs xch_homedog_fade"
 },
 "401909308:nba_ats_hot_home": {
 "tag": "nba_ats_hot_home",
@@ -8505,5 +8509,39 @@
 "void_why": "Untracked: systems conflict (xch_homedog_fade vs nhl_pl_fav_strong_opp)",
 "void_at": "2026-11-20T00:11:47Z",
 "untracked": "xch_homedog_fade vs nhl_pl_fav_strong_opp"
+},
+"401910020:xch_homedog_fade:ml": {
+"tag": "xch_homedog_fade",
+"fill_id": "b338ee6406b7",
+"ts": "2026-11-20T00:37:09Z",
+"market": "ml",
+"side": "away",
+"line": null,
+"venue": "Novig",
+"price": -355,
+"fair": 0.79079,
+"edge_pts": 1.08,
+"why": "Novig home side mid 0.222 inside T-0.4h; audit band 20-35c",
+"now": {
+"venue": "Novig",
+"price": -355
+}
+},
+"401892751:xch_homedog_fade:spread": {
+"tag": "xch_homedog_fade",
+"fill_id": "daa515378ab9",
+"ts": "2026-11-20T00:37:09Z",
+"market": "spread",
+"side": "away",
+"line": 1.5,
+"venue": "Novig",
+"price": -203,
+"fair": 0.66796,
+"edge_pts": -0.2,
+"why": "Novig home side mid 0.333 inside T-1.4h; audit band 20-35c",
+"void": true,
+"void_why": "Untracked: systems conflict (xch_homedog_fade vs nhl_bounce_home_ml)",
+"void_at": "2026-11-20T00:37:09Z",
+"untracked": "xch_homedog_fade vs nhl_bounce_home_ml"
 }
 }
