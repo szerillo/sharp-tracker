@@ -1,5 +1,5 @@
 {
- "built": "2026-11-20T23:24:30Z",
+ "built": "2026-11-20T23:38:50Z",
  "rows": [
   {
    "cond": "0x8045cbc5e564fb705352aaf4421544f346851009cfae0b0d94e44005d095d499",
@@ -118,7 +118,7 @@
    "home_name": "Toledo Rockets",
    "game_start": "2026-11-21T00:30Z",
    "side_std": "under",
-   "money_with": true,
+   "money_with": false,
    "grade": "A",
    "fair_board": null,
    "inside_fair": null,
@@ -186,7 +186,7 @@
    "best_rank": 40,
    "usd": 2400,
    "paid": 0.51,
-   "ask": 0.53,
+   "ask": 0.52,
    "status": "live",
    "link": "https://polymarket.us/event/nba-was-chi-2026-11-20",
    "other": null,
@@ -259,6 +259,52 @@
      "DK": 0.4673,
      "FD": 0.4717,
      "Caesars": 0.4762
+    }
+   }
+  },
+  {
+   "cond": "0xd2ec06b5026f7da6ba5c3d71c50287854ecd72b0353524e641724e35c202bb6a",
+   "slug": "nba-hou-den-2026-11-20",
+   "title": "Rockets vs. Nuggets",
+   "mtype": "ml",
+   "start": "2026-11-21T03:00:00Z",
+   "bet": "Nuggets ML",
+   "side": "Nuggets",
+   "flagged": "2026-11-20T23:38:10Z",
+   "why": "2 top-200 accounts",
+   "proven": false,
+   "trigger": "two",
+   "n_accounts": 2,
+   "best_rank": 132,
+   "usd": 2398,
+   "paid": 0.53,
+   "ask": 0.53,
+   "status": "live",
+   "link": "https://polymarket.us/event/nba-hou-den-2026-11-20",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401909312",
+   "sport": "nba",
+   "league": null,
+   "away": "HOU",
+   "home": "DEN",
+   "away_name": "Houston Rockets",
+   "home_name": "Denver Nuggets",
+   "game_start": "2026-11-21T03:00Z",
+   "side_std": "home",
+   "money_with": true,
+   "grade": "A",
+   "fair_board": 0.5344,
+   "inside_fair": true,
+   "books": {
+    "at": "2026-11-20T23:05:29Z",
+    "fair": 0.5344,
+    "q": {
+     "Novig": 0.54,
+     "FD": 0.5455,
+     "DK": 0.5556,
+     "Caesars": 0.5556
     }
    }
   },
@@ -932,9 +978,9 @@
   },
   "401909312|ml": {
    "home": {
-    "n": 1,
+    "n": 2,
     "best_rank": 132,
-    "usd": 446
+    "usd": 2398
    }
   },
   "401910024|ml": {
