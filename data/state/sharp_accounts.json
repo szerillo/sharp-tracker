@@ -1,5 +1,5 @@
 {
- "built": "2026-11-20T13:03:01Z",
+ "built": "2026-11-20T13:12:44Z",
  "rows": [
   {
    "cond": "0xa0e79933d9c63108a49f598f9af22a145b66f7870df8f7c125005e3181a95545",
@@ -32,6 +32,43 @@
    "home_name": "Chelsea",
    "game_start": "2026-11-21T15:00Z",
    "side_std": "not_home",
+   "money_with": false,
+   "grade": "A",
+   "fair_board": null,
+   "inside_fair": null,
+   "books": null
+  },
+  {
+   "cond": "0xf1cdcb738486650f8f9fc6337516abe65ba0970371028649b96f2b0963f25ff6",
+   "slug": "nhl-phi-mon-2026-11-21",
+   "title": "Flyers vs. Canadiens",
+   "mtype": "ml",
+   "start": "2026-11-22T00:00:00Z",
+   "bet": "Flyers ML",
+   "side": "Flyers",
+   "flagged": "2026-11-20T13:12:11Z",
+   "why": "a top-200 account also in this sport's top 50",
+   "proven": true,
+   "trigger": "proven",
+   "n_accounts": 1,
+   "best_rank": 197,
+   "usd": 1014,
+   "paid": 0.39,
+   "ask": 0.39,
+   "status": "live",
+   "link": "https://polymarket.us/event/nhl-phi-mon-2026-11-21",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401892760",
+   "sport": "nhl",
+   "league": null,
+   "away": "PHI",
+   "home": "MTL",
+   "away_name": "Philadelphia Flyers",
+   "home_name": "Montreal Canadiens",
+   "game_start": "2026-11-22T00:00Z",
+   "side_std": "away",
    "money_with": false,
    "grade": "A",
    "fair_board": null,
@@ -235,6 +272,13 @@
     "n": 1,
     "best_rank": 93,
     "usd": 672
+   }
+  },
+  "401892760|ml": {
+   "away": {
+    "n": 1,
+    "best_rank": 197,
+    "usd": 1014
    }
   },
   "401858527|total": {
