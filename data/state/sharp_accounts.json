@@ -1,5 +1,5 @@
 {
- "built": "2026-11-20T07:56:22Z",
+ "built": "2026-11-20T08:07:07Z",
  "rows": [
   {
    "cond": "0xc5a0afee8b74d469b11297c8b6950abd939b3d57344f86aac0219aa1baaef25f",
@@ -121,13 +121,29 @@
   "clv_venue": 0.82,
   "clv_poly_same": -0.78
  },
- "sys_tags": {},
+ "sys_tags": {
+  "401909306:nba_badteams_under": {
+   "with": null,
+   "against": {
+    "n": 1,
+    "best_rank": 132,
+    "usd": 522
+   }
+  }
+ },
  "by_event": {
   "401873072|spread": {
    "away": {
     "n": 1,
     "best_rank": 12,
     "usd": 228
+   }
+  },
+  "401909306|total": {
+   "over": {
+    "n": 1,
+    "best_rank": 132,
+    "usd": 522
    }
   },
   "401909307|ml": {
