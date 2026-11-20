@@ -1,5 +1,5 @@
 {
- "built": "2026-11-20T08:29:21Z",
+ "built": "2026-11-20T08:44:15Z",
  "record": {
   "n": 193,
   "won": 83,
@@ -14,5 +14,26 @@
   "units": -0.4,
   "roi": -19.8
  },
- "rows": []
+ "rows": [
+  {
+   "key": "401909305|spread|away",
+   "sport": "nba",
+   "event_id": "401909305",
+   "game": "CHA @ ATL",
+   "start": "2026-11-21T00:00Z",
+   "market": "spread",
+   "side": "away",
+   "line": 5.5,
+   "venue": "Novig",
+   "price": 0.48,
+   "fair": 0.4898,
+   "fair_power": 0.4893,
+   "venue_fair": 0.4752,
+   "fair_gap": 1.5,
+   "ev": 2.0,
+   "move": 1.1,
+   "flagged": "2026-11-20T08:44:15Z",
+   "team": "CHA"
+  }
+ ]
 }
