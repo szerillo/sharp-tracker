@@ -1,5 +1,5 @@
 {
- "built": "2026-11-20T17:27:03Z",
+ "built": "2026-11-20T17:34:32Z",
  "rows": [
   {
    "cond": "0x8045cbc5e564fb705352aaf4421544f346851009cfae0b0d94e44005d095d499",
@@ -134,6 +134,98 @@
    }
   },
   {
+   "cond": "0xd84c534c70520570bff78cdf616c7c2bf440c971c0eecb8b4991789773df7d2b",
+   "slug": "nba-was-chi-2026-11-20",
+   "title": "Wizards vs. Bulls",
+   "mtype": "spread",
+   "start": "2026-11-21T01:00:00Z",
+   "bet": "Wizards +2.5",
+   "side": "Wizards",
+   "flagged": "2026-11-20T17:30:05Z",
+   "why": "2 top-200 accounts",
+   "proven": false,
+   "trigger": "two",
+   "n_accounts": 2,
+   "best_rank": 40,
+   "usd": 2400,
+   "paid": 0.51,
+   "ask": 0.52,
+   "status": "live",
+   "link": "https://polymarket.us/event/nba-was-chi-2026-11-20",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401909309",
+   "sport": "nba",
+   "league": null,
+   "away": "WSH",
+   "home": "CHI",
+   "away_name": "Washington Wizards",
+   "home_name": "Chicago Bulls",
+   "game_start": "2026-11-21T01:00Z",
+   "side_std": "away",
+   "money_with": false,
+   "grade": "B",
+   "fair_board": 0.4937,
+   "inside_fair": false,
+   "books": {
+    "at": "2026-11-20T17:03:05Z",
+    "fair": 0.4937,
+    "q": {
+     "Novig": 0.495,
+     "DK": 0.5192,
+     "FD": 0.5192,
+     "Kalshi": 0.52
+    }
+   }
+  },
+  {
+   "cond": "0xa79a100781ef911fdb98a31872e523fb6948eb64808a4839b018467be9979cc1",
+   "slug": "nba-was-chi-2026-11-20",
+   "title": "Wizards vs. Bulls",
+   "mtype": "ml",
+   "start": "2026-11-21T01:00:00Z",
+   "bet": "Wizards ML",
+   "side": "Wizards",
+   "flagged": "2026-11-20T17:30:05Z",
+   "why": "a top-50 account",
+   "proven": false,
+   "trigger": "top50",
+   "n_accounts": 1,
+   "best_rank": 40,
+   "usd": 7137,
+   "paid": 0.43,
+   "ask": 0.44,
+   "status": "live",
+   "link": "https://polymarket.us/event/nba-was-chi-2026-11-20",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401909309",
+   "sport": "nba",
+   "league": null,
+   "away": "WSH",
+   "home": "CHI",
+   "away_name": "Washington Wizards",
+   "home_name": "Chicago Bulls",
+   "game_start": "2026-11-21T01:00Z",
+   "side_std": "away",
+   "money_with": false,
+   "grade": "watch",
+   "fair_board": 0.4334,
+   "inside_fair": false,
+   "books": {
+    "at": "2026-11-20T17:03:05Z",
+    "fair": 0.4334,
+    "q": {
+     "Novig": 0.435,
+     "FD": 0.4425,
+     "Kalshi": 0.46,
+     "Caesars": 0.4651
+    }
+   }
+  },
+  {
    "cond": "0xa0e79933d9c63108a49f598f9af22a145b66f7870df8f7c125005e3181a95545",
    "slug": "epl-che-lee-2026-11-21",
    "title": "Chelsea FC vs. Leeds United FC",
@@ -149,7 +241,7 @@
    "best_rank": 57,
    "usd": 2822,
    "paid": 0.509,
-   "ask": 0.52,
+   "ask": 0.53,
    "status": "live",
    "link": "https://polymarket.us/event/epl-che-lee-2026-11-21",
    "other": null,
@@ -186,7 +278,7 @@
    "best_rank": 149,
    "usd": 1147,
    "paid": 0.24,
-   "ask": 0.25,
+   "ask": 0.26,
    "status": "live",
    "link": "https://polymarket.us/event/epl-che-lee-2026-11-21",
    "other": null,
@@ -622,9 +714,16 @@
   },
   "401909309|spread": {
    "away": {
+    "n": 2,
+    "best_rank": 40,
+    "usd": 2400
+   }
+  },
+  "401909309|ml": {
+   "away": {
     "n": 1,
-    "best_rank": 119,
-    "usd": 106
+    "best_rank": 40,
+    "usd": 7137
    }
   },
   "401909311|ml": {
