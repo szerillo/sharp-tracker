@@ -8510,10 +8510,49 @@
 "void_at": "2026-11-20T00:11:47Z",
 "untracked": "xch_homedog_fade vs nhl_pl_fav_strong_opp"
 },
+"401909306:nba_badteams_under": {
+"tag": "nba_badteams_under",
+"fill_id": "28f01f2afbb8",
+"ts": "2026-11-20T00:52:32Z",
+"market": "total",
+"side": "under",
+"line": 222.5,
+"venue": "DK",
+"price": -106,
+"fair": 0.49443,
+"edge_pts": -2.01,
+"why": "home BKN wins 21% (14 games), visitor ORL wins 42%: under"
+},
+"401892757:nhl_bounce_home_ml": {
+"tag": "nhl_bounce_home_ml",
+"fill_id": "6f1105a7d75c",
+"ts": "2026-11-20T00:52:32Z",
+"market": "ml",
+"side": "home",
+"line": null,
+"venue": "Kalshi",
+"price": -127,
+"fair": 0.53,
+"edge_pts": -3.0,
+"why": "home NSH lost its last game by 4, record 11-11 (50%): home moneyline (mined angle)"
+},
+"401892756:nhl_bounce_home_ml": {
+"tag": "nhl_bounce_home_ml",
+"fill_id": "7163bc220dbb",
+"ts": "2026-11-20T00:52:32Z",
+"market": "ml",
+"side": "home",
+"line": null,
+"venue": "Kalshi",
+"price": -163,
+"fair": 0.58,
+"edge_pts": -4.0,
+"why": "home FLA lost its last game by 3, record 12-11 (52%): home moneyline (mined angle)"
+},
 "401910020:xch_homedog_fade:ml": {
 "tag": "xch_homedog_fade",
-"fill_id": "b338ee6406b7",
-"ts": "2026-11-20T00:37:09Z",
+"fill_id": "cf6444847387",
+"ts": "2026-11-20T00:52:32Z",
 "market": "ml",
 "side": "away",
 "line": null,
@@ -8521,16 +8560,12 @@
 "price": -355,
 "fair": 0.79079,
 "edge_pts": 1.08,
-"why": "Novig home side mid 0.222 inside T-0.4h; audit band 20-35c",
-"now": {
-"venue": "Novig",
-"price": -355
-}
+"why": "Novig home side mid 0.222 inside T-0.1h; audit band 20-35c"
 },
 "401892751:xch_homedog_fade:spread": {
 "tag": "xch_homedog_fade",
-"fill_id": "daa515378ab9",
-"ts": "2026-11-20T00:37:09Z",
+"fill_id": "3d56e68dcf48",
+"ts": "2026-11-20T00:52:32Z",
 "market": "spread",
 "side": "away",
 "line": 1.5,
@@ -8538,10 +8573,6 @@
 "price": -203,
 "fair": 0.66796,
 "edge_pts": -0.2,
-"why": "Novig home side mid 0.333 inside T-1.4h; audit band 20-35c",
-"void": true,
-"void_why": "Untracked: systems conflict (xch_homedog_fade vs nhl_bounce_home_ml)",
-"void_at": "2026-11-20T00:37:09Z",
-"untracked": "xch_homedog_fade vs nhl_bounce_home_ml"
+"why": "Novig home side mid 0.333 inside T-1.1h; audit band 20-35c"
 }
 }
