@@ -1,6 +1,43 @@
 {
- "built": "2026-11-20T13:53:06Z",
+ "built": "2026-11-20T14:13:39Z",
  "rows": [
+  {
+   "cond": "0xdf764f8f0a9fa64c68f3b15cbbef3b20e215496212062a575d39c9937d11ed57",
+   "slug": "cfb-bowlgr-toledo-2026-11-20",
+   "title": "Bowling Green vs. Toledo",
+   "mtype": "total",
+   "start": "2026-11-21T00:30:00Z",
+   "bet": "Under 49.5",
+   "side": "Under",
+   "flagged": "2026-11-20T14:04:55Z",
+   "why": "a top-200 account also in this sport's top 50",
+   "proven": true,
+   "trigger": "proven",
+   "n_accounts": 1,
+   "best_rank": 110,
+   "usd": 1540,
+   "paid": 0.59,
+   "ask": 0.62,
+   "status": "live",
+   "link": "https://polymarket.us/event/cfb-bowlgr-toledo-2026-11-20",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401866468",
+   "sport": "cfb",
+   "league": null,
+   "away": "BGSU",
+   "home": "TOL",
+   "away_name": "Bowling Green Falcons",
+   "home_name": "Toledo Rockets",
+   "game_start": "2026-11-21T00:30Z",
+   "side_std": "under",
+   "money_with": true,
+   "grade": "A",
+   "fair_board": null,
+   "inside_fair": null,
+   "books": null
+  },
   {
    "cond": "0xa0e79933d9c63108a49f598f9af22a145b66f7870df8f7c125005e3181a95545",
    "slug": "epl-che-lee-2026-11-21",
@@ -267,6 +304,13 @@
     "usd": 530
    }
   },
+  "401910026|ml": {
+   "home": {
+    "n": 1,
+    "best_rank": 93,
+    "usd": 165
+   }
+  },
   "401910033|ml": {
    "away": {
     "n": 1,
@@ -279,6 +323,18 @@
     "n": 1,
     "best_rank": 197,
     "usd": 1014
+   }
+  },
+  "401866468|total": {
+   "over": {
+    "n": 1,
+    "best_rank": 95,
+    "usd": 244
+   },
+   "under": {
+    "n": 1,
+    "best_rank": 110,
+    "usd": 156
    }
   },
   "401858527|total": {
