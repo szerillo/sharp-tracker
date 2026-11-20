@@ -8379,7 +8379,10 @@
 "price": -122,
 "fair": 0.52,
 "edge_pts": -3.0,
-"why": "home favorite, game 23 of the season, opponent WSH wins 52% (10-9)"
+"why": "home favorite, game 23 of the season, opponent WSH wins 52% (10-9)",
+"void": true,
+"void_why": "trigger no longer holds on current season records (2026-11-20T02:58:02Z)",
+"void_at": "2026-11-20T02:58:02Z"
 },
 "401856869:cfb_wind14": {
 "tag": "cfb_wind14",
@@ -8660,5 +8663,18 @@
 "void_why": "Untracked: systems conflict (xch_homedog_fade vs nhl_early_home_fav_qual)",
 "void_at": "2026-11-20T02:06:53Z",
 "untracked": "xch_homedog_fade vs nhl_early_home_fav_qual"
+},
+"401909310:nba_roadtrip_over": {
+"tag": "nba_roadtrip_over",
+"fill_id": "7a5e99ef9d8d",
+"ts": "2026-11-20T02:58:02Z",
+"market": "total",
+"side": "over",
+"line": 227.5,
+"venue": "Caesars",
+"price": -115,
+"fair": 0.5116,
+"edge_pts": -2.33,
+"why": "NO off 5 straight home games, first road game: over (Bet Labs filter)"
 }
 }
