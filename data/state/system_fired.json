@@ -8619,7 +8619,11 @@
 "price": -111,
 "fair": null,
 "edge_pts": null,
-"why": "LAL is 88% on the moneyline: over (mined angle)"
+"why": "LAL is 88% on the moneyline: over (mined angle)",
+"void": true,
+"void_why": "Untracked: systems conflict (nba_bigfav_over vs nba_under_good_home_over)",
+"void_at": "2026-11-20T15:19:23Z",
+"untracked": "nba_bigfav_over vs nba_under_good_home_over"
 },
 "401909313:nba_roadtrip_over": {
 "tag": "nba_roadtrip_over",
@@ -8632,7 +8636,11 @@
 "price": -111,
 "fair": null,
 "edge_pts": null,
-"why": "SAC off 7 straight home games, first road game: over (Bet Labs filter)"
+"why": "SAC off 7 straight home games, first road game: over (Bet Labs filter)",
+"void": true,
+"void_why": "Untracked: systems conflict (nba_roadtrip_over vs nba_under_good_home_over)",
+"void_at": "2026-11-20T15:19:23Z",
+"untracked": "nba_roadtrip_over vs nba_under_good_home_over"
 },
 "401892759:nhl_loss_streak_over": {
 "tag": "nhl_loss_streak_over",
@@ -8753,7 +8761,11 @@
 "price": -100,
 "fair": 0.49257,
 "edge_pts": -0.74,
-"why": "home LAL over rate 68%, days since last game: home 2, visitor 2; total 230.5 -> 228.5"
+"why": "home LAL over rate 68%, days since last game: home 2, visitor 2; total 230.5 -> 228.5",
+"void": true,
+"void_why": "Untracked: systems conflict (nba_under_good_home_over vs nba_bigfav_over)",
+"void_at": "2026-11-20T15:19:23Z",
+"untracked": "nba_under_good_home_over vs nba_bigfav_over"
 },
 "401892759:nhl_skid_fade_road": {
 "tag": "nhl_skid_fade_road",
