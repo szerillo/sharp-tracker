@@ -8579,10 +8579,75 @@
 "void_at": "2026-11-20T01:05:11Z",
 "untracked": "xch_homedog_fade vs nhl_bounce_home_ml"
 },
+"401909309:nba_badteams_under": {
+"tag": "nba_badteams_under",
+"fill_id": "9cea1ccef91c",
+"ts": "2026-11-20T01:54:59Z",
+"market": "total",
+"side": "under",
+"line": 240.5,
+"venue": "Novig",
+"price": 102,
+"fair": 0.50151,
+"edge_pts": 0.65,
+"why": "home CHI wins 28% (14 games), visitor WSH wins 31%: under"
+},
+"401909313:nba_ats_hot_home": {
+"tag": "nba_ats_hot_home",
+"fill_id": "8c73f3bbc43d",
+"ts": "2026-11-20T01:54:59Z",
+"market": "spread",
+"side": "home",
+"line": -14.5,
+"venue": "Novig",
+"price": -113,
+"fair": null,
+"edge_pts": null,
+"why": "home LAL covers 62% of spreads this season (16 games), 2 days rest: home spread (mined angle)"
+},
+"401909313:nba_bigfav_over": {
+"tag": "nba_bigfav_over",
+"fill_id": "ade2e0505d81",
+"ts": "2026-11-20T01:54:59Z",
+"market": "total",
+"side": "over",
+"line": 230.5,
+"venue": "Novig",
+"price": -111,
+"fair": null,
+"edge_pts": null,
+"why": "LAL is 88% on the moneyline: over (mined angle)"
+},
+"401909313:nba_roadtrip_over": {
+"tag": "nba_roadtrip_over",
+"fill_id": "cb13392ef258",
+"ts": "2026-11-20T01:54:59Z",
+"market": "total",
+"side": "over",
+"line": 230.5,
+"venue": "Novig",
+"price": -111,
+"fair": null,
+"edge_pts": null,
+"why": "SAC off 7 straight home games, first road game: over (Bet Labs filter)"
+},
+"401892759:nhl_loss_streak_over": {
+"tag": "nhl_loss_streak_over",
+"fill_id": "c7bb2a4b99a5",
+"ts": "2026-11-20T01:54:59Z",
+"market": "total",
+"side": "over",
+"line": 6.5,
+"venue": "Kalshi",
+"price": -108,
+"fair": null,
+"edge_pts": null,
+"why": "home TOR has lost 7 straight, season over rate 57%: over (mined angle)"
+},
 "401892753:xch_homedog_fade:spread": {
 "tag": "xch_homedog_fade",
-"fill_id": "6c7729a0ab45",
-"ts": "2026-11-20T01:38:08Z",
+"fill_id": "7c4a6c9ca5ff",
+"ts": "2026-11-20T01:54:59Z",
 "market": "spread",
 "side": "away",
 "line": 1.5,
@@ -8590,10 +8655,6 @@
 "price": -233,
 "fair": 0.69647,
 "edge_pts": -0.35,
-"why": "Novig home side mid 0.305 inside T-1.4h; audit band 20-35c",
-"void": true,
-"void_why": "Untracked: systems conflict (xch_homedog_fade vs nhl_early_home_fav_qual)",
-"void_at": "2026-11-20T01:38:08Z",
-"untracked": "xch_homedog_fade vs nhl_early_home_fav_qual"
+"why": "Novig home side mid 0.305 inside T-1.1h; audit band 20-35c"
 }
 }
