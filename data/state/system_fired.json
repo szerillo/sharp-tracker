@@ -6953,7 +6953,10 @@
 "price": -112,
 "fair": 0.52161,
 "edge_pts": -0.67,
-"why": "conference game, FIU on road game 2 in a row, +3.5, total 44.5"
+"why": "conference game, FIU on road game 2 in a row, +3.5, total 44.5",
+"void": true,
+"void_why": "rule no longer holds on the current line: home spread -3.0, total 44.5 (2026-11-20T14:56:00Z)",
+"void_at": "2026-11-20T14:56:00Z"
 },
 "401869953:cfb_road_streak_dog": {
 "tag": "cfb_road_streak_dog",
@@ -7158,19 +7161,16 @@
 },
 "401866468:cfb_road_dog_low_total": {
 "tag": "cfb_road_dog_low_total",
-"fill_id": "cb95538c8750",
-"ts": "2026-11-15T21:55:07Z",
+"fill_id": "99b626e7c433",
+"ts": "2026-11-20T14:56:00Z",
 "market": "spread",
 "side": "away",
-"line": 15.5,
-"venue": "Kalshi",
-"price": -113,
-"fair": 0.495,
-"edge_pts": -3.5,
-"why": "conference game, BGSU +15.5 on the road, total 45.5",
-"void": true,
-"void_why": "rule no longer holds on the current line: home spread -15.5, total 48.5 (2026-11-16T00:53:07Z)",
-"void_at": "2026-11-16T00:53:07Z"
+"line": 16.5,
+"venue": "Novig",
+"price": 104,
+"fair": 0.49567,
+"edge_pts": 0.57,
+"why": "conference game, BGSU +16.5 on the road, total 46.5"
 },
 "401862831:cfb_road_streak_dog": {
 "tag": "cfb_road_streak_dog",
@@ -8676,5 +8676,96 @@
 "fair": 0.5116,
 "edge_pts": -2.33,
 "why": "NO off 5 straight home games, first road game: over (Bet Labs filter)"
+},
+"401858310:cfb_wind14": {
+"tag": "cfb_wind14",
+"fill_id": "2de0bc11a577",
+"ts": "2026-11-20T14:56:00Z",
+"market": "total",
+"side": "under",
+"line": 56.5,
+"venue": "Novig",
+"price": -111,
+"fair": 0.50992,
+"edge_pts": -1.51,
+"why": "MySportsWeather 15 mph, gusts 22 (Open-Meteo 13.7 at T-27h), gust 25.1, 66.1F"
+},
+"401856866:cfb_wind14": {
+"tag": "cfb_wind14",
+"fill_id": "edb4c391c2e0",
+"ts": "2026-11-20T14:56:00Z",
+"market": "total",
+"side": "under",
+"line": 47.0,
+"venue": "Caesars",
+"price": -113,
+"fair": 0.5035,
+"edge_pts": -2.7,
+"why": "MySportsWeather 15 mph, gusts 28 (Open-Meteo 14.8 at T-27h), gust 26.2, 64.8F"
+},
+"401862832:cfb_wind14": {
+"tag": "cfb_wind14",
+"fill_id": "7a9bb9742a61",
+"ts": "2026-11-20T14:56:00Z",
+"market": "total",
+"side": "under",
+"line": 51.5,
+"venue": "Novig",
+"price": 102,
+"fair": 0.49232,
+"edge_pts": -0.27,
+"why": "MySportsWeather 15 mph, gusts 26 (Open-Meteo 13.4 at T-29h), gust 21.9, 67.7F"
+},
+"401871077:cfb_wind14": {
+"tag": "cfb_wind14",
+"fill_id": "b343d600f63a",
+"ts": "2026-11-20T14:56:00Z",
+"market": "total",
+"side": "under",
+"line": 53.5,
+"venue": "Novig",
+"price": -100,
+"fair": 0.49415,
+"edge_pts": -0.59,
+"why": "MySportsWeather 15 mph, gusts 25 (Open-Meteo 14.8 at T-30h), gust 25.7, 58.2F"
+},
+"401856752:cfb_wind14": {
+"tag": "cfb_wind14",
+"fill_id": "11a5a49ad938",
+"ts": "2026-11-20T14:56:00Z",
+"market": "total",
+"side": "under",
+"line": 38.5,
+"venue": "FD",
+"price": -110,
+"fair": 0.506,
+"edge_pts": -1.78,
+"why": "MySportsWeather 17 mph, gusts 26 (Open-Meteo 16.8 at T-30h), gust 26.2, 67.3F"
+},
+"401909313:nba_under_good_home_over": {
+"tag": "nba_under_good_home_over",
+"fill_id": "6f51d3a22bbe",
+"ts": "2026-11-20T14:56:00Z",
+"market": "total",
+"side": "under",
+"line": 228.5,
+"venue": "Novig",
+"price": -100,
+"fair": 0.49257,
+"edge_pts": -0.74,
+"why": "home LAL over rate 68%, days since last game: home 2, visitor 2; total 230.5 -> 228.5"
+},
+"401892759:nhl_skid_fade_road": {
+"tag": "nhl_skid_fade_road",
+"fill_id": "8f66c6bccfdc",
+"ts": "2026-11-20T14:56:00Z",
+"market": "spread",
+"side": "away",
+"line": 1.5,
+"venue": "Kalshi",
+"price": -300,
+"fair": null,
+"edge_pts": null,
+"why": "CBJ off a win, home TOR has lost 8 straight: road puck line (mined angle)"
 }
 }
