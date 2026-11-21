@@ -1,11 +1,11 @@
 {
- "built": "2026-11-21T02:22:09Z",
+ "built": "2026-11-21T02:38:58Z",
  "record": {
   "cbb_1h_total_curve": {
-   "n": 6,
-   "won": 2,
+   "n": 7,
+   "won": 3,
    "lost": 3,
-   "units": -0.3,
+   "units": -0.08,
    "clv": {
     "n": 4,
     "avg": -3.02,
@@ -88,34 +88,6 @@
   }
  },
  "rows": [
-  {
-   "key": "cbb_1h_total_curve|cdf9ed66e5ad6a4af973a7c08740af15||over",
-   "rule": "cbb_1h_total_curve",
-   "tier": "P",
-   "stake": 0.0,
-   "sport": "cbb",
-   "odds_id": "cdf9ed66e5ad6a4af973a7c08740af15",
-   "espn": "401906852",
-   "game": "Coastal Carolina Chanticleers @ Tennessee Volunteers",
-   "start": "2026-11-21T00:00:00Z",
-   "market": "totals_h1",
-   "team": null,
-   "team_name": null,
-   "side": "over",
-   "line": 68.5,
-   "curve": 0.591,
-   "pin_fair": 0.51,
-   "gap": 8.0,
-   "full_total": 147.0,
-   "full_spread": -27.0,
-   "pin_price": 1.87,
-   "book": null,
-   "price": null,
-   "flagged": "2026-11-20T21:16:46Z",
-   "close_ts": "2026-11-20T23:52:09Z",
-   "close_line": 68.0,
-   "line_value": -0.5
-  },
   {
    "key": "cfb_q1_under_curve|59cb6c9beeb879b864784348e3803ff8||under",
    "rule": "cfb_q1_under_curve",
