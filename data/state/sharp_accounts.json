@@ -1,5 +1,5 @@
 {
- "built": "2026-11-21T00:29:04Z",
+ "built": "2026-11-21T00:36:24Z",
  "rows": [
   {
    "cond": "0x8045cbc5e564fb705352aaf4421544f346851009cfae0b0d94e44005d095d499",
@@ -78,9 +78,6 @@
    "home_name": "Mount St. Mary's Mountaineers",
    "game_start": "2026-11-21T00:00Z",
    "side_std": "away",
-   "conflict": [
-    "Kalshi move"
-   ],
    "money_with": false,
    "grade": "B",
    "fair_board": null,
@@ -103,7 +100,7 @@
    "best_rank": 110,
    "usd": 1540,
    "paid": 0.59,
-   "ask": 0.61,
+   "ask": null,
    "status": "live",
    "link": "https://polymarket.us/event/cfb-bowlgr-toledo-2026-11-20",
    "other": null,
@@ -140,7 +137,7 @@
    "best_rank": 58,
    "usd": 480,
    "paid": 0.52,
-   "ask": 0.53,
+   "ask": null,
    "status": "live",
    "link": "https://polymarket.us/event/cfb-bowlgr-toledo-2026-11-20",
    "other": null,
@@ -839,14 +836,6 @@
   "clv_poly_same": -0.78
  },
  "sys_tags": {
-  "401866468:cfb_road_dog_low_total": {
-   "with": null,
-   "against": {
-    "n": 1,
-    "best_rank": 58,
-    "usd": 480
-   }
-  },
   "401873067:bounce15_1h": {
    "with": {
     "n": 1,
@@ -862,14 +851,6 @@
     "usd": 196
    },
    "against": null
-  },
-  "401909306:nba_badteams_under": {
-   "with": null,
-   "against": {
-    "n": 1,
-    "best_rank": 132,
-    "usd": 522
-   }
   }
  },
  "by_event": {
@@ -892,46 +873,6 @@
     "n": 1,
     "best_rank": 115,
     "usd": 7905
-   }
-  },
-  "401909306|total": {
-   "over": {
-    "n": 1,
-    "best_rank": 132,
-    "usd": 522
-   }
-  },
-  "401909306|spread": {
-   "home": {
-    "n": 2,
-    "best_rank": 119,
-    "usd": 2468
-   }
-  },
-  "401909307|ml": {
-   "home": {
-    "n": 1,
-    "best_rank": 93,
-    "usd": 245
-   }
-  },
-  "401909307|spread": {
-   "away": {
-    "n": 1,
-    "best_rank": 95,
-    "usd": 255
-   }
-  },
-  "401909308|ml": {
-   "home": {
-    "n": 2,
-    "best_rank": 43,
-    "usd": 525
-   },
-   "away": {
-    "n": 2,
-    "best_rank": 43,
-    "usd": 476
    }
   },
   "401909309|spread": {
@@ -1016,25 +957,6 @@
     "n": 1,
     "best_rank": 197,
     "usd": 1014
-   }
-  },
-  "401866468|total": {
-   "over": {
-    "n": 1,
-    "best_rank": 95,
-    "usd": 244
-   },
-   "under": {
-    "n": 1,
-    "best_rank": 110,
-    "usd": 156
-   }
-  },
-  "401866468|spread": {
-   "home": {
-    "n": 1,
-    "best_rank": 58,
-    "usd": 480
    }
   },
   "401858529|ml": {
