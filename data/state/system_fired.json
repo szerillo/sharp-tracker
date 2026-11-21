@@ -8544,7 +8544,11 @@
 "price": -127,
 "fair": 0.53,
 "edge_pts": -3.0,
-"why": "home NSH lost its last game by 4, record 11-11 (50%): home moneyline (mined angle)"
+"why": "home NSH lost its last game by 4, record 11-11 (50%): home moneyline (mined angle)",
+"void": true,
+"void_why": "Untracked: systems conflict (nhl_bounce_home_ml vs xch_homedog_fade)",
+"void_at": "2026-11-21T21:30:05Z",
+"untracked": "nhl_bounce_home_ml vs xch_homedog_fade"
 },
 "401892756:nhl_bounce_home_ml": {
 "tag": "nhl_bounce_home_ml",
@@ -8557,7 +8561,11 @@
 "price": -163,
 "fair": 0.58,
 "edge_pts": -4.0,
-"why": "home FLA lost its last game by 3, record 12-11 (52%): home moneyline (mined angle)"
+"why": "home FLA lost its last game by 3, record 12-11 (52%): home moneyline (mined angle)",
+"void": true,
+"void_why": "Untracked: systems conflict (nhl_bounce_home_ml vs xch_homedog_fade)",
+"void_at": "2026-11-21T21:30:05Z",
+"untracked": "nhl_bounce_home_ml vs xch_homedog_fade"
 },
 "401910020:xch_homedog_fade:ml": {
 "tag": "xch_homedog_fade",
@@ -9078,5 +9086,39 @@
 "fair": 0.50035,
 "edge_pts": -2.35,
 "why": "conference game, HAW +7.0 on the road, total 40.5"
+},
+"401892757:xch_homedog_fade:spread": {
+"tag": "xch_homedog_fade",
+"fill_id": "74a139e49e9a",
+"ts": "2026-11-21T21:30:05Z",
+"market": "spread",
+"side": "away",
+"line": 1.5,
+"venue": "Novig",
+"price": -203,
+"fair": 0.66683,
+"edge_pts": -0.32,
+"why": "Novig home side mid 0.333 inside T-1.5h; audit band 20-35c",
+"void": true,
+"void_why": "Untracked: systems conflict (xch_homedog_fade vs nhl_bounce_home_ml)",
+"void_at": "2026-11-21T21:30:05Z",
+"untracked": "xch_homedog_fade vs nhl_bounce_home_ml"
+},
+"401892756:xch_homedog_fade:spread": {
+"tag": "xch_homedog_fade",
+"fill_id": "25fa487f8540",
+"ts": "2026-11-21T21:30:05Z",
+"market": "spread",
+"side": "away",
+"line": 1.5,
+"venue": "Novig",
+"price": -194,
+"fair": 0.65438,
+"edge_pts": -0.56,
+"why": "Novig home side mid 0.345 inside T-1.5h; audit band 20-35c",
+"void": true,
+"void_why": "Untracked: systems conflict (xch_homedog_fade vs nhl_bounce_home_ml)",
+"void_at": "2026-11-21T21:30:05Z",
+"untracked": "xch_homedog_fade vs nhl_bounce_home_ml"
 }
 }

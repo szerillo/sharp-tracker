@@ -1,5 +1,5 @@
 {
- "built": "2026-11-21T21:22:51Z",
+ "built": "2026-11-21T21:37:47Z",
  "record": {
   "cbb_1h_total_curve": {
    "n": 8,
@@ -24,12 +24,12 @@
    "lost": 20,
    "units": -3.44,
    "clv": {
-    "n": 20,
-    "avg": -2.49,
+    "n": 19,
+    "avg": -2.46,
     "beat": 2
    },
    "line_value": {
-    "n": 20,
+    "n": 19,
     "avg": 0.0,
     "better": 0,
     "worse": 0
@@ -279,13 +279,7 @@
    "pin_price": 1.69,
    "book": null,
    "price": null,
-   "flagged": "2026-11-21T18:24:35Z",
-   "close_ts": "2026-11-21T20:52:17Z",
-   "close_line": 29.5,
-   "line_value": 0.0,
-   "close_fair": 0.5736,
-   "clv": -1.81,
-   "beat_fair": 0.36
+   "flagged": "2026-11-21T18:24:35Z"
   },
   {
    "key": "cfb_tt_under_curve|7f9809c817e27ec2d9f8a24e8e19a8ff|away|under",
@@ -393,7 +387,32 @@
    "pin_price": 2.14,
    "book": null,
    "price": null,
-   "flagged": "2026-11-21T21:22:51Z"
+   "flagged": "2026-11-21T21:06:53Z"
+  },
+  {
+   "key": "cfb_tt_under_curve|f23bc59387b6db63ad3de8b6bcc541fc|away|under",
+   "rule": "cfb_tt_under_curve",
+   "tier": "P",
+   "stake": 0.0,
+   "sport": "cfb",
+   "odds_id": "f23bc59387b6db63ad3de8b6bcc541fc",
+   "espn": "401860918",
+   "game": "Colorado State Rams @ Fresno State Bulldogs",
+   "start": "2026-11-22T00:30:00Z",
+   "market": "team_totals",
+   "team": "away",
+   "team_name": "Colorado State Rams",
+   "side": "under",
+   "line": 21.5,
+   "curve": 0.536,
+   "pin_fair": 0.47,
+   "gap": 6.6,
+   "full_total": 66.5,
+   "full_spread": -20.5,
+   "pin_price": 2.05,
+   "book": null,
+   "price": null,
+   "flagged": "2026-11-21T21:37:47Z"
   }
  ]
 }
