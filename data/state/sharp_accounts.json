@@ -1,5 +1,5 @@
 {
- "built": "2026-11-21T13:45:49Z",
+ "built": "2026-11-21T13:55:51Z",
  "rows": [
   {
    "cond": "0x0a97ac876ccda0d4cdc6c73454de33896b3cbf299bdc3afd1c1f1a9a62826810",
@@ -109,7 +109,7 @@
    "best_rank": 57,
    "usd": 2822,
    "paid": 0.509,
-   "ask": 0.52,
+   "ask": 0.53,
    "status": "live",
    "link": "https://polymarket.us/event/epl-che-lee-2026-11-21",
    "other": null,
@@ -218,52 +218,6 @@
      "DK": 0.5238,
      "Kalshi": 0.53,
      "FD": 0.5327
-    }
-   }
-  },
-  {
-   "cond": "0x22b2ad6680fc57d0821da5ed9c8c242a0217e5b081d97256c7d2545ff6c60efe",
-   "slug": "epl-tot-ips-2026-11-21-more-markets",
-   "title": "Tottenham Hotspur FC vs. Ipswich Town FC - More Markets",
-   "mtype": "spread",
-   "start": "2026-11-21T15:00:00Z",
-   "bet": "Tottenham Hotspur FC -1.5",
-   "side": "Tottenham Hotspur FC",
-   "flagged": "2026-11-20T22:10:53Z",
-   "why": "a top-200 account also in this sport's top 50",
-   "proven": true,
-   "trigger": "proven",
-   "n_accounts": 1,
-   "best_rank": 149,
-   "usd": 2468,
-   "paid": 0.4,
-   "ask": 0.42,
-   "status": "live",
-   "link": "https://polymarket.us/event/epl-tot-ips-2026-11-21-more-markets",
-   "other": null,
-   "kalshi_against": null,
-   "logged": true,
-   "event_id": "401878754",
-   "sport": "soccer",
-   "league": "epl",
-   "away": "IPS",
-   "home": "TOT",
-   "away_name": "Ipswich Town",
-   "home_name": "Tottenham Hotspur",
-   "game_start": "2026-11-21T15:00Z",
-   "side_std": "home",
-   "money_with": false,
-   "grade": "A",
-   "inside_fair": false,
-   "fair_board": 0.3771,
-   "books": {
-    "at": "2026-11-21T03:44:49Z",
-    "fair": 0.3879,
-    "q": {
-     "Novig": 0.4,
-     "FD": 0.4065,
-     "Kalshi": 0.41,
-     "DK": 0.4167
     }
    }
   },
@@ -471,7 +425,7 @@
    "best_rank": 110,
    "usd": 697,
    "paid": 0.54,
-   "ask": 0.55,
+   "ask": 0.57,
    "status": "live",
    "link": "https://polymarket.us/event/cfb-washst-txst-2026-11-21",
    "other": null,
@@ -834,6 +788,49 @@
    "books": null
   },
   {
+   "cond": "0x22b2ad6680fc57d0821da5ed9c8c242a0217e5b081d97256c7d2545ff6c60efe",
+   "slug": "epl-tot-ips-2026-11-21-more-markets",
+   "title": "Tottenham Hotspur FC vs. Ipswich Town FC - More Markets",
+   "mtype": "spread",
+   "start": "2026-11-21T15:00:00Z",
+   "bet": "Tottenham Hotspur FC -1.5",
+   "side": "Tottenham Hotspur FC",
+   "flagged": "2026-11-20T22:10:53Z",
+   "why": "a top-200 account also in this sport's top 50",
+   "proven": true,
+   "trigger": "proven",
+   "n_accounts": 1,
+   "best_rank": 149,
+   "usd": 2468,
+   "paid": 0.4,
+   "ask": 0.38,
+   "status": "other side",
+   "link": "https://polymarket.us/event/epl-tot-ips-2026-11-21-more-markets",
+   "other": {
+    "n_accounts": 1,
+    "best_rank": 170,
+    "usd": 352,
+    "first": "2026-11-21T13:55:19Z"
+   },
+   "exit_bid": 0.37,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401878754",
+   "sport": "soccer",
+   "league": "epl",
+   "away": "IPS",
+   "home": "TOT",
+   "away_name": "Ipswich Town",
+   "home_name": "Tottenham Hotspur",
+   "game_start": "2026-11-21T15:00Z",
+   "side_std": "home",
+   "money_with": false,
+   "grade": "A",
+   "inside_fair": false,
+   "fair_board": 0.3771,
+   "books": null
+  },
+  {
    "cond": "0x622452b1d91cefe137f30642ca142f70bfa7c5d8ce68884e3b0f4b58595f7bf5",
    "slug": "epl-tot-ips-2026-11-21",
    "title": "Tottenham Hotspur FC vs. Ipswich Town FC",
@@ -849,7 +846,7 @@
    "best_rank": 149,
    "usd": 8769,
    "paid": 0.64,
-   "ask": 0.64,
+   "ask": 0.61,
    "status": "other side",
    "link": "https://polymarket.us/event/epl-tot-ips-2026-11-21",
    "other": {
@@ -858,7 +855,7 @@
     "usd": 3454,
     "first": "2026-11-21T13:30:01Z"
    },
-   "exit_bid": 0.63,
+   "exit_bid": 0.6,
    "kalshi_against": null,
    "logged": true,
    "event_id": "401878754",
@@ -970,7 +967,11 @@
     "best_rank": 132,
     "usd": 196
    },
-   "against": null
+   "against": {
+    "n": 1,
+    "best_rank": 132,
+    "usd": 420
+   }
   }
  },
  "by_event": {
@@ -1049,6 +1050,11 @@
     "n": 1,
     "best_rank": 132,
     "usd": 196
+   },
+   "away": {
+    "n": 1,
+    "best_rank": 132,
+    "usd": 420
    }
   },
   "401892760|ml": {
@@ -1105,6 +1111,11 @@
     "n": 1,
     "best_rank": 149,
     "usd": 2468
+   },
+   "away": {
+    "n": 1,
+    "best_rank": 170,
+    "usd": 352
    }
   },
   "401878754|total": {
