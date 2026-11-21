@@ -1,5 +1,5 @@
 {
- "built": "2026-11-21T00:39:17Z",
+ "built": "2026-11-21T00:53:34Z",
  "record": {
   "cbb_1h_total_curve": {
    "n": 6,
@@ -24,12 +24,12 @@
    "lost": 19,
    "units": -3.42,
    "clv": {
-    "n": 14,
-    "avg": -2.41,
-    "beat": 1
+    "n": 15,
+    "avg": -2.25,
+    "beat": 2
    },
    "line_value": {
-    "n": 14,
+    "n": 15,
     "avg": 0.0,
     "better": 0,
     "worse": 0
@@ -143,7 +143,13 @@
    "book_fair": 0.4895,
    "fair_gap": 3.1,
    "ev_curve": 11.6,
-   "flagged": "2026-11-20T22:14:39Z"
+   "flagged": "2026-11-20T22:14:39Z",
+   "close_ts": "2026-11-21T00:53:34Z",
+   "close_line": 9.5,
+   "line_value": 0.0,
+   "close_fair": 0.5157,
+   "clv": 0.02,
+   "beat_fair": -0.53
   }
  ]
 }
