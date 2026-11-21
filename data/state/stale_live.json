@@ -1,5 +1,5 @@
 {
- "built": "2026-11-21T17:33:06Z",
+ "built": "2026-11-21T17:46:59Z",
  "record": {
   "n": 202,
   "won": 88,
@@ -216,13 +216,33 @@
    "team": null
   },
   {
-   "key": "401911278|ml|home",
+   "key": "401911310|spread|home",
    "sport": "cbb",
-   "event_id": "401911278",
-   "game": "ARMY @ BING",
-   "start": "2026-11-21T20:30Z",
-   "market": "ml",
+   "event_id": "401911310",
+   "game": "BRWN @ UVM",
+   "start": "2026-11-22T00:00Z",
+   "market": "spread",
    "side": "home",
+   "line": -4.5,
+   "venue": "Novig",
+   "price": 0.495,
+   "fair": 0.5111,
+   "fair_power": 0.5118,
+   "venue_fair": 0.4925,
+   "fair_gap": 1.9,
+   "ev": 3.3,
+   "move": 2.0,
+   "flagged": "2026-11-21T16:20:12Z",
+   "team": "UVM"
+  },
+  {
+   "key": "401917953|ml|away",
+   "sport": "cbb",
+   "event_id": "401917953",
+   "game": "RGV @ APSU",
+   "start": "2026-11-21T20:00Z",
+   "market": "ml",
+   "side": "away",
    "line": null,
    "venue": "Novig",
    "price": 0.35,
@@ -236,7 +256,7 @@
    "team": "RGV"
   },
   {
-   "key": "401858305|total|under",
+   "key": "401862831|ml|away",
    "sport": "cfb",
    "event_id": "401862831",
    "game": "ECU @ ARMY",
