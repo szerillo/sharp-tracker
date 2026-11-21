@@ -1,5 +1,5 @@
 {
- "built": "2026-11-21T13:55:51Z",
+ "built": "2026-11-21T14:46:30Z",
  "rows": [
   {
    "cond": "0x0a97ac876ccda0d4cdc6c73454de33896b3cbf299bdc3afd1c1f1a9a62826810",
@@ -146,7 +146,7 @@
    "best_rank": 149,
    "usd": 1147,
    "paid": 0.24,
-   "ask": 0.26,
+   "ask": 0.25,
    "status": "live",
    "link": "https://polymarket.us/event/epl-che-lee-2026-11-21",
    "other": null,
@@ -391,6 +391,51 @@
      "FD": 0.5098,
      "DK": 0.5122,
      "Caesars": 0.5146
+    }
+   }
+  },
+  {
+   "cond": "0xd3162d2382669938e807b2fbb996a521f2e760b1e2d2a464d8651fe038d56128",
+   "slug": "cfb-wisc-pur-2026-11-21",
+   "title": "Wisconsin vs. Purdue",
+   "mtype": "spread",
+   "start": "2026-11-21T17:00:00Z",
+   "bet": "Purdue +5.5",
+   "side": "Purdue",
+   "flagged": "2026-11-21T14:39:20Z",
+   "why": "a top-200 account also in this sport's top 50",
+   "proven": true,
+   "trigger": "proven",
+   "n_accounts": 1,
+   "best_rank": 115,
+   "usd": 5603,
+   "paid": 0.51,
+   "ask": 0.52,
+   "status": "live",
+   "link": "https://polymarket.us/event/cfb-wisc-pur-2026-11-21",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401858533",
+   "sport": "cfb",
+   "league": null,
+   "away": "WIS",
+   "home": "PUR",
+   "away_name": "Wisconsin Badgers",
+   "home_name": "Purdue Boilermakers",
+   "game_start": "2026-11-21T17:00Z",
+   "side_std": "home",
+   "money_with": false,
+   "grade": "A",
+   "fair_board": 0.4852,
+   "inside_fair": false,
+   "books": {
+    "at": "2026-11-21T03:44:49Z",
+    "fair": 0.4852,
+    "q": {
+     "Novig": 0.495,
+     "FD": 0.5098,
+     "Kalshi": 0.51
     }
    }
   },
@@ -640,7 +685,7 @@
    "best_rank": 48,
    "usd": 2750,
    "paid": 0.53,
-   "ask": 0.54,
+   "ask": 0.55,
    "status": "live",
    "link": "https://polymarket.us/event/nba-mem-min-2026-11-21",
    "other": null,
@@ -834,7 +879,7 @@
    "best_rank": 57,
    "usd": 363,
    "paid": 0.42,
-   "ask": 0.42,
+   "ask": 0.43,
    "status": "live",
    "link": "https://polymarket.us/event/ucl-spo-mnu-2026-11-25-more-markets",
    "other": null,
@@ -928,11 +973,11 @@
    "why": "2 top-200 accounts",
    "proven": true,
    "trigger": "proven",
-   "n_accounts": 1,
-   "best_rank": 149,
-   "usd": 8769,
-   "paid": 0.64,
-   "ask": 0.61,
+   "n_accounts": 2,
+   "best_rank": 31,
+   "usd": 9172,
+   "paid": 0.639,
+   "ask": 0.65,
    "status": "other side",
    "link": "https://polymarket.us/event/epl-tot-ips-2026-11-21",
    "other": {
@@ -941,7 +986,7 @@
     "usd": 3454,
     "first": "2026-11-21T13:30:01Z"
    },
-   "exit_bid": 0.6,
+   "exit_bid": 0.64,
    "kalshi_against": null,
    "logged": true,
    "event_id": "401878754",
@@ -1178,6 +1223,13 @@
     "usd": 815
    }
   },
+  "401858533|spread": {
+   "home": {
+    "n": 1,
+    "best_rank": 115,
+    "usd": 5603
+   }
+  },
   "401858527|total": {
    "over": {
     "n": 1,
@@ -1197,6 +1249,13 @@
     "n": 1,
     "best_rank": 12,
     "usd": 287
+   }
+  },
+  "401923402|total": {
+   "under": {
+    "n": 1,
+    "best_rank": 110,
+    "usd": 252
    }
   },
   "401879238|total": {
