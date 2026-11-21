@@ -1,5 +1,5 @@
 {
- "built": "2026-11-21T04:50:45Z",
+ "built": "2026-11-21T05:08:09Z",
  "record": {
   "cbb_1h_total_curve": {
    "n": 7,
@@ -19,10 +19,10 @@
    }
   },
   "cfb_q1_under_curve": {
-   "n": 31,
-   "won": 12,
+   "n": 32,
+   "won": 13,
    "lost": 19,
-   "units": -3.42,
+   "units": -3.19,
    "clv": {
     "n": 15,
     "avg": -2.25,
@@ -87,41 +87,5 @@
    }
   }
  },
- "rows": [
-  {
-   "key": "cfb_q1_under_curve|59cb6c9beeb879b864784348e3803ff8||under",
-   "rule": "cfb_q1_under_curve",
-   "tier": "A",
-   "stake": 0.25,
-   "sport": "cfb",
-   "odds_id": "59cb6c9beeb879b864784348e3803ff8",
-   "espn": "401858529",
-   "game": "Oregon Ducks @ Michigan State Spartans",
-   "start": "2026-11-21T01:00:00Z",
-   "market": "totals_q1",
-   "team": null,
-   "team_name": null,
-   "side": "under",
-   "line": 9.5,
-   "curve": 0.575,
-   "pin_fair": 0.521,
-   "gap": 5.4,
-   "full_total": 43.0,
-   "full_spread": 17.5,
-   "pin_price": 1.83,
-   "book": "FD",
-   "price": 1.94,
-   "pin_fair_power": 0.5225,
-   "book_fair": 0.4895,
-   "fair_gap": 3.1,
-   "ev_curve": 11.6,
-   "flagged": "2026-11-20T22:14:39Z",
-   "close_ts": "2026-11-21T00:53:34Z",
-   "close_line": 9.5,
-   "line_value": 0.0,
-   "close_fair": 0.5157,
-   "clv": 0.02,
-   "beat_fair": -0.53
-  }
- ]
+ "rows": []
 }
