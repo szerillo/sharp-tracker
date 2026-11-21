@@ -1,5 +1,5 @@
 {
- "built": "2026-11-21T19:20:06Z",
+ "built": "2026-11-21T19:25:59Z",
  "rows": [
   {
    "cond": "0x18b35fc4bcdedb8fedae30d7dddf1d727bc8436675d0dabc1edaf307b8fc874e",
@@ -672,7 +672,7 @@
    "best_rank": 40,
    "usd": 4492,
    "paid": 0.408,
-   "ask": 0.41,
+   "ask": 0.42,
    "status": "live",
    "link": "https://polymarket.us/event/nba-por-nyk-2026-11-21",
    "other": null,
@@ -690,7 +690,7 @@
    "money_with": false,
    "grade": "B",
    "fair_board": 0.4105,
-   "inside_fair": true,
+   "inside_fair": false,
    "books": {
     "at": "2026-11-21T19:01:28Z",
     "fair": 0.4105,
@@ -1038,7 +1038,7 @@
    "best_rank": 57,
    "usd": 348,
    "paid": 0.675,
-   "ask": 0.69,
+   "ask": 0.7,
    "status": "live",
    "link": "https://polymarket.us/event/ucl-gal-ast-2026-11-24-more-markets",
    "other": null,
@@ -1297,7 +1297,11 @@
     "best_rank": 115,
     "usd": 810
    },
-   "against": null
+   "against": {
+    "n": 1,
+    "best_rank": 49,
+    "usd": 11040
+   }
   },
   "401910026:nba_ats_hot_home": {
    "with": {
@@ -1345,6 +1349,11 @@
     "n": 1,
     "best_rank": 115,
     "usd": 810
+   },
+   "home": {
+    "n": 1,
+    "best_rank": 49,
+    "usd": 11040
    }
   },
   "401873069|total": {
