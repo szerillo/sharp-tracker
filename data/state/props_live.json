@@ -1,19 +1,19 @@
 {
- "built": "2026-11-21T02:52:58Z",
+ "built": "2026-11-21T03:04:28Z",
  "record": {
   "n": 58,
   "won": 27,
   "lost": 31,
   "units": -0.2,
   "line_value": {
-   "n": 26,
+   "n": 29,
    "avg": 0.0,
    "positive": 0
   },
   "clv": {
-   "n": 36,
-   "avg": 1.5,
-   "beat": 34,
+   "n": 39,
+   "avg": 1.58,
+   "beat": 37,
    "by_rule": {
     "anytime td": {
      "n": 10,
@@ -26,9 +26,9 @@
      "beat": 18
     },
     "threes under": {
-     "n": 7,
-     "avg": 1.12,
-     "beat": 6
+     "n": 10,
+     "avg": 1.54,
+     "beat": 9
     }
    }
   }
@@ -56,9 +56,15 @@
    "book_fair": 0.4524,
    "fair_gap": 5.8,
    "ev_strict": 5.7,
-   "pin_ts": "2026-11-21T02:52:19Z",
-   "book_ts": "2026-11-21T02:52:22Z",
-   "flagged": "2026-11-21T02:52:58Z"
+   "pin_ts": "2026-11-21T02:38:40Z",
+   "book_ts": "2026-11-21T02:38:40Z",
+   "flagged": "2026-11-21T02:38:57Z",
+   "close_ts": "2026-11-21T03:04:28Z",
+   "close_line": 2.5,
+   "close_fair": 0.5107,
+   "clv": 2.76,
+   "beat_fair": 0.0,
+   "line_value": 0.0
   },
   {
    "key": "086d2fe80483ffcc280994fe2e12d4f4|player_threes|Jabari Smith Jr|2.5",
@@ -82,9 +88,15 @@
    "book_fair": 0.5214,
    "fair_gap": 6.0,
    "ev_strict": 4.1,
-   "pin_ts": "2026-11-21T02:52:19Z",
-   "book_ts": "2026-11-21T02:52:22Z",
-   "flagged": "2026-11-21T02:52:58Z"
+   "pin_ts": "2026-11-21T02:38:40Z",
+   "book_ts": "2026-11-21T02:38:40Z",
+   "flagged": "2026-11-21T02:38:57Z",
+   "close_ts": "2026-11-21T03:04:28Z",
+   "close_line": 2.5,
+   "close_fair": 0.5818,
+   "clv": 2.31,
+   "beat_fair": 0.0,
+   "line_value": 0.0
   },
   {
    "key": "086d2fe80483ffcc280994fe2e12d4f4|player_threes|Kevin Durant|1.5",
@@ -108,9 +120,15 @@
    "book_fair": 0.4282,
    "fair_gap": 5.3,
    "ev_strict": 5.0,
-   "pin_ts": "2026-11-21T02:52:19Z",
-   "book_ts": "2026-11-21T02:52:22Z",
-   "flagged": "2026-11-21T02:52:58Z"
+   "pin_ts": "2026-11-21T02:38:40Z",
+   "book_ts": "2026-11-21T02:38:40Z",
+   "flagged": "2026-11-21T02:38:57Z",
+   "close_ts": "2026-11-21T03:04:28Z",
+   "close_line": 1.5,
+   "close_fair": 0.4813,
+   "clv": 2.47,
+   "beat_fair": 0.0,
+   "line_value": 0.0
   }
  ]
 }
