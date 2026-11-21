@@ -55,10 +55,19 @@ def size_units(cat, rule=None, sport=None, flagged=None):
     return 0.5 if (cat in ('system A', 'system B') or (cat == 'sharp A' and sport != 'soccer') or rule in HALF_U) else 0.25
 
 
+# 11/20 (Sekulic): a 0.998 price on an empty exchange book graded a 0.25u to-win loss as -124.75u. Guards: a row priced above 0.95, or above
+# 0.90 for an underdog rule, is not graded (shown as excluded, out of every record); and no row can lose more than LOSS_CAP x its size,
+# whatever its price: 19 x, the risk of a to-win bet at the 0.95 ceiling (0.25u size: at most 4.75u). A tighter cap would understate real
+# favourite losses (a 0.25u to-win bet at -450 loses 1.125u).
+LOSS_CAP = 19
+def bad_price(p, rule):
+    return p is not None and (p > 0.95 or ('dog' in (rule or '') and p > 0.90))
+
+
 def units(p, won, size):
     if won is None or p is None or not 0 < p < 1: return None
     if won == 0.5: return 0.0
-    if p > 0.5: return round(size if won else -size * p / (1 - p), 3)
+    if p > 0.5: return round(size if won else max(-size * p / (1 - p), -LOSS_CAP * size), 3)
     return round(size * (1 - p) / p if won else -size, 3)
 
 
@@ -488,6 +497,9 @@ def main():
     for b in bets:
         b['bet_type'] = b['market'].replace('1s_ml', 'set1_ml')
         b['size'] = size_units(b['cat'], b.get('rule'), b.get('sport'), b.get('flagged')); b['units'] = units(b['price'], b['won'], b['size'])
+        if bad_price(b['price'], b.get('rule')):
+            b['excluded'] = f"price {b['price']} out of range (above 0.95, or above 0.90 for an underdog rule): not graded"
+            b['units_raw'] = b['units']; b['units'] = None; b['won_raw'] = b['won']; b['won'] = None
         # 11/10 (Sean: "yes, do all that"; docs/review_2026-11-10.md): the price to rest instead of taking, 1c under the fair price at the flag
         # (Novig or Kalshi), and whether the best price on a bettable venue later got there. Pre-registered: filled against never filled,
         # read at 150 filled.

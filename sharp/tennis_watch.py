@@ -155,6 +155,18 @@ def latest():
     return {k: v for k, v in L.items() if (NOW - ts(v['ts'])).total_seconds() <= STALE_MIN * 60}
 
 
+# 11/20 (Sekulic, 11/20): an empty exchange book shows 0.002 / 0.998, and the logger took the 0.998 "ask" as the price (-49900), so a 0.25u
+# to-win loss graded as -124.75u. A quote is only takeable when it looks like a real market: ask above 0.05 and below 0.95, and a bid-ask
+# spread under 30 cents when a bid is shown. A pick is never logged above 0.95, or above 0.90 for an underdog rule.
+def sane_quote(r):
+    a, b = r.get('ask'), r.get('bid')
+    return a is not None and 0.05 < a < 0.95 and (b is None or a - b < 0.30)
+
+
+def price_ok(rule, price):
+    return price is not None and price <= 0.95 and not ('dog' in (rule or '') and price > 0.90)
+
+
 def novig_pin_p(L, ev, mk, side):
     h, a = L.get((ev, mk, 'Pinnacle', 'home')), L.get((ev, mk, 'Pinnacle', 'away'))
     if h and a and h.get('american') and a.get('american'):
@@ -242,7 +254,7 @@ def main():
         cands = []
         for v in ('Kalshi', 'Novig'):
             r = L.get((ev, '1s_ml', v, fav))
-            if not r or not r.get('ask') or 'oneside' in (r.get('flags') or []): continue
+            if not r or not r.get('ask') or 'oneside' in (r.get('flags') or []) or not sane_quote(r): continue
             cost = r['ask'] + (math.ceil(KFEE * r['ask'] * (1 - r['ask']) * 100) / 100 if v == 'Kalshi' else 0)
             cands.append(dict(venue=v, ask=r['ask'], cost=round(cost, 4), ticker=(r.get('extra') or {}).get('ticker')))
         for v in ('DK', 'FD', 'Caesars'):                # US books via Action Network (11/2): American odds, cost = implied probability
@@ -266,7 +278,7 @@ def main():
             mc = []
             for v in ('Kalshi', 'Novig'):
                 r = L.get((ev, 'ml', v, side))
-                if r and r.get('ask') and 'oneside' not in (r.get('flags') or []): mc.append(dict(venue=v, cost=round(r['ask'] + (math.ceil(KFEE * r['ask'] * (1 - r['ask']) * 100) / 100 if v == 'Kalshi' else 0), 4)))
+                if r and r.get('ask') and 'oneside' not in (r.get('flags') or []) and sane_quote(r): mc.append(dict(venue=v, cost=round(r['ask'] + (math.ceil(KFEE * r['ask'] * (1 - r['ask']) * 100) / 100 if v == 'Kalshi' else 0), 4)))
             for v in ('DK', 'FD', 'Caesars'):
                 r = L.get((ev, 'ml', v, side))
                 if r and r.get('american') is not None: mc.append(dict(venue=v, american=r['american'], cost=round(implied(r['american']), 4)))
@@ -285,7 +297,8 @@ def main():
             sr = row['serve_rule']
             rec = dict(event_id=ev, ts=NOW.strftime('%Y-%m-%dT%H:%M:%SZ'), start=e['start'], fav=fav, fav_name=name, opp_name=opp, match_p=round(pf, 4), side=sr['side'], pick_name=sr['name'],
                        hold_fav=round(hf, 3), hold_opp=round(ho, 3), venue=sr['best']['venue'], price=sr['best']['cost'], rule=sr['rule'], level=g, slam=bool(g and g.endswith('bo5') or any(x in (e.get('tournament') or '').lower() for x in SLAMS)))
-            new_serve.append(rec); serve_paper[ev] = rec
+            if price_ok(rec.get('rule'), rec.get('price')): new_serve.append(rec); serve_paper[ev] = rec
+            else: print(f"[tennis] not logged, price out of range: {rec.get('rule')} {ev} {rec.get('price')}")
         row['hot'] = bool(src == 'Pinnacle' and ff and fo and HOT['lo'] <= pf <= HOT['hi'] and ff[0] - fo[0] >= HOT['gap'] and mbest and g in ('atp_tour', 'atp_chall', 'wta_tour', 'atp_tour_bo5', 'wta_tour_bo5'))   # tour + Challenger (11/4): the slam test is the only priced evidence; ITF form from ESPN is incomplete
         row['hot_best'] = mbest
         # 11/4 (Odds API, tour-level 2026 + slams 2015-23): the hot favourite is a tier C lean at TOUR level (board, 0.25u); Challenger
@@ -301,12 +314,14 @@ def main():
         if row['hot'] and ev not in hot_paper and not any(p.get('fav_name') == name and p.get('opp_name') == opp and abs((ts(p['start']) - ts(e['start'])).total_seconds()) <= 6 * 3600 for p in hot_paper.values()):
             rec = dict(event_id=ev, ts=NOW.strftime('%Y-%m-%dT%H:%M:%SZ'), start=e['start'], fav=fav, fav_name=name, opp_name=opp, match_p=round(pf, 4), form_fav=round(ff[0], 2), form_opp=round(fo[0], 2),
                        venue=mbest['venue'], price=mbest['cost'], rule='tennis_hot_fav', level=g, settled=row['settled'], slam=bool(g and g.endswith('bo5') or any(x in (e.get('tournament') or '').lower() for x in SLAMS)))
-            new_hot.append(rec); hot_paper[ev] = rec
+            if price_ok(rec.get('rule'), rec.get('price')): new_hot.append(rec); hot_paper[ev] = rec
+            else: print(f"[tennis] not logged, price out of range: {rec.get('rule')} {ev} {rec.get('price')}")
         if ev in hotdog_paper: row['hot_dog_logged'] = dict(ts=hotdog_paper[ev]['ts'], venue=hotdog_paper[ev]['venue'], price=hotdog_paper[ev]['price'])
         if row['hot_dog'] and ev not in hotdog_paper and not any(p.get('fav_name') == name and p.get('opp_name') == opp and abs((ts(p['start']) - ts(e['start'])).total_seconds()) <= 6 * 3600 for p in hotdog_paper.values()):
             rec = dict(event_id=ev, ts=NOW.strftime('%Y-%m-%dT%H:%M:%SZ'), start=e['start'], fav=fav, side='away' if fav == 'home' else 'home', fav_name=name, opp_name=opp, pick_name=opp, match_p=round(pf, 4), form_fav=round(ff[0], 2), form_opp=round(fo[0], 2),
                        venue=dbest['venue'], price=dbest['cost'], rule='tennis_hot_dog', level=g, slam=row['slam'])
-            new_hotdog.append(rec); hotdog_paper[ev] = rec
+            if price_ok(rec.get('rule'), rec.get('price')): new_hotdog.append(rec); hotdog_paper[ev] = rec
+            else: print(f"[tennis] not logged, price out of range: {rec.get('rule')} {ev} {rec.get('price')}")
         if not timing.pregame(e, NOW):
             row['hot_live'] = False
             row['timing_hold'] = True
@@ -320,7 +335,8 @@ def main():
             rec = dict(**({'backfill': 1} if os.environ.get('TENNIS_NOW') else {}), event_id=ev, ts=NOW.strftime('%Y-%m-%dT%H:%M:%SZ'), start=e['start'], fav=fav, fav_name=name, opp_name=opp, match_p=row['match_p'],
                        fair=row['fair'], venue=best['venue'], price=best['cost'], pin_set1=row['pin_set1'], rule='tennis_fs_fav',
                        kalshi_set1=kt.get('ticker'))            # settles Challenger / ITF matches ESPN does not carry
-            new.append(rec); paper[ev] = rec
+            if price_ok(rec.get('rule'), rec.get('price')): new.append(rec); paper[ev] = rec
+            else: print(f"[tennis] not logged, price out of range: {rec.get('rule')} {ev} {rec.get('price')}")
     if new:
         with open(PAPER, 'a') as f:
             for r in new: f.write(json.dumps(r) + '\n')
