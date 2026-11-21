@@ -1,5 +1,5 @@
 {
- "built": "2026-11-21T16:56:32Z",
+ "built": "2026-11-21T17:03:24Z",
  "rows": [
   {
    "cond": "0xa0e79933d9c63108a49f598f9af22a145b66f7870df8f7c125005e3181a95545",
@@ -293,7 +293,7 @@
    "best_rank": 12,
    "usd": 215,
    "paid": 0.43,
-   "ask": 0.47,
+   "ask": null,
    "status": "live",
    "link": "https://polymarket.us/event/cfb-ohiost-nebr-2026-11-21",
    "other": null,
@@ -333,7 +333,7 @@
    "best_rank": 115,
    "usd": 2225,
    "paid": 0.5,
-   "ask": 0.51,
+   "ask": null,
    "status": "live",
    "link": "https://polymarket.us/event/cfb-ohiost-nebr-2026-11-21",
    "other": null,
@@ -379,7 +379,7 @@
    "best_rank": 115,
    "usd": 5603,
    "paid": 0.51,
-   "ask": 0.53,
+   "ask": null,
    "status": "live",
    "link": "https://polymarket.us/event/cfb-wisc-pur-2026-11-21",
    "other": null,
@@ -424,7 +424,7 @@
    "best_rank": 58,
    "usd": 460,
    "paid": 0.54,
-   "ask": 0.57,
+   "ask": null,
    "status": "live",
    "link": "https://polymarket.us/event/cfb-ecar-army-2026-11-21",
    "other": null,
@@ -468,7 +468,7 @@
    "best_rank": 58,
    "usd": 316,
    "paid": 0.51,
-   "ask": 0.54,
+   "ask": null,
    "status": "live",
    "link": "https://polymarket.us/event/cfb-ohiost-nebr-2026-11-21",
    "other": null,
@@ -490,7 +490,7 @@
    "money_with": true,
    "grade": "A",
    "fair_board": 0.5023,
-   "inside_fair": false,
+   "inside_fair": null,
    "books": {
     "at": "2026-11-21T15:05:20Z",
     "fair": 0.5023,
@@ -518,7 +518,7 @@
    "best_rank": 149,
    "usd": 23732,
    "paid": 0.52,
-   "ask": 0.54,
+   "ask": 0.57,
    "status": "live",
    "link": "https://polymarket.us/event/epl-new-ars-2026-11-21-more-markets",
    "other": null,
@@ -533,9 +533,6 @@
    "home_name": "Newcastle United",
    "game_start": "2026-11-21T17:30Z",
    "side_std": "over",
-   "conflict": [
-    "Kalshi move"
-   ],
    "money_with": false,
    "grade": "A",
    "inside_fair": false,
@@ -567,7 +564,7 @@
    "best_rank": 58,
    "usd": 490,
    "paid": 0.51,
-   "ask": 0.51,
+   "ask": 0.52,
    "status": "live",
    "link": "https://polymarket.us/event/cfb-ncar-vir-2026-11-21",
    "other": null,
@@ -604,7 +601,7 @@
    "best_rank": 49,
    "usd": 2793,
    "paid": 0.57,
-   "ask": 0.59,
+   "ask": 0.6,
    "status": "live",
    "link": "https://polymarket.us/event/cfb-sdak-illst-2026-11-21",
    "other": null,
@@ -631,7 +628,7 @@
    "best_rank": 170,
    "usd": 384,
    "paid": 0.61,
-   "ask": 0.66,
+   "ask": 0.67,
    "status": "live",
    "link": "https://polymarket.us/event/mls-ner-phi-2026-11-21-more-markets",
    "other": null,
@@ -797,7 +794,7 @@
    "best_rank": 40,
    "usd": 4492,
    "paid": 0.408,
-   "ask": 0.42,
+   "ask": 0.41,
    "status": "live",
    "link": "https://polymarket.us/event/nba-por-nyk-2026-11-21",
    "other": null,
@@ -1307,14 +1304,6 @@
   "clv_poly_same": -0.74
  },
  "sys_tags": {
-  "401862831:cfb_road_streak_dog": {
-   "with": {
-    "n": 2,
-    "best_rank": 58,
-    "usd": 807
-   },
-   "against": null
-  },
   "401873067:bounce15_1h": {
    "with": {
     "n": 1,
@@ -1463,39 +1452,11 @@
     "usd": 972
    }
   },
-  "401858531|total": {
-   "over": {
-    "n": 2,
-    "best_rank": 12,
-    "usd": 531
-   }
-  },
-  "401858531|spread": {
-   "away": {
-    "n": 1,
-    "best_rank": 115,
-    "usd": 2225
-   }
-  },
   "401856865|total": {
    "over": {
     "n": 1,
     "best_rank": 110,
     "usd": 815
-   }
-  },
-  "401858533|spread": {
-   "home": {
-    "n": 1,
-    "best_rank": 115,
-    "usd": 5603
-   }
-  },
-  "401862831|spread": {
-   "away": {
-    "n": 2,
-    "best_rank": 58,
-    "usd": 807
    }
   },
   "401858305|total": {
@@ -1531,13 +1492,6 @@
     "n": 1,
     "best_rank": 12,
     "usd": 287
-   }
-  },
-  "401923402|total": {
-   "under": {
-    "n": 1,
-    "best_rank": 110,
-    "usd": 252
    }
   },
   "401879232|total": {
