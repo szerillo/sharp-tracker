@@ -8832,21 +8832,30 @@
 "why": "Novig home side mid 0.305 inside T-1.4h; audit band 20-35c",
 "restored": true
 },
+"401910026:nba_ats_hot_home": {
+"tag": "nba_ats_hot_home",
+"fill_id": "a8f0caa13fbc",
+"ts": "2026-11-21T00:52:50Z",
+"market": "spread",
+"side": "home",
+"line": -5.5,
+"venue": "Novig",
+"price": -122,
+"fair": null,
+"edge_pts": null,
+"why": "home MIN covers 75% of spreads this season (16 games), 2 days rest: home spread (mined angle)"
+},
 "401864542:xch_homedog_fade:ml": {
 "tag": "xch_homedog_fade",
-"fill_id": "6ef5f381084e",
-"ts": "2026-11-21T00:31:56Z",
+"fill_id": "2253e8f72d0e",
+"ts": "2026-11-21T00:52:50Z",
 "market": "ml",
 "side": "away",
 "line": null,
 "venue": "Novig",
 "price": -344,
-"fair": 0.77949,
+"fair": 0.77954,
 "edge_pts": 0.45,
-"why": "Novig home side mid 0.227 inside T-1.5h; audit band 20-35c",
-"now": {
-"venue": "Novig",
-"price": -344
-}
+"why": "Novig home side mid 0.227 inside T-1.1h; audit band 20-35c"
 }
 }
