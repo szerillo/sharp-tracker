@@ -1,5 +1,5 @@
 {
- "built": "2026-11-21T22:07:20Z",
+ "built": "2026-11-21T22:22:16Z",
  "rows": [
   {
    "cond": "0x15d4578ba7ef81bd4e9562d8d4163d8946d7300090a7d7ab08d32233c777aee2",
@@ -294,11 +294,11 @@
    "side_std": "away",
    "money_with": false,
    "grade": "A",
-   "fair_board": 0.4082,
+   "fair_board": 0.4078,
    "inside_fair": false,
    "books": {
-    "at": "2026-11-21T21:39:32Z",
-    "fair": 0.4082,
+    "at": "2026-11-21T22:04:39Z",
+    "fair": 0.4078,
     "q": {
      "Novig": 0.41,
      "DK": 0.4237,
@@ -343,14 +343,14 @@
    ],
    "money_with": false,
    "grade": "A",
-   "fair_board": 0.5062,
+   "fair_board": 0.5092,
    "inside_fair": false,
    "books": {
-    "at": "2026-11-21T20:45:02Z",
-    "fair": 0.5062,
+    "at": "2026-11-21T22:04:39Z",
+    "fair": 0.5092,
     "q": {
-     "Novig": 0.51,
      "Caesars": 0.5146,
+     "Novig": 0.515,
      "FD": 0.5283,
      "DK": 0.5283
     }
@@ -372,7 +372,7 @@
    "best_rank": 40,
    "usd": 2033,
    "paid": 0.54,
-   "ask": 0.59,
+   "ask": 0.64,
    "status": "live",
    "link": "https://polymarket.us/event/nba-por-nyk-2026-11-21",
    "other": null,
@@ -392,13 +392,51 @@
    "inside_fair": false,
    "fair_board": 0.507,
    "books": {
-    "at": "2026-11-21T21:39:32Z",
+    "at": "2026-11-21T22:04:39Z",
     "fair": null,
     "q": {
-     "Novig": 0.595,
-     "Kalshi": 0.61
+     "Novig": 0.59,
+     "Kalshi": 0.62
     }
    }
+  },
+  {
+   "cond": "0x4997764674136da8402f8b11ad824b6fbd9e4ca9761142e4b29fb67df89e1ad5",
+   "slug": "nba-por-nyk-2026-11-21",
+   "title": "Trail Blazers vs. Knicks",
+   "mtype": "spread",
+   "start": "2026-11-22T00:30:00Z",
+   "bet": "Trail Blazers +2.5",
+   "side": "Trail Blazers",
+   "flagged": "2026-11-21T22:17:47Z",
+   "why": "2 top-200 accounts",
+   "proven": false,
+   "trigger": "two",
+   "n_accounts": 2,
+   "best_rank": 112,
+   "usd": 2635,
+   "paid": 0.495,
+   "ask": 0.57,
+   "status": "live",
+   "link": "https://polymarket.us/event/nba-por-nyk-2026-11-21",
+   "other": null,
+   "kalshi_against": null,
+   "logged": false,
+   "ladder": true,
+   "event_id": "401910024",
+   "sport": "nba",
+   "league": null,
+   "away": "POR",
+   "home": "NY",
+   "away_name": "Portland Trail Blazers",
+   "home_name": "New York Knicks",
+   "game_start": "2026-11-22T00:30Z",
+   "side_std": "away",
+   "money_with": false,
+   "grade": "B",
+   "fair_board": null,
+   "inside_fair": null,
+   "books": null
   },
   {
    "cond": "0x14420c492c08634113ed90557dc2f6e866f887d693ffd48ae57b963d37dbd331",
@@ -554,12 +592,12 @@
    "fair_board": null,
    "inside_fair": null,
    "books": {
-    "at": "2026-11-21T21:39:32Z",
+    "at": "2026-11-21T22:04:39Z",
     "fair": null,
     "q": {
      "DK": 0.5192,
      "FD": 0.5283,
-     "Novig": 0.585,
+     "Novig": 0.56,
      "Kalshi": 0.59
     }
    }
@@ -791,50 +829,6 @@
    "books": null
   },
   {
-   "cond": "0x71c59551fa3035fe4e78c04a8d2a899c7f6e00b2e5847a4535a821ef42b0e825",
-   "slug": "nba-okc-mia-2026-11-22",
-   "title": "Thunder vs. Heat",
-   "mtype": "ml",
-   "start": "2026-11-22T23:00:00Z",
-   "bet": "Thunder ML",
-   "side": "Thunder",
-   "flagged": "2026-11-21T20:30:05Z",
-   "why": "2 top-200 accounts",
-   "proven": false,
-   "trigger": "two",
-   "n_accounts": 2,
-   "best_rank": 40,
-   "usd": 1159,
-   "paid": 0.564,
-   "ask": 0.51,
-   "status": "live",
-   "link": "https://polymarket.us/event/nba-okc-mia-2026-11-22",
-   "other": null,
-   "kalshi_against": null,
-   "logged": true,
-   "event_id": "401910030",
-   "sport": "nba",
-   "league": null,
-   "away": "OKC",
-   "home": "MIA",
-   "away_name": "Oklahoma City Thunder",
-   "home_name": "Miami Heat",
-   "game_start": "2026-11-22T23:00Z",
-   "side_std": "away",
-   "money_with": false,
-   "grade": "B",
-   "fair_board": null,
-   "inside_fair": null,
-   "books": {
-    "at": "2026-11-21T21:39:32Z",
-    "fair": null,
-    "q": {
-     "Kalshi": 0.53,
-     "Novig": 0.53
-    }
-   }
-  },
-  {
    "cond": "0x3b3748b734fb393de1e14f5c3fe9ef400e123faaf9a3595361378564f8e33a7d",
    "slug": "nba-ind-nyk-2026-11-22",
    "title": "Pacers vs. Knicks",
@@ -870,7 +864,7 @@
    "fair_board": null,
    "inside_fair": null,
    "books": {
-    "at": "2026-11-21T21:39:32Z",
+    "at": "2026-11-21T22:04:39Z",
     "fair": null,
     "q": {
      "Novig": 0.745,
@@ -1033,23 +1027,23 @@
    "bet": "Trail Blazers ML",
    "side": "Trail Blazers",
    "flagged": "2026-11-20T22:00:07Z",
-   "why": "3 top-200 accounts",
+   "why": "6 top-200 accounts",
    "proven": false,
    "trigger": "two",
-   "n_accounts": 3,
+   "n_accounts": 6,
    "best_rank": 40,
-   "usd": 5118,
-   "paid": 0.407,
-   "ask": 0.42,
+   "usd": 53280,
+   "paid": 0.42,
+   "ask": 0.51,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-por-nyk-2026-11-21",
    "other": {
-    "n_accounts": 2,
+    "n_accounts": 4,
     "best_rank": 43,
-    "usd": 4502,
+    "usd": 31693,
     "first": "2026-11-21T19:31:58Z"
    },
-   "exit_bid": 0.41,
+   "exit_bid": 0.5,
    "kalshi_against": null,
    "logged": true,
    "event_id": "401910024",
@@ -1063,7 +1057,7 @@
    "side_std": "away",
    "money_with": false,
    "grade": "B",
-   "fair_board": 0.4135,
+   "fair_board": 0.4072,
    "inside_fair": false,
    "books": null
   },
@@ -1108,6 +1102,49 @@
    "grade": "B",
    "inside_fair": false,
    "fair_board": 0.3508,
+   "books": null
+  },
+  {
+   "cond": "0x71c59551fa3035fe4e78c04a8d2a899c7f6e00b2e5847a4535a821ef42b0e825",
+   "slug": "nba-okc-mia-2026-11-22",
+   "title": "Thunder vs. Heat",
+   "mtype": "ml",
+   "start": "2026-11-22T23:00:00Z",
+   "bet": "Thunder ML",
+   "side": "Thunder",
+   "flagged": "2026-11-21T20:30:05Z",
+   "why": "2 top-200 accounts",
+   "proven": false,
+   "trigger": "two",
+   "n_accounts": 2,
+   "best_rank": 40,
+   "usd": 1159,
+   "paid": 0.564,
+   "ask": 0.36,
+   "status": "other side",
+   "link": "https://polymarket.us/event/nba-okc-mia-2026-11-22",
+   "other": {
+    "n_accounts": 2,
+    "best_rank": 40,
+    "usd": 1468,
+    "first": "2026-11-21T22:15:07Z"
+   },
+   "exit_bid": 0.35,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401910030",
+   "sport": "nba",
+   "league": null,
+   "away": "OKC",
+   "home": "MIA",
+   "away_name": "Oklahoma City Thunder",
+   "home_name": "Miami Heat",
+   "game_start": "2026-11-22T23:00Z",
+   "side_std": "away",
+   "money_with": false,
+   "grade": "B",
+   "fair_board": null,
+   "inside_fair": null,
    "books": null
   },
   {
@@ -1256,21 +1293,21 @@
   },
   "401910024|ml": {
    "away": {
-    "n": 3,
+    "n": 6,
     "best_rank": 40,
-    "usd": 5118
+    "usd": 53280
    },
    "home": {
-    "n": 2,
+    "n": 4,
     "best_rank": 43,
-    "usd": 2100
+    "usd": 29291
    }
   },
   "401910024|spread": {
    "away": {
-    "n": 1,
+    "n": 3,
     "best_rank": 40,
-    "usd": 2033
+    "usd": 6063
    }
   },
   "401910025|ml": {
@@ -1351,6 +1388,11 @@
     "n": 2,
     "best_rank": 40,
     "usd": 1159
+   },
+   "home": {
+    "n": 2,
+    "best_rank": 40,
+    "usd": 1292
    }
   },
   "401910033|ml": {
