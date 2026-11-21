@@ -8954,5 +8954,56 @@
 "fair": 0.49678,
 "edge_pts": 0.18,
 "why": "BOS is 87% on the moneyline: over (mined angle)"
+},
+"401856866:xch_homedog_fade:ml": {
+"tag": "xch_homedog_fade",
+"fill_id": "89f211b83ab6",
+"ts": "2026-11-21T15:32:00Z",
+"market": "ml",
+"side": "away",
+"line": null,
+"venue": "Novig",
+"price": -199,
+"fair": 0.66291,
+"edge_pts": -0.21,
+"why": "Novig home side mid 0.338 inside T-1.5h; audit band 20-35c",
+"now": {
+"venue": "Novig",
+"price": -199
+}
+},
+"401858533:xch_homedog_fade:ml": {
+"tag": "xch_homedog_fade",
+"fill_id": "f2eb520422eb",
+"ts": "2026-11-21T15:32:00Z",
+"market": "ml",
+"side": "away",
+"line": null,
+"venue": "Novig",
+"price": -194,
+"fair": 0.65746,
+"edge_pts": -0.25,
+"why": "Novig home side mid 0.343 inside T-1.5h; audit band 20-35c",
+"now": {
+"venue": "Novig",
+"price": -194
+}
+},
+"401862835:xch_homedog_fade:ml": {
+"tag": "xch_homedog_fade",
+"fill_id": "145a9fc3c647",
+"ts": "2026-11-21T15:32:00Z",
+"market": "ml",
+"side": "away",
+"line": null,
+"venue": "Novig",
+"price": -257,
+"fair": 0.72106,
+"edge_pts": 0.11,
+"why": "Novig home side mid 0.283 inside T-1.5h; audit band 20-35c",
+"now": {
+"venue": "Novig",
+"price": -257
+}
 }
 }
