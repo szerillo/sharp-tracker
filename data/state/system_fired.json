@@ -7410,7 +7410,10 @@
 "price": -111,
 "fair": 0.5,
 "edge_pts": -2.5,
-"why": "home favourite ORST -8.0, total 51.5: under (mined angle)"
+"why": "home favourite ORST -8.0, total 51.5: under (mined angle)",
+"void": true,
+"void_why": "rule no longer holds on the current line: home spread -7.0, total 51.5 (2026-11-21T19:57:47Z)",
+"void_at": "2026-11-21T19:57:47Z"
 },
 "401909999:nba_ats_hot_home": {
 "tag": "nba_ats_hot_home",
@@ -9052,8 +9055,8 @@
 },
 "401869953:xch_homedog_fade:ml": {
 "tag": "xch_homedog_fade",
-"fill_id": "4ae8afd3298e",
-"ts": "2026-11-21T19:39:45Z",
+"fill_id": "1c28e8476d3e",
+"ts": "2026-11-21T19:57:47Z",
 "market": "ml",
 "side": "away",
 "line": null,
@@ -9061,10 +9064,6 @@
 "price": -317,
 "fair": 0.75767,
 "edge_pts": -0.23,
-"why": "Novig home side mid 0.242 inside T-1.3h; audit band 20-35c",
-"now": {
-"venue": "Novig",
-"price": -317
-}
+"why": "Novig home side mid 0.242 inside T-1.0h; audit band 20-35c"
 }
 }
