@@ -1,5 +1,5 @@
 {
- "built": "2026-11-21T13:25:19Z",
+ "built": "2026-11-21T13:45:49Z",
  "rows": [
   {
    "cond": "0x0a97ac876ccda0d4cdc6c73454de33896b3cbf299bdc3afd1c1f1a9a62826810",
@@ -191,7 +191,7 @@
    "best_rank": 57,
    "usd": 1249,
    "paid": 0.49,
-   "ask": 0.53,
+   "ask": 0.54,
    "status": "live",
    "link": "https://polymarket.us/event/epl-bou-not-2026-11-21-more-markets",
    "other": null,
@@ -448,6 +448,43 @@
    "away_name": "Philadelphia Union",
    "home_name": "New England Revolution",
    "game_start": "2026-11-21T19:00Z",
+   "side_std": "under",
+   "money_with": false,
+   "grade": "A",
+   "fair_board": null,
+   "inside_fair": null,
+   "books": null
+  },
+  {
+   "cond": "0xbad88236739a967d01eca0aa0e0206056b886912bd9378523f546bbf82f431a2",
+   "slug": "cfb-washst-txst-2026-11-21",
+   "title": "Washington State vs. Texas State",
+   "mtype": "total",
+   "start": "2026-11-21T23:00:00Z",
+   "bet": "Under 63.5",
+   "side": "Under",
+   "flagged": "2026-11-21T13:45:35Z",
+   "why": "a top-200 account also in this sport's top 50",
+   "proven": true,
+   "trigger": "proven",
+   "n_accounts": 1,
+   "best_rank": 110,
+   "usd": 697,
+   "paid": 0.54,
+   "ask": 0.55,
+   "status": "live",
+   "link": "https://polymarket.us/event/cfb-washst-txst-2026-11-21",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401860920",
+   "sport": "cfb",
+   "league": null,
+   "away": "WSU",
+   "home": "TXST",
+   "away_name": "Washington State Cougars",
+   "home_name": "Texas State Bobcats",
+   "game_start": "2026-11-21T23:00Z",
    "side_std": "under",
    "money_with": false,
    "grade": "A",
@@ -1040,6 +1077,13 @@
     "n": 1,
     "best_rank": 93,
     "usd": 315
+   }
+  },
+  "401860920|total": {
+   "under": {
+    "n": 1,
+    "best_rank": 110,
+    "usd": 697
    }
   },
   "401856870|spread": {
