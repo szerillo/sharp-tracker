@@ -1,5 +1,5 @@
 {
- "built": "2026-11-21T18:24:35Z",
+ "built": "2026-11-21T18:38:20Z",
  "record": {
   "cbb_1h_total_curve": {
    "n": 7,
@@ -7,13 +7,13 @@
    "lost": 3,
    "units": -0.08,
    "clv": {
-    "n": 5,
-    "avg": -2.76,
+    "n": 4,
+    "avg": -3.02,
     "beat": 0
    },
    "line_value": {
-    "n": 7,
-    "avg": 0.07,
+    "n": 6,
+    "avg": 0.08,
     "better": 1,
     "worse": 1
    }
@@ -264,7 +264,7 @@
    "book_fair": 0.504,
    "fair_gap": 1.2,
    "ev_curve": 13.1,
-   "flagged": "2026-11-21T17:24:41Z"
+   "flagged": "2026-11-21T17:09:54Z"
   },
   {
    "key": "cfb_q1_under_curve|1a3e1206e330ec66aa9a0549b4d3409c||under",
@@ -282,18 +282,18 @@
    "side": "under",
    "line": 12.5,
    "curve": 0.519,
-   "pin_fair": 0.464,
-   "gap": 5.5,
+   "pin_fair": 0.461,
+   "gap": 5.8,
    "full_total": 57.5,
    "full_spread": 5.5,
-   "pin_price": 2.06,
-   "book": "DK",
-   "price": 1.91,
-   "pin_fair_power": 0.4609,
-   "book_fair": 0.4893,
-   "fair_gap": -2.6,
-   "ev_curve": -1.0,
-   "flagged": "2026-11-21T17:52:28Z"
+   "pin_price": 2.07,
+   "book": "Caesars",
+   "price": 1.93,
+   "pin_fair_power": 0.4581,
+   "book_fair": 0.4853,
+   "fair_gap": -2.4,
+   "ev_curve": 0.1,
+   "flagged": "2026-11-21T17:38:17Z"
   },
   {
    "key": "cfb_q1_under_curve|6b40f07e146bab0dba574f0d3b07659e||under",
@@ -347,7 +347,36 @@
    "pin_price": 1.69,
    "book": null,
    "price": null,
-   "flagged": "2026-11-21T18:24:35Z"
+   "flagged": "2026-11-21T18:07:38Z"
+  },
+  {
+   "key": "cfb_tt_under_curve|7f9809c817e27ec2d9f8a24e8e19a8ff|away|under",
+   "rule": "cfb_tt_under_curve",
+   "tier": "C",
+   "stake": 0.25,
+   "sport": "cfb",
+   "odds_id": "7f9809c817e27ec2d9f8a24e8e19a8ff",
+   "espn": "401858304",
+   "game": "NC State Wolfpack @ Florida State Seminoles",
+   "start": "2026-11-21T20:30:00Z",
+   "market": "team_totals",
+   "team": "away",
+   "team_name": "NC State Wolfpack",
+   "side": "under",
+   "line": 22.5,
+   "curve": 0.528,
+   "pin_fair": 0.477,
+   "gap": 5.2,
+   "full_total": 57.0,
+   "full_spread": -10.5,
+   "pin_price": 2.02,
+   "book": "FD",
+   "price": 1.88,
+   "pin_fair_power": 0.4753,
+   "book_fair": 0.5,
+   "fair_gap": -2.3,
+   "ev_curve": -0.7,
+   "flagged": "2026-11-21T18:38:20Z"
   }
  ]
 }
