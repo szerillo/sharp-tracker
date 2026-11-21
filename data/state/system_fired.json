@@ -9101,7 +9101,11 @@
 "price": -194,
 "fair": 0.65345,
 "edge_pts": -0.66,
-"why": "Novig home side mid 0.345 inside T-1.5h; audit band 20-35c"
+"why": "Novig home side mid 0.345 inside T-1.5h; audit band 20-35c",
+"void": true,
+"void_why": "Untracked: systems conflict (xch_homedog_fade vs nhl_bounce_home_ml)",
+"void_at": "2026-11-21T21:59:01Z",
+"untracked": "xch_homedog_fade vs nhl_bounce_home_ml"
 },
 "401892757:xch_homedog_fade:spread": {
 "tag": "xch_homedog_fade",
@@ -9114,6 +9118,10 @@
 "price": -203,
 "fair": 0.66582,
 "edge_pts": -0.42,
-"why": "Novig home side mid 0.333 inside T-1.5h; audit band 20-35c"
+"why": "Novig home side mid 0.333 inside T-1.5h; audit band 20-35c",
+"void": true,
+"void_why": "Untracked: systems conflict (xch_homedog_fade vs nhl_bounce_home_ml)",
+"void_at": "2026-11-21T21:59:01Z",
+"untracked": "xch_homedog_fade vs nhl_bounce_home_ml"
 }
 }

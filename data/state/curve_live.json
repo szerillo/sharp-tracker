@@ -1,5 +1,5 @@
 {
- "built": "2026-11-21T21:51:19Z",
+ "built": "2026-11-21T22:08:08Z",
  "record": {
   "cbb_1h_total_curve": {
    "n": 8,
@@ -378,7 +378,65 @@
    "book_fair": 0.4256,
    "fair_gap": 0.7,
    "ev_curve": 22.8,
-   "flagged": "2026-11-21T20:22:22Z"
+   "flagged": "2026-11-21T20:05:47Z"
+  },
+  {
+   "key": "cfb_q1_under_curve|cc2b1d4b7378697dc11c744aeb015af9||under",
+   "rule": "cfb_q1_under_curve",
+   "tier": "A",
+   "stake": 0.25,
+   "sport": "cfb",
+   "odds_id": "cc2b1d4b7378697dc11c744aeb015af9",
+   "espn": "401864543",
+   "game": "Northern Illinois Huskies @ North Dakota State Bison",
+   "start": "2026-11-21T21:00:00Z",
+   "market": "totals_q1",
+   "team": null,
+   "team_name": null,
+   "side": "under",
+   "line": 9.5,
+   "curve": 0.509,
+   "pin_fair": 0.456,
+   "gap": 5.3,
+   "full_total": 46.0,
+   "full_spread": -26.0,
+   "pin_price": 2.09,
+   "book": "DK",
+   "price": 2.05,
+   "pin_fair_power": 0.4524,
+   "book_fair": 0.4591,
+   "fair_gap": -0.3,
+   "ev_curve": 4.3,
+   "flagged": "2026-11-21T20:35:45Z"
+  },
+  {
+   "key": "cfb_q1_under_curve|a36fd3d086dffefb5fc58b14fb6255fc||under",
+   "rule": "cfb_q1_under_curve",
+   "tier": "A",
+   "stake": 0.25,
+   "sport": "cfb",
+   "odds_id": "a36fd3d086dffefb5fc58b14fb6255fc",
+   "espn": "401869938",
+   "game": "Arkansas State Red Wolves @ Louisiana Tech Bulldogs",
+   "start": "2026-11-22T00:00:00Z",
+   "market": "totals_q1",
+   "team": null,
+   "team_name": null,
+   "side": "under",
+   "line": 12.5,
+   "curve": 0.519,
+   "pin_fair": 0.466,
+   "gap": 5.2,
+   "full_total": 55.0,
+   "full_spread": -15.0,
+   "pin_price": 2.05,
+   "book": "DK",
+   "price": 1.95,
+   "pin_fair_power": 0.4638,
+   "book_fair": 0.48,
+   "fair_gap": -1.4,
+   "ev_curve": 1.1,
+   "flagged": "2026-11-21T21:06:53Z"
   },
   {
    "key": "cfb_tt_under_curve|8d53f308424d388c9003e02cac8b4cf6|home|under",
@@ -403,7 +461,7 @@
    "pin_price": 2.12,
    "book": null,
    "price": null,
-   "flagged": "2026-11-21T21:22:51Z"
+   "flagged": "2026-11-21T21:06:53Z"
   },
   {
    "key": "nhl_p3_under_curve|c891a951ef4b408976f84839c3d886e2||under",
