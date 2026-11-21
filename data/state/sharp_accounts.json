@@ -1,5 +1,5 @@
 {
- "built": "2026-11-21T11:33:04Z",
+ "built": "2026-11-21T11:43:26Z",
  "rows": [
   {
    "cond": "0x0a97ac876ccda0d4cdc6c73454de33896b3cbf299bdc3afd1c1f1a9a62826810",
@@ -462,6 +462,43 @@
    "other": null,
    "kalshi_against": null,
    "logged": true,
+   "grade": "A",
+   "fair_board": null,
+   "inside_fair": null,
+   "books": null
+  },
+  {
+   "cond": "0x15d4578ba7ef81bd4e9562d8d4163d8946d7300090a7d7ab08d32233c777aee2",
+   "slug": "mls-ner-phi-2026-11-21-more-markets",
+   "title": "New England Revolution vs. Philadelphia Union - More Markets",
+   "mtype": "total",
+   "start": "2026-11-21T19:00:00Z",
+   "bet": "Under 3.5",
+   "side": "Under",
+   "flagged": "2026-11-21T11:37:01Z",
+   "why": "a top-200 account also in this sport's top 50",
+   "proven": true,
+   "trigger": "proven",
+   "n_accounts": 1,
+   "best_rank": 170,
+   "usd": 384,
+   "paid": 0.61,
+   "ask": 0.61,
+   "status": "live",
+   "link": "https://polymarket.us/event/mls-ner-phi-2026-11-21-more-markets",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401933733",
+   "sport": "soccer",
+   "league": "mls",
+   "away": "PHI",
+   "home": "NE",
+   "away_name": "Philadelphia Union",
+   "home_name": "New England Revolution",
+   "game_start": "2026-11-21T19:00Z",
+   "side_std": "under",
+   "money_with": false,
    "grade": "A",
    "fair_board": null,
    "inside_fair": null,
@@ -986,6 +1023,13 @@
     "n": 1,
     "best_rank": 149,
     "usd": 12282
+   }
+  },
+  "401933733|total": {
+   "under": {
+    "n": 1,
+    "best_rank": 170,
+    "usd": 384
    }
   },
   "401915300|total": {
