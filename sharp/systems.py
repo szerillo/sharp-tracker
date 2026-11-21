@@ -120,7 +120,7 @@ DESC = {'wind1014': 'NFL outdoor, wind 10-14 mph (average of the latest Open-Met
         'nba_roadtrip_over': 'NBA visitor on its 4th+ straight road game: over (Bet Labs 1799438, exact since 11/14; the last-meeting filter was dropped)',
         'nhl_bounce_home_ml': 'NHL home team off a loss by 3+ goals with a 50-64% record (8+ games): home moneyline (mined 11/5)',
         'nhl_skid_fade_road': 'NHL road team off a win against a home team that has lost 3+ straight: road puck line (mined 11/5)',
-        'cfb_day_over': 'CFB game kicking off 2-7pm ET with a total of 45-51.5: over (mined 11/5; noon kickoffs dropped. PAPER until a mechanism is shown: Sean 11/5, a time slot is not a reason for overs. Tomorrow\'s CFB weather replay tests the temperature story)',
+        'cfb_day_over': 'CFB game kicking off 2-7pm ET with a total of 45-51.5: over (mined 11/5; noon kickoffs dropped. was paper from 11/5 (a time slot is not a reason for overs); tier C at 0.25u since 11/18, when Sean moved every paper rule to tier C. Tomorrow\'s CFB weather replay tests the temperature story)',
         'cfb_homefav_7510_under': 'CFB home favourite of 7.5 to 10: under (mined 11/5)',
         'mlb_road_over_under': 'MLB road team whose games have gone over 60%+ this season (15+ games): under (mined 11/5; fires in season)',
         'xch_homedog_fade': 'Novig home side two-sided at 20-35c inside T-90m: take the road side on Novig', 'nba_momentum': 'NBA exchange mid moved 3c+ since T-6h: continuation at that exchange',
