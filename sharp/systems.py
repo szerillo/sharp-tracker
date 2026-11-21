@@ -105,6 +105,10 @@ for _k, _t in TIER_1118.items(): EVIDENCE[_k]['tier'] = _t
 for _k in PAPER_TO_C_1118:
     assert EVIDENCE[_k]['tier'] == 'P', _k
     EVIDENCE[_k]['tier'] = 'C'; EVIDENCE[_k]['was_paper'] = EVIDENCE[_k].pop('paper_why', None) or 'paper'
+# 11/21 (Sean): back to paper. The trigger is a kickoff window with no mechanism (a time slot is not a reason for overs); it was a bet only via the
+# blanket 11/18 promotion. Games that started before 11/21 19:20Z keep their tier C record (sharp/bet_log.py DEMOTED_FROM).
+DEMOTE_1121 = ['cfb_day_over']
+for _k in DEMOTE_1121: EVIDENCE[_k]['tier'] = 'P'; EVIDENCE[_k]['paper_why'] = 'Sean 11/21: back to paper, a kickoff window is not a mechanism'
 # nhl_over_busy_goalie retired 10/30: positive in 2 of 7 seasons and the goalie-saves field thins to a handful of games after 2023.
 DESC = {'wind1014': 'NFL outdoor, wind 10-14 mph (average of the latest Open-Meteo and MySportsWeather forecasts, whole mph): full-game under', 'wind1014_1h': 'same wind, 10-13 mph: first-half under',
         'cfb_wind14': 'CFB outdoor, wind 14+ mph (same two-source average): full-game under', 'vrest8_1h': 'NFL visitor off 8-30 days: first-half under', 'mnf_1h': 'Monday night: first-half under',
@@ -120,7 +124,7 @@ DESC = {'wind1014': 'NFL outdoor, wind 10-14 mph (average of the latest Open-Met
         'nba_roadtrip_over': 'NBA visitor on its 4th+ straight road game: over (Bet Labs 1799438, exact since 11/14; the last-meeting filter was dropped)',
         'nhl_bounce_home_ml': 'NHL home team off a loss by 3+ goals with a 50-64% record (8+ games): home moneyline (mined 11/5)',
         'nhl_skid_fade_road': 'NHL road team off a win against a home team that has lost 3+ straight: road puck line (mined 11/5)',
-        'cfb_day_over': 'CFB game kicking off 2-7pm ET with a total of 45-51.5: over (mined 11/5; noon kickoffs dropped. was paper from 11/5 (a time slot is not a reason for overs); tier C at 0.25u since 11/18, when Sean moved every paper rule to tier C. Tomorrow\'s CFB weather replay tests the temperature story)',
+        'cfb_day_over': 'CFB game kicking off 2-7pm ET with a total of 45-51.5: over (mined 11/5; noon kickoffs dropped. paper: a time slot is not a reason for overs. Tier C 11/18 to 11/21 via the blanket promotion; back to paper 11/21 (Sean). Tomorrow\'s CFB weather replay tests the temperature story)',
         'cfb_homefav_7510_under': 'CFB home favourite of 7.5 to 10: under (mined 11/5)',
         'mlb_road_over_under': 'MLB road team whose games have gone over 60%+ this season (15+ games): under (mined 11/5; fires in season)',
         'xch_homedog_fade': 'Novig home side two-sided at 20-35c inside T-90m: take the road side on Novig', 'nba_momentum': 'NBA exchange mid moved 3c+ since T-6h: continuation at that exchange',

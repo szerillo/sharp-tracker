@@ -44,6 +44,8 @@ PROMOTED_FROM.update({k: '2026-11-19T04:00:00Z' for k in ['awfuldog_deep', 'wind
     'cfb_day_over', 'nfl_fade_fav_bye', 'bounce15_1h', 'nba_momentum', 'nhl_pl_fav_gap', 'nhl_pl_fav_strong_opp', 'nhl_pl_dog_bigml', 'nba_1h_under_hot_over',
     'nba_under_good_home_over_small', 'cfb_road_dog_low_total', 'cfb_road_streak_dog', 'cbb_under_good_over_drop']})
 PROMOTED_BY_START = set(PROMOTED_FROM) - {'xch_homedog_fade'}
+# 11/21 (Sean): demoted back to paper. Fills on games that started from the promotion up to this cutoff keep their tier C record; later ones are paper.
+DEMOTED_FROM = {'cfb_day_over': '2026-11-21T19:20:00Z'}
 # 11/18 (Sean): everything is 0.25u for now, every tier (favourite: to win 0.25u; plus money: risk 0.25u). Bets flagged before this keep
 # the size they were tracked at, so nothing is resized backwards.
 FLAT_QUARTER_FROM = '2026-11-18T20:30:00Z'
@@ -192,6 +194,7 @@ def main():
         tag = str(r.get('rule_tag', '')).replace('paper:', ''); tier = tiers.get(tag)
         cat = {'A': 'system A', 'B': 'system B', 'C': 'lean C', 'P': 'paper P'}.get(tier, 'paper P')
         if tag in PROMOTED_FROM and (r.get('start_utc' if tag in PROMOTED_BY_START else 'ts_utc') or '') < PROMOTED_FROM[tag]: cat = 'paper P'
+        elif tag in DEMOTED_FROM and (r.get('start_utc') or '') < DEMOTED_FROM[tag] and (r.get('start_utc') or '') >= PROMOTED_FROM.get(tag, ''): cat = 'lean C'
         e = S.get(r['event_id']) or {}
         won = {'W': 1, 'L': 0, 'P': 0.5}.get(r.get('result'))
         bets.append(dict(id='s:' + r['fill_id'], src='system', cat=cat, rule=tag, sport=e.get('sport'), event_id=r['event_id'], game=f"{e.get('away', '?')} @ {e.get('home', '?')}",
