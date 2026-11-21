@@ -1,5 +1,5 @@
 {
- "built": "2026-11-21T20:24:38Z",
+ "built": "2026-11-21T20:32:22Z",
  "rows": [
   {
    "cond": "0x18b35fc4bcdedb8fedae30d7dddf1d727bc8436675d0dabc1edaf307b8fc874e",
@@ -506,7 +506,7 @@
    "best_rank": 79,
    "usd": 644,
    "paid": 0.47,
-   "ask": 0.47,
+   "ask": null,
    "status": "live",
    "link": "https://polymarket.us/event/nhl-chi-cal-2026-11-21",
    "other": null,
@@ -552,7 +552,7 @@
    "best_rank": 115,
    "usd": 450,
    "paid": 0.51,
-   "ask": 0.53,
+   "ask": null,
    "status": "live",
    "link": "https://polymarket.us/event/cfb-rutger-pennst-2026-11-21",
    "other": null,
@@ -573,7 +573,7 @@
    "money_with": false,
    "grade": "A",
    "fair_board": 0.5021,
-   "inside_fair": false,
+   "inside_fair": null,
    "books": {
     "at": "2026-11-21T20:05:28Z",
     "fair": 0.5021,
@@ -1035,6 +1035,50 @@
    "books": null
   },
   {
+   "cond": "0x71c59551fa3035fe4e78c04a8d2a899c7f6e00b2e5847a4535a821ef42b0e825",
+   "slug": "nba-okc-mia-2026-11-22",
+   "title": "Thunder vs. Heat",
+   "mtype": "ml",
+   "start": "2026-11-22T23:00:00Z",
+   "bet": "Thunder ML",
+   "side": "Thunder",
+   "flagged": "2026-11-21T20:30:05Z",
+   "why": "2 top-200 accounts",
+   "proven": false,
+   "trigger": "two",
+   "n_accounts": 2,
+   "best_rank": 40,
+   "usd": 1159,
+   "paid": 0.564,
+   "ask": 0.6,
+   "status": "live",
+   "link": "https://polymarket.us/event/nba-okc-mia-2026-11-22",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401910030",
+   "sport": "nba",
+   "league": null,
+   "away": "OKC",
+   "home": "MIA",
+   "away_name": "Oklahoma City Thunder",
+   "home_name": "Miami Heat",
+   "game_start": "2026-11-22T23:00Z",
+   "side_std": "away",
+   "money_with": false,
+   "grade": "B",
+   "fair_board": null,
+   "inside_fair": null,
+   "books": {
+    "at": "2026-11-21T20:05:28Z",
+    "fair": null,
+    "q": {
+     "Novig": 0.48,
+     "Kalshi": 0.5
+    }
+   }
+  },
+  {
    "cond": "0xdd59f8d0c10ce4b29250ead31df8fc5dc89362085d890288d09c041043275b04",
    "slug": "ucl-gal-ast-2026-11-24-more-markets",
    "title": "Galatasaray SK vs. Aston Villa FC - More Markets",
@@ -1309,19 +1353,19 @@
     "clv": -1.2
    },
    "outside": {
-    "n": 98,
-    "won": 54,
+    "n": 99,
+    "won": 55,
     "units": -0.96,
-    "clv": -0.24
+    "clv": -0.23
    }
   },
-  "n": 363,
-  "won": 171,
+  "n": 364,
+  "won": 172,
   "units": -16.35,
   "by_grade": {
    "A": {
-    "n": 233,
-    "won": 103,
+    "n": 234,
+    "won": 104,
     "units": -15.16,
     "clv": -0.2
    },
@@ -1338,12 +1382,12 @@
     "clv": -0.61
    }
   },
-  "units_1u": -31.46,
+  "units_1u": -30.67,
   "clv": -0.42,
-  "n_venue": 188,
+  "n_venue": 189,
   "units_venue": -5.86,
-  "clv_venue": 0.89,
-  "clv_poly_same": -0.66
+  "clv_venue": 0.9,
+  "clv_poly_same": -0.65
  },
  "sys_tags": {
   "401873067:bounce15_1h": {
@@ -1380,6 +1424,14 @@
     "n": 1,
     "best_rank": 76,
     "usd": 504
+   }
+  },
+  "401910028:nba_bigfav_over": {
+   "with": null,
+   "against": {
+    "n": 1,
+    "best_rank": 132,
+    "usd": 3088
    }
   }
  },
@@ -1476,6 +1528,20 @@
     "usd": 113
    }
   },
+  "401910028|total": {
+   "under": {
+    "n": 1,
+    "best_rank": 132,
+    "usd": 3088
+   }
+  },
+  "401910030|ml": {
+   "away": {
+    "n": 2,
+    "best_rank": 40,
+    "usd": 1159
+   }
+  },
   "401910033|ml": {
    "away": {
     "n": 1,
@@ -1495,13 +1561,6 @@
     "n": 1,
     "best_rank": 93,
     "usd": 182
-   }
-  },
-  "401892755|total": {
-   "under": {
-    "n": 1,
-    "best_rank": 79,
-    "usd": 644
    }
   },
   "401892760|ml": {
@@ -1542,13 +1601,6 @@
     "n": 1,
     "best_rank": 110,
     "usd": 214
-   }
-  },
-  "401858532|spread": {
-   "away": {
-    "n": 1,
-    "best_rank": 115,
-    "usd": 450
    }
   },
   "401860920|total": {
