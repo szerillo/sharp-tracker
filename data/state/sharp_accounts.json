@@ -1,5 +1,5 @@
 {
- "built": "2026-11-21T17:23:48Z",
+ "built": "2026-11-21T17:38:28Z",
  "rows": [
   {
    "cond": "0xa0e79933d9c63108a49f598f9af22a145b66f7870df8f7c125005e3181a95545",
@@ -486,7 +486,7 @@
    "best_rank": 149,
    "usd": 23732,
    "paid": 0.52,
-   "ask": 0.54,
+   "ask": null,
    "status": "live",
    "link": "https://polymarket.us/event/epl-new-ars-2026-11-21-more-markets",
    "other": null,
@@ -550,7 +550,7 @@
    "money_with": false,
    "grade": "A",
    "fair_board": 0.5102,
-   "inside_fair": false,
+   "inside_fair": null,
    "books": {
     "at": "2026-11-21T17:03:36Z",
     "fair": 0.5102,
@@ -559,6 +559,52 @@
      "DK": 0.5283,
      "Kalshi": 0.53,
      "FD": 0.5455
+    }
+   }
+  },
+  {
+   "cond": "0xc6b10683300f0b81dcc0f4c70ce31204e0a71cfd3317f872c19a563563845a0d",
+   "slug": "epl-new-ars-2026-11-21",
+   "title": "Newcastle United FC vs. Arsenal FC",
+   "mtype": "ml",
+   "start": "2026-11-21T17:30:00Z",
+   "bet": "Will Arsenal FC win on 2026-11-21: Yes",
+   "side": "Yes",
+   "flagged": "2026-11-21T17:27:04Z",
+   "why": "a top-200 account also in this sport's top 50",
+   "proven": true,
+   "trigger": "proven",
+   "n_accounts": 1,
+   "best_rank": 71,
+   "usd": 258,
+   "paid": 0.66,
+   "ask": null,
+   "status": "live",
+   "link": "https://polymarket.us/event/epl-new-ars-2026-11-21",
+   "other": null,
+   "kalshi_against": null,
+   "logged": false,
+   "event_id": "401879232",
+   "sport": "soccer",
+   "league": "epl",
+   "away": "ARS",
+   "home": "NEW",
+   "away_name": "Arsenal",
+   "home_name": "Newcastle United",
+   "game_start": "2026-11-21T17:30Z",
+   "side_std": "away",
+   "money_with": false,
+   "grade": "A",
+   "fair_board": 0.6349,
+   "inside_fair": null,
+   "books": {
+    "at": "2026-11-21T17:03:36Z",
+    "fair": 0.6349,
+    "q": {
+     "DK": 0.6429,
+     "Novig": 0.655,
+     "Kalshi": 0.66,
+     "FD": 0.6667
     }
    }
   },
@@ -578,7 +624,7 @@
    "best_rank": 49,
    "usd": 2793,
    "paid": 0.57,
-   "ask": 0.59,
+   "ask": 0.6,
    "status": "live",
    "link": "https://polymarket.us/event/cfb-sdak-illst-2026-11-21",
    "other": null,
@@ -1254,16 +1300,16 @@
    "best_rank": 49,
    "usd": 17613,
    "paid": 0.502,
-   "ask": 0.54,
+   "ask": 0.53,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-mil-phi-2026-11-21",
    "other": {
     "n_accounts": 1,
     "best_rank": 154,
-    "usd": 169,
+    "usd": 10857,
     "first": "2026-11-21T17:27:23Z"
    },
-   "exit_bid": 0.53,
+   "exit_bid": 0.52,
    "kalshi_against": null,
    "logged": false,
    "event_id": "401910023",
@@ -1425,9 +1471,14 @@
   },
   "401910023|spread": {
    "home": {
+    "n": 2,
+    "best_rank": 49,
+    "usd": 17613
+   },
+   "away": {
     "n": 1,
     "best_rank": 154,
-    "usd": 17490
+    "usd": 169
    }
   },
   "401910024|ml": {
