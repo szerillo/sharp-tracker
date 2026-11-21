@@ -1,80 +1,6 @@
 {
- "built": "2026-11-21T03:48:32Z",
+ "built": "2026-11-21T04:02:48Z",
  "rows": [
-  {
-   "cond": "0x8045cbc5e564fb705352aaf4421544f346851009cfae0b0d94e44005d095d499",
-   "slug": "nba-cha-atl-2026-11-20",
-   "title": "Hornets vs. Hawks",
-   "mtype": "ml",
-   "start": "2026-11-21T00:00:00Z",
-   "bet": "Hawks ML",
-   "side": "Hawks",
-   "flagged": "2026-11-20T16:52:47Z",
-   "why": "a top-50 account",
-   "proven": false,
-   "trigger": "top50",
-   "n_accounts": 1,
-   "best_rank": 43,
-   "usd": 1473,
-   "paid": 0.69,
-   "ask": null,
-   "status": "live",
-   "link": "https://polymarket.us/event/nba-cha-atl-2026-11-20",
-   "other": null,
-   "kalshi_against": null,
-   "logged": true,
-   "event_id": "401909305",
-   "sport": "nba",
-   "league": null,
-   "away": "CHA",
-   "home": "ATL",
-   "away_name": "Charlotte Hornets",
-   "home_name": "Atlanta Hawks",
-   "game_start": "2026-11-21T00:00Z",
-   "side_std": "home",
-   "money_with": false,
-   "grade": "watch",
-   "inside_fair": false,
-   "fair_board": 0.6909,
-   "books": null
-  },
-  {
-   "cond": "0x0c452243780e0915d54d655aaee99f54c86cd95b2051dafbdfdd845c9fc1480d",
-   "slug": "cbb-wmich-mstm-2026-11-20",
-   "title": "Western Michigan Broncos vs. Mount St. Mary's Mountaineers",
-   "mtype": "spread",
-   "start": "2026-11-21T00:00:00Z",
-   "bet": "Western Michigan Broncos -7.5",
-   "side": "Western Michigan Broncos",
-   "flagged": "2026-11-20T20:16:31Z",
-   "why": "a top-50 account",
-   "proven": false,
-   "trigger": "top50",
-   "n_accounts": 1,
-   "best_rank": 4,
-   "usd": 194,
-   "paid": 0.48,
-   "ask": null,
-   "status": "live",
-   "link": "https://polymarket.us/event/cbb-wmich-mstm-2026-11-20",
-   "other": null,
-   "kalshi_against": null,
-   "logged": true,
-   "event_id": "401920922",
-   "sport": "cbb",
-   "league": null,
-   "away": "WMU",
-   "home": "MSM",
-   "away_name": "Western Michigan Broncos",
-   "home_name": "Mount St. Mary's Mountaineers",
-   "game_start": "2026-11-21T00:00Z",
-   "side_std": "away",
-   "money_with": false,
-   "grade": "B",
-   "fair_board": null,
-   "inside_fair": null,
-   "books": null
-  },
   {
    "cond": "0xdf764f8f0a9fa64c68f3b15cbbef3b20e215496212062a575d39c9937d11ed57",
    "slug": "cfb-bowlgr-toledo-2026-11-20",
@@ -486,7 +412,7 @@
    "best_rank": 40,
    "usd": 1315,
    "paid": 0.354,
-   "ask": 0.35,
+   "ask": 0.36,
    "status": "live",
    "link": "https://polymarket.us/event/nba-por-nyk-2026-11-21",
    "other": null,
@@ -790,14 +716,14 @@
     "clv": -1.2
    },
    "outside": {
-    "n": 88,
-    "won": 46,
+    "n": 90,
+    "won": 48,
     "units": -0.96,
     "clv": -0.35
    }
   },
-  "n": 347,
-  "won": 158,
+  "n": 349,
+  "won": 160,
   "units": -16.35,
   "by_grade": {
    "A": {
@@ -807,24 +733,24 @@
     "clv": -0.3
    },
    "B": {
-    "n": 89,
-    "won": 51,
+    "n": 90,
+    "won": 52,
     "units": 0.89,
-    "clv": -0.93
+    "clv": -0.92
    },
    "watch": {
-    "n": 38,
-    "won": 15,
+    "n": 39,
+    "won": 16,
     "units": -2.09,
     "clv": -0.61
    }
   },
-  "units_1u": -43.07,
+  "units_1u": -40.87,
   "clv": -0.49,
-  "n_venue": 176,
+  "n_venue": 178,
   "units_venue": -5.86,
-  "clv_venue": 0.82,
-  "clv_poly_same": -0.78
+  "clv_venue": 0.83,
+  "clv_poly_same": -0.77
  },
  "sys_tags": {
   "401873067:bounce15_1h": {
