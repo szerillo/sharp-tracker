@@ -1,5 +1,5 @@
 {
- "built": "2026-11-21T20:05:47Z",
+ "built": "2026-11-21T20:22:22Z",
  "record": {
   "cbb_1h_total_curve": {
    "n": 7,
@@ -24,12 +24,12 @@
    "lost": 19,
    "units": -3.19,
    "clv": {
-    "n": 17,
-    "avg": -2.29,
+    "n": 19,
+    "avg": -2.46,
     "beat": 2
    },
    "line_value": {
-    "n": 17,
+    "n": 19,
     "avg": 0.0,
     "better": 0,
     "worse": 0
@@ -75,12 +75,12 @@
    "lost": 18,
    "units": -1.89,
    "clv": {
-    "n": 12,
-    "avg": -2.58,
+    "n": 13,
+    "avg": -2.73,
     "beat": 1
    },
    "line_value": {
-    "n": 12,
+    "n": 13,
     "avg": 0.0,
     "better": 0,
     "worse": 0
@@ -314,7 +314,13 @@
    "book_fair": 0.4893,
    "fair_gap": -2.6,
    "ev_curve": -1.0,
-   "flagged": "2026-11-21T17:52:28Z"
+   "flagged": "2026-11-21T17:52:28Z",
+   "close_ts": "2026-11-21T20:22:22Z",
+   "close_line": 12.5,
+   "line_value": 0.0,
+   "close_fair": 0.4635,
+   "clv": -6.01,
+   "beat_fair": -0.05
   },
   {
    "key": "cfb_q1_under_curve|6b40f07e146bab0dba574f0d3b07659e||under",
@@ -343,7 +349,13 @@
    "book_fair": 0.4764,
    "fair_gap": 0.5,
    "ev_curve": 13.1,
-   "flagged": "2026-11-21T17:52:28Z"
+   "flagged": "2026-11-21T17:52:28Z",
+   "close_ts": "2026-11-21T20:22:22Z",
+   "close_line": 9.5,
+   "line_value": 0.0,
+   "close_fair": 0.4817,
+   "clv": -1.83,
+   "beat_fair": -0.03
   },
   {
    "key": "cfb_tt_under_curve|e17410526acddf2500fb788f40901b3f|away|under",
@@ -397,7 +409,42 @@
    "book_fair": 0.5,
    "fair_gap": -2.3,
    "ev_curve": -0.7,
-   "flagged": "2026-11-21T18:51:54Z"
+   "flagged": "2026-11-21T18:51:54Z",
+   "close_ts": "2026-11-21T20:22:22Z",
+   "close_line": 22.5,
+   "line_value": 0.0,
+   "close_fair": 0.487,
+   "clv": -4.49,
+   "beat_fair": 1.0
+  },
+  {
+   "key": "cfb_q1_under_curve|cbe55180a8bee495fa1520fbc1df314b||under",
+   "rule": "cfb_q1_under_curve",
+   "tier": "A",
+   "stake": 0.25,
+   "sport": "cfb",
+   "odds_id": "cbe55180a8bee495fa1520fbc1df314b",
+   "espn": "401860920",
+   "game": "Washington State Cougars @ Texas State Bobcats",
+   "start": "2026-11-21T23:00:00Z",
+   "market": "totals_q1",
+   "team": null,
+   "team_name": null,
+   "side": "under",
+   "line": 9.5,
+   "curve": 0.509,
+   "pin_fair": 0.458,
+   "gap": 5.0,
+   "full_total": 46.0,
+   "full_spread": -26.0,
+   "pin_price": 2.08,
+   "book": "DK",
+   "price": 2.05,
+   "pin_fair_power": 0.4552,
+   "book_fair": 0.4591,
+   "fair_gap": -0.1,
+   "ev_curve": 4.3,
+   "flagged": "2026-11-21T19:48:44Z"
   },
   {
    "key": "cfb_q1_under_curve|cbe55180a8bee495fa1520fbc1df314b||under",
@@ -426,7 +473,7 @@
    "book_fair": 0.4256,
    "fair_gap": 0.7,
    "ev_curve": 22.8,
-   "flagged": "2026-11-21T20:05:47Z"
+   "flagged": "2026-11-21T20:22:22Z"
   }
  ]
 }
