@@ -1,5 +1,5 @@
 {
- "built": "2026-11-21T20:35:45Z",
+ "built": "2026-11-21T20:52:17Z",
  "record": {
   "cbb_1h_total_curve": {
    "n": 8,
@@ -19,17 +19,17 @@
    }
   },
   "cfb_q1_under_curve": {
-   "n": 32,
+   "n": 33,
    "won": 13,
-   "lost": 19,
-   "units": -3.19,
+   "lost": 20,
+   "units": -3.44,
    "clv": {
-    "n": 19,
-    "avg": -2.46,
+    "n": 20,
+    "avg": -2.49,
     "beat": 2
    },
    "line_value": {
-    "n": 19,
+    "n": 20,
     "avg": 0.0,
     "better": 0,
     "worse": 0
@@ -75,12 +75,12 @@
    "lost": 18,
    "units": -1.89,
    "clv": {
-    "n": 13,
-    "avg": -2.73,
+    "n": 14,
+    "avg": -2.66,
     "beat": 1
    },
    "line_value": {
-    "n": 13,
+    "n": 14,
     "avg": 0.0,
     "better": 0,
     "worse": 0
@@ -122,41 +122,6 @@
    "close_fair": 0.4793,
    "clv": -2.07,
    "beat_fair": 2.03
-  },
-  {
-   "key": "cfb_q1_under_curve|b40838a45d9aeb25fb42668402caae13||under",
-   "rule": "cfb_q1_under_curve",
-   "tier": "A",
-   "stake": 0.25,
-   "sport": "cfb",
-   "odds_id": "b40838a45d9aeb25fb42668402caae13",
-   "espn": "401862835",
-   "game": "North Texas Mean Green @ Tulane Green Wave",
-   "start": "2026-11-21T17:00:00Z",
-   "market": "totals_q1",
-   "team": null,
-   "team_name": null,
-   "side": "under",
-   "line": 12.5,
-   "curve": 0.538,
-   "pin_fair": 0.479,
-   "gap": 5.9,
-   "full_total": 56.5,
-   "full_spread": 6.5,
-   "pin_price": 1.99,
-   "book": "FD",
-   "price": 1.96,
-   "pin_fair_power": 0.4775,
-   "book_fair": 0.4856,
-   "fair_gap": -0.7,
-   "ev_curve": 5.5,
-   "flagged": "2026-11-21T14:28:05Z",
-   "close_ts": "2026-11-21T16:54:58Z",
-   "close_line": 12.5,
-   "line_value": 0.0,
-   "close_fair": 0.4764,
-   "clv": -3.38,
-   "beat_fair": -0.26
   },
   {
    "key": "cfb_q1_under_curve|d7b3c2454c6b34f734497049e744bab0||under",
@@ -349,7 +314,13 @@
    "pin_price": 1.69,
    "book": null,
    "price": null,
-   "flagged": "2026-11-21T18:24:35Z"
+   "flagged": "2026-11-21T18:24:35Z",
+   "close_ts": "2026-11-21T20:52:17Z",
+   "close_line": 29.5,
+   "line_value": 0.0,
+   "close_fair": 0.5736,
+   "clv": -1.81,
+   "beat_fair": 0.36
   },
   {
    "key": "cfb_tt_under_curve|7f9809c817e27ec2d9f8a24e8e19a8ff|away|under",
@@ -387,15 +358,15 @@
    "beat_fair": 1.0
   },
   {
-   "key": "cfb_q1_under_curve|cbe55180a8bee495fa1520fbc1df314b||under",
+   "key": "cfb_q1_under_curve|cc2b1d4b7378697dc11c744aeb015af9||under",
    "rule": "cfb_q1_under_curve",
    "tier": "A",
    "stake": 0.25,
    "sport": "cfb",
-   "odds_id": "cbe55180a8bee495fa1520fbc1df314b",
-   "espn": "401860920",
-   "game": "Washington State Cougars @ Texas State Bobcats",
-   "start": "2026-11-21T23:00:00Z",
+   "odds_id": "cc2b1d4b7378697dc11c744aeb015af9",
+   "espn": "401864543",
+   "game": "Northern Illinois Huskies @ North Dakota State Bison",
+   "start": "2026-11-21T21:00:00Z",
    "market": "totals_q1",
    "team": null,
    "team_name": null,
@@ -413,7 +384,13 @@
    "book_fair": 0.4591,
    "fair_gap": -0.1,
    "ev_curve": 4.3,
-   "flagged": "2026-11-21T19:48:44Z"
+   "flagged": "2026-11-21T19:48:44Z",
+   "close_ts": "2026-11-21T20:52:17Z",
+   "close_line": 9.5,
+   "line_value": 0.0,
+   "close_fair": 0.4583,
+   "clv": -2.95,
+   "beat_fair": 0.03
   },
   {
    "key": "cfb_q1_under_curve|cbe55180a8bee495fa1520fbc1df314b||under",
