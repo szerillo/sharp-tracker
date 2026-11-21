@@ -1,5 +1,5 @@
 {
- "built": "2026-11-21T13:55:51Z",
+ "built": "2026-11-21T14:06:15Z",
  "rows": [
   {
    "cond": "0x0a97ac876ccda0d4cdc6c73454de33896b3cbf299bdc3afd1c1f1a9a62826810",
@@ -493,6 +493,43 @@
    }
   },
   {
+   "cond": "0xf20caadb57ede8a861cbcb4f45ea16cf6fb6c0ee5526a36957e4a70640be7342",
+   "slug": "cfb-arz-kanst-2026-11-21",
+   "title": "Arizona vs. Kansas State",
+   "mtype": "total",
+   "start": "2026-11-22T00:00:00Z",
+   "bet": "Over 53.5",
+   "side": "Over",
+   "flagged": "2026-11-21T13:56:23Z",
+   "why": "a top-200 account also in this sport's top 50",
+   "proven": true,
+   "trigger": "proven",
+   "n_accounts": 1,
+   "best_rank": 110,
+   "usd": 815,
+   "paid": 0.48,
+   "ask": 0.5,
+   "status": "live",
+   "link": "https://polymarket.us/event/cfb-arz-kanst-2026-11-21",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401856865",
+   "sport": "cfb",
+   "league": null,
+   "away": "ARIZ",
+   "home": "KSU",
+   "away_name": "Arizona Wildcats",
+   "home_name": "Kansas State Wildcats",
+   "game_start": "2026-11-22T00:00Z",
+   "side_std": "over",
+   "money_with": false,
+   "grade": "A",
+   "fair_board": null,
+   "inside_fair": null,
+   "books": null
+  },
+  {
    "cond": "0xf67a0d86970f6791f73ed28dc673221e22c0a9263af5a7f045fa4d40d917af01",
    "slug": "nba-por-nyk-2026-11-21",
    "title": "Trail Blazers vs. Knicks",
@@ -803,7 +840,7 @@
    "best_rank": 149,
    "usd": 2468,
    "paid": 0.4,
-   "ask": 0.38,
+   "ask": 0.39,
    "status": "other side",
    "link": "https://polymarket.us/event/epl-tot-ips-2026-11-21-more-markets",
    "other": {
@@ -812,7 +849,7 @@
     "usd": 352,
     "first": "2026-11-21T13:55:19Z"
    },
-   "exit_bid": 0.37,
+   "exit_bid": 0.38,
    "kalshi_against": null,
    "logged": true,
    "event_id": "401878754",
@@ -839,14 +876,14 @@
    "bet": "Will Tottenham Hotspur FC win on 2026-11-21: Yes",
    "side": "Yes",
    "flagged": "2026-11-21T09:13:50Z",
-   "why": "a top-200 account also in this sport's top 50",
+   "why": "2 top-200 accounts",
    "proven": true,
    "trigger": "proven",
-   "n_accounts": 1,
-   "best_rank": 149,
-   "usd": 8769,
-   "paid": 0.64,
-   "ask": 0.61,
+   "n_accounts": 2,
+   "best_rank": 31,
+   "usd": 9172,
+   "paid": 0.639,
+   "ask": 0.62,
    "status": "other side",
    "link": "https://polymarket.us/event/epl-tot-ips-2026-11-21",
    "other": {
@@ -855,7 +892,7 @@
     "usd": 3454,
     "first": "2026-11-21T13:30:01Z"
    },
-   "exit_bid": 0.6,
+   "exit_bid": 0.61,
    "kalshi_against": null,
    "logged": true,
    "event_id": "401878754",
@@ -1076,6 +1113,13 @@
     "n": 1,
     "best_rank": 12,
     "usd": 215
+   }
+  },
+  "401856865|total": {
+   "over": {
+    "n": 1,
+    "best_rank": 110,
+    "usd": 815
    }
   },
   "401858527|total": {
