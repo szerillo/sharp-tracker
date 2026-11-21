@@ -1,5 +1,5 @@
 {
- "built": "2026-11-21T00:07:03Z",
+ "built": "2026-11-21T00:29:04Z",
  "rows": [
   {
    "cond": "0x8045cbc5e564fb705352aaf4421544f346851009cfae0b0d94e44005d095d499",
@@ -118,7 +118,7 @@
    "home_name": "Toledo Rockets",
    "game_start": "2026-11-21T00:30Z",
    "side_std": "under",
-   "money_with": false,
+   "money_with": true,
    "grade": "A",
    "fair_board": null,
    "inside_fair": null,
@@ -293,8 +293,8 @@
    "home_name": "Denver Nuggets",
    "game_start": "2026-11-21T03:00Z",
    "side_std": "home",
-   "money_with": true,
-   "grade": "A",
+   "money_with": false,
+   "grade": "B",
    "inside_fair": true,
    "fair_board": 0.5344,
    "books": {
@@ -544,7 +544,7 @@
    "best_rank": 40,
    "usd": 1315,
    "paid": 0.354,
-   "ask": 0.38,
+   "ask": 0.37,
    "status": "live",
    "link": "https://polymarket.us/event/nba-por-nyk-2026-11-21",
    "other": null,
