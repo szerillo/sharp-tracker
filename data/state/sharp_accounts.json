@@ -1,5 +1,5 @@
 {
- "built": "2026-11-21T10:07:40Z",
+ "built": "2026-11-21T10:22:46Z",
  "rows": [
   {
    "cond": "0x0a97ac876ccda0d4cdc6c73454de33896b3cbf299bdc3afd1c1f1a9a62826810",
@@ -395,6 +395,46 @@
    "game_start": "2026-11-21T15:00Z",
    "side_std": "over",
    "money_with": false,
+   "grade": "A",
+   "fair_board": null,
+   "inside_fair": null,
+   "books": null
+  },
+  {
+   "cond": "0x18b35fc4bcdedb8fedae30d7dddf1d727bc8436675d0dabc1edaf307b8fc874e",
+   "slug": "cfb-ohiost-nebr-2026-11-21",
+   "title": "Ohio State vs. Nebraska",
+   "mtype": "total",
+   "start": "2026-11-21T17:00:00Z",
+   "bet": "Over 43.5",
+   "side": "Over",
+   "flagged": "2026-11-21T10:17:56Z",
+   "why": "a top-50 account",
+   "proven": false,
+   "trigger": "top50",
+   "n_accounts": 1,
+   "best_rank": 12,
+   "usd": 215,
+   "paid": 0.43,
+   "ask": 0.44,
+   "status": "live",
+   "link": "https://polymarket.us/event/cfb-ohiost-nebr-2026-11-21",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401858531",
+   "sport": "cfb",
+   "league": null,
+   "away": "OSU",
+   "home": "NEB",
+   "away_name": "Ohio State Buckeyes",
+   "home_name": "Nebraska Cornhuskers",
+   "game_start": "2026-11-21T17:00Z",
+   "side_std": "over",
+   "conflict": [
+    "Kalshi move"
+   ],
+   "money_with": true,
    "grade": "A",
    "fair_board": null,
    "inside_fair": null,
@@ -897,6 +937,13 @@
     "n": 1,
     "best_rank": 143,
     "usd": 972
+   }
+  },
+  "401858531|total": {
+   "over": {
+    "n": 1,
+    "best_rank": 12,
+    "usd": 215
    }
   },
   "401858527|total": {
