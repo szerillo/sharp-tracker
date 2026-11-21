@@ -1,5 +1,5 @@
 {
- "built": "2026-11-21T13:55:51Z",
+ "built": "2026-11-21T15:07:02Z",
  "rows": [
   {
    "cond": "0x0a97ac876ccda0d4cdc6c73454de33896b3cbf299bdc3afd1c1f1a9a62826810",
@@ -109,7 +109,7 @@
    "best_rank": 57,
    "usd": 2822,
    "paid": 0.509,
-   "ask": 0.52,
+   "ask": null,
    "status": "live",
    "link": "https://polymarket.us/event/epl-che-lee-2026-11-21",
    "other": null,
@@ -146,7 +146,7 @@
    "best_rank": 149,
    "usd": 1147,
    "paid": 0.24,
-   "ask": 0.25,
+   "ask": null,
    "status": "live",
    "link": "https://polymarket.us/event/epl-che-lee-2026-11-21",
    "other": null,
@@ -191,7 +191,7 @@
    "best_rank": 57,
    "usd": 1249,
    "paid": 0.49,
-   "ask": 0.53,
+   "ask": null,
    "status": "live",
    "link": "https://polymarket.us/event/epl-bou-not-2026-11-21-more-markets",
    "other": null,
@@ -237,7 +237,7 @@
    "best_rank": 149,
    "usd": 12282,
    "paid": 0.62,
-   "ask": 0.62,
+   "ask": null,
    "status": "live",
    "link": "https://polymarket.us/event/epl-tot-ips-2026-11-21-more-markets",
    "other": null,
@@ -283,7 +283,7 @@
    "best_rank": 149,
    "usd": 2607,
    "paid": 0.4,
-   "ask": 0.4,
+   "ask": null,
    "status": "live",
    "link": "https://polymarket.us/event/epl-tot-ips-2026-11-21-more-markets",
    "other": null,
@@ -301,6 +301,70 @@
    "side_std": "over",
    "money_with": false,
    "grade": "A",
+   "fair_board": null,
+   "inside_fair": null,
+   "books": null
+  },
+  {
+   "cond": "0xcdae040923820be808567b47bd133650aae1dcd2db200ad565a9766ad0056ff3",
+   "slug": "epl-ast-sun-2026-11-21",
+   "title": "Aston Villa FC vs. Sunderland AFC",
+   "mtype": "ml",
+   "start": "2026-11-21T15:00:00Z",
+   "bet": "Will Sunderland AFC win on 2026-11-21: No",
+   "side": "No",
+   "flagged": "2026-11-21T14:58:25Z",
+   "why": "a top-50 account",
+   "proven": false,
+   "trigger": "top50",
+   "n_accounts": 1,
+   "best_rank": 3,
+   "usd": 190,
+   "paid": 0.81,
+   "ask": null,
+   "status": "live",
+   "link": "https://polymarket.us/event/epl-ast-sun-2026-11-21",
+   "other": null,
+   "kalshi_against": null,
+   "logged": false,
+   "event_id": "401878756",
+   "sport": "soccer",
+   "league": "epl",
+   "away": "SUN",
+   "home": "AVL",
+   "away_name": "Sunderland",
+   "home_name": "Aston Villa",
+   "game_start": "2026-11-21T15:00Z",
+   "side_std": "not_away",
+   "money_with": false,
+   "grade": "B",
+   "fair_board": null,
+   "inside_fair": null,
+   "books": null
+  },
+  {
+   "cond": "0x04eb6f5e2c3ac7679042616855f2711ed3b4de56b86e2947d801bbf656e35453",
+   "slug": "epl-ast-sun-2026-11-21",
+   "title": "Aston Villa FC vs. Sunderland AFC",
+   "mtype": "ml",
+   "start": "2026-11-21T15:00:00Z",
+   "bet": "Will Aston Villa FC vs. Sunderland AFC end in a draw: No",
+   "side": "No",
+   "flagged": "2026-11-21T14:58:25Z",
+   "why": "a top-50 account",
+   "proven": false,
+   "trigger": "top50",
+   "n_accounts": 1,
+   "best_rank": 3,
+   "usd": 240,
+   "paid": 0.76,
+   "ask": null,
+   "status": "live",
+   "link": "https://polymarket.us/event/epl-ast-sun-2026-11-21",
+   "other": null,
+   "kalshi_against": null,
+   "logged": false,
+   "grade": "B",
    "fair_board": null,
    "inside_fair": null,
    "books": null
@@ -381,8 +445,8 @@
    ],
    "money_with": false,
    "grade": "A",
-   "fair_board": 0.4916,
    "inside_fair": false,
+   "fair_board": 0.4916,
    "books": {
     "at": "2026-11-21T03:44:49Z",
     "fair": 0.4916,
@@ -436,6 +500,50 @@
      "Novig": 0.495,
      "FD": 0.5098,
      "Kalshi": 0.51
+    }
+   }
+  },
+  {
+   "cond": "0xe6c11e6d211dc2b6ed6cd18ed34f443fdc276a8e5c9fcc6edc46866200f6212c",
+   "slug": "cfb-ecar-army-2026-11-21",
+   "title": "East Carolina vs. Army",
+   "mtype": "spread",
+   "start": "2026-11-21T17:00:00Z",
+   "bet": "East Carolina +6.5",
+   "side": "East Carolina",
+   "flagged": "2026-11-21T15:02:47Z",
+   "why": "a top-200 account also in this sport's top 50",
+   "proven": true,
+   "trigger": "proven",
+   "n_accounts": 1,
+   "best_rank": 58,
+   "usd": 460,
+   "paid": 0.54,
+   "ask": 0.53,
+   "status": "live",
+   "link": "https://polymarket.us/event/cfb-ecar-army-2026-11-21",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401862831",
+   "sport": "cfb",
+   "league": null,
+   "away": "ECU",
+   "home": "ARMY",
+   "away_name": "East Carolina Pirates",
+   "home_name": "Army Black Knights",
+   "game_start": "2026-11-21T17:00Z",
+   "side_std": "away",
+   "money_with": false,
+   "grade": "A",
+   "fair_board": null,
+   "inside_fair": null,
+   "books": {
+    "at": "2026-11-21T03:44:49Z",
+    "fair": null,
+    "q": {
+     "Novig": 0.535,
+     "Kalshi": 0.54
     }
    }
   },
@@ -934,7 +1042,7 @@
    "best_rank": 149,
    "usd": 2468,
    "paid": 0.4,
-   "ask": 0.43,
+   "ask": null,
    "status": "other side",
    "link": "https://polymarket.us/event/epl-tot-ips-2026-11-21-more-markets",
    "other": {
@@ -943,7 +1051,7 @@
     "usd": 352,
     "first": "2026-11-21T13:55:19Z"
    },
-   "exit_bid": 0.41,
+   "exit_bid": null,
    "kalshi_against": null,
    "logged": true,
    "event_id": "401878754",
@@ -973,11 +1081,11 @@
    "why": "2 top-200 accounts",
    "proven": true,
    "trigger": "proven",
-   "n_accounts": 1,
-   "best_rank": 149,
-   "usd": 8769,
-   "paid": 0.64,
-   "ask": 0.61,
+   "n_accounts": 2,
+   "best_rank": 31,
+   "usd": 9172,
+   "paid": 0.639,
+   "ask": null,
    "status": "other side",
    "link": "https://polymarket.us/event/epl-tot-ips-2026-11-21",
    "other": {
@@ -986,7 +1094,7 @@
     "usd": 3454,
     "first": "2026-11-21T13:30:01Z"
    },
-   "exit_bid": 0.6,
+   "exit_bid": null,
    "kalshi_against": null,
    "logged": true,
    "event_id": "401878754",
@@ -1084,6 +1192,14 @@
   "clv_poly_same": -0.76
  },
  "sys_tags": {
+  "401862831:cfb_road_streak_dog": {
+   "with": {
+    "n": 1,
+    "best_rank": 58,
+    "usd": 460
+   },
+   "against": null
+  },
   "401873067:bounce15_1h": {
    "with": {
     "n": 1,
@@ -1230,6 +1346,13 @@
     "usd": 5603
    }
   },
+  "401862831|spread": {
+   "away": {
+    "n": 1,
+    "best_rank": 58,
+    "usd": 460
+   }
+  },
   "401858527|total": {
    "over": {
     "n": 1,
@@ -1256,32 +1379,6 @@
     "n": 1,
     "best_rank": 110,
     "usd": 252
-   }
-  },
-  "401879238|total": {
-   "under": {
-    "n": 1,
-    "best_rank": 57,
-    "usd": 1249
-   }
-  },
-  "401878754|spread": {
-   "home": {
-    "n": 1,
-    "best_rank": 149,
-    "usd": 2468
-   },
-   "away": {
-    "n": 1,
-    "best_rank": 170,
-    "usd": 352
-   }
-  },
-  "401878754|total": {
-   "over": {
-    "n": 1,
-    "best_rank": 149,
-    "usd": 12282
    }
   },
   "401933733|total": {
