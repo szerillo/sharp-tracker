@@ -9123,5 +9123,73 @@
 "void_why": "Untracked: systems conflict (xch_homedog_fade vs nhl_bounce_home_ml)",
 "void_at": "2026-11-21T21:59:01Z",
 "untracked": "xch_homedog_fade vs nhl_bounce_home_ml"
+},
+"401892759:xch_homedog_fade:spread": {
+"tag": "xch_homedog_fade",
+"fill_id": "b223db00981b",
+"ts": "2026-11-21T22:45:54Z",
+"market": "spread",
+"side": "away",
+"line": 1.5,
+"venue": "Novig",
+"price": -233,
+"fair": 0.69717,
+"edge_pts": -0.28,
+"why": "Novig home side mid 0.305 inside T-1.2h; audit band 20-35c",
+"now": {
+"venue": "Novig",
+"price": -233
+}
+},
+"401892758:xch_homedog_fade:spread": {
+"tag": "xch_homedog_fade",
+"fill_id": "51947b5a4ed9",
+"ts": "2026-11-21T22:45:54Z",
+"market": "spread",
+"side": "away",
+"line": 1.5,
+"venue": "Novig",
+"price": -194,
+"fair": 0.66146,
+"edge_pts": 0.15,
+"why": "Novig home side mid 0.343 inside T-1.2h; audit band 20-35c",
+"now": {
+"venue": "Novig",
+"price": -194
+}
+},
+"401864544:xch_homedog_fade:ml": {
+"tag": "xch_homedog_fade",
+"fill_id": "79625323975e",
+"ts": "2026-11-21T22:45:54Z",
+"market": "ml",
+"side": "away",
+"line": null,
+"venue": "Novig",
+"price": -212,
+"fair": 0.67732,
+"edge_pts": -0.27,
+"why": "Novig home side mid 0.325 inside T-1.2h; audit band 20-35c",
+"now": {
+"venue": "Novig",
+"price": -212
+}
+},
+"401856865:xch_homedog_fade:ml": {
+"tag": "xch_homedog_fade",
+"fill_id": "3a3456ca3204",
+"ts": "2026-11-21T22:45:54Z",
+"market": "ml",
+"side": "away",
+"line": null,
+"venue": "Novig",
+"price": -335,
+"fair": 0.7663,
+"edge_pts": -0.37,
+"why": "Novig home side mid 0.235 inside T-1.2h; audit band 20-35c",
+"now": {
+"venue": "Novig",
+"price": -335
+}
 }
 }
