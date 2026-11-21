@@ -8961,7 +8961,10 @@
 "price": 102,
 "fair": 0.49678,
 "edge_pts": 0.18,
-"why": "BOS is 87% on the moneyline: over (mined angle)"
+"why": "BOS is 87% on the moneyline: over (mined angle)",
+"void": true,
+"void_why": "trigger no longer holds on current season records (2026-11-21T21:31:54Z)",
+"void_at": "2026-11-21T21:31:54Z"
 },
 "401856866:xch_homedog_fade:ml": {
 "tag": "xch_homedog_fade",
@@ -9076,49 +9079,41 @@
 },
 "401864541:cfb_road_dog_low_total": {
 "tag": "cfb_road_dog_low_total",
-"fill_id": "71e1a9d12db1",
-"ts": "2026-11-21T20:59:12Z",
+"fill_id": "d0a1dd588d9a",
+"ts": "2026-11-21T21:31:54Z",
 "market": "spread",
 "side": "away",
 "line": 7.0,
 "venue": "Caesars",
 "price": -110,
-"fair": 0.50035,
-"edge_pts": -2.35,
+"fair": null,
+"edge_pts": null,
 "why": "conference game, HAW +7.0 on the road, total 40.5"
-},
-"401892757:xch_homedog_fade:spread": {
-"tag": "xch_homedog_fade",
-"fill_id": "74a139e49e9a",
-"ts": "2026-11-21T21:30:05Z",
-"market": "spread",
-"side": "away",
-"line": 1.5,
-"venue": "Novig",
-"price": -203,
-"fair": 0.66683,
-"edge_pts": -0.32,
-"why": "Novig home side mid 0.333 inside T-1.5h; audit band 20-35c",
-"void": true,
-"void_why": "Untracked: systems conflict (xch_homedog_fade vs nhl_bounce_home_ml)",
-"void_at": "2026-11-21T21:30:05Z",
-"untracked": "xch_homedog_fade vs nhl_bounce_home_ml"
 },
 "401892756:xch_homedog_fade:spread": {
 "tag": "xch_homedog_fade",
-"fill_id": "25fa487f8540",
-"ts": "2026-11-21T21:30:05Z",
+"fill_id": "5ff8604eaede",
+"ts": "2026-11-21T21:31:54Z",
 "market": "spread",
 "side": "away",
 "line": 1.5,
 "venue": "Novig",
 "price": -194,
-"fair": 0.65438,
-"edge_pts": -0.56,
-"why": "Novig home side mid 0.345 inside T-1.5h; audit band 20-35c",
-"void": true,
-"void_why": "Untracked: systems conflict (xch_homedog_fade vs nhl_bounce_home_ml)",
-"void_at": "2026-11-21T21:30:05Z",
-"untracked": "xch_homedog_fade vs nhl_bounce_home_ml"
+"fair": 0.65345,
+"edge_pts": -0.66,
+"why": "Novig home side mid 0.345 inside T-1.5h; audit band 20-35c"
+},
+"401892757:xch_homedog_fade:spread": {
+"tag": "xch_homedog_fade",
+"fill_id": "0e2d5ad8ff9d",
+"ts": "2026-11-21T21:31:54Z",
+"market": "spread",
+"side": "away",
+"line": 1.5,
+"venue": "Novig",
+"price": -203,
+"fair": 0.66582,
+"edge_pts": -0.42,
+"why": "Novig home side mid 0.333 inside T-1.5h; audit band 20-35c"
 }
 }
