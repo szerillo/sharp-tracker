@@ -1655,6 +1655,11 @@ function renderBetLog() {
       <input type="search" placeholder="Team, player or rule" value="${esc(_lq)}" onchange="setTF('_lq',this.value)" aria-label="Search bets">
       ${dirty ? '<button class="tf-clear" onclick="clearTF()">Clear filters</button>' : ''}
     </div>`;
+  // ---- 11/21 (Sean): his actual fills (data/state/placed.jsonl), at his own price and line; separate from the rule records below
+  const PL = BL.placed, plH = PL && PL.rows && PL.rows.length ? (() => { const s = PL.summary, f = x => `${x > 0 ? '+' : ''}${x.toFixed(2)}u`;
+    const res = x => x.won === 1 ? '<span class="pos">W</span>' : x.won === 0 ? '<span class="neg">L</span>' : x.won === 0.5 ? 'P' : '<span class="dim">open</span>';
+    return `<details class="sec"><summary class="sec-h"><span class="name">Your fills</span><span class="meta">${s.w}-${s.l}${s.p ? '-' + s.p : ''} · <span class="${s.units > 0 ? 'pos' : s.units < 0 ? 'neg' : ''}">${f(s.units)}</span> · ${s.n} placed, ${s.graded} graded · your price and line, 0.25u</span></summary>
+      <table class="rtab"><thead><tr><th>Start</th><th>Bet</th><th class="num">Price</th><th class="num">Result</th><th class="num">Units</th></tr></thead><tbody>${PL.rows.map(x => `<tr><td class="small">${DAYT(x.start)}</td><td>${esc(x.bet)}${x.tracker ? `<div class="small dim">tracker: ${esc(x.tracker.cat || '')}${x.tracker.line != null ? ' at ' + x.tracker.line : ''}${x.tracker.price ? ' ' + toAm(x.tracker.price) : ''}</div>` : ''}</td><td class="num">${toAm(x.price)} ${esc(x.venue)}</td><td class="num">${res(x)}</td><td class="num">${x.units == null ? '—' : f(x.units)}</td></tr>`).join('')}</tbody></table></details>`; })() : '';
   // ---- record line
   const S = blSumm(cnt(rows)), roi = blRoi(S);
   const money = (x, t) => x == null ? '—' : `<span class="${x > 0.004 ? 'pos' : x < -0.004 ? 'neg' : ''}">${t}</span>`;
@@ -1695,7 +1700,7 @@ function renderBetLog() {
     'sharp move with', 'sharp move against', 'any signal against', 'no signal against', 'system also', 'sharp flag also', 'same-market conflict', 'middle'];
   const pool = cnt(rows); const seen = TAGS.filter(t => pool.some(b => tg(b).includes(t)));
   const tagT = seen.length ? `<details class="how"><summary>Signals around these bets (for digging; the Signals filter above is the short version)</summary><table class="rtab">${head('Signal')}<tbody>${seen.map(t => `<tr><td>${esc(t)}</td>${line(pool.filter(b => tg(b).includes(t)))}</tr>`).join('')}</tbody></table></details>` : '';
-  return `${bar}${rec}${blProfitChart(cnt(rows), units, what)}<div class="rgrid">${byRule}${bySport}</div>${list}${tagT}
+  return `${bar}${plH}${rec}${blProfitChart(cnt(rows), units, what)}<div class="rgrid">${byRule}${bySport}</div>${list}${tagT}
     ${BL.rest ? (() => { const R = BL.rest, f = x => !x || !x.n ? '—' : `${x.w}-${x.l}, ${x.roi > 0 ? '+' : ''}${x.roi}% (${x.n})`;
       const row = (k, x) => `<tr><td>${esc(k)}</td><td class="num">${f(x.filled_at_rest)}</td><td class="num">${f(x.filled_at_flag)}</td><td class="num">${f(x.never_at_flag)}</td><td class="num">${f(x.all_at_flag)}</td></tr>`;
       const tbl = X => `<table class="small"><thead><tr><th>Group</th><th class="num">Came back, at the rest price</th><th class="num">Same bets at the flag price</th><th class="num">Never came back, at the flag price</th><th class="num">All, at the flag price</th></tr></thead><tbody>${['bets', 'systems and leans', 'sharp flags', 'paper rules', 'watch signals', 'everything'].filter(k => X[k]).map(k => row(k, X[k])).join('')}</tbody></table>`;

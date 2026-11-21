@@ -602,7 +602,30 @@ def main():
           'sharp flags': lambda b: b['cat'] in ('sharp A', 'sharp B'), 'paper rules': lambda b: b['cat'] == 'paper P', 'watch signals': lambda b: b['cat'] == 'watch', 'everything': lambda b: True}
     rest = {k: rest_summ([b for b in bets if fn(b)]) for k, fn in RG.items()}
     rest['since'] = {k: rest_summ([b for b in bets if fn(b) and (b.get('flagged') or '') >= '2026-11-10T10:00:00Z']) for k, fn in RG.items()}     # the forward test
+    # ---- 11/21 (Sean via Kirk): Sean's ACTUAL fills (data/state/placed.jsonl, hand-entered from what he reports), graded at his own line
+    # and price, 0.25u (favourite: to win 0.25u; plus money: risk 0.25u). Kept apart from the system records, which grade each rule at the
+    # price it flagged. A fill inherits the result of its tracker row when that row is the same market, side and line (sharp flags graded
+    # on Polymarket, FCS games with no score feed); otherwise it is graded from final scores (data/state/results.jsonl).
+    placed = []
+    pp = os.path.join(SD, 'placed.jsonl'); BI = {b['id']: b for b in bets}
+    if os.path.exists(pp):
+        for l in open(pp):
+            try: f = json.loads(l)
+            except Exception: continue
+            won = None; mb = BI.get(f.get('match')) or {}
+            if mb and mb.get('market') == f['market'] and mb.get('side') in (f['side'], None) and (mb.get('line') == f.get('line') or f['market'].endswith('ml')): won = mb.get('won')
+            r = RES.get(f.get('event_id')) if f.get('event_id') else None
+            if won is None and r:
+                m = f['market']; h_, a_ = (r.get('f5_home'), r.get('f5_away')) if m.startswith('1h_') else (r.get('home_score'), r.get('away_score'))
+                if h_ is not None and a_ is not None:
+                    base = re.sub(r'^(1h|1q|1p)_', '', m); L = float(f.get('line') or 0)
+                    mg = ((L - (h_ + a_)) if f['side'] == 'under' else ((h_ + a_) - L)) if base == 'total' else (((h_ - a_) if f['side'] == 'home' else (a_ - h_)) + L) if base == 'spread' else ((h_ - a_) if f['side'] == 'home' else (a_ - h_))
+                    won = 1 if mg > 0 else 0 if mg < 0 else 0.5
+            placed.append(dict(f, won=won, units=units(f['price'], won, f.get('size', 0.25)), tracker=dict(id=mb.get('id'), cat=mb.get('cat'), rule=mb.get('rule'), price=mb.get('price'), line=mb.get('line')) if mb else None))
+    G_ = [x for x in placed if x['won'] in (0, 1, 0.5)]
+    placed_summ = dict(n=len(placed), graded=len(G_), w=sum(x['won'] == 1 for x in G_), l=sum(x['won'] == 0 for x in G_), p=sum(x['won'] == 0.5 for x in G_), units=round(sum(x['units'] or 0 for x in G_), 2))
     out = dict(built=NOW.strftime('%Y-%m-%dT%H:%M:%SZ'), venues=list(VENUES), opposed=opp_summ, watch_kinds=wk, tag_stats=tag_stats, rest=rest,
+               placed=dict(summary=placed_summ, rows=sorted(placed, key=lambda x: x['start'], reverse=True)),
                summary={k: summ(v) for k, v in sorted(groups.items())},
                rows=sorted(bets, key=lambda b: b['start'], reverse=True))
     json.dump(out, open(OUT, 'w'), separators=(',', ':'), default=str)
