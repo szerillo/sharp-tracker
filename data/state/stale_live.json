@@ -1,11 +1,11 @@
 {
- "built": "2026-11-21T21:32:27Z",
+ "built": "2026-11-21T21:46:13Z",
  "record": {
-  "n": 208,
-  "won": 91,
+  "n": 209,
+  "won": 92,
   "lost": 117,
-  "units": -2.11,
-  "roi": -4.1
+  "units": -1.85,
+  "roi": -3.6
  },
  "record_sb4": {
   "n": 8,
@@ -34,26 +34,6 @@
    "move": 2.9,
    "flagged": "2026-11-20T13:10:28Z",
    "team": "FIU"
-  },
-  {
-   "key": "401871080|spread|home",
-   "sport": "cfb",
-   "event_id": "401871080",
-   "game": "WKU @ LIB",
-   "start": "2026-11-21T18:00Z",
-   "market": "spread",
-   "side": "home",
-   "line": -17.5,
-   "venue": "Novig",
-   "price": 0.495,
-   "fair": 0.5068,
-   "fair_power": 0.5071,
-   "venue_fair": 0.4925,
-   "fair_gap": 1.4,
-   "ev": 2.4,
-   "move": 1.1,
-   "flagged": "2026-11-20T21:25:15Z",
-   "team": "LIB"
   },
   {
    "key": "401921776|ml|home",
@@ -236,24 +216,24 @@
    "team": null
   },
   {
-   "key": "401911378|spread|home",
-   "sport": "cbb",
-   "event_id": "401911378",
-   "game": "CHSO @ MER",
-   "start": "2026-11-22T00:00Z",
-   "market": "spread",
-   "side": "home",
-   "line": -8.5,
+   "key": "401910025|total|over",
+   "sport": "nba",
+   "event_id": "401910025",
+   "game": "LAC @ DAL",
+   "start": "2026-11-22T01:00Z",
+   "market": "total",
+   "side": "over",
+   "line": 230.5,
    "venue": "Novig",
-   "price": 0.5,
-   "fair": 0.511,
-   "fair_power": 0.5117,
-   "venue_fair": 0.4975,
-   "fair_gap": 1.3,
-   "ev": 2.2,
-   "move": 1.3,
-   "flagged": "2026-11-21T21:32:27Z",
-   "team": "MER"
+   "price": 0.49,
+   "fair": 0.5092,
+   "fair_power": 0.5096,
+   "venue_fair": 0.4876,
+   "fair_gap": 2.2,
+   "ev": 3.9,
+   "move": 2.6,
+   "flagged": "2026-11-21T21:46:13Z",
+   "team": null
   }
  ]
 }
