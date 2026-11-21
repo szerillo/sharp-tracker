@@ -1,11 +1,11 @@
 {
- "built": "2026-11-21T05:47:17Z",
+ "built": "2026-11-21T06:03:00Z",
  "record": {
-  "n": 200,
+  "n": 202,
   "won": 88,
-  "lost": 112,
-  "units": -1.92,
-  "roi": -3.8
+  "lost": 114,
+  "units": -2.42,
+  "roi": -4.8
  },
  "record_sb4": {
   "n": 8,
@@ -56,26 +56,6 @@
    "team": "LIB"
   },
   {
-   "key": "401864542|total|under",
-   "sport": "cfb",
-   "event_id": "401864542",
-   "game": "UNM @ WYO",
-   "start": "2026-11-21T02:00Z",
-   "market": "total",
-   "side": "under",
-   "line": 37.5,
-   "venue": "Novig",
-   "price": 0.485,
-   "fair": 0.5,
-   "fair_power": 0.5,
-   "venue_fair": 0.4826,
-   "fair_gap": 1.7,
-   "ev": 3.1,
-   "move": 1.6,
-   "flagged": "2026-11-21T00:02:14Z",
-   "team": null
-  },
-  {
    "key": "401856866|ml|home",
    "sport": "cfb",
    "event_id": "401856866",
@@ -94,26 +74,6 @@
    "move": 1.7,
    "flagged": "2026-11-21T01:47:00Z",
    "team": "KU"
-  },
-  {
-   "key": "401909312|ml|away",
-   "sport": "nba",
-   "event_id": "401909312",
-   "game": "HOU @ DEN",
-   "start": "2026-11-21T03:00Z",
-   "market": "ml",
-   "side": "away",
-   "line": null,
-   "venue": "FD",
-   "price": 0.495,
-   "fair": 0.5138,
-   "fair_power": 0.5143,
-   "venue_fair": 0.4758,
-   "fair_gap": 3.8,
-   "ev": 3.8,
-   "move": 4.2,
-   "flagged": "2026-11-21T02:15:54Z",
-   "team": "HOU"
   },
   {
    "key": "401858530|spread|away",
