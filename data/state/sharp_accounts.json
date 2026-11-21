@@ -1,5 +1,5 @@
 {
- "built": "2026-11-21T12:23:54Z",
+ "built": "2026-11-21T13:05:18Z",
  "rows": [
   {
    "cond": "0x0a97ac876ccda0d4cdc6c73454de33896b3cbf299bdc3afd1c1f1a9a62826810",
@@ -594,6 +594,51 @@
    }
   },
   {
+   "cond": "0x14420c492c08634113ed90557dc2f6e866f887d693ffd48ae57b963d37dbd331",
+   "slug": "nba-mem-min-2026-11-21",
+   "title": "Grizzlies vs. Timberwolves",
+   "mtype": "total",
+   "start": "2026-11-22T01:00:00Z",
+   "bet": "Over 227.5",
+   "side": "Over",
+   "flagged": "2026-11-21T12:56:56Z",
+   "why": "a top-50 account",
+   "proven": true,
+   "trigger": "proven",
+   "n_accounts": 1,
+   "best_rank": 48,
+   "usd": 2750,
+   "paid": 0.53,
+   "ask": 0.54,
+   "status": "live",
+   "link": "https://polymarket.us/event/nba-mem-min-2026-11-21",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401910026",
+   "sport": "nba",
+   "league": null,
+   "away": "MEM",
+   "home": "MIN",
+   "away_name": "Memphis Grizzlies",
+   "home_name": "Minnesota Timberwolves",
+   "game_start": "2026-11-22T01:00Z",
+   "side_std": "over",
+   "money_with": false,
+   "grade": "watch",
+   "fair_board": 0.4865,
+   "inside_fair": false,
+   "books": {
+    "at": "2026-11-21T03:44:49Z",
+    "fair": 0.4865,
+    "q": {
+     "Novig": 0.48,
+     "DK": 0.5238,
+     "FD": 0.5238
+    }
+   }
+  },
+  {
    "cond": "0xc5a0afee8b74d469b11297c8b6950abd939b3d57344f86aac0219aa1baaef25f",
    "slug": "cfb-okst-arzst-2026-11-21",
    "title": "Oklahoma State vs. Arizona State",
@@ -822,7 +867,7 @@
     "usd": 511,
     "first": "2026-11-21T12:26:43Z"
    },
-   "exit_bid": 0.36,
+   "exit_bid": 0.37,
    "kalshi_against": null,
    "logged": true,
    "grade": "A",
@@ -942,6 +987,13 @@
     "n": 1,
     "best_rank": 93,
     "usd": 165
+   }
+  },
+  "401910026|total": {
+   "over": {
+    "n": 1,
+    "best_rank": 48,
+    "usd": 2750
    }
   },
   "401910033|ml": {
