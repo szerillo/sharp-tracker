@@ -1,5 +1,5 @@
 {
- "built": "2026-11-21T19:20:06Z",
+ "built": "2026-11-21T19:47:03Z",
  "rows": [
   {
    "cond": "0x18b35fc4bcdedb8fedae30d7dddf1d727bc8436675d0dabc1edaf307b8fc874e",
@@ -528,6 +528,53 @@
    }
   },
   {
+   "cond": "0x127ed825567cdd029b429e49bf63186e78f47f6aa51192e882f33318f1c3d536",
+   "slug": "cfb-rutger-pennst-2026-11-21",
+   "title": "Rutgers vs. Penn State",
+   "mtype": "spread",
+   "start": "2026-11-21T20:30:00Z",
+   "bet": "Rutgers +25.5",
+   "side": "Rutgers",
+   "flagged": "2026-11-21T19:40:22Z",
+   "why": "a top-200 account also in this sport's top 50",
+   "proven": true,
+   "trigger": "proven",
+   "n_accounts": 1,
+   "best_rank": 115,
+   "usd": 450,
+   "paid": 0.51,
+   "ask": 0.52,
+   "status": "live",
+   "link": "https://polymarket.us/event/cfb-rutger-pennst-2026-11-21",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401858532",
+   "sport": "cfb",
+   "league": null,
+   "away": "RUTG",
+   "home": "PSU",
+   "away_name": "Rutgers Scarlet Knights",
+   "home_name": "Penn State Nittany Lions",
+   "game_start": "2026-11-21T20:30Z",
+   "side_std": "away",
+   "conflict": [
+    "Kalshi move"
+   ],
+   "money_with": true,
+   "grade": "A",
+   "fair_board": null,
+   "inside_fair": null,
+   "books": {
+    "at": "2026-11-21T19:01:28Z",
+    "fair": null,
+    "q": {
+     "Novig": 0.49,
+     "FD": 0.5122
+    }
+   }
+  },
+  {
    "cond": "0xbad88236739a967d01eca0aa0e0206056b886912bd9378523f546bbf82f431a2",
    "slug": "cfb-washst-txst-2026-11-21",
    "title": "Washington State vs. Texas State",
@@ -716,7 +763,7 @@
    "best_rank": 93,
    "usd": 4297,
    "paid": 0.35,
-   "ask": 0.36,
+   "ask": 0.37,
    "status": "live",
    "link": "https://polymarket.us/event/nba-lac-dal-2026-11-21",
    "other": null,
@@ -1174,14 +1221,14 @@
    "bet": "Trail Blazers ML",
    "side": "Trail Blazers",
    "flagged": "2026-11-20T22:00:07Z",
-   "why": "2 top-200 accounts",
+   "why": "3 top-200 accounts",
    "proven": false,
    "trigger": "two",
-   "n_accounts": 2,
+   "n_accounts": 3,
    "best_rank": 40,
-   "usd": 4492,
-   "paid": 0.408,
-   "ask": 0.4,
+   "usd": 5118,
+   "paid": 0.407,
+   "ask": 0.41,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-por-nyk-2026-11-21",
    "other": {
@@ -1354,9 +1401,9 @@
   },
   "401910024|ml": {
    "away": {
-    "n": 2,
+    "n": 3,
     "best_rank": 40,
-    "usd": 4492
+    "usd": 5118
    },
    "home": {
     "n": 1,
@@ -1479,6 +1526,13 @@
     "n": 1,
     "best_rank": 110,
     "usd": 815
+   }
+  },
+  "401858532|spread": {
+   "away": {
+    "n": 1,
+    "best_rank": 115,
+    "usd": 450
    }
   },
   "401860920|total": {
