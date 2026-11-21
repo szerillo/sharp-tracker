@@ -31,6 +31,11 @@ HALF_U = {'nba_1h_under_hot_over'}       # tier C rules sized at 0.5u (Sean, 11/
 # 11/10 (Sean, docs/review_2026-11-10.md): sharp flags carry no units from here until they beat Pinnacle's close (Sharp A +0.06 on 97, 45-69).
 # Flags logged before this keep the size they were tracked at.
 SHARP_PAPER_FROM = '2026-11-10T10:00:00Z'
+# 11/21 (Sean via Kirk): SOCCER sharp flags, grade A and B with nothing against, are real bets at 0.25u for games starting from here on
+# (soccer sharp A 23-18, +17.4% ROI on 41 since 11/3). No backfill: games that started earlier stay paper. Every other sport stays paper.
+SOCCER_SHARP_LIVE_FROM = '2026-11-21T18:45:00Z'
+def soccer_sharp_live(cat, sport, start, against=False):
+    return cat in ('sharp A', 'sharp B') and sport == 'soccer' and not against and (start or '') >= SOCCER_SHARP_LIVE_FROM
 # 11/14: a rule promoted from paper counts as a bet only for fills logged from its promotion on; its earlier paper fills stay paper, so
 # no units are backdated into the record.
 PROMOTED_FROM = {'xch_homedog_fade': '2026-11-14T08:30:00Z'}     # Sean 11/14: paper -> tier C
@@ -49,7 +54,8 @@ TENNIS_POLICY_FROM = '2026-11-17T04:00:00Z'
 def tennis_cat(rule, start, old):
     if (start or '') < TENNIS_POLICY_FROM: return old
     return 'tennis' if rule == 'tennis_serve_dog' else 'paper P'
-def size_units(cat, rule=None, sport=None, flagged=None):
+def size_units(cat, rule=None, sport=None, flagged=None, start=None, against=False):
+    if soccer_sharp_live(cat, sport, start, against): return 0.25
     if cat == 'watch' or (cat.startswith('sharp') and (flagged or '') >= SHARP_PAPER_FROM): return 0.0
     if (flagged or '') >= FLAT_QUARTER_FROM: return 0.25
     return 0.5 if (cat in ('system A', 'system B') or (cat == 'sharp A' and sport != 'soccer') or rule in HALF_U) else 0.25
@@ -205,7 +211,7 @@ def main():
         bets.append(dict(id='p:' + p['cond'], src='sharp', cat=f"sharp {g}", rule=p.get('why'), sport=row.get('sport') or ({'ucl': 'soccer', 'epl': 'soccer', 'mls': 'soccer', 'bun': 'soccer'}.get(p['slug'].split('-')[0], p['slug'].split('-')[0]) if p.get('slug') else None),
                          event_id=row.get('event_id'), game=f"{row.get('away', '')} @ {row.get('home', '')}" if row.get('event_id') else p.get('slug'),
                          start=p['start'], market=p['mtype'], side=row.get('side_std'), line=line, flagged=p['logged'], venue='Polymarket', price=p['price'],
-                         won={'W': 1, 'L': 0}.get(p.get('result')), bet=p['bet']))
+                         won={'W': 1, 'L': 0}.get(p.get('result')), bet=p['bet'], against=bool(p.get('kalshi_against'))))
     # ---- Grade C sharp rows (11/8, Sean): sharp accounts plus money or a price move, no flag. Logged off the published page by the board
     # check (sharp/sharp_c_log.py) at the price shown when first seen; graded here from final scores (below, with the watch signals).
     cp = os.path.join(SD, 'sharp_c_paper.jsonl')
@@ -496,7 +502,7 @@ def main():
     opp_stats = sharps_against(bets, S)
     for b in bets:
         b['bet_type'] = b['market'].replace('1s_ml', 'set1_ml')
-        b['size'] = size_units(b['cat'], b.get('rule'), b.get('sport'), b.get('flagged')); b['units'] = units(b['price'], b['won'], b['size'])
+        b['size'] = size_units(b['cat'], b.get('rule'), b.get('sport'), b.get('flagged'), b.get('start'), b.get('against')); b['units'] = units(b['price'], b['won'], b['size'])
         if bad_price(b['price'], b.get('rule')):
             b['excluded'] = f"price {b['price']} out of range (above 0.95, or above 0.90 for an underdog rule): not graded"
             b['units_raw'] = b['units']; b['units'] = None; b['won_raw'] = b['won']; b['won'] = None
