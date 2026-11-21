@@ -7388,19 +7388,16 @@
 },
 "401864543:cfb_day_over": {
 "tag": "cfb_day_over",
-"fill_id": "c0be169d95fb",
-"ts": "2026-11-16T01:51:23Z",
+"fill_id": "4f9c1f6384d9",
+"ts": "2026-11-21T16:55:12Z",
 "market": "total",
 "side": "over",
 "line": 45.5,
 "venue": "Novig",
-"price": -113,
-"fair": 0.50232,
-"edge_pts": -2.77,
-"why": "4:00 PM ET kickoff, total 45.5: over (mined angle)",
-"void": true,
-"void_why": "rule no longer holds on the current line: home spread -25.5, total 43.5 (2026-11-17T17:54:10Z)",
-"void_at": "2026-11-17T17:54:10Z"
+"price": 102,
+"fair": 0.48907,
+"edge_pts": -0.59,
+"why": "4:00 PM ET kickoff, total 45.5: over (mined angle)"
 },
 "401860919:cfb_homefav_7510_under": {
 "tag": "cfb_homefav_7510_under",
@@ -9008,19 +9005,15 @@
 },
 "401856868:xch_homedog_fade:ml": {
 "tag": "xch_homedog_fade",
-"fill_id": "ba81c9f664d1",
-"ts": "2026-11-21T16:32:06Z",
+"fill_id": "0bc42c745057",
+"ts": "2026-11-21T16:55:12Z",
 "market": "ml",
 "side": "away",
 "line": null,
 "venue": "Novig",
-"price": -245,
-"fair": 0.71137,
-"edge_pts": 0.14,
-"why": "Novig home side mid 0.292 inside T-1.5h; audit band 20-35c",
-"now": {
-"venue": "Novig",
-"price": -245
-}
+"price": -257,
+"fair": 0.71268,
+"edge_pts": -0.73,
+"why": "Novig home side mid 0.285 inside T-1.1h; audit band 20-35c"
 }
 }
