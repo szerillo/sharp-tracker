@@ -1,5 +1,5 @@
 {
- "built": "2026-11-21T15:57:01Z",
+ "built": "2026-11-21T16:03:54Z",
  "rows": [
   {
    "cond": "0x0a97ac876ccda0d4cdc6c73454de33896b3cbf299bdc3afd1c1f1a9a62826810",
@@ -501,7 +501,7 @@
    "best_rank": 58,
    "usd": 460,
    "paid": 0.54,
-   "ask": 0.53,
+   "ask": 0.56,
    "status": "live",
    "link": "https://polymarket.us/event/cfb-ecar-army-2026-11-21",
    "other": null,
@@ -545,7 +545,7 @@
    "best_rank": 58,
    "usd": 316,
    "paid": 0.51,
-   "ask": 0.52,
+   "ask": 0.53,
    "status": "live",
    "link": "https://polymarket.us/event/cfb-ohiost-nebr-2026-11-21",
    "other": null,
@@ -788,7 +788,7 @@
    "best_rank": 40,
    "usd": 1315,
    "paid": 0.354,
-   "ask": 0.36,
+   "ask": 0.43,
    "status": "live",
    "link": "https://polymarket.us/event/nba-por-nyk-2026-11-21",
    "other": null,
@@ -815,6 +815,52 @@
      "FD": 0.3676,
      "Caesars": 0.3704,
      "DK": 0.3731
+    }
+   }
+  },
+  {
+   "cond": "0x792d2a1e8d2216d732c90b43d3a5b938052e96e39c223aa0539bad0bfa11f464",
+   "slug": "nba-por-nyk-2026-11-21",
+   "title": "Trail Blazers vs. Knicks",
+   "mtype": "spread",
+   "start": "2026-11-22T00:30:00Z",
+   "bet": "Trail Blazers +5.5",
+   "side": "Trail Blazers",
+   "flagged": "2026-11-21T16:00:10Z",
+   "why": "a top-50 account",
+   "proven": false,
+   "trigger": "top50",
+   "n_accounts": 1,
+   "best_rank": 40,
+   "usd": 2033,
+   "paid": 0.54,
+   "ask": 0.59,
+   "status": "live",
+   "link": "https://polymarket.us/event/nba-por-nyk-2026-11-21",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401910024",
+   "sport": "nba",
+   "league": null,
+   "away": "POR",
+   "home": "NY",
+   "away_name": "Portland Trail Blazers",
+   "home_name": "New York Knicks",
+   "game_start": "2026-11-22T00:30Z",
+   "side_std": "away",
+   "money_with": false,
+   "grade": "watch",
+   "fair_board": 0.507,
+   "inside_fair": false,
+   "books": {
+    "at": "2026-11-21T15:05:20Z",
+    "fair": 0.507,
+    "q": {
+     "Novig": 0.515,
+     "FD": 0.5238,
+     "Kalshi": 0.53,
+     "DK": 0.537
     }
    }
   },
@@ -1254,9 +1300,9 @@
  "sys_tags": {
   "401862831:cfb_road_streak_dog": {
    "with": {
-    "n": 1,
+    "n": 2,
     "best_rank": 58,
-    "usd": 460
+    "usd": 807
    },
    "against": null
   },
@@ -1316,6 +1362,13 @@
     "n": 1,
     "best_rank": 40,
     "usd": 1315
+   }
+  },
+  "401910024|spread": {
+   "away": {
+    "n": 1,
+    "best_rank": 40,
+    "usd": 2033
    }
   },
   "401910025|ml": {
@@ -1416,9 +1469,9 @@
   },
   "401862831|spread": {
    "away": {
-    "n": 1,
+    "n": 2,
     "best_rank": 58,
-    "usd": 460
+    "usd": 807
    }
   },
   "401858527|total": {
