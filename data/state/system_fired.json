@@ -7649,7 +7649,10 @@
 "price": -106,
 "fair": 0.5,
 "edge_pts": -1.5,
-"why": "home favourite OU -7.5, total 39.5: under (mined angle)"
+"why": "home favourite OU -7.5, total 39.5: under (mined angle)",
+"void": true,
+"void_why": "rule no longer holds on the current line: home spread -7.0, total 37.5 (2026-11-20T23:58:23Z)",
+"void_at": "2026-11-20T23:58:23Z"
 },
 "401869953:cfb_day_over": {
 "tag": "cfb_day_over",
@@ -8814,5 +8817,19 @@
 "fair": 0.52,
 "edge_pts": -3.0,
 "why": "conference game, NEB on road game 3 in a row, +6.5, total 38.5"
+},
+"401909306:xch_homedog_fade:ml": {
+"tag": "xch_homedog_fade",
+"fill_id": "e5e99aeae687",
+"ts": "2026-11-20T23:05:03Z",
+"market": "ml",
+"side": "away",
+"line": null,
+"venue": "Novig",
+"price": -233,
+"fair": 0.69771,
+"edge_pts": -0.23,
+"why": "Novig home side mid 0.305 inside T-1.4h; audit band 20-35c",
+"restored": true
 }
 }
