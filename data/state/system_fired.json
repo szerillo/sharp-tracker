@@ -8857,5 +8857,31 @@
 "fair": 0.77954,
 "edge_pts": 0.45,
 "why": "Novig home side mid 0.227 inside T-1.1h; audit band 20-35c"
+},
+"401910027:nba_bigfav_over": {
+"tag": "nba_bigfav_over",
+"fill_id": "3d804d344134",
+"ts": "2026-11-21T01:55:39Z",
+"market": "total",
+"side": "over",
+"line": 225.5,
+"venue": "FD",
+"price": -114,
+"fair": 0.50928,
+"edge_pts": -2.34,
+"why": "SA is 91% on the moneyline: over (mined angle)"
+},
+"401910027:nba_roadtrip_over": {
+"tag": "nba_roadtrip_over",
+"fill_id": "f7d7e71b72e7",
+"ts": "2026-11-21T01:55:39Z",
+"market": "total",
+"side": "over",
+"line": 225.5,
+"venue": "FD",
+"price": -114,
+"fair": 0.50928,
+"edge_pts": -2.34,
+"why": "NO off 5 straight home games, first road game: over (Bet Labs filter)"
 }
 }
