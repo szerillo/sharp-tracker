@@ -1,5 +1,5 @@
 {
- "built": "2026-11-21T22:51:10Z",
+ "built": "2026-11-21T22:59:06Z",
  "rows": [
   {
    "cond": "0x15d4578ba7ef81bd4e9562d8d4163d8946d7300090a7d7ab08d32233c777aee2",
@@ -338,9 +338,6 @@
    "home_name": "Kansas State Wildcats",
    "game_start": "2026-11-22T00:00Z",
    "side_std": "over",
-   "conflict": [
-    "big money"
-   ],
    "money_with": false,
    "grade": "A",
    "fair_board": 0.5092,
@@ -469,7 +466,7 @@
    "home_name": "Minnesota Timberwolves",
    "game_start": "2026-11-22T01:00Z",
    "side_std": "over",
-   "money_with": false,
+   "money_with": true,
    "grade": "watch",
    "inside_fair": false,
    "fair_board": 0.4865,
@@ -888,7 +885,7 @@
    "best_rank": 57,
    "usd": 348,
    "paid": 0.675,
-   "ask": 0.69,
+   "ask": 0.7,
    "status": "live",
    "link": "https://polymarket.us/event/ucl-gal-ast-2026-11-24-more-markets",
    "other": null,
@@ -1130,7 +1127,11 @@
     "first": "2026-11-21T22:15:07Z"
    },
    "exit_bid": 0.36,
-   "kalshi_against": null,
+   "kalshi_against": {
+    "move": 16.0,
+    "now": 68.0,
+    "state": "reversed"
+   },
    "logged": true,
    "event_id": "401910030",
    "sport": "nba",
@@ -1141,6 +1142,10 @@
    "home_name": "Miami Heat",
    "game_start": "2026-11-22T23:00Z",
    "side_std": "away",
+   "conflict": [
+    "Kalshi bet back",
+    "Kalshi move"
+   ],
    "money_with": false,
    "grade": "B",
    "fair_board": null,
@@ -1190,21 +1195,21 @@
     "clv": -1.2
    },
    "outside": {
-    "n": 101,
-    "won": 55,
+    "n": 102,
+    "won": 56,
     "units": -0.96,
-    "clv": -0.22
+    "clv": -0.23
    }
   },
-  "n": 369,
-  "won": 175,
+  "n": 370,
+  "won": 176,
   "units": -16.1,
   "by_grade": {
    "A": {
-    "n": 239,
-    "won": 107,
+    "n": 240,
+    "won": 108,
     "units": -14.91,
-    "clv": -0.17
+    "clv": -0.18
    },
    "B": {
     "n": 91,
@@ -1219,11 +1224,11 @@
     "clv": -0.61
    }
   },
-  "units_1u": -30.31,
+  "units_1u": -29.27,
   "clv": -0.4,
-  "n_venue": 191,
+  "n_venue": 192,
   "units_venue": -5.86,
-  "clv_venue": 0.91,
+  "clv_venue": 0.9,
   "clv_poly_same": -0.64
  },
  "sys_tags": {
