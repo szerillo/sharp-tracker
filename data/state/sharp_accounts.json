@@ -1,43 +1,6 @@
 {
- "built": "2026-11-21T22:51:10Z",
+ "built": "2026-11-21T23:06:30Z",
  "rows": [
-  {
-   "cond": "0x15d4578ba7ef81bd4e9562d8d4163d8946d7300090a7d7ab08d32233c777aee2",
-   "slug": "mls-ner-phi-2026-11-21-more-markets",
-   "title": "New England Revolution vs. Philadelphia Union - More Markets",
-   "mtype": "total",
-   "start": "2026-11-21T19:00:00Z",
-   "bet": "Under 3.5",
-   "side": "Under",
-   "flagged": "2026-11-21T11:37:01Z",
-   "why": "a top-200 account also in this sport's top 50",
-   "proven": true,
-   "trigger": "proven",
-   "n_accounts": 1,
-   "best_rank": 170,
-   "usd": 384,
-   "paid": 0.61,
-   "ask": null,
-   "status": "live",
-   "link": "https://polymarket.us/event/mls-ner-phi-2026-11-21-more-markets",
-   "other": null,
-   "kalshi_against": null,
-   "logged": true,
-   "event_id": "401933733",
-   "sport": "soccer",
-   "league": "mls",
-   "away": "PHI",
-   "home": "NE",
-   "away_name": "Philadelphia Union",
-   "home_name": "New England Revolution",
-   "game_start": "2026-11-21T19:00Z",
-   "side_std": "under",
-   "money_with": false,
-   "grade": "A",
-   "fair_board": null,
-   "inside_fair": null,
-   "books": null
-  },
   {
    "cond": "0x16191beda26b4ba9e2ac11f2363d288ec08bc50880c3f0fed53a091f8feb37f8",
    "slug": "cfb-sfl-flatl-2026-11-21",
@@ -240,7 +203,7 @@
    "best_rank": 110,
    "usd": 697,
    "paid": 0.54,
-   "ask": 0.57,
+   "ask": null,
    "status": "live",
    "link": "https://polymarket.us/event/cfb-washst-txst-2026-11-21",
    "other": null,
@@ -826,6 +789,55 @@
    "books": null
   },
   {
+   "cond": "0xacb4bae086c3641d13b6ef1d90c4a5e24d52b74f50a33fe4523ce0636238ea1f",
+   "slug": "nfl-jax-nyg-2026-11-22",
+   "title": "Jaguars vs. Giants",
+   "mtype": "ml",
+   "start": "2026-11-22T21:25:00Z",
+   "bet": "Giants ML",
+   "side": "Giants",
+   "flagged": "2026-11-21T22:59:20Z",
+   "why": "a top-200 account also in this sport's top 50",
+   "proven": true,
+   "trigger": "proven",
+   "n_accounts": 1,
+   "best_rank": 143,
+   "usd": 2887,
+   "paid": 0.29,
+   "ask": 0.3,
+   "status": "live",
+   "link": "https://polymarket.us/event/nfl-jax-nyg-2026-11-22",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401873069",
+   "sport": "nfl",
+   "league": null,
+   "away": "JAX",
+   "home": "NYG",
+   "away_name": "Jacksonville Jaguars",
+   "home_name": "New York Giants",
+   "game_start": "2026-11-22T21:25Z",
+   "side_std": "home",
+   "conflict": [
+    "Kalshi bet back"
+   ],
+   "money_with": false,
+   "grade": "A",
+   "fair_board": 0.2953,
+   "inside_fair": false,
+   "books": {
+    "at": "2026-11-21T22:04:39Z",
+    "fair": 0.2953,
+    "q": {
+     "Novig": 0.3,
+     "Caesars": 0.3175,
+     "Kalshi": 0.32,
+     "DK": 0.3215
+    }
+   }
+  },
+  {
    "cond": "0x3b3748b734fb393de1e14f5c3fe9ef400e123faaf9a3595361378564f8e33a7d",
    "slug": "nba-ind-nyk-2026-11-22",
    "title": "Pacers vs. Knicks",
@@ -1127,7 +1139,11 @@
     "first": "2026-11-21T22:15:07Z"
    },
    "exit_bid": 0.36,
-   "kalshi_against": null,
+   "kalshi_against": {
+    "move": 16.0,
+    "now": 68.0,
+    "state": "reversed"
+   },
    "logged": true,
    "event_id": "401910030",
    "sport": "nba",
@@ -1290,6 +1306,13 @@
     "n": 1,
     "best_rank": 115,
     "usd": 7905
+   }
+  },
+  "401873069|ml": {
+   "home": {
+    "n": 1,
+    "best_rank": 143,
+    "usd": 2887
    }
   },
   "401910024|ml": {
@@ -1455,13 +1478,6 @@
     "n": 1,
     "best_rank": 110,
     "usd": 214
-   }
-  },
-  "401860920|total": {
-   "under": {
-    "n": 1,
-    "best_rank": 110,
-    "usd": 697
    }
   },
   "401869938|total": {
