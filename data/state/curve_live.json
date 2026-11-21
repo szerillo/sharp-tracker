@@ -1,5 +1,5 @@
 {
- "built": "2026-11-21T19:20:10Z",
+ "built": "2026-11-21T19:33:09Z",
  "record": {
   "cbb_1h_total_curve": {
    "n": 7,
@@ -24,12 +24,12 @@
    "lost": 19,
    "units": -3.19,
    "clv": {
-    "n": 15,
-    "avg": -2.25,
+    "n": 17,
+    "avg": -2.29,
     "beat": 2
    },
    "line_value": {
-    "n": 15,
+    "n": 17,
     "avg": 0.0,
     "better": 0,
     "worse": 0
@@ -75,12 +75,12 @@
    "lost": 18,
    "units": -1.89,
    "clv": {
-    "n": 12,
-    "avg": -2.58,
+    "n": 11,
+    "avg": -2.65,
     "beat": 1
    },
    "line_value": {
-    "n": 12,
+    "n": 11,
     "avg": 0.0,
     "better": 0,
     "worse": 0
@@ -115,7 +115,13 @@
    "book_fair": 0.4709,
    "fair_gap": -1.2,
    "ev_curve": 2.2,
-   "flagged": "2026-11-21T14:28:05Z"
+   "flagged": "2026-11-21T14:28:05Z",
+   "close_ts": "2026-11-21T16:54:58Z",
+   "close_line": 34.5,
+   "line_value": 0.0,
+   "close_fair": 0.4793,
+   "clv": -2.07,
+   "beat_fair": 2.03
   },
   {
    "key": "cfb_q1_under_curve|b40838a45d9aeb25fb42668402caae13||under",
@@ -144,36 +150,13 @@
    "book_fair": 0.4856,
    "fair_gap": -0.7,
    "ev_curve": 5.5,
-   "flagged": "2026-11-21T14:28:05Z"
-  },
-  {
-   "key": "cfb_q1_under_curve|d7b3c2454c6b34f734497049e744bab0||under",
-   "rule": "cfb_q1_under_curve",
-   "tier": "A",
-   "stake": 0.25,
-   "sport": "cfb",
-   "odds_id": "d7b3c2454c6b34f734497049e744bab0",
-   "espn": "401871079",
-   "game": "Missouri State Bears @ Jacksonville State Gamecocks",
-   "start": "2026-11-21T19:00:00Z",
-   "market": "totals_q1",
-   "team": null,
-   "team_name": null,
-   "side": "under",
-   "line": 10.5,
-   "curve": 0.577,
-   "pin_fair": 0.522,
-   "gap": 5.5,
-   "full_total": 52.5,
-   "full_spread": -10.5,
-   "pin_price": 1.83,
-   "book": "FD",
-   "price": 1.85,
-   "pin_fair_power": 0.5237,
-   "book_fair": 0.5144,
-   "fair_gap": 0.8,
-   "ev_curve": 6.7,
-   "flagged": "2026-11-21T16:11:04Z"
+   "flagged": "2026-11-21T14:28:05Z",
+   "close_ts": "2026-11-21T16:54:58Z",
+   "close_line": 12.5,
+   "line_value": 0.0,
+   "close_fair": 0.4764,
+   "clv": -3.38,
+   "beat_fair": -0.26
   },
   {
    "key": "cbb_1h_total_curve|b3fab0afee75218dc01cdc6679c9ad17||over",
@@ -220,13 +203,48 @@
    "team": null,
    "team_name": null,
    "side": "under",
+   "line": 10.5,
+   "curve": 0.577,
+   "pin_fair": 0.522,
+   "gap": 5.5,
+   "full_total": 52.5,
+   "full_spread": -10.5,
+   "pin_price": 1.83,
+   "book": "FD",
+   "price": 1.85,
+   "pin_fair_power": 0.5237,
+   "book_fair": 0.5144,
+   "fair_gap": 0.8,
+   "ev_curve": 6.7,
+   "flagged": "2026-11-21T16:25:34Z",
+   "close_ts": "2026-11-21T18:51:54Z",
+   "close_line": 10.5,
+   "line_value": 0.0,
+   "close_fair": 0.5222,
+   "clv": -1.83,
+   "beat_fair": 0.02
+  },
+  {
+   "key": "cfb_tt_under_curve|3099e24c0ab2767eb9c56f6ef5eeefc2|away|under",
+   "rule": "cfb_tt_under_curve",
+   "tier": "P",
+   "stake": 0.0,
+   "sport": "cfb",
+   "odds_id": "3099e24c0ab2767eb9c56f6ef5eeefc2",
+   "espn": "401862833",
+   "game": "South Florida Bulls @ Florida Atlantic Owls",
+   "start": "2026-11-21T19:30:00Z",
+   "market": "team_totals",
+   "team": "away",
+   "team_name": "South Florida Bulls",
+   "side": "under",
    "line": 33.5,
    "curve": 0.595,
-   "pin_fair": 0.537,
-   "gap": 5.8,
+   "pin_fair": 0.532,
+   "gap": 6.3,
    "full_total": 64.0,
    "full_spread": -1.0,
-   "pin_price": 1.79,
+   "pin_price": 1.81,
    "book": null,
    "price": null,
    "flagged": "2026-11-21T16:54:58Z",
@@ -322,7 +340,7 @@
    "book_fair": 0.4764,
    "fair_gap": 0.5,
    "ev_curve": 13.1,
-   "flagged": "2026-11-21T17:38:17Z"
+   "flagged": "2026-11-21T17:52:28Z"
   },
   {
    "key": "cfb_tt_under_curve|e17410526acddf2500fb788f40901b3f|away|under",
