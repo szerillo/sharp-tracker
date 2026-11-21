@@ -1,5 +1,5 @@
 {
- "built": "2026-11-21T16:11:08Z",
+ "built": "2026-11-21T16:18:23Z",
  "rows": [
   {
    "cond": "0x0a97ac876ccda0d4cdc6c73454de33896b3cbf299bdc3afd1c1f1a9a62826810",
@@ -471,7 +471,7 @@
    "home_name": "Purdue Boilermakers",
    "game_start": "2026-11-21T17:00Z",
    "side_std": "home",
-   "money_with": true,
+   "money_with": false,
    "grade": "A",
    "inside_fair": false,
    "fair_board": 0.4852,
@@ -580,6 +580,55 @@
    }
   },
   {
+   "cond": "0x3e6b83beaafd38861f9037d5d8c139762956a6a9f04a120a307ceaebdabb77f4",
+   "slug": "epl-new-ars-2026-11-21-more-markets",
+   "title": "Newcastle United FC vs. Arsenal FC - More Markets",
+   "mtype": "total",
+   "start": "2026-11-21T17:30:00Z",
+   "bet": "Over 2.5",
+   "side": "Over",
+   "flagged": "2026-11-21T16:17:05Z",
+   "why": "a top-200 account also in this sport's top 50",
+   "proven": true,
+   "trigger": "proven",
+   "n_accounts": 1,
+   "best_rank": 149,
+   "usd": 23732,
+   "paid": 0.52,
+   "ask": 0.54,
+   "status": "live",
+   "link": "https://polymarket.us/event/epl-new-ars-2026-11-21-more-markets",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401879232",
+   "sport": "soccer",
+   "league": "epl",
+   "away": "ARS",
+   "home": "NEW",
+   "away_name": "Arsenal",
+   "home_name": "Newcastle United",
+   "game_start": "2026-11-21T17:30Z",
+   "side_std": "over",
+   "conflict": [
+    "Kalshi move"
+   ],
+   "money_with": false,
+   "grade": "A",
+   "fair_board": 0.5315,
+   "inside_fair": false,
+   "books": {
+    "at": "2026-11-21T15:05:20Z",
+    "fair": 0.5315,
+    "q": {
+     "Novig": 0.54,
+     "Kalshi": 0.55,
+     "DK": 0.5556,
+     "FD": 0.5614
+    }
+   }
+  },
+  {
    "cond": "0xd7f7d434c1d2b782520bf8fb8814d8a0cc94e946243ecc0296e27cfe9e9579dd",
    "slug": "cfb-sdak-illst-2026-11-21",
    "title": "South Dakota vs. Illinois State",
@@ -588,14 +637,14 @@
    "bet": "South Dakota ML",
    "side": "South Dakota",
    "flagged": "2026-11-21T00:41:10Z",
-   "why": "a top-50 account",
+   "why": "2 top-200 accounts",
    "proven": true,
    "trigger": "proven",
-   "n_accounts": 1,
+   "n_accounts": 2,
    "best_rank": 49,
-   "usd": 1918,
-   "paid": 0.563,
-   "ask": 0.58,
+   "usd": 2793,
+   "paid": 0.57,
+   "ask": 0.59,
    "status": "live",
    "link": "https://polymarket.us/event/cfb-sdak-illst-2026-11-21",
    "other": null,
@@ -788,7 +837,7 @@
    "best_rank": 40,
    "usd": 4492,
    "paid": 0.408,
-   "ask": 0.43,
+   "ask": 0.42,
    "status": "live",
    "link": "https://polymarket.us/event/nba-por-nyk-2026-11-21",
    "other": null,
@@ -834,53 +883,7 @@
    "best_rank": 40,
    "usd": 2033,
    "paid": 0.54,
-   "ask": 0.58,
-   "status": "live",
-   "link": "https://polymarket.us/event/nba-por-nyk-2026-11-21",
-   "other": null,
-   "kalshi_against": null,
-   "logged": true,
-   "event_id": "401910024",
-   "sport": "nba",
-   "league": null,
-   "away": "POR",
-   "home": "NY",
-   "away_name": "Portland Trail Blazers",
-   "home_name": "New York Knicks",
-   "game_start": "2026-11-22T00:30Z",
-   "side_std": "away",
-   "money_with": false,
-   "grade": "watch",
-   "fair_board": 0.507,
-   "inside_fair": false,
-   "books": {
-    "at": "2026-11-21T15:05:20Z",
-    "fair": 0.507,
-    "q": {
-     "Novig": 0.515,
-     "FD": 0.5238,
-     "Kalshi": 0.53,
-     "DK": 0.537
-    }
-   }
-  },
-  {
-   "cond": "0x792d2a1e8d2216d732c90b43d3a5b938052e96e39c223aa0539bad0bfa11f464",
-   "slug": "nba-por-nyk-2026-11-21",
-   "title": "Trail Blazers vs. Knicks",
-   "mtype": "spread",
-   "start": "2026-11-22T00:30:00Z",
-   "bet": "Trail Blazers +5.5",
-   "side": "Trail Blazers",
-   "flagged": "2026-11-21T16:00:10Z",
-   "why": "a top-50 account",
-   "proven": false,
-   "trigger": "top50",
-   "n_accounts": 1,
-   "best_rank": 40,
-   "usd": 2033,
-   "paid": 0.54,
-   "ask": 0.59,
+   "ask": 0.57,
    "status": "live",
    "link": "https://polymarket.us/event/nba-por-nyk-2026-11-21",
    "other": null,
@@ -1417,13 +1420,6 @@
     "usd": 2033
    }
   },
-  "401910024|spread": {
-   "away": {
-    "n": 1,
-    "best_rank": 40,
-    "usd": 2033
-   }
-  },
   "401910025|ml": {
    "away": {
     "n": 1,
@@ -1560,6 +1556,13 @@
     "n": 1,
     "best_rank": 110,
     "usd": 252
+   }
+  },
+  "401879232|total": {
+   "over": {
+    "n": 1,
+    "best_rank": 149,
+    "usd": 23732
    }
   },
   "401933733|total": {
