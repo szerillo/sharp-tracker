@@ -1,5 +1,5 @@
 {
- "built": "2026-11-21T19:47:03Z",
+ "built": "2026-11-21T21:10:06Z",
  "rows": [
   {
    "cond": "0x3e6b83beaafd38861f9037d5d8c139762956a6a9f04a120a307ceaebdabb77f4",
@@ -573,52 +573,6 @@
    }
   },
   {
-   "cond": "0x435b2c6481af246af6f219d8b968f0733a6050ebe3fc8c087bc58af1cac0681b",
-   "slug": "nba-lac-dal-2026-11-21",
-   "title": "Clippers vs. Mavericks",
-   "mtype": "ml",
-   "start": "2026-11-22T01:00:00Z",
-   "bet": "Clippers ML",
-   "side": "Clippers",
-   "flagged": "2026-11-21T19:15:53Z",
-   "why": "2 top-200 accounts",
-   "proven": false,
-   "trigger": "two",
-   "n_accounts": 2,
-   "best_rank": 93,
-   "usd": 4297,
-   "paid": 0.35,
-   "ask": 0.36,
-   "status": "live",
-   "link": "https://polymarket.us/event/nba-lac-dal-2026-11-21",
-   "other": null,
-   "kalshi_against": null,
-   "logged": true,
-   "event_id": "401910025",
-   "sport": "nba",
-   "league": null,
-   "away": "LAC",
-   "home": "DAL",
-   "away_name": "LA Clippers",
-   "home_name": "Dallas Mavericks",
-   "game_start": "2026-11-22T01:00Z",
-   "side_std": "away",
-   "money_with": false,
-   "grade": "B",
-   "inside_fair": false,
-   "fair_board": 0.3508,
-   "books": {
-    "at": "2026-11-21T20:05:28Z",
-    "fair": 0.3618,
-    "q": {
-     "Novig": 0.37,
-     "DK": 0.3704,
-     "FD": 0.3788,
-     "Caesars": 0.3817
-    }
-   }
-  },
-  {
    "cond": "0x14420c492c08634113ed90557dc2f6e866f887d693ffd48ae57b963d37dbd331",
    "slug": "nba-mem-min-2026-11-21",
    "title": "Grizzlies vs. Timberwolves",
@@ -769,8 +723,8 @@
    "side_std": "home",
    "money_with": false,
    "grade": "B",
-   "fair_board": 0.4973,
    "inside_fair": false,
+   "fair_board": 0.4973,
    "books": {
     "at": "2026-11-21T20:05:28Z",
     "fair": 0.4973,
@@ -798,7 +752,7 @@
    "best_rank": 40,
    "usd": 2301,
    "paid": 0.57,
-   "ask": 0.57,
+   "ask": 0.6,
    "status": "live",
    "link": "https://polymarket.us/event/nba-bos-sac-2026-11-21",
    "other": null,
@@ -874,7 +828,7 @@
    "best_rank": 40,
    "usd": 600,
    "paid": 0.465,
-   "ask": 0.49,
+   "ask": 0.5,
    "status": "live",
    "link": "https://polymarket.us/event/nba-bos-sac-2026-11-21",
    "other": null,
@@ -1257,16 +1211,16 @@
    "best_rank": 40,
    "usd": 5118,
    "paid": 0.407,
-   "ask": 0.42,
+   "ask": 0.41,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-por-nyk-2026-11-21",
    "other": {
-    "n_accounts": 1,
-    "best_rank": 132,
-    "usd": 2502,
+    "n_accounts": 2,
+    "best_rank": 43,
+    "usd": 4502,
     "first": "2026-11-21T19:31:58Z"
    },
-   "exit_bid": 0.41,
+   "exit_bid": 0.4,
    "kalshi_against": null,
    "logged": true,
    "event_id": "401910024",
@@ -1281,7 +1235,50 @@
    "money_with": false,
    "grade": "B",
    "fair_board": 0.4159,
+   "inside_fair": true,
+   "books": null
+  },
+  {
+   "cond": "0x435b2c6481af246af6f219d8b968f0733a6050ebe3fc8c087bc58af1cac0681b",
+   "slug": "nba-lac-dal-2026-11-21",
+   "title": "Clippers vs. Mavericks",
+   "mtype": "ml",
+   "start": "2026-11-22T01:00:00Z",
+   "bet": "Clippers ML",
+   "side": "Clippers",
+   "flagged": "2026-11-21T19:15:53Z",
+   "why": "2 top-200 accounts",
+   "proven": false,
+   "trigger": "two",
+   "n_accounts": 2,
+   "best_rank": 93,
+   "usd": 4297,
+   "paid": 0.35,
+   "ask": 0.36,
+   "status": "other side",
+   "link": "https://polymarket.us/event/nba-lac-dal-2026-11-21",
+   "other": {
+    "n_accounts": 1,
+    "best_rank": 43,
+    "usd": 800,
+    "first": "2026-11-21T21:09:26Z"
+   },
+   "exit_bid": 0.35,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401910025",
+   "sport": "nba",
+   "league": null,
+   "away": "LAC",
+   "home": "DAL",
+   "away_name": "LA Clippers",
+   "home_name": "Dallas Mavericks",
+   "game_start": "2026-11-22T01:00Z",
+   "side_std": "away",
+   "money_with": false,
+   "grade": "B",
    "inside_fair": false,
+   "fair_board": 0.3508,
    "books": null
   },
   {
@@ -1443,9 +1440,9 @@
     "usd": 5118
    },
    "home": {
-    "n": 1,
-    "best_rank": 132,
-    "usd": 100
+    "n": 2,
+    "best_rank": 43,
+    "usd": 2100
    }
   },
   "401910024|spread": {
@@ -1460,6 +1457,11 @@
     "n": 2,
     "best_rank": 93,
     "usd": 4297
+   },
+   "home": {
+    "n": 1,
+    "best_rank": 43,
+    "usd": 800
    }
   },
   "401910025|total": {
@@ -1596,6 +1598,13 @@
     "n": 1,
     "best_rank": 110,
     "usd": 697
+   }
+  },
+  "401869938|total": {
+   "under": {
+    "n": 1,
+    "best_rank": 170,
+    "usd": 604
    }
   },
   "401860925|spread": {
