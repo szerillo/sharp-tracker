@@ -1,5 +1,5 @@
 {
- "built": "2026-11-21T18:36:59Z",
+ "built": "2026-11-21T18:51:17Z",
  "rows": [
   {
    "cond": "0xa0e79933d9c63108a49f598f9af22a145b66f7870df8f7c125005e3181a95545",
@@ -731,7 +731,7 @@
    "home_name": "App State Mountaineers",
    "game_start": "2026-11-21T19:30Z",
    "side_std": "away",
-   "money_with": false,
+   "money_with": true,
    "grade": "A",
    "inside_fair": false,
    "fair_board": 0.4761,
@@ -1078,6 +1078,9 @@
    "home_name": "San Antonio Spurs",
    "game_start": "2026-11-22T01:00Z",
    "side_std": "under",
+   "conflict": [
+    "Kalshi bet back"
+   ],
    "money_with": false,
    "grade": "watch",
    "fair_board": null,
@@ -1116,6 +1119,9 @@
    "home_name": "San Antonio Spurs",
    "game_start": "2026-11-22T01:00Z",
    "side_std": "under",
+   "conflict": [
+    "Kalshi bet back"
+   ],
    "money_with": false,
    "grade": "watch",
    "fair_board": null,
@@ -1369,7 +1375,7 @@
    "best_rank": 43,
    "usd": 993,
    "paid": 0.28,
-   "ask": 0.3,
+   "ask": 0.31,
    "status": "live",
    "link": "https://polymarket.us/event/ucl-psg-rom-2026-11-25",
    "other": null,
