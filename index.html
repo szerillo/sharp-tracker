@@ -384,6 +384,8 @@ const DAYT = iso => new Date(iso).toLocaleString('en-US', {timeZone: 'America/Ne
 // 'today' = starts before the next 6 AM ET (Sean, 11/2: tonight plus the overnight / morning tennis; next-day soccer goes to Later)
 const cutoff6 = () => { const now = new Date(), et = new Date(now.toLocaleString('en-US', {timeZone: 'America/New_York'})), off = et - now, c = new Date(+et + 6 * 3600e3);   // the next 6 AM at least 6h away
   if (c.getHours() >= 6) c.setDate(c.getDate() + 1); c.setHours(6, 0, 0, 0); return c - off; };
+// 11/21 (Sean): name the day, so 'Through 6 AM' is not read as this morning's 6 AM
+const cutDay = () => new Date(cutoff6()).toLocaleDateString('en-US', {weekday: 'short', timeZone: 'America/New_York'});
 const whenOf = iso => new Date(iso) < cutoff6() ? 'today' : 'upcoming';
 const passW = iso => _when === 'all' || whenOf(iso) === _when;
 const passS = (sport, league) => (!_tf.sport || sport === _tf.sport) && (!_tf.league || league === _tf.league);
@@ -391,7 +393,7 @@ const passT = passS;            // older callers
 function whenBar(rows) {        // rows: [{start, sport, league}] after the sport filter
   const n = {today: 0, upcoming: 0}; for (const r of rows) n[whenOf(r.start)]++;
   const b = (k, l, c) => `<button class="${_when === k ? 'on' : ''}" onclick="_when='${k}';draw()">${l} <span class="small">${c}</span></button>`;
-  return `<span class="tabs inline when">${b('today', 'Through 6 AM', n.today)}${b('upcoming', 'Later', n.upcoming)}${b('all', 'All', n.today + n.upcoming)}</span>`;
+  return `<span class="tabs inline when">${b('today', `Through ${cutDay()} 6 AM`, n.today)}${b('upcoming', 'Later', n.upcoming)}${b('all', 'All', n.today + n.upcoming)}</span>`;
 }
 function sportBar(rows) {       // rows after the time filter
   const bySport = {}, byLeague = {};
@@ -410,7 +412,7 @@ function emptyNote(what, rowsSport) {      // the chosen window is empty: say wh
   const n = {today: 0, upcoming: 0}; for (const r of rowsSport) n[whenOf(r.start)]++;
   const other = _when === 'today' ? 'upcoming' : (_when === 'upcoming' ? 'today' : null);
   const sp = _tf.sport ? (SPORT_LABEL[_tf.sport] || _tf.sport) + ' ' : '';
-  return `<div class="small dim">No ${sp}${what} ${_when === 'all' ? 'right now' : (_when === 'today' ? 'before 6 AM ET' : 'after 6 AM ET')}${what === 'sharp signals' ? ' (watch-only signals, if any, are in Other signals below)' : what === 'system bets' ? ' (rules that fired without a bet are in their dropdown below)' : ''}.${other && n[other] ? ` <a href="#" onclick="_when='${other}';draw();return false">${n[other]} ${other === 'today' ? 'in the next 24h' : 'later'} →</a>` : ''}</div>`;
+  return `<div class="small dim">No ${sp}${what} ${_when === 'all' ? 'right now' : (_when === 'today' ? `before ${cutDay()} 6 AM ET` : `after ${cutDay()} 6 AM ET`)}${what === 'sharp signals' ? ' (watch-only signals, if any, are in Other signals below)' : what === 'system bets' ? ' (rules that fired without a bet are in their dropdown below)' : ''}.${other && n[other] ? ` <a href="#" onclick="_when='${other}';draw();return false">${n[other]} ${other === 'today' ? 'in the next 24h' : 'later'} →</a>` : ''}</div>`;
 }
 // 11/5 (Sean): one record format everywhere: label, W-L, win %, ROI. WC backtest = our 2020-26 database at Pinnacle's close.
 const pctW = (w, l) => w + l ? Math.round(100 * w / (w + l)) + '%' : '—';
@@ -700,7 +702,7 @@ function renderToday() {
   const games = groupByGame(vet, it => it.g.event_id), lgames = groupByGame(lean, it => it.g.event_id);
   const sgames = groupByGame([...sig].sort((a, b) => a.start < b.start ? -1 : 1), x => x.ev || (x.sport + x.away + x.home));   // whole pool: filtered for display below, so the chip counts can be the rows that actually show
   const next = [...B, ...S].map(x => x.start).sort()[0];
-  const label = _when === 'today' ? 'Through 6 AM ET' : (_when === 'upcoming' ? 'Later' : 'All upcoming');
+  const label = _when === 'today' ? `Through ${cutDay()} 6 AM ET` : (_when === 'upcoming' ? 'Later' : 'All upcoming');
   const summary = `<div class="summary"><b>${label}${_tf.sport ? ' · ' + (SPORT_LABEL[_tf.sport] || _tf.sport) : ''}:</b> ${vet.length} system bet${vet.length === 1 ? '' : 's'} on ${games.length} game${games.length === 1 ? '' : 's'} · ${lean.length + TWk.length} lean${lean.length + TWk.length === 1 ? '' : 's'} · __NSIG__${next ? ` · next start ${DAYT(next)} (${until(next)})` : ''}</div>`;
   const twRec = TW && TW.record && TW.record.n ? `${TW.record.won}-${TW.record.n - TW.record.won}, ${TW.record.units > 0 ? '+' : ''}${TW.record.units}u` : 'no graded bets yet';
   const srRec = FL && FL.steam && FL.steam.record && FL.steam.record.n ? `${FL.steam.record.won}-${FL.steam.record.n - FL.steam.record.won}, ${FL.steam.record.units > 0 ? '+' : ''}${FL.steam.record.units}u` : 'no graded bets yet';
@@ -1148,7 +1150,7 @@ function renderGames() {
   const gamesAll = D.board.filter(g => !g.closed && new Date(g.start_utc) > Date.now());
   const games = gamesAll.filter(g => passW(g.start_utc));
   const toggle = `<div class="controls topbar">${whenBar(gamesAll.map(g => ({start: g.start_utc})))}<span class="tabs inline"><button class="${st.view === 'lines' ? 'on' : ''}" onclick="_gf.view='lines';draw()">Game lines</button><button class="${st.view === 'props' ? 'on' : ''}" onclick="_gf.view='props';draw()">Player props</button></span></div>
-    <div class="controls"><span>${games.length} game${games.length === 1 ? '' : 's'} (${_when === 'all' ? 'all upcoming' : (_when === 'today' ? 'through 6 AM ET' : 'later')}).${!games.length && gamesAll.length ? ` <a href="#" onclick="_when='${_when === 'today' ? 'upcoming' : 'today'}';draw();return false">Show ${_when === 'today' ? 'later' : 'next 24h'} →</a>` : ''} Prices are the best available where you can bet (Novig, Kalshi, Polymarket, FanDuel, Caesars, DraftKings; Kalshi fee included); a green +number means that price beats our fair line by that many percentage points.</span></div>`;
+    <div class="controls"><span>${games.length} game${games.length === 1 ? '' : 's'} (${_when === 'all' ? 'all upcoming' : (_when === 'today' ? `through ${cutDay()} 6 AM ET` : 'later')}).${!games.length && gamesAll.length ? ` <a href="#" onclick="_when='${_when === 'today' ? 'upcoming' : 'today'}';draw();return false">Show ${_when === 'today' ? 'later' : 'next 24h'} →</a>` : ''} Prices are the best available where you can bet (Novig, Kalshi, Polymarket, FanDuel, Caesars, DraftKings; Kalshi fee included); a green +number means that price beats our fair line by that many percentage points.</span></div>`;
   if (st.view === 'props') return toggle + renderPropsSimple(games);
   const rows = games.map(g => {
     window._curEv = g.event_id; const sp = mainPair(g, 'spread'), to = mainPair(g, 'total'), ml = mainPair(g, 'ml'); const open = st.open[g.event_id];
