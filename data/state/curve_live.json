@@ -1,5 +1,5 @@
 {
- "built": "2026-11-21T19:33:09Z",
+ "built": "2026-11-21T19:48:44Z",
  "record": {
   "cbb_1h_total_curve": {
    "n": 7,
@@ -12,10 +12,10 @@
     "beat": 0
    },
    "line_value": {
-    "n": 7,
-    "avg": 0.07,
+    "n": 8,
+    "avg": 0.0,
     "better": 1,
-    "worse": 1
+    "worse": 2
    }
   },
   "cfb_q1_under_curve": {
@@ -282,7 +282,10 @@
    "book_fair": 0.504,
    "fair_gap": 0.6,
    "ev_curve": 13.1,
-   "flagged": "2026-11-21T17:24:41Z"
+   "flagged": "2026-11-21T17:24:41Z",
+   "close_ts": "2026-11-21T19:48:44Z",
+   "close_line": 64.0,
+   "line_value": -0.5
   },
   {
    "key": "cfb_q1_under_curve|1a3e1206e330ec66aa9a0549b4d3409c||under",
@@ -395,6 +398,35 @@
    "fair_gap": -2.3,
    "ev_curve": -0.7,
    "flagged": "2026-11-21T18:51:54Z"
+  },
+  {
+   "key": "cfb_q1_under_curve|cc2b1d4b7378697dc11c744aeb015af9||under",
+   "rule": "cfb_q1_under_curve",
+   "tier": "A",
+   "stake": 0.25,
+   "sport": "cfb",
+   "odds_id": "cc2b1d4b7378697dc11c744aeb015af9",
+   "espn": "401864543",
+   "game": "Northern Illinois Huskies @ North Dakota State Bison",
+   "start": "2026-11-21T21:00:00Z",
+   "market": "totals_q1",
+   "team": null,
+   "team_name": null,
+   "side": "under",
+   "line": 9.5,
+   "curve": 0.509,
+   "pin_fair": 0.458,
+   "gap": 5.0,
+   "full_total": 46.0,
+   "full_spread": -26.0,
+   "pin_price": 2.08,
+   "book": "DK",
+   "price": 2.05,
+   "pin_fair_power": 0.4552,
+   "book_fair": 0.4591,
+   "fair_gap": -0.1,
+   "ev_curve": 4.3,
+   "flagged": "2026-11-21T19:48:44Z"
   }
  ]
 }
