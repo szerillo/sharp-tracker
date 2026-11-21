@@ -1,11 +1,11 @@
 {
- "built": "2026-11-21T20:22:22Z",
+ "built": "2026-11-21T20:35:45Z",
  "record": {
   "cbb_1h_total_curve": {
-   "n": 7,
+   "n": 8,
    "won": 3,
-   "lost": 3,
-   "units": -0.08,
+   "lost": 4,
+   "units": -0.33,
    "clv": {
     "n": 5,
     "avg": -2.76,
@@ -157,37 +157,6 @@
    "close_fair": 0.4764,
    "clv": -3.38,
    "beat_fair": -0.26
-  },
-  {
-   "key": "cbb_1h_total_curve|b3fab0afee75218dc01cdc6679c9ad17||over",
-   "rule": "cbb_1h_total_curve",
-   "tier": "P",
-   "stake": 0.0,
-   "sport": "cbb",
-   "odds_id": "b3fab0afee75218dc01cdc6679c9ad17",
-   "espn": "401920948",
-   "game": "Denver Pioneers @ Eastern Michigan Eagles",
-   "start": "2026-11-21T18:00:00Z",
-   "market": "totals_h1",
-   "team": null,
-   "team_name": null,
-   "side": "over",
-   "line": 64.0,
-   "curve": 0.579,
-   "pin_fair": 0.503,
-   "gap": 7.6,
-   "full_total": 140.0,
-   "full_spread": -7.5,
-   "pin_price": 1.9,
-   "book": null,
-   "price": null,
-   "flagged": "2026-11-21T15:55:50Z",
-   "close_ts": "2026-11-21T17:52:28Z",
-   "close_line": 64.0,
-   "line_value": 0.0,
-   "close_fair": 0.5092,
-   "clv": -1.71,
-   "beat_fair": 0.62
   },
   {
    "key": "cfb_q1_under_curve|d7b3c2454c6b34f734497049e744bab0||under",
@@ -473,7 +442,36 @@
    "book_fair": 0.4256,
    "fair_gap": 0.7,
    "ev_curve": 22.8,
-   "flagged": "2026-11-21T20:22:22Z"
+   "flagged": "2026-11-21T20:05:47Z"
+  },
+  {
+   "key": "cfb_q1_under_curve|cc2b1d4b7378697dc11c744aeb015af9||under",
+   "rule": "cfb_q1_under_curve",
+   "tier": "A",
+   "stake": 0.25,
+   "sport": "cfb",
+   "odds_id": "cc2b1d4b7378697dc11c744aeb015af9",
+   "espn": "401864543",
+   "game": "Northern Illinois Huskies @ North Dakota State Bison",
+   "start": "2026-11-21T21:00:00Z",
+   "market": "totals_q1",
+   "team": null,
+   "team_name": null,
+   "side": "under",
+   "line": 9.5,
+   "curve": 0.509,
+   "pin_fair": 0.456,
+   "gap": 5.3,
+   "full_total": 46.0,
+   "full_spread": -26.0,
+   "pin_price": 2.09,
+   "book": "DK",
+   "price": 2.05,
+   "pin_fair_power": 0.4524,
+   "book_fair": 0.4591,
+   "fair_gap": -0.3,
+   "ev_curve": 4.3,
+   "flagged": "2026-11-21T20:35:45Z"
   }
  ]
 }
