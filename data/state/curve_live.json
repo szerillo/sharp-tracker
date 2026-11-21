@@ -1,5 +1,5 @@
 {
- "built": "2026-11-21T15:40:46Z",
+ "built": "2026-11-21T15:55:50Z",
  "record": {
   "cbb_1h_total_curve": {
    "n": 7,
@@ -145,6 +145,31 @@
    "fair_gap": -0.7,
    "ev_curve": 5.5,
    "flagged": "2026-11-21T14:28:05Z"
+  },
+  {
+   "key": "cbb_1h_total_curve|b3fab0afee75218dc01cdc6679c9ad17||over",
+   "rule": "cbb_1h_total_curve",
+   "tier": "P",
+   "stake": 0.0,
+   "sport": "cbb",
+   "odds_id": "b3fab0afee75218dc01cdc6679c9ad17",
+   "espn": "401920948",
+   "game": "Denver Pioneers @ Eastern Michigan Eagles",
+   "start": "2026-11-21T18:00:00Z",
+   "market": "totals_h1",
+   "team": null,
+   "team_name": null,
+   "side": "over",
+   "line": 64.0,
+   "curve": 0.579,
+   "pin_fair": 0.503,
+   "gap": 7.6,
+   "full_total": 140.0,
+   "full_spread": -7.5,
+   "pin_price": 1.9,
+   "book": null,
+   "price": null,
+   "flagged": "2026-11-21T15:55:50Z"
   }
  ]
 }
