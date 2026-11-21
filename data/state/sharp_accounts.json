@@ -1,5 +1,5 @@
 {
- "built": "2026-11-21T14:15:53Z",
+ "built": "2026-11-21T14:26:12Z",
  "rows": [
   {
    "cond": "0x0a97ac876ccda0d4cdc6c73454de33896b3cbf299bdc3afd1c1f1a9a62826810",
@@ -191,7 +191,7 @@
    "best_rank": 57,
    "usd": 1249,
    "paid": 0.49,
-   "ask": 0.54,
+   "ask": 0.53,
    "status": "live",
    "link": "https://polymarket.us/event/epl-bou-not-2026-11-21-more-markets",
    "other": null,
@@ -237,7 +237,7 @@
    "best_rank": 149,
    "usd": 12282,
    "paid": 0.62,
-   "ask": 0.63,
+   "ask": 0.62,
    "status": "live",
    "link": "https://polymarket.us/event/epl-tot-ips-2026-11-21-more-markets",
    "other": null,
@@ -344,6 +344,55 @@
    "fair_board": null,
    "inside_fair": null,
    "books": null
+  },
+  {
+   "cond": "0x92a89b444ab0bae28ea5eb594edaa5cf247b1331dc465e93ccf16db1eefea94b",
+   "slug": "cfb-ohiost-nebr-2026-11-21",
+   "title": "Ohio State vs. Nebraska",
+   "mtype": "spread",
+   "start": "2026-11-21T17:00:00Z",
+   "bet": "Ohio State -3.5",
+   "side": "Ohio State",
+   "flagged": "2026-11-21T14:26:02Z",
+   "why": "a top-200 account also in this sport's top 50",
+   "proven": true,
+   "trigger": "proven",
+   "n_accounts": 1,
+   "best_rank": 115,
+   "usd": 2225,
+   "paid": 0.5,
+   "ask": 0.51,
+   "status": "live",
+   "link": "https://polymarket.us/event/cfb-ohiost-nebr-2026-11-21",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401858531",
+   "sport": "cfb",
+   "league": null,
+   "away": "OSU",
+   "home": "NEB",
+   "away_name": "Ohio State Buckeyes",
+   "home_name": "Nebraska Cornhuskers",
+   "game_start": "2026-11-21T17:00Z",
+   "side_std": "away",
+   "conflict": [
+    "big money"
+   ],
+   "money_with": false,
+   "grade": "A",
+   "fair_board": 0.4916,
+   "inside_fair": false,
+   "books": {
+    "at": "2026-11-21T03:44:49Z",
+    "fair": 0.4916,
+    "q": {
+     "Novig": 0.5,
+     "FD": 0.5098,
+     "DK": 0.5122,
+     "Caesars": 0.5146
+    }
+   }
   },
   {
    "cond": "0xd7f7d434c1d2b782520bf8fb8814d8a0cc94e946243ecc0296e27cfe9e9579dd",
@@ -840,7 +889,7 @@
    "best_rank": 149,
    "usd": 2468,
    "paid": 0.4,
-   "ask": 0.38,
+   "ask": 0.4,
    "status": "other side",
    "link": "https://polymarket.us/event/epl-tot-ips-2026-11-21-more-markets",
    "other": {
@@ -849,7 +898,7 @@
     "usd": 352,
     "first": "2026-11-21T13:55:19Z"
    },
-   "exit_bid": 0.37,
+   "exit_bid": 0.39,
    "kalshi_against": null,
    "logged": true,
    "event_id": "401878754",
@@ -883,7 +932,7 @@
    "best_rank": 31,
    "usd": 9172,
    "paid": 0.639,
-   "ask": 0.63,
+   "ask": 0.64,
    "status": "other side",
    "link": "https://polymarket.us/event/epl-tot-ips-2026-11-21",
    "other": {
@@ -892,7 +941,7 @@
     "usd": 3454,
     "first": "2026-11-21T13:30:01Z"
    },
-   "exit_bid": 0.62,
+   "exit_bid": 0.63,
    "kalshi_against": null,
    "logged": true,
    "event_id": "401878754",
@@ -1113,6 +1162,13 @@
     "n": 1,
     "best_rank": 12,
     "usd": 215
+   }
+  },
+  "401858531|spread": {
+   "away": {
+    "n": 1,
+    "best_rank": 115,
+    "usd": 2225
    }
   },
   "401856865|total": {
