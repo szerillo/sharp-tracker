@@ -1,5 +1,5 @@
 {
- "built": "2026-11-21T23:42:47Z",
+ "built": "2026-11-21T23:58:18Z",
  "record": {
   "cbb_1h_total_curve": {
    "n": 8,
@@ -24,12 +24,12 @@
    "lost": 20,
    "units": -3.22,
    "clv": {
-    "n": 21,
-    "avg": -2.43,
+    "n": 22,
+    "avg": -2.33,
     "beat": 2
    },
    "line_value": {
-    "n": 21,
+    "n": 22,
     "avg": 0.0,
     "better": 0,
     "worse": 0
@@ -58,12 +58,12 @@
    "lost": 20,
    "units": -4.61,
    "clv": {
-    "n": 24,
-    "avg": -2.29,
+    "n": 25,
+    "avg": -2.26,
     "beat": 0
    },
    "line_value": {
-    "n": 25,
+    "n": 26,
     "avg": -0.02,
     "better": 0,
     "worse": 1
@@ -75,12 +75,12 @@
    "lost": 18,
    "units": -1.64,
    "clv": {
-    "n": 14,
-    "avg": -2.66,
+    "n": 16,
+    "avg": -2.96,
     "beat": 1
    },
    "line_value": {
-    "n": 14,
+    "n": 16,
     "avg": 0.0,
     "better": 0,
     "worse": 0
@@ -349,7 +349,13 @@
    "pin_price": 2.12,
    "book": null,
    "price": null,
-   "flagged": "2026-11-21T21:22:51Z"
+   "flagged": "2026-11-21T21:22:51Z",
+   "close_ts": "2026-11-21T23:58:18Z",
+   "close_line": 40.5,
+   "line_value": 0.0,
+   "close_fair": 0.4203,
+   "clv": -5.14,
+   "beat_fair": -3.37
   },
   {
    "key": "nhl_p3_under_curve|c891a951ef4b408976f84839c3d886e2||under",
@@ -374,7 +380,13 @@
    "pin_price": 2.14,
    "book": null,
    "price": null,
-   "flagged": "2026-11-21T21:22:51Z"
+   "flagged": "2026-11-21T21:22:51Z",
+   "close_ts": "2026-11-21T23:58:18Z",
+   "close_line": 2.0,
+   "line_value": 0.0,
+   "close_fair": 0.4499,
+   "clv": -1.74,
+   "beat_fair": -0.01
   },
   {
    "key": "cfb_tt_under_curve|f23bc59387b6db63ad3de8b6bcc541fc|away|under",
@@ -428,18 +440,24 @@
    "book_fair": 0.422,
    "fair_gap": 1.8,
    "ev_curve": 12.2,
-   "flagged": "2026-11-21T23:42:47Z"
+   "flagged": "2026-11-21T23:24:23Z",
+   "close_ts": "2026-11-21T23:58:18Z",
+   "close_line": 13.5,
+   "line_value": 0.0,
+   "close_fair": 0.4404,
+   "clv": -0.21,
+   "beat_fair": -0.26
   },
   {
    "key": "cfb_tt_under_curve|8d53f308424d388c9003e02cac8b4cf6|away|under",
    "rule": "cfb_tt_under_curve",
-   "tier": "P",
-   "stake": 0.0,
+   "tier": "C",
+   "stake": 0.25,
    "sport": "cfb",
    "odds_id": "8d53f308424d388c9003e02cac8b4cf6",
    "espn": "401858302",
    "game": "Virginia Tech Hokies @ Miami Hurricanes",
-   "start": "2026-11-22T00:00:00Z",
+   "start": "2026-11-22T00:10:00Z",
    "market": "team_totals",
    "team": "away",
    "team_name": "Virginia Tech Hokies",
@@ -451,9 +469,19 @@
    "full_total": 61.5,
    "full_spread": -21.0,
    "pin_price": 1.89,
-   "book": null,
-   "price": null,
-   "flagged": "2026-11-21T23:42:47Z"
+   "book": "Caesars",
+   "price": 1.79,
+   "pin_fair_power": 0.5096,
+   "book_fair": 0.5214,
+   "fair_gap": -1.2,
+   "ev_curve": 0.3,
+   "flagged": "2026-11-21T23:58:18Z",
+   "close_ts": "2026-11-21T23:58:18Z",
+   "close_line": 20.5,
+   "line_value": 0.0,
+   "close_fair": 0.5091,
+   "clv": -4.96,
+   "beat_fair": 0.01
   },
   {
    "key": "cfb_q1_under_curve|028f0fcc2f6411c4816e543bb7fa226c||under",
@@ -482,7 +510,7 @@
    "book_fair": 0.4133,
    "fair_gap": 1.9,
    "ev_curve": 14.1,
-   "flagged": "2026-11-21T23:42:47Z"
+   "flagged": "2026-11-21T23:58:18Z"
   }
  ]
 }
