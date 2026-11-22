@@ -1,5 +1,5 @@
 {
- "built": "2026-11-22T17:01:41Z",
+ "built": "2026-11-22T17:07:39Z",
  "rows": [
   {
    "cond": "0xb790bd8ba36a3bf8c94e3f881668874eaf60b0fffd56a25f4879bad3d1a4af58",
@@ -271,43 +271,6 @@
    "conflict": [
     "Kalshi move"
    ],
-   "money_with": false,
-   "grade": "A",
-   "fair_board": null,
-   "inside_fair": null,
-   "books": null
-  },
-  {
-   "cond": "0x432b91ca545885eff51a3a893ada55bf46ab2e0b8552c397bc0270dd95a0c425",
-   "slug": "nfl-pit-phi-2026-11-22",
-   "title": "Steelers vs. Eagles",
-   "mtype": "spread",
-   "start": "2026-11-22T18:00:00Z",
-   "bet": "Eagles -3.5",
-   "side": "Eagles",
-   "flagged": "2026-11-22T14:50:17Z",
-   "why": "a top-200 account also in this sport's top 50",
-   "proven": true,
-   "trigger": "proven",
-   "n_accounts": 1,
-   "best_rank": 143,
-   "usd": 2841,
-   "paid": 0.24,
-   "ask": 0.25,
-   "status": "live",
-   "link": "https://polymarket.us/event/nfl-pit-phi-2026-11-22",
-   "other": null,
-   "kalshi_against": null,
-   "logged": true,
-   "event_id": "401873076",
-   "sport": "nfl",
-   "league": null,
-   "away": "PIT",
-   "home": "PHI",
-   "away_name": "Pittsburgh Steelers",
-   "home_name": "Philadelphia Eagles",
-   "game_start": "2026-11-22T18:00Z",
-   "side_std": "home",
    "money_with": false,
    "grade": "A",
    "fair_board": null,
@@ -810,6 +773,49 @@
    "books": null
   },
   {
+   "cond": "0x432b91ca545885eff51a3a893ada55bf46ab2e0b8552c397bc0270dd95a0c425",
+   "slug": "nfl-pit-phi-2026-11-22",
+   "title": "Steelers vs. Eagles",
+   "mtype": "spread",
+   "start": "2026-11-22T18:00:00Z",
+   "bet": "Eagles -3.5",
+   "side": "Eagles",
+   "flagged": "2026-11-22T14:50:17Z",
+   "why": "a top-200 account also in this sport's top 50",
+   "proven": true,
+   "trigger": "proven",
+   "n_accounts": 1,
+   "best_rank": 143,
+   "usd": 2841,
+   "paid": 0.24,
+   "ask": 0.25,
+   "status": "other side",
+   "link": "https://polymarket.us/event/nfl-pit-phi-2026-11-22",
+   "other": {
+    "n_accounts": 1,
+    "best_rank": 95,
+    "usd": 122,
+    "first": "2026-11-22T17:06:07Z"
+   },
+   "exit_bid": 0.24,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401873076",
+   "sport": "nfl",
+   "league": null,
+   "away": "PIT",
+   "home": "PHI",
+   "away_name": "Pittsburgh Steelers",
+   "home_name": "Philadelphia Eagles",
+   "game_start": "2026-11-22T18:00Z",
+   "side_std": "home",
+   "money_with": false,
+   "grade": "A",
+   "fair_board": null,
+   "inside_fair": null,
+   "books": null
+  },
+  {
    "cond": "0xacb4bae086c3641d13b6ef1d90c4a5e24d52b74f50a33fe4523ce0636238ea1f",
    "slug": "nfl-jax-nyg-2026-11-22",
    "title": "Jaguars vs. Giants",
@@ -1116,9 +1122,9 @@
   },
   "401873076:nfl_fade_fav_bye": {
    "with": {
-    "n": 1,
-    "best_rank": 182,
-    "usd": 293
+    "n": 2,
+    "best_rank": 95,
+    "usd": 415
    },
    "against": {
     "n": 1,
@@ -1212,9 +1218,9 @@
     "usd": 2841
    },
    "away": {
-    "n": 1,
-    "best_rank": 182,
-    "usd": 293
+    "n": 2,
+    "best_rank": 95,
+    "usd": 415
    }
   },
   "401873076|ml": {
