@@ -1,43 +1,6 @@
 {
- "built": "2026-11-22T02:52:57Z",
+ "built": "2026-11-22T03:01:22Z",
  "rows": [
-  {
-   "cond": "0xbad88236739a967d01eca0aa0e0206056b886912bd9378523f546bbf82f431a2",
-   "slug": "cfb-washst-txst-2026-11-21",
-   "title": "Washington State vs. Texas State",
-   "mtype": "total",
-   "start": "2026-11-21T23:00:00Z",
-   "bet": "Under 63.5",
-   "side": "Under",
-   "flagged": "2026-11-21T13:45:35Z",
-   "why": "a top-200 account also in this sport's top 50",
-   "proven": true,
-   "trigger": "proven",
-   "n_accounts": 1,
-   "best_rank": 110,
-   "usd": 697,
-   "paid": 0.54,
-   "ask": null,
-   "status": "live",
-   "link": "https://polymarket.us/event/cfb-washst-txst-2026-11-21",
-   "other": null,
-   "kalshi_against": null,
-   "logged": true,
-   "event_id": "401860920",
-   "sport": "cfb",
-   "league": null,
-   "away": "WSU",
-   "home": "TXST",
-   "away_name": "Washington State Cougars",
-   "home_name": "Texas State Bobcats",
-   "game_start": "2026-11-21T23:00Z",
-   "side_std": "under",
-   "money_with": false,
-   "grade": "A",
-   "fair_board": null,
-   "inside_fair": null,
-   "books": null
-  },
   {
    "cond": "0xf1cdcb738486650f8f9fc6337516abe65ba0970371028649b96f2b0963f25ff6",
    "slug": "nhl-phi-mon-2026-11-21",
@@ -352,7 +315,7 @@
    "best_rank": 49,
    "usd": 16125,
    "paid": 0.537,
-   "ask": 0.55,
+   "ask": null,
    "status": "live",
    "link": "https://polymarket.us/event/nba-bos-sac-2026-11-21",
    "other": null,
@@ -396,7 +359,7 @@
    "best_rank": 40,
    "usd": 2542,
    "paid": 0.57,
-   "ask": 0.58,
+   "ask": null,
    "status": "live",
    "link": "https://polymarket.us/event/nba-bos-sac-2026-11-21",
    "other": null,
@@ -434,7 +397,7 @@
    "best_rank": 40,
    "usd": 150,
    "paid": 0.61,
-   "ask": 0.6,
+   "ask": null,
    "status": "live",
    "link": "https://polymarket.us/event/nba-bos-sac-2026-11-21",
    "other": null,
@@ -472,7 +435,7 @@
    "best_rank": 40,
    "usd": 600,
    "paid": 0.465,
-   "ask": 0.47,
+   "ask": null,
    "status": "live",
    "link": "https://polymarket.us/event/nba-bos-sac-2026-11-21",
    "other": null,
@@ -510,7 +473,7 @@
    "best_rank": 12,
    "usd": 287,
    "paid": 0.56,
-   "ask": 0.54,
+   "ask": 0.53,
    "status": "live",
    "link": "https://polymarket.us/event/cfb-okst-arzst-2026-11-21",
    "other": null,
@@ -671,7 +634,7 @@
    "best_rank": 40,
    "usd": 964,
    "paid": 0.763,
-   "ask": 0.76,
+   "ask": 0.75,
    "status": "live",
    "link": "https://polymarket.us/event/nba-ind-nyk-2026-11-22",
    "other": null,
@@ -990,7 +953,7 @@
    "best_rank": 40,
    "usd": 1802,
    "paid": 0.486,
-   "ask": 0.47,
+   "ask": 0.46,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-okc-mia-2026-11-22",
    "other": {
@@ -999,7 +962,7 @@
     "usd": 1468,
     "first": "2026-11-21T22:15:07Z"
    },
-   "exit_bid": 0.46,
+   "exit_bid": 0.45,
    "kalshi_against": null,
    "logged": true,
    "event_id": "401910030",
@@ -1069,15 +1032,15 @@
     "clv": -0.24
    }
   },
-  "n": 374,
-  "won": 179,
+  "n": 375,
+  "won": 180,
   "units": -16.1,
   "by_grade": {
    "A": {
-    "n": 244,
-    "won": 111,
+    "n": 245,
+    "won": 112,
     "units": -14.91,
-    "clv": -0.18
+    "clv": -0.17
    },
    "B": {
     "n": 91,
@@ -1092,8 +1055,8 @@
     "clv": -0.61
    }
   },
-  "units_1u": -27.74,
-  "clv": -0.4,
+  "units_1u": -26.18,
+  "clv": -0.39,
   "n_venue": 194,
   "units_venue": -5.86,
   "clv_venue": 0.89,
@@ -1145,27 +1108,6 @@
     "n": 1,
     "best_rank": 143,
     "usd": 2887
-   }
-  },
-  "401910028|total": {
-   "under": {
-    "n": 1,
-    "best_rank": 132,
-    "usd": 3088
-   }
-  },
-  "401910028|ml": {
-   "home": {
-    "n": 1,
-    "best_rank": 112,
-    "usd": 261
-   }
-  },
-  "401910028|spread": {
-   "home": {
-    "n": 5,
-    "best_rank": 40,
-    "usd": 17893
    }
   },
   "401910030|ml": {
