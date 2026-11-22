@@ -1,80 +1,6 @@
 {
- "built": "2026-11-22T00:15:45Z",
+ "built": "2026-11-22T00:30:03Z",
  "rows": [
-  {
-   "cond": "0x7d80d4e0e39cea5fabdbab43228995a9946d44ba860cb3a55efe62eb6e2ae9eb",
-   "slug": "nhl-chi-cal-2026-11-21",
-   "title": "Blackhawks vs. Flames",
-   "mtype": "total",
-   "start": "2026-11-21T20:30:00Z",
-   "bet": "Under 5.5",
-   "side": "Under",
-   "flagged": "2026-11-21T19:13:50Z",
-   "why": "a top-200 account also in this sport's top 50",
-   "proven": true,
-   "trigger": "proven",
-   "n_accounts": 1,
-   "best_rank": 79,
-   "usd": 644,
-   "paid": 0.47,
-   "ask": null,
-   "status": "live",
-   "link": "https://polymarket.us/event/nhl-chi-cal-2026-11-21",
-   "other": null,
-   "kalshi_against": null,
-   "logged": true,
-   "event_id": "401892755",
-   "sport": "nhl",
-   "league": null,
-   "away": "CHI",
-   "home": "CGY",
-   "away_name": "Chicago Blackhawks",
-   "home_name": "Calgary Flames",
-   "game_start": "2026-11-21T20:30Z",
-   "side_std": "under",
-   "money_with": false,
-   "grade": "A",
-   "inside_fair": false,
-   "fair_board": 0.472,
-   "books": null
-  },
-  {
-   "cond": "0x127ed825567cdd029b429e49bf63186e78f47f6aa51192e882f33318f1c3d536",
-   "slug": "cfb-rutger-pennst-2026-11-21",
-   "title": "Rutgers vs. Penn State",
-   "mtype": "spread",
-   "start": "2026-11-21T20:30:00Z",
-   "bet": "Rutgers +25.5",
-   "side": "Rutgers",
-   "flagged": "2026-11-21T19:40:22Z",
-   "why": "a top-200 account also in this sport's top 50",
-   "proven": true,
-   "trigger": "proven",
-   "n_accounts": 1,
-   "best_rank": 115,
-   "usd": 450,
-   "paid": 0.51,
-   "ask": null,
-   "status": "live",
-   "link": "https://polymarket.us/event/cfb-rutger-pennst-2026-11-21",
-   "other": null,
-   "kalshi_against": null,
-   "logged": true,
-   "event_id": "401858532",
-   "sport": "cfb",
-   "league": null,
-   "away": "RUTG",
-   "home": "PSU",
-   "away_name": "Rutgers Scarlet Knights",
-   "home_name": "Penn State Nittany Lions",
-   "game_start": "2026-11-21T20:30Z",
-   "side_std": "away",
-   "money_with": false,
-   "grade": "A",
-   "fair_board": null,
-   "inside_fair": null,
-   "books": null
-  },
   {
    "cond": "0xbad88236739a967d01eca0aa0e0206056b886912bd9378523f546bbf82f431a2",
    "slug": "cfb-washst-txst-2026-11-21",
@@ -225,7 +151,7 @@
    "link": "https://polymarket.us/event/cfb-vtech-mia-2026-11-21",
    "other": null,
    "kalshi_against": null,
-   "logged": false,
+   "logged": true,
    "event_id": "401858302",
    "sport": "cfb",
    "league": null,
@@ -266,7 +192,7 @@
    "best_rank": 40,
    "usd": 2033,
    "paid": 0.54,
-   "ask": 0.67,
+   "ask": null,
    "status": "live",
    "link": "https://polymarket.us/event/nba-por-nyk-2026-11-21",
    "other": null,
@@ -310,7 +236,7 @@
    "best_rank": 112,
    "usd": 2635,
    "paid": 0.495,
-   "ask": 0.58,
+   "ask": null,
    "status": "live",
    "link": "https://polymarket.us/event/nba-por-nyk-2026-11-21",
    "other": null,
@@ -425,7 +351,7 @@
    "best_rank": 104,
    "usd": 106,
    "paid": 0.4,
-   "ask": 0.36,
+   "ask": 0.37,
    "status": "live",
    "link": "https://polymarket.us/event/nba-nop-sas-2026-11-21",
    "other": null,
@@ -975,7 +901,7 @@
    "best_rank": 40,
    "usd": 53280,
    "paid": 0.42,
-   "ask": 0.53,
+   "ask": null,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-por-nyk-2026-11-21",
    "other": {
@@ -984,7 +910,7 @@
     "usd": 31693,
     "first": "2026-11-21T19:31:58Z"
    },
-   "exit_bid": 0.52,
+   "exit_bid": null,
    "kalshi_against": null,
    "logged": true,
    "event_id": "401910024",
@@ -999,7 +925,7 @@
    "money_with": false,
    "grade": "B",
    "fair_board": 0.5121,
-   "inside_fair": false,
+   "inside_fair": null,
    "books": null
   },
   {
@@ -1145,13 +1071,13 @@
     "clv": -0.24
    }
   },
-  "n": 371,
-  "won": 176,
+  "n": 372,
+  "won": 177,
   "units": -16.1,
   "by_grade": {
    "A": {
-    "n": 241,
-    "won": 108,
+    "n": 242,
+    "won": 109,
     "units": -14.91,
     "clv": -0.19
    },
@@ -1168,11 +1094,11 @@
     "clv": -0.61
    }
   },
-  "units_1u": -30.27,
+  "units_1u": -29.35,
   "clv": -0.41,
-  "n_venue": 193,
+  "n_venue": 194,
   "units_venue": -5.86,
-  "clv_venue": 0.88,
+  "clv_venue": 0.89,
   "clv_poly_same": -0.65
  },
  "sys_tags": {
@@ -1245,25 +1171,6 @@
     "n": 1,
     "best_rank": 143,
     "usd": 2887
-   }
-  },
-  "401910024|ml": {
-   "away": {
-    "n": 6,
-    "best_rank": 40,
-    "usd": 53280
-   },
-   "home": {
-    "n": 4,
-    "best_rank": 43,
-    "usd": 29291
-   }
-  },
-  "401910024|spread": {
-   "away": {
-    "n": 3,
-    "best_rank": 40,
-    "usd": 6063
    }
   },
   "401910025|ml": {
