@@ -1,6 +1,51 @@
 {
- "built": "2026-11-22T09:52:47Z",
+ "built": "2026-11-22T10:13:17Z",
  "rows": [
+  {
+   "cond": "0xb790bd8ba36a3bf8c94e3f881668874eaf60b0fffd56a25f4879bad3d1a4af58",
+   "slug": "bun-aug-mai-2026-11-22-more-markets",
+   "title": "FC Augsburg vs. 1. FSV Mainz 05 - More Markets",
+   "mtype": "total",
+   "start": "2026-11-22T14:30:00Z",
+   "bet": "Under 3.5",
+   "side": "Under",
+   "flagged": "2026-11-22T10:12:37Z",
+   "why": "a top-200 account also in this sport's top 50",
+   "proven": true,
+   "trigger": "proven",
+   "n_accounts": 1,
+   "best_rank": 157,
+   "usd": 554,
+   "paid": 0.52,
+   "ask": 0.52,
+   "status": "live",
+   "link": "https://polymarket.us/event/bun-aug-mai-2026-11-22-more-markets",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401884733",
+   "sport": "soccer",
+   "league": "bundesliga",
+   "away": "M05",
+   "home": "FCA",
+   "away_name": "Mainz",
+   "home_name": "FC Augsburg",
+   "game_start": "2026-11-22T14:30Z",
+   "side_std": "under",
+   "money_with": false,
+   "grade": "A",
+   "fair_board": 0.5336,
+   "inside_fair": true,
+   "books": {
+    "at": "2026-11-22T02:26:16Z",
+    "fair": 0.5336,
+    "q": {
+     "Novig": 0.54,
+     "FD": 0.5614,
+     "DK": 0.5652
+    }
+   }
+  },
   {
    "cond": "0xe5ca25046b18e1d0064a850167b85e5e255117146294a008dd44ea8c9c222a56",
    "slug": "nfl-tb-det-2026-11-22",
@@ -695,6 +740,13 @@
     "n": 1,
     "best_rank": 197,
     "usd": 960
+   }
+  },
+  "401884733|total": {
+   "under": {
+    "n": 1,
+    "best_rank": 157,
+    "usd": 554
    }
   },
   "401915300|total": {
