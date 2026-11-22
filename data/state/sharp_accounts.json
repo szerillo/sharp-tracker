@@ -1,5 +1,5 @@
 {
- "built": "2026-11-22T05:12:15Z",
+ "built": "2026-11-22T05:19:59Z",
  "rows": [
   {
    "cond": "0xcf37a9e452bd247b9b064d68b87fbcf3a0055209d7f4a2c4c7df08650ca2035b",
@@ -424,6 +424,16 @@
    "other": null,
    "kalshi_against": null,
    "logged": true,
+   "event_id": "401915373",
+   "sport": "soccer",
+   "league": "ucl",
+   "away": "MAN",
+   "home": "SCP",
+   "away_name": "Manchester United",
+   "home_name": "Sporting CP",
+   "game_start": "2026-11-25T20:00Z",
+   "side_std": "over",
+   "money_with": false,
    "grade": "A",
    "fair_board": null,
    "inside_fair": null,
@@ -452,6 +462,16 @@
    "kalshi_against": null,
    "logged": false,
    "ladder": true,
+   "event_id": "401915373",
+   "sport": "soccer",
+   "league": "ucl",
+   "away": "MAN",
+   "home": "SCP",
+   "away_name": "Manchester United",
+   "home_name": "Sporting CP",
+   "game_start": "2026-11-25T20:00Z",
+   "side_std": "over",
+   "money_with": false,
    "grade": "A",
    "fair_board": null,
    "inside_fair": null,
@@ -479,6 +499,16 @@
    "other": null,
    "kalshi_against": null,
    "logged": true,
+   "event_id": "401915377",
+   "sport": "soccer",
+   "league": "ucl",
+   "away": "MUN",
+   "home": "LILL",
+   "away_name": "Bayern Munich",
+   "home_name": "Lille",
+   "game_start": "2026-11-25T20:00Z",
+   "side_std": "home",
+   "money_with": false,
    "grade": "A",
    "fair_board": null,
    "inside_fair": null,
@@ -506,6 +536,16 @@
    "other": null,
    "kalshi_against": null,
    "logged": true,
+   "event_id": "401915374",
+   "sport": "soccer",
+   "league": "ucl",
+   "away": "ROMA",
+   "home": "PSG",
+   "away_name": "AS Roma",
+   "home_name": "Paris Saint-Germain",
+   "game_start": "2026-11-25T20:00Z",
+   "side_std": "not_home",
+   "money_with": false,
    "grade": "A",
    "fair_board": null,
    "inside_fair": null,
@@ -537,7 +577,11 @@
     "first": "2026-11-21T22:15:07Z"
    },
    "exit_bid": 0.43,
-   "kalshi_against": null,
+   "kalshi_against": {
+    "move": 4.0,
+    "now": 56.0,
+    "state": "reversed"
+   },
    "logged": true,
    "event_id": "401910030",
    "sport": "nba",
@@ -549,7 +593,8 @@
    "game_start": "2026-11-22T23:00Z",
    "side_std": "away",
    "conflict": [
-    "Kalshi bet back"
+    "Kalshi bet back",
+    "Kalshi move"
    ],
    "money_with": false,
    "grade": "B",
@@ -585,6 +630,16 @@
    "exit_bid": 0.39,
    "kalshi_against": null,
    "logged": true,
+   "event_id": "401915377",
+   "sport": "soccer",
+   "league": "ucl",
+   "away": "MUN",
+   "home": "LILL",
+   "away_name": "Bayern Munich",
+   "home_name": "Lille",
+   "game_start": "2026-11-25T20:00Z",
+   "side_std": "not_away",
+   "money_with": false,
    "grade": "A",
    "fair_board": null,
    "inside_fair": null,
@@ -729,6 +784,13 @@
     "n": 1,
     "best_rank": 57,
     "usd": 348
+   }
+  },
+  "401915373|total": {
+   "over": {
+    "n": 1,
+    "best_rank": 57,
+    "usd": 363
    }
   }
  },
