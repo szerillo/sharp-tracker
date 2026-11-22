@@ -1,5 +1,5 @@
 {
- "built": "2026-11-22T01:12:37Z",
+ "built": "2026-11-22T01:19:49Z",
  "rows": [
   {
    "cond": "0xbad88236739a967d01eca0aa0e0206056b886912bd9378523f546bbf82f431a2",
@@ -71,18 +71,9 @@
    "side_std": "away",
    "money_with": false,
    "grade": "A",
-   "fair_board": 0.4055,
+   "fair_board": null,
    "inside_fair": null,
-   "books": {
-    "at": "2026-11-21T23:22:34Z",
-    "fair": 0.4055,
-    "q": {
-     "Novig": 0.41,
-     "DK": 0.4237,
-     "Caesars": 0.4274,
-     "FD": 0.431
-    }
-   }
+   "books": null
   },
   {
    "cond": "0xf20caadb57ede8a861cbcb4f45ea16cf6fb6c0ee5526a36957e4a70640be7342",
@@ -117,18 +108,9 @@
    "side_std": "over",
    "money_with": false,
    "grade": "A",
-   "fair_board": 0.5107,
+   "fair_board": null,
    "inside_fair": null,
-   "books": {
-    "at": "2026-11-21T23:22:31Z",
-    "fair": 0.5107,
-    "q": {
-     "Caesars": 0.5146,
-     "Novig": 0.52,
-     "FD": 0.5283,
-     "DK": 0.5283
-    }
-   }
+   "books": null
   },
   {
    "cond": "0xb7ad723a2ef81da677a815bfe5a0b45a1195b1669951017814cef426e90fcc0a",
@@ -165,16 +147,7 @@
    "grade": "B",
    "inside_fair": false,
    "fair_board": 0.4873,
-   "books": {
-    "at": "2026-11-21T23:22:31Z",
-    "fair": 0.502,
-    "q": {
-     "Caesars": 0.5122,
-     "DK": 0.5238,
-     "FD": 0.5283,
-     "Kalshi": 0.53
-    }
-   }
+   "books": null
   },
   {
    "cond": "0x792d2a1e8d2216d732c90b43d3a5b938052e96e39c223aa0539bad0bfa11f464",
@@ -212,11 +185,11 @@
    "inside_fair": false,
    "fair_board": 0.507,
    "books": {
-    "at": "2026-11-22T00:01:16Z",
+    "at": "2026-11-22T00:03:24Z",
     "fair": null,
     "q": {
-     "Novig": 0.67,
-     "Kalshi": 0.67
+     "Novig": 0.675,
+     "Kalshi": 0.69
     }
    }
   },
@@ -412,10 +385,10 @@
    "fair_board": null,
    "inside_fair": null,
    "books": {
-    "at": "2026-11-22T00:01:16Z",
+    "at": "2026-11-22T01:01:08Z",
     "fair": null,
     "q": {
-     "Novig": 0.55,
+     "Novig": 0.545,
      "Kalshi": 0.58
     }
    }
@@ -624,7 +597,7 @@
    "best_rank": 12,
    "usd": 486,
    "paid": 0.62,
-   "ask": 0.69,
+   "ask": 0.68,
    "status": "live",
    "link": "https://polymarket.us/event/nfl-tb-det-2026-11-22",
    "other": null,
@@ -685,10 +658,10 @@
    "inside_fair": false,
    "fair_board": 0.2953,
    "books": {
-    "at": "2026-11-22T00:01:16Z",
-    "fair": 0.2925,
+    "at": "2026-11-22T01:01:08Z",
+    "fair": 0.2939,
     "q": {
-     "Novig": 0.295,
+     "Novig": 0.3,
      "Caesars": 0.3175,
      "Kalshi": 0.32,
      "DK": 0.3215
@@ -731,7 +704,7 @@
    "fair_board": null,
    "inside_fair": null,
    "books": {
-    "at": "2026-11-22T00:01:16Z",
+    "at": "2026-11-22T01:01:08Z",
     "fair": null,
     "q": {
      "Novig": 0.78,
@@ -924,7 +897,7 @@
    "side_std": "away",
    "money_with": false,
    "grade": "B",
-   "fair_board": 0.5121,
+   "fair_board": 0.5252,
    "inside_fair": null,
    "books": null
   },
@@ -1056,8 +1029,8 @@
    ],
    "money_with": false,
    "grade": "B",
-   "fair_board": null,
-   "inside_fair": null,
+   "fair_board": 0.4506,
+   "inside_fair": false,
    "books": null
   },
   {
