@@ -1,5 +1,5 @@
 {
- "built": "2026-11-22T23:02:39Z",
+ "built": "2026-11-22T23:32:12Z",
  "rows": [
   {
    "cond": "0x35e3a46eea4c56646973fb71aaa058336dcdf80d5b430f33fc67d950aa7a5027",
@@ -292,9 +292,6 @@
    "home_name": "Miami Heat",
    "game_start": "2026-11-22T23:00Z",
    "side_std": "away",
-   "conflict": [
-    "Kalshi move"
-   ],
    "money_with": false,
    "grade": "B",
    "fair_board": null,
@@ -332,7 +329,7 @@
    "home_name": "Vancouver Canucks",
    "game_start": "2026-11-23T01:00Z",
    "side_std": "home",
-   "money_with": false,
+   "money_with": true,
    "grade": "A",
    "inside_fair": false,
    "fair_board": 0.492,
@@ -1013,11 +1010,7 @@
     "first": "2026-11-21T22:15:07Z"
    },
    "exit_bid": null,
-   "kalshi_against": {
-    "move": 11.5,
-    "now": 63.5,
-    "state": "reversed"
-   },
+   "kalshi_against": null,
    "logged": true,
    "event_id": "401910030",
    "sport": "nba",
@@ -1028,10 +1021,6 @@
    "home_name": "Miami Heat",
    "game_start": "2026-11-22T23:00Z",
    "side_std": "away",
-   "conflict": [
-    "Kalshi bet back",
-    "Kalshi move"
-   ],
    "money_with": false,
    "grade": "B",
    "fair_board": 0.3686,
@@ -1075,9 +1064,6 @@
    "home_name": "Miami Heat",
    "game_start": "2026-11-22T23:00Z",
    "side_std": "home",
-   "conflict": [
-    "Kalshi bet back"
-   ],
    "money_with": false,
    "grade": "B",
    "fair_board": null,
@@ -1122,9 +1108,6 @@
    "home_name": "Miami Heat",
    "game_start": "2026-11-22T23:00Z",
    "side_std": "home",
-   "conflict": [
-    "Kalshi bet back"
-   ],
    "money_with": false,
    "grade": "B",
    "fair_board": null,
@@ -1207,11 +1190,7 @@
     "first": "2026-11-22T18:00:14Z"
    },
    "exit_bid": 0.72,
-   "kalshi_against": {
-    "move": 4.5,
-    "now": 27.5,
-    "state": "drift"
-   },
+   "kalshi_against": null,
    "logged": true,
    "event_id": "401910034",
    "sport": "nba",
@@ -1222,9 +1201,6 @@
    "home_name": "New York Knicks",
    "game_start": "2026-11-23T01:00Z",
    "side_std": "home",
-   "conflict": [
-    "Kalshi move"
-   ],
    "money_with": false,
    "grade": "B",
    "fair_board": 0.7297,
@@ -1426,7 +1402,7 @@
  "record": {
   "by_fair": {
    "inside": {
-    "n": 15,
+    "n": 16,
     "won": 7,
     "units": -1.61,
     "clv": -0.95
@@ -1438,7 +1414,7 @@
     "clv": -0.2
    }
   },
-  "n": 392,
+  "n": 393,
   "won": 187,
   "units": -16.62,
   "by_grade": {
@@ -1455,15 +1431,15 @@
     "clv": -0.94
    },
    "watch": {
-    "n": 42,
+    "n": 43,
     "won": 18,
     "units": -2.09,
     "clv": -0.1
    }
   },
-  "units_1u": -30.05,
+  "units_1u": -31.05,
   "clv": -0.36,
-  "n_venue": 202,
+  "n_venue": 203,
   "units_venue": -6.15,
   "clv_venue": 0.98,
   "clv_poly_same": -0.59
