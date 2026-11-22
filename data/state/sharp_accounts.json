@@ -1,5 +1,5 @@
 {
- "built": "2026-11-22T16:40:59Z",
+ "built": "2026-11-22T16:46:58Z",
  "rows": [
   {
    "cond": "0xb790bd8ba36a3bf8c94e3f881668874eaf60b0fffd56a25f4879bad3d1a4af58",
@@ -231,9 +231,6 @@
    "home_name": "Dallas Cowboys",
    "game_start": "2026-11-22T18:00Z",
    "side_std": "away",
-   "conflict": [
-    "big money"
-   ],
    "money_with": false,
    "grade": "A",
    "fair_board": null,
@@ -348,9 +345,6 @@
    "home_name": "Atlanta Hawks",
    "game_start": "2026-11-22T20:30Z",
    "side_std": "away",
-   "conflict": [
-    "big money"
-   ],
    "money_with": false,
    "grade": "watch",
    "inside_fair": true,
@@ -397,7 +391,7 @@
    "home_name": "New York Giants",
    "game_start": "2026-11-22T21:25Z",
    "side_std": "home",
-   "money_with": true,
+   "money_with": false,
    "grade": "A",
    "fair_board": null,
    "inside_fair": null,
@@ -492,6 +486,52 @@
      "DK": 0.5192,
      "Kalshi": 0.52,
      "Caesars": 0.5238
+    }
+   }
+  },
+  {
+   "cond": "0xa15b78019a311d51226f561344d48379b87f93147f3dec65fa5fe9434909a425",
+   "slug": "nfl-min-sf-2026-11-23",
+   "title": "Vikings vs. 49ers",
+   "mtype": "spread",
+   "start": "2026-11-23T01:20:00Z",
+   "bet": "49ers -3.5",
+   "side": "49ers",
+   "flagged": "2026-11-22T16:46:10Z",
+   "why": "a top-200 account also in this sport's top 50",
+   "proven": true,
+   "trigger": "proven",
+   "n_accounts": 1,
+   "best_rank": 143,
+   "usd": 17251,
+   "paid": 0.49,
+   "ask": 0.5,
+   "status": "live",
+   "link": "https://polymarket.us/event/nfl-min-sf-2026-11-23",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401873077",
+   "sport": "nfl",
+   "league": null,
+   "away": "MIN",
+   "home": "SF",
+   "away_name": "Minnesota Vikings",
+   "home_name": "San Francisco 49ers",
+   "game_start": "2026-11-23T01:20Z",
+   "side_std": "home",
+   "money_with": false,
+   "grade": "A",
+   "fair_board": 0.4827,
+   "inside_fair": false,
+   "books": {
+    "at": "2026-11-22T16:01:28Z",
+    "fair": 0.4827,
+    "q": {
+     "Novig": 0.485,
+     "FD": 0.5,
+     "Caesars": 0.505,
+     "Kalshi": 0.51
     }
    }
   },
@@ -890,8 +930,8 @@
    },
    "exit_bid": 0.39,
    "kalshi_against": {
-    "move": 8.0,
-    "now": 60.0,
+    "move": 8.5,
+    "now": 60.5,
     "state": "reversed"
    },
    "logged": true,
@@ -1109,6 +1149,14 @@
     "usd": 130
    },
    "against": null
+  },
+  "401873076:xch_homedog_fade:ml": {
+   "with": {
+    "n": 1,
+    "best_rank": 182,
+    "usd": 152
+   },
+   "against": null
   }
  },
  "by_event": {
@@ -1231,6 +1279,13 @@
     "n": 1,
     "best_rank": 143,
     "usd": 9166
+   }
+  },
+  "401873077|spread": {
+   "home": {
+    "n": 1,
+    "best_rank": 143,
+    "usd": 17251
    }
   },
   "401910029|ml": {
