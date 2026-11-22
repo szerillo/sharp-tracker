@@ -1,5 +1,5 @@
 {
- "built": "2026-11-22T02:27:11Z",
+ "built": "2026-11-22T02:41:52Z",
  "record": {
   "cbb_1h_total_curve": {
    "n": 8,
@@ -381,6 +381,31 @@
    "fair_gap": 1.4,
    "ev_curve": 10.3,
    "flagged": "2026-11-22T00:44:37Z"
+  },
+  {
+   "key": "cfb_tt_under_curve|ecfec2fe1db57f88e603f9947add1e26|away|under",
+   "rule": "cfb_tt_under_curve",
+   "tier": "P",
+   "stake": 0.0,
+   "sport": "cfb",
+   "odds_id": "ecfec2fe1db57f88e603f9947add1e26",
+   "espn": "401856870",
+   "game": "Oklahoma State Cowboys @ Arizona State Sun Devils",
+   "start": "2026-11-22T03:15:00Z",
+   "market": "team_totals",
+   "team": "away",
+   "team_name": "Oklahoma State Cowboys",
+   "side": "under",
+   "line": 32.5,
+   "curve": 0.575,
+   "pin_fair": 0.521,
+   "gap": 5.5,
+   "full_total": 60.0,
+   "full_spread": 3.0,
+   "pin_price": 1.85,
+   "book": null,
+   "price": null,
+   "flagged": "2026-11-22T02:41:52Z"
   }
  ]
 }
