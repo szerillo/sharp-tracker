@@ -1,5 +1,5 @@
 {
- "built": "2026-11-21T23:43:17Z",
+ "built": "2026-11-21T23:59:12Z",
  "rows": [
   {
    "cond": "0x7d80d4e0e39cea5fabdbab43228995a9946d44ba860cb3a55efe62eb6e2ae9eb",
@@ -174,7 +174,7 @@
    "best_rank": 110,
    "usd": 815,
    "paid": 0.48,
-   "ask": 0.51,
+   "ask": 0.5,
    "status": "live",
    "link": "https://polymarket.us/event/cfb-arz-kanst-2026-11-21",
    "other": null,
@@ -189,10 +189,13 @@
    "home_name": "Kansas State Wildcats",
    "game_start": "2026-11-22T00:00Z",
    "side_std": "over",
+   "conflict": [
+    "big money"
+   ],
    "money_with": false,
    "grade": "A",
    "fair_board": 0.5062,
-   "inside_fair": false,
+   "inside_fair": true,
    "books": {
     "at": "2026-11-21T23:06:48Z",
     "fair": 0.5062,
@@ -201,6 +204,52 @@
      "Caesars": 0.5146,
      "FD": 0.5283,
      "DK": 0.5283
+    }
+   }
+  },
+  {
+   "cond": "0xb7ad723a2ef81da677a815bfe5a0b45a1195b1669951017814cef426e90fcc0a",
+   "slug": "cfb-vtech-mia-2026-11-21",
+   "title": "Virginia Tech vs. Miami (FL)",
+   "mtype": "total",
+   "start": "2026-11-22T00:00:00Z",
+   "bet": "Over 61.5",
+   "side": "Over",
+   "flagged": "2026-11-21T23:52:52Z",
+   "why": "a top-50 account",
+   "proven": false,
+   "trigger": "top50",
+   "n_accounts": 1,
+   "best_rank": 12,
+   "usd": 940,
+   "paid": 0.53,
+   "ask": 0.54,
+   "status": "live",
+   "link": "https://polymarket.us/event/cfb-vtech-mia-2026-11-21",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401858302",
+   "sport": "cfb",
+   "league": null,
+   "away": "VT",
+   "home": "MIA",
+   "away_name": "Virginia Tech Hokies",
+   "home_name": "Miami Hurricanes",
+   "game_start": "2026-11-22T00:00Z",
+   "side_std": "over",
+   "money_with": false,
+   "grade": "B",
+   "fair_board": 0.4873,
+   "inside_fair": false,
+   "books": {
+    "at": "2026-11-21T23:06:48Z",
+    "fair": 0.4873,
+    "q": {
+     "Kalshi": 0.51,
+     "DK": 0.5122,
+     "FD": 0.5122,
+     "Caesars": 0.5122
     }
    }
   },
@@ -220,7 +269,7 @@
    "best_rank": 40,
    "usd": 2033,
    "paid": 0.54,
-   "ask": 0.66,
+   "ask": 0.67,
    "status": "live",
    "link": "https://polymarket.us/event/nba-por-nyk-2026-11-21",
    "other": null,
@@ -302,7 +351,7 @@
    "best_rank": 48,
    "usd": 2750,
    "paid": 0.53,
-   "ask": 0.54,
+   "ask": 0.53,
    "status": "live",
    "link": "https://polymarket.us/event/nba-mem-min-2026-11-21",
    "other": null,
@@ -993,10 +1042,10 @@
    "home_name": "Dallas Mavericks",
    "game_start": "2026-11-22T01:00Z",
    "side_std": "away",
-   "money_with": false,
-   "grade": "B",
+   "money_with": true,
+   "grade": "A",
    "inside_fair": false,
-   "fair_board": 0.3508,
+   "fair_board": 0.3604,
    "books": null
   },
   {
@@ -1015,7 +1064,7 @@
    "best_rank": 40,
    "usd": 1802,
    "paid": 0.486,
-   "ask": 0.43,
+   "ask": 0.47,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-okc-mia-2026-11-22",
    "other": {
@@ -1024,10 +1073,10 @@
     "usd": 1468,
     "first": "2026-11-21T22:15:07Z"
    },
-   "exit_bid": 0.42,
+   "exit_bid": 0.46,
    "kalshi_against": {
-    "move": 13.5,
-    "now": 65.5,
+    "move": 10.5,
+    "now": 62.5,
     "state": "reversed"
    },
    "logged": true,
@@ -1357,6 +1406,20 @@
     "n": 1,
     "best_rank": 132,
     "usd": 312
+   }
+  },
+  "401892763|ml": {
+   "away": {
+    "n": 1,
+    "best_rank": 132,
+    "usd": 165
+   }
+  },
+  "401858302|total": {
+   "over": {
+    "n": 1,
+    "best_rank": 12,
+    "usd": 940
    }
   },
   "401856865|total": {
