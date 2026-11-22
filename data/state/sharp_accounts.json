@@ -1,5 +1,5 @@
 {
- "built": "2026-11-22T16:09:16Z",
+ "built": "2026-11-22T16:16:56Z",
  "rows": [
   {
    "cond": "0xb790bd8ba36a3bf8c94e3f881668874eaf60b0fffd56a25f4879bad3d1a4af58",
@@ -36,15 +36,7 @@
    "grade": "A",
    "inside_fair": true,
    "fair_board": 0.5336,
-   "books": {
-    "at": "2026-11-22T14:26:05Z",
-    "fair": 0.5351,
-    "q": {
-     "Novig": 0.54,
-     "FD": 0.5614,
-     "DK": 0.5652
-    }
-   }
+   "books": null
   },
   {
    "cond": "0x6b8101c3109c4e63e43912ff63464b277263c888f201842d3fc9f4819970e67d",
@@ -198,13 +190,13 @@
    "inside_fair": false,
    "fair_board": 0.2327,
    "books": {
-    "at": "2026-11-22T15:06:00Z",
-    "fair": 0.2292,
+    "at": "2026-11-22T16:01:28Z",
+    "fair": 0.2293,
     "q": {
      "Novig": 0.235,
      "DK": 0.2445,
-     "Caesars": 0.25,
-     "FD": 0.25
+     "FD": 0.25,
+     "Caesars": 0.2564
     }
    }
   },
@@ -279,7 +271,7 @@
    "home_name": "Chicago Bears",
    "game_start": "2026-11-22T18:00Z",
    "side_std": "away",
-   "money_with": true,
+   "money_with": false,
    "grade": "A",
    "fair_board": null,
    "inside_fair": null,
@@ -361,13 +353,13 @@
    "inside_fair": true,
    "fair_board": 0.5576,
    "books": {
-    "at": "2026-11-22T15:06:00Z",
-    "fair": 0.544,
+    "at": "2026-11-22T16:01:28Z",
+    "fair": 0.5356,
     "q": {
-     "Novig": 0.545,
+     "Novig": 0.535,
+     "Kalshi": 0.56,
      "Caesars": 0.5652,
-     "DK": 0.5652,
-     "FD": 0.569
+     "DK": 0.5652
     }
    }
   },
@@ -411,12 +403,12 @@
    "inside_fair": false,
    "fair_board": 0.1691,
    "books": {
-    "at": "2026-11-22T15:06:00Z",
-    "fair": 0.162,
+    "at": "2026-11-22T16:01:28Z",
+    "fair": 0.1619,
     "q": {
      "FD": 0.1667,
      "Novig": 0.17,
-     "DK": 0.1761,
+     "DK": 0.1751,
      "Caesars": 0.1818
     }
    }
@@ -491,16 +483,16 @@
    "side_std": "home",
    "money_with": false,
    "grade": "B",
-   "fair_board": 0.7508,
+   "fair_board": 0.7525,
    "inside_fair": false,
    "books": {
-    "at": "2026-11-22T15:06:00Z",
-    "fair": 0.7508,
+    "at": "2026-11-22T16:01:28Z",
+    "fair": 0.7525,
     "q": {
      "Novig": 0.755,
-     "FD": 0.7561,
      "Kalshi": 0.77,
-     "Caesars": 0.7701
+     "FD": 0.7701,
+     "DK": 0.7748
     }
    }
   },
@@ -540,10 +532,11 @@
    "fair_board": null,
    "inside_fair": null,
    "books": {
-    "at": "2026-11-22T15:06:00Z",
+    "at": "2026-11-22T16:01:28Z",
     "fair": null,
     "q": {
-     "Kalshi": 0.7
+     "Novig": 0.685,
+     "Kalshi": 0.69
     }
    }
   },
@@ -583,10 +576,11 @@
    "fair_board": null,
    "inside_fair": null,
    "books": {
-    "at": "2026-11-22T15:06:00Z",
+    "at": "2026-11-22T16:01:28Z",
     "fair": null,
     "q": {
-     "Kalshi": 0.51
+     "Kalshi": 0.51,
+     "Novig": 0.52
     }
    }
   },
@@ -850,8 +844,8 @@
    },
    "exit_bid": 0.39,
    "kalshi_against": {
-    "move": 8.0,
-    "now": 60.0,
+    "move": 7.5,
+    "now": 59.5,
     "state": "reversed"
    },
    "logged": true,
@@ -870,7 +864,7 @@
    ],
    "money_with": false,
    "grade": "B",
-   "fair_board": 0.4029,
+   "fair_board": 0.402,
    "inside_fair": true,
    "books": null
   },
@@ -1057,6 +1051,14 @@
     "best_rank": 132,
     "usd": 372
    }
+  },
+  "401892770:nhl_early_home_fav_qual": {
+   "with": {
+    "n": 1,
+    "best_rank": 132,
+    "usd": 130
+   },
+   "against": null
   }
  },
  "by_event": {
@@ -1238,6 +1240,13 @@
     "n": 2,
     "best_rank": 40,
     "usd": 964
+   }
+  },
+  "401910034|spread": {
+   "home": {
+    "n": 1,
+    "best_rank": 154,
+    "usd": 23449
    }
   },
   "401910035|total": {
