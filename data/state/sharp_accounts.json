@@ -1,5 +1,5 @@
 {
- "built": "2026-11-22T21:25:15Z",
+ "built": "2026-11-22T20:48:50Z",
  "rows": [
   {
    "cond": "0xe5ca25046b18e1d0064a850167b85e5e255117146294a008dd44ea8c9c222a56",
@@ -1094,7 +1094,7 @@
    "best_rank": 40,
    "usd": 3183,
    "paid": 0.444,
-   "ask": 0.39,
+   "ask": 0.4,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-okc-mia-2026-11-22",
    "other": {
@@ -1103,7 +1103,7 @@
     "usd": 6494,
     "first": "2026-11-21T22:15:07Z"
    },
-   "exit_bid": 0.38,
+   "exit_bid": 0.39,
    "kalshi_against": {
     "move": 8.0,
     "now": 60.0,
@@ -1126,7 +1126,7 @@
    "money_with": true,
    "grade": "A",
    "fair_board": 0.3928,
-   "inside_fair": true,
+   "inside_fair": false,
    "books": null
   },
   {
@@ -1398,6 +1398,49 @@
   }
  },
  "by_event": {
+  "401873075|ml": {
+   "away": {
+    "n": 1,
+    "best_rank": 143,
+    "usd": 4996
+   },
+   "home": {
+    "n": 1,
+    "best_rank": 132,
+    "usd": 228
+   }
+  },
+  "401873069|total": {
+   "under": {
+    "n": 2,
+    "best_rank": 58,
+    "usd": 8355
+   }
+  },
+  "401873069|ml": {
+   "home": {
+    "n": 1,
+    "best_rank": 143,
+    "usd": 2887
+   },
+   "away": {
+    "n": 1,
+    "best_rank": 182,
+    "usd": 115
+   }
+  },
+  "401873069|spread": {
+   "away": {
+    "n": 1,
+    "best_rank": 58,
+    "usd": 245
+   },
+   "home": {
+    "n": 1,
+    "best_rank": 143,
+    "usd": 9166
+   }
+  },
   "401873077|spread": {
    "home": {
     "n": 1,
