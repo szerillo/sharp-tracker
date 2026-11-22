@@ -1,5 +1,5 @@
 {
- "built": "2026-11-22T13:35:27Z",
+ "built": "2026-11-22T14:05:47Z",
  "rows": [
   {
    "cond": "0xb790bd8ba36a3bf8c94e3f881668874eaf60b0fffd56a25f4879bad3d1a4af58",
@@ -17,7 +17,7 @@
    "best_rank": 157,
    "usd": 554,
    "paid": 0.52,
-   "ask": 0.55,
+   "ask": 0.54,
    "status": "live",
    "link": "https://polymarket.us/event/bun-aug-mai-2026-11-22-more-markets",
    "other": null,
@@ -295,56 +295,6 @@
    }
   },
   {
-   "cond": "0xacb4bae086c3641d13b6ef1d90c4a5e24d52b74f50a33fe4523ce0636238ea1f",
-   "slug": "nfl-jax-nyg-2026-11-22",
-   "title": "Jaguars vs. Giants",
-   "mtype": "ml",
-   "start": "2026-11-22T21:25:00Z",
-   "bet": "Giants ML",
-   "side": "Giants",
-   "flagged": "2026-11-21T22:59:20Z",
-   "why": "a top-200 account also in this sport's top 50",
-   "proven": true,
-   "trigger": "proven",
-   "n_accounts": 1,
-   "best_rank": 143,
-   "usd": 2887,
-   "paid": 0.29,
-   "ask": 0.3,
-   "status": "live",
-   "link": "https://polymarket.us/event/nfl-jax-nyg-2026-11-22",
-   "other": null,
-   "kalshi_against": null,
-   "logged": true,
-   "event_id": "401873069",
-   "sport": "nfl",
-   "league": null,
-   "away": "JAX",
-   "home": "NYG",
-   "away_name": "Jacksonville Jaguars",
-   "home_name": "New York Giants",
-   "game_start": "2026-11-22T21:25Z",
-   "side_std": "home",
-   "conflict": [
-    "Kalshi bet back",
-    "big money"
-   ],
-   "money_with": false,
-   "grade": "A",
-   "inside_fair": false,
-   "fair_board": 0.2953,
-   "books": {
-    "at": "2026-11-22T02:26:25Z",
-    "fair": 0.2921,
-    "q": {
-     "Novig": 0.295,
-     "Caesars": 0.3175,
-     "FD": 0.3175,
-     "Kalshi": 0.32
-    }
-   }
-  },
-  {
    "cond": "0xa9adb7f78d2c186aea160bc6da92ee0d3a33fd690d9b6c9f2541f5e375eca682",
    "slug": "nfl-lv-den-2026-11-22",
    "title": "Raiders vs. Broncos",
@@ -500,7 +450,7 @@
    "best_rank": 197,
    "usd": 562,
    "paid": 0.65,
-   "ask": 0.68,
+   "ask": 0.65,
    "status": "live",
    "link": "https://polymarket.us/event/nhl-cal-ott-2026-11-23",
    "other": null,
@@ -745,6 +695,53 @@
    "books": null
   },
   {
+   "cond": "0xacb4bae086c3641d13b6ef1d90c4a5e24d52b74f50a33fe4523ce0636238ea1f",
+   "slug": "nfl-jax-nyg-2026-11-22",
+   "title": "Jaguars vs. Giants",
+   "mtype": "ml",
+   "start": "2026-11-22T21:25:00Z",
+   "bet": "Giants ML",
+   "side": "Giants",
+   "flagged": "2026-11-21T22:59:20Z",
+   "why": "a top-200 account also in this sport's top 50",
+   "proven": true,
+   "trigger": "proven",
+   "n_accounts": 1,
+   "best_rank": 143,
+   "usd": 2887,
+   "paid": 0.29,
+   "ask": 0.29,
+   "status": "other side",
+   "link": "https://polymarket.us/event/nfl-jax-nyg-2026-11-22",
+   "other": {
+    "n_accounts": 1,
+    "best_rank": 182,
+    "usd": 115,
+    "first": "2026-11-22T14:03:52Z"
+   },
+   "exit_bid": 0.28,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401873069",
+   "sport": "nfl",
+   "league": null,
+   "away": "JAX",
+   "home": "NYG",
+   "away_name": "Jacksonville Jaguars",
+   "home_name": "New York Giants",
+   "game_start": "2026-11-22T21:25Z",
+   "side_std": "home",
+   "conflict": [
+    "Kalshi bet back",
+    "big money"
+   ],
+   "money_with": false,
+   "grade": "A",
+   "inside_fair": false,
+   "fair_board": 0.2953,
+   "books": null
+  },
+  {
    "cond": "0x71c59551fa3035fe4e78c04a8d2a899c7f6e00b2e5847a4535a821ef42b0e825",
    "slug": "nba-okc-mia-2026-11-22",
    "title": "Thunder vs. Heat",
@@ -941,6 +938,11 @@
     "n": 1,
     "best_rank": 12,
     "usd": 228
+   },
+   "home": {
+    "n": 1,
+    "best_rank": 58,
+    "usd": 245
    }
   },
   "401873067|spread": {
@@ -974,6 +976,11 @@
     "n": 1,
     "best_rank": 143,
     "usd": 2887
+   },
+   "away": {
+    "n": 1,
+    "best_rank": 182,
+    "usd": 115
    }
   },
   "401910029|ml": {
@@ -1007,6 +1014,11 @@
     "n": 1,
     "best_rank": 132,
     "usd": 1592
+   },
+   "away": {
+    "n": 1,
+    "best_rank": 132,
+    "usd": 525
    }
   },
   "401910033|ml": {
