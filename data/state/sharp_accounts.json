@@ -1,5 +1,5 @@
 {
- "built": "2026-11-22T17:23:33Z",
+ "built": "2026-11-22T17:30:42Z",
  "rows": [
   {
    "cond": "0xb790bd8ba36a3bf8c94e3f881668874eaf60b0fffd56a25f4879bad3d1a4af58",
@@ -238,46 +238,6 @@
    "books": null
   },
   {
-   "cond": "0xe69e65436804d5b535b2aa0aa59ef66f50590ac845c5b8035537adba5d84cf9e",
-   "slug": "nfl-no-chi-2026-11-22",
-   "title": "Saints vs. Bears",
-   "mtype": "spread",
-   "start": "2026-11-22T18:00:00Z",
-   "bet": "Saints +3.5",
-   "side": "Saints",
-   "flagged": "2026-11-22T13:55:23Z",
-   "why": "a top-200 account also in this sport's top 50",
-   "proven": true,
-   "trigger": "proven",
-   "n_accounts": 1,
-   "best_rank": 143,
-   "usd": 10715,
-   "paid": 0.24,
-   "ask": 0.25,
-   "status": "live",
-   "link": "https://polymarket.us/event/nfl-no-chi-2026-11-22",
-   "other": null,
-   "kalshi_against": null,
-   "logged": true,
-   "event_id": "401873071",
-   "sport": "nfl",
-   "league": null,
-   "away": "NO",
-   "home": "CHI",
-   "away_name": "New Orleans Saints",
-   "home_name": "Chicago Bears",
-   "game_start": "2026-11-22T18:00Z",
-   "side_std": "away",
-   "conflict": [
-    "Kalshi move"
-   ],
-   "money_with": false,
-   "grade": "A",
-   "fair_board": null,
-   "inside_fair": null,
-   "books": null
-  },
-  {
    "cond": "0x35e3a46eea4c56646973fb71aaa058336dcdf80d5b430f33fc67d950aa7a5027",
    "slug": "nba-det-atl-2026-11-22",
    "title": "Pistons vs. Hawks",
@@ -339,7 +299,7 @@
    "best_rank": 143,
    "usd": 9166,
    "paid": 0.169,
-   "ask": 0.18,
+   "ask": 0.17,
    "status": "live",
    "link": "https://polymarket.us/event/nfl-jax-nyg-2026-11-22",
    "other": null,
@@ -855,6 +815,52 @@
    "books": null
   },
   {
+   "cond": "0xe69e65436804d5b535b2aa0aa59ef66f50590ac845c5b8035537adba5d84cf9e",
+   "slug": "nfl-no-chi-2026-11-22",
+   "title": "Saints vs. Bears",
+   "mtype": "spread",
+   "start": "2026-11-22T18:00:00Z",
+   "bet": "Saints +3.5",
+   "side": "Saints",
+   "flagged": "2026-11-22T13:55:23Z",
+   "why": "a top-200 account also in this sport's top 50",
+   "proven": true,
+   "trigger": "proven",
+   "n_accounts": 1,
+   "best_rank": 143,
+   "usd": 10715,
+   "paid": 0.24,
+   "ask": 0.25,
+   "status": "other side",
+   "link": "https://polymarket.us/event/nfl-no-chi-2026-11-22",
+   "other": {
+    "n_accounts": 1,
+    "best_rank": 95,
+    "usd": 121,
+    "first": "2026-11-22T17:28:35Z"
+   },
+   "exit_bid": 0.24,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401873071",
+   "sport": "nfl",
+   "league": null,
+   "away": "NO",
+   "home": "CHI",
+   "away_name": "New Orleans Saints",
+   "home_name": "Chicago Bears",
+   "game_start": "2026-11-22T18:00Z",
+   "side_std": "away",
+   "conflict": [
+    "Kalshi move"
+   ],
+   "money_with": false,
+   "grade": "A",
+   "fair_board": null,
+   "inside_fair": null,
+   "books": null
+  },
+  {
    "cond": "0x432b91ca545885eff51a3a893ada55bf46ab2e0b8552c397bc0270dd95a0c425",
    "slug": "nfl-pit-phi-2026-11-22",
    "title": "Steelers vs. Eagles",
@@ -1139,10 +1145,10 @@
  "record": {
   "by_fair": {
    "inside": {
-    "n": 14,
+    "n": 15,
     "won": 7,
-    "units": -1.34,
-    "clv": -1.2
+    "units": -1.61,
+    "clv": -0.95
    },
    "outside": {
     "n": 107,
@@ -1151,15 +1157,15 @@
     "clv": -0.2
    }
   },
-  "n": 385,
+  "n": 386,
   "won": 186,
-  "units": -16.1,
+  "units": -16.37,
   "by_grade": {
    "A": {
-    "n": 249,
+    "n": 250,
     "won": 115,
-    "units": -14.91,
-    "clv": -0.17
+    "units": -15.18,
+    "clv": -0.16
    },
    "B": {
     "n": 94,
@@ -1174,12 +1180,12 @@
     "clv": -0.1
    }
   },
-  "units_1u": -24.53,
-  "clv": -0.36,
-  "n_venue": 200,
-  "units_venue": -5.86,
-  "clv_venue": 1.0,
-  "clv_poly_same": -0.61
+  "units_1u": -25.53,
+  "clv": -0.35,
+  "n_venue": 201,
+  "units_venue": -6.15,
+  "clv_venue": 0.99,
+  "clv_poly_same": -0.59
  },
  "sys_tags": {
   "401873071:nfl_road_dog_7510": {
@@ -1188,7 +1194,11 @@
     "best_rank": 143,
     "usd": 10715
    },
-   "against": null
+   "against": {
+    "n": 1,
+    "best_rank": 95,
+    "usd": 121
+   }
   },
   "401873067:bounce15_1h": {
    "with": {
@@ -1253,6 +1263,11 @@
     "n": 1,
     "best_rank": 143,
     "usd": 10715
+   },
+   "home": {
+    "n": 1,
+    "best_rank": 95,
+    "usd": 121
    }
   },
   "401873073|ml": {
