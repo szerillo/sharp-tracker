@@ -1,5 +1,5 @@
 {
- "built": "2026-11-22T20:48:50Z",
+ "built": "2026-11-22T21:56:15Z",
  "rows": [
   {
    "cond": "0xe5ca25046b18e1d0064a850167b85e5e255117146294a008dd44ea8c9c222a56",
@@ -264,11 +264,8 @@
    "home_name": "New York Giants",
    "game_start": "2026-11-22T21:25Z",
    "side_std": "under",
-   "conflict": [
-    "Kalshi bet back"
-   ],
-   "money_with": true,
-   "grade": "A",
+   "money_with": false,
+   "grade": "B",
    "fair_board": null,
    "inside_fair": null,
    "books": null
@@ -348,6 +345,52 @@
    "books": null
   },
   {
+   "cond": "0x9a8031af8b299858e0b4f91628dfe53f93f31f72e6700854d68ba83c3ad41422",
+   "slug": "nhl-buf-tb-2026-11-22",
+   "title": "Sabres vs. Lightning",
+   "mtype": "spread",
+   "start": "2026-11-22T22:00:00Z",
+   "bet": "Lightning -1.5",
+   "side": "Lightning",
+   "flagged": "2026-11-22T21:52:41Z",
+   "why": "a top-50 account",
+   "proven": false,
+   "trigger": "top50",
+   "n_accounts": 1,
+   "best_rank": 3,
+   "usd": 440,
+   "paid": 0.44,
+   "ask": 0.45,
+   "status": "live",
+   "link": "https://polymarket.us/event/nhl-buf-tb-2026-11-22",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401892769",
+   "sport": "nhl",
+   "league": null,
+   "away": "BUF",
+   "home": "TB",
+   "away_name": "Buffalo Sabres",
+   "home_name": "Tampa Bay Lightning",
+   "game_start": "2026-11-22T22:00Z",
+   "side_std": "home",
+   "money_with": false,
+   "grade": "B",
+   "fair_board": 0.4449,
+   "inside_fair": false,
+   "books": {
+    "at": "2026-11-22T21:07:49Z",
+    "fair": 0.4449,
+    "q": {
+     "DK": 0.4545,
+     "Novig": 0.455,
+     "FD": 0.4587,
+     "Kalshi": 0.47
+    }
+   }
+  },
+  {
    "cond": "0x156dddb8450e4a8e7532a4d4d98e52f79aec97264eacb233e253a2641062899b",
    "slug": "nba-okc-mia-2026-11-22",
    "title": "Thunder vs. Heat",
@@ -356,169 +399,13 @@
    "bet": "Heat -6.5",
    "side": "Heat",
    "flagged": "2026-11-22T21:31:07Z",
-   "why": "2 top-200 accounts",
-   "proven": false,
-   "trigger": "two",
-   "n_accounts": 2,
-   "best_rank": 110,
-   "usd": 675,
-   "paid": 0.434,
-   "ask": 0.51,
-   "status": "live",
-   "link": "https://polymarket.us/event/nba-okc-mia-2026-11-22",
-   "other": null,
-   "kalshi_against": null,
-   "logged": true,
-   "event_id": "401910030",
-   "sport": "nba",
-   "league": null,
-   "away": "OKC",
-   "home": "MIA",
-   "away_name": "Oklahoma City Thunder",
-   "home_name": "Miami Heat",
-   "game_start": "2026-11-22T23:00Z",
-   "side_std": "home",
-   "conflict": [
-    "big money"
-   ],
-   "money_with": false,
-   "grade": "B",
-   "fair_board": null,
-   "inside_fair": null,
-   "books": null
-  },
-  {
-   "cond": "0x92a6a9401b1ddc2a73d5467b369d19cd0050f41d8dc1cb6c2d348b4d5d019b2c",
-   "slug": "nba-okc-mia-2026-11-22",
-   "title": "Thunder vs. Heat",
-   "mtype": "spread",
-   "start": "2026-11-22T23:00:00Z",
-   "bet": "Heat -4.5",
-   "side": "Heat",
-   "flagged": "2026-11-22T21:30:14Z",
    "why": "3 top-200 accounts",
    "proven": false,
    "trigger": "two",
    "n_accounts": 3,
-   "best_rank": 49,
-   "usd": 4835,
-   "paid": 0.526,
-   "ask": 0.59,
-   "status": "live",
-   "link": "https://polymarket.us/event/nba-okc-mia-2026-11-22",
-   "other": null,
-   "kalshi_against": null,
-   "logged": false,
-   "ladder": true,
-   "event_id": "401910030",
-   "sport": "nba",
-   "league": null,
-   "away": "OKC",
-   "home": "MIA",
-   "away_name": "Oklahoma City Thunder",
-   "home_name": "Miami Heat",
-   "game_start": "2026-11-22T23:00Z",
-   "side_std": "home",
-   "conflict": [
-    "big money"
-   ],
-   "money_with": false,
-   "grade": "B",
-   "fair_board": null,
-   "inside_fair": null,
-   "books": null
-  },
-  {
-   "cond": "0x6d241faa1697ea04e1cf6c4bf83f68704ba1bbf0029d8adc50ea26b702e2e5a6",
-   "slug": "nba-okc-mia-2026-11-22",
-   "title": "Thunder vs. Heat",
-   "mtype": "total",
-   "start": "2026-11-22T23:00:00Z",
-   "bet": "Under 222.5",
-   "side": "Under",
-   "flagged": "2026-11-22T21:30:11Z",
-   "why": "a top-200 account also in this sport's top 50",
-   "proven": true,
-   "trigger": "proven",
-   "n_accounts": 1,
-   "best_rank": 104,
-   "usd": 132,
-   "paid": 0.33,
-   "ask": 0.37,
-   "status": "live",
-   "link": "https://polymarket.us/event/nba-okc-mia-2026-11-22",
-   "other": null,
-   "kalshi_against": null,
-   "logged": true,
-   "event_id": "401910030",
-   "sport": "nba",
-   "league": null,
-   "away": "OKC",
-   "home": "MIA",
-   "away_name": "Oklahoma City Thunder",
-   "home_name": "Miami Heat",
-   "game_start": "2026-11-22T23:00Z",
-   "side_std": "under",
-   "money_with": false,
-   "grade": "watch",
-   "fair_board": null,
-   "inside_fair": null,
-   "books": null
-  },
-  {
-   "cond": "0x836bd9bbda2f9cf2a2c59032e07cbf1ca7545e6c161c995c5e43f43e768b1e97",
-   "slug": "nba-okc-mia-2026-11-22",
-   "title": "Thunder vs. Heat",
-   "mtype": "total",
-   "start": "2026-11-22T23:00:00Z",
-   "bet": "Under 224.5",
-   "side": "Under",
-   "flagged": "2026-11-22T21:30:11Z",
-   "why": "a top-200 account also in this sport's top 50",
-   "proven": true,
-   "trigger": "proven",
-   "n_accounts": 1,
-   "best_rank": 104,
-   "usd": 151,
-   "paid": 0.369,
-   "ask": 0.42,
-   "status": "live",
-   "link": "https://polymarket.us/event/nba-okc-mia-2026-11-22",
-   "other": null,
-   "kalshi_against": null,
-   "logged": false,
-   "ladder": true,
-   "event_id": "401910030",
-   "sport": "nba",
-   "league": null,
-   "away": "OKC",
-   "home": "MIA",
-   "away_name": "Oklahoma City Thunder",
-   "home_name": "Miami Heat",
-   "game_start": "2026-11-22T23:00Z",
-   "side_std": "under",
-   "money_with": false,
-   "grade": "watch",
-   "fair_board": null,
-   "inside_fair": null,
-   "books": null
-  },
-  {
-   "cond": "0x156dddb8450e4a8e7532a4d4d98e52f79aec97264eacb233e253a2641062899b",
-   "slug": "nba-okc-mia-2026-11-22",
-   "title": "Thunder vs. Heat",
-   "mtype": "spread",
-   "start": "2026-11-22T23:00:00Z",
-   "bet": "Heat -6.5",
-   "side": "Heat",
-   "flagged": "2026-11-22T21:31:07Z",
-   "why": "2 top-200 accounts",
-   "proven": false,
-   "trigger": "two",
-   "n_accounts": 2,
    "best_rank": 110,
-   "usd": 675,
-   "paid": 0.434,
+   "usd": 882,
+   "paid": 0.459,
    "ask": 0.56,
    "status": "live",
    "link": "https://polymarket.us/event/nba-okc-mia-2026-11-22",
@@ -559,7 +446,7 @@
    "best_rank": 49,
    "usd": 4835,
    "paid": 0.526,
-   "ask": 0.61,
+   "ask": 0.62,
    "status": "live",
    "link": "https://polymarket.us/event/nba-okc-mia-2026-11-22",
    "other": null,
@@ -600,7 +487,7 @@
    "best_rank": 104,
    "usd": 132,
    "paid": 0.33,
-   "ask": 0.37,
+   "ask": 0.38,
    "status": "live",
    "link": "https://polymarket.us/event/nba-okc-mia-2026-11-22",
    "other": null,
@@ -840,53 +727,6 @@
    }
   },
   {
-   "cond": "0x5bfbc3bd9bd732c8ad13257a36e1f8705157a23e10b245cc309b96a38dabab17",
-   "slug": "nba-bos-gsw-2026-11-22",
-   "title": "Celtics vs. Warriors",
-   "mtype": "spread",
-   "start": "2026-11-23T01:30:00Z",
-   "bet": "Warriors +8.5",
-   "side": "Warriors",
-   "flagged": "2026-11-22T20:48:16Z",
-   "why": "2 top-200 accounts",
-   "proven": false,
-   "trigger": "two",
-   "n_accounts": 2,
-   "best_rank": 49,
-   "usd": 26144,
-   "paid": 0.528,
-   "ask": 0.54,
-   "status": "live",
-   "link": "https://polymarket.us/event/nba-bos-gsw-2026-11-22",
-   "other": null,
-   "kalshi_against": null,
-   "logged": false,
-   "ladder": true,
-   "event_id": "401910035",
-   "sport": "nba",
-   "league": null,
-   "away": "BOS",
-   "home": "GS",
-   "away_name": "Boston Celtics",
-   "home_name": "Golden State Warriors",
-   "game_start": "2026-11-23T01:30Z",
-   "side_std": "home",
-   "money_with": true,
-   "grade": "A",
-   "fair_board": 0.5066,
-   "inside_fair": false,
-   "books": {
-    "at": "2026-11-22T21:07:49Z",
-    "fair": 0.5066,
-    "q": {
-     "Novig": 0.51,
-     "DK": 0.5192,
-     "FD": 0.5238,
-     "Caesars": 0.5238
-    }
-   }
-  },
-  {
    "cond": "0xc518c24e640355315b6dfca3c12f7fba9a01114cd8f653a07281550458429260",
    "slug": "nhl-cal-ott-2026-11-23",
    "title": "Flames vs. Senators",
@@ -902,7 +742,7 @@
    "best_rank": 197,
    "usd": 562,
    "paid": 0.65,
-   "ask": 0.65,
+   "ask": 0.67,
    "status": "live",
    "link": "https://polymarket.us/event/nhl-cal-ott-2026-11-23",
    "other": null,
@@ -920,7 +760,7 @@
    "money_with": false,
    "grade": "A",
    "fair_board": 0.66,
-   "inside_fair": true,
+   "inside_fair": false,
    "books": {
     "at": "2026-11-22T21:07:49Z",
     "fair": 0.66,
@@ -994,7 +834,7 @@
    "best_rank": 43,
    "usd": 1273,
    "paid": 0.302,
-   "ask": 0.37,
+   "ask": 0.38,
    "status": "live",
    "link": "https://polymarket.us/event/nba-okc-ind-2026-11-23",
    "other": null,
@@ -1383,10 +1223,6 @@
    "home_name": "New York Giants",
    "game_start": "2026-11-22T21:25Z",
    "side_std": "home",
-   "conflict": [
-    "Kalshi bet back",
-    "big money"
-   ],
    "money_with": false,
    "grade": "A",
    "inside_fair": false,
@@ -1430,10 +1266,6 @@
    "home_name": "Denver Broncos",
    "game_start": "2026-11-22T21:25Z",
    "side_std": "away",
-   "conflict": [
-    "Kalshi bet back",
-    "big money"
-   ],
    "money_with": false,
    "grade": "A",
    "inside_fair": false,
@@ -1645,6 +1477,50 @@
    }
   },
   {
+   "cond": "0x5bfbc3bd9bd732c8ad13257a36e1f8705157a23e10b245cc309b96a38dabab17",
+   "slug": "nba-bos-gsw-2026-11-22",
+   "title": "Celtics vs. Warriors",
+   "mtype": "spread",
+   "start": "2026-11-23T01:30:00Z",
+   "bet": "Warriors +8.5",
+   "side": "Warriors",
+   "flagged": "2026-11-22T20:48:16Z",
+   "why": "2 top-200 accounts",
+   "proven": false,
+   "trigger": "two",
+   "n_accounts": 2,
+   "best_rank": 49,
+   "usd": 26144,
+   "paid": 0.528,
+   "ask": 0.53,
+   "status": "other side",
+   "link": "https://polymarket.us/event/nba-bos-gsw-2026-11-22",
+   "other": {
+    "n_accounts": 1,
+    "best_rank": 49,
+    "usd": 13646,
+    "first": "2026-11-22T21:54:47Z"
+   },
+   "exit_bid": 0.52,
+   "kalshi_against": null,
+   "logged": false,
+   "ladder": true,
+   "event_id": "401910035",
+   "sport": "nba",
+   "league": null,
+   "away": "BOS",
+   "home": "GS",
+   "away_name": "Boston Celtics",
+   "home_name": "Golden State Warriors",
+   "game_start": "2026-11-23T01:30Z",
+   "side_std": "home",
+   "money_with": true,
+   "grade": "A",
+   "fair_board": 0.5066,
+   "inside_fair": false,
+   "books": null
+  },
+  {
    "cond": "0x196eac8fd4ebf4f30ca62ca96b9a62f910e5f5b725f0c070713bceabbe738aee",
    "slug": "ucl-lil-bay-2026-11-25",
    "title": "Lille OSC vs. FC Bayern M\u00fcnchen",
@@ -1703,12 +1579,12 @@
     "clv": -0.2
    }
   },
-  "n": 391,
+  "n": 392,
   "won": 187,
   "units": -16.62,
   "by_grade": {
    "A": {
-    "n": 254,
+    "n": 255,
     "won": 115,
     "units": -15.43,
     "clv": -0.17
@@ -1726,7 +1602,7 @@
     "clv": -0.1
    }
   },
-  "units_1u": -29.05,
+  "units_1u": -30.05,
   "clv": -0.36,
   "n_venue": 202,
   "units_venue": -6.15,
@@ -1756,49 +1632,6 @@
   }
  },
  "by_event": {
-  "401873075|ml": {
-   "away": {
-    "n": 1,
-    "best_rank": 143,
-    "usd": 4996
-   },
-   "home": {
-    "n": 1,
-    "best_rank": 132,
-    "usd": 228
-   }
-  },
-  "401873069|total": {
-   "under": {
-    "n": 2,
-    "best_rank": 58,
-    "usd": 8355
-   }
-  },
-  "401873069|ml": {
-   "home": {
-    "n": 1,
-    "best_rank": 143,
-    "usd": 2887
-   },
-   "away": {
-    "n": 1,
-    "best_rank": 182,
-    "usd": 115
-   }
-  },
-  "401873069|spread": {
-   "away": {
-    "n": 1,
-    "best_rank": 58,
-    "usd": 245
-   },
-   "home": {
-    "n": 1,
-    "best_rank": 143,
-    "usd": 9166
-   }
-  },
   "401873077|spread": {
    "home": {
     "n": 1,
@@ -1829,7 +1662,7 @@
    "home": {
     "n": 4,
     "best_rank": 49,
-    "usd": 1167
+    "usd": 1258
    }
   },
   "401910030|total": {
@@ -1925,6 +1758,11 @@
     "n": 3,
     "best_rank": 49,
     "usd": 19879
+   },
+   "away": {
+    "n": 1,
+    "best_rank": 49,
+    "usd": 11333
    }
   },
   "401910036|ml": {
@@ -1953,6 +1791,13 @@
     "n": 1,
     "best_rank": 93,
     "usd": 182
+   }
+  },
+  "401892769|spread": {
+   "home": {
+    "n": 1,
+    "best_rank": 3,
+    "usd": 440
    }
   },
   "401892770|ml": {
