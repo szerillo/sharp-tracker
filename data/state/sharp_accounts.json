@@ -211,7 +211,7 @@
    "best_rank": 104,
    "usd": 132,
    "paid": 0.33,
-   "ask": null,
+   "ask": 0.43,
    "status": "live",
    "link": "https://polymarket.us/event/nba-okc-mia-2026-11-22",
    "other": null,
@@ -248,7 +248,7 @@
    "best_rank": 104,
    "usd": 151,
    "paid": 0.369,
-   "ask": null,
+   "ask": 0.47,
    "status": "live",
    "link": "https://polymarket.us/event/nba-okc-mia-2026-11-22",
    "other": null,
@@ -286,7 +286,7 @@
    "best_rank": 110,
    "usd": 3146,
    "paid": 0.56,
-   "ask": null,
+   "ask": 0.61,
    "status": "live",
    "link": "https://polymarket.us/event/nba-okc-mia-2026-11-22",
    "other": null,
@@ -966,7 +966,7 @@
    "best_rank": 40,
    "usd": 8692,
    "paid": 0.388,
-   "ask": null,
+   "ask": 0.38,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-okc-mia-2026-11-22",
    "other": {
@@ -975,7 +975,7 @@
     "usd": 32625,
     "first": "2026-11-21T22:15:07Z"
    },
-   "exit_bid": null,
+   "exit_bid": 0.37,
    "kalshi_against": {
     "move": 11.5,
     "now": 63.5,
@@ -1170,11 +1170,7 @@
     "first": "2026-11-22T18:00:14Z"
    },
    "exit_bid": 0.72,
-   "kalshi_against": {
-    "move": 4.5,
-    "now": 27.5,
-    "state": "drift"
-   },
+   "kalshi_against": null,
    "logged": true,
    "event_id": "401910034",
    "sport": "nba",
@@ -1185,9 +1181,6 @@
    "home_name": "New York Knicks",
    "game_start": "2026-11-23T01:00Z",
    "side_std": "home",
-   "conflict": [
-    "Kalshi move"
-   ],
    "money_with": false,
    "grade": "B",
    "fair_board": 0.7303,
