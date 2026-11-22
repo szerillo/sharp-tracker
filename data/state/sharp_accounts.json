@@ -1,5 +1,5 @@
 {
- "built": "2026-11-22T18:00:12Z",
+ "built": "2026-11-22T17:52:47Z",
  "rows": [
   {
    "cond": "0xb790bd8ba36a3bf8c94e3f881668874eaf60b0fffd56a25f4879bad3d1a4af58",
@@ -1080,8 +1080,8 @@
    ],
    "money_with": false,
    "grade": "B",
-   "fair_board": 0.3874,
-   "inside_fair": false,
+   "fair_board": 0.3962,
+   "inside_fair": true,
    "books": null
   },
   {
@@ -1224,6 +1224,50 @@
   "clv_poly_same": -0.59
  },
  "sys_tags": {
+  "401873071:nfl_road_dog_7510": {
+   "with": {
+    "n": 1,
+    "best_rank": 143,
+    "usd": 10715
+   },
+   "against": {
+    "n": 1,
+    "best_rank": 95,
+    "usd": 121
+   }
+  },
+  "401873067:bounce15_1h": {
+   "with": {
+    "n": 2,
+    "best_rank": 49,
+    "usd": 1708
+   },
+   "against": {
+    "n": 2,
+    "best_rank": 49,
+    "usd": 26967
+   }
+  },
+  "401873076:nfl_fade_fav_bye": {
+   "with": {
+    "n": 2,
+    "best_rank": 95,
+    "usd": 415
+   },
+   "against": {
+    "n": 1,
+    "best_rank": 143,
+    "usd": 2841
+   }
+  },
+  "401873073:nfl_road_dog_7510": {
+   "with": {
+    "n": 1,
+    "best_rank": 143,
+    "usd": 16701
+   },
+   "against": null
+  },
   "401910032:nba_roadtrip_over": {
    "with": null,
    "against": {
@@ -1242,6 +1286,82 @@
   }
  },
  "by_event": {
+  "401873071|spread": {
+   "away": {
+    "n": 1,
+    "best_rank": 143,
+    "usd": 10715
+   },
+   "home": {
+    "n": 1,
+    "best_rank": 95,
+    "usd": 121
+   }
+  },
+  "401873073|ml": {
+   "away": {
+    "n": 1,
+    "best_rank": 143,
+    "usd": 7816
+   }
+  },
+  "401873073|spread": {
+   "away": {
+    "n": 1,
+    "best_rank": 143,
+    "usd": 16701
+   }
+  },
+  "401873072|spread": {
+   "away": {
+    "n": 1,
+    "best_rank": 12,
+    "usd": 228
+   },
+   "home": {
+    "n": 1,
+    "best_rank": 58,
+    "usd": 245
+   }
+  },
+  "401873067|spread": {
+   "away": {
+    "n": 2,
+    "best_rank": 49,
+    "usd": 1708
+   },
+   "home": {
+    "n": 2,
+    "best_rank": 49,
+    "usd": 26967
+   }
+  },
+  "401873076|spread": {
+   "home": {
+    "n": 1,
+    "best_rank": 143,
+    "usd": 2841
+   },
+   "away": {
+    "n": 2,
+    "best_rank": 95,
+    "usd": 415
+   }
+  },
+  "401873076|ml": {
+   "away": {
+    "n": 1,
+    "best_rank": 182,
+    "usd": 152
+   }
+  },
+  "401873068|total": {
+   "over": {
+    "n": 1,
+    "best_rank": 58,
+    "usd": 430
+   }
+  },
   "401873074|total": {
    "over": {
     "n": 1,
