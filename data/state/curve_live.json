@@ -1,5 +1,5 @@
 {
- "built": "2026-11-21T23:58:18Z",
+ "built": "2026-11-22T00:14:14Z",
  "record": {
   "cbb_1h_total_curve": {
    "n": 8,
@@ -88,38 +88,6 @@
   }
  },
  "rows": [
-  {
-   "key": "cbb_1h_total_curve|2b15ead6a4087a68d986d3ec08373d14||over",
-   "rule": "cbb_1h_total_curve",
-   "tier": "C",
-   "stake": 0.25,
-   "sport": "cbb",
-   "odds_id": "2b15ead6a4087a68d986d3ec08373d14",
-   "espn": null,
-   "game": "Drake Bulldogs @ Missouri St Bears",
-   "start": "2026-11-21T20:00:00Z",
-   "market": "totals_h1",
-   "team": null,
-   "team_name": null,
-   "side": "over",
-   "line": 64.5,
-   "curve": 0.605,
-   "pin_fair": 0.51,
-   "gap": 9.5,
-   "full_total": 142.5,
-   "full_spread": 3.5,
-   "pin_price": 1.87,
-   "book": "FD",
-   "price": 1.87,
-   "pin_fair_power": 0.5112,
-   "book_fair": 0.504,
-   "fair_gap": 0.6,
-   "ev_curve": 13.1,
-   "flagged": "2026-11-21T17:24:41Z",
-   "close_ts": "2026-11-21T19:48:44Z",
-   "close_line": 64.0,
-   "line_value": -0.5
-  },
   {
    "key": "cfb_q1_under_curve|1a3e1206e330ec66aa9a0549b4d3409c||under",
    "rule": "cfb_q1_under_curve",
@@ -510,7 +478,32 @@
    "book_fair": 0.4133,
    "fair_gap": 1.9,
    "ev_curve": 14.1,
-   "flagged": "2026-11-21T23:58:18Z"
+   "flagged": "2026-11-21T23:42:47Z"
+  },
+  {
+   "key": "nhl_p3_under_curve|3e00ca5a69a2b305ed1f78590d590c7e||under",
+   "rule": "nhl_p3_under_curve",
+   "tier": "P",
+   "stake": 0.0,
+   "sport": "nhl",
+   "odds_id": "3e00ca5a69a2b305ed1f78590d590c7e",
+   "espn": "401892766",
+   "game": "Minnesota Wild @ Vancouver Canucks",
+   "start": "2026-11-22T03:00:00Z",
+   "market": "totals_p3",
+   "team": null,
+   "team_name": null,
+   "side": "under",
+   "line": 2.0,
+   "curve": 0.547,
+   "pin_fair": 0.45,
+   "gap": 9.7,
+   "full_total": 6.5,
+   "full_spread": 1.5,
+   "pin_price": 2.14,
+   "book": null,
+   "price": null,
+   "flagged": "2026-11-22T00:14:14Z"
   }
  ]
 }

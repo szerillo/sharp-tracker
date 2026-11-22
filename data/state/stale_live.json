@@ -1,11 +1,11 @@
 {
- "built": "2026-11-21T23:52:48Z",
+ "built": "2026-11-22T00:08:07Z",
  "record": {
-  "n": 211,
+  "n": 212,
   "won": 94,
-  "lost": 117,
-  "units": -1.13,
-  "roi": -2.1
+  "lost": 118,
+  "units": -1.38,
+  "roi": -2.6
  },
  "record_sb4": {
   "n": 8,
@@ -15,26 +15,6 @@
   "roi": -19.8
  },
  "rows": [
-  {
-   "key": "401871078|ml|away",
-   "sport": "cfb",
-   "event_id": "401871078",
-   "game": "FIU @ KENN",
-   "start": "2026-11-21T20:00Z",
-   "market": "ml",
-   "side": "away",
-   "line": null,
-   "venue": "Novig",
-   "price": 0.42,
-   "fair": 0.4354,
-   "fair_power": 0.4325,
-   "venue_fair": 0.4158,
-   "fair_gap": 2.0,
-   "ev": 3.7,
-   "move": 2.9,
-   "flagged": "2026-11-20T13:10:28Z",
-   "team": "FIU"
-  },
   {
    "key": "401921776|ml|home",
    "sport": "cbb",
@@ -196,32 +176,13 @@
    "team": "POR"
   },
   {
-   "key": "401858306|total|under",
-   "sport": "cfb",
-   "event_id": "401858306",
-   "game": "PITT @ LOU",
+   "key": "sb4|401910024|ml|away",
+   "kind": "sb4",
+   "sport": "nba",
+   "event_id": "401910024",
+   "game": "POR @ NY",
    "start": "2026-11-22T00:30Z",
-   "market": "total",
-   "side": "under",
-   "line": 50.5,
-   "venue": "Novig",
-   "price": 0.5,
-   "fair": 0.5111,
-   "fair_power": 0.5118,
-   "venue_fair": 0.4975,
-   "fair_gap": 1.4,
-   "ev": 2.2,
-   "move": 1.1,
-   "flagged": "2026-11-21T23:17:45Z",
-   "team": null
-  },
-  {
-   "key": "401856751|spread|away",
-   "sport": "cfb",
-   "event_id": "401856751",
-   "game": "UK @ MIZ",
-   "start": "2026-11-22T00:30Z",
-   "market": "spread",
+   "market": "ml",
    "side": "away",
    "line": null,
    "venue": "DK",
