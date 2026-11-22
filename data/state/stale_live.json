@@ -1,11 +1,11 @@
 {
- "built": "2026-11-22T21:38:25Z",
+ "built": "2026-11-22T21:51:53Z",
  "record": {
-  "n": 223,
-  "won": 98,
-  "lost": 125,
-  "units": -1.89,
-  "roi": -3.4
+  "n": 225,
+  "won": 99,
+  "lost": 126,
+  "units": -1.67,
+  "roi": -3.0
  },
  "record_sb4": {
   "n": 9,
@@ -15,26 +15,6 @@
   "roi": -28.7
  },
  "rows": [
-  {
-   "key": "401873072|ml|away",
-   "sport": "nfl",
-   "event_id": "401873072",
-   "game": "TB @ DET",
-   "start": "2026-11-22T18:00Z",
-   "market": "ml",
-   "side": "away",
-   "line": null,
-   "venue": "Novig",
-   "price": 0.335,
-   "fair": 0.3448,
-   "fair_power": 0.3372,
-   "venue_fair": 0.3333,
-   "fair_gap": 1.1,
-   "ev": 2.9,
-   "move": 1.4,
-   "flagged": "2026-11-22T02:36:04Z",
-   "team": "TB"
-  },
   {
    "key": "401926795|total|over",
    "sport": "cbb",
@@ -94,26 +74,6 @@
    "move": 2.4,
    "flagged": "2026-11-22T09:32:06Z",
    "team": "STL"
-  },
-  {
-   "key": "401928802|ml|home",
-   "sport": "cbb",
-   "event_id": "401928802",
-   "game": "GW @ WKU",
-   "start": "2026-11-22T19:00Z",
-   "market": "ml",
-   "side": "home",
-   "line": null,
-   "venue": "Novig",
-   "price": 0.35,
-   "fair": 0.3647,
-   "fair_power": 0.3568,
-   "venue_fair": 0.3465,
-   "fair_gap": 1.8,
-   "ev": 4.2,
-   "move": 2.5,
-   "flagged": "2026-11-22T15:14:03Z",
-   "team": "WKU"
   },
   {
    "key": "401917540|ml|home",
