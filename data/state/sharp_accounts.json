@@ -1,5 +1,5 @@
 {
- "built": "2026-11-22T00:30:03Z",
+ "built": "2026-11-22T00:44:04Z",
  "rows": [
   {
    "cond": "0xbad88236739a967d01eca0aa0e0206056b886912bd9378523f546bbf82f431a2",
@@ -351,7 +351,7 @@
    "best_rank": 104,
    "usd": 106,
    "paid": 0.4,
-   "ask": 0.37,
+   "ask": 0.41,
    "status": "live",
    "link": "https://polymarket.us/event/nba-nop-sas-2026-11-21",
    "other": null,
@@ -473,7 +473,7 @@
    "best_rank": 40,
    "usd": 2542,
    "paid": 0.57,
-   "ask": 0.59,
+   "ask": 0.58,
    "status": "live",
    "link": "https://polymarket.us/event/nba-bos-sac-2026-11-21",
    "other": null,
@@ -587,7 +587,7 @@
    "best_rank": 12,
    "usd": 287,
    "paid": 0.56,
-   "ask": 0.57,
+   "ask": 0.58,
    "status": "live",
    "link": "https://polymarket.us/event/cfb-okst-arzst-2026-11-21",
    "other": null,
@@ -1034,11 +1034,7 @@
     "first": "2026-11-21T22:15:07Z"
    },
    "exit_bid": 0.46,
-   "kalshi_against": {
-    "move": 5.5,
-    "now": 57.5,
-    "state": "reversed"
-   },
+   "kalshi_against": null,
    "logged": true,
    "event_id": "401910030",
    "sport": "nba",
@@ -1050,8 +1046,7 @@
    "game_start": "2026-11-22T23:00Z",
    "side_std": "away",
    "conflict": [
-    "Kalshi bet back",
-    "Kalshi move"
+    "Kalshi bet back"
    ],
    "money_with": false,
    "grade": "B",
