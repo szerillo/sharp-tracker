@@ -9281,7 +9281,10 @@
 "price": -106,
 "fair": 0.49536,
 "edge_pts": -1.92,
-"why": "home favourite WMU -7.5, total 46.5: under (mined angle)"
+"why": "home favourite WMU -7.5, total 46.5: under (mined angle)",
+"void": true,
+"void_why": "rule no longer holds on the current line: home spread -7.0, total 46.5 (2026-11-22T20:58:25Z)",
+"void_at": "2026-11-22T20:58:25Z"
 },
 "401858313:cfb_road_streak_dog": {
 "tag": "cfb_road_streak_dog",
@@ -9525,7 +9528,10 @@
 "price": -110,
 "fair": 0.5,
 "edge_pts": -2.38,
-"why": "conference game, TULN +7.5 on the road, total 45.5"
+"why": "conference game, TULN +7.5 on the road, total 45.5",
+"void": true,
+"void_why": "rule no longer holds on the current line: home spread -6.5, total 42.5 (2026-11-22T20:58:25Z)",
+"void_at": "2026-11-22T20:58:25Z"
 },
 "401862839:cfb_day_over": {
 "tag": "cfb_day_over",
@@ -9612,5 +9618,32 @@
 "fair": 0.5116,
 "edge_pts": -1.22,
 "why": "6:30 PM ET kickoff, total 46.5: over (mined angle)"
+},
+"401873069:xch_homedog_fade:ml": {
+"tag": "xch_homedog_fade",
+"fill_id": "ee265e18fbcb",
+"ts": "2026-11-22T19:58:21Z",
+"market": "ml",
+"side": "away",
+"line": null,
+"venue": "Novig",
+"price": -257,
+"fair": 0.71581,
+"edge_pts": -0.42,
+"why": "Novig home side mid 0.283 inside T-1.4h; audit band 20-35c",
+"restored": true
+},
+"401858544:cfb_road_dog_low_total": {
+"tag": "cfb_road_dog_low_total",
+"fill_id": "98f1aa908ad2",
+"ts": "2026-11-22T20:58:25Z",
+"market": "spread",
+"side": "away",
+"line": 7.0,
+"venue": "Caesars",
+"price": -106,
+"fair": 0.49605,
+"edge_pts": -1.85,
+"why": "conference game, MINN +7.0 on the road, total 36.5"
 }
 }
