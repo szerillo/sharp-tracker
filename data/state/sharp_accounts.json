@@ -1,5 +1,5 @@
 {
- "built": "2026-11-22T17:15:47Z",
+ "built": "2026-11-22T17:23:33Z",
  "rows": [
   {
    "cond": "0xb790bd8ba36a3bf8c94e3f881668874eaf60b0fffd56a25f4879bad3d1a4af58",
@@ -190,13 +190,13 @@
    "inside_fair": false,
    "fair_board": 0.2327,
    "books": {
-    "at": "2026-11-22T16:01:28Z",
-    "fair": 0.2293,
+    "at": "2026-11-22T17:02:26Z",
+    "fair": 0.2299,
     "q": {
      "Novig": 0.235,
      "DK": 0.2445,
-     "FD": 0.25,
-     "Caesars": 0.2564
+     "FD": 0.2532,
+     "Kalshi": 0.26
     }
    }
   },
@@ -313,12 +313,12 @@
    "inside_fair": true,
    "fair_board": 0.5576,
    "books": {
-    "at": "2026-11-22T16:01:28Z",
-    "fair": 0.5356,
+    "at": "2026-11-22T17:02:26Z",
+    "fair": 0.5323,
     "q": {
      "Novig": 0.535,
+     "Caesars": 0.5556,
      "Kalshi": 0.56,
-     "Caesars": 0.5652,
      "DK": 0.5652
     }
    }
@@ -393,16 +393,16 @@
    "side_std": "home",
    "money_with": false,
    "grade": "B",
-   "fair_board": 0.7525,
+   "fair_board": 0.755,
    "inside_fair": false,
    "books": {
-    "at": "2026-11-22T16:01:28Z",
-    "fair": 0.7525,
+    "at": "2026-11-22T17:02:26Z",
+    "fair": 0.755,
     "q": {
      "Novig": 0.755,
-     "Kalshi": 0.77,
      "FD": 0.7701,
-     "DK": 0.7748
+     "DK": 0.7748,
+     "Caesars": 0.7753
     }
    }
   },
@@ -442,13 +442,13 @@
    "inside_fair": false,
    "fair_board": 0.492,
    "books": {
-    "at": "2026-11-22T16:01:28Z",
-    "fair": 0.492,
+    "at": "2026-11-22T17:02:26Z",
+    "fair": 0.484,
     "q": {
-     "Novig": 0.495,
-     "DK": 0.5192,
-     "Kalshi": 0.52,
-     "Caesars": 0.5238
+     "Novig": 0.485,
+     "Caesars": 0.5098,
+     "Kalshi": 0.51,
+     "DK": 0.5122
     }
    }
   },
@@ -488,15 +488,53 @@
    "inside_fair": false,
    "fair_board": 0.4827,
    "books": {
-    "at": "2026-11-22T16:01:28Z",
-    "fair": 0.4827,
+    "at": "2026-11-22T17:02:26Z",
+    "fair": 0.4858,
     "q": {
-     "Novig": 0.485,
-     "FD": 0.5,
+     "Novig": 0.49,
      "Caesars": 0.505,
-     "Kalshi": 0.51
+     "Kalshi": 0.51,
+     "DK": 0.5122
     }
    }
+  },
+  {
+   "cond": "0x7c36d3d012005dc8c386f9f1fbb8822334f9751d8c9379d3ed0f16641d88765d",
+   "slug": "nfl-min-sf-2026-11-23",
+   "title": "Vikings vs. 49ers",
+   "mtype": "spread",
+   "start": "2026-11-23T01:20:00Z",
+   "bet": "49ers -2.5",
+   "side": "49ers",
+   "flagged": "2026-11-22T17:16:52Z",
+   "why": "a top-200 account also in this sport's top 50",
+   "proven": true,
+   "trigger": "proven",
+   "n_accounts": 1,
+   "best_rank": 143,
+   "usd": 1011,
+   "paid": 0.58,
+   "ask": 0.59,
+   "status": "live",
+   "link": "https://polymarket.us/event/nfl-min-sf-2026-11-23",
+   "other": null,
+   "kalshi_against": null,
+   "logged": false,
+   "ladder": true,
+   "event_id": "401873077",
+   "sport": "nfl",
+   "league": null,
+   "away": "MIN",
+   "home": "SF",
+   "away_name": "Minnesota Vikings",
+   "home_name": "San Francisco 49ers",
+   "game_start": "2026-11-23T01:20Z",
+   "side_std": "home",
+   "money_with": false,
+   "grade": "A",
+   "fair_board": null,
+   "inside_fair": null,
+   "books": null
   },
   {
    "cond": "0xc518c24e640355315b6dfca3c12f7fba9a01114cd8f653a07281550458429260",
@@ -534,11 +572,55 @@
    "fair_board": null,
    "inside_fair": null,
    "books": {
-    "at": "2026-11-22T16:01:28Z",
+    "at": "2026-11-22T17:02:26Z",
     "fair": null,
     "q": {
-     "Novig": 0.685,
+     "Novig": 0.675,
      "Kalshi": 0.69
+    }
+   }
+  },
+  {
+   "cond": "0x89998db23beacc2e945a7f752e64972f744bd539937665d058a58e5fb055c046",
+   "slug": "nhl-tor-nyi-2026-11-23",
+   "title": "Maple Leafs vs. Islanders",
+   "mtype": "ml",
+   "start": "2026-11-24T00:30:00Z",
+   "bet": "Islanders ML",
+   "side": "Islanders",
+   "flagged": "2026-11-22T17:18:07Z",
+   "why": "a top-200 account also in this sport's top 50",
+   "proven": true,
+   "trigger": "proven",
+   "n_accounts": 1,
+   "best_rank": 69,
+   "usd": 289,
+   "paid": 0.587,
+   "ask": 0.59,
+   "status": "live",
+   "link": "https://polymarket.us/event/nhl-tor-nyi-2026-11-23",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401892776",
+   "sport": "nhl",
+   "league": null,
+   "away": "TOR",
+   "home": "NYI",
+   "away_name": "Toronto Maple Leafs",
+   "home_name": "New York Islanders",
+   "game_start": "2026-11-24T00:30Z",
+   "side_std": "home",
+   "money_with": false,
+   "grade": "A",
+   "fair_board": null,
+   "inside_fair": null,
+   "books": {
+    "at": "2026-11-22T17:02:26Z",
+    "fair": null,
+    "q": {
+     "Kalshi": 0.6,
+     "Novig": 0.6
     }
    }
   },
@@ -578,7 +660,7 @@
    "fair_board": null,
    "inside_fair": null,
    "books": {
-    "at": "2026-11-22T16:01:28Z",
+    "at": "2026-11-22T17:02:26Z",
     "fair": null,
     "q": {
      "Kalshi": 0.51,
@@ -936,8 +1018,8 @@
    },
    "exit_bid": 0.39,
    "kalshi_against": {
-    "move": 8.0,
-    "now": 60.0,
+    "move": 8.5,
+    "now": 60.5,
     "state": "reversed"
    },
    "logged": true,
@@ -956,8 +1038,8 @@
    ],
    "money_with": false,
    "grade": "B",
-   "fair_board": 0.402,
-   "inside_fair": true,
+   "fair_board": 0.3962,
+   "inside_fair": false,
    "books": null
   },
   {
@@ -1443,6 +1525,13 @@
     "n": 1,
     "best_rank": 197,
     "usd": 562
+   }
+  },
+  "401892776|ml": {
+   "home": {
+    "n": 1,
+    "best_rank": 69,
+    "usd": 289
    }
   },
   "401892778|ml": {
