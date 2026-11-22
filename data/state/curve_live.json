@@ -1,5 +1,5 @@
 {
- "built": "2026-11-22T02:41:52Z",
+ "built": "2026-11-22T02:54:58Z",
  "record": {
   "cbb_1h_total_curve": {
    "n": 8,
@@ -19,10 +19,10 @@
    }
   },
   "cfb_q1_under_curve": {
-   "n": 37,
+   "n": 38,
    "won": 16,
-   "lost": 21,
-   "units": -2.98,
+   "lost": 22,
+   "units": -3.23,
    "clv": {
     "n": 22,
     "avg": -2.33,
@@ -58,12 +58,12 @@
    "lost": 20,
    "units": -4.61,
    "clv": {
-    "n": 25,
-    "avg": -2.26,
+    "n": 26,
+    "avg": -2.24,
     "beat": 0
    },
    "line_value": {
-    "n": 26,
+    "n": 27,
     "avg": -0.02,
     "better": 0,
     "worse": 1
@@ -88,41 +88,6 @@
   }
  },
  "rows": [
-  {
-   "key": "cfb_q1_under_curve|cbe55180a8bee495fa1520fbc1df314b||under",
-   "rule": "cfb_q1_under_curve",
-   "tier": "A",
-   "stake": 0.25,
-   "sport": "cfb",
-   "odds_id": "cbe55180a8bee495fa1520fbc1df314b",
-   "espn": "401860920",
-   "game": "Washington State Cougars @ Texas State Bobcats",
-   "start": "2026-11-21T23:00:00Z",
-   "market": "totals_q1",
-   "team": null,
-   "team_name": null,
-   "side": "under",
-   "line": 13.5,
-   "curve": 0.548,
-   "pin_fair": 0.433,
-   "gap": 11.5,
-   "full_total": 61.5,
-   "full_spread": -13.5,
-   "pin_price": 2.2,
-   "book": "FD",
-   "price": 2.24,
-   "pin_fair_power": 0.4279,
-   "book_fair": 0.4256,
-   "fair_gap": 0.7,
-   "ev_curve": 22.8,
-   "flagged": "2026-11-21T20:22:22Z",
-   "close_ts": "2026-11-21T22:52:39Z",
-   "close_line": 13.5,
-   "line_value": 0.0,
-   "close_fair": 0.433,
-   "clv": -1.34,
-   "beat_fair": 0.0
-  },
   {
    "key": "cfb_tt_under_curve|8d53f308424d388c9003e02cac8b4cf6|home|under",
    "rule": "cfb_tt_under_curve",
@@ -322,7 +287,13 @@
    "pin_price": 2.14,
    "book": null,
    "price": null,
-   "flagged": "2026-11-22T00:14:14Z"
+   "flagged": "2026-11-22T00:14:14Z",
+   "close_ts": "2026-11-22T02:54:58Z",
+   "close_line": 2.0,
+   "line_value": 0.0,
+   "close_fair": 0.4499,
+   "clv": -1.74,
+   "beat_fair": -0.01
   },
   {
    "key": "cfb_q1_under_curve|ecfec2fe1db57f88e603f9947add1e26||under",
@@ -398,14 +369,14 @@
    "side": "under",
    "line": 32.5,
    "curve": 0.575,
-   "pin_fair": 0.521,
-   "gap": 5.5,
+   "pin_fair": 0.517,
+   "gap": 5.8,
    "full_total": 60.0,
    "full_spread": 3.0,
-   "pin_price": 1.85,
+   "pin_price": 1.86,
    "book": null,
    "price": null,
-   "flagged": "2026-11-22T02:41:52Z"
+   "flagged": "2026-11-22T02:54:58Z"
   }
  ]
 }
