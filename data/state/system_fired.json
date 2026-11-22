@@ -9176,10 +9176,36 @@
 "edge_pts": -0.27,
 "why": "Novig home side mid 0.325 inside T-1.0h; audit band 20-35c"
 },
+"401858543:cfb_day_over": {
+"tag": "cfb_day_over",
+"fill_id": "215db9c9716f",
+"ts": "2026-11-22T00:55:56Z",
+"market": "total",
+"side": "over",
+"line": 51.5,
+"venue": "Novig",
+"price": -100,
+"fair": null,
+"edge_pts": null,
+"why": "3:30 PM ET kickoff, total 51.5: over (mined angle)"
+},
+"401910032:nba_roadtrip_over": {
+"tag": "nba_roadtrip_over",
+"fill_id": "b1b5d1cd783d",
+"ts": "2026-11-22T00:55:56Z",
+"market": "total",
+"side": "over",
+"line": 237.5,
+"venue": "DK",
+"price": -110,
+"fair": 0.5,
+"edge_pts": -2.38,
+"why": "DEN off 3 straight home games, first road game: over (Bet Labs filter)"
+},
 "401856872:xch_homedog_fade:ml": {
 "tag": "xch_homedog_fade",
-"fill_id": "decbaaa905d8",
-"ts": "2026-11-22T00:38:18Z",
+"fill_id": "acc3f1e3f6d8",
+"ts": "2026-11-22T00:55:56Z",
 "market": "ml",
 "side": "away",
 "line": null,
@@ -9187,10 +9213,6 @@
 "price": -300,
 "fair": 0.74954,
 "edge_pts": -0.05,
-"why": "Novig home side mid 0.253 inside T-1.4h; audit band 20-35c",
-"now": {
-"venue": "Novig",
-"price": -300
-}
+"why": "Novig home side mid 0.253 inside T-1.1h; audit band 20-35c"
 }
 }
