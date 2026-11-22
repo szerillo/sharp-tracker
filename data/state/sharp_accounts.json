@@ -1,5 +1,5 @@
 {
- "built": "2026-11-22T14:36:04Z",
+ "built": "2026-11-22T14:46:20Z",
  "rows": [
   {
    "cond": "0xb790bd8ba36a3bf8c94e3f881668874eaf60b0fffd56a25f4879bad3d1a4af58",
@@ -202,6 +202,9 @@
    "home_name": "Dallas Cowboys",
    "game_start": "2026-11-22T18:00Z",
    "side_std": "away",
+   "conflict": [
+    "big money"
+   ],
    "money_with": false,
    "grade": "A",
    "fair_board": null,
@@ -404,7 +407,7 @@
    "best_rank": 197,
    "usd": 562,
    "paid": 0.65,
-   "ask": 0.65,
+   "ask": 0.66,
    "status": "live",
    "link": "https://polymarket.us/event/nhl-cal-ott-2026-11-23",
    "other": null,
@@ -722,8 +725,8 @@
    },
    "exit_bid": 0.4,
    "kalshi_against": {
-    "move": 7.5,
-    "now": 59.5,
+    "move": 7.0,
+    "now": 59.0,
     "state": "reversed"
    },
    "logged": true,
@@ -1006,6 +1009,11 @@
     "n": 1,
     "best_rank": 132,
     "usd": 495
+   },
+   "under": {
+    "n": 1,
+    "best_rank": 132,
+    "usd": 273
    }
   },
   "401910030|ml": {
