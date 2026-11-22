@@ -9283,8 +9283,8 @@
 "edge_pts": -1.92,
 "why": "home favourite WMU -7.5, total 46.5: under (mined angle)",
 "void": true,
-"void_why": "rule no longer holds on the current line: home spread -7.0, total 46.5 (2026-11-22T20:58:25Z)",
-"void_at": "2026-11-22T20:58:25Z"
+"void_why": "rule no longer holds on the current line: home spread -7.0, total 46.5 (2026-11-22T21:33:00Z)",
+"void_at": "2026-11-22T21:33:00Z"
 },
 "401858313:cfb_road_streak_dog": {
 "tag": "cfb_road_streak_dog",
@@ -9530,8 +9530,8 @@
 "edge_pts": -2.38,
 "why": "conference game, TULN +7.5 on the road, total 45.5",
 "void": true,
-"void_why": "rule no longer holds on the current line: home spread -6.5, total 42.5 (2026-11-22T20:58:25Z)",
-"void_at": "2026-11-22T20:58:25Z"
+"void_why": "rule no longer holds on the current line: home spread -6.5, total 43.5 (2026-11-22T21:33:00Z)",
+"void_at": "2026-11-22T21:33:00Z"
 },
 "401862839:cfb_day_over": {
 "tag": "cfb_day_over",
@@ -9635,8 +9635,8 @@
 },
 "401858544:cfb_road_dog_low_total": {
 "tag": "cfb_road_dog_low_total",
-"fill_id": "98f1aa908ad2",
-"ts": "2026-11-22T20:58:25Z",
+"fill_id": "77c9c350e979",
+"ts": "2026-11-22T21:33:00Z",
 "market": "spread",
 "side": "away",
 "line": 7.0,
@@ -9645,5 +9645,18 @@
 "fair": 0.49605,
 "edge_pts": -1.85,
 "why": "conference game, MINN +7.0 on the road, total 36.5"
+},
+"401892780:nhl_pl_fav_strong_opp": {
+"tag": "nhl_pl_fav_strong_opp",
+"fill_id": "2bc4eee8eb1d",
+"ts": "2026-11-22T21:33:00Z",
+"market": "spread",
+"side": "away",
+"line": -1.5,
+"venue": "Kalshi",
+"price": 170,
+"fair": null,
+"edge_pts": null,
+"why": "opponent EDM wins 68% (17-8); favorite VGK -1.5 against a strong team"
 }
 }
