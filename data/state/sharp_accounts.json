@@ -1,5 +1,5 @@
 {
- "built": "2026-11-22T10:33:56Z",
+ "built": "2026-11-22T10:53:43Z",
  "rows": [
   {
    "cond": "0xb790bd8ba36a3bf8c94e3f881668874eaf60b0fffd56a25f4879bad3d1a4af58",
@@ -218,6 +218,52 @@
    }
   },
   {
+   "cond": "0x8f90ab4d7f5516d7e681858c7e9d5de674db25aa8a84da68010d63e015c3228d",
+   "slug": "nhl-pit-dal-2026-11-22",
+   "title": "Penguins vs. Stars",
+   "mtype": "ml",
+   "start": "2026-11-23T00:00:00Z",
+   "bet": "Penguins ML",
+   "side": "Penguins",
+   "flagged": "2026-11-22T08:23:04Z",
+   "why": "a top-200 account also in this sport's top 50",
+   "proven": true,
+   "trigger": "proven",
+   "n_accounts": 1,
+   "best_rank": 197,
+   "usd": 960,
+   "paid": 0.32,
+   "ask": 0.34,
+   "status": "live",
+   "link": "https://polymarket.us/event/nhl-pit-dal-2026-11-22",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401892771",
+   "sport": "nhl",
+   "league": null,
+   "away": "PIT",
+   "home": "DAL",
+   "away_name": "Pittsburgh Penguins",
+   "home_name": "Dallas Stars",
+   "game_start": "2026-11-23T00:00Z",
+   "side_std": "away",
+   "money_with": false,
+   "grade": "A",
+   "inside_fair": false,
+   "fair_board": 0.3242,
+   "books": {
+    "at": "2026-11-22T02:26:27Z",
+    "fair": 0.3242,
+    "q": {
+     "Novig": 0.33,
+     "FD": 0.3448,
+     "Kalshi": 0.35,
+     "Caesars": 0.3509
+    }
+   }
+  },
+  {
    "cond": "0x3b3748b734fb393de1e14f5c3fe9ef400e123faaf9a3595361378564f8e33a7d",
    "slug": "nba-ind-nyk-2026-11-22",
    "title": "Pacers vs. Knicks",
@@ -233,7 +279,7 @@
    "best_rank": 40,
    "usd": 964,
    "paid": 0.763,
-   "ask": 0.77,
+   "ask": 0.76,
    "status": "live",
    "link": "https://polymarket.us/event/nba-ind-nyk-2026-11-22",
    "other": null,
@@ -474,8 +520,8 @@
    },
    "exit_bid": 0.42,
    "kalshi_against": {
-    "move": 5.0,
-    "now": 57.0,
+    "move": 5.5,
+    "now": 57.5,
     "state": "reversed"
    },
    "logged": true,
@@ -497,59 +543,6 @@
    "fair_board": 0.4487,
    "inside_fair": true,
    "books": null
-  },
-  {
-   "cond": "0x8f90ab4d7f5516d7e681858c7e9d5de674db25aa8a84da68010d63e015c3228d",
-   "slug": "nhl-pit-dal-2026-11-22",
-   "title": "Penguins vs. Stars",
-   "mtype": "ml",
-   "start": "2026-11-23T00:00:00Z",
-   "bet": "Penguins ML",
-   "side": "Penguins",
-   "flagged": "2026-11-22T08:23:04Z",
-   "why": "a top-200 account also in this sport's top 50",
-   "proven": true,
-   "trigger": "proven",
-   "n_accounts": 1,
-   "best_rank": 197,
-   "usd": 960,
-   "paid": 0.32,
-   "ask": 0.34,
-   "status": "live",
-   "link": "https://polymarket.us/event/nhl-pit-dal-2026-11-22",
-   "other": null,
-   "kalshi_against": {
-    "move": 4.0,
-    "now": 67.5,
-    "state": "drift"
-   },
-   "logged": true,
-   "event_id": "401892771",
-   "sport": "nhl",
-   "league": null,
-   "away": "PIT",
-   "home": "DAL",
-   "away_name": "Pittsburgh Penguins",
-   "home_name": "Dallas Stars",
-   "game_start": "2026-11-23T00:00Z",
-   "side_std": "away",
-   "conflict": [
-    "Kalshi move"
-   ],
-   "money_with": false,
-   "grade": "A",
-   "inside_fair": false,
-   "fair_board": 0.3242,
-   "books": {
-    "at": "2026-11-22T02:26:27Z",
-    "fair": 0.3242,
-    "q": {
-     "Novig": 0.33,
-     "FD": 0.3448,
-     "Kalshi": 0.35,
-     "Caesars": 0.3509
-    }
-   }
   },
   {
    "cond": "0x196eac8fd4ebf4f30ca62ca96b9a62f910e5f5b725f0c070713bceabbe738aee",
