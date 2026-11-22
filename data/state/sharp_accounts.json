@@ -1,5 +1,5 @@
 {
- "built": "2026-11-22T23:02:39Z",
+ "built": "2026-11-22T23:10:19Z",
  "rows": [
   {
    "cond": "0x35e3a46eea4c56646973fb71aaa058336dcdf80d5b430f33fc67d950aa7a5027",
@@ -211,7 +211,7 @@
    "best_rank": 104,
    "usd": 132,
    "paid": 0.33,
-   "ask": 0.43,
+   "ask": null,
    "status": "live",
    "link": "https://polymarket.us/event/nba-okc-mia-2026-11-22",
    "other": null,
@@ -248,7 +248,7 @@
    "best_rank": 104,
    "usd": 151,
    "paid": 0.369,
-   "ask": 0.47,
+   "ask": null,
    "status": "live",
    "link": "https://polymarket.us/event/nba-okc-mia-2026-11-22",
    "other": null,
@@ -286,7 +286,7 @@
    "best_rank": 110,
    "usd": 3146,
    "paid": 0.56,
-   "ask": 0.61,
+   "ask": null,
    "status": "live",
    "link": "https://polymarket.us/event/nba-okc-mia-2026-11-22",
    "other": null,
@@ -372,7 +372,7 @@
    "best_rank": 143,
    "usd": 17251,
    "paid": 0.49,
-   "ask": 0.52,
+   "ask": 0.53,
    "status": "live",
    "link": "https://polymarket.us/event/nfl-min-sf-2026-11-23",
    "other": null,
@@ -966,7 +966,7 @@
    "best_rank": 40,
    "usd": 8692,
    "paid": 0.388,
-   "ask": 0.38,
+   "ask": null,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-okc-mia-2026-11-22",
    "other": {
@@ -975,7 +975,7 @@
     "usd": 32625,
     "first": "2026-11-21T22:15:07Z"
    },
-   "exit_bid": 0.37,
+   "exit_bid": null,
    "kalshi_against": {
     "move": 11.5,
     "now": 63.5,
@@ -1170,7 +1170,11 @@
     "first": "2026-11-22T18:00:14Z"
    },
    "exit_bid": 0.72,
-   "kalshi_against": null,
+   "kalshi_against": {
+    "move": 4.5,
+    "now": 27.5,
+    "state": "drift"
+   },
    "logged": true,
    "event_id": "401910034",
    "sport": "nba",
@@ -1181,6 +1185,9 @@
    "home_name": "New York Knicks",
    "game_start": "2026-11-23T01:00Z",
    "side_std": "home",
+   "conflict": [
+    "Kalshi move"
+   ],
    "money_with": false,
    "grade": "B",
    "fair_board": 0.7303,
@@ -1203,7 +1210,7 @@
    "best_rank": 143,
    "usd": 12200,
    "paid": 0.64,
-   "ask": 0.65,
+   "ask": 0.66,
    "status": "live",
    "link": "https://polymarket.us/event/nfl-min-sf-2026-11-23",
    "other": null,
@@ -1283,6 +1290,57 @@
    "fair_board": 0.5223,
    "inside_fair": true,
    "books": null
+  },
+  {
+   "cond": "0x7abb7d4706f5c8c823283318d5f547e2743d9ef841e95e69b9404105193087ee",
+   "slug": "nba-mil-tor-2026-11-23",
+   "title": "Bucks vs. Raptors",
+   "mtype": "ml",
+   "start": "2026-11-24T00:30:00Z",
+   "bet": "Bucks ML",
+   "side": "Bucks",
+   "flagged": "2026-11-22T23:03:32Z",
+   "why": "2 top-200 accounts",
+   "proven": false,
+   "trigger": "two",
+   "n_accounts": 2,
+   "best_rank": 43,
+   "usd": 359,
+   "paid": 0.199,
+   "ask": 0.23,
+   "status": "live",
+   "link": "https://polymarket.us/event/nba-mil-tor-2026-11-23",
+   "other": null,
+   "kalshi_against": {
+    "move": 5.0,
+    "now": 81.0,
+    "state": "reversed"
+   },
+   "logged": true,
+   "event_id": "401910039",
+   "sport": "nba",
+   "league": null,
+   "away": "MIL",
+   "home": "TOR",
+   "away_name": "Milwaukee Bucks",
+   "home_name": "Toronto Raptors",
+   "game_start": "2026-11-24T00:30Z",
+   "side_std": "away",
+   "conflict": [
+    "Kalshi move"
+   ],
+   "money_with": false,
+   "grade": "B",
+   "fair_board": null,
+   "inside_fair": null,
+   "books": {
+    "at": "2026-11-22T21:26:20Z",
+    "fair": null,
+    "q": {
+     "Novig": 0.205,
+     "Kalshi": 0.23
+    }
+   }
   },
   {
    "cond": "0x196eac8fd4ebf4f30ca62ca96b9a62f910e5f5b725f0c070713bceabbe738aee",
@@ -1523,9 +1581,9 @@
   },
   "401910039|ml": {
    "away": {
-    "n": 1,
-    "best_rank": 93,
-    "usd": 182
+    "n": 2,
+    "best_rank": 43,
+    "usd": 359
    }
   },
   "401892770|ml": {
@@ -1533,6 +1591,13 @@
     "n": 1,
     "best_rank": 132,
     "usd": 130
+   }
+  },
+  "401892770|total": {
+   "under": {
+    "n": 1,
+    "best_rank": 132,
+    "usd": 177
    }
   },
   "401892771|ml": {
