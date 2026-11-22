@@ -9420,7 +9420,11 @@
 "price": 223,
 "fair": 0.30423,
 "edge_pts": -0.58,
-"why": "opponent EDM wins 68% (17-8); favorite STL -1.5 against a strong team"
+"why": "opponent EDM wins 68% (17-8); favorite STL -1.5 against a strong team",
+"void": true,
+"void_why": "Untracked: systems conflict (nhl_pl_fav_strong_opp vs xch_homedog_fade)",
+"void_at": "2026-11-22T22:41:31Z",
+"untracked": "nhl_pl_fav_strong_opp vs xch_homedog_fade"
 },
 "401892770:nhl_early_home_fav_qual": {
 "tag": "nhl_early_home_fav_qual",
@@ -9433,7 +9437,11 @@
 "price": -117,
 "fair": 0.53562,
 "edge_pts": -0.44,
-"why": "home favorite, game 24 of the season, opponent EDM wins 68% (17-8)"
+"why": "home favorite, game 24 of the season, opponent EDM wins 68% (17-8)",
+"void": true,
+"void_why": "Untracked: systems conflict (nhl_early_home_fav_qual vs xch_homedog_fade)",
+"void_at": "2026-11-22T22:41:31Z",
+"untracked": "nhl_early_home_fav_qual vs xch_homedog_fade"
 },
 "401873076:xch_homedog_fade:ml": {
 "tag": "xch_homedog_fade",
@@ -9658,5 +9666,39 @@
 "fair": null,
 "edge_pts": null,
 "why": "opponent EDM wins 68% (17-8); favorite VGK -1.5 against a strong team"
+},
+"401910032:xch_homedog_fade:ml": {
+"tag": "xch_homedog_fade",
+"fill_id": "fddd0bbfc7b3",
+"ts": "2026-11-22T22:41:31Z",
+"market": "ml",
+"side": "away",
+"line": null,
+"venue": "Novig",
+"price": -355,
+"fair": 0.78277,
+"edge_pts": 0.28,
+"why": "Novig home side mid 0.225 inside T-1.3h; audit band 20-35c",
+"now": {
+"venue": "Novig",
+"price": -355
+}
+},
+"401892770:xch_homedog_fade:spread": {
+"tag": "xch_homedog_fade",
+"fill_id": "d38d57730411",
+"ts": "2026-11-22T22:41:31Z",
+"market": "spread",
+"side": "away",
+"line": 1.5,
+"venue": "Novig",
+"price": -233,
+"fair": 0.69916,
+"edge_pts": -0.08,
+"why": "Novig home side mid 0.302 inside T-1.3h; audit band 20-35c",
+"void": true,
+"void_why": "Untracked: systems conflict (xch_homedog_fade vs nhl_pl_fav_strong_opp)",
+"void_at": "2026-11-22T22:41:31Z",
+"untracked": "xch_homedog_fade vs nhl_pl_fav_strong_opp"
 }
 }
