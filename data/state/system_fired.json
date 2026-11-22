@@ -9667,10 +9667,36 @@
 "edge_pts": null,
 "why": "opponent EDM wins 68% (17-8); favorite VGK -1.5 against a strong team"
 },
+"401873080:nfl_road_dog_7510": {
+"tag": "nfl_road_dog_7510",
+"fill_id": "e7742efc3b1d",
+"ts": "2026-11-22T22:58:02Z",
+"market": "spread",
+"side": "away",
+"line": 8.5,
+"venue": "Novig",
+"price": -104,
+"fair": 0.50555,
+"edge_pts": -0.44,
+"why": "PHI +8.5 on the road"
+},
+"401858544:cfb_homefav_7510_under": {
+"tag": "cfb_homefav_7510_under",
+"fill_id": "e2ce7ab6f84a",
+"ts": "2026-11-22T22:58:02Z",
+"market": "total",
+"side": "under",
+"line": 37.5,
+"venue": "FD",
+"price": -114,
+"fair": 0.51025,
+"edge_pts": -2.25,
+"why": "home favourite WIS -7.5, total 37.5: under (mined angle)"
+},
 "401910032:xch_homedog_fade:ml": {
 "tag": "xch_homedog_fade",
-"fill_id": "fddd0bbfc7b3",
-"ts": "2026-11-22T22:41:31Z",
+"fill_id": "2c076c11ce37",
+"ts": "2026-11-22T22:58:02Z",
 "market": "ml",
 "side": "away",
 "line": null,
@@ -9678,16 +9704,12 @@
 "price": -355,
 "fair": 0.78277,
 "edge_pts": 0.28,
-"why": "Novig home side mid 0.225 inside T-1.3h; audit band 20-35c",
-"now": {
-"venue": "Novig",
-"price": -355
-}
+"why": "Novig home side mid 0.225 inside T-1.0h; audit band 20-35c"
 },
 "401892770:xch_homedog_fade:spread": {
 "tag": "xch_homedog_fade",
-"fill_id": "d38d57730411",
-"ts": "2026-11-22T22:41:31Z",
+"fill_id": "bc273149cc1d",
+"ts": "2026-11-22T22:58:02Z",
 "market": "spread",
 "side": "away",
 "line": 1.5,
@@ -9695,10 +9717,6 @@
 "price": -233,
 "fair": 0.69916,
 "edge_pts": -0.08,
-"why": "Novig home side mid 0.302 inside T-1.3h; audit band 20-35c",
-"void": true,
-"void_why": "Untracked: systems conflict (xch_homedog_fade vs nhl_pl_fav_strong_opp)",
-"void_at": "2026-11-22T22:41:31Z",
-"untracked": "xch_homedog_fade vs nhl_pl_fav_strong_opp"
+"why": "Novig home side mid 0.302 inside T-1.0h; audit band 20-35c"
 }
 }
