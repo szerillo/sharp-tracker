@@ -189,14 +189,14 @@ def main():
     tiers = {k: (v.get('evidence') or {}).get('tier') for k, v in SF_['rules'].items()}
     # 11/22 (Sean via Kirk): honor lapsed wind bets. A wind fill whose forecast no longer meets the rule before kickoff (system_fires shows
     # it lapsed) is not a bet: no units, not in the record. data/state/lapsed_fills.json keeps the call after kickoff, when system_fires
-    # drops the game; a fill that fires again before kickoff comes back. Line-based rules keep the standing rule (lapsed is still graded).
+    # drops the game; a fill that fires again before kickoff comes back. 11/22 (Kirk): every rule, not just wind (Sean tracks his own bets).
     lp_path = os.path.join(SD, 'lapsed_fills.json')
     try: LAPSED = json.load(open(lp_path))
     except Exception: LAPSED = {}
     lap_now, live_now = set(), set()
     for g_ in SF_.get('games', []):
         for f_ in g_.get('fills', []):
-            if f_.get('fill_id') and 'wind' in str(f_.get('tag', '')): (lap_now if f_.get('lapsed') else live_now).add(f_['fill_id'])
+            if f_.get('fill_id'): (lap_now if f_.get('lapsed') else live_now).add(f_['fill_id'])
     bets = []
     # ---- systems
     for l in open(os.path.join(SD, 'fills.jsonl')):
@@ -208,7 +208,7 @@ def main():
         elif tag in DEMOTED_FROM and (r.get('start_utc') or '') < DEMOTED_FROM[tag] and (r.get('start_utc') or '') >= PROMOTED_FROM.get(tag, ''): cat = 'lean C'
         e = S.get(r['event_id']) or {}
         won = {'W': 1, 'L': 0, 'P': 0.5}.get(r.get('result'))
-        if 'wind' in tag and (r.get('start_utc') or '') > NOW.strftime('%Y-%m-%dT%H:%M:%SZ'):
+        if (r.get('start_utc') or '') > NOW.strftime('%Y-%m-%dT%H:%M:%SZ'):
             if r['fill_id'] in lap_now: LAPSED[r['fill_id']] = dict(rule=tag, event_id=r['event_id'], start=r['start_utc'], seen=NOW.strftime('%Y-%m-%dT%H:%M:%SZ'))
             elif r['fill_id'] in live_now: LAPSED.pop(r['fill_id'], None)
         bets.append(dict(id='s:' + r['fill_id'], src='system', cat=cat, rule=tag, sport=e.get('sport'), event_id=r['event_id'], game=f"{e.get('away', '?')} @ {e.get('home', '?')}",
@@ -522,7 +522,7 @@ def main():
         b['bet_type'] = b['market'].replace('1s_ml', 'set1_ml')
         b['size'] = size_units(b['cat'], b.get('rule'), b.get('sport'), b.get('flagged'), b.get('start'), b.get('against')); b['units'] = units(b['price'], b['won'], b['size'])
         if b['src'] == 'system' and b['id'][2:] in LAPSED:
-            b['lapsed'] = True; b['excluded'] = 'lapsed: the wind forecast no longer met the rule before kickoff, so not a bet'
+            b['lapsed'] = True; b['excluded'] = 'lapsed: the trigger no longer held before the start (forecast or line moved), so not a bet'
             b['units_raw'] = b['units']; b['units'] = None; b['won_raw'] = b['won']; b['won'] = None; b['size'] = 0
         elif bad_price(b['price'], b.get('rule')):
             b['excluded'] = f"price {b['price']} out of range (above 0.95, or above 0.90 for an underdog rule): not graded"
