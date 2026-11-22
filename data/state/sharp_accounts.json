@@ -1,5 +1,5 @@
 {
- "built": "2026-11-22T19:18:51Z",
+ "built": "2026-11-22T19:26:58Z",
  "rows": [
   {
    "cond": "0x6b8101c3109c4e63e43912ff63464b277263c888f201842d3fc9f4819970e67d",
@@ -148,16 +148,7 @@
    "grade": "A",
    "inside_fair": false,
    "fair_board": 0.2327,
-   "books": {
-    "at": "2026-11-22T17:42:33Z",
-    "fair": 0.2371,
-    "q": {
-     "Novig": 0.24,
-     "Caesars": 0.25,
-     "FD": 0.2532,
-     "Kalshi": 0.26
-    }
-   }
+   "books": null
   },
   {
    "cond": "0x7915c5e99dba4d1e615776e0c161bce1d1b5f8fc53e682cb6e3a3b32a76e2c89",
@@ -269,15 +260,55 @@
    "inside_fair": true,
    "fair_board": 0.5576,
    "books": {
-    "at": "2026-11-22T17:42:33Z",
-    "fair": 0.5304,
+    "at": "2026-11-22T19:06:30Z",
+    "fair": 0.5278,
     "q": {
      "Novig": 0.53,
-     "FD": 0.5413,
-     "Caesars": 0.5556,
-     "Kalshi": 0.56
+     "Caesars": 0.5455,
+     "FD": 0.5495,
+     "Kalshi": 0.55
     }
    }
+  },
+  {
+   "cond": "0x3ec44dda072245305fe98c00341d0b9b2d6f0510a001a84c32371f2fbdb4439a",
+   "slug": "nfl-jax-nyg-2026-11-22",
+   "title": "Jaguars vs. Giants",
+   "mtype": "total",
+   "start": "2026-11-22T21:25:00Z",
+   "bet": "Under 46.5",
+   "side": "Under",
+   "flagged": "2026-11-22T19:18:50Z",
+   "why": "2 top-200 accounts",
+   "proven": false,
+   "trigger": "two",
+   "n_accounts": 2,
+   "best_rank": 58,
+   "usd": 8355,
+   "paid": 0.493,
+   "ask": 0.55,
+   "status": "live",
+   "link": "https://polymarket.us/event/nfl-jax-nyg-2026-11-22",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401873069",
+   "sport": "nfl",
+   "league": null,
+   "away": "JAX",
+   "home": "NYG",
+   "away_name": "Jacksonville Jaguars",
+   "home_name": "New York Giants",
+   "game_start": "2026-11-22T21:25Z",
+   "side_std": "under",
+   "conflict": [
+    "Kalshi bet back"
+   ],
+   "money_with": true,
+   "grade": "A",
+   "fair_board": null,
+   "inside_fair": null,
+   "books": null
   },
   {
    "cond": "0xf67a356cdda583f8e63a960c077b10f61d910db4553d277e798a08d32654b228",
@@ -352,11 +383,11 @@
    "inside_fair": false,
    "fair_board": 0.492,
    "books": {
-    "at": "2026-11-22T17:42:33Z",
-    "fair": 0.484,
+    "at": "2026-11-22T19:06:30Z",
+    "fair": 0.4842,
     "q": {
      "Novig": 0.485,
-     "Caesars": 0.505,
+     "Caesars": 0.5098,
      "Kalshi": 0.51,
      "DK": 0.5122
     }
@@ -398,13 +429,13 @@
    "inside_fair": false,
    "fair_board": 0.4827,
    "books": {
-    "at": "2026-11-22T17:42:33Z",
-    "fair": 0.4873,
+    "at": "2026-11-22T19:06:30Z",
+    "fair": 0.4954,
     "q": {
-     "Novig": 0.49,
+     "Novig": 0.5,
      "Caesars": 0.505,
-     "Kalshi": 0.51,
-     "DK": 0.5122
+     "DK": 0.5122,
+     "FD": 0.5122
     }
    }
   },
@@ -479,14 +510,16 @@
    "side_std": "home",
    "money_with": false,
    "grade": "A",
-   "fair_board": 0.6594,
+   "fair_board": 0.6651,
    "inside_fair": true,
    "books": {
-    "at": "2026-11-22T17:42:33Z",
-    "fair": 0.6594,
+    "at": "2026-11-22T19:06:30Z",
+    "fair": 0.6651,
     "q": {
      "Novig": 0.675,
-     "Kalshi": 0.69
+     "Caesars": 0.6805,
+     "DK": 0.6855,
+     "FD": 0.6875
     }
    }
   },
@@ -523,14 +556,16 @@
    "side_std": "home",
    "money_with": false,
    "grade": "A",
-   "fair_board": 0.5808,
+   "fair_board": 0.5886,
    "inside_fair": false,
    "books": {
-    "at": "2026-11-22T17:42:33Z",
-    "fair": 0.5808,
+    "at": "2026-11-22T19:06:30Z",
+    "fair": 0.5886,
     "q": {
+     "DK": 0.5968,
+     "Caesars": 0.5968,
      "Kalshi": 0.6,
-     "Novig": 0.6
+     "Novig": 0.605
     }
    }
   },
@@ -567,14 +602,16 @@
    "side_std": "home",
    "money_with": false,
    "grade": "A",
-   "fair_board": null,
-   "inside_fair": null,
+   "fair_board": 0.5066,
+   "inside_fair": false,
    "books": {
-    "at": "2026-11-22T17:42:33Z",
-    "fair": null,
+    "at": "2026-11-22T19:06:30Z",
+    "fair": 0.5066,
     "q": {
-     "Kalshi": 0.51,
-     "Novig": 0.52
+     "Kalshi": 0.52,
+     "Novig": 0.525,
+     "Caesars": 0.5305,
+     "DK": 0.5349
     }
    }
   },
@@ -991,7 +1028,7 @@
    ],
    "money_with": true,
    "grade": "A",
-   "fair_board": 0.3874,
+   "fair_board": 0.3899,
    "inside_fair": false,
    "books": null
   },
@@ -1091,8 +1128,8 @@
    ],
    "money_with": false,
    "grade": "B",
-   "fair_board": 0.7594,
-   "inside_fair": true,
+   "fair_board": 0.7292,
+   "inside_fair": false,
    "books": null
   },
   {
@@ -1224,9 +1261,9 @@
   },
   "401873069|total": {
    "under": {
-    "n": 1,
-    "best_rank": 115,
-    "usd": 7905
+    "n": 2,
+    "best_rank": 58,
+    "usd": 8355
    }
   },
   "401873069|ml": {
@@ -1317,9 +1354,9 @@
     "usd": 1874
    },
    "home": {
-    "n": 1,
-    "best_rank": 115,
-    "usd": 584
+    "n": 2,
+    "best_rank": 55,
+    "usd": 1203
    }
   },
   "401910033|spread": {
@@ -1355,9 +1392,9 @@
   },
   "401910035|total": {
    "over": {
-    "n": 1,
+    "n": 2,
     "best_rank": 93,
-    "usd": 540
+    "usd": 806
    }
   },
   "401910035|spread": {
