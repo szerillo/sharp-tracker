@@ -1,5 +1,5 @@
 {
- "built": "2026-11-22T21:51:53Z",
+ "built": "2026-11-22T22:04:04Z",
  "record": {
   "n": 225,
   "won": 99,
@@ -254,6 +254,47 @@
    "move": 1.9,
    "flagged": "2026-11-22T19:37:08Z",
    "team": null
+  },
+  {
+   "key": "sb4|401910030|ml|home",
+   "kind": "sb4",
+   "sport": "nba",
+   "event_id": "401910030",
+   "game": "OKC @ MIA",
+   "start": "2026-11-22T23:00Z",
+   "market": "ml",
+   "side": "home",
+   "line": null,
+   "venue": "DK",
+   "price": 0.6337,
+   "fair": 0.6879,
+   "fair_power": 0.6974,
+   "venue_fair": 0.6092,
+   "fair_gap": 7.9,
+   "ev": 8.6,
+   "move": 8.2,
+   "flagged": "2026-11-22T22:04:04Z",
+   "team": "MIA"
+  },
+  {
+   "key": "401910030|ml|home",
+   "sport": "nba",
+   "event_id": "401910030",
+   "game": "OKC @ MIA",
+   "start": "2026-11-22T23:00Z",
+   "market": "ml",
+   "side": "home",
+   "line": null,
+   "venue": "DK",
+   "price": 0.6337,
+   "fair": 0.6879,
+   "fair_power": 0.6974,
+   "venue_fair": 0.6092,
+   "fair_gap": 7.9,
+   "ev": 8.6,
+   "move": 8.2,
+   "flagged": "2026-11-22T22:04:04Z",
+   "team": "MIA"
   }
  ]
 }
