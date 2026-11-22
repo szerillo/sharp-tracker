@@ -1,43 +1,6 @@
 {
- "built": "2026-11-22T18:29:53Z",
+ "built": "2026-11-22T18:36:58Z",
  "rows": [
-  {
-   "cond": "0xb790bd8ba36a3bf8c94e3f881668874eaf60b0fffd56a25f4879bad3d1a4af58",
-   "slug": "bun-aug-mai-2026-11-22-more-markets",
-   "title": "FC Augsburg vs. 1. FSV Mainz 05 - More Markets",
-   "mtype": "total",
-   "start": "2026-11-22T14:30:00Z",
-   "bet": "Under 3.5",
-   "side": "Under",
-   "flagged": "2026-11-22T10:12:37Z",
-   "why": "a top-200 account also in this sport's top 50",
-   "proven": true,
-   "trigger": "proven",
-   "n_accounts": 1,
-   "best_rank": 157,
-   "usd": 554,
-   "paid": 0.52,
-   "ask": null,
-   "status": "live",
-   "link": "https://polymarket.us/event/bun-aug-mai-2026-11-22-more-markets",
-   "other": null,
-   "kalshi_against": null,
-   "logged": true,
-   "event_id": "401884733",
-   "sport": "soccer",
-   "league": "bundesliga",
-   "away": "M05",
-   "home": "FCA",
-   "away_name": "Mainz",
-   "home_name": "FC Augsburg",
-   "game_start": "2026-11-22T14:30Z",
-   "side_std": "under",
-   "money_with": false,
-   "grade": "A",
-   "inside_fair": true,
-   "fair_board": 0.5336,
-   "books": null
-  },
   {
    "cond": "0x6b8101c3109c4e63e43912ff63464b277263c888f201842d3fc9f4819970e67d",
    "slug": "epl-liv-mun-2026-11-22",
@@ -352,52 +315,6 @@
    "fair_board": null,
    "inside_fair": null,
    "books": null
-  },
-  {
-   "cond": "0x3b3748b734fb393de1e14f5c3fe9ef400e123faaf9a3595361378564f8e33a7d",
-   "slug": "nba-ind-nyk-2026-11-22",
-   "title": "Pacers vs. Knicks",
-   "mtype": "ml",
-   "start": "2026-11-23T01:00:00Z",
-   "bet": "Knicks ML",
-   "side": "Knicks",
-   "flagged": "2026-11-21T22:00:05Z",
-   "why": "2 top-200 accounts",
-   "proven": false,
-   "trigger": "two",
-   "n_accounts": 2,
-   "best_rank": 40,
-   "usd": 964,
-   "paid": 0.763,
-   "ask": 0.73,
-   "status": "live",
-   "link": "https://polymarket.us/event/nba-ind-nyk-2026-11-22",
-   "other": null,
-   "kalshi_against": null,
-   "logged": true,
-   "event_id": "401910034",
-   "sport": "nba",
-   "league": null,
-   "away": "IND",
-   "home": "NY",
-   "away_name": "Indiana Pacers",
-   "home_name": "New York Knicks",
-   "game_start": "2026-11-23T01:00Z",
-   "side_std": "home",
-   "money_with": false,
-   "grade": "B",
-   "fair_board": 0.7594,
-   "inside_fair": true,
-   "books": {
-    "at": "2026-11-22T17:42:33Z",
-    "fair": 0.7594,
-    "q": {
-     "Novig": 0.755,
-     "DK": 0.7748,
-     "Caesars": 0.7753,
-     "FD": 0.7778
-    }
-   }
   },
   {
    "cond": "0x7cb57d9727a9e9ee4b1f1b156b77451aebe084891cf29974294018d641459181",
@@ -1424,9 +1341,9 @@
     "usd": 23449
    },
    "away": {
-    "n": 3,
+    "n": 4,
     "best_rank": 49,
-    "usd": 630
+    "usd": 5336
    }
   },
   "401910035|total": {
