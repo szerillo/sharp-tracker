@@ -9442,5 +9442,31 @@
 "venue": "Novig",
 "price": -190
 }
+},
+"401862841:cfb_day_over": {
+"tag": "cfb_day_over",
+"fill_id": "27d90fca3f2d",
+"ts": "2026-11-22T16:55:50Z",
+"market": "total",
+"side": "over",
+"line": 50.5,
+"venue": "DK",
+"price": -110,
+"fair": 0.5,
+"edge_pts": -2.38,
+"why": "2:00 PM ET kickoff, total 50.5: over (mined angle)"
+},
+"401871082:cfb_road_dog_low_total": {
+"tag": "cfb_road_dog_low_total",
+"fill_id": "d3c31af1bd89",
+"ts": "2026-11-22T16:55:50Z",
+"market": "spread",
+"side": "away",
+"line": 10.5,
+"venue": "DK",
+"price": -110,
+"fair": 0.5,
+"edge_pts": -2.38,
+"why": "conference game, SHSU +10.5 on the road, total 39.5"
 }
 }
