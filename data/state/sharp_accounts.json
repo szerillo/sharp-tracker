@@ -1,5 +1,5 @@
 {
- "built": "2026-11-22T14:05:47Z",
+ "built": "2026-11-22T14:16:04Z",
  "rows": [
   {
    "cond": "0xb790bd8ba36a3bf8c94e3f881668874eaf60b0fffd56a25f4879bad3d1a4af58",
@@ -768,8 +768,8 @@
    },
    "exit_bid": 0.4,
    "kalshi_against": {
-    "move": 6.5,
-    "now": 58.5,
+    "move": 7.0,
+    "now": 59.0,
     "state": "reversed"
    },
    "logged": true,
@@ -983,6 +983,13 @@
     "usd": 115
    }
   },
+  "401873069|spread": {
+   "away": {
+    "n": 1,
+    "best_rank": 58,
+    "usd": 245
+   }
+  },
   "401910029|ml": {
    "away": {
     "n": 1,
@@ -1101,6 +1108,13 @@
     "n": 1,
     "best_rank": 69,
     "usd": 239
+   }
+  },
+  "401921205|ml": {
+   "away": {
+    "n": 1,
+    "best_rank": 132,
+    "usd": 106
    }
   },
   "401884733|total": {
