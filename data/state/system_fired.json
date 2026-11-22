@@ -9586,5 +9586,31 @@
 "fair": null,
 "edge_pts": null,
 "why": "HOU (favourite) off 10 days: dog BAL"
+},
+"401873078:wind1014": {
+"tag": "wind1014",
+"fill_id": "1368084e5f5d",
+"ts": "2026-11-22T19:52:49Z",
+"market": "total",
+"side": "under",
+"line": 54.5,
+"venue": "DK",
+"price": -103,
+"fair": 0.50026,
+"edge_pts": -0.71,
+"why": "MySportsWeather 10 mph, gusts 22 (Open-Meteo 11.2 at T-30h), gust 28.4, 49.0F"
+},
+"401860929:cfb_day_over": {
+"tag": "cfb_day_over",
+"fill_id": "8bdacd48875d",
+"ts": "2026-11-22T19:52:49Z",
+"market": "total",
+"side": "over",
+"line": 46.5,
+"venue": "DK",
+"price": -110,
+"fair": 0.5116,
+"edge_pts": -1.22,
+"why": "6:30 PM ET kickoff, total 46.5: over (mined angle)"
 }
 }
