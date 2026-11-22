@@ -1,5 +1,5 @@
 {
- "built": "2026-11-22T16:25:11Z",
+ "built": "2026-11-22T16:40:59Z",
  "rows": [
   {
    "cond": "0xb790bd8ba36a3bf8c94e3f881668874eaf60b0fffd56a25f4879bad3d1a4af58",
@@ -271,6 +271,9 @@
    "home_name": "Chicago Bears",
    "game_start": "2026-11-22T18:00Z",
    "side_std": "away",
+   "conflict": [
+    "Kalshi move"
+   ],
    "money_with": false,
    "grade": "A",
    "fair_board": null,
@@ -479,8 +482,8 @@
    "side_std": "home",
    "money_with": false,
    "grade": "A",
-   "fair_board": 0.492,
    "inside_fair": false,
+   "fair_board": 0.492,
    "books": {
     "at": "2026-11-22T16:01:28Z",
     "fair": 0.492,
@@ -880,9 +883,9 @@
    "status": "other side",
    "link": "https://polymarket.us/event/nba-okc-mia-2026-11-22",
    "other": {
-    "n_accounts": 3,
+    "n_accounts": 4,
     "best_rank": 40,
-    "usd": 3386,
+    "usd": 4469,
     "first": "2026-11-21T22:15:07Z"
    },
    "exit_bid": 0.39,
@@ -1256,9 +1259,9 @@
     "usd": 1802
    },
    "home": {
-    "n": 3,
+    "n": 4,
     "best_rank": 40,
-    "usd": 3210
+    "usd": 4293
    }
   },
   "401910031|spread": {
