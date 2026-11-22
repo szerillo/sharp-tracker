@@ -9265,7 +9265,10 @@
 "price": -105,
 "fair": 0.49473,
 "edge_pts": -1.75,
-"why": "conference game, M-OH on road game 2 in a row, +7.5, total 46.5"
+"why": "conference game, M-OH on road game 2 in a row, +7.5, total 46.5",
+"void": true,
+"void_why": "rule no longer holds on the current line: home spread -7.5, total 46.5 (2026-11-22T17:33:08Z)",
+"void_at": "2026-11-22T17:33:08Z"
 },
 "401866471:cfb_homefav_7510_under": {
 "tag": "cfb_homefav_7510_under",
@@ -9320,7 +9323,10 @@
 "price": -110,
 "fair": 0.50262,
 "edge_pts": -2.12,
-"why": "home favourite OSU -9.5, total 38.5: under (mined angle)"
+"why": "home favourite OSU -9.5, total 38.5: under (mined angle)",
+"void": true,
+"void_why": "rule no longer holds on the current line: home spread -11.5, total 38.5 (2026-11-22T17:33:08Z)",
+"void_at": "2026-11-22T17:33:08Z"
 },
 "401856875:cfb_day_over": {
 "tag": "cfb_day_over",
@@ -9468,5 +9474,83 @@
 "fair": 0.5,
 "edge_pts": -2.38,
 "why": "conference game, SHSU +10.5 on the road, total 39.5"
+},
+"401871063:cfb_day_over": {
+"tag": "cfb_day_over",
+"fill_id": "1486934e4544",
+"ts": "2026-11-22T17:33:08Z",
+"market": "total",
+"side": "over",
+"line": 51.5,
+"venue": "DK",
+"price": -110,
+"fair": 0.5,
+"edge_pts": -2.38,
+"why": "2:00 PM ET kickoff, total 51.5: over (mined angle)"
+},
+"401869939:cfb_day_over": {
+"tag": "cfb_day_over",
+"fill_id": "cdd96a7d2e81",
+"ts": "2026-11-22T17:33:08Z",
+"market": "total",
+"side": "over",
+"line": 46.5,
+"venue": "DK",
+"price": -110,
+"fair": 0.5,
+"edge_pts": -2.38,
+"why": "3:00 PM ET kickoff, total 46.5: over (mined angle)"
+},
+"401864550:cfb_day_over": {
+"tag": "cfb_day_over",
+"fill_id": "318dd524cedb",
+"ts": "2026-11-22T17:33:08Z",
+"market": "total",
+"side": "over",
+"line": 49.5,
+"venue": "DK",
+"price": -110,
+"fair": 0.5,
+"edge_pts": -2.38,
+"why": "3:30 PM ET kickoff, total 49.5: over (mined angle)"
+},
+"401862839:cfb_road_dog_low_total": {
+"tag": "cfb_road_dog_low_total",
+"fill_id": "d4fc1036be22",
+"ts": "2026-11-22T17:33:08Z",
+"market": "spread",
+"side": "away",
+"line": 7.5,
+"venue": "DK",
+"price": -110,
+"fair": 0.5,
+"edge_pts": -2.38,
+"why": "conference game, TULN +7.5 on the road, total 45.5"
+},
+"401862839:cfb_day_over": {
+"tag": "cfb_day_over",
+"fill_id": "7e904921b581",
+"ts": "2026-11-22T17:33:08Z",
+"market": "total",
+"side": "over",
+"line": 45.5,
+"venue": "DK",
+"price": -110,
+"fair": 0.5,
+"edge_pts": -2.38,
+"why": "3:30 PM ET kickoff, total 45.5: over (mined angle)"
+},
+"401862839:cfb_homefav_7510_under": {
+"tag": "cfb_homefav_7510_under",
+"fill_id": "e84235481653",
+"ts": "2026-11-22T17:33:08Z",
+"market": "total",
+"side": "under",
+"line": 45.5,
+"venue": "DK",
+"price": -110,
+"fair": 0.5,
+"edge_pts": -2.38,
+"why": "home favourite USF -7.5, total 45.5: under (mined angle)"
 }
 }
