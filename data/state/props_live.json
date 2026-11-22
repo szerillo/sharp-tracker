@@ -1,5 +1,5 @@
 {
- "built": "2026-11-22T17:41:04Z",
+ "built": "2026-11-22T17:53:10Z",
  "record": {
   "n": 62,
   "won": 28,
@@ -11,14 +11,14 @@
    "positive": 0
   },
   "clv": {
-   "n": 40,
-   "avg": 1.62,
-   "beat": 38,
+   "n": 43,
+   "avg": 1.56,
+   "beat": 41,
    "by_rule": {
     "anytime td": {
-     "n": 10,
-     "avg": 1.87,
-     "beat": 10
+     "n": 13,
+     "avg": 1.63,
+     "beat": 13
     },
     "nhl under": {
      "n": 19,
@@ -56,7 +56,12 @@
    "pin_no": 1.29,
    "pin_ts": "2026-11-22T17:26:51Z",
    "book_ts": "2026-11-22T17:25:48Z",
-   "flagged": "2026-11-22T17:27:01Z"
+   "flagged": "2026-11-22T17:27:01Z",
+   "close_ts": "2026-11-22T17:53:10Z",
+   "close_fair": 0.2596,
+   "close_line": 0.5,
+   "clv": 0.64,
+   "beat_fair": 0.0
   },
   {
    "key": "3ea90704fb576633bd1e2fa5aafd9ea3|player_anytime_td|Colston Loveland|yes",
@@ -80,7 +85,12 @@
    "pin_no": 1.69,
    "pin_ts": "2026-11-22T17:26:04Z",
    "book_ts": "2026-11-22T17:26:58Z",
-   "flagged": "2026-11-22T17:27:01Z"
+   "flagged": "2026-11-22T17:27:01Z",
+   "close_ts": "2026-11-22T17:53:10Z",
+   "close_fair": 0.4356,
+   "close_line": 0.5,
+   "clv": 1.01,
+   "beat_fair": 0.0
   },
   {
    "key": "3ea90704fb576633bd1e2fa5aafd9ea3|player_anytime_td|Rome Odunze|yes",
@@ -104,7 +114,12 @@
    "pin_no": 1.49,
    "pin_ts": "2026-11-22T17:26:04Z",
    "book_ts": "2026-11-22T17:26:54Z",
-   "flagged": "2026-11-22T17:27:01Z"
+   "flagged": "2026-11-22T17:27:01Z",
+   "close_ts": "2026-11-22T17:53:10Z",
+   "close_fair": 0.359,
+   "close_line": 0.5,
+   "clv": 0.81,
+   "beat_fair": 0.0
   }
  ]
 }
