@@ -1,5 +1,5 @@
 {
- "built": "2026-11-22T20:48:50Z",
+ "built": "2026-11-22T21:32:39Z",
  "rows": [
   {
    "cond": "0xe5ca25046b18e1d0064a850167b85e5e255117146294a008dd44ea8c9c222a56",
@@ -223,13 +223,13 @@
    "inside_fair": true,
    "fair_board": 0.5576,
    "books": {
-    "at": "2026-11-22T19:58:50Z",
-    "fair": 0.5354,
+    "at": "2026-11-22T20:24:25Z",
+    "fair": 0.5549,
     "q": {
-     "Novig": 0.54,
-     "FD": 0.5455,
-     "DK": 0.5536,
-     "Caesars": 0.5556
+     "FD": 0.5575,
+     "Novig": 0.56,
+     "Caesars": 0.5652,
+     "DK": 0.5745
     }
    }
   },
@@ -348,6 +348,162 @@
    "books": null
   },
   {
+   "cond": "0x156dddb8450e4a8e7532a4d4d98e52f79aec97264eacb233e253a2641062899b",
+   "slug": "nba-okc-mia-2026-11-22",
+   "title": "Thunder vs. Heat",
+   "mtype": "spread",
+   "start": "2026-11-22T23:00:00Z",
+   "bet": "Heat -6.5",
+   "side": "Heat",
+   "flagged": "2026-11-22T21:31:07Z",
+   "why": "2 top-200 accounts",
+   "proven": false,
+   "trigger": "two",
+   "n_accounts": 2,
+   "best_rank": 110,
+   "usd": 675,
+   "paid": 0.434,
+   "ask": 0.5,
+   "status": "live",
+   "link": "https://polymarket.us/event/nba-okc-mia-2026-11-22",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401910030",
+   "sport": "nba",
+   "league": null,
+   "away": "OKC",
+   "home": "MIA",
+   "away_name": "Oklahoma City Thunder",
+   "home_name": "Miami Heat",
+   "game_start": "2026-11-22T23:00Z",
+   "side_std": "home",
+   "conflict": [
+    "big money"
+   ],
+   "money_with": false,
+   "grade": "B",
+   "fair_board": null,
+   "inside_fair": null,
+   "books": null
+  },
+  {
+   "cond": "0x92a6a9401b1ddc2a73d5467b369d19cd0050f41d8dc1cb6c2d348b4d5d019b2c",
+   "slug": "nba-okc-mia-2026-11-22",
+   "title": "Thunder vs. Heat",
+   "mtype": "spread",
+   "start": "2026-11-22T23:00:00Z",
+   "bet": "Heat -4.5",
+   "side": "Heat",
+   "flagged": "2026-11-22T21:30:14Z",
+   "why": "3 top-200 accounts",
+   "proven": false,
+   "trigger": "two",
+   "n_accounts": 3,
+   "best_rank": 49,
+   "usd": 4835,
+   "paid": 0.526,
+   "ask": 0.57,
+   "status": "live",
+   "link": "https://polymarket.us/event/nba-okc-mia-2026-11-22",
+   "other": null,
+   "kalshi_against": null,
+   "logged": false,
+   "ladder": true,
+   "event_id": "401910030",
+   "sport": "nba",
+   "league": null,
+   "away": "OKC",
+   "home": "MIA",
+   "away_name": "Oklahoma City Thunder",
+   "home_name": "Miami Heat",
+   "game_start": "2026-11-22T23:00Z",
+   "side_std": "home",
+   "conflict": [
+    "big money"
+   ],
+   "money_with": false,
+   "grade": "B",
+   "fair_board": null,
+   "inside_fair": null,
+   "books": null
+  },
+  {
+   "cond": "0x6d241faa1697ea04e1cf6c4bf83f68704ba1bbf0029d8adc50ea26b702e2e5a6",
+   "slug": "nba-okc-mia-2026-11-22",
+   "title": "Thunder vs. Heat",
+   "mtype": "total",
+   "start": "2026-11-22T23:00:00Z",
+   "bet": "Under 222.5",
+   "side": "Under",
+   "flagged": "2026-11-22T21:30:11Z",
+   "why": "a top-200 account also in this sport's top 50",
+   "proven": true,
+   "trigger": "proven",
+   "n_accounts": 1,
+   "best_rank": 104,
+   "usd": 132,
+   "paid": 0.33,
+   "ask": 0.35,
+   "status": "live",
+   "link": "https://polymarket.us/event/nba-okc-mia-2026-11-22",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401910030",
+   "sport": "nba",
+   "league": null,
+   "away": "OKC",
+   "home": "MIA",
+   "away_name": "Oklahoma City Thunder",
+   "home_name": "Miami Heat",
+   "game_start": "2026-11-22T23:00Z",
+   "side_std": "under",
+   "money_with": false,
+   "grade": "watch",
+   "fair_board": null,
+   "inside_fair": null,
+   "books": null
+  },
+  {
+   "cond": "0x836bd9bbda2f9cf2a2c59032e07cbf1ca7545e6c161c995c5e43f43e768b1e97",
+   "slug": "nba-okc-mia-2026-11-22",
+   "title": "Thunder vs. Heat",
+   "mtype": "total",
+   "start": "2026-11-22T23:00:00Z",
+   "bet": "Under 224.5",
+   "side": "Under",
+   "flagged": "2026-11-22T21:30:11Z",
+   "why": "a top-200 account also in this sport's top 50",
+   "proven": true,
+   "trigger": "proven",
+   "n_accounts": 1,
+   "best_rank": 104,
+   "usd": 151,
+   "paid": 0.369,
+   "ask": 0.39,
+   "status": "live",
+   "link": "https://polymarket.us/event/nba-okc-mia-2026-11-22",
+   "other": null,
+   "kalshi_against": null,
+   "logged": false,
+   "ladder": true,
+   "event_id": "401910030",
+   "sport": "nba",
+   "league": null,
+   "away": "OKC",
+   "home": "MIA",
+   "away_name": "Oklahoma City Thunder",
+   "home_name": "Miami Heat",
+   "game_start": "2026-11-22T23:00Z",
+   "side_std": "under",
+   "money_with": false,
+   "grade": "watch",
+   "fair_board": null,
+   "inside_fair": null,
+   "books": null
+  },
+  {
    "cond": "0x7cb57d9727a9e9ee4b1f1b156b77451aebe084891cf29974294018d641459181",
    "slug": "nhl-chi-van-2026-11-22",
    "title": "Blackhawks vs. Canucks",
@@ -383,8 +539,8 @@
    "inside_fair": false,
    "fair_board": 0.492,
    "books": {
-    "at": "2026-11-22T19:58:50Z",
-    "fair": 0.4856,
+    "at": "2026-11-22T21:07:49Z",
+    "fair": 0.486,
     "q": {
      "Novig": 0.485,
      "Caesars": 0.5098,
@@ -432,13 +588,13 @@
    "inside_fair": false,
    "fair_board": 0.4827,
    "books": {
-    "at": "2026-11-22T19:58:50Z",
-    "fair": 0.4962,
+    "at": "2026-11-22T21:07:49Z",
+    "fair": 0.511,
     "q": {
-     "Novig": 0.5,
-     "Caesars": 0.505,
-     "DK": 0.5122,
-     "FD": 0.5122
+     "Novig": 0.515,
+     "Caesars": 0.5238,
+     "FD": 0.5238,
+     "DK": 0.5283
     }
    }
   },
@@ -499,7 +655,7 @@
    "best_rank": 112,
    "usd": 6960,
    "paid": 0.554,
-   "ask": 0.6,
+   "ask": 0.57,
    "status": "live",
    "link": "https://polymarket.us/event/nba-bos-gsw-2026-11-22",
    "other": null,
@@ -514,16 +670,16 @@
    "home_name": "Golden State Warriors",
    "game_start": "2026-11-23T01:30Z",
    "side_std": "home",
-   "money_with": false,
-   "grade": "B",
+   "money_with": true,
+   "grade": "A",
    "fair_board": null,
    "inside_fair": null,
    "books": {
-    "at": "2026-11-22T19:58:50Z",
+    "at": "2026-11-22T21:07:49Z",
     "fair": null,
     "q": {
      "Novig": 0.555,
-     "Kalshi": 0.58
+     "Kalshi": 0.57
     }
    }
   },
@@ -543,7 +699,7 @@
    "best_rank": 49,
    "usd": 26144,
    "paid": 0.528,
-   "ask": 0.56,
+   "ask": 0.54,
    "status": "live",
    "link": "https://polymarket.us/event/nba-bos-gsw-2026-11-22",
    "other": null,
@@ -559,15 +715,15 @@
    "home_name": "Golden State Warriors",
    "game_start": "2026-11-23T01:30Z",
    "side_std": "home",
-   "money_with": false,
-   "grade": "B",
-   "fair_board": 0.5034,
+   "money_with": true,
+   "grade": "A",
+   "fair_board": 0.5066,
    "inside_fair": false,
    "books": {
-    "at": "2026-11-22T19:58:50Z",
-    "fair": 0.5034,
+    "at": "2026-11-22T21:07:49Z",
+    "fair": 0.5066,
     "q": {
-     "Novig": 0.505,
+     "Novig": 0.51,
      "DK": 0.5192,
      "FD": 0.5238,
      "Caesars": 0.5238
@@ -607,16 +763,16 @@
    "side_std": "home",
    "money_with": false,
    "grade": "A",
-   "fair_board": 0.6636,
+   "fair_board": 0.66,
    "inside_fair": true,
    "books": {
-    "at": "2026-11-22T19:58:50Z",
-    "fair": 0.6636,
+    "at": "2026-11-22T21:07:49Z",
+    "fair": 0.66,
     "q": {
-     "Novig": 0.67,
+     "Novig": 0.665,
+     "Kalshi": 0.68,
      "Caesars": 0.6805,
-     "DK": 0.6855,
-     "FD": 0.6875
+     "DK": 0.6855
     }
    }
   },
@@ -653,16 +809,16 @@
    "side_std": "home",
    "money_with": false,
    "grade": "A",
-   "fair_board": 0.5889,
+   "fair_board": 0.5862,
    "inside_fair": false,
    "books": {
-    "at": "2026-11-22T19:58:50Z",
-    "fair": 0.5889,
+    "at": "2026-11-22T21:07:49Z",
+    "fair": 0.5862,
     "q": {
+     "Novig": 0.595,
      "DK": 0.5968,
      "Caesars": 0.5968,
-     "Novig": 0.6,
-     "FD": 0.6183
+     "Kalshi": 0.61
     }
    }
   },
@@ -699,14 +855,14 @@
    "side_std": "home",
    "money_with": false,
    "grade": "A",
-   "fair_board": 0.5069,
+   "fair_board": 0.5115,
    "inside_fair": false,
    "books": {
-    "at": "2026-11-22T19:58:50Z",
-    "fair": 0.5069,
+    "at": "2026-11-22T21:07:49Z",
+    "fair": 0.5115,
     "q": {
-     "Kalshi": 0.52,
-     "Novig": 0.525,
+     "Kalshi": 0.53,
+     "Novig": 0.53,
      "Caesars": 0.5305,
      "DK": 0.5349
     }
@@ -859,7 +1015,13 @@
    "grade": "A",
    "fair_board": null,
    "inside_fair": null,
-   "books": null
+   "books": {
+    "at": "2026-11-22T21:07:49Z",
+    "fair": null,
+    "q": {
+     "Novig": 0.185
+    }
+   }
   },
   {
    "cond": "0xc8e83d7ba078e6a717cc1102d12536f3eb5a8c830b7e44d8101544c2f5476d5c",
@@ -1094,19 +1256,19 @@
    "best_rank": 40,
    "usd": 3183,
    "paid": 0.444,
-   "ask": 0.4,
+   "ask": 0.32,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-okc-mia-2026-11-22",
    "other": {
-    "n_accounts": 4,
+    "n_accounts": 6,
     "best_rank": 40,
-    "usd": 6494,
+    "usd": 25591,
     "first": "2026-11-21T22:15:07Z"
    },
-   "exit_bid": 0.39,
+   "exit_bid": 0.31,
    "kalshi_against": {
-    "move": 8.0,
-    "now": 60.0,
+    "move": 9.0,
+    "now": 61.0,
     "state": "reversed"
    },
    "logged": true,
@@ -1125,8 +1287,8 @@
    ],
    "money_with": true,
    "grade": "A",
-   "fair_board": 0.3928,
-   "inside_fair": false,
+   "fair_board": 0.3907,
+   "inside_fair": true,
    "books": null
   },
   {
@@ -1225,7 +1387,7 @@
    ],
    "money_with": false,
    "grade": "B",
-   "fair_board": 0.7281,
+   "fair_board": 0.7279,
    "inside_fair": false,
    "books": null
   },
@@ -1272,13 +1434,13 @@
    "inside_fair": false,
    "fair_board": 0.6261,
    "books": {
-    "at": "2026-11-22T19:58:50Z",
-    "fair": 0.6285,
+    "at": "2026-11-22T21:07:49Z",
+    "fair": 0.6378,
     "q": {
-     "FD": 0.6324,
-     "Novig": 0.635,
-     "DK": 0.6377,
-     "Caesars": 0.6454
+     "Novig": 0.64,
+     "FD": 0.6528,
+     "Caesars": 0.6552,
+     "DK": 0.6552
     }
    }
   },
@@ -1341,12 +1503,12 @@
     "clv": -0.2
    }
   },
-  "n": 391,
+  "n": 392,
   "won": 187,
   "units": -16.62,
   "by_grade": {
    "A": {
-    "n": 254,
+    "n": 255,
     "won": 115,
     "units": -15.43,
     "clv": -0.17
@@ -1364,7 +1526,7 @@
     "clv": -0.1
    }
   },
-  "units_1u": -29.05,
+  "units_1u": -30.05,
   "clv": -0.36,
   "n_venue": 202,
   "units_venue": -6.15,
@@ -1372,16 +1534,12 @@
   "clv_poly_same": -0.59
  },
  "sys_tags": {
-  "401873075:nfl_fade_fav_bye": {
-   "with": null,
-   "against": {
-    "n": 1,
-    "best_rank": 12,
-    "usd": 820
-   }
-  },
   "401910032:nba_roadtrip_over": {
-   "with": null,
+   "with": {
+    "n": 1,
+    "best_rank": 115,
+    "usd": 1345
+   },
    "against": {
     "n": 1,
     "best_rank": 132,
@@ -1398,49 +1556,6 @@
   }
  },
  "by_event": {
-  "401873075|ml": {
-   "away": {
-    "n": 1,
-    "best_rank": 143,
-    "usd": 4996
-   },
-   "home": {
-    "n": 1,
-    "best_rank": 132,
-    "usd": 228
-   }
-  },
-  "401873069|total": {
-   "under": {
-    "n": 2,
-    "best_rank": 58,
-    "usd": 8355
-   }
-  },
-  "401873069|ml": {
-   "home": {
-    "n": 1,
-    "best_rank": 143,
-    "usd": 2887
-   },
-   "away": {
-    "n": 1,
-    "best_rank": 182,
-    "usd": 115
-   }
-  },
-  "401873069|spread": {
-   "away": {
-    "n": 1,
-    "best_rank": 58,
-    "usd": 245
-   },
-   "home": {
-    "n": 1,
-    "best_rank": 143,
-    "usd": 9166
-   }
-  },
   "401873077|spread": {
    "home": {
     "n": 1,
@@ -1462,9 +1577,23 @@
     "usd": 3183
    },
    "home": {
-    "n": 4,
+    "n": 6,
     "best_rank": 40,
-    "usd": 4293
+    "usd": 8343
+   }
+  },
+  "401910030|spread": {
+   "home": {
+    "n": 4,
+    "best_rank": 49,
+    "usd": 1167
+   }
+  },
+  "401910030|total": {
+   "under": {
+    "n": 2,
+    "best_rank": 104,
+    "usd": 261
    }
   },
   "401910031|spread": {
@@ -1491,6 +1620,11 @@
     "n": 1,
     "best_rank": 132,
     "usd": 372
+   },
+   "over": {
+    "n": 1,
+    "best_rank": 115,
+    "usd": 1345
    }
   },
   "401910033|ml": {
