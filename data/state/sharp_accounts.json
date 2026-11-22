@@ -1,5 +1,5 @@
 {
- "built": "2026-11-21T23:59:12Z",
+ "built": "2026-11-22T00:08:14Z",
  "rows": [
   {
    "cond": "0x7d80d4e0e39cea5fabdbab43228995a9946d44ba860cb3a55efe62eb6e2ae9eb",
@@ -128,7 +128,7 @@
    "best_rank": 197,
    "usd": 1014,
    "paid": 0.39,
-   "ask": 0.41,
+   "ask": null,
    "status": "live",
    "link": "https://polymarket.us/event/nhl-phi-mon-2026-11-21",
    "other": null,
@@ -146,7 +146,7 @@
    "money_with": false,
    "grade": "A",
    "fair_board": 0.4045,
-   "inside_fair": false,
+   "inside_fair": null,
    "books": {
     "at": "2026-11-21T23:06:48Z",
     "fair": 0.4045,
@@ -174,7 +174,7 @@
    "best_rank": 110,
    "usd": 815,
    "paid": 0.48,
-   "ask": 0.5,
+   "ask": null,
    "status": "live",
    "link": "https://polymarket.us/event/cfb-arz-kanst-2026-11-21",
    "other": null,
@@ -195,7 +195,7 @@
    "money_with": false,
    "grade": "A",
    "fair_board": 0.5062,
-   "inside_fair": true,
+   "inside_fair": null,
    "books": {
     "at": "2026-11-21T23:06:48Z",
     "fair": 0.5062,
@@ -223,12 +223,12 @@
    "best_rank": 12,
    "usd": 940,
    "paid": 0.53,
-   "ask": 0.54,
+   "ask": null,
    "status": "live",
    "link": "https://polymarket.us/event/cfb-vtech-mia-2026-11-21",
    "other": null,
    "kalshi_against": null,
-   "logged": true,
+   "logged": false,
    "event_id": "401858302",
    "sport": "cfb",
    "league": null,
@@ -241,7 +241,7 @@
    "money_with": false,
    "grade": "B",
    "fair_board": 0.4873,
-   "inside_fair": false,
+   "inside_fair": null,
    "books": {
     "at": "2026-11-21T23:06:48Z",
     "fair": 0.4873,
@@ -1075,8 +1075,8 @@
    },
    "exit_bid": 0.46,
    "kalshi_against": {
-    "move": 10.5,
-    "now": 62.5,
+    "move": 5.5,
+    "now": 57.5,
     "state": "reversed"
    },
    "logged": true,
@@ -1375,72 +1375,6 @@
     "usd": 182
    }
   },
-  "401892760|ml": {
-   "away": {
-    "n": 1,
-    "best_rank": 197,
-    "usd": 1014
-   }
-  },
-  "401892761|ml": {
-   "home": {
-    "n": 1,
-    "best_rank": 143,
-    "usd": 972
-   },
-   "away": {
-    "n": 1,
-    "best_rank": 132,
-    "usd": 400
-   }
-  },
-  "401892761|total": {
-   "under": {
-    "n": 1,
-    "best_rank": 58,
-    "usd": 490
-   }
-  },
-  "401892762|ml": {
-   "home": {
-    "n": 1,
-    "best_rank": 132,
-    "usd": 312
-   }
-  },
-  "401892763|ml": {
-   "away": {
-    "n": 1,
-    "best_rank": 132,
-    "usd": 165
-   }
-  },
-  "401858302|total": {
-   "over": {
-    "n": 1,
-    "best_rank": 12,
-    "usd": 940
-   }
-  },
-  "401856865|total": {
-   "over": {
-    "n": 1,
-    "best_rank": 110,
-    "usd": 815
-   },
-   "under": {
-    "n": 1,
-    "best_rank": 110,
-    "usd": 214
-   }
-  },
-  "401869938|total": {
-   "under": {
-    "n": 1,
-    "best_rank": 170,
-    "usd": 604
-   }
-  },
   "401860925|spread": {
    "home": {
     "n": 1,
@@ -1453,13 +1387,6 @@
     "n": 1,
     "best_rank": 12,
     "usd": 287
-   }
-  },
-  "401921776|total": {
-   "under": {
-    "n": 1,
-    "best_rank": 110,
-    "usd": 214
    }
   },
   "401915300|total": {
