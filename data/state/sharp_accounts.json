@@ -1,5 +1,5 @@
 {
- "built": "2026-11-22T19:26:58Z",
+ "built": "2026-11-22T19:41:42Z",
  "rows": [
   {
    "cond": "0x6b8101c3109c4e63e43912ff63464b277263c888f201842d3fc9f4819970e67d",
@@ -1008,8 +1008,8 @@
    },
    "exit_bid": 0.39,
    "kalshi_against": {
-    "move": 9.5,
-    "now": 61.5,
+    "move": 8.5,
+    "now": 60.5,
     "state": "reversed"
    },
    "logged": true,
@@ -1131,6 +1131,59 @@
    "fair_board": 0.7292,
    "inside_fair": false,
    "books": null
+  },
+  {
+   "cond": "0xa7f735ef5dd052af7b34b5cb8a3bff1ab0cf111e2c5f15b836a6cc3aeb75b4a7",
+   "slug": "nfl-min-sf-2026-11-23",
+   "title": "Vikings vs. 49ers",
+   "mtype": "ml",
+   "start": "2026-11-23T01:20:00Z",
+   "bet": "49ers ML",
+   "side": "49ers",
+   "flagged": "2026-11-22T19:39:53Z",
+   "why": "a top-200 account also in this sport's top 50",
+   "proven": true,
+   "trigger": "proven",
+   "n_accounts": 1,
+   "best_rank": 143,
+   "usd": 12200,
+   "paid": 0.64,
+   "ask": 0.65,
+   "status": "live",
+   "link": "https://polymarket.us/event/nfl-min-sf-2026-11-23",
+   "other": null,
+   "kalshi_against": {
+    "move": 7.0,
+    "now": 37.5,
+    "state": "reversed"
+   },
+   "logged": true,
+   "event_id": "401873077",
+   "sport": "nfl",
+   "league": null,
+   "away": "MIN",
+   "home": "SF",
+   "away_name": "Minnesota Vikings",
+   "home_name": "San Francisco 49ers",
+   "game_start": "2026-11-23T01:20Z",
+   "side_std": "home",
+   "conflict": [
+    "Kalshi move"
+   ],
+   "money_with": false,
+   "grade": "A",
+   "fair_board": 0.6261,
+   "inside_fair": false,
+   "books": {
+    "at": "2026-11-22T19:06:30Z",
+    "fair": 0.6261,
+    "q": {
+     "Novig": 0.63,
+     "FD": 0.635,
+     "Caesars": 0.6377,
+     "DK": 0.6377
+    }
+   }
   },
   {
    "cond": "0x196eac8fd4ebf4f30ca62ca96b9a62f910e5f5b725f0c070713bceabbe738aee",
@@ -1295,6 +1348,13 @@
     "n": 1,
     "best_rank": 143,
     "usd": 17251
+   }
+  },
+  "401873077|ml": {
+   "home": {
+    "n": 1,
+    "best_rank": 143,
+    "usd": 12200
    }
   },
   "401910029|ml": {
