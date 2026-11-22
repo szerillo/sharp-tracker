@@ -1,10 +1,10 @@
 {
- "built": "2026-11-22T06:30:26Z",
+ "built": "2026-11-22T06:44:46Z",
  "record": {
-  "n": 61,
+  "n": 62,
   "won": 28,
-  "lost": 33,
-  "units": -0.4,
+  "lost": 34,
+  "units": -0.65,
   "line_value": {
    "n": 30,
    "avg": 0.0,
@@ -33,38 +33,5 @@
    }
   }
  },
- "rows": [
-  {
-   "key": "b754a1bf84af81d45d4a3a16398daa44|player_threes|Sam Hauser|2.5",
-   "sport": "nba",
-   "odds_id": "b754a1bf84af81d45d4a3a16398daa44",
-   "espn": "401910028",
-   "game": "Boston Celtics @ Sacramento Kings",
-   "start": "2026-11-22T03:10:00Z",
-   "market": "player_threes",
-   "player": "Sam Hauser",
-   "line": 2.5,
-   "side": "under",
-   "book": "DK",
-   "price": 2.24,
-   "fair": 0.4759,
-   "ev": 6.6,
-   "pin_under": 1.96,
-   "pin_over": 1.78,
-   "book_over": 1.61,
-   "fair_power": 0.4733,
-   "book_fair": 0.4182,
-   "fair_gap": 5.8,
-   "ev_strict": 6.0,
-   "pin_ts": "2026-11-22T02:41:04Z",
-   "book_ts": "2026-11-22T02:41:50Z",
-   "flagged": "2026-11-22T02:41:50Z",
-   "close_ts": "2026-11-22T03:09:23Z",
-   "close_line": 2.5,
-   "close_fair": 0.4759,
-   "clv": 2.95,
-   "beat_fair": 0.0,
-   "line_value": 0.0
-  }
- ]
+ "rows": []
 }
