@@ -1,5 +1,5 @@
 {
- "built": "2026-11-22T12:54:54Z",
+ "built": "2026-11-22T13:05:10Z",
  "rows": [
   {
    "cond": "0xb790bd8ba36a3bf8c94e3f881668874eaf60b0fffd56a25f4879bad3d1a4af58",
@@ -279,7 +279,7 @@
    "best_rank": 40,
    "usd": 964,
    "paid": 0.763,
-   "ask": 0.75,
+   "ask": 0.76,
    "status": "live",
    "link": "https://polymarket.us/event/nba-ind-nyk-2026-11-22",
    "other": null,
@@ -306,6 +306,43 @@
      "Kalshi": 0.79
     }
    }
+  },
+  {
+   "cond": "0xc518c24e640355315b6dfca3c12f7fba9a01114cd8f653a07281550458429260",
+   "slug": "nhl-cal-ott-2026-11-23",
+   "title": "Flames vs. Senators",
+   "mtype": "ml",
+   "start": "2026-11-24T00:30:00Z",
+   "bet": "Senators ML",
+   "side": "Senators",
+   "flagged": "2026-11-22T12:56:58Z",
+   "why": "a top-200 account also in this sport's top 50",
+   "proven": true,
+   "trigger": "proven",
+   "n_accounts": 1,
+   "best_rank": 197,
+   "usd": 562,
+   "paid": 0.65,
+   "ask": 0.68,
+   "status": "live",
+   "link": "https://polymarket.us/event/nhl-cal-ott-2026-11-23",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401892775",
+   "sport": "nhl",
+   "league": null,
+   "away": "CGY",
+   "home": "OTT",
+   "away_name": "Calgary Flames",
+   "home_name": "Ottawa Senators",
+   "game_start": "2026-11-24T00:30Z",
+   "side_std": "home",
+   "money_with": false,
+   "grade": "A",
+   "fair_board": null,
+   "inside_fair": null,
+   "books": null
   },
   {
    "cond": "0xdd59f8d0c10ce4b29250ead31df8fc5dc89362085d890288d09c041043275b04",
@@ -520,8 +557,8 @@
    },
    "exit_bid": 0.41,
    "kalshi_against": {
-    "move": 5.5,
-    "now": 57.5,
+    "move": 6.0,
+    "now": 58.0,
     "state": "reversed"
    },
    "logged": true,
@@ -766,6 +803,13 @@
     "n": 1,
     "best_rank": 197,
     "usd": 960
+   }
+  },
+  "401892775|ml": {
+   "home": {
+    "n": 1,
+    "best_rank": 197,
+    "usd": 562
    }
   },
   "401884733|total": {
