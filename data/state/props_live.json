@@ -1,5 +1,5 @@
 {
- "built": "2026-11-22T16:56:55Z",
+ "built": "2026-11-22T17:11:34Z",
  "record": {
   "n": 62,
   "won": 28,
@@ -33,5 +33,54 @@
    }
   }
  },
- "rows": []
+ "rows": [
+  {
+   "key": "3ea90704fb576633bd1e2fa5aafd9ea3|player_anytime_td|Colston Loveland|yes",
+   "sport": "nfl",
+   "odds_id": "3ea90704fb576633bd1e2fa5aafd9ea3",
+   "espn": "401873071",
+   "game": "New Orleans Saints @ Chicago Bears",
+   "start": "2026-11-22T18:00:00Z",
+   "market": "player_anytime_td",
+   "player": "Colston Loveland",
+   "line": 0.5,
+   "side": "over",
+   "book": "DK",
+   "price": 2.35,
+   "rule": "anytime td",
+   "fair": 0.4356,
+   "fair_power": 0.4309,
+   "ev": 2.4,
+   "ev_strict": 1.3,
+   "pin_yes": 2.19,
+   "pin_no": 1.69,
+   "pin_ts": "2026-11-22T17:11:32Z",
+   "book_ts": "2026-11-22T17:11:11Z",
+   "flagged": "2026-11-22T17:11:34Z"
+  },
+  {
+   "key": "3ea90704fb576633bd1e2fa5aafd9ea3|player_anytime_td|Rome Odunze|yes",
+   "sport": "nfl",
+   "odds_id": "3ea90704fb576633bd1e2fa5aafd9ea3",
+   "espn": "401873071",
+   "game": "New Orleans Saints @ Chicago Bears",
+   "start": "2026-11-22T18:00:00Z",
+   "market": "player_anytime_td",
+   "player": "Rome Odunze",
+   "line": 0.5,
+   "side": "over",
+   "book": "DK",
+   "price": 2.85,
+   "rule": "anytime td",
+   "fair": 0.359,
+   "fair_power": 0.3489,
+   "ev": 2.3,
+   "ev_strict": -0.6,
+   "pin_yes": 2.66,
+   "pin_no": 1.49,
+   "pin_ts": "2026-11-22T17:11:32Z",
+   "book_ts": "2026-11-22T17:11:11Z",
+   "flagged": "2026-11-22T17:11:34Z"
+  }
+ ]
 }

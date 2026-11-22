@@ -1,5 +1,5 @@
 {
- "built": "2026-11-22T16:56:56Z",
+ "built": "2026-11-22T17:11:35Z",
  "record": {
   "cbb_1h_total_curve": {
    "n": 8,
@@ -87,5 +87,31 @@
    }
   }
  },
- "rows": []
+ "rows": [
+  {
+   "key": "cbb_1h_total_curve|ce609d312c528c91d20e80577d8feee5||over",
+   "rule": "cbb_1h_total_curve",
+   "tier": "P",
+   "stake": 0.0,
+   "sport": "cbb",
+   "odds_id": "ce609d312c528c91d20e80577d8feee5",
+   "espn": "401906868",
+   "game": "Southern Indiana Screaming Eagles @ Texas Longhorns",
+   "start": "2026-11-22T20:00:00Z",
+   "market": "totals_h1",
+   "team": null,
+   "team_name": null,
+   "side": "over",
+   "line": 71.0,
+   "curve": 0.569,
+   "pin_fair": 0.497,
+   "gap": 7.2,
+   "full_total": 151.5,
+   "full_spread": -38.5,
+   "pin_price": 1.92,
+   "book": null,
+   "price": null,
+   "flagged": "2026-11-22T17:11:35Z"
+  }
+ ]
 }
