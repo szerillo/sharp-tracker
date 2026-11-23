@@ -9746,5 +9746,44 @@
 "edge_pts": -0.14,
 "why": "Novig home side mid 0.253 inside T-1.3h; audit band 20-35c",
 "restored": true
+},
+"401873086:nfl_fade_fav_bye": {
+"tag": "nfl_fade_fav_bye",
+"fill_id": "02382b0d612f",
+"ts": "2026-11-23T01:54:53Z",
+"market": "spread",
+"side": "away",
+"line": 2.5,
+"venue": "Novig",
+"price": 150,
+"fair": null,
+"edge_pts": null,
+"why": "CLE (favourite) off 14 days: dog LV"
+},
+"401910040:nba_ats_hot_home": {
+"tag": "nba_ats_hot_home",
+"fill_id": "d0970843175b",
+"ts": "2026-11-23T01:54:53Z",
+"market": "spread",
+"side": "home",
+"line": -12.5,
+"venue": "Caesars",
+"price": -110,
+"fair": 0.5,
+"edge_pts": -2.38,
+"why": "home MIN covers 76% of spreads this season (17 games), 2 days rest: home spread (mined angle)"
+},
+"401910040:nba_roadtrip_over": {
+"tag": "nba_roadtrip_over",
+"fill_id": "d358e1b0cd2d",
+"ts": "2026-11-23T01:54:53Z",
+"market": "total",
+"side": "over",
+"line": 226.5,
+"venue": "Caesars",
+"price": -110,
+"fair": 0.5,
+"edge_pts": -2.38,
+"why": "BKN off 3 straight home games, first road game: over (Bet Labs filter)"
 }
 }
