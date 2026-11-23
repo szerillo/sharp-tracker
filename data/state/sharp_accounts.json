@@ -1,5 +1,5 @@
 {
- "built": "2026-11-23T01:00:18Z",
+ "built": "2026-11-23T01:16:18Z",
  "rows": [
   {
    "cond": "0x3ec44dda072245305fe98c00341d0b9b2d6f0510a001a84c32371f2fbdb4439a",
@@ -297,13 +297,13 @@
    "inside_fair": false,
    "fair_board": 0.492,
    "books": {
-    "at": "2026-11-23T00:02:27Z",
-    "fair": 0.4865,
+    "at": "2026-11-23T00:56:16Z",
+    "fair": 0.4851,
     "q": {
-     "Novig": 0.49,
-     "Caesars": 0.5098,
+     "Novig": 0.485,
      "Kalshi": 0.51,
-     "DK": 0.5122
+     "DK": 0.5122,
+     "FD": 0.5122
     }
    }
   },
@@ -343,7 +343,7 @@
    "inside_fair": false,
    "fair_board": 0.5062,
    "books": {
-    "at": "2026-11-23T00:02:27Z",
+    "at": "2026-11-23T00:56:16Z",
     "fair": 0.5041,
     "q": {
      "Novig": 0.51,
@@ -389,11 +389,10 @@
    "inside_fair": false,
    "fair_board": 0.4827,
    "books": {
-    "at": "2026-11-23T00:02:27Z",
-    "fair": 0.5249,
+    "at": "2026-11-23T00:56:16Z",
+    "fair": 0.5262,
     "q": {
      "Novig": 0.53,
-     "DK": 0.5349,
      "FD": 0.5455,
      "Kalshi": 0.55
     }
@@ -416,6 +415,90 @@
    "usd": 1011,
    "paid": 0.58,
    "ask": 0.63,
+   "status": "live",
+   "link": "https://polymarket.us/event/nfl-min-sf-2026-11-23",
+   "other": null,
+   "kalshi_against": null,
+   "logged": false,
+   "ladder": true,
+   "event_id": "401873077",
+   "sport": "nfl",
+   "league": null,
+   "away": "MIN",
+   "home": "SF",
+   "away_name": "Minnesota Vikings",
+   "home_name": "San Francisco 49ers",
+   "game_start": "2026-11-23T01:20Z",
+   "side_std": "home",
+   "money_with": false,
+   "grade": "A",
+   "fair_board": null,
+   "inside_fair": null,
+   "books": null
+  },
+  {
+   "cond": "0xa7f735ef5dd052af7b34b5cb8a3bff1ab0cf111e2c5f15b836a6cc3aeb75b4a7",
+   "slug": "nfl-min-sf-2026-11-23",
+   "title": "Vikings vs. 49ers",
+   "mtype": "ml",
+   "start": "2026-11-23T01:20:00Z",
+   "bet": "49ers ML",
+   "side": "49ers",
+   "flagged": "2026-11-22T19:39:53Z",
+   "why": "a top-200 account also in this sport's top 50",
+   "proven": true,
+   "trigger": "proven",
+   "n_accounts": 1,
+   "best_rank": 143,
+   "usd": 12200,
+   "paid": 0.64,
+   "ask": 0.66,
+   "status": "live",
+   "link": "https://polymarket.us/event/nfl-min-sf-2026-11-23",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401873077",
+   "sport": "nfl",
+   "league": null,
+   "away": "MIN",
+   "home": "SF",
+   "away_name": "Minnesota Vikings",
+   "home_name": "San Francisco 49ers",
+   "game_start": "2026-11-23T01:20Z",
+   "side_std": "home",
+   "money_with": true,
+   "grade": "A",
+   "inside_fair": false,
+   "fair_board": 0.6261,
+   "books": {
+    "at": "2026-11-23T00:56:16Z",
+    "fair": 0.6522,
+    "q": {
+     "Novig": 0.655,
+     "DK": 0.6633,
+     "Kalshi": 0.67,
+     "Caesars": 0.6721
+    }
+   }
+  },
+  {
+   "cond": "0xdee4359ba5cb8471082a1666b280b3d7af3539442bf337e159a9572ebc015028",
+   "slug": "nfl-min-sf-2026-11-23",
+   "title": "Vikings vs. 49ers",
+   "mtype": "spread",
+   "start": "2026-11-23T01:20:00Z",
+   "bet": "49ers -10.5",
+   "side": "49ers",
+   "flagged": "2026-11-23T01:10:07Z",
+   "why": "a top-200 account also in this sport's top 50",
+   "proven": true,
+   "trigger": "proven",
+   "n_accounts": 1,
+   "best_rank": 143,
+   "usd": 2629,
+   "paid": 0.28,
+   "ask": 0.29,
    "status": "live",
    "link": "https://polymarket.us/event/nfl-min-sf-2026-11-23",
    "other": null,
@@ -473,10 +556,10 @@
    "fair_board": null,
    "inside_fair": null,
    "books": {
-    "at": "2026-11-23T00:02:27Z",
+    "at": "2026-11-23T00:56:16Z",
     "fair": null,
     "q": {
-     "Novig": 0.56,
+     "Novig": 0.555,
      "Kalshi": 0.59
     }
    }
@@ -497,7 +580,7 @@
    "best_rank": 43,
    "usd": 359,
    "paid": 0.199,
-   "ask": 0.23,
+   "ask": 0.22,
    "status": "live",
    "link": "https://polymarket.us/event/nba-mil-tor-2026-11-23",
    "other": null,
@@ -517,7 +600,7 @@
    "fair_board": null,
    "inside_fair": null,
    "books": {
-    "at": "2026-11-23T00:02:27Z",
+    "at": "2026-11-23T00:56:16Z",
     "fair": null,
     "q": {
      "Novig": 0.21,
@@ -541,7 +624,7 @@
    "best_rank": 197,
    "usd": 562,
    "paid": 0.65,
-   "ask": 0.67,
+   "ask": 0.68,
    "status": "live",
    "link": "https://polymarket.us/event/nhl-cal-ott-2026-11-23",
    "other": null,
@@ -558,13 +641,13 @@
    "side_std": "home",
    "money_with": false,
    "grade": "A",
-   "fair_board": 0.6669,
+   "fair_board": 0.666,
    "inside_fair": false,
    "books": {
-    "at": "2026-11-23T00:02:27Z",
-    "fair": 0.6669,
+    "at": "2026-11-23T00:56:16Z",
+    "fair": 0.666,
     "q": {
-     "Novig": 0.67,
+     "Novig": 0.675,
      "Caesars": 0.6805,
      "DK": 0.6855,
      "FD": 0.6875
@@ -604,16 +687,16 @@
    "side_std": "home",
    "money_with": false,
    "grade": "A",
-   "fair_board": 0.589,
-   "inside_fair": false,
+   "fair_board": 0.5961,
+   "inside_fair": true,
    "books": {
-    "at": "2026-11-23T00:02:27Z",
-    "fair": 0.589,
+    "at": "2026-11-23T00:56:16Z",
+    "fair": 0.5961,
     "q": {
-     "Novig": 0.595,
-     "Caesars": 0.5968,
-     "DK": 0.6078,
-     "Kalshi": 0.61
+     "Novig": 0.6,
+     "FD": 0.6154,
+     "DK": 0.6183,
+     "Caesars": 0.6183
     }
    }
   },
@@ -653,11 +736,11 @@
    "fair_board": null,
    "inside_fair": null,
    "books": {
-    "at": "2026-11-23T00:02:27Z",
+    "at": "2026-11-23T00:56:16Z",
     "fair": null,
     "q": {
-     "Novig": 0.395,
-     "Kalshi": 0.41
+     "Novig": 0.37,
+     "Kalshi": 0.4
     }
    }
   },
@@ -694,14 +777,14 @@
    "side_std": "home",
    "money_with": false,
    "grade": "A",
-   "fair_board": 0.5055,
+   "fair_board": 0.5057,
    "inside_fair": false,
    "books": {
-    "at": "2026-11-23T00:02:27Z",
-    "fair": 0.5055,
+    "at": "2026-11-23T00:56:16Z",
+    "fair": 0.5057,
     "q": {
      "Novig": 0.51,
-     "Kalshi": 0.53,
+     "Kalshi": 0.52,
      "Caesars": 0.5305,
      "DK": 0.5349
     }
@@ -743,13 +826,13 @@
    "inside_fair": true,
    "fair_board": 0.5034,
    "books": {
-    "at": "2026-11-23T00:02:27Z",
-    "fair": 0.5034,
+    "at": "2026-11-23T00:56:16Z",
+    "fair": null,
     "q": {
-     "Novig": 0.505,
+     "Novig": 0.51,
      "DK": 0.5192,
      "Caesars": 0.5238,
-     "FD": 0.5349
+     "FD": 0.5238
     }
    }
   },
@@ -826,7 +909,7 @@
    "fair_board": null,
    "inside_fair": null,
    "books": {
-    "at": "2026-11-23T00:02:27Z",
+    "at": "2026-11-23T00:56:16Z",
     "fair": null,
     "q": {
      "Novig": 0.585
@@ -944,7 +1027,7 @@
    "fair_board": null,
    "inside_fair": null,
    "books": {
-    "at": "2026-11-23T00:02:27Z",
+    "at": "2026-11-23T00:56:16Z",
     "fair": null,
     "q": {
      "Novig": 0.19
@@ -1273,7 +1356,11 @@
     "first": "2026-11-22T18:00:14Z"
    },
    "exit_bid": null,
-   "kalshi_against": null,
+   "kalshi_against": {
+    "move": 8.5,
+    "now": 31.5,
+    "state": "fresh"
+   },
    "logged": true,
    "event_id": "401910034",
    "sport": "nba",
@@ -1284,64 +1371,14 @@
    "home_name": "New York Knicks",
    "game_start": "2026-11-23T01:00Z",
    "side_std": "home",
-   "money_with": true,
-   "grade": "A",
-   "fair_board": 0.7325,
-   "inside_fair": null,
-   "books": null
-  },
-  {
-   "cond": "0xa7f735ef5dd052af7b34b5cb8a3bff1ab0cf111e2c5f15b836a6cc3aeb75b4a7",
-   "slug": "nfl-min-sf-2026-11-23",
-   "title": "Vikings vs. 49ers",
-   "mtype": "ml",
-   "start": "2026-11-23T01:20:00Z",
-   "bet": "49ers ML",
-   "side": "49ers",
-   "flagged": "2026-11-22T19:39:53Z",
-   "why": "a top-200 account also in this sport's top 50",
-   "proven": true,
-   "trigger": "proven",
-   "n_accounts": 1,
-   "best_rank": 143,
-   "usd": 12200,
-   "paid": 0.64,
-   "ask": 0.67,
-   "status": "live",
-   "link": "https://polymarket.us/event/nfl-min-sf-2026-11-23",
-   "other": null,
-   "kalshi_against": {
-    "move": 5.0,
-    "now": 35.5,
-    "state": "reversed"
-   },
-   "logged": true,
-   "event_id": "401873077",
-   "sport": "nfl",
-   "league": null,
-   "away": "MIN",
-   "home": "SF",
-   "away_name": "Minnesota Vikings",
-   "home_name": "San Francisco 49ers",
-   "game_start": "2026-11-23T01:20Z",
-   "side_std": "home",
    "conflict": [
     "Kalshi move"
    ],
    "money_with": false,
-   "grade": "A",
-   "inside_fair": false,
-   "fair_board": 0.6261,
-   "books": {
-    "at": "2026-11-23T00:02:27Z",
-    "fair": 0.6516,
-    "q": {
-     "Novig": 0.655,
-     "DK": 0.661,
-     "Caesars": 0.6633,
-     "Kalshi": 0.67
-    }
-   }
+   "grade": "B",
+   "fair_board": 0.7343,
+   "inside_fair": null,
+   "books": null
   },
   {
    "cond": "0x5bfbc3bd9bd732c8ad13257a36e1f8705157a23e10b245cc309b96a38dabab17",
@@ -1383,7 +1420,7 @@
    "side_std": "home",
    "money_with": false,
    "grade": "B",
-   "fair_board": 0.5134,
+   "fair_board": 0.5124,
    "inside_fair": false,
    "books": null
   },
@@ -1440,19 +1477,19 @@
     "clv": -0.95
    },
    "outside": {
-    "n": 109,
-    "won": 57,
+    "n": 110,
+    "won": 58,
     "units": -0.96,
     "clv": -0.24
    }
   },
-  "n": 395,
-  "won": 188,
+  "n": 398,
+  "won": 191,
   "units": -16.62,
   "by_grade": {
    "A": {
-    "n": 257,
-    "won": 116,
+    "n": 260,
+    "won": 119,
     "units": -15.43,
     "clv": -0.19
    },
@@ -1469,9 +1506,9 @@
     "clv": -0.1
    }
   },
-  "units_1u": -31.36,
+  "units_1u": -23.65,
   "clv": -0.37,
-  "n_venue": 204,
+  "n_venue": 205,
   "units_venue": -6.15,
   "clv_venue": 0.95,
   "clv_poly_same": -0.61
