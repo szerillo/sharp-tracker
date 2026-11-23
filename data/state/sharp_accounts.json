@@ -1,5 +1,5 @@
 {
- "built": "2026-11-23T08:12:56Z",
+ "built": "2026-11-23T08:23:05Z",
  "rows": [
   {
    "cond": "0x9c183fba1441c3917b7e3a99c0103626285576b0d6b8e1bcabf3e10cb8e3a239",
@@ -201,7 +201,7 @@
    "best_rank": 69,
    "usd": 239,
    "paid": 0.52,
-   "ask": 0.5,
+   "ask": 0.51,
    "status": "live",
    "link": "https://polymarket.us/event/nhl-ana-sea-2026-11-23",
    "other": null,
@@ -219,7 +219,7 @@
    "money_with": false,
    "grade": "A",
    "fair_board": 0.5005,
-   "inside_fair": true,
+   "inside_fair": false,
    "books": {
     "at": "2026-11-23T03:30:49Z",
     "fair": 0.5005,
@@ -562,6 +562,43 @@
    "books": null
   },
   {
+   "cond": "0x62aac7b20e638ea6ebdfb78f2d12ff884594d4ce863d387d3561996c87ad2e06",
+   "slug": "nba-chi-cha-2026-11-25",
+   "title": "Bulls vs. Hornets",
+   "mtype": "ml",
+   "start": "2026-11-26T00:00:00Z",
+   "bet": "Hornets ML",
+   "side": "Hornets",
+   "flagged": "2026-11-23T08:17:43Z",
+   "why": "a top-50 account",
+   "proven": false,
+   "trigger": "top50",
+   "n_accounts": 1,
+   "best_rank": 43,
+   "usd": 133,
+   "paid": 0.57,
+   "ask": 0.63,
+   "status": "live",
+   "link": "https://polymarket.us/event/nba-chi-cha-2026-11-25",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401909318",
+   "sport": "nba",
+   "league": null,
+   "away": "CHI",
+   "home": "CHA",
+   "away_name": "Chicago Bulls",
+   "home_name": "Charlotte Hornets",
+   "game_start": "2026-11-26T00:00Z",
+   "side_std": "home",
+   "money_with": false,
+   "grade": "watch",
+   "fair_board": null,
+   "inside_fair": null,
+   "books": null
+  },
+  {
    "cond": "0x1086efe8518a09ccfe6c89f4547d59b151ceae74ce0df9727bcd3ac1640631ca",
    "slug": "nba-cle-nyk-2026-11-25",
    "title": "Cavaliers vs. Knicks",
@@ -849,6 +886,13 @@
     "n": 1,
     "best_rank": 93,
     "usd": 123
+   }
+  },
+  "401909318|ml": {
+   "home": {
+    "n": 1,
+    "best_rank": 43,
+    "usd": 133
    }
   },
   "401909319|ml": {
