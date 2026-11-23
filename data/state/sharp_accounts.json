@@ -1,5 +1,5 @@
 {
- "built": "2026-11-23T18:17:36Z",
+ "built": "2026-11-23T18:42:03Z",
  "rows": [
   {
    "cond": "0x9c183fba1441c3917b7e3a99c0103626285576b0d6b8e1bcabf3e10cb8e3a239",
@@ -140,52 +140,6 @@
    }
   },
   {
-   "cond": "0xc42460b4eca4c9f8871e21184ce28a6b7c1ae422bebad855962db1d6af550347",
-   "slug": "nba-okc-ind-2026-11-23",
-   "title": "Thunder vs. Pacers",
-   "mtype": "ml",
-   "start": "2026-11-24T00:30:00Z",
-   "bet": "Pacers ML",
-   "side": "Pacers",
-   "flagged": "2026-11-22T21:40:59Z",
-   "why": "2 top-200 accounts",
-   "proven": false,
-   "trigger": "two",
-   "n_accounts": 2,
-   "best_rank": 43,
-   "usd": 2773,
-   "paid": 0.339,
-   "ask": 0.35,
-   "status": "live",
-   "link": "https://polymarket.us/event/nba-okc-ind-2026-11-23",
-   "other": null,
-   "kalshi_against": null,
-   "logged": true,
-   "event_id": "401910038",
-   "sport": "nba",
-   "league": null,
-   "away": "OKC",
-   "home": "IND",
-   "away_name": "Oklahoma City Thunder",
-   "home_name": "Indiana Pacers",
-   "game_start": "2026-11-24T00:30Z",
-   "side_std": "home",
-   "money_with": false,
-   "grade": "B",
-   "fair_board": 0.3632,
-   "inside_fair": true,
-   "books": {
-    "at": "2026-11-23T18:01:35Z",
-    "fair": 0.3632,
-    "q": {
-     "Novig": 0.365,
-     "FD": 0.3759,
-     "DK": 0.3846,
-     "Caesars": 0.3876
-    }
-   }
-  },
-  {
    "cond": "0xbfdbbfce25f73ad13c92460321a00518f7ac82b59b3ad06ef3430bc30b045fcf",
    "slug": "nba-bkn-min-2026-11-23",
    "title": "Nets vs. Timberwolves",
@@ -217,8 +171,7 @@
    "game_start": "2026-11-24T00:30Z",
    "side_std": "under",
    "conflict": [
-    "Kalshi bet back",
-    "big money"
+    "Kalshi bet back"
    ],
    "money_with": false,
    "grade": "B",
@@ -281,6 +234,43 @@
      "Kalshi": 0.5
     }
    }
+  },
+  {
+   "cond": "0x1a54f964637acd52e5c50bab146f124f813a36d06448c68a9da35f90577b8a88",
+   "slug": "nfl-cin-was-2026-11-24",
+   "title": "Bengals vs. Commanders",
+   "mtype": "spread",
+   "start": "2026-11-24T01:15:00Z",
+   "bet": "Commanders -3.5",
+   "side": "Commanders",
+   "flagged": "2026-11-23T18:37:05Z",
+   "why": "a top-200 account also in this sport's top 50",
+   "proven": true,
+   "trigger": "proven",
+   "n_accounts": 1,
+   "best_rank": 143,
+   "usd": 3534,
+   "paid": 0.16,
+   "ask": 0.17,
+   "status": "live",
+   "link": "https://polymarket.us/event/nfl-cin-was-2026-11-24",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401873078",
+   "sport": "nfl",
+   "league": null,
+   "away": "CIN",
+   "home": "WSH",
+   "away_name": "Cincinnati Bengals",
+   "home_name": "Washington Commanders",
+   "game_start": "2026-11-24T01:15Z",
+   "side_std": "home",
+   "money_with": false,
+   "grade": "A",
+   "fair_board": null,
+   "inside_fair": null,
+   "books": null
   },
   {
    "cond": "0xa2b12546df25ae7bdb52b8d3f07b9da6e767ad284c8d6e3c07c7f683b940dbcc",
@@ -955,7 +945,7 @@
    "best_rank": 43,
    "usd": 2773,
    "paid": 0.339,
-   "ask": 0.32,
+   "ask": 0.33,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-okc-ind-2026-11-23",
    "other": {
@@ -964,7 +954,7 @@
     "usd": 19861,
     "first": "2026-11-23T18:30:05Z"
    },
-   "exit_bid": 0.31,
+   "exit_bid": 0.32,
    "kalshi_against": null,
    "logged": true,
    "event_id": "401910038",
@@ -1158,6 +1148,14 @@
   "clv_poly_same": -0.59
  },
  "sys_tags": {
+  "401873078:nfl_fade_fav_bye": {
+   "with": {
+    "n": 1,
+    "best_rank": 143,
+    "usd": 3534
+   },
+   "against": null
+  },
   "401910040:nba_roadtrip_over": {
    "with": null,
    "against": {
@@ -1176,6 +1174,13 @@
   }
  },
  "by_event": {
+  "401873078|spread": {
+   "home": {
+    "n": 1,
+    "best_rank": 143,
+    "usd": 3534
+   }
+  },
   "401910036|ml": {
    "home": {
     "n": 2,
