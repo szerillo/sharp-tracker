@@ -1,5 +1,5 @@
 {
- "built": "2026-11-22T23:46:49Z",
+ "built": "2026-11-23T00:03:06Z",
  "rows": [
   {
    "cond": "0x35e3a46eea4c56646973fb71aaa058336dcdf80d5b430f33fc67d950aa7a5027",
@@ -329,7 +329,7 @@
    "home_name": "Vancouver Canucks",
    "game_start": "2026-11-23T01:00Z",
    "side_std": "home",
-   "money_with": false,
+   "money_with": true,
    "grade": "A",
    "inside_fair": false,
    "fair_board": 0.492,
@@ -1130,7 +1130,7 @@
    "best_rank": 197,
    "usd": 960,
    "paid": 0.32,
-   "ask": 0.33,
+   "ask": null,
    "status": "other side",
    "link": "https://polymarket.us/event/nhl-pit-dal-2026-11-22",
    "other": {
@@ -1139,7 +1139,7 @@
     "usd": 250,
     "first": "2026-11-22T14:33:07Z"
    },
-   "exit_bid": 0.32,
+   "exit_bid": null,
    "kalshi_against": {
     "move": 4.0,
     "now": 67.5,
@@ -1444,20 +1444,7 @@
   "clv_venue": 0.98,
   "clv_poly_same": -0.59
  },
- "sys_tags": {
-  "401910032:nba_roadtrip_over": {
-   "with": {
-    "n": 1,
-    "best_rank": 115,
-    "usd": 1345
-   },
-   "against": {
-    "n": 1,
-    "best_rank": 132,
-    "usd": 372
-   }
-  }
- },
+ "sys_tags": {},
  "by_event": {
   "401873077|spread": {
    "home": {
@@ -1471,56 +1458,6 @@
     "n": 1,
     "best_rank": 143,
     "usd": 12200
-   }
-  },
-  "401910031|spread": {
-   "home": {
-    "n": 1,
-    "best_rank": 132,
-    "usd": 1592
-   },
-   "away": {
-    "n": 1,
-    "best_rank": 132,
-    "usd": 525
-   }
-  },
-  "401910031|total": {
-   "over": {
-    "n": 1,
-    "best_rank": 119,
-    "usd": 535
-   }
-  },
-  "401910032|total": {
-   "under": {
-    "n": 1,
-    "best_rank": 132,
-    "usd": 372
-   },
-   "over": {
-    "n": 1,
-    "best_rank": 115,
-    "usd": 1345
-   }
-  },
-  "401910033|ml": {
-   "away": {
-    "n": 4,
-    "best_rank": 55,
-    "usd": 2095
-   },
-   "home": {
-    "n": 2,
-    "best_rank": 55,
-    "usd": 1203
-   }
-  },
-  "401910033|spread": {
-   "home": {
-    "n": 1,
-    "best_rank": 58,
-    "usd": 191
    }
   },
   "401910034|ml": {
@@ -1597,39 +1534,6 @@
     "n": 2,
     "best_rank": 43,
     "usd": 359
-   }
-  },
-  "401892770|ml": {
-   "home": {
-    "n": 1,
-    "best_rank": 132,
-    "usd": 130
-   }
-  },
-  "401892770|total": {
-   "under": {
-    "n": 1,
-    "best_rank": 132,
-    "usd": 177
-   }
-  },
-  "401892771|ml": {
-   "away": {
-    "n": 1,
-    "best_rank": 197,
-    "usd": 960
-   },
-   "home": {
-    "n": 1,
-    "best_rank": 132,
-    "usd": 250
-   }
-  },
-  "401892771|spread": {
-   "home": {
-    "n": 1,
-    "best_rank": 132,
-    "usd": 106
    }
   },
   "401892772|ml": {
