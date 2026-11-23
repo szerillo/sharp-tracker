@@ -1,10 +1,10 @@
 {
- "built": "2026-11-23T05:09:53Z",
+ "built": "2026-11-23T05:22:14Z",
  "record": {
-  "n": 71,
-  "won": 33,
+  "n": 72,
+  "won": 34,
   "lost": 38,
-  "units": 0.2,
+  "units": 0.45,
   "line_value": {
    "n": 31,
    "avg": 0.0,
@@ -33,38 +33,5 @@
    }
   }
  },
- "rows": [
-  {
-   "key": "b8c5bdb50209c7d050400c7d28c32e30|player_threes|Sam Hauser|2.5",
-   "sport": "nba",
-   "odds_id": "b8c5bdb50209c7d050400c7d28c32e30",
-   "espn": "401910035",
-   "game": "Boston Celtics @ Golden State Warriors",
-   "start": "2026-11-23T01:40:00Z",
-   "market": "player_threes",
-   "player": "Sam Hauser",
-   "line": 2.5,
-   "side": "under",
-   "book": "DK",
-   "price": 1.97,
-   "fair": 0.5319,
-   "ev": 4.8,
-   "pin_under": 1.76,
-   "pin_over": 2.0,
-   "book_over": 1.79,
-   "fair_power": 0.5353,
-   "book_fair": 0.4761,
-   "fair_gap": 5.6,
-   "ev_strict": 4.8,
-   "pin_ts": "2026-11-23T01:29:46Z",
-   "book_ts": "2026-11-23T01:30:11Z",
-   "flagged": "2026-11-23T01:30:54Z",
-   "close_ts": "2026-11-23T01:30:54Z",
-   "close_line": 2.5,
-   "close_fair": 0.5319,
-   "clv": 2.43,
-   "beat_fair": 0.0,
-   "line_value": 0.0
-  }
- ]
+ "rows": []
 }
