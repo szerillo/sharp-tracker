@@ -1,5 +1,5 @@
 {
- "built": "2026-11-23T16:53:02Z",
+ "built": "2026-11-23T17:00:26Z",
  "rows": [
   {
    "cond": "0x9c183fba1441c3917b7e3a99c0103626285576b0d6b8e1bcabf3e10cb8e3a239",
@@ -136,52 +136,6 @@
      "DK": 0.697,
      "Caesars": 0.697,
      "FD": 0.7059
-    }
-   }
-  },
-  {
-   "cond": "0x89998db23beacc2e945a7f752e64972f744bd539937665d058a58e5fb055c046",
-   "slug": "nhl-tor-nyi-2026-11-23",
-   "title": "Maple Leafs vs. Islanders",
-   "mtype": "ml",
-   "start": "2026-11-24T00:30:00Z",
-   "bet": "Islanders ML",
-   "side": "Islanders",
-   "flagged": "2026-11-22T17:18:07Z",
-   "why": "a top-200 account also in this sport's top 50",
-   "proven": true,
-   "trigger": "proven",
-   "n_accounts": 1,
-   "best_rank": 69,
-   "usd": 289,
-   "paid": 0.587,
-   "ask": 0.61,
-   "status": "live",
-   "link": "https://polymarket.us/event/nhl-tor-nyi-2026-11-23",
-   "other": null,
-   "kalshi_against": null,
-   "logged": true,
-   "event_id": "401892776",
-   "sport": "nhl",
-   "league": null,
-   "away": "TOR",
-   "home": "NYI",
-   "away_name": "Toronto Maple Leafs",
-   "home_name": "New York Islanders",
-   "game_start": "2026-11-24T00:30Z",
-   "side_std": "home",
-   "money_with": false,
-   "grade": "A",
-   "fair_board": 0.5925,
-   "inside_fair": false,
-   "books": {
-    "at": "2026-11-23T16:01:11Z",
-    "fair": 0.5925,
-    "q": {
-     "Novig": 0.595,
-     "FD": 0.6154,
-     "DK": 0.6183,
-     "Caesars": 0.6183
     }
    }
   },
@@ -536,6 +490,50 @@
    }
   },
   {
+   "cond": "0xdbb011b836e27f05456caebd420af3ad99ff58e5cbdf36305bee1b1393fcc18f",
+   "slug": "nhl-las-edm-2026-11-24",
+   "title": "Golden Knights vs. Oilers",
+   "mtype": "ml",
+   "start": "2026-11-25T01:00:00Z",
+   "bet": "Golden Knights ML",
+   "side": "Golden Knights",
+   "flagged": "2026-11-23T16:52:52Z",
+   "why": "a top-200 account also in this sport's top 50",
+   "proven": true,
+   "trigger": "proven",
+   "n_accounts": 1,
+   "best_rank": 79,
+   "usd": 3870,
+   "paid": 0.51,
+   "ask": 0.52,
+   "status": "live",
+   "link": "https://polymarket.us/event/nhl-las-edm-2026-11-24",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401892780",
+   "sport": "nhl",
+   "league": null,
+   "away": "VGK",
+   "home": "EDM",
+   "away_name": "Vegas Golden Knights",
+   "home_name": "Edmonton Oilers",
+   "game_start": "2026-11-25T01:00Z",
+   "side_std": "away",
+   "money_with": false,
+   "grade": "A",
+   "fair_board": null,
+   "inside_fair": null,
+   "books": {
+    "at": "2026-11-23T16:01:11Z",
+    "fair": null,
+    "q": {
+     "Novig": 0.51,
+     "Kalshi": 0.52
+    }
+   }
+  },
+  {
    "cond": "0x1dae84f7aa36ddb8aa59239664a389ca17ef375bafd5c7b7eb9c857fbe049439",
    "slug": "ucl-sf-fcb-2026-11-25",
    "title": "Sabah FK vs. FC Barcelona",
@@ -743,7 +741,7 @@
    "best_rank": 43,
    "usd": 133,
    "paid": 0.57,
-   "ask": 0.63,
+   "ask": 0.62,
    "status": "live",
    "link": "https://polymarket.us/event/nba-chi-cha-2026-11-25",
    "other": null,
@@ -783,7 +781,7 @@
    "best_rank": 104,
    "usd": 139,
    "paid": 0.349,
-   "ask": 0.29,
+   "ask": 0.3,
    "status": "live",
    "link": "https://polymarket.us/event/nba-cle-nyk-2026-11-25",
    "other": null,
@@ -844,6 +842,49 @@
    "money_with": false,
    "grade": "B",
    "fair_board": 0.2019,
+   "inside_fair": false,
+   "books": null
+  },
+  {
+   "cond": "0x89998db23beacc2e945a7f752e64972f744bd539937665d058a58e5fb055c046",
+   "slug": "nhl-tor-nyi-2026-11-23",
+   "title": "Maple Leafs vs. Islanders",
+   "mtype": "ml",
+   "start": "2026-11-24T00:30:00Z",
+   "bet": "Islanders ML",
+   "side": "Islanders",
+   "flagged": "2026-11-22T17:18:07Z",
+   "why": "a top-200 account also in this sport's top 50",
+   "proven": true,
+   "trigger": "proven",
+   "n_accounts": 1,
+   "best_rank": 69,
+   "usd": 289,
+   "paid": 0.587,
+   "ask": 0.61,
+   "status": "other side",
+   "link": "https://polymarket.us/event/nhl-tor-nyi-2026-11-23",
+   "other": {
+    "n_accounts": 1,
+    "best_rank": 79,
+    "usd": 18000,
+    "first": "2026-11-23T16:53:56Z"
+   },
+   "exit_bid": 0.6,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401892776",
+   "sport": "nhl",
+   "league": null,
+   "away": "TOR",
+   "home": "NYI",
+   "away_name": "Toronto Maple Leafs",
+   "home_name": "New York Islanders",
+   "game_start": "2026-11-24T00:30Z",
+   "side_std": "home",
+   "money_with": false,
+   "grade": "A",
+   "fair_board": 0.5925,
    "inside_fair": false,
    "books": null
   },
@@ -1164,6 +1205,13 @@
     "usd": 478
    }
   },
+  "401909322|ml": {
+   "away": {
+    "n": 1,
+    "best_rank": 93,
+    "usd": 392
+   }
+  },
   "401892775|ml": {
    "home": {
     "n": 2,
@@ -1176,6 +1224,11 @@
     "n": 1,
     "best_rank": 69,
     "usd": 289
+   },
+   "away": {
+    "n": 1,
+    "best_rank": 79,
+    "usd": 18000
    }
   },
   "401892778|ml": {
@@ -1195,6 +1248,13 @@
     "n": 1,
     "best_rank": 132,
     "usd": 464
+   }
+  },
+  "401892780|ml": {
+   "away": {
+    "n": 1,
+    "best_rank": 79,
+    "usd": 3870
    }
   },
   "401924266|total": {
