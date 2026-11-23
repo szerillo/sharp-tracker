@@ -26,7 +26,8 @@ RULES = {'wind1014': dict(market='total', side='under', stake=1.0), 'wind1014_1h
          'nhl_loss_streak_over': dict(market='total', side='over', stake=0.5, sport='nhl'),
          'nba_badteams_under': dict(market='total', side='under', stake=0.5, sport='nba'), 'nba_roadtrip_over': dict(market='total', side='over', stake=0.5, sport='nba'),
          'nhl_bounce_home_ml': dict(market='ml', side='home', stake=0.5, sport='nhl'), 'nhl_skid_fade_road': dict(market='spread', side='away', stake=0.5, sport='nhl'),
-         'cfb_day_over': dict(market='total', side='over', stake=0.5, sport='cfb'), 'cfb_homefav_7510_under': dict(market='total', side='under', stake=0.5, sport='cfb'),
+         # cfb_day_over retired 11/23 (docs/checkpoint_2026-11-23.md): 11-16 on paper, -3.04u, ROI -22.9%, CLV -2.29 on 27 (rule: 25+ graded, ROI negative and CLV 2.0+ worse than the close).
+         'cfb_homefav_7510_under': dict(market='total', side='under', stake=0.5, sport='cfb'),
          'mlb_road_over_under': dict(market='total', side='under', stake=0.5, sport='mlb'),
          # exchange signals (docs/exchange_signals_audit_2026-10-29.md): fired inside T-1.5h, at the exchange that shows the signal
          'xch_homedog_fade': dict(market='ml|spread', side='away', stake=0.5, sport='nfl,nba,cfb,nhl,mlb', venue='Novig'),
@@ -37,7 +38,7 @@ RULES = {'wind1014': dict(market='total', side='under', stake=1.0), 'wind1014_1h
          'nba_1h_under_hot_over': dict(market='1h_total', side='under', stake=0.5, sport='nba'),
          # Bet Labs round 3 watch tier (docs/betlabs_account_systems_audit_2026-10-30.md), paper only
          'nhl_early_home_fav_qual': dict(market='ml', side='home', stake=0.5, sport='nhl'), 'nba_under_good_home_over': dict(market='total', side='under', stake=0.5, sport='nba'), 'nba_under_good_home_over_small': dict(market='total', side='under', stake=0.5, sport='nba'),
-         'cfb_road_dog_low_total': dict(market='spread', side='away', stake=0.5, sport='cfb'),
+         # cfb_road_dog_low_total retired 11/23 (docs/checkpoint_2026-11-23.md): 14-16 on paper, -0.81u, ROI -5.6%, CLV -3.57 on 27 (rule: 25+ graded, ROI negative and CLV 2.0+ worse than the close).
          'cbb_bigloss_vs_top5': dict(market='spread', side='team', stake=0.5, sport='cbb'),
          # rescued variants of failed account systems (docs/betlabs_rescue_2026-11-01.md), paper only
          'cfb_hot_over_low_total': dict(market='total', side='over', stake=0.5, sport='cfb'),
@@ -679,7 +680,7 @@ def main():
         if not windy and not rdlt and not msw_only and not hot and not rs and not dayover and not hf_under: continue
         game = dict(event_id=ev, away=away, home=home, start_utc=start, hours_to_kickoff=round(ttk, 1), spread_home=sp_line, dog=('away' if sp_line and sp_line < 0 else None), triggers={},
                     wind=(dict(mph=wx['wind_mph'], gust=wx.get('gust_mph'), temp_f=wx.get('temp_f'), at_h=wx['hours_to_kickoff']) if wx else None), fills=[], sport='cfb')
-        if rdlt:
+        if rdlt and 'cfb_road_dog_low_total' in RULES:   # retired 11/23: out of RULES, so it no longer fires
             why2 = f"conference game, {away} +{-sp_line} on the road, total {tl}"; game['triggers']['cfb_road_dog_low_total'] = why2; key2 = f"{ev}:cfb_road_dog_low_total"
             if key2 in fired and not fired[key2].get('void'): game['fills'].append(fired[key2])
             else:
@@ -694,7 +695,7 @@ def main():
         if rs:
             take(conn, eq, fired, fires_now, game, ev, start, away, home, 'cfb_road_streak_dog', 'spread', -sp_line, 'away', away, 0.5,
                  f"conference game, {away} on road game {rs} in a row, +{-sp_line}, total {tl}")
-        if dayover and not windy:        # 11/5 mined angle; a windy under takes the game first
+        if dayover and not windy and 'cfb_day_over' in RULES:        # retired 11/23: out of RULES, so it no longer fires. 11/5 mined angle; a windy under takes the game first
             take(conn, eq, fired, fires_now, game, ev, start, away, home, 'cfb_day_over', 'total', tl, 'over', None, 0.5, f"{st.astimezone(N.ET):%-I:%M %p} ET kickoff, total {tl}: over (mined angle)")
         if hf_under:
             take(conn, eq, fired, fires_now, game, ev, start, away, home, 'cfb_homefav_7510_under', 'total', tl, 'under', None, 0.5, f"home favourite {home} {sp_line}, total {tl}: under (mined angle)")

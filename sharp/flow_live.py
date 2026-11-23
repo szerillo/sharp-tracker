@@ -20,6 +20,9 @@ BIG_USD = 500.0; SMALL_USD = 50.0; DIV_USD = 1000.0; NOVIG_VERIFIED = True   # 1
 OUT = os.path.join(ROOT, 'data', 'state', 'flow_live.json')
 PAPER = os.path.join(ROOT, 'data', 'kalshi', 'steam_rev_paper.jsonl'); RESC = os.path.join(ROOT, 'data', 'kalshi', 'steam_rev_results.json')
 OTHER = {'home': 'away', 'away': 'home', 'over': 'under', 'under': 'over'}
+# steam_rev retired 11/23 (docs/checkpoint_2026-11-23.md): CLV vs the Kalshi close -0.42 on 722 (z -2.57), 365-360 -15.89u on 725 graded
+# (rule for paper-bet signals: 50+ graded, CLV at or below zero with z -1 or worse). No new paper logs; logged bets keep grading.
+STEAM_REV_RETIRED = '2026-11-23'
 NOW = dt.datetime.now(dt.timezone.utc)
 
 
@@ -134,7 +137,7 @@ def steam_paper(steams):
     if os.path.exists(PAPER):
         for l in open(PAPER): r = json.loads(l); have[(r['ticker'], r['steam_ts'])] = r
     new = []
-    for s in steams:
+    for s in ([] if STEAM_REV_RETIRED else steams):
         if s['state'] != 'reversed' or (s['ticker'], s['steam_ts']) in have: continue
         if (parse_ts(s['start']) - NOW).total_seconds() < 300 or not (2 < s['rev_cost'] < 98): continue
         if (NOW - parse_ts(s['rev_ts'])).total_seconds() > REV_FRESH * 60: continue      # the backtest entered at the give-back; older reversals are shown, not logged
@@ -318,7 +321,7 @@ def main():
     sp = steam_paper(steams)
     json.dump(dict(built=NOW.strftime('%Y-%m-%dT%H:%M:%SZ'), big_usd=BIG_USD, small_usd=SMALL_USD, div_usd=DIV_USD, novig_included=NOVIG_VERIFIED, rows=rows,
                    show_total=SHOW_TOTAL, show_big=SHOW_BIG, move_pts=MOVE_PTS, moves=moves, links=links,
-                   steam=dict(pts=STEAM_PTS, minutes=STEAM_MIN, rev_frac=REV_FRAC, rows=steams, **sp)),
+                   steam=dict(pts=STEAM_PTS, minutes=STEAM_MIN, rev_frac=REV_FRAC, rows=steams, retired=STEAM_REV_RETIRED, **sp)),
               open(OUT, 'w'), separators=(',', ':'))
     print(f"[flow_live] steam: {len(steams)} upcoming markets with a {STEAM_PTS}+ pt / {STEAM_MIN}-min move ({collections.Counter(x['state'] for x in steams)}); steam_rev paper {sp['new']} new, record {sp['record']}")
     print(f"[flow_live] {len(moves)} upcoming Kalshi markets moved {MOVE_PTS}+ pts since their first two-sided price")

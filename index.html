@@ -725,7 +725,7 @@ function renderToday() {
   const KIND = {move: 'Sharp move', big: 'Big money', kmove: 'Kalshi move', back: 'Bet back', acct: 'Sharp accounts'};
   const REC = {move: 'so far -0.65% CLV on 77 settled moves (z -3.7): moves partly give back; kept to build the sample', big: 'no backtest version clears noise (best +7% on ~600 games, z 1.7)',
     acct: 'Polymarket accounts scored on beating the close kept beating it in every team sport over 16 months (top 200, +0.87% CLV entering 5 minutes after their bet; +1.1 vs Pinnacle on the live sample); speed matters',
-    kmove: 'following a 4+ pt Kalshi move 1h-15m out made +13% on ~500 October games, flat in September', back: `+5.5% / +6.4% (3+ pt steams) and +9.0% / +11.5% (5+) before and in October, about one standard error, CLV slightly negative; paper ${srRec}`};
+    kmove: 'following a 4+ pt Kalshi move 1h-15m out made +13% on ~500 October games, flat in September. 11/23 checkpoint: CLV +0.54 on 283 (z 3.83), promoted from watch to a sized paper record (1u, Kalshi ask plus fee), not a bet', back: `+5.5% / +6.4% (3+ pt steams) and +9.0% / +11.5% (5+) before and in October, about one standard error; the steam_rev paper rule was retired 11/23 (CLV -0.42 on 722, z -2.57), this watch signal stays; paper ${srRec}`};
   window._wv = window._wv || 'top'; window._wo = window._wo || {};
   const wrows = [];
   for (const L of sgames) { const byM = new Map(); for (const x of L) { if (!byM.has(x.market)) byM.set(x.market, []); byM.get(x.market).push(x); }

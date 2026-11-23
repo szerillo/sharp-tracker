@@ -19,6 +19,11 @@ import os, sys, json, sqlite3, collections
 HERE = os.path.dirname(os.path.abspath(__file__)); ROOT = os.path.abspath(os.path.join(HERE, '..'))
 LOG = os.path.join(ROOT, 'data', 'research', 'signal_log.jsonl'); OUT = os.path.join(ROOT, 'data', 'research', 'signal_grade.json')
 PRICE = ('move', 'kmove', 'back')
+# 11/23 checkpoint (docs/checkpoint_2026-11-23.md): Kalshi 4+ pt movers met the promote line (150+ CLV-graded with CLV z 2+ and ROI not
+# below -5%: CLV +0.54 on 283, z 3.83; priced moneylines -1.3% at the ask). Promoted from watch to a sized paper record: every frozen
+# kmove snapshot for a game starting from KMOVE_PAPER_FROM, 1u to risk at the snapshot's Kalshi ask plus the taker fee (0.07 x p x (1 - p)),
+# graded at the snapshot's line against the final score. Paper only: no units on the board.
+KMOVE_PAPER_FROM = '2026-11-23T18:00:00Z'
 
 
 def grade(market, side, line, hs, as_):
@@ -71,6 +76,18 @@ def main():
             c[g] += 1
             pr = v.get('ask') if v.get('ask') is not None else v.get('cost')
             if mk == 'ml' and pr is not None and g != 'P': c['prices'].append(pr / 100)
+    kp = []
+    for r in rows:
+        v = r['signals'].get('kmove'); s_ = r['start'] if len(r['start']) > 17 else r['start'].replace('Z', ':00Z')
+        if not v or v.get('ask') is None or s_ < KMOVE_PAPER_FROM: continue
+        sc = res.get(r['event_id']); g = grade(r['market'], v['side'], v.get('line'), *sc) if sc else None
+        if not g: continue
+        p = v['ask'] / 100; pe = p + 0.07 * p * (1 - p)
+        kp.append(dict(event_id=r['event_id'], market=r['market'], side=v['side'], line=v.get('line'), start=r['start'], ask=v['ask'], result=g,
+                       pnl=0.0 if g == 'P' else round((1 - pe) / pe if g == 'W' else -1.0, 3), clv=v.get('clv')))
+    kmove_paper = dict(since=KMOVE_PAPER_FROM, n=len(kp), W=sum(x['result'] == 'W' for x in kp), L=sum(x['result'] == 'L' for x in kp), P=sum(x['result'] == 'P' for x in kp),
+                       units=round(sum(x['pnl'] for x in kp), 2), clv_n=sum(x['clv'] is not None for x in kp),
+                       clv=round(sum(x['clv'] for x in kp if x['clv'] is not None) / max(1, sum(x['clv'] is not None for x in kp)), 2), recent=kp[-20:])
     out = {}
     for k, c in sorted(T.items()):
         n = c['W'] + c['L']
@@ -78,7 +95,8 @@ def main():
                       mean_price=round(sum(c['prices']) / len(c['prices']), 3) if c['prices'] else None,
                       clv_n=len(c['clv']), clv=round(sum(c['clv']) / len(c['clv']), 2) if c['clv'] else None,
                       clv_pos=round(sum(x > 0 for x in c['clv']) / len(c['clv']), 2) if c['clv'] else None)
-    json.dump(dict(snapshots=len(rows), graded=graded, cells=out), open(OUT, 'w'), indent=1)
+    json.dump(dict(snapshots=len(rows), graded=graded, cells=out, kmove_paper=kmove_paper), open(OUT, 'w'), indent=1)
+    print(f"[signal_grade] kmove paper since {KMOVE_PAPER_FROM}: {kmove_paper['W']}-{kmove_paper['L']}-{kmove_paper['P']}, {kmove_paper['units']:+}u")
     print(f"[signal_grade] {len(rows)} snapshots, {graded} with a final score")
     for k, v in out.items(): print(f"  {k:40} {v['W']}-{v['L']}-{v['P']}  win {v['win']}  price {v['mean_price']}  CLV {v['clv']} on {v['clv_n']}")
 

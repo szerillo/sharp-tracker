@@ -45,7 +45,9 @@ PROMOTED_FROM.update({k: '2026-11-19T04:00:00Z' for k in ['awfuldog_deep', 'wind
     'nba_under_good_home_over_small', 'cfb_road_dog_low_total', 'cfb_road_streak_dog', 'cbb_under_good_over_drop']})
 PROMOTED_BY_START = set(PROMOTED_FROM) - {'xch_homedog_fade'}
 # 11/21 (Sean): demoted back to paper. Fills on games that started from the promotion up to this cutoff keep their tier C record; later ones are paper.
-DEMOTED_FROM = {'cfb_day_over': '2026-11-21T19:20:00Z'}
+DEMOTED_FROM = {'cfb_day_over': '2026-11-21T19:20:00Z',
+                # 11/23 checkpoint (docs/checkpoint_2026-11-23.md): retired under the systems rule. Games that started before this keep their tier C record; open fills are paper.
+                'cfb_road_dog_low_total': '2026-11-23T17:45:00Z'}
 # 11/18 (Sean): everything is 0.25u for now, every tier (favourite: to win 0.25u; plus money: risk 0.25u). Bets flagged before this keep
 # the size they were tracked at, so nothing is resized backwards.
 FLAT_QUARTER_FROM = '2026-11-18T20:30:00Z'
