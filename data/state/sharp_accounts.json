@@ -1,5 +1,5 @@
 {
- "built": "2026-11-23T20:47:18Z",
+ "built": "2026-11-23T21:05:46Z",
  "rows": [
   {
    "cond": "0x9c183fba1441c3917b7e3a99c0103626285576b0d6b8e1bcabf3e10cb8e3a239",
@@ -242,7 +242,7 @@
    "best_rank": 110,
    "usd": 16643,
    "paid": 0.506,
-   "ask": 0.53,
+   "ask": 0.52,
    "status": "live",
    "link": "https://polymarket.us/event/nba-okc-ind-2026-11-23",
    "other": null,
@@ -260,7 +260,7 @@
    "money_with": false,
    "grade": "B",
    "fair_board": 0.5216,
-   "inside_fair": false,
+   "inside_fair": true,
    "books": {
     "at": "2026-11-23T20:00:17Z",
     "fair": 0.5216,
@@ -993,14 +993,14 @@
    "bet": "Pacers ML",
    "side": "Pacers",
    "flagged": "2026-11-22T21:40:59Z",
-   "why": "2 top-200 accounts",
+   "why": "3 top-200 accounts",
    "proven": false,
    "trigger": "two",
-   "n_accounts": 2,
+   "n_accounts": 3,
    "best_rank": 43,
-   "usd": 2773,
-   "paid": 0.339,
-   "ask": 0.33,
+   "usd": 3726,
+   "paid": 0.337,
+   "ask": 0.34,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-okc-ind-2026-11-23",
    "other": {
@@ -1009,7 +1009,7 @@
     "usd": 22682,
     "first": "2026-11-23T18:30:05Z"
    },
-   "exit_bid": 0.32,
+   "exit_bid": 0.33,
    "kalshi_against": null,
    "logged": true,
    "event_id": "401910038",
@@ -1027,7 +1027,7 @@
    "money_with": false,
    "grade": "B",
    "fair_board": 0.3308,
-   "inside_fair": true,
+   "inside_fair": false,
    "books": null
   },
   {
@@ -1184,7 +1184,7 @@
     "usd": 478,
     "first": "2026-11-23T09:44:19Z"
    },
-   "exit_bid": 0.48,
+   "exit_bid": 0.47,
    "kalshi_against": null,
    "logged": true,
    "event_id": "401909320",
@@ -1335,9 +1335,9 @@
   },
   "401910038|ml": {
    "home": {
-    "n": 2,
+    "n": 3,
     "best_rank": 43,
-    "usd": 2773
+    "usd": 3726
    },
    "away": {
     "n": 2,
@@ -1397,6 +1397,13 @@
     "n": 1,
     "best_rank": 115,
     "usd": 3610
+   }
+  },
+  "401910044|spread": {
+   "away": {
+    "n": 1,
+    "best_rank": 132,
+    "usd": 224
    }
   },
   "401910045|ml": {
@@ -1494,6 +1501,13 @@
     "n": 1,
     "best_rank": 79,
     "usd": 3870
+   }
+  },
+  "401921708|spread": {
+   "away": {
+    "n": 1,
+    "best_rank": 170,
+    "usd": 1022
    }
   },
   "401919761|total": {
