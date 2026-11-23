@@ -1,5 +1,5 @@
 {
- "built": "2026-11-23T07:53:06Z",
+ "built": "2026-11-23T08:12:56Z",
  "rows": [
   {
    "cond": "0x9c183fba1441c3917b7e3a99c0103626285576b0d6b8e1bcabf3e10cb8e3a239",
@@ -63,7 +63,7 @@
    "best_rank": 197,
    "usd": 562,
    "paid": 0.65,
-   "ask": 0.67,
+   "ask": 0.68,
    "status": "live",
    "link": "https://polymarket.us/event/nhl-cal-ott-2026-11-23",
    "other": null,
@@ -577,7 +577,7 @@
    "best_rank": 104,
    "usd": 139,
    "paid": 0.349,
-   "ask": 0.29,
+   "ask": 0.28,
    "status": "live",
    "link": "https://polymarket.us/event/nba-cle-nyk-2026-11-25",
    "other": null,
@@ -774,7 +774,16 @@
   "clv_venue": 0.96,
   "clv_poly_same": -0.59
  },
- "sys_tags": {},
+ "sys_tags": {
+  "401910041:nba_roadtrip_over": {
+   "with": {
+    "n": 1,
+    "best_rank": 132,
+    "usd": 3192
+   },
+   "against": null
+  }
+ },
  "by_event": {
   "401910036|ml": {
    "home": {
@@ -819,6 +828,13 @@
     "n": 1,
     "best_rank": 132,
     "usd": 125
+   }
+  },
+  "401910041|total": {
+   "over": {
+    "n": 1,
+    "best_rank": 132,
+    "usd": 3192
    }
   },
   "401910045|ml": {
