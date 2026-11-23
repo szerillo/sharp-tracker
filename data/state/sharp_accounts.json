@@ -1,43 +1,6 @@
 {
- "built": "2026-11-23T01:58:49Z",
+ "built": "2026-11-23T02:04:36Z",
  "rows": [
-  {
-   "cond": "0x9a8031af8b299858e0b4f91628dfe53f93f31f72e6700854d68ba83c3ad41422",
-   "slug": "nhl-buf-tb-2026-11-22",
-   "title": "Sabres vs. Lightning",
-   "mtype": "spread",
-   "start": "2026-11-22T22:00:00Z",
-   "bet": "Lightning -1.5",
-   "side": "Lightning",
-   "flagged": "2026-11-22T21:52:41Z",
-   "why": "a top-50 account",
-   "proven": false,
-   "trigger": "top50",
-   "n_accounts": 1,
-   "best_rank": 3,
-   "usd": 440,
-   "paid": 0.44,
-   "ask": null,
-   "status": "live",
-   "link": "https://polymarket.us/event/nhl-buf-tb-2026-11-22",
-   "other": null,
-   "kalshi_against": null,
-   "logged": false,
-   "event_id": "401892769",
-   "sport": "nhl",
-   "league": null,
-   "away": "BUF",
-   "home": "TB",
-   "away_name": "Buffalo Sabres",
-   "home_name": "Tampa Bay Lightning",
-   "game_start": "2026-11-22T22:00Z",
-   "side_std": "home",
-   "money_with": false,
-   "grade": "B",
-   "fair_board": null,
-   "inside_fair": null,
-   "books": null
-  },
   {
    "cond": "0x6d241faa1697ea04e1cf6c4bf83f68704ba1bbf0029d8adc50ea26b702e2e5a6",
    "slug": "nba-okc-mia-2026-11-22",
@@ -469,7 +432,7 @@
    "best_rank": 197,
    "usd": 562,
    "paid": 0.65,
-   "ask": 0.68,
+   "ask": 0.67,
    "status": "live",
    "link": "https://polymarket.us/event/nhl-cal-ott-2026-11-23",
    "other": null,
@@ -515,7 +478,7 @@
    "best_rank": 69,
    "usd": 289,
    "paid": 0.587,
-   "ask": 0.59,
+   "ask": 0.6,
    "status": "live",
    "link": "https://polymarket.us/event/nhl-tor-nyi-2026-11-23",
    "other": null,
@@ -533,7 +496,7 @@
    "money_with": false,
    "grade": "A",
    "fair_board": 0.5961,
-   "inside_fair": true,
+   "inside_fair": false,
    "books": {
     "at": "2026-11-23T00:56:16Z",
     "fair": 0.5961,
@@ -1322,32 +1285,32 @@
     "clv": -0.24
    }
   },
-  "n": 398,
-  "won": 191,
+  "n": 402,
+  "won": 192,
   "units": -16.62,
   "by_grade": {
    "A": {
-    "n": 260,
+    "n": 262,
     "won": 119,
     "units": -15.43,
-    "clv": -0.19
+    "clv": -0.18
    },
    "B": {
-    "n": 95,
-    "won": 54,
+    "n": 96,
+    "won": 55,
     "units": 0.89,
-    "clv": -0.94
+    "clv": -1.04
    },
    "watch": {
-    "n": 43,
+    "n": 44,
     "won": 18,
     "units": -2.09,
-    "clv": -0.1
+    "clv": -0.03
    }
   },
-  "units_1u": -23.65,
-  "clv": -0.37,
-  "n_venue": 205,
+  "units_1u": -25.65,
+  "clv": -0.38,
+  "n_venue": 206,
   "units_venue": -6.15,
   "clv_venue": 0.95,
   "clv_poly_same": -0.61
