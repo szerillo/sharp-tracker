@@ -9650,8 +9650,8 @@
 },
 "401892780:nhl_pl_fav_strong_opp": {
 "tag": "nhl_pl_fav_strong_opp",
-"fill_id": "33f0b85c3c25",
-"ts": "2026-11-22T22:10:17Z",
+"fill_id": "2bc4eee8eb1d",
+"ts": "2026-11-22T21:33:00Z",
 "market": "spread",
 "side": "away",
 "line": -1.5,
@@ -9659,7 +9659,11 @@
 "price": 170,
 "fair": null,
 "edge_pts": null,
-"why": "opponent EDM wins 68% (17-8); favorite VGK -1.5 against a strong team"
+"why": "opponent EDM wins 68% (17-8); favorite VGK -1.5 against a strong team",
+"restored": true,
+"void": true,
+"void_why": "trigger no longer holds on current season records (2026-11-23T03:22:26Z)",
+"void_at": "2026-11-23T03:22:26Z"
 },
 "401873080:nfl_road_dog_7510": {
 "tag": "nfl_road_dog_7510",
@@ -9808,5 +9812,31 @@
 "fair": 0.5,
 "edge_pts": -2.38,
 "why": "SA off 3 straight home games, first road game: over (Bet Labs filter)"
+},
+"401910044:nba_bigfav_over": {
+"tag": "nba_bigfav_over",
+"fill_id": "b899a7954c69",
+"ts": "2026-11-23T03:22:26Z",
+"market": "total",
+"side": "over",
+"line": 229.5,
+"venue": "Novig",
+"price": -100,
+"fair": 0.50464,
+"edge_pts": 0.46,
+"why": "LAL is 87% on the moneyline: over (mined angle)"
+},
+"401892780:nhl_skid_fade_road": {
+"tag": "nhl_skid_fade_road",
+"fill_id": "36f82bca8a6b",
+"ts": "2026-11-23T03:22:26Z",
+"market": "spread",
+"side": "away",
+"line": 1.5,
+"venue": "Kalshi",
+"price": -335,
+"fair": null,
+"edge_pts": null,
+"why": "VGK off a win, home EDM has lost 3 straight: road puck line (mined angle)"
 }
 }
