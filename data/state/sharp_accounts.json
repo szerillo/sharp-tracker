@@ -1,5 +1,5 @@
 {
- "built": "2026-11-23T22:43:58Z",
+ "built": "2026-11-23T22:51:21Z",
  "rows": [
   {
    "cond": "0x9c183fba1441c3917b7e3a99c0103626285576b0d6b8e1bcabf3e10cb8e3a239",
@@ -122,6 +122,52 @@
    }
   },
   {
+   "cond": "0xfb64c2863568a8c3e9151644236d69de2584d19dea0bb3b736c07b19182200e1",
+   "slug": "nba-por-phi-2026-11-23",
+   "title": "Trail Blazers vs. 76ers",
+   "mtype": "spread",
+   "start": "2026-11-24T00:00:00Z",
+   "bet": "Trail Blazers +2.5",
+   "side": "Trail Blazers",
+   "flagged": "2026-11-23T22:45:11Z",
+   "why": "2 top-200 accounts",
+   "proven": false,
+   "trigger": "two",
+   "n_accounts": 2,
+   "best_rank": 110,
+   "usd": 410,
+   "paid": 0.511,
+   "ask": 0.55,
+   "status": "live",
+   "link": "https://polymarket.us/event/nba-por-phi-2026-11-23",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401910037",
+   "sport": "nba",
+   "league": null,
+   "away": "POR",
+   "home": "PHI",
+   "away_name": "Portland Trail Blazers",
+   "home_name": "Philadelphia 76ers",
+   "game_start": "2026-11-24T00:00Z",
+   "side_std": "away",
+   "money_with": true,
+   "grade": "A",
+   "fair_board": 0.506,
+   "inside_fair": false,
+   "books": {
+    "at": "2026-11-23T22:06:25Z",
+    "fair": 0.506,
+    "q": {
+     "Novig": 0.51,
+     "Caesars": 0.5122,
+     "DK": 0.5238,
+     "Kalshi": 0.53
+    }
+   }
+  },
+  {
    "cond": "0xc518c24e640355315b6dfca3c12f7fba9a01114cd8f653a07281550458429260",
    "slug": "nhl-cal-ott-2026-11-23",
    "title": "Flames vs. Senators",
@@ -217,52 +263,6 @@
    }
   },
   {
-   "cond": "0xfc83d44b0b7199aa31e58eec35d27b0462a88a900dd694ad2f1fe7b96e3b076a",
-   "slug": "nba-okc-ind-2026-11-23",
-   "title": "Thunder vs. Pacers",
-   "mtype": "spread",
-   "start": "2026-11-24T00:30:00Z",
-   "bet": "Thunder -5.5",
-   "side": "Thunder",
-   "flagged": "2026-11-23T18:30:05Z",
-   "why": "2 top-200 accounts",
-   "proven": false,
-   "trigger": "two",
-   "n_accounts": 2,
-   "best_rank": 110,
-   "usd": 16643,
-   "paid": 0.506,
-   "ask": 0.52,
-   "status": "live",
-   "link": "https://polymarket.us/event/nba-okc-ind-2026-11-23",
-   "other": null,
-   "kalshi_against": null,
-   "logged": true,
-   "event_id": "401910038",
-   "sport": "nba",
-   "league": null,
-   "away": "OKC",
-   "home": "IND",
-   "away_name": "Oklahoma City Thunder",
-   "home_name": "Indiana Pacers",
-   "game_start": "2026-11-24T00:30Z",
-   "side_std": "away",
-   "money_with": false,
-   "grade": "B",
-   "fair_board": 0.5132,
-   "inside_fair": false,
-   "books": {
-    "at": "2026-11-23T22:06:25Z",
-    "fair": 0.5132,
-    "q": {
-     "Caesars": 0.5238,
-     "Novig": 0.53,
-     "FD": 0.5349,
-     "DK": 0.5349
-    }
-   }
-  },
-  {
    "cond": "0x1a54f964637acd52e5c50bab146f124f813a36d06448c68a9da35f90577b8a88",
    "slug": "nfl-cin-was-2026-11-24",
    "title": "Bengals vs. Commanders",
@@ -278,7 +278,7 @@
    "best_rank": 143,
    "usd": 3534,
    "paid": 0.16,
-   "ask": 0.16,
+   "ask": 0.17,
    "status": "live",
    "link": "https://polymarket.us/event/nfl-cin-was-2026-11-24",
    "other": null,
@@ -943,6 +943,43 @@
    "books": null
   },
   {
+   "cond": "0x45c414095f5876a025068511b200405477e486fd4ae24b880a42c1f1154216f0",
+   "slug": "cfb-aubrn-ala-2026-11-28",
+   "title": "Auburn vs. Alabama",
+   "mtype": "total",
+   "start": "2026-11-29T00:30:00Z",
+   "bet": "Over 49.5",
+   "side": "Over",
+   "flagged": "2026-11-23T22:49:38Z",
+   "why": "a top-50 account",
+   "proven": false,
+   "trigger": "top50",
+   "n_accounts": 1,
+   "best_rank": 12,
+   "usd": 125,
+   "paid": 0.5,
+   "ask": 0.51,
+   "status": "live",
+   "link": "https://polymarket.us/event/cfb-aubrn-ala-2026-11-28",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401856757",
+   "sport": "cfb",
+   "league": null,
+   "away": "AUB",
+   "home": "ALA",
+   "away_name": "Auburn Tigers",
+   "home_name": "Alabama Crimson Tide",
+   "game_start": "2026-11-29T00:30Z",
+   "side_std": "over",
+   "money_with": false,
+   "grade": "B",
+   "fair_board": null,
+   "inside_fair": null,
+   "books": null
+  },
+  {
    "cond": "0x3ae8f96806ecaf70143266702c86cf1e7d4285a82c51ee545c3f7b77b684c3a2",
    "slug": "epl-eve-liv-2026-11-29",
    "title": "Everton FC vs. Liverpool FC",
@@ -1064,14 +1101,14 @@
    "bet": "Pacers ML",
    "side": "Pacers",
    "flagged": "2026-11-22T21:40:59Z",
-   "why": "4 top-200 accounts",
+   "why": "5 top-200 accounts",
    "proven": false,
    "trigger": "two",
-   "n_accounts": 4,
+   "n_accounts": 5,
    "best_rank": 43,
-   "usd": 3890,
-   "paid": 0.336,
-   "ask": 0.34,
+   "usd": 4970,
+   "paid": 0.341,
+   "ask": 0.37,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-okc-ind-2026-11-23",
    "other": {
@@ -1080,7 +1117,7 @@
     "usd": 22682,
     "first": "2026-11-23T18:30:05Z"
    },
-   "exit_bid": 0.33,
+   "exit_bid": 0.36,
    "kalshi_against": null,
    "logged": true,
    "event_id": "401910038",
@@ -1099,6 +1136,49 @@
    "grade": "B",
    "fair_board": 0.3272,
    "inside_fair": false,
+   "books": null
+  },
+  {
+   "cond": "0xfc83d44b0b7199aa31e58eec35d27b0462a88a900dd694ad2f1fe7b96e3b076a",
+   "slug": "nba-okc-ind-2026-11-23",
+   "title": "Thunder vs. Pacers",
+   "mtype": "spread",
+   "start": "2026-11-24T00:30:00Z",
+   "bet": "Thunder -5.5",
+   "side": "Thunder",
+   "flagged": "2026-11-23T18:30:05Z",
+   "why": "2 top-200 accounts",
+   "proven": false,
+   "trigger": "two",
+   "n_accounts": 2,
+   "best_rank": 110,
+   "usd": 16643,
+   "paid": 0.506,
+   "ask": 0.47,
+   "status": "other side",
+   "link": "https://polymarket.us/event/nba-okc-ind-2026-11-23",
+   "other": {
+    "n_accounts": 1,
+    "best_rank": 112,
+    "usd": 12341,
+    "first": "2026-11-23T22:48:50Z"
+   },
+   "exit_bid": 0.46,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401910038",
+   "sport": "nba",
+   "league": null,
+   "away": "OKC",
+   "home": "IND",
+   "away_name": "Oklahoma City Thunder",
+   "home_name": "Indiana Pacers",
+   "game_start": "2026-11-24T00:30Z",
+   "side_std": "away",
+   "money_with": false,
+   "grade": "B",
+   "fair_board": 0.5132,
+   "inside_fair": true,
    "books": null
   },
   {
@@ -1246,7 +1326,7 @@
    "best_rank": 93,
    "usd": 967,
    "paid": 0.497,
-   "ask": 0.49,
+   "ask": 0.5,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-min-okc-2026-11-25",
    "other": {
@@ -1373,9 +1453,9 @@
   },
   "401910037|ml": {
    "away": {
-    "n": 6,
+    "n": 7,
     "best_rank": 40,
-    "usd": 26299
+    "usd": 35730
    },
    "home": {
     "n": 2,
@@ -1397,9 +1477,9 @@
   },
   "401910037|spread": {
    "away": {
-    "n": 2,
+    "n": 3,
     "best_rank": 110,
-    "usd": 10830
+    "usd": 11072
    },
    "home": {
     "n": 1,
@@ -1409,9 +1489,9 @@
   },
   "401910038|ml": {
    "home": {
-    "n": 4,
+    "n": 5,
     "best_rank": 43,
-    "usd": 3890
+    "usd": 4970
    },
    "away": {
     "n": 2,
@@ -1424,6 +1504,11 @@
     "n": 2,
     "best_rank": 110,
     "usd": 16643
+   },
+   "home": {
+    "n": 2,
+    "best_rank": 110,
+    "usd": 1402
    }
   },
   "401910038|total": {
@@ -1582,6 +1667,13 @@
     "n": 1,
     "best_rank": 79,
     "usd": 3870
+   }
+  },
+  "401856757|total": {
+   "over": {
+    "n": 1,
+    "best_rank": 12,
+    "usd": 125
    }
   },
   "401919761|total": {
