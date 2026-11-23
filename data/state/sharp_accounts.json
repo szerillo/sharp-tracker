@@ -1,5 +1,5 @@
 {
- "built": "2026-11-23T12:02:58Z",
+ "built": "2026-11-23T12:13:20Z",
  "rows": [
   {
    "cond": "0x9c183fba1441c3917b7e3a99c0103626285576b0d6b8e1bcabf3e10cb8e3a239",
@@ -182,52 +182,6 @@
      "Caesars": 0.3704,
      "DK": 0.3831,
      "Kalshi": 0.39
-    }
-   }
-  },
-  {
-   "cond": "0x6a0d74a26e882139f5580f270f624a866f1f59acade85397a9bf69a1f976795a",
-   "slug": "nhl-ana-sea-2026-11-23",
-   "title": "Ducks vs. Kraken",
-   "mtype": "ml",
-   "start": "2026-11-24T02:40:00Z",
-   "bet": "Kraken ML",
-   "side": "Kraken",
-   "flagged": "2026-11-22T13:18:50Z",
-   "why": "a top-200 account also in this sport's top 50",
-   "proven": true,
-   "trigger": "proven",
-   "n_accounts": 1,
-   "best_rank": 69,
-   "usd": 239,
-   "paid": 0.52,
-   "ask": 0.52,
-   "status": "live",
-   "link": "https://polymarket.us/event/nhl-ana-sea-2026-11-23",
-   "other": null,
-   "kalshi_against": null,
-   "logged": true,
-   "event_id": "401892778",
-   "sport": "nhl",
-   "league": null,
-   "away": "ANA",
-   "home": "SEA",
-   "away_name": "Anaheim Ducks",
-   "home_name": "Seattle Kraken",
-   "game_start": "2026-11-24T02:40Z",
-   "side_std": "home",
-   "money_with": false,
-   "grade": "A",
-   "fair_board": 0.5005,
-   "inside_fair": false,
-   "books": {
-    "at": "2026-11-23T03:30:49Z",
-    "fair": 0.5005,
-    "q": {
-     "Novig": 0.5,
-     "Kalshi": 0.52,
-     "Caesars": 0.5305,
-     "DK": 0.5349
     }
    }
   },
@@ -723,6 +677,49 @@
    "books": null
   },
   {
+   "cond": "0x6a0d74a26e882139f5580f270f624a866f1f59acade85397a9bf69a1f976795a",
+   "slug": "nhl-ana-sea-2026-11-23",
+   "title": "Ducks vs. Kraken",
+   "mtype": "ml",
+   "start": "2026-11-24T02:40:00Z",
+   "bet": "Kraken ML",
+   "side": "Kraken",
+   "flagged": "2026-11-22T13:18:50Z",
+   "why": "a top-200 account also in this sport's top 50",
+   "proven": true,
+   "trigger": "proven",
+   "n_accounts": 1,
+   "best_rank": 69,
+   "usd": 239,
+   "paid": 0.52,
+   "ask": 0.52,
+   "status": "other side",
+   "link": "https://polymarket.us/event/nhl-ana-sea-2026-11-23",
+   "other": {
+    "n_accounts": 1,
+    "best_rank": 132,
+    "usd": 656,
+    "first": "2026-11-23T12:12:14Z"
+   },
+   "exit_bid": 0.51,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401892778",
+   "sport": "nhl",
+   "league": null,
+   "away": "ANA",
+   "home": "SEA",
+   "away_name": "Anaheim Ducks",
+   "home_name": "Seattle Kraken",
+   "game_start": "2026-11-24T02:40Z",
+   "side_std": "home",
+   "money_with": false,
+   "grade": "A",
+   "fair_board": 0.5005,
+   "inside_fair": false,
+   "books": null
+  },
+  {
    "cond": "0x196eac8fd4ebf4f30ca62ca96b9a62f910e5f5b725f0c070713bceabbe738aee",
    "slug": "ucl-lil-bay-2026-11-25",
    "title": "Lille OSC vs. FC Bayern M\u00fcnchen",
@@ -976,6 +973,11 @@
     "n": 1,
     "best_rank": 69,
     "usd": 239
+   },
+   "away": {
+    "n": 1,
+    "best_rank": 132,
+    "usd": 656
    }
   },
   "401892779|ml": {
