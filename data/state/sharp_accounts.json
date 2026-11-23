@@ -1,5 +1,5 @@
 {
- "built": "2026-11-23T18:42:03Z",
+ "built": "2026-11-23T18:57:06Z",
  "rows": [
   {
    "cond": "0x9c183fba1441c3917b7e3a99c0103626285576b0d6b8e1bcabf3e10cb8e3a239",
@@ -46,6 +46,43 @@
      "Kalshi": 0.44
     }
    }
+  },
+  {
+   "cond": "0x1e27ee2ab2865d6abc31d28246d3c13637f572b4153390d55e94f592bafd647e",
+   "slug": "epl-bre-eve-2026-11-23",
+   "title": "Brentford FC vs. Everton FC",
+   "mtype": "ml",
+   "start": "2026-11-23T20:00:00Z",
+   "bet": "Will Everton FC win on 2026-11-23: No",
+   "side": "No",
+   "flagged": "2026-11-23T18:55:01Z",
+   "why": "a top-200 account also in this sport's top 50",
+   "proven": true,
+   "trigger": "proven",
+   "n_accounts": 1,
+   "best_rank": 149,
+   "usd": 685,
+   "paid": 0.69,
+   "ask": 0.7,
+   "status": "live",
+   "link": "https://polymarket.us/event/epl-bre-eve-2026-11-23",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401879237",
+   "sport": "soccer",
+   "league": "epl",
+   "away": "EVE",
+   "home": "BRE",
+   "away_name": "Everton",
+   "home_name": "Brentford",
+   "game_start": "2026-11-23T20:00Z",
+   "side_std": "not_away",
+   "money_with": false,
+   "grade": "A",
+   "fair_board": null,
+   "inside_fair": null,
+   "books": null
   },
   {
    "cond": "0xc2f71a6f70924ac2b643b8c5c51204cb20b2c44b0c9812c588b681f1c433d790",
@@ -171,7 +208,8 @@
    "game_start": "2026-11-24T00:30Z",
    "side_std": "under",
    "conflict": [
-    "Kalshi bet back"
+    "Kalshi bet back",
+    "big money"
    ],
    "money_with": false,
    "grade": "B",
@@ -204,7 +242,7 @@
    "best_rank": 110,
    "usd": 16643,
    "paid": 0.506,
-   "ask": 0.54,
+   "ask": 0.53,
    "status": "live",
    "link": "https://polymarket.us/event/nba-okc-ind-2026-11-23",
    "other": null,
@@ -219,9 +257,6 @@
    "home_name": "Indiana Pacers",
    "game_start": "2026-11-24T00:30Z",
    "side_std": "away",
-   "conflict": [
-    "Kalshi move"
-   ],
    "money_with": false,
    "grade": "B",
    "fair_board": null,
@@ -945,7 +980,7 @@
    "best_rank": 43,
    "usd": 2773,
    "paid": 0.339,
-   "ask": 0.33,
+   "ask": 0.34,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-okc-ind-2026-11-23",
    "other": {
@@ -954,7 +989,7 @@
     "usd": 19861,
     "first": "2026-11-23T18:30:05Z"
    },
-   "exit_bid": 0.32,
+   "exit_bid": 0.33,
    "kalshi_against": null,
    "logged": true,
    "event_id": "401910038",
