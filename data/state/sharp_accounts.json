@@ -1,5 +1,5 @@
 {
- "built": "2026-11-23T18:17:36Z",
+ "built": "2026-11-23T18:34:06Z",
  "rows": [
   {
    "cond": "0x9c183fba1441c3917b7e3a99c0103626285576b0d6b8e1bcabf3e10cb8e3a239",
@@ -140,52 +140,6 @@
    }
   },
   {
-   "cond": "0xc42460b4eca4c9f8871e21184ce28a6b7c1ae422bebad855962db1d6af550347",
-   "slug": "nba-okc-ind-2026-11-23",
-   "title": "Thunder vs. Pacers",
-   "mtype": "ml",
-   "start": "2026-11-24T00:30:00Z",
-   "bet": "Pacers ML",
-   "side": "Pacers",
-   "flagged": "2026-11-22T21:40:59Z",
-   "why": "2 top-200 accounts",
-   "proven": false,
-   "trigger": "two",
-   "n_accounts": 2,
-   "best_rank": 43,
-   "usd": 2773,
-   "paid": 0.339,
-   "ask": 0.35,
-   "status": "live",
-   "link": "https://polymarket.us/event/nba-okc-ind-2026-11-23",
-   "other": null,
-   "kalshi_against": null,
-   "logged": true,
-   "event_id": "401910038",
-   "sport": "nba",
-   "league": null,
-   "away": "OKC",
-   "home": "IND",
-   "away_name": "Oklahoma City Thunder",
-   "home_name": "Indiana Pacers",
-   "game_start": "2026-11-24T00:30Z",
-   "side_std": "home",
-   "money_with": false,
-   "grade": "B",
-   "fair_board": 0.3632,
-   "inside_fair": true,
-   "books": {
-    "at": "2026-11-23T18:01:35Z",
-    "fair": 0.3632,
-    "q": {
-     "Novig": 0.365,
-     "FD": 0.3759,
-     "DK": 0.3846,
-     "Caesars": 0.3876
-    }
-   }
-  },
-  {
    "cond": "0xbfdbbfce25f73ad13c92460321a00518f7ac82b59b3ad06ef3430bc30b045fcf",
    "slug": "nba-bkn-min-2026-11-23",
    "title": "Nets vs. Timberwolves",
@@ -232,6 +186,53 @@
      "Caesars": 0.5122,
      "FD": 0.5146,
      "DK": 0.5192
+    }
+   }
+  },
+  {
+   "cond": "0xfc83d44b0b7199aa31e58eec35d27b0462a88a900dd694ad2f1fe7b96e3b076a",
+   "slug": "nba-okc-ind-2026-11-23",
+   "title": "Thunder vs. Pacers",
+   "mtype": "spread",
+   "start": "2026-11-24T00:30:00Z",
+   "bet": "Thunder -5.5",
+   "side": "Thunder",
+   "flagged": "2026-11-23T18:30:05Z",
+   "why": "2 top-200 accounts",
+   "proven": false,
+   "trigger": "two",
+   "n_accounts": 2,
+   "best_rank": 110,
+   "usd": 16643,
+   "paid": 0.506,
+   "ask": 0.54,
+   "status": "live",
+   "link": "https://polymarket.us/event/nba-okc-ind-2026-11-23",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401910038",
+   "sport": "nba",
+   "league": null,
+   "away": "OKC",
+   "home": "IND",
+   "away_name": "Oklahoma City Thunder",
+   "home_name": "Indiana Pacers",
+   "game_start": "2026-11-24T00:30Z",
+   "side_std": "away",
+   "conflict": [
+    "Kalshi move"
+   ],
+   "money_with": false,
+   "grade": "B",
+   "fair_board": null,
+   "inside_fair": null,
+   "books": {
+    "at": "2026-11-23T18:01:35Z",
+    "fair": null,
+    "q": {
+     "Novig": 0.475,
+     "Kalshi": 0.5
     }
    }
   },
@@ -893,6 +894,49 @@
    "books": null
   },
   {
+   "cond": "0xc42460b4eca4c9f8871e21184ce28a6b7c1ae422bebad855962db1d6af550347",
+   "slug": "nba-okc-ind-2026-11-23",
+   "title": "Thunder vs. Pacers",
+   "mtype": "ml",
+   "start": "2026-11-24T00:30:00Z",
+   "bet": "Pacers ML",
+   "side": "Pacers",
+   "flagged": "2026-11-22T21:40:59Z",
+   "why": "2 top-200 accounts",
+   "proven": false,
+   "trigger": "two",
+   "n_accounts": 2,
+   "best_rank": 43,
+   "usd": 2773,
+   "paid": 0.339,
+   "ask": 0.32,
+   "status": "other side",
+   "link": "https://polymarket.us/event/nba-okc-ind-2026-11-23",
+   "other": {
+    "n_accounts": 1,
+    "best_rank": 75,
+    "usd": 19861,
+    "first": "2026-11-23T18:30:05Z"
+   },
+   "exit_bid": 0.31,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401910038",
+   "sport": "nba",
+   "league": null,
+   "away": "OKC",
+   "home": "IND",
+   "away_name": "Oklahoma City Thunder",
+   "home_name": "Indiana Pacers",
+   "game_start": "2026-11-24T00:30Z",
+   "side_std": "home",
+   "money_with": false,
+   "grade": "B",
+   "fair_board": 0.3632,
+   "inside_fair": true,
+   "books": null
+  },
+  {
    "cond": "0x6a0d74a26e882139f5580f270f624a866f1f59acade85397a9bf69a1f976795a",
    "slug": "nhl-ana-sea-2026-11-23",
    "title": "Ducks vs. Kraken",
@@ -1134,13 +1178,18 @@
     "n": 2,
     "best_rank": 43,
     "usd": 2773
+   },
+   "away": {
+    "n": 1,
+    "best_rank": 75,
+    "usd": 8673
    }
   },
   "401910038|spread": {
    "away": {
-    "n": 1,
+    "n": 2,
     "best_rank": 110,
-    "usd": 688
+    "usd": 16643
    }
   },
   "401910039|ml": {
@@ -1174,6 +1223,13 @@
     "n": 1,
     "best_rank": 132,
     "usd": 3192
+   }
+  },
+  "401910042|total": {
+   "under": {
+    "n": 1,
+    "best_rank": 115,
+    "usd": 3610
    }
   },
   "401910045|ml": {
