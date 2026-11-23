@@ -1,5 +1,5 @@
 {
- "built": "2026-11-23T12:54:30Z",
+ "built": "2026-11-23T13:07:39Z",
  "rows": [
   {
    "cond": "0x9c183fba1441c3917b7e3a99c0103626285576b0d6b8e1bcabf3e10cb8e3a239",
@@ -247,7 +247,7 @@
    "best_rank": 116,
    "usd": 477,
    "paid": 0.48,
-   "ask": 0.55,
+   "ask": 0.54,
    "status": "live",
    "link": "https://polymarket.us/event/cbb-colst-arz-2026-11-23",
    "other": null,
@@ -568,7 +568,7 @@
    "best_rank": 43,
    "usd": 133,
    "paid": 0.57,
-   "ask": 0.64,
+   "ask": 0.63,
    "status": "live",
    "link": "https://polymarket.us/event/nba-chi-cha-2026-11-25",
    "other": null,
@@ -652,11 +652,7 @@
     "first": "2026-11-23T01:27:37Z"
    },
    "exit_bid": 0.2,
-   "kalshi_against": {
-    "move": 4.0,
-    "now": 80.0,
-    "state": "reversed"
-   },
+   "kalshi_against": null,
    "logged": true,
    "event_id": "401910039",
    "sport": "nba",
@@ -667,9 +663,6 @@
    "home_name": "Toronto Raptors",
    "game_start": "2026-11-24T00:30Z",
    "side_std": "away",
-   "conflict": [
-    "Kalshi move"
-   ],
    "money_with": false,
    "grade": "B",
    "fair_board": 0.1839,
