@@ -1,5 +1,5 @@
 {
- "built": "2026-11-23T08:53:18Z",
+ "built": "2026-11-23T09:24:06Z",
  "rows": [
   {
    "cond": "0x9c183fba1441c3917b7e3a99c0103626285576b0d6b8e1bcabf3e10cb8e3a239",
@@ -410,6 +410,43 @@
    }
   },
   {
+   "cond": "0x1dae84f7aa36ddb8aa59239664a389ca17ef375bafd5c7b7eb9c857fbe049439",
+   "slug": "ucl-sf-fcb-2026-11-25",
+   "title": "Sabah FK vs. FC Barcelona",
+   "mtype": "ml",
+   "start": "2026-11-25T17:45:00Z",
+   "bet": "Will FC Barcelona win on 2026-11-25: No",
+   "side": "No",
+   "flagged": "2026-11-23T09:19:56Z",
+   "why": "a top-200 account also in this sport's top 50",
+   "proven": true,
+   "trigger": "proven",
+   "n_accounts": 1,
+   "best_rank": 170,
+   "usd": 144,
+   "paid": 0.09,
+   "ask": 0.09,
+   "status": "live",
+   "link": "https://polymarket.us/event/ucl-sf-fcb-2026-11-25",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401915378",
+   "sport": "soccer",
+   "league": "ucl",
+   "away": "BAR",
+   "home": "SAB",
+   "away_name": "Barcelona",
+   "home_name": "Sabah FK",
+   "game_start": "2026-11-25T17:45Z",
+   "side_std": "not_away",
+   "money_with": false,
+   "grade": "A",
+   "fair_board": null,
+   "inside_fair": null,
+   "books": null
+  },
+  {
    "cond": "0x8815e1a17ad30339bd60d7d7e391fceddfb6557d2f02ad8e3fbacc35638c388d",
    "slug": "ucl-spo-mnu-2026-11-25-more-markets",
    "title": "Sporting CP vs. Manchester United FC - More Markets",
@@ -701,11 +738,7 @@
     "first": "2026-11-23T01:27:37Z"
    },
    "exit_bid": 0.2,
-   "kalshi_against": {
-    "move": 4.0,
-    "now": 80.0,
-    "state": "reversed"
-   },
+   "kalshi_against": null,
    "logged": true,
    "event_id": "401910039",
    "sport": "nba",
@@ -716,9 +749,6 @@
    "home_name": "Toronto Raptors",
    "game_start": "2026-11-24T00:30Z",
    "side_std": "away",
-   "conflict": [
-    "Kalshi move"
-   ],
    "money_with": false,
    "grade": "B",
    "fair_board": 0.1839,
