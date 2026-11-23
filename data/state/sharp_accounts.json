@@ -1,5 +1,5 @@
 {
- "built": "2026-11-23T18:34:06Z",
+ "built": "2026-11-23T18:17:36Z",
  "rows": [
   {
    "cond": "0x9c183fba1441c3917b7e3a99c0103626285576b0d6b8e1bcabf3e10cb8e3a239",
@@ -136,6 +136,52 @@
      "FD": 0.7059,
      "DK": 0.7101,
      "Caesars": 0.7143
+    }
+   }
+  },
+  {
+   "cond": "0xc42460b4eca4c9f8871e21184ce28a6b7c1ae422bebad855962db1d6af550347",
+   "slug": "nba-okc-ind-2026-11-23",
+   "title": "Thunder vs. Pacers",
+   "mtype": "ml",
+   "start": "2026-11-24T00:30:00Z",
+   "bet": "Pacers ML",
+   "side": "Pacers",
+   "flagged": "2026-11-22T21:40:59Z",
+   "why": "2 top-200 accounts",
+   "proven": false,
+   "trigger": "two",
+   "n_accounts": 2,
+   "best_rank": 43,
+   "usd": 2773,
+   "paid": 0.339,
+   "ask": 0.35,
+   "status": "live",
+   "link": "https://polymarket.us/event/nba-okc-ind-2026-11-23",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401910038",
+   "sport": "nba",
+   "league": null,
+   "away": "OKC",
+   "home": "IND",
+   "away_name": "Oklahoma City Thunder",
+   "home_name": "Indiana Pacers",
+   "game_start": "2026-11-24T00:30Z",
+   "side_std": "home",
+   "money_with": false,
+   "grade": "B",
+   "fair_board": 0.3632,
+   "inside_fair": true,
+   "books": {
+    "at": "2026-11-23T18:01:35Z",
+    "fair": 0.3632,
+    "q": {
+     "Novig": 0.365,
+     "FD": 0.3759,
+     "DK": 0.3846,
+     "Caesars": 0.3876
     }
    }
   },
