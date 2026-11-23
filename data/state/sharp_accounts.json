@@ -1,5 +1,5 @@
 {
- "built": "2026-11-23T03:03:55Z",
+ "built": "2026-11-23T03:11:04Z",
  "rows": [
   {
    "cond": "0x7cb57d9727a9e9ee4b1f1b156b77451aebe084891cf29974294018d641459181",
@@ -110,15 +110,7 @@
    "grade": "A",
    "inside_fair": false,
    "fair_board": 0.4827,
-   "books": {
-    "at": "2026-11-23T01:12:23Z",
-    "fair": 0.5285,
-    "q": {
-     "Novig": 0.53,
-     "FD": 0.5455,
-     "Kalshi": 0.56
-    }
-   }
+   "books": null
   },
   {
    "cond": "0x7c36d3d012005dc8c386f9f1fbb8822334f9751d8c9379d3ed0f16641d88765d",
@@ -193,16 +185,7 @@
    "grade": "A",
    "inside_fair": false,
    "fair_board": 0.6261,
-   "books": {
-    "at": "2026-11-23T01:12:23Z",
-    "fair": 0.6577,
-    "q": {
-     "Novig": 0.66,
-     "FD": 0.6667,
-     "DK": 0.6721,
-     "Kalshi": 0.68
-    }
-   }
+   "books": null
   },
   {
    "cond": "0xdee4359ba5cb8471082a1666b280b3d7af3539442bf337e159a9572ebc015028",
@@ -277,14 +260,7 @@
    "grade": "B",
    "fair_board": null,
    "inside_fair": null,
-   "books": {
-    "at": "2026-11-23T01:22:59Z",
-    "fair": null,
-    "q": {
-     "Novig": 0.555,
-     "Kalshi": 0.58
-    }
-   }
+   "books": null
   },
   {
    "cond": "0xc518c24e640355315b6dfca3c12f7fba9a01114cd8f653a07281550458429260",
@@ -322,7 +298,7 @@
    "fair_board": 0.6699,
    "inside_fair": false,
    "books": {
-    "at": "2026-11-23T02:03:42Z",
+    "at": "2026-11-23T02:57:55Z",
     "fair": 0.6699,
     "q": {
      "Novig": 0.675,
@@ -368,7 +344,7 @@
    "fair_board": 0.5961,
    "inside_fair": false,
    "books": {
-    "at": "2026-11-23T02:03:42Z",
+    "at": "2026-11-23T02:57:55Z",
     "fair": 0.5961,
     "q": {
      "Novig": 0.6,
@@ -394,7 +370,7 @@
    "best_rank": 43,
    "usd": 1273,
    "paid": 0.302,
-   "ask": 0.38,
+   "ask": 0.37,
    "status": "live",
    "link": "https://polymarket.us/event/nba-okc-ind-2026-11-23",
    "other": null,
@@ -414,11 +390,11 @@
    "fair_board": null,
    "inside_fair": null,
    "books": {
-    "at": "2026-11-23T02:03:42Z",
+    "at": "2026-11-23T02:57:55Z",
     "fair": null,
     "q": {
-     "Novig": 0.38,
-     "Kalshi": 0.4
+     "Novig": 0.365,
+     "Kalshi": 0.39
     }
    }
   },
@@ -455,11 +431,11 @@
    "side_std": "home",
    "money_with": false,
    "grade": "A",
-   "fair_board": 0.5034,
+   "fair_board": 0.5049,
    "inside_fair": false,
    "books": {
-    "at": "2026-11-23T02:03:42Z",
-    "fair": 0.5034,
+    "at": "2026-11-23T02:57:55Z",
+    "fair": 0.5049,
     "q": {
      "Novig": 0.51,
      "Kalshi": 0.52,
@@ -501,14 +477,16 @@
    "side_std": "home",
    "money_with": false,
    "grade": "A",
-   "fair_board": null,
-   "inside_fair": null,
+   "fair_board": 0.1879,
+   "inside_fair": false,
    "books": {
-    "at": "2026-11-23T02:03:42Z",
-    "fair": null,
+    "at": "2026-11-23T02:57:55Z",
+    "fair": 0.1879,
     "q": {
-     "Novig": 0.2,
-     "Kalshi": 0.21
+     "Novig": 0.195,
+     "FD": 0.2,
+     "Caesars": 0.2174,
+     "DK": 0.2174
     }
    }
   },
@@ -548,13 +526,13 @@
    "inside_fair": true,
    "fair_board": 0.5034,
    "books": {
-    "at": "2026-11-23T02:03:42Z",
-    "fair": 0.4978,
+    "at": "2026-11-23T02:57:55Z",
+    "fair": 0.5115,
     "q": {
-     "Novig": 0.495,
+     "DK": 0.5238,
      "Caesars": 0.5238,
      "FD": 0.5238,
-     "Kalshi": 0.53
+     "Kalshi": 0.55
     }
    }
   },
@@ -631,7 +609,7 @@
    "fair_board": null,
    "inside_fair": null,
    "books": {
-    "at": "2026-11-23T02:03:42Z",
+    "at": "2026-11-23T02:57:55Z",
     "fair": null,
     "q": {
      "Novig": 0.58
@@ -749,10 +727,10 @@
    "fair_board": null,
    "inside_fair": null,
    "books": {
-    "at": "2026-11-23T02:03:42Z",
+    "at": "2026-11-23T02:57:55Z",
     "fair": null,
     "q": {
-     "Novig": 0.19
+     "Novig": 0.185
     }
    }
   },
@@ -946,7 +924,7 @@
    "side_std": "home",
    "money_with": false,
    "grade": "B",
-   "fair_board": 0.5134,
+   "fair_board": null,
    "inside_fair": null,
    "books": null
   },
@@ -996,7 +974,7 @@
    ],
    "money_with": false,
    "grade": "B",
-   "fair_board": 0.1972,
+   "fair_board": 0.1846,
    "inside_fair": false,
    "books": null
   },
