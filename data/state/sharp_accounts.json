@@ -1,43 +1,6 @@
 {
- "built": "2026-11-23T00:24:57Z",
+ "built": "2026-11-23T00:32:08Z",
  "rows": [
-  {
-   "cond": "0x35e3a46eea4c56646973fb71aaa058336dcdf80d5b430f33fc67d950aa7a5027",
-   "slug": "nba-det-atl-2026-11-22",
-   "title": "Pistons vs. Hawks",
-   "mtype": "ml",
-   "start": "2026-11-22T20:30:00Z",
-   "bet": "Pistons ML",
-   "side": "Pistons",
-   "flagged": "2026-11-22T06:41:53Z",
-   "why": "a top-50 account",
-   "proven": false,
-   "trigger": "top50",
-   "n_accounts": 1,
-   "best_rank": 43,
-   "usd": 450,
-   "paid": 0.55,
-   "ask": null,
-   "status": "live",
-   "link": "https://polymarket.us/event/nba-det-atl-2026-11-22",
-   "other": null,
-   "kalshi_against": null,
-   "logged": true,
-   "event_id": "401910029",
-   "sport": "nba",
-   "league": null,
-   "away": "DET",
-   "home": "ATL",
-   "away_name": "Detroit Pistons",
-   "home_name": "Atlanta Hawks",
-   "game_start": "2026-11-22T20:30Z",
-   "side_std": "away",
-   "money_with": false,
-   "grade": "watch",
-   "inside_fair": true,
-   "fair_board": 0.5576,
-   "books": null
-  },
   {
    "cond": "0x3ec44dda072245305fe98c00341d0b9b2d6f0510a001a84c32371f2fbdb4439a",
    "slug": "nfl-jax-nyg-2026-11-22",
@@ -329,7 +292,7 @@
    "home_name": "Vancouver Canucks",
    "game_start": "2026-11-23T01:00Z",
    "side_std": "home",
-   "money_with": false,
+   "money_with": true,
    "grade": "A",
    "inside_fair": false,
    "fair_board": 0.492,
@@ -421,9 +384,6 @@
    "home_name": "San Francisco 49ers",
    "game_start": "2026-11-23T01:20Z",
    "side_std": "home",
-   "conflict": [
-    "big money"
-   ],
    "money_with": false,
    "grade": "A",
    "inside_fair": false,
@@ -471,9 +431,6 @@
    "home_name": "San Francisco 49ers",
    "game_start": "2026-11-23T01:20Z",
    "side_std": "home",
-   "conflict": [
-    "big money"
-   ],
    "money_with": false,
    "grade": "A",
    "fair_board": null,
@@ -521,6 +478,50 @@
     "q": {
      "Novig": 0.56,
      "Kalshi": 0.59
+    }
+   }
+  },
+  {
+   "cond": "0x7abb7d4706f5c8c823283318d5f547e2743d9ef841e95e69b9404105193087ee",
+   "slug": "nba-mil-tor-2026-11-23",
+   "title": "Bucks vs. Raptors",
+   "mtype": "ml",
+   "start": "2026-11-24T00:30:00Z",
+   "bet": "Bucks ML",
+   "side": "Bucks",
+   "flagged": "2026-11-22T23:03:32Z",
+   "why": "2 top-200 accounts",
+   "proven": false,
+   "trigger": "two",
+   "n_accounts": 2,
+   "best_rank": 43,
+   "usd": 359,
+   "paid": 0.199,
+   "ask": 0.23,
+   "status": "live",
+   "link": "https://polymarket.us/event/nba-mil-tor-2026-11-23",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401910039",
+   "sport": "nba",
+   "league": null,
+   "away": "MIL",
+   "home": "TOR",
+   "away_name": "Milwaukee Bucks",
+   "home_name": "Toronto Raptors",
+   "game_start": "2026-11-24T00:30Z",
+   "side_std": "away",
+   "money_with": false,
+   "grade": "B",
+   "fair_board": null,
+   "inside_fair": null,
+   "books": {
+    "at": "2026-11-23T00:02:27Z",
+    "fair": null,
+    "q": {
+     "Novig": 0.21,
+     "Kalshi": 0.23
     }
    }
   },
@@ -632,7 +633,7 @@
    "best_rank": 43,
    "usd": 1273,
    "paid": 0.302,
-   "ask": 0.36,
+   "ask": 0.38,
    "status": "live",
    "link": "https://polymarket.us/event/nba-okc-ind-2026-11-23",
    "other": null,
@@ -739,8 +740,8 @@
    "side_std": "over",
    "money_with": false,
    "grade": "A",
-   "fair_board": 0.5034,
    "inside_fair": true,
+   "fair_board": 0.5034,
    "books": {
     "at": "2026-11-23T00:02:27Z",
     "fair": 0.5034,
@@ -1186,11 +1187,7 @@
     "first": "2026-11-22T14:33:07Z"
    },
    "exit_bid": null,
-   "kalshi_against": {
-    "move": 4.0,
-    "now": 67.5,
-    "state": "drift"
-   },
+   "kalshi_against": null,
    "logged": true,
    "event_id": "401892771",
    "sport": "nhl",
@@ -1201,9 +1198,6 @@
    "home_name": "Dallas Stars",
    "game_start": "2026-11-23T00:00Z",
    "side_std": "away",
-   "conflict": [
-    "Kalshi move"
-   ],
    "money_with": false,
    "grade": "A",
    "inside_fair": false,
@@ -1226,16 +1220,16 @@
    "best_rank": 40,
    "usd": 1227,
    "paid": 0.756,
-   "ask": 0.75,
+   "ask": 0.7,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-ind-nyk-2026-11-22",
    "other": {
-    "n_accounts": 1,
-    "best_rank": 55,
-    "usd": 350,
+    "n_accounts": 2,
+    "best_rank": 40,
+    "usd": 1079,
     "first": "2026-11-22T18:00:14Z"
    },
-   "exit_bid": 0.74,
+   "exit_bid": 0.69,
    "kalshi_against": {
     "move": 4.5,
     "now": 27.5,
@@ -1257,7 +1251,7 @@
    "money_with": false,
    "grade": "B",
    "fair_board": 0.7325,
-   "inside_fair": false,
+   "inside_fair": true,
    "books": null
   },
   {
@@ -1356,57 +1350,6 @@
    "fair_board": 0.5134,
    "inside_fair": false,
    "books": null
-  },
-  {
-   "cond": "0x7abb7d4706f5c8c823283318d5f547e2743d9ef841e95e69b9404105193087ee",
-   "slug": "nba-mil-tor-2026-11-23",
-   "title": "Bucks vs. Raptors",
-   "mtype": "ml",
-   "start": "2026-11-24T00:30:00Z",
-   "bet": "Bucks ML",
-   "side": "Bucks",
-   "flagged": "2026-11-22T23:03:32Z",
-   "why": "2 top-200 accounts",
-   "proven": false,
-   "trigger": "two",
-   "n_accounts": 2,
-   "best_rank": 43,
-   "usd": 359,
-   "paid": 0.199,
-   "ask": 0.23,
-   "status": "live",
-   "link": "https://polymarket.us/event/nba-mil-tor-2026-11-23",
-   "other": null,
-   "kalshi_against": {
-    "move": 4.0,
-    "now": 80.0,
-    "state": "reversed"
-   },
-   "logged": true,
-   "event_id": "401910039",
-   "sport": "nba",
-   "league": null,
-   "away": "MIL",
-   "home": "TOR",
-   "away_name": "Milwaukee Bucks",
-   "home_name": "Toronto Raptors",
-   "game_start": "2026-11-24T00:30Z",
-   "side_std": "away",
-   "conflict": [
-    "Kalshi move"
-   ],
-   "money_with": false,
-   "grade": "B",
-   "fair_board": null,
-   "inside_fair": null,
-   "books": {
-    "at": "2026-11-23T00:02:27Z",
-    "fair": null,
-    "q": {
-     "Novig": 0.21,
-     "Kalshi": 0.23
-    }
-   }
   },
   {
    "cond": "0x196eac8fd4ebf4f30ca62ca96b9a62f910e5f5b725f0c070713bceabbe738aee",
@@ -1520,9 +1463,9 @@
     "usd": 1227
    },
    "away": {
-    "n": 1,
-    "best_rank": 55,
-    "usd": 350
+    "n": 2,
+    "best_rank": 40,
+    "usd": 1079
    }
   },
   "401910034|spread": {
