@@ -1,5 +1,5 @@
 {
- "built": "2026-11-23T23:15:15Z",
+ "built": "2026-11-23T23:46:26Z",
  "rows": [
   {
    "cond": "0x9c183fba1441c3917b7e3a99c0103626285576b0d6b8e1bcabf3e10cb8e3a239",
@@ -106,8 +106,8 @@
    "home_name": "Charlotte Hornets",
    "game_start": "2026-11-24T00:00Z",
    "side_std": "home",
-   "money_with": true,
-   "grade": "A",
+   "money_with": false,
+   "grade": "B",
    "inside_fair": false,
    "fair_board": 0.4027,
    "books": {
@@ -137,7 +137,7 @@
    "best_rank": 110,
    "usd": 410,
    "paid": 0.511,
-   "ask": 0.54,
+   "ask": 0.57,
    "status": "live",
    "link": "https://polymarket.us/event/nba-por-phi-2026-11-23",
    "other": null,
@@ -164,52 +164,6 @@
      "Caesars": 0.5122,
      "DK": 0.5238,
      "FD": 0.5238
-    }
-   }
-  },
-  {
-   "cond": "0xc518c24e640355315b6dfca3c12f7fba9a01114cd8f653a07281550458429260",
-   "slug": "nhl-cal-ott-2026-11-23",
-   "title": "Flames vs. Senators",
-   "mtype": "ml",
-   "start": "2026-11-24T00:30:00Z",
-   "bet": "Senators ML",
-   "side": "Senators",
-   "flagged": "2026-11-22T12:56:58Z",
-   "why": "2 top-200 accounts",
-   "proven": true,
-   "trigger": "proven",
-   "n_accounts": 2,
-   "best_rank": 143,
-   "usd": 1308,
-   "paid": 0.667,
-   "ask": 0.71,
-   "status": "live",
-   "link": "https://polymarket.us/event/nhl-cal-ott-2026-11-23",
-   "other": null,
-   "kalshi_against": null,
-   "logged": true,
-   "event_id": "401892775",
-   "sport": "nhl",
-   "league": null,
-   "away": "CGY",
-   "home": "OTT",
-   "away_name": "Calgary Flames",
-   "home_name": "Ottawa Senators",
-   "game_start": "2026-11-24T00:30Z",
-   "side_std": "home",
-   "money_with": false,
-   "grade": "A",
-   "fair_board": 0.6999,
-   "inside_fair": false,
-   "books": {
-    "at": "2026-11-23T23:02:50Z",
-    "fair": 0.6999,
-    "q": {
-     "Novig": 0.7,
-     "FD": 0.7183,
-     "DK": 0.7207,
-     "Caesars": 0.7222
     }
    }
   },
@@ -942,6 +896,43 @@
    "books": null
   },
   {
+   "cond": "0x8dc2c4d90c60e5dac5508b00c1bf5fe4ec146f6f73b6a90bec89958fe936b156",
+   "slug": "nfl-kc-buf-2026-11-27",
+   "title": "Chiefs vs. Bills",
+   "mtype": "total",
+   "start": "2026-11-27T01:20:00Z",
+   "bet": "Under 48.5",
+   "side": "Under",
+   "flagged": "2026-11-23T23:42:38Z",
+   "why": "a top-50 account",
+   "proven": true,
+   "trigger": "proven",
+   "n_accounts": 1,
+   "best_rank": 49,
+   "usd": 787,
+   "paid": 0.52,
+   "ask": 0.53,
+   "status": "live",
+   "link": "https://polymarket.us/event/nfl-kc-buf-2026-11-27",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401873082",
+   "sport": "nfl",
+   "league": null,
+   "away": "KC",
+   "home": "BUF",
+   "away_name": "Kansas City Chiefs",
+   "home_name": "Buffalo Bills",
+   "game_start": "2026-11-27T01:20Z",
+   "side_std": "under",
+   "money_with": false,
+   "grade": "A",
+   "fair_board": null,
+   "inside_fair": null,
+   "books": null
+  },
+  {
    "cond": "0x45c414095f5876a025068511b200405477e486fd4ae24b880a42c1f1154216f0",
    "slug": "cfb-aubrn-ala-2026-11-28",
    "title": "Auburn vs. Alabama",
@@ -1049,6 +1040,49 @@
    "books": null
   },
   {
+   "cond": "0xc518c24e640355315b6dfca3c12f7fba9a01114cd8f653a07281550458429260",
+   "slug": "nhl-cal-ott-2026-11-23",
+   "title": "Flames vs. Senators",
+   "mtype": "ml",
+   "start": "2026-11-24T00:30:00Z",
+   "bet": "Senators ML",
+   "side": "Senators",
+   "flagged": "2026-11-22T12:56:58Z",
+   "why": "2 top-200 accounts",
+   "proven": true,
+   "trigger": "proven",
+   "n_accounts": 2,
+   "best_rank": 143,
+   "usd": 1308,
+   "paid": 0.667,
+   "ask": 0.71,
+   "status": "other side",
+   "link": "https://polymarket.us/event/nhl-cal-ott-2026-11-23",
+   "other": {
+    "n_accounts": 1,
+    "best_rank": 197,
+    "usd": 2400,
+    "first": "2026-11-23T23:41:56Z"
+   },
+   "exit_bid": 0.7,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401892775",
+   "sport": "nhl",
+   "league": null,
+   "away": "CGY",
+   "home": "OTT",
+   "away_name": "Calgary Flames",
+   "home_name": "Ottawa Senators",
+   "game_start": "2026-11-24T00:30Z",
+   "side_std": "home",
+   "money_with": false,
+   "grade": "A",
+   "fair_board": 0.6999,
+   "inside_fair": false,
+   "books": null
+  },
+  {
    "cond": "0x89998db23beacc2e945a7f752e64972f744bd539937665d058a58e5fb055c046",
    "slug": "nhl-tor-nyi-2026-11-23",
    "title": "Maple Leafs vs. Islanders",
@@ -1116,7 +1150,7 @@
     "usd": 22682,
     "first": "2026-11-23T18:30:05Z"
    },
-   "exit_bid": 0.33,
+   "exit_bid": 0.37,
    "kalshi_against": null,
    "logged": true,
    "event_id": "401910038",
@@ -1128,9 +1162,6 @@
    "home_name": "Indiana Pacers",
    "game_start": "2026-11-24T00:30Z",
    "side_std": "home",
-   "conflict": [
-    "big money"
-   ],
    "money_with": false,
    "grade": "B",
    "fair_board": 0.3311,
@@ -1436,6 +1467,18 @@
     "usd": 3610
    },
    "against": null
+  },
+  "401910038:xch_homedog_fade:ml": {
+   "with": {
+    "n": 2,
+    "best_rank": 75,
+    "usd": 9756
+   },
+   "against": {
+    "n": 5,
+    "best_rank": 43,
+    "usd": 4970
+   }
   }
  },
  "by_event": {
@@ -1444,6 +1487,13 @@
     "n": 1,
     "best_rank": 143,
     "usd": 3534
+   }
+  },
+  "401873082|total": {
+   "under": {
+    "n": 1,
+    "best_rank": 49,
+    "usd": 787
    }
   },
   "401910036|ml": {
@@ -1631,6 +1681,11 @@
     "n": 2,
     "best_rank": 143,
     "usd": 1308
+   },
+   "away": {
+    "n": 1,
+    "best_rank": 197,
+    "usd": 2400
    }
   },
   "401892776|ml": {
