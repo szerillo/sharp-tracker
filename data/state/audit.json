@@ -1,12 +1,12 @@
 {
- "built": "2026-11-22T23:51:19Z",
+ "built": "2026-11-23T00:06:37Z",
  "ok": false,
  "checks": [
   {
    "name": "fresh: sharp signals (5-minute job)",
    "ok": true,
    "level": "error",
-   "detail": "last built 19 min ago (allowed 20)"
+   "detail": "last built 20 min ago (allowed 20)"
   },
   {
    "name": "fresh: big money / Kalshi moves (20-minute job)",
@@ -30,19 +30,19 @@
    "name": "fresh: system bets (3 runs a day)",
    "ok": true,
    "level": "error",
-   "detail": "last built 53 min ago (allowed 300)"
+   "detail": "last built 69 min ago (allowed 300)"
   },
   {
    "name": "sharp feed: Polymarket fills arriving",
    "ok": true,
    "level": "warn",
-   "detail": "newest sharp fill 0.4 h ago"
+   "detail": "newest sharp fill 0.6 h ago"
   },
   {
    "name": "open system bets all on the board",
    "ok": false,
    "level": "error",
-   "detail": "27 open, 2 missing: nhl_pl_fav_strong_opp 401892780, xch_homedog_fade 401910032"
+   "detail": "25 open, 1 missing: nhl_pl_fav_strong_opp 401892780"
   },
   {
    "name": "no duplicate bets in the records",
