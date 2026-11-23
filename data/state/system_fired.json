@@ -9252,7 +9252,10 @@
 "price": -105,
 "fair": 0.49473,
 "edge_pts": -1.75,
-"why": "conference game, M-OH +7.5 on the road, total 46.5"
+"why": "conference game, M-OH +7.5 on the road, total 46.5",
+"void": true,
+"void_why": "rule no longer holds on the current line: home spread -6.5, total 45.5 (2026-11-23T15:54:48Z)",
+"void_at": "2026-11-23T15:54:48Z"
 },
 "401866471:cfb_road_streak_dog": {
 "tag": "cfb_road_streak_dog",
@@ -9281,7 +9284,10 @@
 "price": -108,
 "fair": 0.49907,
 "edge_pts": -2.02,
-"why": "home favourite WMU -7.5, total 45.5: under (mined angle)"
+"why": "home favourite WMU -7.5, total 45.5: under (mined angle)",
+"void": true,
+"void_why": "rule no longer holds on the current line: home spread -6.5, total 45.5 (2026-11-23T15:54:48Z)",
+"void_at": "2026-11-23T15:54:48Z"
 },
 "401858313:cfb_road_streak_dog": {
 "tag": "cfb_road_streak_dog",
@@ -9852,8 +9858,8 @@
 "edge_pts": 0.28,
 "why": "home NO over rate 61%, days since last game: home 2, visitor 3; total 233.5 -> 232.5",
 "void": true,
-"void_why": "trigger no longer holds on current season records (2026-11-23T15:47:20Z)",
-"void_at": "2026-11-23T15:47:20Z"
+"void_why": "trigger no longer holds on current season records (2026-11-23T15:54:48Z)",
+"void_at": "2026-11-23T15:54:48Z"
 },
 "401892780:nhl_loss_streak_over": {
 "tag": "nhl_loss_streak_over",
@@ -9958,5 +9964,18 @@
 "fair": 0.51271,
 "edge_pts": -1.23,
 "why": "home NKU over 80% (6 games), visitor GASO over 67% (6); total 166.5 -> 165.5"
+},
+"401858317:cfb_day_over": {
+"tag": "cfb_day_over",
+"fill_id": "324cb5f423ec",
+"ts": "2026-11-23T15:54:48Z",
+"market": "total",
+"side": "over",
+"line": 51.5,
+"venue": "Novig",
+"price": -113,
+"fair": 0.51486,
+"edge_pts": -1.51,
+"why": "3:00 PM ET kickoff, total 51.5: over (mined angle)"
 }
 }
