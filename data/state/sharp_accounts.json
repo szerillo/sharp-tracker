@@ -1,5 +1,5 @@
 {
- "built": "2026-11-23T19:53:58Z",
+ "built": "2026-11-23T20:01:53Z",
  "rows": [
   {
    "cond": "0x9c183fba1441c3917b7e3a99c0103626285576b0d6b8e1bcabf3e10cb8e3a239",
@@ -17,7 +17,7 @@
    "best_rank": 149,
    "usd": 2100,
    "paid": 0.42,
-   "ask": 0.46,
+   "ask": null,
    "status": "live",
    "link": "https://polymarket.us/event/epl-bre-eve-2026-11-23",
    "other": null,
@@ -63,7 +63,7 @@
    "best_rank": 149,
    "usd": 685,
    "paid": 0.69,
-   "ask": 0.73,
+   "ask": null,
    "status": "live",
    "link": "https://polymarket.us/event/epl-bre-eve-2026-11-23",
    "other": null,
@@ -115,8 +115,8 @@
    "home_name": "Charlotte Hornets",
    "game_start": "2026-11-24T00:00Z",
    "side_std": "home",
-   "money_with": false,
-   "grade": "B",
+   "money_with": true,
+   "grade": "A",
    "inside_fair": false,
    "fair_board": 0.4027,
    "books": {
@@ -533,7 +533,7 @@
    "best_rank": 157,
    "usd": 908,
    "paid": 0.22,
-   "ask": 0.23,
+   "ask": 0.24,
    "status": "live",
    "link": "https://polymarket.us/event/ucl-sba-bet-2026-11-24",
    "other": null,
@@ -971,16 +971,16 @@
    "best_rank": 43,
    "usd": 2773,
    "paid": 0.339,
-   "ask": 0.34,
+   "ask": 0.33,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-okc-ind-2026-11-23",
    "other": {
-    "n_accounts": 1,
+    "n_accounts": 2,
     "best_rank": 75,
-    "usd": 19861,
+    "usd": 20944,
     "first": "2026-11-23T18:30:05Z"
    },
-   "exit_bid": 0.33,
+   "exit_bid": 0.32,
    "kalshi_against": null,
    "logged": true,
    "event_id": "401910038",
@@ -1303,9 +1303,9 @@
     "usd": 2773
    },
    "away": {
-    "n": 1,
+    "n": 2,
     "best_rank": 75,
-    "usd": 8673
+    "usd": 9756
    }
   },
   "401910038|spread": {
@@ -1471,13 +1471,6 @@
     "n": 1,
     "best_rank": 116,
     "usd": 477
-   }
-  },
-  "401879237|spread": {
-   "home": {
-    "n": 1,
-    "best_rank": 98,
-    "usd": 329
    }
   },
   "401915300|total": {
