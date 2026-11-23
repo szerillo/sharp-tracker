@@ -4,12 +4,14 @@ name: signals (market and sharp board, every 10 minutes)
 # needs: the big-money / Kalshi-move watch, the tennis set-1 watch, the move tape, the duplicate cleanup and the bet tracker.
 # (Polymarket sharp flags already refresh every 5 minutes in prices_fast.) The full tracker (systems engine) runs 3 times a day.
 on:
-  workflow_dispatch: {}
+  workflow_dispatch:
+    inputs:
+      fast: {description: "'true' = on-demand board refresh (11/22): systems near pass, Bet Labs matches, bet tracker and publish only; the side feeds (offers, parlays, props, curve, stale-book, women's CBB) wait for the next 10-minute run", default: 'false', required: false}
 permissions:
   contents: write
   actions: write
 concurrency:
-  group: signals
+  group: signals-${{ inputs.fast == 'true' && 'fast' || 'main' }}     # 11/22: an on-demand refresh never queues behind (or gets cancelled by) the 10-minute runs
   cancel-in-progress: false
 jobs:
   signals:
@@ -45,6 +47,7 @@ jobs:
       - name: remove duplicate bets from the records
         run: python3 sharp/dedupe_fills.py || true
       - name: stale-book paper lean (a bettable venue 2%+ better than Pinnacle's fair right after Pinnacle moved toward the side; 11/6)
+        if: ${{ inputs.fast != 'true' }}
         env: {NTFY_TOPIC: '${{ secrets.NTFY_TOPIC }}'}
         run: |
           if ! python3 sharp/stale_live.py; then
@@ -52,18 +55,22 @@ jobs:
             [ -n "$NTFY_TOPIC" ] && curl -s -H "Title: Stale-book feed failed" -H "Priority: default" -d "Stale-book feed crashed in run $GITHUB_RUN_ID; its flags did not update" "https://ntfy.sh/$NTFY_TOPIC" >/dev/null || true
           fi
       - name: offers to rest (Kalshi and Novig sides whose best bid is 3c+ under Pinnacle's fair; paper, 11/10)
+        if: ${{ inputs.fast != 'true' }}
         run: |
           python3 sharp/offers_live.py || echo "::warning::offers scan failed"
           python3 sharp/offers_grade.py || echo "::warning::offers grade failed"
       - name: women's college basketball spreads, two paper rules (dogs +7 to +10, follow a 1+ point move; one Odds API credit a pull, every 18 minutes at most; 11/10)
+        if: ${{ inputs.fast != 'true' }}
         env: {ODDS_API_KEY: '${{ secrets.ODDS_API_KEY }}'}
         run: |
           timeout 180 python3 loggers/wncaab_live.py || echo "::warning::women's college basketball pull failed"
       - name: parlay prices against their legs (two- and three-leg Kalshi parlays off the trade feed; paper, 11/10)
+        if: ${{ inputs.fast != 'true' }}
         run: |
           timeout 240 python3 sharp/parlay_live.py 60 || echo "::warning::parlay sample failed"
           timeout 240 python3 sharp/parlay_grade.py || echo "::warning::parlay grade failed"
       - name: prop price-gap paper leans (NBA threes / NHL saves and shots unders where FD, Caesars or DK beat Pinnacle's no-vig by 2%+; 11/6)
+        if: ${{ inputs.fast != 'true' }}
         env: {NTFY_TOPIC: '${{ secrets.NTFY_TOPIC }}', ODDS_API_KEY: '${{ secrets.ODDS_API_KEY }}'}
         run: |
           if ! python3 sharp/props_live.py; then
@@ -71,6 +78,7 @@ jobs:
             [ -n "$NTFY_TOPIC" ] && curl -s -H "Title: Props feed failed" -H "Priority: default" -d "Props feed crashed in run $GITHUB_RUN_ID; its flags did not update" "https://ntfy.sh/$NTFY_TOPIC" >/dev/null || true
           fi
       - name: derivatives off the curve (CBB first-half totals, CFB first-quarter and team-total unders; 11/6)
+        if: ${{ inputs.fast != 'true' }}
         env: {NTFY_TOPIC: '${{ secrets.NTFY_TOPIC }}', ODDS_API_KEY: '${{ secrets.ODDS_API_KEY }}'}
         run: |
           if ! python3 sharp/curve_live.py; then
