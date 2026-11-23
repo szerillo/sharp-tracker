@@ -1,5 +1,5 @@
 {
- "built": "2026-11-23T03:47:17Z",
+ "built": "2026-11-23T04:01:52Z",
  "rows": [
   {
    "cond": "0x7cb57d9727a9e9ee4b1f1b156b77451aebe084891cf29974294018d641459181",
@@ -804,49 +804,6 @@
    "books": null
   },
   {
-   "cond": "0x8f90ab4d7f5516d7e681858c7e9d5de674db25aa8a84da68010d63e015c3228d",
-   "slug": "nhl-pit-dal-2026-11-22",
-   "title": "Penguins vs. Stars",
-   "mtype": "ml",
-   "start": "2026-11-23T00:00:00Z",
-   "bet": "Penguins ML",
-   "side": "Penguins",
-   "flagged": "2026-11-22T08:23:04Z",
-   "why": "a top-200 account also in this sport's top 50",
-   "proven": true,
-   "trigger": "proven",
-   "n_accounts": 1,
-   "best_rank": 197,
-   "usd": 960,
-   "paid": 0.32,
-   "ask": null,
-   "status": "other side",
-   "link": "https://polymarket.us/event/nhl-pit-dal-2026-11-22",
-   "other": {
-    "n_accounts": 1,
-    "best_rank": 132,
-    "usd": 250,
-    "first": "2026-11-22T14:33:07Z"
-   },
-   "exit_bid": null,
-   "kalshi_against": null,
-   "logged": true,
-   "event_id": "401892771",
-   "sport": "nhl",
-   "league": null,
-   "away": "PIT",
-   "home": "DAL",
-   "away_name": "Pittsburgh Penguins",
-   "home_name": "Dallas Stars",
-   "game_start": "2026-11-23T00:00Z",
-   "side_std": "away",
-   "money_with": false,
-   "grade": "A",
-   "inside_fair": false,
-   "fair_board": 0.3242,
-   "books": null
-  },
-  {
    "cond": "0x3b3748b734fb393de1e14f5c3fe9ef400e123faaf9a3595361378564f8e33a7d",
    "slug": "nba-ind-nyk-2026-11-22",
    "title": "Pacers vs. Knicks",
@@ -1036,21 +993,21 @@
     "clv": -0.95
    },
    "outside": {
-    "n": 111,
+    "n": 113,
     "won": 58,
     "units": -0.96,
-    "clv": -0.24
+    "clv": -0.25
    }
   },
-  "n": 403,
-  "won": 192,
+  "n": 406,
+  "won": 193,
   "units": -16.62,
   "by_grade": {
    "A": {
-    "n": 263,
-    "won": 119,
+    "n": 266,
+    "won": 120,
     "units": -15.43,
-    "clv": -0.18
+    "clv": -0.19
    },
    "B": {
     "n": 96,
@@ -1065,11 +1022,11 @@
     "clv": -0.03
    }
   },
-  "units_1u": -26.65,
+  "units_1u": -28.3,
   "clv": -0.38,
-  "n_venue": 207,
+  "n_venue": 210,
   "units_venue": -6.15,
-  "clv_venue": 0.94,
+  "clv_venue": 0.93,
   "clv_poly_same": -0.61
  },
  "sys_tags": {},
