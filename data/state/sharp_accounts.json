@@ -1,5 +1,5 @@
 {
- "built": "2026-11-23T21:29:30Z",
+ "built": "2026-11-23T21:37:19Z",
  "rows": [
   {
    "cond": "0x9c183fba1441c3917b7e3a99c0103626285576b0d6b8e1bcabf3e10cb8e3a239",
@@ -183,7 +183,7 @@
    "best_rank": 115,
    "usd": 15143,
    "paid": 0.49,
-   "ask": 0.51,
+   "ask": 0.52,
    "status": "live",
    "link": "https://polymarket.us/event/nba-bkn-min-2026-11-23",
    "other": null,
@@ -786,6 +786,43 @@
    "books": null
   },
   {
+   "cond": "0xa6e19be478ccdf8163422cada2772f1ea98b9f5f1b824e75a96f6aab59fe4c63",
+   "slug": "nba-mia-phi-2026-11-25",
+   "title": "Heat vs. 76ers",
+   "mtype": "ml",
+   "start": "2026-11-25T22:00:00Z",
+   "bet": "Heat ML",
+   "side": "Heat",
+   "flagged": "2026-11-23T21:34:23Z",
+   "why": "a top-50 account",
+   "proven": false,
+   "trigger": "top50",
+   "n_accounts": 1,
+   "best_rank": 49,
+   "usd": 1081,
+   "paid": 0.385,
+   "ask": 0.43,
+   "status": "live",
+   "link": "https://polymarket.us/event/nba-mia-phi-2026-11-25",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401909317",
+   "sport": "nba",
+   "league": null,
+   "away": "MIA",
+   "home": "PHI",
+   "away_name": "Miami Heat",
+   "home_name": "Philadelphia 76ers",
+   "game_start": "2026-11-25T22:00Z",
+   "side_std": "away",
+   "money_with": false,
+   "grade": "watch",
+   "fair_board": null,
+   "inside_fair": null,
+   "books": null
+  },
+  {
    "cond": "0x62aac7b20e638ea6ebdfb78f2d12ff884594d4ce863d387d3561996c87ad2e06",
    "slug": "nba-chi-cha-2026-11-25",
    "title": "Bulls vs. Hornets",
@@ -991,7 +1028,7 @@
    "best_rank": 43,
    "usd": 3726,
    "paid": 0.337,
-   "ask": 0.34,
+   "ask": 0.33,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-okc-ind-2026-11-23",
    "other": {
@@ -1000,7 +1037,7 @@
     "usd": 22682,
     "first": "2026-11-23T18:30:05Z"
    },
-   "exit_bid": 0.33,
+   "exit_bid": 0.32,
    "kalshi_against": null,
    "logged": true,
    "event_id": "401910038",
@@ -1018,7 +1055,7 @@
    "money_with": false,
    "grade": "B",
    "fair_board": 0.3301,
-   "inside_fair": false,
+   "inside_fair": true,
    "books": null
   },
   {
@@ -1058,9 +1095,6 @@
    "home_name": "Seattle Kraken",
    "game_start": "2026-11-24T02:40Z",
    "side_std": "home",
-   "conflict": [
-    "big money"
-   ],
    "money_with": false,
    "grade": "A",
    "fair_board": 0.528,
@@ -1420,6 +1454,13 @@
     "n": 1,
     "best_rank": 93,
     "usd": 123
+   }
+  },
+  "401909317|ml": {
+   "away": {
+    "n": 1,
+    "best_rank": 49,
+    "usd": 1081
    }
   },
   "401909318|ml": {
