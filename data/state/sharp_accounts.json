@@ -1,5 +1,5 @@
 {
- "built": "2026-11-24T22:51:37Z",
+ "built": "2026-11-24T23:07:51Z",
  "rows": [
   {
    "cond": "0x260181c232ce8b8951da6c3e3c033353ad89e8c5c53c6b426d00a900ad5b6f37",
@@ -230,7 +230,7 @@
    "best_rank": 116,
    "usd": 116,
    "paid": 0.46,
-   "ask": 0.49,
+   "ask": null,
    "status": "live",
    "link": "https://polymarket.us/event/cbb-queen-woff-2026-11-24",
    "other": null,
@@ -271,7 +271,7 @@
    "best_rank": 58,
    "usd": 480,
    "paid": 0.52,
-   "ask": 0.55,
+   "ask": 0.56,
    "status": "live",
    "link": "https://polymarket.us/event/cfb-kentst-emich-2026-11-24",
    "other": null,
@@ -1077,8 +1077,7 @@
    "game_start": "2026-11-25T00:00Z",
    "side_std": "away",
    "conflict": [
-    "Kalshi move",
-    "big money"
+    "Kalshi move"
    ],
    "money_with": false,
    "grade": "B",
@@ -1287,26 +1286,26 @@
     "clv": -0.95
    },
    "outside": {
-    "n": 118,
-    "won": 62,
-    "units": -0.62,
-    "clv": -0.16
+    "n": 120,
+    "won": 64,
+    "units": -0.03,
+    "clv": -0.12
    }
   },
-  "n": 426,
-  "won": 204,
-  "units": -17.06,
+  "n": 433,
+  "won": 209,
+  "units": -15.81,
   "by_grade": {
    "A": {
-    "n": 281,
-    "won": 128,
-    "units": -15.86,
-    "clv": -0.14
+    "n": 286,
+    "won": 131,
+    "units": -15.61,
+    "clv": -0.1
    },
    "B": {
-    "n": 101,
-    "won": 58,
-    "units": 0.89,
+    "n": 103,
+    "won": 60,
+    "units": 1.89,
     "clv": -1.1
    },
    "watch": {
@@ -1316,23 +1315,14 @@
     "clv": -0.03
    }
   },
-  "units_1u": -24.93,
-  "clv": -0.36,
-  "n_venue": 223,
-  "units_venue": -5.81,
-  "clv_venue": 0.98,
-  "clv_poly_same": -0.59
+  "units_1u": -21.55,
+  "clv": -0.33,
+  "n_venue": 227,
+  "units_venue": -5.31,
+  "clv_venue": 0.96,
+  "clv_poly_same": -0.56
  },
- "sys_tags": {
-  "401922231:cbb_under_good_over_drop": {
-   "with": null,
-   "against": {
-    "n": 1,
-    "best_rank": 116,
-    "usd": 116
-   }
-  }
- },
+ "sys_tags": {},
  "by_event": {
   "401873079|total": {
    "over": {
@@ -1452,13 +1442,6 @@
     "n": 1,
     "best_rank": 12,
     "usd": 125
-   }
-  },
-  "401922231|total": {
-   "over": {
-    "n": 1,
-    "best_rank": 116,
-    "usd": 116
    }
   },
   "401911027|total": {
