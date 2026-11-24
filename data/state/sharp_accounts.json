@@ -1,5 +1,5 @@
 {
- "built": "2026-11-24T22:00:54Z",
+ "built": "2026-11-24T22:20:39Z",
  "rows": [
   {
    "cond": "0x260181c232ce8b8951da6c3e3c033353ad89e8c5c53c6b426d00a900ad5b6f37",
@@ -752,55 +752,6 @@
    }
   },
   {
-   "cond": "0x1086efe8518a09ccfe6c89f4547d59b151ceae74ce0df9727bcd3ac1640631ca",
-   "slug": "nba-cle-nyk-2026-11-25",
-   "title": "Cavaliers vs. Knicks",
-   "mtype": "ml",
-   "start": "2026-11-26T00:30:00Z",
-   "bet": "Cavaliers ML",
-   "side": "Cavaliers",
-   "flagged": "2026-11-23T03:01:13Z",
-   "why": "2 top-200 accounts",
-   "proven": true,
-   "trigger": "proven",
-   "n_accounts": 2,
-   "best_rank": 40,
-   "usd": 3767,
-   "paid": 0.379,
-   "ask": 0.41,
-   "status": "live",
-   "link": "https://polymarket.us/event/nba-cle-nyk-2026-11-25",
-   "other": null,
-   "kalshi_against": null,
-   "logged": true,
-   "event_id": "401909319",
-   "sport": "nba",
-   "league": null,
-   "away": "CLE",
-   "home": "NY",
-   "away_name": "Cleveland Cavaliers",
-   "home_name": "New York Knicks",
-   "game_start": "2026-11-26T00:30Z",
-   "side_std": "away",
-   "conflict": [
-    "Kalshi bet back"
-   ],
-   "money_with": false,
-   "grade": "A",
-   "fair_board": 0.3633,
-   "inside_fair": false,
-   "books": {
-    "at": "2026-11-24T22:00:45Z",
-    "fair": 0.3633,
-    "q": {
-     "Novig": 0.365,
-     "DK": 0.3774,
-     "Caesars": 0.3876,
-     "Kalshi": 0.39
-    }
-   }
-  },
-  {
    "cond": "0x3f7bc5349ea9961614e2fc1437ce37df5655ef6a68e0cbfbe853229a9fe7c540",
    "slug": "nba-lac-mem-2026-11-25",
    "title": "Clippers vs. Grizzlies",
@@ -1131,16 +1082,16 @@
    ],
    "money_with": false,
    "grade": "B",
-   "fair_board": 0.5446,
+   "fair_board": 0.5404,
    "inside_fair": false,
    "books": {
-    "at": "2026-11-24T20:58:15Z",
-    "fair": 0.5446,
+    "at": "2026-11-24T22:00:45Z",
+    "fair": 0.5404,
     "q": {
-     "Novig": 0.545,
-     "Caesars": 0.5556,
+     "Novig": 0.54,
+     "Caesars": 0.5455,
      "DK": 0.5652,
-     "Kalshi": 0.57
+     "FD": 0.569
     }
    }
   },
@@ -1229,7 +1180,53 @@
    ],
    "money_with": false,
    "grade": "B",
-   "fair_board": 0.4303,
+   "fair_board": 0.4232,
+   "inside_fair": false,
+   "books": null
+  },
+  {
+   "cond": "0x1086efe8518a09ccfe6c89f4547d59b151ceae74ce0df9727bcd3ac1640631ca",
+   "slug": "nba-cle-nyk-2026-11-25",
+   "title": "Cavaliers vs. Knicks",
+   "mtype": "ml",
+   "start": "2026-11-26T00:30:00Z",
+   "bet": "Cavaliers ML",
+   "side": "Cavaliers",
+   "flagged": "2026-11-23T03:01:13Z",
+   "why": "2 top-200 accounts",
+   "proven": true,
+   "trigger": "proven",
+   "n_accounts": 2,
+   "best_rank": 40,
+   "usd": 3767,
+   "paid": 0.379,
+   "ask": 0.4,
+   "status": "other side",
+   "link": "https://polymarket.us/event/nba-cle-nyk-2026-11-25",
+   "other": {
+    "n_accounts": 1,
+    "best_rank": 43,
+    "usd": 465,
+    "first": "2026-11-24T22:18:13Z"
+   },
+   "exit_bid": 0.39,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401909319",
+   "sport": "nba",
+   "league": null,
+   "away": "CLE",
+   "home": "NY",
+   "away_name": "Cleveland Cavaliers",
+   "home_name": "New York Knicks",
+   "game_start": "2026-11-26T00:30Z",
+   "side_std": "away",
+   "conflict": [
+    "Kalshi bet back"
+   ],
+   "money_with": false,
+   "grade": "A",
+   "fair_board": 0.3633,
    "inside_fair": false,
    "books": null
   },
@@ -1389,6 +1386,11 @@
     "n": 2,
     "best_rank": 40,
     "usd": 3767
+   },
+   "home": {
+    "n": 1,
+    "best_rank": 43,
+    "usd": 465
    }
   },
   "401909320|ml": {
