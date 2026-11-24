@@ -9333,7 +9333,10 @@
 "price": -108,
 "fair": 0.50758,
 "edge_pts": -1.24,
-"why": "home favourite OSU -10.0, total 38.5: under (mined angle)"
+"why": "home favourite OSU -10.0, total 38.5: under (mined angle)",
+"void": true,
+"void_why": "rule no longer holds on the current line: home spread -10.5, total 38.5 (2026-11-24T14:57:44Z)",
+"void_at": "2026-11-24T14:57:44Z"
 },
 "401856875:cfb_day_over": {
 "tag": "cfb_day_over",
@@ -10127,6 +10130,104 @@
 "fair": 0.5,
 "edge_pts": -2.38,
 "why": "home POR covers 65% of spreads this season (17 games), 2 days rest: home spread (mined angle)"
+},
+"401873084:bounce15_1h": {
+"tag": "bounce15_1h",
+"fill_id": "4914e18f8829",
+"ts": "2026-11-24T14:57:44Z",
+"market": "1h_spread",
+"side": "away",
+"line": 3.5,
+"venue": "Caesars",
+"price": -100,
+"fair": 0.48142,
+"edge_pts": -1.86,
+"why": "ATL previous game ATS margin -19.0"
+},
+"401873093:bounce15_1h": {
+"tag": "bounce15_1h",
+"fill_id": "c24a9dfb211a",
+"ts": "2026-11-24T14:57:44Z",
+"market": "1h_spread",
+"side": "away",
+"line": 0.5,
+"venue": "DK",
+"price": -125,
+"fair": 0.53921,
+"edge_pts": -1.64,
+"why": "NE previous game ATS margin -22.5"
+},
+"401873092:nfl_home_dog_7510": {
+"tag": "nfl_home_dog_7510",
+"fill_id": "fd6afc484630",
+"ts": "2026-11-24T14:57:44Z",
+"market": "spread",
+"side": "home",
+"line": 7.5,
+"venue": "Novig",
+"price": -108,
+"fair": 0.51151,
+"edge_pts": -0.85,
+"why": "ARI +7.5 at home"
+},
+"401873091:wind1014_1h": {
+"tag": "wind1014_1h",
+"stacked": true,
+"market": "1h_total",
+"side": "under",
+"why": "MySportsWeather 12 mph, gusts 23 (same bet already taken by a higher-priority rule)"
+},
+"401892789:nhl_pl_dog_bigml": {
+"tag": "nhl_pl_dog_bigml",
+"fill_id": "1bcb66d0a7fd",
+"ts": "2026-11-24T14:57:44Z",
+"market": "spread",
+"side": "away",
+"line": 1.5,
+"venue": "Kalshi",
+"price": -156,
+"fair": 0.575,
+"edge_pts": -3.5,
+"why": "VAN opened +190 on the moneyline: +1.5 on a big dog"
+},
+"401909323:nba_ats_hot_home": {
+"tag": "nba_ats_hot_home",
+"fill_id": "3877b93f4156",
+"ts": "2026-11-24T14:57:44Z",
+"market": "spread",
+"side": "home",
+"line": -10.5,
+"venue": "Novig",
+"price": -102,
+"fair": 0.4884,
+"edge_pts": -1.66,
+"why": "home HOU covers 61% of spreads this season (18 games), 2 days rest: home spread (mined angle)"
+},
+"401909323:nba_under_good_home_over": {
+"tag": "nba_under_good_home_over",
+"fill_id": "2bf28112a4c7",
+"ts": "2026-11-24T14:57:44Z",
+"market": "total",
+"side": "under",
+"line": 223.5,
+"venue": "FD",
+"price": -105,
+"fair": 0.49468,
+"edge_pts": -1.75,
+"why": "home HOU over rate 61%, days since last game: home 2, visitor 2; total 225.5 -> 223.5"
+},
+"401892793:nhl_loss_streak_over": {
+"tag": "nhl_loss_streak_over",
+"fill_id": "10aa09c2f70d",
+"ts": "2026-11-24T14:57:44Z",
+"market": "total",
+"side": "over",
+"line": 6.5,
+"venue": "Kalshi",
+"price": -138,
+"fair": 0.545,
+"edge_pts": -3.5,
+"why": "home ANA has lost 4 straight, season over rate 56%: over (mined angle)"
 },
 "401922231:cbb_under_good_over_drop": {
 "tag": "cbb_under_good_over_drop",
