@@ -313,7 +313,7 @@ all plays, by move size and timing.
   - **Grading fault found and fixed (commit 5f5a06ce).** The rule's grader read every spread line as the home team's handicap. On
     Kalshi tickers whose YES team is the visitor (for example KXNHLSPREAD-26NOV05DALCBJ-DAL2, Dallas -1.5 on the road), the line is
     the visitor's handicap, so those rows were graded backwards.
-    - 10 of 91 spread rows were wrong. 7 had been counted as wins, most of them +200-type puck lines.
+    - 10 of 91 spread rows were wrong: 5 losses had been counted as wins and 5 wins as losses.
     - The grader now reads the YES team from the ticker and re-grades every spread row each run.
   - Separately, 8 of the rows I graded from final scores on the morning of 11/24 (the fallback) were wrong the same way. That fed the
     "+0.7%" figure; the rule's own grades replaced them later that day.
