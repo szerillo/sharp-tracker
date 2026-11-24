@@ -60,3 +60,14 @@ Rule group 1 also contains nfl_road_dog_7510 and nfl_fade_fav_bye (both in item 
 | 2026-12-08 (Tue) | Re-read the Kalshi-move-against warning: games from 11/24 19:00Z with the tag, bet anyway vs the rest, on profit (units, ROI, break-even test, halves). Decide: keep as a warning, go back to a block, or drop the tag. |
 | at 100 graded | Re-read NBA sharp B under the profit promote line (53 graded on 11/24). |
 | each Monday checkpoint | cfb_homefav_7510_under and nfl_home_dog_7510 under the profit lines. |
+
+## Applied 2026-11-24 4:45 PM ET (Sean, via Kirk)
+
+| Change | Old | New |
+|---|---|---|
+| Kalshi move against | shown warning (2:00 PM) | **cancels** every system, lean, curve, tennis and sharp row again, with or without big money or any other tag, for games starting from 4:45 PM ET 11/24. Games that started 2:00-4:45 PM ET keep the warning. The tag keeps logging and both sides are paper-graded in data/state/against_panel.json; re-read 12/8. Pushes for sharp flags with a Kalshi move against stop again. |
+| stale_book_sb4 | paper | **killed**: no new rows (history kept) |
+| stale_book | paper, every row | paper, judged **only on checkable rows** (quote time logged, within 25 min of the Pinnacle snapshot, book not wide); rows without that are excluded from the record. Kill if the first 100 graded checkable rows are not positive in both halves (stale_live.json checkable_test). |
+| Wind source (wind1014, wind1014_1h, wind1014_cold, cfb_wind14) | MySportsWeather, Open-Meteo fallback | **the latest Bet Labs pull** of Sean's saved screens (NFL Wind 10-14 Under 1772775, NFL 1H Wind 10-13 Under 769171, CFB Wind 14 Plus Under 1783043): a game fires when the pull lists it. MySportsWeather, then Open-Meteo, only when no pull is under 16 hours old, and shown on the row as a cross-check. A game MySportsWeather has in the band that Bet Labs does not list is a flag only, no bet. The cold split (35F or colder, paper) still uses Open-Meteo's temperature. |
+
+Why: Sean's Bet Labs weather screens carry the proven backtests; MySportsWeather has little backtest of its own (docs/wind_source_2026-11-24.md).

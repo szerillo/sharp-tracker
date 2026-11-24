@@ -39,13 +39,17 @@ SOCCER_SHARP_LIVE_FROM = '2026-11-21T18:45:00Z'
 # 11/24 (Sean via Kirk): a Kalshi 4+ move against is a shown warning, not a block, for games starting from KALSHI_WARN_FROM (re-read 12/8,
 # docs/decisions_2026-11-24.md). Earlier games keep the block they were tracked under, so nothing is re-scored backwards.
 KALSHI_WARN_FROM = '2026-11-24T19:00:00Z'
-def kalshi_blocks(start): return (start or '') < KALSHI_WARN_FROM
+# 11/24 4:40 PM (Sean via Kirk): reverted. A Kalshi 4+ move against CANCELS every system, lean, curve, tennis and sharp row again, with or
+# without big money or any other tag (the with/without-big-money split is too thin to act on). Only games that started inside the warning
+# window (2:00 PM to 4:45 PM ET on 11/24) keep the warning. The tag still logs and both sides are paper-graded in against_panel.json; re-read 12/8.
+KALSHI_CANCEL_FROM = '2026-11-24T21:45:00Z'
+def kalshi_blocks(start): return not (KALSHI_WARN_FROM <= (start or '') < KALSHI_CANCEL_FROM)
 def soccer_sharp_live(cat, sport, start, against=False):
     return cat in ('sharp A', 'sharp B') and sport == 'soccer' and not (against and kalshi_blocks(start)) and (start or '') >= SOCCER_SHARP_LIVE_FROM
 # 11/24 (Sean via Kirk): NBA sharp flags graded B are a live test for games starting from here (paper record +11.6% on 53, p 0.18);
 # re-read at 100 graded flags. NBA A and watch flags stay paper. Size 0.25u: Sean 11/24, 0.25u is the minimum live size, no 0.10u tests.
 NBA_SHARP_B_LIVE_FROM = '2026-11-24T19:00:00Z'; NBA_SHARP_B_SIZE = 0.25
-def nba_sharp_b_live(cat, sport, start): return cat == 'sharp B' and sport == 'nba' and (start or '') >= NBA_SHARP_B_LIVE_FROM
+def nba_sharp_b_live(cat, sport, start, against=False): return cat == 'sharp B' and sport == 'nba' and not (against and kalshi_blocks(start)) and (start or '') >= NBA_SHARP_B_LIVE_FROM
 # 11/14: a rule promoted from paper counts as a bet only for fills logged from its promotion on; its earlier paper fills stay paper, so
 # no units are backdated into the record.
 PROMOTED_FROM = {'xch_homedog_fade': '2026-11-14T08:30:00Z'}     # Sean 11/14: paper -> tier C
@@ -74,7 +78,7 @@ def tennis_cat(rule, start, old):
     return 'tennis' if rule == 'tennis_serve_dog' else 'paper P'
 def size_units(cat, rule=None, sport=None, flagged=None, start=None, against=False):
     if soccer_sharp_live(cat, sport, start, against): return 0.25
-    if nba_sharp_b_live(cat, sport, start): return NBA_SHARP_B_SIZE
+    if nba_sharp_b_live(cat, sport, start, against): return NBA_SHARP_B_SIZE
     if cat == 'watch' or (cat.startswith('sharp') and (flagged or '') >= SHARP_PAPER_FROM): return 0.0
     if (flagged or '') >= FLAT_QUARTER_FROM: return 0.25
     return 0.5 if (cat in ('system A', 'system B') or (cat == 'sharp A' and sport != 'soccer') or rule in HALF_U) else 0.25
@@ -458,7 +462,9 @@ def main():
             p = json.loads(l)
             bets.append(dict(id=f"sb:{p['key']}", src='paper', cat='paper P', rule='stale_book_sb4' if p.get('kind') == 'sb4' else 'stale_book', sport=p['sport'], event_id=p['event_id'], game=p['game'],
                              start=p['start'].replace('Z', ':00Z') if len(p['start']) == 17 else p['start'], market=p['market'], side=p['side'], line=p.get('line'), flagged=p['flagged'],
-                             venue=p['venue'], price=p['price'], won=W_(p.get('won'))))
+                             venue=p['venue'], price=p['price'], won=W_(p.get('won')),
+                             # 11/24 (Sean): stale_book is judged only on checkable rows (quote time logged, within 25 min of the Pinnacle snapshot, book not wide)
+                             **({} if p.get('kind') == 'sb4' or p.get('checkable') else dict(excluded='stale_book: not a checkable row (no quote time logged before 11/24, or quote more than 25 min from the Pinnacle snapshot, or a wide book)'))))
     # ---- 11/10 women's college basketball paper rules (loggers/wncaab_live.py; graded in their own log from ESPN finals)
     wp_ = os.path.join(SD, 'wncaab_paper.jsonl')
     if os.path.exists(wp_):
@@ -716,7 +722,7 @@ def main():
                                 clv_nv=round(sum(c_) / len(c_), 2) if c_ else None, clv_n=len(c_))
     tag_stats = tag_bets(bets)
     # 11/14 (Sean): what the board holds now: a Kalshi move against a system or lean, or a rule on the other side.
-    # 11/24 (Sean): for games from KALSHI_WARN_FROM a Kalshi move against is a warning (b['kalshi_warn']), not a hold.
+    # 11/24 (Sean): a Kalshi move against was a warning (b['kalshi_warn']) for games starting 2:00-4:45 PM ET 11/24; from KALSHI_CANCEL_FROM it holds (cancels) again.
     for b in bets:
         tg = set(b.get('tags') or [])
         if 'Kalshi move against' in tg: b['kalshi_warn'] = True

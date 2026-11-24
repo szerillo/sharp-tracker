@@ -53,7 +53,7 @@ RULES = {'wind1014': dict(market='total', side='under', stake=1.0), 'wind1014_1h
 # not price can keep winning with zero CLV, so nothing here waits for CLV before it is shown as a bet.
 EVIDENCE = {'wind1014': dict(tier='A', train='Bet Labs 533-376 all-time (2003-), +13.3%', hold="Bet Labs' own picks since 2020 at Pinnacle's close: 160-101 (+18.6%); Odds API replay on Open-Meteo wind 161-103 (+18.1%). Both sources agree in the NFL", seasons='5 of 6', src='docs/betlabs_nfl_audit_2026-10-25.md'),
             'wind1014_1h': dict(tier='C', train='Bet Labs 404-302 all-time, +9.0%; since 2021 113-90, +5.9%', hold='WC 1H database 2023-26 (Pinnacle 1H line): 55-51, +0.4%, against a -9.6% baseline for every 1H under in the same games; 2023 and 2024 negative. A -> B 11/5; B -> C 11/6 (our own replay is flat, so it cannot hold the same size as rules that replicate)', seasons='1 of 3 (ours)', src='docs/betlabs_nfl_audit_2026-10-25.md'),
-            'cfb_wind14': dict(tier='C', recheck='down from A 11/10 (weekly recheck; Sean: fulfill all open tasks): our own wind replay 206-182 (+1.9%) with 2024 -32.7% and 2026 -9.9%; the edge sits in Bet Labs\' wind source. B if the Bet Labs picks are counted (135-96 at Pinnacle\'s close).', train='Bet Labs 555-402 all-time, +12%', hold="Bet Labs' own picks since 2020 graded at Pinnacle's close: 135-96 (+12.3%)", seasons='5 of 6', labs_check='11/5 (docs/cfb_weather_2026-11-05.md): the edge sits in Bet Labs\' wind source; Open-Meteo reanalysis 14+ alone replays 114-102, and its 14+ games Bet Labs did not flag went 66-72. Since 11/14 the live rule fires on MySportsWeather alone (Open-Meteo only as a fallback)', src='docs/betlabs_cfb_audit_2026-10-29.md'),
+            'cfb_wind14': dict(tier='C', recheck='down from A 11/10 (weekly recheck; Sean: fulfill all open tasks): our own wind replay 206-182 (+1.9%) with 2024 -32.7% and 2026 -9.9%; the edge sits in Bet Labs\' wind source. B if the Bet Labs picks are counted (135-96 at Pinnacle\'s close).', train='Bet Labs 555-402 all-time, +12%', hold="Bet Labs' own picks since 2020 graded at Pinnacle's close: 135-96 (+12.3%)", seasons='5 of 6', labs_check='11/5 (docs/cfb_weather_2026-11-05.md): the edge sits in Bet Labs\' wind source; Open-Meteo reanalysis 14+ alone replays 114-102, and its 14+ games Bet Labs did not flag went 66-72. From 11/24 the live rule fires on the Bet Labs pull (Bet Labs\' own weather); MySportsWeather, then Open-Meteo, only as a fallback', src='docs/betlabs_cfb_audit_2026-10-29.md'),
             'vrest8_1h': dict(tier='C', train='454-357 all-time, +7.7%', hold='Odds API full-game cousin 127-93-2 (+11.9%) but 48-49-2 since 2024', seasons='5 of 6', src='docs/betlabs_nfl_audit_2026-10-25.md'),   # 11/5: tier C, the edge is fading
             'mnf_1h': dict(tier='C', train='168-118 all-time, +12.3%', hold='our 1H replay 33-28 (+6.4%) with 2024 at -25.1%; down from B 11/10 (weekly recheck)', seasons='4 of 6', src='docs/betlabs_nfl_audit_2026-10-25.md'),
             # 11/5: the Odds API replay (2020-26, Pinnacle closes, results) re-banded the dog rule: season margin -7 to -13 is 91-75-5 (+5.6%, 5 of 7 seasons),
@@ -124,11 +124,11 @@ for _k in DEMOTE_1124_MINED: EVIDENCE[_k]['tier'] = 'P'; EVIDENCE[_k]['paper_why
 for _k in DEMOTE_1124_GROUP1:
     if EVIDENCE[_k]['tier'] != 'P': EVIDENCE[_k]['tier'] = 'P'; EVIDENCE[_k]['paper_why'] = 'Sean 11/24 (rule group 1): paper. Failed our own multi-season profit replay before the 11/18 blanket move'
 # nhl_over_busy_goalie retired 10/30: positive in 2 of 7 seasons and the goalie-saves field thins to a handful of games after 2023.
-DESC = {'wind1014': 'NFL outdoor, wind 10-14 mph (the latest MySportsWeather sustained-wind forecast, whole mph; Open-Meteo only when MySportsWeather has no reading): full-game under', 'wind1014_1h': 'same wind, 10-13 mph: first-half under',
-        'cfb_wind14': 'CFB outdoor, wind 14+ mph (MySportsWeather, Open-Meteo only as a fallback): full-game under', 'vrest8_1h': 'NFL visitor off 8-30 days: first-half under', 'mnf_1h': 'Monday night: first-half under',
+DESC = {'wind1014': 'NFL outdoor: the game is on Sean\'s Bet Labs screen "NFL Wind 10-14 Under" (Bet Labs\' own weather, latest pull); MySportsWeather 10-14 mph (Open-Meteo behind it) only when no pull is under 16 hours old: full-game under', 'wind1014_1h': 'NFL outdoor: the game is on Sean\'s Bet Labs screen "NFL 1H Wind 10-13 Under" (latest pull); MySportsWeather 10-13 mph only when no pull is under 16 hours old: first-half under',
+        'cfb_wind14': 'CFB outdoor: the game is on Sean\'s Bet Labs screen "CFB Wind 14 Plus Under" (Bet Labs\' own weather, latest pull); MySportsWeather 14+ mph (Open-Meteo behind it) only when no pull is under 16 hours old: full-game under', 'vrest8_1h': 'NFL visitor off 8-30 days: first-half under', 'mnf_1h': 'Monday night: first-half under',
         'awfuldog': 'NFL dog whose season point margin is -13 or worse (1+ games): full-game spread (Bet Labs definition; restored 11/6)', 'bounce15_1h': 'NFL dog whose last game lost ATS by 15+: first-half spread',
         'awfuldog_deep': 'NFL dog with a season margin worse than -13: full-game spread (paper; 14-16 in the six-season replay)',
-        'wind1014_cold': 'NFL outdoor, wind 10-14 mph but 35F or colder: full-game under (paper; the cold band was 27-27 in the replay, mild weather carries the rule)',
+        'wind1014_cold': 'NFL outdoor, on the Bet Labs wind 10-14 screen (or the MySportsWeather fallback) but 35F or colder (Open-Meteo temperature): full-game under (paper; the cold band was 27-27 in the replay, mild weather carries the rule)',
         'nfl_home_dog_7510': 'NFL home dog of +7.5 to +10 at the close: home spread', 'nfl_road_dog_7510': 'NFL road dog of +7.5 to +10: road spread (paper)',
         'nfl_fade_fav_bye': 'NFL favourite coming off a bye (8+ days): take the dog on the spread (paper)',
         'nba_ats_hot_home': 'NBA home team covering 60%+ of its spreads this season (8+ games) on exactly 2 days rest: home spread (mined 11/5)',
@@ -248,7 +248,8 @@ def is_indoor(event_id, path=None):
 
 
 def rule_wind(wx, msw, indoor=False):
-    """(mph or None, label): MySportsWeather's wind when it has a reading, else Open-Meteo's (fallback); None under a roof."""
+    """(mph or None, label): MySportsWeather's wind when it has a reading, else Open-Meteo's; None under a roof. Since 11/24 this is only the
+    FALLBACK (no Bet Labs pull under WIND_LABS_MAX_H hours old) and the cross-check shown on the row; the Bet Labs screens decide."""
     if indoor: return None, 'roofed stadium: no wind play'
     o = wx.get('wind_mph') if wx and not wx.get('indoor') else None
     m = msw.get('wind_mph') if msw else None
@@ -278,6 +279,33 @@ def labs_list(screen_id, away_name, home_name, max_h=8):
     two = lambda x: _bnm(x)[:2]
     return any(p['sid'] == screen_id and ((_bsame(p['away'], away_name) and _bsame(p['home'], home_name)) or (_bsame(p['away'], away_name) and two(p['home']) == two(home_name))
                or (_bsame(p['home'], home_name) and two(p['away']) == two(away_name))) for p in d['picks'])
+
+
+# 11/24 (Sean via Kirk): the wind rules fire on Sean's saved Bet Labs weather screens (Bet Labs' own weather), because those screens carry
+# the proven backtests. A game fires when the latest Bet Labs pull lists it on the screen; MySportsWeather (Open-Meteo behind it) is only the
+# fallback when the pull is missing or older than WIND_LABS_MAX_H, and a cross-check shown on the row. Pulls run 7:00 AM and 5:30 PM ET
+# daily plus 11:15 AM and 3:00 PM on weekends, so the longest normal gap is 13.5 hours.
+WIND_LABS_MAX_H = 16
+WIND_SCREENS = {'wind1014': 1772775, 'wind1014_1h': 769171, 'cfb_wind14': 1783043}
+def labs_pick(screen_id, away_name, home_name, max_h=WIND_LABS_MAX_H):
+    """(True, pick) when a fresh pull lists the game on the screen, (False, None) when a fresh pull does not, (None, None) when the pull is
+    missing or older than max_h hours."""
+    if not _BLP:
+        try: _BLP.append(json.load(open(BLP)))
+        except Exception: _BLP.append(None)
+    d = _BLP[0]
+    if not d or (NOW - N.parse_ts(d['pulled'])).total_seconds() / 3600 > max_h: return None, None
+    two = lambda x: _bnm(x)[:2]
+    for p in d['picks']:
+        if p['sid'] == screen_id and ((_bsame(p['away'], away_name) and _bsame(p['home'], home_name)) or (_bsame(p['away'], away_name) and two(p['home']) == two(home_name))
+                                      or (_bsame(p['home'], home_name) and two(p['away']) == two(away_name))):
+            return True, dict(p, pulled=d['pulled'])
+    return False, dict(pulled=d['pulled'])
+def labs_label(pick):
+    info = (pick or {}).get('info') or ''
+    m = re.search(r'Avg Wind Speed (\d+)', info)
+    t = N.parse_ts(pick['pulled']).astimezone(N.ET).strftime('%a %-I:%M %p ET') if pick and pick.get('pulled') else '?'
+    return (f"Bet Labs wind {m.group(1)} mph" if m else 'on the Bet Labs list') + f" (pull {t})"
 
 
 def prev_scheduled(sport, team, st):
@@ -595,15 +623,24 @@ def main():
         pending = {t for t, pg in ((away, v_prev), (home, h_prev)) if pg and pg[0] > NOW}
         # --- rules
         msw = msw_latest('nfl', ev)
-        wv, wlab = rule_wind(wx, msw, indoor=roofed('nfl', ev, home))
+        roof_w = roofed('nfl', ev, home)
+        wv, wlab = rule_wind(wx, msw, indoor=roof_w)     # MySportsWeather (Open-Meteo fallback): the fallback and the cross-check
         wr = round(wv) if wv is not None else None     # Bet Labs' wind is whole mph (checked on its 2026 picks 10/31)
-        if wr is not None and 10 <= wr <= 14:
-            cold = wx is not None and wx.get('temp_f') is not None and wx['temp_f'] <= 35      # 11/5 replay: the cold band is 27-27, mild weather 133-76
-            trig['wind1014_cold' if cold else 'wind1014'] = wlab + (f", gust {wx.get('gust_mph')}, {wx.get('temp_f')}F" if wx else '')
+        cold = wx is not None and wx.get('temp_f') is not None and wx['temp_f'] <= 35      # 11/5 replay: the cold band is 27-27, mild weather 133-76
+        rs_ = sched_rec('nfl', ev); an_ = (rs_.get('away_team') or {}).get('displayName') or away; hn_ = (rs_.get('home_team') or {}).get('displayName') or home
+        lf, lfp = labs_pick(WIND_SCREENS['wind1014'], an_, hn_); lh, lhp = labs_pick(WIND_SCREENS['wind1014_1h'], an_, hn_)
+        xchk = f"cross-check {wlab}" if wv is not None else 'cross-check: no MySportsWeather or Open-Meteo reading'
+        if roof_w: pass
+        elif lf is not None:      # 11/24 (Sean): a fresh Bet Labs pull decides
+            if lf:
+                trig['wind1014_cold' if cold else 'wind1014'] = f"{labs_label(lfp)}; {xchk}" + (f", {wx.get('temp_f')}F" if wx and wx.get('temp_f') is not None else '')
+            if lh:
+                trig['wind1014_1h'] = f"{labs_label(lhp)}; {xchk}"
+            if not lf and wr is not None and 10 <= wr <= 14:
+                trig['wind_msw_only'] = f"{wlab} is in the 10-14 band but the Bet Labs wind screen does not list the game ({labs_label(lfp)}): flag only, no bet"
+        elif wr is not None and 10 <= wr <= 14:      # fallback: no Bet Labs pull in the last WIND_LABS_MAX_H hours
+            trig['wind1014_cold' if cold else 'wind1014'] = wlab + ' (FALLBACK: no fresh Bet Labs pull)' + (f", gust {wx.get('gust_mph')}, {wx.get('temp_f')}F" if wx else '')
             if wr <= 13: trig['wind1014_1h'] = trig['wind1014_cold' if cold else 'wind1014']      # the tested first-half screen is 10-13 mph, not 10-14
-        elif False:     # 11/14: one wind source now (MySportsWeather, Open-Meteo fallback), so no "one source only" flag
-            trig['wind_msw_only'] = (f"one source in the 10-14 band but the rule's wind is {wv:.1f} mph ({wlab}); flag only" if wv is not None
-                                     else f"one source in the 10-14 band ({wlab}); flag only")
         # visitor's previous game: the later of its last completed game (season log) and its last scheduled game before this one (the schedule
         # file only keeps a rolling window, the season log only has finished games); calendar days, as Bet Labs counts
         cand = [t for t in (v_prev[0] if v_prev else None, N.parse_ts(pv['last_start']) if pv.get('last_start') else None) if t is not None and t < st]
@@ -668,9 +705,17 @@ def main():
         st = N.parse_ts(start); ttk = (st - NOW).total_seconds() / 3600
         if not (0 < ttk <= VIEW_H): continue      # triggers visible up to a week out (like Bet Labs); fills only inside WINDOW_H (paper_fill checks)
         wx = weather_t24(ev, WX_CFB); msw = msw_latest('cfb', ev)
-        wv, wlab = rule_wind(wx, msw, indoor=roofed('cfb', ev))      # 11/14 (Sean): MySportsWeather wind, Open-Meteo fallback
-        windy = wv is not None and round(wv) >= 14
+        wv, wlab = rule_wind(wx, msw, indoor=roofed('cfb', ev))      # MySportsWeather wind, Open-Meteo fallback: the fallback and the cross-check
+        rcw = sched_rec('cfb', ev)
+        lw, lwp = labs_pick(WIND_SCREENS['cfb_wind14'], (rcw.get('away_team') or {}).get('displayName') or away, (rcw.get('home_team') or {}).get('displayName') or home)
         msw_only = False
+        if roofed('cfb', ev): windy = False
+        elif lw is not None:      # 11/24 (Sean): a fresh Bet Labs pull decides
+            windy = bool(lw); msw_only = (not lw) and wv is not None and round(wv) >= 14
+            wlab = (f"{labs_label(lwp)}; cross-check {wlab}" if lw else wlab)
+        else:
+            windy = wv is not None and round(wv) >= 14
+            if windy: wlab = wlab + ' (FALLBACK: no fresh Bet Labs pull)'
         eq = F.EventQuotes(conn, ev)
         sp_line, _n = main_line(eq, 'spread', home); tl, _n2 = main_line(eq, 'total', None); rec_s = sched_rec('cfb', ev)
         rdlt = sp_line is not None and sp_line <= -7 and tl is not None and tl <= 48 and rec_s.get('conf')
@@ -713,8 +758,7 @@ def main():
             take(conn, eq, fired, fires_now, game, ev, start, away, home, 'cfb_day_over', 'total', tl, 'over', None, 0.5, f"{st.astimezone(N.ET):%-I:%M %p} ET kickoff, total {tl}: over (mined angle)")
         if hf_under:
             take(conn, eq, fired, fires_now, game, ev, start, away, home, 'cfb_homefav_7510_under', 'total', tl, 'under', None, 0.5, f"home favourite {home} {sp_line}, total {tl}: under (mined angle)")
-        if msw_only: game['triggers']['wind_msw_only'] = (f"one source at 14+ mph but the rule's wind is {wv:.1f} mph ({wlab}); flag only" if wv is not None
-                                                          else f"one source at 14+ mph ({wlab}); the rule needs both sources, so flag only")   # 11/7 crash: only one source in
+        if msw_only: game['triggers']['wind_msw_only'] = f"{wlab} is 14+ mph but the Bet Labs wind screen does not list the game ({labs_label(lwp)}): flag only, no bet"
         if not windy: view_games.append(game); continue
         why = wlab + (f", gust {wx.get('gust_mph')}, {wx.get('temp_f')}F" if wx else '')
         game['triggers']['cfb_wind14'] = why

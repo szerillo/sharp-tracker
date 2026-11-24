@@ -13,6 +13,17 @@ PAPER = os.path.join(ROOT, 'data', 'state', 'stale_paper.jsonl'); OUT = os.path.
 NOW = dt.datetime.fromisoformat(os.environ['STALE_NOW']) if os.environ.get('STALE_NOW') else dt.datetime.now(dt.timezone.utc)      # STALE_NOW: replay a past moment (testing)
 EV_MIN, MOVE_MIN, DEC_MAX = 0.02, 0.01, 3.0
 SB4_VEN, SB4_EV = ('FD', 'Caesars', 'DK'), 0.04
+# 11/24 4:40 PM (Sean via Kirk): sb4 is killed (4-6 on paper; a 4%+ sportsbook gap that does not move with Pinnacle is the version most
+# likely to be a stale feed). No new sb4 rows from here; its history stays in the paper log.
+SB4_KILLED = True
+# 11/24 4:40 PM (Sean): the original stays on paper and is judged ONLY on checkable rows: the venue quote's own snapshot time is logged and
+# within 25 minutes of the Pinnacle snapshot it was compared with, and Novig did not flag the book wide. Kill test (docs/calendar.md):
+# kill it if its first 100 graded checkable rows are not positive in both halves (rows 1-50 and 51-100).
+def checkable(r):
+    try:
+        if not r.get('venue_ts') or not r.get('pin_ts') or r.get('wide'): return False
+        return abs((ts(r['venue_ts']) - ts(r['pin_ts'])).total_seconds()) <= 25 * 60
+    except Exception: return False
 # 11/24 (Kirk, docs/cancel_and_sharp_signal_2026-11-24.md section 5): each row also logs the venue quote's own snapshot time (venue_ts), the
 # Pinnacle snapshot it was compared with (pin_ts), the depth at the best price (qty_best) and Novig's wide-book flag, so every row can be
 # audited for a stale feed. 60 of 140 audited rows (11/14-11/24) logged a price that the stored tape does not show within 25 minutes.
@@ -103,7 +114,7 @@ def main():
                 # 11/10 (docs/overnight_2026-11-10.md section 2; Sean: keep tracking the rest): the version history supports is its own
                 # paper rule, logged next to the original: a sportsbook moneyline 4%+ over Pinnacle's fair (2020-26: +12.5% on 415,
                 # 6 of 7 seasons; 2-4% gaps -2.7%; the original is 20-43 live, 57 of 63 on exchanges).
-                if v in SB4_VEN and mk == 'ml' and ev_ >= SB4_EV and ('sb4|' + key) not in seen:
+                if not SB4_KILLED and v in SB4_VEN and mk == 'ml' and ev_ >= SB4_EV and ('sb4|' + key) not in seen:
                     cand['sb4|' + key] = max(cand.get('sb4|' + key, {'ev': -1}), dict(key='sb4|' + key, kind='sb4', sport=sp, event_id=ev, game=f"{e.get('away')} @ {e.get('home')}", start=e['start'],
                                              market=mk, side=side, line=ln, venue=v, price=round(c, 4), fair=round(p, 4), fair_power=round(p_pow, 4), venue_fair=round(vf, 4) if vf else None,
                                              fair_gap=round(100 * (p - vf), 1) if vf else None, ev=round(100 * ev_, 1), move=round(100 * (p - q[0]), 1), flagged=NOW.strftime('%Y-%m-%dT%H:%M:%SZ'), venue_ts=r['ts'], pin_ts=t_now.strftime('%Y-%m-%dT%H:%M:%SZ'), qty_best=(r.get('extra') or {}).get('qty_best'), wide='wide' in (r.get('flags') or []),
@@ -113,7 +124,7 @@ def main():
                                 price=round(c, 4), fair=round(p, 4), fair_power=round(p_pow, 4), venue_fair=round(vf, 4) if vf else None, fair_gap=round(100 * (p - vf), 1) if vf else None,
                                 ev=round(100 * ev_, 1), move=round(100 * (p - q[0]), 1), flagged=NOW.strftime('%Y-%m-%dT%H:%M:%SZ'), venue_ts=r['ts'], pin_ts=t_now.strftime('%Y-%m-%dT%H:%M:%SZ'), qty_best=(r.get('extra') or {}).get('qty_best'), wide='wide' in (r.get('flags') or []),
                                 team=(e.get('home') if side == 'home' else e.get('away') if side == 'away' else None)), key=lambda x: x['ev'])
-            for k_, x in cand.items(): seen.add(k_); new.append(x)
+            for k_, x in cand.items(): x['checkable'] = checkable(x); seen.add(k_); new.append(x)
     rows = old + new
     # grade on the schedule's finals
     for r in rows:
@@ -135,8 +146,13 @@ def main():
     def rec_(g): return dict(n=len(g), won=sum(1 for r in g if r['won'] == 1), lost=sum(1 for r in g if r['won'] == 0), units=round(sum(r['units'] for r in g), 2),
                              roi=round(100 * sum(r['units'] for r in g) / (0.25 * max(1, len(g))), 1))
     rec = rec_([r for r in g if r.get('kind') != 'sb4']); rec4 = rec_([r for r in g if r.get('kind') == 'sb4'])
+    ck = sorted([r for r in g if r.get('kind') != 'sb4' and r.get('checkable')], key=lambda r: r['flagged'])
+    first = ck[:100]; h1, h2 = first[:50], first[50:100]
+    kill = dict(rule='kill if the first 100 graded checkable rows are not positive in both halves', n=len(first), all_checkable=rec_(ck) if ck else None,
+                half1=rec_(h1) if h1 else None, half2=rec_(h2) if h2 else None,
+                verdict=('pending: ' + str(len(first)) + ' of 100' if len(first) < 100 else ('KEEP (both halves positive)' if rec_(h1)['units'] > 0 and rec_(h2)['units'] > 0 else 'KILL (a half is not positive): ask Sean to confirm')))
     open_ = [r for r in rows if r.get('won') is None and ts(r['start'].replace('Z', ':00Z') if len(r['start']) == 17 else r['start']) > NOW - dt.timedelta(hours=4)]
-    json.dump(dict(built=NOW.strftime('%Y-%m-%dT%H:%M:%SZ'), record=rec, record_sb4=rec4, rows=open_), open(OUT, 'w'), indent=1)
+    json.dump(dict(built=NOW.strftime('%Y-%m-%dT%H:%M:%SZ'), record=rec, record_sb4=rec4, sb4_killed=SB4_KILLED, checkable_test=kill, rows=open_), open(OUT, 'w'), indent=1)
     print(f'[stale_live] {len(new)} new, {len(open_)} open, record {rec}')
 
 
