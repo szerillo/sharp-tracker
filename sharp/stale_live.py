@@ -13,6 +13,9 @@ PAPER = os.path.join(ROOT, 'data', 'state', 'stale_paper.jsonl'); OUT = os.path.
 NOW = dt.datetime.fromisoformat(os.environ['STALE_NOW']) if os.environ.get('STALE_NOW') else dt.datetime.now(dt.timezone.utc)      # STALE_NOW: replay a past moment (testing)
 EV_MIN, MOVE_MIN, DEC_MAX = 0.02, 0.01, 3.0
 SB4_VEN, SB4_EV = ('FD', 'Caesars', 'DK'), 0.04
+# 11/24 (Kirk, docs/cancel_and_sharp_signal_2026-11-24.md section 5): each row also logs the venue quote's own snapshot time (venue_ts), the
+# Pinnacle snapshot it was compared with (pin_ts), the depth at the best price (qty_best) and Novig's wide-book flag, so every row can be
+# audited for a stale feed. 60 of 140 audited rows (11/14-11/24) logged a price that the stored tape does not show within 25 minutes.
 
 
 def ts(s): return dt.datetime.fromisoformat(s.replace('Z', '+00:00'))
@@ -103,12 +106,12 @@ def main():
                 if v in SB4_VEN and mk == 'ml' and ev_ >= SB4_EV and ('sb4|' + key) not in seen:
                     cand['sb4|' + key] = max(cand.get('sb4|' + key, {'ev': -1}), dict(key='sb4|' + key, kind='sb4', sport=sp, event_id=ev, game=f"{e.get('away')} @ {e.get('home')}", start=e['start'],
                                              market=mk, side=side, line=ln, venue=v, price=round(c, 4), fair=round(p, 4), fair_power=round(p_pow, 4), venue_fair=round(vf, 4) if vf else None,
-                                             fair_gap=round(100 * (p - vf), 1) if vf else None, ev=round(100 * ev_, 1), move=round(100 * (p - q[0]), 1), flagged=NOW.strftime('%Y-%m-%dT%H:%M:%SZ'),
+                                             fair_gap=round(100 * (p - vf), 1) if vf else None, ev=round(100 * ev_, 1), move=round(100 * (p - q[0]), 1), flagged=NOW.strftime('%Y-%m-%dT%H:%M:%SZ'), venue_ts=r['ts'], pin_ts=t_now.strftime('%Y-%m-%dT%H:%M:%SZ'), qty_best=(r.get('extra') or {}).get('qty_best'), wide='wide' in (r.get('flags') or []),
                                              team=(e.get('home') if side == 'home' else e.get('away') if side == 'away' else None)), key=lambda x: x['ev'])
                 if key in seen: continue
                 cand[key] = max(cand.get(key, {'ev': -1}), dict(key=key, sport=sp, event_id=ev, game=f"{e.get('away')} @ {e.get('home')}", start=e['start'], market=mk, side=side, line=ln, venue=v,
                                 price=round(c, 4), fair=round(p, 4), fair_power=round(p_pow, 4), venue_fair=round(vf, 4) if vf else None, fair_gap=round(100 * (p - vf), 1) if vf else None,
-                                ev=round(100 * ev_, 1), move=round(100 * (p - q[0]), 1), flagged=NOW.strftime('%Y-%m-%dT%H:%M:%SZ'),
+                                ev=round(100 * ev_, 1), move=round(100 * (p - q[0]), 1), flagged=NOW.strftime('%Y-%m-%dT%H:%M:%SZ'), venue_ts=r['ts'], pin_ts=t_now.strftime('%Y-%m-%dT%H:%M:%SZ'), qty_best=(r.get('extra') or {}).get('qty_best'), wide='wide' in (r.get('flags') or []),
                                 team=(e.get('home') if side == 'home' else e.get('away') if side == 'away' else None)), key=lambda x: x['ev'])
             for k_, x in cand.items(): seen.add(k_); new.append(x)
     rows = old + new

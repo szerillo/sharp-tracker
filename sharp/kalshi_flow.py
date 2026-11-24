@@ -53,6 +53,25 @@ def load_trades(days=2):
 def other(side): return {'home': 'away', 'away': 'home', 'over': 'under', 'under': 'over'}.get(side)
 
 
+# 11/24 (Kirk, docs/cancel_and_sharp_signal_2026-11-24.md section 4): the paper price is the last trade on the tape. On 178 rows with a
+# quote it matched the executable cost closely (median gap 0, mean +0.2c), but each logged row now also carries the executable Kalshi cost
+# at the log time (the ticker's YES ask, or 1 - YES bid for its NO side, from the newest 20-minute tick file) and that cost plus the taker
+# fee, so a promotion read can use the price that could actually be bought.
+_QUOTES = {}
+def kalshi_quote(ticker):
+    if not _QUOTES:
+        fs = sorted(glob.glob(os.path.join(ROOT, 'data', SPORT, 'ticks', '*.jsonl.gz')))[-1:]
+        for f in fs:
+            try:
+                for l in gzip.open(f, 'rt'):
+                    if '"Kalshi"' not in l: continue
+                    r = json.loads(l); t = (r.get('extra') or {}).get('ticker')
+                    if t and (r.get('extra') or {}).get('yes') == r.get('side') and r.get('bid') is not None and r.get('ask') is not None: _QUOTES[t] = (r['ts'], r['bid'], r['ask'])
+            except (EOFError, OSError): pass
+        _QUOTES.setdefault('_loaded', None)
+    return _QUOTES.get(ticker)
+
+
 def main():
     T = load_trades(); paper = [json.loads(l) for l in open(PAPER)] if os.path.exists(PAPER) else []
     logged = {(p['event_id'], p['market'], p['line']) for p in paper}
@@ -90,7 +109,11 @@ def main():
                    mins_to_start=round(mins), flag=flag, ticker=last['ticker'], window_h=WINDOW_H)
         rows.append(row)
         if flag and (ev, market, line) not in logged:
-            paper.append(dict(row, rule='kalshi_nhl_flow', logged=dt.datetime.fromtimestamp(NOW, dt.timezone.utc).strftime('%Y-%m-%dT%H:%M:%SZ'), venue='Kalshi')); logged.add((ev, market, line))
+            q = kalshi_quote(row['ticker']); ex = {}
+            if q:
+                c_ = q[2] if side == (last.get('yes_side') or ref) else round(1 - q[1], 4)   # the ticker's own YES side
+                ex = dict(ask=c_, ask_fee=round(c_ + 0.07 * c_ * (1 - c_), 4), quote_ts=q[0])
+            paper.append(dict(row, rule='kalshi_nhl_flow', logged=dt.datetime.fromtimestamp(NOW, dt.timezone.utc).strftime('%Y-%m-%dT%H:%M:%SZ'), venue='Kalshi', **ex)); logged.add((ev, market, line))
     # grade from the ESPN schedule (hist_schedule.json carries finals with scores)
     H = (json.load(open(HIST)) if os.path.exists(HIST) else {}).get(SPORT, {})
     for p in paper:
