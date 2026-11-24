@@ -68,20 +68,30 @@ def load():
     return (json.load(open(OUT)) if os.path.exists(OUT) else {}).get('events', {})
 
 
-def winner_side(home, away, start, K, hours=48):
-    """home / away player names and the scheduled start of a paper row. -> 'p1' (home won), 'p2' (away won) or None. Both players must
-    match one Kalshi event settled within `hours` of the start."""
+def winner_side(home, away, start, K, hours=96):
+    """home / away player names and the scheduled start of a paper row. -> 'p1' (home won), 'p2' (away won), 'void' or None. Both players
+    must match one Kalshi event settled within `hours` of the start; the nearest such event counts.
+    11/24: the window was 48h, and a paper row whose estimated start was two days early (Piros-Muller, Gaston-Henning, Gaston-Martineau)
+    never matched. A Kalshi event settled scalar on both sides (no winner) means the match was not played as listed: the Billie Jean King
+    Cup ties of 11/20-22 settled every not-played singles rubber that way (Feistel-Hennemann, Sawangkaew-Teichmann, Burel-Hunter ...).
+    That returns 'void', so the row leaves the record instead of waiting for a result that never comes."""
     if not home or not away or not start: return None
     s_ = start if re.search(r'T\d\d:\d\d:\d\d', start) else start.replace('Z', ':00Z')
     st = dt.datetime.fromisoformat(s_.replace('Z', '+00:00'))
+    best = None
     for k in K.values():
-        if not k.get('winner') or len(k['players']) != 2: continue
+        if len(k.get('players') or {}) != 2: continue
         try: kt = dt.datetime.fromisoformat(k['time'].replace('Z', '+00:00'))
         except Exception: continue
-        if abs((kt - st).total_seconds()) > hours * 3600: continue
+        gap = abs((kt - st).total_seconds())
+        if gap > hours * 3600: continue
         n1, n2 = list(k['players'])
         if (same_player(n1, home) and same_player(n2, away)) or (same_player(n1, away) and same_player(n2, home)):
-            return 'p1' if same_player(k['winner'], home) else 'p2'
+            if best is None or gap < best[0]: best = (gap, k)
+    if not best: return None
+    k = best[1]
+    if k.get('winner'): return 'p1' if same_player(k['winner'], home) else 'p2'
+    if all(v == 'scalar' for v in k['players'].values()): return 'void'
     return None
 
 

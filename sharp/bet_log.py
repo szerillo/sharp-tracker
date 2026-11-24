@@ -289,7 +289,8 @@ def main():
             side = p.get('side') or p['fav']; pick = p.get('pick_name') or p.get('fav_name')
             bets.append(dict(id=f"{'th' if rule == 'tennis_hot_fav' else 'td'}:{p['event_id']}", src='tennis', cat=tennis_cat(rule, p['start'], 'system B' if live else 'paper P'), rule=rule, sport='tennis', event_id=p['event_id'],   # 11/5 (Sean): settled favourites are tier B, 0.5u
                              game=f"{p.get('fav_name')} vs {p.get('opp_name')}", start=p['start'], market='ml', side=side, line=None, flagged=p['ts'], venue=p['venue'], price=p['price'],
-                             won=None if not g_ else (1 if g_['won'] else 0), bet=f"{pick} to win"))
+                             won=None if not g_ or g_.get('void') else (1 if g_['won'] else 0), bet=f"{pick} to win"))
+            if g_ and g_.get('void'): bets[-1]['excluded'] = 'void: the match was not played as listed (no winner settled)'      # 11/24
     # Serve-profile logs are simulated records, not exchange fill evidence.
     sp = os.path.join(ROOT, 'data', 'tennis', 'serve_paper.jsonl')
     sg = os.path.join(ROOT, 'data', 'tennis', 'serve_graded.json')
@@ -307,8 +308,9 @@ def main():
                              game=f"{p.get('fav_name')} vs {p.get('opp_name')}", start=p['start'],
                              market='ml', side=p['side'], line=None, flagged=p['ts'],
                              venue=p['venue'], price=p['price'],
-                             won=None if not g_ else (1 if g_['won'] else 0),
+                             won=None if not g_ or g_.get('void') else (1 if g_['won'] else 0),
                              bet=f"{p.get('pick_name')} to win"))
+            if g_ and g_.get('void'): bets[-1]['excluded'] = 'void: the match was not played as listed (no winner settled)'      # 11/24
     # ---- MMA steam favourite (11/5, tier C 0.25u): sharp/mma_steam.py paper log, graded from ESPN
     mp = os.path.join(ROOT, 'data', 'mma', 'steam_paper.jsonl'); mg = os.path.join(ROOT, 'data', 'mma', 'steam_graded.json')
     if os.path.exists(mp):
@@ -463,7 +465,9 @@ def main():
         elif base == 'spread': b['margin'] = round(((h_ - a_) if b['side'] == 'home' else (a_ - h_)) + L, 1)
         elif base == 'ml': b['margin'] = (h_ - a_) if b['side'] == 'home' else (a_ - h_)
         b['unit_name'] = UNIT.get(b['sport'], 'points')
-        if (b['src'] == 'watch' or b['cat'] == 'sharp C') and b['won'] is None and b.get('margin') is not None and (base != 'total' and base != 'spread' or b['line'] is not None):
+        # 11/24: any row still ungraded once the game is final is graded from the score (was watch and sharp C only; kalshi_nhl_flow stopped
+        # being graded in its own log after 11/6 and 296 rows sat open)
+        if b['won'] is None and not b.get('excluded') and b.get('margin') is not None and (base != 'total' and base != 'spread' or b['line'] is not None):
             b['won'] = 1 if b['margin'] > 0 else 0 if b['margin'] < 0 else 0.5
     # correlation (Sean, 11/2): bets on one game in one family (the team side: moneyline / spread, any period; or the total, any period)
     fam = lambda m: 'total' if ('total' in m or re.sub(r'^(1h|1q|1p)_', '', m).startswith('tt_')) else ('side' if re.sub(r'^(1h|1q|1p)_', '', m) in ('ml', 'spread') else None)

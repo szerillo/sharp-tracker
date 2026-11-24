@@ -393,7 +393,9 @@ def main():
                 hn, an = (p.get('fav_name'), p.get('opp_name')) if p.get('fav') == 'home' else (p.get('opp_name'), p.get('fav_name'))
                 w = KR.winner_side(hn, an, p['start'], KRES)
                 if w: r = dict(winner=w, src='Kalshi')
-            if not r or not r.get('winner') or r.get('walkover'): continue
+            if r and r.get('winner') == 'void' or r and r.get('walkover'):     # 11/24: not played (Kalshi scalar settlement / ESPN walkover): no action
+                out.append(dict(p, won=None, void=True, pnl=0.0)); continue
+            if not r or not r.get('winner'): continue
             side = p.get('side') or p['fav']
             won = (r['winner'] == 'p1') == (side == 'home')
             h, a_ = mclose.get((ev, 'home')), mclose.get((ev, 'away')); c = None
@@ -402,6 +404,7 @@ def main():
             out.append(dict(p, won=won, pnl=round((1 - p['price']) / p['price'] if won else -1.0, 3), pin_close=round(c, 4) if c else None, clv=round(100 * (c - p['price']), 2) if c else None))
         return out
     def record_of(g_):
+        g_ = [g for g in g_ if not g.get('void')]
         cl_ = [g['clv'] for g in g_ if g.get('clv') is not None]
         return dict(n=len(g_), won=sum(g['won'] for g in g_), units=round(sum(g['pnl'] for g in g_), 2), clv=round(sum(cl_) / len(cl_), 2) if cl_ else None, clv_n=len(cl_)) if g_ else dict(n=0)
     hot_graded = grade_match(hot_paper)
