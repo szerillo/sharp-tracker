@@ -10069,17 +10069,50 @@
 "edge_pts": 0.02,
 "why": "Novig home side mid 0.318 inside T-1.3h; audit band 20-35c"
 },
+"401873094:vrest8_1h": {
+"tag": "vrest8_1h",
+"fill_id": "caef7f39a212",
+"ts": "2026-11-24T01:54:46Z",
+"market": "1h_total",
+"side": "under",
+"line": 21.5,
+"venue": "Novig",
+"price": -115,
+"fair": 0.50237,
+"edge_pts": -3.26,
+"why": "CAR off 8 days"
+},
+"401873094:mnf_1h": {
+"tag": "mnf_1h",
+"stacked": true,
+"market": "1h_total",
+"side": "under",
+"why": "Monday night (same bet already taken by a higher-priority rule)"
+},
+"401873094:nfl_fade_fav_bye": {
+"tag": "nfl_fade_fav_bye",
+"fill_id": "40a4da5ce08b",
+"ts": "2026-11-24T01:54:46Z",
+"market": "spread",
+"side": "away",
+"line": 2.5,
+"venue": "Novig",
+"price": 106,
+"fair": 0.46395,
+"edge_pts": -2.11,
+"why": "TB (favourite) off 8 days: dog CAR"
+},
 "401910045:xch_homedog_fade:ml": {
 "tag": "xch_homedog_fade",
-"fill_id": "184115ac98a7",
-"ts": "2026-11-24T01:38:35Z",
+"fill_id": "d9fe5db73bfd",
+"ts": "2026-11-24T01:54:46Z",
 "market": "ml",
 "side": "away",
 "line": null,
 "venue": "Novig",
 "price": -292,
-"fair": 0.79243,
-"edge_pts": 4.74,
-"why": "Novig home side mid 0.258 inside T-1.4h; audit band 20-35c"
+"fair": 0.74782,
+"edge_pts": 0.28,
+"why": "Novig home side mid 0.258 inside T-1.1h; audit band 20-35c"
 }
 }
