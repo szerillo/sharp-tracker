@@ -51,6 +51,11 @@ def load_trades(days=2):
 
 
 def other(side): return {'home': 'away', 'away': 'home', 'over': 'under', 'under': 'over'}.get(side)
+def ticker_yes(t, default):
+    import re
+    m = re.match(r'KXNHL\w+-\d\d[A-Z]{3}\d\d([A-Z]+)-([A-Z]+?)(\d*)$', t or '')
+    if not m: return default
+    return 'away' if m.group(1).startswith(m.group(2)) else 'home' if m.group(1).endswith(m.group(2)) else default
 
 
 # 11/24 (Kirk, docs/cancel_and_sharp_signal_2026-11-24.md section 4): the paper price is the last trade on the tape. On 178 rows with a
@@ -111,20 +116,23 @@ def main():
         if flag and (ev, market, line) not in logged:
             q = kalshi_quote(row['ticker']); ex = {}
             if q:
-                c_ = q[2] if side == (last.get('yes_side') or ref) else round(1 - q[1], 4)   # the ticker's own YES side
+                c_ = q[2] if side == ticker_yes(row['ticker'], last.get('yes_side') or ref) else round(1 - q[1], 4)   # the ticker's own YES side
                 ex = dict(ask=c_, ask_fee=round(c_ + 0.07 * c_ * (1 - c_), 4), quote_ts=q[0])
             paper.append(dict(row, rule='kalshi_nhl_flow', logged=dt.datetime.fromtimestamp(NOW, dt.timezone.utc).strftime('%Y-%m-%dT%H:%M:%SZ'), venue='Kalshi', **ex)); logged.add((ev, market, line))
     # grade from the ESPN schedule (hist_schedule.json carries finals with scores)
     H = (json.load(open(HIST)) if os.path.exists(HIST) else {}).get(SPORT, {})
     for p in paper:
-        if p.get('won') is not None: continue
+        # 11/24: spread rows are re-graded every run (the 11/24 fix below changed 10 of them); everything else grades once
+        if p.get('won') is not None and p['market'] != 'spread': continue
         h = H.get(str(p['event_id']))
         if not h or not h.get('final') or h.get('hs') is None: continue
         hs, as_ = h['hs'], h['as_']; m, ln, sd = p['market'], p.get('line'), p['side']
         if m == 'ml': won = 1 if (hs > as_) == (sd == 'home') else 0
         elif m == 'spread':
-            # the tape line is the yes side's handicap (Kalshi puck lines sit at +-1.5); the no side gets the mirror
-            hc = (ln if ln is not None else 0) * (1 if sd == (p.get('yes_side') or sd) else -1)
+            # the tape line is the handicap of the TICKER's YES team (Kalshi puck lines sit at +-1.5); the no side gets the mirror.
+            # 11/24 fix: the YES team comes from the ticker (KXNHLSPREAD-26NOV14WPGCHI-WPG2: away WPG -1.5), not the stored yes_side, which
+            # is always 'home'; tickers whose YES team was the visitor were graded as if the line were the home team's (10 rows wrong).
+            hc = (ln if ln is not None else 0) * (1 if sd == ticker_yes(p.get('ticker'), p.get('yes_side') or sd) else -1)
             mg = (hs - as_ if sd == 'home' else as_ - hs) + hc
             won = 1 if mg > 0 else 0 if mg < 0 else 0.5
         else:

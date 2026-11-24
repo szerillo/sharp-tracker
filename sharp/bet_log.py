@@ -426,8 +426,14 @@ def main():
     if os.path.exists(kp):
         for l in open(kp):
             p = json.loads(l)
+            # 11/24: a spread row's tape line is the handicap of the ticker's YES team; the bet side's own line is that or its mirror
+            ln_ = p.get('line')
+            if p['market'] == 'spread' and ln_ is not None:
+                m_ = re.match(r'KXNHL\w+-\d\d[A-Z]{3}\d\d([A-Z]+)-([A-Z]+?)(\d*)$', p.get('ticker') or '')
+                ty_ = ('away' if m_.group(1).startswith(m_.group(2)) else 'home') if m_ else p.get('yes_side')
+                ln_ = ln_ if p['side'] == ty_ else -ln_
             bets.append(dict(id=f"kf:{p['event_id']}:{p['market']}:{p.get('line')}", src='paper', cat='paper P', rule='kalshi_nhl_flow', sport='nhl', event_id=str(p['event_id']), game=p.get('game') or '',
-                             start=p['start'].replace('Z', ':00Z') if len(p['start']) == 17 else p['start'], market=p['market'], side=p['side'], line=p.get('line'), flagged=p['logged'], venue='Kalshi', price=p['price'],
+                             start=p['start'].replace('Z', ':00Z') if len(p['start']) == 17 else p['start'], market=p['market'], side=p['side'], line=ln_, flagged=p['logged'], venue='Kalshi', price=p['price'],
                              won=p.get('won') if p.get('won') in (0, 1) else None, bet=p.get('bet') or f"{p['side']} {p.get('line') or ''}".strip()))
     # ---- 11/6 leans with their own logs: derivatives off the curve, prop price gaps, stale books (graded in their own logs)
     W_ = lambda w: w if w in (0, 0.5, 1) else None
