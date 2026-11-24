@@ -1,18 +1,18 @@
 {
- "built": "2026-11-24T22:29:23Z",
+ "built": "2026-11-24T22:46:21Z",
  "record": {
-  "n": 256,
+  "n": 257,
   "won": 117,
-  "lost": 139,
-  "units": 0.54,
-  "roi": 0.9
+  "lost": 140,
+  "units": 0.29,
+  "roi": 0.5
  },
  "record_sb4": {
-  "n": 10,
+  "n": 11,
   "won": 4,
-  "lost": 6,
-  "units": -0.5,
-  "roi": -20.0
+  "lost": 7,
+  "units": -0.75,
+  "roi": -27.3
  },
  "sb4_killed": true,
  "checkable_test": {
@@ -183,47 +183,6 @@
    "move": 1.2,
    "flagged": "2026-11-24T16:05:33Z",
    "team": null
-  },
-  {
-   "key": "sb4|401906853|ml|home",
-   "kind": "sb4",
-   "sport": "cbb",
-   "event_id": "401906853",
-   "game": "TENN @ MD",
-   "start": "2026-11-24T20:00Z",
-   "market": "ml",
-   "side": "home",
-   "line": null,
-   "venue": "DK",
-   "price": 0.4167,
-   "fair": 0.438,
-   "fair_power": 0.4344,
-   "venue_fair": 0.4004,
-   "fair_gap": 3.8,
-   "ev": 5.1,
-   "move": 4.2,
-   "flagged": "2026-11-24T16:32:57Z",
-   "team": "MD"
-  },
-  {
-   "key": "401906853|ml|home",
-   "sport": "cbb",
-   "event_id": "401906853",
-   "game": "TENN @ MD",
-   "start": "2026-11-24T20:00Z",
-   "market": "ml",
-   "side": "home",
-   "line": null,
-   "venue": "DK",
-   "price": 0.4167,
-   "fair": 0.438,
-   "fair_power": 0.4344,
-   "venue_fair": 0.4004,
-   "fair_gap": 3.8,
-   "ev": 5.1,
-   "move": 4.2,
-   "flagged": "2026-11-24T16:32:57Z",
-   "team": "MD"
   },
   {
    "key": "401906774|total|under",
