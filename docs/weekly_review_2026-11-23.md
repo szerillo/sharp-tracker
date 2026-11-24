@@ -38,7 +38,7 @@ starts 10/30.
 | Wind: wind1014 / wind1014_1h / cfb_wind14 | 12 / 9 / 23 | +0.98 / +1.24 / +1.20 | +31% / +52% / +20% | 11% / 10% / 19% | mixed | All positive. wind1014_1h's 90% range sits above zero |
 | nhl_skid_fade_road (live C) | 9 | +2.40 | +68.2% (+37 to +113) | 1.3% | +115% / +39% | Significant on 9 bets |
 | The 11/19 tier-C group, since the move | 33 | +1.91 | +20.0% (-10 to +52) | 11% | +47% / -1% | Good so far, not yet significant |
-| Same rules, before the move (paper) | 162 | -12.83 | -28.5% | | | Most of it nba_momentum (-6.18u, retired 11/9). The other 17: -5.46u on 137 |
+| Same rules, before the move (paper) | 162 | -12.83 | -28.5% | | | Most of it nba_momentum (-6.18u, retired 11/9). The other 17: -6.65u on 104 |
 | Sharp soccer A (live since 11/21) | 54 | +3.47 | +20.5% (-4 to +44) | 9% | +11% / +30% | Positive in both halves. Its live call holds on profit |
 | Sharp NBA B (paper) | 52 | +2.75 | +14.3% (-4 to +34) | 13.5% | +4% / +29% | **Best paper candidate on profit**, short of significant |
 | tennis_fs_fav (paper) | 50 | +2.06 | +8.7% (-6 to +23) | 20% | +20% / +1% | Promising. First read is set at 300 |
@@ -249,8 +249,8 @@ a result this good if break-even. The halves are +8% and 0%. No evidence of an e
 again at 200. (The first version flagged its CLV; that no longer counts.)
 
 **The 11/19 tier-C group:** 22-11, +1.91u, +20.0% since the move. Not yet significant (11%), and the halves are +47% and -1%.
-Before the move, as paper, the same rules lost -12.83u on 162, mostly nba_momentum (already retired). The other 17 rules lost -5.46u
-on 137 as paper. Fair read: a good first week after a losing paper run. Too early to say the move was right or wrong.
+Before the move, as paper, the same rules lost -12.83u on 162, mostly nba_momentum (already retired). The other 17 rules lost -6.65u
+on 104 as paper. Fair read: a good first week after a losing paper run. Too early to say the move was right or wrong.
 
 **Paper rules closest to live, on profit.** None clears a 100-bet significance bar yet. In order:
 1. **Sharp NBA B:** 30-22, +2.75u, +14.3% on 52; 13.5% if break-even; positive in both halves (+4%, +29%). Sharp NBA A is 26-25,
