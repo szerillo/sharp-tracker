@@ -1,42 +1,61 @@
-# Weekly systems review, 2026-11-23
+# Weekly systems review, 2026-11-23 (revised 11/24: judged on profit, not CLV)
 
-Read only: no rule, tier or paper/live status was changed for this review. Graded games that started before Tue 11/24 05:00 UTC, from
-data/state/bet_log.json (built 2026-11-24T04:38Z). The bet log starts 10/30, so "all" is since 10/30 and the 30-day and all columns
-match. Records and units are flat 0.25u for every row (favourite to win 0.25u, plus money risk 0.25u), so live and paper rules compare on
-one scale. "Board units" are what the board actually tracked: 0.5u on some fills before 11/18, and no units on sharp flags after 11/10.
-ROI = units / risk. CLV = points against the no-vig close (+ beat the close). Lapsed, conflict-cancelled and bad-price rows are left out.
+Read only: no rule, tier or paper/live status was changed for this review.
 
-This sits next to today's checkpoint (docs/checkpoint_2026-11-23.md). That checkpoint ran the pre-agreed lines from 11/2: it retired
-cfb_road_dog_low_total, cfb_day_over and steam_rev, and moved Kalshi 4+ movers to sized paper. Its records run on fills.jsonl and can
-differ by a game or two from these.
+**Revision, 11/24 (Sean via Kirk).** The project's premise is finding edges the market misses, which CLV may not capture. So no
+keep, retire, promote or paper call in this review rests on CLV. Every call is judged on realized profit:
+- units and ROI at the actual prices taken
+- sample size
+- a significance read
+- whether the result holds in both halves of the sample
 
-## Summary
+CLV stays in the tables as information only. The first version of this review leaned on CLV in a few places: it called stale_book
+ready, it discounted the 11/19 group's good week, and it pointed to tennis_serve_dog's CLV. Those calls are redone below.
 
-| | Last 7 days | Last 30 days / all | CLV, all | Read |
-|---|---|---|---|---|
-| **Live categories, total** | 90-72, -0.07u, -0.1% | 261-199, +3.20u, +2.0% | -1.73 on 332 | About break-even. Winning more than half, but the prices are slightly worse than the close |
-| **Paper, total** | 195-141, +17.06u, +14.7% | 625-650, -19.10u, -4.2% | -0.87 on 1,099 | Big week (stale_book, sharp CFB/NBA) on top of a losing month |
-| Wind: wind1014 / wind1014_1h / cfb_wind14 (A/B/A) | 0 / 0 / 1-6 | 8-4 / 7-2 / 14-9, +3.42u combined | +0.80 / -0.92 / -0.53 | Working. cfb_wind14's bad week is 7 games |
-| nba_under_good_home_over (A) | 0-1 | 9-5, +0.97u, +26.5% | +1.37 on 10 | Working, beats the close |
-| xch_homedog_fade (C) | 24-9, +0.73u | 82-28, +3.06u, +4.4% | -1.03 on 110 | Biggest live sample. Profitable but trails the close |
-| nhl_skid_fade_road (C) | 2-0 | 8-1, +2.40u | -1.33 on 8 | Hot, small sample |
-| tennis_serve_dog (live) | 14-14, +0.30u | 49-50, +0.94u, +3.7% | -2.26 on 97 | Flat. Profit is noise and CLV is clearly negative |
-| Sharp soccer A (live since 11/21) | 10-5, +1.12u | 32-22, +3.47u, +20.5% | +0.21 on 51 | Best sharp slice. 3-3 since it went live |
-| nhl_p3_under_curve (C) | 3-6-1 | 9-21-10, -3.62u, -32.5% | n/a | **Worst live rule.** 40 bets, about z -2 |
-| nhl_early_home_fav_qual (B) | 4-4 | 13-12, -0.98u, -10.1% | -1.41 on 25 | Near the checkpoint review line |
-| The 18 rules moved to C on 11/19 | 22-11, +1.91u, +20.0% since | (as paper before: 57-105, -28.5%) | -4.46 on 29 since | Good week, but CLV says it was luck |
-| stale_book (paper) | 55-43, +6.45u, +25.8% | 116-134, +2.10u, +3.3% | **+0.57 on 249** | **Best paper candidate:** positive CLV on a real sample |
-| Sharp NBA A / B / watch (paper) | 9-7 / 11-6 / 7-6 | 26-25 / 30-22 / 18-26 | -0.16 / -1.12 / -0.27 | B is +14.3% but trails the close. Not ready |
-| Sharp NHL A (paper) | 5-11 | 10-26, -4.72u, -43.5% | +0.30 on 35 | Bad results, neutral CLV |
+**Method.** Graded games that started before Tue 11/24 05:00 UTC, from data/state/bet_log.json (built 2026-11-24T04:38Z). The log
+starts 10/30.
+- **Units:** every row at flat 0.25u (favourite to win 0.25u, plus money risk 0.25u). ROI = units / risk.
+- **Significance, two ways:**
+  - A bootstrap of the bets gives a 90% range for ROI.
+  - A break-even test re-plays every bet 4,000 times with the win chance its own price implies. That gives the chance of a result at
+    least this good, or at least this bad, if the rule had no edge at those prices.
+- **Holds across sub-periods:** ROI in the first and second half of each rule's bets, in date order.
+- **Caveat:** with about 60 slices tested, about 3 will look significant at 5% by luck alone. That is why the halves are read too.
+- **Bet Labs backtests:** these live samples are small next to the full Bet Labs backtests the systems were chosen on. Sean's 11/18
+  call makes those the primary evidence, so a live read below is a flag, not a verdict.
 
-**Decisions waiting for Sean:** (1) the rule-groups question (options in section 4), (2) the wind source (MySportsWeather alone vs
-the two-source average; it decided NO @ CHI 11/22 and CIN @ WSH 11/23), (3) nhl_p3_under_curve (back to paper?), (4) stale_book
-(stays paper by his 11/18 call; the strongest case for a live test).
+## Summary (profit basis)
 
+| | Graded | Units | ROI (90% range) | Break-even test | Halves | Read |
+|---|---|---|---|---|---|---|
+| **Live categories, total** | 460 | +3.20 | +2.0% | | | Break-even so far |
+| **nhl_p3_under_curve (live C)** | 42 | -4.00 | -34.0% (-54 to -13) | 0.3% chance this bad if break-even | -51% / -17% | **Clearly losing, both halves.** Strongest case to move to paper |
+| cfb_q1_under_curve (live A) | 42 | -1.56 | -13.9% (-38 to +11) | 21% | -14% / -13% | Losing steadily, not significant. Tier A on a 296-189 backtest; watch |
+| nhl_early_home_fav_qual (live B) | 25 | -0.98 | -10.1% (-37 to +16) | 26% | +9% / -22% | Noise |
+| nhl_loss_streak_over (live C) | 13 | -1.51 | -42.0% (-85 to +1) | 5% | -66% / -25% | Bad and consistent, small sample |
+| tennis_serve_dog (live) | 99 | +0.94 | +3.7% (-14 to +21) | 36% chance this good if break-even | +8% / 0% | Flat. No evidence for or against. Keep |
+| xch_homedog_fade (live C) | 110 | +3.06 | +4.4% (-5 to +14) | 24% | +7% / +2% | Positive in both halves, not significant |
+| Wind: wind1014 / wind1014_1h / cfb_wind14 | 12 / 9 / 23 | +0.98 / +1.24 / +1.20 | +31% / +52% / +20% | 11% / 10% / 19% | mixed | All positive. wind1014_1h's 90% range sits above zero |
+| nhl_skid_fade_road (live C) | 9 | +2.40 | +68.2% (+37 to +113) | 1.3% | +115% / +39% | Significant on 9 bets |
+| The 11/19 tier-C group, since the move | 33 | +1.91 | +20.0% (-10 to +52) | 11% | +47% / -1% | Good so far, not yet significant |
+| Same rules, before the move (paper) | 162 | -12.83 | -28.5% | | | Most of it nba_momentum (-6.18u, retired 11/9). The other 17: -5.46u on 137 |
+| Sharp soccer A (live since 11/21) | 54 | +3.47 | +20.5% (-4 to +44) | 9% | +11% / +30% | Positive in both halves. Its live call holds on profit |
+| Sharp NBA B (paper) | 52 | +2.75 | +14.3% (-4 to +34) | 13.5% | +4% / +29% | **Best paper candidate on profit**, short of significant |
+| tennis_fs_fav (paper) | 50 | +2.06 | +8.7% (-6 to +23) | 20% | +20% / +1% | Promising. First read is set at 300 |
+| stale_book (paper) | 253 | +1.35 | +2.1% (-9 to +14) | 39% | -17% / +22% | **Not ready.** Break-even on profit and flips between halves (the first version called it ready on CLV) |
+| Kalshi 4+ movers (sized paper) | 1,515 | +2.90 | +0.5% (-3 to +4) | 41% | +5% / -4% | No profit edge. -3 to -4% after Kalshi's fee |
+| Sharp NHL A (paper) | 37 | -4.47 | -40.3% (-65 to -16) | 0.5% | -42% / -38% | Significantly bad (paper) |
 
-## 1. Every rule, last 7 days / 30 days / all (flat 0.25u: record, units, ROI)
+**Decisions waiting for Sean** (none made here):
+1. nhl_p3_under_curve back to paper?
+2. The rule-groups options (section 4, now with profit evidence).
+3. Re-decide the checkpoint calls that rested on CLV (section 5).
+4. Adopt profit-based checkpoint lines (section 6).
+5. The wind source, MySportsWeather alone vs the two-source average (open since 11/22).
 
-| Rule | Status | Since | Last 7 days | Last 30 days | All (log from 10/30) | Board units, all | CLV, all |
+## 1. Every rule, last 7 days / 30 days / all (flat 0.25u: record, units, ROI; CLV is information only)
+
+| Rule | Status | Since | Last 7 days | Last 30 days | All (log from 10/30) | Board units, all | CLV, all (info only) |
 |---|---|---|---|---|---|---|---|
 | tennis_serve_dog | live | 11/17 only real-money tennis angle | 14-14, +0.30u, +4.1% | 49-50, +0.94u, +3.7% | 49-50, +0.94u, +3.7% | +0.94 | -2.26 (97) |
 | sharp soccer A | live 0.25u | 11/21 paper to live | 10-5, +1.12u, +20.7% | 32-22, +3.47u, +20.5% | 32-22, +3.47u, +20.5% | +2.18 | +0.21 (51) |
@@ -107,13 +126,77 @@ the two-source average; it decided NO @ CHI 11/22 and CIN @ WSH 11/23), (3) nhl_
 | cfb_road_dog_low_total | retired | 11/23 checkpoint | 4-4, -0.06u, -2.7% | 14-16, -0.79u, -9.9% | 14-16, -0.79u, -9.9% | -0.79 | -4.22 (27) |
 | cfb_day_over | retired | 11/21 paper, 11/23 retired | 8-2, +1.46u, +55.0% | 11-16, -1.66u, -22.6% | 11-16, -1.66u, -22.6% | -1.66 | -2.34 (23) |
 
+## 1b. Significance on profit, every rule with 5+ graded bets (sorted from worst to best)
+
+| Rule or group | Graded | Units (0.25u) | ROI | ROI 90% range (bootstrap) | Chance of a result this good if break-even | Chance of a result this bad if break-even | ROI, 1st half / 2nd half |
+|---|---|---|---|---|---|---|---|
+| 18 promoted: all | 195 | -11.64 | -20.4% | -32% to -9% | 0.999 | 0.001 | -27% / -14% |
+| nhl_p3_under_curve | 42 | -4.00 | -34.0% | -54% to -13% | 0.997 | 0.003 | -51% / -17% |
+| nba_momentum | 58 | -6.18 | -32.3% | -53% to -14% | 0.996 | 0.004 | -36% / -30% |
+| sharp nhl A | 37 | -4.47 | -40.3% | -64% to -16% | 0.995 | 0.005 | -42% / -38% |
+| sharp nba watch | 44 | -3.98 | -22.9% | -44% to -2% | 0.953 | 0.047 | -28% / -18% |
+| nhl_loss_streak_over | 13 | -1.51 | -42.0% | -85% to +1% | 0.953 | 0.048 | -66% / -25% |
+| tennis_hot_dog | 41 | -3.22 | -31.3% | -58% to -2% | 0.942 | 0.059 | -53% / -10% |
+| group1 all | 44 | -2.58 | -20.4% | -45% to +7% | 0.914 | 0.086 | -42% / -1% |
+| nfl_fade_fav_bye | 5 | -1.01 | -49.3% | -100% to +52% | 0.931 | 0.088 | -7% / -65% |
+| cfb_day_over | 27 | -1.66 | -22.6% | -51% to +7% | 0.911 | 0.089 | -71% / +24% |
+| sharp cbb A | 10 | -1.23 | -35.2% | -73% to +12% | 0.912 | 0.091 | +13% / -68% |
+| bounce15_1h | 8 | -1.09 | -49.7% | -100% to -2% | 0.875 | 0.129 | -100% / -4% |
+| nhl_bounce_home_ml | 6 | -0.86 | -41.1% | -100% to +20% | 0.865 | 0.148 | -100% / +14% |
+| wncaab_dog_7_10 | 5 | -0.82 | -60.9% | -100% to +15% | 0.939 | 0.155 | -100% / -36% |
+| tennis_hot_fav | 47 | -2.85 | -7.7% | -22% to +6% | 0.829 | 0.172 | -27% / +9% |
+| vrest8_1h | 8 | -0.59 | -27.9% | -77% to +23% | 0.828 | 0.176 | -4% / -52% |
+| sharp cfb A | 74 | -1.96 | -9.3% | -27% to +8% | 0.804 | 0.196 | -17% / -1% |
+| cfb_q1_under_curve | 42 | -1.56 | -13.9% | -38% to +11% | 0.790 | 0.210 | -14% / -13% |
+| nfl_prop_under_gap | 19 | -1.20 | -25.3% | -72% to +23% | 0.758 | 0.242 | -35% / -16% |
+| stale_book_sb4 | 10 | -0.64 | -20.7% | -68% to +35% | 0.756 | 0.246 | -34% / -5% |
+| nhl_early_home_fav_qual | 25 | -0.98 | -10.1% | -37% to +16% | 0.744 | 0.256 | +9% / -22% |
+| cfb_road_dog_low_total | 30 | -0.79 | -9.9% | -36% to +17% | 0.741 | 0.259 | -10% / -10% |
+| tennis_serve_fav | 53 | -2.10 | -4.6% | -18% to +8% | 0.734 | 0.267 | -11% / +2% |
+| wncaab_move_follow | 46 | -1.13 | -8.9% | -34% to +13% | 0.728 | 0.272 | -9% / -9% |
+| sharp nfl A | 43 | -1.62 | -12.0% | -38% to +14% | 0.727 | 0.273 | -50% / +27% |
+| cfb_homefav_7510_under | 10 | -0.58 | -21.8% | -62% to +34% | 0.731 | 0.287 | -22% / -22% |
+| cfb_tt_under_curve | 38 | -0.95 | -8.7% | -34% to +16% | 0.705 | 0.295 | -37% / +19% |
+| nhl_pl_dog_bigml | 7 | -0.33 | -17.1% | -73% to +38% | 0.686 | 0.314 | -32% / -6% |
+| cbb_1h_total_curve | 9 | -0.12 | -4.7% | -55% to +46% | 0.583 | 0.425 | -8% / -2% |
+| sharp cbb B | 15 | -0.08 | -1.8% | -42% to +41% | 0.566 | 0.434 | -4% / +0% |
+| cfb_road_streak_dog | 9 | +0.01 | +0.5% | -46% to +49% | 0.559 | 0.441 | -53% / +38% |
+| kalshi_nhl_flow | 34 | +0.29 | +1.7% | -18% to +20% | 0.466 | 0.534 | +10% / -4% |
+| nhl_prop_under_gap | 34 | +0.29 | +3.3% | -26% to +32% | 0.442 | 0.558 | +8% / -1% |
+| nhl_pl_fav_strong_opp | 8 | +0.11 | +5.4% | -73% to +92% | 0.438 | 0.572 | -14% / +25% |
+| kmove (Kalshi 4+ mover) | 1515 | +2.90 | +0.5% | -3% to +4% | 0.409 | 0.591 | +5% / -4% |
+| sharp nba A | 51 | +0.52 | +2.9% | -18% to +23% | 0.407 | 0.593 | -10% / +15% |
+| nba_bigfav_over | 11 | +0.19 | +6.5% | -46% to +58% | 0.401 | 0.611 | +18% / -3% |
+| stale_book | 253 | +1.35 | +2.1% | -9% to +14% | 0.387 | 0.613 | -17% / +22% |
+| tennis_serve_dog | 99 | +0.94 | +3.7% | -14% to +21% | 0.357 | 0.643 | +8% / -0% |
+| nba_ats_hot_home | 20 | +0.32 | +5.8% | -32% to +41% | 0.339 | 0.661 | +34% / -22% |
+| group2 all | 49 | +0.88 | +6.0% | -16% to +27% | 0.331 | 0.669 | +12% / +1% |
+| sharp cbb C | 8 | +0.32 | +12.7% | -33% to +58% | 0.332 | 0.680 | +36% / -10% |
+| cbb_under_good_over_drop | 7 | +0.23 | +12.0% | -43% to +64% | 0.276 | 0.733 | +30% / -2% |
+| nba_threes_under_gap | 21 | +0.88 | +15.4% | -20% to +50% | 0.248 | 0.751 | +19% / +12% |
+| xch_homedog_fade | 110 | +3.06 | +4.4% | -5% to +14% | 0.239 | 0.760 | +7% / +2% |
+| nhl_p1_spread_curve | 10 | +0.82 | +19.2% | -19% to +46% | 0.228 | 0.782 | +6% / +31% |
+| nba_roadtrip_over | 10 | +0.45 | +16.7% | -40% to +56% | 0.215 | 0.792 | -21% / +52% |
+| tennis_fs_fav | 50 | +2.06 | +8.7% | -6% to +23% | 0.196 | 0.804 | +20% / +1% |
+| cfb_wind14 | 23 | +1.20 | +20.2% | -14% to +54% | 0.191 | 0.809 | +63% / -18% |
+| sharp nba C | 9 | +0.67 | +26.1% | -18% to +69% | 0.173 | 0.832 | +46% / +12% |
+| nba_badteams_under | 6 | +0.49 | +28.5% | -34% to +84% | 0.172 | 0.846 | +80% / -34% |
+| sharp nba B | 52 | +2.75 | +14.3% | -4% to +34% | 0.135 | 0.865 | +4% / +29% |
+| nba_1h_under_hot_over | 6 | +0.96 | +57.5% | -7% to +91% | 0.140 | 0.876 | +25% / +90% |
+| nba_under_good_home_over | 14 | +0.97 | +26.5% | -15% to +67% | 0.113 | 0.887 | +40% / +13% |
+| wind1014 | 12 | +0.98 | +31.1% | -17% to +66% | 0.111 | 0.891 | +63% / -1% |
+| 18 promoted: since 11/19 | 33 | +1.91 | +20.0% | -10% to +52% | 0.107 | 0.892 | +46% / -1% |
+| wind1014_1h | 9 | +1.24 | +51.8% | +7% to +95% | 0.095 | 0.908 | +43% / +59% |
+| sharp soccer A | 54 | +3.47 | +20.5% | -4% to +44% | 0.089 | 0.911 | +11% / +30% |
+| sharp nfl C | 5 | +0.86 | +53.3% | -14% to +104% | 0.080 | 0.956 | +2% / +78% |
+| sharp nfl B | 8 | +1.60 | +44.4% | +20% to +80% | 0.060 | 0.956 | +47% / +40% |
+| sharp cfb B | 11 | +3.22 | +49.5% | +5% to +154% | 0.015 | 0.985 | +235% / -1% |
+| nhl_skid_fade_road | 9 | +2.40 | +68.2% | +36% to +112% | 0.013 | 0.991 | +115% / +39% |
+| mma_steam_fav | 5 | +1.25 | +45.6% | +37% to +60% | 0.130 | 1.000 | +40% / +50% |
+
 ## 2. Paper and live moves in the last two weeks, and results since
 
-The 18-rule move on 11/18 counts games starting from 11/19 04:00 UTC. As a group: 22-11, +1.91u, +20.0% since, but CLV -4.46 on 29.
-The prices they got were well worse than the close, so the week reads as variance more than edge. Before the move, as paper, the same
-rules went 57-105 (-28.5%), most of it nba_momentum (18-40, retired 11/9).
-
-| Rule | Move (date, why) | Since the move | CLV since |
+| Rule | Move (date, why) | Since the move | CLV since (info only) |
 |---|---|---|---|
 | xch_homedog_fade | paper -> tier C (Sean 11/14) | 39-13, +1.79u, +5.4% | -1.07 (52) |
 | nhl_p3_under_curve | paper -> tier C (Sean 11/18; had gone B -> paper 11/14 after 0-5) | 3-4-1, -0.31u, -13.8% | - |
@@ -140,84 +223,109 @@ rules went 57-105 (-28.5%), most of it nba_momentum (18-40, retired 11/9).
 | cfb_road_streak_dog | paper -> tier C (Sean 11/18 blanket move) | 1-0, +0.25u, +98.0% | +5.00 (1) |
 | cbb_under_good_over_drop | paper -> tier C (Sean 11/18 blanket move) | 1-0, +0.25u, +90.5% | -2.28 (1) |
 
-Also moved in the period, with no graded bets of their own to show here:
-- 11/10: every sharp flag to paper, no units, until they beat Pinnacle's close.
-- 11/14: nhl_p3_under_curve B to paper after 0-5. Back to tier C 11/18.
-- 11/18: everything sized at 0.25u. Tiers re-scored on the full Bet Labs backtests (PUSHBACK.md).
-- 11/23 checkpoint:
-  - steam_rev retired: CLV -0.42 on 722, z -2.57.
-  - Kalshi 4+ movers moved from watch to sized paper. On Pinnacle's close: CLV +0.54 on 283, z 3.83. On the no-vig close used here: -0.80 on 1,381, +0.5% ROI. The two yardsticks disagree.
+Also in the period:
+- 11/10: every sharp flag moved to paper, no units, until it beats Pinnacle's close. That is a CLV criterion; see section 5.
+- 11/14: nhl_p3_under_curve went B to paper after 0-5, then back to tier C on 11/18.
+- 11/18: everything sized at 0.25u, and tiers re-scored on the full Bet Labs backtests.
+- 11/23: the checkpoint retired three rules and moved Kalshi movers to sized paper (section 5).
 
-## 3. Flags
+## 3. Flags (profit basis)
 
-**Live rules underperforming.** Sample size and how likely it is noise. z is roughly ROI / its standard error on 0.25u bets:
-- **nhl_p3_under_curve (C): 9-21-10, -32.5% on 40, about z -2. Not noise at this size.** It went B to paper after 0-5 on 11/14, then
-  back to C with the 11/18 blanket sizing call, and is 3-4-1 since. This is the one live rule I would put in front of Sean to move back to paper.
-- nhl_early_home_fav_qual (B): 13-12, -10.1%, CLV -1.41 on 25. About z -0.6, so noise on results, but the checkpoint has it near the
-  review line (review if CLV passes -1.5, retire at -2.0).
-- tennis_serve_dog (live): 49-50, +3.7% on 99, CLV -2.26 on 97. The profit is noise (z about 0.3). Negative CLV on 97 bets is the
-  real warning: the prices taken are worse than where these close. Not a retire case yet. It is the only live tennis angle.
-- Small and bad, too few bets to judge:
-  - nfl_home_dog_7510 0-4 (B to C on 11/19)
-  - awfuldog (A) 0-4
-  - vrest8_1h (B) 3-5, CLV -4.49
-  - nfl_fade_fav_bye 2-3, CLV -7.75
-  - bounce15_1h 2-6
-  - nhl_loss_streak_over 4-9, CLV -9.43 (near the review line)
-  - cfb_homefav_7510_under 4-6, CLV -2.74
-  - nhl_bounce_home_ml 2-4
+**Live rules underperforming:**
+- **nhl_p3_under_curve (C): -34.0% on 42 bets, -4.00u.** There is a 0.3% chance of a result this bad if it were break-even at its
+  prices, and both halves are negative (-51%, -17%). It went 0-5 into its first demotion on 11/14, came back on the 11/18 sizing
+  call, and is 3-4-1 since. This is the one live rule whose live record alone makes a case. It has no Bet Labs backtest; it is our
+  own curve rule. Recommend: paper.
+- nhl_loss_streak_over (C): -42.0% on 13, 5% chance if break-even, both halves negative. Bad, but 13 bets.
+- cfb_q1_under_curve (A): -13.9% on 42, both halves about -14%. Not significant (21%), but steady. Its pre-live test was 296-189
+  (+15.0%, every season +10 to +19). Live is well below that. Watch; no change yet.
+- nhl_early_home_fav_qual (B): -10.1% on 25, halves +9% and -22%. Noise on profit. Its Bet Labs backtest is +3.7% on 1,953.
+- Too small to read (under 10 bets each): nfl_home_dog_7510 0-4, awfuldog 0-4, vrest8_1h 3-5, nfl_fade_fav_bye 2-3, bounce15_1h 2-6,
+  nhl_bounce_home_ml 2-4, cfb_homefav_7510_under 4-6. Each of these sits on a Bet Labs backtest of hundreds of bets, which outweighs
+  a 4 to 10 bet live run.
 
-  All are under 15 graded bets. Under the 11/2 checkpoint lines, nothing below 15 can be reviewed and nothing below 25 can be retired.
-- cfb_wind14 (A): 1-6 this week but 14-9 overall (+20%). One bad weekend. No flag.
+**tennis_serve_dog (the only live tennis angle):** 49-50, +0.94u, +3.7% on 99. The 90% range is -14% to +21%, with a 36% chance of
+a result this good if break-even. The halves are +8% and 0%. No evidence of an edge yet, and none against it. Keep it as it is; read
+again at 200. (The first version flagged its CLV; that no longer counts.)
 
-**Paper rules that look closest to ready.** None clears a clean bar. In order:
-1. **stale_book:** 116-134, +3.3% on 250, **CLV +0.57 on 249**, and +25.8% this week. It is the only paper line with positive CLV on a
-   real sample. Sean's 11/18 call keeps stale-book flags as they are. A small live test (tier C, 0.25u) is the option to offer.
-2. Sharp NBA B: 30-22, +14.3%, but CLV -1.12 on 51. NBA A is 26-25 (+2.9%). On the checkpoint's numbers, NBA sharp is 73-76, -7.7%.
-   Not ready on CLV.
-3. tennis_fs_fav: 34-16, +8.7% on 50, CLV -1.9. The checkpoint sets its first read at 300 bets.
-4. Too small to call:
-   - nba_threes_under_gap (props): 12-9, +15.4%
+**The 11/19 tier-C group:** 22-11, +1.91u, +20.0% since the move. Not yet significant (11%), and the halves are +47% and -1%.
+Before the move, as paper, the same rules lost -12.83u on 162, mostly nba_momentum (already retired). The other 17 rules lost -5.46u
+on 137 as paper. Fair read: a good first week after a losing paper run. Too early to say the move was right or wrong.
+
+**Paper rules closest to live, on profit.** None clears a 100-bet significance bar yet. In order:
+1. **Sharp NBA B:** 30-22, +2.75u, +14.3% on 52; 13.5% if break-even; positive in both halves (+4%, +29%). Sharp NBA A is 26-25,
+   +2.9%. Together, NBA A+B: 56-47, +3.27u. It would need about 50 more flags at this rate to clear 10%. A small live test (B only,
+   0.25u) is the option to offer Sean.
+2. **tennis_fs_fav:** 34-16, +2.06u, +8.7% on 50; 20%; halves +20% and +1%.
+3. **Too small to call, though the profit is real so far:**
+   - sharp NFL B: 7-1, +44%, 90% range above zero
+   - sharp CFB B: 8-3, +49.5%, but one half carries it
    - mma_steam_fav: 5-0
-   - nba_1h_under_hot_over: 5-1, CLV +0.74
-   - nba_badteams_under: 4-2, CLV +1.18
+   - nba_threes_under_gap: 12-9, +15.4%, both halves positive; already live as a C prop
+- **stale_book is no longer on this list:** +2.1% on 253, 39% chance if break-even, halves -17% and +22%. It was the first
+  version's top pick only because of its CLV.
+- Sharp NHL A is the clearest paper loser: -40.3% on 37, both halves negative.
 
-## 4. The rule-groups question (open since 11/21)
+## 4. The rule-groups question (open since 11/21), with profit evidence
 
 On 11/21 Sean moved cfb_day_over back to paper: a kickoff time slot is no reason for a bet. He asked which other rules have faulty
-logic or simplistic triggers. The checkpoint has since retired cfb_day_over and cfb_road_dog_low_total on its own lines. Updated
-groups, with results:
+logic or simplistic triggers. The three groups below are unchanged from the first version. What is new is the profit evidence.
 
-- **Group 1, failed our own replay before the 11/18 blanket move** (all tier C now):
-  - nfl_road_dog_7510 1-3
-  - nfl_fade_fav_bye 2-3
-  - bounce15_1h 2-6
-  - nhl_pl_fav_strong_opp 3-5
-  - nhl_pl_fav_gap 0-1
-  - nba_under_good_home_over_small 1-1
-  - cfb_road_streak_dog 5-4
-  - cbb_under_good_over_drop 4-3
-  - awfuldog_deep: no bets yet
-  - wind1014_cold: no bets yet
-
-  Combined: 18-26 on the log.
+- **Group 1, failed our own replay before the 11/18 blanket move:**
+  - Rules: nfl_road_dog_7510, nfl_fade_fav_bye, bounce15_1h, nhl_pl_fav_strong_opp, nhl_pl_fav_gap, nba_under_good_home_over_small,
+    cfb_road_streak_dog, cbb_under_good_over_drop. awfuldog_deep and wind1014_cold have no bets yet.
+  - Live and paper on this log: 44 bets, -2.58u, -20.4% (90% range -45% to +7%). 8.6% chance of a result this bad if break-even.
+    Halves -42% and -1%.
+  - That replay failure was itself a profit test: negative ROI in our own multi-season rebuild.
 - **Group 2, mined triggers with no mechanism:**
-  - nba_ats_hot_home 11-9
-  - nhl_loss_streak_over 4-9
-  - nhl_skid_fade_road 8-1
-  - nhl_pl_dog_bigml 3-4
-  - mlb_road_over_under: out of season
+  - Rules: nba_ats_hot_home, nhl_loss_streak_over, nhl_skid_fade_road, nhl_pl_dog_bigml, mlb_road_over_under (out of season).
+  - 49 bets, +0.88u, +6.0% (-16% to +27%). Halves +12% and +1%. No profit case against the group as a whole.
+  - Inside it, nhl_skid_fade_road is +68% on 9 (1.3% chance if break-even) and nhl_loss_streak_over is -42% on 13 (5%).
+- **Group 3, day-of-week trigger:** mnf_1h (tier B). No graded bets on this log. Its Bet Labs screen is 169-120 (+11.7%).
 
-  nba_momentum was already retired 11/9.
-- **Group 3, day-of-week trigger:** mnf_1h (tier B), no graded bets on this log yet.
+**Options, on profit:**
+- **A. Keep all at tier C** and let the checkpoint lines decide (section 6 proposes profit-based ones). Group 2 has no profit case
+  against it, and group 1's is not significant.
+- **B. Group 1 to paper.** It failed our own profit replay and is -20.4% live on 44 (8.6%). Best supported on profit.
+- **C. Groups 1 + 2 to paper.** The profit evidence does not support moving group 2 as a group (+6% on 49). This is a logic call
+  only, and it would bench the one rule here with a significant live profit (nhl_skid_fade_road).
+- **D. Groups 1 + 2 + 3.** Adds mnf_1h, which has a positive Bet Labs backtest and no live sample. Logic only.
+- **E. Per rule.** On profit, the names with a case: nhl_loss_streak_over (-42% on 13, both halves) plus group 1. On profit, the one
+  to keep is nhl_skid_fade_road.
 
-Options, plainly:
-- **A. Leave all as tier C** and let the checkpoint lines decide (review at 15 graded, retire at 25 or 50). Costs nothing now. The
-  logic objection stays unaddressed, and these rules keep 0.25u bets on the board.
-- **B. Group 1 to paper.** They failed the replay and are 18-26 live. Removes about 5 to 10 board bets a week.
-- **C. Groups 1 + 2 to paper.** Applies the "needs a mechanism" bar to everything. It costs nhl_skid_fade_road, which is 8-1 (hot,
-  but 9 bets is noise).
-- **D. 1 + 2 + 3.** Same as C, plus moving mnf_1h off tier B.
-- **E. Per rule.** Sean picks names.
+## 5. The 11/23 checkpoint calls that rested on CLV (for Sean to re-decide; nothing reversed here)
 
-Any move would apply to games not yet started, the same way cfb_day_over was handled. Nothing has moved without his OK.
+| Call | Line used | CLV part of the decision? | Profit evidence | Re-decide? |
+|---|---|---|---|---|
+| cfb_road_dog_low_total retired | Systems retire line A: 25+ graded, ROI negative AND CLV 2.0+ worse than the close | **Yes**: without the CLV test, negative ROI alone does not trigger line A | 14-16, -0.79u, -9.9% on 30; 26% chance this bad if break-even; halves -10% / -10% | **Yes.** Losing in both halves, not significant. On profit alone it would stay, or go to the review list |
+| cfb_day_over retired | Same line A | **Yes** | 11-16, -1.66u, -22.6% on 27; 9% chance; halves -71% / +25% | Profit is borderline and inconsistent. Sean had already moved it to paper on 11/21 on logic grounds, so it stays off the board either way. Only the retire label rests on CLV |
+| steam_rev retired | Top-down retire line: 50+ graded, CLV at or below zero, z -1 or worse | **Yes, entirely** | 365-360, -15.89u, -2.2% on 725 (z -0.55); -1.7% on the corrected grading (371-354). Not significantly below break-even | **Yes.** On profit, a small loss that is not significant |
+| Kalshi 4+ movers promoted from watch to sized paper | Top-down promote line: 150+ graded, CLV z 2+, ROI not below -5% | **Yes**: the CLV z was the trigger; the ROI part is only a floor | +0.5% on 1,515 (-3% to +4%); halves +5% / -4%; -3 to -4% after Kalshi's taker fee | **Yes.** No profit edge. It is paper, so it costs nothing to leave, but it was promoted on CLV |
+
+Also CLV-based and older: on 11/10 the sharp flags went to paper "until they beat Pinnacle's close". On profit, soccer A (+20.5% on
+54) and NBA B (+14.3% on 52) are the positive slices; NHL A (-40%) and NBA watch (-23%) are the negative ones.
+
+## 6. The 11/2 checkpoint lines use CLV: proposed profit-based replacements (for Sean)
+
+What docs/checkpoint_rules_2026-11-02.md says now:
+- Systems: CLV is "a diagnostic, not the verdict". Even so, retire line A and the review line both require a CLV test.
+- Top-down signals: "CLV is the main test", for both retire and promote.
+
+Proposed replacement. Profit only, CLV reported but never deciding. It applies the same way to systems and signals that are bet or
+paper-bet.
+
+- **Retire:** at 50+ graded, when the break-even test gives a 5% or smaller chance of a result this bad AND ROI is negative in both
+  halves. Or at 25+ graded with a 1% or smaller chance. For a rule picked on a Bet Labs backtest, also require that the live 90% ROI
+  range sits entirely below the backtest's ROI. A small live sample should not overrule a large backtest without that.
+- **Review (flag on the page, no change):** at 15+ graded, with a 10% or smaller chance of a result this bad.
+- **Promote, paper to live (tier C, 0.25u):** at 100+ graded, a 10% or smaller chance of a result this good if break-even, after any
+  fees, AND ROI positive in both halves.
+- **Promote, watch to sized paper:** at 150+ graded, the same test.
+- **Tennis first-set favourites:** keep the first read at 300; retire early only at 100+ with a 5% or smaller chance.
+- **Unchanged:** one week is never enough on its own; each checkpoint writes what it read and why.
+
+Under these lines, today:
+- **Retire:** nhl_p3_under_curve would meet it (42 graded, 0.3%, both halves negative). It has no backtest to check against.
+- **Review:** nhl_loss_streak_over would join the list. Sharp NHL A also qualifies, but it is paper.
+- **Promote:** nothing yet; none reaches 100 graded with a significant profit.
+- **Checkpoint calls:** cfb_road_dog_low_total, steam_rev and the Kalshi-mover promotion would not have happened.
