@@ -1,5 +1,5 @@
 {
- "built": "2026-11-24T05:37:03Z",
+ "built": "2026-11-24T05:49:55Z",
  "record": {
   "cbb_1h_total_curve": {
    "n": 9,
@@ -53,10 +53,10 @@
    }
   },
   "nhl_p3_under_curve": {
-   "n": 40,
+   "n": 41,
    "won": 9,
-   "lost": 21,
-   "units": -4.29,
+   "lost": 22,
+   "units": -4.54,
    "clv": {
     "n": 29,
     "avg": -2.2,
@@ -88,35 +88,6 @@
   }
  },
  "rows": [
-  {
-   "key": "nhl_p3_under_curve|5074be0d13d60cc7fd82b06c4d8ddd31||under",
-   "rule": "nhl_p3_under_curve",
-   "tier": "C",
-   "stake": 0.25,
-   "sport": "nhl",
-   "odds_id": "5074be0d13d60cc7fd82b06c4d8ddd31",
-   "espn": "401892778",
-   "game": "Anaheim Ducks @ Seattle Kraken",
-   "start": "2026-11-24T02:50:00Z",
-   "market": "totals_p3",
-   "team": null,
-   "team_name": null,
-   "side": "under",
-   "line": 2.5,
-   "curve": 0.663,
-   "pin_fair": 0.559,
-   "gap": 10.4,
-   "full_total": 6.5,
-   "full_spread": -1.5,
-   "pin_price": 1.72,
-   "book": "DK",
-   "price": 1.65,
-   "pin_fair_power": 0.5625,
-   "book_fair": 0.5714,
-   "fair_gap": -1.2,
-   "ev_curve": 9.4,
-   "flagged": "2026-11-24T00:03:30Z"
-  },
   {
    "key": "nhl_p3_under_curve|43376208ec2111794696249fe50f5e84||under",
    "rule": "nhl_p3_under_curve",
