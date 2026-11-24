@@ -1,5 +1,5 @@
 {
- "built": "2026-11-24T06:05:56Z",
+ "built": "2026-11-24T06:13:22Z",
  "rows": [
   {
    "cond": "0x03d5497cfae821677f4fefd8b8645c0c7ad0ee18217c11b6840426a140fadc32",
@@ -44,7 +44,7 @@
    "best_rank": 57,
    "usd": 348,
    "paid": 0.675,
-   "ask": 0.67,
+   "ask": 0.66,
    "status": "live",
    "link": "https://polymarket.us/event/ucl-gal-ast-2026-11-24-more-markets",
    "other": null,
@@ -618,6 +618,9 @@
    "home_name": "Philadelphia 76ers",
    "game_start": "2026-11-25T22:00Z",
    "side_std": "away",
+   "conflict": [
+    "Kalshi bet back"
+   ],
    "money_with": false,
    "grade": "watch",
    "fair_board": null,
@@ -1041,7 +1044,7 @@
    "best_rank": 93,
    "usd": 967,
    "paid": 0.497,
-   "ask": 0.43,
+   "ask": 0.44,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-min-okc-2026-11-25",
    "other": {
@@ -1050,8 +1053,12 @@
     "usd": 478,
     "first": "2026-11-23T09:44:19Z"
    },
-   "exit_bid": 0.42,
-   "kalshi_against": null,
+   "exit_bid": 0.43,
+   "kalshi_against": {
+    "move": 6.0,
+    "now": 60.0,
+    "state": "reversed"
+   },
    "logged": true,
    "event_id": "401909320",
    "sport": "nba",
@@ -1063,7 +1070,8 @@
    "game_start": "2026-11-26T00:30Z",
    "side_std": "away",
    "conflict": [
-    "Kalshi bet back"
+    "Kalshi bet back",
+    "Kalshi move"
    ],
    "money_with": false,
    "grade": "A",
