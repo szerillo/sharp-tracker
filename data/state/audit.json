@@ -1,24 +1,24 @@
 {
- "built": "2026-11-24T03:29:46Z",
- "ok": true,
+ "built": "2026-11-24T03:43:25Z",
+ "ok": false,
  "checks": [
   {
    "name": "fresh: sharp signals (5-minute job)",
    "ok": true,
    "level": "error",
-   "detail": "last built 15 min ago (allowed 20)"
+   "detail": "last built 29 min ago (allowed 20)"
   },
   {
    "name": "fresh: big money / Kalshi moves (20-minute job)",
    "ok": true,
    "level": "error",
-   "detail": "last built 8 min ago (allowed 60)"
+   "detail": "last built 10 min ago (allowed 60)"
   },
   {
    "name": "fresh: tennis watch (20-minute job)",
    "ok": true,
    "level": "error",
-   "detail": "last built 8 min ago (allowed 60)"
+   "detail": "last built 10 min ago (allowed 60)"
   },
   {
    "name": "fresh: bet tracker (20-minute job)",
@@ -36,13 +36,13 @@
    "name": "sharp feed: Polymarket fills arriving",
    "ok": true,
    "level": "warn",
-   "detail": "newest sharp fill 0.4 h ago"
+   "detail": "newest sharp fill 0.6 h ago"
   },
   {
    "name": "open system bets all on the board",
-   "ok": true,
+   "ok": false,
    "level": "error",
-   "detail": "35 open, 0 missing"
+   "detail": "35 open, 1 missing: nba_ats_hot_home 401909325"
   },
   {
    "name": "no duplicate bets in the records",
