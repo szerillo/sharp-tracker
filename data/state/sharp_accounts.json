@@ -1,80 +1,6 @@
 {
- "built": "2026-11-23T23:46:26Z",
+ "built": "2026-11-24T00:02:17Z",
  "rows": [
-  {
-   "cond": "0x9c183fba1441c3917b7e3a99c0103626285576b0d6b8e1bcabf3e10cb8e3a239",
-   "slug": "epl-bre-eve-2026-11-23",
-   "title": "Brentford FC vs. Everton FC",
-   "mtype": "ml",
-   "start": "2026-11-23T20:00:00Z",
-   "bet": "Will Brentford FC win on 2026-11-23: Yes",
-   "side": "Yes",
-   "flagged": "2026-11-23T06:57:56Z",
-   "why": "a top-200 account also in this sport's top 50",
-   "proven": true,
-   "trigger": "proven",
-   "n_accounts": 1,
-   "best_rank": 149,
-   "usd": 2100,
-   "paid": 0.42,
-   "ask": null,
-   "status": "live",
-   "link": "https://polymarket.us/event/epl-bre-eve-2026-11-23",
-   "other": null,
-   "kalshi_against": null,
-   "logged": true,
-   "event_id": "401879237",
-   "sport": "soccer",
-   "league": "epl",
-   "away": "EVE",
-   "home": "BRE",
-   "away_name": "Everton",
-   "home_name": "Brentford",
-   "game_start": "2026-11-23T20:00Z",
-   "side_std": "home",
-   "money_with": false,
-   "grade": "A",
-   "inside_fair": false,
-   "fair_board": 0.4167,
-   "books": null
-  },
-  {
-   "cond": "0x1e27ee2ab2865d6abc31d28246d3c13637f572b4153390d55e94f592bafd647e",
-   "slug": "epl-bre-eve-2026-11-23",
-   "title": "Brentford FC vs. Everton FC",
-   "mtype": "ml",
-   "start": "2026-11-23T20:00:00Z",
-   "bet": "Will Everton FC win on 2026-11-23: No",
-   "side": "No",
-   "flagged": "2026-11-23T18:55:01Z",
-   "why": "a top-200 account also in this sport's top 50",
-   "proven": true,
-   "trigger": "proven",
-   "n_accounts": 1,
-   "best_rank": 149,
-   "usd": 685,
-   "paid": 0.69,
-   "ask": null,
-   "status": "live",
-   "link": "https://polymarket.us/event/epl-bre-eve-2026-11-23",
-   "other": null,
-   "kalshi_against": null,
-   "logged": true,
-   "event_id": "401879237",
-   "sport": "soccer",
-   "league": "epl",
-   "away": "EVE",
-   "home": "BRE",
-   "away_name": "Everton",
-   "home_name": "Brentford",
-   "game_start": "2026-11-23T20:00Z",
-   "side_std": "not_away",
-   "money_with": false,
-   "grade": "A",
-   "fair_board": null,
-   "inside_fair": null,
-   "books": null
-  },
   {
    "cond": "0xc2f71a6f70924ac2b643b8c5c51204cb20b2c44b0c9812c588b681f1c433d790",
    "slug": "nba-mem-cha-2026-11-23",
@@ -91,7 +17,7 @@
    "best_rank": 93,
    "usd": 1594,
    "paid": 0.417,
-   "ask": 0.43,
+   "ask": null,
    "status": "live",
    "link": "https://polymarket.us/event/nba-mem-cha-2026-11-23",
    "other": null,
@@ -137,7 +63,7 @@
    "best_rank": 110,
    "usd": 410,
    "paid": 0.511,
-   "ask": 0.57,
+   "ask": null,
    "status": "live",
    "link": "https://polymarket.us/event/nba-por-phi-2026-11-23",
    "other": null,
@@ -911,7 +837,7 @@
    "best_rank": 49,
    "usd": 787,
    "paid": 0.52,
-   "ask": 0.53,
+   "ask": 0.51,
    "status": "live",
    "link": "https://polymarket.us/event/nfl-kc-buf-2026-11-27",
    "other": null,
@@ -926,7 +852,7 @@
    "home_name": "Buffalo Bills",
    "game_start": "2026-11-27T01:20Z",
    "side_std": "under",
-   "money_with": false,
+   "money_with": true,
    "grade": "A",
    "fair_board": null,
    "inside_fair": null,
@@ -1479,6 +1405,14 @@
     "best_rank": 43,
     "usd": 4970
    }
+  },
+  "401910041:xch_homedog_fade:ml": {
+   "with": null,
+   "against": {
+    "n": 1,
+    "best_rank": 132,
+    "usd": 125
+   }
   }
  },
  "by_event": {
@@ -1494,49 +1428,6 @@
     "n": 1,
     "best_rank": 49,
     "usd": 787
-   }
-  },
-  "401910036|ml": {
-   "home": {
-    "n": 2,
-    "best_rank": 93,
-    "usd": 1594
-   }
-  },
-  "401910037|ml": {
-   "away": {
-    "n": 8,
-    "best_rank": 40,
-    "usd": 35887
-   },
-   "home": {
-    "n": 2,
-    "best_rank": 43,
-    "usd": 715
-   }
-  },
-  "401910037|total": {
-   "under": {
-    "n": 2,
-    "best_rank": 110,
-    "usd": 2684
-   },
-   "over": {
-    "n": 1,
-    "best_rank": 110,
-    "usd": 1960
-   }
-  },
-  "401910037|spread": {
-   "away": {
-    "n": 3,
-    "best_rank": 110,
-    "usd": 11072
-   },
-   "home": {
-    "n": 1,
-    "best_rank": 112,
-    "usd": 2099
    }
   },
   "401910038|ml": {
@@ -1731,13 +1622,6 @@
     "n": 1,
     "best_rank": 12,
     "usd": 125
-   }
-  },
-  "401919761|total": {
-   "under": {
-    "n": 1,
-    "best_rank": 110,
-    "usd": 384
    }
   },
   "401909743|total": {
