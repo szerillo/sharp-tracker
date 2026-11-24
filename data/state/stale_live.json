@@ -1,11 +1,11 @@
 {
- "built": "2026-11-24T04:18:16Z",
+ "built": "2026-11-24T04:33:46Z",
  "record": {
-  "n": 249,
-  "won": 115,
+  "n": 250,
+  "won": 116,
   "lost": 134,
-  "units": 1.11,
-  "roi": 1.8
+  "units": 1.53,
+  "roi": 2.5
  },
  "record_sb4": {
   "n": 10,
@@ -56,26 +56,6 @@
    "team": null
   },
   {
-   "key": "401921208|ml|away",
-   "sport": "cbb",
-   "event_id": "401921208",
-   "game": "SFA @ UVU",
-   "start": "2026-11-24T01:00Z",
-   "market": "ml",
-   "side": "away",
-   "line": null,
-   "venue": "Novig",
-   "price": 0.37,
-   "fair": 0.3775,
-   "fair_power": 0.3704,
-   "venue_fair": 0.3663,
-   "fair_gap": 1.1,
-   "ev": 2.0,
-   "move": 1.4,
-   "flagged": "2026-11-23T18:14:08Z",
-   "team": "SFA"
-  },
-  {
    "key": "401920721|spread|away",
    "sport": "cbb",
    "event_id": "401920721",
@@ -94,6 +74,26 @@
    "move": 1.7,
    "flagged": "2026-11-23T19:36:56Z",
    "team": "EWU"
+  },
+  {
+   "key": "401929359|ml|away",
+   "sport": "cbb",
+   "event_id": "401929359",
+   "game": "ORU @ UTA",
+   "start": "2026-11-25T01:00Z",
+   "market": "ml",
+   "side": "away",
+   "line": null,
+   "venue": "Novig",
+   "price": 0.36,
+   "fair": 0.3686,
+   "fair_power": 0.36,
+   "venue_fair": 0.3564,
+   "fair_gap": 1.2,
+   "ev": 2.4,
+   "move": 2.0,
+   "flagged": "2026-11-24T04:33:46Z",
+   "team": "ORU"
   }
  ]
 }
