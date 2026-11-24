@@ -1,43 +1,6 @@
 {
- "built": "2026-11-24T21:44:50Z",
+ "built": "2026-11-24T21:53:08Z",
  "rows": [
-  {
-   "cond": "0xdd59f8d0c10ce4b29250ead31df8fc5dc89362085d890288d09c041043275b04",
-   "slug": "ucl-gal-ast-2026-11-24-more-markets",
-   "title": "Galatasaray SK vs. Aston Villa FC - More Markets",
-   "mtype": "total",
-   "start": "2026-11-24T17:45:00Z",
-   "bet": "Over 2.5",
-   "side": "Over",
-   "flagged": "2026-11-20T14:57:43Z",
-   "why": "a top-200 account also in this sport's top 50",
-   "proven": true,
-   "trigger": "proven",
-   "n_accounts": 1,
-   "best_rank": 57,
-   "usd": 348,
-   "paid": 0.675,
-   "ask": null,
-   "status": "live",
-   "link": "https://polymarket.us/event/ucl-gal-ast-2026-11-24-more-markets",
-   "other": null,
-   "kalshi_against": null,
-   "logged": true,
-   "event_id": "401915300",
-   "sport": "soccer",
-   "league": "ucl",
-   "away": "AVL",
-   "home": "GAL",
-   "away_name": "Aston Villa",
-   "home_name": "Galatasaray",
-   "game_start": "2026-11-24T17:45Z",
-   "side_std": "over",
-   "money_with": false,
-   "grade": "A",
-   "fair_board": null,
-   "inside_fair": null,
-   "books": null
-  },
   {
    "cond": "0x260181c232ce8b8951da6c3e3c033353ad89e8c5c53c6b426d00a900ad5b6f37",
    "slug": "ucl-com-aek1-2026-11-24-more-markets",
@@ -873,14 +836,14 @@
    "bet": "Cavaliers ML",
    "side": "Cavaliers",
    "flagged": "2026-11-23T03:01:13Z",
-   "why": "a top-200 account also in this sport's top 50",
+   "why": "2 top-200 accounts",
    "proven": true,
    "trigger": "proven",
-   "n_accounts": 1,
-   "best_rank": 104,
-   "usd": 139,
-   "paid": 0.349,
-   "ask": 0.37,
+   "n_accounts": 2,
+   "best_rank": 40,
+   "usd": 3767,
+   "paid": 0.379,
+   "ask": 0.42,
    "status": "live",
    "link": "https://polymarket.us/event/nba-cle-nyk-2026-11-25",
    "other": null,
@@ -899,7 +862,7 @@
     "Kalshi bet back"
    ],
    "money_with": false,
-   "grade": "watch",
+   "grade": "A",
    "fair_board": 0.3494,
    "inside_fair": false,
    "books": {
@@ -1445,9 +1408,9 @@
   },
   "401909319|ml": {
    "away": {
-    "n": 1,
-    "best_rank": 104,
-    "usd": 139
+    "n": 2,
+    "best_rank": 40,
+    "usd": 3767
    }
   },
   "401909320|ml": {
