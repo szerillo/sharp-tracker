@@ -1,11 +1,11 @@
 {
- "built": "2026-11-24T05:45:14Z",
+ "built": "2026-11-24T05:58:00Z",
  "record": {
-  "n": 251,
+  "n": 253,
   "won": 116,
-  "lost": 135,
-  "units": 1.28,
-  "roi": 2.0
+  "lost": 137,
+  "units": 0.78,
+  "roi": 1.2
  },
  "record_sb4": {
   "n": 10,
@@ -15,46 +15,6 @@
   "roi": -20.0
  },
  "rows": [
-  {
-   "key": "401892779|ml|home",
-   "sport": "nhl",
-   "event_id": "401892779",
-   "game": "MIN @ SJ",
-   "start": "2026-11-24T03:00Z",
-   "market": "ml",
-   "side": "home",
-   "line": null,
-   "venue": "Novig",
-   "price": 0.345,
-   "fair": 0.3582,
-   "fair_power": 0.3519,
-   "venue_fair": 0.3433,
-   "fair_gap": 1.5,
-   "ev": 3.8,
-   "move": 1.4,
-   "flagged": "2026-11-23T05:59:32Z",
-   "team": "SJ"
-  },
-  {
-   "key": "401910044|total|over",
-   "sport": "nba",
-   "event_id": "401910044",
-   "game": "UTAH @ LAL",
-   "start": "2026-11-24T03:00Z",
-   "market": "total",
-   "side": "over",
-   "line": 228.5,
-   "venue": "Novig",
-   "price": 0.5,
-   "fair": 0.5136,
-   "fair_power": 0.5142,
-   "venue_fair": 0.4926,
-   "fair_gap": 2.1,
-   "ev": 2.7,
-   "move": 1.4,
-   "flagged": "2026-11-23T07:22:15Z",
-   "team": null
-  },
   {
    "key": "401929359|ml|away",
    "sport": "cbb",
@@ -114,6 +74,26 @@
    "move": 2.0,
    "flagged": "2026-11-24T05:45:14Z",
    "team": "OU"
+  },
+  {
+   "key": "401866470|total|over",
+   "sport": "cfb",
+   "event_id": "401866470",
+   "game": "KENT @ EMU",
+   "start": "2026-11-25T00:00Z",
+   "market": "total",
+   "side": "over",
+   "line": 46.5,
+   "venue": "Novig",
+   "price": 0.5,
+   "fair": 0.5154,
+   "fair_power": 0.5164,
+   "venue_fair": 0.4975,
+   "fair_gap": 1.8,
+   "ev": 3.1,
+   "move": 2.2,
+   "flagged": "2026-11-24T05:58:00Z",
+   "team": null
   }
  ]
 }
