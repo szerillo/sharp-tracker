@@ -221,7 +221,7 @@ def board_status(bets):
     SAR = {r.get('cond'): r for r in SAJ.get('rows', []) if r.get('cond')}
     for b in bets:
         st_ = b.get('start') or ''
-        if st_ and st_ <= now and b['id'] in prev:
+        if st_ and st_ <= now and b['id'] in prev and not ((b.get('cat') or '').startswith('paper') or b.get('cat') == 'watch' or b.get('excluded')):   # paper / watch / excluded rows are never frozen as a bet
             b['board_status'], b['board_why'] = prev[b['id']]
             if b['board_status'] == 'held': b['held'] = True
             continue
