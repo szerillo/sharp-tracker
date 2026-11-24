@@ -1,5 +1,5 @@
 {
- "built": "2026-11-24T00:56:19Z",
+ "built": "2026-11-24T01:03:44Z",
  "rows": [
   {
    "cond": "0xc2f71a6f70924ac2b643b8c5c51204cb20b2c44b0c9812c588b681f1c433d790",
@@ -146,7 +146,7 @@
    "best_rank": 157,
    "usd": 618,
    "paid": 0.66,
-   "ask": 0.66,
+   "ask": null,
    "status": "live",
    "link": "https://polymarket.us/event/mls-stl-laf-2026-11-23-more-markets",
    "other": null,
@@ -193,6 +193,53 @@
    "fair_board": null,
    "inside_fair": null,
    "books": null
+  },
+  {
+   "cond": "0xccf963f2dcfddc7802aa7762d96736e09e9b4ab9eb4c5332c3b0f23f47c2cca8",
+   "slug": "nfl-cin-was-2026-11-24",
+   "title": "Bengals vs. Commanders",
+   "mtype": "spread",
+   "start": "2026-11-24T01:15:00Z",
+   "bet": "Commanders +6.5",
+   "side": "Commanders",
+   "flagged": "2026-11-24T00:57:22Z",
+   "why": "a top-200 account also in this sport's top 50",
+   "proven": true,
+   "trigger": "proven",
+   "n_accounts": 1,
+   "best_rank": 143,
+   "usd": 514,
+   "paid": 0.5,
+   "ask": 0.51,
+   "status": "live",
+   "link": "https://polymarket.us/event/nfl-cin-was-2026-11-24",
+   "other": null,
+   "kalshi_against": null,
+   "logged": false,
+   "ladder": true,
+   "event_id": "401873078",
+   "sport": "nfl",
+   "league": null,
+   "away": "CIN",
+   "home": "WSH",
+   "away_name": "Cincinnati Bengals",
+   "home_name": "Washington Commanders",
+   "game_start": "2026-11-24T01:15Z",
+   "side_std": "home",
+   "money_with": true,
+   "grade": "A",
+   "fair_board": 0.4949,
+   "inside_fair": false,
+   "books": {
+    "at": "2026-11-24T00:04:42Z",
+    "fair": 0.4949,
+    "q": {
+     "Novig": 0.495,
+     "Kalshi": 0.52,
+     "Caesars": 0.5238,
+     "FD": 0.5238
+    }
+   }
   },
   {
    "cond": "0x03d5497cfae821677f4fefd8b8645c0c7ad0ee18217c11b6840426a140fadc32",
@@ -457,7 +504,7 @@
    "best_rank": 49,
    "usd": 4700,
    "paid": 0.57,
-   "ask": 0.57,
+   "ask": 0.55,
    "status": "live",
    "link": "https://polymarket.us/event/nba-det-orl-2026-11-24",
    "other": null,
@@ -813,7 +860,7 @@
    "best_rank": 43,
    "usd": 133,
    "paid": 0.57,
-   "ask": 0.61,
+   "ask": 0.6,
    "status": "live",
    "link": "https://polymarket.us/event/nba-chi-cha-2026-11-25",
    "other": null,
@@ -1418,32 +1465,7 @@
   "clv_venue": 0.97,
   "clv_poly_same": -0.57
  },
- "sys_tags": {
-  "401910041:nba_roadtrip_over": {
-   "with": {
-    "n": 1,
-    "best_rank": 132,
-    "usd": 3192
-   },
-   "against": null
-  },
-  "401910042:nba_under_good_home_over_small": {
-   "with": {
-    "n": 1,
-    "best_rank": 115,
-    "usd": 3610
-   },
-   "against": null
-  },
-  "401910041:xch_homedog_fade:ml": {
-   "with": null,
-   "against": {
-    "n": 1,
-    "best_rank": 132,
-    "usd": 125
-   }
-  }
- },
+ "sys_tags": {},
  "by_event": {
   "401873078|spread": {
    "home": {
@@ -1457,34 +1479,6 @@
     "n": 1,
     "best_rank": 49,
     "usd": 787
-   }
-  },
-  "401910041|ml": {
-   "home": {
-    "n": 1,
-    "best_rank": 132,
-    "usd": 125
-   }
-  },
-  "401910041|total": {
-   "over": {
-    "n": 1,
-    "best_rank": 132,
-    "usd": 3192
-   }
-  },
-  "401910042|total": {
-   "under": {
-    "n": 1,
-    "best_rank": 115,
-    "usd": 3610
-   }
-  },
-  "401910042|spread": {
-   "home": {
-    "n": 1,
-    "best_rank": 110,
-    "usd": 671
    }
   },
   "401910044|spread": {
