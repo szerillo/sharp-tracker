@@ -263,7 +263,7 @@ Each is positive in both periods. Soccer is +0.2% on 805:
 |---|---|---|
 | **Real (act on it)** | None yet | No forward slice survives the bar, and history's best slices (NBA, 1-3h) do not repeat forward. |
 | **Lean negative (paper only, consider excluding from any future live slice)** | NHL sharp A (-40% on 37, both halves); NBA single-account flags (-23% on 44); flags 12-48h before the start (-20% on 114) | Each is negative in both halves or large and negative, but none survives the bar. |
-| **Lean positive, keep tracking** | Soccer sharp A, mainly the Yes side and the EPL; sharp B in all sports (+15% on 92); NBA B (live test at 0.10u since today); 2-account flags (+9% on 96) | Positive in both halves, each under 100 graded. |
+| **Lean positive, keep tracking** | Soccer sharp A, mainly the Yes side and the EPL; sharp B in all sports (+15% on 92); NBA B (live test at 0.25u since today); 2-account flags (+9% on 96) | Positive in both halves, each under 100 graded. |
 | **Noise** | Account rank bands, price bands, market type outside soccer, whether a sharp later opposed, whether the market had moved before the flag | Flat in both data sets. |
 
 **Data needed to decide the rest:**

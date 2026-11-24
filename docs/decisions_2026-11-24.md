@@ -32,7 +32,7 @@ backwards. Paper and logging only: nothing here places a bet.
 | 5 | cfb_road_dog_low_total | retired (11/23) | tier C (0.25u), its pre-11/23 status | The retirement rested on CLV; 14-16, -9.9% on 30 does not meet the profit retire line. |
 | 5 | steam_rev | retired (11/23) | paper (logging resumes) | The retirement rested on CLV; -2.2% on 725 is not significantly below break-even. |
 | 5 | Kalshi 4+ movers | sized paper (11/23) | watch, its pre-checkpoint status | The promotion rested on a CLV z; +0.5% on 1,515 (below zero after the fee) is no profit edge. |
-| 6 | Sharp flags, NBA grade B | paper | live test, 0.10u | +11.6% on 53, the best paper slice; small, so a small size. |
+| 6 | Sharp flags, NBA grade B | paper | live test, 0.25u | +11.6% on 53, the best paper slice; small, so a small size. |
 
 Rule group 1 also contains nfl_road_dog_7510 and nfl_fade_fav_bye (both in item 2).
 
@@ -45,7 +45,7 @@ Rule group 1 also contains nfl_road_dog_7510 and nfl_fade_fav_bye (both in item 
   signals against a sharp flag (sharp accounts, big money, bet back, sharp move) still hold it as before.
 - **5. Profit-only lines adopted** in docs/checkpoint_rules_2026-11-02.md (11/24 amendment). The 11/10 sharp-flag rule ("paper until
   they beat Pinnacle's close") is replaced: a sport x grade slice goes live only on the profit promote line.
-- **6. NBA sharp B** sizes at 0.10u (favourite: to win 0.10u; plus money: risk 0.10u) on games from the cutoff; NBA A and single-account
+- **6. NBA sharp B** sizes at 0.25u (favourite: to win 0.25u; plus money: risk 0.25u; Sean 11/24: 0.25u is the minimum live size, so no 0.10u tests) on games from the cutoff; NBA A and single-account
   (watch) flags stay paper. Re-read at 100 graded (53 graded on 11/24).
 - **7. Wind source:** the NFL and CFB wind rules fire on MySportsWeather's sustained wind alone (Open-Meteo only when MySportsWeather has
   no reading), as the code has done since 11/14. The rule descriptions that still said "average of the two sources" now say so.

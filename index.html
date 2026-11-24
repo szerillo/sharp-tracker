@@ -445,13 +445,13 @@ function sharpTag(g, tag) {
 }
 // ---- sizing (Sean, 11/2): shown in units ($500 unit). Tier A/B system bets 0.5u, tier C leans, tennis, grade B/C sharp signals 0.25u; grade A sharp signals 0.5u;
 // 11/10: sharp flags of every grade are paper (no units). 11/24 (Sean): a sport x grade slice goes live only on the profit promote line
-// (docs/checkpoint_rules_2026-11-02.md, 11/24 amendment); live now: soccer A/B (0.25u, 11/21), NBA B (0.10u test, 11/24).
+// (docs/checkpoint_rules_2026-11-02.md, 11/24 amendment); live now: soccer A/B (0.25u, 11/21), NBA B (0.25u test, 11/24). 0.25u is the minimum live size (Sean 11/24).
 // to WIN when laying juice (price over 50%), to RISK when getting plus money.
 // 11/18 (Sean): EVERYTHING is 0.25u for now, every tier and source (favourite: to win 0.25u; plus money: risk 0.25u). The tier labels stay;
 // 'big' is kept as a name so the tier sizes can come back later.
 const UNIT = 500, SLIP = {big: 125, small: 125};
 const SOCCER_SHARP_LIVE_FROM = '2026-11-21T18:45:00Z';     // 11/21 (Sean): soccer sharp A/B are real 0.25u bets for games from here
-const NBA_SHARP_B_LIVE_FROM = '2026-11-24T19:00:00Z';     // 11/24 (Sean): NBA sharp B is a live 0.10u test for games from here; re-read at 100 graded
+const NBA_SHARP_B_LIVE_FROM = '2026-11-24T19:00:00Z';     // 11/24 (Sean): NBA sharp B is a live 0.25u test for games from here (0.25u is the minimum live size); re-read at 100 graded
 // 11/24 (Sean): a Kalshi 4+ move against is a WARNING shown on the row, not a hold, for games starting from here (re-read 12/8)
 const KALSHI_WARN_FROM = '2026-11-24T19:00:00Z';
 const kBlocks = start => (start || '') < KALSHI_WARN_FROM;
@@ -838,9 +838,9 @@ function renderToday() {
       bet: r.mixed ? '<span class="mixed">Mixed, no lean</span>' : esc(yn((r.fl || r.rest[0]).bet)) + altTag + (rKw ? KWARN : ''),   /* 11/8: the title is the sharp flag's own bet (was the first signal's: 'Falcons +3.5' over a 'Falcons -3.5' flag at +300) */ sub: r.mixed ? [...new Set(r.rest.map(y => esc(y.bet)))].join(' vs ') : (r.strong ? `<span class="badge ${r.grade === 'A' ? 'b-fit' : r.grade === 'B' ? 'b-prior' : 'b-gate'}" style="margin-left:0">Grade ${r.grade}</span> <span class="small dim">${r.grade === 'A' ? (r.fl && (r.fl.proven || r.fl.trigger === 'proven') ? 'sport-proven sharp' : 'sharps + big money') : r.grade === 'B' ? ((r.fl && r.fl.n >= 2) ? `${r.fl.n} sharp accounts` : 'one top-50 sharp') : 'sharps + market move, no flag'}</span>${(() => { const n = r.fl && r.fl.status === 'other side' ? ((r.fl.other && r.fl.other.n_accounts) || 1) : r.acct && r.acct.against ? r.acct.against.n : 0;
       return n ? ` <span class="stat stat-held" style="margin:2px 0 0;white-space:nowrap" title="Sharp accounts have bet the opposite side of this market">${n} sharp${n === 1 ? '' : 's'} on the other side</span>` : ''; })()}` : 'Watch only'), status: sharpHeld ? ['held', `Held: ${[...((r.fl && r.fl.status === 'other side') || (r.acct && r.acct.against) ? ['sharp accounts'] : []), ...sMkt].join(', ')} on the other side`] : r.strong || r.mixed ? null : ['gone', r.nbaSingle ? 'Watch only: NBA single account' : r.acct && r.acct.against ? 'Watch only: sharps on both sides' : r.g.sport === 'mma' ? 'Watch only: UFC has no sharp-account list' : 'Watch only: below flag level'],
       /* 11/10 (Sean): sharp flags are paper, no units. 11/24: a slice goes live only on the profit promote line (CLV no longer decides). The row stays a live flag so the hold rule still works. */
-      /* 11/24 (Sean): NBA grade B flags are a live 0.10u test (games from 11/24 19:00Z), re-read at 100 graded */
+      /* 11/24 (Sean): NBA grade B flags are a live 0.25u test (games from 11/24 19:00Z), re-read at 100 graded */
       /* 11/21 (Sean): SOCCER grade A and B flags with nothing against are real bets at 0.25u (games from 11/21 18:45Z); every other sport stays paper */
-      size: r.strong && x && !sharpHeld && !boughtOut && ((g.sport === 'soccer' && ['A', 'B'].includes(r.grade) && (g.start || '') >= SOCCER_SHARP_LIVE_FROM) || (g.sport === 'nba' && r.grade === 'B' && (g.start || '') >= NBA_SHARP_B_LIVE_FROM)) ? unitText(g.sport === 'nba' ? 0.10 * UNIT : SLIP.small, (() => { const q = {[x.venue]: x.p, ...((r.fl && r.fl.books && r.fl.books.q) || {})}; const bv = Object.keys(q).filter(v => v !== 'DK').sort((a, b) => q[a] - q[b])[0] || x.venue; return q[bv]; })())
+      size: r.strong && x && !sharpHeld && !boughtOut && ((g.sport === 'soccer' && ['A', 'B'].includes(r.grade) && (g.start || '') >= SOCCER_SHARP_LIVE_FROM) || (g.sport === 'nba' && r.grade === 'B' && (g.start || '') >= NBA_SHARP_B_LIVE_FROM)) ? unitText(SLIP.small, (() => { const q = {[x.venue]: x.p, ...((r.fl && r.fl.books && r.fl.books.q) || {})}; const bv = Object.keys(q).filter(v => v !== 'DK').sort((a, b) => q[a] - q[b])[0] || x.venue; return q[bv]; })())
         : r.strong && x && !sharpHeld && !boughtOut ? '<span class="small dim" title="Sharp flags carry no units (since 11/10) until their sport and grade meet the profit promote line; logged and graded as paper">paper<br>no units</span>' : '', price: (() => { if (!x || x.p == null) return ''; const q = {[x.venue]: x.p, ...((r.fl && r.fl.books && r.fl.books.q) || {})};
         const bv = Object.keys(q).filter(v => v !== 'DK').sort((a, b) => q[a] - q[b])[0] || x.venue;
         const fl = r.fl, pd = fl && fl.paid != null && fl.ask != null ? 100 * (fl.ask - fl.paid) : null;

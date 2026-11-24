@@ -391,7 +391,7 @@ def main():
         sz = SIZE if (p.get('slug') or '').split('-')[0] in ('ucl', 'epl', 'mls', 'bun') else GSIZE.get(p.get('grade'), SIZE)
         if (p.get('logged') or '') >= '2026-11-10T10:00:00Z': sz = 0.0     # 11/10 (Sean): sharp flags are paper, no units (11/24: until a slice meets the profit promote line)
         if (p.get('slug') or '').split('-')[0] in ('ucl', 'epl', 'mls', 'bun') and p.get('grade') in ('A', 'B') and (not p.get('kalshi_against') or (p.get('start') or '') >= '2026-11-24T19:00:00Z') and (p.get('start') or '') >= '2026-11-21T18:45:00Z': sz = 0.25   # 11/21 (Sean): soccer A/B real at 0.25u; 11/24: Kalshi against is a warning
-        if (p.get('slug') or '').split('-')[0] == 'nba' and p.get('grade') == 'B' and (p.get('start') or '') >= '2026-11-24T19:00:00Z': sz = 0.10   # 11/24 (Sean): NBA B live test at 0.10u
+        if (p.get('slug') or '').split('-')[0] == 'nba' and p.get('grade') == 'B' and (p.get('start') or '') >= '2026-11-24T19:00:00Z': sz = 0.25   # 11/24 (Sean): NBA B live test; 0.25u is the minimum live size
         p['u'] = units(p['price'], won, sz)   # soccer 0.25u at any grade (Sean, 11/4)                                                 # Sean's sizing (0.25u to win / to risk) at the Polymarket ask
         vq = {k: v for k, v in ((p.get('venues') or {}).get('q') or {}).items() if k != 'DK'}      # where Sean bets (DK excluded: low limits)
         if vq: bv = min(vq, key=vq.get); p['best_venue'] = bv; p['best_cost'] = vq[bv]; p['u_venue'] = units(vq[bv], won, sz)

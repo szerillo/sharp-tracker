@@ -31,7 +31,7 @@ HALF_U = {'nba_1h_under_hot_over'}       # tier C rules sized at 0.5u (Sean, 11/
 # 11/10 (Sean, docs/review_2026-11-10.md): sharp flags carry no units from here. Flags logged before this keep the size they were tracked at.
 # 11/24 (Sean): the way back to units no longer depends on beating Pinnacle's close. A sport x grade slice of sharp flags goes live only on
 # the profit promote line (docs/checkpoint_rules_2026-11-02.md, 11/24 amendment): 100+ graded, a 10% or smaller chance of a result this good
-# at break-even after fees, ROI positive in both halves. Live slices so far: soccer A and B (11/21), NBA B at 0.10u (11/24, a test).
+# at break-even after fees, ROI positive in both halves. Live slices so far: soccer A and B (11/21), NBA B at 0.25u (11/24, a test; 0.25u is the minimum live size).
 SHARP_PAPER_FROM = '2026-11-10T10:00:00Z'
 # 11/21 (Sean via Kirk): SOCCER sharp flags, grade A and B with nothing against, are real bets at 0.25u for games starting from here on
 # (soccer sharp A 23-18, +17.4% ROI on 41 since 11/3). No backfill: games that started earlier stay paper. Every other sport stays paper.
@@ -42,9 +42,9 @@ KALSHI_WARN_FROM = '2026-11-24T19:00:00Z'
 def kalshi_blocks(start): return (start or '') < KALSHI_WARN_FROM
 def soccer_sharp_live(cat, sport, start, against=False):
     return cat in ('sharp A', 'sharp B') and sport == 'soccer' and not (against and kalshi_blocks(start)) and (start or '') >= SOCCER_SHARP_LIVE_FROM
-# 11/24 (Sean via Kirk): NBA sharp flags graded B are a live test at 0.10u for games starting from here (paper record +11.6% on 53, p 0.18);
-# re-read at 100 graded flags. NBA A and watch flags stay paper.
-NBA_SHARP_B_LIVE_FROM = '2026-11-24T19:00:00Z'; NBA_SHARP_B_SIZE = 0.10
+# 11/24 (Sean via Kirk): NBA sharp flags graded B are a live test for games starting from here (paper record +11.6% on 53, p 0.18);
+# re-read at 100 graded flags. NBA A and watch flags stay paper. Size 0.25u: Sean 11/24, 0.25u is the minimum live size, no 0.10u tests.
+NBA_SHARP_B_LIVE_FROM = '2026-11-24T19:00:00Z'; NBA_SHARP_B_SIZE = 0.25
 def nba_sharp_b_live(cat, sport, start): return cat == 'sharp B' and sport == 'nba' and (start or '') >= NBA_SHARP_B_LIVE_FROM
 # 11/14: a rule promoted from paper counts as a bet only for fills logged from its promotion on; its earlier paper fills stay paper, so
 # no units are backdated into the record.
