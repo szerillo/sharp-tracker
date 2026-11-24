@@ -1,5 +1,5 @@
 {
- "built": "2026-11-24T01:11:58Z",
+ "built": "2026-11-24T03:07:03Z",
  "rows": [
   {
    "cond": "0xc2f71a6f70924ac2b643b8c5c51204cb20b2c44b0c9812c588b681f1c433d790",
@@ -210,18 +210,9 @@
    "side_std": "home",
    "money_with": false,
    "grade": "A",
-   "fair_board": 0.5068,
+   "fair_board": null,
    "inside_fair": null,
-   "books": {
-    "at": "2026-11-24T01:03:38Z",
-    "fair": 0.5068,
-    "q": {
-     "Novig": 0.51,
-     "Caesars": 0.5238,
-     "DK": 0.5238,
-     "FD": 0.5283
-    }
-   }
+   "books": null
   },
   {
    "cond": "0x03d5497cfae821677f4fefd8b8645c0c7ad0ee18217c11b6840426a140fadc32",
@@ -262,13 +253,13 @@
    "inside_fair": true,
    "fair_board": 0.5034,
    "books": {
-    "at": "2026-11-24T02:03:51Z",
-    "fair": 0.4985,
+    "at": "2026-11-24T02:52:25Z",
+    "fair": 0.4999,
     "q": {
      "Novig": 0.5,
      "DK": 0.5192,
-     "Caesars": 0.5238,
-     "Kalshi": 0.53
+     "Kalshi": 0.53,
+     "FD": 0.5349
     }
    }
   },
@@ -345,7 +336,7 @@
    "fair_board": null,
    "inside_fair": null,
    "books": {
-    "at": "2026-11-24T02:03:51Z",
+    "at": "2026-11-24T02:52:25Z",
     "fair": null,
     "q": {
      "Novig": 0.59
@@ -425,8 +416,8 @@
    "inside_fair": false,
    "fair_board": 0.4068,
    "books": {
-    "at": "2026-11-24T02:03:51Z",
-    "fair": 0.4283,
+    "at": "2026-11-24T02:52:25Z",
+    "fair": 0.429,
     "q": {
      "Novig": 0.435,
      "Kalshi": 0.45
@@ -503,13 +494,13 @@
    "side_std": "away",
    "money_with": false,
    "grade": "B",
-   "fair_board": 0.5471,
+   "fair_board": 0.5457,
    "inside_fair": false,
    "books": {
-    "at": "2026-11-24T02:03:51Z",
-    "fair": 0.5471,
+    "at": "2026-11-24T02:52:25Z",
+    "fair": 0.5457,
     "q": {
-     "Novig": 0.555,
+     "Novig": 0.55,
      "Caesars": 0.5556,
      "DK": 0.5556,
      "FD": 0.5575
@@ -549,11 +540,11 @@
    "side_std": "away",
    "money_with": false,
    "grade": "A",
-   "fair_board": 0.5151,
+   "fair_board": 0.5167,
    "inside_fair": false,
    "books": {
-    "at": "2026-11-24T02:03:51Z",
-    "fair": 0.5151,
+    "at": "2026-11-24T02:52:25Z",
+    "fair": 0.5167,
     "q": {
      "Novig": 0.52,
      "Caesars": 0.5305,
@@ -615,7 +606,7 @@
    "best_rank": 157,
    "usd": 294,
    "paid": 0.095,
-   "ask": 0.11,
+   "ask": 0.1,
    "status": "live",
    "link": "https://polymarket.us/event/ucl-sf-fcb-2026-11-25",
    "other": null,
@@ -747,10 +738,10 @@
    "fair_board": null,
    "inside_fair": null,
    "books": {
-    "at": "2026-11-24T02:03:51Z",
+    "at": "2026-11-24T02:52:25Z",
     "fair": null,
     "q": {
-     "Novig": 0.18
+     "Novig": 0.185
     }
    }
   },
@@ -807,7 +798,7 @@
    "best_rank": 49,
    "usd": 1081,
    "paid": 0.385,
-   "ask": 0.45,
+   "ask": 0.51,
    "status": "live",
    "link": "https://polymarket.us/event/nba-mia-phi-2026-11-25",
    "other": null,
@@ -844,7 +835,7 @@
    "best_rank": 43,
    "usd": 133,
    "paid": 0.57,
-   "ask": 0.59,
+   "ask": 0.61,
    "status": "live",
    "link": "https://polymarket.us/event/nba-chi-cha-2026-11-25",
    "other": null,
@@ -938,14 +929,14 @@
    "side_std": "under",
    "money_with": false,
    "grade": "A",
-   "fair_board": 0.5134,
+   "fair_board": 0.5184,
    "inside_fair": false,
    "books": {
-    "at": "2026-11-24T02:03:51Z",
-    "fair": 0.5134,
+    "at": "2026-11-24T02:52:25Z",
+    "fair": 0.5184,
     "q": {
-     "Novig": 0.52,
-     "Kalshi": 0.53
+     "Novig": 0.525,
+     "Kalshi": 0.54
     }
    }
   },
@@ -1267,7 +1258,7 @@
    "side_std": "home",
    "money_with": false,
    "grade": "A",
-   "fair_board": 0.5223,
+   "fair_board": 0.5154,
    "inside_fair": null,
    "books": null
   },
@@ -1287,7 +1278,7 @@
    "best_rank": 23,
    "usd": 8563,
    "paid": 0.182,
-   "ask": 0.29,
+   "ask": null,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-sas-sac-2026-11-23",
    "other": {
@@ -1296,7 +1287,7 @@
     "usd": 14347,
     "first": "2026-11-23T19:13:34Z"
    },
-   "exit_bid": 0.28,
+   "exit_bid": null,
    "kalshi_against": null,
    "logged": true,
    "event_id": "401910045",
@@ -1310,8 +1301,95 @@
    "side_std": "home",
    "money_with": false,
    "grade": "A",
-   "fair_board": 0.2531,
-   "inside_fair": false,
+   "fair_board": 0.2738,
+   "inside_fair": null,
+   "books": null
+  },
+  {
+   "cond": "0x6e3aa6f7b8b60dbf0ff2454448f9a2a028e7f81a60834cf6cf625a70c1d028bf",
+   "slug": "nba-sas-sac-2026-11-23",
+   "title": "Spurs vs. Kings",
+   "mtype": "spread",
+   "start": "2026-11-24T03:00:00Z",
+   "bet": "Kings +13.5",
+   "side": "Kings",
+   "flagged": "2026-11-24T01:16:34Z",
+   "why": "2 top-200 accounts",
+   "proven": false,
+   "trigger": "two",
+   "n_accounts": 2,
+   "best_rank": 110,
+   "usd": 9382,
+   "paid": 0.591,
+   "ask": null,
+   "status": "other side",
+   "link": "https://polymarket.us/event/nba-sas-sac-2026-11-23",
+   "other": {
+    "n_accounts": 1,
+    "best_rank": 112,
+    "usd": 1282,
+    "first": "2026-11-24T02:57:04Z"
+   },
+   "exit_bid": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401910045",
+   "sport": "nba",
+   "league": null,
+   "away": "SA",
+   "home": "SAC",
+   "away_name": "San Antonio Spurs",
+   "home_name": "Sacramento Kings",
+   "game_start": "2026-11-24T03:00Z",
+   "side_std": "home",
+   "money_with": false,
+   "grade": "B",
+   "fair_board": null,
+   "inside_fair": null,
+   "books": null
+  },
+  {
+   "cond": "0xe9d2175b12153ac6ce2d1f278d12f9e57f9207c2cb4937a1c47ad67b5d9d0dea",
+   "slug": "nba-sas-sac-2026-11-23",
+   "title": "Spurs vs. Kings",
+   "mtype": "spread",
+   "start": "2026-11-24T03:00:00Z",
+   "bet": "Kings +9.5",
+   "side": "Kings",
+   "flagged": "2026-11-24T02:44:02Z",
+   "why": "2 top-200 accounts",
+   "proven": false,
+   "trigger": "two",
+   "n_accounts": 2,
+   "best_rank": 112,
+   "usd": 4413,
+   "paid": 0.443,
+   "ask": null,
+   "status": "other side",
+   "link": "https://polymarket.us/event/nba-sas-sac-2026-11-23",
+   "other": {
+    "n_accounts": 1,
+    "best_rank": 119,
+    "usd": 2137,
+    "first": "2026-11-24T02:55:17Z"
+   },
+   "exit_bid": null,
+   "kalshi_against": null,
+   "logged": false,
+   "ladder": true,
+   "event_id": "401910045",
+   "sport": "nba",
+   "league": null,
+   "away": "SA",
+   "home": "SAC",
+   "away_name": "San Antonio Spurs",
+   "home_name": "Sacramento Kings",
+   "game_start": "2026-11-24T03:00Z",
+   "side_std": "home",
+   "money_with": false,
+   "grade": "B",
+   "fair_board": null,
+   "inside_fair": null,
    "books": null
   },
   {
@@ -1469,7 +1547,7 @@
     "usd": 478,
     "first": "2026-11-23T09:44:19Z"
    },
-   "exit_bid": 0.47,
+   "exit_bid": 0.48,
    "kalshi_against": null,
    "logged": true,
    "event_id": "401909320",
@@ -1500,27 +1578,27 @@
     "clv": -0.95
    },
    "outside": {
-    "n": 116,
-    "won": 61,
+    "n": 118,
+    "won": 62,
     "units": -0.62,
-    "clv": -0.18
+    "clv": -0.16
    }
   },
-  "n": 411,
-  "won": 198,
+  "n": 413,
+  "won": 199,
   "units": -16.04,
   "by_grade": {
    "A": {
-    "n": 271,
+    "n": 272,
     "won": 125,
     "units": -14.85,
     "clv": -0.15
    },
    "B": {
-    "n": 96,
-    "won": 55,
+    "n": 97,
+    "won": 56,
     "units": 0.89,
-    "clv": -1.04
+    "clv": -1.0
    },
    "watch": {
     "n": 44,
@@ -1529,88 +1607,20 @@
     "clv": -0.03
    }
   },
-  "units_1u": -24.28,
+  "units_1u": -24.46,
   "clv": -0.35,
-  "n_venue": 214,
+  "n_venue": 216,
   "units_venue": -5.81,
-  "clv_venue": 0.97,
-  "clv_poly_same": -0.57
+  "clv_venue": 1.0,
+  "clv_poly_same": -0.55
  },
- "sys_tags": {
-  "401910045:nba_roadtrip_over": {
-   "with": {
-    "n": 1,
-    "best_rank": 112,
-    "usd": 1914
-   },
-   "against": {
-    "n": 1,
-    "best_rank": 132,
-    "usd": 1168
-   }
-  },
-  "401910045:xch_homedog_fade:ml": {
-   "with": {
-    "n": 3,
-    "best_rank": 11,
-    "usd": 14347
-   },
-   "against": {
-    "n": 4,
-    "best_rank": 23,
-    "usd": 8563
-   }
-  }
- },
+ "sys_tags": {},
  "by_event": {
   "401873082|total": {
    "under": {
     "n": 1,
     "best_rank": 49,
     "usd": 787
-   }
-  },
-  "401910044|spread": {
-   "away": {
-    "n": 1,
-    "best_rank": 132,
-    "usd": 224
-   }
-  },
-  "401910045|ml": {
-   "home": {
-    "n": 4,
-    "best_rank": 23,
-    "usd": 8563
-   },
-   "away": {
-    "n": 3,
-    "best_rank": 11,
-    "usd": 14347
-   }
-  },
-  "401910045|spread": {
-   "home": {
-    "n": 3,
-    "best_rank": 110,
-    "usd": 9526
-   },
-   "away": {
-    "n": 3,
-    "best_rank": 110,
-    "usd": 2614
-   }
-  },
-  "401910045|total": {
-   "under": {
-    "n": 1,
-    "best_rank": 132,
-    "usd": 1168
-   },
-   "over": {
-    "n": 1,
-    "best_rank": 112,
-    "usd": 1914
    }
   },
   "401909314|ml": {
@@ -1665,13 +1675,6 @@
     "n": 1,
     "best_rank": 93,
     "usd": 392
-   }
-  },
-  "401892779|ml": {
-   "home": {
-    "n": 1,
-    "best_rank": 132,
-    "usd": 464
    }
   },
   "401892780|ml": {
