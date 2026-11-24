@@ -11,8 +11,9 @@ Input: data/polymarket/sharp_fills.jsonl (loggers/poly_sharps.py, every 5 minute
           getting out at the mid 5 minutes later (194 cases), so the default is to hold; the row says so, with the current price to get out.
   Accounts on both sides before any flag: no flag (head-to-head at T-15m had no edge either way).
 Price: the current best ask on the flagged side from the Polymarket CLOB (what a follower pays now), next to what the sharps paid.
-Kalshi veto (moneylines): if Kalshi's price has moved 4+ points against the flagged side since its first two-sided price
-(data/state/flow_live.json moves), the row is marked "Kalshi against" and moved below the others. Backtest (top 200, 5 minutes behind,
+Kalshi warning (moneylines): if Kalshi's price has moved 4+ points against the flagged side since its first two-sided price
+(data/state/flow_live.json moves), the row is marked "Kalshi against". Until 11/24 that held the flag; from 11/24 (Sean) it is a
+shown warning, not a block, for games starting from 2026-11-24 19:00Z (re-read 12/8). Backtest (top 200, 5 minutes behind,
 moneylines since September): CLV +1.10 when Kalshi had moved 4+ the same way, +0.99 under 4, +0.24 when 4+ against.
 Paper log: data/state/sharp_paper.jsonl, one row per flag at the ask when first seen; graded after the game on the result (Gamma) and on
 CLV vs Polymarket's two-sided close (public trade tape). Writes data/state/sharp_accounts.json.
@@ -85,7 +86,8 @@ def ntfy(title, msg, click, tags, prio='high'):
 
 def alerts(rows):
     """Phone push (ntfy, topic in the NTFY_TOPIC repo secret) when a flag first appears, and when a sharp later takes the other side of
-    a flag already pushed. Not pushed: flags with Kalshi 4+ against, or when the ask is already 5c+ above what the sharps paid (edge gone).
+    a flag already pushed. Not pushed: when the ask is already 5c+ above what the sharps paid (edge gone). 11/24 (Sean): a Kalshi 4+ move
+    against no longer stops the push; the push carries a warning line instead.
     The first run with no state only records what is on the board, so nothing old is pushed."""
     first = not os.path.exists(ALERTS)
     st = json.load(open(ALERTS)) if not first else {}
@@ -95,11 +97,12 @@ def alerts(rows):
         s = st.setdefault(r['cond'], {})
         when = dt.datetime.fromisoformat(r['start'].replace('Z', '+00:00')).astimezone(__import__('zoneinfo').ZoneInfo('America/New_York')).strftime('%a %-I:%M %p ET')
         if 'flag' not in s:
-            ok = r['status'] == 'live' and not r.get('kalshi_against') and not r.get('conflict') and r.get('ask') is not None and r['ask'] - r['paid'] <= 0.05
+            ok = r['status'] == 'live' and not r.get('conflict') and r.get('ask') is not None and r['ask'] - r['paid'] <= 0.05
             if ok and not first:
                 # 11/18 (Sean): for CFB only rows on the board are bets; a CFB sharp push is marked as a lean, not a bet
                 nb = 'NOT A BET (CFB lean, only board rows are bets). ' if (r.get('sport') or '').lower() == 'cfb' else ''
-                ntfy(f"{'CFB lean, not a bet' if nb else 'Sharp'}: {r['bet']}", f"{nb}{r['title']} · {when}\n{r['n_accounts']} sharp account{'s' if r['n_accounts'] != 1 else ''}, ${r['usd']:,}\nSharps paid {c(r['paid'])}, ask now {c(r['ask'])}",
+                kw = f"WARNING: Kalshi moved {r['kalshi_against'].get('move')} pts the other way. " if r.get('kalshi_against') else ''
+                ntfy(f"{'CFB lean, not a bet' if nb else 'Sharp'}: {r['bet']}", f"{nb}{kw}{r['title']} · {when}\n{r['n_accounts']} sharp account{'s' if r['n_accounts'] != 1 else ''}, ${r['usd']:,}\nSharps paid {c(r['paid'])}, ask now {c(r['ask'])}",
                      r['link'], 'chart_with_upwards_trend')
             s['flag'] = int(NOW) if ok or first else None
             if not (ok or first): del st[r['cond']]
@@ -386,8 +389,9 @@ def main():
         won = px[outs.index(p['side'])] == 1.0; p['result'] = 'W' if won else 'L'
         p['pnl'] = round((1 - p['price']) / p['price'] if won else -1.0, 3)          # 1u to risk at the Polymarket ask (kept for the research)
         sz = SIZE if (p.get('slug') or '').split('-')[0] in ('ucl', 'epl', 'mls', 'bun') else GSIZE.get(p.get('grade'), SIZE)
-        if (p.get('logged') or '') >= '2026-11-10T10:00:00Z': sz = 0.0     # 11/10 (Sean): sharp flags are paper, no units, until they beat Pinnacle's close
-        if (p.get('slug') or '').split('-')[0] in ('ucl', 'epl', 'mls', 'bun') and p.get('grade') in ('A', 'B') and not p.get('kalshi_against') and (p.get('start') or '') >= '2026-11-21T18:45:00Z': sz = 0.25   # 11/21 (Sean): soccer A/B real at 0.25u
+        if (p.get('logged') or '') >= '2026-11-10T10:00:00Z': sz = 0.0     # 11/10 (Sean): sharp flags are paper, no units (11/24: until a slice meets the profit promote line)
+        if (p.get('slug') or '').split('-')[0] in ('ucl', 'epl', 'mls', 'bun') and p.get('grade') in ('A', 'B') and (not p.get('kalshi_against') or (p.get('start') or '') >= '2026-11-24T19:00:00Z') and (p.get('start') or '') >= '2026-11-21T18:45:00Z': sz = 0.25   # 11/21 (Sean): soccer A/B real at 0.25u; 11/24: Kalshi against is a warning
+        if (p.get('slug') or '').split('-')[0] == 'nba' and p.get('grade') == 'B' and (p.get('start') or '') >= '2026-11-24T19:00:00Z': sz = 0.10   # 11/24 (Sean): NBA B live test at 0.10u
         p['u'] = units(p['price'], won, sz)   # soccer 0.25u at any grade (Sean, 11/4)                                                 # Sean's sizing (0.25u to win / to risk) at the Polymarket ask
         vq = {k: v for k, v in ((p.get('venues') or {}).get('q') or {}).items() if k != 'DK'}      # where Sean bets (DK excluded: low limits)
         if vq: bv = min(vq, key=vq.get); p['best_venue'] = bv; p['best_cost'] = vq[bv]; p['u_venue'] = units(vq[bv], won, sz)

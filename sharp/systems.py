@@ -4,7 +4,8 @@ first time a rule triggers write ONE paper fill at the best bettable price at th
 rule_tag 'paper:<tag>', graded like any fill with CLV vs the ruler. State: data/state/system_fired.json (game x tag, never fires
 twice). View: data/state/system_fires.json (games with triggers, fills, per-tag record, rule descriptions in DESC).
 Rules and their sources: RULES / DESC below; audits in docs/betlabs_*.md and docs/exchange_signals_audit_2026-10-29.md.
-Stacking: one bet per game per market x side. Publication gate per tag: 100 graded fills AND positive CLV."""
+Stacking: one bet per game per market x side. Tier moves follow the profit-only lines in docs/checkpoint_rules_2026-11-02.md (11/24 amendment);
+CLV is reported, never a deciding factor (Sean, 11/24)."""
 import os, re, sys, json, uuid, sqlite3, datetime as dt, collections, math
 HERE = os.path.dirname(os.path.abspath(__file__)); sys.path.insert(0, os.path.dirname(HERE))
 from sharp import norm as N, fair as F, constants as C, season as SEA, fills as FI
@@ -26,7 +27,8 @@ RULES = {'wind1014': dict(market='total', side='under', stake=1.0), 'wind1014_1h
          'nhl_loss_streak_over': dict(market='total', side='over', stake=0.5, sport='nhl'),
          'nba_badteams_under': dict(market='total', side='under', stake=0.5, sport='nba'), 'nba_roadtrip_over': dict(market='total', side='over', stake=0.5, sport='nba'),
          'nhl_bounce_home_ml': dict(market='ml', side='home', stake=0.5, sport='nhl'), 'nhl_skid_fade_road': dict(market='spread', side='away', stake=0.5, sport='nhl'),
-         # cfb_day_over retired 11/23 (docs/checkpoint_2026-11-23.md): 11-16 on paper, -3.04u, ROI -22.9%, CLV -2.29 on 27 (rule: 25+ graded, ROI negative and CLV 2.0+ worse than the close).
+         # cfb_day_over: retired 11/23 on a CLV line; 11/24 (Sean) the retirement is undone (CLV no longer decides) and it logs as paper (tier P since 11/21)
+         'cfb_day_over': dict(market='total', side='over', stake=0.5, sport='cfb'),
          'cfb_homefav_7510_under': dict(market='total', side='under', stake=0.5, sport='cfb'),
          'mlb_road_over_under': dict(market='total', side='under', stake=0.5, sport='mlb'),
          # exchange signals (docs/exchange_signals_audit_2026-10-29.md): fired inside T-1.5h, at the exchange that shows the signal
@@ -38,7 +40,8 @@ RULES = {'wind1014': dict(market='total', side='under', stake=1.0), 'wind1014_1h
          'nba_1h_under_hot_over': dict(market='1h_total', side='under', stake=0.5, sport='nba'),
          # Bet Labs round 3 watch tier (docs/betlabs_account_systems_audit_2026-10-30.md), paper only
          'nhl_early_home_fav_qual': dict(market='ml', side='home', stake=0.5, sport='nhl'), 'nba_under_good_home_over': dict(market='total', side='under', stake=0.5, sport='nba'), 'nba_under_good_home_over_small': dict(market='total', side='under', stake=0.5, sport='nba'),
-         # cfb_road_dog_low_total retired 11/23 (docs/checkpoint_2026-11-23.md): 14-16 on paper, -0.81u, ROI -5.6%, CLV -3.57 on 27 (rule: 25+ graded, ROI negative and CLV 2.0+ worse than the close).
+         # cfb_road_dog_low_total: retired 11/23 on a CLV line; restored to its pre-11/23 status (tier C) 11/24 (Sean): 14-16, -9.9% on 30 does not meet the profit retire line
+         'cfb_road_dog_low_total': dict(market='spread', side='away', stake=0.5, sport='cfb'),
          'cbb_bigloss_vs_top5': dict(market='spread', side='team', stake=0.5, sport='cbb'),
          # rescued variants of failed account systems (docs/betlabs_rescue_2026-11-01.md), paper only
          'cfb_hot_over_low_total': dict(market='total', side='over', stake=0.5, sport='cfb'),
@@ -50,7 +53,7 @@ RULES = {'wind1014': dict(market='total', side='under', stake=1.0), 'wind1014_1h
 # not price can keep winning with zero CLV, so nothing here waits for CLV before it is shown as a bet.
 EVIDENCE = {'wind1014': dict(tier='A', train='Bet Labs 533-376 all-time (2003-), +13.3%', hold="Bet Labs' own picks since 2020 at Pinnacle's close: 160-101 (+18.6%); Odds API replay on Open-Meteo wind 161-103 (+18.1%). Both sources agree in the NFL", seasons='5 of 6', src='docs/betlabs_nfl_audit_2026-10-25.md'),
             'wind1014_1h': dict(tier='C', train='Bet Labs 404-302 all-time, +9.0%; since 2021 113-90, +5.9%', hold='WC 1H database 2023-26 (Pinnacle 1H line): 55-51, +0.4%, against a -9.6% baseline for every 1H under in the same games; 2023 and 2024 negative. A -> B 11/5; B -> C 11/6 (our own replay is flat, so it cannot hold the same size as rules that replicate)', seasons='1 of 3 (ours)', src='docs/betlabs_nfl_audit_2026-10-25.md'),
-            'cfb_wind14': dict(tier='C', recheck='down from A 11/10 (weekly recheck; Sean: fulfill all open tasks): our own wind replay 206-182 (+1.9%) with 2024 -32.7% and 2026 -9.9%; the edge sits in Bet Labs\' wind source. B if the Bet Labs picks are counted (135-96 at Pinnacle\'s close).', train='Bet Labs 555-402 all-time, +12%', hold="Bet Labs' own picks since 2020 graded at Pinnacle's close: 135-96 (+12.3%)", seasons='5 of 6', labs_check='11/5 (docs/cfb_weather_2026-11-05.md): the edge sits in Bet Labs\' wind source; Open-Meteo reanalysis 14+ alone replays 114-102, and its 14+ games Bet Labs did not flag went 66-72. Live rule fires only with MySportsWeather in the blend', src='docs/betlabs_cfb_audit_2026-10-29.md'),
+            'cfb_wind14': dict(tier='C', recheck='down from A 11/10 (weekly recheck; Sean: fulfill all open tasks): our own wind replay 206-182 (+1.9%) with 2024 -32.7% and 2026 -9.9%; the edge sits in Bet Labs\' wind source. B if the Bet Labs picks are counted (135-96 at Pinnacle\'s close).', train='Bet Labs 555-402 all-time, +12%', hold="Bet Labs' own picks since 2020 graded at Pinnacle's close: 135-96 (+12.3%)", seasons='5 of 6', labs_check='11/5 (docs/cfb_weather_2026-11-05.md): the edge sits in Bet Labs\' wind source; Open-Meteo reanalysis 14+ alone replays 114-102, and its 14+ games Bet Labs did not flag went 66-72. Since 11/14 the live rule fires on MySportsWeather alone (Open-Meteo only as a fallback)', src='docs/betlabs_cfb_audit_2026-10-29.md'),
             'vrest8_1h': dict(tier='C', train='454-357 all-time, +7.7%', hold='Odds API full-game cousin 127-93-2 (+11.9%) but 48-49-2 since 2024', seasons='5 of 6', src='docs/betlabs_nfl_audit_2026-10-25.md'),   # 11/5: tier C, the edge is fading
             'mnf_1h': dict(tier='C', train='168-118 all-time, +12.3%', hold='our 1H replay 33-28 (+6.4%) with 2024 at -25.1%; down from B 11/10 (weekly recheck)', seasons='4 of 6', src='docs/betlabs_nfl_audit_2026-10-25.md'),
             # 11/5: the Odds API replay (2020-26, Pinnacle closes, results) re-banded the dog rule: season margin -7 to -13 is 91-75-5 (+5.6%, 5 of 7 seasons),
@@ -110,9 +113,19 @@ for _k in PAPER_TO_C_1118:
 # blanket 11/18 promotion. Games that started before 11/21 19:20Z keep their tier C record (sharp/bet_log.py DEMOTED_FROM).
 DEMOTE_1121 = ['cfb_day_over']
 for _k in DEMOTE_1121: EVIDENCE[_k]['tier'] = 'P'; EVIDENCE[_k]['paper_why'] = 'Sean 11/21: back to paper, a kickoff window is not a mechanism'
+# 11/24 (Sean via Kirk, docs/decisions_2026-11-24.md): tier C -> paper for games starting from 2026-11-24 19:00Z (sharp/bet_log.py DEMOTED_FROM).
+# Mined rules that lost money on Bet Labs 2003-19, seasons the miner never saw (docs/followup_2026-11-24.md); and rule group 1, option B: rules
+# that failed our own multi-season profit replay before the 11/18 blanket move (docs/weekly_review_2026-11-23.md section 4).
+DEMOTE_1124_MINED = ['nhl_skid_fade_road', 'nfl_fade_fav_bye', 'nba_ats_hot_home', 'nba_bigfav_over', 'nhl_loss_streak_over', 'nba_badteams_under',
+                     'nfl_road_dog_7510', 'mlb_road_over_under', 'nba_roadtrip_over', 'nhl_bounce_home_ml']
+DEMOTE_1124_GROUP1 = ['bounce15_1h', 'nhl_pl_fav_strong_opp', 'nhl_pl_fav_gap', 'nba_under_good_home_over_small', 'cfb_road_streak_dog', 'cbb_under_good_over_drop',
+                      'awfuldog_deep', 'wind1014_cold']     # nfl_road_dog_7510 and nfl_fade_fav_bye are in group 1 too (listed above)
+for _k in DEMOTE_1124_MINED: EVIDENCE[_k]['tier'] = 'P'; EVIDENCE[_k]['paper_why'] = 'Sean 11/24: paper. Mined on 2020-26; lost money on Bet Labs 2003-19, the seasons it was not built on'
+for _k in DEMOTE_1124_GROUP1:
+    if EVIDENCE[_k]['tier'] != 'P': EVIDENCE[_k]['tier'] = 'P'; EVIDENCE[_k]['paper_why'] = 'Sean 11/24 (rule group 1): paper. Failed our own multi-season profit replay before the 11/18 blanket move'
 # nhl_over_busy_goalie retired 10/30: positive in 2 of 7 seasons and the goalie-saves field thins to a handful of games after 2023.
-DESC = {'wind1014': 'NFL outdoor, wind 10-14 mph (average of the latest Open-Meteo and MySportsWeather forecasts, whole mph): full-game under', 'wind1014_1h': 'same wind, 10-13 mph: first-half under',
-        'cfb_wind14': 'CFB outdoor, wind 14+ mph (same two-source average): full-game under', 'vrest8_1h': 'NFL visitor off 8-30 days: first-half under', 'mnf_1h': 'Monday night: first-half under',
+DESC = {'wind1014': 'NFL outdoor, wind 10-14 mph (the latest MySportsWeather sustained-wind forecast, whole mph; Open-Meteo only when MySportsWeather has no reading): full-game under', 'wind1014_1h': 'same wind, 10-13 mph: first-half under',
+        'cfb_wind14': 'CFB outdoor, wind 14+ mph (MySportsWeather, Open-Meteo only as a fallback): full-game under', 'vrest8_1h': 'NFL visitor off 8-30 days: first-half under', 'mnf_1h': 'Monday night: first-half under',
         'awfuldog': 'NFL dog whose season point margin is -13 or worse (1+ games): full-game spread (Bet Labs definition; restored 11/6)', 'bounce15_1h': 'NFL dog whose last game lost ATS by 15+: first-half spread',
         'awfuldog_deep': 'NFL dog with a season margin worse than -13: full-game spread (paper; 14-16 in the six-season replay)',
         'wind1014_cold': 'NFL outdoor, wind 10-14 mph but 35F or colder: full-game under (paper; the cold band was 27-27 in the replay, mild weather carries the rule)',
@@ -194,7 +207,8 @@ def weather_t24(event_id, path=None):
 
 
 def blend_wind(wx, msw, need_both=False):
-    """Wind the rules fire on: the average of the latest Open-Meteo and MySportsWeather forecasts when both exist, else whichever exists.
+    """NOT USED since 11/14 (the rules fire on rule_wind: MySportsWeather alone, Open-Meteo fallback). Kept for the record of the 11/1 to 11/13
+    method: the average of the latest Open-Meteo and MySportsWeather forecasts when both exist, else whichever exists.
     Bet Labs' own wind sits between the two (11/1: LAC@LAR 14 vs 12.7 / 15, NE@MIA 10 vs 10.2 / 13, IND@JAX 11 vs 9.4 / 15, ATL@TB 11 vs
     8.9 / 12; the average matched all four in-band calls and the out-of-band KC@DEN). Returns (mph or None, label)."""
     o = wx.get('wind_mph') if wx and not wx.get('indoor') else None
@@ -588,7 +602,7 @@ def main():
             trig['wind1014_cold' if cold else 'wind1014'] = wlab + (f", gust {wx.get('gust_mph')}, {wx.get('temp_f')}F" if wx else '')
             if wr <= 13: trig['wind1014_1h'] = trig['wind1014_cold' if cold else 'wind1014']      # the tested first-half screen is 10-13 mph, not 10-14
         elif False:     # 11/14: one wind source now (MySportsWeather, Open-Meteo fallback), so no "one source only" flag
-            trig['wind_msw_only'] = (f"one source in the 10-14 band but the average is {wv:.1f} mph ({wlab}); flag only" if wv is not None
+            trig['wind_msw_only'] = (f"one source in the 10-14 band but the rule's wind is {wv:.1f} mph ({wlab}); flag only" if wv is not None
                                      else f"one source in the 10-14 band ({wlab}); flag only")
         # visitor's previous game: the later of its last completed game (season log) and its last scheduled game before this one (the schedule
         # file only keeps a rolling window, the season log only has finished games); calendar days, as Bet Labs counts
@@ -680,7 +694,7 @@ def main():
         if not windy and not rdlt and not msw_only and not hot and not rs and not dayover and not hf_under: continue
         game = dict(event_id=ev, away=away, home=home, start_utc=start, hours_to_kickoff=round(ttk, 1), spread_home=sp_line, dog=('away' if sp_line and sp_line < 0 else None), triggers={},
                     wind=(dict(mph=wx['wind_mph'], gust=wx.get('gust_mph'), temp_f=wx.get('temp_f'), at_h=wx['hours_to_kickoff']) if wx else None), fills=[], sport='cfb')
-        if rdlt and 'cfb_road_dog_low_total' in RULES:   # retired 11/23: out of RULES, so it no longer fires
+        if rdlt and 'cfb_road_dog_low_total' in RULES:   # back in RULES 11/24 (retirement undone)
             why2 = f"conference game, {away} +{-sp_line} on the road, total {tl}"; game['triggers']['cfb_road_dog_low_total'] = why2; key2 = f"{ev}:cfb_road_dog_low_total"
             if key2 in fired and not fired[key2].get('void'): game['fills'].append(fired[key2])
             else:
@@ -695,11 +709,11 @@ def main():
         if rs:
             take(conn, eq, fired, fires_now, game, ev, start, away, home, 'cfb_road_streak_dog', 'spread', -sp_line, 'away', away, 0.5,
                  f"conference game, {away} on road game {rs} in a row, +{-sp_line}, total {tl}")
-        if dayover and not windy and 'cfb_day_over' in RULES:        # retired 11/23: out of RULES, so it no longer fires. 11/5 mined angle; a windy under takes the game first
+        if dayover and not windy and 'cfb_day_over' in RULES:        # paper (tier P) since 11/21; back in RULES 11/24. 11/5 mined angle; a windy under takes the game first
             take(conn, eq, fired, fires_now, game, ev, start, away, home, 'cfb_day_over', 'total', tl, 'over', None, 0.5, f"{st.astimezone(N.ET):%-I:%M %p} ET kickoff, total {tl}: over (mined angle)")
         if hf_under:
             take(conn, eq, fired, fires_now, game, ev, start, away, home, 'cfb_homefav_7510_under', 'total', tl, 'under', None, 0.5, f"home favourite {home} {sp_line}, total {tl}: under (mined angle)")
-        if msw_only: game['triggers']['wind_msw_only'] = (f"one source at 14+ mph but the average is {wv:.1f} mph ({wlab}); flag only" if wv is not None
+        if msw_only: game['triggers']['wind_msw_only'] = (f"one source at 14+ mph but the rule's wind is {wv:.1f} mph ({wlab}); flag only" if wv is not None
                                                           else f"one source at 14+ mph ({wlab}); the rule needs both sources, so flag only")   # 11/7 crash: only one source in
         if not windy: view_games.append(game); continue
         why = wlab + (f", gust {wx.get('gust_mph')}, {wx.get('temp_f')}F" if wx else '')

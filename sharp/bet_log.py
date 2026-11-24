@@ -28,14 +28,24 @@ NOW = dt.datetime.now(dt.timezone.utc)
 def ts(s): return dt.datetime.fromisoformat(s.replace(' ', 'T').replace('Z', '+00:00').replace('+00:00:00', '+00:00')) if s else None
 def implied(a): return 100 / (a + 100) if a > 0 else -a / (-a + 100)
 HALF_U = {'nba_1h_under_hot_over'}       # tier C rules sized at 0.5u (Sean, 11/4)
-# 11/10 (Sean, docs/review_2026-11-10.md): sharp flags carry no units from here until they beat Pinnacle's close (Sharp A +0.06 on 97, 45-69).
-# Flags logged before this keep the size they were tracked at.
+# 11/10 (Sean, docs/review_2026-11-10.md): sharp flags carry no units from here. Flags logged before this keep the size they were tracked at.
+# 11/24 (Sean): the way back to units no longer depends on beating Pinnacle's close. A sport x grade slice of sharp flags goes live only on
+# the profit promote line (docs/checkpoint_rules_2026-11-02.md, 11/24 amendment): 100+ graded, a 10% or smaller chance of a result this good
+# at break-even after fees, ROI positive in both halves. Live slices so far: soccer A and B (11/21), NBA B at 0.10u (11/24, a test).
 SHARP_PAPER_FROM = '2026-11-10T10:00:00Z'
 # 11/21 (Sean via Kirk): SOCCER sharp flags, grade A and B with nothing against, are real bets at 0.25u for games starting from here on
 # (soccer sharp A 23-18, +17.4% ROI on 41 since 11/3). No backfill: games that started earlier stay paper. Every other sport stays paper.
 SOCCER_SHARP_LIVE_FROM = '2026-11-21T18:45:00Z'
+# 11/24 (Sean via Kirk): a Kalshi 4+ move against is a shown warning, not a block, for games starting from KALSHI_WARN_FROM (re-read 12/8,
+# docs/decisions_2026-11-24.md). Earlier games keep the block they were tracked under, so nothing is re-scored backwards.
+KALSHI_WARN_FROM = '2026-11-24T19:00:00Z'
+def kalshi_blocks(start): return (start or '') < KALSHI_WARN_FROM
 def soccer_sharp_live(cat, sport, start, against=False):
-    return cat in ('sharp A', 'sharp B') and sport == 'soccer' and not against and (start or '') >= SOCCER_SHARP_LIVE_FROM
+    return cat in ('sharp A', 'sharp B') and sport == 'soccer' and not (against and kalshi_blocks(start)) and (start or '') >= SOCCER_SHARP_LIVE_FROM
+# 11/24 (Sean via Kirk): NBA sharp flags graded B are a live test at 0.10u for games starting from here (paper record +11.6% on 53, p 0.18);
+# re-read at 100 graded flags. NBA A and watch flags stay paper.
+NBA_SHARP_B_LIVE_FROM = '2026-11-24T19:00:00Z'; NBA_SHARP_B_SIZE = 0.10
+def nba_sharp_b_live(cat, sport, start): return cat == 'sharp B' and sport == 'nba' and (start or '') >= NBA_SHARP_B_LIVE_FROM
 # 11/14: a rule promoted from paper counts as a bet only for fills logged from its promotion on; its earlier paper fills stay paper, so
 # no units are backdated into the record.
 PROMOTED_FROM = {'xch_homedog_fade': '2026-11-14T08:30:00Z'}     # Sean 11/14: paper -> tier C
@@ -46,8 +56,12 @@ PROMOTED_FROM.update({k: '2026-11-19T04:00:00Z' for k in ['awfuldog_deep', 'wind
 PROMOTED_BY_START = set(PROMOTED_FROM) - {'xch_homedog_fade'}
 # 11/21 (Sean): demoted back to paper. Fills on games that started from the promotion up to this cutoff keep their tier C record; later ones are paper.
 DEMOTED_FROM = {'cfb_day_over': '2026-11-21T19:20:00Z',
-                # 11/23 checkpoint (docs/checkpoint_2026-11-23.md): retired under the systems rule. Games that started before this keep their tier C record; open fills are paper.
-                'cfb_road_dog_low_total': '2026-11-23T17:45:00Z'}
+                # cfb_road_dog_low_total: the 11/23 retirement rested on CLV; 11/24 (Sean) restored to tier C, so it has no demotion cutoff.
+                }
+# 11/24 (Sean via Kirk, docs/decisions_2026-11-24.md): tier C -> paper. Games that started before this keep their tier C record.
+DEMOTED_FROM.update({k: '2026-11-24T19:00:00Z' for k in ['nhl_skid_fade_road', 'nfl_fade_fav_bye', 'nba_ats_hot_home', 'nba_bigfav_over', 'nhl_loss_streak_over',
+    'nba_badteams_under', 'nfl_road_dog_7510', 'mlb_road_over_under', 'nba_roadtrip_over', 'nhl_bounce_home_ml', 'bounce15_1h', 'nhl_pl_fav_strong_opp',
+    'nhl_pl_fav_gap', 'nba_under_good_home_over_small', 'cfb_road_streak_dog', 'cbb_under_good_over_drop', 'awfuldog_deep', 'wind1014_cold']})
 # 11/18 (Sean): everything is 0.25u for now, every tier (favourite: to win 0.25u; plus money: risk 0.25u). Bets flagged before this keep
 # the size they were tracked at, so nothing is resized backwards.
 FLAT_QUARTER_FROM = '2026-11-18T20:30:00Z'
@@ -60,6 +74,7 @@ def tennis_cat(rule, start, old):
     return 'tennis' if rule == 'tennis_serve_dog' else 'paper P'
 def size_units(cat, rule=None, sport=None, flagged=None, start=None, against=False):
     if soccer_sharp_live(cat, sport, start, against): return 0.25
+    if nba_sharp_b_live(cat, sport, start): return NBA_SHARP_B_SIZE
     if cat == 'watch' or (cat.startswith('sharp') and (flagged or '') >= SHARP_PAPER_FROM): return 0.0
     if (flagged or '') >= FLAT_QUARTER_FROM: return 0.25
     return 0.5 if (cat in ('system A', 'system B') or (cat == 'sharp A' and sport != 'soccer') or rule in HALF_U) else 0.25
@@ -611,9 +626,12 @@ def main():
                                 roi=round(sum((1 / b['price'] - 1) if b['won'] == 1 else -1 if b['won'] == 0 else 0 for b in S_) / len(S_) * 100, 1),
                                 clv_nv=round(sum(c_) / len(c_), 2) if c_ else None, clv_n=len(c_))
     tag_stats = tag_bets(bets)
-    # 11/14 (Sean): what the board holds now: a Kalshi move against a system or lean, or a rule on the other side
+    # 11/14 (Sean): what the board holds now: a Kalshi move against a system or lean, or a rule on the other side.
+    # 11/24 (Sean): for games from KALSHI_WARN_FROM a Kalshi move against is a warning (b['kalshi_warn']), not a hold.
     for b in bets:
-        if b['cat'] in ('system A', 'system B', 'lean C', 'tennis') and ({'Kalshi move against', 'system against'} & set(b.get('tags') or [])): b['held'] = True
+        tg = set(b.get('tags') or [])
+        if 'Kalshi move against' in tg: b['kalshi_warn'] = True
+        if b['cat'] in ('system A', 'system B', 'lean C', 'tennis') and ('system against' in tg or ('Kalshi move against' in tg and kalshi_blocks(b.get('start')))): b['held'] = True
     def rest_summ(L):
         L = [b for b in L if b.get('won') in (0, 1) and b.get('rest') is not None and b.get('rest_filled') is not None and b.get('price')]
         def rec(G_, pk):

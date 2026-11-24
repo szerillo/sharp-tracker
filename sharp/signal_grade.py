@@ -23,7 +23,9 @@ PRICE = ('move', 'kmove', 'back')
 # below -5%: CLV +0.54 on 283, z 3.83; priced moneylines -1.3% at the ask). Promoted from watch to a sized paper record: every frozen
 # kmove snapshot for a game starting from KMOVE_PAPER_FROM, 1u to risk at the snapshot's Kalshi ask plus the taker fee (0.07 x p x (1 - p)),
 # graded at the snapshot's line against the final score. Paper only: no units on the board.
-KMOVE_PAPER_FROM = '2026-11-23T18:00:00Z'
+# 11/24 (Sean): reverted to the pre-checkpoint status (watch, no sized paper record). The promotion rested on a CLV z; on profit (+0.5% on
+# 1,515, about -3% after the Kalshi fee) it does not meet the profit promote line. KMOVE_PAPER_FROM None: no sized record is built.
+KMOVE_PAPER_FROM = None
 
 
 def grade(market, side, line, hs, as_):
@@ -79,7 +81,7 @@ def main():
     kp = []
     for r in rows:
         v = r['signals'].get('kmove'); s_ = r['start'] if len(r['start']) > 17 else r['start'].replace('Z', ':00Z')
-        if not v or v.get('ask') is None or s_ < KMOVE_PAPER_FROM: continue
+        if not KMOVE_PAPER_FROM or not v or v.get('ask') is None or s_ < KMOVE_PAPER_FROM: continue
         sc = res.get(r['event_id']); g = grade(r['market'], v['side'], v.get('line'), *sc) if sc else None
         if not g: continue
         p = v['ask'] / 100; pe = p + 0.07 * p * (1 - p)
@@ -96,7 +98,7 @@ def main():
                       clv_n=len(c['clv']), clv=round(sum(c['clv']) / len(c['clv']), 2) if c['clv'] else None,
                       clv_pos=round(sum(x > 0 for x in c['clv']) / len(c['clv']), 2) if c['clv'] else None)
     json.dump(dict(snapshots=len(rows), graded=graded, cells=out, kmove_paper=kmove_paper), open(OUT, 'w'), indent=1)
-    print(f"[signal_grade] kmove paper since {KMOVE_PAPER_FROM}: {kmove_paper['W']}-{kmove_paper['L']}-{kmove_paper['P']}, {kmove_paper['units']:+}u")
+    if KMOVE_PAPER_FROM: print(f"[signal_grade] kmove paper since {KMOVE_PAPER_FROM}: {kmove_paper['W']}-{kmove_paper['L']}-{kmove_paper['P']}, {kmove_paper['units']:+}u")
     print(f"[signal_grade] {len(rows)} snapshots, {graded} with a final score")
     for k, v in out.items(): print(f"  {k:40} {v['W']}-{v['L']}-{v['P']}  win {v['win']}  price {v['mean_price']}  CLV {v['clv']} on {v['clv_n']}")
 

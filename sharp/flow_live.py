@@ -22,7 +22,9 @@ PAPER = os.path.join(ROOT, 'data', 'kalshi', 'steam_rev_paper.jsonl'); RESC = os
 OTHER = {'home': 'away', 'away': 'home', 'over': 'under', 'under': 'over'}
 # steam_rev retired 11/23 (docs/checkpoint_2026-11-23.md): CLV vs the Kalshi close -0.42 on 722 (z -2.57), 365-360 -15.89u on 725 graded
 # (rule for paper-bet signals: 50+ graded, CLV at or below zero with z -1 or worse). No new paper logs; logged bets keep grading.
-STEAM_REV_RETIRED = '2026-11-23'
+# 11/24 (Sean): retirement undone. It rested on CLV only; on profit (-2.2% on 725, not significantly below break-even) it does not meet the
+# profit retire line (docs/checkpoint_rules_2026-11-02.md, 11/24 amendment). Paper logging resumes. Retired 11/23 to 11/24, nothing logged then.
+STEAM_REV_RETIRED = None
 NOW = dt.datetime.now(dt.timezone.utc)
 
 

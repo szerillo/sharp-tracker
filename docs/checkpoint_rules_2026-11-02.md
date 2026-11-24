@@ -29,3 +29,23 @@ First read at 300 graded matches (set in the methodology doc); retire early only
 
 - One week of results is never a reason to retire or promote, except under the rules above.
 - Each checkpoint writes what was read, what changed and why, in the methodology doc's change log.
+
+## Amended 2026-11-24 (Sean, via Kirk): profit only. CLV never decides
+
+This amendment replaces every CLV test above for systems, signals that are bet or paper-bet, and sharp flags. CLV stays in the tables as
+information only. The tests are realized profit: units and ROI at the prices actually taken, sample size, the chance of the result at
+break-even (binomial or bootstrap at the price-implied win probability, after any fee), and stability across halves of the sample.
+
+- **Retire:** at 50+ graded, a 5% or smaller chance of a result this bad at break-even AND ROI negative in both halves; or at 25+ graded,
+  a 1% or smaller chance. For a rule picked on a Bet Labs backtest, also require the live 90% ROI range to sit entirely below the
+  backtest's ROI (a small live sample does not overrule a large backtest without that).
+- **Review** (flag on the page, no change): at 15+ graded, a 10% or smaller chance of a result this bad at break-even.
+- **Promote, paper to live (tier C, 0.25u unless Sean sizes it):** at 100+ graded, a 10% or smaller chance of a result this good at
+  break-even after fees, AND ROI positive in both halves.
+- **Promote, watch to sized paper:** at 150+ graded, the same test.
+- **Sharp flags (replaces the 11/10 "until they beat Pinnacle's close"):** a sport x grade slice goes live only on the promote line above.
+- **Tennis first-set favourites:** first read at 300; retire early only at 100+ with a 5% or smaller chance of a result this bad.
+- **Unchanged:** one week is never enough on its own; each checkpoint writes what it read and why; no rule or status change without Sean.
+
+Re-decided under these lines on 11/24 (docs/decisions_2026-11-24.md): the 11/23 retirements of cfb_road_dog_low_total and steam_rev and
+the 11/23 promotion of Kalshi 4+ movers to sized paper are undone, since none meets the profit retire or promote bar.
