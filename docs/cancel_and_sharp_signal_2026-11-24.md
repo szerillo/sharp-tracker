@@ -304,3 +304,140 @@ all plays, by move size and timing.
 - History picks are graded at Pinnacle's close at flat 1u to risk. Polymarket fills are graded at the sharps' own price.
 - Scripts are in the session scratch directory: `cs/a.py` (forward cancel tests), `cs/b.py` + `cs/d.py` (history), `cs/c.py`
   (sharp flags). Outputs: `goal1_fwd.json`, `goal2.json`, `hist_picks.json`.
+
+## 4. kalshi_nhl_flow: promote or not (Kirk / Sean follow-up, 11/24 afternoon)
+
+**What was checked:**
+- **Grades.**
+  - All 348 rows were re-graded from final scores (`data/state/results.jsonl`) and compared with the rule's own grades.
+  - **Grading fault found and fixed (commit 5f5a06ce).** The rule's grader read every spread line as the home team's handicap. On
+    Kalshi tickers whose YES team is the visitor (for example KXNHLSPREAD-26NOV05DALCBJ-DAL2, Dallas -1.5 on the road), the line is
+    the visitor's handicap, so those rows were graded backwards.
+    - 10 of 91 spread rows were wrong. 7 had been counted as wins, most of them +200-type puck lines.
+    - The grader now reads the YES team from the ticker and re-grades every spread row each run.
+  - Separately, 8 of the rows I graded from final scores on the morning of 11/24 (the fallback) were wrong the same way. That fed the
+    "+0.7%" figure; the rule's own grades replaced them later that day.
+  - With the fix, ml and total grades all match the final scores, and spreads match after correction.
+- **Prices.**
+  - The paper price is the last trade on the tape. Every result below is shown three ways: at that price, at that price plus the
+    Kalshi taker fee (0.07 x p x (1 - p) per contract), and at the executable cost.
+  - The executable cost is the YES ask, or 1 - YES bid for the NO side, from the 20-minute Kalshi quotes nearest the log time. Those
+    quotes only exist from 11/14, so this covers 178 rows; the median quote is 12 minutes old.
+  - On those 178 rows the tape price matched the executable cost closely: median gap 0, mean +0.2c. So the tape price plus the fee is
+    a fair stand-in for the earlier rows.
+- **Method.** Flat 1u to risk. The 90% range comes from a bootstrap that resamples whole games, because the ml, spread and total rows
+  on one game are correlated. p = the one-sided chance of a result this good at break-even.
+
+**Results (corrected grades):**
+
+| Slice | n | Record | Tape | Tape + fee | Executable + fee (n) |
+|---|---|---|---|---|---|
+| All | 348 | 199-149 | +7.2% (p 0.09) | **+3.8%** (p 0.23; 90% range -5% to +13%) | -6.9% (178) |
+| Games before 11/15 | 175 | 111-64 | +17.4% | **+13.8%** (p 0.03) | n/a (6) |
+| Games from 11/15 | 173 | 88-85 | -3.2% | **-6.3%** | -7.2% (172) |
+| Week of 11/2 | 81 | 53-28 | +13.9% | +10.7% | n/a |
+| Week of 11/9 | 114 | 66-48 | +13.6% | +9.9% | -15.5% (26) |
+| Week of 11/16 | 128 | 65-63 | -3.1% | -6.3% | -6.5% (128) |
+| Week of 11/23 | 25 | 15-10 | +8.6% | +5.3% | +0.8% (24) |
+| Moneyline | 124 | 77-47 | +8.9% | +5.7% | -16.7% (67) |
+| Spread | 91 | 48-43 | +13.7% | +9.6% | -17.5% (46) |
+| Total | 133 | 74-59 | +1.1% | -2.0% | +10.8% (65) |
+| Home or over side | 222 | 118-104 | -3.5% | -6.4% | -11.6% (110) |
+| Away or under side | 126 | 81-45 | +25.9% | +21.8% | +0.8% (68) |
+| One row per game (first logged) | 132 | 70-62 | +0.2% | -2.9% | -4.5% (71) |
+| Graded before 11/24 | 34 | 20-14 | -3.9% | -6.4% | n/a |
+| Graded only on 11/24 | 314 | 179-135 | +8.4% | +4.9% | -6.9% (178) |
+
+All 348 rows are November games (11/5 to 11/24), so a by-month split is just this one month.
+
+**Is the second-half surge real or a grading artifact?**
+- It is a **timing artifact of the grading, not of the games.**
+  - 314 of the 348 rows were graded only on 11/24, because the schedule file the grader reads had stopped updating on 11/6 (fixed
+    11/24).
+  - Those late-graded rows span the whole month. Split by game date, the money was made in **11/5 to 11/14 (+13.8% after fees on
+    175)**. Games from 11/15 on are **-6.3% on 173**, and -7.2% at executable prices.
+  - Any split by when a row was graded therefore shows a "surge" at the end that is really early-November games landing at once.
+- The early profit is concentrated in away and under sides, and the spread rows there are the ones the grading fix touched most. The
+  10 corrected spread rows cost 6.7u at 1u.
+
+**Profit-only promote line** (100+ graded, a 10% or smaller chance of a result this good at break-even after fees, ROI positive in both
+halves):
+- 348 graded: yes.
+- p 0.23 after fees: **no**.
+- Halves +13.8% / -6.3%: **no**.
+- One bet per game: -2.9%.
+
+**Recommendation: do not promote.** Keep it on paper.
+- Mechanism (one sentence): late one-sided taker flow on Kalshi may carry late news, but after the fee and at the price that could be
+  bought, the last ten days of games show nothing.
+- Re-read when 100 rows have a logged executable price. From today each new row records the Kalshi ask and the fee at the log time.
+- **If it is promoted later:**
+  - 0.25u, the minimum.
+  - One bet per game: the market with the largest flow share, since the three markets on a game move together.
+  - Only when the executable cost plus the fee is under the price the rule was tested on.
+
+## 5. stale_book: real edge or stale-feed artifact?
+
+**What was checked:**
+- The rule logs a venue price 2%+ better than Pinnacle's no-vig fair right after Pinnacle moved toward that side.
+- For each paper row from 11/14 on (the stored 20-minute tick tape starts then), the venue's own quotes were read around the flag:
+  - **Feed refresh:** the share of that venue's quotes in the sport unchanged from its previous snapshot. 95%+ unchanged means the
+    feed had not refreshed.
+  - **Freshness of the quote:** how long the flagged price had been unchanged at the flag.
+  - **Was the flagged price on the tape:** whether the logged price appears in the venue's quotes within 25 minutes of the flag.
+  - **Was it bettable:** Novig's wide-book flag, and whether the price was still there 20 minutes later or had gone.
+- 140 of 144 rows from 11/14 could be audited. The 119 rows before 11/14 cannot be audited: no tick tape is kept that far back.
+
+| Slice | n | Record | ROI (1u, flat) | p (one-sided) |
+|---|---|---|---|---|
+| All stale_book rows | 263 | 120-143 | +0.4% | 0.47 |
+| Original version (2%+, any venue) | 253 | 116-137 | +1.2% | 0.43 |
+| sb4 version (sportsbook moneyline 4%+) | 10 | 4-6 | -20.0% | 0.71 |
+| Before 11/14 (cannot be audited) | 119 | 42-77 | **-23.4%** | 0.99 |
+| 11/14 on, audited | 140 | 76-64 | **+19.7%** | 0.02 |
+| Feed had not refreshed (95%+ unchanged) | 6 | 2-4 | -24.7% | |
+| Price unchanged 60+ minutes at the flag | 24 | 12-12 | +8.6% | |
+| Logged price NOT found on the tape within 25 min | 60 | 30-30 | +4.8% | 0.37 |
+| Logged price found on the tape | 80 | 46-34 | +30.9% | 0.007 |
+| Clean: feed refreshed, price fresh, not wide, on the tape | 56 | 34-22 | +40.5% | 0.004 |
+| Clean, CBB | 37 | 23-14 | +45.8% | |
+| Clean, NBA | 11 | 7-4 | +45.3% | |
+| Novig CBB, before 11/14 / from 11/14 | 55 / 73 | | -9.1% / +40.2% | |
+
+**What this says:**
+- **A frozen feed is not the problem.** Only 6 audited rows came from a feed that had not refreshed. 116 of 140 flagged prices had
+  changed within the hour, and 101 were still there (or better) 20 minutes later.
+- **But 60 of 140 rows (43%) logged a price that the stored tape does not show within 25 minutes of the flag.** Those rows are
+  break-even (+4.8%). The rows whose price can be confirmed are +31%. That fits Sean's suspicion in a different form: a large share of
+  rows rest on a price we cannot show was there.
+- **The rule's own history does not hold together.**
+  - -23% on its first 119 rows (11/6 to 11/13), then +20% on the next 144.
+  - Novig CBB alone swings from -9% to +40%.
+  - Overall it is +0.4% on 263. The first stretch cannot be audited, so we cannot tell whether the early losses were artifacts too.
+- **Profit lines:**
+  - Promote fails: the halves have opposite signs.
+  - Retire also fails: overall it is not significantly below break-even.
+
+**Recommendation:**
+- **Kill sb4** (4-6, and a 4%+ sportsbook gap that does not move with Pinnacle is the version most likely to be a stale feed).
+- **Keep the original on paper only with the audit fields now logged**, and judge it only on rows whose price can be confirmed:
+  - From today each row records the venue quote's own snapshot time, the Pinnacle snapshot it was compared with, the depth at the best
+    price and the wide flag (commit a6f30241).
+  - If its first 100 auditable rows are not positive in both halves, kill it.
+- If Sean would rather not carry a rule whose 263-row record is flat, killing it now is a defensible logic call. The profit lines
+  neither require it nor forbid it.
+
+## 6. tennis_serve_dog on the board
+
+- **The board already shows it as live**, tier B, 0.25u:
+  - The Today rows read "Match winner · big-serving underdog, tier B · 0.25u", with a size and a bet button.
+  - The bet log carries every match from 11/17 04:00Z on as a real-money "tennis" row.
+- **Why about 72 serve-dog rows are paper-graded:**
+  - They are the history from before the policy. The rule was logged on paper from 11/5, and on 11/16 evening Sean made it the only
+    real-money tennis angle for matches starting from 11/17 04:00Z.
+  - The 81 serve-dog matches that started earlier (11/5 to 11/16) keep their paper category so nothing is backdated: 72 graded, 8
+    with no result (not played as listed), 1 excluded.
+  - None of them are skipped or unfillable live bets.
+  - Since the policy: 30 graded real-money rows, 3 open, 5 excluded (voids and walkovers).
+- **One display fix (commit 043a17a2).** The bet tracker page put every serve-dog row in the systems group as tier B, including the
+  pre-policy paper rows. It now shows those as paper; live rows are unchanged.
