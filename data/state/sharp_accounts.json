@@ -1,5 +1,5 @@
 {
- "built": "2026-11-24T21:11:36Z",
+ "built": "2026-11-24T21:27:13Z",
  "rows": [
   {
    "cond": "0xdd59f8d0c10ce4b29250ead31df8fc5dc89362085d890288d09c041043275b04",
@@ -317,55 +317,6 @@
    "fair_board": null,
    "inside_fair": null,
    "books": null
-  },
-  {
-   "cond": "0x8d5e15cc4185a45f01d7d46510f86e0a8560d88b5da3ccf66e098f45cdbdac8b",
-   "slug": "nba-det-orl-2026-11-24",
-   "title": "Pistons vs. Magic",
-   "mtype": "ml",
-   "start": "2026-11-25T00:00:00Z",
-   "bet": "Pistons ML",
-   "side": "Pistons",
-   "flagged": "2026-11-23T22:00:55Z",
-   "why": "3 top-200 accounts",
-   "proven": false,
-   "trigger": "two",
-   "n_accounts": 3,
-   "best_rank": 43,
-   "usd": 4897,
-   "paid": 0.569,
-   "ask": 0.55,
-   "status": "live",
-   "link": "https://polymarket.us/event/nba-det-orl-2026-11-24",
-   "other": null,
-   "kalshi_against": null,
-   "logged": true,
-   "event_id": "401909314",
-   "sport": "nba",
-   "league": null,
-   "away": "DET",
-   "home": "ORL",
-   "away_name": "Detroit Pistons",
-   "home_name": "Orlando Magic",
-   "game_start": "2026-11-25T00:00Z",
-   "side_std": "away",
-   "conflict": [
-    "big money"
-   ],
-   "money_with": false,
-   "grade": "B",
-   "fair_board": 0.5446,
-   "inside_fair": false,
-   "books": {
-    "at": "2026-11-24T20:58:15Z",
-    "fair": 0.5446,
-    "q": {
-     "Novig": 0.545,
-     "Caesars": 0.5556,
-     "DK": 0.5652,
-     "Kalshi": 0.57
-    }
-   }
   },
   {
    "cond": "0x33b28ef1935c041a6b7d7e54459877daaadd57b3363a0ab18318b355e2c194f8",
@@ -1204,6 +1155,60 @@
    "books": null
   },
   {
+   "cond": "0x8d5e15cc4185a45f01d7d46510f86e0a8560d88b5da3ccf66e098f45cdbdac8b",
+   "slug": "nba-det-orl-2026-11-24",
+   "title": "Pistons vs. Magic",
+   "mtype": "ml",
+   "start": "2026-11-25T00:00:00Z",
+   "bet": "Pistons ML",
+   "side": "Pistons",
+   "flagged": "2026-11-23T22:00:55Z",
+   "why": "3 top-200 accounts",
+   "proven": false,
+   "trigger": "two",
+   "n_accounts": 3,
+   "best_rank": 43,
+   "usd": 4897,
+   "paid": 0.569,
+   "ask": 0.55,
+   "status": "live",
+   "link": "https://polymarket.us/event/nba-det-orl-2026-11-24",
+   "other": null,
+   "kalshi_against": {
+    "move": 5.0,
+    "now": 46.5,
+    "state": "drift"
+   },
+   "logged": true,
+   "event_id": "401909314",
+   "sport": "nba",
+   "league": null,
+   "away": "DET",
+   "home": "ORL",
+   "away_name": "Detroit Pistons",
+   "home_name": "Orlando Magic",
+   "game_start": "2026-11-25T00:00Z",
+   "side_std": "away",
+   "conflict": [
+    "Kalshi move",
+    "big money"
+   ],
+   "money_with": false,
+   "grade": "B",
+   "fair_board": 0.5446,
+   "inside_fair": false,
+   "books": {
+    "at": "2026-11-24T20:58:15Z",
+    "fair": 0.5446,
+    "q": {
+     "Novig": 0.545,
+     "Caesars": 0.5556,
+     "DK": 0.5652,
+     "Kalshi": 0.57
+    }
+   }
+  },
+  {
    "cond": "0x196eac8fd4ebf4f30ca62ca96b9a62f910e5f5b725f0c070713bceabbe738aee",
    "slug": "ucl-lil-bay-2026-11-25",
    "title": "Lille OSC vs. FC Bayern M\u00fcnchen",
@@ -1308,7 +1313,7 @@
    "best_rank": 93,
    "usd": 967,
    "paid": 0.497,
-   "ask": 0.49,
+   "ask": 0.5,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-min-okc-2026-11-25",
    "other": {
@@ -1317,7 +1322,7 @@
     "usd": 478,
     "first": "2026-11-23T09:44:19Z"
    },
-   "exit_bid": 0.48,
+   "exit_bid": 0.49,
    "kalshi_against": null,
    "logged": true,
    "event_id": "401909320",
