@@ -13,6 +13,7 @@ on:
       hours: {description: 'UTC hours, comma separated (0,3 = 7 PM and 10 PM ET tips)', default: '0,3', required: false}
       dow: {description: 'weekdays 0=Mon..6=Sun, blank = every day', default: '', required: false}
       budget: {description: 'max credits this run', default: '2000', required: false}
+      schedule_from: {description: 'YYYY-MM-DD: also refresh final scores (data/state/hist_schedule.json) from this date to yesterday', default: '', required: false}
 permissions:
   contents: write
 concurrency:
@@ -35,15 +36,22 @@ jobs:
           if [ "$DOW" = "6" ]; then python3 loggers/oddsapi_hist.py --sport cfb --from $Y --to $Y --hours 16,19,23,0,3 --budget 200 || true; fi
           if [ "$DOW" = "7" ]; then python3 loggers/oddsapi_hist.py --sport nfl --from $Y --to $Y --hours 17,20,0 --budget 100 || true; fi
           if [ "$DOW" = "1" ] || [ "$DOW" = "4" ]; then python3 loggers/oddsapi_hist.py --sport nfl --from $Y --to $Y --hours 0 --budget 50 || true; fi
+          # 11/24: weekday CFB (Tue-Fri night games) was never pulled
+          if [ "$DOW" -ge 2 ] && [ "$DOW" -le 5 ]; then python3 loggers/oddsapi_hist.py --sport cfb --from $Y --to $Y --hours 0,3 --budget 60 || true; fi
+      - name: final scores for the odds database (11/24; hist_schedule.json had not been refreshed since 11/6, so November games had no results)
+        if: github.event_name == 'schedule' || inputs.schedule_from != ''
+        run: |
+          F="${{ inputs.schedule_from }}"; [ -z "$F" ] && F=$(TZ=America/New_York date -d '4 days ago' +%F)
+          python3 -m sharp.hist_schedule "$F" $(TZ=America/New_York date -d 'yesterday' +%F) nfl,nba,nhl,cfb,cbb,mma,epl,laliga,bundesliga,seriea,ligue1,mls,ucl || true
       - name: backfill (manual)
-        if: github.event_name == 'workflow_dispatch'
+        if: github.event_name == 'workflow_dispatch' && inputs.from != ''
         env: {ODDS_API_KEY: '${{ secrets.ODDS_API_KEY }}'}
         run: python3 loggers/oddsapi_hist.py --sport "${{ inputs.sport }}" --from "${{ inputs.from }}" --to "${{ inputs.to }}" --hours "${{ inputs.hours }}" ${{ inputs.dow && format('--dow {0}', inputs.dow) || '' }} --budget "${{ inputs.budget }}"
       - name: commit
         if: always()
         run: |
           git config user.name "tracker-bot"; git config user.email "actions@users.noreply.github.com"
-          git add -A data/oddsapi
+          git add -A data/oddsapi data/state/hist_schedule.json
           git commit -q -m "odds history $(date -u +%Y-%m-%d)" || exit 0
           for i in 1 2 3 4 5; do
             if git pull -q --rebase -X theirs --no-tags origin main && git push -q; then exit 0; fi

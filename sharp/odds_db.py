@@ -40,7 +40,10 @@ def compact_rows(plans=None):
                 for l in fh:
                     try: r = json.loads(l)
                     except Exception: continue
-                    r['sport'] = SPORT_OF_PLAN.get(plan, plan.rstrip('0123456789')); yield r
+                    # 11/24: plans named <sport>_lines_at (lines at fixed minutes before the start, sharp 11/9) are that sport. Read as their
+                    # own sport, the 2026 NFL and boxing games were filed under 'nfl_lines_at' / 'boxing_lines_at' (the first file to name
+                    # the game wins), so every 2026 NFL game was missing from sport='nfl' and got no result.
+                    sp_ = SPORT_OF_PLAN.get(plan, plan.rstrip('0123456789')); r['sport'] = sp_[:-len('_lines_at')] if sp_.endswith('_lines_at') else sp_; yield r
         except (EOFError, OSError): pass       # a file still being written: the complete lines are in
 
 
