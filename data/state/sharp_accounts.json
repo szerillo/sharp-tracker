@@ -1,5 +1,5 @@
 {
- "built": "2026-11-24T22:35:03Z",
+ "built": "2026-11-24T22:51:37Z",
  "rows": [
   {
    "cond": "0x260181c232ce8b8951da6c3e3c033353ad89e8c5c53c6b426d00a900ad5b6f37",
@@ -230,7 +230,7 @@
    "best_rank": 116,
    "usd": 116,
    "paid": 0.46,
-   "ask": 0.45,
+   "ask": 0.49,
    "status": "live",
    "link": "https://polymarket.us/event/cbb-queen-woff-2026-11-24",
    "other": null,
@@ -752,55 +752,6 @@
    }
   },
   {
-   "cond": "0x1086efe8518a09ccfe6c89f4547d59b151ceae74ce0df9727bcd3ac1640631ca",
-   "slug": "nba-cle-nyk-2026-11-25",
-   "title": "Cavaliers vs. Knicks",
-   "mtype": "ml",
-   "start": "2026-11-26T00:30:00Z",
-   "bet": "Cavaliers ML",
-   "side": "Cavaliers",
-   "flagged": "2026-11-23T03:01:13Z",
-   "why": "2 top-200 accounts",
-   "proven": true,
-   "trigger": "proven",
-   "n_accounts": 2,
-   "best_rank": 40,
-   "usd": 3767,
-   "paid": 0.379,
-   "ask": 0.41,
-   "status": "live",
-   "link": "https://polymarket.us/event/nba-cle-nyk-2026-11-25",
-   "other": null,
-   "kalshi_against": null,
-   "logged": true,
-   "event_id": "401909319",
-   "sport": "nba",
-   "league": null,
-   "away": "CLE",
-   "home": "NY",
-   "away_name": "Cleveland Cavaliers",
-   "home_name": "New York Knicks",
-   "game_start": "2026-11-26T00:30Z",
-   "side_std": "away",
-   "conflict": [
-    "Kalshi bet back"
-   ],
-   "money_with": false,
-   "grade": "A",
-   "fair_board": 0.3633,
-   "inside_fair": false,
-   "books": {
-    "at": "2026-11-24T22:00:45Z",
-    "fair": 0.3633,
-    "q": {
-     "Novig": 0.365,
-     "DK": 0.3774,
-     "Caesars": 0.3876,
-     "Kalshi": 0.39
-    }
-   }
-  },
-  {
    "cond": "0x3f7bc5349ea9961614e2fc1437ce37df5655ef6a68e0cbfbe853229a9fe7c540",
    "slug": "nba-lac-mem-2026-11-25",
    "title": "Clippers vs. Grizzlies",
@@ -863,7 +814,7 @@
    "best_rank": 104,
    "usd": 103,
    "paid": 0.4,
-   "ask": 0.39,
+   "ask": 0.4,
    "status": "live",
    "link": "https://polymarket.us/event/nba-sas-por-2026-11-25",
    "other": null,
@@ -881,7 +832,7 @@
    "money_with": false,
    "grade": "watch",
    "fair_board": 0.3976,
-   "inside_fair": true,
+   "inside_fair": false,
    "books": {
     "at": "2026-11-24T22:00:45Z",
     "fair": 0.3976,
@@ -1160,7 +1111,7 @@
    "best_rank": 31,
    "usd": 887,
    "paid": 0.316,
-   "ask": 0.42,
+   "ask": 0.41,
    "status": "other side",
    "link": "https://polymarket.us/event/ucl-lil-bay-2026-11-25",
    "other": {
@@ -1169,7 +1120,7 @@
     "usd": 511,
     "first": "2026-11-21T12:26:43Z"
    },
-   "exit_bid": 0.41,
+   "exit_bid": 0.4,
    "kalshi_against": null,
    "logged": true,
    "event_id": "401915377",
