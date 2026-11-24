@@ -1,5 +1,5 @@
 {
- "built": "2026-11-24T01:11:58Z",
+ "built": "2026-11-24T01:49:59Z",
  "rows": [
   {
    "cond": "0xc2f71a6f70924ac2b643b8c5c51204cb20b2c44b0c9812c588b681f1c433d790",
@@ -1507,7 +1507,11 @@
  },
  "sys_tags": {
   "401910045:nba_roadtrip_over": {
-   "with": null,
+   "with": {
+    "n": 1,
+    "best_rank": 112,
+    "usd": 1914
+   },
    "against": {
     "n": 1,
     "best_rank": 132,
@@ -1554,6 +1558,11 @@
     "n": 1,
     "best_rank": 132,
     "usd": 1168
+   },
+   "over": {
+    "n": 1,
+    "best_rank": 112,
+    "usd": 1914
    }
   },
   "401909314|ml": {
