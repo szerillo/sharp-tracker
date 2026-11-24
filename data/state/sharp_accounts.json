@@ -1,5 +1,5 @@
 {
- "built": "2026-11-24T23:07:51Z",
+ "built": "2026-11-24T23:30:34Z",
  "rows": [
   {
    "cond": "0x260181c232ce8b8951da6c3e3c033353ad89e8c5c53c6b426d00a900ad5b6f37",
@@ -316,7 +316,7 @@
    "best_rank": 58,
    "usd": 480,
    "paid": 0.52,
-   "ask": 0.56,
+   "ask": 0.55,
    "status": "live",
    "link": "https://polymarket.us/event/cfb-kentst-emich-2026-11-24",
    "other": null,
@@ -888,7 +888,7 @@
    "best_rank": 49,
    "usd": 262,
    "paid": 0.34,
-   "ask": 0.35,
+   "ask": 0.34,
    "status": "live",
    "link": "https://polymarket.us/event/nba-sac-gsw-2026-11-25",
    "other": null,
@@ -1133,15 +1133,17 @@
    "best_rank": 43,
    "usd": 4897,
    "paid": 0.569,
-   "ask": 0.55,
-   "status": "live",
+   "ask": 0.48,
+   "status": "other side",
    "link": "https://polymarket.us/event/nba-det-orl-2026-11-24",
-   "other": null,
-   "kalshi_against": {
-    "move": 5.0,
-    "now": 46.5,
-    "state": "drift"
+   "other": {
+    "n_accounts": 5,
+    "best_rank": 23,
+    "usd": 143025,
+    "first": "2026-11-24T23:30:07Z"
    },
+   "exit_bid": 0.47,
+   "kalshi_against": null,
    "logged": true,
    "event_id": "401909314",
    "sport": "nba",
@@ -1152,23 +1154,11 @@
    "home_name": "Orlando Magic",
    "game_start": "2026-11-25T00:00Z",
    "side_std": "away",
-   "conflict": [
-    "Kalshi move"
-   ],
    "money_with": false,
    "grade": "B",
-   "fair_board": 0.5404,
-   "inside_fair": false,
-   "books": {
-    "at": "2026-11-24T22:00:45Z",
-    "fair": 0.5404,
-    "q": {
-     "Novig": 0.54,
-     "Caesars": 0.5455,
-     "DK": 0.5652,
-     "FD": 0.569
-    }
-   }
+   "fair_board": 0.5435,
+   "inside_fair": true,
+   "books": null
   },
   {
    "cond": "0x196eac8fd4ebf4f30ca62ca96b9a62f910e5f5b725f0c070713bceabbe738aee",
@@ -1419,6 +1409,18 @@
     "n": 3,
     "best_rank": 43,
     "usd": 4897
+   },
+   "home": {
+    "n": 5,
+    "best_rank": 23,
+    "usd": 20209
+   }
+  },
+  "401909314|spread": {
+   "home": {
+    "n": 1,
+    "best_rank": 112,
+    "usd": 1254
    }
   },
   "401909316|total": {
