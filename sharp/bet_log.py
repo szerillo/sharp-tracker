@@ -228,7 +228,7 @@ def board_status(bets):
         tg = set(b.get('tags') or []); st, why = 'bet', ''
         if b.get('excluded') or b.get('lapsed'): st, why = 'dropped', b.get('excluded') or 'trigger lapsed'
         elif b.get('counted') is False: st, why = 'dropped', 'conflicting systems cancel'
-        elif b['cat'] == 'watch' or not b.get('size'): st, why = 'paper', 'paper or watch only: no units'
+        elif b['cat'] == 'watch' or (b.get('cat') or '').startswith('paper') or not b.get('size'): st, why = 'paper', 'paper or watch only: not a bet'   # 11/24 fix: paper rows carry a paper size; never 'bet'
         elif b.get('src') == 'sharp':
             r = SAR.get(b['id'][2:]) if b['id'].startswith('p:') else None
             ag = [t.replace(' against', '') for t in HOLD_TAGS if t in tg] + (['Kalshi move'] if 'Kalshi move against' in tg and kalshi_blocks(st_) else [])
