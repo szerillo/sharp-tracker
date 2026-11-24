@@ -1,5 +1,5 @@
 {
- "built": "2026-11-24T03:37:29Z",
+ "built": "2026-11-24T03:44:58Z",
  "rows": [
   {
    "cond": "0xc2f71a6f70924ac2b643b8c5c51204cb20b2c44b0c9812c588b681f1c433d790",
@@ -462,6 +462,43 @@
    "books": null
   },
   {
+   "cond": "0x0272bcbd8c5bfcefb780c8d4e1d9c76b139aa7b3aea5e45a7d1b5b7f08c08295",
+   "slug": "cbb-queen-woff-2026-11-24",
+   "title": "Queens (NC) Royals vs. Wofford Terriers",
+   "mtype": "total",
+   "start": "2026-11-24T23:00:00Z",
+   "bet": "Over 174.5",
+   "side": "Over",
+   "flagged": "2026-11-24T03:38:38Z",
+   "why": "a top-200 account also in this sport's top 50",
+   "proven": true,
+   "trigger": "proven",
+   "n_accounts": 1,
+   "best_rank": 116,
+   "usd": 116,
+   "paid": 0.46,
+   "ask": 0.46,
+   "status": "live",
+   "link": "https://polymarket.us/event/cbb-queen-woff-2026-11-24",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401922231",
+   "sport": "cbb",
+   "league": null,
+   "away": "QUC",
+   "home": "WOF",
+   "away_name": "Queens University Royals",
+   "home_name": "Wofford Terriers",
+   "game_start": "2026-11-24T23:00Z",
+   "side_std": "over",
+   "money_with": false,
+   "grade": "A",
+   "fair_board": null,
+   "inside_fair": null,
+   "books": null
+  },
+  {
    "cond": "0x8d5e15cc4185a45f01d7d46510f86e0a8560d88b5da3ccf66e098f45cdbdac8b",
    "slug": "nba-det-orl-2026-11-24",
    "title": "Pistons vs. Magic",
@@ -477,7 +514,7 @@
    "best_rank": 49,
    "usd": 4700,
    "paid": 0.57,
-   "ask": 0.54,
+   "ask": 0.55,
    "status": "live",
    "link": "https://polymarket.us/event/nba-det-orl-2026-11-24",
    "other": null,
@@ -495,7 +532,7 @@
    "money_with": false,
    "grade": "B",
    "fair_board": 0.5457,
-   "inside_fair": true,
+   "inside_fair": false,
    "books": {
     "at": "2026-11-24T02:24:33Z",
     "fair": 0.5457,
@@ -523,7 +560,7 @@
    "best_rank": 79,
    "usd": 3870,
    "paid": 0.51,
-   "ask": 0.53,
+   "ask": 0.52,
    "status": "live",
    "link": "https://polymarket.us/event/nhl-las-edm-2026-11-24",
    "other": null,
@@ -1500,15 +1537,15 @@
     "clv": -0.16
    }
   },
-  "n": 418,
-  "won": 201,
+  "n": 419,
+  "won": 202,
   "units": -16.04,
   "by_grade": {
    "A": {
-    "n": 274,
-    "won": 125,
+    "n": 275,
+    "won": 126,
     "units": -14.85,
-    "clv": -0.14
+    "clv": -0.13
    },
    "B": {
     "n": 100,
@@ -1523,8 +1560,8 @@
     "clv": -0.03
    }
   },
-  "units_1u": -22.41,
-  "clv": -0.37,
+  "units_1u": -21.94,
+  "clv": -0.35,
   "n_venue": 221,
   "units_venue": -5.81,
   "clv_venue": 0.98,
@@ -1612,6 +1649,13 @@
     "n": 1,
     "best_rank": 116,
     "usd": 477
+   }
+  },
+  "401922231|total": {
+   "over": {
+    "n": 1,
+    "best_rank": 116,
+    "usd": 116
    }
   },
   "401915300|total": {
