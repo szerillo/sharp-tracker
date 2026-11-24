@@ -1,5 +1,5 @@
 {
- "built": "2026-11-24T01:11:58Z",
+ "built": "2026-11-24T02:21:30Z",
  "rows": [
   {
    "cond": "0xc2f71a6f70924ac2b643b8c5c51204cb20b2c44b0c9812c588b681f1c433d790",
@@ -36,16 +36,7 @@
    "grade": "B",
    "inside_fair": false,
    "fair_board": 0.4027,
-   "books": {
-    "at": "2026-11-23T23:27:13Z",
-    "fair": 0.4216,
-    "q": {
-     "Novig": 0.425,
-     "FD": 0.4386,
-     "Caesars": 0.4425,
-     "DK": 0.4444
-    }
-   }
+   "books": null
   },
   {
    "cond": "0xfb64c2863568a8c3e9151644236d69de2584d19dea0bb3b736c07b19182200e1",
@@ -82,16 +73,7 @@
    "grade": "B",
    "inside_fair": false,
    "fair_board": 0.506,
-   "books": {
-    "at": "2026-11-23T23:27:13Z",
-    "fair": 0.4927,
-    "q": {
-     "Caesars": 0.5,
-     "DK": 0.5146,
-     "FD": 0.5238,
-     "Novig": 0.56
-    }
-   }
+   "books": null
   },
   {
    "cond": "0xbfdbbfce25f73ad13c92460321a00518f7ac82b59b3ad06ef3430bc30b045fcf",
@@ -228,15 +210,15 @@
    "side_std": "home",
    "money_with": false,
    "grade": "A",
-   "fair_board": 0.5053,
+   "fair_board": 0.5068,
    "inside_fair": null,
    "books": {
-    "at": "2026-11-24T00:59:50Z",
-    "fair": 0.5053,
+    "at": "2026-11-24T01:03:38Z",
+    "fair": 0.5068,
     "q": {
      "Novig": 0.51,
-     "Kalshi": 0.52,
      "Caesars": 0.5238,
+     "DK": 0.5238,
      "FD": 0.5283
     }
    }
@@ -317,13 +299,13 @@
    "inside_fair": true,
    "fair_board": 0.5034,
    "books": {
-    "at": "2026-11-24T00:59:50Z",
-    "fair": 0.5078,
+    "at": "2026-11-24T02:03:51Z",
+    "fair": 0.4985,
     "q": {
-     "Novig": 0.515,
+     "Novig": 0.5,
+     "DK": 0.5192,
      "Caesars": 0.5238,
-     "DK": 0.5283,
-     "FD": 0.5349
+     "Kalshi": 0.53
     }
    }
   },
@@ -400,7 +382,7 @@
    "fair_board": null,
    "inside_fair": null,
    "books": {
-    "at": "2026-11-24T00:59:50Z",
+    "at": "2026-11-24T02:03:51Z",
     "fair": null,
     "q": {
      "Novig": 0.59
@@ -480,8 +462,8 @@
    "inside_fair": false,
    "fair_board": 0.4068,
    "books": {
-    "at": "2026-11-24T00:59:50Z",
-    "fair": null,
+    "at": "2026-11-24T02:03:51Z",
+    "fair": 0.4283,
     "q": {
      "Novig": 0.435,
      "Kalshi": 0.45
@@ -558,14 +540,16 @@
    "side_std": "away",
    "money_with": false,
    "grade": "B",
-   "fair_board": null,
-   "inside_fair": null,
+   "fair_board": 0.5471,
+   "inside_fair": false,
    "books": {
-    "at": "2026-11-24T00:59:50Z",
-    "fair": null,
+    "at": "2026-11-24T02:03:51Z",
+    "fair": 0.5471,
     "q": {
-     "Novig": 0.56,
-     "Kalshi": 0.58
+     "Novig": 0.555,
+     "Caesars": 0.5556,
+     "DK": 0.5556,
+     "FD": 0.5575
     }
    }
   },
@@ -602,13 +586,13 @@
    "side_std": "away",
    "money_with": false,
    "grade": "A",
-   "fair_board": 0.5126,
+   "fair_board": 0.5151,
    "inside_fair": false,
    "books": {
-    "at": "2026-11-24T00:59:50Z",
-    "fair": 0.5126,
+    "at": "2026-11-24T02:03:51Z",
+    "fair": 0.5151,
     "q": {
-     "Novig": 0.515,
+     "Novig": 0.52,
      "Caesars": 0.5305,
      "FD": 0.5349,
      "Kalshi": 0.54
@@ -800,10 +784,10 @@
    "fair_board": null,
    "inside_fair": null,
    "books": {
-    "at": "2026-11-24T00:59:50Z",
+    "at": "2026-11-24T02:03:51Z",
     "fair": null,
     "q": {
-     "Novig": 0.185
+     "Novig": 0.18
     }
    }
   },
@@ -991,11 +975,11 @@
    "side_std": "under",
    "money_with": false,
    "grade": "A",
-   "fair_board": 0.5099,
+   "fair_board": 0.5134,
    "inside_fair": false,
    "books": {
-    "at": "2026-11-24T00:59:50Z",
-    "fair": 0.5099,
+    "at": "2026-11-24T02:03:51Z",
+    "fair": 0.5134,
     "q": {
      "Novig": 0.52,
      "Kalshi": 0.53
@@ -1105,7 +1089,7 @@
    "side_std": "away",
    "money_with": false,
    "grade": "B",
-   "fair_board": 0.199,
+   "fair_board": null,
    "inside_fair": null,
    "books": null
   },
@@ -1148,7 +1132,7 @@
    "side_std": "home",
    "money_with": false,
    "grade": "A",
-   "fair_board": 0.7104,
+   "fair_board": null,
    "inside_fair": null,
    "books": null
   },
@@ -1191,7 +1175,7 @@
    "side_std": "home",
    "money_with": false,
    "grade": "A",
-   "fair_board": 0.592,
+   "fair_board": null,
    "inside_fair": null,
    "books": null
   },
@@ -1234,7 +1218,7 @@
    "side_std": "home",
    "money_with": false,
    "grade": "B",
-   "fair_board": 0.372,
+   "fair_board": null,
    "inside_fair": null,
    "books": null
   },
@@ -1297,7 +1281,7 @@
    "best_rank": 69,
    "usd": 239,
    "paid": 0.52,
-   "ask": 0.53,
+   "ask": 0.52,
    "status": "other side",
    "link": "https://polymarket.us/event/nhl-ana-sea-2026-11-23",
    "other": {
@@ -1306,7 +1290,7 @@
     "usd": 984,
     "first": "2026-11-23T12:12:14Z"
    },
-   "exit_bid": 0.52,
+   "exit_bid": 0.51,
    "kalshi_against": null,
    "logged": true,
    "event_id": "401892778",
@@ -1320,8 +1304,8 @@
    "side_std": "home",
    "money_with": false,
    "grade": "A",
-   "fair_board": 0.5237,
-   "inside_fair": false,
+   "fair_board": 0.5223,
+   "inside_fair": true,
    "books": null
   },
   {
@@ -1363,7 +1347,7 @@
    "side_std": "home",
    "money_with": false,
    "grade": "A",
-   "fair_board": 0.1618,
+   "fair_board": 0.2531,
    "inside_fair": false,
    "books": null
   },
