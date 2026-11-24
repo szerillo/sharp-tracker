@@ -1,5 +1,5 @@
 {
- "built": "2026-11-24T00:18:05Z",
+ "built": "2026-11-24T00:33:25Z",
  "rows": [
   {
    "cond": "0xc2f71a6f70924ac2b643b8c5c51204cb20b2c44b0c9812c588b681f1c433d790",
@@ -109,7 +109,7 @@
    "best_rank": 115,
    "usd": 15143,
    "paid": 0.49,
-   "ask": 0.53,
+   "ask": null,
    "status": "live",
    "link": "https://polymarket.us/event/nba-bkn-min-2026-11-23",
    "other": null,
@@ -964,7 +964,7 @@
    "best_rank": 43,
    "usd": 359,
    "paid": 0.199,
-   "ask": 0.22,
+   "ask": null,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-mil-tor-2026-11-23",
    "other": {
@@ -973,7 +973,7 @@
     "usd": 100,
     "first": "2026-11-23T01:27:37Z"
    },
-   "exit_bid": 0.21,
+   "exit_bid": null,
    "kalshi_against": null,
    "logged": true,
    "event_id": "401910039",
@@ -988,7 +988,7 @@
    "money_with": false,
    "grade": "B",
    "fair_board": 0.2032,
-   "inside_fair": false,
+   "inside_fair": null,
    "books": null
   },
   {
@@ -1007,7 +1007,7 @@
    "best_rank": 143,
    "usd": 1308,
    "paid": 0.667,
-   "ask": 0.72,
+   "ask": null,
    "status": "other side",
    "link": "https://polymarket.us/event/nhl-cal-ott-2026-11-23",
    "other": {
@@ -1016,7 +1016,7 @@
     "usd": 2400,
     "first": "2026-11-23T23:41:56Z"
    },
-   "exit_bid": 0.71,
+   "exit_bid": null,
    "kalshi_against": null,
    "logged": true,
    "event_id": "401892775",
@@ -1031,7 +1031,7 @@
    "money_with": false,
    "grade": "A",
    "fair_board": 0.7042,
-   "inside_fair": false,
+   "inside_fair": null,
    "books": null
   },
   {
@@ -1050,7 +1050,7 @@
    "best_rank": 69,
    "usd": 289,
    "paid": 0.587,
-   "ask": 0.6,
+   "ask": null,
    "status": "other side",
    "link": "https://polymarket.us/event/nhl-tor-nyi-2026-11-23",
    "other": {
@@ -1059,7 +1059,7 @@
     "usd": 18000,
     "first": "2026-11-23T16:53:56Z"
    },
-   "exit_bid": 0.59,
+   "exit_bid": null,
    "kalshi_against": null,
    "logged": true,
    "event_id": "401892776",
@@ -1074,7 +1074,7 @@
    "money_with": false,
    "grade": "A",
    "fair_board": 0.5934,
-   "inside_fair": false,
+   "inside_fair": null,
    "books": null
   },
   {
@@ -1093,7 +1093,7 @@
    "best_rank": 43,
    "usd": 4970,
    "paid": 0.341,
-   "ask": 0.39,
+   "ask": null,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-okc-ind-2026-11-23",
    "other": {
@@ -1102,7 +1102,7 @@
     "usd": 22682,
     "first": "2026-11-23T18:30:05Z"
    },
-   "exit_bid": 0.38,
+   "exit_bid": null,
    "kalshi_against": null,
    "logged": true,
    "event_id": "401910038",
@@ -1117,7 +1117,7 @@
    "money_with": false,
    "grade": "B",
    "fair_board": 0.3694,
-   "inside_fair": false,
+   "inside_fair": null,
    "books": null
   },
   {
@@ -1136,7 +1136,7 @@
    "best_rank": 110,
    "usd": 16643,
    "paid": 0.506,
-   "ask": 0.46,
+   "ask": null,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-okc-ind-2026-11-23",
    "other": {
@@ -1145,7 +1145,7 @@
     "usd": 12341,
     "first": "2026-11-23T22:48:50Z"
    },
-   "exit_bid": 0.45,
+   "exit_bid": null,
    "kalshi_against": null,
    "logged": true,
    "event_id": "401910038",
@@ -1320,7 +1320,7 @@
     "usd": 478,
     "first": "2026-11-23T09:44:19Z"
    },
-   "exit_bid": 0.47,
+   "exit_bid": 0.48,
    "kalshi_against": null,
    "logged": true,
    "event_id": "401909320",
@@ -1388,14 +1388,6 @@
   "clv_poly_same": -0.57
  },
  "sys_tags": {
-  "401910040:nba_roadtrip_over": {
-   "with": null,
-   "against": {
-    "n": 2,
-    "best_rank": 115,
-    "usd": 15143
-   }
-  },
   "401910041:nba_roadtrip_over": {
    "with": {
     "n": 1,
@@ -1411,18 +1403,6 @@
     "usd": 3610
    },
    "against": null
-  },
-  "401910038:xch_homedog_fade:ml": {
-   "with": {
-    "n": 2,
-    "best_rank": 75,
-    "usd": 9756
-   },
-   "against": {
-    "n": 5,
-    "best_rank": 43,
-    "usd": 4970
-   }
   },
   "401910041:xch_homedog_fade:ml": {
    "with": null,
@@ -1448,56 +1428,6 @@
     "usd": 787
    }
   },
-  "401910038|ml": {
-   "home": {
-    "n": 5,
-    "best_rank": 43,
-    "usd": 4970
-   },
-   "away": {
-    "n": 2,
-    "best_rank": 75,
-    "usd": 9756
-   }
-  },
-  "401910038|spread": {
-   "away": {
-    "n": 2,
-    "best_rank": 110,
-    "usd": 16643
-   },
-   "home": {
-    "n": 2,
-    "best_rank": 110,
-    "usd": 1402
-   }
-  },
-  "401910038|total": {
-   "over": {
-    "n": 2,
-    "best_rank": 58,
-    "usd": 872
-   }
-  },
-  "401910039|ml": {
-   "away": {
-    "n": 2,
-    "best_rank": 43,
-    "usd": 359
-   },
-   "home": {
-    "n": 1,
-    "best_rank": 132,
-    "usd": 100
-   }
-  },
-  "401910040|total": {
-   "under": {
-    "n": 2,
-    "best_rank": 115,
-    "usd": 15143
-   }
-  },
   "401910041|ml": {
    "home": {
     "n": 1,
@@ -1517,6 +1447,13 @@
     "n": 1,
     "best_rank": 115,
     "usd": 3610
+   }
+  },
+  "401910042|spread": {
+   "home": {
+    "n": 1,
+    "best_rank": 110,
+    "usd": 671
    }
   },
   "401910044|spread": {
@@ -1583,30 +1520,6 @@
     "n": 1,
     "best_rank": 93,
     "usd": 392
-   }
-  },
-  "401892775|ml": {
-   "home": {
-    "n": 2,
-    "best_rank": 143,
-    "usd": 1308
-   },
-   "away": {
-    "n": 1,
-    "best_rank": 197,
-    "usd": 2400
-   }
-  },
-  "401892776|ml": {
-   "home": {
-    "n": 1,
-    "best_rank": 69,
-    "usd": 289
-   },
-   "away": {
-    "n": 1,
-    "best_rank": 79,
-    "usd": 18000
    }
   },
   "401892778|ml": {
