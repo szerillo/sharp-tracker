@@ -1,5 +1,5 @@
 {
- "built": "2026-11-24T04:38:05Z",
+ "built": "2026-11-24T04:53:14Z",
  "rows": [
   {
    "cond": "0x83e476f0cf6bd7aa759447f17e81420faa0f277fe4071f27a129232811b78581",
@@ -134,9 +134,6 @@
    "home_name": "Arizona Wildcats",
    "game_start": "2026-11-24T04:30Z",
    "side_std": "over",
-   "conflict": [
-    "Kalshi bet back"
-   ],
    "money_with": false,
    "grade": "A",
    "inside_fair": true,
@@ -386,6 +383,52 @@
    "fair_board": null,
    "inside_fair": null,
    "books": null
+  },
+  {
+   "cond": "0x8d5e15cc4185a45f01d7d46510f86e0a8560d88b5da3ccf66e098f45cdbdac8b",
+   "slug": "nba-det-orl-2026-11-24",
+   "title": "Pistons vs. Magic",
+   "mtype": "ml",
+   "start": "2026-11-25T00:00:00Z",
+   "bet": "Pistons ML",
+   "side": "Pistons",
+   "flagged": "2026-11-23T22:00:55Z",
+   "why": "2 top-200 accounts",
+   "proven": false,
+   "trigger": "two",
+   "n_accounts": 2,
+   "best_rank": 49,
+   "usd": 4700,
+   "paid": 0.57,
+   "ask": 0.55,
+   "status": "live",
+   "link": "https://polymarket.us/event/nba-det-orl-2026-11-24",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401909314",
+   "sport": "nba",
+   "league": null,
+   "away": "DET",
+   "home": "ORL",
+   "away_name": "Detroit Pistons",
+   "home_name": "Orlando Magic",
+   "game_start": "2026-11-25T00:00Z",
+   "side_std": "away",
+   "money_with": false,
+   "grade": "B",
+   "fair_board": 0.5457,
+   "inside_fair": false,
+   "books": {
+    "at": "2026-11-24T02:24:33Z",
+    "fair": 0.5457,
+    "q": {
+     "Novig": 0.55,
+     "Caesars": 0.5556,
+     "DK": 0.5556,
+     "FD": 0.5575
+    }
+   }
   },
   {
    "cond": "0xdbb011b836e27f05456caebd420af3ad99ff58e5cbdf36305bee1b1393fcc18f",
@@ -1059,59 +1102,6 @@
    "fair_board": null,
    "inside_fair": null,
    "books": null
-  },
-  {
-   "cond": "0x8d5e15cc4185a45f01d7d46510f86e0a8560d88b5da3ccf66e098f45cdbdac8b",
-   "slug": "nba-det-orl-2026-11-24",
-   "title": "Pistons vs. Magic",
-   "mtype": "ml",
-   "start": "2026-11-25T00:00:00Z",
-   "bet": "Pistons ML",
-   "side": "Pistons",
-   "flagged": "2026-11-23T22:00:55Z",
-   "why": "2 top-200 accounts",
-   "proven": false,
-   "trigger": "two",
-   "n_accounts": 2,
-   "best_rank": 49,
-   "usd": 4700,
-   "paid": 0.57,
-   "ask": 0.55,
-   "status": "live",
-   "link": "https://polymarket.us/event/nba-det-orl-2026-11-24",
-   "other": null,
-   "kalshi_against": {
-    "move": 4.5,
-    "now": 46.0,
-    "state": "drift"
-   },
-   "logged": true,
-   "event_id": "401909314",
-   "sport": "nba",
-   "league": null,
-   "away": "DET",
-   "home": "ORL",
-   "away_name": "Detroit Pistons",
-   "home_name": "Orlando Magic",
-   "game_start": "2026-11-25T00:00Z",
-   "side_std": "away",
-   "conflict": [
-    "Kalshi move"
-   ],
-   "money_with": false,
-   "grade": "B",
-   "fair_board": 0.5457,
-   "inside_fair": false,
-   "books": {
-    "at": "2026-11-24T02:24:33Z",
-    "fair": 0.5457,
-    "q": {
-     "Novig": 0.55,
-     "Caesars": 0.5556,
-     "DK": 0.5556,
-     "FD": 0.5575
-    }
-   }
   },
   {
    "cond": "0x196eac8fd4ebf4f30ca62ca96b9a62f910e5f5b725f0c070713bceabbe738aee",
