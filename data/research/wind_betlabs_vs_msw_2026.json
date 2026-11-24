@@ -1,0 +1,389 @@
+{
+ "wind1014": {
+  "games": 36,
+  "counts": {
+   "neither": 23,
+   "both": 5,
+   "Bet Labs only": 4,
+   "MySportsWeather only": 4
+  },
+  "agreement": 77.8,
+  "agree_on_plays": 38.5,
+  "both": {
+   "n": 5,
+   "w": 3,
+   "l": 2,
+   "u": 0.73,
+   "roi": 14.5
+  },
+  "bl_only": {
+   "n": 4,
+   "w": 2,
+   "l": 2,
+   "u": -0.18,
+   "roi": -4.5
+  },
+  "msw_only": {
+   "n": 4,
+   "w": 1,
+   "l": 3,
+   "u": -2.09,
+   "roi": -52.3
+  },
+  "all_bl": {
+   "n": 9,
+   "w": 5,
+   "l": 4,
+   "u": 0.55,
+   "roi": 6.1
+  },
+  "all_msw": {
+   "n": 9,
+   "w": 4,
+   "l": 5,
+   "u": -1.36,
+   "roi": -15.2
+  },
+  "bl_not_matched": [
+   [
+    "2026-11-01",
+    "Los Angeles Chargers",
+    "Los Angeles Rams",
+    14,
+    "W",
+    93.5,
+    45.5,
+    9,
+    24
+   ],
+   [
+    "2026-11-23",
+    "Cincinnati Bengals",
+    "Washington Commanders",
+    11,
+    "W",
+    89.3,
+    54.5,
+    20,
+    22
+   ]
+  ],
+  "diffs": [
+   [
+    "Indianapolis Colts @ Jacksonville Jaguars",
+    "2026-11-01",
+    "BL 11",
+    "MSW 16 (T-0.1h)",
+    0
+   ],
+   [
+    "New England Patriots @ Miami Dolphins",
+    "2026-11-01",
+    "BL off",
+    "MSW 14 (T-0.2h)",
+    0
+   ],
+   [
+    "Green Bay Packers @ New England Patriots",
+    "2026-11-08",
+    "BL off",
+    "MSW 13 (T-0.2h)",
+    0
+   ],
+   [
+    "Arizona Cardinals @ Seattle Seahawks",
+    "2026-11-08",
+    "BL off",
+    "MSW 10 (T-0.2h)",
+    1
+   ],
+   [
+    "Tampa Bay Buccaneers @ Chicago Bears",
+    "2026-11-09",
+    "BL off",
+    "MSW 10 (T-0.2h)",
+    0
+   ],
+   [
+    "Miami Dolphins @ Buffalo Bills",
+    "2026-11-22",
+    "BL 11",
+    "MSW 7 (T-0.5h)",
+    1
+   ],
+   [
+    "New Orleans Saints @ Chicago Bears",
+    "2026-11-22",
+    "BL 11",
+    "MSW 15 (T-0.5h)",
+    1
+   ],
+   [
+    "Arizona Cardinals @ Kansas City Chiefs",
+    "2026-11-22",
+    "BL 14",
+    "MSW 15 (T-0.5h)",
+    0
+   ]
+  ],
+  "mean_gap": null
+ },
+ "wind1014_1h": {
+  "games": 36,
+  "counts": {
+   "neither": 25,
+   "both": 5,
+   "Bet Labs only": 3,
+   "MySportsWeather only": 3
+  },
+  "agreement": 83.3,
+  "agree_on_plays": 45.5,
+  "both": {
+   "n": 5,
+   "w": 4,
+   "l": 1,
+   "u": 2.64,
+   "roi": 52.7
+  },
+  "bl_only": {
+   "n": 3,
+   "w": 0,
+   "l": 3,
+   "u": -3,
+   "roi": -100.0
+  },
+  "msw_only": {
+   "n": 0,
+   "w": 0,
+   "l": 0,
+   "u": 0,
+   "roi": 0.0
+  },
+  "all_bl": {
+   "n": 8,
+   "w": 4,
+   "l": 4,
+   "u": -0.36,
+   "roi": -4.5
+  },
+  "all_msw": {
+   "n": 5,
+   "w": 4,
+   "l": 1,
+   "u": 2.64,
+   "roi": 52.7
+  },
+  "bl_not_matched": [
+   [
+    "2026-11-23",
+    "Cincinnati Bengals",
+    "Washington Commanders",
+    11,
+    "W",
+    93.5,
+    27,
+    10,
+    7
+   ]
+  ],
+  "diffs": [
+   [
+    "Indianapolis Colts @ Jacksonville Jaguars",
+    "2026-11-01",
+    "BL 11",
+    "MSW 16 (T-0.1h)",
+    0
+   ],
+   [
+    "Green Bay Packers @ New England Patriots",
+    "2026-11-08",
+    "BL off",
+    "MSW 13 (T-0.2h)",
+    null
+   ],
+   [
+    "Arizona Cardinals @ Seattle Seahawks",
+    "2026-11-08",
+    "BL off",
+    "MSW 10 (T-0.2h)",
+    null
+   ],
+   [
+    "Tampa Bay Buccaneers @ Chicago Bears",
+    "2026-11-09",
+    "BL off",
+    "MSW 10 (T-0.2h)",
+    null
+   ],
+   [
+    "Miami Dolphins @ Buffalo Bills",
+    "2026-11-22",
+    "BL 11",
+    "MSW 7 (T-0.5h)",
+    0
+   ],
+   [
+    "New Orleans Saints @ Chicago Bears",
+    "2026-11-22",
+    "BL 11",
+    "MSW 15 (T-0.5h)",
+    0
+   ]
+  ],
+  "mean_gap": null
+ },
+ "cfb_wind14": {
+  "games": 236,
+  "counts": {
+   "neither": 214,
+   "MySportsWeather only": 15,
+   "both": 7
+  },
+  "agreement": 93.6,
+  "agree_on_plays": 31.8,
+  "both": {
+   "n": 7,
+   "w": 3,
+   "l": 4,
+   "u": -1.27,
+   "roi": -18.2
+  },
+  "bl_only": {
+   "n": 0,
+   "w": 0,
+   "l": 0,
+   "u": 0,
+   "roi": 0.0
+  },
+  "msw_only": {
+   "n": 15,
+   "w": 11,
+   "l": 4,
+   "u": 6.0,
+   "roi": 40.0
+  },
+  "all_bl": {
+   "n": 7,
+   "w": 3,
+   "l": 4,
+   "u": -1.27,
+   "roi": -18.2
+  },
+  "all_msw": {
+   "n": 22,
+   "w": 14,
+   "l": 8,
+   "u": 4.73,
+   "roi": 21.5
+  },
+  "bl_not_matched": [],
+  "diffs": [
+   [
+    "Coastal Carolina Chanticleers @ Georgia State Panthers",
+    "2026-10-31",
+    "BL off",
+    "MSW 15 (T-0.7h)",
+    1
+   ],
+   [
+    "Louisiana Tech Bulldogs @ South Alabama Jaguars",
+    "2026-10-31",
+    "BL off",
+    "MSW 15 (T-1.7h)",
+    1
+   ],
+   [
+    "Temple Owls @ Navy Midshipmen",
+    "2026-11-07",
+    "BL off",
+    "MSW 14 (T-2.2h)",
+    0
+   ],
+   [
+    "Texas State Bobcats @ Oregon State Beavers",
+    "2026-11-08",
+    "BL off",
+    "MSW 18 (T-2.9h)",
+    1
+   ],
+   [
+    "Tennessee Volunteers @ Texas A&M Aggies",
+    "2026-11-14",
+    "BL off",
+    "MSW 15 (T-0.2h)",
+    1
+   ],
+   [
+    "Kansas State Wildcats @ TCU Horned Frogs",
+    "2026-11-14",
+    "BL off",
+    "MSW 15 (T-0.2h)",
+    1
+   ],
+   [
+    "Wake Forest Demon Deacons @ SMU Mustangs",
+    "2026-11-14",
+    "BL off",
+    "MSW 15 (T-0.0h)",
+    1
+   ],
+   [
+    "Nebraska Cornhuskers @ Rutgers Scarlet Knights",
+    "2026-11-14",
+    "BL off",
+    "MSW 15 (T-0.3h)",
+    1
+   ],
+   [
+    "UAB Blazers @ Temple Owls",
+    "2026-11-14",
+    "BL off",
+    "MSW 15 (T-0.1h)",
+    1
+   ],
+   [
+    "Tulane Green Wave @ Rice Owls",
+    "2026-11-14",
+    "BL off",
+    "MSW 15 (T-0.3h)",
+    1
+   ],
+   [
+    "California Golden Bears @ Virginia Cavaliers",
+    "2026-11-14",
+    "BL off",
+    "MSW 14 (T-0.0h)",
+    1
+   ],
+   [
+    "Middle Tennessee Blue Raiders @ Liberty Flames",
+    "2026-11-14",
+    "BL off",
+    "MSW 14 (T-0.0h)",
+    1
+   ],
+   [
+    "New Mexico Lobos @ Wyoming Cowboys",
+    "2026-11-21",
+    "BL off",
+    "MSW 20 (T-0.2h)",
+    0
+   ],
+   [
+    "Wake Forest Demon Deacons @ Georgia Tech Yellow Jackets",
+    "2026-11-21",
+    "BL off",
+    "MSW 15 (T-0.2h)",
+    0
+   ],
+   [
+    "Florida International Panthers @ Kennesaw State Owls",
+    "2026-11-21",
+    "BL off",
+    "MSW 15 (T-0.2h)",
+    0
+   ]
+  ],
+  "mean_gap": null
+ }
+}
