@@ -240,6 +240,49 @@ def board_status(bets):
         if st == 'held': b['held'] = True
 
 
+# 11/24 (Kirk, research for Sean; docs/cancel_and_sharp_signal_2026-11-24.md): the sample to decide what should cancel a system play.
+# One row per system position (systems, curve, props, tennis, MMA, paper rules; sharp flags and watch signals are not system plays), with
+# every signal on the other side (kind, grade, first seen, hours before the start, before or after the system fired, its price, and the
+# Kalshi move size in points from the day reviews) and every signal on the same side. Both sides are paper-graded: the play at its own
+# price, and the other side at the price the opposing signal showed (or 1 - price), flat 1u (favourite to win 1u, plus money risk 1u).
+# Research only: nothing on the board reads it. Written to data/state/against_panel.json every build.
+AGAINST_PANEL = os.path.join(SD, 'against_panel.json')
+def _flat1(p, won):
+    if won is None or p is None or not 0 < p < 1: return None
+    if won == 0.5: return 0.0
+    return (1.0 if won else -p / (1 - p)) if p > 0.5 else ((1 - p) / p if won else -1.0)
+def against_panel(bets):
+    I = {b['id']: b for b in bets}
+    KM = {}
+    for f in sorted(glob.glob(os.path.join(ROOT, 'data', 'research', 'day_review_*.json'))):
+        try: L = json.load(open(f))
+        except Exception: continue
+        for x in L:
+            if x.get('family') == 'kmove4': KM.setdefault((str(x.get('event_id')), x.get('market'), x.get('side')), x)
+    def lead(t, st):
+        try: return round((dt.datetime.fromisoformat(st.replace('Z', '+00:00')) - dt.datetime.fromisoformat(t.replace('Z', '+00:00'))).total_seconds() / 3600, 1)
+        except Exception: return None
+    rows = []
+    for b in bets:
+        if b.get('src') not in ('system', 'curve', 'props', 'tennis', 'mma', 'paper') or b.get('excluded'): continue
+        sig = lambda ids: [dict(id=i, kind=('sharp flag' if i.startswith('p:') else 'sharp C' if i.startswith('c:') else 'system' if i.startswith(('s:', 'cv:')) else (I.get(i) or {}).get('rule') or i.split('|')[-1]),
+                                grade=(I.get(i) or {}).get('cat'), side=(I.get(i) or {}).get('side'), first=(I.get(i) or {}).get('flagged'),
+                                lead_h=lead((I.get(i) or {}).get('flagged') or '', b.get('start') or ''), before_system=((I.get(i) or {}).get('flagged') or '9') < (b.get('flagged') or ''),
+                                price=(I.get(i) or {}).get('price'), won=(I.get(i) or {}).get('won')) for i in ids]
+        ag = sig(b.get('corr_opp') or []); wi = sig(b.get('corr_same') or [])
+        mk = (b.get('market') or '').replace('1h_', '').replace('1q_', '').replace('3p_', '').replace('1p_', '')
+        km = KM.get((str(b.get('event_id')), mk, {'home': 'away', 'away': 'home', 'over': 'under', 'under': 'over'}.get(b.get('side'))))
+        for a in ag:
+            if a['kind'] == 'Kalshi move' and km: a['size_pts'] = round(100 * abs(km['at'] - km['first']), 1); a['first'] = a['first'] or km.get('t0')
+        po = next((a['price'] for a in ag if a.get('price') and (I.get(a['id']) or {}).get('market') == b.get('market')), None) or (round(1 - b['price'], 4) if b.get('price') else None)
+        wo = None if b.get('won') is None else 0.5 if b['won'] == 0.5 else 1 - b['won']
+        rows.append(dict(id=b['id'], rule=b.get('rule'), src=b.get('src'), cat=b.get('cat'), sport=b.get('sport'), event_id=b.get('event_id'), market=b.get('market'), side=b.get('side'),
+                         start=b.get('start'), flagged=b.get('flagged'), price=b.get('price'), won=b.get('won'), u_play=_flat1(b.get('price'), b.get('won')),
+                         price_other=po, u_other=_flat1(po, wo), tags=b.get('tags'), board_status=b.get('board_status'), against=ag, with_=wi))
+    json.dump(dict(built=NOW.strftime('%Y-%m-%dT%H:%M:%SZ'), note='research panel: what should cancel a system play (docs/cancel_and_sharp_signal_2026-11-24.md)', rows=rows),
+              open(AGAINST_PANEL, 'w'), separators=(',', ':'), default=str)
+
+
 def main():
     S = schedules()
     SF_ = json.load(open(os.path.join(SD, 'system_fires.json')))
@@ -712,6 +755,8 @@ def main():
                summary={k: summ(v) for k, v in sorted(groups.items())},
                rows=sorted(bets, key=lambda b: b['start'], reverse=True))
     json.dump(out, open(OUT, 'w'), separators=(',', ':'), default=str)
+    try: against_panel(bets)
+    except Exception as e: print(f"[bet_log] against panel failed: {e}")
     s = out['summary'].get('all|all|all', {})
     print(f"[bet_log] {len(bets)} flagged bets ({s.get('graded')} graded, {s.get('units')}u, CLV {s.get('clv')} on {s.get('clv_n')}); {sum(1 for b in bets if b.get('best') is not None)} with a price path")
 
