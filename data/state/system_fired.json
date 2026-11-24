@@ -9292,8 +9292,8 @@
 },
 "401858313:cfb_road_streak_dog": {
 "tag": "cfb_road_streak_dog",
-"fill_id": "2fa5023dcbc0",
-"ts": "2026-11-23T20:57:36Z",
+"fill_id": "385a51ba8db9",
+"ts": "2026-11-24T20:52:58Z",
 "market": "spread",
 "side": "away",
 "line": 5.5,
@@ -9301,10 +9301,7 @@
 "price": -106,
 "fair": 0.49934,
 "edge_pts": -1.52,
-"why": "conference game, NCSU on road game 2 in a row, +5.5, total 53.5",
-"void": true,
-"void_why": "rule no longer holds on the current line: home spread -5.5, total 53.5 (2026-11-23T21:58:45Z)",
-"void_at": "2026-11-23T21:58:45Z"
+"why": "conference game, NCSU on road game 2 in a row, +5.5, total 53.5"
 },
 "401858540:cfb_road_dog_low_total": {
 "tag": "cfb_road_dog_low_total",
@@ -9998,19 +9995,16 @@
 },
 "401864550:cfb_road_streak_dog": {
 "tag": "cfb_road_streak_dog",
-"fill_id": "aa8557dd9e86",
-"ts": "2026-11-23T20:57:36Z",
+"fill_id": "c69059af0d99",
+"ts": "2026-11-24T20:52:58Z",
 "market": "spread",
 "side": "away",
-"line": 4.5,
+"line": 4.0,
 "venue": "Caesars",
-"price": -110,
-"fair": 0.5158,
-"edge_pts": -0.8,
-"why": "conference game, UTEP on road game 2 in a row, +4.5, total 49.5",
-"void": true,
-"void_why": "rule no longer holds on the current line: home spread -3.5, total 50.5 (2026-11-23T21:58:45Z)",
-"void_at": "2026-11-23T21:58:45Z"
+"price": -114,
+"fair": 0.4996,
+"edge_pts": -3.31,
+"why": "conference game, UTEP on road game 2 in a row, +4.0, total 50.5"
 },
 "401910038:xch_homedog_fade:ml": {
 "tag": "xch_homedog_fade",
@@ -10211,7 +10205,10 @@
 "price": -105,
 "fair": 0.49468,
 "edge_pts": -1.75,
-"why": "home HOU over rate 61%, days since last game: home 2, visitor 2; total 225.5 -> 223.5"
+"why": "home HOU over rate 61%, days since last game: home 2, visitor 2; total 225.5 -> 223.5",
+"void": true,
+"void_why": "trigger no longer holds on current season records (2026-11-24T20:52:58Z)",
+"void_at": "2026-11-24T20:52:58Z"
 },
 "401892793:nhl_loss_streak_over": {
 "tag": "nhl_loss_streak_over",
@@ -10238,5 +10235,18 @@
 "fair": 0.4937,
 "edge_pts": -0.63,
 "why": "home WOF over 60% (7 games), visitor QUC over 83% (6); total 173.5 -> 172.5"
+},
+"401909323:nba_under_good_home_over_small": {
+"tag": "nba_under_good_home_over_small",
+"fill_id": "f0feefaafdfd",
+"ts": "2026-11-24T20:52:58Z",
+"market": "total",
+"side": "under",
+"line": 224.5,
+"venue": "DK",
+"price": -112,
+"fair": 0.50743,
+"edge_pts": -2.09,
+"why": "home HOU over rate 61%, days since last game: home 2, visitor 2; total 225.5 -> 224.5"
 }
 }
