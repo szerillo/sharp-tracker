@@ -1,5 +1,5 @@
 {
- "built": "2026-11-24T23:38:39Z",
+ "built": "2026-11-24T23:07:51Z",
  "rows": [
   {
    "cond": "0x260181c232ce8b8951da6c3e3c033353ad89e8c5c53c6b426d00a900ad5b6f37",
@@ -245,11 +245,60 @@
    "home_name": "Wofford Terriers",
    "game_start": "2026-11-24T23:00Z",
    "side_std": "over",
+   "conflict": [
+    "Kalshi bet back"
+   ],
    "money_with": false,
    "grade": "A",
    "fair_board": null,
    "inside_fair": null,
    "books": null
+  },
+  {
+   "cond": "0x8d5e15cc4185a45f01d7d46510f86e0a8560d88b5da3ccf66e098f45cdbdac8b",
+   "slug": "nba-det-orl-2026-11-24",
+   "title": "Pistons vs. Magic",
+   "mtype": "ml",
+   "start": "2026-11-25T00:00:00Z",
+   "bet": "Pistons ML",
+   "side": "Pistons",
+   "flagged": "2026-11-23T22:00:55Z",
+   "why": "3 top-200 accounts",
+   "proven": false,
+   "trigger": "two",
+   "n_accounts": 3,
+   "best_rank": 43,
+   "usd": 4897,
+   "paid": 0.569,
+   "ask": 0.55,
+   "status": "live",
+   "link": "https://polymarket.us/event/nba-det-orl-2026-11-24",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401909314",
+   "sport": "nba",
+   "league": null,
+   "away": "DET",
+   "home": "ORL",
+   "away_name": "Detroit Pistons",
+   "home_name": "Orlando Magic",
+   "game_start": "2026-11-25T00:00Z",
+   "side_std": "away",
+   "money_with": false,
+   "grade": "B",
+   "fair_board": 0.5435,
+   "inside_fair": false,
+   "books": {
+    "at": "2026-11-24T23:01:59Z",
+    "fair": 0.5435,
+    "q": {
+     "Novig": 0.545,
+     "Caesars": 0.5556,
+     "DK": 0.5652,
+     "FD": 0.569
+    }
+   }
   },
   {
    "cond": "0x33b28ef1935c041a6b7d7e54459877daaadd57b3363a0ab18318b355e2c194f8",
@@ -267,7 +316,7 @@
    "best_rank": 58,
    "usd": 480,
    "paid": 0.52,
-   "ask": 0.55,
+   "ask": 0.56,
    "status": "live",
    "link": "https://polymarket.us/event/cfb-kentst-emich-2026-11-24",
    "other": null,
@@ -282,9 +331,6 @@
    "home_name": "Eastern Michigan Eagles",
    "game_start": "2026-11-25T00:00Z",
    "side_std": "home",
-   "conflict": [
-    "big money"
-   ],
    "money_with": false,
    "grade": "A",
    "inside_fair": false,
@@ -1110,9 +1156,18 @@
    "side_std": "away",
    "money_with": false,
    "grade": "B",
-   "fair_board": 0.5435,
-   "inside_fair": true,
-   "books": null
+   "fair_board": 0.5404,
+   "inside_fair": false,
+   "books": {
+    "at": "2026-11-24T22:00:45Z",
+    "fair": 0.5404,
+    "q": {
+     "Novig": 0.54,
+     "Caesars": 0.5455,
+     "DK": 0.5652,
+     "FD": 0.569
+    }
+   }
   },
   {
    "cond": "0x196eac8fd4ebf4f30ca62ca96b9a62f910e5f5b725f0c070713bceabbe738aee",
