@@ -1,5 +1,5 @@
 {
- "built": "2026-11-24T17:39:45Z",
+ "built": "2026-11-24T17:48:33Z",
  "rows": [
   {
    "cond": "0xdd59f8d0c10ce4b29250ead31df8fc5dc89362085d890288d09c041043275b04",
@@ -17,7 +17,7 @@
    "best_rank": 57,
    "usd": 348,
    "paid": 0.675,
-   "ask": 0.64,
+   "ask": null,
    "status": "live",
    "link": "https://polymarket.us/event/ucl-gal-ast-2026-11-24-more-markets",
    "other": null,
@@ -806,7 +806,7 @@
    "best_rank": 197,
    "usd": 615,
    "paid": 0.55,
-   "ask": 0.56,
+   "ask": 0.55,
    "status": "live",
    "link": "https://polymarket.us/event/nhl-car-tb-2026-11-25",
    "other": null,
@@ -824,7 +824,7 @@
    "money_with": false,
    "grade": "A",
    "fair_board": 0.5516,
-   "inside_fair": false,
+   "inside_fair": true,
    "books": {
     "at": "2026-11-24T17:01:30Z",
     "fair": 0.5516,
@@ -1402,13 +1402,6 @@
     "n": 1,
     "best_rank": 58,
     "usd": 470
-   }
-  },
-  "401915300|total": {
-   "over": {
-    "n": 1,
-    "best_rank": 57,
-    "usd": 348
    }
   },
   "401915296|spread": {
