@@ -887,7 +887,7 @@ function renderToday() {
       detail: facts([['Rule', 'Tennis hot dog (tennis_hot_dog, paper): Pinnacle favourite 50-85%, the dog\'s last-10 win rate 10-30% above the favourite\'s; bet the dog. Odds API tour-level 2026: +4.7% over the close on 154, +10.8% flat ROI. One sample; paper until it has a record.'],
         ['Flagged', lg ? `${DAYT(lg.ts)} at ${VS(lg.venue)} ${(100 * lg.price).toFixed(1)}¢` : ''], ['Now', b ? `${VS(b.venue)} ${(100 * b.cost).toFixed(1)}¢ (${toAm(b.cost)})` : 'no price']])}); };
   const TD = TW ? (TW.rows || []).filter(r => (r.tour_level || r.slam) && (r.hot_dog || r.hot_dog_logged) && tennisVisible(r) && passW(r.start) && passS('tennis', r.league)) : [];
-  // serve-profile angles (paper, no units; section 9b): dog is the bigger server; fav 50-60% -> bet the dog, 70-80% -> bet the fav
+  // serve-profile angles (section 9b): dog is the bigger server; fav 50-60% -> bet the dog (tennis_serve_dog: live tier B, 0.25u since the 11/17 policy), 70-80% -> bet the fav (paper)
   const vRow = r => { const sr = r.serve_rule, lg = r.serve_logged, rule = (sr || lg || {}).rule, pick = (sr || lg || {}).name, b = sr ? sr.best : null, p = lg ? lg.price : (b ? b.cost : null);
     const rec = TW && TW.serve_record && TW.serve_record[rule] && TW.serve_record[rule].n ? `${TW.serve_record[rule].won}-${TW.serve_record[rule].n - TW.serve_record[rule].won}, ${TW.serve_record[rule].units > 0 ? '+' : ''}${TW.serve_record[rule].units}u` : 'no graded picks yet';
     return sRow({timing: r, id: `tv|${r.event_id}|${r.fav_name}`, flagged: r.flagged || r.ts, tier: rule === 'tennis_serve_dog' ? 'B' : 'C', start: r.start, sportLabel: (r.tour || 'tennis').toUpperCase(), game: `${esc(r.fav_name || '')} vs ${esc(r.opp_name || '')}`,
@@ -1544,7 +1544,7 @@ const BLW = {all: ['All dates', () => true], live: ['In progress', b => ['live',
 // 11/5 (Sean): the tracker is organised sport first, then group (Systems / Sharp / Paper rules); the rules or grades of a group appear
 // only once the group is picked, and only for the chosen sport. Tennis is a sport, not a category. Records are coloured.
 const BLG = {all: 'All bets', systems: 'Systems', sharp: 'Sharp', paper: 'Paper rules'};
-const blGroup = b => b.sport === 'tennis' ? (b.rule === 'tennis_serve_dog' ? 'systems' : 'paper') : b.cat === 'paper P' ? 'paper' : /^sharp/.test(b.cat) ? 'sharp' : ['system A', 'system B', 'lean C', 'tennis'].includes(b.cat) ? 'systems' : 'watch';
+const blGroup = b => b.sport === 'tennis' ? (b.rule === 'tennis_serve_dog' && b.cat !== 'paper P' ? 'systems' : 'paper')   /* 11/24: serve-dog matches before the 11/17 policy stay paper */ : b.cat === 'paper P' ? 'paper' : /^sharp/.test(b.cat) ? 'sharp' : ['system A', 'system B', 'lean C', 'tennis'].includes(b.cat) ? 'systems' : 'watch';
 const blRule = b => b.rule ? String(b.rule).split(' | ')[0] : (b.cat === 'tennis' ? 'tennis_hot_fav' : null);
 // 11/14 (Sean): short, consistent rule names: sport first, then the bet in a few words. The long rule text stays on the Systems page.
 const RULE_NAME = {
@@ -1578,7 +1578,7 @@ window._lg = window._lg || 'bets'; window._ls = window._ls || 'all'; window._lsu
 window._lr = window._lr || 'all'; window._lh = window._lh || 'play'; window._lsig = window._lsig || 'all'; window._lq = window._lq || ''; window._ldet = window._ldet || false;
 window.setTF = (k, v) => { window[k] = v; if (k === '_lg' || k === '_ls') window._lsub = 'all'; draw(); };
 window.clearTF = () => { Object.assign(window, {_lh: 'play', _ls: 'all', _lsub: 'all', _lw: 'all', _lm: 'all', _lr: 'all', _lsig: 'all', _lq: ''}); draw(); };
-const tierLetter = b => b.sport === 'tennis' ? (b.rule === 'tennis_serve_dog' ? 'B' : 'C') : (/^(system|lean|paper|sharp) ([ABCP])$/.exec(b.cat || '') || [])[2] || (b.cat === 'tennis' ? 'B' : '');
+const tierLetter = b => b.sport === 'tennis' ? (b.cat === 'paper P' ? 'P' : b.rule === 'tennis_serve_dog' ? 'B' : 'C') : (/^(system|lean|paper|sharp) ([ABCP])$/.exec(b.cat || '') || [])[2] || (b.cat === 'tennis' ? 'B' : '');
 // Filtered tracker performance, not an exchange-account P/L statement.
 function blProfitSeries(rows, sized) {
   const days = new Map();
