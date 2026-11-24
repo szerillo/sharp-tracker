@@ -1,5 +1,5 @@
 {
- "built": "2026-11-24T19:43:20Z",
+ "built": "2026-11-24T20:05:30Z",
  "rows": [
   {
    "cond": "0xdd59f8d0c10ce4b29250ead31df8fc5dc89362085d890288d09c041043275b04",
@@ -54,7 +54,7 @@
    "best_rank": 43,
    "usd": 1175,
    "paid": 0.57,
-   "ask": 0.57,
+   "ask": null,
    "status": "live",
    "link": "https://polymarket.us/event/ucl-com-aek1-2026-11-24-more-markets",
    "other": null,
@@ -97,7 +97,7 @@
    "best_rank": 71,
    "usd": 246,
    "paid": 0.41,
-   "ask": 0.48,
+   "ask": null,
    "status": "live",
    "link": "https://polymarket.us/event/ucl-fey-por-2026-11-24",
    "other": null,
@@ -141,7 +141,7 @@
    "best_rank": 71,
    "usd": 150,
    "paid": 0.77,
-   "ask": 0.78,
+   "ask": null,
    "status": "live",
    "link": "https://polymarket.us/event/ucl-com-aek1-2026-11-24",
    "other": null,
@@ -184,7 +184,7 @@
    "best_rank": 71,
    "usd": 186,
    "paid": 0.73,
-   "ask": 0.71,
+   "ask": null,
    "status": "live",
    "link": "https://polymarket.us/event/ucl-rbl-rcl-2026-11-24",
    "other": null,
@@ -228,7 +228,7 @@
    "best_rank": 3,
    "usd": 260,
    "paid": 0.74,
-   "ask": 0.75,
+   "ask": null,
    "status": "live",
    "link": "https://polymarket.us/event/ucl-fey-por-2026-11-24",
    "other": null,
@@ -255,7 +255,7 @@
    "best_rank": 3,
    "usd": 270,
    "paid": 0.73,
-   "ask": 0.74,
+   "ask": null,
    "status": "live",
    "link": "https://polymarket.us/event/ucl-fey-por-2026-11-24",
    "other": null,
@@ -403,8 +403,8 @@
    ],
    "money_with": false,
    "grade": "A",
-   "fair_board": 0.5107,
    "inside_fair": false,
+   "fair_board": 0.5107,
    "books": {
     "at": "2026-11-24T19:03:34Z",
     "fair": 0.5107,
@@ -713,7 +713,7 @@
    "best_rank": 43,
    "usd": 993,
    "paid": 0.28,
-   "ask": 0.32,
+   "ask": 0.33,
    "status": "live",
    "link": "https://polymarket.us/event/ucl-psg-rom-2026-11-25",
    "other": null,
@@ -929,7 +929,7 @@
    "best_rank": 104,
    "usd": 139,
    "paid": 0.349,
-   "ask": 0.36,
+   "ask": 0.37,
    "status": "live",
    "link": "https://polymarket.us/event/nba-cle-nyk-2026-11-25",
    "other": null,
@@ -1182,7 +1182,7 @@
    "best_rank": 31,
    "usd": 593,
    "paid": 0.24,
-   "ask": 0.24,
+   "ask": null,
    "status": "other side",
    "link": "https://polymarket.us/event/ucl-mnc-nap-2026-11-24",
    "other": {
@@ -1191,7 +1191,7 @@
     "usd": 4600,
     "first": "2026-11-24T19:24:07Z"
    },
-   "exit_bid": 0.23,
+   "exit_bid": null,
    "kalshi_against": null,
    "logged": true,
    "event_id": "401915379",
@@ -1225,7 +1225,7 @@
    "best_rank": 157,
    "usd": 908,
    "paid": 0.22,
-   "ask": 0.25,
+   "ask": null,
    "status": "other side",
    "link": "https://polymarket.us/event/ucl-sba-bet-2026-11-24",
    "other": {
@@ -1234,7 +1234,7 @@
     "usd": 150,
     "first": "2026-11-24T16:28:10Z"
    },
-   "exit_bid": 0.24,
+   "exit_bid": null,
    "kalshi_against": null,
    "logged": true,
    "event_id": "401915297",
@@ -1509,13 +1509,6 @@
     "usd": 125
    }
   },
-  "401915941|spread": {
-   "away": {
-    "n": 1,
-    "best_rank": 170,
-    "usd": 124
-   }
-  },
   "401922231|total": {
    "over": {
     "n": 1,
@@ -1535,13 +1528,6 @@
     "n": 1,
     "best_rank": 58,
     "usd": 470
-   }
-  },
-  "401915296|spread": {
-   "home": {
-    "n": 1,
-    "best_rank": 43,
-    "usd": 1175
    }
   },
   "401915373|total": {
