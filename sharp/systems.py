@@ -305,7 +305,7 @@ def labs_label(pick):
     info = (pick or {}).get('info') or ''
     m = re.search(r'Avg Wind Speed (\d+)', info)
     t = N.parse_ts(pick['pulled']).astimezone(N.ET).strftime('%a %-I:%M %p ET') if pick and pick.get('pulled') else '?'
-    return (f"Bet Labs wind {m.group(1)} mph" if m else 'on the Bet Labs list') + f" (pull {t})"
+    return f"Bet Labs wind {m.group(1)} mph (pull {t})" if m else (f"on the Bet Labs list (pull {t})" if (pick or {}).get('sid') else f"Bet Labs pull {t}")
 
 
 def prev_scheduled(sport, team, st):
