@@ -36,6 +36,8 @@ jobs:
           if [ "$DOW" = "6" ]; then python3 loggers/oddsapi_hist.py --sport cfb --from $Y --to $Y --hours 16,19,23,0,3 --budget 200 || true; fi
           if [ "$DOW" = "7" ]; then python3 loggers/oddsapi_hist.py --sport nfl --from $Y --to $Y --hours 17,20,0 --budget 100 || true; fi
           if [ "$DOW" = "1" ] || [ "$DOW" = "4" ]; then python3 loggers/oddsapi_hist.py --sport nfl --from $Y --to $Y --hours 0 --budget 50 || true; fi
+          # 11/24: EPL closes (soccer was last pulled 5/29; soccer sharp flags grade on Polymarket, this is for research)
+          python3 loggers/oddsapi_hist.py --sport soccer_epl --from $Y --to $Y --hours 12,14,17,20 --budget 120 || true
           # 11/24: weekday CFB (Tue-Fri night games) was never pulled
           if [ "$DOW" -ge 2 ] && [ "$DOW" -le 5 ]; then python3 loggers/oddsapi_hist.py --sport cfb --from $Y --to $Y --hours 0,3 --budget 60 || true; fi
       - name: final scores for the odds database (11/24; hist_schedule.json had not been refreshed since 11/6, so November games had no results)
