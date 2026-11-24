@@ -1,5 +1,5 @@
 {
- "built": "2026-11-24T16:07:20Z",
+ "built": "2026-11-24T17:16:20Z",
  "rows": [
   {
    "cond": "0xdd59f8d0c10ce4b29250ead31df8fc5dc89362085d890288d09c041043275b04",
@@ -17,7 +17,7 @@
    "best_rank": 57,
    "usd": 348,
    "paid": 0.675,
-   "ask": 0.64,
+   "ask": 0.62,
    "status": "live",
    "link": "https://polymarket.us/event/ucl-gal-ast-2026-11-24-more-markets",
    "other": null,
@@ -74,10 +74,10 @@
    "fair_board": null,
    "inside_fair": null,
    "books": {
-    "at": "2026-11-24T15:07:26Z",
+    "at": "2026-11-24T17:01:30Z",
     "fair": null,
     "q": {
-     "Novig": 0.54
+     "Novig": 0.555
     }
    }
   },
@@ -97,7 +97,7 @@
    "best_rank": 31,
    "usd": 593,
    "paid": 0.24,
-   "ask": 0.25,
+   "ask": 0.24,
    "status": "live",
    "link": "https://polymarket.us/event/ucl-mnc-nap-2026-11-24",
    "other": null,
@@ -154,50 +154,100 @@
    "inside_fair": false,
    "fair_board": 0.4068,
    "books": {
-    "at": "2026-11-24T15:07:26Z",
-    "fair": 0.4503,
+    "at": "2026-11-24T17:01:30Z",
+    "fair": 0.451,
     "q": {
      "Novig": 0.455,
-     "Kalshi": 0.47
+     "Kalshi": 0.48
     }
    }
   },
   {
-   "cond": "0x5623b1f6aa9617f54cb6a8d6f699ac4f89fccf55e8e0158188f4135a9285296f",
-   "slug": "ucl-sba-bet-2026-11-24",
-   "title": "\u0160K Slovan Bratislava vs. Real Betis Balompi\u00e9",
+   "cond": "0x99f9c9626eaa340d600ee69a2f484189f27524ec45b5c3c09f0b5a537606b67d",
+   "slug": "ucl-com-aek1-2026-11-24",
+   "title": "Como 1907 vs. AEK",
    "mtype": "ml",
    "start": "2026-11-24T20:00:00Z",
-   "bet": "Will Real Betis Balompi\u00e9 win on 2026-11-24: No",
-   "side": "No",
-   "flagged": "2026-11-23T19:34:08Z",
-   "why": "2 top-200 accounts",
+   "bet": "Will Como 1907 win on 2026-11-24: Yes",
+   "side": "Yes",
+   "flagged": "2026-11-24T16:24:46Z",
+   "why": "a top-200 account also in this sport's top 50",
    "proven": true,
    "trigger": "proven",
-   "n_accounts": 2,
-   "best_rank": 157,
-   "usd": 908,
-   "paid": 0.22,
-   "ask": 0.24,
+   "n_accounts": 1,
+   "best_rank": 71,
+   "usd": 150,
+   "paid": 0.77,
+   "ask": 0.77,
    "status": "live",
-   "link": "https://polymarket.us/event/ucl-sba-bet-2026-11-24",
+   "link": "https://polymarket.us/event/ucl-com-aek1-2026-11-24",
    "other": null,
    "kalshi_against": null,
    "logged": true,
-   "event_id": "401915297",
+   "event_id": "401915296",
    "sport": "soccer",
    "league": "ucl",
-   "away": "BET",
-   "home": "SLB",
-   "away_name": "Real Betis",
-   "home_name": "Slovan Bratislava",
+   "away": "AEK",
+   "home": "COMO",
+   "away_name": "AEK Athens",
+   "home_name": "Como",
    "game_start": "2026-11-24T20:00Z",
-   "side_std": "not_away",
+   "side_std": "home",
    "money_with": false,
    "grade": "A",
    "fair_board": null,
    "inside_fair": null,
-   "books": null
+   "books": {
+    "at": "2026-11-24T17:01:30Z",
+    "fair": null,
+    "q": {
+     "Novig": 0.775
+    }
+   }
+  },
+  {
+   "cond": "0xb6fc0e7a26b716080294cddd199e5d54c5c511050b427ac936881a0ba5dca6ce",
+   "slug": "ucl-rbl-rcl-2026-11-24",
+   "title": "RB Leipzig vs. Racing Club de Lens",
+   "mtype": "ml",
+   "start": "2026-11-24T20:00:00Z",
+   "bet": "Will RB Leipzig win on 2026-11-24: Yes",
+   "side": "Yes",
+   "flagged": "2026-11-24T16:31:47Z",
+   "why": "a top-200 account also in this sport's top 50",
+   "proven": true,
+   "trigger": "proven",
+   "n_accounts": 1,
+   "best_rank": 71,
+   "usd": 186,
+   "paid": 0.73,
+   "ask": 0.73,
+   "status": "live",
+   "link": "https://polymarket.us/event/ucl-rbl-rcl-2026-11-24",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401915299",
+   "sport": "soccer",
+   "league": "ucl",
+   "away": "RCL",
+   "home": "RBL",
+   "away_name": "Lens",
+   "home_name": "RB Leipzig",
+   "game_start": "2026-11-24T20:00Z",
+   "side_std": "home",
+   "money_with": false,
+   "grade": "A",
+   "fair_board": 0.7263,
+   "inside_fair": false,
+   "books": {
+    "at": "2026-11-24T17:01:30Z",
+    "fair": 0.7263,
+    "q": {
+     "Novig": 0.735,
+     "Kalshi": 0.75
+    }
+   }
   },
   {
    "cond": "0x0272bcbd8c5bfcefb780c8d4e1d9c76b139aa7b3aea5e45a7d1b5b7f08c08295",
@@ -256,7 +306,7 @@
    "best_rank": 43,
    "usd": 4897,
    "paid": 0.569,
-   "ask": 0.57,
+   "ask": 0.56,
    "status": "live",
    "link": "https://polymarket.us/event/nba-det-orl-2026-11-24",
    "other": null,
@@ -276,16 +326,16 @@
    ],
    "money_with": false,
    "grade": "B",
-   "fair_board": 0.5593,
+   "fair_board": 0.5569,
    "inside_fair": false,
    "books": {
-    "at": "2026-11-24T15:07:26Z",
-    "fair": 0.5593,
+    "at": "2026-11-24T17:01:30Z",
+    "fair": 0.5569,
     "q": {
      "Novig": 0.56,
      "Caesars": 0.5745,
-     "Kalshi": 0.58,
-     "DK": 0.5868
+     "FD": 0.5798,
+     "Kalshi": 0.58
     }
    }
   },
@@ -322,13 +372,13 @@
    "side_std": "away",
    "money_with": false,
    "grade": "A",
-   "fair_board": 0.5246,
+   "fair_board": 0.5217,
    "inside_fair": false,
    "books": {
-    "at": "2026-11-24T15:07:26Z",
-    "fair": 0.5246,
+    "at": "2026-11-24T17:01:30Z",
+    "fair": 0.5217,
     "q": {
-     "Novig": 0.53,
+     "Novig": 0.525,
      "Caesars": 0.5305,
      "DK": 0.5413,
      "FD": 0.5413
@@ -445,7 +495,7 @@
    "fair_board": null,
    "inside_fair": null,
    "books": {
-    "at": "2026-11-24T15:07:26Z",
+    "at": "2026-11-24T17:01:30Z",
     "fair": null,
     "q": {
      "Novig": 0.46
@@ -563,10 +613,10 @@
    "fair_board": null,
    "inside_fair": null,
    "books": {
-    "at": "2026-11-24T15:07:26Z",
+    "at": "2026-11-24T17:01:30Z",
     "fair": null,
     "q": {
-     "Novig": 0.195
+     "Novig": 0.2
     }
    }
   },
@@ -660,7 +710,7 @@
    "best_rank": 49,
    "usd": 1081,
    "paid": 0.385,
-   "ask": 0.42,
+   "ask": 0.43,
    "status": "live",
    "link": "https://polymarket.us/event/nba-mia-phi-2026-11-25",
    "other": null,
@@ -680,16 +730,16 @@
    ],
    "money_with": false,
    "grade": "watch",
-   "fair_board": 0.4077,
+   "fair_board": 0.4116,
    "inside_fair": false,
    "books": {
-    "at": "2026-11-24T15:07:26Z",
-    "fair": 0.4077,
+    "at": "2026-11-24T17:01:30Z",
+    "fair": 0.4116,
     "q": {
-     "Novig": 0.415,
+     "Novig": 0.42,
      "DK": 0.4237,
      "Caesars": 0.4255,
-     "FD": 0.431
+     "FD": 0.4386
     }
    }
   },
@@ -732,10 +782,10 @@
    "fair_board": null,
    "inside_fair": null,
    "books": {
-    "at": "2026-11-24T15:07:26Z",
+    "at": "2026-11-24T17:01:30Z",
     "fair": null,
     "q": {
-     "Novig": 0.56,
+     "Novig": 0.58,
      "Kalshi": 0.6
     }
    }
@@ -773,14 +823,16 @@
    "side_std": "away",
    "money_with": false,
    "grade": "A",
-   "fair_board": null,
-   "inside_fair": null,
+   "fair_board": 0.5516,
+   "inside_fair": false,
    "books": {
-    "at": "2026-11-24T15:07:26Z",
-    "fair": null,
+    "at": "2026-11-24T17:01:30Z",
+    "fair": 0.5516,
     "q": {
-     "Novig": 0.57,
-     "Kalshi": 0.59
+     "Novig": 0.56,
+     "Caesars": 0.5652,
+     "DK": 0.5652,
+     "FD": 0.5726
     }
    }
   },
@@ -820,16 +872,16 @@
    ],
    "money_with": false,
    "grade": "watch",
-   "fair_board": 0.3323,
+   "fair_board": 0.3348,
    "inside_fair": true,
    "books": {
-    "at": "2026-11-24T15:07:26Z",
-    "fair": 0.3323,
+    "at": "2026-11-24T17:01:30Z",
+    "fair": 0.3348,
     "q": {
      "Novig": 0.34,
      "DK": 0.3497,
      "Caesars": 0.3509,
-     "FD": 0.3571
+     "FD": 0.3623
     }
    }
   },
@@ -872,11 +924,11 @@
    "fair_board": null,
    "inside_fair": null,
    "books": {
-    "at": "2026-11-24T15:07:26Z",
+    "at": "2026-11-24T17:01:30Z",
     "fair": null,
     "q": {
      "Novig": 0.31,
-     "Kalshi": 0.34
+     "Kalshi": 0.33
     }
    }
   },
@@ -913,15 +965,15 @@
    "side_std": "home",
    "money_with": false,
    "grade": "watch",
-   "fair_board": null,
-   "inside_fair": null,
+   "fair_board": 0.4048,
+   "inside_fair": true,
    "books": {
-    "at": "2026-11-24T15:07:26Z",
-    "fair": null,
+    "at": "2026-11-24T17:01:30Z",
+    "fair": 0.4048,
     "q": {
+     "Novig": 0.41,
      "DK": 0.4237,
-     "Novig": 0.425,
-     "Kalshi": 0.43
+     "Kalshi": 0.44
     }
    }
   },
@@ -978,7 +1030,7 @@
    "best_rank": 12,
    "usd": 125,
    "paid": 0.5,
-   "ask": 0.51,
+   "ask": 0.5,
    "status": "live",
    "link": "https://polymarket.us/event/cfb-aubrn-ala-2026-11-28",
    "other": null,
@@ -998,16 +1050,16 @@
    ],
    "money_with": false,
    "grade": "B",
-   "fair_board": 0.4963,
+   "fair_board": 0.4976,
    "inside_fair": false,
    "books": {
-    "at": "2026-11-24T15:07:26Z",
-    "fair": 0.4963,
+    "at": "2026-11-24T17:01:30Z",
+    "fair": 0.4976,
     "q": {
      "Novig": 0.505,
      "Caesars": 0.5169,
      "DK": 0.5192,
-     "Kalshi": 0.52
+     "Kalshi": 0.53
     }
    }
   },
@@ -1027,13 +1079,56 @@
    "best_rank": 31,
    "usd": 511,
    "paid": 0.51,
-   "ask": 0.54,
+   "ask": 0.53,
    "status": "live",
    "link": "https://polymarket.us/event/epl-eve-liv-2026-11-29",
    "other": null,
    "kalshi_against": null,
    "logged": true,
    "grade": "B",
+   "fair_board": null,
+   "inside_fair": null,
+   "books": null
+  },
+  {
+   "cond": "0x5623b1f6aa9617f54cb6a8d6f699ac4f89fccf55e8e0158188f4135a9285296f",
+   "slug": "ucl-sba-bet-2026-11-24",
+   "title": "\u0160K Slovan Bratislava vs. Real Betis Balompi\u00e9",
+   "mtype": "ml",
+   "start": "2026-11-24T20:00:00Z",
+   "bet": "Will Real Betis Balompi\u00e9 win on 2026-11-24: No",
+   "side": "No",
+   "flagged": "2026-11-23T19:34:08Z",
+   "why": "2 top-200 accounts",
+   "proven": true,
+   "trigger": "proven",
+   "n_accounts": 2,
+   "best_rank": 157,
+   "usd": 908,
+   "paid": 0.22,
+   "ask": 0.23,
+   "status": "other side",
+   "link": "https://polymarket.us/event/ucl-sba-bet-2026-11-24",
+   "other": {
+    "n_accounts": 1,
+    "best_rank": 71,
+    "usd": 150,
+    "first": "2026-11-24T16:28:10Z"
+   },
+   "exit_bid": 0.22,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401915297",
+   "sport": "soccer",
+   "league": "ucl",
+   "away": "BET",
+   "home": "SLB",
+   "away_name": "Real Betis",
+   "home_name": "Slovan Bratislava",
+   "game_start": "2026-11-24T20:00Z",
+   "side_std": "not_away",
+   "money_with": false,
+   "grade": "A",
    "fair_board": null,
    "inside_fair": null,
    "books": null
@@ -1124,7 +1219,7 @@
    ],
    "money_with": false,
    "grade": "A",
-   "fair_board": 0.4425,
+   "fair_board": 0.4549,
    "inside_fair": false,
    "books": null
   }
@@ -1185,6 +1280,13 @@
   }
  },
  "by_event": {
+  "401873079|total": {
+   "over": {
+    "n": 1,
+    "best_rank": 182,
+    "usd": 293
+   }
+  },
   "401873082|total": {
    "under": {
     "n": 1,
