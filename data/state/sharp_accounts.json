@@ -1,5 +1,5 @@
 {
- "built": "2026-11-24T19:24:18Z",
+ "built": "2026-11-24T19:43:20Z",
  "rows": [
   {
    "cond": "0xdd59f8d0c10ce4b29250ead31df8fc5dc89362085d890288d09c041043275b04",
@@ -141,7 +141,7 @@
    "best_rank": 71,
    "usd": 150,
    "paid": 0.77,
-   "ask": 0.77,
+   "ask": 0.78,
    "status": "live",
    "link": "https://polymarket.us/event/ucl-com-aek1-2026-11-24",
    "other": null,
@@ -364,6 +364,55 @@
      "DK": 0.5652,
      "Kalshi": 0.57,
      "Caesars": 0.5745
+    }
+   }
+  },
+  {
+   "cond": "0x33b28ef1935c041a6b7d7e54459877daaadd57b3363a0ab18318b355e2c194f8",
+   "slug": "cfb-kentst-emich-2026-11-24",
+   "title": "Kent State vs. Eastern Michigan",
+   "mtype": "spread",
+   "start": "2026-11-25T00:00:00Z",
+   "bet": "Eastern Michigan -5.5",
+   "side": "Eastern Michigan",
+   "flagged": "2026-11-24T19:42:50Z",
+   "why": "a top-200 account also in this sport's top 50",
+   "proven": true,
+   "trigger": "proven",
+   "n_accounts": 1,
+   "best_rank": 58,
+   "usd": 480,
+   "paid": 0.52,
+   "ask": 0.52,
+   "status": "live",
+   "link": "https://polymarket.us/event/cfb-kentst-emich-2026-11-24",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401866470",
+   "sport": "cfb",
+   "league": null,
+   "away": "KENT",
+   "home": "EMU",
+   "away_name": "Kent State Golden Flashes",
+   "home_name": "Eastern Michigan Eagles",
+   "game_start": "2026-11-25T00:00Z",
+   "side_std": "home",
+   "conflict": [
+    "big money"
+   ],
+   "money_with": false,
+   "grade": "A",
+   "fair_board": 0.5107,
+   "inside_fair": false,
+   "books": {
+    "at": "2026-11-24T19:03:34Z",
+    "fair": 0.5107,
+    "q": {
+     "Novig": 0.52,
+     "DK": 0.5283,
+     "Caesars": 0.5305,
+     "FD": 0.5349
     }
    }
   },
@@ -880,7 +929,7 @@
    "best_rank": 104,
    "usd": 139,
    "paid": 0.349,
-   "ask": 0.35,
+   "ask": 0.36,
    "status": "live",
    "link": "https://polymarket.us/event/nba-cle-nyk-2026-11-25",
    "other": null,
@@ -1176,7 +1225,7 @@
    "best_rank": 157,
    "usd": 908,
    "paid": 0.22,
-   "ask": 0.24,
+   "ask": 0.25,
    "status": "other side",
    "link": "https://polymarket.us/event/ucl-sba-bet-2026-11-24",
    "other": {
@@ -1185,7 +1234,7 @@
     "usd": 150,
     "first": "2026-11-24T16:28:10Z"
    },
-   "exit_bid": 0.23,
+   "exit_bid": 0.24,
    "kalshi_against": null,
    "logged": true,
    "event_id": "401915297",
@@ -1446,11 +1495,25 @@
     "usd": 615
    }
   },
+  "401866470|spread": {
+   "home": {
+    "n": 1,
+    "best_rank": 58,
+    "usd": 480
+   }
+  },
   "401856757|total": {
    "over": {
     "n": 1,
     "best_rank": 12,
     "usd": 125
+   }
+  },
+  "401915941|spread": {
+   "away": {
+    "n": 1,
+    "best_rank": 170,
+    "usd": 124
    }
   },
   "401922231|total": {
