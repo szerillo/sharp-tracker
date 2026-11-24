@@ -200,6 +200,46 @@ def path(T, key, t0, st):
     return best, close
 
 
+# 11/24 (Kirk): the bet log carries the board's own call for every row (board_status / board_why), so an automated placer that reads
+# bet_log.json bets only what the page shows as a bet. Values: bet, held, pass (bought out), dropped, wait (wind before 12h), paper.
+# The page's sharp-flag logic (index.html renderToday): a flag is HELD when a sharp took the other side (status 'other side'), sharp
+# accounts sit on the other side, or a market signal against is tagged (big money, bet back, sharp move, sharp accounts, sharp flag,
+# system; a Kalshi move only for games before KALSHI_WARN_FROM); PASS when the ask is 5c+ above what the sharps paid (bought out);
+# DROPPED when the flag is no longer live or conflicts. Calls freeze at the start: a started game keeps its last pre-start call.
+WIND_TAGS = {'wind1014', 'wind1014_1h', 'cfb_wind14', 'wind1014_cold'}
+HOLD_TAGS = ('big money against', 'bet back against', 'sharp move against', 'sharp accts against', 'sharp flag against', 'system against')
+def board_status(bets):
+    now = NOW.strftime('%Y-%m-%dT%H:%M:%SZ')
+    try: prev = {r['id']: (r.get('board_status'), r.get('board_why')) for r in json.load(open(OUT)).get('rows', []) if r.get('board_status')}
+    except Exception: prev = {}
+    try: SAJ = json.load(open(os.path.join(SD, 'sharp_accounts.json')))
+    except Exception: SAJ = {}
+    SAR = {r.get('cond'): r for r in SAJ.get('rows', []) if r.get('cond')}
+    for b in bets:
+        st_ = b.get('start') or ''
+        if st_ and st_ <= now and b['id'] in prev:
+            b['board_status'], b['board_why'] = prev[b['id']]
+            if b['board_status'] == 'held': b['held'] = True
+            continue
+        tg = set(b.get('tags') or []); st, why = 'bet', ''
+        if b.get('excluded') or b.get('lapsed'): st, why = 'dropped', b.get('excluded') or 'trigger lapsed'
+        elif b.get('counted') is False: st, why = 'dropped', 'conflicting systems cancel'
+        elif b['cat'] == 'watch' or not b.get('size'): st, why = 'paper', 'paper or watch only: no units'
+        elif b.get('src') == 'sharp':
+            r = SAR.get(b['id'][2:]) if b['id'].startswith('p:') else None
+            ag = [t.replace(' against', '') for t in HOLD_TAGS if t in tg] + (['Kalshi move'] if 'Kalshi move against' in tg and kalshi_blocks(st_) else [])
+            if r is not None and (r.get('status') not in ('live', 'other side') or r.get('conflict') or (r.get('kalshi_against') and kalshi_blocks(st_))):
+                st, why = 'dropped', 'flag no longer live' if r.get('status') not in ('live', 'other side') else 'a signal on the other side' if r.get('conflict') else 'Kalshi moved the other way'
+            elif (r is not None and r.get('status') == 'other side') or ag:
+                st, why = 'held', '; '.join((['a sharp took the other side'] if r is not None and r.get('status') == 'other side' else []) + ([', '.join(ag) + ' against'] if ag else []))
+            elif r is not None and r.get('ask') is not None and r.get('paid') is not None and r['ask'] - r['paid'] >= 0.05 - 1e-9:
+                st, why = 'pass', f"bought out: ask {round(100 * r['ask'])}c vs the sharps' {round(100 * r['paid'])}c"
+        elif b.get('held'): st, why = 'held', 'a rule on the other side' if 'system against' in tg else 'Kalshi moved the other way'
+        elif b.get('rule') in WIND_TAGS and st_ and (dt.datetime.fromisoformat(st_.replace('Z', '+00:00')) - NOW).total_seconds() > 12 * 3600: st, why = 'wait', 'wind rules wait until 12h before kickoff'
+        b['board_status'], b['board_why'] = st, why
+        if st == 'held': b['held'] = True
+
+
 def main():
     S = schedules()
     SF_ = json.load(open(os.path.join(SD, 'system_fires.json')))
@@ -632,6 +672,7 @@ def main():
         tg = set(b.get('tags') or [])
         if 'Kalshi move against' in tg: b['kalshi_warn'] = True
         if b['cat'] in ('system A', 'system B', 'lean C', 'tennis') and ('system against' in tg or ('Kalshi move against' in tg and kalshi_blocks(b.get('start')))): b['held'] = True
+    board_status(bets)
     def rest_summ(L):
         L = [b for b in L if b.get('won') in (0, 1) and b.get('rest') is not None and b.get('rest_filled') is not None and b.get('price')]
         def rec(G_, pk):
