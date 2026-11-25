@@ -1,5 +1,5 @@
 {
- "built": "2026-11-25T19:55:18Z",
+ "built": "2026-11-25T20:03:55Z",
  "rows": [
   {
    "cond": "0x1e09f6de8fad7800a26ea95caee3926104880dc96ecafdba633b0d8c4c9f8df5",
@@ -131,7 +131,7 @@
    "best_rank": 57,
    "usd": 363,
    "paid": 0.42,
-   "ask": 0.43,
+   "ask": null,
    "status": "live",
    "link": "https://polymarket.us/event/ucl-spo-mnu-2026-11-25-more-markets",
    "other": null,
@@ -169,7 +169,7 @@
    "best_rank": 57,
    "usd": 674,
    "paid": 0.631,
-   "ask": 0.66,
+   "ask": null,
    "status": "live",
    "link": "https://polymarket.us/event/ucl-spo-mnu-2026-11-25-more-markets",
    "other": null,
@@ -208,7 +208,7 @@
    "best_rank": 170,
    "usd": 300,
    "paid": 0.17,
-   "ask": 0.18,
+   "ask": null,
    "status": "live",
    "link": "https://polymarket.us/event/ucl-lil-bay-2026-11-25",
    "other": null,
@@ -237,44 +237,6 @@
    }
   },
   {
-   "cond": "0x7f6630ad652c2782123484cce12f49cebbbdeefd6123ffcdaff7646cb1dd17f5",
-   "slug": "ucl-spo-mnu-2026-11-25",
-   "title": "Sporting CP vs. Manchester United FC",
-   "mtype": "ml",
-   "start": "2026-11-25T20:00:00Z",
-   "bet": "Will Manchester United FC win on 2026-11-25: Yes",
-   "side": "Yes",
-   "flagged": "2026-11-24T09:23:31Z",
-   "why": "a top-200 account also in this sport's top 50",
-   "proven": true,
-   "trigger": "proven",
-   "n_accounts": 1,
-   "best_rank": 100,
-   "usd": 1129,
-   "paid": 0.36,
-   "ask": 0.39,
-   "status": "live",
-   "link": "https://polymarket.us/event/ucl-spo-mnu-2026-11-25",
-   "other": null,
-   "kalshi_against": null,
-   "logged": true,
-   "event_id": "401915373",
-   "sport": "soccer",
-   "league": "ucl",
-   "away": "MAN",
-   "home": "SCP",
-   "away_name": "Manchester United",
-   "home_name": "Sporting CP",
-   "game_start": "2026-11-25T20:00Z",
-   "side_std": "away",
-   "cancel": null,
-   "money_with": false,
-   "grade": "A",
-   "fair_board": null,
-   "inside_fair": null,
-   "books": null
-  },
-  {
    "cond": "0x184743de2502673ea8f801bab1c3143cc9e2e4f05545ff373ff8793c05848ccb",
    "slug": "ucl-bru-liv-2026-11-25",
    "title": "Club Brugge KV vs. Liverpool FC",
@@ -290,7 +252,7 @@
    "best_rank": 71,
    "usd": 336,
    "paid": 0.6,
-   "ask": 0.57,
+   "ask": null,
    "status": "live",
    "link": "https://polymarket.us/event/ucl-bru-liv-2026-11-25",
    "other": null,
@@ -315,6 +277,50 @@
     "fair": null,
     "q": {
      "Novig": 0.6
+    }
+   }
+  },
+  {
+   "cond": "0x37b23cd509840576033daded51a7e97a7b551e4489625eaf7f5e772bebf5011e",
+   "slug": "ucl-atm-vf-2026-11-25",
+   "title": "Club Atl\u00e9tico de Madrid vs. Viking FK",
+   "mtype": "ml",
+   "start": "2026-11-25T20:00:00Z",
+   "bet": "Will Club Atl\u00e9tico de Madrid win on 2026-11-25: Yes",
+   "side": "Yes",
+   "flagged": "2026-11-25T19:59:27Z",
+   "why": "a top-50 account",
+   "proven": true,
+   "trigger": "proven",
+   "n_accounts": 1,
+   "best_rank": 43,
+   "usd": 1737,
+   "paid": 0.89,
+   "ask": null,
+   "status": "live",
+   "link": "https://polymarket.us/event/ucl-atm-vf-2026-11-25",
+   "other": null,
+   "kalshi_against": null,
+   "logged": false,
+   "event_id": "401915291",
+   "sport": "soccer",
+   "league": "ucl",
+   "away": "VFK",
+   "home": "ATM",
+   "away_name": "Viking FK",
+   "home_name": "Atl\u00e9tico Madrid",
+   "game_start": "2026-11-25T20:00Z",
+   "side_std": "home",
+   "cancel": null,
+   "money_with": false,
+   "grade": "A",
+   "fair_board": null,
+   "inside_fair": null,
+   "books": {
+    "at": "2026-11-25T18:24:36Z",
+    "fair": null,
+    "q": {
+     "Novig": 0.885
     }
    }
   },
@@ -660,7 +666,7 @@
    "best_rank": 24,
    "usd": 2419,
    "paid": 0.64,
-   "ask": 0.64,
+   "ask": 0.65,
    "status": "live",
    "link": "https://polymarket.us/event/nfl-den-pit-2026-11-27",
    "other": null,
@@ -913,7 +919,7 @@
    "best_rank": 31,
    "usd": 887,
    "paid": 0.316,
-   "ask": 0.42,
+   "ask": null,
    "status": "other side",
    "link": "https://polymarket.us/event/ucl-lil-bay-2026-11-25",
    "other": {
@@ -922,7 +928,7 @@
     "usd": 511,
     "first": "2026-11-21T12:26:43Z"
    },
-   "exit_bid": 0.41,
+   "exit_bid": null,
    "kalshi_against": null,
    "logged": true,
    "event_id": "401915377",
@@ -957,7 +963,7 @@
    "best_rank": 43,
    "usd": 993,
    "paid": 0.28,
-   "ask": 0.35,
+   "ask": null,
    "status": "other side",
    "link": "https://polymarket.us/event/ucl-psg-rom-2026-11-25",
    "other": {
@@ -966,7 +972,7 @@
     "usd": 4124,
     "first": "2026-11-25T15:44:04Z"
    },
-   "exit_bid": 0.34,
+   "exit_bid": null,
    "kalshi_against": null,
    "logged": true,
    "event_id": "401915374",
@@ -978,6 +984,50 @@
    "home_name": "Paris Saint-Germain",
    "game_start": "2026-11-25T20:00Z",
    "side_std": "not_home",
+   "cancel": null,
+   "money_with": false,
+   "grade": "A",
+   "fair_board": null,
+   "inside_fair": null,
+   "books": null
+  },
+  {
+   "cond": "0x7f6630ad652c2782123484cce12f49cebbbdeefd6123ffcdaff7646cb1dd17f5",
+   "slug": "ucl-spo-mnu-2026-11-25",
+   "title": "Sporting CP vs. Manchester United FC",
+   "mtype": "ml",
+   "start": "2026-11-25T20:00:00Z",
+   "bet": "Will Manchester United FC win on 2026-11-25: Yes",
+   "side": "Yes",
+   "flagged": "2026-11-24T09:23:31Z",
+   "why": "a top-200 account also in this sport's top 50",
+   "proven": true,
+   "trigger": "proven",
+   "n_accounts": 1,
+   "best_rank": 100,
+   "usd": 1129,
+   "paid": 0.36,
+   "ask": null,
+   "status": "other side",
+   "link": "https://polymarket.us/event/ucl-spo-mnu-2026-11-25",
+   "other": {
+    "n_accounts": 1,
+    "best_rank": 100,
+    "usd": 1278,
+    "first": "2026-11-25T19:59:12Z"
+   },
+   "exit_bid": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401915373",
+   "sport": "soccer",
+   "league": "ucl",
+   "away": "MAN",
+   "home": "SCP",
+   "away_name": "Manchester United",
+   "home_name": "Sporting CP",
+   "game_start": "2026-11-25T20:00Z",
+   "side_std": "away",
    "cancel": null,
    "money_with": false,
    "grade": "A",
@@ -1671,13 +1721,6 @@
     "usd": 125
    }
   },
-  "401928836|total": {
-   "over": {
-    "n": 1,
-    "best_rank": 65,
-    "usd": 1288
-   }
-  },
   "401928359|total": {
    "over": {
     "n": 1,
@@ -1793,13 +1836,6 @@
     "n": 1,
     "best_rank": 65,
     "usd": 750
-   }
-  },
-  "401915373|total": {
-   "over": {
-    "n": 1,
-    "best_rank": 57,
-    "usd": 363
    }
   }
  },
