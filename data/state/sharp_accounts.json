@@ -1,5 +1,5 @@
 {
- "built": "2026-11-25T22:35:45Z",
+ "built": "2026-11-25T22:52:48Z",
  "rows": [
   {
    "cond": "0x8815e1a17ad30339bd60d7d7e391fceddfb6557d2f02ad8e3fbacc35638c388d",
@@ -955,8 +955,8 @@
    "link": "https://polymarket.us/event/nhl-car-tb-2026-11-25",
    "other": null,
    "kalshi_against": {
-    "move": 5.0,
-    "now": 48.5,
+    "move": 5.5,
+    "now": 49.0,
     "state": "drift"
    },
    "logged": true,
@@ -1007,7 +1007,7 @@
    "best_rank": 40,
    "usd": 4464,
    "paid": 0.389,
-   "ask": 0.39,
+   "ask": 0.38,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-cle-nyk-2026-11-25",
    "other": {
@@ -1016,7 +1016,7 @@
     "usd": 30909,
     "first": "2026-11-24T22:18:13Z"
    },
-   "exit_bid": 0.38,
+   "exit_bid": 0.37,
    "kalshi_against": null,
    "logged": true,
    "event_id": "401909319",
@@ -1032,7 +1032,7 @@
     "Kalshi bet back"
    ],
    "cancel": null,
-   "money_with": true,
+   "money_with": false,
    "grade": "A",
    "fair_board": 0.4567,
    "inside_fair": true,
@@ -1354,8 +1354,7 @@
    "game_start": "2026-11-26T03:00Z",
    "side_std": "away",
    "conflict": [
-    "Kalshi bet back",
-    "big money"
+    "Kalshi bet back"
    ],
    "cancel": null,
    "money_with": false,
@@ -1462,14 +1461,14 @@
     "clv": -0.95
    },
    "outside": {
-    "n": 121,
-    "won": 64,
+    "n": 122,
+    "won": 65,
     "units": -0.03,
-    "clv": -0.09
+    "clv": -0.1
    }
   },
-  "n": 441,
-  "won": 212,
+  "n": 442,
+  "won": 213,
   "units": -15.76,
   "by_grade": {
    "A": {
@@ -1479,8 +1478,8 @@
     "clv": -0.1
    },
    "B": {
-    "n": 104,
-    "won": 61,
+    "n": 105,
+    "won": 62,
     "units": 2.14,
     "clv": -1.1
    },
@@ -1491,9 +1490,9 @@
     "clv": 0.28
    }
   },
-  "units_1u": -23.73,
+  "units_1u": -22.88,
   "clv": -0.31,
-  "n_venue": 232,
+  "n_venue": 233,
   "units_venue": -5.02,
   "clv_venue": 0.96,
   "clv_poly_same": -0.55
