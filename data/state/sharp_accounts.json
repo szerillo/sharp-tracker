@@ -1,5 +1,5 @@
 {
- "built": "2026-11-25T16:07:30Z",
+ "built": "2026-11-25T16:28:20Z",
  "rows": [
   {
    "cond": "0x1e09f6de8fad7800a26ea95caee3926104880dc96ecafdba633b0d8c4c9f8df5",
@@ -38,8 +38,8 @@
    "cancel": null,
    "money_with": false,
    "grade": "B",
-   "fair_board": 0.5203,
    "inside_fair": false,
+   "fair_board": 0.5203,
    "books": {
     "at": "2026-11-25T15:01:18Z",
     "fair": 0.5203,
@@ -402,7 +402,7 @@
    "best_rank": 197,
    "usd": 615,
    "paid": 0.55,
-   "ask": 0.55,
+   "ask": 0.54,
    "status": "live",
    "link": "https://polymarket.us/event/nhl-car-tb-2026-11-25",
    "other": null,
@@ -928,7 +928,7 @@
    "best_rank": 49,
    "usd": 1226,
    "paid": 0.391,
-   "ask": 0.48,
+   "ask": 0.49,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-mia-phi-2026-11-25",
    "other": {
@@ -937,7 +937,7 @@
     "usd": 6891,
     "first": "2026-11-24T20:32:55Z"
    },
-   "exit_bid": 0.47,
+   "exit_bid": 0.48,
    "kalshi_against": null,
    "logged": true,
    "event_id": "401909317",
@@ -1320,6 +1320,13 @@
     "n": 1,
     "best_rank": 58,
     "usd": 490
+   }
+  },
+  "401909322|spread": {
+   "away": {
+    "n": 1,
+    "best_rank": 115,
+    "usd": 3499
    }
   },
   "401909323|total": {
