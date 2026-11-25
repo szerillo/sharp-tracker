@@ -1,5 +1,5 @@
 {
- "built": "2026-11-25T17:40:10Z",
+ "built": "2026-11-25T17:46:09Z",
  "rows": [
   {
    "cond": "0x1e09f6de8fad7800a26ea95caee3926104880dc96ecafdba633b0d8c4c9f8df5",
@@ -55,7 +55,7 @@
    "best_rank": 157,
    "usd": 294,
    "paid": 0.095,
-   "ask": 0.09,
+   "ask": null,
    "status": "live",
    "link": "https://polymarket.us/event/ucl-sf-fcb-2026-11-25",
    "other": null,
@@ -93,7 +93,7 @@
    "best_rank": 157,
    "usd": 1200,
    "paid": 0.47,
-   "ask": 0.47,
+   "ask": null,
    "status": "live",
    "link": "https://polymarket.us/event/ucl-sf-fcb-2026-11-25-more-markets",
    "other": null,
@@ -798,7 +798,7 @@
    "best_rank": 12,
    "usd": 125,
    "paid": 0.5,
-   "ask": 0.51,
+   "ask": 0.5,
    "status": "live",
    "link": "https://polymarket.us/event/cfb-aubrn-ala-2026-11-28",
    "other": null,
@@ -820,7 +820,7 @@
    "money_with": false,
    "grade": "B",
    "fair_board": 0.5093,
-   "inside_fair": false,
+   "inside_fair": true,
    "books": {
     "at": "2026-11-25T17:02:40Z",
     "fair": 0.5093,
@@ -875,7 +875,7 @@
    "best_rank": 71,
    "usd": 9239,
    "paid": 0.451,
-   "ask": 0.4,
+   "ask": null,
    "status": "other side",
    "link": "https://polymarket.us/event/ucl-slp-vil-2026-11-25",
    "other": {
@@ -884,7 +884,7 @@
     "usd": 195,
     "first": "2026-11-25T17:32:50Z"
    },
-   "exit_bid": 0.39,
+   "exit_bid": null,
    "kalshi_against": null,
    "logged": true,
    "event_id": "401915293",
@@ -1047,23 +1047,23 @@
    "bet": "Cavaliers ML",
    "side": "Cavaliers",
    "flagged": "2026-11-23T03:01:13Z",
-   "why": "2 top-200 accounts",
+   "why": "3 top-200 accounts",
    "proven": true,
    "trigger": "proven",
-   "n_accounts": 2,
+   "n_accounts": 3,
    "best_rank": 40,
-   "usd": 3767,
-   "paid": 0.379,
-   "ask": 0.41,
+   "usd": 4464,
+   "paid": 0.389,
+   "ask": 0.45,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-cle-nyk-2026-11-25",
    "other": {
-    "n_accounts": 2,
-    "best_rank": 43,
-    "usd": 2119,
+    "n_accounts": 3,
+    "best_rank": 40,
+    "usd": 8735,
     "first": "2026-11-24T22:18:13Z"
    },
-   "exit_bid": 0.4,
+   "exit_bid": 0.44,
    "kalshi_against": null,
    "logged": true,
    "event_id": "401909319",
@@ -1082,7 +1082,7 @@
    "money_with": true,
    "grade": "A",
    "fair_board": 0.4153,
-   "inside_fair": true,
+   "inside_fair": false,
    "books": null
   },
   {
@@ -1365,14 +1365,33 @@
   },
   "401909319|ml": {
    "away": {
-    "n": 2,
+    "n": 3,
     "best_rank": 40,
-    "usd": 3767
+    "usd": 4464
    },
    "home": {
-    "n": 2,
-    "best_rank": 43,
-    "usd": 1397
+    "n": 3,
+    "best_rank": 40,
+    "usd": 5701
+   }
+  },
+  "401909319|spread": {
+   "away": {
+    "n": 1,
+    "best_rank": 112,
+    "usd": 4353
+   },
+   "home": {
+    "n": 1,
+    "best_rank": 132,
+    "usd": 242
+   }
+  },
+  "401909319|total": {
+   "under": {
+    "n": 1,
+    "best_rank": 132,
+    "usd": 532
    }
   },
   "401909320|ml": {
@@ -1671,13 +1690,6 @@
     "n": 1,
     "best_rank": 65,
     "usd": 750
-   }
-  },
-  "401915378|total": {
-   "under": {
-    "n": 2,
-    "best_rank": 157,
-    "usd": 1200
    }
   },
   "401915373|total": {
