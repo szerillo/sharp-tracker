@@ -1,5 +1,5 @@
 {
- "built": "2026-11-25T20:21:26Z",
+ "built": "2026-11-25T20:11:43Z",
  "rows": [
   {
    "cond": "0x1e09f6de8fad7800a26ea95caee3926104880dc96ecafdba633b0d8c4c9f8df5",
@@ -321,6 +321,50 @@
     "fair": null,
     "q": {
      "Novig": 0.89
+    }
+   }
+  },
+  {
+   "cond": "0x37b23cd509840576033daded51a7e97a7b551e4489625eaf7f5e772bebf5011e",
+   "slug": "ucl-atm-vf-2026-11-25",
+   "title": "Club Atl\u00e9tico de Madrid vs. Viking FK",
+   "mtype": "ml",
+   "start": "2026-11-25T20:00:00Z",
+   "bet": "Will Club Atl\u00e9tico de Madrid win on 2026-11-25: Yes",
+   "side": "Yes",
+   "flagged": "2026-11-25T19:59:27Z",
+   "why": "a top-50 account",
+   "proven": true,
+   "trigger": "proven",
+   "n_accounts": 1,
+   "best_rank": 43,
+   "usd": 1737,
+   "paid": 0.89,
+   "ask": null,
+   "status": "live",
+   "link": "https://polymarket.us/event/ucl-atm-vf-2026-11-25",
+   "other": null,
+   "kalshi_against": null,
+   "logged": false,
+   "event_id": "401915291",
+   "sport": "soccer",
+   "league": "ucl",
+   "away": "VFK",
+   "home": "ATM",
+   "away_name": "Viking FK",
+   "home_name": "Atl\u00e9tico Madrid",
+   "game_start": "2026-11-25T20:00Z",
+   "side_std": "home",
+   "cancel": null,
+   "money_with": false,
+   "grade": "A",
+   "fair_board": null,
+   "inside_fair": null,
+   "books": {
+    "at": "2026-11-25T18:24:36Z",
+    "fair": null,
+    "q": {
+     "Novig": 0.885
     }
    }
   },
@@ -1044,14 +1088,14 @@
    "bet": "Heat ML",
    "side": "Heat",
    "flagged": "2026-11-23T21:34:23Z",
-   "why": "5 top-200 accounts",
+   "why": "4 top-200 accounts",
    "proven": false,
    "trigger": "two",
-   "n_accounts": 5,
+   "n_accounts": 4,
    "best_rank": 49,
-   "usd": 26324,
-   "paid": 0.484,
-   "ask": 0.53,
+   "usd": 4984,
+   "paid": 0.458,
+   "ask": 0.49,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-mia-phi-2026-11-25",
    "other": {
@@ -1060,7 +1104,7 @@
     "usd": 15040,
     "first": "2026-11-24T20:32:55Z"
    },
-   "exit_bid": 0.52,
+   "exit_bid": 0.48,
    "kalshi_against": null,
    "logged": true,
    "event_id": "401909317",
@@ -1548,9 +1592,9 @@
   },
   "401909317|ml": {
    "away": {
-    "n": 5,
+    "n": 4,
     "best_rank": 49,
-    "usd": 26324
+    "usd": 4984
    },
    "home": {
     "n": 4,
@@ -1567,14 +1611,9 @@
   },
   "401909317|spread": {
    "away": {
-    "n": 3,
-    "best_rank": 110,
-    "usd": 17843
-   },
-   "home": {
     "n": 1,
-    "best_rank": 112,
-    "usd": 265
+    "best_rank": 110,
+    "usd": 3107
    }
   },
   "401909318|ml": {
