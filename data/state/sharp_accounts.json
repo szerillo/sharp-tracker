@@ -1,5 +1,5 @@
 {
- "built": "2026-11-25T22:03:17Z",
+ "built": "2026-11-25T22:35:45Z",
  "rows": [
   {
    "cond": "0x8815e1a17ad30339bd60d7d7e391fceddfb6557d2f02ad8e3fbacc35638c388d",
@@ -883,9 +883,6 @@
    "home_name": "Philadelphia 76ers",
    "game_start": "2026-11-25T22:00Z",
    "side_std": "away",
-   "conflict": [
-    "Kalshi bet back"
-   ],
    "cancel": null,
    "money_with": false,
    "grade": "B",
@@ -1010,7 +1007,7 @@
    "best_rank": 40,
    "usd": 4464,
    "paid": 0.389,
-   "ask": 0.38,
+   "ask": 0.39,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-cle-nyk-2026-11-25",
    "other": {
@@ -1019,7 +1016,7 @@
     "usd": 30909,
     "first": "2026-11-24T22:18:13Z"
    },
-   "exit_bid": 0.37,
+   "exit_bid": 0.38,
    "kalshi_against": null,
    "logged": true,
    "event_id": "401909319",
@@ -1035,7 +1032,7 @@
     "Kalshi bet back"
    ],
    "cancel": null,
-   "money_with": false,
+   "money_with": true,
    "grade": "A",
    "fair_board": 0.4567,
    "inside_fair": true,
@@ -1335,16 +1332,16 @@
    "best_rank": 49,
    "usd": 472,
    "paid": 0.313,
-   "ask": 0.28,
+   "ask": 0.26,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-sac-gsw-2026-11-25",
    "other": {
     "n_accounts": 2,
     "best_rank": 42,
-    "usd": 494,
+    "usd": 1137,
     "first": "2026-11-25T20:45:04Z"
    },
-   "exit_bid": 0.27,
+   "exit_bid": 0.25,
    "kalshi_against": null,
    "logged": true,
    "event_id": "401909324",
@@ -1357,7 +1354,8 @@
    "game_start": "2026-11-26T03:00Z",
    "side_std": "away",
    "conflict": [
-    "Kalshi bet back"
+    "Kalshi bet back",
+    "big money"
    ],
    "cancel": null,
    "money_with": false,
