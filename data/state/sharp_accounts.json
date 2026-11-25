@@ -1,5 +1,5 @@
 {
- "built": "2026-11-25T21:49:23Z",
+ "built": "2026-11-25T22:03:17Z",
  "rows": [
   {
    "cond": "0x8815e1a17ad30339bd60d7d7e391fceddfb6557d2f02ad8e3fbacc35638c388d",
@@ -305,7 +305,7 @@
    "best_rank": 79,
    "usd": 3748,
    "paid": 0.53,
-   "ask": 0.53,
+   "ask": 0.52,
    "status": "live",
    "link": "https://polymarket.us/event/nhl-phi-wsh-2026-11-25",
    "other": null,
@@ -862,7 +862,7 @@
    "best_rank": 49,
    "usd": 26324,
    "paid": 0.484,
-   "ask": 0.5,
+   "ask": null,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-mia-phi-2026-11-25",
    "other": {
@@ -871,7 +871,7 @@
     "usd": 15040,
     "first": "2026-11-24T20:32:55Z"
    },
-   "exit_bid": 0.49,
+   "exit_bid": null,
    "kalshi_against": null,
    "logged": true,
    "event_id": "401909317",
@@ -890,7 +890,7 @@
    "money_with": false,
    "grade": "B",
    "fair_board": 0.5099,
-   "inside_fair": true,
+   "inside_fair": null,
    "books": null
   },
   {
@@ -909,7 +909,7 @@
    "best_rank": 110,
    "usd": 17843,
    "paid": 0.519,
-   "ask": 0.53,
+   "ask": null,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-mia-phi-2026-11-25",
    "other": {
@@ -918,7 +918,7 @@
     "usd": 265,
     "first": "2026-11-25T20:17:19Z"
    },
-   "exit_bid": 0.52,
+   "exit_bid": null,
    "kalshi_against": null,
    "logged": false,
    "event_id": "401909317",
@@ -938,7 +938,7 @@
    "money_with": false,
    "grade": "B",
    "fair_board": 0.5359,
-   "inside_fair": true,
+   "inside_fair": null,
    "books": null
   },
   {
@@ -1083,8 +1083,7 @@
    "game_start": "2026-11-26T00:30Z",
    "side_std": "away",
    "conflict": [
-    "Kalshi bet back",
-    "big money"
+    "Kalshi bet back"
    ],
    "cancel": null,
    "money_with": false,
@@ -1511,14 +1510,6 @@
   "clv_poly_same": -0.55
  },
  "sys_tags": {
-  "401909317:nba_roadtrip_over": {
-   "with": null,
-   "against": {
-    "n": 1,
-    "best_rank": 132,
-    "usd": 279
-   }
-  },
   "401909320:nba_roadtrip_over": {
    "with": null,
    "against": {
@@ -1549,7 +1540,11 @@
     "best_rank": 119,
     "usd": 463
    },
-   "against": null
+   "against": {
+    "n": 1,
+    "best_rank": 115,
+    "usd": 1203
+   }
   },
   "401920916:cbb_under_good_over_drop": {
    "with": {
@@ -1593,37 +1588,6 @@
     "usd": 2419
    }
   },
-  "401909317|ml": {
-   "away": {
-    "n": 5,
-    "best_rank": 49,
-    "usd": 26324
-   },
-   "home": {
-    "n": 4,
-    "best_rank": 43,
-    "usd": 12947
-   }
-  },
-  "401909317|total": {
-   "under": {
-    "n": 1,
-    "best_rank": 132,
-    "usd": 279
-   }
-  },
-  "401909317|spread": {
-   "away": {
-    "n": 3,
-    "best_rank": 110,
-    "usd": 17843
-   },
-   "home": {
-    "n": 1,
-    "best_rank": 112,
-    "usd": 265
-   }
-  },
   "401909318|ml": {
    "home": {
     "n": 1,
@@ -1636,6 +1600,11 @@
     "n": 1,
     "best_rank": 119,
     "usd": 463
+   },
+   "under": {
+    "n": 1,
+    "best_rank": 115,
+    "usd": 1203
    }
   },
   "401909319|ml": {
@@ -1849,34 +1818,6 @@
     "n": 1,
     "best_rank": 12,
     "usd": 125
-   }
-  },
-  "401926065|spread": {
-   "away": {
-    "n": 1,
-    "best_rank": 65,
-    "usd": 294
-   }
-  },
-  "401926065|total": {
-   "under": {
-    "n": 1,
-    "best_rank": 65,
-    "usd": 382
-   }
-  },
-  "401920237|total": {
-   "over": {
-    "n": 1,
-    "best_rank": 93,
-    "usd": 548
-   }
-  },
-  "401917182|total": {
-   "under": {
-    "n": 1,
-    "best_rank": 93,
-    "usd": 118
    }
   },
   "401920549|spread": {
