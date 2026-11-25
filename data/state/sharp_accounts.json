@@ -1,5 +1,5 @@
 {
- "built": "2026-11-25T00:17:27Z",
+ "built": "2026-11-25T00:23:35Z",
  "rows": [
   {
    "cond": "0x0272bcbd8c5bfcefb780c8d4e1d9c76b139aa7b3aea5e45a7d1b5b7f08c08295",
@@ -77,11 +77,11 @@
    "inside_fair": false,
    "fair_board": 0.5107,
    "books": {
-    "at": "2026-11-24T23:01:59Z",
+    "at": "2026-11-24T23:30:48Z",
     "fair": null,
     "q": {
-     "Novig": 0.545,
-     "Kalshi": 0.56
+     "Novig": 0.55,
+     "Kalshi": 0.57
     }
    }
   },
@@ -118,16 +118,16 @@
    "side_std": "away",
    "money_with": true,
    "grade": "A",
-   "fair_board": 0.5303,
-   "inside_fair": true,
+   "fair_board": 0.5265,
+   "inside_fair": false,
    "books": {
-    "at": "2026-11-24T23:01:59Z",
-    "fair": 0.5303,
+    "at": "2026-11-25T00:09:31Z",
+    "fair": 0.5265,
     "q": {
+     "Novig": 0.53,
      "Caesars": 0.5349,
-     "Novig": 0.535,
-     "FD": 0.5455,
-     "Kalshi": 0.55
+     "DK": 0.5455,
+     "FD": 0.5495
     }
    }
   },
@@ -147,7 +147,7 @@
    "best_rank": 104,
    "usd": 167,
    "paid": 0.47,
-   "ask": 0.55,
+   "ask": 0.56,
    "status": "live",
    "link": "https://polymarket.us/event/nba-dal-den-2026-11-24",
    "other": null,
@@ -240,7 +240,13 @@
    "grade": "A",
    "fair_board": null,
    "inside_fair": null,
-   "books": null
+   "books": {
+    "at": "2026-11-25T00:09:31Z",
+    "fair": null,
+    "q": {
+     "Novig": 0.455
+    }
+   }
   },
   {
    "cond": "0x8815e1a17ad30339bd60d7d7e391fceddfb6557d2f02ad8e3fbacc35638c388d",
@@ -352,7 +358,13 @@
    "grade": "A",
    "fair_board": null,
    "inside_fair": null,
-   "books": null
+   "books": {
+    "at": "2026-11-25T00:09:31Z",
+    "fair": null,
+    "q": {
+     "Novig": 0.185
+    }
+   }
   },
   {
    "cond": "0xc8e83d7ba078e6a717cc1102d12536f3eb5a8c830b7e44d8101544c2f5476d5c",
@@ -467,10 +479,10 @@
    "fair_board": null,
    "inside_fair": null,
    "books": {
-    "at": "2026-11-24T23:01:59Z",
+    "at": "2026-11-25T00:09:31Z",
     "fair": null,
     "q": {
-     "Novig": 0.585,
+     "Novig": 0.58,
      "Kalshi": 0.6
     }
    }
@@ -508,16 +520,16 @@
    "side_std": "away",
    "money_with": false,
    "grade": "A",
-   "fair_board": 0.5454,
+   "fair_board": 0.5441,
    "inside_fair": false,
    "books": {
-    "at": "2026-11-24T23:01:59Z",
-    "fair": 0.5454,
+    "at": "2026-11-25T00:09:31Z",
+    "fair": 0.5441,
     "q": {
      "Novig": 0.545,
+     "FD": 0.5614,
      "Caesars": 0.5652,
-     "DK": 0.5652,
-     "FD": 0.5726
+     "DK": 0.5652
     }
    }
   },
@@ -560,10 +572,10 @@
    "fair_board": null,
    "inside_fair": null,
    "books": {
-    "at": "2026-11-24T23:01:59Z",
+    "at": "2026-11-25T00:09:31Z",
     "fair": null,
     "q": {
-     "Novig": 0.315,
+     "Novig": 0.335,
      "Kalshi": 0.34
     }
    }
@@ -601,13 +613,13 @@
    "side_std": "home",
    "money_with": false,
    "grade": "watch",
-   "fair_board": 0.4027,
+   "fair_board": 0.4057,
    "inside_fair": false,
    "books": {
-    "at": "2026-11-24T23:01:59Z",
-    "fair": 0.4027,
+    "at": "2026-11-25T00:09:31Z",
+    "fair": 0.4057,
     "q": {
-     "Novig": 0.405,
+     "Novig": 0.415,
      "DK": 0.4237,
      "Kalshi": 0.43
     }
@@ -652,11 +664,11 @@
    "fair_board": null,
    "inside_fair": null,
    "books": {
-    "at": "2026-11-24T23:01:59Z",
+    "at": "2026-11-25T00:09:31Z",
     "fair": null,
     "q": {
-     "Novig": 0.31,
-     "Kalshi": 0.34
+     "Novig": 0.335,
+     "Kalshi": 0.36
     }
    }
   },
@@ -733,11 +745,11 @@
    ],
    "money_with": false,
    "grade": "B",
-   "fair_board": 0.4952,
+   "fair_board": 0.4967,
    "inside_fair": false,
    "books": {
-    "at": "2026-11-24T23:01:59Z",
-    "fair": 0.4952,
+    "at": "2026-11-25T00:09:31Z",
+    "fair": 0.4967,
     "q": {
      "Novig": 0.505,
      "DK": 0.5192,
@@ -798,11 +810,7 @@
     "first": "2026-11-24T23:30:07Z"
    },
    "exit_bid": null,
-   "kalshi_against": {
-    "move": 15.0,
-    "now": 56.5,
-    "state": "fresh"
-   },
+   "kalshi_against": null,
    "logged": true,
    "event_id": "401909314",
    "sport": "nba",
@@ -813,12 +821,9 @@
    "home_name": "Orlando Magic",
    "game_start": "2026-11-25T00:00Z",
    "side_std": "away",
-   "conflict": [
-    "Kalshi move"
-   ],
    "money_with": false,
    "grade": "B",
-   "fair_board": 0.5435,
+   "fair_board": 0.5447,
    "inside_fair": null,
    "books": null
   },
@@ -907,8 +912,8 @@
    ],
    "money_with": false,
    "grade": "B",
-   "fair_board": 0.4891,
-   "inside_fair": false,
+   "fair_board": 0.4929,
+   "inside_fair": true,
    "books": null
   },
   {
@@ -953,7 +958,7 @@
    ],
    "money_with": false,
    "grade": "A",
-   "fair_board": 0.4027,
+   "fair_board": 0.4035,
    "inside_fair": true,
    "books": null
   },
@@ -1000,8 +1005,8 @@
    ],
    "money_with": false,
    "grade": "A",
-   "fair_board": 0.4912,
-   "inside_fair": true,
+   "fair_board": 0.4767,
+   "inside_fair": false,
    "books": null
   }
  ],
