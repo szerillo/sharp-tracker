@@ -1,5 +1,5 @@
 {
- "built": "2026-11-25T00:23:35Z",
+ "built": "2026-11-25T00:31:40Z",
  "rows": [
   {
    "cond": "0x0272bcbd8c5bfcefb780c8d4e1d9c76b139aa7b3aea5e45a7d1b5b7f08c08295",
@@ -69,9 +69,6 @@
    "home_name": "Eastern Michigan Eagles",
    "game_start": "2026-11-25T00:00Z",
    "side_std": "home",
-   "conflict": [
-    "big money"
-   ],
    "money_with": false,
    "grade": "A",
    "inside_fair": false,
@@ -116,7 +113,7 @@
    "home_name": "Edmonton Oilers",
    "game_start": "2026-11-25T01:00Z",
    "side_std": "away",
-   "money_with": true,
+   "money_with": false,
    "grade": "A",
    "fair_board": 0.5265,
    "inside_fair": false,
@@ -641,7 +638,7 @@
    "best_rank": 49,
    "usd": 262,
    "paid": 0.34,
-   "ask": 0.34,
+   "ask": 0.35,
    "status": "live",
    "link": "https://polymarket.us/event/nba-sac-gsw-2026-11-25",
    "other": null,
@@ -810,11 +807,7 @@
     "first": "2026-11-24T23:30:07Z"
    },
    "exit_bid": null,
-   "kalshi_against": {
-    "move": 15.0,
-    "now": 56.5,
-    "state": "fresh"
-   },
+   "kalshi_against": null,
    "logged": true,
    "event_id": "401909314",
    "sport": "nba",
@@ -825,12 +818,9 @@
    "home_name": "Orlando Magic",
    "game_start": "2026-11-25T00:00Z",
    "side_std": "away",
-   "conflict": [
-    "Kalshi move"
-   ],
    "money_with": false,
    "grade": "B",
-   "fair_board": 0.5435,
+   "fair_board": 0.5447,
    "inside_fair": null,
    "books": null
   },
