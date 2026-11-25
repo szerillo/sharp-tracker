@@ -10159,7 +10159,11 @@
 "price": -125,
 "fair": 0.53921,
 "edge_pts": -1.64,
-"why": "NE previous game ATS margin -22.5"
+"why": "NE previous game ATS margin -22.5",
+"void": true,
+"void_why": "Untracked: systems conflict (bounce15_1h vs nfl_fade_fav_bye)",
+"void_at": "2026-11-25T23:26:24Z",
+"untracked": "bounce15_1h vs nfl_fade_fav_bye"
 },
 "401873092:nfl_home_dog_7510": {
 "tag": "nfl_home_dog_7510",
@@ -10403,7 +10407,11 @@
 "price": -104,
 "fair": 0.51177,
 "edge_pts": 0.18,
-"why": "NE (favourite) off 14 days: dog LAC"
+"why": "NE (favourite) off 14 days: dog LAC",
+"void": true,
+"void_why": "Untracked: systems conflict (nfl_fade_fav_bye vs bounce15_1h)",
+"void_at": "2026-11-25T23:26:24Z",
+"untracked": "nfl_fade_fav_bye vs bounce15_1h"
 },
 "401892782:xch_homedog_fade:spread": {
 "tag": "xch_homedog_fade",
@@ -10442,6 +10450,10 @@
 "price": -212,
 "fair": 0.68427,
 "edge_pts": 0.43,
-"why": "Novig home side mid 0.325 inside T-1.0h; audit band 20-35c"
+"why": "Novig home side mid 0.325 inside T-1.0h; audit band 20-35c",
+"void": true,
+"void_why": "Untracked: systems conflict (xch_homedog_fade vs nhl_early_home_fav_qual)",
+"void_at": "2026-11-25T23:26:24Z",
+"untracked": "xch_homedog_fade vs nhl_early_home_fav_qual"
 }
 }
