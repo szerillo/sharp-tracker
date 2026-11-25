@@ -1,5 +1,5 @@
 {
- "built": "2026-11-25T04:10:55Z",
+ "built": "2026-11-25T04:26:32Z",
  "rows": [
   {
    "cond": "0xdbb011b836e27f05456caebd420af3ad99ff58e5cbdf36305bee1b1393fcc18f",
@@ -720,6 +720,56 @@
    "books": null
   },
   {
+   "cond": "0xbec11310a30324181125d890a817d639716c0173c225e461c3292d7ed5044f6e",
+   "slug": "nfl-den-pit-2026-11-27",
+   "title": "Broncos vs. Steelers",
+   "mtype": "ml",
+   "start": "2026-11-27T20:00:00Z",
+   "bet": "Broncos ML",
+   "side": "Broncos",
+   "flagged": "2026-11-25T04:19:59Z",
+   "why": "a top-50 account",
+   "proven": true,
+   "trigger": "proven",
+   "n_accounts": 1,
+   "best_rank": 49,
+   "usd": 2059,
+   "paid": 0.64,
+   "ask": 0.65,
+   "status": "live",
+   "link": "https://polymarket.us/event/nfl-den-pit-2026-11-27",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401873083",
+   "sport": "nfl",
+   "league": null,
+   "away": "DEN",
+   "home": "PIT",
+   "away_name": "Denver Broncos",
+   "home_name": "Pittsburgh Steelers",
+   "game_start": "2026-11-27T20:00Z",
+   "side_std": "away",
+   "conflict": [
+    "Kalshi bet back"
+   ],
+   "cancel": null,
+   "money_with": false,
+   "grade": "A",
+   "fair_board": 0.5846,
+   "inside_fair": false,
+   "books": {
+    "at": "2026-11-25T02:58:18Z",
+    "fair": 0.5846,
+    "q": {
+     "Novig": 0.585,
+     "Caesars": 0.6063,
+     "FD": 0.6063,
+     "Kalshi": 0.61
+    }
+   }
+  },
+  {
    "cond": "0x45c414095f5876a025068511b200405477e486fd4ae24b880a42c1f1154216f0",
    "slug": "cfb-aubrn-ala-2026-11-28",
    "title": "Auburn vs. Alabama",
@@ -1048,6 +1098,13 @@
     "n": 1,
     "best_rank": 49,
     "usd": 787
+   }
+  },
+  "401873083|ml": {
+   "away": {
+    "n": 1,
+    "best_rank": 49,
+    "usd": 2059
    }
   },
   "401909317|ml": {
