@@ -1,5 +1,5 @@
 {
- "built": "2026-11-25T00:48:26Z",
+ "built": "2026-11-25T01:03:19Z",
  "rows": [
   {
    "cond": "0x0272bcbd8c5bfcefb780c8d4e1d9c76b139aa7b3aea5e45a7d1b5b7f08c08295",
@@ -100,7 +100,7 @@
    "best_rank": 79,
    "usd": 3870,
    "paid": 0.51,
-   "ask": 0.53,
+   "ask": null,
    "status": "live",
    "link": "https://polymarket.us/event/nhl-las-edm-2026-11-24",
    "other": null,
@@ -115,10 +115,11 @@
    "home_name": "Edmonton Oilers",
    "game_start": "2026-11-25T01:00Z",
    "side_std": "away",
+   "cancel": null,
    "money_with": true,
    "grade": "A",
    "fair_board": 0.5265,
-   "inside_fair": false,
+   "inside_fair": null,
    "books": {
     "at": "2026-11-24T23:46:56Z",
     "fair": 0.5265,
@@ -127,6 +128,59 @@
      "Caesars": 0.5349,
      "DK": 0.5455,
      "FD": 0.5495
+    }
+   }
+  },
+  {
+   "cond": "0x254bbc3ed773b412532280d12a7dde77421585b7c6ad006786ce28d325d4b33d",
+   "slug": "nhl-las-edm-2026-11-24",
+   "title": "Golden Knights vs. Oilers",
+   "mtype": "total",
+   "start": "2026-11-25T01:00:00Z",
+   "bet": "Under 6.5",
+   "side": "Under",
+   "flagged": "2026-11-25T00:59:19Z",
+   "why": "a top-200 account also in this sport's top 50",
+   "proven": true,
+   "trigger": "proven",
+   "n_accounts": 1,
+   "best_rank": 79,
+   "usd": 4700,
+   "paid": 0.47,
+   "ask": null,
+   "status": "live",
+   "link": "https://polymarket.us/event/nhl-las-edm-2026-11-24",
+   "other": null,
+   "kalshi_against": null,
+   "logged": false,
+   "event_id": "401892780",
+   "sport": "nhl",
+   "league": null,
+   "away": "VGK",
+   "home": "EDM",
+   "away_name": "Vegas Golden Knights",
+   "home_name": "Edmonton Oilers",
+   "game_start": "2026-11-25T01:00Z",
+   "side_std": "under",
+   "conflict": [
+    "Kalshi move",
+    "big money"
+   ],
+   "cancel": [
+    "Kalshi move"
+   ],
+   "money_with": false,
+   "grade": "A",
+   "fair_board": 0.4591,
+   "inside_fair": null,
+   "books": {
+    "at": "2026-11-24T23:46:56Z",
+    "fair": 0.4591,
+    "q": {
+     "Novig": 0.46,
+     "Kalshi": 0.48,
+     "Caesars": 0.4831,
+     "FD": 0.4902
     }
    }
   },
@@ -1168,13 +1222,6 @@
     "usd": 103
    }
   },
-  "401892780|ml": {
-   "away": {
-    "n": 1,
-    "best_rank": 79,
-    "usd": 3870
-   }
-  },
   "401892783|ml": {
    "away": {
     "n": 1,
@@ -1187,13 +1234,6 @@
     "n": 1,
     "best_rank": 12,
     "usd": 125
-   }
-  },
-  "401921008|total": {
-   "over": {
-    "n": 1,
-    "best_rank": 58,
-    "usd": 470
    }
   },
   "401915373|total": {
