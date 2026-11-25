@@ -1,5 +1,5 @@
 {
-"built": "2026-11-25T00:44:23Z",
+"built": "2026-11-25T00:53:03Z",
 "sport": "nhl",
 "rule": "kalshi_nhl_flow",
 "tier": "P",
@@ -39,13 +39,13 @@
 "away": "Vegas Golden Knights",
 "game": "Vegas Golden Knights @ Edmonton Oilers",
 "bet": "Edmonton Oilers moneyline",
-"share": 0.277,
-"usd": 40445,
-"trades": 647,
-"price": 0.47,
-"mins_to_start": 16,
-"flag": false,
-"ticker": "KXNHLGAME-26NOV24VGKEDM-VGK",
+"share": 0.411,
+"usd": 39703,
+"trades": 671,
+"price": 0.48,
+"mins_to_start": 7,
+"flag": true,
+"ticker": "KXNHLGAME-26NOV24VGKEDM-EDM",
 "window_h": 6
 },
 {
@@ -59,13 +59,33 @@
 "away": "Vegas Golden Knights",
 "game": "Vegas Golden Knights @ Edmonton Oilers",
 "bet": "Over 6.5",
-"share": 0.14,
-"usd": 8579,
-"trades": 134,
-"price": 0.53,
-"mins_to_start": 16,
-"flag": false,
+"share": 0.94,
+"usd": 79087,
+"trades": 183,
+"price": 0.54,
+"mins_to_start": 7,
+"flag": true,
 "ticker": "KXNHLTOTAL-26NOV24VGKEDM-7",
+"window_h": 6
+},
+{
+"event_id": "401892780",
+"market": "spread",
+"line": -1.5,
+"start": "2026-11-25T01:00Z",
+"side": "home",
+"yes_side": "home",
+"home": "Edmonton Oilers",
+"away": "Vegas Golden Knights",
+"game": "Vegas Golden Knights @ Edmonton Oilers",
+"bet": "Edmonton Oilers -1.5",
+"share": 0.12,
+"usd": 1060,
+"trades": 42,
+"price": 0.68,
+"mins_to_start": 7,
+"flag": false,
+"ticker": "KXNHLSPREAD-26NOV24VGKEDM-VGK2",
 "window_h": 6
 }
 ],
@@ -74,5 +94,5 @@
 "won": 199,
 "units": 6.25
 },
-"n_flagged": 1
+"n_flagged": 2
 }
