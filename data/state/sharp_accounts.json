@@ -1,5 +1,5 @@
 {
- "built": "2026-11-25T20:39:36Z",
+ "built": "2026-11-25T20:54:37Z",
  "rows": [
   {
    "cond": "0x1e09f6de8fad7800a26ea95caee3926104880dc96ecafdba633b0d8c4c9f8df5",
@@ -277,50 +277,6 @@
     "fair": null,
     "q": {
      "Novig": 0.585
-    }
-   }
-  },
-  {
-   "cond": "0x37b23cd509840576033daded51a7e97a7b551e4489625eaf7f5e772bebf5011e",
-   "slug": "ucl-atm-vf-2026-11-25",
-   "title": "Club Atl\u00e9tico de Madrid vs. Viking FK",
-   "mtype": "ml",
-   "start": "2026-11-25T20:00:00Z",
-   "bet": "Will Club Atl\u00e9tico de Madrid win on 2026-11-25: Yes",
-   "side": "Yes",
-   "flagged": "2026-11-25T19:59:27Z",
-   "why": "a top-50 account",
-   "proven": true,
-   "trigger": "proven",
-   "n_accounts": 1,
-   "best_rank": 43,
-   "usd": 1737,
-   "paid": 0.89,
-   "ask": null,
-   "status": "live",
-   "link": "https://polymarket.us/event/ucl-atm-vf-2026-11-25",
-   "other": null,
-   "kalshi_against": null,
-   "logged": false,
-   "event_id": "401915291",
-   "sport": "soccer",
-   "league": "ucl",
-   "away": "VFK",
-   "home": "ATM",
-   "away_name": "Viking FK",
-   "home_name": "Atl\u00e9tico Madrid",
-   "game_start": "2026-11-25T20:00Z",
-   "side_std": "home",
-   "cancel": null,
-   "money_with": false,
-   "grade": "A",
-   "fair_board": null,
-   "inside_fair": null,
-   "books": {
-    "at": "2026-11-25T19:25:52Z",
-    "fair": null,
-    "q": {
-     "Novig": 0.89
     }
    }
   },
@@ -1070,8 +1026,8 @@
     "Kalshi bet back"
    ],
    "cancel": null,
-   "money_with": false,
-   "grade": "B",
+   "money_with": true,
+   "grade": "A",
    "fair_board": 0.4752,
    "inside_fair": false,
    "books": null
@@ -1744,6 +1700,13 @@
     "n": 1,
     "best_rank": 42,
     "usd": 1680
+   }
+  },
+  "401909325|total": {
+   "under": {
+    "n": 1,
+    "best_rank": 132,
+    "usd": 243
    }
   },
   "401909328|ml": {
