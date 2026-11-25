@@ -9919,7 +9919,11 @@
 "price": -122,
 "fair": 0.515,
 "edge_pts": -3.5,
-"why": "home favorite, game 23 of the season, opponent STL wins 54% (13-11)"
+"why": "home favorite, game 23 of the season, opponent STL wins 54% (13-11)",
+"void": true,
+"void_why": "Untracked: systems conflict (nhl_early_home_fav_qual vs xch_homedog_fade)",
+"void_at": "2026-11-25T22:47:28Z",
+"untracked": "nhl_early_home_fav_qual vs xch_homedog_fade"
 },
 "401909320:nba_roadtrip_over": {
 "tag": "nba_roadtrip_over",
@@ -10384,5 +10388,48 @@
 "fair": 0.5,
 "edge_pts": -2.38,
 "why": "home KSU over 50% (6 games), visitor ALA over 67% (6); total 172.5 -> 169.5"
+},
+"401892784:xch_homedog_fade:spread": {
+"tag": "xch_homedog_fade",
+"fill_id": "57a0353d5138",
+"ts": "2026-11-25T22:44:53Z",
+"market": "spread",
+"side": "away",
+"line": 1.5,
+"venue": "Novig",
+"price": -239,
+"fair": 0.69859,
+"edge_pts": -0.64,
+"why": "Novig home side mid 0.300 inside T-1.3h; audit band 20-35c"
+},
+"401892782:xch_homedog_fade:spread": {
+"tag": "xch_homedog_fade",
+"fill_id": "addba9013c99",
+"ts": "2026-11-25T22:44:53Z",
+"market": "spread",
+"side": "away",
+"line": 1.5,
+"venue": "Novig",
+"price": -203,
+"fair": 0.66975,
+"edge_pts": -0.03,
+"why": "Novig home side mid 0.333 inside T-1.3h; audit band 20-35c"
+},
+"401892785:xch_homedog_fade:spread": {
+"tag": "xch_homedog_fade",
+"fill_id": "95f788afb7b1",
+"ts": "2026-11-25T22:44:53Z",
+"market": "spread",
+"side": "away",
+"line": 1.5,
+"venue": "Novig",
+"price": -212,
+"fair": 0.67871,
+"edge_pts": -0.13,
+"why": "Novig home side mid 0.325 inside T-1.3h; audit band 20-35c",
+"void": true,
+"void_why": "Untracked: systems conflict (xch_homedog_fade vs nhl_early_home_fav_qual)",
+"void_at": "2026-11-25T22:47:28Z",
+"untracked": "xch_homedog_fade vs nhl_early_home_fav_qual"
 }
 }
