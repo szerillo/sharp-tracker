@@ -1,5 +1,5 @@
 {
- "built": "2026-11-25T20:39:36Z",
+ "built": "2026-11-25T20:46:49Z",
  "rows": [
   {
    "cond": "0x1e09f6de8fad7800a26ea95caee3926104880dc96ecafdba633b0d8c4c9f8df5",
@@ -509,56 +509,6 @@
      "Kalshi": 0.54,
      "DK": 0.5413,
      "FD": 0.5455
-    }
-   }
-  },
-  {
-   "cond": "0xee10be0394841a8fb2a9730e9209718c0367808d7b0a78306561c12986b5a8f5",
-   "slug": "nba-sac-gsw-2026-11-25",
-   "title": "Kings vs. Warriors",
-   "mtype": "ml",
-   "start": "2026-11-26T03:00:00Z",
-   "bet": "Kings ML",
-   "side": "Kings",
-   "flagged": "2026-11-24T23:15:37Z",
-   "why": "a top-50 account",
-   "proven": false,
-   "trigger": "top50",
-   "n_accounts": 1,
-   "best_rank": 49,
-   "usd": 262,
-   "paid": 0.34,
-   "ask": 0.3,
-   "status": "live",
-   "link": "https://polymarket.us/event/nba-sac-gsw-2026-11-25",
-   "other": null,
-   "kalshi_against": null,
-   "logged": true,
-   "event_id": "401909324",
-   "sport": "nba",
-   "league": null,
-   "away": "SAC",
-   "home": "GS",
-   "away_name": "Sacramento Kings",
-   "home_name": "Golden State Warriors",
-   "game_start": "2026-11-26T03:00Z",
-   "side_std": "away",
-   "conflict": [
-    "Kalshi bet back"
-   ],
-   "cancel": null,
-   "money_with": false,
-   "grade": "watch",
-   "fair_board": 0.2948,
-   "inside_fair": false,
-   "books": {
-    "at": "2026-11-25T20:05:24Z",
-    "fair": 0.2948,
-    "q": {
-     "Novig": 0.3,
-     "FD": 0.3125,
-     "DK": 0.3155,
-     "Kalshi": 0.32
     }
    }
   },
@@ -1142,7 +1092,7 @@
    "best_rank": 110,
    "usd": 17843,
    "paid": 0.519,
-   "ask": 0.55,
+   "ask": 0.54,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-mia-phi-2026-11-25",
    "other": {
@@ -1151,7 +1101,7 @@
     "usd": 265,
     "first": "2026-11-25T20:17:19Z"
    },
-   "exit_bid": 0.54,
+   "exit_bid": 0.53,
    "kalshi_against": null,
    "logged": false,
    "event_id": "401909317",
@@ -1418,6 +1368,53 @@
    "books": null
   },
   {
+   "cond": "0xee10be0394841a8fb2a9730e9209718c0367808d7b0a78306561c12986b5a8f5",
+   "slug": "nba-sac-gsw-2026-11-25",
+   "title": "Kings vs. Warriors",
+   "mtype": "ml",
+   "start": "2026-11-26T03:00:00Z",
+   "bet": "Kings ML",
+   "side": "Kings",
+   "flagged": "2026-11-24T23:15:37Z",
+   "why": "a top-50 account",
+   "proven": false,
+   "trigger": "top50",
+   "n_accounts": 1,
+   "best_rank": 49,
+   "usd": 262,
+   "paid": 0.34,
+   "ask": 0.28,
+   "status": "other side",
+   "link": "https://polymarket.us/event/nba-sac-gsw-2026-11-25",
+   "other": {
+    "n_accounts": 2,
+    "best_rank": 42,
+    "usd": 494,
+    "first": "2026-11-25T20:45:04Z"
+   },
+   "exit_bid": 0.27,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401909324",
+   "sport": "nba",
+   "league": null,
+   "away": "SAC",
+   "home": "GS",
+   "away_name": "Sacramento Kings",
+   "home_name": "Golden State Warriors",
+   "game_start": "2026-11-26T03:00Z",
+   "side_std": "away",
+   "conflict": [
+    "Kalshi bet back"
+   ],
+   "cancel": null,
+   "money_with": false,
+   "grade": "watch",
+   "fair_board": 0.2948,
+   "inside_fair": true,
+   "books": null
+  },
+  {
    "cond": "0xf93a4fe832882479c324e6166050540c9184d9cc3c18bac675a1504b4662c297",
    "slug": "nba-phi-ind-2026-11-27",
    "title": "76ers vs. Pacers",
@@ -1477,15 +1474,15 @@
     "clv": -0.09
    }
   },
-  "n": 438,
-  "won": 211,
-  "units": -15.56,
+  "n": 441,
+  "won": 212,
+  "units": -15.76,
   "by_grade": {
    "A": {
-    "n": 289,
-    "won": 132,
-    "units": -15.61,
-    "clv": -0.08
+    "n": 292,
+    "won": 133,
+    "units": -15.82,
+    "clv": -0.1
    },
    "B": {
     "n": 104,
@@ -1500,12 +1497,12 @@
     "clv": 0.28
    }
   },
-  "units_1u": -22.9,
-  "clv": -0.3,
-  "n_venue": 230,
-  "units_venue": -5.06,
-  "clv_venue": 0.98,
-  "clv_poly_same": -0.53
+  "units_1u": -23.73,
+  "clv": -0.31,
+  "n_venue": 232,
+  "units_venue": -5.02,
+  "clv_venue": 0.96,
+  "clv_poly_same": -0.55
  },
  "sys_tags": {
   "401909317:nba_roadtrip_over": {
@@ -1730,6 +1727,11 @@
     "n": 1,
     "best_rank": 49,
     "usd": 262
+   },
+   "home": {
+    "n": 2,
+    "best_rank": 42,
+    "usd": 494
    }
   },
   "401909325|ml": {
