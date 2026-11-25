@@ -1,5 +1,5 @@
 {
- "built": "2026-11-25T22:52:48Z",
+ "built": "2026-11-25T23:17:06Z",
  "rows": [
   {
    "cond": "0x8815e1a17ad30339bd60d7d7e391fceddfb6557d2f02ad8e3fbacc35638c388d",
@@ -571,7 +571,7 @@
    "best_rank": 31,
    "usd": 311,
    "paid": 0.77,
-   "ask": 0.77,
+   "ask": 0.78,
    "status": "live",
    "link": "https://polymarket.us/event/nba-bkn-tor-2026-11-27",
    "other": null,
@@ -950,7 +950,7 @@
    "best_rank": 197,
    "usd": 615,
    "paid": 0.55,
-   "ask": 0.52,
+   "ask": 0.53,
    "status": "live",
    "link": "https://polymarket.us/event/nhl-car-tb-2026-11-25",
    "other": null,
@@ -1032,7 +1032,7 @@
     "Kalshi bet back"
    ],
    "cancel": null,
-   "money_with": false,
+   "money_with": true,
    "grade": "A",
    "fair_board": 0.4567,
    "inside_fair": true,
@@ -1193,7 +1193,7 @@
    "best_rank": 104,
    "usd": 939,
    "paid": 0.492,
-   "ask": 0.45,
+   "ask": 0.44,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-cle-nyk-2026-11-25",
    "other": {
@@ -1202,7 +1202,7 @@
     "usd": 970,
     "first": "2026-11-25T21:31:16Z"
    },
-   "exit_bid": 0.44,
+   "exit_bid": 0.43,
    "kalshi_against": null,
    "logged": false,
    "ladder": true,
@@ -1354,7 +1354,8 @@
    "game_start": "2026-11-26T03:00Z",
    "side_std": "away",
    "conflict": [
-    "Kalshi bet back"
+    "Kalshi bet back",
+    "big money"
    ],
    "cancel": null,
    "money_with": false,
@@ -1423,7 +1424,7 @@
    "best_rank": 31,
    "usd": 5469,
    "paid": 0.54,
-   "ask": 0.57,
+   "ask": 0.62,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-phi-ind-2026-11-27",
    "other": {
@@ -1432,7 +1433,7 @@
     "usd": 510,
     "first": "2026-11-25T12:45:28Z"
    },
-   "exit_bid": 0.56,
+   "exit_bid": 0.61,
    "kalshi_against": null,
    "logged": true,
    "event_id": "401909328",
@@ -1515,7 +1516,11 @@
    }
   },
   "401909323:nba_under_good_home_over": {
-   "with": null,
+   "with": {
+    "n": 1,
+    "best_rank": 110,
+    "usd": 1470
+   },
    "against": {
     "n": 1,
     "best_rank": 115,
@@ -1688,6 +1693,11 @@
     "n": 1,
     "best_rank": 115,
     "usd": 2714
+   },
+   "under": {
+    "n": 1,
+    "best_rank": 110,
+    "usd": 1470
    }
   },
   "401909324|ml": {
