@@ -810,7 +810,11 @@
     "first": "2026-11-24T23:30:07Z"
    },
    "exit_bid": null,
-   "kalshi_against": null,
+   "kalshi_against": {
+    "move": 15.0,
+    "now": 56.5,
+    "state": "fresh"
+   },
    "logged": true,
    "event_id": "401909314",
    "sport": "nba",
@@ -821,9 +825,12 @@
    "home_name": "Orlando Magic",
    "game_start": "2026-11-25T00:00Z",
    "side_std": "away",
+   "conflict": [
+    "Kalshi move"
+   ],
    "money_with": false,
    "grade": "B",
-   "fair_board": 0.5447,
+   "fair_board": 0.5435,
    "inside_fair": null,
    "books": null
   },
