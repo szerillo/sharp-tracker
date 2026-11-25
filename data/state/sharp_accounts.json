@@ -1,5 +1,5 @@
 {
- "built": "2026-11-25T17:17:19Z",
+ "built": "2026-11-25T17:23:47Z",
  "rows": [
   {
    "cond": "0x1e09f6de8fad7800a26ea95caee3926104880dc96ecafdba633b0d8c4c9f8df5",
@@ -1297,6 +1297,18 @@
     "best_rank": 115,
     "usd": 2714
    }
+  },
+  "401920916:cbb_under_good_over_drop": {
+   "with": {
+    "n": 1,
+    "best_rank": 65,
+    "usd": 400
+   },
+   "against": {
+    "n": 1,
+    "best_rank": 65,
+    "usd": 392
+   }
   }
  },
  "by_event": {
@@ -1507,6 +1519,13 @@
     "usd": 135
    }
   },
+  "401919007|spread": {
+   "home": {
+    "n": 1,
+    "best_rank": 65,
+    "usd": 414
+   }
+  },
   "401921669|total": {
    "over": {
     "n": 1,
@@ -1540,6 +1559,13 @@
     "usd": 188
    }
   },
+  "401928836|total": {
+   "over": {
+    "n": 1,
+    "best_rank": 65,
+    "usd": 1288
+   }
+  },
   "401928359|total": {
    "over": {
     "n": 1,
@@ -1568,6 +1594,25 @@
     "usd": 118
    }
   },
+  "401920549|spread": {
+   "home": {
+    "n": 1,
+    "best_rank": 65,
+    "usd": 172
+   }
+  },
+  "401920916|total": {
+   "over": {
+    "n": 1,
+    "best_rank": 65,
+    "usd": 392
+   },
+   "under": {
+    "n": 1,
+    "best_rank": 65,
+    "usd": 400
+   }
+  },
   "401918971|total": {
    "under": {
     "n": 1,
@@ -1580,6 +1625,20 @@
     "n": 1,
     "best_rank": 65,
     "usd": 552
+   }
+  },
+  "401921713|spread": {
+   "away": {
+    "n": 1,
+    "best_rank": 65,
+    "usd": 172
+   }
+  },
+  "401917544|spread": {
+   "home": {
+    "n": 1,
+    "best_rank": 65,
+    "usd": 750
    }
   },
   "401915378|total": {
