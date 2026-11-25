@@ -10014,7 +10014,10 @@
 "price": -110,
 "fair": 0.49904,
 "edge_pts": -2.48,
-"why": "conference game, UTEP on road game 2 in a row, +4.0, total 50.5"
+"why": "conference game, UTEP on road game 2 in a row, +4.0, total 50.5",
+"void": true,
+"void_why": "rule no longer holds on the current line: home spread -4.0, total 50.5 (2026-11-25T22:57:30Z)",
+"void_at": "2026-11-25T22:57:30Z"
 },
 "401910038:xch_homedog_fade:ml": {
 "tag": "xch_homedog_fade",
@@ -10389,47 +10392,56 @@
 "edge_pts": -2.38,
 "why": "home KSU over 50% (6 games), visitor ALA over 67% (6); total 172.5 -> 169.5"
 },
-"401892784:xch_homedog_fade:spread": {
-"tag": "xch_homedog_fade",
-"fill_id": "57a0353d5138",
-"ts": "2026-11-25T22:44:53Z",
+"401873093:nfl_fade_fav_bye": {
+"tag": "nfl_fade_fav_bye",
+"fill_id": "b5e0a5fec525",
+"ts": "2026-11-25T22:57:30Z",
 "market": "spread",
-"side": "away",
+"side": "home",
 "line": 1.5,
 "venue": "Novig",
-"price": -239,
-"fair": 0.69859,
-"edge_pts": -0.64,
-"why": "Novig home side mid 0.300 inside T-1.3h; audit band 20-35c"
+"price": -104,
+"fair": 0.51177,
+"edge_pts": 0.18,
+"why": "NE (favourite) off 14 days: dog LAC"
 },
 "401892782:xch_homedog_fade:spread": {
 "tag": "xch_homedog_fade",
-"fill_id": "addba9013c99",
-"ts": "2026-11-25T22:44:53Z",
+"fill_id": "f259cdc8da1a",
+"ts": "2026-11-25T22:57:30Z",
 "market": "spread",
 "side": "away",
 "line": 1.5,
 "venue": "Novig",
 "price": -203,
-"fair": 0.66975,
-"edge_pts": -0.03,
-"why": "Novig home side mid 0.333 inside T-1.3h; audit band 20-35c"
+"fair": 0.67312,
+"edge_pts": 0.31,
+"why": "Novig home side mid 0.333 inside T-1.0h; audit band 20-35c"
+},
+"401892784:xch_homedog_fade:spread": {
+"tag": "xch_homedog_fade",
+"fill_id": "6e86bcc436cb",
+"ts": "2026-11-25T22:57:30Z",
+"market": "spread",
+"side": "away",
+"line": 1.5,
+"venue": "Novig",
+"price": -239,
+"fair": 0.69646,
+"edge_pts": -0.85,
+"why": "Novig home side mid 0.300 inside T-1.0h; audit band 20-35c"
 },
 "401892785:xch_homedog_fade:spread": {
 "tag": "xch_homedog_fade",
-"fill_id": "95f788afb7b1",
-"ts": "2026-11-25T22:44:53Z",
+"fill_id": "71fb613a6dec",
+"ts": "2026-11-25T22:57:30Z",
 "market": "spread",
 "side": "away",
 "line": 1.5,
 "venue": "Novig",
 "price": -212,
-"fair": 0.67871,
-"edge_pts": -0.13,
-"why": "Novig home side mid 0.325 inside T-1.3h; audit band 20-35c",
-"void": true,
-"void_why": "Untracked: systems conflict (xch_homedog_fade vs nhl_early_home_fav_qual)",
-"void_at": "2026-11-25T22:47:28Z",
-"untracked": "xch_homedog_fade vs nhl_early_home_fav_qual"
+"fair": 0.68427,
+"edge_pts": 0.43,
+"why": "Novig home side mid 0.325 inside T-1.0h; audit band 20-35c"
 }
 }
