@@ -1,6 +1,56 @@
 {
- "built": "2026-11-25T16:01:27Z",
+ "built": "2026-11-25T16:07:30Z",
  "rows": [
+  {
+   "cond": "0x1e09f6de8fad7800a26ea95caee3926104880dc96ecafdba633b0d8c4c9f8df5",
+   "slug": "cbb-marq-vir-2026-11-25",
+   "title": "Marquette Golden Eagles vs. Virginia Cavaliers",
+   "mtype": "total",
+   "start": "2026-11-25T17:00:00Z",
+   "bet": "Under 152.5",
+   "side": "Under",
+   "flagged": "2026-11-25T16:05:35Z",
+   "why": "2 top-200 accounts",
+   "proven": false,
+   "trigger": "two",
+   "n_accounts": 2,
+   "best_rank": 65,
+   "usd": 1328,
+   "paid": 0.529,
+   "ask": 0.54,
+   "status": "live",
+   "link": "https://polymarket.us/event/cbb-marq-vir-2026-11-25",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401920428",
+   "sport": "cbb",
+   "league": null,
+   "away": "UVA",
+   "home": "MARQ",
+   "away_name": "Virginia Cavaliers",
+   "home_name": "Marquette Golden Eagles",
+   "game_start": "2026-11-25T17:00Z",
+   "side_std": "under",
+   "conflict": [
+    "Kalshi bet back"
+   ],
+   "cancel": null,
+   "money_with": false,
+   "grade": "B",
+   "fair_board": 0.5203,
+   "inside_fair": false,
+   "books": {
+    "at": "2026-11-25T15:01:18Z",
+    "fair": 0.5203,
+    "q": {
+     "FD": 0.5238,
+     "Caesars": 0.5238,
+     "DK": 0.5283,
+     "Novig": 0.54
+    }
+   }
+  },
   {
    "cond": "0x1dae84f7aa36ddb8aa59239664a389ca17ef375bafd5c7b7eb9c857fbe049439",
    "slug": "ucl-sf-fcb-2026-11-25",
@@ -241,6 +291,50 @@
    "fair_board": null,
    "inside_fair": null,
    "books": null
+  },
+  {
+   "cond": "0x184743de2502673ea8f801bab1c3143cc9e2e4f05545ff373ff8793c05848ccb",
+   "slug": "ucl-bru-liv-2026-11-25",
+   "title": "Club Brugge KV vs. Liverpool FC",
+   "mtype": "ml",
+   "start": "2026-11-25T20:00:00Z",
+   "bet": "Will Liverpool FC win on 2026-11-25: Yes",
+   "side": "Yes",
+   "flagged": "2026-11-25T16:04:11Z",
+   "why": "a top-200 account also in this sport's top 50",
+   "proven": true,
+   "trigger": "proven",
+   "n_accounts": 1,
+   "best_rank": 71,
+   "usd": 336,
+   "paid": 0.6,
+   "ask": 0.6,
+   "status": "live",
+   "link": "https://polymarket.us/event/ucl-bru-liv-2026-11-25",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401915292",
+   "sport": "soccer",
+   "league": "ucl",
+   "away": "LIV",
+   "home": "BRU",
+   "away_name": "Liverpool",
+   "home_name": "Club Brugge",
+   "game_start": "2026-11-25T20:00Z",
+   "side_std": "away",
+   "cancel": null,
+   "money_with": false,
+   "grade": "A",
+   "fair_board": null,
+   "inside_fair": null,
+   "books": {
+    "at": "2026-11-25T15:01:18Z",
+    "fair": null,
+    "q": {
+     "Novig": 0.6
+    }
+   }
   },
   {
    "cond": "0x62aac7b20e638ea6ebdfb78f2d12ff884594d4ce863d387d3561996c87ad2e06",
@@ -1275,6 +1369,13 @@
     "usd": 142
    }
   },
+  "401892782|ml": {
+   "away": {
+    "n": 1,
+    "best_rank": 132,
+    "usd": 608
+   }
+  },
   "401892783|ml": {
    "away": {
     "n": 1,
@@ -1305,9 +1406,9 @@
   },
   "401920428|total": {
    "under": {
-    "n": 1,
+    "n": 2,
     "best_rank": 65,
-    "usd": 1222
+    "usd": 1328
    }
   },
   "401920547|total": {
