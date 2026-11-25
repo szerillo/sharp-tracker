@@ -1,5 +1,5 @@
 {
- "built": "2026-11-25T03:08:40Z",
+ "built": "2026-11-25T03:16:51Z",
  "rows": [
   {
    "cond": "0x33b28ef1935c041a6b7d7e54459877daaadd57b3363a0ab18318b355e2c194f8",
@@ -228,7 +228,7 @@
    "fair_board": null,
    "inside_fair": null,
    "books": {
-    "at": "2026-11-25T02:04:16Z",
+    "at": "2026-11-25T02:58:18Z",
     "fair": null,
     "q": {
      "Novig": 0.455
@@ -349,7 +349,7 @@
    "fair_board": null,
    "inside_fair": null,
    "books": {
-    "at": "2026-11-25T02:04:16Z",
+    "at": "2026-11-25T02:58:18Z",
     "fair": null,
     "q": {
      "Novig": 0.185
@@ -469,14 +469,15 @@
    "cancel": null,
    "money_with": false,
    "grade": "watch",
-   "fair_board": null,
-   "inside_fair": null,
+   "fair_board": 0.5897,
+   "inside_fair": false,
    "books": {
-    "at": "2026-11-25T02:04:16Z",
-    "fair": null,
+    "at": "2026-11-25T02:58:18Z",
+    "fair": 0.5897,
     "q": {
-     "Novig": 0.585,
-     "Kalshi": 0.6
+     "Novig": 0.59,
+     "Kalshi": 0.61,
+     "Caesars": 0.6226
     }
    }
   },
@@ -514,13 +515,13 @@
    "cancel": null,
    "money_with": false,
    "grade": "A",
-   "fair_board": 0.5453,
+   "fair_board": 0.5481,
    "inside_fair": false,
    "books": {
-    "at": "2026-11-25T02:04:16Z",
-    "fair": 0.5453,
+    "at": "2026-11-25T02:58:18Z",
+    "fair": 0.5481,
     "q": {
-     "Novig": 0.545,
+     "Novig": 0.555,
      "FD": 0.5614,
      "Caesars": 0.5652,
      "DK": 0.5652
@@ -564,14 +565,15 @@
    "cancel": null,
    "money_with": false,
    "grade": "watch",
-   "fair_board": null,
-   "inside_fair": null,
+   "fair_board": 0.3029,
+   "inside_fair": false,
    "books": {
-    "at": "2026-11-25T02:04:16Z",
-    "fair": null,
+    "at": "2026-11-25T02:58:18Z",
+    "fair": 0.3029,
     "q": {
-     "Novig": 0.32,
-     "Kalshi": 0.35
+     "Novig": 0.31,
+     "Caesars": 0.3106,
+     "Kalshi": 0.33
     }
    }
   },
@@ -609,16 +611,16 @@
    "cancel": null,
    "money_with": false,
    "grade": "watch",
-   "fair_board": 0.4083,
+   "fair_board": 0.4178,
    "inside_fair": false,
    "books": {
-    "at": "2026-11-25T02:04:16Z",
-    "fair": 0.4083,
+    "at": "2026-11-25T02:58:18Z",
+    "fair": 0.4178,
     "q": {
-     "Caesars": 0.4167,
-     "Novig": 0.42,
      "DK": 0.4237,
-     "Kalshi": 0.43
+     "Novig": 0.425,
+     "Caesars": 0.4425,
+     "Kalshi": 0.46
     }
    }
   },
@@ -659,14 +661,61 @@
    "cancel": null,
    "money_with": false,
    "grade": "watch",
-   "fair_board": null,
-   "inside_fair": null,
+   "fair_board": 0.3234,
+   "inside_fair": false,
    "books": {
-    "at": "2026-11-25T02:04:16Z",
-    "fair": null,
+    "at": "2026-11-25T02:58:18Z",
+    "fair": 0.3234,
     "q": {
-     "Novig": 0.345,
-     "Kalshi": 0.36
+     "Novig": 0.33,
+     "Kalshi": 0.35
+    }
+   }
+  },
+  {
+   "cond": "0xb5af1a1657125484fef6159ea091da17942ffc17b551439aa8b8b0cd4180c2a8",
+   "slug": "nfl-chi-det-2026-11-26",
+   "title": "Bears vs. Lions",
+   "mtype": "ml",
+   "start": "2026-11-26T18:00:00Z",
+   "bet": "Lions ML",
+   "side": "Lions",
+   "flagged": "2026-11-25T03:15:02Z",
+   "why": "a top-200 account also in this sport's top 50",
+   "proven": true,
+   "trigger": "proven",
+   "n_accounts": 1,
+   "best_rank": 143,
+   "usd": 9696,
+   "paid": 0.47,
+   "ask": 0.48,
+   "status": "live",
+   "link": "https://polymarket.us/event/nfl-chi-det-2026-11-26",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401873081",
+   "sport": "nfl",
+   "league": null,
+   "away": "CHI",
+   "home": "DET",
+   "away_name": "Chicago Bears",
+   "home_name": "Detroit Lions",
+   "game_start": "2026-11-26T18:00Z",
+   "side_std": "home",
+   "cancel": null,
+   "money_with": false,
+   "grade": "A",
+   "fair_board": 0.4624,
+   "inside_fair": false,
+   "books": {
+    "at": "2026-11-25T02:58:18Z",
+    "fair": 0.4624,
+    "q": {
+     "Caesars": 0.463,
+     "DK": 0.463,
+     "Novig": 0.47,
+     "Kalshi": 0.48
     }
    }
   },
@@ -724,7 +773,7 @@
    "best_rank": 12,
    "usd": 125,
    "paid": 0.5,
-   "ask": 0.5,
+   "ask": 0.51,
    "status": "live",
    "link": "https://polymarket.us/event/cfb-aubrn-ala-2026-11-28",
    "other": null,
@@ -745,11 +794,11 @@
    "cancel": null,
    "money_with": false,
    "grade": "B",
-   "fair_board": 0.4968,
+   "fair_board": 0.4958,
    "inside_fair": false,
    "books": {
-    "at": "2026-11-25T02:04:16Z",
-    "fair": 0.4968,
+    "at": "2026-11-25T02:58:18Z",
+    "fair": 0.4958,
     "q": {
      "Novig": 0.505,
      "DK": 0.5192,
@@ -915,7 +964,7 @@
    "cancel": null,
    "money_with": false,
    "grade": "B",
-   "fair_board": 0.4935,
+   "fair_board": 0.4934,
    "inside_fair": true,
    "books": null
   },
@@ -962,7 +1011,7 @@
    "cancel": null,
    "money_with": false,
    "grade": "A",
-   "fair_board": 0.4032,
+   "fair_board": 0.4031,
    "inside_fair": true,
    "books": null
   },
@@ -1010,7 +1059,7 @@
    "cancel": null,
    "money_with": false,
    "grade": "A",
-   "fair_board": 0.4695,
+   "fair_board": 0.4724,
    "inside_fair": false,
    "books": null
   }
@@ -1067,6 +1116,13 @@
     "n": 1,
     "best_rank": 182,
     "usd": 293
+   }
+  },
+  "401873081|ml": {
+   "home": {
+    "n": 1,
+    "best_rank": 143,
+    "usd": 9696
    }
   },
   "401873082|total": {
