@@ -1,5 +1,5 @@
 {
- "built": "2026-11-25T22:03:17Z",
+ "built": "2026-11-25T22:20:06Z",
  "rows": [
   {
    "cond": "0x8815e1a17ad30339bd60d7d7e391fceddfb6557d2f02ad8e3fbacc35638c388d",
@@ -930,10 +930,6 @@
    "home_name": "Philadelphia 76ers",
    "game_start": "2026-11-25T22:00Z",
    "side_std": "away",
-   "conflict": [
-    "Kalshi bet back",
-    "big money"
-   ],
    "cancel": null,
    "money_with": false,
    "grade": "B",
@@ -1039,7 +1035,7 @@
     "Kalshi bet back"
    ],
    "cancel": null,
-   "money_with": true,
+   "money_with": false,
    "grade": "A",
    "fair_board": 0.4567,
    "inside_fair": true,
@@ -1083,7 +1079,8 @@
    "game_start": "2026-11-26T00:30Z",
    "side_std": "away",
    "conflict": [
-    "Kalshi bet back"
+    "Kalshi bet back",
+    "big money"
    ],
    "cancel": null,
    "money_with": false,
@@ -1176,14 +1173,9 @@
    "home_name": "New York Knicks",
    "game_start": "2026-11-26T00:30Z",
    "side_std": "home",
-   "conflict": [
-    "Kalshi move"
-   ],
-   "cancel": [
-    "Kalshi move"
-   ],
-   "money_with": false,
-   "grade": "B",
+   "cancel": null,
+   "money_with": true,
+   "grade": "A",
    "fair_board": 0.5094,
    "inside_fair": false,
    "books": null
@@ -1365,8 +1357,7 @@
    "game_start": "2026-11-26T03:00Z",
    "side_std": "away",
    "conflict": [
-    "Kalshi bet back",
-    "big money"
+    "Kalshi bet back"
    ],
    "cancel": null,
    "money_with": false,
