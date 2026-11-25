@@ -1,12 +1,12 @@
 {
-"updated": "2026-11-25T13:37:59Z",
-"logged": 28296,
-"settled": 32860,
+"updated": "2026-11-25T13:53:56Z",
+"logged": 28304,
+"settled": 32862,
 "rows": {
 "2 legs": {
-"n": 14680,
-"stake": 1573309,
-"maker_pnl": -78288,
+"n": 14682,
+"stake": 1573338,
+"maker_pnl": -78273,
 "pct_of_stakes": -5.0,
 "expected_from_legs": 4.3,
 "hit": 33.7,
@@ -22,9 +22,9 @@
 "days": 16
 },
 "all": {
-"n": 27759,
-"stake": 2612562,
-"maker_pnl": 1123,
+"n": 27761,
+"stake": 2612590,
+"maker_pnl": 1138,
 "pct_of_stakes": 0.0,
 "expected_from_legs": 5.0,
 "hit": 30.0,
@@ -76,9 +76,9 @@
 "days": 16
 },
 "same game": {
-"n": 9432,
-"stake": 755453,
-"maker_pnl": 34927,
+"n": 9434,
+"stake": 755482,
+"maker_pnl": 34942,
 "pct_of_stakes": 4.6,
 "expected_from_legs": 10.1,
 "hit": 28.3,
@@ -103,18 +103,18 @@
 "days": 16
 },
 "same game | 8%+ over": {
-"n": 4417,
-"stake": 375497,
-"maker_pnl": 30170,
+"n": 4418,
+"stake": 375506,
+"maker_pnl": 30166,
 "pct_of_stakes": 8.0,
 "expected_from_legs": 24.7,
 "hit": 27.1,
 "days": 16
 },
 "same game | under legs": {
-"n": 2323,
-"stake": 128080,
-"maker_pnl": -32908,
+"n": 2324,
+"stake": 128099,
+"maker_pnl": -32889,
 "pct_of_stakes": -25.7,
 "expected_from_legs": -20.7,
 "hit": 25.4,

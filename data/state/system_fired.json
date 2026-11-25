@@ -10205,19 +10205,16 @@
 },
 "401909323:nba_under_good_home_over": {
 "tag": "nba_under_good_home_over",
-"fill_id": "2bf28112a4c7",
-"ts": "2026-11-24T14:57:44Z",
+"fill_id": "0fd08b2d4a61",
+"ts": "2026-11-25T13:46:11Z",
 "market": "total",
 "side": "under",
 "line": 223.5,
-"venue": "FD",
-"price": -105,
-"fair": 0.49468,
-"edge_pts": -1.75,
-"why": "home HOU over rate 61%, days since last game: home 2, visitor 2; total 225.5 -> 223.5",
-"void": true,
-"void_why": "trigger no longer holds on current season records (2026-11-24T20:52:58Z)",
-"void_at": "2026-11-24T20:52:58Z"
+"venue": "Novig",
+"price": -108,
+"fair": 0.51026,
+"edge_pts": -0.97,
+"why": "home HOU over rate 61%, days since last game: home 2, visitor 2; total 225.5 -> 223.5"
 },
 "401892793:nhl_loss_streak_over": {
 "tag": "nhl_loss_streak_over",
@@ -10256,7 +10253,10 @@
 "price": -112,
 "fair": 0.50743,
 "edge_pts": -2.09,
-"why": "home HOU over rate 61%, days since last game: home 2, visitor 2; total 225.5 -> 224.5"
+"why": "home HOU over rate 61%, days since last game: home 2, visitor 2; total 225.5 -> 224.5",
+"void": true,
+"void_why": "trigger no longer holds on current season records (2026-11-25T13:46:11Z)",
+"void_at": "2026-11-25T13:46:11Z"
 },
 "401871083:cfb_day_over": {
 "tag": "cfb_day_over",
