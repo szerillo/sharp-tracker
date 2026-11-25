@@ -1,5 +1,5 @@
 {
- "built": "2026-11-25T02:24:41Z",
+ "built": "2026-11-25T02:39:20Z",
  "record": {
   "n": 75,
   "won": 35,
@@ -33,5 +33,58 @@
    }
   }
  },
- "rows": []
+ "rows": [
+  {
+   "key": "6bfadbd22ed8a054cf82ec1b12b78243|player_threes|Cooper Flagg|1.5",
+   "sport": "nba",
+   "odds_id": "6bfadbd22ed8a054cf82ec1b12b78243",
+   "espn": "401909316",
+   "game": "Dallas Mavericks @ Denver Nuggets",
+   "start": "2026-11-25T03:10:00Z",
+   "market": "player_threes",
+   "player": "Cooper Flagg",
+   "line": 1.5,
+   "side": "under",
+   "book": "Caesars",
+   "price": 2.11,
+   "fair": 0.5027,
+   "ev": 6.1,
+   "pin_under": 1.86,
+   "pin_over": 1.88,
+   "book_over": 1.65,
+   "fair_power": 0.503,
+   "book_fair": 0.4388,
+   "fair_gap": 6.4,
+   "ev_strict": 6.1,
+   "pin_ts": "2026-11-25T02:37:53Z",
+   "book_ts": "2026-11-25T02:38:47Z",
+   "flagged": "2026-11-25T02:39:20Z"
+  },
+  {
+   "key": "6bfadbd22ed8a054cf82ec1b12b78243|player_threes|Zaccharie Risacher|1.5",
+   "sport": "nba",
+   "odds_id": "6bfadbd22ed8a054cf82ec1b12b78243",
+   "espn": "401909316",
+   "game": "Dallas Mavericks @ Denver Nuggets",
+   "start": "2026-11-25T03:10:00Z",
+   "market": "player_threes",
+   "player": "Zaccharie Risacher",
+   "line": 1.5,
+   "side": "under",
+   "book": "DK",
+   "price": 1.43,
+   "fair": 0.7294,
+   "ev": 4.3,
+   "pin_under": 1.28,
+   "pin_over": 3.45,
+   "book_over": 2.74,
+   "fair_power": 0.7553,
+   "book_fair": 0.6571,
+   "fair_gap": 7.2,
+   "ev_strict": 4.3,
+   "pin_ts": "2026-11-25T02:37:53Z",
+   "book_ts": "2026-11-25T02:38:03Z",
+   "flagged": "2026-11-25T02:39:20Z"
+  }
+ ]
 }
