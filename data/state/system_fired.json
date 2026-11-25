@@ -10283,5 +10283,18 @@
 "fair": 0.79167,
 "edge_pts": 0.17,
 "why": "Novig home side mid 0.212 inside T-1.0h; audit band 20-35c"
+},
+"401909321:nba_ats_hot_home": {
+"tag": "nba_ats_hot_home",
+"fill_id": "fdef3ce76f9c",
+"ts": "2026-11-25T00:54:26Z",
+"market": "spread",
+"side": "home",
+"line": -6.0,
+"venue": "Caesars",
+"price": -110,
+"fair": 0.5,
+"edge_pts": -2.38,
+"why": "home MEM covers 72% of spreads this season (18 games), 2 days rest: home spread (mined angle)"
 }
 }
