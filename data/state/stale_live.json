@@ -1,11 +1,11 @@
 {
- "built": "2026-11-25T03:48:06Z",
+ "built": "2026-11-25T04:04:39Z",
  "record": {
-  "n": 270,
-  "won": 120,
+  "n": 273,
+  "won": 123,
   "lost": 150,
-  "units": -1.44,
-  "roi": -2.1
+  "units": -0.5,
+  "roi": -0.7
  },
  "record_sb4": {
   "n": 11,
@@ -17,53 +17,25 @@
  "sb4_killed": true,
  "checkable_test": {
   "rule": "kill if the first 100 graded checkable rows are not positive in both halves",
-  "n": 0,
-  "all_checkable": null,
-  "half1": null,
+  "n": 1,
+  "all_checkable": {
+   "n": 1,
+   "won": 1,
+   "lost": 0,
+   "units": 0.26,
+   "roi": 102.0
+  },
+  "half1": {
+   "n": 1,
+   "won": 1,
+   "lost": 0,
+   "units": 0.26,
+   "roi": 102.0
+  },
   "half2": null,
-  "verdict": "pending: 0 of 100"
+  "verdict": "pending: 1 of 100"
  },
  "rows": [
-  {
-   "key": "401929359|ml|away",
-   "sport": "cbb",
-   "event_id": "401929359",
-   "game": "ORU @ UTA",
-   "start": "2026-11-25T01:00Z",
-   "market": "ml",
-   "side": "away",
-   "line": null,
-   "venue": "Novig",
-   "price": 0.36,
-   "fair": 0.3686,
-   "fair_power": 0.36,
-   "venue_fair": 0.3564,
-   "fair_gap": 1.2,
-   "ev": 2.4,
-   "move": 2.0,
-   "flagged": "2026-11-24T04:33:46Z",
-   "team": "ORU"
-  },
-  {
-   "key": "401920414|total|over",
-   "sport": "cbb",
-   "event_id": "401920414",
-   "game": "HPU @ DUQ",
-   "start": "2026-11-25T00:30Z",
-   "market": "total",
-   "side": "over",
-   "line": 140.5,
-   "venue": "Novig",
-   "price": 0.51,
-   "fair": 0.5202,
-   "fair_power": 0.5218,
-   "venue_fair": 0.5075,
-   "fair_gap": 1.3,
-   "ev": 2.0,
-   "move": 2.2,
-   "flagged": "2026-11-24T15:34:54Z",
-   "team": null
-  },
   {
    "key": "401915942|ml|home",
    "sport": "cbb",
@@ -103,31 +75,6 @@
    "move": 1.2,
    "flagged": "2026-11-24T18:36:09Z",
    "team": "COLO"
-  },
-  {
-   "key": "401892780|total|over",
-   "sport": "nhl",
-   "event_id": "401892780",
-   "game": "VGK @ EDM",
-   "start": "2026-11-25T01:00Z",
-   "market": "total",
-   "side": "over",
-   "line": 6.5,
-   "venue": "Caesars",
-   "price": 0.495,
-   "fair": 0.5193,
-   "fair_power": 0.5202,
-   "venue_fair": 0.4712,
-   "fair_gap": 4.8,
-   "ev": 4.9,
-   "move": 3.4,
-   "flagged": "2026-11-24T23:55:55Z",
-   "venue_ts": "2026-11-24T23:30:46Z",
-   "pin_ts": "2026-11-24T23:30:46Z",
-   "qty_best": null,
-   "wide": false,
-   "team": null,
-   "checkable": true
   }
  ]
 }
