@@ -1,5 +1,5 @@
 {
- "built": "2026-11-25T23:01:09Z",
+ "built": "2026-11-25T23:09:05Z",
  "rows": [
   {
    "cond": "0x8815e1a17ad30339bd60d7d7e391fceddfb6557d2f02ad8e3fbacc35638c388d",
@@ -352,7 +352,7 @@
    "best_rank": 104,
    "usd": 197,
    "paid": 0.42,
-   "ask": 0.37,
+   "ask": 0.36,
    "status": "live",
    "link": "https://polymarket.us/event/nba-cle-nyk-2026-11-25",
    "other": null,
@@ -1032,7 +1032,7 @@
     "Kalshi bet back"
    ],
    "cancel": null,
-   "money_with": false,
+   "money_with": true,
    "grade": "A",
    "fair_board": 0.4567,
    "inside_fair": true,
@@ -1354,7 +1354,8 @@
    "game_start": "2026-11-26T03:00Z",
    "side_std": "away",
    "conflict": [
-    "Kalshi bet back"
+    "Kalshi bet back",
+    "big money"
    ],
    "cancel": null,
    "money_with": false,
