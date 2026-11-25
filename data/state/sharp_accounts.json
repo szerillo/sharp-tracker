@@ -1,5 +1,5 @@
 {
- "built": "2026-11-25T19:22:22Z",
+ "built": "2026-11-25T19:30:06Z",
  "rows": [
   {
    "cond": "0x1e09f6de8fad7800a26ea95caee3926104880dc96ecafdba633b0d8c4c9f8df5",
@@ -1246,7 +1246,7 @@
    "best_rank": 104,
    "usd": 253,
    "paid": 0.418,
-   "ask": 0.42,
+   "ask": 0.41,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-sas-por-2026-11-25",
    "other": {
@@ -1255,7 +1255,7 @@
     "usd": 1680,
     "first": "2026-11-25T19:10:57Z"
    },
-   "exit_bid": 0.41,
+   "exit_bid": 0.4,
    "kalshi_against": null,
    "logged": true,
    "event_id": "401909325",
@@ -1271,51 +1271,7 @@
    "money_with": false,
    "grade": "A",
    "fair_board": 0.4173,
-   "inside_fair": false,
-   "books": null
-  },
-  {
-   "cond": "0x4a1b80e20d0848a2223a67237f967369208fcc7098e2c3fc179fbf01b43ad94c",
-   "slug": "nba-sas-por-2026-11-25",
-   "title": "Spurs vs. Trail Blazers",
-   "mtype": "ml",
-   "start": "2026-11-26T03:00:00Z",
-   "bet": "Trail Blazers ML",
-   "side": "Trail Blazers",
-   "flagged": "2026-11-24T08:23:41Z",
-   "why": "2 top-200 accounts",
-   "proven": true,
-   "trigger": "proven",
-   "n_accounts": 2,
-   "best_rank": 104,
-   "usd": 253,
-   "paid": 0.418,
-   "ask": 0.42,
-   "status": "other side",
-   "link": "https://polymarket.us/event/nba-sas-por-2026-11-25",
-   "other": {
-    "n_accounts": 1,
-    "best_rank": 42,
-    "usd": 1680,
-    "first": "2026-11-25T19:10:57Z"
-   },
-   "exit_bid": 0.41,
-   "kalshi_against": null,
-   "logged": true,
-   "event_id": "401909325",
-   "sport": "nba",
-   "league": null,
-   "away": "SA",
-   "home": "POR",
-   "away_name": "San Antonio Spurs",
-   "home_name": "Portland Trail Blazers",
-   "game_start": "2026-11-26T03:00Z",
-   "side_std": "home",
-   "cancel": null,
-   "money_with": false,
-   "grade": "A",
-   "fair_board": 0.4198,
-   "inside_fair": false,
+   "inside_fair": true,
    "books": null
   },
   {
@@ -1441,6 +1397,14 @@
     "usd": 2714
    }
   },
+  "401909318:nba_roadtrip_over": {
+   "with": {
+    "n": 1,
+    "best_rank": 119,
+    "usd": 463
+   },
+   "against": null
+  },
   "401920916:cbb_under_good_over_drop": {
    "with": {
     "n": 1,
@@ -1507,6 +1471,13 @@
     "n": 1,
     "best_rank": 43,
     "usd": 133
+   }
+  },
+  "401909318|total": {
+   "over": {
+    "n": 1,
+    "best_rank": 119,
+    "usd": 463
    }
   },
   "401909319|ml": {
@@ -1698,13 +1669,6 @@
     "n": 1,
     "best_rank": 12,
     "usd": 125
-   }
-  },
-  "401920809|total": {
-   "over": {
-    "n": 1,
-    "best_rank": 65,
-    "usd": 188
    }
   },
   "401928836|total": {
