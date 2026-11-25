@@ -1,5 +1,5 @@
 {
- "built": "2026-11-25T23:09:05Z",
+ "built": "2026-11-25T22:52:48Z",
  "rows": [
   {
    "cond": "0x8815e1a17ad30339bd60d7d7e391fceddfb6557d2f02ad8e3fbacc35638c388d",
@@ -1032,7 +1032,7 @@
     "Kalshi bet back"
    ],
    "cancel": null,
-   "money_with": true,
+   "money_with": false,
    "grade": "A",
    "fair_board": 0.4567,
    "inside_fair": true,
@@ -1354,8 +1354,7 @@
    "game_start": "2026-11-26T03:00Z",
    "side_std": "away",
    "conflict": [
-    "Kalshi bet back",
-    "big money"
+    "Kalshi bet back"
    ],
    "cancel": null,
    "money_with": false,
@@ -1468,9 +1467,9 @@
     "clv": -0.1
    }
   },
-  "n": 448,
-  "won": 218,
-  "units": -13.11,
+  "n": 442,
+  "won": 213,
+  "units": -15.76,
   "by_grade": {
    "A": {
     "n": 298,
@@ -1491,12 +1490,12 @@
     "clv": 0.28
    }
   },
-  "units_1u": -12.6,
-  "clv": -0.32,
-  "n_venue": 234,
-  "units_venue": -4.77,
-  "clv_venue": 0.92,
-  "clv_poly_same": -0.57
+  "units_1u": -22.88,
+  "clv": -0.31,
+  "n_venue": 233,
+  "units_venue": -5.02,
+  "clv_venue": 0.96,
+  "clv_poly_same": -0.55
  },
  "sys_tags": {
   "401909320:nba_roadtrip_over": {
