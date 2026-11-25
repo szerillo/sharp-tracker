@@ -8,6 +8,7 @@ on:
   workflow_dispatch: {}
 permissions:
   contents: read
+  actions: read
   deployments: read
   pages: write
   id-token: write
@@ -23,9 +24,19 @@ jobs:
     runs-on: ubuntu-latest
     environment:
       name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+      url: ${{ steps.deployment.outputs.page_url || steps.deployment_b.outputs.page_url || steps.deployment2.outputs.page_url }}
     steps:
+      # 11/25 debounce: at most one publish every 4 minutes. A run waits out the rest of the 4 minutes after the last successful publish,
+      # then checks out main as it is at that moment, so the publish is always the latest commit (newer dispatches queue one behind it).
+      - name: debounce (4 minutes since the last successful publish)
+        env: {GH_TOKEN: '${{ github.token }}'}
+        run: |
+          last=$(gh api "repos/${{ github.repository }}/actions/workflows/pages.yml/runs?status=success&per_page=1" -q '.workflow_runs[0].updated_at' 2>/dev/null || true)
+          [ -n "$last" ] || exit 0
+          age=$(( $(date -u +%s) - $(date -u -d "$last" +%s) )); wait=$(( 240 - age ))
+          [ "$wait" -gt 0 ] && { echo "last publish ${age}s ago, waiting ${wait}s"; sleep "$wait"; } || true
       - uses: actions/checkout@v4
+        with: {ref: main}
       - uses: actions/configure-pages@v5
         with:
           enablement: true
@@ -47,22 +58,36 @@ jobs:
           ls -la _site _site/data/state
       - uses: actions/upload-pages-artifact@v3
         with: {path: _site}
+      # 11/25 root cause of the 20:10-23:30Z outage: deploy-pages looked the artifact up 0.3 s after the upload and found none ("No artifacts
+      # named github-pages"), and the old recovery step then cancelled the Pages deployment of every recent commit sha, including the
+      # one this run was about to deploy and the shas later runs would deploy. A deployment created under an id that had already been
+      # cancelled never leaves its blank status, so every retry waited 10 minutes and timed out. Now: wait 20 s for the artifact to
+      # register, retry once without cancelling anything, and if a deploy is really stuck cancel only genuine open deployments,
+      # never this run's own sha. Short timeouts: a healthy deploy reports success in about 5 s.
+      - name: let the artifact register
+        run: sleep 20
       - id: deployment
         continue-on-error: true
         uses: actions/deploy-pages@v4
-      # 11/7: a deploy that timed out can stay 'in progress' on GitHub's side and block every later deploy ("Please cancel <sha> first").
-      # Pages deployment ids are commit shas, so cancel any still-open one among the recent commits, then deploy again.
-      - name: clear a stuck deployment and retry
+        with: {timeout: 240000}
+      - id: deployment_b
         if: steps.deployment.outcome == 'failure'
+        continue-on-error: true
+        uses: actions/deploy-pages@v4
+        with: {timeout: 240000}
+      - name: clear a genuinely stuck deployment (never this run's own sha)
+        if: steps.deployment.outcome == 'failure' && steps.deployment_b.outcome == 'failure'
         env: {GH_TOKEN: '${{ github.token }}'}
         run: |
-          # the stuck one can be a commit later rebased off main, so also take the shas GitHub recorded for recent github-pages deployments
-          for s in $( (gh api "repos/${{ github.repository }}/deployments?environment=github-pages&per_page=30" -q '.[].sha'; gh api "repos/${{ github.repository }}/commits?per_page=40" -q '.[].sha') | sort -u); do
-            gh api -X POST "repos/${{ github.repository }}/pages/deployments/$s/cancel" >/dev/null 2>&1 && echo "cancelled stuck deployment $s"
+          for id_sha in $(gh api "repos/${{ github.repository }}/deployments?environment=github-pages&per_page=15" -q '.[] | "\(.id):\(.sha)"'); do
+            id=${id_sha%%:*}; s=${id_sha##*:}; [ "$s" = "${{ github.sha }}" ] && continue
+            st=$(gh api "repos/${{ github.repository }}/deployments/$id/statuses?per_page=1" -q '.[0].state' 2>/dev/null)
+            case "$st" in queued|in_progress|pending) gh api -X POST "repos/${{ github.repository }}/pages/deployments/$s/cancel" >/dev/null 2>&1 && echo "cancelled stuck deployment $s ($st)";; esac
           done; true
       - id: deployment2
-        if: steps.deployment.outcome == 'failure'
+        if: steps.deployment.outcome == 'failure' && steps.deployment_b.outcome == 'failure'
         uses: actions/deploy-pages@v4
+        with: {timeout: 300000}
   # 11/6 (Sean: "Why do we keep having things that aren't showing up on the board? We can't have that."): after every publish, open the
   # live page in a real browser and check every sized open bet in the tracker has a visible row; a phone alert and a red run if not.
   check:

@@ -1798,7 +1798,13 @@ async function load() {
   try {
     // 11/6: every side file in parallel (they were fetched one after another, 18 round trips), and kept for 2 minutes so switching
     // sports only fetches the sport's own dashboard
-    const J = p => fetch(p, {cache: 'no-store'}).then(r => r.ok ? r.json() : null).catch(() => null);
+    // 11/25 (Kirk: Pages stopped publishing for 3+ hours and the board went stale): data files load straight from the repo's main branch
+    // (raw.githubusercontent.com, at most about 5 minutes behind a commit), so the board stays current even when a Pages deploy fails.
+    // The copy published with the page is the fallback. Only the page itself still needs a Pages deploy.
+    const RAW = 'https://raw.githubusercontent.com/szerillo/sharp-tracker/main/';
+    const J1 = p => fetch(p, {cache: 'no-store'}).then(r => r.ok ? r.json() : null).catch(() => null);
+    const J = p => /^data\//.test(p) && !new URLSearchParams(location.search).get('data') ? J1(RAW + p).then(v => v || J1(p)) : J1(p);
+    window._J = J;
     const SIDE = ['data/state/edges.json', 'data/state/moves.json', 'data/state/system_fires.json', 'data/state/flow_live.json', 'data/state/tennis_watch.json',
       'data/state/mma_steam.json', 'data/state/kalshi_flow.json', 'data/state/stale_live.json', 'data/state/props_live.json', 'data/state/curve_live.json',
       'data/research/poly_pinnacle.json', 'data/state/tape_health.json', 'data/state/signal_snap.json', 'data/state/sharp_accounts.json', 'data/state/bet_log.json', 'data/state/audit.json', 'data/state/offers.json', 'data/state/offers_record.json', 'data/state/betlabs_picks.json'];
@@ -1812,7 +1818,7 @@ async function load() {
     if (idx && idx.sports && idx.sports.length) {
       if (!SPORT) SPORT = idx.sports[0].sport;
       const pick = idx.sports.find(s => s.sport === SPORT) || idx.sports[0]; SPORT = pick.sport;
-      if (D.sport !== SPORT) D = await (await fetch(pick.file, {cache: 'no-store'})).json();
+      if (D.sport !== SPORT) D = (await J(pick.file)) || await (await fetch(pick.file, {cache: 'no-store'})).json();
       D.index = idx;
       $('#sports').innerHTML = idx.sports.map(s => `<button class="${s.sport === SPORT ? 'on' : ''}" onclick="SPORT='${s.sport}';history.replaceState(null,'','?sport=${s.sport}');load()">${s.label} <span class="small">${s.games} games</span></button>`).join('');
     }
