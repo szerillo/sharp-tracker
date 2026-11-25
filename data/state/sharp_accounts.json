@@ -1,5 +1,5 @@
 {
- "built": "2026-11-25T19:06:20Z",
+ "built": "2026-11-25T19:14:15Z",
  "rows": [
   {
    "cond": "0x1e09f6de8fad7800a26ea95caee3926104880dc96ecafdba633b0d8c4c9f8df5",
@@ -214,7 +214,7 @@
    "best_rank": 170,
    "usd": 300,
    "paid": 0.17,
-   "ask": 0.17,
+   "ask": 0.18,
    "status": "live",
    "link": "https://polymarket.us/event/ucl-lil-bay-2026-11-25",
    "other": null,
@@ -469,53 +469,6 @@
    }
   },
   {
-   "cond": "0x4a1b80e20d0848a2223a67237f967369208fcc7098e2c3fc179fbf01b43ad94c",
-   "slug": "nba-sas-por-2026-11-25",
-   "title": "Spurs vs. Trail Blazers",
-   "mtype": "ml",
-   "start": "2026-11-26T03:00:00Z",
-   "bet": "Trail Blazers ML",
-   "side": "Trail Blazers",
-   "flagged": "2026-11-24T08:23:41Z",
-   "why": "2 top-200 accounts",
-   "proven": true,
-   "trigger": "proven",
-   "n_accounts": 2,
-   "best_rank": 104,
-   "usd": 253,
-   "paid": 0.418,
-   "ask": 0.43,
-   "status": "live",
-   "link": "https://polymarket.us/event/nba-sas-por-2026-11-25",
-   "other": null,
-   "kalshi_against": null,
-   "logged": true,
-   "event_id": "401909325",
-   "sport": "nba",
-   "league": null,
-   "away": "SA",
-   "home": "POR",
-   "away_name": "San Antonio Spurs",
-   "home_name": "Portland Trail Blazers",
-   "game_start": "2026-11-26T03:00Z",
-   "side_std": "home",
-   "cancel": null,
-   "money_with": false,
-   "grade": "A",
-   "fair_board": 0.4198,
-   "inside_fair": false,
-   "books": {
-    "at": "2026-11-25T18:03:12Z",
-    "fair": 0.4198,
-    "q": {
-     "Novig": 0.42,
-     "FD": 0.4348,
-     "Kalshi": 0.44,
-     "Caesars": 0.4425
-    }
-   }
-  },
-  {
    "cond": "0xee10be0394841a8fb2a9730e9209718c0367808d7b0a78306561c12986b5a8f5",
    "slug": "nba-sac-gsw-2026-11-25",
    "title": "Kings vs. Warriors",
@@ -706,12 +659,12 @@
    "bet": "Broncos ML",
    "side": "Broncos",
    "flagged": "2026-11-25T04:19:59Z",
-   "why": "a top-50 account",
+   "why": "2 top-200 accounts",
    "proven": true,
    "trigger": "proven",
-   "n_accounts": 1,
-   "best_rank": 49,
-   "usd": 2059,
+   "n_accounts": 2,
+   "best_rank": 24,
+   "usd": 2419,
    "paid": 0.64,
    "ask": 0.64,
    "status": "live",
@@ -1121,8 +1074,7 @@
    "game_start": "2026-11-26T00:00Z",
    "side_std": "away",
    "conflict": [
-    "Kalshi move",
-    "big money"
+    "Kalshi move"
    ],
    "cancel": [
     "Kalshi move"
@@ -1285,6 +1237,50 @@
    "books": null
   },
   {
+   "cond": "0x4a1b80e20d0848a2223a67237f967369208fcc7098e2c3fc179fbf01b43ad94c",
+   "slug": "nba-sas-por-2026-11-25",
+   "title": "Spurs vs. Trail Blazers",
+   "mtype": "ml",
+   "start": "2026-11-26T03:00:00Z",
+   "bet": "Trail Blazers ML",
+   "side": "Trail Blazers",
+   "flagged": "2026-11-24T08:23:41Z",
+   "why": "2 top-200 accounts",
+   "proven": true,
+   "trigger": "proven",
+   "n_accounts": 2,
+   "best_rank": 104,
+   "usd": 253,
+   "paid": 0.418,
+   "ask": 0.42,
+   "status": "other side",
+   "link": "https://polymarket.us/event/nba-sas-por-2026-11-25",
+   "other": {
+    "n_accounts": 1,
+    "best_rank": 42,
+    "usd": 1680,
+    "first": "2026-11-25T19:10:57Z"
+   },
+   "exit_bid": 0.41,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401909325",
+   "sport": "nba",
+   "league": null,
+   "away": "SA",
+   "home": "POR",
+   "away_name": "San Antonio Spurs",
+   "home_name": "Portland Trail Blazers",
+   "game_start": "2026-11-26T03:00Z",
+   "side_std": "home",
+   "cancel": null,
+   "money_with": false,
+   "grade": "A",
+   "fair_board": 0.4198,
+   "inside_fair": false,
+   "books": null
+  },
+  {
    "cond": "0xf93a4fe832882479c324e6166050540c9184d9cc3c18bac675a1504b4662c297",
    "slug": "nba-phi-ind-2026-11-27",
    "title": "76ers vs. Pacers",
@@ -1383,6 +1379,14 @@
     "usd": 279
    }
   },
+  "401909320:nba_roadtrip_over": {
+   "with": null,
+   "against": {
+    "n": 1,
+    "best_rank": 132,
+    "usd": 320
+   }
+  },
   "401892792:nhl_early_home_fav_qual": {
    "with": null,
    "against": {
@@ -1436,9 +1440,9 @@
   },
   "401873083|ml": {
    "away": {
-    "n": 1,
-    "best_rank": 49,
-    "usd": 2059
+    "n": 2,
+    "best_rank": 24,
+    "usd": 2419
    }
   },
   "401909317|ml": {
@@ -1510,6 +1514,13 @@
     "usd": 478
    }
   },
+  "401909320|total": {
+   "under": {
+    "n": 1,
+    "best_rank": 132,
+    "usd": 320
+   }
+  },
   "401909321|ml": {
    "away": {
     "n": 1,
@@ -1562,6 +1573,11 @@
     "n": 2,
     "best_rank": 104,
     "usd": 253
+   },
+   "away": {
+    "n": 1,
+    "best_rank": 42,
+    "usd": 1680
    }
   },
   "401909328|ml": {
