@@ -1,5 +1,5 @@
 {
- "built": "2026-11-25T03:23:17Z",
+ "built": "2026-11-25T03:39:12Z",
  "rows": [
   {
    "cond": "0x33b28ef1935c041a6b7d7e54459877daaadd57b3363a0ab18318b355e2c194f8",
@@ -706,8 +706,8 @@
    "cancel": null,
    "money_with": false,
    "grade": "A",
-   "fair_board": 0.4624,
    "inside_fair": false,
+   "fair_board": 0.4624,
    "books": {
     "at": "2026-11-25T02:58:18Z",
     "fair": 0.4624,
@@ -1073,21 +1073,21 @@
     "clv": -0.95
    },
    "outside": {
-    "n": 120,
+    "n": 121,
     "won": 64,
     "units": -0.03,
-    "clv": -0.12
+    "clv": -0.09
    }
   },
-  "n": 435,
+  "n": 436,
   "won": 210,
   "units": -15.56,
   "by_grade": {
    "A": {
-    "n": 287,
+    "n": 288,
     "won": 131,
     "units": -15.61,
-    "clv": -0.1
+    "clv": -0.08
    },
    "B": {
     "n": 104,
@@ -1102,12 +1102,12 @@
     "clv": -0.03
    }
   },
-  "units_1u": -21.83,
+  "units_1u": -22.83,
   "clv": -0.33,
-  "n_venue": 228,
+  "n_venue": 229,
   "units_venue": -5.06,
-  "clv_venue": 0.96,
-  "clv_poly_same": -0.56
+  "clv_venue": 0.97,
+  "clv_poly_same": -0.54
  },
  "sys_tags": {},
  "by_event": {
@@ -1222,6 +1222,20 @@
     "n": 1,
     "best_rank": 132,
     "usd": 265
+   }
+  },
+  "401920237|total": {
+   "over": {
+    "n": 1,
+    "best_rank": 93,
+    "usd": 548
+   }
+  },
+  "401917182|total": {
+   "under": {
+    "n": 1,
+    "best_rank": 93,
+    "usd": 118
    }
   },
   "401915373|total": {
