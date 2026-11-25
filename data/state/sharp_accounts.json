@@ -1,5 +1,5 @@
 {
- "built": "2026-11-25T23:17:06Z",
+ "built": "2026-11-25T23:25:16Z",
  "rows": [
   {
    "cond": "0x8815e1a17ad30339bd60d7d7e391fceddfb6557d2f02ad8e3fbacc35638c388d",
@@ -229,16 +229,16 @@
    "cancel": null,
    "money_with": true,
    "grade": "watch",
-   "fair_board": 0.6026,
+   "fair_board": 0.6168,
    "inside_fair": false,
    "books": {
-    "at": "2026-11-25T21:02:29Z",
-    "fair": 0.6026,
+    "at": "2026-11-25T23:06:16Z",
+    "fair": 0.6168,
     "q": {
-     "Novig": 0.6,
-     "Kalshi": 0.62,
-     "FD": 0.6212,
-     "Caesars": 0.6226
+     "Novig": 0.62,
+     "FD": 0.6241,
+     "Kalshi": 0.64,
+     "Caesars": 0.6403
     }
    }
   },
@@ -279,11 +279,11 @@
    "inside_fair": false,
    "fair_board": 0.5007,
    "books": {
-    "at": "2026-11-25T21:02:29Z",
-    "fair": 0.5004,
+    "at": "2026-11-25T23:06:16Z",
+    "fair": 0.5033,
     "q": {
-     "Novig": 0.505,
-     "FD": 0.5146,
+     "Novig": 0.5,
+     "FD": 0.5238,
      "Kalshi": 0.53,
      "Caesars": 0.5349
     }
@@ -326,13 +326,13 @@
    "inside_fair": false,
    "fair_board": 0.5167,
    "books": {
-    "at": "2026-11-25T21:02:29Z",
-    "fair": 0.5149,
+    "at": "2026-11-25T23:06:16Z",
+    "fair": 0.5182,
     "q": {
      "Novig": 0.515,
      "Kalshi": 0.54,
      "DK": 0.5413,
-     "FD": 0.5455
+     "Caesars": 0.5455
     }
    }
   },
@@ -352,7 +352,7 @@
    "best_rank": 104,
    "usd": 197,
    "paid": 0.42,
-   "ask": 0.36,
+   "ask": 0.35,
    "status": "live",
    "link": "https://polymarket.us/event/nba-cle-nyk-2026-11-25",
    "other": null,
@@ -457,7 +457,7 @@
    "inside_fair": false,
    "fair_board": 0.4624,
    "books": {
-    "at": "2026-11-25T21:02:29Z",
+    "at": "2026-11-25T23:06:16Z",
     "fair": 0.4785,
     "q": {
      "Caesars": 0.4831,
@@ -545,13 +545,13 @@
    "inside_fair": false,
    "fair_board": 0.5846,
    "books": {
-    "at": "2026-11-25T21:02:29Z",
-    "fair": 0.6466,
+    "at": "2026-11-25T23:06:16Z",
+    "fair": 0.6495,
     "q": {
-     "Novig": 0.65,
      "FD": 0.6528,
+     "Novig": 0.655,
      "Caesars": 0.6587,
-     "DK": 0.67
+     "DK": 0.6689
     }
    }
   },
@@ -674,16 +674,16 @@
    "cancel": null,
    "money_with": false,
    "grade": "B",
-   "fair_board": 0.5068,
+   "fair_board": 0.5057,
    "inside_fair": true,
    "books": {
-    "at": "2026-11-25T21:02:29Z",
-    "fair": 0.5068,
+    "at": "2026-11-25T23:06:16Z",
+    "fair": 0.5057,
     "q": {
      "Novig": 0.515,
      "Caesars": 0.5169,
      "DK": 0.5192,
-     "Kalshi": 0.55
+     "FD": 0.5327
     }
    }
   },
@@ -886,7 +886,7 @@
    "cancel": null,
    "money_with": false,
    "grade": "B",
-   "fair_board": 0.5099,
+   "fair_board": null,
    "inside_fair": null,
    "books": null
   },
@@ -930,7 +930,7 @@
    "cancel": null,
    "money_with": false,
    "grade": "B",
-   "fair_board": 0.5359,
+   "fair_board": null,
    "inside_fair": null,
    "books": null
   },
@@ -978,16 +978,16 @@
    ],
    "money_with": false,
    "grade": "A",
-   "fair_board": 0.5113,
+   "fair_board": 0.5114,
    "inside_fair": false,
    "books": {
-    "at": "2026-11-25T21:02:29Z",
-    "fair": 0.5113,
+    "at": "2026-11-25T23:06:16Z",
+    "fair": 0.5114,
     "q": {
      "Novig": 0.515,
+     "Kalshi": 0.53,
      "DK": 0.5349,
-     "FD": 0.5349,
-     "Kalshi": 0.54
+     "FD": 0.5349
     }
    }
   },
@@ -1034,7 +1034,7 @@
    "cancel": null,
    "money_with": true,
    "grade": "A",
-   "fair_board": 0.4567,
+   "fair_board": 0.3816,
    "inside_fair": true,
    "books": null
   },
@@ -1082,8 +1082,8 @@
    "cancel": null,
    "money_with": false,
    "grade": "A",
-   "fair_board": 0.4536,
-   "inside_fair": true,
+   "fair_board": 0.4444,
+   "inside_fair": false,
    "books": null
   },
   {
@@ -1129,8 +1129,8 @@
    "cancel": null,
    "money_with": true,
    "grade": "A",
-   "fair_board": null,
-   "inside_fair": null,
+   "fair_board": 0.4839,
+   "inside_fair": false,
    "books": null
   },
   {
@@ -1173,8 +1173,8 @@
    "cancel": null,
    "money_with": true,
    "grade": "A",
-   "fair_board": 0.5094,
-   "inside_fair": false,
+   "fair_board": null,
+   "inside_fair": null,
    "books": null
   },
   {
@@ -1193,7 +1193,7 @@
    "best_rank": 104,
    "usd": 939,
    "paid": 0.492,
-   "ask": 0.44,
+   "ask": 0.43,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-cle-nyk-2026-11-25",
    "other": {
@@ -1202,7 +1202,7 @@
     "usd": 970,
     "first": "2026-11-25T21:31:16Z"
    },
-   "exit_bid": 0.43,
+   "exit_bid": 0.42,
    "kalshi_against": null,
    "logged": false,
    "ladder": true,
@@ -1221,8 +1221,8 @@
    "cancel": null,
    "money_with": true,
    "grade": "watch",
-   "fair_board": 0.504,
-   "inside_fair": true,
+   "fair_board": null,
+   "inside_fair": null,
    "books": null
   },
   {
@@ -1268,7 +1268,7 @@
    "cancel": null,
    "money_with": false,
    "grade": "watch",
-   "fair_board": 0.2908,
+   "fair_board": 0.2907,
    "inside_fair": false,
    "books": null
   },
@@ -1312,7 +1312,7 @@
    "cancel": null,
    "money_with": false,
    "grade": "A",
-   "fair_board": 0.4061,
+   "fair_board": 0.4069,
    "inside_fair": false,
    "books": null
   },
@@ -1360,7 +1360,7 @@
    "cancel": null,
    "money_with": false,
    "grade": "B",
-   "fair_board": 0.2907,
+   "fair_board": 0.2695,
    "inside_fair": true,
    "books": null
   },
@@ -1424,7 +1424,7 @@
    "best_rank": 31,
    "usd": 5469,
    "paid": 0.54,
-   "ask": 0.62,
+   "ask": 0.59,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-phi-ind-2026-11-27",
    "other": {
@@ -1433,7 +1433,7 @@
     "usd": 510,
     "first": "2026-11-25T12:45:28Z"
    },
-   "exit_bid": 0.61,
+   "exit_bid": 0.58,
    "kalshi_against": null,
    "logged": true,
    "event_id": "401909328",
