@@ -211,7 +211,11 @@ def path(T, key, t0, st):
 # system; a Kalshi move only for games before KALSHI_WARN_FROM); PASS when the ask is 5c+ above what the sharps paid (bought out);
 # DROPPED when the flag is no longer live or conflicts. Calls freeze at the start: a started game keeps its last pre-start call.
 WIND_TAGS = {'wind1014', 'wind1014_1h', 'cfb_wind14', 'wind1014_cold'}
-HOLD_TAGS = ('big money against', 'bet back against', 'sharp move against', 'sharp accts against', 'sharp flag against', 'system against')
+HOLD_TAGS = ('system against',)
+# 11/24 7:10 PM (Sean via Kirk): a sharp flag is cancelled only by a Kalshi move against (outside the 11/24 2:00-4:45 PM warning window) or a
+# system on the other side, the same as systems. Big money, bet back, sharp move, sharp accounts, a sharp flag and a sharp taking the other
+# side are shown, not holds (board_why lists them as 'shown').
+SHOW_TAGS = ('big money against', 'bet back against', 'sharp move against', 'sharp accts against', 'sharp flag against')
 def board_status(bets):
     now = NOW.strftime('%Y-%m-%dT%H:%M:%SZ')
     try: prev = {r['id']: (r.get('board_status'), r.get('board_why')) for r in json.load(open(OUT)).get('rows', []) if r.get('board_status')}
@@ -232,12 +236,15 @@ def board_status(bets):
         elif b.get('src') == 'sharp':
             r = SAR.get(b['id'][2:]) if b['id'].startswith('p:') else None
             ag = [t.replace(' against', '') for t in HOLD_TAGS if t in tg] + (['Kalshi move'] if 'Kalshi move against' in tg and kalshi_blocks(st_) else [])
-            if r is not None and (r.get('status') not in ('live', 'other side') or r.get('conflict') or (r.get('kalshi_against') and kalshi_blocks(st_))):
-                st, why = 'dropped', 'flag no longer live' if r.get('status') not in ('live', 'other side') else 'a signal on the other side' if r.get('conflict') else 'Kalshi moved the other way'
-            elif (r is not None and r.get('status') == 'other side') or ag:
-                st, why = 'held', '; '.join((['a sharp took the other side'] if r is not None and r.get('status') == 'other side' else []) + ([', '.join(ag) + ' against'] if ag else []))
+            shown = [t.replace(' against', '') for t in SHOW_TAGS if t in tg] + (['a sharp on the other side'] if r is not None and r.get('status') == 'other side' else [])
+            k_conf = r is not None and ((r.get('kalshi_against') or r.get('cancel')) and kalshi_blocks(st_))
+            if r is not None and (r.get('status') not in ('live', 'other side') or k_conf):
+                st, why = 'dropped', 'flag no longer live' if r.get('status') not in ('live', 'other side') else 'Kalshi moved the other way'
+            elif ag:
+                st, why = 'held', ', '.join(ag) + ' against'
             elif r is not None and r.get('ask') is not None and r.get('paid') is not None and r['ask'] - r['paid'] >= 0.05 - 1e-9:
                 st, why = 'pass', f"bought out: ask {round(100 * r['ask'])}c vs the sharps' {round(100 * r['paid'])}c"
+            if st == 'bet' and shown: why = 'shown, not a hold: ' + ', '.join(shown) + ' against'
         elif b.get('held'): st, why = 'held', 'a rule on the other side' if 'system against' in tg else 'Kalshi moved the other way'
         elif b.get('rule') in WIND_TAGS and st_ and (dt.datetime.fromisoformat(st_.replace('Z', '+00:00')) - NOW).total_seconds() > 12 * 3600: st, why = 'wait', 'wind rules wait until 12h before kickoff'
         b['board_status'], b['board_why'] = st, why
@@ -766,6 +773,13 @@ def main():
                placed=dict(summary=placed_summ, rows=sorted(placed, key=lambda x: x['start'], reverse=True)),
                summary={k: summ(v) for k, v in sorted(groups.items())},
                rows=sorted(bets, key=lambda b: b['start'], reverse=True))
+    # 11/24 7:10 PM (Sean): watched paper rules, re-read at 25 graded paper bets (from the 11/24 2:00 PM move to paper) on the profit lines
+    WR = []
+    for rule_ in ('nhl_skid_fade_road', 'nhl_bounce_home_ml'):
+        g_ = [b for b in bets if b.get('rule') == rule_ and b.get('cat') == 'paper P' and b.get('won') in (0, 1, 0.5) and not b.get('excluded') and (b.get('start') or '') >= '2026-11-24T19:00:00Z']
+        u_ = round(sum(b.get('units') or 0 for b in g_), 2)
+        WR.append(dict(rule=rule_, graded=len(g_), needed=25, w=sum(b['won'] == 1 for b in g_), l=sum(b['won'] == 0 for b in g_), units=u_, due=len(g_) >= 25))
+    out['watch_rereads'] = WR
     json.dump(out, open(OUT, 'w'), separators=(',', ':'), default=str)
     try: against_panel(bets)
     except Exception as e: print(f"[bet_log] against panel failed: {e}")

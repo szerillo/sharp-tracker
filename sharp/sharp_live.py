@@ -97,7 +97,7 @@ def alerts(rows):
         s = st.setdefault(r['cond'], {})
         when = dt.datetime.fromisoformat(r['start'].replace('Z', '+00:00')).astimezone(__import__('zoneinfo').ZoneInfo('America/New_York')).strftime('%a %-I:%M %p ET')
         if 'flag' not in s:
-            ok = r['status'] == 'live' and not r.get('kalshi_against') and not r.get('conflict') and r.get('ask') is not None and r['ask'] - r['paid'] <= 0.05   # 11/24 4:40 PM: Kalshi against cancels again, so no push
+            ok = r['status'] in ('live', 'other side') and not r.get('kalshi_against') and not r.get('cancel') and r.get('ask') is not None and r['ask'] - r['paid'] <= 0.05   # 11/24 4:40 PM: Kalshi against cancels again, so no push
             if ok and not first:
                 # 11/18 (Sean): for CFB only rows on the board are bets; a CFB sharp push is marked as a lean, not a bet
                 nb = 'NOT A BET (CFB lean, only board rows are bets). ' if (r.get('sport') or '').lower() == 'cfb' else ''
@@ -207,6 +207,9 @@ def conflicts(rows):
         if not r.get('event_id'): continue
         against = sorted({k for k, sd in opp.get((r['event_id'], r['mtype']), ()) if sd != r.get('side_std')})
         if against: r['conflict'] = against
+        # 11/24 7:10 PM (Sean via Kirk): only a Kalshi move against (and a system on the other side, on the page) cancels a sharp flag;
+        # big money, bet back, sharp move, sharp accounts and sharp flags against are shown, not holds. 'cancel' carries what cancels.
+        r['cancel'] = [k for k in against if k == 'Kalshi move'] or None
         r['money_with'] = ('big money', r.get('side_std')) in opp.get((r['event_id'], r['mtype']), ())
     for r in rows: r['grade'] = grade(r)
 

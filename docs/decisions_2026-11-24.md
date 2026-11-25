@@ -71,3 +71,11 @@ Rule group 1 also contains nfl_road_dog_7510 and nfl_fade_fav_bye (both in item 
 | Wind source (wind1014, wind1014_1h, wind1014_cold, cfb_wind14) | MySportsWeather, Open-Meteo fallback | **the latest Bet Labs pull** of Sean's saved screens (NFL Wind 10-14 Under 1772775, NFL 1H Wind 10-13 Under 769171, CFB Wind 14 Plus Under 1783043): a game fires when the pull lists it. MySportsWeather, then Open-Meteo, only when no pull is under 16 hours old, and shown on the row as a cross-check. A game MySportsWeather has in the band that Bet Labs does not list is a flag only, no bet. The cold split (35F or colder, paper) still uses Open-Meteo's temperature. |
 
 Why: Sean's Bet Labs weather screens carry the proven backtests; MySportsWeather has little backtest of its own (docs/wind_source_2026-11-24.md).
+
+## Applied 2026-11-24 7:40 PM ET (Sean, via Kirk)
+
+| Change | Old | New |
+|---|---|---|
+| CFB wind fallback | MySportsWeather 14+ fired the bet when no Bet Labs pull was under 16 hours old | flag only, never a bet (docs/wind_backtest_2026-11-24.md). NFL fallback may still bet. The Bet Labs pull stays the trigger. |
+| What cancels a sharp flag | Kalshi move against, opposing system, and also big money, bet back, sharp move, sharp accounts or a sharp flag against, or a sharp taking the other side | only a Kalshi move against (outside the 11/24 2:00-4:45 PM warning window) and a system on the other side, the same as systems. The rest are shown on the row ("against, shown only"). Two sharp flags on opposite sides of one market still show as Mixed with no bet (a conflict pair, like two opposing systems). Applies to bet_log board_status, the page and phone pushes. |
+| nhl_skid_fade_road, nhl_bounce_home_ml | paper | paper, WATCH note on each row; re-read at 25 graded paper bets on the profit lines (bet_log.json watch_rereads) |
