@@ -1,5 +1,5 @@
 {
- "built": "2026-11-26T02:51:04Z",
+ "built": "2026-11-26T02:58:58Z",
  "rows": [
   {
    "cond": "0x62aac7b20e638ea6ebdfb78f2d12ff884594d4ce863d387d3561996c87ad2e06",
@@ -382,7 +382,7 @@
    "best_rank": 31,
    "usd": 311,
    "paid": 0.77,
-   "ask": 0.79,
+   "ask": 0.77,
    "status": "live",
    "link": "https://polymarket.us/event/nba-bkn-tor-2026-11-27",
    "other": null,
@@ -875,7 +875,7 @@
     "Kalshi bet back"
    ],
    "cancel": null,
-   "money_with": false,
+   "money_with": true,
    "grade": "A",
    "fair_board": 0.4064,
    "inside_fair": false,
@@ -966,6 +966,9 @@
    "home_name": "Anaheim Ducks",
    "game_start": "2026-11-26T03:00Z",
    "side_std": "away",
+   "conflict": [
+    "big money"
+   ],
    "cancel": null,
    "money_with": false,
    "grade": "A",
@@ -1065,7 +1068,11 @@
  },
  "sys_tags": {
   "401909325:nba_ats_hot_home": {
-   "with": null,
+   "with": {
+    "n": 2,
+    "best_rank": 112,
+    "usd": 2816
+   },
    "against": {
     "n": 1,
     "best_rank": 112,
@@ -1131,6 +1138,11 @@
     "n": 1,
     "best_rank": 112,
     "usd": 1461
+   },
+   "home": {
+    "n": 2,
+    "best_rank": 112,
+    "usd": 2816
    }
   },
   "401909328|ml": {
