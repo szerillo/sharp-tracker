@@ -1,11 +1,11 @@
 {
- "built": "2026-11-26T21:50:01Z",
+ "built": "2026-11-26T22:07:51Z",
  "record": {
-  "n": 300,
-  "won": 129,
+  "n": 301,
+  "won": 130,
   "lost": 171,
-  "units": -3.78,
-  "roi": -5.0
+  "units": -3.54,
+  "roi": -4.7
  },
  "record_sb4": {
   "n": 11,
@@ -17,23 +17,23 @@
  "sb4_killed": true,
  "checkable_test": {
   "rule": "kill if the first 100 graded checkable rows are not positive in both halves",
-  "n": 26,
+  "n": 27,
   "all_checkable": {
-   "n": 26,
-   "won": 6,
+   "n": 27,
+   "won": 7,
    "lost": 20,
-   "units": -3.11,
-   "roi": -47.8
+   "units": -2.87,
+   "roi": -42.6
   },
   "half1": {
-   "n": 26,
-   "won": 6,
+   "n": 27,
+   "won": 7,
    "lost": 20,
-   "units": -3.11,
-   "roi": -47.8
+   "units": -2.87,
+   "roi": -42.6
   },
   "half2": null,
-  "verdict": "pending: 26 of 100"
+  "verdict": "pending: 27 of 100"
  },
  "rows": [
   {
@@ -57,31 +57,6 @@
    "venue_ts": "2026-11-26T12:04:21Z",
    "pin_ts": "2026-11-26T12:04:21Z",
    "qty_best": 106457,
-   "wide": false,
-   "team": null,
-   "checkable": true
-  },
-  {
-   "key": "401873081|total|over",
-   "sport": "nfl",
-   "event_id": "401873081",
-   "game": "CHI @ DET",
-   "start": "2026-11-26T18:00Z",
-   "market": "total",
-   "side": "over",
-   "line": 55.5,
-   "venue": "Novig",
-   "price": 0.515,
-   "fair": 0.5282,
-   "fair_power": 0.5294,
-   "venue_fair": 0.5124,
-   "fair_gap": 1.6,
-   "ev": 2.6,
-   "move": 1.8,
-   "flagged": "2026-11-26T14:04:00Z",
-   "venue_ts": "2026-11-26T13:46:06Z",
-   "pin_ts": "2026-11-26T13:46:06Z",
-   "qty_best": 855036,
    "wide": false,
    "team": null,
    "checkable": true
