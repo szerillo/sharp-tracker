@@ -1,5 +1,5 @@
 {
- "built": "2026-11-26T00:05:47Z",
+ "built": "2026-11-26T00:22:30Z",
  "rows": [
   {
    "cond": "0x62aac7b20e638ea6ebdfb78f2d12ff884594d4ce863d387d3561996c87ad2e06",
@@ -38,16 +38,66 @@
    "cancel": null,
    "money_with": true,
    "grade": "watch",
-   "fair_board": 0.6168,
+   "fair_board": 0.6184,
    "inside_fair": null,
    "books": {
-    "at": "2026-11-25T23:06:16Z",
-    "fair": 0.6168,
+    "at": "2026-11-25T23:25:43Z",
+    "fair": 0.6184,
     "q": {
      "Novig": 0.62,
      "FD": 0.6241,
-     "Kalshi": 0.64,
-     "Caesars": 0.6403
+     "Caesars": 0.6429,
+     "DK": 0.6429
+    }
+   }
+  },
+  {
+   "cond": "0xf785a22240c05503e51ce2f1747b43ed5261327ad0b42d23339ac6317c2e33d7",
+   "slug": "nhl-car-tb-2026-11-25",
+   "title": "Hurricanes vs. Lightning",
+   "mtype": "ml",
+   "start": "2026-11-26T00:00:00Z",
+   "bet": "Hurricanes ML",
+   "side": "Hurricanes",
+   "flagged": "2026-11-24T10:22:04Z",
+   "why": "a top-200 account also in this sport's top 50",
+   "proven": true,
+   "trigger": "proven",
+   "n_accounts": 1,
+   "best_rank": 197,
+   "usd": 615,
+   "paid": 0.55,
+   "ask": null,
+   "status": "live",
+   "link": "https://polymarket.us/event/nhl-car-tb-2026-11-25",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401892783",
+   "sport": "nhl",
+   "league": null,
+   "away": "CAR",
+   "home": "TB",
+   "away_name": "Carolina Hurricanes",
+   "home_name": "Tampa Bay Lightning",
+   "game_start": "2026-11-26T00:00Z",
+   "side_std": "away",
+   "conflict": [
+    "big money"
+   ],
+   "cancel": null,
+   "money_with": false,
+   "grade": "A",
+   "fair_board": 0.5216,
+   "inside_fair": null,
+   "books": {
+    "at": "2026-11-25T23:25:26Z",
+    "fair": 0.5216,
+    "q": {
+     "Novig": 0.53,
+     "DK": 0.5349,
+     "FD": 0.5349,
+     "Kalshi": 0.54
     }
    }
   },
@@ -88,8 +138,8 @@
    "inside_fair": false,
    "fair_board": 0.5007,
    "books": {
-    "at": "2026-11-25T23:06:16Z",
-    "fair": 0.5033,
+    "at": "2026-11-25T23:25:26Z",
+    "fair": 0.4996,
     "q": {
      "Novig": 0.5,
      "FD": 0.5238,
@@ -135,13 +185,13 @@
    "inside_fair": false,
    "fair_board": 0.5167,
    "books": {
-    "at": "2026-11-25T23:06:16Z",
-    "fair": 0.5182,
+    "at": "2026-11-25T23:25:26Z",
+    "fair": 0.5096,
     "q": {
-     "Novig": 0.515,
-     "Kalshi": 0.54,
-     "DK": 0.5413,
-     "Caesars": 0.5455
+     "Novig": 0.51,
+     "Kalshi": 0.53,
+     "FD": 0.5349,
+     "DK": 0.5413
     }
    }
   },
@@ -161,7 +211,7 @@
    "best_rank": 104,
    "usd": 197,
    "paid": 0.42,
-   "ask": 0.33,
+   "ask": 0.34,
    "status": "live",
    "link": "https://polymarket.us/event/nba-cle-nyk-2026-11-25",
    "other": null,
@@ -230,6 +280,49 @@
    "books": null
   },
   {
+   "cond": "0x8e178b880d79912b3b1d107e8f46ca5f76befe7a5303e89a4d93cff2a62ccd05",
+   "slug": "nfl-gb-la-2026-11-26",
+   "title": "Packers vs. Rams",
+   "mtype": "spread",
+   "start": "2026-11-26T01:00:00Z",
+   "bet": "Rams +3.5",
+   "side": "Rams",
+   "flagged": "2026-11-26T00:21:03Z",
+   "why": "2 top-200 accounts",
+   "proven": true,
+   "trigger": "proven",
+   "n_accounts": 2,
+   "best_rank": 95,
+   "usd": 443,
+   "paid": 0.69,
+   "ask": 0.69,
+   "status": "live",
+   "link": "https://polymarket.us/event/nfl-gb-la-2026-11-26",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401873079",
+   "sport": "nfl",
+   "league": null,
+   "away": "GB",
+   "home": "LAR",
+   "away_name": "Green Bay Packers",
+   "home_name": "Los Angeles Rams",
+   "game_start": "2026-11-26T01:00Z",
+   "side_std": "home",
+   "conflict": [
+    "Kalshi move"
+   ],
+   "cancel": [
+    "Kalshi move"
+   ],
+   "money_with": false,
+   "grade": "A",
+   "fair_board": null,
+   "inside_fair": null,
+   "books": null
+  },
+  {
    "cond": "0xb5af1a1657125484fef6159ea091da17942ffc17b551439aa8b8b0cd4180c2a8",
    "slug": "nfl-chi-det-2026-11-26",
    "title": "Bears vs. Lions",
@@ -266,13 +359,13 @@
    "inside_fair": false,
    "fair_board": 0.4624,
    "books": {
-    "at": "2026-11-25T23:06:16Z",
+    "at": "2026-11-26T00:09:05Z",
     "fair": 0.4785,
     "q": {
      "Caesars": 0.4831,
      "Novig": 0.485,
      "FD": 0.4902,
-     "DK": 0.4926
+     "DK": 0.4975
     }
    }
   },
@@ -354,12 +447,12 @@
    "inside_fair": false,
    "fair_board": 0.5846,
    "books": {
-    "at": "2026-11-25T23:06:16Z",
-    "fair": 0.6495,
+    "at": "2026-11-26T00:09:05Z",
+    "fair": 0.6525,
     "q": {
-     "FD": 0.6528,
      "Novig": 0.655,
-     "Caesars": 0.6587,
+     "FD": 0.6644,
+     "Caesars": 0.6667,
      "DK": 0.6689
     }
    }
@@ -421,7 +514,7 @@
    "best_rank": 31,
    "usd": 142,
    "paid": 0.669,
-   "ask": 0.65,
+   "ask": 0.64,
    "status": "live",
    "link": "https://polymarket.us/event/nba-lal-sas-2026-11-27",
    "other": null,
@@ -483,16 +576,16 @@
    "cancel": null,
    "money_with": false,
    "grade": "B",
-   "fair_board": 0.5057,
+   "fair_board": 0.5108,
    "inside_fair": true,
    "books": {
-    "at": "2026-11-25T23:06:16Z",
-    "fair": 0.5057,
+    "at": "2026-11-26T00:09:05Z",
+    "fair": 0.5108,
     "q": {
-     "Novig": 0.515,
      "Caesars": 0.5169,
      "DK": 0.5192,
-     "FD": 0.5327
+     "Novig": 0.52,
+     "FD": 0.5238
     }
    }
   },
@@ -612,63 +705,6 @@
    "books": null
   },
   {
-   "cond": "0xf785a22240c05503e51ce2f1747b43ed5261327ad0b42d23339ac6317c2e33d7",
-   "slug": "nhl-car-tb-2026-11-25",
-   "title": "Hurricanes vs. Lightning",
-   "mtype": "ml",
-   "start": "2026-11-26T00:00:00Z",
-   "bet": "Hurricanes ML",
-   "side": "Hurricanes",
-   "flagged": "2026-11-24T10:22:04Z",
-   "why": "a top-200 account also in this sport's top 50",
-   "proven": true,
-   "trigger": "proven",
-   "n_accounts": 1,
-   "best_rank": 197,
-   "usd": 615,
-   "paid": 0.55,
-   "ask": null,
-   "status": "live",
-   "link": "https://polymarket.us/event/nhl-car-tb-2026-11-25",
-   "other": null,
-   "kalshi_against": {
-    "move": 5.0,
-    "now": 48.5,
-    "state": "drift"
-   },
-   "logged": true,
-   "event_id": "401892783",
-   "sport": "nhl",
-   "league": null,
-   "away": "CAR",
-   "home": "TB",
-   "away_name": "Carolina Hurricanes",
-   "home_name": "Tampa Bay Lightning",
-   "game_start": "2026-11-26T00:00Z",
-   "side_std": "away",
-   "conflict": [
-    "Kalshi move",
-    "big money"
-   ],
-   "cancel": [
-    "Kalshi move"
-   ],
-   "money_with": false,
-   "grade": "A",
-   "fair_board": 0.5114,
-   "inside_fair": null,
-   "books": {
-    "at": "2026-11-25T23:06:16Z",
-    "fair": 0.5114,
-    "q": {
-     "Novig": 0.515,
-     "Kalshi": 0.53,
-     "DK": 0.5349,
-     "FD": 0.5349
-    }
-   }
-  },
-  {
    "cond": "0x1086efe8518a09ccfe6c89f4547d59b151ceae74ce0df9727bcd3ac1640631ca",
    "slug": "nba-cle-nyk-2026-11-25",
    "title": "Cavaliers vs. Knicks",
@@ -709,10 +745,10 @@
     "Kalshi bet back"
    ],
    "cancel": null,
-   "money_with": true,
+   "money_with": false,
    "grade": "A",
-   "fair_board": 0.3816,
-   "inside_fair": true,
+   "fair_board": 0.3764,
+   "inside_fair": false,
    "books": null
   },
   {
@@ -759,7 +795,7 @@
    "cancel": null,
    "money_with": false,
    "grade": "A",
-   "fair_board": 0.4444,
+   "fair_board": 0.4426,
    "inside_fair": false,
    "books": null
   },
@@ -806,8 +842,8 @@
    "cancel": null,
    "money_with": true,
    "grade": "A",
-   "fair_board": 0.4839,
-   "inside_fair": true,
+   "fair_board": null,
+   "inside_fair": null,
    "books": null
   },
   {
@@ -943,9 +979,9 @@
     "Kalshi bet back"
    ],
    "cancel": null,
-   "money_with": true,
+   "money_with": false,
    "grade": "watch",
-   "fair_board": 0.2907,
+   "fair_board": 0.2908,
    "inside_fair": false,
    "books": null
   },
@@ -989,7 +1025,7 @@
    "cancel": null,
    "money_with": false,
    "grade": "A",
-   "fair_board": 0.4069,
+   "fair_board": 0.4066,
    "inside_fair": false,
    "books": null
   },
@@ -1031,13 +1067,12 @@
    "game_start": "2026-11-26T03:00Z",
    "side_std": "away",
    "conflict": [
-    "Kalshi bet back",
-    "big money"
+    "Kalshi bet back"
    ],
    "cancel": null,
    "money_with": false,
    "grade": "B",
-   "fair_board": 0.2695,
+   "fair_board": 0.2544,
    "inside_fair": false,
    "books": null
   },
@@ -1176,6 +1211,22 @@
   "clv_poly_same": -0.57
  },
  "sys_tags": {
+  "401873079:nfl_fade_fav_bye": {
+   "with": null,
+   "against": {
+    "n": 2,
+    "best_rank": 95,
+    "usd": 443
+   }
+  },
+  "401873079:bounce15_1h": {
+   "with": null,
+   "against": {
+    "n": 2,
+    "best_rank": 95,
+    "usd": 443
+   }
+  },
   "401909320:nba_roadtrip_over": {
    "with": null,
    "against": {
@@ -1211,6 +1262,13 @@
     "n": 1,
     "best_rank": 182,
     "usd": 293
+   }
+  },
+  "401873079|spread": {
+   "home": {
+    "n": 2,
+    "best_rank": 95,
+    "usd": 443
    }
   },
   "401873081|ml": {
