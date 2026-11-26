@@ -1,5 +1,5 @@
 {
- "built": "2026-11-26T02:54:34Z",
+ "built": "2026-11-26T15:04:25Z",
  "move_pts": 2.0,
  "follow_pts": 1.0,
  "sports": {
@@ -12,7 +12,7 @@
   },
   "nba": {
    "sport": "nba",
-   "events": 11,
+   "events": 13,
    "gate": 150,
    "published": false,
    "tests": {}
@@ -26,7 +26,14 @@
   },
   "soccer": {
    "sport": "soccer",
-   "events": 9,
+   "events": 10,
+   "gate": 150,
+   "published": false,
+   "tests": {}
+  },
+  "mma": {
+   "sport": "mma",
+   "events": 0,
    "gate": 150,
    "published": false,
    "tests": {}
@@ -40,7 +47,7 @@
   },
   "cbb": {
    "sport": "cbb",
-   "events": 78,
+   "events": 82,
    "gate": 150,
    "published": false,
    "tests": {}

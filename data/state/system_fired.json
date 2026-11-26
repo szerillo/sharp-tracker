@@ -10546,6 +10546,48 @@
 "price": -163,
 "fair": 0.56051,
 "edge_pts": -5.95,
-"why": "SEA off a win, home EDM has lost 4 straight: road puck line (mined angle)"
+"why": "SEA off a win, home EDM has lost 4 straight: road puck line (mined angle)",
+"void": true,
+"void_why": "trigger no longer holds on current season records (2026-11-26T14:58:13Z)",
+"void_at": "2026-11-26T14:58:13Z"
+},
+"401873083:wind1014": {
+"tag": "wind1014",
+"fill_id": "135ae6810b20",
+"ts": "2026-11-26T14:58:13Z",
+"market": "total",
+"side": "under",
+"line": 36.5,
+"venue": "Novig",
+"price": 111,
+"fair": 0.47739,
+"edge_pts": 0.24,
+"why": "Bet Labs wind 12 mph (pull Thu 6:58 AM ET); cross-check MySportsWeather 18 mph, gusts 29 (Open-Meteo 12.5 at T-30h), 41.7F"
+},
+"401873083:wind1014_1h": {
+"tag": "wind1014_1h",
+"fill_id": "0b2dabd51c8f",
+"ts": "2026-11-26T14:58:13Z",
+"market": "1h_total",
+"side": "under",
+"line": 18.5,
+"venue": "Novig",
+"price": -108,
+"fair": 0.50229,
+"edge_pts": -1.77,
+"why": "Bet Labs wind 12 mph (pull Thu 6:58 AM ET); cross-check MySportsWeather 18 mph, gusts 29 (Open-Meteo 12.5 at T-30h)"
+},
+"401909328:nba_roadtrip_over": {
+"tag": "nba_roadtrip_over",
+"fill_id": "d46f4c8c5b3d",
+"ts": "2026-11-26T14:58:13Z",
+"market": "total",
+"side": "over",
+"line": 234.5,
+"venue": "Novig",
+"price": 108,
+"fair": 0.49542,
+"edge_pts": 1.54,
+"why": "PHI off 3 straight home games, first road game: over (Bet Labs filter)"
 }
 }
