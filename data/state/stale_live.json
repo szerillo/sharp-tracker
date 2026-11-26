@@ -1,11 +1,11 @@
 {
- "built": "2026-11-26T04:53:53Z",
+ "built": "2026-11-26T05:09:43Z",
  "record": {
-  "n": 292,
+  "n": 293,
   "won": 127,
-  "lost": 165,
-  "units": -3.03,
-  "roi": -4.2
+  "lost": 166,
+  "units": -3.28,
+  "roi": -4.5
  },
  "record_sb4": {
   "n": 11,
@@ -17,50 +17,25 @@
  "sb4_killed": true,
  "checkable_test": {
   "rule": "kill if the first 100 graded checkable rows are not positive in both halves",
-  "n": 18,
+  "n": 19,
   "all_checkable": {
-   "n": 18,
+   "n": 19,
    "won": 4,
-   "lost": 14,
-   "units": -2.36,
-   "roi": -52.5
+   "lost": 15,
+   "units": -2.61,
+   "roi": -55.0
   },
   "half1": {
-   "n": 18,
+   "n": 19,
    "won": 4,
-   "lost": 14,
-   "units": -2.36,
-   "roi": -52.5
+   "lost": 15,
+   "units": -2.61,
+   "roi": -55.0
   },
   "half2": null,
-  "verdict": "pending: 18 of 100"
+  "verdict": "pending: 19 of 100"
  },
  "rows": [
-  {
-   "key": "401873079|spread|away",
-   "sport": "nfl",
-   "event_id": "401873079",
-   "game": "GB @ LAR",
-   "start": "2026-11-26T01:00Z",
-   "market": "spread",
-   "side": "away",
-   "line": 2.5,
-   "venue": "Novig",
-   "price": 0.495,
-   "fair": 0.5069,
-   "fair_power": 0.5072,
-   "venue_fair": 0.4925,
-   "fair_gap": 1.4,
-   "ev": 2.4,
-   "move": 1.1,
-   "flagged": "2026-11-25T04:35:51Z",
-   "venue_ts": "2026-11-25T04:03:57Z",
-   "pin_ts": "2026-11-25T04:03:57Z",
-   "qty_best": 743899,
-   "wide": false,
-   "team": "GB",
-   "checkable": true
-  },
   {
    "key": "401909325|ml|home",
    "sport": "nba",
