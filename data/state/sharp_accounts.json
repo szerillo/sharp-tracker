@@ -1,5 +1,5 @@
 {
- "built": "2026-11-26T23:01:05Z",
+ "built": "2026-11-26T23:19:01Z",
  "rows": [
   {
    "cond": "0xb9219d093571325970a24b24d0bc65f2ea8c83802931c4c2afbb0ee67b9d46b5",
@@ -114,13 +114,13 @@
    "game_start": "2026-11-27T01:20Z",
    "side_std": "home",
    "cancel": null,
-   "money_with": false,
-   "grade": "B",
+   "money_with": true,
+   "grade": "A",
    "inside_fair": false,
    "fair_board": 0.5817,
    "books": {
-    "at": "2026-11-26T22:10:05Z",
-    "fair": 0.5971,
+    "at": "2026-11-26T23:02:58Z",
+    "fair": 0.5964,
     "q": {
      "Novig": 0.6,
      "DK": 0.6063,
@@ -163,11 +163,11 @@
    "cancel": null,
    "money_with": false,
    "grade": "A",
-   "fair_board": 0.5638,
+   "fair_board": 0.5623,
    "inside_fair": false,
    "books": {
-    "at": "2026-11-26T22:10:05Z",
-    "fair": 0.5638,
+    "at": "2026-11-26T23:02:58Z",
+    "fair": 0.5623,
     "q": {
      "Novig": 0.57,
      "FD": 0.5798,
@@ -216,13 +216,13 @@
    "inside_fair": false,
    "fair_board": 0.5846,
    "books": {
-    "at": "2026-11-26T22:10:05Z",
-    "fair": 0.6803,
+    "at": "2026-11-26T23:02:58Z",
+    "fair": 0.6847,
     "q": {
      "Novig": 0.68,
-     "Kalshi": 0.7,
      "Caesars": 0.7015,
-     "FD": 0.7015
+     "FD": 0.7015,
+     "Kalshi": 0.71
     }
    }
   },
@@ -260,14 +260,14 @@
    "cancel": null,
    "money_with": false,
    "grade": "A",
-   "fair_board": 0.5048,
+   "fair_board": 0.5072,
    "inside_fair": false,
    "books": {
-    "at": "2026-11-26T22:10:05Z",
-    "fair": 0.5048,
+    "at": "2026-11-26T23:02:58Z",
+    "fair": 0.5072,
     "q": {
-     "Kalshi": 0.51,
      "Novig": 0.51,
+     "Kalshi": 0.52,
      "Caesars": 0.5238,
      "DK": 0.5283
     }
@@ -348,13 +348,13 @@
    "cancel": null,
    "money_with": false,
    "grade": "A",
-   "fair_board": 0.7433,
+   "fair_board": 0.7403,
    "inside_fair": true,
    "books": {
-    "at": "2026-11-26T22:10:05Z",
-    "fair": 0.7433,
+    "at": "2026-11-26T23:02:58Z",
+    "fair": 0.7403,
     "q": {
-     "Novig": 0.75,
+     "Novig": 0.74,
      "Kalshi": 0.76,
      "DK": 0.7691,
      "Caesars": 0.7701
@@ -398,12 +398,12 @@
    "inside_fair": false,
    "fair_board": 0.4807,
    "books": {
-    "at": "2026-11-26T22:10:05Z",
-    "fair": 0.4807,
+    "at": "2026-11-26T23:02:58Z",
+    "fair": null,
     "q": {
-     "Novig": 0.495,
-     "Kalshi": 0.51,
-     "FD": 0.5122
+     "FD": 0.5122,
+     "Novig": 0.55,
+     "Kalshi": 0.6
     }
    }
   },
@@ -444,11 +444,11 @@
    "cancel": null,
    "money_with": false,
    "grade": "watch",
-   "fair_board": 0.6415,
+   "fair_board": 0.6437,
    "inside_fair": true,
    "books": {
-    "at": "2026-11-26T22:10:05Z",
-    "fair": 0.6415,
+    "at": "2026-11-26T23:02:58Z",
+    "fair": 0.6437,
     "q": {
      "Novig": 0.645,
      "FD": 0.6644,
@@ -494,8 +494,8 @@
    "inside_fair": false,
    "fair_board": 0.6581,
    "books": {
-    "at": "2026-11-26T22:10:05Z",
-    "fair": 0.6535,
+    "at": "2026-11-26T23:02:58Z",
+    "fair": 0.6521,
     "q": {
      "Novig": 0.66,
      "DK": 0.6721,
@@ -544,7 +544,7 @@
    "fair_board": 0.5065,
    "inside_fair": false,
    "books": {
-    "at": "2026-11-26T22:10:05Z",
+    "at": "2026-11-26T23:02:58Z",
     "fair": 0.5065,
     "q": {
      "Caesars": 0.5169,
@@ -629,13 +629,13 @@
    "cancel": null,
    "money_with": false,
    "grade": "B",
-   "fair_board": 0.5447,
+   "fair_board": 0.5452,
    "inside_fair": false,
    "books": {
-    "at": "2026-11-26T22:10:05Z",
-    "fair": 0.5447,
+    "at": "2026-11-26T23:02:58Z",
+    "fair": 0.5452,
     "q": {
-     "Novig": 0.55,
+     "Novig": 0.555,
      "DK": 0.5556,
      "Kalshi": 0.57,
      "FD": 0.5918
@@ -658,7 +658,7 @@
    "best_rank": 31,
    "usd": 6052,
    "paid": 0.545,
-   "ask": 0.59,
+   "ask": 0.6,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-phi-ind-2026-11-27",
    "other": {
@@ -667,7 +667,7 @@
     "usd": 8108,
     "first": "2026-11-25T12:45:28Z"
    },
-   "exit_bid": 0.58,
+   "exit_bid": 0.59,
    "kalshi_against": null,
    "logged": true,
    "event_id": "401909328",
@@ -685,8 +685,8 @@
    "cancel": null,
    "money_with": false,
    "grade": "A",
-   "fair_board": 0.5941,
-   "inside_fair": true,
+   "fair_board": 0.5892,
+   "inside_fair": false,
    "books": null
   }
  ],
