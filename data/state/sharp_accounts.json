@@ -1,5 +1,5 @@
 {
- "built": "2026-11-26T01:42:11Z",
+ "built": "2026-11-26T02:37:03Z",
  "rows": [
   {
    "cond": "0x62aac7b20e638ea6ebdfb78f2d12ff884594d4ce863d387d3561996c87ad2e06",
@@ -382,7 +382,7 @@
    "best_rank": 31,
    "usd": 311,
    "paid": 0.77,
-   "ask": 0.79,
+   "ask": 0.77,
    "status": "live",
    "link": "https://polymarket.us/event/nba-bkn-tor-2026-11-27",
    "other": null,
@@ -859,7 +859,7 @@
     "usd": 1943,
     "first": "2026-11-25T19:10:57Z"
    },
-   "exit_bid": 0.38,
+   "exit_bid": 0.4,
    "kalshi_against": null,
    "logged": true,
    "event_id": "401909325",
@@ -1061,16 +1061,12 @@
   "clv_poly_same": -0.57
  },
  "sys_tags": {
-  "401892792:nhl_early_home_fav_qual": {
-   "with": null,
-   "against": {
-    "n": 1,
-    "best_rank": 132,
-    "usd": 537
-   }
-  },
   "401909325:nba_ats_hot_home": {
-   "with": null,
+   "with": {
+    "n": 2,
+    "best_rank": 112,
+    "usd": 2816
+   },
    "against": {
     "n": 1,
     "best_rank": 112,
@@ -1136,6 +1132,11 @@
     "n": 1,
     "best_rank": 112,
     "usd": 1461
+   },
+   "home": {
+    "n": 2,
+    "best_rank": 112,
+    "usd": 2816
    }
   },
   "401909328|ml": {
@@ -1162,13 +1163,6 @@
     "n": 1,
     "best_rank": 31,
     "usd": 142
-   }
-  },
-  "401892792|ml": {
-   "away": {
-    "n": 1,
-    "best_rank": 132,
-    "usd": 537
    }
   },
   "401892793|ml": {
