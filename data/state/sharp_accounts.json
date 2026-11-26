@@ -1,44 +1,6 @@
 {
- "built": "2026-11-26T21:57:42Z",
+ "built": "2026-11-26T22:06:03Z",
  "rows": [
-  {
-   "cond": "0xb5af1a1657125484fef6159ea091da17942ffc17b551439aa8b8b0cd4180c2a8",
-   "slug": "nfl-chi-det-2026-11-26",
-   "title": "Bears vs. Lions",
-   "mtype": "ml",
-   "start": "2026-11-26T18:00:00Z",
-   "bet": "Lions ML",
-   "side": "Lions",
-   "flagged": "2026-11-25T03:15:02Z",
-   "why": "2 top-200 accounts",
-   "proven": true,
-   "trigger": "proven",
-   "n_accounts": 2,
-   "best_rank": 143,
-   "usd": 9988,
-   "paid": 0.471,
-   "ask": null,
-   "status": "live",
-   "link": "https://polymarket.us/event/nfl-chi-det-2026-11-26",
-   "other": null,
-   "kalshi_against": null,
-   "logged": true,
-   "event_id": "401873081",
-   "sport": "nfl",
-   "league": null,
-   "away": "CHI",
-   "home": "DET",
-   "away_name": "Chicago Bears",
-   "home_name": "Detroit Lions",
-   "game_start": "2026-11-26T18:00Z",
-   "side_std": "home",
-   "cancel": null,
-   "money_with": false,
-   "grade": "A",
-   "inside_fair": false,
-   "fair_board": 0.4624,
-   "books": null
-  },
   {
    "cond": "0xb9219d093571325970a24b24d0bc65f2ea8c83802931c4c2afbb0ee67b9d46b5",
    "slug": "cfb-tcu-txtech-2026-11-26",
@@ -327,7 +289,7 @@
    "best_rank": 104,
    "usd": 302,
    "paid": 0.437,
-   "ask": 0.45,
+   "ask": 0.46,
    "status": "live",
    "link": "https://polymarket.us/event/nba-mia-nyk-2026-11-27",
    "other": null,
@@ -643,23 +605,23 @@
    "bet": "76ers ML",
    "side": "76ers",
    "flagged": "2026-11-25T10:08:13Z",
-   "why": "a top-50 account",
+   "why": "2 top-200 accounts",
    "proven": true,
    "trigger": "proven",
-   "n_accounts": 1,
+   "n_accounts": 2,
    "best_rank": 31,
-   "usd": 5469,
-   "paid": 0.54,
-   "ask": 0.6,
+   "usd": 6052,
+   "paid": 0.545,
+   "ask": 0.58,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-phi-ind-2026-11-27",
    "other": {
-    "n_accounts": 3,
+    "n_accounts": 4,
     "best_rank": 4,
-    "usd": 7485,
+    "usd": 8108,
     "first": "2026-11-25T12:45:28Z"
    },
-   "exit_bid": 0.59,
+   "exit_bid": 0.57,
    "kalshi_against": null,
    "logged": true,
    "event_id": "401909328",
@@ -673,9 +635,9 @@
    "side_std": "away",
    "cancel": null,
    "money_with": false,
-   "grade": "watch",
+   "grade": "A",
    "fair_board": 0.5977,
-   "inside_fair": false,
+   "inside_fair": true,
    "books": null
   }
  ],
@@ -779,14 +741,14 @@
   },
   "401909328|ml": {
    "away": {
-    "n": 1,
+    "n": 2,
     "best_rank": 31,
-    "usd": 5469
+    "usd": 6052
    },
    "home": {
-    "n": 3,
+    "n": 4,
     "best_rank": 4,
-    "usd": 6871
+    "usd": 7493
    }
   },
   "401909329|ml": {
