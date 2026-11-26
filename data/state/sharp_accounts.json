@@ -1,5 +1,5 @@
 {
- "built": "2026-11-25T23:49:27Z",
+ "built": "2026-11-25T23:57:27Z",
  "rows": [
   {
    "cond": "0x8815e1a17ad30339bd60d7d7e391fceddfb6557d2f02ad8e3fbacc35638c388d",
@@ -305,7 +305,7 @@
    "best_rank": 79,
    "usd": 3748,
    "paid": 0.53,
-   "ask": 0.52,
+   "ask": 0.51,
    "status": "live",
    "link": "https://polymarket.us/event/nhl-phi-wsh-2026-11-25",
    "other": null,
@@ -950,7 +950,7 @@
    "best_rank": 197,
    "usd": 615,
    "paid": 0.55,
-   "ask": 0.53,
+   "ask": 0.52,
    "status": "live",
    "link": "https://polymarket.us/event/nhl-car-tb-2026-11-25",
    "other": null,
@@ -1032,7 +1032,7 @@
     "Kalshi bet back"
    ],
    "cancel": null,
-   "money_with": false,
+   "money_with": true,
    "grade": "A",
    "fair_board": 0.3816,
    "inside_fair": true,
@@ -1102,7 +1102,7 @@
    "best_rank": 104,
    "usd": 817,
    "paid": 0.533,
-   "ask": 0.47,
+   "ask": 0.46,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-cle-nyk-2026-11-25",
    "other": {
@@ -1111,7 +1111,7 @@
     "usd": 1298,
     "first": "2026-11-25T21:40:25Z"
    },
-   "exit_bid": 0.46,
+   "exit_bid": 0.45,
    "kalshi_against": null,
    "logged": true,
    "event_id": "401909319",
@@ -1149,7 +1149,7 @@
    "best_rank": 112,
    "usd": 3533,
    "paid": 0.535,
-   "ask": 0.6,
+   "ask": 0.61,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-cle-nyk-2026-11-25",
    "other": {
@@ -1158,7 +1158,7 @@
     "usd": 630,
     "first": "2026-11-25T21:34:51Z"
    },
-   "exit_bid": 0.59,
+   "exit_bid": 0.6,
    "kalshi_against": null,
    "logged": false,
    "event_id": "401909319",
@@ -1193,7 +1193,7 @@
    "best_rank": 104,
    "usd": 939,
    "paid": 0.492,
-   "ask": 0.42,
+   "ask": 0.4,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-cle-nyk-2026-11-25",
    "other": {
@@ -1202,7 +1202,7 @@
     "usd": 970,
     "first": "2026-11-25T21:31:16Z"
    },
-   "exit_bid": 0.41,
+   "exit_bid": 0.39,
    "kalshi_against": null,
    "logged": false,
    "ladder": true,
@@ -1266,7 +1266,7 @@
     "Kalshi bet back"
    ],
    "cancel": null,
-   "money_with": false,
+   "money_with": true,
    "grade": "watch",
    "fair_board": 0.2907,
    "inside_fair": false,
@@ -1354,7 +1354,8 @@
    "game_start": "2026-11-26T03:00Z",
    "side_std": "away",
    "conflict": [
-    "Kalshi bet back"
+    "Kalshi bet back",
+    "big money"
    ],
    "cancel": null,
    "money_with": false,
