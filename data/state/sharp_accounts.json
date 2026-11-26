@@ -1,5 +1,5 @@
 {
- "built": "2026-11-26T03:15:04Z",
+ "built": "2026-11-26T03:31:13Z",
  "rows": [
   {
    "cond": "0x62aac7b20e638ea6ebdfb78f2d12ff884594d4ce863d387d3561996c87ad2e06",
@@ -871,11 +871,8 @@
    "home_name": "Portland Trail Blazers",
    "game_start": "2026-11-26T03:00Z",
    "side_std": "home",
-   "conflict": [
-    "Kalshi bet back"
-   ],
    "cancel": null,
-   "money_with": true,
+   "money_with": false,
    "grade": "A",
    "fair_board": 0.3921,
    "inside_fair": null,
@@ -918,10 +915,6 @@
    "home_name": "Golden State Warriors",
    "game_start": "2026-11-26T03:00Z",
    "side_std": "away",
-   "conflict": [
-    "Kalshi bet back",
-    "big money"
-   ],
    "cancel": null,
    "money_with": false,
    "grade": "B",
@@ -1033,15 +1026,15 @@
     "clv": -0.12
    }
   },
-  "n": 453,
-  "won": 220,
+  "n": 456,
+  "won": 221,
   "units": -13.11,
   "by_grade": {
    "A": {
-    "n": 302,
-    "won": 140,
+    "n": 305,
+    "won": 141,
     "units": -13.17,
-    "clv": -0.15
+    "clv": -0.16
    },
    "B": {
     "n": 105,
@@ -1056,8 +1049,8 @@
     "clv": 0.28
    }
   },
-  "units_1u": -13.86,
-  "clv": -0.34,
+  "units_1u": -14.89,
+  "clv": -0.35,
   "n_venue": 237,
   "units_venue": -4.77,
   "clv_venue": 0.91,
@@ -1117,13 +1110,6 @@
     "n": 1,
     "best_rank": 12,
     "usd": 125
-   }
-  },
-  "401917544|spread": {
-   "home": {
-    "n": 1,
-    "best_rank": 65,
-    "usd": 750
    }
   }
  },
