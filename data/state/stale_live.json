@@ -1,11 +1,11 @@
 {
- "built": "2026-11-26T08:05:29Z",
+ "built": "2026-11-26T08:21:44Z",
  "record": {
-  "n": 297,
+  "n": 298,
   "won": 129,
-  "lost": 168,
-  "units": -3.03,
-  "roi": -4.1
+  "lost": 169,
+  "units": -3.28,
+  "roi": -4.4
  },
  "record_sb4": {
   "n": 11,
@@ -17,49 +17,23 @@
  "sb4_killed": true,
  "checkable_test": {
   "rule": "kill if the first 100 graded checkable rows are not positive in both halves",
-  "n": 23,
+  "n": 24,
   "all_checkable": {
-   "n": 23,
+   "n": 24,
    "won": 6,
-   "lost": 17,
-   "units": -2.36,
-   "roi": -41.0
+   "lost": 18,
+   "units": -2.61,
+   "roi": -43.5
   },
   "half1": {
-   "n": 23,
+   "n": 24,
    "won": 6,
-   "lost": 17,
-   "units": -2.36,
-   "roi": -41.0
+   "lost": 18,
+   "units": -2.61,
+   "roi": -43.5
   },
   "half2": null,
-  "verdict": "pending: 23 of 100"
+  "verdict": "pending: 24 of 100"
  },
- "rows": [
-  {
-   "key": "401921672|ml|away",
-   "sport": "cbb",
-   "event_id": "401921672",
-   "game": "STAN @ SLU",
-   "start": "2026-11-26T04:59Z",
-   "market": "ml",
-   "side": "away",
-   "line": null,
-   "venue": "Novig",
-   "price": 0.4,
-   "fair": 0.41,
-   "fair_power": 0.4049,
-   "venue_fair": 0.396,
-   "fair_gap": 1.4,
-   "ev": 2.5,
-   "move": 3.7,
-   "flagged": "2026-11-25T17:45:32Z",
-   "venue_ts": "2026-11-25T17:23:29Z",
-   "pin_ts": "2026-11-25T17:23:29Z",
-   "qty_best": 170355,
-   "wide": false,
-   "team": "STAN",
-   "checkable": true
-  }
- ]
+ "rows": []
 }
