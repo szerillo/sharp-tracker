@@ -1,5 +1,5 @@
 {
- "built": "2026-11-26T00:22:30Z",
+ "built": "2026-11-26T00:38:41Z",
  "rows": [
   {
    "cond": "0x62aac7b20e638ea6ebdfb78f2d12ff884594d4ce863d387d3561996c87ad2e06",
@@ -32,11 +32,8 @@
    "home_name": "Charlotte Hornets",
    "game_start": "2026-11-26T00:00Z",
    "side_std": "home",
-   "conflict": [
-    "Kalshi bet back"
-   ],
    "cancel": null,
-   "money_with": true,
+   "money_with": false,
    "grade": "watch",
    "fair_board": 0.6184,
    "inside_fair": null,
@@ -82,9 +79,6 @@
    "home_name": "Tampa Bay Lightning",
    "game_start": "2026-11-26T00:00Z",
    "side_std": "away",
-   "conflict": [
-    "big money"
-   ],
    "cancel": null,
    "money_with": false,
    "grade": "A",
@@ -211,7 +205,7 @@
    "best_rank": 104,
    "usd": 197,
    "paid": 0.42,
-   "ask": 0.34,
+   "ask": null,
    "status": "live",
    "link": "https://polymarket.us/event/nba-cle-nyk-2026-11-25",
    "other": null,
@@ -745,10 +739,10 @@
     "Kalshi bet back"
    ],
    "cancel": null,
-   "money_with": false,
+   "money_with": true,
    "grade": "A",
    "fair_board": 0.3764,
-   "inside_fair": false,
+   "inside_fair": null,
    "books": null
   },
   {
@@ -789,14 +783,13 @@
    "game_start": "2026-11-26T00:30Z",
    "side_std": "away",
    "conflict": [
-    "Kalshi bet back",
-    "big money"
+    "Kalshi bet back"
    ],
    "cancel": null,
    "money_with": false,
    "grade": "A",
    "fair_board": 0.4426,
-   "inside_fair": false,
+   "inside_fair": null,
    "books": null
   },
   {
@@ -979,7 +972,7 @@
     "Kalshi bet back"
    ],
    "cancel": null,
-   "money_with": false,
+   "money_with": true,
    "grade": "watch",
    "fair_board": 0.2908,
    "inside_fair": false,
@@ -1001,7 +994,7 @@
    "best_rank": 104,
    "usd": 253,
    "paid": 0.418,
-   "ask": 0.41,
+   "ask": 0.4,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-sas-por-2026-11-25",
    "other": {
@@ -1010,7 +1003,7 @@
     "usd": 1680,
     "first": "2026-11-25T19:10:57Z"
    },
-   "exit_bid": 0.4,
+   "exit_bid": 0.39,
    "kalshi_against": null,
    "logged": true,
    "event_id": "401909325",
@@ -1026,7 +1019,7 @@
    "money_with": false,
    "grade": "A",
    "fair_board": 0.4066,
-   "inside_fair": false,
+   "inside_fair": true,
    "books": null
   },
   {
@@ -1067,7 +1060,8 @@
    "game_start": "2026-11-26T03:00Z",
    "side_std": "away",
    "conflict": [
-    "Kalshi bet back"
+    "Kalshi bet back",
+    "big money"
    ],
    "cancel": null,
    "money_with": false,
@@ -1212,22 +1206,6 @@
  },
  "sys_tags": {
   "401873079:nfl_fade_fav_bye": {
-   "with": null,
-   "against": {
-    "n": 2,
-    "best_rank": 95,
-    "usd": 443
-   }
-  },
-  "401873079:bounce15_1h": {
-   "with": null,
-   "against": {
-    "n": 2,
-    "best_rank": 95,
-    "usd": 443
-   }
-  },
-  "401909320:nba_roadtrip_over": {
    "with": null,
    "against": {
     "n": 2,
