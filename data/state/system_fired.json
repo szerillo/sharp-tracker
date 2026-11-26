@@ -10329,7 +10329,10 @@
 "price": -163,
 "fair": 0.585,
 "edge_pts": -3.5,
-"why": "home favorite, game 24 of the season, opponent OTT wins 64% (16-9)"
+"why": "home favorite, game 24 of the season, opponent OTT wins 64% (16-9)",
+"void": true,
+"void_why": "trigger no longer holds on current season records (2026-11-26T02:50:31Z)",
+"void_at": "2026-11-26T02:50:31Z"
 },
 "401892801:nhl_early_home_fav_qual": {
 "tag": "nhl_early_home_fav_qual",
@@ -10518,5 +10521,31 @@
 "fair": 0.66524,
 "edge_pts": 0.02,
 "why": "Novig home side mid 0.338 inside T-1.0h; audit band 20-35c"
+},
+"401892809:nhl_loss_streak_over": {
+"tag": "nhl_loss_streak_over",
+"fill_id": "f6c8f43a239a",
+"ts": "2026-11-26T02:50:31Z",
+"market": "total",
+"side": "over",
+"line": 6.5,
+"venue": "Kalshi",
+"price": -113,
+"fair": 0.52323,
+"edge_pts": -0.68,
+"why": "home EDM has lost 4 straight, season over rate 56%: over (mined angle)"
+},
+"401892809:nhl_skid_fade_road": {
+"tag": "nhl_skid_fade_road",
+"fill_id": "16a2e8b2f48a",
+"ts": "2026-11-26T02:50:31Z",
+"market": "spread",
+"side": "away",
+"line": 1.5,
+"venue": "Kalshi",
+"price": -163,
+"fair": 0.56051,
+"edge_pts": -5.95,
+"why": "SEA off a win, home EDM has lost 4 straight: road puck line (mined angle)"
 }
 }
