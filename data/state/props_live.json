@@ -1,10 +1,10 @@
 {
- "built": "2026-11-26T01:25:13Z",
+ "built": "2026-11-26T01:44:00Z",
  "record": {
-  "n": 77,
-  "won": 37,
+  "n": 78,
+  "won": 38,
   "lost": 40,
-  "units": 0.55,
+  "units": 0.86,
   "line_value": {
    "n": 34,
    "avg": 0.0,
@@ -34,38 +34,6 @@
   }
  },
  "rows": [
-  {
-   "key": "4f6d199bb67cf3a517a3880fd2f00b26|player_threes|Jaylen Brown|1.5",
-   "sport": "nba",
-   "odds_id": "4f6d199bb67cf3a517a3880fd2f00b26",
-   "espn": "401909317",
-   "game": "Miami Heat @ Philadelphia 76ers",
-   "start": "2026-11-25T22:10:00Z",
-   "market": "player_threes",
-   "player": "Jaylen Brown",
-   "line": 1.5,
-   "side": "under",
-   "book": "DK",
-   "price": 2.24,
-   "fair": 0.4681,
-   "ev": 4.9,
-   "pin_under": 2.0,
-   "pin_over": 1.76,
-   "book_over": 1.61,
-   "fair_power": 0.4647,
-   "book_fair": 0.4182,
-   "fair_gap": 5.0,
-   "ev_strict": 4.1,
-   "pin_ts": "2026-11-25T21:10:52Z",
-   "book_ts": "2026-11-25T21:13:37Z",
-   "flagged": "2026-11-25T21:14:05Z",
-   "close_ts": "2026-11-25T22:04:22Z",
-   "close_line": 1.5,
-   "close_fair": 0.4681,
-   "clv": 2.17,
-   "beat_fair": 0.0,
-   "line_value": 0.0
-  },
   {
    "key": "c29af8a41ac40846cff6811e8a345682|player_total_saves|Logan Thompson|22.5",
    "sport": "nhl",
@@ -97,6 +65,32 @@
    "clv": 2.84,
    "beat_fair": 0.0,
    "line_value": 0.0
+  },
+  {
+   "key": "b99129d0236ae270cae2b42a0befc503|player_shots_on_goal|Devon Toews|1.5",
+   "sport": "nhl",
+   "odds_id": "b99129d0236ae270cae2b42a0befc503",
+   "espn": "401892792",
+   "game": "Montr\u00e9al Canadiens @ Colorado Avalanche",
+   "start": "2026-11-26T02:40:00Z",
+   "market": "player_shots_on_goal",
+   "player": "Devon Toews",
+   "line": 1.5,
+   "side": "under",
+   "book": "DK",
+   "price": 2.05,
+   "fair": 0.5027,
+   "ev": 3.0,
+   "pin_under": 1.86,
+   "pin_over": 1.88,
+   "book_over": 1.71,
+   "fair_power": 0.503,
+   "book_fair": 0.4548,
+   "fair_gap": 4.8,
+   "ev_strict": 3.0,
+   "pin_ts": "2026-11-26T01:43:42Z",
+   "book_ts": "2026-11-26T01:43:48Z",
+   "flagged": "2026-11-26T01:44:00Z"
   }
  ]
 }
