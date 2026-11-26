@@ -1,11 +1,11 @@
 {
- "built": "2026-11-26T05:56:49Z",
+ "built": "2026-11-26T06:10:20Z",
  "record": {
-  "n": 295,
-  "won": 128,
-  "lost": 167,
-  "units": -3.12,
-  "roi": -4.2
+  "n": 297,
+  "won": 129,
+  "lost": 168,
+  "units": -3.03,
+  "roi": -4.1
  },
  "record_sb4": {
   "n": 11,
@@ -17,50 +17,25 @@
  "sb4_killed": true,
  "checkable_test": {
   "rule": "kill if the first 100 graded checkable rows are not positive in both halves",
-  "n": 21,
+  "n": 23,
   "all_checkable": {
-   "n": 21,
-   "won": 5,
-   "lost": 16,
-   "units": -2.45,
-   "roi": -46.7
+   "n": 23,
+   "won": 6,
+   "lost": 17,
+   "units": -2.36,
+   "roi": -41.0
   },
   "half1": {
-   "n": 21,
-   "won": 5,
-   "lost": 16,
-   "units": -2.45,
-   "roi": -46.7
+   "n": 23,
+   "won": 6,
+   "lost": 17,
+   "units": -2.36,
+   "roi": -41.0
   },
   "half2": null,
-  "verdict": "pending: 21 of 100"
+  "verdict": "pending: 23 of 100"
  },
  "rows": [
-  {
-   "key": "401909325|ml|home",
-   "sport": "nba",
-   "event_id": "401909325",
-   "game": "SA @ POR",
-   "start": "2026-11-26T03:00Z",
-   "market": "ml",
-   "side": "home",
-   "line": null,
-   "venue": "Novig",
-   "price": 0.42,
-   "fair": 0.435,
-   "fair_power": 0.4316,
-   "venue_fair": 0.4179,
-   "fair_gap": 1.7,
-   "ev": 3.6,
-   "move": 1.7,
-   "flagged": "2026-11-25T16:44:24Z",
-   "venue_ts": "2026-11-25T16:04:31Z",
-   "pin_ts": "2026-11-25T16:04:31Z",
-   "qty_best": 369324,
-   "wide": false,
-   "team": "POR",
-   "checkable": true
-  },
   {
    "key": "401921672|ml|away",
    "sport": "cbb",
@@ -84,31 +59,6 @@
    "qty_best": 170355,
    "wide": false,
    "team": "STAN",
-   "checkable": true
-  },
-  {
-   "key": "401892793|total|under",
-   "sport": "nhl",
-   "event_id": "401892793",
-   "game": "SJ @ ANA",
-   "start": "2026-11-26T03:00Z",
-   "market": "total",
-   "side": "under",
-   "line": 6.5,
-   "venue": "Novig",
-   "price": 0.465,
-   "fair": 0.4784,
-   "fair_power": 0.4775,
-   "venue_fair": 0.4604,
-   "fair_gap": 1.8,
-   "ev": 2.9,
-   "move": 1.7,
-   "flagged": "2026-11-25T18:45:40Z",
-   "venue_ts": "2026-11-25T18:24:31Z",
-   "pin_ts": "2026-11-25T18:24:31Z",
-   "qty_best": 788704,
-   "wide": false,
-   "team": null,
    "checkable": true
   }
  ]
