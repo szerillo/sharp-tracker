@@ -128,6 +128,15 @@ WATCH_1124 = {'nhl_skid_fade_road': 'WATCH: 8-1 live as tier C vs -7.1% on the B
 for _k, _n in WATCH_1124.items(): EVIDENCE[_k]['paper_why'] = EVIDENCE[_k].get('paper_why', '') + '. ' + _n; EVIDENCE[_k]['watch'] = _n
 for _k in DEMOTE_1124_GROUP1:
     if EVIDENCE[_k]['tier'] != 'P': EVIDENCE[_k]['tier'] = 'P'; EVIDENCE[_k]['paper_why'] = 'Sean 11/24 (rule group 1): paper. Failed our own multi-season profit replay before the 11/18 blanket move'
+# 11/25 (Sean via Kirk): TIER_RULES.md version 2, unchanged, applied to every saved Tested:/Tracked: Bet Labs screen (sharp/validate_all_screens.py,
+# docs/validation/PUSHBACK.md section 5). Screens that pass (A or B) are real-money systems at 0.25u; games starting from 2026-11-26T00:30Z
+# (sharp/bet_log.py TIER_1125_FROM). The two tool splits of passing screens (0.5-1.0 total drop, cold wind games) follow the saved screen.
+TIER_1125 = {'bounce15_1h': 'B', 'nhl_pl_fav_gap': 'A', 'nhl_pl_fav_strong_opp': 'A', 'nhl_pl_dog_bigml': 'A', 'nba_1h_under_hot_over': 'B',
+             'cfb_road_dog_low_total': 'B', 'cbb_under_good_over_drop': 'B', 'cfb_road_streak_dog': 'B',
+             'nba_under_good_home_over_small': 'A', 'wind1014_cold': 'A'}
+for _k, _t in TIER_1125.items():
+    EVIDENCE[_k]['tier'] = _t; EVIDENCE[_k].pop('paper_why', None)
+    EVIDENCE[_k]['rescore_1125'] = f"Tier {_t} on TIER_RULES v2 (Bet Labs full backtest), real money from 11/25 (docs/validation/PUSHBACK.md section 5)"
 # nhl_over_busy_goalie retired 10/30: positive in 2 of 7 seasons and the goalie-saves field thins to a handful of games after 2023.
 DESC = {'wind1014': 'NFL outdoor: the game is on Sean\'s Bet Labs screen "NFL Wind 10-14 Under" (Bet Labs\' own weather, latest pull); MySportsWeather 10-14 mph (Open-Meteo behind it) only when no pull is under 16 hours old: full-game under', 'wind1014_1h': 'NFL outdoor: the game is on Sean\'s Bet Labs screen "NFL 1H Wind 10-13 Under" (latest pull); MySportsWeather 10-13 mph only when no pull is under 16 hours old: first-half under',
         'cfb_wind14': 'CFB outdoor: the game is on Sean\'s Bet Labs screen "CFB Wind 14 Plus Under" (Bet Labs\' own weather, latest pull): full-game under. With no pull under 16 hours old, MySportsWeather 14+ mph is a flag only, never a bet', 'vrest8_1h': 'NFL visitor off 8-30 days: first-half under', 'mnf_1h': 'Monday night: first-half under',
@@ -235,6 +244,12 @@ ROOF_NFL = {'ARI', 'ATL', 'DAL', 'DET', 'HOU', 'IND', 'LV', 'LAR', 'LAC', 'MIN',
 ROOF_VENUES = ('ford field', 'fargodome', 'jma wireless dome', 'carrier dome', 'mercedes-benz stadium', 'allegiant stadium', 'alamodome',
                'state farm stadium', 'at&t stadium', 'nrg stadium', 'reliant stadium', 'lucas oil stadium', 'u.s. bank stadium', 'caesars superdome',
                'sofi stadium', 'tropicana field', 'kibbie dome', 'uni-dome', 'dakotadome', 'holt arena', 'alerus center', 'superdome')
+def roofed_betlabs(sport, ev, home=None):
+    """11/25 (Sean via Kirk): Bet Labs' "Dome Closed" flag for the non-weather screens (vrest8_1h, mnf_1h). Bet Labs counts SoFi (open-sided
+    canopy) as not closed: 18 Rams/Chargers home games 2023-26 are on screen 1772962. Everything else roofed stays excluded."""
+    r = sched_rec(sport, ev); v = r.get('venue'); v = ((v.get('fullName') if isinstance(v, dict) else v) or '').lower()
+    if 'sofi' in v or (not v and home in ('LAR', 'LAC')): return False
+    return roofed(sport, ev, home)
 def roofed(sport, ev, home=None):
     r = sched_rec(sport, ev); v = r.get('venue'); v = (v.get('fullName') if isinstance(v, dict) else v) or ''
     return bool(r.get('indoor')) or any(k in v.lower() for k in ROOF_VENUES) or (sport == 'nfl' and home in ROOF_NFL)
@@ -650,7 +665,7 @@ def main():
         # file only keeps a rolling window, the season log only has finished games); calendar days, as Bet Labs counts
         cand = [t for t in (v_prev[0] if v_prev else None, N.parse_ts(pv['last_start']) if pv.get('last_start') else None) if t is not None and t < st]
         vdays = (N.et_date(st) - N.et_date(max(cand))).days if cand else None
-        roofed_ = roofed('nfl', ev, home)      # 11/14: both Bet Labs screens filter "Dome Closed N"
+        roofed_ = roofed_betlabs('nfl', ev, home)      # 11/14: both Bet Labs screens filter "Dome Closed N"; 11/25: SoFi counts as open, as in Bet Labs
         if vdays is not None and 8 <= vdays <= 30 and not roofed_:
             trig['vrest8_1h'] = f"{away} off {vdays} days"
         if et_dow == 'Monday' and not roofed_: trig['mnf_1h'] = 'Monday night'

@@ -66,6 +66,11 @@ DEMOTED_FROM = {'cfb_day_over': '2026-11-21T19:20:00Z',
 DEMOTED_FROM.update({k: '2026-11-24T19:00:00Z' for k in ['nhl_skid_fade_road', 'nfl_fade_fav_bye', 'nba_ats_hot_home', 'nba_bigfav_over', 'nhl_loss_streak_over',
     'nba_badteams_under', 'nfl_road_dog_7510', 'mlb_road_over_under', 'nba_roadtrip_over', 'nhl_bounce_home_ml', 'bounce15_1h', 'nhl_pl_fav_strong_opp',
     'nhl_pl_fav_gap', 'nba_under_good_home_over_small', 'cfb_road_streak_dog', 'cbb_under_good_over_drop', 'awfuldog_deep', 'wind1014_cold']})
+# 11/25 (Sean via Kirk): TIER_RULES v2 re-score of every saved Tested:/Tracked: screen; passing rules are real money (systems.py TIER_1125) for
+# games starting from here. Earlier games keep the call they had: paper if they started in a paper stretch, tier C otherwise.
+TIER_1125_FROM = '2026-11-26T00:30:00Z'
+TIER_1125_RULES = {'bounce15_1h', 'nhl_pl_fav_gap', 'nhl_pl_fav_strong_opp', 'nhl_pl_dog_bigml', 'nba_1h_under_hot_over', 'cfb_road_dog_low_total',
+                   'cbb_under_good_over_drop', 'cfb_road_streak_dog', 'nba_under_good_home_over_small', 'wind1014_cold'}
 # 11/18 (Sean): everything is 0.25u for now, every tier (favourite: to win 0.25u; plus money: risk 0.25u). Bets flagged before this keep
 # the size they were tracked at, so nothing is resized backwards.
 FLAT_QUARTER_FROM = '2026-11-18T20:30:00Z'
@@ -317,6 +322,8 @@ def main():
         cat = {'A': 'system A', 'B': 'system B', 'C': 'lean C', 'P': 'paper P'}.get(tier, 'paper P')
         if tag in PROMOTED_FROM and (r.get('start_utc' if tag in PROMOTED_BY_START else 'ts_utc') or '') < PROMOTED_FROM[tag]: cat = 'paper P'
         elif tag in DEMOTED_FROM and (r.get('start_utc') or '') < DEMOTED_FROM[tag] and (r.get('start_utc') or '') >= PROMOTED_FROM.get(tag, ''): cat = 'lean C'
+        if tag in TIER_1125_RULES and cat in ('system A', 'system B') and (r.get('start_utc') or '') < TIER_1125_FROM:
+            cat = 'paper P' if (r.get('start_utc') or '') >= DEMOTED_FROM.get(tag, '9') else 'lean C'
         e = S.get(r['event_id']) or {}
         won = {'W': 1, 'L': 0, 'P': 0.5}.get(r.get('result'))
         if (r.get('start_utc') or '') > NOW.strftime('%Y-%m-%dT%H:%M:%SZ'):

@@ -1,0 +1,1921 @@
+{
+ "built": "2026-11-25T11:58:52Z",
+ "rules": "docs/validation/TIER_RULES.md version 2, unchanged",
+ "inventory_built": "2026-11-25T22:28:30Z",
+ "records_missing_from_pull": [],
+ "not_in_inventory": [],
+ "inventory_not_in_records": [],
+ "rows": [
+  {
+   "screen": 1772775,
+   "name": "Tested: NFL Wind 10-14 Under",
+   "kind": "Tested",
+   "sport": "NFL",
+   "rule": "wind1014",
+   "current": "A",
+   "current_live": true,
+   "inv_status": "MATCHES",
+   "all_time": {
+    "w": 540,
+    "l": 381,
+    "p": 7,
+    "units": 122.97,
+    "roi": 13.3,
+    "z": 4.18,
+    "n": 928,
+    "first": "2003-09-07",
+    "last": "2026-11-23",
+    "n_wl": 921
+   },
+   "to2020": {
+    "w": 384,
+    "l": 293,
+    "p": 6,
+    "units": 68.74,
+    "roi": 10.1
+   },
+   "since2021": {
+    "w": 156,
+    "l": 88,
+    "p": 1,
+    "units": 54.24,
+    "roi": 22.1
+   },
+   "since_saved": {
+    "created": "2026-10-09",
+    "w": 13,
+    "l": 7,
+    "p": 0,
+    "units": 4.96,
+    "from_picks": [
+     13,
+     7,
+     0,
+     4.96
+    ]
+   },
+   "p_all": 1.1117757160117314e-05,
+   "p_to2020": 0.003142782340820327,
+   "p_since2021": 8.348422378445797e-05,
+   "both_eras": true,
+   "base": "A",
+   "tier": "A",
+   "notes": [
+    "Meets every Tier A bar."
+   ],
+   "rescored_1118": true
+  },
+  {
+   "screen": 1772776,
+   "name": "Tested: NFL Awful-Team Dog ATS",
+   "kind": "Tested",
+   "sport": "NFL",
+   "rule": "awfuldog",
+   "current": "A",
+   "current_live": true,
+   "inv_status": "MATCHES",
+   "all_time": {
+    "w": 254,
+    "l": 164,
+    "p": 7,
+    "units": 72.97,
+    "roi": 17.2,
+    "z": 3.67,
+    "n": 425,
+    "first": "2004-10-10",
+    "last": "2026-10-11",
+    "n_wl": 418
+   },
+   "to2020": {
+    "w": 203,
+    "l": 133,
+    "p": 4,
+    "units": 57.13,
+    "roi": 16.8
+   },
+   "since2021": {
+    "w": 51,
+    "l": 31,
+    "p": 3,
+    "units": 15.85,
+    "roi": 18.6
+   },
+   "since_saved": {
+    "created": "2026-10-06",
+    "w": 0,
+    "l": 0,
+    "p": 1,
+    "units": 0,
+    "from_picks": [
+     0,
+     0,
+     1,
+     0
+    ]
+   },
+   "p_all": 9.420036261653664e-05,
+   "p_to2020": 0.0005623797667546615,
+   "p_since2021": 0.03426217992380198,
+   "both_eras": true,
+   "base": "A",
+   "tier": "A",
+   "notes": [
+    "Meets every Tier A bar."
+   ],
+   "rescored_1118": true
+  },
+  {
+   "screen": 1772929,
+   "name": "Tested: NFL 1H Blowout Bounce Dog ATS",
+   "kind": "Tested",
+   "sport": "NFL",
+   "rule": "bounce15_1h",
+   "current": "P",
+   "current_live": false,
+   "inv_status": "MATCHES",
+   "all_time": {
+    "w": 431,
+    "l": 344,
+    "p": 85,
+    "units": 54.66,
+    "roi": 6.4,
+    "z": 2.01,
+    "n": 789,
+    "first": "2005-09-18",
+    "last": "2026-11-22",
+    "n_wl": 775
+   },
+   "to2020": {
+    "w": 312,
+    "l": 258,
+    "p": 14,
+    "units": 32.47,
+    "roi": 5.6
+   },
+   "since2021": {
+    "w": 119,
+    "l": 86,
+    "p": 0,
+    "units": 22.18,
+    "roi": 10.8
+   },
+   "since_saved": {
+    "created": "2026-10-16",
+    "w": 4,
+    "l": 7,
+    "p": 0,
+    "units": -3.19,
+    "from_picks": [
+     4,
+     7,
+     0,
+     -3.19
+    ]
+   },
+   "p_all": 0.030441718189147204,
+   "p_to2020": 0.08191765012688412,
+   "p_since2021": 0.050329473036638595,
+   "both_eras": true,
+   "base": "B",
+   "tier": "B",
+   "notes": [
+    "B, not A, because all-time p 0.030, above 0.01.",
+    "Check 1 not applicable: no blind walk-forward of ours on file for this rule (the 11/5 replays are in-sample only), so no move."
+   ],
+   "rescored_1118": false
+  },
+  {
+   "screen": 1772962,
+   "name": "Tested: NFL 1H Visitor Off 8 to 30 Days Under",
+   "kind": "Tested",
+   "sport": "NFL",
+   "rule": "vrest8_1h",
+   "current": "B",
+   "current_live": true,
+   "inv_status": "DIFFERENT FILTERS",
+   "all_time": {
+    "w": 460,
+    "l": 364,
+    "p": 81,
+    "units": 62.46,
+    "roi": 6.9,
+    "z": 3.48,
+    "n": 845,
+    "first": "2005-09-18",
+    "last": "2026-11-23",
+    "n_wl": 824
+   },
+   "to2020": {
+    "w": 319,
+    "l": 271,
+    "p": 20,
+    "units": 27.51,
+    "roi": 4.5
+   },
+   "since2021": {
+    "w": 141,
+    "l": 93,
+    "p": 1,
+    "units": 34.97,
+    "roi": 14.9
+   },
+   "since_saved": {
+    "created": "2026-10-18",
+    "w": 7,
+    "l": 7,
+    "p": 0,
+    "units": -0.71,
+    "from_picks": [
+     9,
+     7,
+     0,
+     1.07
+    ]
+   },
+   "p_all": 0.018631307706486577,
+   "p_to2020": 0.12822211776300585,
+   "p_since2021": 0.0072920923667800785,
+   "both_eras": true,
+   "base": "B",
+   "tier": "B",
+   "notes": [
+    "B, not A, because all-time p 0.019, above 0.01.",
+    "Flag, no move (check 2): the tool's live filter differs from the saved screen."
+   ],
+   "rescored_1118": true
+  },
+  {
+   "screen": 1772963,
+   "name": "Tested: NFL 1H Monday Night Under",
+   "kind": "Tested",
+   "sport": "NFL",
+   "rule": "mnf_1h",
+   "current": "B",
+   "current_live": true,
+   "inv_status": "DIFFERENT FILTERS",
+   "all_time": {
+    "w": 170,
+    "l": 120,
+    "p": 37,
+    "units": 35.91,
+    "roi": 11,
+    "z": 3.37,
+    "n": 299,
+    "first": "2005-09-19",
+    "last": "2026-11-23",
+    "n_wl": 290
+   },
+   "to2020": {
+    "w": 122,
+    "l": 87,
+    "p": 9,
+    "units": 24.89,
+    "roi": 11.4
+   },
+   "since2021": {
+    "w": 48,
+    "l": 33,
+    "p": 0,
+    "units": 11.02,
+    "roi": 13.6
+   },
+   "since_saved": {
+    "created": "2026-10-19",
+    "w": 2,
+    "l": 2,
+    "p": 0,
+    "units": -0.24,
+    "from_picks": [
+     3,
+     2,
+     0,
+     0.66
+    ]
+   },
+   "p_all": 0.022287556006567955,
+   "p_to2020": 0.03989419111126713,
+   "p_since2021": 0.09689109622139147,
+   "both_eras": true,
+   "base": "B",
+   "tier": "B",
+   "notes": [
+    "B, not A, because only 290 all-time bets and all-time p 0.022, above 0.01.",
+    "Flag, no move (check 2): the tool's live filter differs from the saved screen."
+   ],
+   "rescored_1118": true
+  },
+  {
+   "screen": 1783043,
+   "name": "Tested: CFB Wind 14 Plus Under",
+   "kind": "Tested",
+   "sport": "NCAAF",
+   "rule": "cfb_wind14",
+   "current": "A",
+   "current_live": true,
+   "inv_status": "MATCHES",
+   "all_time": {
+    "w": 558,
+    "l": 406,
+    "p": 12,
+    "units": 116.53,
+    "roi": 11.9,
+    "z": 3.85,
+    "n": 976,
+    "first": "2005-09-03",
+    "last": "2026-11-21",
+    "n_wl": 964
+   },
+   "to2020": {
+    "w": 423,
+    "l": 307,
+    "p": 10,
+    "units": 93.26,
+    "roi": 12.6
+   },
+   "since2021": {
+    "w": 135,
+    "l": 99,
+    "p": 2,
+    "units": 23.27,
+    "roi": 9.9
+   },
+   "since_saved": {
+    "created": "2026-10-11",
+    "w": 6,
+    "l": 5,
+    "p": 0,
+    "units": 0.54,
+    "from_picks": [
+     6,
+     5,
+     0,
+     0.54
+    ]
+   },
+   "p_all": 5.422204735161529e-05,
+   "p_to2020": 0.00019341706685604976,
+   "p_since2021": 0.05379250695398463,
+   "both_eras": true,
+   "base": "A",
+   "tier": "A",
+   "notes": [
+    "Meets every Tier A bar.",
+    "Flag, no move: our blind walk-forward was -4.2% on 128 bets (in-sample +0.1%)."
+   ],
+   "rescored_1118": true
+  },
+  {
+   "screen": 1784154,
+   "name": "Tested: NHL Puck Line Fav Win Pct Gap 22 Plus",
+   "kind": "Tested",
+   "sport": "NHL",
+   "rule": "nhl_pl_fav_gap",
+   "current": "P",
+   "current_live": false,
+   "inv_status": "MATCHES",
+   "all_time": {
+    "w": 342,
+    "l": 497,
+    "p": 0,
+    "units": 119.78,
+    "roi": 14.3,
+    "z": 2.97,
+    "n": 839,
+    "first": "2005-10-08",
+    "last": "2026-11-12",
+    "n_wl": 839
+   },
+   "to2020": {
+    "w": 245,
+    "l": 370,
+    "p": 0,
+    "units": 92.24,
+    "roi": 15.0
+   },
+   "since2021": {
+    "w": 97,
+    "l": 127,
+    "p": 0,
+    "units": 27.55,
+    "roi": 12.3
+   },
+   "since_saved": {
+    "created": "2026-10-24",
+    "w": 1,
+    "l": 2,
+    "p": 0,
+    "units": -0.01,
+    "from_picks": [
+     1,
+     2,
+     0,
+     -0.01
+    ]
+   },
+   "p_all": 0.001323042842539257,
+   "p_to2020": 0.004242128840391546,
+   "p_since2021": 0.07598211792957021,
+   "both_eras": true,
+   "base": "A",
+   "tier": "A",
+   "notes": [
+    "Meets every Tier A bar.",
+    "Check 1 not applicable: no blind walk-forward of ours on file for this rule (the 11/5 replays are in-sample only), so no move."
+   ],
+   "rescored_1118": false
+  },
+  {
+   "screen": 1784155,
+   "name": "Tested: NHL Puck Line Fav vs Opp Win Pct 66 Plus",
+   "kind": "Tested",
+   "sport": "NHL",
+   "rule": "nhl_pl_fav_strong_opp",
+   "current": "P",
+   "current_live": false,
+   "inv_status": "MATCHES",
+   "all_time": {
+    "w": 555,
+    "l": 854,
+    "p": 0,
+    "units": 168.77,
+    "roi": 12,
+    "z": 3.21,
+    "n": 1409,
+    "first": "2005-10-08",
+    "last": "2026-11-22",
+    "n_wl": 1409
+   },
+   "to2020": {
+    "w": 387,
+    "l": 619,
+    "p": 0,
+    "units": 124.5,
+    "roi": 12.4
+   },
+   "since2021": {
+    "w": 168,
+    "l": 235,
+    "p": 0,
+    "units": 44.28,
+    "roi": 11.0
+   },
+   "since_saved": {
+    "created": "2026-10-24",
+    "w": 7,
+    "l": 9,
+    "p": 0,
+    "units": 2.79,
+    "from_picks": [
+     7,
+     10,
+     0,
+     1.79
+    ]
+   },
+   "p_all": 0.0005931085331768449,
+   "p_to2020": 0.0028312062678889083,
+   "p_since2021": 0.04627805624196357,
+   "both_eras": true,
+   "base": "A",
+   "tier": "A",
+   "notes": [
+    "Meets every Tier A bar.",
+    "Check 1 not applicable: no blind walk-forward of ours on file for this rule (the 11/5 replays are in-sample only), so no move."
+   ],
+   "rescored_1118": false
+  },
+  {
+   "screen": 1784156,
+   "name": "Tested: NHL Puck Line Dog Open ML 181 to 196",
+   "kind": "Tested",
+   "sport": "NHL",
+   "rule": "nhl_pl_dog_bigml",
+   "current": "C",
+   "current_live": true,
+   "inv_status": "MATCHES",
+   "all_time": {
+    "w": 710,
+    "l": 417,
+    "p": 1,
+    "units": 70.22,
+    "roi": 6.2,
+    "z": 2.52,
+    "n": 1128,
+    "first": "2005-10-08",
+    "last": "2026-11-16",
+    "n_wl": 1127
+   },
+   "to2020": {
+    "w": 528,
+    "l": 309,
+    "p": 1,
+    "units": 39.16,
+    "roi": 4.7
+   },
+   "since2021": {
+    "w": 182,
+    "l": 108,
+    "p": 0,
+    "units": 31.05,
+    "roi": 10.7
+   },
+   "since_saved": {
+    "created": "2026-10-25",
+    "w": 4,
+    "l": 5,
+    "p": 0,
+    "units": -1.23,
+    "from_picks": [
+     4,
+     5,
+     0,
+     -1.23
+    ]
+   },
+   "p_all": 0.005273642147241908,
+   "p_to2020": 0.04478563952567505,
+   "p_since2021": 0.016308112561479904,
+   "both_eras": true,
+   "base": "A",
+   "tier": "A",
+   "notes": [
+    "Meets every Tier A bar.",
+    "Check 1 not applicable: no blind walk-forward of ours on file for this rule (the 11/5 replays are in-sample only), so no move."
+   ],
+   "rescored_1118": false
+  },
+  {
+   "screen": 1784158,
+   "name": "Tested: NBA 1H Under Visitor Over Pct 71 Plus",
+   "kind": "Tested",
+   "sport": "NBA",
+   "rule": "nba_1h_under_hot_over",
+   "current": "C",
+   "current_live": true,
+   "inv_status": "MATCHES",
+   "all_time": {
+    "w": 432,
+    "l": 340,
+    "p": 10,
+    "units": 62.79,
+    "roi": 8,
+    "z": 3.35,
+    "n": 780,
+    "first": "2005-11-02",
+    "last": "2026-11-21",
+    "n_wl": 772
+   },
+   "to2020": {
+    "w": 285,
+    "l": 225,
+    "p": 7,
+    "units": 44.75,
+    "roi": 8.7
+   },
+   "since2021": {
+    "w": 147,
+    "l": 115,
+    "p": 1,
+    "units": 18.03,
+    "roi": 6.9
+   },
+   "since_saved": {
+    "created": "2026-10-25",
+    "w": 8,
+    "l": 1,
+    "p": 0,
+    "units": 6.2,
+    "from_picks": [
+     9,
+     1,
+     0,
+     7.1
+    ]
+   },
+   "p_all": 0.010171983118436034,
+   "p_to2020": 0.020962810074649507,
+   "p_since2021": 0.11875713613592742,
+   "both_eras": true,
+   "base": "B",
+   "tier": "B",
+   "notes": [
+    "B, not A, because all-time p 0.010, above 0.01 and the Mar 2021 on era (147-115, +6.9%) is not significant on its own (p 0.12).",
+    "Check 1 not applicable: no blind walk-forward of ours on file for this rule (the 11/5 replays are in-sample only), so no move."
+   ],
+   "rescored_1118": false
+  },
+  {
+   "screen": 1789284,
+   "name": "Tested: NHL Early Season Home Fav vs Quality Opp ML",
+   "kind": "Tested",
+   "sport": "NHL",
+   "rule": "nhl_early_home_fav_qual",
+   "current": "B",
+   "current_live": true,
+   "inv_status": "MATCHES",
+   "all_time": {
+    "w": 1188,
+    "l": 765,
+    "p": 1,
+    "units": 72.22,
+    "roi": 3.7,
+    "z": 1.93,
+    "n": 1954,
+    "first": "2005-10-08",
+    "last": "2026-11-22",
+    "n_wl": 1953
+   },
+   "to2020": {
+    "w": 880,
+    "l": 591,
+    "p": 0,
+    "units": 43.66,
+    "roi": 3.0
+   },
+   "since2021": {
+    "w": 308,
+    "l": 174,
+    "p": 1,
+    "units": 28.56,
+    "roi": 5.9
+   },
+   "since_saved": {
+    "created": "2026-10-28",
+    "w": 17,
+    "l": 16,
+    "p": 1,
+    "units": -4.52,
+    "from_picks": [
+     18,
+     16,
+     1,
+     -3.86
+    ]
+   },
+   "p_all": 0.024709989321337278,
+   "p_to2020": 0.08642043246607667,
+   "p_since2021": 0.0518316560104739,
+   "both_eras": true,
+   "base": "B",
+   "tier": "B",
+   "notes": [
+    "B, not A, because all-time p 0.025, above 0.01."
+   ],
+   "rescored_1118": true
+  },
+  {
+   "screen": 1789285,
+   "name": "Tested: NBA Under Good Home Over Team Rest Total Down",
+   "kind": "Tested",
+   "sport": "NBA",
+   "rule": "nba_under_good_home_over",
+   "current": "A",
+   "current_live": true,
+   "inv_status": "MATCHES",
+   "all_time": {
+    "w": 757,
+    "l": 582,
+    "p": 19,
+    "units": 132.43,
+    "roi": 9.8,
+    "z": 3.7,
+    "n": 1358,
+    "first": "2005-01-03",
+    "last": "2026-11-23",
+    "n_wl": 1339
+   },
+   "to2020": {
+    "w": 575,
+    "l": 439,
+    "p": 14,
+    "units": 109.32,
+    "roi": 10.6
+   },
+   "since2021": {
+    "w": 182,
+    "l": 143,
+    "p": 5,
+    "units": 23.09,
+    "roi": 7.0
+   },
+   "since_saved": {
+    "created": "2026-10-27",
+    "w": 13,
+    "l": 7,
+    "p": 0,
+    "units": 5.01,
+    "from_picks": [
+     13,
+     7,
+     0,
+     5.01
+    ]
+   },
+   "p_all": 9.774333017398273e-05,
+   "p_to2020": 0.00023900902316575934,
+   "p_since2021": 0.09167238551994106,
+   "both_eras": true,
+   "base": "A",
+   "tier": "A",
+   "notes": [
+    "Meets every Tier A bar.",
+    "Flag, no move: our blind walk-forward was -11.6% on 65 bets (in-sample +5.4%)."
+   ],
+   "rescored_1118": true
+  },
+  {
+   "screen": 1789286,
+   "name": "Tested: CFB Conf Road Dog 7 Plus Total 48 or Less",
+   "kind": "Tested",
+   "sport": "NCAAF",
+   "rule": "cfb_road_dog_low_total",
+   "current": "C",
+   "current_live": true,
+   "inv_status": "MATCHES",
+   "all_time": {
+    "w": 527,
+    "l": 381,
+    "p": 19,
+    "units": 111.11,
+    "roi": 12,
+    "z": 3.77,
+    "n": 928,
+    "first": "2005-09-05",
+    "last": "2026-11-24",
+    "n_wl": 908
+   },
+   "to2020": {
+    "w": 381,
+    "l": 264,
+    "p": 13,
+    "units": 95.83,
+    "roi": 14.6
+   },
+   "since2021": {
+    "w": 147,
+    "l": 117,
+    "p": 6,
+    "units": 16.18,
+    "roi": 6.0
+   },
+   "since_saved": {
+    "created": "2026-10-27",
+    "w": 12,
+    "l": 13,
+    "p": 0,
+    "units": -2.05,
+    "from_picks": [
+     13,
+     13,
+     0,
+     -1.14
+    ]
+   },
+   "p_all": 7.320728780102481e-05,
+   "p_to2020": 5.07564517489012e-05,
+   "p_since2021": 0.15129578123375798,
+   "both_eras": true,
+   "base": "B",
+   "tier": "B",
+   "notes": [
+    "B, not A, because the Mar 2021 on era (147-117, +6.0%) is not significant on its own (p 0.15).",
+    "Check 1 not applicable: no blind walk-forward of ours on file for this rule (the 11/5 replays are in-sample only), so no move."
+   ],
+   "rescored_1118": false
+  },
+  {
+   "screen": 1789287,
+   "name": "Tested: CBB Unranked Off 14 Plus Loss vs Top 5 Conf",
+   "kind": "Tested",
+   "sport": "NCAAB",
+   "rule": "cbb_bigloss_vs_top5",
+   "current": "B",
+   "current_live": true,
+   "inv_status": "MATCHES",
+   "all_time": {
+    "w": 151,
+    "l": 92,
+    "p": 1,
+    "units": 49.49,
+    "roi": 20.3,
+    "z": 3.28,
+    "n": 244,
+    "first": "2006-01-21",
+    "last": "2026-03-03",
+    "n_wl": 243
+   },
+   "to2020": {
+    "w": 113,
+    "l": 65,
+    "p": 1,
+    "units": 41.81,
+    "roi": 23.4
+   },
+   "since2021": {
+    "w": 38,
+    "l": 27,
+    "p": 0,
+    "units": 7.67,
+    "roi": 11.8
+   },
+   "since_saved": {
+    "created": "2026-10-28",
+    "w": 0,
+    "l": 0,
+    "p": 0,
+    "units": 0,
+    "from_picks": [
+     0,
+     0,
+     0,
+     0
+    ]
+   },
+   "p_all": 0.00037585990087696253,
+   "p_to2020": 0.0004253511006142574,
+   "p_since2021": 0.15636718617250922,
+   "both_eras": true,
+   "base": "B",
+   "tier": "B",
+   "notes": [
+    "B, not A, because only 243 all-time bets and the Mar 2021 on era (38-27, +11.8%) is not significant on its own (p 0.16).",
+    "Check 1 not applicable: no blind walk-forward of ours on file for this rule (the 11/5 replays are in-sample only), so no move."
+   ],
+   "rescored_1118": true
+  },
+  {
+   "screen": 1792184,
+   "name": "Tested: CBB Under Good Over Teams Total Down",
+   "kind": "Tested",
+   "sport": "NCAAB",
+   "rule": "cbb_under_good_over_drop",
+   "current": "P",
+   "current_live": false,
+   "inv_status": "DIFFERENT FILTERS",
+   "all_time": {
+    "w": 802,
+    "l": 665,
+    "p": 12,
+    "units": 79.69,
+    "roi": 5.4,
+    "z": 2.15,
+    "n": 1483,
+    "first": "2005-03-04",
+    "last": "2026-11-24",
+    "n_wl": 1467
+   },
+   "to2020": {
+    "w": 531,
+    "l": 427,
+    "p": 7,
+    "units": 70.83,
+    "roi": 7.3
+   },
+   "since2021": {
+    "w": 274,
+    "l": 239,
+    "p": 5,
+    "units": 10.65,
+    "roi": 2.1
+   },
+   "since_saved": {
+    "created": "2026-10-25",
+    "w": 10,
+    "l": 11,
+    "p": 0,
+    "units": -1.73,
+    "from_picks": [
+     13,
+     12,
+     0,
+     0.05
+    ]
+   },
+   "p_all": 0.015581442704240445,
+   "p_to2020": 0.009431628660067415,
+   "p_since2021": 0.3089592854932599,
+   "both_eras": true,
+   "base": "B",
+   "tier": "B",
+   "notes": [
+    "B, not A, because all-time p 0.016, above 0.01 and the Mar 2021 on era (274-239, +2.1%) is not significant on its own (p 0.31).",
+    "Check 1 not applicable: no blind walk-forward of ours on file for this rule (the 11/5 replays are in-sample only), so no move.",
+    "Flag, no move (check 2): the tool's live filter differs from the saved screen."
+   ],
+   "rescored_1118": false
+  },
+  {
+   "screen": 1792198,
+   "name": "Tested: CFB Conf Road Streak Dog Total 54 or Less",
+   "kind": "Tested",
+   "sport": "NCAAF",
+   "rule": "cfb_road_streak_dog",
+   "current": "P",
+   "current_live": false,
+   "inv_status": "DIFFERENT FILTERS",
+   "all_time": {
+    "w": 180,
+    "l": 121,
+    "p": 1,
+    "units": 48.59,
+    "roi": 16.1,
+    "z": 2.88,
+    "n": 303,
+    "first": "2005-09-10",
+    "last": "2026-11-24",
+    "n_wl": 301
+   },
+   "to2020": {
+    "w": 132,
+    "l": 82,
+    "p": 0,
+    "units": 44.23,
+    "roi": 20.7
+   },
+   "since2021": {
+    "w": 49,
+    "l": 39,
+    "p": 1,
+    "units": 5.29,
+    "roi": 5.9
+   },
+   "since_saved": {
+    "created": "2026-10-25",
+    "w": 1,
+    "l": 1,
+    "p": 1,
+    "units": -0.13,
+    "from_picks": [
+     2,
+     1,
+     1,
+     0.78
+    ]
+   },
+   "p_all": 0.0016709239971315348,
+   "p_to2020": 0.0007285415952499319,
+   "p_since2021": 0.278998726252643,
+   "both_eras": true,
+   "base": "B",
+   "tier": "B",
+   "notes": [
+    "B, not A, because the Mar 2021 on era (49-39, +5.9%) is not significant on its own (p 0.28).",
+    "Check 1 not applicable: no blind walk-forward of ours on file for this rule (the 11/5 replays are in-sample only), so no move.",
+    "Flag, no move (check 2): the tool's live filter differs from the saved screen."
+   ],
+   "rescored_1118": false
+  },
+  {
+   "screen": 1792204,
+   "name": "Tested: CFB Hot Weather Over Total 55 or Less",
+   "kind": "Tested",
+   "sport": "NCAAF",
+   "rule": "cfb_hot_over_low_total",
+   "current": "B",
+   "current_live": true,
+   "inv_status": "MATCHES",
+   "all_time": {
+    "w": 175,
+    "l": 120,
+    "p": 6,
+    "units": 42.6,
+    "roi": 14.2,
+    "z": 2.55,
+    "n": 301,
+    "first": "2005-09-03",
+    "last": "2026-09-19",
+    "n_wl": 295
+   },
+   "to2020": {
+    "w": 122,
+    "l": 81,
+    "p": 6,
+    "units": 33.31,
+    "roi": 15.9
+   },
+   "since2021": {
+    "w": 53,
+    "l": 39,
+    "p": 0,
+    "units": 9.3,
+    "roi": 10.1
+   },
+   "since_saved": {
+    "created": "2026-10-26",
+    "w": 0,
+    "l": 0,
+    "p": 0,
+    "units": 0,
+    "from_picks": [
+     0,
+     0,
+     0,
+     0
+    ]
+   },
+   "p_all": 0.00495346150724596,
+   "p_to2020": 0.008223818787771453,
+   "p_since2021": 0.15250913287479384,
+   "both_eras": true,
+   "base": "B",
+   "tier": "B",
+   "notes": [
+    "B, not A, because only 295 all-time bets and the Mar 2021 on era (53-39, +10.1%) is not significant on its own (p 0.15)."
+   ],
+   "rescored_1118": true
+  },
+  {
+   "screen": 1799428,
+   "name": "Tracked: NHL Home Lost 3 Straight Over",
+   "kind": "Tracked",
+   "sport": "NHL",
+   "rule": "nhl_loss_streak_over",
+   "current": "P",
+   "current_live": false,
+   "inv_status": "DIFFERENT FILTERS",
+   "all_time": {
+    "w": 1190,
+    "l": 1161,
+    "p": 135,
+    "units": -11.6,
+    "roi": -0.5,
+    "z": -0.24,
+    "n": 2487,
+    "first": "2005-10-15",
+    "last": "2026-11-24",
+    "n_wl": 2351
+   },
+   "to2020": {
+    "w": 822,
+    "l": 854,
+    "p": 118,
+    "units": -38.97,
+    "roi": -2.2
+   },
+   "since2021": {
+    "w": 368,
+    "l": 308,
+    "p": 17,
+    "units": 26.37,
+    "roi": 3.8
+   },
+   "since_saved": {
+    "created": "2026-10-29",
+    "w": 5,
+    "l": 9,
+    "p": 0,
+    "units": -4.69,
+    "from_picks": [
+     5,
+     10,
+     0,
+     -5.69
+    ]
+   },
+   "p_all": 0.5974213248635797,
+   "p_to2020": 0.816869512579661,
+   "p_since2021": 0.14907271277780754,
+   "both_eras": false,
+   "base": "C",
+   "tier": "C",
+   "notes": [
+    "Bet Labs' own record to 2020 is 822-854, -2.2%: the edge exists only from 2021 on.",
+    "Flag, no move (check 2): the tool's live filter differs from the saved screen."
+   ],
+   "rescored_1118": false
+  },
+  {
+   "screen": 1799430,
+   "name": "Tracked: NHL Bounce Home Off 3 Plus Goal Loss ML",
+   "kind": "Tracked",
+   "sport": "NHL",
+   "rule": "nhl_bounce_home_ml",
+   "current": "P",
+   "current_live": false,
+   "inv_status": "DIFFERENT FILTERS",
+   "all_time": {
+    "w": 882,
+    "l": 594,
+    "p": 0,
+    "units": 23.63,
+    "roi": 1.6,
+    "z": 0.71,
+    "n": 1476,
+    "first": "2005-10-10",
+    "last": "2026-11-21",
+    "n_wl": 1476
+   },
+   "to2020": {
+    "w": 580,
+    "l": 410,
+    "p": 0,
+    "units": -4.25,
+    "roi": -0.4
+   },
+   "since2021": {
+    "w": 302,
+    "l": 184,
+    "p": 0,
+    "units": 27.89,
+    "roi": 5.7
+   },
+   "since_saved": {
+    "created": "2026-10-29",
+    "w": 9,
+    "l": 7,
+    "p": 0,
+    "units": -1.13,
+    "from_picks": [
+     9,
+     8,
+     0,
+     -2.13
+    ]
+   },
+   "p_all": 0.2304873634254283,
+   "p_to2020": 0.5597334859267132,
+   "p_since2021": 0.06387379931097281,
+   "both_eras": false,
+   "base": "C",
+   "tier": "C",
+   "notes": [
+    "Bet Labs' own record to 2020 is 580-410, -0.4%: the edge exists only from 2021 on.",
+    "Flag, no move (check 2): the tool's live filter differs from the saved screen."
+   ],
+   "rescored_1118": true
+  },
+  {
+   "screen": 1799431,
+   "name": "Tested: NHL Road Off Win vs Home Lost 3 Plus PL",
+   "kind": "Tested",
+   "sport": "NHL",
+   "rule": "nhl_skid_fade_road",
+   "current": "P",
+   "current_live": false,
+   "inv_status": "DIFFERENT FILTERS",
+   "all_time": {
+    "w": 867,
+    "l": 891,
+    "p": 0,
+    "units": -52.97,
+    "roi": -3,
+    "z": -1.16,
+    "n": 1759,
+    "first": "2005-10-13",
+    "last": "2026-11-24",
+    "n_wl": 1758
+   },
+   "to2020": {
+    "w": 607,
+    "l": 660,
+    "p": 0,
+    "units": -83.85,
+    "roi": -6.6
+   },
+   "since2021": {
+    "w": 260,
+    "l": 232,
+    "p": 0,
+    "units": 29.9,
+    "roi": 6.1
+   },
+   "since_saved": {
+    "created": "2026-10-26",
+    "w": 10,
+    "l": 7,
+    "p": 0,
+    "units": 0.73,
+    "from_picks": [
+     10,
+     8,
+     0,
+     -0.27
+    ]
+   },
+   "p_all": 0.8995821203177243,
+   "p_to2020": 0.9920710369872732,
+   "p_since2021": 0.08850504226272327,
+   "both_eras": false,
+   "base": "C",
+   "tier": "C",
+   "notes": [
+    "Bet Labs' own record to 2020 is 607-660, -6.6%: the edge exists only from 2021 on.",
+    "Flag, no move (check 2): the tool's live filter differs from the saved screen."
+   ],
+   "rescored_1118": true
+  },
+  {
+   "screen": 1799432,
+   "name": "Tested: NBA Home ATS 60 Pct Rest 2 Days",
+   "kind": "Tested",
+   "sport": "NBA",
+   "rule": "nba_ats_hot_home",
+   "current": "P",
+   "current_live": false,
+   "inv_status": "DIFFERENT FILTERS",
+   "all_time": {
+    "w": 882,
+    "l": 857,
+    "p": 24,
+    "units": -27.22,
+    "roi": -1.5,
+    "z": -0.67,
+    "n": 1763,
+    "first": "2005-01-05",
+    "last": "2026-11-23",
+    "n_wl": 1739
+   },
+   "to2020": {
+    "w": 644,
+    "l": 665,
+    "p": 14,
+    "units": -52.56,
+    "roi": -4.0
+   },
+   "since2021": {
+    "w": 238,
+    "l": 192,
+    "p": 10,
+    "units": 25.36,
+    "roi": 5.8
+   },
+   "since_saved": {
+    "created": "2026-10-28",
+    "w": 10,
+    "l": 11,
+    "p": 0,
+    "units": -1.76,
+    "from_picks": [
+     10,
+     11,
+     0,
+     -1.76
+    ]
+   },
+   "p_all": 0.7402905799912265,
+   "p_to2020": 0.931030616456353,
+   "p_since2021": 0.10281879373742675,
+   "both_eras": false,
+   "base": "C",
+   "tier": "C",
+   "notes": [
+    "Bet Labs' own record to 2020 is 644-665, -4.0%: the edge exists only from 2021 on.",
+    "Flag, no move (check 2): the tool's live filter differs from the saved screen."
+   ],
+   "rescored_1118": true
+  },
+  {
+   "screen": 1799433,
+   "name": "Tracked: NFL Home Dog 7.5 to 10 ATS",
+   "kind": "Tracked",
+   "sport": "NFL",
+   "rule": "nfl_home_dog_7510",
+   "current": "C",
+   "current_live": true,
+   "inv_status": "MATCHES",
+   "all_time": {
+    "w": 119,
+    "l": 87,
+    "p": 2,
+    "units": 19.98,
+    "roi": 9.6,
+    "z": 1.46,
+    "n": 208,
+    "first": "2003-09-21",
+    "last": "2026-11-15",
+    "n_wl": 206
+   },
+   "to2020": {
+    "w": 83,
+    "l": 67,
+    "p": 1,
+    "units": 7.41,
+    "roi": 4.9
+   },
+   "since2021": {
+    "w": 36,
+    "l": 20,
+    "p": 1,
+    "units": 12.57,
+    "roi": 22.1
+   },
+   "since_saved": {
+    "created": "2026-10-29",
+    "w": 0,
+    "l": 3,
+    "p": 0,
+    "units": -3,
+    "from_picks": [
+     0,
+     3,
+     0,
+     -3
+    ]
+   },
+   "p_all": 0.07073925868349362,
+   "p_to2020": 0.2621443690052927,
+   "p_since2021": 0.03459191930680072,
+   "both_eras": true,
+   "base": "C",
+   "tier": "C",
+   "notes": [
+    "All-time 119-87, +9.6% is not strong enough to rule out luck (p 0.071)."
+   ],
+   "rescored_1118": true
+  },
+  {
+   "screen": 1799434,
+   "name": "Tracked: NFL Road Dog 7.5 to 10 ATS",
+   "kind": "Tracked",
+   "sport": "NFL",
+   "rule": "nfl_road_dog_7510",
+   "current": "P",
+   "current_live": false,
+   "inv_status": "MATCHES",
+   "all_time": {
+    "w": 311,
+    "l": 307,
+    "p": 11,
+    "units": -23.12,
+    "roi": -3.7,
+    "z": -0.96,
+    "n": 629,
+    "first": "2003-09-14",
+    "last": "2026-11-22",
+    "n_wl": 618
+   },
+   "to2020": {
+    "w": 243,
+    "l": 241,
+    "p": 10,
+    "units": -19.2,
+    "roi": -3.9
+   },
+   "since2021": {
+    "w": 68,
+    "l": 66,
+    "p": 1,
+    "units": -3.91,
+    "roi": -2.9
+   },
+   "since_saved": {
+    "created": "2026-10-31",
+    "w": 1,
+    "l": 4,
+    "p": 0,
+    "units": -3.09,
+    "from_picks": [
+     1,
+     4,
+     0,
+     -3.09
+    ]
+   },
+   "p_all": 0.8318114197250277,
+   "p_to2020": 0.8150116400706937,
+   "p_since2021": 0.6371774943887435,
+   "both_eras": false,
+   "base": "C",
+   "tier": "C",
+   "notes": [
+    "Negative in both eras (243-241, -3.9% to 2020, 68-66, -2.9% from 2021)."
+   ],
+   "rescored_1118": false
+  },
+  {
+   "screen": 1799435,
+   "name": "Tracked: NFL Dog vs Favorite Off Bye ATS",
+   "kind": "Tracked",
+   "sport": "NFL",
+   "rule": "nfl_fade_fav_bye",
+   "current": "P",
+   "current_live": false,
+   "inv_status": "MATCHES",
+   "all_time": {
+    "w": 563,
+    "l": 583,
+    "p": 32,
+    "units": -53.54,
+    "roi": -4.5,
+    "z": -1.61,
+    "n": 1178,
+    "first": "2003-09-15",
+    "last": "2026-11-23",
+    "n_wl": 1146
+   },
+   "to2020": {
+    "w": 389,
+    "l": 410,
+    "p": 23,
+    "units": -39.81,
+    "roi": -4.8
+   },
+   "since2021": {
+    "w": 174,
+    "l": 173,
+    "p": 9,
+    "units": -13.73,
+    "roi": -3.9
+   },
+   "since_saved": {
+    "created": "2026-10-30",
+    "w": 6,
+    "l": 9,
+    "p": 0,
+    "units": -3.56,
+    "from_picks": [
+     6,
+     9,
+     0,
+     -3.56
+    ]
+   },
+   "p_all": 0.9415068924418688,
+   "p_to2020": 0.9174660646517006,
+   "p_since2021": 0.7758206537771919,
+   "both_eras": false,
+   "base": "C",
+   "tier": "C",
+   "notes": [
+    "Negative in both eras (389-410, -4.8% to 2020, 174-173, -3.9% from 2021)."
+   ],
+   "rescored_1118": false
+  },
+  {
+   "screen": 1799438,
+   "name": "Tracked: NBA Visitor 4th Plus Straight Road Game Over",
+   "kind": "Tracked",
+   "sport": "NBA",
+   "rule": "nba_roadtrip_over",
+   "current": "P",
+   "current_live": false,
+   "inv_status": "DIFFERENT FILTERS",
+   "all_time": {
+    "w": 1695,
+    "l": 1692,
+    "p": 45,
+    "units": -97.44,
+    "roi": -2.8,
+    "z": -1.71,
+    "n": 3431,
+    "first": "2005-01-03",
+    "last": "2026-11-23",
+    "n_wl": 3387
+   },
+   "to2020": {
+    "w": 1255,
+    "l": 1208,
+    "p": 39,
+    "units": -14.22,
+    "roi": -0.6
+   },
+   "since2021": {
+    "w": 440,
+    "l": 484,
+    "p": 5,
+    "units": -83.21,
+    "roi": -9.0
+   },
+   "since_saved": {
+    "created": "2026-10-29",
+    "w": 13,
+    "l": 14,
+    "p": 0,
+    "units": -2.12,
+    "from_picks": [
+     13,
+     15,
+     0,
+     -3.12
+    ]
+   },
+   "p_all": 0.9533234635762191,
+   "p_to2020": 0.6199468658888572,
+   "p_since2021": 0.9979243251078815,
+   "both_eras": false,
+   "base": "C",
+   "tier": "C",
+   "notes": [
+    "Negative in both eras (1255-1208, -0.6% to 2020, 440-484, -9.0% from 2021).",
+    "Flag, no move (check 2): the tool's live filter differs from the saved screen."
+   ],
+   "rescored_1118": false
+  },
+  {
+   "screen": 1799439,
+   "name": "Tracked: CFB Afternoon Game 2-7pm ET Total 45 to 51.5 Over",
+   "kind": "Tracked",
+   "sport": "NCAAF",
+   "rule": "cfb_day_over",
+   "current": "P",
+   "current_live": false,
+   "inv_status": "MATCHES",
+   "all_time": {
+    "w": 900,
+    "l": 868,
+    "p": 23,
+    "units": -30.4,
+    "roi": -1.7,
+    "z": -0.74,
+    "n": 1791,
+    "first": "2005-09-01",
+    "last": "2026-11-21",
+    "n_wl": 1768
+   },
+   "to2020": {
+    "w": 606,
+    "l": 642,
+    "p": 19,
+    "units": -72.15,
+    "roi": -5.7
+   },
+   "since2021": {
+    "w": 294,
+    "l": 226,
+    "p": 4,
+    "units": 41.76,
+    "roi": 8.0
+   },
+   "since_saved": {
+    "created": "2026-10-27",
+    "w": 19,
+    "l": 18,
+    "p": 0,
+    "units": -0.55,
+    "from_picks": [
+     19,
+     18,
+     0,
+     -0.55
+    ]
+   },
+   "p_all": 0.7704876369637801,
+   "p_to2020": 0.9809892700949354,
+   "p_since2021": 0.02701591316407226,
+   "both_eras": false,
+   "base": "C",
+   "tier": "C",
+   "notes": [
+    "Bet Labs' own record to 2020 is 606-642, -5.7%: the edge exists only from 2021 on."
+   ],
+   "rescored_1118": false
+  },
+  {
+   "screen": 1799440,
+   "name": "Tracked: CFB Home Fav 7.5 to 10 Under",
+   "kind": "Tracked",
+   "sport": "NCAAF",
+   "rule": "cfb_homefav_7510_under",
+   "current": "C",
+   "current_live": true,
+   "inv_status": "MATCHES",
+   "all_time": {
+    "w": 617,
+    "l": 530,
+    "p": 13,
+    "units": 45.83,
+    "roi": 4,
+    "z": 1.39,
+    "n": 1160,
+    "first": "2005-09-01",
+    "last": "2026-11-21",
+    "n_wl": 1147
+   },
+   "to2020": {
+    "w": 436,
+    "l": 395,
+    "p": 10,
+    "units": 16.71,
+    "roi": 2.0
+   },
+   "since2021": {
+    "w": 181,
+    "l": 135,
+    "p": 3,
+    "units": 29.13,
+    "roi": 9.1
+   },
+   "since_saved": {
+    "created": "2026-10-28",
+    "w": 12,
+    "l": 8,
+    "p": 0,
+    "units": 2.81,
+    "from_picks": [
+     12,
+     8,
+     0,
+     2.81
+    ]
+   },
+   "p_all": 0.07994490379208608,
+   "p_to2020": 0.2763070121175679,
+   "p_since2021": 0.04300320695134563,
+   "both_eras": true,
+   "base": "C",
+   "tier": "C",
+   "notes": [
+    "All-time 617-530, +4.0% is not strong enough to rule out luck (p 0.080)."
+   ],
+   "rescored_1118": true
+  },
+  {
+   "screen": 1799441,
+   "name": "Tracked: MLB Visitor Over 60 Pct Under",
+   "kind": "Tracked",
+   "sport": "MLB",
+   "rule": "mlb_road_over_under",
+   "current": "P",
+   "current_live": false,
+   "inv_status": "MISSING",
+   "all_time": {
+    "w": 1287,
+    "l": 1273,
+    "p": 119,
+    "units": -59.82,
+    "roi": -2.2,
+    "z": -1.19,
+    "n": 2678,
+    "first": "2005-04-21",
+    "last": "2026-07-22",
+    "n_wl": 2560
+   },
+   "to2020": {
+    "w": 997,
+    "l": 982,
+    "p": 97,
+    "units": -36.76,
+    "roi": -1.8
+   },
+   "since2021": {
+    "w": 290,
+    "l": 291,
+    "p": 21,
+    "units": -23.07,
+    "roi": -3.8
+   },
+   "since_saved": {
+    "created": "2026-10-28",
+    "w": 0,
+    "l": 0,
+    "p": 0,
+    "units": 0,
+    "from_picks": [
+     0,
+     0,
+     0,
+     0
+    ]
+   },
+   "p_all": 0.873771669073649,
+   "p_to2020": 0.794355955114731,
+   "p_since2021": 0.8290691913024612,
+   "both_eras": false,
+   "base": "C",
+   "tier": "C",
+   "notes": [
+    "Negative in both eras (997-982, -1.8% to 2020, 290-291, -3.8% from 2021)."
+   ],
+   "rescored_1118": false
+  },
+  {
+   "screen": 1799442,
+   "name": "Tested: NBA Weak Visitor at Home Team Under 40 Pct Under (approx)",
+   "kind": "Tested",
+   "sport": "NBA",
+   "rule": "nba_badteams_under",
+   "current": "P",
+   "current_live": false,
+   "inv_status": "DIFFERENT FILTERS",
+   "all_time": {
+    "w": 979,
+    "l": 950,
+    "p": 24,
+    "units": -22.39,
+    "roi": -1.1,
+    "z": -0.52,
+    "n": 1953,
+    "first": "2005-01-09",
+    "last": "2026-11-20",
+    "n_wl": 1929
+   },
+   "to2020": {
+    "w": 808,
+    "l": 807,
+    "p": 19,
+    "units": -35.31,
+    "roi": -2.2
+   },
+   "since2021": {
+    "w": 171,
+    "l": 143,
+    "p": 5,
+    "units": 12.92,
+    "roi": 4.1
+   },
+   "since_saved": {
+    "created": "2026-10-28",
+    "w": 5,
+    "l": 3,
+    "p": 1,
+    "units": 1.6,
+    "from_picks": [
+     5,
+     3,
+     1,
+     1.6
+    ]
+   },
+   "p_all": 0.6900166880404711,
+   "p_to2020": 0.8171516287292786,
+   "p_since2021": 0.22267749971653317,
+   "both_eras": false,
+   "base": "C",
+   "tier": "C",
+   "notes": [
+    "Bet Labs' own record to 2020 is 808-807, -2.2%: the edge exists only from 2021 on.",
+    "Flag, no move (check 2): the tool's live filter differs from the saved screen."
+   ],
+   "rescored_1118": true
+  },
+  {
+   "screen": 1799443,
+   "name": "Tested: NBA Big Home Fav 85 Pct Over",
+   "kind": "Tested",
+   "sport": "NBA",
+   "rule": "nba_bigfav_over",
+   "current": "P",
+   "current_live": false,
+   "inv_status": "DIFFERENT FILTERS",
+   "all_time": {
+    "w": 1350,
+    "l": 1347,
+    "p": 40,
+    "units": -76.54,
+    "roi": -2.8,
+    "z": -1.51,
+    "n": 2736,
+    "first": "2005-01-02",
+    "last": "2026-11-23",
+    "n_wl": 2697
+   },
+   "to2020": {
+    "w": 1045,
+    "l": 1068,
+    "p": 37,
+    "units": -75.47,
+    "roi": -3.5
+   },
+   "since2021": {
+    "w": 305,
+    "l": 279,
+    "p": 2,
+    "units": -1.05,
+    "roi": -0.2
+   },
+   "since_saved": {
+    "created": "2026-10-28",
+    "w": 4,
+    "l": 12,
+    "p": 0,
+    "units": -8.35,
+    "from_picks": [
+     4,
+     12,
+     0,
+     -8.34
+    ]
+   },
+   "p_all": 0.9328901344807836,
+   "p_to2020": 0.9504426499376126,
+   "p_since2021": 0.520191947554081,
+   "both_eras": false,
+   "base": "C",
+   "tier": "C",
+   "notes": [
+    "Negative in both eras (1045-1068, -3.5% to 2020, 305-279, -0.2% from 2021).",
+    "Flag, no move (check 2): the tool's live filter differs from the saved screen."
+   ],
+   "rescored_1118": true
+  },
+  {
+   "screen": 1799444,
+   "name": "Tested: NBA Big Visitor Fav 85 Pct Over",
+   "kind": "Tested",
+   "sport": "NBA",
+   "rule": "nba_bigfav_over",
+   "current": "P",
+   "current_live": false,
+   "inv_status": "DIFFERENT FILTERS",
+   "all_time": {
+    "w": 113,
+    "l": 119,
+    "p": 0,
+    "units": -13.7,
+    "roi": -5.9,
+    "z": -0.93,
+    "n": 232,
+    "first": "2006-04-16",
+    "last": "2026-11-15",
+    "n_wl": 232
+   },
+   "to2020": {
+    "w": 59,
+    "l": 74,
+    "p": 0,
+    "units": -18.12,
+    "roi": -13.6
+   },
+   "since2021": {
+    "w": 54,
+    "l": 45,
+    "p": 0,
+    "units": 4.43,
+    "roi": 4.5
+   },
+   "since_saved": {
+    "created": "2026-10-31",
+    "w": 2,
+    "l": 1,
+    "p": 0,
+    "units": 0.75,
+    "from_picks": [
+     2,
+     1,
+     0,
+     0.75
+    ]
+   },
+   "p_all": 0.8239747732500867,
+   "p_to2020": 0.9474824219665919,
+   "p_since2021": 0.3194067974444632,
+   "both_eras": false,
+   "base": "C",
+   "tier": "C",
+   "notes": [
+    "Bet Labs' own record to 2020 is 59-74, -13.6%: the edge exists only from 2021 on.",
+    "Flag, no move (check 2): the tool's live filter differs from the saved screen."
+   ],
+   "rescored_1118": true
+  },
+  {
+   "screen": 769171,
+   "name": "Tested: NFL 1H Wind 10-13 Under",
+   "kind": "Tested",
+   "sport": "NFL",
+   "rule": "wind1014_1h",
+   "current": "B",
+   "current_live": true,
+   "inv_status": "MATCHES",
+   "all_time": {
+    "w": 408,
+    "l": 305,
+    "p": 109,
+    "units": 74.09,
+    "roi": 9,
+    "z": 4.44,
+    "n": 729,
+    "first": "2005-09-11",
+    "last": "2026-11-23",
+    "n_wl": 713
+   },
+   "to2020": {
+    "w": 291,
+    "l": 212,
+    "p": 12,
+    "units": 61.3,
+    "roi": 11.9
+   },
+   "since2021": {
+    "w": 117,
+    "l": 93,
+    "p": 4,
+    "units": 12.8,
+    "roi": 6.0
+   },
+   "since_saved": {
+    "created": "2019-08-27",
+    "w": 147,
+    "l": 123,
+    "p": 4,
+    "units": 10.62,
+    "from_picks": [
+     147,
+     123,
+     4,
+     10.62
+    ]
+   },
+   "p_all": 0.005386077206999351,
+   "p_to2020": 0.0026002789209942367,
+   "p_since2021": 0.17877605024897747,
+   "both_eras": true,
+   "base": "B",
+   "tier": "B",
+   "notes": [
+    "B, not A, because the Mar 2021 on era (117-93, +6.0%) is not significant on its own (p 0.18)."
+   ],
+   "rescored_1118": true
+  }
+ ]
+}
