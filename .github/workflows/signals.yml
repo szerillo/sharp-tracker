@@ -44,6 +44,7 @@ jobs:
           ( BUILD_DB=data/state/soon.sqlite BUILD_SOON_H=12 python3 sharp/build_db.py && BUILD_SOON_H=12 python3 sharp/near_pass.py && python3 sharp/late_pass.py ; echo "[took $((SECONDS - T0)) s]" ) > /tmp/par/6_late.log 2>&1 &
           wait
           for f in /tmp/par/*.log; do echo "::group::$(basename $f)"; cat "$f"; echo "::endgroup::"; done
+          for f in /tmp/par/*.log; do grep -q Traceback "$f" && echo "::error::$(basename $f .log) crashed (see its log group above)"; done; true
       - name: remove duplicate bets from the records
         run: python3 sharp/dedupe_fills.py || true
       - name: stale-book paper lean (a bettable venue 2%+ better than Pinnacle's fair right after Pinnacle moved toward the side; 11/6)
@@ -88,9 +89,6 @@ jobs:
       - name: missed Bet Labs pull alert (scheduled pulls run through Sean's Chrome; phone alert once per missed slot; 11/22)
         env: {NTFY_TOPIC: '${{ secrets.NTFY_TOPIC }}'}
         run: python3 sharp/betlabs_watch.py || echo "::warning::Bet Labs watch failed"
-      - name: Pages publishing alert (11/25; phone alert once an hour if the live board is 30+ min behind main)
-        env: {NTFY_TOPIC: '${{ secrets.NTFY_TOPIC }}'}
-        run: python3 sharp/pages_watch.py || echo "::warning::Pages watch failed"
       - name: bet tracker
         env: {NTFY_TOPIC: '${{ secrets.NTFY_TOPIC }}'}
         run: |     # 11/6: a crash used to pass silently; now it alerts, and the job still commits everything else
@@ -98,6 +96,9 @@ jobs:
             echo "::error::Bet tracker failed"
             [ -n "$NTFY_TOPIC" ] && curl -s -H "Title: Bet tracker failed" -H "Priority: high" -d "Bet tracker crashed in run $GITHUB_RUN_ID; the board keeps the previous build" "https://ntfy.sh/$NTFY_TOPIC" >/dev/null || true
           fi
+      - name: Pages publishing alert and stale state files (11/25-26; phone alert once an hour if the live board is 30+ min behind main, or tennis_watch/props_live trail this bet log by 30+ min)
+        env: {NTFY_TOPIC: '${{ secrets.NTFY_TOPIC }}'}
+        run: python3 sharp/pages_watch.py || echo "::warning::Pages watch failed"
       - name: board audit (open bets on the board, freshness, duplicates, feeds; red banner + phone alert on a new failure)
         env: {NTFY_TOPIC: '${{ secrets.NTFY_TOPIC }}'}
         run: python3 sharp/audit.py || true

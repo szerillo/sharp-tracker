@@ -1,9 +1,14 @@
 """Fail-loud check that GitHub Pages is publishing (Kirk, 11/25: Pages failed every deploy from 20:10Z to 23:30Z while main kept fresh
 data). Compares the 'built' time of the live bet_log.json on the site with the one on main. If main is newer and the live copy is more
-than 30 minutes old, send one phone alert (ntfy, NTFY_TOPIC) per hour and note it in data/state/pages_watch.json."""
+than 30 minutes old, send one phone alert (ntfy, NTFY_TOPIC) per hour and note it in data/state/pages_watch.json.
+11/26 (Kirk): the same check for the state files Kirk's jobs read. tennis_watch.json sat 42 hours unbuilt (its script crashed every run
+after 11/24 10:09Z) while bet_log.json stayed fresh, and only one default-priority audit ping went out. Runs right after the bet tracker:
+any file in WATCH whose 'built' trails this run's bet_log by more than 30 minutes (2 or more missed builds) alerts, once an hour per file."""
 import os, json, urllib.request, datetime as dt
 LIVE = 'https://szerillo.github.io/sharp-tracker/data/state/bet_log.json'
 OUT = os.path.join(os.path.dirname(__file__), '..', 'data', 'state', 'pages_watch.json')
+WATCH = ('data/state/tennis_watch.json', 'data/state/props_live.json')
+LAG_MIN = 30
 def ts(s): return dt.datetime.fromisoformat(s.replace('Z', '+00:00'))
 def main():
     now = dt.datetime.now(dt.timezone.utc)
@@ -26,5 +31,25 @@ def main():
             except Exception as e: print('ntfy failed', e)
         print('ALERT', msg)
     if not stale: st.pop('alerted', None)
+    lag_files = {}
+    for f in WATCH:
+        try: b = json.load(open(os.path.join(os.path.dirname(__file__), '..', f))).get('built')
+        except Exception: b = None
+        lag_ = (ts(main_built) - ts(b)).total_seconds() / 60 if b else None
+        bad = lag_ is None or lag_ > LAG_MIN
+        prev = (st.get('files') or {}).get(f) or {}
+        rec = dict(built=b, lag_min=round(lag_) if lag_ is not None else None, stale=bad)
+        if bad:
+            rec['alerted'] = prev.get('alerted')
+            if not prev.get('alerted') or (now - ts(prev['alerted'])).total_seconds() > 3600:
+                msg = (f"{f.split('/')[-1]} is not rebuilding: built {b or 'unknown'}, the bet log is {main_built} ({rec['lag_min']} min behind). "
+                       "Jobs that read this file are working from old rows; check its step in the signals log.")
+                topic = os.environ.get('NTFY_TOPIC')
+                if topic:
+                    try: urllib.request.urlopen(urllib.request.Request(f'https://ntfy.sh/{topic}', data=msg.encode(), headers={'Title': 'State file stale', 'Priority': 'high'}), timeout=15); rec['alerted'] = st['checked']
+                    except Exception as e: print('ntfy failed', e)
+                print('ALERT', msg)
+        lag_files[f] = rec
+    st['files'] = lag_files
     json.dump(st, open(OUT, 'w'), indent=1); print('[pages_watch]', json.dumps(st))
 if __name__ == '__main__': main()

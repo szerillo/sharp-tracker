@@ -416,7 +416,9 @@ def main():
     serve_rec = {rule: record_of([g for g in serve_graded if g['rule'] == rule]) for rule in ('tennis_serve_dog', 'tennis_serve_fav')}
     json.dump(hot_graded, open(os.path.join(TD, 'hot_graded.json'), 'w'), separators=(',', ':'))
     hcl = [g['clv'] for g in hot_graded if g.get('clv') is not None]
-    hot_rec = dict(n=len(hot_graded), won=sum(g['won'] for g in hot_graded), units=round(sum(g['pnl'] for g in hot_graded), 2), clv=round(sum(hcl) / len(hcl), 2) if hcl else None, clv_n=len(hcl)) if hot_graded else dict(n=0)
+    # 11/26: record_of skips void rows (won=None, added 11/24 for Kalshi scalar settlements). The old inline sum crashed on them from 11/24 10:16Z,
+    # so tennis_watch.json was never rewritten for 42 hours while the paper logs (written above) kept updating.
+    hot_rec = record_of(hot_graded)
     # Retain previously flagged unstarted rows through a missing/stale quote snapshot.
     # Stale prices are display-only and never authorize an automatic wager.
     previous = json.load(open(OUT)).get('rows', []) if os.path.exists(OUT) else []
@@ -431,8 +433,7 @@ def main():
         rows.append(old)
     rows.sort(key=lambda r: (not r['flag'], r['start']))
     cl = [g['clv'] for g in graded if g.get('clv') is not None]
-    rec = dict(n=len(graded), won=sum(g['won'] for g in graded), units=round(sum(g['pnl'] for g in graded), 2),
-               clv=round(sum(cl) / len(cl), 2) if cl else None, clv_n=len(cl)) if graded else dict(n=0)
+    rec = record_of(graded)
     json.dump(dict(built=NOW.strftime('%Y-%m-%dT%H:%M:%SZ'), gap=GAP, min_fav=MIN_FAV, min_edge=MIN_EDGE, record=rec, recent=sorted(graded, key=lambda g: g['start'])[-25:], hot=HOT, hot_record=hot_rec, hot_tour_record=record_of([g for g in hot_graded if g.get('level') in ('atp_tour', 'wta_tour', 'atp_tour_bo5', 'wta_tour_bo5')]), hot_settled_record=record_of([g for g in hot_graded if g.get('level') in ('atp_tour', 'wta_tour', 'atp_tour_bo5', 'wta_tour_bo5') and (g.get('settled') or {}).get('ok')]), settled=SETTLED, hotdog_record=hotdog_rec, serve_record=serve_rec,
                    rows=rows), open(OUT, 'w'), separators=(',', ':'))
     print(f"[tennis watch] {len(rows)} upcoming matches priced, {sum(r['flag'] for r in rows)} flagged, {len(new)} new paper entries; record {rec}; hot favourites {sum(r.get('hot', False) for r in rows)} flagged, {len(new_hot)} new, record {hot_rec}; serve angles {sum(bool(r.get('serve_rule')) for r in rows)} flagged, {len(new_serve)} new")
