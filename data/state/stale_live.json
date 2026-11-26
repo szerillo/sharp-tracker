@@ -1,11 +1,11 @@
 {
- "built": "2026-11-26T02:43:02Z",
+ "built": "2026-11-26T02:57:40Z",
  "record": {
-  "n": 286,
+  "n": 287,
   "won": 126,
-  "lost": 160,
-  "units": -2.02,
-  "roi": -2.8
+  "lost": 161,
+  "units": -2.27,
+  "roi": -3.2
  },
  "record_sb4": {
   "n": 11,
@@ -17,23 +17,23 @@
  "sb4_killed": true,
  "checkable_test": {
   "rule": "kill if the first 100 graded checkable rows are not positive in both halves",
-  "n": 12,
+  "n": 13,
   "all_checkable": {
-   "n": 12,
+   "n": 13,
    "won": 3,
-   "lost": 9,
-   "units": -1.35,
-   "roi": -45.0
+   "lost": 10,
+   "units": -1.6,
+   "roi": -49.3
   },
   "half1": {
-   "n": 12,
+   "n": 13,
    "won": 3,
-   "lost": 9,
-   "units": -1.35,
-   "roi": -45.0
+   "lost": 10,
+   "units": -1.6,
+   "roi": -49.3
   },
   "half2": null,
-  "verdict": "pending: 12 of 100"
+  "verdict": "pending: 13 of 100"
  },
  "rows": [
   {
@@ -184,31 +184,6 @@
    "qty_best": 369324,
    "wide": false,
    "team": "POR",
-   "checkable": true
-  },
-  {
-   "key": "401920916|ml|home",
-   "sport": "cbb",
-   "event_id": "401920916",
-   "game": "NIU @ SIUE",
-   "start": "2026-11-26T00:00Z",
-   "market": "ml",
-   "side": "home",
-   "line": null,
-   "venue": "Novig",
-   "price": 0.4,
-   "fair": 0.4132,
-   "fair_power": 0.4082,
-   "venue_fair": 0.398,
-   "fair_gap": 1.5,
-   "ev": 3.3,
-   "move": 1.2,
-   "flagged": "2026-11-25T16:44:24Z",
-   "venue_ts": "2026-11-25T16:04:43Z",
-   "pin_ts": "2026-11-25T16:04:43Z",
-   "qty_best": 25063,
-   "wide": false,
-   "team": "SIUE",
    "checkable": true
   },
   {

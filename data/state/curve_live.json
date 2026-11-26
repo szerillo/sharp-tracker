@@ -1,5 +1,5 @@
 {
- "built": "2026-11-26T02:48:32Z",
+ "built": "2026-11-26T03:02:51Z",
  "record": {
   "cbb_1h_total_curve": {
    "n": 10,
@@ -53,17 +53,17 @@
    }
   },
   "nhl_p3_under_curve": {
-   "n": 43,
+   "n": 44,
    "won": 9,
-   "lost": 23,
-   "units": -4.79,
+   "lost": 24,
+   "units": -5.04,
    "clv": {
-    "n": 31,
-    "avg": -2.21,
+    "n": 32,
+    "avg": -2.29,
     "beat": 0
    },
    "line_value": {
-    "n": 32,
+    "n": 33,
     "avg": -0.02,
     "better": 0,
     "worse": 1
@@ -88,37 +88,6 @@
   }
  },
  "rows": [
-  {
-   "key": "nhl_p3_under_curve|b8dd63eeebfa6db1cdb18fb101d4a323||under",
-   "rule": "nhl_p3_under_curve",
-   "tier": "P",
-   "stake": 0.0,
-   "sport": "nhl",
-   "odds_id": "b8dd63eeebfa6db1cdb18fb101d4a323",
-   "espn": "401892783",
-   "game": "Carolina Hurricanes @ Tampa Bay Lightning",
-   "start": "2026-11-26T00:00:00Z",
-   "market": "totals_p3",
-   "team": null,
-   "team_name": null,
-   "side": "under",
-   "line": 2.0,
-   "curve": 0.547,
-   "pin_fair": 0.465,
-   "gap": 8.2,
-   "full_total": 6.5,
-   "full_spread": 1.5,
-   "pin_price": 2.07,
-   "book": null,
-   "price": null,
-   "flagged": "2026-11-25T23:48:39Z",
-   "close_ts": "2026-11-25T23:48:39Z",
-   "close_line": 2.0,
-   "line_value": 0.0,
-   "close_fair": 0.4651,
-   "clv": -1.8,
-   "beat_fair": 0.01
-  },
   {
    "key": "nhl_p3_under_curve|c68f7a448ea05f866093dfb4221e076e||under",
    "rule": "nhl_p3_under_curve",
@@ -146,7 +115,13 @@
    "book_fair": 0.5714,
    "fair_gap": -0.8,
    "ev_curve": 9.4,
-   "flagged": "2026-11-26T00:36:08Z"
+   "flagged": "2026-11-26T00:36:08Z",
+   "close_ts": "2026-11-26T03:02:51Z",
+   "close_line": 2.5,
+   "line_value": 0.0,
+   "close_fair": 0.5575,
+   "clv": -4.86,
+   "beat_fair": -0.65
   },
   {
    "key": "cbb_1h_total_curve|40a69bfe7d0a391985e1ca60741d208e||under",

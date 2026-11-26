@@ -1,5 +1,5 @@
 {
- "built": "2026-11-26T02:58:58Z",
+ "built": "2026-11-26T01:42:11Z",
  "rows": [
   {
    "cond": "0x62aac7b20e638ea6ebdfb78f2d12ff884594d4ce863d387d3561996c87ad2e06",
@@ -382,7 +382,7 @@
    "best_rank": 31,
    "usd": 311,
    "paid": 0.77,
-   "ask": 0.77,
+   "ask": 0.79,
    "status": "live",
    "link": "https://polymarket.us/event/nba-bkn-tor-2026-11-27",
    "other": null,
@@ -846,11 +846,11 @@
    "why": "3 top-200 accounts",
    "proven": true,
    "trigger": "proven",
-   "n_accounts": 3,
-   "best_rank": 75,
-   "usd": 515,
-   "paid": 0.404,
-   "ask": 0.42,
+   "n_accounts": 2,
+   "best_rank": 104,
+   "usd": 253,
+   "paid": 0.418,
+   "ask": 0.39,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-sas-por-2026-11-25",
    "other": {
@@ -877,8 +877,8 @@
    "cancel": null,
    "money_with": true,
    "grade": "A",
-   "fair_board": 0.4064,
-   "inside_fair": false,
+   "fair_board": 0.4072,
+   "inside_fair": true,
    "books": null
   },
   {
@@ -1068,11 +1068,7 @@
  },
  "sys_tags": {
   "401909325:nba_ats_hot_home": {
-   "with": {
-    "n": 2,
-    "best_rank": 112,
-    "usd": 2816
-   },
+   "with": null,
    "against": {
     "n": 1,
     "best_rank": 112,
@@ -1138,11 +1134,6 @@
     "n": 1,
     "best_rank": 112,
     "usd": 1461
-   },
-   "home": {
-    "n": 2,
-    "best_rank": 112,
-    "usd": 2816
    }
   },
   "401909328|ml": {
