@@ -3,20 +3,20 @@
   "status": "fitted",
   "value": {
    "BetRivers": 0.004,
-   "Caesars": 0.0234,
-   "DK": 0.0745,
-   "FD": 0.0762,
+   "Caesars": 0.023,
+   "DK": 0.0733,
+   "FD": 0.0774,
    "Fanatics": 0.0,
-   "Kalshi": 0.0907,
-   "Novig": 0.5754,
+   "Kalshi": 0.0908,
+   "Novig": 0.5756,
    "Pinnacle": 0.0791,
-   "Polymarket": 0.0767,
+   "Polymarket": 0.0768,
    "theScore": 0.0
   },
   "fit_date": "2026-11-26",
-  "sample": 1840,
-  "heldout_brier": 0.20781,
-  "train_brier": 0.21061,
+  "sample": 1842,
+  "heldout_brier": 0.20777,
+  "train_brier": 0.21059,
   "zeroed": [],
   "ridge": 0.05,
   "cap": 0.6,
@@ -26,7 +26,7 @@
   "status": "gated",
   "n": 18534,
   "gate": 20000,
-  "checked": "2026-11-26T20:05:38.707277+00:00",
+  "checked": "2026-11-26T21:10:31.747278+00:00",
   "note": "prior weights in force until 20000"
  }
 }
