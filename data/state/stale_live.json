@@ -1,11 +1,11 @@
 {
- "built": "2026-11-26T20:49:55Z",
+ "built": "2026-11-26T21:03:17Z",
  "record": {
-  "n": 299,
+  "n": 300,
   "won": 129,
-  "lost": 170,
-  "units": -3.53,
-  "roi": -4.7
+  "lost": 171,
+  "units": -3.78,
+  "roi": -5.0
  },
  "record_sb4": {
   "n": 11,
@@ -17,50 +17,25 @@
  "sb4_killed": true,
  "checkable_test": {
   "rule": "kill if the first 100 graded checkable rows are not positive in both halves",
-  "n": 25,
+  "n": 26,
   "all_checkable": {
-   "n": 25,
+   "n": 26,
    "won": 6,
-   "lost": 19,
-   "units": -2.86,
-   "roi": -45.7
+   "lost": 20,
+   "units": -3.11,
+   "roi": -47.8
   },
   "half1": {
-   "n": 25,
+   "n": 26,
    "won": 6,
-   "lost": 19,
-   "units": -2.86,
-   "roi": -45.7
+   "lost": 20,
+   "units": -3.11,
+   "roi": -47.8
   },
   "half2": null,
-  "verdict": "pending: 25 of 100"
+  "verdict": "pending: 26 of 100"
  },
  "rows": [
-  {
-   "key": "401920528|ml|away",
-   "sport": "cbb",
-   "event_id": "401920528",
-   "game": "SDSU @ MD",
-   "start": "2026-11-26T18:00Z",
-   "market": "ml",
-   "side": "away",
-   "line": null,
-   "venue": "Novig",
-   "price": 0.37,
-   "fair": 0.3928,
-   "fair_power": 0.3865,
-   "venue_fair": 0.3663,
-   "fair_gap": 2.6,
-   "ev": 6.2,
-   "move": 1.1,
-   "flagged": "2026-11-26T08:52:18Z",
-   "venue_ts": "2026-11-26T08:26:12Z",
-   "pin_ts": "2026-11-26T08:26:12Z",
-   "qty_best": 48125,
-   "wide": false,
-   "team": "SDSU",
-   "checkable": true
-  },
   {
    "key": "401920529|total|over",
    "sport": "cbb",
