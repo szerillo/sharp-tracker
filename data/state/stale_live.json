@@ -1,11 +1,11 @@
 {
- "built": "2026-11-26T02:12:19Z",
+ "built": "2026-11-26T02:28:23Z",
  "record": {
-  "n": 283,
+  "n": 286,
   "won": 126,
-  "lost": 157,
-  "units": -1.27,
-  "roi": -1.8
+  "lost": 160,
+  "units": -2.02,
+  "roi": -2.8
  },
  "record_sb4": {
   "n": 11,
@@ -17,23 +17,23 @@
  "sb4_killed": true,
  "checkable_test": {
   "rule": "kill if the first 100 graded checkable rows are not positive in both halves",
-  "n": 9,
+  "n": 12,
   "all_checkable": {
-   "n": 9,
+   "n": 12,
    "won": 3,
-   "lost": 6,
-   "units": -0.6,
-   "roi": -26.7
+   "lost": 9,
+   "units": -1.35,
+   "roi": -45.0
   },
   "half1": {
-   "n": 9,
+   "n": 12,
    "won": 3,
-   "lost": 6,
-   "units": -0.6,
-   "roi": -26.7
+   "lost": 9,
+   "units": -1.35,
+   "roi": -45.0
   },
   "half2": null,
-  "verdict": "pending: 9 of 100"
+  "verdict": "pending: 12 of 100"
  },
  "rows": [
   {
@@ -212,31 +212,6 @@
    "checkable": true
   },
   {
-   "key": "401921108|total|over",
-   "sport": "cbb",
-   "event_id": "401921108",
-   "game": "BELL @ NKU",
-   "start": "2026-11-26T00:00Z",
-   "market": "total",
-   "side": "over",
-   "line": 148.5,
-   "venue": "Novig",
-   "price": 0.465,
-   "fair": 0.5097,
-   "fair_power": 0.5104,
-   "venue_fair": 0.4627,
-   "fair_gap": 4.7,
-   "ev": 9.6,
-   "move": 1.2,
-   "flagged": "2026-11-25T16:44:24Z",
-   "venue_ts": "2026-11-25T16:04:43Z",
-   "pin_ts": "2026-11-25T16:04:43Z",
-   "qty_best": 104500,
-   "wide": false,
-   "team": null,
-   "checkable": true
-  },
-  {
    "key": "401921672|ml|away",
    "sport": "cbb",
    "event_id": "401921672",
@@ -334,31 +309,6 @@
    "qty_best": 843207,
    "wide": false,
    "team": null,
-   "checkable": true
-  },
-  {
-   "key": "401922285|ml|away",
-   "sport": "cbb",
-   "event_id": "401922285",
-   "game": "UPST @ CIT",
-   "start": "2026-11-26T00:00Z",
-   "market": "ml",
-   "side": "away",
-   "line": null,
-   "venue": "Novig",
-   "price": 0.38,
-   "fair": 0.4046,
-   "fair_power": 0.3991,
-   "venue_fair": 0.3781,
-   "fair_gap": 2.6,
-   "ev": 6.5,
-   "move": 2.1,
-   "flagged": "2026-11-25T22:30:01Z",
-   "venue_ts": "2026-11-25T22:03:35Z",
-   "pin_ts": "2026-11-25T22:03:35Z",
-   "qty_best": 2695866,
-   "wide": false,
-   "team": "UPST",
    "checkable": true
   },
   {
