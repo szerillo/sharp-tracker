@@ -1,11 +1,11 @@
 {
- "built": "2026-11-26T00:46:19Z",
+ "built": "2026-11-26T01:02:46Z",
  "record": {
-  "n": 282,
+  "n": 283,
   "won": 126,
-  "lost": 156,
-  "units": -1.02,
-  "roi": -1.4
+  "lost": 157,
+  "units": -1.27,
+  "roi": -1.8
  },
  "record_sb4": {
   "n": 11,
@@ -17,23 +17,23 @@
  "sb4_killed": true,
  "checkable_test": {
   "rule": "kill if the first 100 graded checkable rows are not positive in both halves",
-  "n": 8,
+  "n": 9,
   "all_checkable": {
-   "n": 8,
+   "n": 9,
    "won": 3,
-   "lost": 5,
-   "units": -0.35,
-   "roi": -17.5
+   "lost": 6,
+   "units": -0.6,
+   "roi": -26.7
   },
   "half1": {
-   "n": 8,
+   "n": 9,
    "won": 3,
-   "lost": 5,
-   "units": -0.35,
-   "roi": -17.5
+   "lost": 6,
+   "units": -0.6,
+   "roi": -26.7
   },
   "half2": null,
-  "verdict": "pending: 8 of 100"
+  "verdict": "pending: 9 of 100"
  },
  "rows": [
   {
@@ -359,31 +359,6 @@
    "qty_best": 843207,
    "wide": false,
    "team": null,
-   "checkable": true
-  },
-  {
-   "key": "401909317|ml|away",
-   "sport": "nba",
-   "event_id": "401909317",
-   "game": "MIA @ PHI",
-   "start": "2026-11-25T22:00Z",
-   "market": "ml",
-   "side": "away",
-   "line": null,
-   "venue": "DK",
-   "price": 0.4975,
-   "fair": 0.5216,
-   "fair_power": 0.5225,
-   "venue_fair": 0.478,
-   "fair_gap": 4.4,
-   "ev": 4.8,
-   "move": 5.0,
-   "flagged": "2026-11-25T20:53:07Z",
-   "venue_ts": "2026-11-25T20:26:31Z",
-   "pin_ts": "2026-11-25T20:26:31Z",
-   "qty_best": null,
-   "wide": false,
-   "team": "MIA",
    "checkable": true
   },
   {
