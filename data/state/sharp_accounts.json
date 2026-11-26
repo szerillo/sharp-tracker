@@ -1,5 +1,5 @@
 {
- "built": "2026-11-26T22:30:20Z",
+ "built": "2026-11-26T22:37:54Z",
  "rows": [
   {
    "cond": "0xb9219d093571325970a24b24d0bc65f2ea8c83802931c4c2afbb0ee67b9d46b5",
@@ -289,7 +289,7 @@
    "best_rank": 104,
    "usd": 302,
    "paid": 0.437,
-   "ask": 0.44,
+   "ask": 0.45,
    "status": "live",
    "link": "https://polymarket.us/event/nba-mia-nyk-2026-11-27",
    "other": null,
@@ -679,11 +679,14 @@
    "home_name": "Indiana Pacers",
    "game_start": "2026-11-28T00:30Z",
    "side_std": "away",
+   "conflict": [
+    "Kalshi bet back"
+   ],
    "cancel": null,
    "money_with": false,
    "grade": "A",
    "fair_board": 0.5941,
-   "inside_fair": false,
+   "inside_fair": true,
    "books": null
   }
  ],
