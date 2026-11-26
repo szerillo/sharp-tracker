@@ -1,5 +1,5 @@
 {
- "built": "2026-11-26T10:53:21Z",
+ "built": "2026-11-26T11:44:27Z",
  "rows": [
   {
    "cond": "0xb5af1a1657125484fef6159ea091da17942ffc17b551439aa8b8b0cd4180c2a8",
@@ -123,8 +123,8 @@
    "cancel": null,
    "money_with": false,
    "grade": "B",
-   "fair_board": 0.5817,
    "inside_fair": false,
+   "fair_board": 0.5817,
    "books": {
     "at": "2026-11-26T02:56:18Z",
     "fair": 0.5817,
@@ -135,6 +135,44 @@
      "FD": 0.6032
     }
    }
+  },
+  {
+   "cond": "0xdcf51a8a1eff2ab52ce3cff7faa72c3279d31b0881c10780adae75f97e1a28c9",
+   "slug": "nhl-dal-stl-2026-11-27",
+   "title": "Stars vs. Blues",
+   "mtype": "ml",
+   "start": "2026-11-27T19:00:00Z",
+   "bet": "Stars ML",
+   "side": "Stars",
+   "flagged": "2026-11-26T11:36:31Z",
+   "why": "a top-200 account also in this sport's top 50",
+   "proven": true,
+   "trigger": "proven",
+   "n_accounts": 1,
+   "best_rank": 197,
+   "usd": 602,
+   "paid": 0.56,
+   "ask": 0.57,
+   "status": "live",
+   "link": "https://polymarket.us/event/nhl-dal-stl-2026-11-27",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401892798",
+   "sport": "nhl",
+   "league": null,
+   "away": "DAL",
+   "home": "STL",
+   "away_name": "Dallas Stars",
+   "home_name": "St. Louis Blues",
+   "game_start": "2026-11-27T19:00Z",
+   "side_std": "away",
+   "cancel": null,
+   "money_with": false,
+   "grade": "A",
+   "fair_board": null,
+   "inside_fair": null,
+   "books": null
   },
   {
    "cond": "0xbec11310a30324181125d890a817d639716c0173c225e461c3292d7ed5044f6e",
@@ -185,6 +223,44 @@
      "DK": 0.6689
     }
    }
+  },
+  {
+   "cond": "0x54ad8d9c5138c8de4f4d8cd4eb6b1329b97cefacafa3549c70e83966f041ba8e",
+   "slug": "nhl-fla-wsh-2026-11-27",
+   "title": "Panthers vs. Capitals",
+   "mtype": "ml",
+   "start": "2026-11-27T20:00:00Z",
+   "bet": "Panthers ML",
+   "side": "Panthers",
+   "flagged": "2026-11-26T11:40:38Z",
+   "why": "a top-200 account also in this sport's top 50",
+   "proven": true,
+   "trigger": "proven",
+   "n_accounts": 1,
+   "best_rank": 197,
+   "usd": 505,
+   "paid": 0.488,
+   "ask": 0.5,
+   "status": "live",
+   "link": "https://polymarket.us/event/nhl-fla-wsh-2026-11-27",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401892801",
+   "sport": "nhl",
+   "league": null,
+   "away": "FLA",
+   "home": "WSH",
+   "away_name": "Florida Panthers",
+   "home_name": "Washington Capitals",
+   "game_start": "2026-11-27T20:00Z",
+   "side_std": "away",
+   "cancel": null,
+   "money_with": false,
+   "grade": "A",
+   "fair_board": null,
+   "inside_fair": null,
+   "books": null
   },
   {
    "cond": "0x556075048ecff61d47f5056ec9ca8b6a08df39f0de51d5f90c0314e36ca12757",
@@ -611,6 +687,27 @@
     "n": 1,
     "best_rank": 104,
     "usd": 279
+   }
+  },
+  "401892795|ml": {
+   "home": {
+    "n": 1,
+    "best_rank": 132,
+    "usd": 196
+   }
+  },
+  "401892798|ml": {
+   "away": {
+    "n": 1,
+    "best_rank": 197,
+    "usd": 602
+   }
+  },
+  "401892801|ml": {
+   "away": {
+    "n": 1,
+    "best_rank": 197,
+    "usd": 505
    }
   },
   "401856879|spread": {
