@@ -1,5 +1,5 @@
 {
- "built": "2026-11-26T15:05:33Z",
+ "built": "2026-11-26T15:13:05Z",
  "rows": [
   {
    "cond": "0xb5af1a1657125484fef6159ea091da17942ffc17b551439aa8b8b0cd4180c2a8",
@@ -50,6 +50,49 @@
      "DK": 0.495
     }
    }
+  },
+  {
+   "cond": "0xb9219d093571325970a24b24d0bc65f2ea8c83802931c4c2afbb0ee67b9d46b5",
+   "slug": "cfb-tcu-txtech-2026-11-26",
+   "title": "TCU vs. Texas Tech",
+   "mtype": "spread",
+   "start": "2026-11-27T01:00:00Z",
+   "bet": "TCU +16.5",
+   "side": "TCU",
+   "flagged": "2026-11-26T15:07:22Z",
+   "why": "2 top-200 accounts",
+   "proven": true,
+   "trigger": "proven",
+   "n_accounts": 2,
+   "best_rank": 58,
+   "usd": 1130,
+   "paid": 0.514,
+   "ask": 0.52,
+   "status": "live",
+   "link": "https://polymarket.us/event/cfb-tcu-txtech-2026-11-26",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401856879",
+   "sport": "cfb",
+   "league": null,
+   "away": "TCU",
+   "home": "TTU",
+   "away_name": "TCU Horned Frogs",
+   "home_name": "Texas Tech Red Raiders",
+   "game_start": "2026-11-27T01:00Z",
+   "side_std": "away",
+   "conflict": [
+    "Kalshi move"
+   ],
+   "cancel": [
+    "Kalshi move"
+   ],
+   "money_with": true,
+   "grade": "A",
+   "fair_board": null,
+   "inside_fair": null,
+   "books": null
   },
   {
    "cond": "0x8dc2c4d90c60e5dac5508b00c1bf5fe4ec146f6f73b6a90bec89958fe936b156",
@@ -613,9 +656,9 @@
  "sys_tags": {
   "401856879:cfb_road_dog_low_total": {
    "with": {
-    "n": 1,
-    "best_rank": 132,
-    "usd": 650
+    "n": 2,
+    "best_rank": 58,
+    "usd": 1130
    },
    "against": null
   }
@@ -719,9 +762,9 @@
   },
   "401856879|spread": {
    "away": {
-    "n": 1,
-    "best_rank": 132,
-    "usd": 650
+    "n": 2,
+    "best_rank": 58,
+    "usd": 1130
    }
   },
   "401856757|total": {
