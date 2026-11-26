@@ -1,5 +1,5 @@
 {
- "built": "2026-11-26T00:05:13Z",
+ "built": "2026-11-26T00:21:10Z",
  "record": {
   "cbb_1h_total_curve": {
    "n": 10,
@@ -118,6 +118,35 @@
    "close_fair": 0.4651,
    "clv": -1.8,
    "beat_fair": 0.01
+  },
+  {
+   "key": "nhl_p3_under_curve|c68f7a448ea05f866093dfb4221e076e||under",
+   "rule": "nhl_p3_under_curve",
+   "tier": "P",
+   "stake": 0.25,
+   "sport": "nhl",
+   "odds_id": "c68f7a448ea05f866093dfb4221e076e",
+   "espn": "401892793",
+   "game": "San Jose Sharks @ Anaheim Ducks",
+   "start": "2026-11-26T03:10:00Z",
+   "market": "totals_p3",
+   "team": null,
+   "team_name": null,
+   "side": "under",
+   "line": 2.5,
+   "curve": 0.663,
+   "pin_fair": 0.564,
+   "gap": 9.9,
+   "full_total": 6.5,
+   "full_spread": -1.5,
+   "pin_price": 1.71,
+   "book": "DK",
+   "price": 1.65,
+   "pin_fair_power": 0.5673,
+   "book_fair": 0.5714,
+   "fair_gap": -0.8,
+   "ev_curve": 9.4,
+   "flagged": "2026-11-26T00:21:10Z"
   }
  ]
 }
