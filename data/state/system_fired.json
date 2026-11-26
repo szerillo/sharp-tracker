@@ -10355,7 +10355,10 @@
 "price": -115,
 "fair": 0.5116,
 "edge_pts": -2.33,
-"why": "MIA off 5 straight home games, first road game: over (Bet Labs filter)"
+"why": "MIA off 5 straight home games, first road game: over (Bet Labs filter)",
+"void": true,
+"void_why": "trigger no longer holds on current season records (2026-11-26T00:56:32Z)",
+"void_at": "2026-11-26T00:56:32Z"
 },
 "401909333:nba_roadtrip_over": {
 "tag": "nba_roadtrip_over",
@@ -10468,5 +10471,31 @@
 "fair": 0.65171,
 "edge_pts": -0.33,
 "why": "Novig home side mid 0.347 inside T-0.5h; audit band 20-35c"
+},
+"401873093:vrest8_1h": {
+"tag": "vrest8_1h",
+"fill_id": "4908aec08368",
+"ts": "2026-11-26T00:56:32Z",
+"market": "1h_total",
+"side": "under",
+"line": 17.5,
+"venue": "DK",
+"price": -123,
+"fair": 0.53039,
+"edge_pts": -2.12,
+"why": "NE off 14 days"
+},
+"401892801:nhl_skid_fade_road": {
+"tag": "nhl_skid_fade_road",
+"fill_id": "4015f7540b52",
+"ts": "2026-11-26T00:56:32Z",
+"market": "spread",
+"side": "away",
+"line": 1.5,
+"venue": "Kalshi",
+"price": -317,
+"fair": null,
+"edge_pts": null,
+"why": "FLA off a win, home WSH has lost 5 straight: road puck line (mined angle)"
 }
 }
