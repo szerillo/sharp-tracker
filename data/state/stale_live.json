@@ -1,11 +1,11 @@
 {
- "built": "2026-11-26T05:09:43Z",
+ "built": "2026-11-26T05:23:48Z",
  "record": {
-  "n": 293,
-  "won": 127,
+  "n": 294,
+  "won": 128,
   "lost": 166,
-  "units": -3.28,
-  "roi": -4.5
+  "units": -2.87,
+  "roi": -3.9
  },
  "record_sb4": {
   "n": 11,
@@ -17,23 +17,23 @@
  "sb4_killed": true,
  "checkable_test": {
   "rule": "kill if the first 100 graded checkable rows are not positive in both halves",
-  "n": 19,
+  "n": 20,
   "all_checkable": {
-   "n": 19,
-   "won": 4,
+   "n": 20,
+   "won": 5,
    "lost": 15,
-   "units": -2.61,
-   "roi": -55.0
+   "units": -2.2,
+   "roi": -44.1
   },
   "half1": {
-   "n": 19,
-   "won": 4,
+   "n": 20,
+   "won": 5,
    "lost": 15,
-   "units": -2.61,
-   "roi": -55.0
+   "units": -2.2,
+   "roi": -44.1
   },
   "half2": null,
-  "verdict": "pending: 19 of 100"
+  "verdict": "pending: 20 of 100"
  },
  "rows": [
   {
