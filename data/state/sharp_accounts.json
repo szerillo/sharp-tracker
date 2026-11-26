@@ -1,5 +1,5 @@
 {
- "built": "2026-11-26T00:30:37Z",
+ "built": "2026-11-26T00:22:30Z",
  "rows": [
   {
    "cond": "0x62aac7b20e638ea6ebdfb78f2d12ff884594d4ce863d387d3561996c87ad2e06",
@@ -211,7 +211,7 @@
    "best_rank": 104,
    "usd": 197,
    "paid": 0.42,
-   "ask": null,
+   "ask": 0.34,
    "status": "live",
    "link": "https://polymarket.us/event/nba-cle-nyk-2026-11-25",
    "other": null,
@@ -748,7 +748,7 @@
    "money_with": false,
    "grade": "A",
    "fair_board": 0.3764,
-   "inside_fair": null,
+   "inside_fair": false,
    "books": null
   },
   {
@@ -796,7 +796,7 @@
    "money_with": false,
    "grade": "A",
    "fair_board": 0.4426,
-   "inside_fair": null,
+   "inside_fair": false,
    "books": null
   },
   {
@@ -1212,6 +1212,22 @@
  },
  "sys_tags": {
   "401873079:nfl_fade_fav_bye": {
+   "with": null,
+   "against": {
+    "n": 2,
+    "best_rank": 95,
+    "usd": 443
+   }
+  },
+  "401873079:bounce15_1h": {
+   "with": null,
+   "against": {
+    "n": 2,
+    "best_rank": 95,
+    "usd": 443
+   }
+  },
+  "401909320:nba_roadtrip_over": {
    "with": null,
    "against": {
     "n": 2,
