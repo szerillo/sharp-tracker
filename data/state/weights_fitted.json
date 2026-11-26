@@ -2,21 +2,21 @@
  "mlb:game": {
   "status": "fitted",
   "value": {
-   "BetRivers": 0.0059,
-   "Caesars": 0.0214,
+   "BetRivers": 0.0026,
+   "Caesars": 0.0216,
    "DK": 0.0743,
-   "FD": 0.0735,
-   "Fanatics": 0.004,
+   "FD": 0.0758,
+   "Fanatics": 0.0048,
    "Kalshi": 0.0933,
-   "Novig": 0.5744,
+   "Novig": 0.5742,
    "Pinnacle": 0.0766,
    "Polymarket": 0.0766,
-   "theScore": 0.0
+   "theScore": 0.0003
   },
   "fit_date": "2026-11-26",
-  "sample": 1845,
-  "heldout_brier": 0.20961,
-  "train_brier": 0.20864,
+  "sample": 1854,
+  "heldout_brier": 0.20768,
+  "train_brier": 0.21045,
   "zeroed": [],
   "ridge": 0.05,
   "cap": 0.6,
@@ -26,7 +26,7 @@
   "status": "gated",
   "n": 18622,
   "gate": 20000,
-  "checked": "2026-11-26T22:10:05.135048+00:00",
+  "checked": "2026-11-26T23:02:58.496904+00:00",
   "note": "prior weights in force until 20000"
  }
 }
