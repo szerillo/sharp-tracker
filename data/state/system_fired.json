@@ -10342,7 +10342,11 @@
 "price": -122,
 "fair": 0.52,
 "edge_pts": -3.0,
-"why": "home favorite, game 22 of the season, opponent FLA wins 54% (13-11)"
+"why": "home favorite, game 22 of the season, opponent FLA wins 54% (13-11)",
+"void": true,
+"void_why": "Untracked: systems conflict (nhl_early_home_fav_qual vs nhl_skid_fade_road)",
+"void_at": "2026-11-26T01:18:41Z",
+"untracked": "nhl_early_home_fav_qual vs nhl_skid_fade_road"
 },
 "401909326:nba_roadtrip_over": {
 "tag": "nba_roadtrip_over",
@@ -10496,6 +10500,10 @@
 "price": -317,
 "fair": null,
 "edge_pts": null,
-"why": "FLA off a win, home WSH has lost 5 straight: road puck line (mined angle)"
+"why": "FLA off a win, home WSH has lost 5 straight: road puck line (mined angle)",
+"void": true,
+"void_why": "Untracked: systems conflict (nhl_skid_fade_road vs nhl_early_home_fav_qual)",
+"void_at": "2026-11-26T01:18:41Z",
+"untracked": "nhl_skid_fade_road vs nhl_early_home_fav_qual"
 }
 }
