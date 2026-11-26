@@ -1,5 +1,5 @@
 {
- "built": "2026-11-26T21:18:45Z",
+ "built": "2026-11-26T21:57:42Z",
  "rows": [
   {
    "cond": "0xb5af1a1657125484fef6159ea091da17942ffc17b551439aa8b8b0cd4180c2a8",
@@ -310,6 +310,44 @@
      "DK": 0.5283
     }
    }
+  },
+  {
+   "cond": "0x841dca267e34794410689cfbc77ba290f9dbf64330821bfa50e3669612035e18",
+   "slug": "nba-mia-nyk-2026-11-27",
+   "title": "Heat vs. Knicks",
+   "mtype": "spread",
+   "start": "2026-11-28T00:00:00Z",
+   "bet": "Knicks -6.5",
+   "side": "Knicks",
+   "flagged": "2026-11-26T21:55:06Z",
+   "why": "a top-200 account also in this sport's top 50",
+   "proven": true,
+   "trigger": "proven",
+   "n_accounts": 1,
+   "best_rank": 104,
+   "usd": 302,
+   "paid": 0.437,
+   "ask": 0.45,
+   "status": "live",
+   "link": "https://polymarket.us/event/nba-mia-nyk-2026-11-27",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401909326",
+   "sport": "nba",
+   "league": null,
+   "away": "MIA",
+   "home": "NY",
+   "away_name": "Miami Heat",
+   "home_name": "New York Knicks",
+   "game_start": "2026-11-28T00:00Z",
+   "side_std": "home",
+   "cancel": null,
+   "money_with": false,
+   "grade": "watch",
+   "fair_board": null,
+   "inside_fair": null,
+   "books": null
   },
   {
    "cond": "0x556075048ecff61d47f5056ec9ca8b6a08df39f0de51d5f90c0314e36ca12757",
@@ -650,18 +688,18 @@
     "clv": -0.95
    },
    "outside": {
-    "n": 125,
+    "n": 126,
     "won": 66,
     "units": -0.03,
     "clv": -0.12
    }
   },
-  "n": 461,
+  "n": 462,
   "won": 223,
   "units": -13.36,
   "by_grade": {
    "A": {
-    "n": 308,
+    "n": 309,
     "won": 143,
     "units": -13.17,
     "clv": -0.16
@@ -679,9 +717,9 @@
     "clv": 0.11
    }
   },
-  "units_1u": -16.12,
+  "units_1u": -17.12,
   "clv": -0.36,
-  "n_venue": 241,
+  "n_venue": 242,
   "units_venue": -5.02,
   "clv_venue": 0.89,
   "clv_poly_same": -0.6
@@ -730,6 +768,13 @@
     "n": 1,
     "best_rank": 182,
     "usd": 293
+   }
+  },
+  "401909326|spread": {
+   "home": {
+    "n": 1,
+    "best_rank": 104,
+    "usd": 302
    }
   },
   "401909328|ml": {
