@@ -1,11 +1,11 @@
 {
- "built": "2026-11-26T23:27:21Z",
+ "built": "2026-11-26T23:42:30Z",
  "record": {
-  "n": 301,
+  "n": 302,
   "won": 130,
-  "lost": 171,
-  "units": -3.54,
-  "roi": -4.7
+  "lost": 172,
+  "units": -3.79,
+  "roi": -5.0
  },
  "record_sb4": {
   "n": 11,
@@ -17,50 +17,25 @@
  "sb4_killed": true,
  "checkable_test": {
   "rule": "kill if the first 100 graded checkable rows are not positive in both halves",
-  "n": 27,
+  "n": 28,
   "all_checkable": {
-   "n": 27,
+   "n": 28,
    "won": 7,
-   "lost": 20,
-   "units": -2.87,
-   "roi": -42.6
+   "lost": 21,
+   "units": -3.12,
+   "roi": -44.6
   },
   "half1": {
-   "n": 27,
+   "n": 28,
    "won": 7,
-   "lost": 20,
-   "units": -2.87,
-   "roi": -42.6
+   "lost": 21,
+   "units": -3.12,
+   "roi": -44.6
   },
   "half2": null,
-  "verdict": "pending: 27 of 100"
+  "verdict": "pending: 28 of 100"
  },
  "rows": [
-  {
-   "key": "401920529|total|over",
-   "sport": "cbb",
-   "event_id": "401920529",
-   "game": "TENN @ ISU",
-   "start": "2026-11-26T20:30Z",
-   "market": "total",
-   "side": "over",
-   "line": 139.5,
-   "venue": "Novig",
-   "price": 0.49,
-   "fair": 0.5043,
-   "fair_power": 0.5046,
-   "venue_fair": 0.4851,
-   "fair_gap": 1.9,
-   "ev": 2.9,
-   "move": 1.2,
-   "flagged": "2026-11-26T12:27:38Z",
-   "venue_ts": "2026-11-26T12:04:21Z",
-   "pin_ts": "2026-11-26T12:04:21Z",
-   "qty_best": 106457,
-   "wide": false,
-   "team": null,
-   "checkable": true
-  },
   {
    "key": "401920530|ml|away",
    "sport": "cbb",
