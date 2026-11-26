@@ -1,5 +1,5 @@
 {
- "built": "2026-11-26T04:44:48Z",
+ "built": "2026-11-26T04:52:37Z",
  "rows": [
   {
    "cond": "0xb5af1a1657125484fef6159ea091da17942ffc17b551439aa8b8b0cd4180c2a8",
@@ -32,6 +32,9 @@
    "home_name": "Detroit Lions",
    "game_start": "2026-11-26T18:00Z",
    "side_std": "home",
+   "conflict": [
+    "big money"
+   ],
    "cancel": null,
    "money_with": false,
    "grade": "A",
@@ -193,7 +196,7 @@
    "best_rank": 31,
    "usd": 142,
    "paid": 0.669,
-   "ask": 0.63,
+   "ask": 0.64,
    "status": "live",
    "link": "https://polymarket.us/event/nba-lal-sas-2026-11-27",
    "other": null,
@@ -578,16 +581,16 @@
    "best_rank": 31,
    "usd": 5469,
    "paid": 0.54,
-   "ask": 0.65,
+   "ask": 0.63,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-phi-ind-2026-11-27",
    "other": {
-    "n_accounts": 1,
-    "best_rank": 104,
-    "usd": 705,
+    "n_accounts": 2,
+    "best_rank": 31,
+    "usd": 4643,
     "first": "2026-11-25T12:45:28Z"
    },
-   "exit_bid": 0.64,
+   "exit_bid": 0.62,
    "kalshi_against": null,
    "logged": true,
    "event_id": "401909328",
@@ -622,15 +625,15 @@
     "clv": -0.12
    }
   },
-  "n": 457,
-  "won": 221,
+  "n": 458,
+  "won": 222,
   "units": -13.11,
   "by_grade": {
    "A": {
-    "n": 305,
-    "won": 141,
+    "n": 306,
+    "won": 142,
     "units": -13.17,
-    "clv": -0.16
+    "clv": -0.17
    },
    "B": {
     "n": 105,
@@ -645,7 +648,7 @@
     "clv": 0.11
    }
   },
-  "units_1u": -15.89,
+  "units_1u": -15.45,
   "clv": -0.36,
   "n_venue": 238,
   "units_venue": -4.77,
@@ -682,9 +685,9 @@
     "usd": 5469
    },
    "home": {
-    "n": 1,
-    "best_rank": 104,
-    "usd": 510
+    "n": 2,
+    "best_rank": 31,
+    "usd": 4448
    }
   },
   "401909329|ml": {
