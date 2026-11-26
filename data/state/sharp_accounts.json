@@ -1,5 +1,5 @@
 {
- "built": "2026-11-26T19:47:14Z",
+ "built": "2026-11-26T20:02:10Z",
  "rows": [
   {
    "cond": "0xb5af1a1657125484fef6159ea091da17942ffc17b551439aa8b8b0cd4180c2a8",
@@ -223,14 +223,14 @@
    "bet": "Broncos ML",
    "side": "Broncos",
    "flagged": "2026-11-25T04:19:59Z",
-   "why": "2 top-200 accounts",
+   "why": "3 top-200 accounts",
    "proven": true,
    "trigger": "proven",
-   "n_accounts": 2,
+   "n_accounts": 3,
    "best_rank": 24,
-   "usd": 2419,
-   "paid": 0.64,
-   "ask": 0.67,
+   "usd": 2558,
+   "paid": 0.642,
+   "ask": 0.68,
    "status": "live",
    "link": "https://polymarket.us/event/nfl-den-pit-2026-11-27",
    "other": null,
@@ -612,7 +612,7 @@
    "best_rank": 31,
    "usd": 5469,
    "paid": 0.54,
-   "ask": 0.6,
+   "ask": 0.61,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-phi-ind-2026-11-27",
    "other": {
@@ -621,7 +621,7 @@
     "usd": 7485,
     "first": "2026-11-25T12:45:28Z"
    },
-   "exit_bid": 0.59,
+   "exit_bid": 0.6,
    "kalshi_against": null,
    "logged": true,
    "event_id": "401909328",
@@ -637,7 +637,7 @@
    "money_with": false,
    "grade": "watch",
    "fair_board": 0.6035,
-   "inside_fair": true,
+   "inside_fair": false,
    "books": null
   }
  ],
@@ -720,9 +720,16 @@
   },
   "401873083|ml": {
    "away": {
-    "n": 2,
+    "n": 3,
     "best_rank": 24,
-    "usd": 2419
+    "usd": 2558
+   }
+  },
+  "401873083|spread": {
+   "away": {
+    "n": 1,
+    "best_rank": 182,
+    "usd": 293
    }
   },
   "401909328|ml": {
