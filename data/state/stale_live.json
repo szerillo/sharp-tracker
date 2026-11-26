@@ -1,11 +1,11 @@
 {
- "built": "2026-11-26T05:40:34Z",
+ "built": "2026-11-26T05:56:49Z",
  "record": {
-  "n": 294,
+  "n": 295,
   "won": 128,
-  "lost": 166,
-  "units": -2.87,
-  "roi": -3.9
+  "lost": 167,
+  "units": -3.12,
+  "roi": -4.2
  },
  "record_sb4": {
   "n": 11,
@@ -17,23 +17,23 @@
  "sb4_killed": true,
  "checkable_test": {
   "rule": "kill if the first 100 graded checkable rows are not positive in both halves",
-  "n": 20,
+  "n": 21,
   "all_checkable": {
-   "n": 20,
+   "n": 21,
    "won": 5,
-   "lost": 15,
-   "units": -2.2,
-   "roi": -44.1
+   "lost": 16,
+   "units": -2.45,
+   "roi": -46.7
   },
   "half1": {
-   "n": 20,
+   "n": 21,
    "won": 5,
-   "lost": 15,
-   "units": -2.2,
-   "roi": -44.1
+   "lost": 16,
+   "units": -2.45,
+   "roi": -46.7
   },
   "half2": null,
-  "verdict": "pending: 20 of 100"
+  "verdict": "pending: 21 of 100"
  },
  "rows": [
   {
@@ -109,31 +109,6 @@
    "qty_best": 788704,
    "wide": false,
    "team": null,
-   "checkable": true
-  },
-  {
-   "key": "401921713|ml|away",
-   "sport": "cbb",
-   "event_id": "401921713",
-   "game": "WASH @ VCU",
-   "start": "2026-11-26T03:00Z",
-   "market": "ml",
-   "side": "away",
-   "line": null,
-   "venue": "Novig",
-   "price": 0.365,
-   "fair": 0.3789,
-   "fair_power": 0.3718,
-   "venue_fair": 0.3596,
-   "fair_gap": 1.9,
-   "ev": 3.8,
-   "move": 1.8,
-   "flagged": "2026-11-25T19:47:02Z",
-   "venue_ts": "2026-11-25T19:05:02Z",
-   "pin_ts": "2026-11-25T19:05:02Z",
-   "qty_best": 409294,
-   "wide": false,
-   "team": "WASH",
    "checkable": true
   }
  ]

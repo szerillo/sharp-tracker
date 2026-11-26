@@ -1,11 +1,11 @@
 {
- "built": "2026-11-26T05:46:38Z",
+ "built": "2026-11-26T06:01:38Z",
  "record": {
   "cbb_1h_total_curve": {
-   "n": 10,
+   "n": 11,
    "won": 5,
-   "lost": 4,
-   "units": 0.1,
+   "lost": 5,
+   "units": -0.15,
    "clv": {
     "n": 5,
     "avg": -2.76,
@@ -116,34 +116,6 @@
    "fair_gap": -0.8,
    "ev_curve": 9.4,
    "flagged": "2026-11-26T00:36:08Z"
-  },
-  {
-   "key": "cbb_1h_total_curve|40a69bfe7d0a391985e1ca60741d208e||under",
-   "rule": "cbb_1h_total_curve",
-   "tier": "P",
-   "stake": 0.0,
-   "sport": "cbb",
-   "odds_id": "40a69bfe7d0a391985e1ca60741d208e",
-   "espn": "401921713",
-   "game": "Washington Huskies @ VCU Rams",
-   "start": "2026-11-26T03:00:00Z",
-   "market": "totals_h1",
-   "team": null,
-   "team_name": null,
-   "side": "under",
-   "line": 69.5,
-   "curve": 0.607,
-   "pin_fair": 0.516,
-   "gap": 9.2,
-   "full_total": 143.5,
-   "full_spread": -3.5,
-   "pin_price": 1.85,
-   "book": null,
-   "price": null,
-   "flagged": "2026-11-26T01:08:57Z",
-   "close_ts": "2026-11-26T02:48:32Z",
-   "close_line": 68.5,
-   "line_value": 1.0
   }
  ]
 }
