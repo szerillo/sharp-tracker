@@ -1,5 +1,5 @@
 {
- "built": "2026-11-26T01:42:11Z",
+ "built": "2026-11-26T02:21:19Z",
  "rows": [
   {
    "cond": "0x62aac7b20e638ea6ebdfb78f2d12ff884594d4ce863d387d3561996c87ad2e06",
@@ -268,8 +268,8 @@
    "inside_fair": false,
    "fair_board": 0.4624,
    "books": {
-    "at": "2026-11-26T01:05:08Z",
-    "fair": 0.4761,
+    "at": "2026-11-26T02:08:26Z",
+    "fair": 0.4759,
     "q": {
      "Novig": 0.48,
      "FD": 0.4902,
@@ -356,10 +356,10 @@
    "inside_fair": false,
    "fair_board": 0.5846,
    "books": {
-    "at": "2026-11-26T01:05:08Z",
-    "fair": 0.6529,
+    "at": "2026-11-26T02:08:26Z",
+    "fair": 0.6563,
     "q": {
-     "Novig": 0.655,
+     "Novig": 0.66,
      "FD": 0.6644,
      "Caesars": 0.6667,
      "DK": 0.6689
@@ -485,16 +485,16 @@
    "cancel": null,
    "money_with": false,
    "grade": "B",
-   "fair_board": 0.5093,
+   "fair_board": 0.507,
    "inside_fair": true,
    "books": {
-    "at": "2026-11-26T01:05:08Z",
-    "fair": 0.5093,
+    "at": "2026-11-26T02:08:26Z",
+    "fair": 0.507,
     "q": {
-     "Novig": 0.515,
      "Caesars": 0.5169,
-     "DK": 0.5192,
-     "FD": 0.5238
+     "Novig": 0.52,
+     "FD": 0.5238,
+     "DK": 0.5283
     }
    }
   },
@@ -565,7 +565,7 @@
    "cancel": null,
    "money_with": false,
    "grade": "A",
-   "fair_board": 0.373,
+   "fair_board": null,
    "inside_fair": null,
    "books": null
   },
@@ -609,7 +609,7 @@
    "cancel": null,
    "money_with": false,
    "grade": "A",
-   "fair_board": 0.4433,
+   "fair_board": null,
    "inside_fair": null,
    "books": null
   },
@@ -786,7 +786,7 @@
    "cancel": null,
    "money_with": false,
    "grade": "watch",
-   "fair_board": 0.2909,
+   "fair_board": null,
    "inside_fair": null,
    "books": null
   },
@@ -843,14 +843,14 @@
    "bet": "Trail Blazers ML",
    "side": "Trail Blazers",
    "flagged": "2026-11-24T08:23:41Z",
-   "why": "2 top-200 accounts",
+   "why": "3 top-200 accounts",
    "proven": true,
    "trigger": "proven",
-   "n_accounts": 2,
-   "best_rank": 104,
-   "usd": 253,
-   "paid": 0.418,
-   "ask": 0.39,
+   "n_accounts": 3,
+   "best_rank": 75,
+   "usd": 515,
+   "paid": 0.404,
+   "ask": 0.41,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-sas-por-2026-11-25",
    "other": {
@@ -874,8 +874,8 @@
    "cancel": null,
    "money_with": false,
    "grade": "A",
-   "fair_board": 0.4072,
-   "inside_fair": true,
+   "fair_board": 0.4064,
+   "inside_fair": false,
    "books": null
   },
   {
@@ -922,8 +922,8 @@
    "cancel": null,
    "money_with": false,
    "grade": "B",
-   "fair_board": 0.266,
-   "inside_fair": true,
+   "fair_board": 0.2531,
+   "inside_fair": false,
    "books": null
   },
   {
@@ -1070,7 +1070,11 @@
    }
   },
   "401909325:nba_ats_hot_home": {
-   "with": null,
+   "with": {
+    "n": 1,
+    "best_rank": 112,
+    "usd": 1778
+   },
    "against": {
     "n": 1,
     "best_rank": 112,
@@ -1114,9 +1118,9 @@
   },
   "401909325|ml": {
    "home": {
-    "n": 2,
-    "best_rank": 104,
-    "usd": 253
+    "n": 3,
+    "best_rank": 75,
+    "usd": 515
    },
    "away": {
     "n": 2,
@@ -1136,6 +1140,11 @@
     "n": 1,
     "best_rank": 112,
     "usd": 1461
+   },
+   "home": {
+    "n": 1,
+    "best_rank": 112,
+    "usd": 1778
    }
   },
   "401909328|ml": {
