@@ -1,5 +1,5 @@
 {
- "built": "2026-11-26T01:26:57Z",
+ "built": "2026-11-26T01:34:46Z",
  "rows": [
   {
    "cond": "0x62aac7b20e638ea6ebdfb78f2d12ff884594d4ce863d387d3561996c87ad2e06",
@@ -871,11 +871,8 @@
    "home_name": "Memphis Grizzlies",
    "game_start": "2026-11-26T01:00Z",
    "side_std": "away",
-   "conflict": [
-    "Kalshi bet back"
-   ],
    "cancel": null,
-   "money_with": true,
+   "money_with": false,
    "grade": "watch",
    "fair_board": 0.2909,
    "inside_fair": null,
@@ -918,12 +915,7 @@
    "home_name": "Los Angeles Rams",
    "game_start": "2026-11-26T01:00Z",
    "side_std": "home",
-   "conflict": [
-    "Kalshi move"
-   ],
-   "cancel": [
-    "Kalshi move"
-   ],
+   "cancel": null,
    "money_with": false,
    "grade": "A",
    "fair_board": null,
@@ -996,7 +988,7 @@
    "other": {
     "n_accounts": 2,
     "best_rank": 42,
-    "usd": 1137,
+    "usd": 1887,
     "first": "2026-11-25T20:45:04Z"
    },
    "exit_bid": 0.25,
@@ -1157,64 +1149,12 @@
   "clv_poly_same": -0.57
  },
  "sys_tags": {
-  "401873079:nfl_fade_fav_bye": {
-   "with": {
-    "n": 1,
-    "best_rank": 143,
-    "usd": 3997
-   },
-   "against": {
-    "n": 2,
-    "best_rank": 95,
-    "usd": 443
-   }
-  },
-  "401873079:bounce15_1h": {
-   "with": {
-    "n": 1,
-    "best_rank": 143,
-    "usd": 3997
-   },
-   "against": {
-    "n": 2,
-    "best_rank": 95,
-    "usd": 443
-   }
-  },
-  "401909320:nba_roadtrip_over": {
-   "with": null,
-   "against": {
-    "n": 2,
-    "best_rank": 95,
-    "usd": 443
-   }
-  },
-  "401873079:bounce15_1h": {
-   "with": null,
-   "against": {
-    "n": 2,
-    "best_rank": 95,
-    "usd": 443
-   }
-  },
   "401892792:nhl_early_home_fav_qual": {
    "with": null,
    "against": {
     "n": 1,
     "best_rank": 132,
     "usd": 537
-   }
-  },
-  "401909323:nba_under_good_home_over": {
-   "with": {
-    "n": 1,
-    "best_rank": 110,
-    "usd": 1470
-   },
-   "against": {
-    "n": 1,
-    "best_rank": 115,
-    "usd": 2714
    }
   }
  },
@@ -1238,18 +1178,6 @@
     "n": 2,
     "best_rank": 24,
     "usd": 2419
-   }
-  },
-  "401909323|total": {
-   "over": {
-    "n": 1,
-    "best_rank": 115,
-    "usd": 2714
-   },
-   "under": {
-    "n": 1,
-    "best_rank": 110,
-    "usd": 1470
    }
   },
   "401909324|ml": {
@@ -1333,13 +1261,6 @@
     "n": 1,
     "best_rank": 12,
     "usd": 125
-   }
-  },
-  "401920550|total": {
-   "over": {
-    "n": 1,
-    "best_rank": 65,
-    "usd": 1176
    }
   },
   "401921713|spread": {
