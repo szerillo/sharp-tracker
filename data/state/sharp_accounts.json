@@ -1,5 +1,5 @@
 {
- "built": "2026-11-27T16:41:13Z",
+ "built": "2026-11-27T17:03:40Z",
  "rows": [
   {
    "cond": "0x4118ebd95506083db1c9ae53216923a12e448b5754a37fdeab09d764f30af058",
@@ -17,7 +17,7 @@
    "best_rank": 115,
    "usd": 245,
    "paid": 0.49,
-   "ask": 0.52,
+   "ask": null,
    "status": "live",
    "link": "https://polymarket.us/event/cfb-buf-akron-2026-11-27",
    "other": null,
@@ -55,7 +55,7 @@
    "best_rank": 115,
    "usd": 186,
    "paid": 0.46,
-   "ask": 0.48,
+   "ask": null,
    "status": "live",
    "link": "https://polymarket.us/event/cfb-toledo-ohio-2026-11-27",
    "other": null,
@@ -349,6 +349,44 @@
    }
   },
   {
+   "cond": "0xd57aff4e5f26436aba9963dd5ca0c28d1ce907b687534ef6cf8c784ab2f11c0a",
+   "slug": "cfb-ndkst-sjst-2026-11-27",
+   "title": "North Dakota State vs. San Jose State",
+   "mtype": "total",
+   "start": "2026-11-27T20:30:00Z",
+   "bet": "Over 39.5",
+   "side": "Over",
+   "flagged": "2026-11-27T17:00:35Z",
+   "why": "a top-200 account also in this sport's top 50",
+   "proven": true,
+   "trigger": "proven",
+   "n_accounts": 1,
+   "best_rank": 58,
+   "usd": 470,
+   "paid": 0.53,
+   "ask": 0.53,
+   "status": "live",
+   "link": "https://polymarket.us/event/cfb-ndkst-sjst-2026-11-27",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401864549",
+   "sport": "cfb",
+   "league": null,
+   "away": "NDSU",
+   "home": "SJSU",
+   "away_name": "North Dakota State Bison",
+   "home_name": "San Jos\u00e9 State Spartans",
+   "game_start": "2026-11-27T20:30Z",
+   "side_std": "over",
+   "cancel": null,
+   "money_with": false,
+   "grade": "A",
+   "fair_board": null,
+   "inside_fair": null,
+   "books": null
+  },
+  {
    "cond": "0xd15ec284ec5be3ac18be30345b633bb262232c91d6e69bff1412c04438d71ccc",
    "slug": "nhl-lak-ana-2026-11-27",
    "title": "Kings vs. Ducks",
@@ -481,56 +519,6 @@
    "books": null
   },
   {
-   "cond": "0x6556ae7178bfbdb828806ee82d09f965a2c1bb680bc7befad9a1ab9e7dbe5a3c",
-   "slug": "nba-mia-nyk-2026-11-27",
-   "title": "Heat vs. Knicks",
-   "mtype": "ml",
-   "start": "2026-11-28T00:00:00Z",
-   "bet": "Heat ML",
-   "side": "Heat",
-   "flagged": "2026-11-27T16:30:07Z",
-   "why": "3 top-200 accounts",
-   "proven": false,
-   "trigger": "two",
-   "n_accounts": 3,
-   "best_rank": 43,
-   "usd": 14189,
-   "paid": 0.418,
-   "ask": 0.43,
-   "status": "live",
-   "link": "https://polymarket.us/event/nba-mia-nyk-2026-11-27",
-   "other": null,
-   "kalshi_against": null,
-   "logged": true,
-   "event_id": "401909326",
-   "sport": "nba",
-   "league": null,
-   "away": "MIA",
-   "home": "NY",
-   "away_name": "Miami Heat",
-   "home_name": "New York Knicks",
-   "game_start": "2026-11-28T00:00Z",
-   "side_std": "away",
-   "conflict": [
-    "Kalshi bet back"
-   ],
-   "cancel": null,
-   "money_with": false,
-   "grade": "B",
-   "fair_board": 0.3851,
-   "inside_fair": false,
-   "books": {
-    "at": "2026-11-27T16:02:47Z",
-    "fair": 0.3851,
-    "q": {
-     "Novig": 0.39,
-     "Caesars": 0.3968,
-     "DK": 0.3984,
-     "Kalshi": 0.41
-    }
-   }
-  },
-  {
    "cond": "0x556075048ecff61d47f5056ec9ca8b6a08df39f0de51d5f90c0314e36ca12757",
    "slug": "nba-bkn-tor-2026-11-27",
    "title": "Nets vs. Raptors",
@@ -568,7 +556,7 @@
    "money_with": false,
    "grade": "A",
    "fair_board": 0.767,
-   "inside_fair": false,
+   "inside_fair": true,
    "books": {
     "at": "2026-11-27T16:02:47Z",
     "fair": 0.767,
@@ -712,6 +700,53 @@
      "Caesars": 0.5122,
      "FD": 0.5238,
      "DK": 0.5238
+    }
+   }
+  },
+  {
+   "cond": "0x77f31ad4afa28fc2c2d9461e47a99cd0f52c0ce9e23225d47d4dcdaaa1753682",
+   "slug": "nhl-wpg-nyi-2026-11-27",
+   "title": "Jets vs. Islanders",
+   "mtype": "ml",
+   "start": "2026-11-28T00:30:00Z",
+   "bet": "Jets ML",
+   "side": "Jets",
+   "flagged": "2026-11-27T17:00:46Z",
+   "why": "a top-200 account also in this sport's top 50",
+   "proven": true,
+   "trigger": "proven",
+   "n_accounts": 1,
+   "best_rank": 79,
+   "usd": 531,
+   "paid": 0.48,
+   "ask": 0.49,
+   "status": "live",
+   "link": "https://polymarket.us/event/nhl-wpg-nyi-2026-11-27",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401892807",
+   "sport": "nhl",
+   "league": null,
+   "away": "WPG",
+   "home": "NYI",
+   "away_name": "Winnipeg Jets",
+   "home_name": "New York Islanders",
+   "game_start": "2026-11-28T00:30Z",
+   "side_std": "away",
+   "cancel": null,
+   "money_with": false,
+   "grade": "A",
+   "fair_board": 0.461,
+   "inside_fair": false,
+   "books": {
+    "at": "2026-11-27T16:02:47Z",
+    "fair": 0.461,
+    "q": {
+     "Caesars": 0.463,
+     "DK": 0.4673,
+     "Novig": 0.47,
+     "FD": 0.4762
     }
    }
   },
@@ -1472,6 +1507,11 @@
     "n": 3,
     "best_rank": 43,
     "usd": 14189
+   },
+   "home": {
+    "n": 1,
+    "best_rank": 55,
+    "usd": 668
    }
   },
   "401909327|spread": {
@@ -1633,6 +1673,13 @@
     "usd": 1872
    }
   },
+  "401892807|ml": {
+   "away": {
+    "n": 1,
+    "best_rank": 79,
+    "usd": 531
+   }
+  },
   "401892809|ml": {
    "home": {
     "n": 1,
@@ -1647,25 +1694,18 @@
     "usd": 138
    }
   },
-  "401866472|total": {
-   "over": {
-    "n": 1,
-    "best_rank": 115,
-    "usd": 245
-   }
-  },
-  "401866473|total": {
-   "over": {
-    "n": 1,
-    "best_rank": 115,
-    "usd": 186
-   }
-  },
   "401869930|spread": {
    "home": {
     "n": 1,
     "best_rank": 115,
     "usd": 597
+   }
+  },
+  "401864549|total": {
+   "over": {
+    "n": 1,
+    "best_rank": 58,
+    "usd": 470
    }
   },
   "401856756|total": {
