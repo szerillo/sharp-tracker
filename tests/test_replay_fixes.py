@@ -165,5 +165,20 @@ class NoFillReason(unittest.TestCase):
         finally: S.F.best_price, S.FI.load, S.NOW = saved
 
 
+class LabsMatch(unittest.TestCase):
+    def test_unmatched(self):
+        from sharp import labs_match as LM
+        picks = [dict(sid=1792184, date='2026-11-27', away='Fresno State', home='South Alabama'),
+                 dict(sid=1792184, date='2026-11-27', away='Liberty', home='St. Thomas'),
+                 dict(sid=1792184, date='2026-11-27', away='Old Dominion', home='Virginia Tech'),
+                 dict(sid=1792184, date='2026-11-28', away='Someone', home='Else'),            # not today
+                 dict(sid=1799442, date='2026-11-27', away='Indiana Pacers', home='Chicago Bulls')]    # not a list-bet screen
+        games = [dict(sport='cbb', away_name='South Alabama Jaguars', home_name='Fresno State Bulldogs', triggers={'cbb_under_good_over_drop': 'x'}),   # swapped
+                 dict(sport='cbb', away_name='Liberty Flames', home_name='St. Thomas Tommies', triggers={'cbb_labs_gap': 'x'})]
+        miss = LM.unmatched(picks, games, today='2026-11-27')
+        self.assertEqual([(r, g) for r, g, _ in miss], [('cbb_under_good_over_drop', 'Liberty @ St. Thomas'), ('cbb_under_good_over_drop', 'Old Dominion @ Virginia Tech')])
+        self.assertIn('did not trigger', miss[0][2]); self.assertIn('not on the board', miss[1][2])
+
+
 if __name__ == '__main__':
     unittest.main()

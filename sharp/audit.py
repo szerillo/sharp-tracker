@@ -88,6 +88,15 @@ def main():
         if k not in _seen: _seen.add(k); want.add('p:' + p['cond'])
     gap = want - ids
     check('bet tracker has every flagged bet', not gap, f"{len(want)} in the records, {len(gap)} missing from the tracker", level='warn' if len(gap) <= 3 else 'error')
+    # ---- 11/27: every listing on a screen the tool bets straight from (wind, CBB under) reached the tool
+    try:
+        sys.path.insert(0, HERE); import labs_match as LM
+        bp = load('data/state/betlabs_picks.json') or {}
+        fresh = ts(bp.get('pulled')) and (NOW - ts(bp['pulled'])).total_seconds() / 3600 <= 16
+        if fresh:
+            miss = LM.unmatched(bp.get('picks'), view.get('games'))
+            check('Bet Labs list games on the board', not miss, f"{len(miss)} of today's list-bet listings not on the board" + (': ' + '; '.join(f"{r} {g} ({w})" for r, g, w in miss[:4]) if miss else ''), level='warn')
+    except Exception as e: print(f"[audit] labs match failed: {e}")
     ok = all(c['ok'] or c['level'] == 'warn' for c in C)
     prev = load('data/state/audit.json') or {}
     prev_bad = {c['name'] for c in prev.get('checks') or [] if not c['ok']}

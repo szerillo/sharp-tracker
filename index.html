@@ -1363,15 +1363,17 @@ function renderBetLabs() {
   const scr = Object.fromEntries(BP.screens.map(x => [x.id, x]));
   // 11/14: rules whose Bet Labs screen is only an approximation of the tested rule; a mismatch there is a known definition difference, not a gap
   // 11/14: remaining known differences (the NBA and CFB definitions were aligned to Bet Labs the same day)
-  const DEF = {cbb_under_good_over_drop: "Sean's 6-game minimum per team (11/14); Bet Labs fires from a team's first game",
-    cfb_wind14: 'Wind source differs by design: the tool uses MySportsWeather, Bet Labs its own wind', wind1014: 'Wind source differs by design: the tool uses MySportsWeather, Bet Labs its own wind',
-    wind1014_1h: 'Wind source differs by design: the tool uses MySportsWeather, Bet Labs its own wind'};
+  // 11/27: the wind rules (since 11/24) and cbb_under_good_over_drop (since 11/27) bet straight from Bet Labs' list, so a mismatch there is a
+  // real gap (a name or neutral-site miss), not a definition difference; their old notes (MySportsWeather wind, the 6-game minimum) are gone
+  const DEF = {};
   const built = SY.built ? new Date(SY.built) : null, nowT = Date.now();
   const live = t => !/no longer meets/.test(String(t || ''));
   const games = SY.games || [];
   const two = x => nm(x).split(' ').slice(0, 2).join(' ');      // 11/14: "Sam Houston State" vs "Sam Houston Bearkats"
-  const findG = (p, sp) => games.find(g => g.sport === sp && ((same(g.home_name || g.home, p.home) && same(g.away_name || g.away, p.away)) || (nm(g.home) === nm(p.home) && nm(g.away) === nm(p.away))))
+  const findG1 = (p, sp) => games.find(g => g.sport === sp && ((same(g.home_name || g.home, p.home) && same(g.away_name || g.away, p.away)) || (nm(g.home) === nm(p.home) && nm(g.away) === nm(p.away))))
     || games.find(g => g.sport === sp && ((same(g.away_name || g.away, p.away) && two(g.home_name || g.home) === two(p.home)) || (same(g.home_name || g.home, p.home) && two(g.away_name || g.away) === two(p.away))));
+  // 11/27: at a neutral site Bet Labs and ESPN can list home and visitor the other way round (Fresno State v South Alabama)
+  const findG = (p, sp) => findG1(p, sp) || findG1({...p, home: p.away, away: p.home}, sp);
   const etDay = d => new Date(d).toLocaleDateString('en-CA', {timeZone: 'America/New_York'});
   const today = etDay(Date.now()), tmw = etDay(Date.now() + 864e5);
   const rows = [], seen = new Set();
