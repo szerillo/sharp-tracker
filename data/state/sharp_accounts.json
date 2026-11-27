@@ -1,5 +1,5 @@
 {
- "built": "2026-11-27T18:38:24Z",
+ "built": "2026-11-27T18:45:00Z",
  "rows": [
   {
    "cond": "0x4118ebd95506083db1c9ae53216923a12e448b5754a37fdeab09d764f30af058",
@@ -1019,6 +1019,52 @@
    }
   },
   {
+   "cond": "0x5e019b9acc3739ee3f9c91dd288405be0a5cd38d5813acb7c02e9cd1e0aeef4e",
+   "slug": "nba-mem-min-2026-11-27",
+   "title": "Grizzlies vs. Timberwolves",
+   "mtype": "spread",
+   "start": "2026-11-28T01:30:00Z",
+   "bet": "Grizzlies +3.5",
+   "side": "Grizzlies",
+   "flagged": "2026-11-27T18:39:53Z",
+   "why": "3 top-200 accounts",
+   "proven": false,
+   "trigger": "two",
+   "n_accounts": 3,
+   "best_rank": 49,
+   "usd": 14035,
+   "paid": 0.505,
+   "ask": 0.53,
+   "status": "live",
+   "link": "https://polymarket.us/event/nba-mem-min-2026-11-27",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401909331",
+   "sport": "nba",
+   "league": null,
+   "away": "MEM",
+   "home": "MIN",
+   "away_name": "Memphis Grizzlies",
+   "home_name": "Minnesota Timberwolves",
+   "game_start": "2026-11-28T01:30Z",
+   "side_std": "away",
+   "cancel": null,
+   "money_with": false,
+   "grade": "B",
+   "fair_board": 0.4886,
+   "inside_fair": false,
+   "books": {
+    "at": "2026-11-27T18:04:58Z",
+    "fair": 0.4886,
+    "q": {
+     "Novig": 0.495,
+     "Kalshi": 0.5,
+     "FD": 0.5146
+    }
+   }
+  },
+  {
    "cond": "0x446e48a929363ac2ff59f910a1a264695a0755a7a10723e44fece7730e433b8e",
    "slug": "nba-den-uta-2026-11-27",
    "title": "Nuggets vs. Jazz",
@@ -1081,7 +1127,7 @@
    "best_rank": 110,
    "usd": 6653,
    "paid": 0.475,
-   "ask": 0.55,
+   "ask": 0.54,
    "status": "live",
    "link": "https://polymarket.us/event/nba-gsw-por-2026-11-27",
    "other": null,
@@ -1734,13 +1780,13 @@
    "bet": "Warriors ML",
    "side": "Warriors",
    "flagged": "2026-11-27T18:30:13Z",
-   "why": "3 top-200 accounts",
-   "proven": false,
+   "why": "4 top-200 accounts",
+   "proven": true,
    "trigger": "two",
-   "n_accounts": 3,
-   "best_rank": 55,
-   "usd": 9208,
-   "paid": 0.262,
+   "n_accounts": 4,
+   "best_rank": 31,
+   "usd": 15958,
+   "paid": 0.265,
    "ask": 0.27,
    "status": "live",
    "link": "https://polymarket.us/event/nba-gsw-por-2026-11-27",
@@ -1767,7 +1813,7 @@
     "Kalshi move"
    ],
    "money_with": false,
-   "grade": "B",
+   "grade": "A",
    "fair_board": 0.2208,
    "inside_fair": false,
    "books": {
@@ -1838,6 +1884,14 @@
     "n": 2,
     "best_rank": 115,
     "usd": 846
+   }
+  },
+  "401909331:nba_ats_hot_home": {
+   "with": null,
+   "against": {
+    "n": 4,
+    "best_rank": 49,
+    "usd": 3454
    }
   },
   "401909336:nba_ats_hot_home": {
@@ -1958,9 +2012,21 @@
   },
   "401909331|ml": {
    "home": {
-    "n": 1,
-    "best_rank": 132,
-    "usd": 4181
+    "n": 3,
+    "best_rank": 42,
+    "usd": 5102
+   },
+   "away": {
+    "n": 2,
+    "best_rank": 42,
+    "usd": 8203
+   }
+  },
+  "401909331|spread": {
+   "away": {
+    "n": 4,
+    "best_rank": 49,
+    "usd": 3454
    }
   },
   "401909332|total": {
@@ -1998,9 +2064,9 @@
   },
   "401909336|ml": {
    "away": {
-    "n": 3,
-    "best_rank": 55,
-    "usd": 9208
+    "n": 4,
+    "best_rank": 31,
+    "usd": 15958
    }
   },
   "401909336|spread": {
