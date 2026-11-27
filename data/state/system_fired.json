@@ -9324,19 +9324,16 @@
 },
 "401858540:cfb_homefav_7510_under": {
 "tag": "cfb_homefav_7510_under",
-"fill_id": "429001db08c4",
-"ts": "2026-11-27T01:57:43Z",
+"fill_id": "5339fab8dfd8",
+"ts": "2026-11-27T15:55:08Z",
 "market": "total",
 "side": "under",
 "line": 37.5,
-"venue": "Novig",
-"price": -106,
-"fair": 0.50903,
-"edge_pts": -0.6,
-"why": "home favourite OSU -10.0, total 37.5: under (mined angle)",
-"void": true,
-"void_why": "rule no longer holds on the current line: home spread -10.5, total 37.5 (2026-11-27T14:58:50Z)",
-"void_at": "2026-11-27T14:58:50Z"
+"venue": "Caesars",
+"price": -107,
+"fair": 0.51154,
+"edge_pts": -0.54,
+"why": "home favourite OSU -10.0, total 37.5: under (mined angle)"
 },
 "401856875:cfb_day_over": {
 "tag": "cfb_day_over",
@@ -10720,10 +10717,23 @@
 "edge_pts": -2.48,
 "why": "conference game, AFA +7.0 on the road, total 42.5"
 },
+"401862843:cfb_wind14": {
+"tag": "cfb_wind14",
+"fill_id": "4f96af850311",
+"ts": "2026-11-27T15:55:08Z",
+"market": "total",
+"side": "under",
+"line": 45.5,
+"venue": "Caesars",
+"price": -113,
+"fair": 0.52192,
+"edge_pts": -0.86,
+"why": "Bet Labs wind 16 mph (pull Fri 6:57 AM ET); cross-check MySportsWeather 15 mph, gusts 23 (Open-Meteo 16.6 at T-30h), gust 30.6, 70.9F"
+},
 "401866472:xch_homedog_fade:ml": {
 "tag": "xch_homedog_fade",
-"fill_id": "b42fc18c4fc3",
-"ts": "2026-11-27T15:44:52Z",
+"fill_id": "3d3718f25867",
+"ts": "2026-11-27T15:55:08Z",
 "market": "ml",
 "side": "away",
 "line": null,
@@ -10731,6 +10741,6 @@
 "price": -264,
 "fair": 0.7288,
 "edge_pts": 0.38,
-"why": "Novig home side mid 0.278 inside T-1.3h; audit band 20-35c"
+"why": "Novig home side mid 0.278 inside T-1.1h; audit band 20-35c"
 }
 }
