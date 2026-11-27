@@ -1426,7 +1426,7 @@ function renderSystems() {
       const f = (g.fills || []).find(x => x.tag === tag), h = (new Date(g.start_utc) - now) / 3.6e6;
       if (f && f.fill_id && !f.stacked) (cur[tag] = cur[tag] || []).push({g, f, why});
       else if (h > ((rules[tag] || {}).max_h || W[1])) (later[tag] = later[tag] || []).push({g, why, h});
-      else (nobet[tag] = nobet[tag] || []).push({g, why, f, late: (g.late || []).includes(tag)}); } }
+      else (nobet[tag] = nobet[tag] || []).push({g, why, f, late: (g.late || []).includes(tag), skip: (g.no_fill || {})[tag]}); } }      // 11/27: skip = why it did not fill (system_fires no_fill)
   const past = {}; if (BL) for (const b of BL.rows) if (b.src === 'system' && b.rule && new Date(b.start) <= now) (past[b.rule] = past[b.rule] || []).push(b);
   for (const L of Object.values(past)) L.sort((a, b) => a.start < b.start ? 1 : -1);
   const tags = Object.keys(rules).filter(t => !st.sport || sportOf(rules[t]) === st.sport || (sportOf(rules[t]) === 'multi' && (rules[t].sport || '').includes(st.sport)));
@@ -1447,7 +1447,7 @@ function renderSystems() {
         <div class="small dim" style="margin:6px 0">${e.train ? `Backtest ${esc(e.train)}; holdout ${esc(e.hold || '')}${e.seasons ? '; ' + esc(e.seasons) + ' seasons positive' : ''}` : ''}</div>
         ${T('Bets now', C.map(({g, f}) => row(DAYT(g.start_utc), `<span class="badge b-sport">${SPORT_LABEL[g.sport] || g.sport}</span> ${name(g)}`, esc(betTxt(f, g)), `${am(f.price)} ${esc(f.venue)}${f.now ? ` · now ${f.now.line != null && f.now.alt ? f.now.line + ' ' : ''}${f.now.price} ${esc(f.now.venue)}` : ' · price gone'}`, esc(f.why || ''))))}
         ${T(`Coming: a weather rule, it bets inside ${W[1]} hours of the start when the forecast is firm`, Lt.map(({g, why, h}) => row(DAYT(g.start_utc), `<span class="badge b-sport">${SPORT_LABEL[g.sport] || g.sport}</span> ${name(g)}`, '', `${Math.round(h)}h out`, esc(why))))}
-        ${T('Triggered, no bet', N.map(({g, why, f, late}) => row(DAYT(g.start_utc), `<span class="badge b-sport">${SPORT_LABEL[g.sport] || g.sport}</span> ${name(g)}`, '', '', (late ? `triggered inside ${W[0]}h of the start (rules only bet ${W[0]}-${W[1]}h out)` : f && f.stacked ? 'same bet already taken by a stronger rule' : 'no bettable price when it triggered') + ' · ' + esc(why))))}
+        ${T('Triggered, no bet', N.map(({g, why, f, late, skip}) => row(DAYT(g.start_utc), `<span class="badge b-sport">${SPORT_LABEL[g.sport] || g.sport}</span> ${name(g)}`, '', '', (late ? `triggered inside ${W[0]}h of the start (rules only bet ${W[0]}-${W[1]}h out)` : f && f.stacked ? 'same bet already taken by a stronger rule' : skip ? esc(skip) : 'no bettable price when it triggered') + ' · ' + esc(why))))}
         ${T('Recent graded and in-progress plays', Pp.map(b => row(DAYT(b.start), esc(b.game || ''), esc(blSide(b)), `${toAm(b.price)} ${esc(b.venue)}${b.clv_nv != null ? ` · CLV ${sgn(b.clv_nv)}%` : ''}`, b.won == null ? 'in progress' : (b.won === 1 ? '<b class="pos">W</b>' : b.won === 0 ? '<b class="neg">L</b>' : 'P') + ' ' + blU(b.units))))}
         ${!C.length && !Lt.length && !N.length && !Pp.length ? '<div class="small dim">No plays yet.</div>' : ''}</div>`;
     }
