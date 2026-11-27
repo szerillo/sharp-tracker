@@ -1,5 +1,5 @@
 {
- "built": "2026-11-27T19:30:38Z",
+ "built": "2026-11-27T19:38:31Z",
  "rows": [
   {
    "cond": "0x4118ebd95506083db1c9ae53216923a12e448b5754a37fdeab09d764f30af058",
@@ -1015,53 +1015,6 @@
    }
   },
   {
-   "cond": "0x5e019b9acc3739ee3f9c91dd288405be0a5cd38d5813acb7c02e9cd1e0aeef4e",
-   "slug": "nba-mem-min-2026-11-27",
-   "title": "Grizzlies vs. Timberwolves",
-   "mtype": "spread",
-   "start": "2026-11-28T01:30:00Z",
-   "bet": "Grizzlies +3.5",
-   "side": "Grizzlies",
-   "flagged": "2026-11-27T18:39:53Z",
-   "why": "3 top-200 accounts",
-   "proven": false,
-   "trigger": "two",
-   "n_accounts": 3,
-   "best_rank": 49,
-   "usd": 14035,
-   "paid": 0.505,
-   "ask": 0.53,
-   "status": "live",
-   "link": "https://polymarket.us/event/nba-mem-min-2026-11-27",
-   "other": null,
-   "kalshi_against": null,
-   "logged": true,
-   "event_id": "401909331",
-   "sport": "nba",
-   "league": null,
-   "away": "MEM",
-   "home": "MIN",
-   "away_name": "Memphis Grizzlies",
-   "home_name": "Minnesota Timberwolves",
-   "game_start": "2026-11-28T01:30Z",
-   "side_std": "away",
-   "cancel": null,
-   "money_with": false,
-   "grade": "B",
-   "inside_fair": false,
-   "fair_board": 0.4886,
-   "books": {
-    "at": "2026-11-27T18:23:16Z",
-    "fair": 0.5003,
-    "q": {
-     "Novig": 0.505,
-     "DK": 0.5074,
-     "FD": 0.5238,
-     "Caesars": 0.5238
-    }
-   }
-  },
-  {
    "cond": "0xaee0f74791bfb71a3dbe6e8a0362610e65add99ce289c757311832931b4e4e8b",
    "slug": "nba-dal-phx-2026-11-27",
    "title": "Mavericks vs. Suns",
@@ -1549,7 +1502,7 @@
    "best_rank": 104,
    "usd": 214,
    "paid": 0.53,
-   "ask": 0.61,
+   "ask": 0.6,
    "status": "live",
    "link": "https://polymarket.us/event/nba-lal-mem-2026-11-29",
    "other": null,
@@ -1710,6 +1663,50 @@
    "grade": "A",
    "fair_board": 0.6045,
    "inside_fair": false,
+   "books": null
+  },
+  {
+   "cond": "0x5e019b9acc3739ee3f9c91dd288405be0a5cd38d5813acb7c02e9cd1e0aeef4e",
+   "slug": "nba-mem-min-2026-11-27",
+   "title": "Grizzlies vs. Timberwolves",
+   "mtype": "spread",
+   "start": "2026-11-28T01:30:00Z",
+   "bet": "Grizzlies +3.5",
+   "side": "Grizzlies",
+   "flagged": "2026-11-27T18:39:53Z",
+   "why": "3 top-200 accounts",
+   "proven": false,
+   "trigger": "two",
+   "n_accounts": 3,
+   "best_rank": 49,
+   "usd": 14035,
+   "paid": 0.505,
+   "ask": 0.52,
+   "status": "other side",
+   "link": "https://polymarket.us/event/nba-mem-min-2026-11-27",
+   "other": {
+    "n_accounts": 1,
+    "best_rank": 112,
+    "usd": 3576,
+    "first": "2026-11-27T19:35:38Z"
+   },
+   "exit_bid": 0.51,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401909331",
+   "sport": "nba",
+   "league": null,
+   "away": "MEM",
+   "home": "MIN",
+   "away_name": "Memphis Grizzlies",
+   "home_name": "Minnesota Timberwolves",
+   "game_start": "2026-11-28T01:30Z",
+   "side_std": "away",
+   "cancel": null,
+   "money_with": false,
+   "grade": "B",
+   "inside_fair": false,
+   "fair_board": 0.4886,
    "books": null
   },
   {
@@ -2008,7 +2005,11 @@
    }
   },
   "401909331:nba_ats_hot_home": {
-   "with": null,
+   "with": {
+    "n": 1,
+    "best_rank": 112,
+    "usd": 3576
+   },
    "against": {
     "n": 4,
     "best_rank": 49,
@@ -2164,6 +2165,11 @@
     "n": 4,
     "best_rank": 49,
     "usd": 3454
+   },
+   "home": {
+    "n": 1,
+    "best_rank": 112,
+    "usd": 3576
    }
   },
   "401909332|total": {
@@ -2256,9 +2262,9 @@
   },
   "401909336|total": {
    "under": {
-    "n": 1,
-    "best_rank": 132,
-    "usd": 411
+    "n": 2,
+    "best_rank": 115,
+    "usd": 699
    }
   },
   "401910048|ml": {
@@ -2415,9 +2421,9 @@
   },
   "401928468|total": {
    "over": {
-    "n": 1,
+    "n": 2,
     "best_rank": 58,
-    "usd": 235
+    "usd": 545
    }
   },
   "401920542|total": {
