@@ -358,9 +358,10 @@ def take(conn, eq, fired, fires_now, game, ev, start, away, home, tag, market, l
     """One paper fill per game per tag; appends to the game view either way."""
     key = f"{ev}:{tag}"; game['triggers'][tag] = why
     if key in fired and not fired[key].get('void'): game['fills'].append(fired[key]); return
-    if line is None: return
+    if line is None: game.setdefault('no_fill', {})[tag] = 'no current line'; return
     row = paper_fill(conn, eq, ev, start, market, line, side, part, tag, stake, why)
-    if not row: return
+    if not row: game.setdefault('no_fill', {})[tag] = LAST_SKIP[0] or 'not filled'; return
+    game.get('no_fill', {}).pop(tag, None)
     rec_ = dict(tag=tag, fill_id=row['fill_id'], ts=NOW_S, market=market, side=side, line=line, venue=row['venue'], price=row['price_american'],
                 fair=row['fair_at_fill'], edge_pts=(round(100 * (row['fair_at_fill'] - row['implied']), 2) if row['fair_at_fill'] is not None else None), why=why)
     fired[key] = rec_; game['fills'].append(rec_); fires_now.append(dict(game=f"{away}@{home}", **rec_))
@@ -536,24 +537,39 @@ def conflict_blocked(ev, tag):
     return any(r['event_id'] == ev and (r.get('rule_tag') or '') == f'paper:{tag}' and CONFLICT_WHY in (r.get('note') or '') for r in FI.load())
 
 
+LAST_SKIP = [None]
+
+
+def _note(game, tag):
+    """Copy the last skip reason onto a game view row (safe if the caller has no row)."""
+    if isinstance(game, dict) and LAST_SKIP[0]: game.setdefault('no_fill', {})[tag] = LAST_SKIP[0]
+
+
+def _skip(why):
+    """11/27: why a triggered rule did not fill (shown in system_fires.json as games[].no_fill[tag]). Display only: the rules are unchanged."""
+    LAST_SKIP[0] = why
+    return None
+
+
 def paper_fill(conn, eq, ev, start, market, line, side, part, tag, stake, note, venue=None, min_h=None):
+    LAST_SKIP[0] = None
     ttk = (N.parse_ts(start) - NOW).total_seconds() / 3600
-    if ttk < (WINDOW_H[0] if min_h is None else min_h): return None      # inside the last hours a new trigger is shown, not filled
-    if ttk > max_h(tag): return None      # weather rules: shown as an upcoming trigger, filled inside 30h; everything else fills when it triggers
+    if ttk < (WINDOW_H[0] if min_h is None else min_h): return _skip(f"under {WINDOW_H[0] if min_h is None else min_h}h to start: shown, not filled")      # inside the last hours a new trigger is shown, not filled
+    if ttk > max_h(tag): return _skip(f"more than {max_h(tag)}h to start: fills inside {max_h(tag)}h")      # weather rules: shown as an upcoming trigger, filled inside 30h; everything else fills when it triggers
     # one bet per rule per game (11/4): the fills ledger is the record, so a lost or voided state entry can never fire the same rule twice
-    if any(r['event_id'] == ev and r.get('rule_tag') == f'paper:{tag}' and r.get('market') == market and r.get('result') != 'void' for r in FI.load()): return None
-    if conflict_blocked(ev, tag): return None
+    if any(r['event_id'] == ev and r.get('rule_tag') == f'paper:{tag}' and r.get('market') == market and r.get('result') != 'void' for r in FI.load()): return _skip('already logged for this game')
+    if conflict_blocked(ev, tag): return _skip('untracked: a conflicting rule on this game')
     stake = STAKE_ALL      # 11/18 (Sean): everything is 0.25u for now, every tier
     best = F.best_price(eq, market, line, side, NOW_S, part)
     if venue: best = [b for b in best if b['venue'] == venue]
-    if not best: return None
+    if not best: return _skip(f"no bettable venue quotes this {market}{'' if line is None else f' at {line:g}'}" + (f' at {venue}' if venue else ''))
     b = best[0]; fr = eq.fair(market, line, side, NOW_S, part)
     imp = b['cost']; price = N.prob_to_american(imp)
     # 11/7: a main spread / total never prices past -150 / +150 at a book; days out the only quote can be a thin exchange order (Novig 75c
     # on a CFB total a week ahead, Kalshi 98c). Refuse those and fill later at a real price. Puck lines / run lines (+-1.5) are exempt.
     puck = market == 'spread' and line is not None and abs(line) == 1.5
-    if market in ('spread', 'total', '1h_spread', '1h_total') and not puck and not (0.40 <= imp <= 0.60): return None
-    if fr.get('fair') is not None and imp - fr['fair'] > 0.08 and not puck: return None
+    if market in ('spread', 'total', '1h_spread', '1h_total') and not puck and not (0.40 <= imp <= 0.60): return _skip(f"best bettable price {price:+d} ({b['venue']}) is past -150/+150 on a main line")
+    if fr.get('fair') is not None and imp - fr['fair'] > 0.08 and not puck: return _skip(f"best bettable price {price:+d} ({b['venue']}) is more than 8 points worse than fair")
     row = dict(fill_id=uuid.uuid4().hex[:12], ts_utc=NOW_S, event_id=ev, start_utc=start, market=market, mclass='game', participant=part, player_name=None,
                line=line, side=side, venue=b['venue'], price_american=price, price_decimal=round(1 / imp, 4), implied=round(imp, 5), stake=stake,
                rule_tag=f'paper:{tag}', fair_at_fill=round(fr['fair'], 5) if fr['fair'] is not None else None, fair_at_fill_status=fr['status'],
@@ -719,7 +735,7 @@ def main():
             if (market, side) in taken:
                 fired[key] = dict(tag=tag, stacked=True, market=market, side=side, why=why + ' (same bet already taken by a higher-priority rule)'); game['fills'].append(fired[key]); continue
             row = paper_fill(conn, eq, ev, start, market, line, side, part, tag, r['stake'], why)
-            if not row: continue
+            if not row: _note(locals().get('game'), tag); continue
             taken.add((market, side))
             rec = dict(tag=tag, fill_id=row['fill_id'], ts=NOW_S, market=market, side=side, line=line, venue=row['venue'], price=row['price_american'],
                        fair=row['fair_at_fill'], edge_pts=(round(100 * (row['fair_at_fill'] - row['implied']), 2) if row['fair_at_fill'] is not None else None), why=why)
@@ -777,6 +793,7 @@ def main():
             if key2 in fired and not fired[key2].get('void'): game['fills'].append(fired[key2])
             else:
                 row = paper_fill(conn, eq, ev, start, 'spread', -sp_line, 'away', away, 'cfb_road_dog_low_total', 0.5, why2)
+                if not row: _note(locals().get('game'), 'cfb_road_dog_low_total')
                 if row:
                     rec_ = dict(tag='cfb_road_dog_low_total', fill_id=row['fill_id'], ts=NOW_S, market='spread', side='away', line=-sp_line, venue=row['venue'], price=row['price_american'],
                                 fair=row['fair_at_fill'], edge_pts=(round(100 * (row['fair_at_fill'] - row['implied']), 2) if row['fair_at_fill'] is not None else None), why=why2)
@@ -802,6 +819,7 @@ def main():
             line, n = main_line(eq, 'total', home)
             if line is not None:
                 row = paper_fill(conn, eq, ev, start, 'total', line, 'under', None, 'cfb_wind14', 1.0, why)
+                if not row: _note(locals().get('game'), 'cfb_wind14')
                 if row:
                     rec_ = dict(tag='cfb_wind14', fill_id=row['fill_id'], ts=NOW_S, market='total', side='under', line=line, venue=row['venue'], price=row['price_american'],
                                 fair=row['fair_at_fill'], edge_pts=(round(100 * (row['fair_at_fill'] - row['implied']), 2) if row['fair_at_fill'] is not None else None), why=why)
@@ -886,7 +904,7 @@ def main():
                 line, _n = main_line(eq, market, None)
                 if line is None: continue
             row = paper_fill(conn, eq, ev, start, market, line, side, part, tag, 0.5, why)
-            if not row: continue
+            if not row: _note(locals().get('game'), tag); continue
             rec_ = dict(tag=tag, fill_id=row['fill_id'], ts=NOW_S, market=market, side=side, line=line, venue=row['venue'], price=row['price_american'], fair=row['fair_at_fill'],
                         edge_pts=(round(100 * (row['fair_at_fill'] - row['implied']), 2) if row['fair_at_fill'] is not None else None), why=why)
             fired[key] = rec_; game['fills'].append(rec_); fires_now.append(dict(game=f"{away}@{home}", **rec_))
@@ -936,6 +954,7 @@ def main():
             if hl is not None:
                 line = hl if side == 'home' else -hl; part = home if side == 'home' else away
                 row = paper_fill(conn, eq, ev, start, 'spread', line, side, part, 'cbb_bigloss_vs_top5', 0.5, why)
+                if not row: _note(locals().get('game'), 'cbb_bigloss_vs_top5')
                 if row:
                     rec_ = dict(tag='cbb_bigloss_vs_top5', fill_id=row['fill_id'], ts=NOW_S, market='spread', side=side, line=line, venue=row['venue'], price=row['price_american'],
                                 fair=row['fair_at_fill'], edge_pts=(round(100 * (row['fair_at_fill'] - row['implied']), 2) if row['fair_at_fill'] is not None else None), why=why)

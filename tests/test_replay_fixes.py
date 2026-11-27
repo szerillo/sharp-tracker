@@ -139,5 +139,31 @@ class CbbListOnly(unittest.TestCase):
         finally: S._BLP[:] = old[0]; S.NOW = old[1]
 
 
+class NoFillReason(unittest.TestCase):
+    """11/27: a triggered rule that does not fill says why in system_fires.json (games[].no_fill[tag]). Liberty @ St. Thomas: only Pinnacle
+    quoted the total, so there was no bettable price."""
+    def test_reasons(self):
+        import systems as S
+        saved = (S.F.best_price, S.FI.load, S.NOW)
+        class EQ:
+            def fair(self, *a): return dict(fair=0.5, status='ok')
+        try:
+            S.FI.load = lambda: []
+            S.NOW = S.N.parse_ts('2026-11-27T13:00:00Z')
+            start = '2026-11-27T17:00:00Z'
+            S.F.best_price = lambda *a, **k: []
+            game = dict(triggers={}, fills=[])
+            S.take(None, EQ(), {}, [], game, 'e1', start, 'LIB', 'STMN', 'cbb_under_good_over_drop', 'total', 146.5, 'under', None, 0.5, 'why')
+            self.assertEqual(game['no_fill']['cbb_under_good_over_drop'], 'no bettable venue quotes this total at 146.5')
+            S.F.best_price = lambda *a, **k: [dict(cost=0.70, venue='Novig')]
+            game = dict(triggers={}, fills=[])
+            S.take(None, EQ(), {}, [], game, 'e2', start, 'LIB', 'STMN', 'cbb_under_good_over_drop', 'total', 146.5, 'under', None, 0.5, 'why')
+            self.assertIn('past -150/+150', game['no_fill']['cbb_under_good_over_drop'])
+            game = dict(triggers={}, fills=[])
+            S.take(None, EQ(), {}, [], game, 'e3', '2026-11-27T13:30:00Z', 'LIB', 'STMN', 'cbb_under_good_over_drop', 'total', 146.5, 'under', None, 0.5, 'why')
+            self.assertIn('shown, not filled', game['no_fill']['cbb_under_good_over_drop'])
+        finally: S.F.best_price, S.FI.load, S.NOW = saved
+
+
 if __name__ == '__main__':
     unittest.main()
