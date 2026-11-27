@@ -1,5 +1,5 @@
 {
- "built": "2026-11-27T16:09:20Z",
+ "built": "2026-11-27T16:27:28Z",
  "record": {
   "cbb_1h_total_curve": {
    "n": 11,
@@ -166,6 +166,35 @@
    "book": null,
    "price": null,
    "flagged": "2026-11-27T15:35:50Z"
+  },
+  {
+   "key": "cfb_q1_under_curve|58cd1284193cd30679325c8494f546e6||under",
+   "rule": "cfb_q1_under_curve",
+   "tier": "A",
+   "stake": 0.25,
+   "sport": "cfb",
+   "odds_id": "58cd1284193cd30679325c8494f546e6",
+   "espn": "401866473",
+   "game": "Toledo Rockets @ Ohio Bobcats",
+   "start": "2026-11-27T17:01:00Z",
+   "market": "totals_q1",
+   "team": null,
+   "team_name": null,
+   "side": "under",
+   "line": 9.5,
+   "curve": 0.538,
+   "pin_fair": 0.487,
+   "gap": 5.1,
+   "full_total": 44.5,
+   "full_spread": 4.0,
+   "pin_price": 1.96,
+   "book": "FD",
+   "price": 1.94,
+   "pin_fair_power": 0.486,
+   "book_fair": 0.4895,
+   "fair_gap": -0.3,
+   "ev_curve": 4.4,
+   "flagged": "2026-11-27T16:27:28Z"
   }
  ]
 }
