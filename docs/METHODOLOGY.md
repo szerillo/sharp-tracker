@@ -1,4 +1,59 @@
-# Action Winners Circle: methodology (as of 11/10/2026)
+# Action Winners Circle: methodology (current rules as of 11/27/2026)
+
+The standing process for the sharp tracker (szerillo/sharp-tracker). This is the document of record. Dated docs under `docs/` hold the tests behind each line. The section "Current rules" below is how the board works today. Everything after it is the 11/10 version, kept as history; where they differ, "Current rules" wins. Day-by-day changes are in `docs/decisions_2026-11-24.md` and `docs/decisions_2026-11-27.md`.
+
+## Current rules (11/27/2026)
+
+### Sizing and tiers
+- **Size:** every real-money bet is 0.25u, whatever its tier (Sean, 11/18; 0.25u is the minimum live size, 11/24). Favorites bet to win 0.25u; even or plus money risks 0.25u. Tier labels A, B and C stay for ranking. Paper (P) rows are logged and graded at no units.
+- **Tiers:** set by `docs/validation/TIER_RULES.md` version 2, applied as written to every saved Tested:/Tracked: Bet Labs screen (11/25, `sharp/validate_all_screens.py`). The primary evidence is the screen's own Bet Labs backtest (`data/betlabs/records.json`), not our shorter rebuild. Tier changes and retirements need Sean's OK. New rules start on paper.
+- **Judging a rule:** realized profit only. That means units and ROI at actual prices, sample size, significance against break-even, stability across sub-periods, out of sample, and multiple-testing control. CLV is information only, never a deciding factor (Sean, 11/24).
+- **Tiers on 11/27** (`sharp/systems.py` EVIDENCE is the source):
+
+| Tier | Rules |
+|---|---|
+| A | wind1014, wind1014_cold, cfb_wind14, awfuldog, nba_under_good_home_over, nba_under_good_home_over_small, nhl_pl_fav_gap, nhl_pl_fav_strong_opp, nhl_pl_dog_bigml |
+| B | wind1014_1h, vrest8_1h, mnf_1h, bounce15_1h, nhl_early_home_fav_qual, cfb_hot_over_low_total, cfb_road_dog_low_total, cfb_road_streak_dog, cbb_under_good_over_drop, cbb_bigloss_vs_top5, nba_1h_under_hot_over; tennis_serve_dog (live B, 11/24) |
+| C | cfb_homefav_7510_under, nfl_home_dog_7510, nba_momentum, xch_homedog_fade |
+| P | the other 12 rules in systems.py (the 11/24 demotions, including nhl_skid_fade_road and nhl_bounce_home_ml, which are on watch for a re-read at 25 graded paper bets), nhl_p3_under_curve, stale_book, steam_rev, and the paper logs |
+
+- **Sharp flags:** soccer grade A and B flags with nothing against them are real 0.25u bets (from 11/21). NBA grade B is a live 0.25u test, to be re-read at 100 graded flags (11/24). Every other sport's flags are paper.
+
+### What fires a rule
+- **Saved screen's definition:** each live rule fires on its saved Bet Labs screen's filters. Where the tool differs, it follows the screen unless the difference is a data-source limit (11/25). Saved screens are regular season only, so the live rules skip preseason and playoff games (11/27).
+- **Bet Labs list rules:**
+  - The wind rules (wind1014, wind1014_1h, cfb_wind14) fire on the Bet Labs pull (11/24).
+  - cbb_under_good_over_drop bets only games on a fresh Bet Labs pull, under 16 hours old (11/27). Our own reading shows as a `cbb_labs_gap` flag, never a bet.
+  - cfb_road_streak_dog fires on our own trigger, and a fresh list that leaves the game out vetoes it.
+  - A Bet Labs listing matches a game with home and visitor in either order (neutral sites, 11/27). This applies to the list-driven totals screens; the CFB road-streak veto doesn't do it yet.
+- **Weather fallback:** if the Bet Labs pull is missing, NFL wind may bet on MySportsWeather (then Open-Meteo); CFB wind is a flag only, never a bet (11/24). Wind bets show WAIT until 12h before kickoff.
+- **Domes:** vrest8_1h and mnf_1h follow Bet Labs' Dome Closed flag, so SoFi counts as open (11/25).
+- **Bet Labs pulls:** 7:00 AM and 5:30 PM daily, plus 11:15 AM and 3:00 PM Saturday and Sunday (ET), through Sean's Chrome, read-only. A missed pull sends an alert.
+
+### What cancels a bet (`sharp/bet_log.py` board_status, pinned by `tests/test_board_status.py`)
+- **Cancels:** a Kalshi move against cancels every system, lean and sharp row (from 2026-11-24 21:45Z; the 12/8 re-read keeps both sides logged). So does an opposing system. Two rules on opposite sides of a game make both sides untracked (11/18).
+- **Shown, not a hold:** big money, bet back, sharp move, sharp accounts and sharp flag against are shown on the row and don't hold the bet (11/24).
+- **Paper and watch rows** are never bets. A bet's call is frozen at the start, except paper, watch and excluded rows.
+- **Why there's no bet:** a triggered rule that doesn't fill shows the reason on the Systems tab, for example "no bettable venue quotes this total" (11/27).
+
+### Replays and data
+- **Grading prices:** a replay grades only at a price it has. That is Pinnacle's close on the side's posted line; anything else is ungraded, never a made-up price (11/27; lint test in `tests/test_replay_fixes.py`).
+- **Team records:** regular season only, from the complete ESPN schedule. This excludes the 2020 NHL/NBA bubble, whose games ESPN left without a season type (11/27).
+- **Abbreviations:** Utah's NHL team is UTAH in ESPN's 2024-25 schedule and UTA from 2025-26; both match (11/27).
+- **Bet Labs game lists** used in audits are saved under `data/research/betlabs/`, hash-checked against the page.
+
+### Monitoring
+- **Tests:** `tests/` runs on every code push (GitHub Actions `tests.yml`), with a phone alert on failure.
+- **Alerts:**
+  - The live board is 30+ minutes behind main.
+  - tennis_watch.json or props_live.json trails the bet log by 30+ minutes.
+  - A Bet Labs listing on a list-bet screen isn't on the board (audit warning).
+- **Kirk's automations** read `data/state/bet_log.json`, `props_live.json` and `tennis_watch.json`. bet_log.json is the source of truth for serve-dog rows.
+
+---
+
+# History: the 11/10 version
+
 
 The standing process for the sharp tracker (szerillo/sharp-tracker). This is the document of record; dated docs under `docs/` hold the
 tests behind each line. Updated when a rule or gate changes, with the date. Every test and its verdict is listed in
