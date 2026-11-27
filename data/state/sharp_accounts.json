@@ -1,5 +1,5 @@
 {
- "built": "2026-11-27T12:26:35Z",
+ "built": "2026-11-27T12:46:52Z",
  "rows": [
   {
    "cond": "0xdcf51a8a1eff2ab52ce3cff7faa72c3279d31b0881c10780adae75f97e1a28c9",
@@ -237,7 +237,7 @@
    "best_rank": 104,
    "usd": 302,
    "paid": 0.437,
-   "ask": 0.45,
+   "ask": 0.44,
    "status": "live",
    "link": "https://polymarket.us/event/nba-mia-nyk-2026-11-27",
    "other": null,
@@ -390,6 +390,53 @@
      "Novig": 0.52,
      "DK": 0.5349,
      "Kalshi": 0.55
+    }
+   }
+  },
+  {
+   "cond": "0xee5cf0c6bca1d41a149da597d7b3927db8b0b8132f7dcd1b4e4dad3f3f744da8",
+   "slug": "mls-clb-mia-2026-11-27-more-markets",
+   "title": "Columbus Crew vs. Inter Miami CF - More Markets",
+   "mtype": "total",
+   "start": "2026-11-28T01:00:00Z",
+   "bet": "Under 3.5",
+   "side": "Under",
+   "flagged": "2026-11-27T12:40:37Z",
+   "why": "2 top-200 accounts",
+   "proven": true,
+   "trigger": "proven",
+   "n_accounts": 2,
+   "best_rank": 157,
+   "usd": 991,
+   "paid": 0.53,
+   "ask": 0.55,
+   "status": "live",
+   "link": "https://polymarket.us/event/mls-clb-mia-2026-11-27-more-markets",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401933727",
+   "sport": "soccer",
+   "league": "mls",
+   "away": "MIA",
+   "home": "CLB",
+   "away_name": "Inter Miami CF",
+   "home_name": "Columbus Crew",
+   "game_start": "2026-11-28T01:00Z",
+   "side_std": "under",
+   "cancel": null,
+   "money_with": false,
+   "grade": "A",
+   "fair_board": 0.497,
+   "inside_fair": false,
+   "books": {
+    "at": "2026-11-27T03:08:14Z",
+    "fair": 0.497,
+    "q": {
+     "FD": 0.5098,
+     "Novig": 0.51,
+     "DK": 0.5122,
+     "Kalshi": 0.52
     }
    }
   },
@@ -860,14 +907,14 @@
    "bet": "76ers ML",
    "side": "76ers",
    "flagged": "2026-11-25T10:08:13Z",
-   "why": "2 top-200 accounts",
+   "why": "3 top-200 accounts",
    "proven": true,
    "trigger": "proven",
-   "n_accounts": 2,
+   "n_accounts": 3,
    "best_rank": 31,
-   "usd": 6052,
-   "paid": 0.545,
-   "ask": 0.59,
+   "usd": 8746,
+   "paid": 0.559,
+   "ask": 0.62,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-phi-ind-2026-11-27",
    "other": {
@@ -876,7 +923,7 @@
     "usd": 8108,
     "first": "2026-11-25T12:45:28Z"
    },
-   "exit_bid": 0.58,
+   "exit_bid": 0.61,
    "kalshi_against": null,
    "logged": true,
    "event_id": "401909328",
@@ -895,7 +942,7 @@
    "money_with": false,
    "grade": "A",
    "fair_board": 0.5934,
-   "inside_fair": true,
+   "inside_fair": false,
    "books": null
   }
  ],
@@ -989,9 +1036,9 @@
   },
   "401909328|ml": {
    "away": {
-    "n": 2,
+    "n": 3,
     "best_rank": 31,
-    "usd": 6052
+    "usd": 8746
    },
    "home": {
     "n": 4,
@@ -1018,6 +1065,13 @@
     "n": 1,
     "best_rank": 43,
     "usd": 1942
+   }
+  },
+  "401909331|ml": {
+   "home": {
+    "n": 1,
+    "best_rank": 132,
+    "usd": 4181
    }
   },
   "401909333|ml": {
@@ -1135,6 +1189,13 @@
     "n": 1,
     "best_rank": 104,
     "usd": 274
+   }
+  },
+  "401933727|total": {
+   "under": {
+    "n": 2,
+    "best_rank": 157,
+    "usd": 991
    }
   }
  },
