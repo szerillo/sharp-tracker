@@ -1,11 +1,11 @@
 {
- "built": "2026-11-27T03:08:33Z",
+ "built": "2026-11-27T03:26:03Z",
  "record": {
-  "n": 305,
-  "won": 131,
+  "n": 306,
+  "won": 132,
   "lost": 174,
-  "units": -4.06,
-  "roi": -5.3
+  "units": -3.81,
+  "roi": -5.0
  },
  "record_sb4": {
   "n": 11,
@@ -17,23 +17,23 @@
  "sb4_killed": true,
  "checkable_test": {
   "rule": "kill if the first 100 graded checkable rows are not positive in both halves",
-  "n": 31,
+  "n": 32,
   "all_checkable": {
-   "n": 31,
-   "won": 8,
+   "n": 32,
+   "won": 9,
    "lost": 23,
-   "units": -3.39,
-   "roi": -43.8
+   "units": -3.14,
+   "roi": -39.3
   },
   "half1": {
-   "n": 31,
-   "won": 8,
+   "n": 32,
+   "won": 9,
    "lost": 23,
-   "units": -3.39,
-   "roi": -43.8
+   "units": -3.14,
+   "roi": -39.3
   },
   "half2": null,
-  "verdict": "pending: 31 of 100"
+  "verdict": "pending: 32 of 100"
  },
  "rows": [
   {
@@ -84,31 +84,6 @@
    "qty_best": 41706,
    "wide": false,
    "team": "LSU",
-   "checkable": true
-  },
-  {
-   "key": "401909506|ml|home",
-   "sport": "cbb",
-   "event_id": "401909506",
-   "game": "DEP @ PITT",
-   "start": "2026-11-27T00:00Z",
-   "market": "ml",
-   "side": "home",
-   "line": null,
-   "venue": "Novig",
-   "price": 0.5,
-   "fair": 0.5122,
-   "fair_power": 0.5129,
-   "venue_fair": 0.495,
-   "fair_gap": 1.7,
-   "ev": 2.4,
-   "move": 1.2,
-   "flagged": "2026-11-26T18:56:42Z",
-   "venue_ts": "2026-11-26T18:24:40Z",
-   "pin_ts": "2026-11-26T18:24:40Z",
-   "qty_best": 476904,
-   "wide": false,
-   "team": "PITT",
    "checkable": true
   },
   {
