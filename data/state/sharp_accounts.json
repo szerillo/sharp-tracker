@@ -1,5 +1,5 @@
 {
- "built": "2026-11-27T17:11:24Z",
+ "built": "2026-11-27T17:19:46Z",
  "rows": [
   {
    "cond": "0x4118ebd95506083db1c9ae53216923a12e448b5754a37fdeab09d764f30af058",
@@ -208,6 +208,9 @@
    "home_name": "Washington Capitals",
    "game_start": "2026-11-27T20:00Z",
    "side_std": "away",
+   "conflict": [
+    "big money"
+   ],
    "cancel": null,
    "money_with": false,
    "grade": "A",
@@ -278,7 +281,7 @@
    "best_rank": 157,
    "usd": 618,
    "paid": 0.66,
-   "ask": 0.68,
+   "ask": 0.67,
    "status": "live",
    "link": "https://polymarket.us/event/epl-not-che-2026-11-27",
    "other": null,
@@ -385,6 +388,52 @@
    "fair_board": null,
    "inside_fair": null,
    "books": null
+  },
+  {
+   "cond": "0x7fc91d772f5eadd91fb07f5822b12aa082afa64794ea64217422ed12f3e7acc4",
+   "slug": "cfb-ndkst-sjst-2026-11-27",
+   "title": "North Dakota State vs. San Jose State",
+   "mtype": "spread",
+   "start": "2026-11-27T20:30:00Z",
+   "bet": "North Dakota State -7.5",
+   "side": "North Dakota State",
+   "flagged": "2026-11-27T17:16:38Z",
+   "why": "a top-200 account also in this sport's top 50",
+   "proven": true,
+   "trigger": "proven",
+   "n_accounts": 1,
+   "best_rank": 58,
+   "usd": 480,
+   "paid": 0.52,
+   "ask": 0.52,
+   "status": "live",
+   "link": "https://polymarket.us/event/cfb-ndkst-sjst-2026-11-27",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401864549",
+   "sport": "cfb",
+   "league": null,
+   "away": "NDSU",
+   "home": "SJSU",
+   "away_name": "North Dakota State Bison",
+   "home_name": "San Jos\u00e9 State Spartans",
+   "game_start": "2026-11-27T20:30Z",
+   "side_std": "away",
+   "cancel": null,
+   "money_with": false,
+   "grade": "A",
+   "fair_board": 0.5121,
+   "inside_fair": false,
+   "books": {
+    "at": "2026-11-27T16:02:47Z",
+    "fair": 0.5121,
+    "q": {
+     "Novig": 0.52,
+     "DK": 0.5349,
+     "Kalshi": 0.54
+    }
+   }
   },
   {
    "cond": "0xd15ec284ec5be3ac18be30345b633bb262232c91d6e69bff1412c04438d71ccc",
@@ -512,7 +561,7 @@
    "game_start": "2026-11-27T21:30Z",
    "side_std": "home",
    "cancel": null,
-   "money_with": false,
+   "money_with": true,
    "grade": "A",
    "fair_board": null,
    "inside_fair": null,
@@ -558,6 +607,9 @@
    "home_name": "New York Knicks",
    "game_start": "2026-11-28T00:00Z",
    "side_std": "home",
+   "conflict": [
+    "big money"
+   ],
    "cancel": null,
    "money_with": false,
    "grade": "watch",
@@ -784,8 +836,8 @@
    "cancel": null,
    "money_with": false,
    "grade": "A",
-   "fair_board": 0.461,
    "inside_fair": false,
+   "fair_board": 0.461,
    "books": {
     "at": "2026-11-27T16:02:47Z",
     "fair": 0.461,
@@ -1761,6 +1813,13 @@
     "n": 1,
     "best_rank": 58,
     "usd": 470
+   }
+  },
+  "401864549|spread": {
+   "away": {
+    "n": 1,
+    "best_rank": 58,
+    "usd": 480
    }
   },
   "401864546|spread": {
