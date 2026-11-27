@@ -1,5 +1,5 @@
 {
- "built": "2026-11-27T01:17:11Z",
+ "built": "2026-11-27T01:24:28Z",
  "rows": [
   {
    "cond": "0xb9219d093571325970a24b24d0bc65f2ea8c83802931c4c2afbb0ee67b9d46b5",
@@ -32,9 +32,6 @@
    "home_name": "Texas Tech Red Raiders",
    "game_start": "2026-11-27T01:00Z",
    "side_std": "away",
-   "conflict": [
-    "Kalshi bet back"
-   ],
    "cancel": null,
    "money_with": false,
    "grade": "A",
@@ -74,9 +71,6 @@
    "home_name": "Texas Tech Red Raiders",
    "game_start": "2026-11-27T01:00Z",
    "side_std": "away",
-   "conflict": [
-    "Kalshi bet back"
-   ],
    "cancel": null,
    "money_with": false,
    "grade": "B",
@@ -108,7 +102,7 @@
    "best_rank": 49,
    "usd": 787,
    "paid": 0.52,
-   "ask": 0.59,
+   "ask": null,
    "status": "live",
    "link": "https://polymarket.us/event/nfl-kc-buf-2026-11-27",
    "other": null,
@@ -290,7 +284,7 @@
    "best_rank": 104,
    "usd": 302,
    "paid": 0.437,
-   "ask": 0.44,
+   "ask": 0.43,
    "status": "live",
    "link": "https://polymarket.us/event/nba-mia-nyk-2026-11-27",
    "other": null,
@@ -678,7 +672,7 @@
    "best_rank": 58,
    "usd": 396,
    "paid": 0.6,
-   "ask": 0.61,
+   "ask": null,
    "status": "other side",
    "link": "https://polymarket.us/event/nfl-kc-buf-2026-11-27",
    "other": {
@@ -687,7 +681,7 @@
     "usd": 1234,
     "first": "2026-11-27T00:53:27Z"
    },
-   "exit_bid": 0.6,
+   "exit_bid": null,
    "kalshi_against": null,
    "logged": true,
    "event_id": "401873082",
@@ -750,7 +744,7 @@
    "money_with": false,
    "grade": "A",
    "fair_board": 0.5924,
-   "inside_fair": true,
+   "inside_fair": false,
    "books": null
   }
  ],
@@ -801,32 +795,6 @@
  },
  "sys_tags": {},
  "by_event": {
-  "401873082|total": {
-   "under": {
-    "n": 1,
-    "best_rank": 49,
-    "usd": 787
-   }
-  },
-  "401873082|ml": {
-   "home": {
-    "n": 2,
-    "best_rank": 58,
-    "usd": 396
-   },
-   "away": {
-    "n": 1,
-    "best_rank": 25,
-    "usd": 1234
-   }
-  },
-  "401873082|spread": {
-   "home": {
-    "n": 1,
-    "best_rank": 182,
-    "usd": 250
-   }
-  },
   "401873083|ml": {
    "away": {
     "n": 3,
