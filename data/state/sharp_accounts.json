@@ -1,5 +1,5 @@
 {
- "built": "2026-11-27T08:34:05Z",
+ "built": "2026-11-27T08:54:43Z",
  "rows": [
   {
    "cond": "0xdcf51a8a1eff2ab52ce3cff7faa72c3279d31b0881c10780adae75f97e1a28c9",
@@ -670,8 +670,8 @@
    "cancel": null,
    "money_with": false,
    "grade": "A",
-   "fair_board": 0.6208,
    "inside_fair": false,
+   "fair_board": 0.6208,
    "books": {
     "at": "2026-11-27T03:08:14Z",
     "fair": 0.6208,
@@ -814,7 +814,16 @@
   "clv_venue": 0.89,
   "clv_poly_same": -0.6
  },
- "sys_tags": {},
+ "sys_tags": {
+  "401858544:cfb_road_dog_low_total": {
+   "with": {
+    "n": 1,
+    "best_rank": 182,
+    "usd": 293
+   },
+   "against": null
+  }
+ },
  "by_event": {
   "401873083|ml": {
    "away": {
@@ -945,6 +954,20 @@
     "n": 1,
     "best_rank": 132,
     "usd": 138
+   }
+  },
+  "401858544|ml": {
+   "away": {
+    "n": 1,
+    "best_rank": 182,
+    "usd": 289
+   }
+  },
+  "401858544|spread": {
+   "away": {
+    "n": 1,
+    "best_rank": 182,
+    "usd": 293
    }
   },
   "401856757|total": {
