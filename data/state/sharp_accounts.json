@@ -1,5 +1,5 @@
 {
- "built": "2026-11-27T19:05:04Z",
+ "built": "2026-11-27T18:53:26Z",
  "rows": [
   {
    "cond": "0x4118ebd95506083db1c9ae53216923a12e448b5754a37fdeab09d764f30af058",
@@ -143,7 +143,7 @@
    "best_rank": 79,
    "usd": 336,
    "paid": 0.53,
-   "ask": null,
+   "ask": 0.51,
    "status": "live",
    "link": "https://polymarket.us/event/nhl-dal-stl-2026-11-27",
    "other": null,
@@ -1820,7 +1820,16 @@
    "grade": "A",
    "inside_fair": false,
    "fair_board": 0.2208,
-   "books": null
+   "books": {
+    "at": "2026-11-27T18:04:58Z",
+    "fair": 0.2208,
+    "q": {
+     "Novig": 0.225,
+     "DK": 0.237,
+     "Caesars": 0.2381,
+     "Kalshi": 0.25
+    }
+   }
   },
   {
    "cond": "0xc1b66e47aac530b3036e186b95db9b3f1ade67a20611ca9a06bacd2cdd8d6d29",
