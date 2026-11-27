@@ -1,5 +1,5 @@
 {
- "built": "2026-11-27T14:38:46Z",
+ "built": "2026-11-27T15:37:31Z",
  "rows": [
   {
    "cond": "0x4118ebd95506083db1c9ae53216923a12e448b5754a37fdeab09d764f30af058",
@@ -300,6 +300,53 @@
      "FD": 0.495,
      "Caesars": 0.5074,
      "DK": 0.5122
+    }
+   }
+  },
+  {
+   "cond": "0xd15ec284ec5be3ac18be30345b633bb262232c91d6e69bff1412c04438d71ccc",
+   "slug": "nhl-lak-ana-2026-11-27",
+   "title": "Kings vs. Ducks",
+   "mtype": "total",
+   "start": "2026-11-27T21:00:00Z",
+   "bet": "Over 6.5",
+   "side": "Over",
+   "flagged": "2026-11-27T15:31:40Z",
+   "why": "a top-200 account also in this sport's top 50",
+   "proven": true,
+   "trigger": "proven",
+   "n_accounts": 1,
+   "best_rank": 79,
+   "usd": 1872,
+   "paid": 0.5,
+   "ask": 0.5,
+   "status": "live",
+   "link": "https://polymarket.us/event/nhl-lak-ana-2026-11-27",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401892804",
+   "sport": "nhl",
+   "league": null,
+   "away": "LA",
+   "home": "ANA",
+   "away_name": "Los Angeles Kings",
+   "home_name": "Anaheim Ducks",
+   "game_start": "2026-11-27T21:00Z",
+   "side_std": "over",
+   "cancel": null,
+   "money_with": false,
+   "grade": "A",
+   "fair_board": 0.4954,
+   "inside_fair": false,
+   "books": {
+    "at": "2026-11-27T15:10:49Z",
+    "fair": 0.4954,
+    "q": {
+     "Novig": 0.495,
+     "Kalshi": 0.52,
+     "FD": 0.5238,
+     "DK": 0.5349
     }
    }
   },
@@ -1188,6 +1235,14 @@
     "best_rank": 132,
     "usd": 569
    }
+  },
+  "401920382:cbb_under_good_over_drop": {
+   "with": {
+    "n": 1,
+    "best_rank": 65,
+    "usd": 588
+   },
+   "against": null
   }
  },
  "by_event": {
@@ -1355,6 +1410,13 @@
     "usd": 505
    }
   },
+  "401892804|total": {
+   "over": {
+    "n": 1,
+    "best_rank": 79,
+    "usd": 1872
+   }
+  },
   "401892809|ml": {
    "home": {
     "n": 1,
@@ -1423,11 +1485,39 @@
     "usd": 125
    }
   },
+  "401920542|total": {
+   "under": {
+    "n": 1,
+    "best_rank": 65,
+    "usd": 184
+   }
+  },
   "401912213|total": {
    "under": {
     "n": 1,
     "best_rank": 93,
     "usd": 591
+   }
+  },
+  "401920810|total": {
+   "over": {
+    "n": 1,
+    "best_rank": 65,
+    "usd": 242
+   }
+  },
+  "401920382|total": {
+   "under": {
+    "n": 1,
+    "best_rank": 65,
+    "usd": 588
+   }
+  },
+  "401921185|total": {
+   "under": {
+    "n": 1,
+    "best_rank": 65,
+    "usd": 980
    }
   },
   "401912711|spread": {
