@@ -1,5 +1,5 @@
 {
- "built": "2026-11-27T17:43:04Z",
+ "built": "2026-11-27T18:14:04Z",
  "rows": [
   {
    "cond": "0x4118ebd95506083db1c9ae53216923a12e448b5754a37fdeab09d764f30af058",
@@ -93,7 +93,7 @@
    "best_rank": 197,
    "usd": 602,
    "paid": 0.56,
-   "ask": 0.55,
+   "ask": 0.54,
    "status": "live",
    "link": "https://polymarket.us/event/nhl-dal-stl-2026-11-27",
    "other": null,
@@ -320,7 +320,7 @@
    "best_rank": 157,
    "usd": 618,
    "paid": 0.66,
-   "ask": 0.66,
+   "ask": 0.67,
    "status": "live",
    "link": "https://polymarket.us/event/epl-not-che-2026-11-27",
    "other": null,
@@ -640,10 +640,10 @@
    "game_start": "2026-11-27T21:30Z",
    "side_std": "home",
    "cancel": null,
-   "money_with": true,
+   "money_with": false,
    "grade": "A",
-   "inside_fair": false,
    "fair_board": 0.5391,
+   "inside_fair": false,
    "books": {
     "at": "2026-11-27T17:09:29Z",
     "fair": 0.5391,
@@ -686,8 +686,7 @@
    "game_start": "2026-11-28T00:00Z",
    "side_std": "home",
    "conflict": [
-    "Kalshi move",
-    "big money"
+    "Kalshi move"
    ],
    "cancel": [
     "Kalshi move"
@@ -1461,7 +1460,7 @@
    "other": {
     "n_accounts": 2,
     "best_rank": 55,
-    "usd": 6436,
+    "usd": 6540,
     "first": "2026-11-27T16:52:29Z"
    },
    "exit_bid": 0.4,
@@ -1542,14 +1541,14 @@
    "bet": "Spurs ML",
    "side": "Spurs",
    "flagged": "2026-11-25T10:24:19Z",
-   "why": "2 top-200 accounts",
+   "why": "4 top-200 accounts",
    "proven": true,
    "trigger": "proven",
-   "n_accounts": 2,
+   "n_accounts": 4,
    "best_rank": 31,
-   "usd": 4403,
-   "paid": 0.642,
-   "ask": 0.66,
+   "usd": 7391,
+   "paid": 0.649,
+   "ask": 0.67,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-lal-sas-2026-11-27",
    "other": {
@@ -1558,7 +1557,7 @@
     "usd": 4470,
     "first": "2026-11-27T17:32:19Z"
    },
-   "exit_bid": 0.65,
+   "exit_bid": 0.66,
    "kalshi_against": null,
    "logged": true,
    "event_id": "401909333",
@@ -1765,7 +1764,7 @@
    "home": {
     "n": 4,
     "best_rank": 31,
-    "usd": 4403
+    "usd": 7391
    },
    "away": {
     "n": 3,
