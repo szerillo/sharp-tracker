@@ -1,5 +1,5 @@
 {
- "built": "2026-11-27T17:03:40Z",
+ "built": "2026-11-27T17:11:24Z",
  "rows": [
   {
    "cond": "0x4118ebd95506083db1c9ae53216923a12e448b5754a37fdeab09d764f30af058",
@@ -364,7 +364,7 @@
    "best_rank": 58,
    "usd": 470,
    "paid": 0.53,
-   "ask": 0.53,
+   "ask": 0.55,
    "status": "live",
    "link": "https://polymarket.us/event/cfb-ndkst-sjst-2026-11-27",
    "other": null,
@@ -477,6 +477,53 @@
      "Kalshi": 0.55,
      "DK": 0.5556,
      "FD": 0.5575
+    }
+   }
+  },
+  {
+   "cond": "0x8376c316c262d5c56a46ce9bc6679f01e717ec27bdd0bfcacef7cba8190eb519",
+   "slug": "cfb-airf-nmx-2026-11-27",
+   "title": "Air Force vs. New Mexico",
+   "mtype": "spread",
+   "start": "2026-11-27T21:30:00Z",
+   "bet": "New Mexico -6.5",
+   "side": "New Mexico",
+   "flagged": "2026-11-27T17:06:49Z",
+   "why": "a top-200 account also in this sport's top 50",
+   "proven": true,
+   "trigger": "proven",
+   "n_accounts": 1,
+   "best_rank": 58,
+   "usd": 460,
+   "paid": 0.54,
+   "ask": 0.55,
+   "status": "live",
+   "link": "https://polymarket.us/event/cfb-airf-nmx-2026-11-27",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401864546",
+   "sport": "cfb",
+   "league": null,
+   "away": "AFA",
+   "home": "UNM",
+   "away_name": "Air Force Falcons",
+   "home_name": "New Mexico Lobos",
+   "game_start": "2026-11-27T21:30Z",
+   "side_std": "home",
+   "cancel": null,
+   "money_with": false,
+   "grade": "A",
+   "fair_board": null,
+   "inside_fair": null,
+   "books": {
+    "at": "2026-11-27T16:02:47Z",
+    "fair": null,
+    "q": {
+     "Novig": 0.53,
+     "FD": 0.5349,
+     "DK": 0.5413,
+     "Kalshi": 0.55
     }
    }
   },
@@ -1050,7 +1097,7 @@
    "best_rank": 104,
    "usd": 279,
    "paid": 0.772,
-   "ask": 0.76,
+   "ask": 0.77,
    "status": "live",
    "link": "https://polymarket.us/event/nba-phi-hou-2026-11-28",
    "other": null,
@@ -1468,6 +1515,14 @@
     "usd": 588
    },
    "against": null
+  },
+  "401864546:cfb_road_dog_low_total": {
+   "with": null,
+   "against": {
+    "n": 1,
+    "best_rank": 58,
+    "usd": 460
+   }
   }
  },
  "by_event": {
@@ -1708,6 +1763,13 @@
     "usd": 470
    }
   },
+  "401864546|spread": {
+   "home": {
+    "n": 1,
+    "best_rank": 58,
+    "usd": 460
+   }
+  },
   "401856756|total": {
    "over": {
     "n": 1,
@@ -1760,6 +1822,13 @@
     "n": 1,
     "best_rank": 65,
     "usd": 150
+   }
+  },
+  "401928468|total": {
+   "over": {
+    "n": 1,
+    "best_rank": 58,
+    "usd": 235
    }
   },
   "401920542|total": {
