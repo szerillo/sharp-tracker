@@ -1,5 +1,5 @@
 {
- "built": "2026-11-27T21:53:20Z",
+ "built": "2026-11-27T22:01:04Z",
  "rows": [
   {
    "cond": "0xdcf51a8a1eff2ab52ce3cff7faa72c3279d31b0881c10780adae75f97e1a28c9",
@@ -903,7 +903,7 @@
    "best_rank": 57,
    "usd": 135,
    "paid": 0.62,
-   "ask": 0.62,
+   "ask": 0.61,
    "status": "live",
    "link": "https://polymarket.us/event/mls-clb-mia-2026-11-27",
    "other": null,
@@ -1032,7 +1032,7 @@
    "best_rank": 43,
    "usd": 1825,
    "paid": 0.53,
-   "ask": 0.52,
+   "ask": 0.51,
    "status": "live",
    "link": "https://polymarket.us/event/nba-den-uta-2026-11-27",
    "other": null,
@@ -1051,7 +1051,7 @@
    "money_with": false,
    "grade": "watch",
    "fair_board": 0.5183,
-   "inside_fair": false,
+   "inside_fair": true,
    "books": {
     "at": "2026-11-27T21:06:22Z",
     "fair": 0.5183,
@@ -1908,25 +1908,25 @@
     "clv": -0.95
    },
    "outside": {
-    "n": 127,
-    "won": 67,
+    "n": 128,
+    "won": 68,
     "units": -0.03,
-    "clv": -0.12
+    "clv": -0.13
    }
   },
-  "n": 467,
-  "won": 226,
+  "n": 470,
+  "won": 228,
   "units": -13.36,
   "by_grade": {
    "A": {
-    "n": 314,
-    "won": 146,
+    "n": 316,
+    "won": 147,
     "units": -13.17,
-    "clv": -0.11
+    "clv": -0.13
    },
    "B": {
-    "n": 106,
-    "won": 62,
+    "n": 107,
+    "won": 63,
     "units": 1.89,
     "clv": -1.1
    },
@@ -1937,12 +1937,12 @@
     "clv": 0.11
    }
   },
-  "units_1u": -16.44,
-  "clv": -0.32,
-  "n_venue": 243,
+  "units_1u": -13.74,
+  "clv": -0.34,
+  "n_venue": 245,
   "units_venue": -5.02,
-  "clv_venue": 0.89,
-  "clv_poly_same": -0.6
+  "clv_venue": 0.88,
+  "clv_poly_same": -0.61
  },
  "sys_tags": {
   "401858544:cfb_road_dog_low_total": {
@@ -1980,14 +1980,6 @@
     "best_rank": 49,
     "usd": 24802
    }
-  },
-  "401920382:cbb_under_good_over_drop": {
-   "with": {
-    "n": 1,
-    "best_rank": 65,
-    "usd": 588
-   },
-   "against": null
   }
  },
  "by_event": {
@@ -2280,27 +2272,6 @@
     "n": 1,
     "best_rank": 170,
     "usd": 212
-   }
-  },
-  "401921718|total": {
-   "over": {
-    "n": 1,
-    "best_rank": 65,
-    "usd": 690
-   }
-  },
-  "401920810|total": {
-   "over": {
-    "n": 1,
-    "best_rank": 65,
-    "usd": 242
-   }
-  },
-  "401920382|total": {
-   "under": {
-    "n": 1,
-    "best_rank": 65,
-    "usd": 588
    }
   },
   "401920541|spread": {
