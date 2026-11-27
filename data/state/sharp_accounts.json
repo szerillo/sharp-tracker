@@ -1,5 +1,5 @@
 {
- "built": "2026-11-27T08:03:36Z",
+ "built": "2026-11-27T08:13:40Z",
  "rows": [
   {
    "cond": "0xdcf51a8a1eff2ab52ce3cff7faa72c3279d31b0881c10780adae75f97e1a28c9",
@@ -310,6 +310,52 @@
    "books": null
   },
   {
+   "cond": "0x4c6ff19ee09d352a1c4082da57dbda58d16f41dbd4c5a4ea7a34dbfe176687b1",
+   "slug": "nba-bkn-tor-2026-11-27",
+   "title": "Nets vs. Raptors",
+   "mtype": "spread",
+   "start": "2026-11-28T00:30:00Z",
+   "bet": "Raptors -7.5",
+   "side": "Raptors",
+   "flagged": "2026-11-27T08:10:38Z",
+   "why": "a top-50 account",
+   "proven": false,
+   "trigger": "top50",
+   "n_accounts": 1,
+   "best_rank": 43,
+   "usd": 1942,
+   "paid": 0.53,
+   "ask": 0.54,
+   "status": "live",
+   "link": "https://polymarket.us/event/nba-bkn-tor-2026-11-27",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401909329",
+   "sport": "nba",
+   "league": null,
+   "away": "BKN",
+   "home": "TOR",
+   "away_name": "Brooklyn Nets",
+   "home_name": "Toronto Raptors",
+   "game_start": "2026-11-28T00:30Z",
+   "side_std": "home",
+   "cancel": null,
+   "money_with": false,
+   "grade": "watch",
+   "fair_board": null,
+   "inside_fair": null,
+   "books": {
+    "at": "2026-11-27T03:08:14Z",
+    "fair": null,
+    "q": {
+     "Novig": 0.52,
+     "DK": 0.5349,
+     "Kalshi": 0.55
+    }
+   }
+  },
+  {
    "cond": "0xa0a1d391918df41b7a4dae06ac2a3be562422a30f045571eff842bbca4e50f4e",
    "slug": "nba-lal-sas-2026-11-27",
    "title": "Lakers vs. Spurs",
@@ -356,6 +402,52 @@
      "FD": 0.6599,
      "Caesars": 0.661,
      "Kalshi": 0.67
+    }
+   }
+  },
+  {
+   "cond": "0x446e48a929363ac2ff59f910a1a264695a0755a7a10723e44fece7730e433b8e",
+   "slug": "nba-den-uta-2026-11-27",
+   "title": "Nuggets vs. Jazz",
+   "mtype": "spread",
+   "start": "2026-11-28T02:30:00Z",
+   "bet": "Nuggets -9.5",
+   "side": "Nuggets",
+   "flagged": "2026-11-27T08:13:17Z",
+   "why": "a top-50 account",
+   "proven": false,
+   "trigger": "top50",
+   "n_accounts": 1,
+   "best_rank": 43,
+   "usd": 1825,
+   "paid": 0.53,
+   "ask": 0.54,
+   "status": "live",
+   "link": "https://polymarket.us/event/nba-den-uta-2026-11-27",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401909334",
+   "sport": "nba",
+   "league": null,
+   "away": "DEN",
+   "home": "UTAH",
+   "away_name": "Denver Nuggets",
+   "home_name": "Utah Jazz",
+   "game_start": "2026-11-28T02:30Z",
+   "side_std": "away",
+   "cancel": null,
+   "money_with": false,
+   "grade": "watch",
+   "fair_board": null,
+   "inside_fair": null,
+   "books": {
+    "at": "2026-11-27T03:08:14Z",
+    "fair": null,
+    "q": {
+     "Novig": 0.525,
+     "DK": 0.5305,
+     "Kalshi": 0.55
     }
    }
   },
@@ -731,11 +823,25 @@
     "usd": 778
    }
   },
+  "401909329|spread": {
+   "home": {
+    "n": 1,
+    "best_rank": 43,
+    "usd": 1942
+   }
+  },
   "401909333|ml": {
    "home": {
     "n": 2,
     "best_rank": 31,
     "usd": 4403
+   }
+  },
+  "401909334|spread": {
+   "away": {
+    "n": 1,
+    "best_rank": 43,
+    "usd": 1825
    }
   },
   "401910048|ml": {
