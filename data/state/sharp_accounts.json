@@ -1,5 +1,5 @@
 {
- "built": "2026-11-27T05:12:05Z",
+ "built": "2026-11-27T05:19:54Z",
  "rows": [
   {
    "cond": "0x8dc2c4d90c60e5dac5508b00c1bf5fe4ec146f6f73b6a90bec89958fe936b156",
@@ -182,6 +182,44 @@
      "DK": 0.5283
     }
    }
+  },
+  {
+   "cond": "0xbb3f10972d8d4b1470f2cdf8350f82bd0a26b5417f44d70c6a64309bcf253ea6",
+   "slug": "nfl-den-pit-2026-11-27",
+   "title": "Broncos vs. Steelers",
+   "mtype": "spread",
+   "start": "2026-11-27T20:00:00Z",
+   "bet": "Broncos -5.5",
+   "side": "Broncos",
+   "flagged": "2026-11-27T05:15:15Z",
+   "why": "a top-200 account also in this sport's top 50",
+   "proven": true,
+   "trigger": "proven",
+   "n_accounts": 1,
+   "best_rank": 143,
+   "usd": 11334,
+   "paid": 0.48,
+   "ask": 0.49,
+   "status": "live",
+   "link": "https://polymarket.us/event/nfl-den-pit-2026-11-27",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401873083",
+   "sport": "nfl",
+   "league": null,
+   "away": "DEN",
+   "home": "PIT",
+   "away_name": "Denver Broncos",
+   "home_name": "Pittsburgh Steelers",
+   "game_start": "2026-11-27T20:00Z",
+   "side_std": "away",
+   "cancel": null,
+   "money_with": false,
+   "grade": "A",
+   "fair_board": null,
+   "inside_fair": null,
+   "books": null
   },
   {
    "cond": "0x841dca267e34794410689cfbc77ba290f9dbf64330821bfa50e3669612035e18",
@@ -566,7 +604,18 @@
    "other": null,
    "kalshi_against": null,
    "logged": true,
-   "grade": "A",
+   "event_id": "401910051",
+   "sport": "nba",
+   "league": null,
+   "away": "LAL",
+   "home": "MEM",
+   "away_name": "Los Angeles Lakers",
+   "home_name": "Memphis Grizzlies",
+   "game_start": "2026-11-29T21:00Z",
+   "side_std": "away",
+   "cancel": null,
+   "money_with": false,
+   "grade": "watch",
    "fair_board": null,
    "inside_fair": null,
    "books": null
@@ -678,13 +727,13 @@
     "clv": -0.12
    }
   },
-  "n": 464,
-  "won": 224,
+  "n": 465,
+  "won": 225,
   "units": -13.36,
   "by_grade": {
    "A": {
-    "n": 311,
-    "won": 144,
+    "n": 312,
+    "won": 145,
     "units": -13.17,
     "clv": -0.12
    },
@@ -701,9 +750,9 @@
     "clv": 0.11
    }
   },
-  "units_1u": -17.23,
+  "units_1u": -16.57,
   "clv": -0.33,
-  "n_venue": 242,
+  "n_venue": 243,
   "units_venue": -5.02,
   "clv_venue": 0.89,
   "clv_poly_same": -0.6
@@ -719,9 +768,9 @@
   },
   "401873083|spread": {
    "away": {
-    "n": 1,
-    "best_rank": 182,
-    "usd": 293
+    "n": 2,
+    "best_rank": 143,
+    "usd": 11626
    }
   },
   "401909326|spread": {
@@ -783,6 +832,13 @@
     "n": 1,
     "best_rank": 104,
     "usd": 279
+   }
+  },
+  "401910051|ml": {
+   "away": {
+    "n": 1,
+    "best_rank": 104,
+    "usd": 214
    }
   },
   "401892795|ml": {
