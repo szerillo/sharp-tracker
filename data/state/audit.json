@@ -1,48 +1,48 @@
 {
- "built": "2026-11-27T01:35:12Z",
- "ok": false,
+ "built": "2026-11-27T01:49:18Z",
+ "ok": true,
  "checks": [
   {
    "name": "fresh: sharp signals (5-minute job)",
    "ok": false,
    "level": "error",
-   "detail": "last built 34 min ago (allowed 20)"
+   "detail": "last built 17 min ago (allowed 20)"
   },
   {
    "name": "fresh: big money / Kalshi moves (20-minute job)",
    "ok": true,
    "level": "error",
-   "detail": "last built 14 min ago (allowed 60)"
+   "detail": "last built 10 min ago (allowed 60)"
   },
   {
    "name": "fresh: tennis watch (20-minute job)",
    "ok": true,
    "level": "error",
-   "detail": "last built 13 min ago (allowed 60)"
+   "detail": "last built 10 min ago (allowed 60)"
   },
   {
    "name": "fresh: bet tracker (20-minute job)",
    "ok": true,
    "level": "error",
-   "detail": "last built 3 min ago (allowed 60)"
+   "detail": "last built 2 min ago (allowed 60)"
   },
   {
    "name": "fresh: system bets (3 runs a day)",
    "ok": true,
    "level": "error",
-   "detail": "last built 40 min ago (allowed 300)"
+   "detail": "last built 54 min ago (allowed 300)"
   },
   {
    "name": "sharp feed: Polymarket fills arriving",
    "ok": true,
    "level": "warn",
-   "detail": "newest sharp fill 0.6 h ago"
+   "detail": "newest sharp fill 0.5 h ago"
   },
   {
    "name": "open system bets all on the board",
    "ok": true,
    "level": "error",
-   "detail": "35 open, 1 missing: cfb_homefav_7510_under 401858540"
+   "detail": "34 open, 0 missing"
   },
   {
    "name": "no duplicate bets in the records",
