@@ -1,11 +1,11 @@
 {
- "built": "2026-11-27T03:26:03Z",
+ "built": "2026-11-27T03:43:13Z",
  "record": {
-  "n": 306,
+  "n": 307,
   "won": 132,
-  "lost": 174,
-  "units": -3.81,
-  "roi": -5.0
+  "lost": 175,
+  "units": -4.06,
+  "roi": -5.3
  },
  "record_sb4": {
   "n": 11,
@@ -17,23 +17,23 @@
  "sb4_killed": true,
  "checkable_test": {
   "rule": "kill if the first 100 graded checkable rows are not positive in both halves",
-  "n": 32,
+  "n": 33,
   "all_checkable": {
-   "n": 32,
+   "n": 33,
    "won": 9,
-   "lost": 23,
-   "units": -3.14,
-   "roi": -39.3
+   "lost": 24,
+   "units": -3.39,
+   "roi": -41.1
   },
   "half1": {
-   "n": 32,
+   "n": 33,
    "won": 9,
-   "lost": 23,
-   "units": -3.14,
-   "roi": -39.3
+   "lost": 24,
+   "units": -3.39,
+   "roi": -41.1
   },
   "half2": null,
-  "verdict": "pending: 32 of 100"
+  "verdict": "pending: 33 of 100"
  },
  "rows": [
   {
@@ -59,31 +59,6 @@
    "qty_best": null,
    "wide": false,
    "team": "LOU",
-   "checkable": true
-  },
-  {
-   "key": "401918972|spread|home",
-   "sport": "cbb",
-   "event_id": "401918972",
-   "game": "SMU @ LSU",
-   "start": "2026-11-27T00:00Z",
-   "market": "spread",
-   "side": "home",
-   "line": -7.5,
-   "venue": "Novig",
-   "price": 0.485,
-   "fair": 0.4955,
-   "fair_power": 0.4953,
-   "venue_fair": 0.4826,
-   "fair_gap": 1.3,
-   "ev": 2.2,
-   "move": 1.1,
-   "flagged": "2026-11-26T18:56:42Z",
-   "venue_ts": "2026-11-26T18:24:40Z",
-   "pin_ts": "2026-11-26T18:24:40Z",
-   "qty_best": 41706,
-   "wide": false,
-   "team": "LSU",
    "checkable": true
   },
   {
