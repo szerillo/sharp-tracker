@@ -25,8 +25,10 @@ def team_hist(sport):
     T = collections.defaultdict(list); STYPE = {}
     for eid, h in H.items():
         STYPE[eid] = h.get('stype')
-        if h.get('hs') is None or h.get('stype') not in (None, 2) or not h.get('home') or not h.get('away'): continue
-        st = RR.ts(h['start']); sea = season(sport, st)
+        if h.get('hs') is None or not h.get('home') or not h.get('away'): continue
+        st = RR.ts(h['start'])
+        if not RR.regular_season(sport, h.get('stype'), st): continue      # 11/27: also drops the 2020 NHL / NBA bubble (blank type)
+        sea = season(sport, st)
         T[(h['home'], sea)].append((st, 'home', h['hs'], h['as_']))
         T[(h['away'], sea)].append((st, 'away', h['as_'], h['hs']))
     for v in T.values(): v.sort(key=lambda x: x[0])
@@ -50,7 +52,7 @@ def load(sport):
     for g in G:
         if g['hs'] is None or not g.get('home_ab') or not g.get('away_ab'): continue
         eid = ESPN.get(g['id']); g['espn'] = eid
-        if eid and STYPE.get(str(eid)) not in (None, 2): continue          # regular season only
+        if not RR.regular_season(sport, STYPE.get(str(eid)) if eid else None, g['start']): continue          # regular season only (11/27: and not the 2020 bubble)
         if sport == 'cfb':                                                   # the CFB schedule has no season type: bowls and playoff out by date
             d = g['start'].astimezone(ET)
             if (d.month == 1 or (d.month == 12 and d.day >= 14)) and {g['home_ab'], g['away_ab']} != {'ARMY', 'NAVY'}: continue
