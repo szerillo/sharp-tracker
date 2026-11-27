@@ -1,5 +1,5 @@
 {
-"built": "2026-11-27T12:11:02Z",
+"built": "2026-11-27T12:21:46Z",
 "sport": "nhl",
 "rule": "kalshi_nhl_flow",
 "tier": "P",
@@ -8,6 +8,26 @@
 "window_h": 6,
 "fire_min": 90,
 "rows": [
+{
+"event_id": "401892795",
+"market": "ml",
+"line": null,
+"start": "2026-11-27T18:00Z",
+"side": "home",
+"yes_side": "home",
+"home": "Boston Bruins",
+"away": "Toronto Maple Leafs",
+"game": "Toronto Maple Leafs @ Boston Bruins",
+"bet": "Boston Bruins moneyline",
+"share": 1.0,
+"usd": 2,
+"trades": 2,
+"price": 0.6,
+"mins_to_start": 338,
+"flag": false,
+"ticker": "KXNHLGAME-26NOV27TORBOS-BOS",
+"window_h": 6
+},
 {
 "event_id": "401892797",
 "market": "ml",
@@ -19,11 +39,11 @@
 "away": "Utah Mammoth",
 "game": "Utah Mammoth @ Nashville Predators",
 "bet": "Nashville Predators moneyline",
-"share": 0.629,
+"share": 0.626,
 "usd": 52,
-"trades": 3,
+"trades": 4,
 "price": 0.48,
-"mins_to_start": 349,
+"mins_to_start": 338,
 "flag": false,
 "ticker": "KXNHLGAME-26NOV27UTANSH-UTA",
 "window_h": 6
@@ -43,7 +63,7 @@
 "usd": 19,
 "trades": 1,
 "price": 0.71,
-"mins_to_start": 349,
+"mins_to_start": 338,
 "flag": false,
 "ticker": "KXNHLGAME-26NOV27CGYNJ-NJ",
 "window_h": 6
@@ -63,7 +83,7 @@
 "usd": 94,
 "trades": 1,
 "price": 0.38,
-"mins_to_start": 349,
+"mins_to_start": 338,
 "flag": false,
 "ticker": "KXNHLSPREAD-26NOV27TORBOS-BOS2",
 "window_h": 6
