@@ -163,7 +163,7 @@ DESC = {'wind1014': 'NFL outdoor: the game is on Sean\'s Bet Labs screen "NFL Wi
         'cbb_bigloss_vs_top5': 'CBB regular-season conference game: unranked team off a 14-45 point loss vs a top-5 opponent: that team on the spread',
         'cfb_hot_over_low_total': 'CFB non-conference game, 85F+ and wind 10 mph or less, total 55 or lower: over (heat wears defences down; low totals price it least)',
         'cfb_road_streak_dog': 'CFB conference road dog on its 2nd-5th straight road game, total 54 or lower: road spread (Bet Labs also requires a heavy-bet day, which we cannot see)',
-        'cbb_under_good_over_drop': 'CBB weekday game, home team over 50%+ and visitor over 59%+ this season (6+ games each), total down 0.5+ from open: under'}
+        'cbb_under_good_over_drop': 'CBB weekday game on Sean\'s Bet Labs screen 1792184 (home team over 50%+, visitor over 59%+, home O/U streak 0-3, total down 0.5+ from open, all on Bet Labs\' own numbers): under. From 11/27 it bets only games on a fresh Bet Labs pull; our own reading of the filters is shown as a flag, never bet'}
 # Bet Labs screen per rule (every rule Bet Labs can express has a "Tested:" screen in the account, aligned 11/1). Exchange and tennis rules
 # use data Bet Labs does not have, so they have none.
 LABS = {'wind1014': (1772775, 'Tested: NFL Wind 10-14 Under'), 'wind1014_1h': (769171, 'Tested: NFL 1H Wind 10-13 Under'),
@@ -940,22 +940,42 @@ def main():
                     fired[key] = rec_; game['fills'].append(rec_); fires_now.append(dict(game=f"{away}@{home}", **rec_))
         view_games.append(game)
     CBB_MIN_G = 6
+    # 11/27 (Sean approved via Kirk, td_cbb_list_only; drafted in td_replay_fixes). docs/validation/betlabs_mismatch_2026-11-26.md: Bet Labs' own picks for
+    # screen 1792184 return +4.0% at Pinnacle's close (502 games, 2020-26), but the tool's version of the filters picks mostly other games
+    # (474 games at -6.0%, only 172 of them on Bet Labs' list): over % and the open-to-close drop are measured on Bet Labs' own lines.
+    # So the bet follows Bet Labs' list, the way the wind rules follow theirs: a fresh pull (WIND_LABS_MAX_H) that lists the game fires it;
+    # a fresh pull that does not list it never fires it; with no fresh pull nothing fires (our own reading is shown on the row, not bet).
+    # cfb_road_streak_dog is the softer form (our trigger, vetoed by a fresh list); this is stricter because our own trigger loses here.
+    CBB_LABS_GATE = True
     # CBB under with two over-heavy teams once the total has dropped (rescued 766981 variant)
     for ev, start, away, home in conn.execute("SELECT event_id, start_utc, away, home FROM events WHERE sport='cbb' ORDER BY start_utc").fetchall():
         st = N.parse_ts(start); ttk = (st - NOW).total_seconds() / 3600
         if not (0 < ttk <= VIEW_H): continue
         g = (cbb or {}).get(ev) or {}
         if g.get('season_type') not in (2, None) or st.astimezone(N.ET).weekday() > 4: continue      # Monday-Friday, regular season
+        eq = F.EventQuotes(conn, ev); tl, _n = main_line(eq, 'total', None); op = open_line(conn, ev, 'total')
         ph, pa = SEA.profile('cbb', home, st), SEA.profile('cbb', away, st)
         # 11/14 (Sean): 3 games made the season over % too thin (5 fires on 11/13-14, Bet Labs 0); paper until each team has 6 games
-        if ph.get('games', 0) < CBB_MIN_G or pa.get('games', 0) < CBB_MIN_G or ph.get('over_pct') is None or pa.get('over_pct') is None: continue
-        if ph.get('ou_streak') not in (0, 1, 2, 3): continue      # 11/14: Bet Labs 1792184 "Home OU Streak 3, 2, 1, 0" (home not on an under streak, not 4+ overs)
-        if not (ph['over_pct'] >= 0.50 and pa['over_pct'] >= 0.59): continue
-        eq = F.EventQuotes(conn, ev); tl, _n = main_line(eq, 'total', None); op = open_line(conn, ev, 'total')
-        if tl is None or op is None or op - tl < 0.5: continue
+        ours = (ph.get('games', 0) >= CBB_MIN_G and pa.get('games', 0) >= CBB_MIN_G and ph.get('over_pct') is not None and pa.get('over_pct') is not None
+                and ph.get('ou_streak') in (0, 1, 2, 3)      # 11/14: Bet Labs 1792184 "Home OU Streak 3, 2, 1, 0"
+                and ph['over_pct'] >= 0.50 and pa['over_pct'] >= 0.59 and tl is not None and op is not None and op - tl >= 0.5)
+        mine = (f"ours: home {home} over {100 * ph['over_pct']:.0f}% ({ph['games']} games), visitor {away} over {100 * pa['over_pct']:.0f}% ({pa['games']}); total {op} -> {tl}"
+                if ph.get('over_pct') is not None and pa.get('over_pct') is not None else 'ours: not enough games')
+        if CBB_LABS_GATE:
+            rs_ = sched_rec('cbb', ev)
+            on_, pick_ = labs_pick(1792184, (rs_.get('away_team') or {}).get('displayName') or away, (rs_.get('home_team') or {}).get('displayName') or home)
+            if not on_:
+                if ours:     # show our reading, never bet it
+                    view_games.append(dict(event_id=ev, away=away, home=home, start_utc=start, hours_to_kickoff=round(ttk, 1), spread_home=None, dog=None, fills=[], sport='cbb',
+                                           triggers={'cbb_labs_gap': f"{mine}; {'not on' if on_ is False else 'no fresh'} Bet Labs list ({labs_label(pick_)}): flag only, no bet"}))
+                continue
+            if tl is None: continue
+            why = f"{labs_label(pick_)}: {(pick_ or {}).get('info') or ''}; {mine}"
+        else:
+            if not ours: continue
+            why = mine[len('ours: '):]
         game = dict(event_id=ev, away=away, home=home, start_utc=start, hours_to_kickoff=round(ttk, 1), spread_home=None, dog=None, triggers={}, fills=[], sport='cbb')
-        take(conn, eq, fired, fires_now, game, ev, start, away, home, 'cbb_under_good_over_drop', 'total', tl, 'under', None, 0.5,
-             f"home {home} over {100 * ph['over_pct']:.0f}% ({ph['games']} games), visitor {away} over {100 * pa['over_pct']:.0f}% ({pa['games']}); total {op} -> {tl}")
+        take(conn, eq, fired, fires_now, game, ev, start, away, home, 'cbb_under_good_over_drop', 'total', tl, 'under', None, 0.5, why)
         view_games.append(game)
     # 11/14 (Sean: every Tested/Tracked Bet Labs system fires in the tool): MLB 1799441, visitor's game number 16-162 (15+ played) and its
     # games over 60-100%: under. Paper. No MLB games until spring; wrapped so a missing MLB log never stops the run.

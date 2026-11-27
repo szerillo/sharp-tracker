@@ -116,18 +116,14 @@ class LiveRegularSeason(unittest.TestCase):
             self.assertTrue(any('regular season' in f.lower() for f in v['filters']), f"{sid} {v['name']}")
 
 
-class CbbDraft(unittest.TestCase):
-    def test_draft_applies_and_compiles(self):
-        p = os.path.join(ROOT, 'docs', 'drafts', 'cbb_labs_gate_2026-11-27.patch')
-        with tempfile.TemporaryDirectory() as d:
-            os.makedirs(os.path.join(d, 'sharp'))
-            open(os.path.join(d, 'sharp', 'systems.py'), 'w').write(open(os.path.join(ROOT, 'sharp', 'systems.py')).read())
-            r = subprocess.run(['git', 'apply', p], cwd=d, capture_output=True, text=True)
-            self.assertEqual(r.returncode, 0, r.stderr)
-            src = open(os.path.join(d, 'sharp', 'systems.py')).read()
-            compile(src, 'systems.py', 'exec')
-            self.assertIn('CBB_LABS_GATE = True', src)
-        self.assertNotIn('CBB_LABS_GATE', open(os.path.join(ROOT, 'sharp', 'systems.py')).read())     # drafted, not applied
+class CbbListOnly(unittest.TestCase):
+    def test_gate_is_applied(self):
+        """11/27: Sean approved the drafted CBB change; cbb_under_good_over_drop bets only games on Bet Labs' list."""
+        src = open(os.path.join(ROOT, 'sharp', 'systems.py')).read()
+        self.assertIn('CBB_LABS_GATE = True', src)
+        self.assertIn("labs_pick(1792184,", src)
+        for line in ("if not on_:", "flag only, no bet", "why = f\"{labs_label(pick_)}"):
+            self.assertIn(line, src)
 
 
 if __name__ == '__main__':
