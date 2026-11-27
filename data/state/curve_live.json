@@ -1,5 +1,5 @@
 {
- "built": "2026-11-27T14:59:37Z",
+ "built": "2026-11-27T15:17:32Z",
  "record": {
   "cbb_1h_total_curve": {
    "n": 11,
@@ -112,6 +112,60 @@
    "book": null,
    "price": null,
    "flagged": "2026-11-27T14:27:35Z"
+  },
+  {
+   "key": "nhl_p1_spread_curve|978dfc077c2cba5159882a1f65088b8d||away",
+   "rule": "nhl_p1_spread_curve",
+   "tier": "C",
+   "stake": 0.25,
+   "sport": "nhl",
+   "odds_id": "978dfc077c2cba5159882a1f65088b8d",
+   "espn": "401892796",
+   "game": "Calgary Flames @ New Jersey Devils",
+   "start": "2026-11-27T18:00:00Z",
+   "market": "spreads_p1",
+   "team": null,
+   "team_name": "Calgary Flames",
+   "side": "away",
+   "line": 0.5,
+   "curve": 0.635,
+   "pin_fair": 0.558,
+   "gap": 7.7,
+   "full_total": 6.0,
+   "full_spread": -1.5,
+   "pin_price": 1.73,
+   "book": "FD",
+   "price": 1.68,
+   "pin_fair_power": 0.5607,
+   "book_fair": 0.5625,
+   "fair_gap": -0.5,
+   "ev_curve": 6.6,
+   "flagged": "2026-11-27T15:17:32Z"
+  },
+  {
+   "key": "nhl_p3_under_curve|b5234ea5788fb4f5393efc6c33c8e5e7||under",
+   "rule": "nhl_p3_under_curve",
+   "tier": "P",
+   "stake": 0.0,
+   "sport": "nhl",
+   "odds_id": "b5234ea5788fb4f5393efc6c33c8e5e7",
+   "espn": "401892797",
+   "game": "Utah Mammoth @ Nashville Predators",
+   "start": "2026-11-27T18:00:00Z",
+   "market": "totals_p3",
+   "team": null,
+   "team_name": null,
+   "side": "under",
+   "line": 2.0,
+   "curve": 0.547,
+   "pin_fair": 0.445,
+   "gap": 10.2,
+   "full_total": 6.5,
+   "full_spread": 1.5,
+   "pin_price": 2.17,
+   "book": null,
+   "price": null,
+   "flagged": "2026-11-27T15:17:32Z"
   }
  ]
 }
