@@ -1,5 +1,5 @@
 {
- "built": "2026-11-27T09:35:34Z",
+ "built": "2026-11-27T09:44:33Z",
  "rows": [
   {
    "cond": "0xdcf51a8a1eff2ab52ce3cff7faa72c3279d31b0881c10780adae75f97e1a28c9",
@@ -199,7 +199,7 @@
    "best_rank": 157,
    "usd": 618,
    "paid": 0.66,
-   "ask": 0.68,
+   "ask": 0.69,
    "status": "live",
    "link": "https://polymarket.us/event/epl-not-che-2026-11-27",
    "other": null,
@@ -722,6 +722,53 @@
    }
   },
   {
+   "cond": "0xdc6a15c5dd5683ea2680057e12d22b7ff20c56781a4f93b2d4f34fdd5d628fcc",
+   "slug": "epl-ful-bou-2026-11-29",
+   "title": "Fulham FC vs. AFC Bournemouth",
+   "mtype": "ml",
+   "start": "2026-11-29T14:05:00Z",
+   "bet": "Will AFC Bournemouth win on 2026-11-29: Yes",
+   "side": "Yes",
+   "flagged": "2026-11-27T09:43:58Z",
+   "why": "a top-200 account also in this sport's top 50",
+   "proven": true,
+   "trigger": "proven",
+   "n_accounts": 1,
+   "best_rank": 71,
+   "usd": 500,
+   "paid": 0.4,
+   "ask": 0.4,
+   "status": "live",
+   "link": "https://polymarket.us/event/epl-ful-bou-2026-11-29",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401879228",
+   "sport": "soccer",
+   "league": "epl",
+   "away": "BOU",
+   "home": "FUL",
+   "away_name": "AFC Bournemouth",
+   "home_name": "Fulham",
+   "game_start": "2026-11-29T14:05Z",
+   "side_std": "away",
+   "cancel": null,
+   "money_with": false,
+   "grade": "A",
+   "fair_board": 0.3834,
+   "inside_fair": false,
+   "books": {
+    "at": "2026-11-27T03:08:14Z",
+    "fair": 0.3834,
+    "q": {
+     "Novig": 0.385,
+     "DK": 0.3922,
+     "FD": 0.4082,
+     "Kalshi": 0.41
+    }
+   }
+  },
+  {
    "cond": "0x7a58bf7255ef1eab1b450b3dbc90d6549f0142be338d11625715133325a4eef3",
    "slug": "nba-lal-mem-2026-11-29",
    "title": "Lakers vs. Grizzlies",
@@ -737,7 +784,7 @@
    "best_rank": 104,
    "usd": 214,
    "paid": 0.53,
-   "ask": 0.59,
+   "ask": 0.58,
    "status": "live",
    "link": "https://polymarket.us/event/nba-lal-mem-2026-11-29",
    "other": null,
