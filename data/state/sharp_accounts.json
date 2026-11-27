@@ -1,5 +1,5 @@
 {
- "built": "2026-11-27T22:47:08Z",
+ "built": "2026-11-27T23:30:07Z",
  "rows": [
   {
    "cond": "0x54ad8d9c5138c8de4f4d8cd4eb6b1329b97cefacafa3549c70e83966f041ba8e",
@@ -406,7 +406,7 @@
    "best_rank": 104,
    "usd": 302,
    "paid": 0.437,
-   "ask": 0.38,
+   "ask": 0.4,
    "status": "live",
    "link": "https://polymarket.us/event/nba-mia-nyk-2026-11-27",
    "other": null,
@@ -429,44 +429,6 @@
    ],
    "money_with": false,
    "grade": "watch",
-   "fair_board": null,
-   "inside_fair": null,
-   "books": null
-  },
-  {
-   "cond": "0xe499f22bd66f74aa706930665eab2f43947e862c6db717d3e2b523fd16f5e1d5",
-   "slug": "nba-mia-nyk-2026-11-27",
-   "title": "Heat vs. Knicks",
-   "mtype": "spread",
-   "start": "2026-11-28T00:00:00Z",
-   "bet": "Heat +2.5",
-   "side": "Heat",
-   "flagged": "2026-11-27T18:33:44Z",
-   "why": "2 top-200 accounts",
-   "proven": false,
-   "trigger": "two",
-   "n_accounts": 2,
-   "best_rank": 112,
-   "usd": 14494,
-   "paid": 0.455,
-   "ask": 0.51,
-   "status": "live",
-   "link": "https://polymarket.us/event/nba-mia-nyk-2026-11-27",
-   "other": null,
-   "kalshi_against": null,
-   "logged": true,
-   "event_id": "401909326",
-   "sport": "nba",
-   "league": null,
-   "away": "MIA",
-   "home": "NY",
-   "away_name": "Miami Heat",
-   "home_name": "New York Knicks",
-   "game_start": "2026-11-28T00:00Z",
-   "side_std": "away",
-   "cancel": null,
-   "money_with": false,
-   "grade": "B",
    "fair_board": null,
    "inside_fair": null,
    "books": null
@@ -758,7 +720,7 @@
    "best_rank": 57,
    "usd": 135,
    "paid": 0.62,
-   "ask": 0.6,
+   "ask": 0.61,
    "status": "live",
    "link": "https://polymarket.us/event/mls-clb-mia-2026-11-27",
    "other": null,
@@ -953,9 +915,10 @@
     "Kalshi bet back"
    ],
    "cancel": null,
-   "money_with": true,
-   "grade": "A",
+   "money_with": false,
+   "grade": "B",
    "inside_fair": true,
+   "fair_board": 0.4725,
    "books": {
     "at": "2026-11-27T22:11:08Z",
     "fair": 0.4725,
@@ -1369,8 +1332,8 @@
    "cancel": null,
    "money_with": true,
    "grade": "A",
-   "fair_board": 0.4397,
    "inside_fair": false,
+   "fair_board": 0.4397,
    "books": {
     "at": "2026-11-27T21:25:44Z",
     "fair": 0.4397,
@@ -1435,23 +1398,23 @@
    "bet": "Heat ML",
    "side": "Heat",
    "flagged": "2026-11-27T16:30:07Z",
-   "why": "3 top-200 accounts",
+   "why": "4 top-200 accounts",
    "proven": false,
    "trigger": "two",
-   "n_accounts": 3,
+   "n_accounts": 4,
    "best_rank": 43,
-   "usd": 14189,
-   "paid": 0.418,
-   "ask": 0.44,
+   "usd": 24508,
+   "paid": 0.415,
+   "ask": 0.42,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-mia-nyk-2026-11-27",
    "other": {
-    "n_accounts": 2,
-    "best_rank": 55,
-    "usd": 6540,
+    "n_accounts": 5,
+    "best_rank": 43,
+    "usd": 52369,
     "first": "2026-11-27T16:52:29Z"
    },
-   "exit_bid": 0.43,
+   "exit_bid": 0.41,
    "kalshi_against": null,
    "logged": true,
    "event_id": "401909326",
@@ -1471,6 +1434,50 @@
    "grade": "B",
    "inside_fair": false,
    "fair_board": 0.3851,
+   "books": null
+  },
+  {
+   "cond": "0xe499f22bd66f74aa706930665eab2f43947e862c6db717d3e2b523fd16f5e1d5",
+   "slug": "nba-mia-nyk-2026-11-27",
+   "title": "Heat vs. Knicks",
+   "mtype": "spread",
+   "start": "2026-11-28T00:00:00Z",
+   "bet": "Heat +2.5",
+   "side": "Heat",
+   "flagged": "2026-11-27T18:33:44Z",
+   "why": "2 top-200 accounts",
+   "proven": false,
+   "trigger": "two",
+   "n_accounts": 2,
+   "best_rank": 112,
+   "usd": 14494,
+   "paid": 0.455,
+   "ask": 0.48,
+   "status": "other side",
+   "link": "https://polymarket.us/event/nba-mia-nyk-2026-11-27",
+   "other": {
+    "n_accounts": 2,
+    "best_rank": 112,
+    "usd": 41788,
+    "first": "2026-11-27T23:22:26Z"
+   },
+   "exit_bid": 0.47,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401909326",
+   "sport": "nba",
+   "league": null,
+   "away": "MIA",
+   "home": "NY",
+   "away_name": "Miami Heat",
+   "home_name": "New York Knicks",
+   "game_start": "2026-11-28T00:00Z",
+   "side_std": "away",
+   "cancel": null,
+   "money_with": false,
+   "grade": "B",
+   "fair_board": null,
+   "inside_fair": null,
    "books": null
   },
   {
@@ -1851,10 +1858,10 @@
  "record": {
   "by_fair": {
    "inside": {
-    "n": 17,
-    "won": 8,
+    "n": 18,
+    "won": 9,
     "units": -1.61,
-    "clv": -0.95
+    "clv": -0.79
    },
    "outside": {
     "n": 129,
@@ -1863,15 +1870,15 @@
     "clv": -0.13
    }
   },
-  "n": 471,
-  "won": 229,
+  "n": 476,
+  "won": 232,
   "units": -13.11,
   "by_grade": {
    "A": {
-    "n": 317,
-    "won": 148,
+    "n": 322,
+    "won": 151,
     "units": -12.92,
-    "clv": -0.14
+    "clv": -0.11
    },
    "B": {
     "n": 107,
@@ -1886,12 +1893,12 @@
     "clv": 0.11
    }
   },
-  "units_1u": -13.27,
-  "clv": -0.34,
-  "n_venue": 245,
+  "units_1u": -12.25,
+  "clv": -0.32,
+  "n_venue": 247,
   "units_venue": -5.02,
-  "clv_venue": 0.88,
-  "clv_poly_same": -0.61
+  "clv_venue": 0.86,
+  "clv_poly_same": -0.6
  },
  "sys_tags": {
   "401858544:cfb_road_dog_low_total": {
@@ -1941,9 +1948,9 @@
   },
   "401909326|spread": {
    "home": {
-    "n": 2,
+    "n": 4,
     "best_rank": 58,
-    "usd": 772
+    "usd": 6872
    },
    "away": {
     "n": 2,
@@ -1953,14 +1960,21 @@
   },
   "401909326|ml": {
    "away": {
-    "n": 3,
+    "n": 4,
     "best_rank": 43,
-    "usd": 14189
+    "usd": 24508
    },
    "home": {
-    "n": 2,
-    "best_rank": 55,
-    "usd": 813
+    "n": 5,
+    "best_rank": 43,
+    "usd": 29552
+   }
+  },
+  "401909326|total": {
+   "under": {
+    "n": 1,
+    "best_rank": 132,
+    "usd": 234
    }
   },
   "401909326|total": {
