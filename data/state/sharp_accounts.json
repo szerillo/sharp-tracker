@@ -1,5 +1,5 @@
 {
- "built": "2026-11-27T09:44:33Z",
+ "built": "2026-11-27T10:56:51Z",
  "rows": [
   {
    "cond": "0xdcf51a8a1eff2ab52ce3cff7faa72c3279d31b0881c10780adae75f97e1a28c9",
@@ -533,6 +533,51 @@
      "DK": 0.6721,
      "FD": 0.6774,
      "Kalshi": 0.68
+    }
+   }
+  },
+  {
+   "cond": "0xcfcadf1aa69c22b417039918b04cb677f7f90158b68428b080be61bef8938f62",
+   "slug": "epl-mun-bre-2026-11-28",
+   "title": "Manchester United FC vs. Brentford FC",
+   "mtype": "ml",
+   "start": "2026-11-28T15:00:00Z",
+   "bet": "Will Manchester United FC win on 2026-11-28: Yes",
+   "side": "Yes",
+   "flagged": "2026-11-27T10:54:59Z",
+   "why": "a top-200 account also in this sport's top 50",
+   "proven": true,
+   "trigger": "proven",
+   "n_accounts": 1,
+   "best_rank": 100,
+   "usd": 4882,
+   "paid": 0.45,
+   "ask": 0.46,
+   "status": "live",
+   "link": "https://polymarket.us/event/epl-mun-bre-2026-11-28",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401879226",
+   "sport": "soccer",
+   "league": "epl",
+   "away": "BRE",
+   "home": "MAN",
+   "away_name": "Brentford",
+   "home_name": "Manchester United",
+   "game_start": "2026-11-28T15:00Z",
+   "side_std": "home",
+   "cancel": null,
+   "money_with": false,
+   "grade": "A",
+   "fair_board": 0.4539,
+   "inside_fair": false,
+   "books": {
+    "at": "2026-11-27T03:08:14Z",
+    "fair": 0.4539,
+    "q": {
+     "Novig": 0.46,
+     "Kalshi": 0.48
     }
    }
   },
