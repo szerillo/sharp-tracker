@@ -1,5 +1,5 @@
 {
- "built": "2026-11-27T08:54:43Z",
+ "built": "2026-11-27T09:04:11Z",
  "rows": [
   {
    "cond": "0xdcf51a8a1eff2ab52ce3cff7faa72c3279d31b0881c10780adae75f97e1a28c9",
@@ -114,7 +114,7 @@
    "best_rank": 197,
    "usd": 505,
    "paid": 0.488,
-   "ask": 0.51,
+   "ask": 0.52,
    "status": "live",
    "link": "https://polymarket.us/event/nhl-fla-wsh-2026-11-27",
    "other": null,
@@ -821,7 +821,11 @@
     "best_rank": 182,
     "usd": 293
    },
-   "against": null
+   "against": {
+    "n": 1,
+    "best_rank": 132,
+    "usd": 569
+   }
   }
  },
  "by_event": {
@@ -928,6 +932,13 @@
     "usd": 196
    }
   },
+  "401892796|ml": {
+   "home": {
+    "n": 1,
+    "best_rank": 132,
+    "usd": 776
+   }
+  },
   "401892798|ml": {
    "away": {
     "n": 1,
@@ -968,6 +979,11 @@
     "n": 1,
     "best_rank": 182,
     "usd": 293
+   },
+   "home": {
+    "n": 1,
+    "best_rank": 132,
+    "usd": 569
    }
   },
   "401856757|total": {
