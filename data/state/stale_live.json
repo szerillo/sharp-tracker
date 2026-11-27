@@ -1,11 +1,11 @@
 {
- "built": "2026-11-27T05:00:17Z",
+ "built": "2026-11-27T05:18:04Z",
  "record": {
-  "n": 307,
-  "won": 132,
+  "n": 308,
+  "won": 133,
   "lost": 175,
-  "units": -4.06,
-  "roi": -5.3
+  "units": -3.77,
+  "roi": -4.9
  },
  "record_sb4": {
   "n": 11,
@@ -17,50 +17,25 @@
  "sb4_killed": true,
  "checkable_test": {
   "rule": "kill if the first 100 graded checkable rows are not positive in both halves",
-  "n": 33,
+  "n": 34,
   "all_checkable": {
-   "n": 33,
-   "won": 9,
+   "n": 34,
+   "won": 10,
    "lost": 24,
-   "units": -3.39,
-   "roi": -41.1
+   "units": -3.1,
+   "roi": -36.5
   },
   "half1": {
-   "n": 33,
-   "won": 9,
+   "n": 34,
+   "won": 10,
    "lost": 24,
-   "units": -3.39,
-   "roi": -41.1
+   "units": -3.1,
+   "roi": -36.5
   },
   "half2": null,
-  "verdict": "pending: 33 of 100"
+  "verdict": "pending: 34 of 100"
  },
  "rows": [
-  {
-   "key": "401920530|ml|away",
-   "sport": "cbb",
-   "event_id": "401920530",
-   "game": "LOU @ SJU",
-   "start": "2026-11-27T02:00Z",
-   "market": "ml",
-   "side": "away",
-   "line": null,
-   "venue": "FD",
-   "price": 0.463,
-   "fair": 0.4745,
-   "fair_power": 0.4731,
-   "venue_fair": 0.444,
-   "fair_gap": 3.1,
-   "ev": 2.5,
-   "move": 1.4,
-   "flagged": "2026-11-26T16:52:58Z",
-   "venue_ts": "2026-11-26T16:26:56Z",
-   "pin_ts": "2026-11-26T16:26:56Z",
-   "qty_best": null,
-   "wide": false,
-   "team": "LOU",
-   "checkable": true
-  },
   {
    "key": "401862838|total|over",
    "sport": "cfb",
