@@ -9324,19 +9324,16 @@
 },
 "401858540:cfb_homefav_7510_under": {
 "tag": "cfb_homefav_7510_under",
-"fill_id": "8bf2c5555951",
-"ts": "2026-11-26T23:53:06Z",
+"fill_id": "429001db08c4",
+"ts": "2026-11-27T01:57:43Z",
 "market": "total",
 "side": "under",
 "line": 37.5,
 "venue": "Novig",
 "price": -106,
-"fair": 0.50382,
-"edge_pts": -1.12,
-"why": "home favourite OSU -10.0, total 37.5: under (mined angle)",
-"void": true,
-"void_why": "rule no longer holds on the current line: home spread -10.5, total 37.5 (2026-11-27T00:55:38Z)",
-"void_at": "2026-11-27T00:55:38Z"
+"fair": 0.50903,
+"edge_pts": -0.6,
+"why": "home favourite OSU -10.0, total 37.5: under (mined angle)"
 },
 "401856875:cfb_day_over": {
 "tag": "cfb_day_over",
@@ -10014,7 +10011,10 @@
 "price": -110,
 "fair": 0.502,
 "edge_pts": -2.18,
-"why": "conference game, UTEP on road game 2 in a row, +4.0, total 50.5"
+"why": "conference game, UTEP on road game 2 in a row, +4.0, total 50.5",
+"void": true,
+"void_why": "rule no longer holds on the current line: home spread -4.5, total 50.5 (2026-11-27T01:57:43Z)",
+"void_at": "2026-11-27T01:57:43Z"
 },
 "401910038:xch_homedog_fade:ml": {
 "tag": "xch_homedog_fade",
@@ -10625,5 +10625,18 @@
 "fair": 0.5,
 "edge_pts": -2.38,
 "why": "home POR covers 67% of spreads this season (18 games), 2 days rest: home spread (mined angle)"
+},
+"401873096:nfl_fade_fav_bye": {
+"tag": "nfl_fade_fav_bye",
+"fill_id": "74f48c68cb74",
+"ts": "2026-11-27T01:57:43Z",
+"market": "spread",
+"side": "away",
+"line": 1.5,
+"venue": "Novig",
+"price": -2028,
+"fair": null,
+"edge_pts": null,
+"why": "LAR (favourite) off 8 days: dog KC"
 }
 }
