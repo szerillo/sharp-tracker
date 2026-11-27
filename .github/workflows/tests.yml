@@ -1,0 +1,35 @@
+name: tests (unit tests on every code change)
+# 11/27 (Kirk, td next steps): nothing ran tests/ automatically, so a regression only showed up in a live run. This runs the whole suite
+# on any push that touches code or tests, plus on demand. Data-only bot commits do not trigger it. A failure sends one phone alert.
+on:
+  push:
+    branches: [main]
+    paths: ['sharp/**', 'loggers/**', 'tests/**', '.github/workflows/tests.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: tests
+  cancel-in-progress: true
+jobs:
+  unit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          sparse-checkout: |
+            /*
+            !/data/oddsapi/
+          sparse-checkout-cone-mode: false
+          filter: blob:none
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.12'}
+      - run: pip install -q numpy pandas
+      - name: unit tests
+        run: python3 -W ignore -m unittest discover -s tests -v
+      - name: phone alert on a failure
+        if: failure()
+        env: {NTFY_TOPIC: '${{ secrets.NTFY_TOPIC }}'}
+        run: |
+          [ -n "$NTFY_TOPIC" ] && curl -s -H "Title: Sharp tracker tests failed" -H "Priority: high" -d "Unit tests failed on ${GITHUB_SHA::8}: ${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}" "https://ntfy.sh/$NTFY_TOPIC" || true
