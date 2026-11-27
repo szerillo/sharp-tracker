@@ -1,12 +1,12 @@
 {
  "nhl_pl_fav_gap (fav -1.5, opponent win% higher by 22+)": {
   "2020-21": {
-   "n": 14,
-   "record": "1-13",
-   "roi_pinnacle": -79.0,
+   "n": 25,
+   "record": "10-15",
+   "roi_pinnacle": 16.0,
    "roi_best_us": null,
-   "clv_open_to_close": 1.52,
-   "number_moved_for": -0.21,
+   "clv_open_to_close": 0.79,
+   "number_moved_for": 0.0,
    "moved_for_share": 0.0
   },
   "2021-22": {
@@ -19,13 +19,13 @@
    "moved_for_share": 0.04
   },
   "2022-23": {
-   "n": 39,
-   "record": "18-21",
-   "roi_pinnacle": 12.6,
+   "n": 38,
+   "record": "18-20",
+   "roi_pinnacle": 15.6,
    "roi_best_us": null,
-   "clv_open_to_close": 2.33,
-   "number_moved_for": 0.15,
-   "moved_for_share": 0.05
+   "clv_open_to_close": 1.43,
+   "number_moved_for": 0.08,
+   "moved_for_share": 0.03
   },
   "2023-24": {
    "n": 26,
@@ -37,49 +37,123 @@
    "moved_for_share": 0.04
   },
   "2024-25": {
-   "n": 34,
-   "record": "17-17",
-   "roi_pinnacle": 34.2,
+   "n": 37,
+   "record": "18-19",
+   "roi_pinnacle": 29.9,
    "roi_best_us": null,
-   "clv_open_to_close": 2.07,
-   "number_moved_for": 0.0,
-   "moved_for_share": 0.03
+   "clv_open_to_close": 2.16,
+   "number_moved_for": 0.16,
+   "moved_for_share": 0.08
   },
   "2025-26": {
-   "n": 36,
-   "record": "13-23",
-   "roi_pinnacle": 1.5,
+   "n": 39,
+   "record": "15-24",
+   "roi_pinnacle": 9.1,
    "roi_best_us": null,
-   "clv_open_to_close": 0.85,
-   "number_moved_for": 0.33,
-   "moved_for_share": 0.11
+   "clv_open_to_close": 0.8,
+   "number_moved_for": 0.31,
+   "moved_for_share": 0.1
   },
   "2026-27": {
-   "n": 6,
-   "record": "3-3",
-   "roi_pinnacle": 52.0,
+   "n": 8,
+   "record": "3-5",
+   "roi_pinnacle": 14.0,
    "roi_best_us": null,
-   "clv_open_to_close": 0.08,
-   "number_moved_for": 0.0,
-   "moved_for_share": 0.0
+   "clv_open_to_close": 0.63,
+   "number_moved_for": 0.75,
+   "moved_for_share": 0.25
   },
   "all": {
-   "n": 205,
-   "record": "79-126",
-   "roi_pinnacle": 1.5,
+   "n": 223,
+   "record": "91-132",
+   "roi_pinnacle": 8.8,
    "roi_best_us": null,
-   "clv_open_to_close": 1.37,
+   "clv_open_to_close": 1.15,
+   "number_moved_for": 0.15,
+   "moved_for_share": 0.06
+  }
+ },
+ "nhl_pl_fav_strong_opp (fav -1.5, opponent wins 66%+)": {
+  "2020-21": {
+   "n": 46,
+   "record": "18-28",
+   "roi_pinnacle": 1.6,
+   "roi_best_us": null,
+   "clv_open_to_close": 0.96,
+   "number_moved_for": -0.07,
+   "moved_for_share": 0.0
+  },
+  "2021-22": {
+   "n": 75,
+   "record": "30-45",
+   "roi_pinnacle": 1.4,
+   "roi_best_us": null,
+   "clv_open_to_close": 1.08,
+   "number_moved_for": 0.04,
+   "moved_for_share": 0.03
+  },
+  "2022-23": {
+   "n": 64,
+   "record": "26-38",
+   "roi_pinnacle": 1.4,
+   "roi_best_us": null,
+   "clv_open_to_close": 1.26,
+   "number_moved_for": 0.05,
+   "moved_for_share": 0.02
+  },
+  "2023-24": {
+   "n": 53,
+   "record": "13-40",
+   "roi_pinnacle": -29.6,
+   "roi_best_us": null,
+   "clv_open_to_close": 0.49,
+   "number_moved_for": 0.06,
+   "moved_for_share": 0.02
+  },
+  "2024-25": {
+   "n": 71,
+   "record": "31-40",
+   "roi_pinnacle": 17.7,
+   "roi_best_us": null,
+   "clv_open_to_close": 1.56,
+   "number_moved_for": 0.17,
+   "moved_for_share": 0.06
+  },
+  "2025-26": {
+   "n": 54,
+   "record": "20-34",
+   "roi_pinnacle": 1.2,
+   "roi_best_us": null,
+   "clv_open_to_close": 0.43,
+   "number_moved_for": 0.22,
+   "moved_for_share": 0.07
+  },
+  "2026-27": {
+   "n": 26,
+   "record": "8-18",
+   "roi_pinnacle": -10.0,
+   "roi_best_us": null,
+   "clv_open_to_close": 0.68,
+   "number_moved_for": 0.46,
+   "moved_for_share": 0.15
+  },
+  "all": {
+   "n": 389,
+   "record": "146-243",
+   "roi_pinnacle": -0.6,
+   "roi_best_us": null,
+   "clv_open_to_close": 0.99,
    "number_moved_for": 0.11,
-   "moved_for_share": 0.05
+   "moved_for_share": 0.04
   }
  },
  "nhl_early_home_fav_qual (home fav ML, game 24 or earlier, opponent 51%+)": {
   "2020-21": {
-   "n": 22,
-   "record": "16-6",
-   "roi_pinnacle": 26.3,
-   "roi_best_us": 25.0,
-   "clv_open_to_close": 0.37,
+   "n": 46,
+   "record": "27-19",
+   "roi_pinnacle": 2.9,
+   "roi_best_us": 2.5,
+   "clv_open_to_close": 0.52,
    "number_moved_for": null,
    "moved_for_share": null
   },
@@ -111,132 +185,58 @@
    "moved_for_share": null
   },
   "2024-25": {
-   "n": 59,
-   "record": "37-22",
-   "roi_pinnacle": 6.6,
-   "roi_best_us": 6.6,
-   "clv_open_to_close": 0.8,
+   "n": 64,
+   "record": "39-25",
+   "roi_pinnacle": 3.7,
+   "roi_best_us": 3.7,
+   "clv_open_to_close": 0.83,
    "number_moved_for": null,
    "moved_for_share": null
   },
   "2025-26": {
-   "n": 72,
-   "record": "49-23",
-   "roi_pinnacle": 14.6,
-   "roi_best_us": 14.0,
-   "clv_open_to_close": 0.41,
-   "number_moved_for": null,
-   "moved_for_share": null
-  },
-  "2026-27": {
-   "n": 19,
-   "record": "8-11",
-   "roi_pinnacle": -28.0,
-   "roi_best_us": -28.6,
+   "n": 77,
+   "record": "51-26",
+   "roi_pinnacle": 11.5,
+   "roi_best_us": 10.9,
    "clv_open_to_close": 0.36,
    "number_moved_for": null,
    "moved_for_share": null
   },
+  "2026-27": {
+   "n": 43,
+   "record": "19-24",
+   "roi_pinnacle": -24.1,
+   "roi_best_us": -24.4,
+   "clv_open_to_close": 0.31,
+   "number_moved_for": null,
+   "moved_for_share": null
+  },
   "all": {
-   "n": 397,
-   "record": "258-139",
-   "roi_pinnacle": 9.4,
-   "roi_best_us": 9.3,
-   "clv_open_to_close": 0.63,
+   "n": 455,
+   "record": "284-171",
+   "roi_pinnacle": 5.5,
+   "roi_best_us": 5.3,
+   "clv_open_to_close": 0.61,
    "number_moved_for": null,
    "moved_for_share": null
   }
  },
- "nhl_pl_fav_strong_opp (fav -1.5, opponent wins 66%+)": {
-  "2020-21": {
-   "n": 18,
-   "record": "9-9",
-   "roi_pinnacle": 15.6,
-   "roi_best_us": null,
-   "clv_open_to_close": 1.42,
-   "number_moved_for": -0.17,
-   "moved_for_share": 0.0
-  },
-  "2021-22": {
-   "n": 77,
-   "record": "32-45",
-   "roi_pinnacle": 6.5,
-   "roi_best_us": null,
-   "clv_open_to_close": 1.09,
-   "number_moved_for": 0.04,
-   "moved_for_share": 0.03
-  },
-  "2022-23": {
-   "n": 65,
-   "record": "26-39",
-   "roi_pinnacle": -0.1,
-   "roi_best_us": null,
-   "clv_open_to_close": 1.8,
-   "number_moved_for": 0.09,
-   "moved_for_share": 0.03
-  },
-  "2023-24": {
-   "n": 63,
-   "record": "14-49",
-   "roi_pinnacle": -35.5,
-   "roi_best_us": null,
-   "clv_open_to_close": 0.46,
-   "number_moved_for": 0.1,
-   "moved_for_share": 0.03
-  },
-  "2024-25": {
-   "n": 71,
-   "record": "33-38",
-   "roi_pinnacle": 25.5,
-   "roi_best_us": null,
-   "clv_open_to_close": 1.65,
-   "number_moved_for": 0.13,
-   "moved_for_share": 0.04
-  },
-  "2025-26": {
-   "n": 48,
-   "record": "17-31",
-   "roi_pinnacle": -4.2,
-   "roi_best_us": null,
-   "clv_open_to_close": 0.47,
-   "number_moved_for": 0.25,
-   "moved_for_share": 0.08
-  },
-  "2026-27": {
-   "n": 16,
-   "record": "5-11",
-   "roi_pinnacle": -10.4,
-   "roi_best_us": null,
-   "clv_open_to_close": 0.26,
-   "number_moved_for": 0.0,
-   "moved_for_share": 0.0
-  },
-  "all": {
-   "n": 358,
-   "record": "136-222",
-   "roi_pinnacle": -0.1,
-   "roi_best_us": null,
-   "clv_open_to_close": 1.12,
-   "number_moved_for": 0.09,
-   "moved_for_share": 0.04
-  }
- },
  "nhl_pl_dog_bigml (dog +1.5 when it opened +181 to +196)": {
   "2020-21": {
-   "n": 2,
-   "record": "1-1",
-   "roi_pinnacle": -12.0,
+   "n": 1,
+   "record": "0-1",
+   "roi_pinnacle": -100.0,
    "roi_best_us": null,
-   "clv_open_to_close": -2.09,
+   "clv_open_to_close": -3.22,
    "number_moved_for": 0.0,
    "moved_for_share": 0.0
   },
   "2021-22": {
-   "n": 5,
-   "record": "3-2",
-   "roi_pinnacle": 8.6,
+   "n": 4,
+   "record": "2-2",
+   "roi_pinnacle": -9.3,
    "roi_best_us": null,
-   "clv_open_to_close": -1.19,
+   "clv_open_to_close": -1.04,
    "number_moved_for": 0.0,
    "moved_for_share": 0.0
   },
@@ -277,20 +277,20 @@
    "moved_for_share": 0.0
   },
   "2026-27": {
-   "n": 3,
-   "record": "1-2",
-   "roi_pinnacle": -41.0,
+   "n": 8,
+   "record": "2-6",
+   "roi_pinnacle": -56.9,
    "roi_best_us": null,
-   "clv_open_to_close": 1.11,
+   "clv_open_to_close": 0.27,
    "number_moved_for": 0.0,
    "moved_for_share": 0.0
   },
   "all": {
-   "n": 64,
-   "record": "40-24",
-   "roi_pinnacle": 11.6,
+   "n": 67,
+   "record": "39-28",
+   "roi_pinnacle": 3.8,
    "roi_best_us": null,
-   "clv_open_to_close": -0.43,
+   "clv_open_to_close": -0.39,
    "number_moved_for": 0.0,
    "moved_for_share": 0.0
   }
@@ -306,9 +306,9 @@
    "moved_for_share": 1.0
   },
   "2021-22": {
-   "n": 40,
-   "record": "20-18-2",
-   "roi_pinnacle": 3.7,
+   "n": 39,
+   "record": "19-18-2",
+   "roi_pinnacle": 1.3,
    "roi_best_us": null,
    "clv_open_to_close": null,
    "number_moved_for": 2.62,
@@ -351,21 +351,21 @@
    "moved_for_share": 1.0
   },
   "2026-27": {
-   "n": 12,
-   "record": "7-5",
-   "roi_pinnacle": 14.7,
+   "n": 24,
+   "record": "17-7",
+   "roi_pinnacle": 38.5,
    "roi_best_us": null,
    "clv_open_to_close": null,
-   "number_moved_for": 2.0,
+   "number_moved_for": 1.58,
    "moved_for_share": 1.0
   },
   "all": {
-   "n": 432,
-   "record": "215-210-7",
-   "roi_pinnacle": -1.3,
+   "n": 443,
+   "record": "224-212-7",
+   "roi_pinnacle": 0.2,
    "roi_best_us": null,
    "clv_open_to_close": null,
-   "number_moved_for": 2.76,
+   "number_moved_for": 2.72,
    "moved_for_share": 1.0
   }
  },
@@ -425,21 +425,21 @@
    "moved_for_share": 0.38
   },
   "2026-27": {
-   "n": 13,
-   "record": "6-6-1",
-   "roi_pinnacle": -3.0,
+   "n": 14,
+   "record": "6-7-1",
+   "roi_pinnacle": -9.9,
    "roi_best_us": null,
    "clv_open_to_close": null,
-   "number_moved_for": 1.19,
-   "moved_for_share": 0.54
+   "number_moved_for": 1.39,
+   "moved_for_share": 0.57
   },
   "all": {
-   "n": 265,
-   "record": "132-129-4",
-   "roi_pinnacle": -1.6,
+   "n": 266,
+   "record": "132-130-4",
+   "roi_pinnacle": -1.9,
    "roi_best_us": null,
    "clv_open_to_close": null,
-   "number_moved_for": 0.11,
+   "number_moved_for": 0.12,
    "moved_for_share": 0.46
   }
  },
@@ -499,21 +499,21 @@
    "moved_for_share": 0.0
   },
   "2026-27": {
-   "n": 4,
-   "record": "2-2",
-   "roi_pinnacle": -2.8,
+   "n": 19,
+   "record": "10-9",
+   "roi_pinnacle": 1.9,
    "roi_best_us": null,
    "clv_open_to_close": null,
-   "number_moved_for": -0.5,
+   "number_moved_for": -1.29,
    "moved_for_share": 0.0
   },
   "all": {
-   "n": 533,
-   "record": "257-271-5",
-   "roi_pinnacle": -5.0,
+   "n": 548,
+   "record": "265-278-5",
+   "roi_pinnacle": -4.8,
    "roi_best_us": null,
    "clv_open_to_close": null,
-   "number_moved_for": -2.31,
+   "number_moved_for": -2.28,
    "moved_for_share": 0.0
   }
  },
@@ -572,9 +572,18 @@
    "number_moved_for": 2.37,
    "moved_for_share": 1.0
   },
+  "2026-27": {
+   "n": 2,
+   "record": "1-1",
+   "roi_pinnacle": -6.5,
+   "roi_best_us": null,
+   "clv_open_to_close": null,
+   "number_moved_for": 1.75,
+   "moved_for_share": 1.0
+  },
   "all": {
-   "n": 1004,
-   "record": "495-498-11",
+   "n": 1006,
+   "record": "496-499-11",
    "roi_pinnacle": -5.0,
    "roi_best_us": null,
    "clv_open_to_close": null,
@@ -637,10 +646,19 @@
    "number_moved_for": -1.42,
    "moved_for_share": 0.0
   },
+  "2026-27": {
+   "n": 4,
+   "record": "1-3",
+   "roi_pinnacle": -52.5,
+   "roi_best_us": null,
+   "clv_open_to_close": null,
+   "number_moved_for": -2.5,
+   "moved_for_share": 0.0
+  },
   "all": {
-   "n": 1013,
-   "record": "523-477-13",
-   "roi_pinnacle": -0.6,
+   "n": 1017,
+   "record": "524-480-13",
+   "roi_pinnacle": -0.8,
    "roi_best_us": null,
    "clv_open_to_close": null,
    "number_moved_for": -1.31,
@@ -703,22 +721,22 @@
    "moved_for_share": 0.42
   },
   "2026": {
-   "n": 22,
-   "record": "7-14-1",
-   "roi_pinnacle": -33.3,
+   "n": 44,
+   "record": "16-27-1",
+   "roi_pinnacle": -26.3,
    "roi_best_us": null,
-   "clv_open_to_close": 0.1,
-   "number_moved_for": 0.05,
-   "moved_for_share": 0.23
+   "clv_open_to_close": -1.0,
+   "number_moved_for": -0.59,
+   "moved_for_share": 0.3
   },
   "all": {
-   "n": 255,
-   "record": "132-113-10",
-   "roi_pinnacle": 4.4,
+   "n": 277,
+   "record": "141-126-10",
+   "roi_pinnacle": 2.5,
    "roi_best_us": null,
-   "clv_open_to_close": -0.41,
-   "number_moved_for": -0.1,
-   "moved_for_share": 0.41
+   "clv_open_to_close": -0.55,
+   "number_moved_for": -0.19,
+   "moved_for_share": 0.4
   }
  },
  "cfb_road_streak_dog (home fav, total 54 or under, visitor on road game 2-5 in a row)": {
@@ -777,22 +795,22 @@
    "moved_for_share": 0.33
   },
   "2026": {
-   "n": 40,
-   "record": "18-20-2",
-   "roi_pinnacle": -7.3,
+   "n": 54,
+   "record": "25-26-3",
+   "roi_pinnacle": -4.1,
    "roi_best_us": null,
-   "clv_open_to_close": 0.06,
-   "number_moved_for": -0.11,
-   "moved_for_share": 0.15
+   "clv_open_to_close": -0.07,
+   "number_moved_for": -0.21,
+   "moved_for_share": 0.35
   },
   "all": {
-   "n": 434,
-   "record": "214-210-10",
-   "roi_pinnacle": -2.0,
+   "n": 448,
+   "record": "221-216-11",
+   "roi_pinnacle": -1.8,
    "roi_best_us": null,
    "clv_open_to_close": -0.35,
    "number_moved_for": -0.32,
-   "moved_for_share": 0.38
+   "moved_for_share": 0.39
   }
  },
  "cfb_road_dog_low_total (home -7 or more, total 48 or under: road dog) | non-conference": {
@@ -855,18 +873,18 @@
    "record": "7-16",
    "roi_pinnacle": -40.8,
    "roi_best_us": null,
-   "clv_open_to_close": -0.12,
-   "number_moved_for": -0.43,
-   "moved_for_share": 0.22
+   "clv_open_to_close": -0.34,
+   "number_moved_for": -0.28,
+   "moved_for_share": 0.35
   },
   "all": {
    "n": 181,
    "record": "85-92-4",
    "roi_pinnacle": -7.2,
    "roi_best_us": null,
-   "clv_open_to_close": -0.67,
-   "number_moved_for": -0.33,
-   "moved_for_share": 0.31
+   "clv_open_to_close": -0.69,
+   "number_moved_for": -0.31,
+   "moved_for_share": 0.33
   }
  }
 }

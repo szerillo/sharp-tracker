@@ -149,6 +149,27 @@ SOCCER_KEYS = {'soccer_epl': 'epl', 'soccer_spain_la_liga': 'laliga', 'soccer_ge
                'soccer_usa_mls': 'mls', 'soccer_uefa_champs_league': 'ucl', 'soccer_mexico_ligamx': 'ligamx'}
 
 
+# 11/27 (td_replay_fixes): ESPN abbreviations that name the same franchise in different seasons. Utah's NHL team is UTAH in ESPN's
+# 2024-25 schedule and UTA from 2025-26, while data/state/espn_teams.json maps "Utah Hockey Club" to UTA and "Utah Mammoth" to UTAH, so
+# every Utah game (191) went without a result and the replay had no Utah record.
+ABBR_EQUIV = {'nhl': [{'UTA', 'UTAH'}]}
+
+
+def abbr_variants(sport, ab):
+    for grp in ABBR_EQUIV.get(sport, []):
+        if ab in grp: return [ab] + sorted(grp - {ab})
+    return [ab]
+
+
+def match_hist(sport, ha, aa, st, idx, max_s=6 * 3600):
+    """The ESPN row for an odds game: same home and away team (any abbreviation that names the franchise), start within max_s seconds."""
+    for h_ab in abbr_variants(sport, ha):
+        for a_ab in abbr_variants(sport, aa):
+            for h in idx.get((h_ab, a_ab), []):
+                if abs((dt.datetime.fromisoformat(h['start'].replace('Z', '+00:00')) - st).total_seconds()) < max_s: return h
+    return None
+
+
 def results(conn):
     """Team sports from data/state/hist_schedule.json (ESPN), matched by date and team names (data/state/espn_teams.json); soccer leagues by
     Odds API key; MMA by the two fighters' names (hist_schedule has one row per fight)."""
@@ -179,10 +200,10 @@ def results(conn):
             ha, aa = ab(home), ab(away)
             if not ha or not aa: continue
             st = dt.datetime.fromisoformat(start.replace('Z', '+00:00'))
-            for h in idx.get((ha, aa), []):
-                if abs((dt.datetime.fromisoformat(h['start'].replace('Z', '+00:00')) - st).total_seconds()) < 6 * 3600:
-                    out.append((gid, h['hs'], h['as_'], 'home' if h['hs'] > h['as_'] else 'away' if h['as_'] > h['hs'] else 'draw', 'espn',
-                                1 if h.get('ot') else 0, None if h.get('conf') is None else int(bool(h['conf'])), 1 if h.get('neutral') else 0, ha, aa, h.get('eid'))); break
+            h = match_hist(sport, ha, aa, st, idx)
+            if h:      # store ESPN's own abbreviations for that season (the replay keys team records by them)
+                out.append((gid, h['hs'], h['as_'], 'home' if h['hs'] > h['as_'] else 'away' if h['as_'] > h['hs'] else 'draw', 'espn',
+                            1 if h.get('ot') else 0, None if h.get('conf') is None else int(bool(h['conf'])), 1 if h.get('neutral') else 0, h['home'], h['away'], h.get('eid')))
         print(f"[odds_db] results {hkey}: {len(out) - k0}", flush=True)
     # MMA: fighter names, fight within 2 days
     idx = collections.defaultdict(list)

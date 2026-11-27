@@ -96,3 +96,15 @@ None of these windows is significant on its own: p runs from 0.11 to 0.35 on six
 - **nhl_pl_fav_strong_opp: keep at real money.** On Bet Labs' own games our Pinnacle closing prices return +6.0% on 377. The replay's -0.1% came from a broken 2020-21 record, missing Utah games, playoff games and missing closes, not the screen. Worth adding a regular-season check to the live rule.
 - **cbb_under_good_over_drop: back to paper as built.** Bet Labs' own games hold up at our prices (+4.0% on 502), but the tool computes the filters itself and its version is mostly different games at -6.0%. It should only be real money if fills are limited to games on Bet Labs' list, the way cfb_road_streak_dog works.
 - **cfb_road_streak_dog: keep at real money.** The replay gap is the conference and bet-volume filters our replay skipped. On Bet Labs' games our prices return +6.7%, and the live tool already requires Bet Labs' list. The sample is small: 84 games in six seasons.
+
+## 11/27 follow-up (td_replay_fixes)
+
+Fixed:
+- **2020-21 NHL win %.** ESPN left the season type blank on the August 2020 bubble games. Because the replay's season starts in August, those games landed in 2020-21 records (Carolina had 8 extra). The bubble is now excluded (`sharp/rule_replay.py` `regular_season`). Our opponent win % now matches Bet Labs on all 392 matched games, up from 345.
+- **Utah.** ESPN calls the franchise UTAH in 2024-25 and UTA from 2025-26, the reverse of `data/state/espn_teams.json`. All 191 Utah games had no result. `sharp/odds_db.py` now matches either abbreviation and stores ESPN's own, and the 191 games have results after a results rebuild.
+- **Playoffs.** The replay now keeps only regular-season games, as the saved screens do.
+- **The double count.** `rule_replay.summary_record()` and `season_rows()` now read the file. `tests/test_replay_fixes.py` checks that the season rows add up to the all-seasons row and that summing every row doubles it.
+
+Rerun on the current database (2020-21 through 11/24/26): nhl_pl_fav_strong_opp is 146-243, -0.6% (was 136-222, -0.1%). Every rule's before and after is in the 11/27 report.
+
+**Correction to the NHL read above.** 18 of Bet Labs' 392 NHL rows list the favorite at +1.5, and two at 0. Section 2 graded those at Bet Labs' line. The live tool always bets the favorite at -1.5. On those same 389 games, graded as the tool bets them (Bet Labs' team at -1.5, Pinnacle close), the result is 159-230 at -1.5, +1.1% (p 0.44). On the 370 games where Bet Labs itself bet -1.5, it is +4.8% (p 0.25). With the Utah results added, Bet Labs' lines at our prices are +4.7% on 389, down from +6.0% on 377. So for the bet the tool actually places, the price and line gap explains most of Bet Labs' edge. The 11/26 "keep at real money" call for nhl_pl_fav_strong_opp rested on +6.0% and is weaker than it looked. That is Sean's call; nothing has changed.

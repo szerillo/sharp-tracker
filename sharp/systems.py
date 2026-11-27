@@ -442,6 +442,13 @@ def sched_rec(sport, ev):
 SCHED_CACHE = {}
 
 
+def regular_season(sport, ev):
+    """11/27 (Kirk, td_replay_fixes): every saved Tested:/Tracked: Bet Labs screen filters "SeasonType: Regular season", and the live rules
+    built from them now skip preseason and postseason games (ESPN season.type 1 or 3 in data/<sport>/schedule.json). A record with no season
+    type (only some games completed before loggers/lines.py began storing it) counts as regular season."""
+    return sched_rec(sport, ev).get('season_type') in (2, None)
+
+
 def public(conn, ev, market, side):
     r = conn.execute("SELECT extra FROM ticks WHERE event_id=? AND venue='AN_Consensus' AND market=? AND side=? AND extra IS NOT NULL ORDER BY ts_utc DESC LIMIT 1", (ev, market, side)).fetchone()
     return json.loads(r[0]) if r else {}
@@ -631,6 +638,7 @@ def main():
     for ev, start, away, home in conn.execute("SELECT event_id, start_utc, away, home FROM events WHERE sport='nfl' ORDER BY start_utc").fetchall():
         st = N.parse_ts(start); ttk = (st - NOW).total_seconds() / 3600
         if not (0 < ttk <= VIEW_H): continue      # triggers visible up to a week out (like Bet Labs); fills only inside WINDOW_H (paper_fill checks)
+        if not regular_season('nfl', ev): continue      # 11/27: the saved screens are regular season only (no bowls / playoffs)
         eq = F.EventQuotes(conn, ev); trig = {}
         wx = weather_t24(ev)
         pv = SEA.profile('nfl', away, st); ph = SEA.profile('nfl', home, st)
@@ -724,6 +732,7 @@ def main():
     for ev, start, away, home in conn.execute("SELECT event_id, start_utc, away, home FROM events WHERE sport='cfb' ORDER BY start_utc").fetchall():
         st = N.parse_ts(start); ttk = (st - NOW).total_seconds() / 3600
         if not (0 < ttk <= VIEW_H): continue      # triggers visible up to a week out (like Bet Labs); fills only inside WINDOW_H (paper_fill checks)
+        if not regular_season('cfb', ev): continue      # 11/27: the saved screens are regular season only (no bowls / playoffs)
         wx = weather_t24(ev, WX_CFB); msw = msw_latest('cfb', ev)
         wv, wlab = rule_wind(wx, msw, indoor=roofed('cfb', ev))      # MySportsWeather wind, Open-Meteo fallback: the fallback and the cross-check
         rcw = sched_rec('cfb', ev)
@@ -800,6 +809,7 @@ def main():
     for ev, sport, start, away, home in conn.execute("SELECT event_id, sport, start_utc, away, home FROM events WHERE sport IN ('nhl','nba') ORDER BY start_utc").fetchall():
         st = N.parse_ts(start); ttk = (st - NOW).total_seconds() / 3600
         if not (0 < ttk <= VIEW_H): continue      # triggers visible up to a week out (like Bet Labs); fills only inside WINDOW_H (paper_fill checks)
+        if not regular_season(sport, ev): continue      # 11/27: the saved screens are regular season only (no playoffs)
         ph, pa = SEA.profile(sport, home, st, opp=away), SEA.profile(sport, away, st, opp=home)
         if ph.get('games', 0) < 1 or pa.get('games', 0) < 1: continue      # Bet Labs applies no minimum (its picks start in a team's 2nd game); 8 was ours
         eq = F.EventQuotes(conn, ev); ml_h = eq.fair('ml', None, 'home', NOW_S, home); ml_a = eq.fair('ml', None, 'away', NOW_S, away)
@@ -953,6 +963,7 @@ def main():
         for ev, start, away, home in conn.execute("SELECT event_id, start_utc, away, home FROM events WHERE sport='mlb' ORDER BY start_utc").fetchall():
             st = N.parse_ts(start); ttk = (st - NOW).total_seconds() / 3600
             if not (0 < ttk <= VIEW_H): continue
+            if not regular_season('mlb', ev): continue      # 11/27: the saved screen is regular season only
             pa = SEA.profile('mlb', away, st)
             if pa.get('games', 0) < 15 or pa.get('over_pct') is None or int(100 * pa['over_pct']) < 60: continue
             eq = F.EventQuotes(conn, ev); tl, _n = main_line(eq, 'total', None)

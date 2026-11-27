@@ -25,16 +25,49 @@ def season_of(sport, d):
     return str(y)
 
 
+# 11/27 (td_replay_fixes): ESPN left the season type blank on the 2020 NHL and NBA bubble games (July to October 2020, the 2019-20
+# postseason), and the August start of season_of() put them in 2020-21. They were counted in 2020-21 records (8 extra games for Carolina),
+# which is why our 2020-21 NHL win % disagreed with Bet Labs on 47 of 50 games. Saved Bet Labs screens are regular season only.
+BUBBLE = (dt.datetime(2020, 7, 1, tzinfo=dt.timezone.utc), dt.datetime(2020, 11, 1, tzinfo=dt.timezone.utc))
+
+
+def regular_season(sport, stype, start):
+    """True for an ESPN regular-season game (season type 2). A blank type counts as regular, except NHL / NBA bubble games in 2020."""
+    if stype is not None: return stype == 2
+    return not (sport in ('nhl', 'nba') and BUBBLE[0] <= start < BUBBLE[1])
+
+
+def summary_record(D, key):
+    """The all-seasons record of one rule in rule_replay.json. Each rule holds one row per season plus an 'all' row; summing every row
+    counts each bet twice (the PUSHBACK.md section 5 error of 11/25, corrected 11/26). Use this, or season_rows(), never a sum over all keys."""
+    return D[key]['all']
+
+
+def season_rows(D, key): return {k: v for k, v in D[key].items() if k != 'all'}
+
+
+_HIST = {}
+def hist(sport):
+    if sport not in _HIST:
+        hp = os.path.join(ROOT, 'data', 'state', 'hist_schedule.json')
+        try: _HIST.update(json.load(open(hp)))
+        except Exception: pass
+        _HIST.setdefault(sport, {})
+    return _HIST.get(sport) or {}
+
+
 def load(sport):
     c = sqlite3.connect(DB)
     G = []
     cols = {r[1] for r in c.execute("PRAGMA table_info(results)")}
-    extra = (", r.ot, r.conf, r.neutral" if 'ot' in cols else ", NULL, NULL, NULL") + (", r.home_ab, r.away_ab" if 'home_ab' in cols else ", NULL, NULL")
+    extra = (", r.ot, r.conf, r.neutral" if 'ot' in cols else ", NULL, NULL, NULL") + (", r.home_ab, r.away_ab" if 'home_ab' in cols else ", NULL, NULL") + (", r.espn_id" if 'espn_id' in cols else ", NULL")
     for row in c.execute(f"""SELECT g.game_id, g.start, g.home, g.away, g.open_t, g.close_t, g.close_h, g.pin_open_home, g.pin_close_home, g.pin_open_sp, g.pin_close_sp, g.pin_open_tot, g.pin_close_tot,
                                    r.home_score, r.away_score, g.best_home, g.best_away{extra}, g.mkt_open_sp, g.mkt_open_tot FROM games g LEFT JOIN results r ON r.game_id=g.game_id WHERE g.sport=? ORDER BY g.start""", (sport,)):
-        gid, start, home, away, ot, ct, ch, poh, pch, posp, pcsp, pot, pct_, hs, as_, bh, ba, otf, conf, neutral, hab, aab, mosp, motot = row
+        gid, start, home, away, ot, ct, ch, poh, pch, posp, pcsp, pot, pct_, hs, as_, bh, ba, otf, conf, neutral, hab, aab, eid, mosp, motot = row
         g = dict(id=gid, sport=sport, start=ts(start), home=home, away=away, close_h=ch, p_open=poh, p_close=pch, sp_open=mosp if mosp is not None else posp, sp_close=pcsp, tot_open=motot if motot is not None else pot, tot_close=pct_, pin_sp_open=posp, pin_tot_open=pot, hs=hs, as_=as_, best_home=bh, best_away=ba,
-                 ot=bool(otf), conf=conf, neutral=bool(neutral), home_ab=hab, away_ab=aab)
+                 ot=bool(otf), conf=conf, neutral=bool(neutral), home_ab=hab, away_ab=aab, espn_id=eid)
+        g['stype'] = (hist(sport).get(eid) or {}).get('stype') if eid else None
+        g['regular'] = regular_season(sport, g['stype'], g['start'])
         q = c.execute("SELECT ml_home, ml_away, sp_line, sp_home, sp_away, tot_line, tot_over, tot_under FROM quotes WHERE game_id=? AND book='pinnacle' AND t=?", (gid, ct)).fetchone()
         if q: g.update(ml_home=q[0], ml_away=q[1], sp_home_dec=q[3], sp_away_dec=q[4], over_dec=q[6], under_dec=q[7])
         q0 = c.execute("SELECT ml_home, ml_away FROM quotes WHERE game_id=? AND book='pinnacle' AND t=?", (gid, ot)).fetchone()
@@ -57,8 +90,9 @@ def profiles(G):
     sched = collections.defaultdict(list)           # (abbr, season) -> [(start, won, side)]
     for h in E.values():
         if h.get('hs') is None or not h.get('home') or not h.get('away'): continue
-        if h.get('stype') is not None and h['stype'] != 2: continue          # regular season only (preseason / playoff games are not in a team's record)
-        st = ts(h['start']); sea = season_of(sport, st)
+        st = ts(h['start'])
+        if not regular_season(sport, h.get('stype'), st): continue          # regular season only (preseason, playoff and 2020 bubble games are not in a team's record)
+        sea = season_of(sport, st)
         sched[(h['home'], sea)].append((st, h['hs'] > h['as_'], 'home'))
         sched[(h['away'], sea)].append((st, h['as_'] > h['hs'], 'away'))
     for v in sched.values(): v.sort(key=lambda x: x[0])
@@ -90,7 +124,7 @@ def profiles(G):
                 g[f'{side}_road_streak'] = k
             ov = [x['over'] for x in L if x['over'] is not None]
             g[f'{side}_over_pct'] = sum(ov) / len(ov) if ov else None; g[f'{side}_over_n'] = len(ov)
-        if g['hs'] is None: continue
+        if g['hs'] is None or not g.get('regular', True): continue      # playoff games stay out of the over% history too
         tot = g['hs'] + g['as_']; over = (tot > g['tot_close']) if g['tot_close'] is not None and tot != g['tot_close'] else None
         H[(g['home'], sea)].append(dict(start=g['start'], won=g['hs'] > g['as_'], over=over, side='home', ot=g.get('ot')))
         H[(g['away'], sea)].append(dict(start=g['start'], won=g['as_'] > g['hs'], over=over, side='away', ot=g.get('ot')))
@@ -149,7 +183,7 @@ def main():
                    for k, v in sorted(by.items())}
     days_off = lambda g, side: (g['start'].astimezone(ET).date() - g[f'{side}_last'].astimezone(ET).date()).days if g.get(f'{side}_last') else None
     # ---- NHL
-    G = load('nhl'); profiles(G); G = [g for g in G if g['p_close'] is not None and g['close_h'] is not None and g['close_h'] <= 6]
+    G = load('nhl'); profiles(G); G = [g for g in G if g['p_close'] is not None and g['close_h'] is not None and g['close_h'] <= 6 and g['regular']]      # 11/27: regular season, as the saved screens
     hits = collections.defaultdict(list)
     for g in G:
         if g['hs'] is None or g['home_games'] < 1 or g['away_games'] < 1: continue
@@ -170,7 +204,7 @@ def main():
             if gr: hits['nhl_early_home_fav_qual (home fav ML, game 24 or earlier, opponent 51%+)'].append((g, gr))
     for k, v in hits.items(): rec(k, 'nhl', v)
     # ---- NBA
-    G = load('nba'); profiles(G); G = [g for g in G if g['close_h'] is not None and g['close_h'] <= 6]
+    G = load('nba'); profiles(G); G = [g for g in G if g['close_h'] is not None and g['close_h'] <= 6 and g['regular']]      # 11/27: regular season, as the saved screens
     hits = collections.defaultdict(list)
     for g in G:
         if g['hs'] is None: continue
@@ -187,7 +221,7 @@ def main():
             if gr: hits['nba under, same spot but the total did NOT drop (control)'].append((g, gr))
     for k, v in hits.items(): rec(k, 'nba', v)
     # ---- CBB
-    G = load('cbb'); profiles(G); G = [g for g in G if g['close_h'] is not None and g['close_h'] <= 6]
+    G = load('cbb'); profiles(G); G = [g for g in G if g['close_h'] is not None and g['close_h'] <= 6 and g['regular']]      # 11/27: regular season, as the saved screens
     hits = collections.defaultdict(list)
     for g in G:
         if g['hs'] is None or g['start'].astimezone(ET).weekday() > 4: continue
@@ -196,7 +230,7 @@ def main():
             if gr: hits['cbb_under_good_over_drop (weekday, home over 50%+, visitor 59%+, total down 0.5+)' if g['tot_open'] - g['tot_close'] >= 0.5 else 'cbb under, same teams but no drop (control)'].append((g, gr))
     for k, v in hits.items(): rec(k, 'cbb', v)
     # ---- CFB
-    G = load('cfb'); profiles(G); G = [g for g in G if g['close_h'] is not None and g['close_h'] <= 8]
+    G = load('cfb'); profiles(G); G = [g for g in G if g['close_h'] is not None and g['close_h'] <= 8 and g['regular']]      # 11/27: regular season, as the saved screens
     hits = collections.defaultdict(list)
     for g in G:
         if g['hs'] is None or g['sp_close'] is None or g['tot_close'] is None: continue
