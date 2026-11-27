@@ -1,5 +1,5 @@
 {
- "built": "2026-11-27T20:38:10Z",
+ "built": "2026-11-27T20:57:00Z",
  "record": {
   "cbb_1h_total_curve": {
    "n": 11,
@@ -58,15 +58,15 @@
    "lost": 24,
    "units": -4.87,
    "clv": {
-    "n": 31,
-    "avg": -2.21,
+    "n": 32,
+    "avg": -2.19,
     "beat": 0
    },
    "line_value": {
-    "n": 32,
-    "avg": -0.02,
+    "n": 34,
+    "avg": -0.03,
     "better": 0,
-    "worse": 1
+    "worse": 2
    }
   },
   "cfb_tt_under_curve": {
@@ -337,7 +337,13 @@
    "pin_price": 2.19,
    "book": null,
    "price": null,
-   "flagged": "2026-11-27T18:20:48Z"
+   "flagged": "2026-11-27T18:20:48Z",
+   "close_ts": "2026-11-27T20:57:00Z",
+   "close_line": 2.0,
+   "line_value": 0.0,
+   "close_fair": 0.4399,
+   "clv": -1.67,
+   "beat_fair": -0.01
   },
   {
    "key": "nhl_p3_under_curve|80ad2e83d5b53a2f48a70cfdecd3dc5c||under",
@@ -362,7 +368,10 @@
    "pin_price": 2.26,
    "book": null,
    "price": null,
-   "flagged": "2026-11-27T18:20:48Z"
+   "flagged": "2026-11-27T18:20:48Z",
+   "close_ts": "2026-11-27T20:57:00Z",
+   "close_line": 2.5,
+   "line_value": -0.5
   }
  ]
 }
