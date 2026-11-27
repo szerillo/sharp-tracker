@@ -92,7 +92,7 @@ def main():
             for m in np.unique(mus):
                 dist = [math.exp(-m) * m ** t / math.factorial(t) for t in range(2 * K)]; EVO[m] = settle_probs(dist, tl, True)(1 / qo)
             SNAP = (ah_ev_grid(ho['point'], 1 / qa_h) / 2) ** 2 + (np.vectorize(lambda m: EVO[m])(mus) / 2) ** 2
-            mh = ma = md = 2.0; to = tu = 1.9
+            mh = ma = md = 2.0; to = tu = 1.9      # placeholders only: in snapshot mode the fit uses SNAP (below), never these prices
         else:
             if gid not in CLOSE: continue
             mh, ma, md, tl, to, tu = CLOSE[gid]

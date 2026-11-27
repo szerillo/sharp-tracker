@@ -14,7 +14,8 @@ def ours(g):
     if g['hs'] is None or g.get('close_h') is None or g['close_h'] > 6: return False
     ho, ao = days_off(g, 'home'), days_off(g, 'away')
     return g['home_over_n'] >= 1 and int(100 * (g['home_over_pct'] or 0)) >= 58 and ho is not None and ao is not None and 1 <= ho <= 2 and 1 <= ao <= 3 and g['tot_open'] is not None and g['tot_close'] is not None and g['tot_open'] - g['tot_close'] >= 0.5
-def res_at(g, line, dec=1.95):
+def res_at(g, line, dec):
+    """11/27: dec must be Pinnacle's closing price; callers drop rows without one (the old default was a made-up price)."""
     t = g['hs'] + g['as_']
     if t == line: return 0.5, 0
     w = t < line; return (1 if w else 0), ((dec - 1) if w else -1)
@@ -42,8 +43,8 @@ for b, g in matched:
     if g['hs'] is None or g['tot_close'] is None: continue
     if (g['hs'], g['as_']) != (b['hs'], b['as_']): scorediff += 1
     linediff[round(g['tot_close'] - b['line'], 1)] += 1
-    dec = g.get('under_dec') or 1.95
-    pin.append(res_at(g, g['tot_close'], dec))
+    dec = g.get('under_dec')
+    if dec: pin.append(res_at(g, g['tot_close'], dec))
 print('Bet Labs picks graded at Pinnacle close:', roi(pin), '| score mismatches', scorediff)
 print('  Pinnacle close minus Bet Labs line:', sorted(linediff.items(), key=lambda x: -x[1])[:8])
 # our hits
@@ -51,11 +52,11 @@ our = [g for g in G if ours(g)]
 blkeys = {(b['date'], b['away'], b['home']) for b in BL}
 k = lambda g: (g['start'].astimezone(ET).date(), g['away'], g['home'])
 inb = [g for g in our if k(g) in blkeys]; notb = [g for g in our if k(g) not in blkeys]
-gr = lambda L: roi([res_at(g, g['tot_close'], g.get('under_dec') or 1.95) for g in L])
+gr = lambda L: roi([res_at(g, g['tot_close'], g['under_dec']) for g in L if g.get('under_dec')])
 print('Our replay hits', len(our), gr(our)); print('  also Bet Labs picks', len(inb), gr(inb)); print('  ours only', len(notb), gr(notb))
 oursk = {k(g) for g in our}
 blonly = [(b, g) for b, g in matched if k(g) not in oursk]
-print('Bet Labs only (matched to DB, not in our replay)', len(blonly), roi([res_at(g, g['tot_close'], g.get('under_dec') or 1.95) for b, g in blonly if g['hs'] is not None and g['tot_close'] is not None]))
+print('Bet Labs only (matched to DB, not in our replay)', len(blonly), roi([res_at(g, g['tot_close'], g['under_dec']) for b, g in blonly if g['hs'] is not None and g['tot_close'] is not None and g.get('under_dec')]))
 # why do Bet Labs-only games miss our filter?
 why = collections.Counter()
 for b, g in blonly:
@@ -75,7 +76,9 @@ print('  ours-only:', why2)
 # by season comparisons
 S = collections.defaultdict(lambda: [[], []])
 for b in BL: S[b['date'].year if b['date'].month >= 8 else b['date'].year - 1][0].append(((1 if b['res']=='W' else 0 if b['res']=='L' else .5), b['profit']/100))
-for g in our: d = k(g)[0]; S[d.year if d.month >= 8 else d.year - 1][1].append(res_at(g, g['tot_close'], g.get('under_dec') or 1.95))
+for g in our:
+    if not g.get('under_dec'): continue
+    d = k(g)[0]; S[d.year if d.month >= 8 else d.year - 1][1].append(res_at(g, g['tot_close'], g['under_dec']))
 for s in sorted(S): print(' ', s, 'Bet Labs', roi(S[s][0]), '| ours', roi(S[s][1]))
 json.dump(dict(our=[k(g)[0].isoformat()+'|'+g['away']+'|'+g['home'] for g in our]), open('/dev/null','w'))
 c3 = collections.Counter(int(100*(g['home_over_pct'] or 0)) - b['hover'] for b, g in matched); print('our home over% minus BL:', sorted(c3.items(), key=lambda x: -x[1])[:12])

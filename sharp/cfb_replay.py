@@ -166,7 +166,8 @@ def main():
     H = collections.defaultdict(list)
     for g in have:
         wx = g['wx']; w = round(wx['wind']); t = wx['temp']; tot = g['tot_close']; pts = g['hs'] + g['as_']
-        un = 1 if pts < tot else -1 if pts > tot else 0; ov = -un; U = (g, un, g.get('under_dec') or 1.909); O = (g, ov, g.get('over_dec') or 1.909)
+        un = 1 if pts < tot else -1 if pts > tot else 0; ov = -un; U = (g, un, g.get('under_dec')); O = (g, ov, g.get('over_dec'))
+        if not U[2] or not O[2]: continue      # 11/27: no Pinnacle closing price, no grade (was a made-up 1.909; never used on the 11/24 database)
         band = '0-5' if w <= 5 else '6-9' if w <= 9 else '10-13' if w <= 13 else '14-17 (rule)' if w <= 17 else '18-21 (rule)' if w <= 21 else '22+ (rule)'
         H[f'W1 under by kickoff wind band | {band}'].append(U)
         if w >= 14:

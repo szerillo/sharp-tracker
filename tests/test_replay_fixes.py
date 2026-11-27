@@ -72,6 +72,23 @@ class PuckLineGrading(unittest.TestCase):
         self.assertIsNone(RR.grade(g2, 'spread', 'home', -2.5))                                     # no made-up 1.91 any more
 
 
+class NoMadeUpPrices(unittest.TestCase):
+    """Data-strict: a replay grades only at a price it has. Flags a hard-coded decimal price used as a fallback ("or 1.909",
+    "dec = 1.91", "dec=1.95") anywhere in the tools. A line that is not a price fallback can carry "# placeholders only" to be skipped."""
+    PAT = __import__('re').compile(r"(\bor\s+|dec\w*\s*=\s*)1\.9\d*\b")
+
+    def test_no_price_fallbacks(self):
+        bad = []
+        for top in ('sharp', 'loggers'):
+            for dp, _, fs in os.walk(os.path.join(ROOT, top)):
+                for f in fs:
+                    if not f.endswith('.py'): continue
+                    for i, line in enumerate(open(os.path.join(dp, f), encoding='utf-8', errors='ignore'), 1):
+                        code = line.split('#', 1)[0]
+                        if self.PAT.search(code) and 'placeholders only' not in line: bad.append(f"{os.path.relpath(os.path.join(dp, f), ROOT)}:{i}: {line.strip()[:120]}")
+        self.assertEqual(bad, [], 'made-up price fallbacks:\n' + '\n'.join(bad))
+
+
 class UtahAbbreviations(unittest.TestCase):
     def test_utah_matches_either_abbreviation(self):
         st = dt.datetime(2024, 10, 9, 2, 10, tzinfo=U)
