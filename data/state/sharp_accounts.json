@@ -1,5 +1,5 @@
 {
- "built": "2026-11-27T18:38:24Z",
+ "built": "2026-11-27T18:53:26Z",
  "rows": [
   {
    "cond": "0x4118ebd95506083db1c9ae53216923a12e448b5754a37fdeab09d764f30af058",
@@ -143,7 +143,7 @@
    "best_rank": 79,
    "usd": 336,
    "paid": 0.53,
-   "ask": 0.53,
+   "ask": 0.51,
    "status": "live",
    "link": "https://polymarket.us/event/nhl-dal-stl-2026-11-27",
    "other": null,
@@ -627,7 +627,7 @@
    "best_rank": 58,
    "usd": 460,
    "paid": 0.54,
-   "ask": 0.55,
+   "ask": 0.57,
    "status": "live",
    "link": "https://polymarket.us/event/cfb-airf-nmx-2026-11-27",
    "other": null,
@@ -643,7 +643,7 @@
    "game_start": "2026-11-27T21:30Z",
    "side_std": "home",
    "cancel": null,
-   "money_with": true,
+   "money_with": false,
    "grade": "A",
    "fair_board": null,
    "inside_fair": null,
@@ -689,8 +689,7 @@
    "game_start": "2026-11-28T00:00Z",
    "side_std": "home",
    "conflict": [
-    "Kalshi move",
-    "big money"
+    "Kalshi move"
    ],
    "cancel": [
     "Kalshi move"
@@ -733,8 +732,8 @@
    "game_start": "2026-11-28T00:00Z",
    "side_std": "away",
    "cancel": null,
-   "money_with": true,
-   "grade": "A",
+   "money_with": false,
+   "grade": "B",
    "fair_board": null,
    "inside_fair": null,
    "books": null
@@ -755,7 +754,7 @@
    "best_rank": 31,
    "usd": 985,
    "paid": 0.747,
-   "ask": 0.76,
+   "ask": 0.77,
    "status": "live",
    "link": "https://polymarket.us/event/nba-bkn-tor-2026-11-27",
    "other": null,
@@ -777,7 +776,7 @@
    "money_with": false,
    "grade": "A",
    "fair_board": 0.7655,
-   "inside_fair": true,
+   "inside_fair": false,
    "books": {
     "at": "2026-11-27T18:04:58Z",
     "fair": 0.7655,
@@ -1108,109 +1107,6 @@
      "Caesars": 0.5349,
      "DK": 0.5392,
      "Kalshi": 0.55
-    }
-   }
-  },
-  {
-   "cond": "0xc1b66e47aac530b3036e186b95db9b3f1ade67a20611ca9a06bacd2cdd8d6d29",
-   "slug": "nba-gsw-por-2026-11-27",
-   "title": "Warriors vs. Trail Blazers",
-   "mtype": "spread",
-   "start": "2026-11-28T02:30:00Z",
-   "bet": "Warriors +8.5",
-   "side": "Warriors",
-   "flagged": "2026-11-27T18:32:02Z",
-   "why": "2 top-200 accounts",
-   "proven": false,
-   "trigger": "two",
-   "n_accounts": 2,
-   "best_rank": 110,
-   "usd": 6653,
-   "paid": 0.475,
-   "ask": 0.55,
-   "status": "live",
-   "link": "https://polymarket.us/event/nba-gsw-por-2026-11-27",
-   "other": null,
-   "kalshi_against": null,
-   "logged": true,
-   "event_id": "401909336",
-   "sport": "nba",
-   "league": null,
-   "away": "GS",
-   "home": "POR",
-   "away_name": "Golden State Warriors",
-   "home_name": "Portland Trail Blazers",
-   "game_start": "2026-11-28T02:30Z",
-   "side_std": "away",
-   "conflict": [
-    "Kalshi move"
-   ],
-   "cancel": [
-    "Kalshi move"
-   ],
-   "money_with": false,
-   "grade": "B",
-   "fair_board": null,
-   "inside_fair": null,
-   "books": {
-    "at": "2026-11-27T18:04:58Z",
-    "fair": null,
-    "q": {
-     "Novig": 0.465,
-     "Kalshi": 0.49
-    }
-   }
-  },
-  {
-   "cond": "0xcea0081e38e6bf9e71e9b3651ba913709333aa4661d3460b1d5cf488777404e3",
-   "slug": "nba-gsw-por-2026-11-27",
-   "title": "Warriors vs. Trail Blazers",
-   "mtype": "spread",
-   "start": "2026-11-28T02:30:00Z",
-   "bet": "Warriors +9.5",
-   "side": "Warriors",
-   "flagged": "2026-11-27T18:30:49Z",
-   "why": "3 top-200 accounts",
-   "proven": false,
-   "trigger": "two",
-   "n_accounts": 3,
-   "best_rank": 49,
-   "usd": 53909,
-   "paid": 0.529,
-   "ask": 0.58,
-   "status": "live",
-   "link": "https://polymarket.us/event/nba-gsw-por-2026-11-27",
-   "other": null,
-   "kalshi_against": null,
-   "logged": false,
-   "ladder": true,
-   "event_id": "401909336",
-   "sport": "nba",
-   "league": null,
-   "away": "GS",
-   "home": "POR",
-   "away_name": "Golden State Warriors",
-   "home_name": "Portland Trail Blazers",
-   "game_start": "2026-11-28T02:30Z",
-   "side_std": "away",
-   "conflict": [
-    "Kalshi move"
-   ],
-   "cancel": [
-    "Kalshi move"
-   ],
-   "money_with": false,
-   "grade": "B",
-   "fair_board": 0.4943,
-   "inside_fair": false,
-   "books": {
-    "at": "2026-11-27T18:04:58Z",
-    "fair": 0.4943,
-    "q": {
-     "Novig": 0.495,
-     "DK": 0.5192,
-     "Kalshi": 0.52,
-     "FD": 0.5327
     }
    }
   },
@@ -1765,7 +1661,7 @@
     "Kalshi bet back"
    ],
    "cancel": null,
-   "money_with": true,
+   "money_with": false,
    "grade": "A",
    "fair_board": 0.6662,
    "inside_fair": false,
@@ -1780,13 +1676,13 @@
    "bet": "Warriors ML",
    "side": "Warriors",
    "flagged": "2026-11-27T18:30:13Z",
-   "why": "3 top-200 accounts",
-   "proven": false,
+   "why": "4 top-200 accounts",
+   "proven": true,
    "trigger": "two",
-   "n_accounts": 3,
-   "best_rank": 55,
-   "usd": 9208,
-   "paid": 0.262,
+   "n_accounts": 4,
+   "best_rank": 31,
+   "usd": 15958,
+   "paid": 0.265,
    "ask": 0.27,
    "status": "live",
    "link": "https://polymarket.us/event/nba-gsw-por-2026-11-27",
@@ -1813,9 +1709,9 @@
     "Kalshi move"
    ],
    "money_with": false,
-   "grade": "B",
-   "fair_board": 0.2208,
+   "grade": "A",
    "inside_fair": false,
+   "fair_board": 0.2208,
    "books": {
     "at": "2026-11-27T18:04:58Z",
     "fair": 0.2208,
@@ -1826,6 +1722,105 @@
      "Kalshi": 0.25
     }
    }
+  },
+  {
+   "cond": "0xc1b66e47aac530b3036e186b95db9b3f1ade67a20611ca9a06bacd2cdd8d6d29",
+   "slug": "nba-gsw-por-2026-11-27",
+   "title": "Warriors vs. Trail Blazers",
+   "mtype": "spread",
+   "start": "2026-11-28T02:30:00Z",
+   "bet": "Warriors +8.5",
+   "side": "Warriors",
+   "flagged": "2026-11-27T18:32:02Z",
+   "why": "2 top-200 accounts",
+   "proven": false,
+   "trigger": "two",
+   "n_accounts": 2,
+   "best_rank": 110,
+   "usd": 6653,
+   "paid": 0.475,
+   "ask": 0.53,
+   "status": "other side",
+   "link": "https://polymarket.us/event/nba-gsw-por-2026-11-27",
+   "other": {
+    "n_accounts": 1,
+    "best_rank": 112,
+    "usd": 698,
+    "first": "2026-11-27T18:46:41Z"
+   },
+   "exit_bid": 0.52,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401909336",
+   "sport": "nba",
+   "league": null,
+   "away": "GS",
+   "home": "POR",
+   "away_name": "Golden State Warriors",
+   "home_name": "Portland Trail Blazers",
+   "game_start": "2026-11-28T02:30Z",
+   "side_std": "away",
+   "conflict": [
+    "Kalshi move"
+   ],
+   "cancel": [
+    "Kalshi move"
+   ],
+   "money_with": false,
+   "grade": "B",
+   "fair_board": null,
+   "inside_fair": null,
+   "books": null
+  },
+  {
+   "cond": "0xcea0081e38e6bf9e71e9b3651ba913709333aa4661d3460b1d5cf488777404e3",
+   "slug": "nba-gsw-por-2026-11-27",
+   "title": "Warriors vs. Trail Blazers",
+   "mtype": "spread",
+   "start": "2026-11-28T02:30:00Z",
+   "bet": "Warriors +9.5",
+   "side": "Warriors",
+   "flagged": "2026-11-27T18:30:49Z",
+   "why": "3 top-200 accounts",
+   "proven": false,
+   "trigger": "two",
+   "n_accounts": 3,
+   "best_rank": 49,
+   "usd": 53909,
+   "paid": 0.529,
+   "ask": 0.57,
+   "status": "other side",
+   "link": "https://polymarket.us/event/nba-gsw-por-2026-11-27",
+   "other": {
+    "n_accounts": 1,
+    "best_rank": 112,
+    "usd": 2257,
+    "first": "2026-11-27T18:45:58Z"
+   },
+   "exit_bid": 0.56,
+   "kalshi_against": null,
+   "logged": false,
+   "ladder": true,
+   "event_id": "401909336",
+   "sport": "nba",
+   "league": null,
+   "away": "GS",
+   "home": "POR",
+   "away_name": "Golden State Warriors",
+   "home_name": "Portland Trail Blazers",
+   "game_start": "2026-11-28T02:30Z",
+   "side_std": "away",
+   "conflict": [
+    "Kalshi move"
+   ],
+   "cancel": [
+    "Kalshi move"
+   ],
+   "money_with": false,
+   "grade": "B",
+   "fair_board": 0.4943,
+   "inside_fair": false,
+   "books": null
   }
  ],
  "record": {
@@ -1895,7 +1890,11 @@
    }
   },
   "401909336:nba_ats_hot_home": {
-   "with": null,
+   "with": {
+    "n": 1,
+    "best_rank": 112,
+    "usd": 2246
+   },
    "against": {
     "n": 4,
     "best_rank": 49,
@@ -1916,6 +1915,18 @@
     "n": 1,
     "best_rank": 58,
     "usd": 460
+   }
+  },
+  "401873083:xch_homedog_fade:ml": {
+   "with": {
+    "n": 3,
+    "best_rank": 24,
+    "usd": 2558
+   },
+   "against": {
+    "n": 1,
+    "best_rank": 24,
+    "usd": 320
    }
   }
  },
@@ -2048,6 +2059,13 @@
     "usd": 4470
    }
   },
+  "401909333|spread": {
+   "home": {
+    "n": 1,
+    "best_rank": 132,
+    "usd": 322
+   }
+  },
   "401909334|spread": {
    "away": {
     "n": 1,
@@ -2064,9 +2082,9 @@
   },
   "401909336|ml": {
    "away": {
-    "n": 3,
-    "best_rank": 55,
-    "usd": 9208
+    "n": 4,
+    "best_rank": 31,
+    "usd": 15958
    }
   },
   "401909336|spread": {
@@ -2074,6 +2092,11 @@
     "n": 4,
     "best_rank": 49,
     "usd": 24802
+   },
+   "home": {
+    "n": 1,
+    "best_rank": 112,
+    "usd": 2246
    }
   },
   "401909336|total": {
