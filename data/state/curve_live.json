@@ -1,5 +1,5 @@
 {
- "built": "2026-11-27T17:03:11Z",
+ "built": "2026-11-27T17:23:53Z",
  "record": {
   "cbb_1h_total_curve": {
    "n": 11,
@@ -194,36 +194,32 @@
    "book_fair": 0.4895,
    "fair_gap": -0.3,
    "ev_curve": 4.4,
-   "flagged": "2026-11-27T16:27:28Z"
+   "flagged": "2026-11-27T16:43:51Z"
   },
   {
-   "key": "cfb_tt_under_curve|a72c11afb95ca2c2eb057c7f2a8e376b|away|under",
+   "key": "cfb_tt_under_curve|a72c11afb95ca2c2eb057c7f2a8e376b|home|under",
    "rule": "cfb_tt_under_curve",
-   "tier": "C",
-   "stake": 0.25,
+   "tier": "P",
+   "stake": 0.0,
    "sport": "cfb",
    "odds_id": "a72c11afb95ca2c2eb057c7f2a8e376b",
    "espn": null,
    "game": "Appalachian State Mountaineers @ South Alabama Jaguars",
    "start": "2026-11-27T20:00:00Z",
    "market": "team_totals",
-   "team": "away",
-   "team_name": "Appalachian State Mountaineers",
+   "team": "home",
+   "team_name": "South Alabama Jaguars",
    "side": "under",
-   "line": 27.5,
-   "curve": 0.565,
-   "pin_fair": 0.512,
-   "gap": 5.4,
+   "line": 29.5,
+   "curve": 0.531,
+   "pin_fair": 0.479,
+   "gap": 5.2,
    "full_total": 56.5,
    "full_spread": -3.0,
-   "pin_price": 1.88,
-   "book": "FD",
-   "price": 1.82,
-   "pin_fair_power": 0.5124,
-   "book_fair": 0.5185,
-   "fair_gap": -0.7,
-   "ev_curve": 2.9,
-   "flagged": "2026-11-27T17:03:11Z"
+   "pin_price": 2.01,
+   "book": null,
+   "price": null,
+   "flagged": "2026-11-27T17:23:53Z"
   },
   {
    "key": "nhl_p3_under_curve|f59fbb4eb34e72efeecfce2b7adc2198||under",
@@ -252,7 +248,7 @@
    "book_fair": 0.5803,
    "fair_gap": -0.8,
    "ev_curve": 6.9,
-   "flagged": "2026-11-27T17:03:11Z"
+   "flagged": "2026-11-27T17:23:53Z"
   }
  ]
 }
