@@ -316,9 +316,11 @@ def labs_pick(screen_id, away_name, home_name, max_h=WIND_LABS_MAX_H):
     d = _BLP[0]
     if not d or (NOW - N.parse_ts(d['pulled'])).total_seconds() / 3600 > max_h: return None, None
     two = lambda x: _bnm(x)[:2]
+    same = lambda p, a, h: (_bsame(p['away'], a) and _bsame(p['home'], h)) or (_bsame(p['away'], a) and two(p['home']) == two(h)) or (_bsame(p['home'], h) and two(p['away']) == two(a))
     for p in d['picks']:
-        if p['sid'] == screen_id and ((_bsame(p['away'], away_name) and _bsame(p['home'], home_name)) or (_bsame(p['away'], away_name) and two(p['home']) == two(home_name))
-                                      or (_bsame(p['home'], home_name) and two(p['away']) == two(away_name))):
+        # 11/27: at a neutral site Bet Labs and ESPN can list home and visitor the other way round (Fresno State @ South Alabama on 11/27:
+        # ESPN has Fresno State at home), so a listed game also matches with the two teams swapped. Every screen read this way bets a total.
+        if p['sid'] == screen_id and (same(p, away_name, home_name) or same(p, home_name, away_name)):
             return True, dict(p, pulled=d['pulled'])
     return False, dict(pulled=d['pulled'])
 def labs_label(pick):

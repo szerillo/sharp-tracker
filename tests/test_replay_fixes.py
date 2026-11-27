@@ -125,6 +125,19 @@ class CbbListOnly(unittest.TestCase):
         for line in ("if not on_:", "flag only, no bet", "why = f\"{labs_label(pick_)}"):
             self.assertIn(line, src)
 
+    def test_neutral_site_listing_matches_swapped(self):
+        """Bet Labs listed Fresno State @ South Alabama on 11/27; ESPN has Fresno State at home (neutral site). Same game, either order."""
+        import systems as S
+        old = (list(S._BLP), S.NOW)
+        S._BLP[:] = [dict(pulled='2026-11-27T03:42:25Z', picks=[dict(sid=1792184, away='Fresno State', home='South Alabama', info='x')])]
+        S.NOW = S.N.parse_ts('2026-11-27T11:00:00Z')
+        try:
+            self.assertTrue(S.labs_pick(1792184, 'South Alabama Jaguars', 'Fresno State Bulldogs')[0])
+            self.assertTrue(S.labs_pick(1792184, 'Fresno State Bulldogs', 'South Alabama Jaguars')[0])
+            self.assertFalse(S.labs_pick(1792184, 'Fresno State Bulldogs', 'Alabama Crimson Tide')[0])
+            self.assertIs(S.labs_pick(1792184, 'Fresno State Bulldogs', 'South Alabama Jaguars', max_h=1)[0], None)     # stale pull: no bet
+        finally: S._BLP[:] = old[0]; S.NOW = old[1]
+
 
 if __name__ == '__main__':
     unittest.main()
