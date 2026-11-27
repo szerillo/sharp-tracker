@@ -1,5 +1,5 @@
 {
- "built": "2026-11-27T20:56:11Z",
+ "built": "2026-11-27T21:37:26Z",
  "rows": [
   {
    "cond": "0xdcf51a8a1eff2ab52ce3cff7faa72c3279d31b0881c10780adae75f97e1a28c9",
@@ -499,7 +499,7 @@
    "best_rank": 58,
    "usd": 460,
    "paid": 0.54,
-   "ask": 0.56,
+   "ask": null,
    "status": "live",
    "link": "https://polymarket.us/event/cfb-airf-nmx-2026-11-27",
    "other": null,
@@ -518,7 +518,7 @@
    "money_with": false,
    "grade": "A",
    "fair_board": 0.5537,
-   "inside_fair": false,
+   "inside_fair": null,
    "books": {
     "at": "2026-11-27T21:06:22Z",
     "fair": 0.5537,
@@ -610,56 +610,6 @@
    "fair_board": null,
    "inside_fair": null,
    "books": null
-  },
-  {
-   "cond": "0x556075048ecff61d47f5056ec9ca8b6a08df39f0de51d5f90c0314e36ca12757",
-   "slug": "nba-bkn-tor-2026-11-27",
-   "title": "Nets vs. Raptors",
-   "mtype": "ml",
-   "start": "2026-11-28T00:30:00Z",
-   "bet": "Raptors ML",
-   "side": "Raptors",
-   "flagged": "2026-11-25T10:14:38Z",
-   "why": "3 top-200 accounts",
-   "proven": true,
-   "trigger": "proven",
-   "n_accounts": 3,
-   "best_rank": 31,
-   "usd": 985,
-   "paid": 0.747,
-   "ask": 0.77,
-   "status": "live",
-   "link": "https://polymarket.us/event/nba-bkn-tor-2026-11-27",
-   "other": null,
-   "kalshi_against": null,
-   "logged": true,
-   "event_id": "401909329",
-   "sport": "nba",
-   "league": null,
-   "away": "BKN",
-   "home": "TOR",
-   "away_name": "Brooklyn Nets",
-   "home_name": "Toronto Raptors",
-   "game_start": "2026-11-28T00:30Z",
-   "side_std": "home",
-   "conflict": [
-    "Kalshi bet back"
-   ],
-   "cancel": null,
-   "money_with": false,
-   "grade": "A",
-   "fair_board": 0.7651,
-   "inside_fair": false,
-   "books": {
-    "at": "2026-11-27T21:06:22Z",
-    "fair": 0.7651,
-    "q": {
-     "Novig": 0.765,
-     "Caesars": 0.7849,
-     "FD": 0.7872,
-     "DK": 0.789
-    }
-   }
   },
   {
    "cond": "0x7b0f60cecade0567aa420bb54283104b134d73571529c23c5f4c33cecb20657f",
@@ -1086,7 +1036,7 @@
    "best_rank": 100,
    "usd": 4882,
    "paid": 0.45,
-   "ask": 0.43,
+   "ask": 0.44,
    "status": "live",
    "link": "https://polymarket.us/event/epl-mun-bre-2026-11-28",
    "other": null,
@@ -1531,6 +1481,53 @@
    "books": null
   },
   {
+   "cond": "0x556075048ecff61d47f5056ec9ca8b6a08df39f0de51d5f90c0314e36ca12757",
+   "slug": "nba-bkn-tor-2026-11-27",
+   "title": "Nets vs. Raptors",
+   "mtype": "ml",
+   "start": "2026-11-28T00:30:00Z",
+   "bet": "Raptors ML",
+   "side": "Raptors",
+   "flagged": "2026-11-25T10:14:38Z",
+   "why": "3 top-200 accounts",
+   "proven": true,
+   "trigger": "proven",
+   "n_accounts": 3,
+   "best_rank": 31,
+   "usd": 985,
+   "paid": 0.747,
+   "ask": 0.77,
+   "status": "other side",
+   "link": "https://polymarket.us/event/nba-bkn-tor-2026-11-27",
+   "other": {
+    "n_accounts": 1,
+    "best_rank": 31,
+    "usd": 325,
+    "first": "2026-11-27T21:30:58Z"
+   },
+   "exit_bid": 0.76,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401909329",
+   "sport": "nba",
+   "league": null,
+   "away": "BKN",
+   "home": "TOR",
+   "away_name": "Brooklyn Nets",
+   "home_name": "Toronto Raptors",
+   "game_start": "2026-11-28T00:30Z",
+   "side_std": "home",
+   "conflict": [
+    "Kalshi bet back"
+   ],
+   "cancel": null,
+   "money_with": false,
+   "grade": "A",
+   "fair_board": 0.7651,
+   "inside_fair": false,
+   "books": null
+  },
+  {
    "cond": "0x5e019b9acc3739ee3f9c91dd288405be0a5cd38d5813acb7c02e9cd1e0aeef4e",
    "slug": "nba-mem-min-2026-11-27",
    "title": "Grizzlies vs. Timberwolves",
@@ -1900,14 +1897,6 @@
     "usd": 588
    },
    "against": null
-  },
-  "401864546:cfb_road_dog_low_total": {
-   "with": null,
-   "against": {
-    "n": 1,
-    "best_rank": 58,
-    "usd": 460
-   }
   }
  },
  "by_event": {
@@ -1966,6 +1955,11 @@
     "n": 3,
     "best_rank": 31,
     "usd": 985
+   },
+   "away": {
+    "n": 1,
+    "best_rank": 31,
+    "usd": 325
    }
   },
   "401909329|spread": {
@@ -2148,13 +2142,6 @@
     "n": 1,
     "best_rank": 132,
     "usd": 138
-   }
-  },
-  "401864546|spread": {
-   "home": {
-    "n": 1,
-    "best_rank": 58,
-    "usd": 460
    }
   },
   "401856756|total": {
