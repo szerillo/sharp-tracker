@@ -1,5 +1,5 @@
 {
- "built": "2026-11-27T21:53:20Z",
+ "built": "2026-11-27T22:47:08Z",
  "rows": [
   {
    "cond": "0xdcf51a8a1eff2ab52ce3cff7faa72c3279d31b0881c10780adae75f97e1a28c9",
@@ -474,7 +474,7 @@
    "best_rank": 58,
    "usd": 460,
    "paid": 0.54,
-   "ask": 0.56,
+   "ask": null,
    "status": "live",
    "link": "https://polymarket.us/event/cfb-airf-nmx-2026-11-27",
    "other": null,
@@ -826,7 +826,7 @@
    "best_rank": 57,
    "usd": 124,
    "paid": 0.4,
-   "ask": 0.39,
+   "ask": 0.37,
    "status": "live",
    "link": "https://polymarket.us/event/mls-clb-mia-2026-11-27",
    "other": null,
@@ -844,8 +844,8 @@
    "cancel": null,
    "money_with": false,
    "grade": "A",
-   "fair_board": 0.4063,
    "inside_fair": true,
+   "fair_board": 0.4063,
    "books": {
     "at": "2026-11-27T21:25:52Z",
     "fair": 0.3975,
@@ -873,7 +873,7 @@
    "best_rank": 57,
    "usd": 135,
    "paid": 0.62,
-   "ask": 0.62,
+   "ask": 0.6,
    "status": "live",
    "link": "https://polymarket.us/event/mls-clb-mia-2026-11-27",
    "other": null,
@@ -1070,7 +1070,6 @@
    "cancel": null,
    "money_with": true,
    "grade": "A",
-   "fair_board": 0.4725,
    "inside_fair": true,
    "fair_board": 0.4867,
    "books": {
@@ -1468,7 +1467,7 @@
    "best_rank": 12,
    "usd": 553,
    "paid": 0.485,
-   "ask": 0.51,
+   "ask": 0.52,
    "status": "live",
    "link": "https://polymarket.us/event/nfl-sea-sf-2026-11-29",
    "other": null,
@@ -1486,8 +1485,8 @@
    "cancel": null,
    "money_with": true,
    "grade": "A",
-   "fair_board": 0.4397,
    "inside_fair": false,
+   "fair_board": 0.4397,
    "books": {
     "at": "2026-11-27T21:25:44Z",
     "fair": 0.4397,
@@ -1654,7 +1653,7 @@
    "best_rank": 31,
    "usd": 985,
    "paid": 0.747,
-   "ask": 0.77,
+   "ask": 0.76,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-bkn-tor-2026-11-27",
    "other": {
@@ -1663,7 +1662,7 @@
     "usd": 325,
     "first": "2026-11-27T21:30:58Z"
    },
-   "exit_bid": 0.76,
+   "exit_bid": 0.75,
    "kalshi_against": null,
    "logged": true,
    "event_id": "401909329",
@@ -1682,7 +1681,7 @@
    "money_with": false,
    "grade": "A",
    "fair_board": 0.765,
-   "inside_fair": false,
+   "inside_fair": true,
    "books": null
   },
   {
