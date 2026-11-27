@@ -55,6 +55,23 @@ class RegularSeasonReplay(unittest.TestCase):
             self.assertEqual(sum(v['n'] for v in D[k].values()), 2 * a['n'], k)
 
 
+class PuckLineGrading(unittest.TestCase):
+    def game(self, sp_close):
+        return dict(hs=4, as_=1, sp_close=sp_close, sp_home_dec=1.40 if sp_close > 0 else 3.20, sp_away_dec=3.20 if sp_close > 0 else 1.40, p_open=None, p_close=None, sp_open=None)
+
+    def test_price_only_on_the_posted_line(self):
+        """Pinnacle hung -1.5 on the visitor (home +1.5 at 1.40): a home -1.5 bet has no Pinnacle price and is not graded. Before 11/27 it
+        was paid at the +1.5 price."""
+        g = self.game(1.5)
+        self.assertIsNone(RR.grade(g, 'spread', 'home', -1.5))
+        self.assertEqual(RR.grade(g, 'spread', 'home', 1.5)[:2], (1, 1.40))
+        self.assertEqual(RR.grade(g, 'spread', 'away', -1.5)[:2], (0, 3.20))
+        self.assertEqual(RR.grade(g, 'spread', 'home', -1.5, result_only=True)[:2], (1, None))     # market_replay prices it itself
+        g2 = self.game(-1.5)
+        self.assertEqual(RR.grade(g2, 'spread', 'home', -1.5)[:2], (1, 3.20))
+        self.assertIsNone(RR.grade(g2, 'spread', 'home', -2.5))                                     # no made-up 1.91 any more
+
+
 class UtahAbbreviations(unittest.TestCase):
     def test_utah_matches_either_abbreviation(self):
         st = dt.datetime(2024, 10, 9, 2, 10, tzinfo=U)

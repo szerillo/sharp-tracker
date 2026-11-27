@@ -129,7 +129,7 @@ def main():
                     if abs(d) >= 0.5:
                         side = 'home' if d > 0 else 'away'
                         dec = h if side == 'home' else a          # the book's own price on that number (an alternate puck line is heavily juiced)
-                        gr = grade(g, 'spread', side, line=(ln if side == 'home' else -ln))
+                        gr = grade(g, 'spread', side, line=(ln if side == 'home' else -ln), result_only=True)
                         if gr and dec: T[f'M8 US book gives 0.5+ more than Pinnacle: take it at its price | {book}'].append((g, (gr[0], dec, None, gr[3], gr[4])))
                         # M8c the other way round: the US book lags Pinnacle, so bet the side Pinnacle has moved toward, at Pinnacle's close
                         other = 'away' if side == 'home' else 'home'

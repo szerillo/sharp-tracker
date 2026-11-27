@@ -137,7 +137,7 @@ def clv_ml(g, side):
     return 100 * ((c - o) if side == 'home' else (o - c))
 
 
-def grade(g, market, side, line=None):
+def grade(g, market, side, line=None, result_only=False):
     """-> (won: 1/0/0.5, decimal at Pinnacle close, decimal at the best US book or None, clv: open->close in points, line_move: number moved toward the side (+) or away (-))"""
     if g['hs'] is None: return None
     if market == 'ml':
@@ -149,8 +149,14 @@ def grade(g, market, side, line=None):
         if g.get('sp_close') is None: return None
         ln = line if line is not None else (g['sp_close'] if side == 'home' else -g['sp_close'])
         dec = g.get('sp_home_dec') if side == 'home' else g.get('sp_away_dec')
-        if line is not None and abs(abs(line) - abs(g['sp_close'])) > 1e-9: dec = 1.91     # puck line at -1.5/+1.5 is Pinnacle's main NHL spread; price taken as quoted, else standard
-        if not dec: return None
+        # 11/27 (td_replay_fixes): Pinnacle's closing price is only known for the side's POSTED line (home sp_close, away -sp_close). The old
+        # check compared absolute values, so a favorite bet at -1.5 when Pinnacle hung -1.5 on the other team (a near pick'em) was paid at
+        # the +1.5 price (about 1.40 instead of about 3.2), and any other number was given a made-up 1.91. No posted line, no grade.
+        posted = g['sp_close'] if side == 'home' else -g['sp_close']
+        if line is not None and abs(line - posted) > 1e-9:
+            if not result_only: return None
+            dec = None      # the caller prices it (sharp/market_replay.py uses the US book's own price on its number)
+        if not dec and not result_only: return None
         m = ((g['hs'] - g['as_']) if side == 'home' else (g['as_'] - g['hs'])) + ln
         # number movement open -> close for the side taken (a +7 that closes +6.5 moved against the dog; a -7 that closes -7.5 moved for the fav)
         lm = None
