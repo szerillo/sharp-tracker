@@ -1,5 +1,5 @@
 {
- "built": "2026-11-27T23:06:59Z",
+ "built": "2026-11-27T23:24:45Z",
  "record": {
   "cbb_1h_total_curve": {
    "n": 11,
@@ -53,10 +53,10 @@
    }
   },
   "nhl_p3_under_curve": {
-   "n": 46,
+   "n": 47,
    "won": 10,
-   "lost": 25,
-   "units": -5.12,
+   "lost": 26,
+   "units": -5.37,
    "clv": {
     "n": 32,
     "avg": -2.19,
@@ -115,35 +115,6 @@
    "book_fair": 0.5185,
    "fair_gap": -0.7,
    "ev_curve": 2.9,
-   "flagged": "2026-11-27T17:03:11Z"
-  },
-  {
-   "key": "nhl_p3_under_curve|f59fbb4eb34e72efeecfce2b7adc2198||under",
-   "rule": "nhl_p3_under_curve",
-   "tier": "P",
-   "stake": 0.25,
-   "sport": "nhl",
-   "odds_id": "f59fbb4eb34e72efeecfce2b7adc2198",
-   "espn": "401892801",
-   "game": "Florida Panthers @ Washington Capitals",
-   "start": "2026-11-27T20:00:00Z",
-   "market": "totals_p3",
-   "team": null,
-   "team_name": null,
-   "side": "under",
-   "line": 2.5,
-   "curve": 0.66,
-   "pin_fair": 0.573,
-   "gap": 8.8,
-   "full_total": 6.5,
-   "full_spread": 1.5,
-   "pin_price": 1.68,
-   "book": "DK",
-   "price": 1.62,
-   "pin_fair_power": 0.5768,
-   "book_fair": 0.5803,
-   "fair_gap": -0.8,
-   "ev_curve": 6.9,
    "flagged": "2026-11-27T17:03:11Z"
   },
   {
@@ -288,7 +259,7 @@
    "pin_price": 1.54,
    "book": null,
    "price": null,
-   "flagged": "2026-11-27T23:06:59Z"
+   "flagged": "2026-11-27T23:24:45Z"
   }
  ]
 }

@@ -1,11 +1,11 @@
 {
- "built": "2026-11-27T22:59:40Z",
+ "built": "2026-11-27T23:18:56Z",
  "record": {
-  "n": 314,
+  "n": 315,
   "won": 136,
-  "lost": 178,
-  "units": -3.62,
-  "roi": -4.6
+  "lost": 179,
+  "units": -3.87,
+  "roi": -4.9
  },
  "record_sb4": {
   "n": 11,
@@ -17,23 +17,23 @@
  "sb4_killed": true,
  "checkable_test": {
   "rule": "kill if the first 100 graded checkable rows are not positive in both halves",
-  "n": 40,
+  "n": 41,
   "all_checkable": {
-   "n": 40,
+   "n": 41,
    "won": 13,
-   "lost": 27,
-   "units": -2.95,
-   "roi": -29.5
+   "lost": 28,
+   "units": -3.2,
+   "roi": -31.2
   },
   "half1": {
-   "n": 40,
+   "n": 41,
    "won": 13,
-   "lost": 27,
-   "units": -2.95,
-   "roi": -29.5
+   "lost": 28,
+   "units": -3.2,
+   "roi": -31.2
   },
   "half2": null,
-  "verdict": "pending: 40 of 100"
+  "verdict": "pending: 41 of 100"
  },
  "rows": [
   {
@@ -59,31 +59,6 @@
    "qty_best": 60606,
    "wide": false,
    "team": null,
-   "checkable": true
-  },
-  {
-   "key": "401873083|spread|away",
-   "sport": "nfl",
-   "event_id": "401873083",
-   "game": "DEN @ PIT",
-   "start": "2026-11-27T20:00Z",
-   "market": "spread",
-   "side": "away",
-   "line": -4.5,
-   "venue": "Novig",
-   "price": 0.505,
-   "fair": 0.5171,
-   "fair_power": 0.5178,
-   "venue_fair": 0.5025,
-   "fair_gap": 1.5,
-   "ev": 2.4,
-   "move": 1.0,
-   "flagged": "2026-11-27T01:09:29Z",
-   "venue_ts": "2026-11-27T00:43:57Z",
-   "pin_ts": "2026-11-27T00:43:57Z",
-   "qty_best": 979994,
-   "wide": false,
-   "team": "DEN",
    "checkable": true
   },
   {
