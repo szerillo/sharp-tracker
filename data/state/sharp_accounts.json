@@ -1,5 +1,5 @@
 {
- "built": "2026-11-27T22:15:06Z",
+ "built": "2026-11-27T22:23:19Z",
  "rows": [
   {
    "cond": "0xdcf51a8a1eff2ab52ce3cff7faa72c3279d31b0881c10780adae75f97e1a28c9",
@@ -545,7 +545,7 @@
    "best_rank": 104,
    "usd": 302,
    "paid": 0.437,
-   "ask": 0.39,
+   "ask": 0.38,
    "status": "live",
    "link": "https://polymarket.us/event/nba-mia-nyk-2026-11-27",
    "other": null,
@@ -642,12 +642,7 @@
    "home_name": "Detroit Pistons",
    "game_start": "2026-11-28T00:30Z",
    "side_std": "away",
-   "conflict": [
-    "Kalshi move"
-   ],
-   "cancel": [
-    "Kalshi move"
-   ],
+   "cancel": null,
    "money_with": false,
    "grade": "watch",
    "inside_fair": false,
@@ -1098,8 +1093,8 @@
     "Kalshi bet back"
    ],
    "cancel": null,
-   "money_with": true,
-   "grade": "A",
+   "money_with": false,
+   "grade": "B",
    "fair_board": 0.4867,
    "inside_fair": true,
    "books": {
@@ -1482,6 +1477,53 @@
    "books": null
   },
   {
+   "cond": "0xec6c71ce4962016f75c7c6fd05b087ec61305623a4f359336fb9e8d43134f29a",
+   "slug": "nfl-sea-sf-2026-11-29",
+   "title": "Seahawks vs. 49ers",
+   "mtype": "ml",
+   "start": "2026-11-29T21:25:00Z",
+   "bet": "Seahawks ML",
+   "side": "Seahawks",
+   "flagged": "2026-11-27T22:21:17Z",
+   "why": "a top-50 account",
+   "proven": false,
+   "trigger": "top50",
+   "n_accounts": 1,
+   "best_rank": 12,
+   "usd": 275,
+   "paid": 0.46,
+   "ask": 0.5,
+   "status": "live",
+   "link": "https://polymarket.us/event/nfl-sea-sf-2026-11-29",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401873091",
+   "sport": "nfl",
+   "league": null,
+   "away": "SEA",
+   "home": "SF",
+   "away_name": "Seattle Seahawks",
+   "home_name": "San Francisco 49ers",
+   "game_start": "2026-11-29T21:25Z",
+   "side_std": "away",
+   "cancel": null,
+   "money_with": true,
+   "grade": "A",
+   "fair_board": 0.4189,
+   "inside_fair": false,
+   "books": {
+    "at": "2026-11-27T21:06:22Z",
+    "fair": 0.4189,
+    "q": {
+     "Novig": 0.42,
+     "DK": 0.4386,
+     "FD": 0.4425,
+     "Caesars": 0.4444
+    }
+   }
+  },
+  {
    "cond": "0xbec11310a30324181125d890a817d639716c0173c225e461c3292d7ed5044f6e",
    "slug": "nfl-den-pit-2026-11-27",
    "title": "Broncos vs. Steelers",
@@ -1610,8 +1652,7 @@
    "game_start": "2026-11-28T00:30Z",
    "side_std": "away",
    "conflict": [
-    "Kalshi bet back",
-    "big money"
+    "Kalshi bet back"
    ],
    "cancel": null,
    "money_with": false,
@@ -1752,8 +1793,8 @@
    "cancel": [
     "Kalshi move"
    ],
-   "money_with": true,
-   "grade": "A",
+   "money_with": false,
+   "grade": "B",
    "inside_fair": false,
    "fair_board": 0.5758,
    "books": {
@@ -1896,8 +1937,8 @@
    "game_start": "2026-11-28T02:30Z",
    "side_std": "away",
    "cancel": null,
-   "money_with": false,
-   "grade": "B",
+   "money_with": true,
+   "grade": "A",
    "fair_board": null,
    "inside_fair": null,
    "books": null
@@ -1941,8 +1982,8 @@
    "game_start": "2026-11-28T02:30Z",
    "side_std": "away",
    "cancel": null,
-   "money_with": false,
-   "grade": "B",
+   "money_with": true,
+   "grade": "A",
    "fair_board": null,
    "inside_fair": null,
    "books": null
@@ -2032,6 +2073,13 @@
   }
  },
  "by_event": {
+  "401873091|ml": {
+   "away": {
+    "n": 1,
+    "best_rank": 12,
+    "usd": 275
+   }
+  },
   "401909326|spread": {
    "home": {
     "n": 2,
