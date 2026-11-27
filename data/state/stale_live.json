@@ -1,11 +1,11 @@
 {
- "built": "2026-11-27T22:22:58Z",
+ "built": "2026-11-27T22:41:00Z",
  "record": {
-  "n": 312,
-  "won": 134,
+  "n": 314,
+  "won": 136,
   "lost": 178,
-  "units": -4.16,
-  "roi": -5.3
+  "units": -3.62,
+  "roi": -4.6
  },
  "record_sb4": {
   "n": 11,
@@ -17,23 +17,23 @@
  "sb4_killed": true,
  "checkable_test": {
   "rule": "kill if the first 100 graded checkable rows are not positive in both halves",
-  "n": 38,
+  "n": 40,
   "all_checkable": {
-   "n": 38,
-   "won": 11,
+   "n": 40,
+   "won": 13,
    "lost": 27,
-   "units": -3.48,
-   "roi": -36.7
+   "units": -2.95,
+   "roi": -29.5
   },
   "half1": {
-   "n": 38,
-   "won": 11,
+   "n": 40,
+   "won": 13,
    "lost": 27,
-   "units": -3.48,
-   "roi": -36.7
+   "units": -2.95,
+   "roi": -29.5
   },
   "half2": null,
-  "verdict": "pending: 38 of 100"
+  "verdict": "pending: 40 of 100"
  },
  "rows": [
   {
@@ -287,31 +287,6 @@
    "checkable": true
   },
   {
-   "key": "401920774|ml|away",
-   "sport": "cbb",
-   "event_id": "401920774",
-   "game": "COLG @ HOF",
-   "start": "2026-11-27T20:30Z",
-   "market": "ml",
-   "side": "away",
-   "line": null,
-   "venue": "Novig",
-   "price": 0.46,
-   "fair": 0.4693,
-   "fair_power": 0.4675,
-   "venue_fair": 0.4577,
-   "fair_gap": 1.2,
-   "ev": 2.0,
-   "move": 5.0,
-   "flagged": "2026-11-27T18:33:01Z",
-   "venue_ts": "2026-11-27T18:03:06Z",
-   "pin_ts": "2026-11-27T18:03:06Z",
-   "qty_best": 1169100,
-   "wide": false,
-   "team": "COLG",
-   "checkable": true
-  },
-  {
    "key": "401909333|ml|away",
    "sport": "nba",
    "event_id": "401909333",
@@ -334,31 +309,6 @@
    "qty_best": null,
    "wide": false,
    "team": "LAL",
-   "checkable": true
-  },
-  {
-   "key": "401920542|total|over",
-   "sport": "cbb",
-   "event_id": "401920542",
-   "game": "TCU @ BAY",
-   "start": "2026-11-27T20:00Z",
-   "market": "total",
-   "side": "over",
-   "line": 148.5,
-   "venue": "Novig",
-   "price": 0.505,
-   "fair": 0.5183,
-   "fair_power": 0.5197,
-   "venue_fair": 0.5025,
-   "fair_gap": 1.6,
-   "ev": 2.6,
-   "move": 2.0,
-   "flagged": "2026-11-27T19:40:20Z",
-   "venue_ts": "2026-11-27T19:05:26Z",
-   "pin_ts": "2026-11-27T19:05:26Z",
-   "qty_best": 94900,
-   "wide": false,
-   "team": null,
    "checkable": true
   },
   {
