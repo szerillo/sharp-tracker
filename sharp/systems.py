@@ -400,10 +400,10 @@ WC = {
     'nba_ats_hot_home': ('2020-26', 311, 228, 12.4, None), 'nba_badteams_under': ('2020-26', 153, 95, 20.6, None), 'nhl_loss_streak_over': ('2020-26', 385, 290, 10.3, None),
     'nhl_bounce_home_ml': ('2020-26', 337, 197, 10.1, None), 'mlb_road_over_under': ('2020-25', 342, 246, 12.1, None), 'nba_bigfav_over': ('2020-26', 272, 202, 10.9, None),
     'nba_roadtrip_over': ('2020-26', 190, 131, 14.2, None), 'nhl_skid_fade_road': ('2020-26', 196, 145, 20.2, None), 'cfb_day_over': ('2020-26', 311, 221, 12.4, None),
-    'cfb_homefav_7510_under': ('2020-26', 188, 130, 13.6, None), 'nhl_pl_fav_gap': ('2020-26', 79, 126, 1.5, None), 'nhl_pl_fav_strong_opp': ('2020-26', 136, 222, -0.1, None),
-    'nhl_pl_dog_bigml': ('2020-26', 46, 32, 5.0, None), 'nhl_early_home_fav_qual': ('2020-26', 258, 139, 9.4, None), 'nba_under_good_home_over': ('2020-26', 215, 210, -1.3, None),
-    'cfb_road_dog_low_total': ('2020-26', 132, 113, 4.4, None), 'cfb_hot_over_low_total': ('2020-26', 88, 55, 18.4, None), 'cfb_road_streak_dog': ('2020-26', 212, 228, -6.4, None),
-    'cbb_under_good_over_drop': ('2020-26', 495, 498, -5.0, None), 'mma_steam_fav': ('2022-26', 136, 53, 6.6, None)}
+    'cfb_homefav_7510_under': ('2020-26', 188, 130, 13.6, None), 'nhl_pl_fav_gap': ('2020-26', 91, 132, 8.8, '11/27 replay, regular season'), 'nhl_pl_fav_strong_opp': ('2020-26', 146, 243, -0.6, '11/27 replay, regular season'),
+    'nhl_pl_dog_bigml': ('2020-26', 46, 32, 5.0, None), 'nhl_early_home_fav_qual': ('2020-26', 284, 171, 5.5, '11/27 replay, regular season'), 'nba_under_good_home_over': ('2020-26', 224, 212, 0.2, '11/27 replay, regular season'),
+    'cfb_road_dog_low_total': ('2020-26', 141, 126, 2.5, '11/27 replay, regular season'), 'cfb_hot_over_low_total': ('2020-26', 88, 55, 18.4, None), 'cfb_road_streak_dog': ('2020-26', 212, 228, -6.4, None),
+    'cbb_under_good_over_drop': ('2020-26', 496, 499, -5.0, '11/27 replay, regular season'), 'mma_steam_fav': ('2022-26', 136, 53, 6.6, None)}
 try: LABW = json.load(open(os.path.join(ROOT, 'data', 'research', 'betlabs_windows.json')))['rules']
 except Exception: LABW = {}
 
