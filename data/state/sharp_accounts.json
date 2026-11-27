@@ -1,6 +1,88 @@
 {
- "built": "2026-11-27T13:07:02Z",
+ "built": "2026-11-27T13:17:31Z",
  "rows": [
+  {
+   "cond": "0x4118ebd95506083db1c9ae53216923a12e448b5754a37fdeab09d764f30af058",
+   "slug": "cfb-buf-akron-2026-11-27",
+   "title": "Buffalo vs. Akron",
+   "mtype": "total",
+   "start": "2026-11-27T17:00:00Z",
+   "bet": "Over 49.5",
+   "side": "Over",
+   "flagged": "2026-11-27T13:02:31Z",
+   "why": "a top-200 account also in this sport's top 50",
+   "proven": true,
+   "trigger": "proven",
+   "n_accounts": 1,
+   "best_rank": 115,
+   "usd": 245,
+   "paid": 0.49,
+   "ask": 0.5,
+   "status": "live",
+   "link": "https://polymarket.us/event/cfb-buf-akron-2026-11-27",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401866472",
+   "sport": "cfb",
+   "league": null,
+   "away": "BUFF",
+   "home": "AKR",
+   "away_name": "Buffalo Bulls",
+   "home_name": "Akron Zips",
+   "game_start": "2026-11-27T17:00Z",
+   "side_std": "over",
+   "cancel": null,
+   "money_with": false,
+   "grade": "A",
+   "fair_board": null,
+   "inside_fair": null,
+   "books": null
+  },
+  {
+   "cond": "0x870c970f4eb7e087cebc69107af53bf233470a7fd0b0bce88ceb6c6862866c35",
+   "slug": "cfb-toledo-ohio-2026-11-27",
+   "title": "Toledo vs. Ohio",
+   "mtype": "total",
+   "start": "2026-11-27T17:00:00Z",
+   "bet": "Over 45.5",
+   "side": "Over",
+   "flagged": "2026-11-27T13:11:41Z",
+   "why": "a top-200 account also in this sport's top 50",
+   "proven": true,
+   "trigger": "proven",
+   "n_accounts": 1,
+   "best_rank": 115,
+   "usd": 186,
+   "paid": 0.46,
+   "ask": 0.47,
+   "status": "live",
+   "link": "https://polymarket.us/event/cfb-toledo-ohio-2026-11-27",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401866473",
+   "sport": "cfb",
+   "league": null,
+   "away": "TOL",
+   "home": "OHIO",
+   "away_name": "Toledo Rockets",
+   "home_name": "Ohio Bobcats",
+   "game_start": "2026-11-27T17:00Z",
+   "side_std": "over",
+   "conflict": [
+    "Kalshi move",
+    "big money"
+   ],
+   "cancel": [
+    "Kalshi move"
+   ],
+   "money_with": false,
+   "grade": "A",
+   "fair_board": null,
+   "inside_fair": null,
+   "books": null
+  },
   {
    "cond": "0xdcf51a8a1eff2ab52ce3cff7faa72c3279d31b0881c10780adae75f97e1a28c9",
    "slug": "nhl-dal-stl-2026-11-27",
@@ -45,56 +127,6 @@
      "FD": 0.5798,
      "Caesars": 0.5816,
      "DK": 0.5868
-    }
-   }
-  },
-  {
-   "cond": "0xbec11310a30324181125d890a817d639716c0173c225e461c3292d7ed5044f6e",
-   "slug": "nfl-den-pit-2026-11-27",
-   "title": "Broncos vs. Steelers",
-   "mtype": "ml",
-   "start": "2026-11-27T20:00:00Z",
-   "bet": "Broncos ML",
-   "side": "Broncos",
-   "flagged": "2026-11-25T04:19:59Z",
-   "why": "3 top-200 accounts",
-   "proven": true,
-   "trigger": "proven",
-   "n_accounts": 3,
-   "best_rank": 24,
-   "usd": 2558,
-   "paid": 0.642,
-   "ask": 0.69,
-   "status": "live",
-   "link": "https://polymarket.us/event/nfl-den-pit-2026-11-27",
-   "other": null,
-   "kalshi_against": null,
-   "logged": true,
-   "event_id": "401873083",
-   "sport": "nfl",
-   "league": null,
-   "away": "DEN",
-   "home": "PIT",
-   "away_name": "Denver Broncos",
-   "home_name": "Pittsburgh Steelers",
-   "game_start": "2026-11-27T20:00Z",
-   "side_std": "away",
-   "conflict": [
-    "Kalshi bet back"
-   ],
-   "cancel": null,
-   "money_with": false,
-   "grade": "A",
-   "inside_fair": false,
-   "fair_board": 0.5846,
-   "books": {
-    "at": "2026-11-27T03:08:14Z",
-    "fair": 0.6813,
-    "q": {
-     "Novig": 0.68,
-     "Caesars": 0.7015,
-     "FD": 0.7015,
-     "Kalshi": 0.71
     }
    }
   },
@@ -220,6 +252,56 @@
    "fair_board": null,
    "inside_fair": null,
    "books": null
+  },
+  {
+   "cond": "0xf0a2de69db7476fb52827a3fbbce707c18d13035fe86df11c58b75c30405ed6d",
+   "slug": "cfb-applst-sala-2026-11-27",
+   "title": "Appalachian State vs. South Alabama",
+   "mtype": "spread",
+   "start": "2026-11-27T20:00:00Z",
+   "bet": "South Alabama -3.5",
+   "side": "South Alabama",
+   "flagged": "2026-11-27T13:12:53Z",
+   "why": "a top-200 account also in this sport's top 50",
+   "proven": true,
+   "trigger": "proven",
+   "n_accounts": 1,
+   "best_rank": 115,
+   "usd": 597,
+   "paid": 0.46,
+   "ask": 0.47,
+   "status": "live",
+   "link": "https://polymarket.us/event/cfb-applst-sala-2026-11-27",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401869930",
+   "sport": "cfb",
+   "league": null,
+   "away": "APP",
+   "home": "USA",
+   "away_name": "App State Mountaineers",
+   "home_name": "South Alabama Jaguars",
+   "game_start": "2026-11-27T20:00Z",
+   "side_std": "home",
+   "conflict": [
+    "big money"
+   ],
+   "cancel": null,
+   "money_with": false,
+   "grade": "A",
+   "fair_board": 0.4838,
+   "inside_fair": true,
+   "books": {
+    "at": "2026-11-27T03:08:14Z",
+    "fair": 0.4838,
+    "q": {
+     "Kalshi": 0.5,
+     "Caesars": 0.5074,
+     "DK": 0.5122,
+     "FD": 0.5122
+    }
+   }
   },
   {
    "cond": "0x841dca267e34794410689cfbc77ba290f9dbf64330821bfa50e3669612035e18",
@@ -899,6 +981,53 @@
    "books": null
   },
   {
+   "cond": "0xbec11310a30324181125d890a817d639716c0173c225e461c3292d7ed5044f6e",
+   "slug": "nfl-den-pit-2026-11-27",
+   "title": "Broncos vs. Steelers",
+   "mtype": "ml",
+   "start": "2026-11-27T20:00:00Z",
+   "bet": "Broncos ML",
+   "side": "Broncos",
+   "flagged": "2026-11-25T04:19:59Z",
+   "why": "3 top-200 accounts",
+   "proven": true,
+   "trigger": "proven",
+   "n_accounts": 3,
+   "best_rank": 24,
+   "usd": 2558,
+   "paid": 0.642,
+   "ask": 0.69,
+   "status": "other side",
+   "link": "https://polymarket.us/event/nfl-den-pit-2026-11-27",
+   "other": {
+    "n_accounts": 1,
+    "best_rank": 24,
+    "usd": 320,
+    "first": "2026-11-27T13:14:17Z"
+   },
+   "exit_bid": 0.68,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401873083",
+   "sport": "nfl",
+   "league": null,
+   "away": "DEN",
+   "home": "PIT",
+   "away_name": "Denver Broncos",
+   "home_name": "Pittsburgh Steelers",
+   "game_start": "2026-11-27T20:00Z",
+   "side_std": "away",
+   "conflict": [
+    "Kalshi bet back"
+   ],
+   "cancel": null,
+   "money_with": false,
+   "grade": "A",
+   "inside_fair": false,
+   "fair_board": 0.5846,
+   "books": null
+  },
+  {
    "cond": "0xf93a4fe832882479c324e6166050540c9184d9cc3c18bac675a1504b4662c297",
    "slug": "nba-phi-ind-2026-11-27",
    "title": "76ers vs. Pacers",
@@ -1011,6 +1140,11 @@
     "n": 3,
     "best_rank": 24,
     "usd": 2558
+   },
+   "home": {
+    "n": 1,
+    "best_rank": 24,
+    "usd": 320
    }
   },
   "401873083|spread": {
@@ -1149,6 +1283,27 @@
     "n": 1,
     "best_rank": 132,
     "usd": 138
+   }
+  },
+  "401866472|total": {
+   "over": {
+    "n": 1,
+    "best_rank": 115,
+    "usd": 245
+   }
+  },
+  "401866473|total": {
+   "over": {
+    "n": 1,
+    "best_rank": 115,
+    "usd": 186
+   }
+  },
+  "401869930|spread": {
+   "home": {
+    "n": 1,
+    "best_rank": 115,
+    "usd": 597
    }
   },
   "401858544|ml": {
