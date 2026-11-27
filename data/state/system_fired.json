@@ -9333,7 +9333,10 @@
 "price": -106,
 "fair": 0.50903,
 "edge_pts": -0.6,
-"why": "home favourite OSU -10.0, total 37.5: under (mined angle)"
+"why": "home favourite OSU -10.0, total 37.5: under (mined angle)",
+"void": true,
+"void_why": "rule no longer holds on the current line: home spread -10.5, total 37.5 (2026-11-27T14:58:50Z)",
+"void_at": "2026-11-27T14:58:50Z"
 },
 "401856875:cfb_day_over": {
 "tag": "cfb_day_over",
@@ -10677,5 +10680,31 @@
 "fair": 0.49801,
 "edge_pts": -0.7,
 "why": "on the Bet Labs list (pull Thu 10:42 PM ET): O/U Change Open to Close -4, Day Of Week Friday, Home Over Win % 66, Visitor Over Win % 75, Home OU Streak 1; ours: home FRES over 80% (6 games), visitor USA over 62% (9); total 144.5 -> 144.5"
+},
+"401861969:cfb_wind14": {
+"tag": "cfb_wind14",
+"fill_id": "09d8685630c0",
+"ts": "2026-11-27T14:58:50Z",
+"market": "total",
+"side": "under",
+"line": 44.5,
+"venue": "Kalshi",
+"price": 104,
+"fair": 0.48075,
+"edge_pts": -0.92,
+"why": "Bet Labs wind 19 mph (pull Fri 6:57 AM ET); cross-check MySportsWeather 30 mph, gusts 45 (Open-Meteo 18.5 at T-27h), gust 26.6, 35.7F"
+},
+"401871062:cfb_wind14": {
+"tag": "cfb_wind14",
+"fill_id": "e37c40cee371",
+"ts": "2026-11-27T14:58:50Z",
+"market": "total",
+"side": "under",
+"line": 58.5,
+"venue": "Novig",
+"price": -106,
+"fair": 0.51051,
+"edge_pts": -0.45,
+"why": "Bet Labs wind 14 mph (pull Fri 6:57 AM ET); cross-check MySportsWeather 15 mph, gusts 23 (Open-Meteo 11.2 at T-30h), gust 25.1, 50.5F"
 }
 }
