@@ -1,5 +1,5 @@
 {
- "built": "2026-11-28T09:36:21Z",
+ "built": "2026-11-28T09:46:19Z",
  "rows": [
   {
    "cond": "0x1cf899c2e1facf88079301875eb3bd94b8bd647c4967d650a9cc28de6b703aa0",
@@ -211,6 +211,53 @@
      "DK": 0.5283,
      "FD": 0.5327,
      "Novig": 0.54
+    }
+   }
+  },
+  {
+   "cond": "0xb67b08a811269d81463262636592c1da447ab05e94db2aa3c21199f7a783122f",
+   "slug": "nhl-utah-dal-2026-11-28",
+   "title": "Utah vs. Stars",
+   "mtype": "ml",
+   "start": "2026-11-29T01:00:00Z",
+   "bet": "Utah ML",
+   "side": "Utah",
+   "flagged": "2026-11-28T09:42:38Z",
+   "why": "a top-200 account also in this sport's top 50",
+   "proven": true,
+   "trigger": "proven",
+   "n_accounts": 1,
+   "best_rank": 197,
+   "usd": 1008,
+   "paid": 0.42,
+   "ask": 0.42,
+   "status": "live",
+   "link": "https://polymarket.us/event/nhl-utah-dal-2026-11-28",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401892819",
+   "sport": "nhl",
+   "league": null,
+   "away": "UTA",
+   "home": "DAL",
+   "away_name": "Utah Mammoth",
+   "home_name": "Dallas Stars",
+   "game_start": "2026-11-29T01:00Z",
+   "side_std": "away",
+   "cancel": null,
+   "money_with": false,
+   "grade": "A",
+   "fair_board": 0.4146,
+   "inside_fair": false,
+   "books": {
+    "at": "2026-11-28T02:07:16Z",
+    "fair": 0.4146,
+    "q": {
+     "Novig": 0.42,
+     "Caesars": 0.4329,
+     "DK": 0.4348,
+     "FD": 0.4386
     }
    }
   },
@@ -751,6 +798,13 @@
     "n": 1,
     "best_rank": 197,
     "usd": 2840
+   }
+  },
+  "401892819|ml": {
+   "away": {
+    "n": 1,
+    "best_rank": 197,
+    "usd": 1008
    }
   },
   "401856757|total": {
