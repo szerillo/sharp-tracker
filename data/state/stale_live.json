@@ -1,9 +1,9 @@
 {
- "built": "2026-11-28T00:16:06Z",
+ "built": "2026-11-28T00:30:33Z",
  "record": {
-  "n": 315,
-  "won": 136,
-  "lost": 179,
+  "n": 317,
+  "won": 137,
+  "lost": 180,
   "units": -3.87,
   "roi": -4.9
  },
@@ -17,75 +17,25 @@
  "sb4_killed": true,
  "checkable_test": {
   "rule": "kill if the first 100 graded checkable rows are not positive in both halves",
-  "n": 41,
+  "n": 43,
   "all_checkable": {
-   "n": 41,
-   "won": 13,
-   "lost": 28,
+   "n": 43,
+   "won": 14,
+   "lost": 29,
    "units": -3.2,
-   "roi": -31.2
+   "roi": -29.7
   },
   "half1": {
-   "n": 41,
-   "won": 13,
-   "lost": 28,
+   "n": 43,
+   "won": 14,
+   "lost": 29,
    "units": -3.2,
-   "roi": -31.2
+   "roi": -29.7
   },
   "half2": null,
-  "verdict": "pending: 41 of 100"
+  "verdict": "pending: 43 of 100"
  },
  "rows": [
-  {
-   "key": "401862838|total|over",
-   "sport": "cfb",
-   "event_id": "401862838",
-   "game": "TEM @ MEM",
-   "start": "2026-11-27T20:30Z",
-   "market": "total",
-   "side": "over",
-   "line": 66.5,
-   "venue": "Novig",
-   "price": 0.5,
-   "fair": 0.5134,
-   "fair_power": 0.5141,
-   "venue_fair": 0.4975,
-   "fair_gap": 1.6,
-   "ev": 2.7,
-   "move": 2.2,
-   "flagged": "2026-11-27T00:19:12Z",
-   "venue_ts": "2026-11-26T23:43:03Z",
-   "pin_ts": "2026-11-26T23:43:03Z",
-   "qty_best": 60606,
-   "wide": false,
-   "team": null,
-   "checkable": true
-  },
-  {
-   "key": "401920382|spread|away",
-   "sport": "cbb",
-   "event_id": "401920382",
-   "game": "ODU @ VT",
-   "start": "2026-11-27T22:00Z",
-   "market": "spread",
-   "side": "away",
-   "line": 18.5,
-   "venue": "Novig",
-   "price": 0.5,
-   "fair": 0.5144,
-   "fair_power": 0.5153,
-   "venue_fair": 0.4975,
-   "fair_gap": 1.7,
-   "ev": 2.9,
-   "move": 1.4,
-   "flagged": "2026-11-27T05:51:23Z",
-   "venue_ts": "2026-11-27T05:26:24Z",
-   "pin_ts": "2026-11-27T05:26:24Z",
-   "qty_best": 52675,
-   "wide": false,
-   "team": "ODU",
-   "checkable": true
-  },
   {
    "key": "401921185|ml|away",
    "sport": "cbb",

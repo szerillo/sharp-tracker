@@ -1,5 +1,5 @@
 {
- "built": "2026-11-28T00:26:18Z",
+ "built": "2026-11-28T00:19:44Z",
  "rows": [
   {
    "cond": "0xd57aff4e5f26436aba9963dd5ca0c28d1ce907b687534ef6cf8c784ab2f11c0a",
@@ -293,7 +293,7 @@
    "best_rank": 115,
    "usd": 695,
    "paid": 0.48,
-   "ask": 0.52,
+   "ask": 0.51,
    "status": "live",
    "link": "https://polymarket.us/event/cfb-tx-txam-2026-11-27",
    "other": null,
@@ -691,7 +691,7 @@
    "money_with": true,
    "grade": "A",
    "inside_fair": true,
-   "fair_board": 0.4746,
+   "fair_board": 0.4766,
    "books": {
     "at": "2026-11-28T00:06:36Z",
     "fair": 0.4746,
@@ -1304,55 +1304,6 @@
    "books": null
   },
   {
-   "cond": "0x7b0f60cecade0567aa420bb54283104b134d73571529c23c5f4c33cecb20657f",
-   "slug": "nba-mil-det-2026-11-27",
-   "title": "Bucks vs. Pistons",
-   "mtype": "spread",
-   "start": "2026-11-28T00:30:00Z",
-   "bet": "Bucks +10.5",
-   "side": "Bucks",
-   "flagged": "2026-11-26T22:15:39Z",
-   "why": "a top-50 account",
-   "proven": false,
-   "trigger": "top50",
-   "n_accounts": 1,
-   "best_rank": 49,
-   "usd": 146,
-   "paid": 0.52,
-   "ask": 0.53,
-   "status": "other side",
-   "link": "https://polymarket.us/event/nba-mil-det-2026-11-27",
-   "other": {
-    "n_accounts": 1,
-    "best_rank": 49,
-    "usd": 171,
-    "first": "2026-11-28T00:24:35Z"
-   },
-   "exit_bid": 0.52,
-   "kalshi_against": null,
-   "logged": true,
-   "event_id": "401909327",
-   "sport": "nba",
-   "league": null,
-   "away": "MIL",
-   "home": "DET",
-   "away_name": "Milwaukee Bucks",
-   "home_name": "Detroit Pistons",
-   "game_start": "2026-11-28T00:30Z",
-   "side_std": "away",
-   "conflict": [
-    "Kalshi move"
-   ],
-   "cancel": [
-    "Kalshi move"
-   ],
-   "money_with": false,
-   "grade": "watch",
-   "inside_fair": false,
-   "fair_board": 0.4807,
-   "books": null
-  },
-  {
    "cond": "0x94cc5b7f6cefeaa236d2ef4394fd0c6f71d94f233c3f44da731e31d599d634ef",
    "slug": "nba-phi-ind-2026-11-27",
    "title": "76ers vs. Pacers",
@@ -1379,7 +1330,7 @@
    },
    "exit_bid": 0.5,
    "kalshi_against": null,
-   "logged": true,
+   "logged": false,
    "event_id": "401909328",
    "sport": "nba",
    "league": null,
@@ -1392,8 +1343,8 @@
    "cancel": null,
    "money_with": false,
    "grade": "B",
-   "inside_fair": false,
    "fair_board": 0.4903,
+   "inside_fair": false,
    "books": null
   },
   {

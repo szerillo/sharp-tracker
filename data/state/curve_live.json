@@ -1,5 +1,5 @@
 {
- "built": "2026-11-28T00:21:10Z",
+ "built": "2026-11-28T00:35:29Z",
  "record": {
   "cbb_1h_total_curve": {
    "n": 11,
@@ -70,10 +70,10 @@
    }
   },
   "cfb_tt_under_curve": {
-   "n": 39,
+   "n": 40,
    "won": 19,
-   "lost": 20,
-   "units": -0.83,
+   "lost": 21,
+   "units": -1.08,
    "clv": {
     "n": 16,
     "avg": -2.72,
@@ -88,41 +88,6 @@
   }
  },
  "rows": [
-  {
-   "key": "cfb_tt_under_curve|a750f21dccb9df459196adc8dcf5ffe4|away|under",
-   "rule": "cfb_tt_under_curve",
-   "tier": "C",
-   "stake": 0.25,
-   "sport": "cfb",
-   "odds_id": "a750f21dccb9df459196adc8dcf5ffe4",
-   "espn": "401862838",
-   "game": "Temple Owls @ Memphis Tigers",
-   "start": "2026-11-27T20:30:00Z",
-   "market": "team_totals",
-   "team": "away",
-   "team_name": "Temple Owls",
-   "side": "under",
-   "line": 23.5,
-   "curve": 0.574,
-   "pin_fair": 0.523,
-   "gap": 5.0,
-   "full_total": 66.5,
-   "full_spread": -19.5,
-   "pin_price": 1.84,
-   "book": "FD",
-   "price": 1.87,
-   "pin_fair_power": 0.5247,
-   "book_fair": 0.504,
-   "fair_gap": 1.9,
-   "ev_curve": 7.3,
-   "flagged": "2026-11-27T18:20:48Z",
-   "close_ts": "2026-11-27T20:21:19Z",
-   "close_line": 23.5,
-   "line_value": 0.0,
-   "close_fair": 0.5233,
-   "clv": -1.15,
-   "beat_fair": 0.03
-  },
   {
    "key": "cfb_tt_under_curve|bee4ea7a231be77b1ee52ddf3755592f|away|under",
    "rule": "cfb_tt_under_curve",
