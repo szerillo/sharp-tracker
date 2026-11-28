@@ -1,42 +1,42 @@
 {
- "built": "2026-11-28T23:13:42Z",
+ "built": "2026-11-28T23:24:05Z",
  "ok": false,
  "checks": [
   {
    "name": "fresh: sharp signals (5-minute job)",
-   "ok": false,
+   "ok": true,
    "level": "error",
-   "detail": "last built 22 min ago (allowed 20)"
+   "detail": "last built 9 min ago (allowed 20)"
   },
   {
    "name": "fresh: big money / Kalshi moves (20-minute job)",
    "ok": true,
    "level": "error",
-   "detail": "last built 10 min ago (allowed 60)"
+   "detail": "last built 21 min ago (allowed 60)"
   },
   {
    "name": "fresh: tennis watch (20-minute job)",
    "ok": true,
    "level": "error",
-   "detail": "last built 10 min ago (allowed 60)"
+   "detail": "last built 21 min ago (allowed 60)"
   },
   {
    "name": "fresh: bet tracker (20-minute job)",
    "ok": true,
    "level": "error",
-   "detail": "last built 2 min ago (allowed 60)"
+   "detail": "last built 12 min ago (allowed 60)"
   },
   {
    "name": "fresh: system bets (3 runs a day)",
    "ok": true,
    "level": "error",
-   "detail": "last built 35 min ago (allowed 300)"
+   "detail": "last built 14 min ago (allowed 300)"
   },
   {
    "name": "sharp feed: Polymarket fills arriving",
    "ok": true,
    "level": "warn",
-   "detail": "newest sharp fill 0.4 h ago"
+   "detail": "newest sharp fill 0.7 h ago"
   },
   {
    "name": "open system bets all on the board",
@@ -60,13 +60,13 @@
    "name": "bet tracker has every flagged bet",
    "ok": true,
    "level": "warn",
-   "detail": "1119 in the records, 0 missing from the tracker"
+   "detail": "1119 in the records, 1 missing from the tracker"
   },
   {
    "name": "Bet Labs list games on the board",
    "ok": false,
    "level": "warn",
-   "detail": "2 of today's list-bet listings not on the board: cfb_wind14 UCF @ Colorado (matched a tool game, but the rule did not trigger); cfb_wind14 UAB @ North Texas (matched a tool game, but the rule did not trigger)"
+   "detail": "2 of today's list-bet listings not on the board: cfb_wind14 UCF @ Colorado (not on the board: no tool game matched (names, or the game is missing from the schedule)); cfb_wind14 UAB @ North Texas (matched a tool game, but the rule did not trigger)"
   },
   {
    "name": "paper ledgers kept every row",
