@@ -9324,8 +9324,8 @@
 },
 "401858540:cfb_homefav_7510_under": {
 "tag": "cfb_homefav_7510_under",
-"fill_id": "8c8500422518",
-"ts": "2026-11-28T14:45:42Z",
+"fill_id": "132d9f0519f8",
+"ts": "2026-11-28T14:55:34Z",
 "market": "total",
 "side": "under",
 "line": 36.5,
@@ -10953,7 +10953,10 @@
 "price": -228,
 "fair": 0.67548,
 "edge_pts": -1.95,
-"why": "TOR off a win, home PIT has lost 5 straight: road puck line (mined angle)"
+"why": "TOR off a win, home PIT has lost 5 straight: road puck line (mined angle)",
+"void": true,
+"void_why": "trigger no longer holds on current season records (2026-11-28T14:55:34Z)",
+"void_at": "2026-11-28T14:55:34Z"
 },
 "401910048:nba_badteams_under": {
 "tag": "nba_badteams_under",
@@ -11005,6 +11008,35 @@
 "price": -104,
 "fair": 0.50664,
 "edge_pts": -0.34,
-"why": "PHI off 3 straight home games, first road game: over (Bet Labs filter)"
+"why": "PHI off 3 straight home games, first road game: over (Bet Labs filter)",
+"void": true,
+"void_why": "trigger no longer holds on current season records (2026-11-28T14:55:34Z)",
+"void_at": "2026-11-28T14:55:34Z"
+},
+"401873087:wind1014": {
+"tag": "wind1014",
+"fill_id": "66e2d5ea5870",
+"ts": "2026-11-28T14:55:34Z",
+"market": "total",
+"side": "under",
+"line": 48.5,
+"venue": "Novig",
+"price": -106,
+"fair": 0.50598,
+"edge_pts": -0.9,
+"why": "Bet Labs wind 11 mph (pull Sat 6:59 AM ET); cross-check MySportsWeather 12 mph, gusts 22 (Open-Meteo 12.9 at T-28h), 48.8F"
+},
+"401873087:wind1014_1h": {
+"tag": "wind1014_1h",
+"fill_id": "b8c5d672c564",
+"ts": "2026-11-28T14:55:34Z",
+"market": "1h_total",
+"side": "under",
+"line": 24.5,
+"venue": "Novig",
+"price": -113,
+"fair": 0.52231,
+"edge_pts": -0.77,
+"why": "Bet Labs wind 11 mph (pull Sat 6:59 AM ET); cross-check MySportsWeather 12 mph, gusts 22 (Open-Meteo 12.9 at T-28h)"
 }
 }
