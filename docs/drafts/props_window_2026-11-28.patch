@@ -1,0 +1,48 @@
+--- a/sharp/props_live.py	2026-11-28 01:48:19.351291968 -0500
++++ b/sharp/props_live.py	2026-11-28 02:14:09.283401037 -0500
+@@ -25,6 +25,10 @@
+ BOOKS = {'fanduel': 'FD', 'williamhill_us': 'Caesars', 'draftkings': 'DK'}
+ PAPER = os.path.join(ROOT, 'data', 'state', 'props_paper.jsonl'); OUT = os.path.join(ROOT, 'data', 'state', 'props_live.json')
+ NOW = dt.datetime.now(dt.timezone.utc); EV_MIN = 0.02; STAKE = 0.25
++# DRAFT 11/28 (td_props_earlier, needs Sean's OK): hours before the start each sport is checked. NBA threes unders hold 3 hours out
++# (docs/nfl_props_2026-11-08.md: 4%+ EV at T-180 449 bets +8.1%, 4 of 4 seasons; T-60 +11.2%; T-10 +11.6%). NHL (T-60 already weaker,
++# goalie news) and NFL (inactives ~90 min out; anytime TD 2026 -2% at T-180) stay at 1 hour.
++WINDOW_H = {'nba': 3.0, 'nhl': 1.0, 'nfl': 1.0}
+ 
+ 
+ def get(u):
+@@ -64,7 +68,7 @@
+             for e in evs:
+                 st = ts(e['commence_time']); h = (st - NOW).total_seconds() / 3600
+                 # 11/7 (Sean): the backtest priced every prop 10-14 min before tip; flag only inside the last hour (was 3 h)
+-                if not 0.15 < h <= float(os.environ.get('PROPS_H', 1)): continue
++                if not 0.15 < h <= float(os.environ.get('PROPS_H', WINDOW_H.get(sp, 1))): continue
+                 d = get(f"{API}/sports/{sk}/events/{e['id']}/odds?apiKey={KEY}&regions=us,eu&markets={markets}&bookmakers=pinnacle,{','.join(BOOKS)}{',' + OTHER if sp in OUTLIER else ''}&oddsFormat=decimal")
+                 if not d: continue
+                 if sp in OUTLIER:
+@@ -133,8 +137,14 @@
+                     best = max(((bk, v['under']) for bk, v in B.items() if bk in BOOKS and 'under' in v), key=lambda x: x[1], default=None)
+                     if not best or fu * best[1] - 1 < EV_MIN: continue
+                     key = f"{e['id']}|{mk}|{player}|{ln}"
+-                    if key in seen: continue
+                     bv = B[best[0]]
++                    if key in seen:      # DRAFT: re-check an open row every run; the auto-placer reads `live` (the record still grades the first flag)
++                        r0 = next((x for x in rows if x['key'] == key), None)
++                        if r0 is not None and r0.get('won') is None:
++                            fc0 = fair_check(P['under'], P['over'], best[1], bv.get('under'), bv.get('over'), P.get('ts'), bv.get('ts'), NOW, max_age=5)
++                            r0['last_check'] = NOW.strftime('%Y-%m-%dT%H:%M:%SZ'); r0['last_ev'] = fc0['ev_strict']; r0['last_price'] = best[1]
++                            r0['live'] = bool(fc0['ok']) and not (mk == 'player_threes' and fc0['ev_strict'] < 4)
++                        continue
+                     # 11/7 backtest (props grid, 2023-26): a Pinnacle quote 5+ min old lost (NBA 14-19, NHL 7-9); NBA threes only when the book's
+                     # own no-vig is 4+ points below Pinnacle's; replaced 11/8 by EV 4%+, see below. NHL keeps the 2% rule.
+                     fc = fair_check(P['under'], P['over'], best[1], bv.get('under'), bv.get('over'), P.get('ts'), bv.get('ts'), NOW, max_age=5)
+@@ -151,6 +161,9 @@
+                                      ev=round(100 * (fu * best[1] - 1), 1), pin_under=P['under'], pin_over=P['over'], book_over=bv.get('over'),
+                                      fair_power=fc['pin_fair_power'], book_fair=fc['book_fair'], fair_gap=fc['fair_gap'], ev_strict=fc['ev_strict'],
+                                      pin_ts=P.get('ts'), book_ts=bv.get('ts'), flagged=NOW.strftime('%Y-%m-%dT%H:%M:%SZ')))
++    # DRAFT: an open row the re-check did not touch this run (edge below 2%, or the line gone) is not live
++    for r in rows:
++        if r.get('won') is None and r.get('last_check') and r['last_check'] != NOW.strftime('%Y-%m-%dT%H:%M:%SZ') and (ts(r['start']) - NOW).total_seconds() > 540: r['live'] = False
+     # 11/9 (Sean, list item 2): closing line value. In the last run before the start (signals run every 10 minutes, so inside 12 minutes
+     # of the start), one Pinnacle-only call per game for the markets we flagged (1 credit per market). Stored on each row:
+     #   close_line   Pinnacle's closing line for the player (props) - a move toward the side we took is line value even if the price is unknown
