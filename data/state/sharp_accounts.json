@@ -1,5 +1,5 @@
 {
- "built": "2026-11-28T02:24:45Z",
+ "built": "2026-11-28T02:17:06Z",
  "rows": [
   {
    "cond": "0x841dca267e34794410689cfbc77ba290f9dbf64330821bfa50e3669612035e18",
@@ -1273,7 +1273,7 @@
    "best_rank": 110,
    "usd": 7328,
    "paid": 0.54,
-   "ask": null,
+   "ask": 0.6,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-dal-phx-2026-11-27",
    "other": {
@@ -1282,7 +1282,7 @@
     "usd": 4720,
     "first": "2026-11-28T01:03:22Z"
    },
-   "exit_bid": null,
+   "exit_bid": 0.59,
    "kalshi_against": null,
    "logged": true,
    "event_id": "401909332",
@@ -1361,7 +1361,7 @@
    "best_rank": 31,
    "usd": 1488,
    "paid": 0.518,
-   "ask": null,
+   "ask": 0.56,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-dal-phx-2026-11-27",
    "other": {
@@ -1370,7 +1370,7 @@
     "usd": 1445,
     "first": "2026-11-28T00:26:13Z"
    },
-   "exit_bid": null,
+   "exit_bid": 0.55,
    "kalshi_against": null,
    "logged": false,
    "ladder": true,
@@ -1568,7 +1568,7 @@
    "cancel": null,
    "money_with": true,
    "grade": "A",
-   "fair_board": 0.507,
+   "fair_board": 0.5099,
    "inside_fair": false,
    "books": null
   },
@@ -1677,14 +1677,6 @@
     "n": 5,
     "best_rank": 49,
     "usd": 28296
-   }
-  },
-  "401909334:xch_homedog_fade:ml": {
-   "with": null,
-   "against": {
-    "n": 1,
-    "best_rank": 43,
-    "usd": 283
    }
   }
  },
