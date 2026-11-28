@@ -1,5 +1,5 @@
 {
- "built": "2026-11-28T23:31:42Z",
+ "built": "2026-11-28T23:39:47Z",
  "rows": [
   {
    "cond": "0x160fa75437fd81457f55dabda2a32425e1be8b45dcbcb692b10607e3f68fc86d",
@@ -456,53 +456,6 @@
    }
   },
   {
-   "cond": "0x2c8967d77c0c1a2866d88d441a41d215ea4fe8895e9c070d590b4e944f6ab052",
-   "slug": "nhl-cal-nyr-2026-11-28",
-   "title": "Flames vs. Rangers",
-   "mtype": "ml",
-   "start": "2026-11-29T00:00:00Z",
-   "bet": "Flames ML",
-   "side": "Flames",
-   "flagged": "2026-11-28T09:09:10Z",
-   "why": "2 top-200 accounts",
-   "proven": true,
-   "trigger": "proven",
-   "n_accounts": 2,
-   "best_rank": 110,
-   "usd": 4790,
-   "paid": 0.378,
-   "ask": 0.42,
-   "status": "live",
-   "link": "https://polymarket.us/event/nhl-cal-nyr-2026-11-28",
-   "other": null,
-   "kalshi_against": null,
-   "logged": true,
-   "event_id": "401892814",
-   "sport": "nhl",
-   "league": null,
-   "away": "CGY",
-   "home": "NYR",
-   "away_name": "Calgary Flames",
-   "home_name": "New York Rangers",
-   "game_start": "2026-11-29T00:00Z",
-   "side_std": "away",
-   "cancel": null,
-   "money_with": true,
-   "grade": "A",
-   "inside_fair": false,
-   "fair_board": 0.3667,
-   "books": {
-    "at": "2026-11-28T23:16:58Z",
-    "fair": 0.4059,
-    "q": {
-     "Novig": 0.41,
-     "FD": 0.4202,
-     "Caesars": 0.4219,
-     "DK": 0.4237
-    }
-   }
-  },
-  {
    "cond": "0x128c247cf2d0d04a8d4ffbbce7748fc40be6dd975dd013ebe3034a8a7d5bbefb",
    "slug": "cfb-tenn-vand-2026-11-28",
    "title": "Tennessee vs. Vanderbilt",
@@ -518,7 +471,7 @@
    "best_rank": 115,
    "usd": 6528,
    "paid": 0.49,
-   "ask": 0.49,
+   "ask": 0.48,
    "status": "live",
    "link": "https://polymarket.us/event/cfb-tenn-vand-2026-11-28",
    "other": null,
@@ -572,8 +525,8 @@
    "game_start": "2026-11-29T00:00Z",
    "side_std": "away",
    "cancel": null,
-   "money_with": true,
-   "grade": "A",
+   "money_with": false,
+   "grade": "B",
    "inside_fair": false,
    "fair_board": 0.3735,
    "books": {
@@ -933,6 +886,9 @@
    "home_name": "Colorado Avalanche",
    "game_start": "2026-11-29T02:00Z",
    "side_std": "away",
+   "conflict": [
+    "big money"
+   ],
    "cancel": null,
    "money_with": false,
    "grade": "A",
@@ -1437,6 +1393,50 @@
    "books": null
   },
   {
+   "cond": "0x2c8967d77c0c1a2866d88d441a41d215ea4fe8895e9c070d590b4e944f6ab052",
+   "slug": "nhl-cal-nyr-2026-11-28",
+   "title": "Flames vs. Rangers",
+   "mtype": "ml",
+   "start": "2026-11-29T00:00:00Z",
+   "bet": "Flames ML",
+   "side": "Flames",
+   "flagged": "2026-11-28T09:09:10Z",
+   "why": "2 top-200 accounts",
+   "proven": true,
+   "trigger": "proven",
+   "n_accounts": 2,
+   "best_rank": 110,
+   "usd": 4790,
+   "paid": 0.378,
+   "ask": 0.41,
+   "status": "other side",
+   "link": "https://polymarket.us/event/nhl-cal-nyr-2026-11-28",
+   "other": {
+    "n_accounts": 1,
+    "best_rank": 197,
+    "usd": 235,
+    "first": "2026-11-28T23:39:18Z"
+   },
+   "exit_bid": 0.4,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401892814",
+   "sport": "nhl",
+   "league": null,
+   "away": "CGY",
+   "home": "NYR",
+   "away_name": "Calgary Flames",
+   "home_name": "New York Rangers",
+   "game_start": "2026-11-29T00:00Z",
+   "side_std": "away",
+   "cancel": null,
+   "money_with": true,
+   "grade": "A",
+   "inside_fair": false,
+   "fair_board": 0.3667,
+   "books": null
+  },
+  {
    "cond": "0xea996f1845d658d00eb1fcd0840d31dd0f12c6b1d268aef852dc3fa085bdb40f",
    "slug": "nba-okc-mil-2026-11-28",
    "title": "Thunder vs. Bucks",
@@ -1587,18 +1587,18 @@
     "clv": -0.29
    },
    "outside": {
-    "n": 150,
+    "n": 151,
     "won": 77,
     "units": 0.86,
     "clv": -0.14
    }
   },
-  "n": 518,
+  "n": 519,
   "won": 256,
   "units": -11.59,
   "by_grade": {
    "A": {
-    "n": 354,
+    "n": 355,
     "won": 171,
     "units": -11.67,
     "clv": -0.04
@@ -1616,9 +1616,9 @@
     "clv": -0.39
    }
   },
-  "units_1u": -7.66,
-  "clv": -0.27,
-  "n_venue": 280,
+  "units_1u": -8.66,
+  "clv": -0.28,
+  "n_venue": 281,
   "units_venue": -3.67,
   "clv_venue": 0.96,
   "clv_poly_same": -0.51
@@ -1757,6 +1757,11 @@
     "n": 2,
     "best_rank": 110,
     "usd": 4790
+   },
+   "home": {
+    "n": 1,
+    "best_rank": 197,
+    "usd": 235
    }
   },
   "401892814|spread": {
