@@ -1,24 +1,24 @@
 {
- "built": "2026-11-28T03:39:42Z",
- "ok": true,
+ "built": "2026-11-28T03:59:53Z",
+ "ok": false,
  "checks": [
   {
    "name": "fresh: sharp signals (5-minute job)",
    "ok": true,
    "level": "error",
-   "detail": "last built 16 min ago (allowed 20)"
+   "detail": "last built 21 min ago (allowed 20)"
   },
   {
    "name": "fresh: big money / Kalshi moves (20-minute job)",
    "ok": true,
    "level": "error",
-   "detail": "last built 10 min ago (allowed 60)"
+   "detail": "last built 15 min ago (allowed 60)"
   },
   {
    "name": "fresh: tennis watch (20-minute job)",
    "ok": true,
    "level": "error",
-   "detail": "last built 10 min ago (allowed 60)"
+   "detail": "last built 15 min ago (allowed 60)"
   },
   {
    "name": "fresh: bet tracker (20-minute job)",
@@ -30,13 +30,13 @@
    "name": "fresh: system bets (3 runs a day)",
    "ok": true,
    "level": "error",
-   "detail": "last built 45 min ago (allowed 300)"
+   "detail": "last built 65 min ago (allowed 300)"
   },
   {
    "name": "sharp feed: Polymarket fills arriving",
    "ok": true,
    "level": "warn",
-   "detail": "newest sharp fill 0.7 h ago"
+   "detail": "newest sharp fill 1.0 h ago"
   },
   {
    "name": "open system bets all on the board",
@@ -66,7 +66,7 @@
    "name": "Bet Labs list games on the board",
    "ok": false,
    "level": "warn",
-   "detail": "3 of today's list-bet listings not on the board: wind1014 Denver Broncos @ Pittsburgh Steelers (not on the board: no tool game matched (names, or the game is missing from the schedule)); cbb_under_good_over_drop Old Dominion @ Virginia Tech (not on the board: no tool game matched (names, or the game is missing from the schedule)); wind1014_1h Denver Broncos @ Pittsburgh Steelers (not on the board: no tool game matched (names, or the game is missing from the schedule))"
+   "detail": "1 of today's list-bet listings not on the board: cbb_under_good_over_drop Miami Florida @ Alabama (not on the board: no tool game matched (names, or the game is missing from the schedule))"
   }
  ]
 }
