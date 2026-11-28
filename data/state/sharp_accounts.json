@@ -1,5 +1,5 @@
 {
- "built": "2026-11-28T14:34:50Z",
+ "built": "2026-11-28T14:55:03Z",
  "rows": [
   {
    "cond": "0x1cf899c2e1facf88079301875eb3bd94b8bd647c4967d650a9cc28de6b703aa0",
@@ -274,6 +274,152 @@
    "books": null
   },
   {
+   "cond": "0xb3120b796be29602f9d78a03d0f5806586b0e5edc1b7c60c49bd1d136baeac3b",
+   "slug": "cfb-loutch-gas-2026-11-28",
+   "title": "Louisiana Tech vs. Georgia Southern",
+   "mtype": "ml",
+   "start": "2026-11-28T17:00:00Z",
+   "bet": "Louisiana Tech ML",
+   "side": "Louisiana Tech",
+   "flagged": "2026-11-28T14:50:16Z",
+   "why": "a top-200 account also in this sport's top 50",
+   "proven": true,
+   "trigger": "proven",
+   "n_accounts": 1,
+   "best_rank": 115,
+   "usd": 5150,
+   "paid": 0.48,
+   "ask": 0.49,
+   "status": "live",
+   "link": "https://polymarket.us/event/cfb-loutch-gas-2026-11-28",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401869954",
+   "sport": "cfb",
+   "league": null,
+   "away": "LT",
+   "home": "GASO",
+   "away_name": "Louisiana Tech Bulldogs",
+   "home_name": "Georgia Southern Eagles",
+   "game_start": "2026-11-28T17:00Z",
+   "side_std": "away",
+   "conflict": [
+    "Kalshi move"
+   ],
+   "cancel": [
+    "Kalshi move"
+   ],
+   "money_with": false,
+   "grade": "A",
+   "fair_board": 0.4675,
+   "inside_fair": false,
+   "books": {
+    "at": "2026-11-28T02:07:39Z",
+    "fair": 0.4675,
+    "q": {
+     "DK": 0.4673,
+     "Novig": 0.475,
+     "FD": 0.4762,
+     "Caesars": 0.4785
+    }
+   }
+  },
+  {
+   "cond": "0xdb8962c18b9f868882e909b10cbc07e1b834c8af6c439ddfa678d369c2957fe5",
+   "slug": "cfb-mich-ohiost-2026-11-28",
+   "title": "Michigan vs. Ohio State",
+   "mtype": "spread",
+   "start": "2026-11-28T17:00:00Z",
+   "bet": "Ohio State -10.5",
+   "side": "Ohio State",
+   "flagged": "2026-11-28T14:52:36Z",
+   "why": "a top-200 account also in this sport's top 50",
+   "proven": true,
+   "trigger": "proven",
+   "n_accounts": 1,
+   "best_rank": 115,
+   "usd": 916,
+   "paid": 0.48,
+   "ask": 0.49,
+   "status": "live",
+   "link": "https://polymarket.us/event/cfb-mich-ohiost-2026-11-28",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401858540",
+   "sport": "cfb",
+   "league": null,
+   "away": "MICH",
+   "home": "OSU",
+   "away_name": "Michigan Wolverines",
+   "home_name": "Ohio State Buckeyes",
+   "game_start": "2026-11-28T17:00Z",
+   "side_std": "home",
+   "cancel": null,
+   "money_with": true,
+   "grade": "A",
+   "fair_board": 0.493,
+   "inside_fair": true,
+   "books": {
+    "at": "2026-11-28T02:07:39Z",
+    "fair": 0.493,
+    "q": {
+     "Novig": 0.495,
+     "FD": 0.5122,
+     "Caesars": 0.5146,
+     "Kalshi": 0.52
+    }
+   }
+  },
+  {
+   "cond": "0xdc81b3a5d3ef7481e78e4510902fc02c934882cc8246bd47600d440f47bd5b85",
+   "slug": "cfb-navy-charlt-2026-11-28",
+   "title": "Navy vs. Charlotte",
+   "mtype": "spread",
+   "start": "2026-11-28T17:00:00Z",
+   "bet": "Navy -16.5",
+   "side": "Navy",
+   "flagged": "2026-11-28T14:54:27Z",
+   "why": "a top-200 account also in this sport's top 50",
+   "proven": true,
+   "trigger": "proven",
+   "n_accounts": 1,
+   "best_rank": 115,
+   "usd": 5164,
+   "paid": 0.51,
+   "ask": 0.52,
+   "status": "live",
+   "link": "https://polymarket.us/event/cfb-navy-charlt-2026-11-28",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401862842",
+   "sport": "cfb",
+   "league": null,
+   "away": "NAVY",
+   "home": "CLT",
+   "away_name": "Navy Midshipmen",
+   "home_name": "Charlotte 49ers",
+   "game_start": "2026-11-28T17:00Z",
+   "side_std": "away",
+   "cancel": null,
+   "money_with": false,
+   "grade": "A",
+   "fair_board": 0.5013,
+   "inside_fair": false,
+   "books": {
+    "at": "2026-11-28T02:07:39Z",
+    "fair": 0.5013,
+    "q": {
+     "Novig": 0.5,
+     "DK": 0.5283,
+     "Caesars": 0.5327,
+     "FD": 0.5349
+    }
+   }
+  },
+  {
    "cond": "0x160fa75437fd81457f55dabda2a32425e1be8b45dcbcb692b10607e3f68fc86d",
    "slug": "cfb-vir-vtech-2026-11-28",
    "title": "Virginia vs. Virginia Tech",
@@ -310,6 +456,99 @@
    "fair_board": null,
    "inside_fair": null,
    "books": null
+  },
+  {
+   "cond": "0xa1bd922542b4000a260f2dcad40fdcdfa7385b5ecb97673d1c44e6b1f08b861c",
+   "slug": "cfb-duke-wake-2026-11-28",
+   "title": "Duke vs. Wake Forest",
+   "mtype": "total",
+   "start": "2026-11-28T20:30:00Z",
+   "bet": "Under 55.5",
+   "side": "Under",
+   "flagged": "2026-11-28T14:32:42Z",
+   "why": "a top-200 account also in this sport's top 50",
+   "proven": true,
+   "trigger": "proven",
+   "n_accounts": 1,
+   "best_rank": 115,
+   "usd": 132,
+   "paid": 0.51,
+   "ask": 0.52,
+   "status": "live",
+   "link": "https://polymarket.us/event/cfb-duke-wake-2026-11-28",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401858312",
+   "sport": "cfb",
+   "league": null,
+   "away": "DUKE",
+   "home": "WAKE",
+   "away_name": "Duke Blue Devils",
+   "home_name": "Wake Forest Demon Deacons",
+   "game_start": "2026-11-28T20:30Z",
+   "side_std": "under",
+   "cancel": null,
+   "money_with": false,
+   "grade": "A",
+   "inside_fair": false,
+   "fair_board": 0.5091,
+   "books": {
+    "at": "2026-11-28T02:07:39Z",
+    "fair": 0.5091,
+    "q": {
+     "Novig": 0.52,
+     "FD": 0.5283,
+     "Caesars": 0.5327,
+     "Kalshi": 0.54
+    }
+   }
+  },
+  {
+   "cond": "0xfc77d98da5eb7b76ba00fd745868e1f3014432b6534f5d542d72632066630719",
+   "slug": "cfb-jaxst-del-2026-11-28",
+   "title": "Jacksonville State vs. Delaware",
+   "mtype": "total",
+   "start": "2026-11-28T20:30:00Z",
+   "bet": "Under 57.5",
+   "side": "Under",
+   "flagged": "2026-11-28T14:34:01Z",
+   "why": "a top-200 account also in this sport's top 50",
+   "proven": true,
+   "trigger": "proven",
+   "n_accounts": 1,
+   "best_rank": 115,
+   "usd": 1440,
+   "paid": 0.48,
+   "ask": 0.49,
+   "status": "live",
+   "link": "https://polymarket.us/event/cfb-jaxst-del-2026-11-28",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401871062",
+   "sport": "cfb",
+   "league": null,
+   "away": "JXST",
+   "home": "DEL",
+   "away_name": "Jacksonville State Gamecocks",
+   "home_name": "Delaware Blue Hens",
+   "game_start": "2026-11-28T20:30Z",
+   "side_std": "under",
+   "cancel": null,
+   "money_with": false,
+   "grade": "A",
+   "inside_fair": false,
+   "fair_board": 0.4795,
+   "books": {
+    "at": "2026-11-28T02:07:39Z",
+    "fair": 0.4795,
+    "q": {
+     "Novig": 0.48,
+     "DK": 0.505,
+     "FD": 0.5146
+    }
+   }
   },
   {
    "cond": "0x64fc28a52de28cba0a477b379b400b1680fa3a68c3640213aa1aaf533779ec0f",
@@ -372,8 +611,8 @@
    "cancel": null,
    "money_with": false,
    "grade": "A",
-   "fair_board": 0.4883,
    "inside_fair": false,
+   "fair_board": 0.4883,
    "books": {
     "at": "2026-11-28T02:07:39Z",
     "fair": 0.4883,
@@ -466,8 +705,8 @@
    "cancel": null,
    "money_with": false,
    "grade": "A",
-   "fair_board": 0.4846,
    "inside_fair": false,
+   "fair_board": 0.4846,
    "books": {
     "at": "2026-11-28T02:07:39Z",
     "fair": 0.4846,
@@ -560,8 +799,8 @@
    "cancel": null,
    "money_with": false,
    "grade": "A",
-   "fair_board": 0.4861,
    "inside_fair": false,
+   "fair_board": 0.4861,
    "books": {
     "at": "2026-11-28T02:07:39Z",
     "fair": 0.4861,
@@ -665,53 +904,6 @@
     "q": {
      "Novig": 0.795,
      "Kalshi": 0.81
-    }
-   }
-  },
-  {
-   "cond": "0x3ae8f96806ecaf70143266702c86cf1e7d4285a82c51ee545c3f7b77b684c3a2",
-   "slug": "epl-eve-liv-2026-11-29",
-   "title": "Everton FC vs. Liverpool FC",
-   "mtype": "ml",
-   "start": "2026-11-29T12:00:00Z",
-   "bet": "Will Liverpool FC win on 2026-11-29: Yes",
-   "side": "Yes",
-   "flagged": "2026-11-23T20:44:38Z",
-   "why": "a top-50 account",
-   "proven": false,
-   "trigger": "top50",
-   "n_accounts": 1,
-   "best_rank": 31,
-   "usd": 511,
-   "paid": 0.51,
-   "ask": 0.56,
-   "status": "live",
-   "link": "https://polymarket.us/event/epl-eve-liv-2026-11-29",
-   "other": null,
-   "kalshi_against": null,
-   "logged": true,
-   "event_id": "401879229",
-   "sport": "soccer",
-   "league": "epl",
-   "away": "LIV",
-   "home": "EVE",
-   "away_name": "Liverpool",
-   "home_name": "Everton",
-   "game_start": "2026-11-29T12:00Z",
-   "side_std": "away",
-   "cancel": null,
-   "money_with": false,
-   "grade": "B",
-   "fair_board": 0.5482,
-   "inside_fair": false,
-   "books": {
-    "at": "2026-11-28T02:07:46Z",
-    "fair": 0.5482,
-    "q": {
-     "Novig": 0.555,
-     "Kalshi": 0.57,
-     "DK": 0.5745,
-     "FD": 0.5745
     }
    }
   },
@@ -1033,6 +1225,50 @@
      "Caesars": 0.2
     }
    }
+  },
+  {
+   "cond": "0x3ae8f96806ecaf70143266702c86cf1e7d4285a82c51ee545c3f7b77b684c3a2",
+   "slug": "epl-eve-liv-2026-11-29",
+   "title": "Everton FC vs. Liverpool FC",
+   "mtype": "ml",
+   "start": "2026-11-29T12:00:00Z",
+   "bet": "Will Liverpool FC win on 2026-11-29: Yes",
+   "side": "Yes",
+   "flagged": "2026-11-23T20:44:38Z",
+   "why": "a top-50 account",
+   "proven": false,
+   "trigger": "top50",
+   "n_accounts": 1,
+   "best_rank": 31,
+   "usd": 511,
+   "paid": 0.51,
+   "ask": 0.56,
+   "status": "other side",
+   "link": "https://polymarket.us/event/epl-eve-liv-2026-11-29",
+   "other": {
+    "n_accounts": 1,
+    "best_rank": 31,
+    "usd": 471,
+    "first": "2026-11-28T14:45:45Z"
+   },
+   "exit_bid": 0.55,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401879229",
+   "sport": "soccer",
+   "league": "epl",
+   "away": "LIV",
+   "home": "EVE",
+   "away_name": "Liverpool",
+   "home_name": "Everton",
+   "game_start": "2026-11-29T12:00Z",
+   "side_std": "away",
+   "cancel": null,
+   "money_with": false,
+   "grade": "B",
+   "fair_board": 0.5482,
+   "inside_fair": false,
+   "books": null
   }
  ],
  "record": {
@@ -1081,6 +1317,14 @@
   "clv_poly_same": -0.57
  },
  "sys_tags": {
+  "401858540:cfb_road_dog_low_total": {
+   "with": null,
+   "against": {
+    "n": 1,
+    "best_rank": 115,
+    "usd": 916
+   }
+  },
   "401858317:cfb_day_over": {
    "with": null,
    "against": {
@@ -1224,6 +1468,13 @@
     "usd": 778
    }
   },
+  "401858540|spread": {
+   "home": {
+    "n": 1,
+    "best_rank": 115,
+    "usd": 916
+   }
+  },
   "401862842|total": {
    "under": {
     "n": 1,
@@ -1231,11 +1482,25 @@
     "usd": 1433
    }
   },
+  "401862842|spread": {
+   "away": {
+    "n": 1,
+    "best_rank": 115,
+    "usd": 5164
+   }
+  },
   "401866474|total": {
    "under": {
     "n": 1,
     "best_rank": 115,
     "usd": 5033
+   }
+  },
+  "401869954|ml": {
+   "away": {
+    "n": 1,
+    "best_rank": 115,
+    "usd": 5150
    }
   },
   "401858537|ml": {
