@@ -1,5 +1,5 @@
 {
- "built": "2026-11-28T20:53:43Z",
+ "built": "2026-11-28T21:11:20Z",
  "record": {
   "n": 90,
   "won": 41,
@@ -33,5 +33,58 @@
    }
   }
  },
- "rows": []
+ "rows": [
+  {
+   "key": "2f2c60fafdc3fd106d71517a9de4f2b1|player_threes|Kyshawn George|2.5",
+   "sport": "nba",
+   "odds_id": "2f2c60fafdc3fd106d71517a9de4f2b1",
+   "espn": "401910046",
+   "game": "Orlando Magic @ Washington Wizards",
+   "start": "2026-11-28T22:10:00Z",
+   "market": "player_threes",
+   "player": "Kyshawn George",
+   "line": 2.5,
+   "side": "under",
+   "book": "FD",
+   "price": 2.0,
+   "fair": 0.5319,
+   "ev": 6.4,
+   "pin_under": 1.76,
+   "pin_over": 2.0,
+   "book_over": 1.78,
+   "fair_power": 0.5353,
+   "book_fair": 0.4709,
+   "fair_gap": 6.1,
+   "ev_strict": 6.4,
+   "pin_ts": "2026-11-28T21:07:03Z",
+   "book_ts": "2026-11-28T21:10:58Z",
+   "flagged": "2026-11-28T21:11:20Z"
+  },
+  {
+   "key": "2f2c60fafdc3fd106d71517a9de4f2b1|player_threes|Tristan da Silva|2.5",
+   "sport": "nba",
+   "odds_id": "2f2c60fafdc3fd106d71517a9de4f2b1",
+   "espn": "401910046",
+   "game": "Orlando Magic @ Washington Wizards",
+   "start": "2026-11-28T22:10:00Z",
+   "market": "player_threes",
+   "player": "Tristan da Silva",
+   "line": 2.5,
+   "side": "under",
+   "book": "Caesars",
+   "price": 2.0,
+   "fair": 0.5307,
+   "ev": 6.1,
+   "pin_under": 1.76,
+   "pin_over": 1.99,
+   "book_over": 1.75,
+   "fair_power": 0.534,
+   "book_fair": 0.4667,
+   "fair_gap": 6.4,
+   "ev_strict": 6.1,
+   "pin_ts": "2026-11-28T21:07:03Z",
+   "book_ts": "2026-11-28T21:11:10Z",
+   "flagged": "2026-11-28T21:11:20Z"
+  }
+ ]
 }
