@@ -10,7 +10,8 @@ Asked by Kirk for Sean (td_props_earlier). Research only: no live props logic ch
   min before tip; flag only inside the last hour (was 3 h)". No workflow sets `PROPS_H`, so it is 1 hour. It is not the odds pull
   schedule and not a lineup or goalie wait.
 - **The job.** The props step runs inside `signals.yml` (step "prop price-gap paper leans", skipped on the on-demand fast run), which `pulse.yml` dispatches every 10 minutes. Runs
-  take 21 minutes (median of the last 32 successful runs, max 29), and a run that is still going queues the next, so the props check
+  take 21 minutes from dispatch to finish (median of the last 32 successful runs, max 29; 11/28 correction: that is about 5 minutes
+  queued behind the previous run plus about 15 minutes running), and a run that is still going queues the next, so the props check
   actually runs about every 16 minutes (median gap between finishes; max 42). The first check inside the hour lands anywhere from 60 to
   about 44 minutes out.
 - **The edge itself.** Most rows were not caught on the first check. From props_paper (92 rows since 11/6): minutes before the start at
@@ -80,5 +81,5 @@ differ from ESPN and the Odds API by about 10 minutes for NBA. The first-on-main
    schedule. Since 11/28 00:xx ET (Kirk) the placer takes a props row while the start is more than 3 minutes away (was 10 until
    11/27) and polls every 2 minutes (was 10), so a row flagged at props_live's 9-minute floor can now be placed; Barkov and Hutson
    would have been, if still priced. No props_live change is needed for this.
-4. Optional, independent: move the props step to its own 5-minute workflow (the board's signals run takes 21 minutes). That shortens
+4. Optional, independent: move the props step to its own 5-minute workflow (the board's signals run takes about 15 minutes, see docs/validation/signals_timing_2026-11-28.md). That shortens
    latency for every sport but costs about 3x the credits of the current cadence inside the window.
