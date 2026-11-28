@@ -1,11 +1,11 @@
 {
- "built": "2026-11-28T01:52:47Z",
+ "built": "2026-11-28T02:11:00Z",
  "record": {
-  "n": 319,
-  "won": 139,
+  "n": 320,
+  "won": 140,
   "lost": 180,
-  "units": -3.33,
-  "roi": -4.2
+  "units": -2.91,
+  "roi": -3.6
  },
  "record_sb4": {
   "n": 11,
@@ -17,50 +17,25 @@
  "sb4_killed": true,
  "checkable_test": {
   "rule": "kill if the first 100 graded checkable rows are not positive in both halves",
-  "n": 45,
+  "n": 46,
   "all_checkable": {
-   "n": 45,
-   "won": 16,
+   "n": 46,
+   "won": 17,
    "lost": 29,
-   "units": -2.66,
-   "roi": -23.6
+   "units": -2.24,
+   "roi": -19.5
   },
   "half1": {
-   "n": 45,
-   "won": 16,
+   "n": 46,
+   "won": 17,
    "lost": 29,
-   "units": -2.66,
-   "roi": -23.6
+   "units": -2.24,
+   "roi": -19.5
   },
   "half2": null,
-  "verdict": "pending: 45 of 100"
+  "verdict": "pending: 46 of 100"
  },
  "rows": [
-  {
-   "key": "401921185|ml|away",
-   "sport": "cbb",
-   "event_id": "401921185",
-   "game": "TOW @ PENN",
-   "start": "2026-11-27T23:00Z",
-   "market": "ml",
-   "side": "away",
-   "line": null,
-   "venue": "Novig",
-   "price": 0.375,
-   "fair": 0.3928,
-   "fair_power": 0.3865,
-   "venue_fair": 0.3713,
-   "fair_gap": 2.1,
-   "ev": 4.7,
-   "move": 1.3,
-   "flagged": "2026-11-27T06:55:46Z",
-   "venue_ts": "2026-11-27T06:27:21Z",
-   "pin_ts": "2026-11-27T06:27:21Z",
-   "qty_best": 87033,
-   "wide": false,
-   "team": "TOW",
-   "checkable": true
-  },
   {
    "key": "401909335|total|under",
    "sport": "nba",
