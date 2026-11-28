@@ -1,36 +1,36 @@
 {
- "built": "2026-11-28T03:07:33Z",
+ "built": "2026-11-28T03:08:43Z",
  "ok": false,
  "checks": [
   {
    "name": "fresh: sharp signals (5-minute job)",
    "ok": false,
    "level": "error",
-   "detail": "last built 35 min ago (allowed 20)"
+   "detail": "last built 36 min ago (allowed 20)"
   },
   {
    "name": "fresh: big money / Kalshi moves (20-minute job)",
    "ok": true,
    "level": "error",
-   "detail": "last built 12 min ago (allowed 60)"
+   "detail": "last built 13 min ago (allowed 60)"
   },
   {
    "name": "fresh: tennis watch (20-minute job)",
    "ok": true,
    "level": "error",
-   "detail": "last built 12 min ago (allowed 60)"
+   "detail": "last built 13 min ago (allowed 60)"
   },
   {
    "name": "fresh: bet tracker (20-minute job)",
    "ok": true,
    "level": "error",
-   "detail": "last built 2 min ago (allowed 60)"
+   "detail": "last built 3 min ago (allowed 60)"
   },
   {
    "name": "fresh: system bets (3 runs a day)",
    "ok": true,
    "level": "error",
-   "detail": "last built 69 min ago (allowed 300)"
+   "detail": "last built 14 min ago (allowed 300)"
   },
   {
    "name": "sharp feed: Polymarket fills arriving",
@@ -66,7 +66,7 @@
    "name": "Bet Labs list games on the board",
    "ok": false,
    "level": "warn",
-   "detail": "2 of today's list-bet listings not on the board: wind1014 Denver Broncos @ Pittsburgh Steelers (not on the board: no tool game matched (names, or the game is missing from the schedule)); wind1014_1h Denver Broncos @ Pittsburgh Steelers (not on the board: no tool game matched (names, or the game is missing from the schedule))"
+   "detail": "3 of today's list-bet listings not on the board: wind1014 Denver Broncos @ Pittsburgh Steelers (not on the board: no tool game matched (names, or the game is missing from the schedule)); cbb_under_good_over_drop Old Dominion @ Virginia Tech (not on the board: no tool game matched (names, or the game is missing from the schedule)); wind1014_1h Denver Broncos @ Pittsburgh Steelers (not on the board: no tool game matched (names, or the game is missing from the schedule))"
   }
  ]
 }
