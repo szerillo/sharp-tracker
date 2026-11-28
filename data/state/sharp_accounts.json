@@ -1,5 +1,5 @@
 {
- "built": "2026-11-28T20:15:42Z",
+ "built": "2026-11-28T20:24:21Z",
  "rows": [
   {
    "cond": "0x4eeca3cab406705e53635dabdd896c1cbca380e79b647112379bcbf74286d44b",
@@ -605,7 +605,7 @@
    "game_start": "2026-11-28T20:00Z",
    "side_std": "under",
    "cancel": null,
-   "money_with": true,
+   "money_with": false,
    "grade": "A",
    "fair_board": null,
    "inside_fair": null,
@@ -681,7 +681,7 @@
    "game_start": "2026-11-28T20:30Z",
    "side_std": "under",
    "cancel": null,
-   "money_with": false,
+   "money_with": true,
    "grade": "A",
    "inside_fair": false,
    "fair_board": 0.5091,
@@ -828,6 +828,57 @@
    "books": null
   },
   {
+   "cond": "0xc7d68bab8b841c2d8237afe986dfc424a89eee830701e845a9b7ad1e0a8acaff",
+   "slug": "cfb-pennst-mary-2026-11-28",
+   "title": "Penn State vs. Maryland",
+   "mtype": "spread",
+   "start": "2026-11-28T20:30:00Z",
+   "bet": "Maryland +8.5",
+   "side": "Maryland",
+   "flagged": "2026-11-28T20:12:21Z",
+   "why": "a top-200 account also in this sport's top 50",
+   "proven": true,
+   "trigger": "proven",
+   "n_accounts": 1,
+   "best_rank": 115,
+   "usd": 5495,
+   "paid": 0.49,
+   "ask": 0.5,
+   "status": "live",
+   "link": "https://polymarket.us/event/cfb-pennst-mary-2026-11-28",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401858539",
+   "sport": "cfb",
+   "league": null,
+   "away": "PSU",
+   "home": "MD",
+   "away_name": "Penn State Nittany Lions",
+   "home_name": "Maryland Terrapins",
+   "game_start": "2026-11-28T20:30Z",
+   "side_std": "home",
+   "conflict": [
+    "Kalshi move"
+   ],
+   "cancel": [
+    "Kalshi move"
+   ],
+   "money_with": false,
+   "grade": "A",
+   "fair_board": 0.4867,
+   "inside_fair": false,
+   "books": {
+    "at": "2026-11-28T20:03:20Z",
+    "fair": 0.4867,
+    "q": {
+     "Novig": 0.49,
+     "FD": 0.5122,
+     "Caesars": 0.5169
+    }
+   }
+  },
+  {
    "cond": "0x64fc28a52de28cba0a477b379b400b1680fa3a68c3640213aa1aaf533779ec0f",
    "slug": "cfb-illst-ausp-2026-11-28",
    "title": "Illinois State vs. Austin Peay",
@@ -863,14 +914,14 @@
    "bet": "Magic ML",
    "side": "Magic",
    "flagged": "2026-11-28T20:15:12Z",
-   "why": "2 top-200 accounts",
+   "why": "3 top-200 accounts",
    "proven": false,
    "trigger": "two",
-   "n_accounts": 2,
+   "n_accounts": 3,
    "best_rank": 42,
-   "usd": 7043,
+   "usd": 7324,
    "paid": 0.622,
-   "ask": 0.63,
+   "ask": 0.64,
    "status": "live",
    "link": "https://polymarket.us/event/nba-orl-was-2026-11-28",
    "other": null,
@@ -888,8 +939,8 @@
    "cancel": null,
    "money_with": false,
    "grade": "B",
-   "fair_board": 0.5966,
    "inside_fair": false,
+   "fair_board": 0.5966,
    "books": {
     "at": "2026-11-28T20:03:20Z",
     "fair": 0.5966,
@@ -1227,7 +1278,7 @@
    "best_rank": 49,
    "usd": 5514,
    "paid": 0.498,
-   "ask": 0.51,
+   "ask": 0.52,
    "status": "live",
    "link": "https://polymarket.us/event/nba-okc-mil-2026-11-28",
    "other": null,
@@ -1908,27 +1959,27 @@
  "record": {
   "by_fair": {
    "inside": {
-    "n": 21,
-    "won": 11,
+    "n": 22,
+    "won": 12,
     "units": -1.22,
-    "clv": -0.6
+    "clv": -0.41
    },
    "outside": {
-    "n": 144,
+    "n": 145,
     "won": 75,
     "units": 0.86,
-    "clv": -0.14
+    "clv": -0.13
    }
   },
-  "n": 505,
-  "won": 249,
+  "n": 508,
+  "won": 250,
   "units": -11.59,
   "by_grade": {
    "A": {
-    "n": 342,
-    "won": 164,
+    "n": 345,
+    "won": 165,
     "units": -11.67,
-    "clv": -0.08
+    "clv": -0.05
    },
    "B": {
     "n": 110,
@@ -1943,12 +1994,12 @@
     "clv": -0.39
    }
   },
-  "units_1u": -8.86,
-  "clv": -0.31,
-  "n_venue": 271,
+  "units_1u": -9.82,
+  "clv": -0.29,
+  "n_venue": 273,
   "units_venue": -3.67,
-  "clv_venue": 0.94,
-  "clv_poly_same": -0.56
+  "clv_venue": 0.96,
+  "clv_poly_same": -0.54
  },
  "sys_tags": {
   "401864550:cfb_day_over": {
@@ -1996,9 +2047,9 @@
   },
   "401910046|ml": {
    "away": {
-    "n": 2,
+    "n": 3,
     "best_rank": 42,
-    "usd": 7043
+    "usd": 7324
    }
   },
   "401910047|total": {
@@ -2180,6 +2231,13 @@
     "n": 1,
     "best_rank": 132,
     "usd": 4803
+   }
+  },
+  "401858539|spread": {
+   "home": {
+    "n": 1,
+    "best_rank": 115,
+    "usd": 5495
    }
   },
   "401864550|spread": {
