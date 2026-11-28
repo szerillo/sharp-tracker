@@ -1,5 +1,5 @@
 {
- "built": "2026-11-27T23:46:27Z",
+ "built": "2026-11-28T00:11:21Z",
  "rows": [
   {
    "cond": "0xd57aff4e5f26436aba9963dd5ca0c28d1ce907b687534ef6cf8c784ab2f11c0a",
@@ -207,7 +207,7 @@
    "best_rank": 104,
    "usd": 302,
    "paid": 0.437,
-   "ask": 0.39,
+   "ask": null,
    "status": "live",
    "link": "https://polymarket.us/event/nba-mia-nyk-2026-11-27",
    "other": null,
@@ -418,6 +418,53 @@
    }
   },
   {
+   "cond": "0x94cc5b7f6cefeaa236d2ef4394fd0c6f71d94f233c3f44da731e31d599d634ef",
+   "slug": "nba-phi-ind-2026-11-27",
+   "title": "76ers vs. Pacers",
+   "mtype": "spread",
+   "start": "2026-11-28T00:30:00Z",
+   "bet": "76ers -3.5",
+   "side": "76ers",
+   "flagged": "2026-11-28T00:01:22Z",
+   "why": "2 top-200 accounts",
+   "proven": false,
+   "trigger": "two",
+   "n_accounts": 2,
+   "best_rank": 49,
+   "usd": 18427,
+   "paid": 0.5,
+   "ask": 0.51,
+   "status": "live",
+   "link": "https://polymarket.us/event/nba-phi-ind-2026-11-27",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401909328",
+   "sport": "nba",
+   "league": null,
+   "away": "PHI",
+   "home": "IND",
+   "away_name": "Philadelphia 76ers",
+   "home_name": "Indiana Pacers",
+   "game_start": "2026-11-28T00:30Z",
+   "side_std": "away",
+   "cancel": null,
+   "money_with": false,
+   "grade": "B",
+   "fair_board": 0.4903,
+   "inside_fair": false,
+   "books": {
+    "at": "2026-11-27T22:26:48Z",
+    "fair": 0.4903,
+    "q": {
+     "Novig": 0.49,
+     "DK": 0.5192,
+     "Kalshi": 0.52,
+     "Caesars": 0.5238
+    }
+   }
+  },
+  {
    "cond": "0xee5cf0c6bca1d41a149da597d7b3927db8b0b8132f7dcd1b4e4dad3f3f744da8",
    "slug": "mls-clb-mia-2026-11-27-more-markets",
    "title": "Columbus Crew vs. Inter Miami CF - More Markets",
@@ -433,7 +480,7 @@
    "best_rank": 157,
    "usd": 991,
    "paid": 0.53,
-   "ask": 0.52,
+   "ask": 0.53,
    "status": "live",
    "link": "https://polymarket.us/event/mls-clb-mia-2026-11-27-more-markets",
    "other": null,
@@ -480,7 +527,7 @@
    "best_rank": 57,
    "usd": 124,
    "paid": 0.4,
-   "ask": 0.37,
+   "ask": 0.42,
    "status": "live",
    "link": "https://polymarket.us/event/mls-clb-mia-2026-11-27",
    "other": null,
@@ -510,44 +557,6 @@
      "Kalshi": 0.4
     }
    }
-  },
-  {
-   "cond": "0xcccf6237b097cc1d046168695f6736e65d8ba86ab388c1977715af2b27724080",
-   "slug": "mls-clb-mia-2026-11-27",
-   "title": "Columbus Crew vs. Inter Miami CF",
-   "mtype": "ml",
-   "start": "2026-11-28T01:00:00Z",
-   "bet": "Will Inter Miami CF win on 2026-11-27: No",
-   "side": "No",
-   "flagged": "2026-11-27T21:46:08Z",
-   "why": "a top-200 account also in this sport's top 50",
-   "proven": true,
-   "trigger": "proven",
-   "n_accounts": 1,
-   "best_rank": 57,
-   "usd": 135,
-   "paid": 0.62,
-   "ask": 0.6,
-   "status": "live",
-   "link": "https://polymarket.us/event/mls-clb-mia-2026-11-27",
-   "other": null,
-   "kalshi_against": null,
-   "logged": true,
-   "event_id": "401933727",
-   "sport": "soccer",
-   "league": "mls",
-   "away": "MIA",
-   "home": "CLB",
-   "away_name": "Inter Miami CF",
-   "home_name": "Columbus Crew",
-   "game_start": "2026-11-28T01:00Z",
-   "side_std": "not_away",
-   "cancel": null,
-   "money_with": false,
-   "grade": "A",
-   "fair_board": null,
-   "inside_fair": null,
-   "books": null
   },
   {
    "cond": "0xaee0f74791bfb71a3dbe6e8a0362610e65add99ce289c757311832931b4e4e8b",
@@ -1168,7 +1177,7 @@
    "best_rank": 43,
    "usd": 24508,
    "paid": 0.415,
-   "ask": 0.43,
+   "ask": null,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-mia-nyk-2026-11-27",
    "other": {
@@ -1177,7 +1186,7 @@
     "usd": 52369,
     "first": "2026-11-27T16:52:29Z"
    },
-   "exit_bid": 0.42,
+   "exit_bid": null,
    "kalshi_against": null,
    "logged": true,
    "event_id": "401909326",
@@ -1215,7 +1224,7 @@
    "best_rank": 112,
    "usd": 14494,
    "paid": 0.455,
-   "ask": 0.51,
+   "ask": null,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-mia-nyk-2026-11-27",
    "other": {
@@ -1224,7 +1233,7 @@
     "usd": 41788,
     "first": "2026-11-27T23:22:26Z"
    },
-   "exit_bid": 0.5,
+   "exit_bid": null,
    "kalshi_against": null,
    "logged": true,
    "event_id": "401909326",
@@ -1311,9 +1320,9 @@
    "status": "other side",
    "link": "https://polymarket.us/event/nba-bkn-tor-2026-11-27",
    "other": {
-    "n_accounts": 1,
+    "n_accounts": 2,
     "best_rank": 31,
-    "usd": 325,
+    "usd": 2073,
     "first": "2026-11-27T21:30:58Z"
    },
    "exit_bid": 0.75,
@@ -1336,6 +1345,50 @@
    "grade": "A",
    "fair_board": 0.7651,
    "inside_fair": true,
+   "books": null
+  },
+  {
+   "cond": "0xcccf6237b097cc1d046168695f6736e65d8ba86ab388c1977715af2b27724080",
+   "slug": "mls-clb-mia-2026-11-27",
+   "title": "Columbus Crew vs. Inter Miami CF",
+   "mtype": "ml",
+   "start": "2026-11-28T01:00:00Z",
+   "bet": "Will Inter Miami CF win on 2026-11-27: No",
+   "side": "No",
+   "flagged": "2026-11-27T21:46:08Z",
+   "why": "a top-200 account also in this sport's top 50",
+   "proven": true,
+   "trigger": "proven",
+   "n_accounts": 1,
+   "best_rank": 57,
+   "usd": 135,
+   "paid": 0.62,
+   "ask": 0.65,
+   "status": "other side",
+   "link": "https://polymarket.us/event/mls-clb-mia-2026-11-27",
+   "other": {
+    "n_accounts": 2,
+    "best_rank": 157,
+    "usd": 1200,
+    "first": "2026-11-28T00:05:07Z"
+   },
+   "exit_bid": 0.64,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401933727",
+   "sport": "soccer",
+   "league": "mls",
+   "away": "MIA",
+   "home": "CLB",
+   "away_name": "Inter Miami CF",
+   "home_name": "Columbus Crew",
+   "game_start": "2026-11-28T01:00Z",
+   "side_std": "not_away",
+   "cancel": null,
+   "money_with": false,
+   "grade": "A",
+   "fair_board": null,
+   "inside_fair": null,
    "books": null
   },
   {
@@ -1501,16 +1554,16 @@
    "best_rank": 31,
    "usd": 15958,
    "paid": 0.265,
-   "ask": 0.27,
+   "ask": 0.26,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-gsw-por-2026-11-27",
    "other": {
-    "n_accounts": 2,
-    "best_rank": 55,
-    "usd": 6091,
+    "n_accounts": 3,
+    "best_rank": 31,
+    "usd": 12500,
     "first": "2026-11-27T19:01:43Z"
    },
-   "exit_bid": 0.26,
+   "exit_bid": 0.25,
    "kalshi_against": null,
    "logged": true,
    "event_id": "401909336",
@@ -1676,10 +1729,10 @@
  "record": {
   "by_fair": {
    "inside": {
-    "n": 18,
+    "n": 19,
     "won": 9,
     "units": -1.61,
-    "clv": -0.79
+    "clv": -0.77
    },
    "outside": {
     "n": 130,
@@ -1688,12 +1741,12 @@
     "clv": -0.13
    }
   },
-  "n": 477,
+  "n": 478,
   "won": 233,
   "units": -13.11,
   "by_grade": {
    "A": {
-    "n": 323,
+    "n": 324,
     "won": 152,
     "units": -12.92,
     "clv": -0.11
@@ -1713,9 +1766,9 @@
   },
   "units_1u": -11.25,
   "clv": -0.32,
-  "n_venue": 248,
+  "n_venue": 249,
   "units_venue": -5.02,
-  "clv_venue": 0.86,
+  "clv_venue": 0.85,
   "clv_poly_same": -0.6
  },
  "sys_tags": {
@@ -1764,37 +1817,6 @@
     "usd": 553
    }
   },
-  "401909326|spread": {
-   "home": {
-    "n": 4,
-    "best_rank": 58,
-    "usd": 6872
-   },
-   "away": {
-    "n": 2,
-    "best_rank": 112,
-    "usd": 1793
-   }
-  },
-  "401909326|ml": {
-   "away": {
-    "n": 4,
-    "best_rank": 43,
-    "usd": 24508
-   },
-   "home": {
-    "n": 5,
-    "best_rank": 43,
-    "usd": 29552
-   }
-  },
-  "401909326|total": {
-   "under": {
-    "n": 1,
-    "best_rank": 132,
-    "usd": 234
-   }
-  },
   "401909327|spread": {
    "away": {
     "n": 1,
@@ -1828,9 +1850,9 @@
     "usd": 985
    },
    "away": {
-    "n": 1,
+    "n": 2,
     "best_rank": 31,
-    "usd": 325
+    "usd": 2073
    }
   },
   "401909329|spread": {
@@ -1942,9 +1964,9 @@
     "usd": 15958
    },
    "home": {
-    "n": 2,
-    "best_rank": 55,
-    "usd": 6091
+    "n": 3,
+    "best_rank": 31,
+    "usd": 8431
    }
   },
   "401909336|spread": {
