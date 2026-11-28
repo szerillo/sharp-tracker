@@ -10931,5 +10931,57 @@
 "edge_pts": 0.05,
 "why": "Novig home side mid 0.202 inside T-0.3h; audit band 20-35c",
 "restored": true
+},
+"401910046:nba_badteams_under": {
+"tag": "nba_badteams_under",
+"fill_id": "29b85b494f6b",
+"ts": "2026-11-28T01:00:17Z",
+"market": "total",
+"side": "under",
+"line": 218.5,
+"venue": "Caesars",
+"price": -110,
+"fair": 0.5,
+"edge_pts": -2.38,
+"why": "home WSH wins 36% (19 games), visitor ORL wins 41%: under"
+},
+"401892815:nhl_skid_fade_road": {
+"tag": "nhl_skid_fade_road",
+"fill_id": "b14ca7b54089",
+"ts": "2026-11-28T01:00:17Z",
+"market": "spread",
+"side": "away",
+"line": 1.5,
+"venue": "Novig",
+"price": -228,
+"fair": 0.67548,
+"edge_pts": -1.95,
+"why": "TOR off a win, home PIT has lost 5 straight: road puck line (mined angle)"
+},
+"401910048:nba_badteams_under": {
+"tag": "nba_badteams_under",
+"fill_id": "a574b7647945",
+"ts": "2026-11-28T01:00:17Z",
+"market": "total",
+"side": "under",
+"line": 236.5,
+"venue": "FD",
+"price": -110,
+"fair": 0.5,
+"edge_pts": -2.38,
+"why": "home CHI wins 33% (18 games), visitor IND wins 33%: under"
+},
+"401909334:xch_homedog_fade:ml": {
+"tag": "xch_homedog_fade",
+"fill_id": "e7fd7028138b",
+"ts": "2026-11-28T01:00:17Z",
+"market": "ml",
+"side": "away",
+"line": null,
+"venue": "Novig",
+"price": -365,
+"fair": 0.78404,
+"edge_pts": -0.1,
+"why": "Novig home side mid 0.217 inside T-1.5h; audit band 20-35c"
 }
 }
