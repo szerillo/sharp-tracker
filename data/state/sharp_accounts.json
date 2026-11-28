@@ -1,5 +1,5 @@
 {
- "built": "2026-11-28T02:17:06Z",
+ "built": "2026-11-28T02:32:19Z",
  "rows": [
   {
    "cond": "0x841dca267e34794410689cfbc77ba290f9dbf64330821bfa50e3669612035e18",
@@ -245,7 +245,7 @@
    "best_rank": 112,
    "usd": 16454,
    "paid": 0.47,
-   "ask": 0.46,
+   "ask": null,
    "status": "live",
    "link": "https://polymarket.us/event/nba-lal-sas-2026-11-27",
    "other": null,
@@ -294,12 +294,12 @@
    "best_rank": 43,
    "usd": 283,
    "paid": 0.23,
-   "ask": 0.23,
+   "ask": null,
    "status": "live",
    "link": "https://polymarket.us/event/nba-den-uta-2026-11-27",
    "other": null,
    "kalshi_against": null,
-   "logged": true,
+   "logged": false,
    "event_id": "401909334",
    "sport": "nba",
    "league": null,
@@ -313,7 +313,7 @@
    "money_with": true,
    "grade": "watch",
    "fair_board": 0.2109,
-   "inside_fair": false,
+   "inside_fair": null,
    "books": {
     "at": "2026-11-28T02:07:44Z",
     "fair": 0.2109,
@@ -1273,7 +1273,7 @@
    "best_rank": 110,
    "usd": 7328,
    "paid": 0.54,
-   "ask": 0.6,
+   "ask": null,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-dal-phx-2026-11-27",
    "other": {
@@ -1282,7 +1282,7 @@
     "usd": 4720,
     "first": "2026-11-28T01:03:22Z"
    },
-   "exit_bid": 0.59,
+   "exit_bid": null,
    "kalshi_against": null,
    "logged": true,
    "event_id": "401909332",
@@ -1361,7 +1361,7 @@
    "best_rank": 31,
    "usd": 1488,
    "paid": 0.518,
-   "ask": 0.56,
+   "ask": null,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-dal-phx-2026-11-27",
    "other": {
@@ -1370,7 +1370,7 @@
     "usd": 1445,
     "first": "2026-11-28T00:26:13Z"
    },
-   "exit_bid": 0.55,
+   "exit_bid": null,
    "kalshi_against": null,
    "logged": false,
    "ladder": true,
@@ -1406,7 +1406,7 @@
    "best_rank": 31,
    "usd": 9426,
    "paid": 0.649,
-   "ask": 0.68,
+   "ask": null,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-lal-sas-2026-11-27",
    "other": {
@@ -1415,7 +1415,7 @@
     "usd": 54945,
     "first": "2026-11-27T17:32:19Z"
    },
-   "exit_bid": 0.67,
+   "exit_bid": null,
    "kalshi_against": null,
    "logged": true,
    "event_id": "401909333",
@@ -1434,7 +1434,51 @@
    "money_with": true,
    "grade": "A",
    "fair_board": 0.6656,
-   "inside_fair": false,
+   "inside_fair": null,
+   "books": null
+  },
+  {
+   "cond": "0x446e48a929363ac2ff59f910a1a264695a0755a7a10723e44fece7730e433b8e",
+   "slug": "nba-den-uta-2026-11-27",
+   "title": "Nuggets vs. Jazz",
+   "mtype": "spread",
+   "start": "2026-11-28T02:30:00Z",
+   "bet": "Nuggets -9.5",
+   "side": "Nuggets",
+   "flagged": "2026-11-27T08:13:17Z",
+   "why": "a top-50 account",
+   "proven": false,
+   "trigger": "top50",
+   "n_accounts": 1,
+   "best_rank": 43,
+   "usd": 1825,
+   "paid": 0.53,
+   "ask": null,
+   "status": "other side",
+   "link": "https://polymarket.us/event/nba-den-uta-2026-11-27",
+   "other": {
+    "n_accounts": 1,
+    "best_rank": 43,
+    "usd": 6263,
+    "first": "2026-11-28T02:21:58Z"
+   },
+   "exit_bid": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401909334",
+   "sport": "nba",
+   "league": null,
+   "away": "DEN",
+   "home": "UTAH",
+   "away_name": "Denver Nuggets",
+   "home_name": "Utah Jazz",
+   "game_start": "2026-11-28T02:30Z",
+   "side_std": "away",
+   "cancel": null,
+   "money_with": false,
+   "grade": "watch",
+   "fair_board": 0.5017,
+   "inside_fair": null,
    "books": null
   },
   {
@@ -1497,7 +1541,7 @@
    "best_rank": 31,
    "usd": 15958,
    "paid": 0.265,
-   "ask": 0.26,
+   "ask": null,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-gsw-por-2026-11-27",
    "other": {
@@ -1506,7 +1550,7 @@
     "usd": 12500,
     "first": "2026-11-27T19:01:43Z"
    },
-   "exit_bid": 0.25,
+   "exit_bid": null,
    "kalshi_against": null,
    "logged": true,
    "event_id": "401909336",
@@ -1541,7 +1585,7 @@
    "best_rank": 110,
    "usd": 10146,
    "paid": 0.483,
-   "ask": 0.51,
+   "ask": null,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-gsw-por-2026-11-27",
    "other": {
@@ -1550,7 +1594,7 @@
     "usd": 923,
     "first": "2026-11-27T18:46:41Z"
    },
-   "exit_bid": 0.5,
+   "exit_bid": null,
    "kalshi_against": null,
    "logged": true,
    "event_id": "401909336",
@@ -1568,8 +1612,8 @@
    "cancel": null,
    "money_with": true,
    "grade": "A",
-   "fair_board": 0.5099,
-   "inside_fair": false,
+   "fair_board": 0.507,
+   "inside_fair": null,
    "books": null
   },
   {
@@ -1588,7 +1632,7 @@
    "best_rank": 49,
    "usd": 53909,
    "paid": 0.529,
-   "ask": 0.53,
+   "ask": null,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-gsw-por-2026-11-27",
    "other": {
@@ -1597,7 +1641,7 @@
     "usd": 31484,
     "first": "2026-11-27T18:45:58Z"
    },
-   "exit_bid": 0.52,
+   "exit_bid": null,
    "kalshi_against": null,
    "logged": false,
    "ladder": true,
@@ -1666,20 +1710,7 @@
   "clv_venue": 0.87,
   "clv_poly_same": -0.57
  },
- "sys_tags": {
-  "401909336:nba_ats_hot_home": {
-   "with": {
-    "n": 2,
-    "best_rank": 49,
-    "usd": 8240
-   },
-   "against": {
-    "n": 5,
-    "best_rank": 49,
-    "usd": 28296
-   }
-  }
- },
+ "sys_tags": {},
  "by_event": {
   "401873090|spread": {
    "away": {
@@ -1693,87 +1724,6 @@
     "n": 2,
     "best_rank": 12,
     "usd": 553
-   }
-  },
-  "401909333|ml": {
-   "home": {
-    "n": 5,
-    "best_rank": 31,
-    "usd": 9426
-   },
-   "away": {
-    "n": 5,
-    "best_rank": 31,
-    "usd": 5338
-   }
-  },
-  "401909333|spread": {
-   "home": {
-    "n": 3,
-    "best_rank": 49,
-    "usd": 8715
-   },
-   "away": {
-    "n": 3,
-    "best_rank": 49,
-    "usd": 8394
-   }
-  },
-  "401909334|spread": {
-   "away": {
-    "n": 1,
-    "best_rank": 43,
-    "usd": 1825
-   },
-   "home": {
-    "n": 1,
-    "best_rank": 43,
-    "usd": 6263
-   }
-  },
-  "401909334|total": {
-   "over": {
-    "n": 1,
-    "best_rank": 115,
-    "usd": 2458
-   }
-  },
-  "401909334|ml": {
-   "home": {
-    "n": 1,
-    "best_rank": 43,
-    "usd": 283
-   }
-  },
-  "401909336|ml": {
-   "away": {
-    "n": 4,
-    "best_rank": 31,
-    "usd": 15958
-   },
-   "home": {
-    "n": 3,
-    "best_rank": 31,
-    "usd": 8431
-   }
-  },
-  "401909336|spread": {
-   "away": {
-    "n": 5,
-    "best_rank": 49,
-    "usd": 28296
-   },
-   "home": {
-    "n": 2,
-    "best_rank": 49,
-    "usd": 8240
-   }
-  },
-  "401909336|total": {
-   "under": {
-    "n": 2,
-    "best_rank": 115,
-    "usd": 699
    }
   },
   "401910048|ml": {
