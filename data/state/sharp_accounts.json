@@ -1,5 +1,5 @@
 {
- "built": "2026-11-28T23:47:19Z",
+ "built": "2026-11-28T23:31:42Z",
  "rows": [
   {
    "cond": "0x160fa75437fd81457f55dabda2a32425e1be8b45dcbcb692b10607e3f68fc86d",
@@ -447,6 +447,53 @@
    "books": {
     "at": "2026-11-28T23:16:58Z",
     "fair": 0.6082,
+    "q": {
+     "Novig": 0.61,
+     "Kalshi": 0.63,
+     "FD": 0.6324,
+     "DK": 0.6364
+    }
+   }
+  },
+  {
+   "cond": "0x2c8967d77c0c1a2866d88d441a41d215ea4fe8895e9c070d590b4e944f6ab052",
+   "slug": "nhl-cal-nyr-2026-11-28",
+   "title": "Flames vs. Rangers",
+   "mtype": "ml",
+   "start": "2026-11-29T00:00:00Z",
+   "bet": "Flames ML",
+   "side": "Flames",
+   "flagged": "2026-11-28T09:09:10Z",
+   "why": "2 top-200 accounts",
+   "proven": true,
+   "trigger": "proven",
+   "n_accounts": 2,
+   "best_rank": 157,
+   "usd": 800,
+   "paid": 0.6,
+   "ask": null,
+   "status": "live",
+   "link": "https://polymarket.us/event/mls-fcc-nas-2026-11-28-more-markets",
+   "other": null,
+   "kalshi_against": null,
+   "logged": false,
+   "event_id": "401933722",
+   "sport": "soccer",
+   "league": "mls",
+   "away": "NSH",
+   "home": "CIN",
+   "away_name": "Nashville SC",
+   "home_name": "FC Cincinnati",
+   "game_start": "2026-11-28T23:30Z",
+   "side_std": "under",
+   "cancel": null,
+   "money_with": false,
+   "grade": "A",
+   "fair_board": 0.6082,
+   "inside_fair": null,
+   "books": {
+    "at": "2026-11-28T23:16:58Z",
+    "fair": 0.4059,
     "q": {
      "Novig": 0.61,
      "Kalshi": 0.63,

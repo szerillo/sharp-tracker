@@ -1,5 +1,5 @@
 {
- "built": "2026-11-28T23:31:51Z",
+ "built": "2026-11-28T23:52:52Z",
  "record": {
   "cbb_1h_total_curve": {
    "n": 11,
@@ -24,12 +24,12 @@
    "lost": 28,
    "units": -3.98,
    "clv": {
-    "n": 29,
-    "avg": -2.32,
+    "n": 30,
+    "avg": -2.36,
     "beat": 3
    },
    "line_value": {
-    "n": 29,
+    "n": 30,
     "avg": 0.0,
     "better": 0,
     "worse": 0
@@ -75,12 +75,12 @@
    "lost": 23,
    "units": -1.17,
    "clv": {
-    "n": 21,
-    "avg": -2.99,
+    "n": 22,
+    "avg": -3.0,
     "beat": 1
    },
    "line_value": {
-    "n": 21,
+    "n": 22,
     "avg": 0.0,
     "better": 0,
     "worse": 0
@@ -332,7 +332,13 @@
    "pin_price": 2.23,
    "book": null,
    "price": null,
-   "flagged": "2026-11-28T21:11:21Z"
+   "flagged": "2026-11-28T21:11:21Z",
+   "close_ts": "2026-11-28T23:52:52Z",
+   "close_line": 37.5,
+   "line_value": 0.0,
+   "close_fair": 0.4177,
+   "clv": -3.07,
+   "beat_fair": -1.33
   },
   {
    "key": "cfb_q1_under_curve|0a1027a4edb364b492a3fee67086e8bc||under",
@@ -361,7 +367,13 @@
    "book_fair": 0.5,
    "fair_gap": 0.0,
    "ev_curve": 8.5,
-   "flagged": "2026-11-28T21:11:21Z"
+   "flagged": "2026-11-28T21:11:21Z",
+   "close_ts": "2026-11-28T23:52:52Z",
+   "close_line": 9.5,
+   "line_value": 0.0,
+   "close_fair": 0.5,
+   "clv": -3.48,
+   "beat_fair": 0.0
   },
   {
    "key": "nhl_p1_spread_curve|e52a03fb10019b305f480dbb4b76f824||away",
@@ -528,6 +540,31 @@
    "fair_gap": 0.9,
    "ev_curve": 6.5,
    "flagged": "2026-11-28T23:31:51Z"
+  },
+  {
+   "key": "cfb_tt_under_curve|f825e4c4d512e1c0a6db6ac7d8bc0326|home|under",
+   "rule": "cfb_tt_under_curve",
+   "tier": "P",
+   "stake": 0.0,
+   "sport": "cfb",
+   "odds_id": "f825e4c4d512e1c0a6db6ac7d8bc0326",
+   "espn": "401856873",
+   "game": "Arizona State Sun Devils @ Arizona Wildcats",
+   "start": "2026-11-29T02:00:00Z",
+   "market": "team_totals",
+   "team": "home",
+   "team_name": "Arizona Wildcats",
+   "side": "under",
+   "line": 30.5,
+   "curve": 0.511,
+   "pin_fair": 0.452,
+   "gap": 5.9,
+   "full_total": 52.0,
+   "full_spread": -9.5,
+   "pin_price": 2.13,
+   "book": null,
+   "price": null,
+   "flagged": "2026-11-28T23:52:52Z"
   }
  ]
 }

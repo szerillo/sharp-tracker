@@ -1,11 +1,11 @@
 {
- "built": "2026-11-28T23:23:57Z",
+ "built": "2026-11-28T23:45:05Z",
  "record": {
-  "n": 339,
-  "won": 147,
+  "n": 340,
+  "won": 148,
   "lost": 192,
-  "units": -3.76,
-  "roi": -4.4
+  "units": -3.35,
+  "roi": -3.9
  },
  "record_sb4": {
   "n": 11,
@@ -17,13 +17,13 @@
  "sb4_killed": true,
  "checkable_test": {
   "rule": "kill if the first 100 graded checkable rows are not positive in both halves",
-  "n": 65,
+  "n": 66,
   "all_checkable": {
-   "n": 65,
-   "won": 24,
+   "n": 66,
+   "won": 25,
    "lost": 41,
-   "units": -3.09,
-   "roi": -19.0
+   "units": -2.68,
+   "roi": -16.3
   },
   "half1": {
    "n": 50,
@@ -33,13 +33,13 @@
    "roi": -21.1
   },
   "half2": {
-   "n": 15,
-   "won": 6,
+   "n": 16,
+   "won": 7,
    "lost": 9,
-   "units": -0.46,
-   "roi": -12.2
+   "units": -0.05,
+   "roi": -1.2
   },
-  "verdict": "pending: 65 of 100"
+  "verdict": "pending: 66 of 100"
  },
  "rows": [
   {
@@ -165,31 +165,6 @@
    "qty_best": null,
    "wide": false,
    "team": "NEV",
-   "checkable": true
-  },
-  {
-   "key": "401912214|ml|away",
-   "sport": "cbb",
-   "event_id": "401912214",
-   "game": "UML @ AMER",
-   "start": "2026-11-28T21:00Z",
-   "market": "ml",
-   "side": "away",
-   "line": null,
-   "venue": "Novig",
-   "price": 0.38,
-   "fair": 0.3933,
-   "fair_power": 0.3872,
-   "venue_fair": 0.3762,
-   "fair_gap": 1.7,
-   "ev": 3.5,
-   "move": 1.6,
-   "flagged": "2026-11-28T17:26:37Z",
-   "venue_ts": "2026-11-28T17:03:24Z",
-   "pin_ts": "2026-11-28T17:03:24Z",
-   "qty_best": 419506,
-   "wide": false,
-   "team": "UML",
    "checkable": true
   },
   {
