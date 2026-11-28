@@ -1,5 +1,5 @@
 {
- "built": "2026-11-28T16:00:50Z",
+ "built": "2026-11-28T16:08:39Z",
  "rows": [
   {
    "cond": "0x1cf899c2e1facf88079301875eb3bd94b8bd647c4967d650a9cc28de6b703aa0",
@@ -172,7 +172,7 @@
    "game_start": "2026-11-28T17:00Z",
    "side_std": "under",
    "cancel": null,
-   "money_with": false,
+   "money_with": true,
    "grade": "A",
    "fair_board": null,
    "inside_fair": null,
@@ -295,8 +295,7 @@
    "game_start": "2026-11-28T17:00Z",
    "side_std": "away",
    "conflict": [
-    "Kalshi move",
-    "big money"
+    "Kalshi move"
    ],
    "cancel": [
     "Kalshi move"
@@ -834,6 +833,53 @@
    }
   },
   {
+   "cond": "0x0271c82921163b6e68b71abdcb6eec11ee1e2a43aeac263172abfded27c14a3c",
+   "slug": "nhl-wpg-nj-2026-11-28",
+   "title": "Jets vs. Devils",
+   "mtype": "ml",
+   "start": "2026-11-29T00:00:00Z",
+   "bet": "Jets ML",
+   "side": "Jets",
+   "flagged": "2026-11-28T16:02:12Z",
+   "why": "2 top-200 accounts",
+   "proven": false,
+   "trigger": "two",
+   "n_accounts": 2,
+   "best_rank": 61,
+   "usd": 2028,
+   "paid": 0.36,
+   "ask": 0.37,
+   "status": "live",
+   "link": "https://polymarket.us/event/nhl-wpg-nj-2026-11-28",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401892813",
+   "sport": "nhl",
+   "league": null,
+   "away": "WPG",
+   "home": "NJ",
+   "away_name": "Winnipeg Jets",
+   "home_name": "New Jersey Devils",
+   "game_start": "2026-11-29T00:00Z",
+   "side_std": "away",
+   "cancel": null,
+   "money_with": false,
+   "grade": "B",
+   "fair_board": 0.3533,
+   "inside_fair": false,
+   "books": {
+    "at": "2026-11-28T15:01:45Z",
+    "fair": 0.3533,
+    "q": {
+     "Novig": 0.36,
+     "FD": 0.3676,
+     "DK": 0.3704,
+     "Caesars": 0.3731
+    }
+   }
+  },
+  {
    "cond": "0x45c414095f5876a025068511b200405477e486fd4ae24b880a42c1f1154216f0",
    "slug": "cfb-aubrn-ala-2026-11-28",
    "title": "Auburn vs. Alabama",
@@ -849,7 +895,7 @@
    "best_rank": 12,
    "usd": 125,
    "paid": 0.5,
-   "ask": 0.56,
+   "ask": 0.57,
    "status": "live",
    "link": "https://polymarket.us/event/cfb-aubrn-ala-2026-11-28",
    "other": null,
@@ -1377,9 +1423,12 @@
    "game_start": "2026-11-28T17:00Z",
    "side_std": "away",
    "conflict": [
+    "Kalshi move",
     "big money"
    ],
-   "cancel": null,
+   "cancel": [
+    "Kalshi move"
+   ],
    "money_with": false,
    "grade": "A",
    "fair_board": 0.508,
@@ -1593,6 +1642,13 @@
     "n": 1,
     "best_rank": 132,
     "usd": 138
+   }
+  },
+  "401892813|ml": {
+   "away": {
+    "n": 2,
+    "best_rank": 61,
+    "usd": 2028
    }
   },
   "401892814|ml": {
@@ -1838,6 +1894,13 @@
     "usd": 147
    }
   },
+  "401925033|spread": {
+   "away": {
+    "n": 1,
+    "best_rank": 65,
+    "usd": 173
+   }
+  },
   "401920859|total": {
    "under": {
     "n": 1,
@@ -1906,6 +1969,13 @@
     "n": 1,
     "best_rank": 65,
     "usd": 231
+   }
+  },
+  "401921065|spread": {
+   "away": {
+    "n": 1,
+    "best_rank": 65,
+    "usd": 180
    }
   },
   "401925783|spread": {
