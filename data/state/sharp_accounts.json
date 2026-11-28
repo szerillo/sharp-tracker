@@ -1,44 +1,6 @@
 {
- "built": "2026-11-28T01:22:28Z",
+ "built": "2026-11-28T01:30:34Z",
  "rows": [
-  {
-   "cond": "0x8376c316c262d5c56a46ce9bc6679f01e717ec27bdd0bfcacef7cba8190eb519",
-   "slug": "cfb-airf-nmx-2026-11-27",
-   "title": "Air Force vs. New Mexico",
-   "mtype": "spread",
-   "start": "2026-11-27T21:30:00Z",
-   "bet": "New Mexico -6.5",
-   "side": "New Mexico",
-   "flagged": "2026-11-27T17:06:49Z",
-   "why": "a top-200 account also in this sport's top 50",
-   "proven": true,
-   "trigger": "proven",
-   "n_accounts": 1,
-   "best_rank": 58,
-   "usd": 460,
-   "paid": 0.54,
-   "ask": null,
-   "status": "live",
-   "link": "https://polymarket.us/event/cfb-airf-nmx-2026-11-27",
-   "other": null,
-   "kalshi_against": null,
-   "logged": true,
-   "event_id": "401864546",
-   "sport": "cfb",
-   "league": null,
-   "away": "AFA",
-   "home": "UNM",
-   "away_name": "Air Force Falcons",
-   "home_name": "New Mexico Lobos",
-   "game_start": "2026-11-27T21:30Z",
-   "side_std": "home",
-   "cancel": null,
-   "money_with": false,
-   "grade": "A",
-   "fair_board": null,
-   "inside_fair": null,
-   "books": null
-  },
   {
    "cond": "0x841dca267e34794410689cfbc77ba290f9dbf64330821bfa50e3669612035e18",
    "slug": "nba-mia-nyk-2026-11-27",
@@ -545,7 +507,7 @@
    "best_rank": 12,
    "usd": 125,
    "paid": 0.5,
-   "ask": 0.51,
+   "ask": 0.52,
    "status": "live",
    "link": "https://polymarket.us/event/cfb-aubrn-ala-2026-11-28",
    "other": null,
@@ -567,7 +529,7 @@
    "money_with": false,
    "grade": "B",
    "fair_board": 0.513,
-   "inside_fair": true,
+   "inside_fair": false,
    "books": {
     "at": "2026-11-28T00:26:05Z",
     "fair": 0.513,
@@ -1267,7 +1229,7 @@
    "best_rank": 49,
    "usd": 16174,
    "paid": 0.507,
-   "ask": 0.53,
+   "ask": null,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-mem-min-2026-11-27",
    "other": {
@@ -1276,7 +1238,7 @@
     "usd": 4095,
     "first": "2026-11-27T19:35:38Z"
    },
-   "exit_bid": 0.52,
+   "exit_bid": null,
    "kalshi_against": null,
    "logged": true,
    "event_id": "401909331",
@@ -1716,18 +1678,6 @@
   "clv_poly_same": -0.57
  },
  "sys_tags": {
-  "401909331:nba_ats_hot_home": {
-   "with": {
-    "n": 2,
-    "best_rank": 49,
-    "usd": 954
-   },
-   "against": {
-    "n": 4,
-    "best_rank": 49,
-    "usd": 5402
-   }
-  },
   "401909336:nba_ats_hot_home": {
    "with": {
     "n": 2,
@@ -1754,30 +1704,6 @@
     "n": 2,
     "best_rank": 12,
     "usd": 553
-   }
-  },
-  "401909331|ml": {
-   "home": {
-    "n": 4,
-    "best_rank": 23,
-    "usd": 9202
-   },
-   "away": {
-    "n": 2,
-    "best_rank": 42,
-    "usd": 8203
-   }
-  },
-  "401909331|spread": {
-   "away": {
-    "n": 4,
-    "best_rank": 49,
-    "usd": 5402
-   },
-   "home": {
-    "n": 2,
-    "best_rank": 49,
-    "usd": 954
    }
   },
   "401909332|total": {
