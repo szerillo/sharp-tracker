@@ -1,5 +1,5 @@
 {
- "built": "2026-11-28T13:59:08Z",
+ "built": "2026-11-28T14:16:52Z",
  "record": {
   "cbb_1h_total_curve": {
    "n": 11,
@@ -87,5 +87,31 @@
    }
   }
  },
- "rows": []
+ "rows": [
+  {
+   "key": "cfb_q1_under_curve|bdf272babe96ca5f2c4ad03eea790eb2||under",
+   "rule": "cfb_q1_under_curve",
+   "tier": "P",
+   "stake": 0.0,
+   "sport": "cfb",
+   "odds_id": "bdf272babe96ca5f2c4ad03eea790eb2",
+   "espn": "401862842",
+   "game": "Navy Midshipmen @ Charlotte 49ers",
+   "start": "2026-11-28T17:00:00Z",
+   "market": "totals_q1",
+   "team": null,
+   "team_name": null,
+   "side": "under",
+   "line": 13.5,
+   "curve": 0.593,
+   "pin_fair": 0.497,
+   "gap": 9.5,
+   "full_total": 53.5,
+   "full_spread": 16.5,
+   "pin_price": 1.92,
+   "book": null,
+   "price": null,
+   "flagged": "2026-11-28T14:16:52Z"
+  }
+ ]
 }
