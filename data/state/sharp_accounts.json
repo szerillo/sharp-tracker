@@ -1,5 +1,5 @@
 {
- "built": "2026-11-28T21:30:02Z",
+ "built": "2026-11-28T21:38:19Z",
  "rows": [
   {
    "cond": "0x41e55210fde31e6ba3b6b323735df0ee4f75c874498ce003b8d1f76a4b4a7d36",
@@ -703,7 +703,7 @@
    "game_start": "2026-11-29T00:00Z",
    "side_std": "away",
    "cancel": null,
-   "money_with": false,
+   "money_with": true,
    "grade": "A",
    "inside_fair": false,
    "fair_board": 0.3667,
@@ -819,7 +819,7 @@
    "best_rank": 12,
    "usd": 125,
    "paid": 0.5,
-   "ask": 0.58,
+   "ask": 0.59,
    "status": "live",
    "link": "https://polymarket.us/event/cfb-aubrn-ala-2026-11-28",
    "other": null,
@@ -1652,7 +1652,16 @@
   "clv_venue": 0.96,
   "clv_poly_same": -0.52
  },
- "sys_tags": {},
+ "sys_tags": {
+  "401910046:xch_homedog_fade:ml": {
+   "with": {
+    "n": 3,
+    "best_rank": 42,
+    "usd": 7324
+   },
+   "against": null
+  }
+ },
  "by_event": {
   "401873090|spread": {
    "away": {
@@ -1673,6 +1682,11 @@
     "n": 2,
     "best_rank": 49,
     "usd": 8437
+   },
+   "home": {
+    "n": 1,
+    "best_rank": 112,
+    "usd": 1039
    }
   },
   "401910046|ml": {
