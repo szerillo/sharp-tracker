@@ -11054,8 +11054,8 @@
 },
 "401856878:cfb_day_over": {
 "tag": "cfb_day_over",
-"fill_id": "2b4093e1472d",
-"ts": "2026-11-28T16:42:53Z",
+"fill_id": "46f0a7e7ee06",
+"ts": "2026-11-28T16:53:38Z",
 "market": "total",
 "side": "over",
 "line": 51.5,
@@ -11065,10 +11065,36 @@
 "edge_pts": -0.76,
 "why": "2:00 PM ET kickoff, total 51.5: over (mined angle)"
 },
+"401892823:nhl_pl_dog_bigml": {
+"tag": "nhl_pl_dog_bigml",
+"fill_id": "9fd034a3f858",
+"ts": "2026-11-28T16:53:38Z",
+"market": "spread",
+"side": "home",
+"line": 1.5,
+"venue": "DK",
+"price": -122,
+"fair": 0.52871,
+"edge_pts": -2.08,
+"why": "CHI opened +195 on the moneyline: +1.5 on a big dog"
+},
+"401892824:nhl_pl_dog_bigml": {
+"tag": "nhl_pl_dog_bigml",
+"fill_id": "b3f4e8caf331",
+"ts": "2026-11-28T16:53:38Z",
+"market": "spread",
+"side": "away",
+"line": 1.5,
+"venue": "DK",
+"price": 102,
+"fair": 0.47129,
+"edge_pts": -2.38,
+"why": "VAN opened +195 on the moneyline: +1.5 on a big dog"
+},
 "401871102:xch_homedog_fade:ml": {
 "tag": "xch_homedog_fade",
-"fill_id": "f025de868e5f",
-"ts": "2026-11-28T16:42:53Z",
+"fill_id": "6d27a090ca8a",
+"ts": "2026-11-28T16:53:38Z",
 "market": "ml",
 "side": "away",
 "line": null,
@@ -11076,6 +11102,6 @@
 "price": -239,
 "fair": 0.70494,
 "edge_pts": -0.01,
-"why": "Novig home side mid 0.297 inside T-1.3h; audit band 20-35c"
+"why": "Novig home side mid 0.297 inside T-1.1h; audit band 20-35c"
 }
 }
