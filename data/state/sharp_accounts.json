@@ -1,5 +1,5 @@
 {
- "built": "2026-11-28T23:31:42Z",
+ "built": "2026-11-28T23:55:13Z",
  "rows": [
   {
    "cond": "0x160fa75437fd81457f55dabda2a32425e1be8b45dcbcb692b10607e3f68fc86d",
@@ -868,7 +868,7 @@
    "best_rank": 104,
    "usd": 279,
    "paid": 0.772,
-   "ask": 0.83,
+   "ask": 0.84,
    "status": "live",
    "link": "https://polymarket.us/event/nba-phi-hou-2026-11-28",
    "other": null,
@@ -890,7 +890,7 @@
    "money_with": false,
    "grade": "watch",
    "fair_board": 0.8347,
-   "inside_fair": true,
+   "inside_fair": false,
    "books": {
     "at": "2026-11-28T23:16:58Z",
     "fair": 0.8347,
@@ -1589,14 +1589,14 @@
    "bet": "Lakers ML",
    "side": "Lakers",
    "flagged": "2026-11-26T23:24:00Z",
-   "why": "a top-200 account also in this sport's top 50",
+   "why": "2 top-200 accounts",
    "proven": true,
    "trigger": "proven",
-   "n_accounts": 1,
+   "n_accounts": 2,
    "best_rank": 104,
-   "usd": 214,
-   "paid": 0.53,
-   "ask": 0.6,
+   "usd": 323,
+   "paid": 0.554,
+   "ask": 0.61,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-lal-mem-2026-11-29",
    "other": {
@@ -1605,7 +1605,7 @@
     "usd": 294,
     "first": "2026-11-28T17:27:38Z"
    },
-   "exit_bid": 0.59,
+   "exit_bid": 0.6,
    "kalshi_against": null,
    "logged": true,
    "event_id": "401910051",
@@ -1619,7 +1619,7 @@
    "side_std": "away",
    "cancel": null,
    "money_with": false,
-   "grade": "watch",
+   "grade": "A",
    "fair_board": null,
    "inside_fair": null,
    "books": null
@@ -1640,12 +1640,12 @@
     "clv": -0.14
    }
   },
-  "n": 519,
+  "n": 521,
   "won": 256,
   "units": -11.59,
   "by_grade": {
    "A": {
-    "n": 355,
+    "n": 357,
     "won": 171,
     "units": -11.67,
     "clv": -0.04
@@ -1663,8 +1663,8 @@
     "clv": -0.39
    }
   },
-  "units_1u": -8.66,
-  "clv": -0.28,
+  "units_1u": -10.66,
+  "clv": -0.27,
   "n_venue": 281,
   "units_venue": -3.67,
   "clv_venue": 0.96,
@@ -1740,9 +1740,9 @@
   },
   "401910051|ml": {
    "away": {
-    "n": 1,
+    "n": 2,
     "best_rank": 104,
-    "usd": 214
+    "usd": 323
    },
    "home": {
     "n": 1,
