@@ -1,82 +1,6 @@
 {
- "built": "2026-11-28T00:59:07Z",
+ "built": "2026-11-28T01:06:41Z",
  "rows": [
-  {
-   "cond": "0xd15ec284ec5be3ac18be30345b633bb262232c91d6e69bff1412c04438d71ccc",
-   "slug": "nhl-lak-ana-2026-11-27",
-   "title": "Kings vs. Ducks",
-   "mtype": "total",
-   "start": "2026-11-27T21:00:00Z",
-   "bet": "Over 6.5",
-   "side": "Over",
-   "flagged": "2026-11-27T15:31:40Z",
-   "why": "a top-200 account also in this sport's top 50",
-   "proven": true,
-   "trigger": "proven",
-   "n_accounts": 1,
-   "best_rank": 79,
-   "usd": 1872,
-   "paid": 0.5,
-   "ask": null,
-   "status": "live",
-   "link": "https://polymarket.us/event/nhl-lak-ana-2026-11-27",
-   "other": null,
-   "kalshi_against": null,
-   "logged": true,
-   "event_id": "401892804",
-   "sport": "nhl",
-   "league": null,
-   "away": "LA",
-   "home": "ANA",
-   "away_name": "Los Angeles Kings",
-   "home_name": "Anaheim Ducks",
-   "game_start": "2026-11-27T21:00Z",
-   "side_std": "over",
-   "cancel": null,
-   "money_with": false,
-   "grade": "A",
-   "inside_fair": false,
-   "fair_board": 0.4954,
-   "books": null
-  },
-  {
-   "cond": "0x055cfe0c3031e520a26de351e560b7d82e93ed739d2d8f1de8ab4285d0a572a7",
-   "slug": "nhl-col-min-2026-11-27",
-   "title": "Avalanche vs. Wild",
-   "mtype": "ml",
-   "start": "2026-11-27T21:00:00Z",
-   "bet": "Wild ML",
-   "side": "Wild",
-   "flagged": "2026-11-27T15:38:16Z",
-   "why": "a top-200 account also in this sport's top 50",
-   "proven": true,
-   "trigger": "proven",
-   "n_accounts": 1,
-   "best_rank": 79,
-   "usd": 7050,
-   "paid": 0.53,
-   "ask": null,
-   "status": "live",
-   "link": "https://polymarket.us/event/nhl-col-min-2026-11-27",
-   "other": null,
-   "kalshi_against": null,
-   "logged": true,
-   "event_id": "401892803",
-   "sport": "nhl",
-   "league": null,
-   "away": "COL",
-   "home": "MIN",
-   "away_name": "Colorado Avalanche",
-   "home_name": "Minnesota Wild",
-   "game_start": "2026-11-27T21:00Z",
-   "side_std": "home",
-   "cancel": null,
-   "money_with": false,
-   "grade": "A",
-   "inside_fair": true,
-   "fair_board": 0.5326,
-   "books": null
-  },
   {
    "cond": "0x8376c316c262d5c56a46ce9bc6679f01e717ec27bdd0bfcacef7cba8190eb519",
    "slug": "cfb-airf-nmx-2026-11-27",
@@ -263,7 +187,7 @@
    "best_rank": 157,
    "usd": 991,
    "paid": 0.53,
-   "ask": 0.53,
+   "ask": null,
    "status": "live",
    "link": "https://polymarket.us/event/mls-clb-mia-2026-11-27-more-markets",
    "other": null,
@@ -310,7 +234,7 @@
    "best_rank": 57,
    "usd": 124,
    "paid": 0.4,
-   "ask": 0.42,
+   "ask": null,
    "status": "live",
    "link": "https://polymarket.us/event/mls-clb-mia-2026-11-27",
    "other": null,
@@ -357,7 +281,7 @@
    "best_rank": 43,
    "usd": 4140,
    "paid": 0.77,
-   "ask": 0.77,
+   "ask": null,
    "status": "live",
    "link": "https://polymarket.us/event/nba-atl-bos-2026-11-27",
    "other": null,
@@ -388,51 +312,6 @@
      "Caesars": 0.7802,
      "FD": 0.7826,
      "Kalshi": 0.79
-    }
-   }
-  },
-  {
-   "cond": "0xaee0f74791bfb71a3dbe6e8a0362610e65add99ce289c757311832931b4e4e8b",
-   "slug": "nba-dal-phx-2026-11-27",
-   "title": "Mavericks vs. Suns",
-   "mtype": "spread",
-   "start": "2026-11-28T02:00:00Z",
-   "bet": "Suns -1.5",
-   "side": "Suns",
-   "flagged": "2026-11-27T19:05:32Z",
-   "why": "2 top-200 accounts",
-   "proven": false,
-   "trigger": "two",
-   "n_accounts": 2,
-   "best_rank": 110,
-   "usd": 7328,
-   "paid": 0.54,
-   "ask": 0.59,
-   "status": "live",
-   "link": "https://polymarket.us/event/nba-dal-phx-2026-11-27",
-   "other": null,
-   "kalshi_against": null,
-   "logged": true,
-   "event_id": "401909332",
-   "sport": "nba",
-   "league": null,
-   "away": "DAL",
-   "home": "PHX",
-   "away_name": "Dallas Mavericks",
-   "home_name": "Phoenix Suns",
-   "game_start": "2026-11-28T02:00Z",
-   "side_std": "home",
-   "cancel": null,
-   "money_with": false,
-   "grade": "B",
-   "inside_fair": false,
-   "fair_board": 0.5158,
-   "books": {
-    "at": "2026-11-27T23:27:49Z",
-    "fair": null,
-    "q": {
-     "Novig": 0.555,
-     "Kalshi": 0.58
     }
    }
   },
@@ -1345,7 +1224,7 @@
    "best_rank": 57,
    "usd": 135,
    "paid": 0.62,
-   "ask": 0.64,
+   "ask": null,
    "status": "other side",
    "link": "https://polymarket.us/event/mls-clb-mia-2026-11-27",
    "other": {
@@ -1354,7 +1233,7 @@
     "usd": 1200,
     "first": "2026-11-28T00:05:07Z"
    },
-   "exit_bid": 0.63,
+   "exit_bid": null,
    "kalshi_against": null,
    "logged": true,
    "event_id": "401933727",
@@ -1415,6 +1294,50 @@
    "grade": "B",
    "inside_fair": false,
    "fair_board": 0.4886,
+   "books": null
+  },
+  {
+   "cond": "0xaee0f74791bfb71a3dbe6e8a0362610e65add99ce289c757311832931b4e4e8b",
+   "slug": "nba-dal-phx-2026-11-27",
+   "title": "Mavericks vs. Suns",
+   "mtype": "spread",
+   "start": "2026-11-28T02:00:00Z",
+   "bet": "Suns -1.5",
+   "side": "Suns",
+   "flagged": "2026-11-27T19:05:32Z",
+   "why": "2 top-200 accounts",
+   "proven": false,
+   "trigger": "two",
+   "n_accounts": 2,
+   "best_rank": 110,
+   "usd": 7328,
+   "paid": 0.54,
+   "ask": 0.59,
+   "status": "other side",
+   "link": "https://polymarket.us/event/nba-dal-phx-2026-11-27",
+   "other": {
+    "n_accounts": 1,
+    "best_rank": 112,
+    "usd": 4720,
+    "first": "2026-11-28T01:03:22Z"
+   },
+   "exit_bid": 0.58,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401909332",
+   "sport": "nba",
+   "league": null,
+   "away": "DAL",
+   "home": "PHX",
+   "away_name": "Dallas Mavericks",
+   "home_name": "Phoenix Suns",
+   "game_start": "2026-11-28T02:00Z",
+   "side_std": "home",
+   "cancel": null,
+   "money_with": false,
+   "grade": "B",
+   "inside_fair": false,
+   "fair_board": 0.5158,
    "books": null
   },
   {
@@ -1833,25 +1756,6 @@
     "usd": 553
    }
   },
-  "401909330|total": {
-   "over": {
-    "n": 2,
-    "best_rank": 58,
-    "usd": 5225
-   },
-   "under": {
-    "n": 1,
-    "best_rank": 119,
-    "usd": 5280
-   }
-  },
-  "401909330|ml": {
-   "home": {
-    "n": 1,
-    "best_rank": 43,
-    "usd": 4140
-   }
-  },
   "401909331|ml": {
    "home": {
     "n": 4,
@@ -1895,9 +1799,9 @@
     "usd": 8501
    },
    "away": {
-    "n": 1,
+    "n": 2,
     "best_rank": 31,
-    "usd": 1445
+    "usd": 6165
    }
   },
   "401909332|ml": {
@@ -2016,13 +1920,6 @@
     "usd": 586
    }
   },
-  "401892809|ml": {
-   "home": {
-    "n": 1,
-    "best_rank": 132,
-    "usd": 264
-   }
-  },
   "401892811|ml": {
    "home": {
     "n": 1,
@@ -2035,6 +1932,13 @@
     "n": 1,
     "best_rank": 12,
     "usd": 125
+   }
+  },
+  "401858537|ml": {
+   "home": {
+    "n": 1,
+    "best_rank": 170,
+    "usd": 225
    }
   },
   "401858543|spread": {
@@ -2070,13 +1974,6 @@
     "n": 1,
     "best_rank": 104,
     "usd": 104
-   }
-  },
-  "401933727|total": {
-   "under": {
-    "n": 2,
-    "best_rank": 157,
-    "usd": 991
    }
   }
  },
