@@ -1,5 +1,5 @@
 {
- "built": "2026-11-28T05:27:25Z",
+ "built": "2026-11-28T05:34:48Z",
  "rows": [
   {
    "cond": "0x2bceacd2a10a061e919c9555adbc82d6b148718b10edc4b3808f4a5b6aeb30ce",
@@ -275,7 +275,7 @@
    "best_rank": 104,
    "usd": 279,
    "paid": 0.772,
-   "ask": 0.79,
+   "ask": 0.82,
    "status": "live",
    "link": "https://polymarket.us/event/nba-phi-hou-2026-11-28",
    "other": null,
@@ -510,7 +510,7 @@
    "best_rank": 104,
    "usd": 214,
    "paid": 0.53,
-   "ask": 0.59,
+   "ask": 0.6,
    "status": "live",
    "link": "https://polymarket.us/event/nba-lal-mem-2026-11-29",
    "other": null,
@@ -578,50 +578,6 @@
      "DK": 0.5434
     }
    }
-  },
-  {
-   "cond": "0x5e019b9acc3739ee3f9c91dd288405be0a5cd38d5813acb7c02e9cd1e0aeef4e",
-   "slug": "nba-mem-min-2026-11-27",
-   "title": "Grizzlies vs. Timberwolves",
-   "mtype": "spread",
-   "start": "2026-11-28T01:30:00Z",
-   "bet": "Grizzlies +3.5",
-   "side": "Grizzlies",
-   "flagged": "2026-11-27T18:39:53Z",
-   "why": "4 top-200 accounts",
-   "proven": false,
-   "trigger": "two",
-   "n_accounts": 4,
-   "best_rank": 49,
-   "usd": 16174,
-   "paid": 0.507,
-   "ask": null,
-   "status": "other side",
-   "link": "https://polymarket.us/event/nba-mem-min-2026-11-27",
-   "other": {
-    "n_accounts": 2,
-    "best_rank": 49,
-    "usd": 4095,
-    "first": "2026-11-27T19:35:38Z"
-   },
-   "exit_bid": null,
-   "kalshi_against": null,
-   "logged": true,
-   "event_id": "401909331",
-   "sport": "nba",
-   "league": null,
-   "away": "MEM",
-   "home": "MIN",
-   "away_name": "Memphis Grizzlies",
-   "home_name": "Minnesota Timberwolves",
-   "game_start": "2026-11-28T01:30Z",
-   "side_std": "away",
-   "cancel": null,
-   "money_with": false,
-   "grade": "B",
-   "inside_fair": false,
-   "fair_board": 0.4886,
-   "books": null
   },
   {
    "cond": "0xaee0f74791bfb71a3dbe6e8a0362610e65add99ce289c757311832931b4e4e8b",
@@ -1043,21 +999,21 @@
     "clv": -0.54
    },
    "outside": {
-    "n": 139,
+    "n": 141,
     "won": 73,
     "units": 0.5,
-    "clv": -0.13
+    "clv": -0.14
    }
   },
-  "n": 496,
-  "won": 244,
+  "n": 501,
+  "won": 246,
   "units": -11.95,
   "by_grade": {
    "A": {
-    "n": 335,
-    "won": 160,
+    "n": 338,
+    "won": 161,
     "units": -12.03,
-    "clv": -0.06
+    "clv": -0.08
    },
    "B": {
     "n": 110,
@@ -1066,18 +1022,18 @@
     "clv": -1.02
    },
    "watch": {
-    "n": 51,
-    "won": 19,
+    "n": 53,
+    "won": 20,
     "units": -2.09,
-    "clv": -0.26
+    "clv": -0.39
    }
   },
-  "units_1u": -9.29,
-  "clv": -0.29,
-  "n_venue": 262,
+  "units_1u": -10.92,
+  "clv": -0.31,
+  "n_venue": 267,
   "units_venue": -4.04,
   "clv_venue": 0.96,
-  "clv_poly_same": -0.53
+  "clv_poly_same": -0.56
  },
  "sys_tags": {},
  "by_event": {
