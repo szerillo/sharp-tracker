@@ -26,5 +26,14 @@ The props step itself takes under 0.2 minutes and runs about 12 minutes into eac
    writer.
 2. Run props and the bet tracker before offers and parlays: each props check would land about 5 minutes sooner after dispatch (the
    interval between checks stays the same unless option 1 is done too).
-3. Checkout at 3.5 minutes on a blob-less sparse clone is mostly the tree fetch of a very large history; a shallow (depth 1) fetch is
-   the default already. Worth a look, no fix proposed yet.
+3. Checkout (3.5 minutes, measured 11/28): the fetch takes under a second (`--filter=blob:none --depth=1`); the time is
+   `git checkout` downloading the contents of every file the sparse pattern keeps (everything but data/oddsapi): 1,746 files,
+   about 3.5 GB per run (GitHub tree sizes, 11/28). The largest: cfb ticks 302 MB, cbb ticks 217 MB, nfl ticks 208 MB, tennis
+   poly_hist 197 MB, cfb ticks_px 177 MB, tennis kalshi_hist 154 MB, cbb ticks_px 151 MB, cfb weather 150 MB, cbb ticks5 146 MB, novig
+   catalog 139 MB. Most of it is history the board run never reads, but a static read of the 24 scripts the job runs is not reliable
+   enough to cut by (paths are built at run time, and build_db and the near and late passes read tapes by date).
+   Proposed, not applied: (a) one instrumented signals run with a Python audit hook (`sys.addaudithook`, through `sitecustomize` on
+   PYTHONPATH) that writes every data file the job opens to a list, read only, nothing else changed; (b) then check out code and state
+   only, and add the files on that list (with today's and yesterday's day files by date) through `git sparse-checkout add`, so only
+   those are downloaded. Expected saving: most of the 3.5 minutes; it changes no rule and no output, but it changes which files the
+   board's main job can see, so it should be tested on a dispatched copy of the job before it replaces the checkout.
