@@ -1,11 +1,11 @@
 {
- "built": "2026-11-28T04:08:01Z",
+ "built": "2026-11-28T04:22:41Z",
  "record": {
-  "n": 323,
-  "won": 141,
-  "lost": 182,
-  "units": -3.04,
-  "roi": -3.8
+  "n": 325,
+  "won": 142,
+  "lost": 183,
+  "units": -2.81,
+  "roi": -3.5
  },
  "record_sb4": {
   "n": 11,
@@ -17,23 +17,29 @@
  "sb4_killed": true,
  "checkable_test": {
   "rule": "kill if the first 100 graded checkable rows are not positive in both halves",
-  "n": 49,
+  "n": 51,
   "all_checkable": {
-   "n": 49,
-   "won": 18,
-   "lost": 31,
-   "units": -2.37,
-   "roi": -19.3
+   "n": 51,
+   "won": 19,
+   "lost": 32,
+   "units": -2.14,
+   "roi": -16.8
   },
   "half1": {
-   "n": 49,
+   "n": 50,
    "won": 18,
-   "lost": 31,
-   "units": -2.37,
-   "roi": -19.3
+   "lost": 32,
+   "units": -2.62,
+   "roi": -20.9
   },
-  "half2": null,
-  "verdict": "pending: 49 of 100"
+  "half2": {
+   "n": 1,
+   "won": 1,
+   "lost": 0,
+   "units": 0.47,
+   "roi": 190.0
+  },
+  "verdict": "pending: 51 of 100"
  },
  "rows": [
   {
@@ -134,56 +140,6 @@
    "qty_best": null,
    "wide": false,
    "team": "LAL",
-   "checkable": true
-  },
-  {
-   "key": "401892809|total|over",
-   "sport": "nhl",
-   "event_id": "401892809",
-   "game": "SEA @ EDM",
-   "start": "2026-11-28T01:00Z",
-   "market": "total",
-   "side": "over",
-   "line": 6.5,
-   "venue": "Novig",
-   "price": 0.475,
-   "fair": 0.4931,
-   "fair_power": 0.4928,
-   "venue_fair": 0.4726,
-   "fair_gap": 2.0,
-   "ev": 3.8,
-   "move": 1.0,
-   "flagged": "2026-11-27T21:27:28Z",
-   "venue_ts": "2026-11-27T21:05:40Z",
-   "pin_ts": "2026-11-27T21:05:40Z",
-   "qty_best": 472143,
-   "wide": false,
-   "team": null,
-   "checkable": true
-  },
-  {
-   "key": "401892809|ml|away",
-   "sport": "nhl",
-   "event_id": "401892809",
-   "game": "SEA @ EDM",
-   "start": "2026-11-28T01:00Z",
-   "market": "ml",
-   "side": "away",
-   "line": null,
-   "venue": "Caesars",
-   "price": 0.3448,
-   "fair": 0.3521,
-   "fair_power": 0.3465,
-   "venue_fair": 0.3325,
-   "fair_gap": 2.0,
-   "ev": 2.1,
-   "move": 1.0,
-   "flagged": "2026-11-28T00:44:49Z",
-   "venue_ts": "2026-11-28T00:27:32Z",
-   "pin_ts": "2026-11-28T00:27:32Z",
-   "qty_best": null,
-   "wide": false,
-   "team": "SEA",
    "checkable": true
   }
  ]
