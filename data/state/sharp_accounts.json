@@ -1,5 +1,5 @@
 {
- "built": "2026-11-28T14:24:21Z",
+ "built": "2026-11-28T14:34:50Z",
  "rows": [
   {
    "cond": "0x1cf899c2e1facf88079301875eb3bd94b8bd647c4967d650a9cc28de6b703aa0",
@@ -234,6 +234,82 @@
      "FD": 0.5238
     }
    }
+  },
+  {
+   "cond": "0x97b1672a1481cd43ca0ce4f8ea58071e0726775fdf1460a2a0b9499c7d8ecde5",
+   "slug": "cfb-navy-charlt-2026-11-28",
+   "title": "Navy vs. Charlotte",
+   "mtype": "total",
+   "start": "2026-11-28T17:00:00Z",
+   "bet": "Under 53.5",
+   "side": "Under",
+   "flagged": "2026-11-28T14:20:17Z",
+   "why": "a top-200 account also in this sport's top 50",
+   "proven": true,
+   "trigger": "proven",
+   "n_accounts": 1,
+   "best_rank": 115,
+   "usd": 1433,
+   "paid": 0.51,
+   "ask": 0.52,
+   "status": "live",
+   "link": "https://polymarket.us/event/cfb-navy-charlt-2026-11-28",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401862842",
+   "sport": "cfb",
+   "league": null,
+   "away": "NAVY",
+   "home": "CLT",
+   "away_name": "Navy Midshipmen",
+   "home_name": "Charlotte 49ers",
+   "game_start": "2026-11-28T17:00Z",
+   "side_std": "under",
+   "cancel": null,
+   "money_with": true,
+   "grade": "A",
+   "fair_board": null,
+   "inside_fair": null,
+   "books": null
+  },
+  {
+   "cond": "0x160fa75437fd81457f55dabda2a32425e1be8b45dcbcb692b10607e3f68fc86d",
+   "slug": "cfb-vir-vtech-2026-11-28",
+   "title": "Virginia vs. Virginia Tech",
+   "mtype": "total",
+   "start": "2026-11-28T20:00:00Z",
+   "bet": "Under 49.5",
+   "side": "Under",
+   "flagged": "2026-11-28T14:27:16Z",
+   "why": "a top-200 account also in this sport's top 50",
+   "proven": true,
+   "trigger": "proven",
+   "n_accounts": 1,
+   "best_rank": 115,
+   "usd": 4930,
+   "paid": 0.48,
+   "ask": 0.49,
+   "status": "live",
+   "link": "https://polymarket.us/event/cfb-vir-vtech-2026-11-28",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401858317",
+   "sport": "cfb",
+   "league": null,
+   "away": "UVA",
+   "home": "VT",
+   "away_name": "Virginia Cavaliers",
+   "home_name": "Virginia Tech Hokies",
+   "game_start": "2026-11-28T20:00Z",
+   "side_std": "under",
+   "cancel": null,
+   "money_with": false,
+   "grade": "A",
+   "fair_board": null,
+   "inside_fair": null,
+   "books": null
   },
   {
    "cond": "0x64fc28a52de28cba0a477b379b400b1680fa3a68c3640213aa1aaf533779ec0f",
@@ -863,7 +939,16 @@
   "clv_venue": 0.95,
   "clv_poly_same": -0.57
  },
- "sys_tags": {},
+ "sys_tags": {
+  "401858317:cfb_day_over": {
+   "with": null,
+   "against": {
+    "n": 1,
+    "best_rank": 115,
+    "usd": 4930
+   }
+  }
+ },
  "by_event": {
   "401873090|spread": {
    "away": {
@@ -977,6 +1062,13 @@
     "usd": 778
    }
   },
+  "401862842|total": {
+   "under": {
+    "n": 1,
+    "best_rank": 115,
+    "usd": 1433
+   }
+  },
   "401866474|total": {
    "under": {
     "n": 1,
@@ -989,6 +1081,13 @@
     "n": 1,
     "best_rank": 170,
     "usd": 225
+   }
+  },
+  "401858317|total": {
+   "under": {
+    "n": 1,
+    "best_rank": 115,
+    "usd": 4930
    }
   },
   "401858543|spread": {
