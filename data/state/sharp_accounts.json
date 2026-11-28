@@ -1,5 +1,5 @@
 {
- "built": "2026-11-28T01:22:28Z",
+ "built": "2026-11-28T01:46:58Z",
  "rows": [
   {
    "cond": "0x841dca267e34794410689cfbc77ba290f9dbf64330821bfa50e3669612035e18",
@@ -337,7 +337,7 @@
    "best_rank": 112,
    "usd": 16454,
    "paid": 0.47,
-   "ask": 0.47,
+   "ask": 0.45,
    "status": "live",
    "link": "https://polymarket.us/event/nba-lal-sas-2026-11-27",
    "other": null,
@@ -789,7 +789,7 @@
    "best_rank": 104,
    "usd": 214,
    "paid": 0.53,
-   "ask": 0.6,
+   "ask": 0.59,
    "status": "live",
    "link": "https://polymarket.us/event/nba-lal-mem-2026-11-29",
    "other": null,
@@ -1403,7 +1403,7 @@
    "best_rank": 31,
    "usd": 9426,
    "paid": 0.649,
-   "ask": 0.65,
+   "ask": 0.68,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-lal-sas-2026-11-27",
    "other": {
@@ -1412,7 +1412,7 @@
     "usd": 35097,
     "first": "2026-11-27T17:32:19Z"
    },
-   "exit_bid": 0.64,
+   "exit_bid": 0.67,
    "kalshi_against": null,
    "logged": true,
    "event_id": "401909333",
@@ -1431,7 +1431,7 @@
    "money_with": false,
    "grade": "A",
    "fair_board": 0.6562,
-   "inside_fair": true,
+   "inside_fair": false,
    "books": null
   },
   {
@@ -1494,7 +1494,7 @@
    "best_rank": 110,
    "usd": 6653,
    "paid": 0.475,
-   "ask": 0.52,
+   "ask": 0.51,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-gsw-por-2026-11-27",
    "other": {
@@ -1503,7 +1503,7 @@
     "usd": 698,
     "first": "2026-11-27T18:46:41Z"
    },
-   "exit_bid": 0.51,
+   "exit_bid": 0.5,
    "kalshi_against": null,
    "logged": true,
    "event_id": "401909336",
@@ -1541,16 +1541,16 @@
    "best_rank": 49,
    "usd": 53909,
    "paid": 0.529,
-   "ask": 0.54,
+   "ask": 0.53,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-gsw-por-2026-11-27",
    "other": {
     "n_accounts": 2,
     "best_rank": 49,
-    "usd": 27713,
+    "usd": 31484,
     "first": "2026-11-27T18:45:58Z"
    },
-   "exit_bid": 0.53,
+   "exit_bid": 0.52,
    "kalshi_against": null,
    "logged": false,
    "ladder": true,
@@ -1753,9 +1753,9 @@
   },
   "401909333|spread": {
    "home": {
-    "n": 2,
+    "n": 3,
     "best_rank": 49,
-    "usd": 3197
+    "usd": 8715
    },
    "away": {
     "n": 3,
