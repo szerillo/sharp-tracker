@@ -1,82 +1,6 @@
 {
- "built": "2026-11-28T00:19:44Z",
+ "built": "2026-11-28T00:34:47Z",
  "rows": [
-  {
-   "cond": "0xd57aff4e5f26436aba9963dd5ca0c28d1ce907b687534ef6cf8c784ab2f11c0a",
-   "slug": "cfb-ndkst-sjst-2026-11-27",
-   "title": "North Dakota State vs. San Jose State",
-   "mtype": "total",
-   "start": "2026-11-27T20:30:00Z",
-   "bet": "Over 39.5",
-   "side": "Over",
-   "flagged": "2026-11-27T17:00:35Z",
-   "why": "a top-200 account also in this sport's top 50",
-   "proven": true,
-   "trigger": "proven",
-   "n_accounts": 1,
-   "best_rank": 58,
-   "usd": 470,
-   "paid": 0.53,
-   "ask": null,
-   "status": "live",
-   "link": "https://polymarket.us/event/cfb-ndkst-sjst-2026-11-27",
-   "other": null,
-   "kalshi_against": null,
-   "logged": true,
-   "event_id": "401864549",
-   "sport": "cfb",
-   "league": null,
-   "away": "NDSU",
-   "home": "SJSU",
-   "away_name": "North Dakota State Bison",
-   "home_name": "San Jos\u00e9 State Spartans",
-   "game_start": "2026-11-27T20:30Z",
-   "side_std": "over",
-   "cancel": null,
-   "money_with": false,
-   "grade": "A",
-   "fair_board": null,
-   "inside_fair": null,
-   "books": null
-  },
-  {
-   "cond": "0x7fc91d772f5eadd91fb07f5822b12aa082afa64794ea64217422ed12f3e7acc4",
-   "slug": "cfb-ndkst-sjst-2026-11-27",
-   "title": "North Dakota State vs. San Jose State",
-   "mtype": "spread",
-   "start": "2026-11-27T20:30:00Z",
-   "bet": "North Dakota State -7.5",
-   "side": "North Dakota State",
-   "flagged": "2026-11-27T17:16:38Z",
-   "why": "a top-200 account also in this sport's top 50",
-   "proven": true,
-   "trigger": "proven",
-   "n_accounts": 1,
-   "best_rank": 58,
-   "usd": 480,
-   "paid": 0.52,
-   "ask": null,
-   "status": "live",
-   "link": "https://polymarket.us/event/cfb-ndkst-sjst-2026-11-27",
-   "other": null,
-   "kalshi_against": null,
-   "logged": true,
-   "event_id": "401864549",
-   "sport": "cfb",
-   "league": null,
-   "away": "NDSU",
-   "home": "SJSU",
-   "away_name": "North Dakota State Bison",
-   "home_name": "San Jos\u00e9 State Spartans",
-   "game_start": "2026-11-27T20:30Z",
-   "side_std": "away",
-   "cancel": null,
-   "money_with": false,
-   "grade": "A",
-   "inside_fair": false,
-   "fair_board": 0.5122,
-   "books": null
-  },
   {
    "cond": "0xd15ec284ec5be3ac18be30345b633bb262232c91d6e69bff1412c04438d71ccc",
    "slug": "nhl-lak-ana-2026-11-27",
@@ -222,60 +146,12 @@
    "home_name": "New York Knicks",
    "game_start": "2026-11-28T00:00Z",
    "side_std": "home",
-   "conflict": [
-    "big money"
-   ],
    "cancel": null,
    "money_with": false,
    "grade": "watch",
    "fair_board": null,
    "inside_fair": null,
    "books": null
-  },
-  {
-   "cond": "0x4c6ff19ee09d352a1c4082da57dbda58d16f41dbd4c5a4ea7a34dbfe176687b1",
-   "slug": "nba-bkn-tor-2026-11-27",
-   "title": "Nets vs. Raptors",
-   "mtype": "spread",
-   "start": "2026-11-28T00:30:00Z",
-   "bet": "Raptors -7.5",
-   "side": "Raptors",
-   "flagged": "2026-11-27T08:10:38Z",
-   "why": "a top-50 account",
-   "proven": false,
-   "trigger": "top50",
-   "n_accounts": 1,
-   "best_rank": 43,
-   "usd": 1942,
-   "paid": 0.53,
-   "ask": 0.57,
-   "status": "live",
-   "link": "https://polymarket.us/event/nba-bkn-tor-2026-11-27",
-   "other": null,
-   "kalshi_against": null,
-   "logged": true,
-   "event_id": "401909329",
-   "sport": "nba",
-   "league": null,
-   "away": "BKN",
-   "home": "TOR",
-   "away_name": "Brooklyn Nets",
-   "home_name": "Toronto Raptors",
-   "game_start": "2026-11-28T00:30Z",
-   "side_std": "home",
-   "cancel": null,
-   "money_with": false,
-   "grade": "watch",
-   "fair_board": null,
-   "inside_fair": null,
-   "books": {
-    "at": "2026-11-28T00:06:36Z",
-    "fair": null,
-    "q": {
-     "Novig": 0.575,
-     "Kalshi": 0.6
-    }
-   }
   },
   {
    "cond": "0x23f363e2608f8d9c8ed11fef31872e94340ee0f3206510c7291ee553bfbf1713",
@@ -293,7 +169,7 @@
    "best_rank": 115,
    "usd": 695,
    "paid": 0.48,
-   "ask": 0.51,
+   "ask": null,
    "status": "live",
    "link": "https://polymarket.us/event/cfb-tx-txam-2026-11-27",
    "other": null,
@@ -309,10 +185,10 @@
    "game_start": "2026-11-28T00:30Z",
    "side_std": "over",
    "cancel": null,
-   "money_with": true,
+   "money_with": false,
    "grade": "A",
    "fair_board": 0.4967,
-   "inside_fair": false,
+   "inside_fair": null,
    "books": {
     "at": "2026-11-28T00:06:36Z",
     "fair": 0.4967,
@@ -340,7 +216,7 @@
    "best_rank": 79,
    "usd": 531,
    "paid": 0.48,
-   "ask": 0.49,
+   "ask": null,
    "status": "live",
    "link": "https://polymarket.us/event/nhl-wpg-nyi-2026-11-27",
    "other": null,
@@ -355,6 +231,9 @@
    "home_name": "New York Islanders",
    "game_start": "2026-11-28T00:30Z",
    "side_std": "away",
+   "conflict": [
+    "big money"
+   ],
    "cancel": null,
    "money_with": false,
    "grade": "A",
@@ -531,7 +410,7 @@
    "best_rank": 110,
    "usd": 7328,
    "paid": 0.54,
-   "ask": 0.6,
+   "ask": 0.59,
    "status": "live",
    "link": "https://polymarket.us/event/nba-dal-phx-2026-11-27",
    "other": null,
@@ -557,52 +436,6 @@
     "q": {
      "Novig": 0.555,
      "Kalshi": 0.58
-    }
-   }
-  },
-  {
-   "cond": "0x3b61413c773ae4da4bc8504f9f8a3202656ec80051db90e1e99b49e9551b81e1",
-   "slug": "nba-dal-phx-2026-11-27",
-   "title": "Mavericks vs. Suns",
-   "mtype": "spread",
-   "start": "2026-11-28T02:00:00Z",
-   "bet": "Suns -2.5",
-   "side": "Suns",
-   "flagged": "2026-11-27T19:00:47Z",
-   "why": "3 top-200 accounts",
-   "proven": true,
-   "trigger": "two",
-   "n_accounts": 3,
-   "best_rank": 31,
-   "usd": 1488,
-   "paid": 0.518,
-   "ask": 0.56,
-   "status": "live",
-   "link": "https://polymarket.us/event/nba-dal-phx-2026-11-27",
-   "other": null,
-   "kalshi_against": null,
-   "logged": false,
-   "ladder": true,
-   "event_id": "401909332",
-   "sport": "nba",
-   "league": null,
-   "away": "DAL",
-   "home": "PHX",
-   "away_name": "Dallas Mavericks",
-   "home_name": "Phoenix Suns",
-   "game_start": "2026-11-28T02:00Z",
-   "side_std": "home",
-   "cancel": null,
-   "money_with": false,
-   "grade": "A",
-   "fair_board": null,
-   "inside_fair": null,
-   "books": {
-    "at": "2026-11-28T00:06:36Z",
-    "fair": null,
-    "q": {
-     "Novig": 0.525,
-     "Kalshi": 0.54
     }
    }
   },
@@ -688,8 +521,8 @@
     "Kalshi bet back"
    ],
    "cancel": null,
-   "money_with": true,
-   "grade": "A",
+   "money_with": false,
+   "grade": "B",
    "inside_fair": true,
    "fair_board": 0.4766,
    "books": {
@@ -1033,6 +866,52 @@
    }
   },
   {
+   "cond": "0xc1126a8c50585602254035936e985b579fd7ebc9e3b13d28c12288e821367a5d",
+   "slug": "nfl-ten-jax-2026-11-29",
+   "title": "Titans vs. Jaguars",
+   "mtype": "spread",
+   "start": "2026-11-29T18:00:00Z",
+   "bet": "Titans +14.5",
+   "side": "Titans",
+   "flagged": "2026-11-28T00:27:49Z",
+   "why": "a top-50 account",
+   "proven": true,
+   "trigger": "proven",
+   "n_accounts": 1,
+   "best_rank": 49,
+   "usd": 855,
+   "paid": 0.53,
+   "ask": 0.54,
+   "status": "live",
+   "link": "https://polymarket.us/event/nfl-ten-jax-2026-11-29",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401873090",
+   "sport": "nfl",
+   "league": null,
+   "away": "TEN",
+   "home": "JAX",
+   "away_name": "Tennessee Titans",
+   "home_name": "Jacksonville Jaguars",
+   "game_start": "2026-11-29T18:00Z",
+   "side_std": "away",
+   "cancel": null,
+   "money_with": false,
+   "grade": "A",
+   "fair_board": 0.5313,
+   "inside_fair": false,
+   "books": {
+    "at": "2026-11-28T00:06:36Z",
+    "fair": 0.5313,
+    "q": {
+     "Novig": 0.535,
+     "FD": 0.5455,
+     "Kalshi": 0.55
+    }
+   }
+  },
+  {
    "cond": "0x7a58bf7255ef1eab1b450b3dbc90d6549f0142be338d11625715133325a4eef3",
    "slug": "nba-lal-mem-2026-11-29",
    "title": "Lakers vs. Grizzlies",
@@ -1154,9 +1033,6 @@
    "home_name": "New York Knicks",
    "game_start": "2026-11-28T00:00Z",
    "side_std": "away",
-   "conflict": [
-    "Kalshi bet back"
-   ],
    "cancel": null,
    "money_with": false,
    "grade": "B",
@@ -1202,8 +1078,8 @@
    "game_start": "2026-11-28T00:00Z",
    "side_std": "away",
    "cancel": null,
-   "money_with": true,
-   "grade": "A",
+   "money_with": false,
+   "grade": "B",
    "fair_board": null,
    "inside_fair": null,
    "books": null
@@ -1224,7 +1100,7 @@
    "best_rank": 31,
    "usd": 38437,
    "paid": 0.592,
-   "ask": 0.62,
+   "ask": null,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-phi-ind-2026-11-27",
    "other": {
@@ -1233,7 +1109,7 @@
     "usd": 11650,
     "first": "2026-11-25T12:45:28Z"
    },
-   "exit_bid": 0.61,
+   "exit_bid": null,
    "kalshi_against": null,
    "logged": true,
    "event_id": "401909328",
@@ -1246,14 +1122,13 @@
    "game_start": "2026-11-28T00:30Z",
    "side_std": "away",
    "conflict": [
-    "Kalshi bet back",
-    "big money"
+    "Kalshi bet back"
    ],
    "cancel": null,
    "money_with": false,
    "grade": "A",
    "fair_board": 0.6124,
-   "inside_fair": false,
+   "inside_fair": null,
    "books": null
   },
   {
@@ -1272,7 +1147,7 @@
    "best_rank": 31,
    "usd": 985,
    "paid": 0.747,
-   "ask": 0.76,
+   "ask": null,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-bkn-tor-2026-11-27",
    "other": {
@@ -1281,7 +1156,7 @@
     "usd": 2073,
     "first": "2026-11-27T21:30:58Z"
    },
-   "exit_bid": 0.75,
+   "exit_bid": null,
    "kalshi_against": null,
    "logged": true,
    "event_id": "401909329",
@@ -1300,7 +1175,100 @@
    "money_with": false,
    "grade": "A",
    "fair_board": 0.761,
-   "inside_fair": true,
+   "inside_fair": null,
+   "books": null
+  },
+  {
+   "cond": "0x7b0f60cecade0567aa420bb54283104b134d73571529c23c5f4c33cecb20657f",
+   "slug": "nba-mil-det-2026-11-27",
+   "title": "Bucks vs. Pistons",
+   "mtype": "spread",
+   "start": "2026-11-28T00:30:00Z",
+   "bet": "Bucks +10.5",
+   "side": "Bucks",
+   "flagged": "2026-11-26T22:15:39Z",
+   "why": "a top-50 account",
+   "proven": false,
+   "trigger": "top50",
+   "n_accounts": 1,
+   "best_rank": 49,
+   "usd": 146,
+   "paid": 0.52,
+   "ask": null,
+   "status": "other side",
+   "link": "https://polymarket.us/event/nba-mil-det-2026-11-27",
+   "other": {
+    "n_accounts": 1,
+    "best_rank": 49,
+    "usd": 171,
+    "first": "2026-11-28T00:24:35Z"
+   },
+   "exit_bid": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401909327",
+   "sport": "nba",
+   "league": null,
+   "away": "MIL",
+   "home": "DET",
+   "away_name": "Milwaukee Bucks",
+   "home_name": "Detroit Pistons",
+   "game_start": "2026-11-28T00:30Z",
+   "side_std": "away",
+   "conflict": [
+    "Kalshi move"
+   ],
+   "cancel": [
+    "Kalshi move"
+   ],
+   "money_with": false,
+   "grade": "watch",
+   "inside_fair": false,
+   "fair_board": 0.4807,
+   "books": null
+  },
+  {
+   "cond": "0x4c6ff19ee09d352a1c4082da57dbda58d16f41dbd4c5a4ea7a34dbfe176687b1",
+   "slug": "nba-bkn-tor-2026-11-27",
+   "title": "Nets vs. Raptors",
+   "mtype": "spread",
+   "start": "2026-11-28T00:30:00Z",
+   "bet": "Raptors -7.5",
+   "side": "Raptors",
+   "flagged": "2026-11-27T08:10:38Z",
+   "why": "a top-50 account",
+   "proven": false,
+   "trigger": "top50",
+   "n_accounts": 1,
+   "best_rank": 43,
+   "usd": 1942,
+   "paid": 0.53,
+   "ask": null,
+   "status": "other side",
+   "link": "https://polymarket.us/event/nba-bkn-tor-2026-11-27",
+   "other": {
+    "n_accounts": 1,
+    "best_rank": 43,
+    "usd": 2519,
+    "first": "2026-11-28T00:27:40Z"
+   },
+   "exit_bid": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401909329",
+   "sport": "nba",
+   "league": null,
+   "away": "BKN",
+   "home": "TOR",
+   "away_name": "Brooklyn Nets",
+   "home_name": "Toronto Raptors",
+   "game_start": "2026-11-28T00:30Z",
+   "side_std": "home",
+   "cancel": null,
+   "money_with": false,
+   "grade": "watch",
+   "fair_board": null,
+   "inside_fair": null,
    "books": null
   },
   {
@@ -1319,7 +1287,7 @@
    "best_rank": 49,
    "usd": 18427,
    "paid": 0.5,
-   "ask": 0.51,
+   "ask": null,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-phi-ind-2026-11-27",
    "other": {
@@ -1328,7 +1296,7 @@
     "usd": 9522,
     "first": "2026-11-28T00:15:49Z"
    },
-   "exit_bid": 0.5,
+   "exit_bid": null,
    "kalshi_against": null,
    "logged": false,
    "event_id": "401909328",
@@ -1343,8 +1311,8 @@
    "cancel": null,
    "money_with": false,
    "grade": "B",
-   "fair_board": 0.4903,
-   "inside_fair": false,
+   "fair_board": 0.4943,
+   "inside_fair": null,
    "books": null
   },
   {
@@ -1451,16 +1419,16 @@
    "best_rank": 42,
    "usd": 10489,
    "paid": 0.575,
-   "ask": 0.61,
+   "ask": 0.6,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-dal-phx-2026-11-27",
    "other": {
-    "n_accounts": 1,
+    "n_accounts": 2,
     "best_rank": 49,
-    "usd": 2339,
+    "usd": 16589,
     "first": "2026-11-28T00:21:02Z"
    },
-   "exit_bid": 0.6,
+   "exit_bid": 0.59,
    "kalshi_against": {
     "move": 6.0,
     "now": 42.5,
@@ -1486,6 +1454,51 @@
    "grade": "A",
    "inside_fair": false,
    "fair_board": 0.5758,
+   "books": null
+  },
+  {
+   "cond": "0x3b61413c773ae4da4bc8504f9f8a3202656ec80051db90e1e99b49e9551b81e1",
+   "slug": "nba-dal-phx-2026-11-27",
+   "title": "Mavericks vs. Suns",
+   "mtype": "spread",
+   "start": "2026-11-28T02:00:00Z",
+   "bet": "Suns -2.5",
+   "side": "Suns",
+   "flagged": "2026-11-27T19:00:47Z",
+   "why": "3 top-200 accounts",
+   "proven": true,
+   "trigger": "two",
+   "n_accounts": 3,
+   "best_rank": 31,
+   "usd": 1488,
+   "paid": 0.518,
+   "ask": 0.56,
+   "status": "other side",
+   "link": "https://polymarket.us/event/nba-dal-phx-2026-11-27",
+   "other": {
+    "n_accounts": 1,
+    "best_rank": 31,
+    "usd": 1445,
+    "first": "2026-11-28T00:26:13Z"
+   },
+   "exit_bid": 0.55,
+   "kalshi_against": null,
+   "logged": false,
+   "ladder": true,
+   "event_id": "401909332",
+   "sport": "nba",
+   "league": null,
+   "away": "DAL",
+   "home": "PHX",
+   "away_name": "Dallas Mavericks",
+   "home_name": "Phoenix Suns",
+   "game_start": "2026-11-28T02:00Z",
+   "side_std": "home",
+   "cancel": null,
+   "money_with": false,
+   "grade": "A",
+   "fair_board": null,
+   "inside_fair": null,
    "books": null
   },
   {
@@ -1616,9 +1629,12 @@
    "home_name": "Portland Trail Blazers",
    "game_start": "2026-11-28T02:30Z",
    "side_std": "away",
+   "conflict": [
+    "Kalshi bet back"
+   ],
    "cancel": null,
-   "money_with": false,
-   "grade": "B",
+   "money_with": true,
+   "grade": "A",
    "fair_board": null,
    "inside_fair": null,
    "books": null
@@ -1661,9 +1677,12 @@
    "home_name": "Portland Trail Blazers",
    "game_start": "2026-11-28T02:30Z",
    "side_std": "away",
+   "conflict": [
+    "Kalshi bet back"
+   ],
    "cancel": null,
-   "money_with": false,
-   "grade": "B",
+   "money_with": true,
+   "grade": "A",
    "fair_board": null,
    "inside_fair": null,
    "books": null
@@ -1769,18 +1788,6 @@
   "clv_poly_same": -0.6
  },
  "sys_tags": {
-  "401858544:cfb_road_dog_low_total": {
-   "with": {
-    "n": 1,
-    "best_rank": 182,
-    "usd": 293
-   },
-   "against": {
-    "n": 2,
-    "best_rank": 115,
-    "usd": 846
-   }
-  },
   "401909331:nba_ats_hot_home": {
    "with": {
     "n": 2,
@@ -1807,66 +1814,18 @@
   }
  },
  "by_event": {
+  "401873090|spread": {
+   "away": {
+    "n": 1,
+    "best_rank": 49,
+    "usd": 855
+   }
+  },
   "401873091|ml": {
    "away": {
     "n": 2,
     "best_rank": 12,
     "usd": 553
-   }
-  },
-  "401909327|spread": {
-   "away": {
-    "n": 1,
-    "best_rank": 49,
-    "usd": 146
-   },
-   "home": {
-    "n": 1,
-    "best_rank": 49,
-    "usd": 171
-   }
-  },
-  "401909328|ml": {
-   "away": {
-    "n": 4,
-    "best_rank": 31,
-    "usd": 38437
-   },
-   "home": {
-    "n": 5,
-    "best_rank": 4,
-    "usd": 11036
-   }
-  },
-  "401909328|spread": {
-   "away": {
-    "n": 3,
-    "best_rank": 49,
-    "usd": 18618
-   },
-   "home": {
-    "n": 1,
-    "best_rank": 49,
-    "usd": 9522
-   }
-  },
-  "401909329|ml": {
-   "home": {
-    "n": 3,
-    "best_rank": 31,
-    "usd": 985
-   },
-   "away": {
-    "n": 2,
-    "best_rank": 31,
-    "usd": 2073
-   }
-  },
-  "401909329|spread": {
-   "home": {
-    "n": 1,
-    "best_rank": 43,
-    "usd": 1942
    }
   },
   "401909330|total": {
@@ -1924,6 +1883,11 @@
     "n": 4,
     "best_rank": 31,
     "usd": 8501
+   },
+   "away": {
+    "n": 1,
+    "best_rank": 31,
+    "usd": 1445
    }
   },
   "401909332|ml": {
@@ -1933,9 +1897,9 @@
     "usd": 10489
    },
    "away": {
-    "n": 1,
+    "n": 2,
     "best_rank": 49,
-    "usd": 2339
+    "usd": 15568
    }
   },
   "401909333|ml": {
@@ -2042,13 +2006,6 @@
     "usd": 586
    }
   },
-  "401892807|ml": {
-   "away": {
-    "n": 1,
-    "best_rank": 79,
-    "usd": 531
-   }
-  },
   "401892809|ml": {
    "home": {
     "n": 1,
@@ -2061,32 +2018,6 @@
     "n": 1,
     "best_rank": 132,
     "usd": 138
-   }
-  },
-  "401856756|total": {
-   "over": {
-    "n": 1,
-    "best_rank": 115,
-    "usd": 695
-   }
-  },
-  "401858544|ml": {
-   "away": {
-    "n": 1,
-    "best_rank": 182,
-    "usd": 289
-   }
-  },
-  "401858544|spread": {
-   "away": {
-    "n": 1,
-    "best_rank": 182,
-    "usd": 293
-   },
-   "home": {
-    "n": 2,
-    "best_rank": 115,
-    "usd": 846
    }
   },
   "401856757|total": {
@@ -2108,13 +2039,6 @@
     "n": 1,
     "best_rank": 170,
     "usd": 212
-   }
-  },
-  "401925703|total": {
-   "under": {
-    "n": 1,
-    "best_rank": 170,
-    "usd": 296
    }
   },
   "401919033|spread": {
