@@ -1,11 +1,11 @@
 {
- "built": "2026-11-28T05:10:01Z",
+ "built": "2026-11-28T05:25:18Z",
  "record": {
-  "n": 326,
-  "won": 142,
+  "n": 327,
+  "won": 143,
   "lost": 184,
-  "units": -3.06,
-  "roi": -3.8
+  "units": -2.82,
+  "roi": -3.4
  },
  "record_sb4": {
   "n": 11,
@@ -17,56 +17,31 @@
  "sb4_killed": true,
  "checkable_test": {
   "rule": "kill if the first 100 graded checkable rows are not positive in both halves",
-  "n": 52,
+  "n": 53,
   "all_checkable": {
-   "n": 52,
-   "won": 19,
+   "n": 53,
+   "won": 20,
    "lost": 33,
-   "units": -2.39,
-   "roi": -18.4
+   "units": -2.15,
+   "roi": -16.2
   },
   "half1": {
    "n": 50,
    "won": 18,
    "lost": 32,
-   "units": -2.62,
-   "roi": -20.9
+   "units": -2.66,
+   "roi": -21.2
   },
   "half2": {
-   "n": 2,
-   "won": 1,
+   "n": 3,
+   "won": 2,
    "lost": 1,
-   "units": 0.22,
-   "roi": 45.0
+   "units": 0.51,
+   "roi": 67.6
   },
-  "verdict": "pending: 52 of 100"
+  "verdict": "pending: 53 of 100"
  },
  "rows": [
-  {
-   "key": "401909335|total|under",
-   "sport": "nba",
-   "event_id": "401909335",
-   "game": "NO @ LAC",
-   "start": "2026-11-28T02:30Z",
-   "market": "total",
-   "side": "under",
-   "line": 231.5,
-   "venue": "Novig",
-   "price": 0.505,
-   "fair": 0.5203,
-   "fair_power": 0.5213,
-   "venue_fair": 0.5025,
-   "fair_gap": 1.8,
-   "ev": 3.0,
-   "move": 1.6,
-   "flagged": "2026-11-27T10:53:04Z",
-   "venue_ts": "2026-11-27T10:24:57Z",
-   "pin_ts": "2026-11-27T10:24:57Z",
-   "qty_best": 406950,
-   "wide": false,
-   "team": null,
-   "checkable": true
-  },
   {
    "key": "401920544|total|over",
    "sport": "cbb",
