@@ -117,3 +117,11 @@ not wrong ones. Not checked yet: nfl, cfb, soccer and tennis ticks and the Kalsh
 - Every queued workflow that pushes (18) now checks out `main` instead of its trigger commit, like prices_fast.
 - The ledger watch also covers the append-only paper logs (parlays, steam_rev, tennis serve and hotdog, mma steam).
 - `sharp/research/row_audit.py` now judges "still missing" against main now, matched by id for the ledgers.
+
+## Duplicate-id check after the fix (11/28 03:30 ET)
+
+Every keyed paper log on main, at its last versions since 04:09Z 11/28: no duplicate ids, except parlays_paper with 3. All 3 are the same
+parlay ticker logged by two signals runs between 04:11Z and 04:43Z, before queued runs checked out current main (04:54Z), each with its
+own trade total (for example 04:11Z at 0.113 for $18.82 and 04:25Z at 0.294 for $33.22). None since. sharp/parlay_grade.py grades the
+first row per ticker, so the record is unaffected. Left as logged (removing rows is a records change).
+
