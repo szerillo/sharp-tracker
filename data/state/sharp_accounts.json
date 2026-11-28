@@ -1,5 +1,5 @@
 {
- "built": "2026-11-28T09:05:56Z",
+ "built": "2026-11-28T09:16:05Z",
  "rows": [
   {
    "cond": "0x1cf899c2e1facf88079301875eb3bd94b8bd647c4967d650a9cc28de6b703aa0",
@@ -119,6 +119,53 @@
    "fair_board": null,
    "inside_fair": null,
    "books": null
+  },
+  {
+   "cond": "0x2c8967d77c0c1a2866d88d441a41d215ea4fe8895e9c070d590b4e944f6ab052",
+   "slug": "nhl-cal-nyr-2026-11-28",
+   "title": "Flames vs. Rangers",
+   "mtype": "ml",
+   "start": "2026-11-29T00:00:00Z",
+   "bet": "Flames ML",
+   "side": "Flames",
+   "flagged": "2026-11-28T09:09:10Z",
+   "why": "a top-200 account also in this sport's top 50",
+   "proven": true,
+   "trigger": "proven",
+   "n_accounts": 1,
+   "best_rank": 197,
+   "usd": 2840,
+   "paid": 0.37,
+   "ask": 0.38,
+   "status": "live",
+   "link": "https://polymarket.us/event/nhl-cal-nyr-2026-11-28",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401892814",
+   "sport": "nhl",
+   "league": null,
+   "away": "CGY",
+   "home": "NYR",
+   "away_name": "Calgary Flames",
+   "home_name": "New York Rangers",
+   "game_start": "2026-11-29T00:00Z",
+   "side_std": "away",
+   "cancel": null,
+   "money_with": false,
+   "grade": "A",
+   "fair_board": 0.3667,
+   "inside_fair": false,
+   "books": {
+    "at": "2026-11-28T02:07:16Z",
+    "fair": 0.3667,
+    "q": {
+     "Novig": 0.37,
+     "Caesars": 0.3831,
+     "DK": 0.3846,
+     "FD": 0.3876
+    }
+   }
   },
   {
    "cond": "0x45c414095f5876a025068511b200405477e486fd4ae24b880a42c1f1154216f0",
@@ -465,7 +512,7 @@
    "best_rank": 104,
    "usd": 214,
    "paid": 0.53,
-   "ask": 0.62,
+   "ask": 0.61,
    "status": "live",
    "link": "https://polymarket.us/event/nba-lal-mem-2026-11-29",
    "other": null,
@@ -688,6 +735,13 @@
     "n": 1,
     "best_rank": 132,
     "usd": 138
+   }
+  },
+  "401892814|ml": {
+   "away": {
+    "n": 1,
+    "best_rank": 197,
+    "usd": 2840
    }
   },
   "401856757|total": {
