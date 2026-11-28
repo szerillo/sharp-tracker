@@ -10891,5 +10891,31 @@
 "fair": 0.68778,
 "edge_pts": -0.22,
 "why": "Novig home side mid 0.315 inside T-1.5h; audit band 20-35c"
+},
+"401873091:nfl_fade_fav_bye": {
+"tag": "nfl_fade_fav_bye",
+"fill_id": "b5dc5d704b26",
+"ts": "2026-11-27T23:56:34Z",
+"market": "spread",
+"side": "home",
+"line": 1.5,
+"venue": "Novig",
+"price": -104,
+"fair": 0.50892,
+"edge_pts": -0.11,
+"why": "SEA (favourite) off 14 days: dog SF"
+},
+"401892810:nhl_bounce_home_ml": {
+"tag": "nhl_bounce_home_ml",
+"fill_id": "be4877691629",
+"ts": "2026-11-27T23:56:34Z",
+"market": "ml",
+"side": "home",
+"line": null,
+"venue": "Novig",
+"price": -120,
+"fair": 0.53576,
+"edge_pts": -0.92,
+"why": "home VGK lost its last game by 3, record 15-12 (56%): home moneyline (mined angle)"
 }
 }
