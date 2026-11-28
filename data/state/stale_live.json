@@ -1,11 +1,11 @@
 {
- "built": "2026-11-28T21:40:56Z",
+ "built": "2026-11-28T22:00:26Z",
  "record": {
-  "n": 331,
-  "won": 145,
-  "lost": 186,
-  "units": -2.8,
-  "roi": -3.4
+  "n": 334,
+  "won": 146,
+  "lost": 188,
+  "units": -3.03,
+  "roi": -3.6
  },
  "record_sb4": {
   "n": 11,
@@ -17,13 +17,13 @@
  "sb4_killed": true,
  "checkable_test": {
   "rule": "kill if the first 100 graded checkable rows are not positive in both halves",
-  "n": 57,
+  "n": 60,
   "all_checkable": {
-   "n": 57,
-   "won": 22,
-   "lost": 35,
-   "units": -2.13,
-   "roi": -15.0
+   "n": 60,
+   "won": 23,
+   "lost": 37,
+   "units": -2.36,
+   "roi": -15.7
   },
   "half1": {
    "n": 50,
@@ -33,13 +33,13 @@
    "roi": -21.1
   },
   "half2": {
-   "n": 7,
-   "won": 4,
-   "lost": 3,
-   "units": 0.5,
-   "roi": 28.7
+   "n": 10,
+   "won": 5,
+   "lost": 5,
+   "units": 0.27,
+   "roi": 10.9
   },
-  "verdict": "pending: 57 of 100"
+  "verdict": "pending: 60 of 100"
  },
  "rows": [
   {
@@ -93,31 +93,6 @@
    "checkable": true
   },
   {
-   "key": "401921031|ml|home",
-   "sport": "cbb",
-   "event_id": "401921031",
-   "game": "GASO @ UNCA",
-   "start": "2026-11-28T19:00Z",
-   "market": "ml",
-   "side": "home",
-   "line": null,
-   "venue": "Novig",
-   "price": 0.48,
-   "fair": 0.4934,
-   "fair_power": 0.493,
-   "venue_fair": 0.4776,
-   "fair_gap": 1.6,
-   "ev": 2.8,
-   "move": 1.6,
-   "flagged": "2026-11-28T15:08:56Z",
-   "venue_ts": "2026-11-28T14:44:29Z",
-   "pin_ts": "2026-11-28T14:44:29Z",
-   "qty_best": 27110,
-   "wide": false,
-   "team": "UNCA",
-   "checkable": true
-  },
-  {
    "key": "401917549|spread|home",
    "sport": "cbb",
    "event_id": "401917549",
@@ -165,31 +140,6 @@
    "qty_best": 1440697,
    "wide": false,
    "team": "TOL",
-   "checkable": true
-  },
-  {
-   "key": "401911031|ml|home",
-   "sport": "cbb",
-   "event_id": "401911031",
-   "game": "BALL @ USI",
-   "start": "2026-11-28T19:00Z",
-   "market": "ml",
-   "side": "home",
-   "line": null,
-   "venue": "Novig",
-   "price": 0.415,
-   "fair": 0.424,
-   "fair_power": 0.4196,
-   "venue_fair": 0.4129,
-   "fair_gap": 1.1,
-   "ev": 2.2,
-   "move": 1.6,
-   "flagged": "2026-11-28T15:52:20Z",
-   "venue_ts": "2026-11-28T15:25:09Z",
-   "pin_ts": "2026-11-28T15:25:09Z",
-   "qty_best": 2650880,
-   "wide": false,
-   "team": "USI",
    "checkable": true
   },
   {
@@ -318,31 +268,6 @@
    "checkable": true
   },
   {
-   "key": "401921031|ml|away",
-   "sport": "cbb",
-   "event_id": "401921031",
-   "game": "GASO @ UNCA",
-   "start": "2026-11-28T19:00Z",
-   "market": "ml",
-   "side": "away",
-   "line": null,
-   "venue": "Novig",
-   "price": 0.525,
-   "fair": 0.5378,
-   "fair_power": 0.5401,
-   "venue_fair": 0.5224,
-   "fair_gap": 1.5,
-   "ev": 2.4,
-   "move": 3.3,
-   "flagged": "2026-11-28T17:05:46Z",
-   "venue_ts": "2026-11-28T16:46:40Z",
-   "pin_ts": "2026-11-28T16:46:40Z",
-   "qty_best": 492541,
-   "wide": false,
-   "team": "GASO",
-   "checkable": true
-  },
-  {
    "key": "401912214|ml|away",
    "sport": "cbb",
    "event_id": "401912214",
@@ -465,6 +390,56 @@
    "qty_best": 435103,
    "wide": false,
    "team": "ARIZ",
+   "checkable": true
+  },
+  {
+   "key": "401892814|ml|away",
+   "sport": "nhl",
+   "event_id": "401892814",
+   "game": "CGY @ NYR",
+   "start": "2026-11-29T00:00Z",
+   "market": "ml",
+   "side": "away",
+   "line": null,
+   "venue": "Novig",
+   "price": 0.405,
+   "fair": 0.4149,
+   "fair_power": 0.4117,
+   "venue_fair": 0.403,
+   "fair_gap": 1.2,
+   "ev": 2.5,
+   "move": 3.5,
+   "flagged": "2026-11-28T22:00:26Z",
+   "venue_ts": "2026-11-28T21:47:06Z",
+   "pin_ts": "2026-11-28T21:47:06Z",
+   "qty_best": 131417,
+   "wide": false,
+   "team": "CGY",
+   "checkable": true
+  },
+  {
+   "key": "401858541|total|under",
+   "sport": "cfb",
+   "event_id": "401858541",
+   "game": "WASH @ ORE",
+   "start": "2026-11-29T00:30Z",
+   "market": "total",
+   "side": "under",
+   "line": 51.5,
+   "venue": "Novig",
+   "price": 0.5,
+   "fair": 0.5122,
+   "fair_power": 0.5129,
+   "venue_fair": 0.4975,
+   "fair_gap": 1.5,
+   "ev": 2.4,
+   "move": 2.9,
+   "flagged": "2026-11-28T22:00:26Z",
+   "venue_ts": "2026-11-28T21:36:54Z",
+   "pin_ts": "2026-11-28T21:36:54Z",
+   "qty_best": 432084,
+   "wide": false,
+   "team": null,
    "checkable": true
   }
  ]
