@@ -1,5 +1,5 @@
 --- a/sharp/props_live.py	2026-11-28 01:48:19.351291968 -0500
-+++ b/sharp/props_live.py	2026-11-28 02:14:09.283401037 -0500
++++ b/sharp/props_live.py	2026-11-28 03:00:47.120128842 -0500
 @@ -25,6 +25,10 @@
  BOOKS = {'fanduel': 'FD', 'williamhill_us': 'Caesars', 'draftkings': 'DK'}
  PAPER = os.path.join(ROOT, 'data', 'state', 'props_paper.jsonl'); OUT = os.path.join(ROOT, 'data', 'state', 'props_live.json')
@@ -36,10 +36,13 @@
                      # 11/7 backtest (props grid, 2023-26): a Pinnacle quote 5+ min old lost (NBA 14-19, NHL 7-9); NBA threes only when the book's
                      # own no-vig is 4+ points below Pinnacle's; replaced 11/8 by EV 4%+, see below. NHL keeps the 2% rule.
                      fc = fair_check(P['under'], P['over'], best[1], bv.get('under'), bv.get('over'), P.get('ts'), bv.get('ts'), NOW, max_age=5)
-@@ -151,6 +161,9 @@
+@@ -150,7 +160,11 @@
+                                      start=e['commence_time'], market=mk, player=player, line=ln, side='under', book=BOOKS[best[0]], price=best[1], fair=round(fu, 4),
                                       ev=round(100 * (fu * best[1] - 1), 1), pin_under=P['under'], pin_over=P['over'], book_over=bv.get('over'),
                                       fair_power=fc['pin_fair_power'], book_fair=fc['book_fair'], fair_gap=fc['fair_gap'], ev_strict=fc['ev_strict'],
-                                      pin_ts=P.get('ts'), book_ts=bv.get('ts'), flagged=NOW.strftime('%Y-%m-%dT%H:%M:%SZ')))
+-                                     pin_ts=P.get('ts'), book_ts=bv.get('ts'), flagged=NOW.strftime('%Y-%m-%dT%H:%M:%SZ')))
++                                     pin_ts=P.get('ts'), book_ts=bv.get('ts'), flagged=NOW.strftime('%Y-%m-%dT%H:%M:%SZ'),
++                                     live=True, last_check=NOW.strftime('%Y-%m-%dT%H:%M:%SZ'), last_ev=fc['ev_strict'], last_price=best[1]))   # DRAFT: published live
 +    # DRAFT: an open row the re-check did not touch this run (edge below 2%, or the line gone) is not live
 +    for r in rows:
 +        if r.get('won') is None and r.get('last_check') and r['last_check'] != NOW.strftime('%Y-%m-%dT%H:%M:%SZ') and (ts(r['start']) - NOW).total_seconds() > 540: r['live'] = False

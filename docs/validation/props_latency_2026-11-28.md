@@ -73,7 +73,7 @@ differ from ESPN and the Odds API by about 10 minutes for NBA. The first-on-main
 1. **NBA threes unders: check from 3 hours before tip** (`WINDOW_H = {'nba': 3, 'nhl': 1, 'nfl': 1}`), same 4%+ strict-EV rule. Backtest
    T-180: 449 bets, +8.1%, 4 of 4 seasons. Cost: The Odds API charges markets x regions per event call, 2 credits for threes; about 7
    extra checks per game at the current cadence, so about 14 credits per NBA game.
-2. **Re-check open rows every run** until 9 minutes out: `live: false` when the edge drops under the rule (or the line is gone), `true`
+2. **Re-check open rows every run** (11/28: draft tested offline, `docs/drafts/test_props_window_draft.py`, which caught and fixed a first-run row with no `live` field; NFL anytime TD and rushing-outlier rows are not re-checked and carry no `live`, so the placer should treat a missing `live` as live) until 9 minutes out: `live: false` when the edge drops under the rule (or the line is gone), `true`
    again if it returns. The auto-placer places only `live: true` rows. The paper record keeps grading the first flag, so it stays
    comparable with the backtest; a `live` split shows what the auto-placer would have done.
 3. **NHL and NFL stay at 1 hour.** The Barkov/Hutson miss was a late Pinnacle move (an edge that appeared 13 minutes out), not the
