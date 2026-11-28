@@ -10877,7 +10877,10 @@
 "price": -186,
 "fair": 0.64135,
 "edge_pts": -0.87,
-"why": "home NYR lost its last game by 4, record 13-11 (54%): home moneyline (mined angle)"
+"why": "home NYR lost its last game by 4, record 13-11 (54%): home moneyline (mined angle)",
+"void": true,
+"void_why": "trigger no longer holds on current season records (2026-11-28T01:58:51Z)",
+"void_at": "2026-11-28T01:58:51Z"
 },
 "401892807:xch_homedog_fade:spread": {
 "tag": "xch_homedog_fade",
@@ -10983,5 +10986,18 @@
 "fair": 0.78404,
 "edge_pts": -0.1,
 "why": "Novig home side mid 0.217 inside T-1.5h; audit band 20-35c"
+},
+"401892814:nhl_loss_streak_over": {
+"tag": "nhl_loss_streak_over",
+"fill_id": "6762316bbe3c",
+"ts": "2026-11-28T01:58:51Z",
+"market": "total",
+"side": "over",
+"line": 5.5,
+"venue": "Novig",
+"price": -122,
+"fair": 0.54396,
+"edge_pts": -0.6,
+"why": "home NYR has lost 3 straight, season over rate 44%: over (mined angle)"
 }
 }
