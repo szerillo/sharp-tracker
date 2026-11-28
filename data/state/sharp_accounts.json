@@ -1,5 +1,5 @@
 {
- "built": "2026-11-27T23:46:27Z",
+ "built": "2026-11-28T00:19:44Z",
  "rows": [
   {
    "cond": "0xd57aff4e5f26436aba9963dd5ca0c28d1ce907b687534ef6cf8c784ab2f11c0a",
@@ -207,7 +207,7 @@
    "best_rank": 104,
    "usd": 302,
    "paid": 0.437,
-   "ask": 0.39,
+   "ask": null,
    "status": "live",
    "link": "https://polymarket.us/event/nba-mia-nyk-2026-11-27",
    "other": null,
@@ -223,12 +223,9 @@
    "game_start": "2026-11-28T00:00Z",
    "side_std": "home",
    "conflict": [
-    "Kalshi move",
     "big money"
    ],
-   "cancel": [
-    "Kalshi move"
-   ],
+   "cancel": null,
    "money_with": false,
    "grade": "watch",
    "fair_board": null,
@@ -339,7 +336,7 @@
    "best_rank": 115,
    "usd": 695,
    "paid": 0.48,
-   "ask": 0.5,
+   "ask": 0.51,
    "status": "live",
    "link": "https://polymarket.us/event/cfb-tx-txam-2026-11-27",
    "other": null,
@@ -731,10 +728,10 @@
     "Kalshi bet back"
    ],
    "cancel": null,
-   "money_with": false,
-   "grade": "B",
+   "money_with": true,
+   "grade": "A",
    "inside_fair": true,
-   "fair_board": 0.4725,
+   "fair_board": 0.4766,
    "books": {
     "at": "2026-11-27T22:26:48Z",
     "fair": 0.4766,
@@ -903,7 +900,7 @@
    "best_rank": 104,
    "usd": 279,
    "paid": 0.772,
-   "ask": 0.77,
+   "ask": 0.79,
    "status": "live",
    "link": "https://polymarket.us/event/nba-phi-hou-2026-11-28",
    "other": null,
@@ -1348,6 +1345,50 @@
    "books": null
   },
   {
+   "cond": "0x94cc5b7f6cefeaa236d2ef4394fd0c6f71d94f233c3f44da731e31d599d634ef",
+   "slug": "nba-phi-ind-2026-11-27",
+   "title": "76ers vs. Pacers",
+   "mtype": "spread",
+   "start": "2026-11-28T00:30:00Z",
+   "bet": "76ers -3.5",
+   "side": "76ers",
+   "flagged": "2026-11-28T00:01:22Z",
+   "why": "2 top-200 accounts",
+   "proven": false,
+   "trigger": "two",
+   "n_accounts": 2,
+   "best_rank": 49,
+   "usd": 18427,
+   "paid": 0.5,
+   "ask": 0.51,
+   "status": "other side",
+   "link": "https://polymarket.us/event/nba-phi-ind-2026-11-27",
+   "other": {
+    "n_accounts": 1,
+    "best_rank": 49,
+    "usd": 9522,
+    "first": "2026-11-28T00:15:49Z"
+   },
+   "exit_bid": 0.5,
+   "kalshi_against": null,
+   "logged": false,
+   "event_id": "401909328",
+   "sport": "nba",
+   "league": null,
+   "away": "PHI",
+   "home": "IND",
+   "away_name": "Philadelphia 76ers",
+   "home_name": "Indiana Pacers",
+   "game_start": "2026-11-28T00:30Z",
+   "side_std": "away",
+   "cancel": null,
+   "money_with": false,
+   "grade": "B",
+   "fair_board": 0.4903,
+   "inside_fair": false,
+   "books": null
+  },
+  {
    "cond": "0xcccf6237b097cc1d046168695f6736e65d8ba86ab388c1977715af2b27724080",
    "slug": "mls-clb-mia-2026-11-27",
    "title": "Columbus Crew vs. Inter Miami CF",
@@ -1692,8 +1733,8 @@
    "link": "https://polymarket.us/event/nba-okc-mil-2026-11-28",
    "other": null,
    "kalshi_against": {
-    "move": 4.5,
-    "now": 83.0,
+    "move": 4.0,
+    "now": 82.5,
     "state": "drift"
    },
    "logged": true,
@@ -1741,12 +1782,12 @@
     "clv": -0.13
    }
   },
-  "n": 477,
+  "n": 478,
   "won": 233,
   "units": -13.11,
   "by_grade": {
    "A": {
-    "n": 323,
+    "n": 324,
     "won": 152,
     "units": -12.92,
     "clv": -0.11
@@ -1764,9 +1805,9 @@
     "clv": 0.11
    }
   },
-  "units_1u": -11.25,
+  "units_1u": -12.25,
   "clv": -0.32,
-  "n_venue": 248,
+  "n_venue": 249,
   "units_venue": -5.02,
   "clv_venue": 0.85,
   "clv_poly_same": -0.6
@@ -1841,6 +1882,11 @@
     "n": 3,
     "best_rank": 49,
     "usd": 18618
+   },
+   "home": {
+    "n": 1,
+    "best_rank": 49,
+    "usd": 9522
    }
   },
   "401909329|ml": {
