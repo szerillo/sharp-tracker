@@ -1,5 +1,5 @@
 {
- "built": "2026-11-28T14:34:50Z",
+ "built": "2026-11-28T14:44:47Z",
  "rows": [
   {
    "cond": "0x1cf899c2e1facf88079301875eb3bd94b8bd647c4967d650a9cc28de6b703aa0",
@@ -17,7 +17,7 @@
    "best_rank": 71,
    "usd": 248,
    "paid": 0.67,
-   "ask": 0.66,
+   "ask": 0.67,
    "status": "live",
    "link": "https://polymarket.us/event/epl-lee-cov-2026-11-28",
    "other": null,
@@ -64,7 +64,7 @@
    "best_rank": 100,
    "usd": 4882,
    "paid": 0.45,
-   "ask": 0.42,
+   "ask": 0.43,
    "status": "live",
    "link": "https://polymarket.us/event/epl-mun-bre-2026-11-28",
    "other": null,
@@ -312,6 +312,99 @@
    "books": null
   },
   {
+   "cond": "0xa1bd922542b4000a260f2dcad40fdcdfa7385b5ecb97673d1c44e6b1f08b861c",
+   "slug": "cfb-duke-wake-2026-11-28",
+   "title": "Duke vs. Wake Forest",
+   "mtype": "total",
+   "start": "2026-11-28T20:30:00Z",
+   "bet": "Under 55.5",
+   "side": "Under",
+   "flagged": "2026-11-28T14:32:42Z",
+   "why": "a top-200 account also in this sport's top 50",
+   "proven": true,
+   "trigger": "proven",
+   "n_accounts": 1,
+   "best_rank": 115,
+   "usd": 132,
+   "paid": 0.51,
+   "ask": 0.52,
+   "status": "live",
+   "link": "https://polymarket.us/event/cfb-duke-wake-2026-11-28",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401858312",
+   "sport": "cfb",
+   "league": null,
+   "away": "DUKE",
+   "home": "WAKE",
+   "away_name": "Duke Blue Devils",
+   "home_name": "Wake Forest Demon Deacons",
+   "game_start": "2026-11-28T20:30Z",
+   "side_std": "under",
+   "cancel": null,
+   "money_with": false,
+   "grade": "A",
+   "fair_board": 0.5091,
+   "inside_fair": false,
+   "books": {
+    "at": "2026-11-28T02:07:39Z",
+    "fair": 0.5091,
+    "q": {
+     "Novig": 0.52,
+     "FD": 0.5283,
+     "Caesars": 0.5327,
+     "Kalshi": 0.54
+    }
+   }
+  },
+  {
+   "cond": "0xfc77d98da5eb7b76ba00fd745868e1f3014432b6534f5d542d72632066630719",
+   "slug": "cfb-jaxst-del-2026-11-28",
+   "title": "Jacksonville State vs. Delaware",
+   "mtype": "total",
+   "start": "2026-11-28T20:30:00Z",
+   "bet": "Under 57.5",
+   "side": "Under",
+   "flagged": "2026-11-28T14:34:01Z",
+   "why": "a top-200 account also in this sport's top 50",
+   "proven": true,
+   "trigger": "proven",
+   "n_accounts": 1,
+   "best_rank": 115,
+   "usd": 1440,
+   "paid": 0.48,
+   "ask": 0.49,
+   "status": "live",
+   "link": "https://polymarket.us/event/cfb-jaxst-del-2026-11-28",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401871062",
+   "sport": "cfb",
+   "league": null,
+   "away": "JXST",
+   "home": "DEL",
+   "away_name": "Jacksonville State Gamecocks",
+   "home_name": "Delaware Blue Hens",
+   "game_start": "2026-11-28T20:30Z",
+   "side_std": "under",
+   "cancel": null,
+   "money_with": false,
+   "grade": "A",
+   "fair_board": 0.4795,
+   "inside_fair": false,
+   "books": {
+    "at": "2026-11-28T02:07:39Z",
+    "fair": 0.4795,
+    "q": {
+     "Novig": 0.48,
+     "DK": 0.505,
+     "FD": 0.5146
+    }
+   }
+  },
+  {
    "cond": "0x64fc28a52de28cba0a477b379b400b1680fa3a68c3640213aa1aaf533779ec0f",
    "slug": "cfb-illst-ausp-2026-11-28",
    "title": "Illinois State vs. Austin Peay",
@@ -337,6 +430,53 @@
    "fair_board": null,
    "inside_fair": null,
    "books": null
+  },
+  {
+   "cond": "0xe54d70ac827be18541c1314dace543d78773235eff0ac5662210dfcff1ea3076",
+   "slug": "cfb-boise-colst-2026-11-28",
+   "title": "Boise State vs. Colorado State",
+   "mtype": "total",
+   "start": "2026-11-28T23:00:00Z",
+   "bet": "Under 76.5",
+   "side": "Under",
+   "flagged": "2026-11-28T14:35:15Z",
+   "why": "a top-200 account also in this sport's top 50",
+   "proven": true,
+   "trigger": "proven",
+   "n_accounts": 1,
+   "best_rank": 115,
+   "usd": 5252,
+   "paid": 0.49,
+   "ask": 0.5,
+   "status": "live",
+   "link": "https://polymarket.us/event/cfb-boise-colst-2026-11-28",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401860926",
+   "sport": "cfb",
+   "league": null,
+   "away": "BOIS",
+   "home": "CSU",
+   "away_name": "Boise State Broncos",
+   "home_name": "Colorado State Rams",
+   "game_start": "2026-11-28T23:00Z",
+   "side_std": "under",
+   "cancel": null,
+   "money_with": false,
+   "grade": "A",
+   "fair_board": 0.4883,
+   "inside_fair": false,
+   "books": {
+    "at": "2026-11-28T02:07:39Z",
+    "fair": 0.4883,
+    "q": {
+     "Novig": 0.49,
+     "Caesars": 0.5122,
+     "DK": 0.5122,
+     "FD": 0.5146
+    }
+   }
   },
   {
    "cond": "0x2c8967d77c0c1a2866d88d441a41d215ea4fe8895e9c070d590b4e944f6ab052",
@@ -386,6 +526,53 @@
    }
   },
   {
+   "cond": "0x128c247cf2d0d04a8d4ffbbce7748fc40be6dd975dd013ebe3034a8a7d5bbefb",
+   "slug": "cfb-tenn-vand-2026-11-28",
+   "title": "Tennessee vs. Vanderbilt",
+   "mtype": "total",
+   "start": "2026-11-29T00:00:00Z",
+   "bet": "Over 43.5",
+   "side": "Over",
+   "flagged": "2026-11-28T14:36:58Z",
+   "why": "a top-200 account also in this sport's top 50",
+   "proven": true,
+   "trigger": "proven",
+   "n_accounts": 1,
+   "best_rank": 115,
+   "usd": 6528,
+   "paid": 0.49,
+   "ask": 0.5,
+   "status": "live",
+   "link": "https://polymarket.us/event/cfb-tenn-vand-2026-11-28",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401856765",
+   "sport": "cfb",
+   "league": null,
+   "away": "TENN",
+   "home": "VAN",
+   "away_name": "Tennessee Volunteers",
+   "home_name": "Vanderbilt Commodores",
+   "game_start": "2026-11-29T00:00Z",
+   "side_std": "over",
+   "cancel": null,
+   "money_with": false,
+   "grade": "A",
+   "fair_board": 0.4846,
+   "inside_fair": false,
+   "books": {
+    "at": "2026-11-28T02:07:39Z",
+    "fair": 0.4846,
+    "q": {
+     "Novig": 0.48,
+     "Kalshi": 0.5,
+     "DK": 0.5122,
+     "FD": 0.5146
+    }
+   }
+  },
+  {
    "cond": "0x45c414095f5876a025068511b200405477e486fd4ae24b880a42c1f1154216f0",
    "slug": "cfb-aubrn-ala-2026-11-28",
    "title": "Auburn vs. Alabama",
@@ -429,6 +616,53 @@
      "DK": 0.5283,
      "FD": 0.5327,
      "Novig": 0.54
+    }
+   }
+  },
+  {
+   "cond": "0x32b0b46f525a294924a3fe75ac0eae4bd0169fe1d162a30e6f76467c2ea2935d",
+   "slug": "cfb-pitt-cah-2026-11-28",
+   "title": "Pittsburgh vs. California",
+   "mtype": "total",
+   "start": "2026-11-29T00:30:00Z",
+   "bet": "Over 47.5",
+   "side": "Over",
+   "flagged": "2026-11-28T14:38:01Z",
+   "why": "a top-200 account also in this sport's top 50",
+   "proven": true,
+   "trigger": "proven",
+   "n_accounts": 1,
+   "best_rank": 115,
+   "usd": 4311,
+   "paid": 0.49,
+   "ask": 0.5,
+   "status": "live",
+   "link": "https://polymarket.us/event/cfb-pitt-cah-2026-11-28",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401858315",
+   "sport": "cfb",
+   "league": null,
+   "away": "PITT",
+   "home": "CAL",
+   "away_name": "Pittsburgh Panthers",
+   "home_name": "California Golden Bears",
+   "game_start": "2026-11-29T00:30Z",
+   "side_std": "over",
+   "cancel": null,
+   "money_with": false,
+   "grade": "A",
+   "fair_board": 0.4861,
+   "inside_fair": false,
+   "books": {
+    "at": "2026-11-28T02:07:39Z",
+    "fair": 0.4861,
+    "q": {
+     "Novig": 0.485,
+     "Kalshi": 0.51,
+     "DK": 0.5238,
+     "FD": 0.5238
     }
    }
   },
@@ -495,7 +729,7 @@
    "best_rank": 104,
    "usd": 279,
    "paid": 0.772,
-   "ask": 0.81,
+   "ask": 0.82,
    "status": "live",
    "link": "https://polymarket.us/event/nba-phi-hou-2026-11-28",
    "other": null,
@@ -947,6 +1181,14 @@
     "best_rank": 115,
     "usd": 4930
    }
+  },
+  "401871062:cfb_wind14": {
+   "with": {
+    "n": 1,
+    "best_rank": 115,
+    "usd": 1440
+   },
+   "against": null
   }
  },
  "by_event": {
@@ -1055,6 +1297,27 @@
     "usd": 125
    }
   },
+  "401856765|total": {
+   "over": {
+    "n": 1,
+    "best_rank": 115,
+    "usd": 6528
+   }
+  },
+  "401858312|total": {
+   "under": {
+    "n": 1,
+    "best_rank": 115,
+    "usd": 132
+   }
+  },
+  "401860926|total": {
+   "under": {
+    "n": 1,
+    "best_rank": 115,
+    "usd": 5252
+   }
+  },
   "401858540|total": {
    "over": {
     "n": 1,
@@ -1097,6 +1360,20 @@
     "usd": 837
    }
   },
+  "401871062|total": {
+   "under": {
+    "n": 1,
+    "best_rank": 115,
+    "usd": 1440
+   }
+  },
+  "401858315|total": {
+   "over": {
+    "n": 1,
+    "best_rank": 115,
+    "usd": 4311
+   }
+  },
   "401856874|spread": {
    "away": {
     "n": 1,
@@ -1118,11 +1395,53 @@
     "usd": 103
    }
   },
+  "401926229|total": {
+   "under": {
+    "n": 1,
+    "best_rank": 65,
+    "usd": 960
+   }
+  },
+  "401911312|total": {
+   "over": {
+    "n": 1,
+    "best_rank": 65,
+    "usd": 460
+   }
+  },
+  "401920436|spread": {
+   "home": {
+    "n": 1,
+    "best_rank": 65,
+    "usd": 864
+   }
+  },
+  "401917954|spread": {
+   "home": {
+    "n": 1,
+    "best_rank": 65,
+    "usd": 585
+   }
+  },
   "401917549|total": {
    "under": {
     "n": 1,
     "best_rank": 104,
     "usd": 223
+   }
+  },
+  "401920160|total": {
+   "over": {
+    "n": 1,
+    "best_rank": 65,
+    "usd": 864
+   }
+  },
+  "401920139|total": {
+   "under": {
+    "n": 1,
+    "best_rank": 65,
+    "usd": 612
    }
   },
   "401917548|total": {
@@ -1137,6 +1456,13 @@
     "n": 1,
     "best_rank": 104,
     "usd": 104
+   }
+  },
+  "401916308|total": {
+   "under": {
+    "n": 1,
+    "best_rank": 65,
+    "usd": 768
    }
   },
   "401879227|spread": {
