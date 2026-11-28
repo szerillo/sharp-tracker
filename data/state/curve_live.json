@@ -1,5 +1,5 @@
 {
- "built": "2026-11-28T18:38:12Z",
+ "built": "2026-11-28T18:58:36Z",
  "record": {
   "cbb_1h_total_curve": {
    "n": 11,
@@ -24,12 +24,12 @@
    "lost": 25,
    "units": -3.46,
    "clv": {
-    "n": 25,
-    "avg": -2.15,
+    "n": 27,
+    "avg": -2.18,
     "beat": 3
    },
    "line_value": {
-    "n": 25,
+    "n": 27,
     "avg": 0.0,
     "better": 0,
     "worse": 0
@@ -75,12 +75,12 @@
    "lost": 22,
    "units": -1.33,
    "clv": {
-    "n": 19,
-    "avg": -2.99,
+    "n": 20,
+    "avg": -3.05,
     "beat": 1
    },
    "line_value": {
-    "n": 19,
+    "n": 20,
     "avg": 0.0,
     "better": 0,
     "worse": 0
@@ -237,7 +237,13 @@
    "book_fair": 0.5,
    "fair_gap": 0.0,
    "ev_curve": 4.4,
-   "flagged": "2026-11-28T16:16:14Z"
+   "flagged": "2026-11-28T16:16:14Z",
+   "close_ts": "2026-11-28T18:58:36Z",
+   "close_line": 20.5,
+   "line_value": 0.0,
+   "close_fair": 0.4935,
+   "clv": -4.13,
+   "beat_fair": -0.65
   },
   {
    "key": "cfb_q1_under_curve|c424e58ad3ce3e391a33c0495aa52690||under",
@@ -266,7 +272,13 @@
    "book_fair": 0.5,
    "fair_gap": -0.7,
    "ev_curve": 10.4,
-   "flagged": "2026-11-28T16:16:14Z"
+   "flagged": "2026-11-28T16:16:14Z",
+   "close_ts": "2026-11-28T18:58:36Z",
+   "close_line": 12.5,
+   "line_value": 0.0,
+   "close_fair": 0.5,
+   "clv": -2.36,
+   "beat_fair": 0.7
   },
   {
    "key": "cfb_q1_under_curve|a0fe49c990d1497e1cb34eb9c2b73ef1||under",
@@ -291,7 +303,13 @@
    "pin_price": 1.85,
    "book": null,
    "price": null,
-   "flagged": "2026-11-28T16:16:14Z"
+   "flagged": "2026-11-28T16:16:14Z",
+   "close_ts": "2026-11-28T18:58:36Z",
+   "close_line": 13.5,
+   "line_value": 0.0,
+   "close_fair": 0.5144,
+   "clv": -2.61,
+   "beat_fair": -0.16
   },
   {
    "key": "cbb_1h_total_curve|02d699351ee4c99e27b125d21578ec95||over",
