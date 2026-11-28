@@ -1,11 +1,11 @@
 {
- "built": "2026-11-28T00:44:49Z",
+ "built": "2026-11-28T01:00:15Z",
  "record": {
-  "n": 317,
-  "won": 137,
+  "n": 318,
+  "won": 138,
   "lost": 180,
-  "units": -3.87,
-  "roi": -4.9
+  "units": -3.59,
+  "roi": -4.5
  },
  "record_sb4": {
   "n": 11,
@@ -17,23 +17,23 @@
  "sb4_killed": true,
  "checkable_test": {
   "rule": "kill if the first 100 graded checkable rows are not positive in both halves",
-  "n": 43,
+  "n": 44,
   "all_checkable": {
-   "n": 43,
-   "won": 14,
+   "n": 44,
+   "won": 15,
    "lost": 29,
-   "units": -3.2,
-   "roi": -29.7
+   "units": -2.92,
+   "roi": -26.5
   },
   "half1": {
-   "n": 43,
-   "won": 14,
+   "n": 44,
+   "won": 15,
    "lost": 29,
-   "units": -3.2,
-   "roi": -29.7
+   "units": -2.92,
+   "roi": -26.5
   },
   "half2": null,
-  "verdict": "pending: 43 of 100"
+  "verdict": "pending: 44 of 100"
  },
  "rows": [
   {
@@ -259,31 +259,6 @@
    "qty_best": 85814,
    "wide": false,
    "team": "MOST",
-   "checkable": true
-  },
-  {
-   "key": "401920810|ml|home",
-   "sport": "cbb",
-   "event_id": "401920810",
-   "game": "MARQ @ TA&M",
-   "start": "2026-11-27T22:00Z",
-   "market": "ml",
-   "side": "home",
-   "line": null,
-   "venue": "Novig",
-   "price": 0.47,
-   "fair": 0.4878,
-   "fair_power": 0.4871,
-   "venue_fair": 0.4677,
-   "fair_gap": 2.0,
-   "ev": 3.8,
-   "move": 1.2,
-   "flagged": "2026-11-27T20:50:37Z",
-   "venue_ts": "2026-11-27T20:25:07Z",
-   "pin_ts": "2026-11-27T20:25:07Z",
-   "qty_best": 40011,
-   "wide": false,
-   "team": "TA&M",
    "checkable": true
   },
   {
