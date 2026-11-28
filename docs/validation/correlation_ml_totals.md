@@ -108,7 +108,8 @@ Variance of the 2-bet P/L over the independent case (1 unit each at the fair clo
 | NHL | 0.996 | 0.998 | 1.004 | 1.002 | 1.042 | 1.042 |
 | CBB | 0.988 | 0.994 | 1.012 | 1.006 | 0.981 | 0.981 |
 
-The worst case anywhere with 300+ games is CFB -400+ favorite spread + Over at about 1.12 (phi +0.118). Holding a side and a total in the
+The worst case anywhere with 300+ games is CFB -400+ favorite spread + Over at 1.118 (phi +0.118; NHL -200 to -400 puck line +
+Over 1.092). Holding a side and a total in the
 same game adds at most about 5% to the variance of the two bets in any sport overall. Counting them as one position would treat
 them as 100% more.
 
