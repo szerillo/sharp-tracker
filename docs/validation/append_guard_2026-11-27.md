@@ -67,22 +67,30 @@ waits for Sean.
 From `sharp/research/row_audit.py`. "Ids missing now" = rows a push logged that are not on main now (a dropped row the job later
 re-logged, usually at a newer price, is not counted).
 
-| Paper log | Pushes | Pushes that dropped rows | Ids missing now |
+| Paper log | Pushes | Pushes that dropped rows | Distinct ids missing now |
 |---|---|---|---|
-| parlays_paper (parlay maker test) | 638 | 629 | 304,103 (33,313 on file) |
-| steam_rev_paper | 216 | 71 | 66 |
-| flow_paper (kalshi_nhl_flow) | 111 | 41 | 26 |
-| stale_paper (stale_book) | 231 | 24 | 12 |
-| sharp_paper | 379 | 33 | 6 |
-| curve_paper | 103 | 5 | 3 |
-| props_paper | 55 | 5 | 2 |
+| parlays_paper (parlay maker test) | 638 | 629 | 11,102 (33,313 on file) |
+| steam_rev_paper | 216 | 71 | 47 |
+| flow_paper (kalshi_nhl_flow) | 111 | 41 | 12 |
+| stale_paper (stale_book) | 231 | 24 | 8 (4 checkable) |
+| sharp_paper | 379 | 33 | 3 |
+| curve_paper | 103 | 5 | 2 |
+| props_paper | 55 | 5 | 1 |
 | sharp_c_paper | 396 | 11 | 0 |
 | fills, sys_sharp_tags, wncaab, novig_quoter_fills, placed, expert picks, tennis (hot, hotdog, serve, fs), mma steam, Bet Labs history | | 0 | 0 |
 
+Corrected 11/28 01:30 ET: the first version of this table (parlays 304,103, others 115) counted a row once for every push that
+re-logged it. Counted once per row id, and cross-checked by a second method (`sharp/research/restore_draft.py`), the totals are
+11,102 parlays and 73 rows across the other paper logs (the 9 rows of 11/27 are included). None of the 73 was graded before it was
+dropped.
+
 parlays_paper is written by both signals jobs (the 10-minute run and the on-demand fast run), each from a stale checkout, so nearly every
-push clobbered the other's new rows: the parlay maker test has kept roughly one logged parlay in ten. All of these are paper. Every
-missing row is still in git history, so all of it can be restored; that is Sean's call, together with the 9 rows above (which the
-11/27 table counts inside the 7-day numbers).
+push clobbered the other's new rows; jobs re-log a parlay only while its trade is still in the recent-trades window, so 11,102 never
+came back (5,730 two-leg, 5,372 three-leg, 4,418 same-game). All of these are paper. Every missing row is still in git history.
+
+Restore draft (not applied): `sharp/research/restore_draft.py` writes the candidate rows, latest version main ever had, to
+`data/research/restore_candidates/` (parlays as a summary; `--write-all` writes its rows) with `summary.json`. Restoring is Sean's call;
+the 4 checkable stale_paper rows would enter the stale_book kill test count.
 
 After the fix (04:09Z to 05:34Z 11/28): parlays_paper 6 pushes, one drop of 373 rows at 04:15Z by a signals run triggered before the
 deploy (old workflow), since re-logged; 0 ids missing. steam_rev, sharp_paper, stale_paper: 0 drops.

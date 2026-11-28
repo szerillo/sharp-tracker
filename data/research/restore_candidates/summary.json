@@ -1,0 +1,106 @@
+{
+ "since": "2026-11-21T05:00Z",
+ "until": "2026-11-28T04:09Z",
+ "built": "2026-11-28T06:00:56Z",
+ "note": "DRAFT: candidate rows only; no live log was changed",
+ "ledgers": {
+  "data/state/parlays_paper.jsonl": {
+   "rows": 11102,
+   "by_day": {
+    "2026-11-21": 1613,
+    "2026-11-22": 1981,
+    "2026-11-23": 1463,
+    "2026-11-24": 1392,
+    "2026-11-25": 1585,
+    "2026-11-26": 1633,
+    "2026-11-27": 1435
+   },
+   "graded_before_drop": 0,
+   "legs": {
+    "2": 5730,
+    "3": 5372
+   },
+   "same_game": 4418,
+   "usd": 1065421.98,
+   "note": "not graded here: grading needs each parlay's Kalshi result (sharp/parlay_grade.py fetches them)",
+   "rules": {}
+  },
+  "data/kalshi/steam_rev_paper.jsonl": {
+   "rows": 47,
+   "by_day": {
+    "2026-11-21": 10,
+    "2026-11-22": 9,
+    "2026-11-23": 4,
+    "2026-11-24": 4,
+    "2026-11-25": 9,
+    "2026-11-26": 4,
+    "2026-11-27": 7
+   },
+   "graded_before_drop": 0,
+   "rules": {
+    "steam_rev": 47
+   }
+  },
+  "data/kalshi/flow_paper.jsonl": {
+   "rows": 12,
+   "by_day": {
+    "2026-11-21": 1,
+    "2026-11-23": 4,
+    "2026-11-25": 2,
+    "2026-11-27": 5
+   },
+   "graded_before_drop": 0,
+   "rules": {
+    "kalshi_nhl_flow": 12
+   }
+  },
+  "data/state/stale_paper.jsonl": {
+   "rows": 8,
+   "by_day": {
+    "2026-11-21": 3,
+    "2026-11-22": 1,
+    "2026-11-25": 1,
+    "2026-11-26": 1,
+    "2026-11-27": 2
+   },
+   "graded_before_drop": 0,
+   "checkable": 4,
+   "note": "stale_book kill test counts the first 100 graded checkable rows by flag time; restored checkable rows would enter that count",
+   "rules": {}
+  },
+  "data/state/sharp_paper.jsonl": {
+   "rows": 3,
+   "by_day": {
+    "2026-11-22": 1,
+    "2026-11-27": 2
+   },
+   "graded_before_drop": 0,
+   "rules": {}
+  },
+  "data/state/curve_paper.jsonl": {
+   "rows": 2,
+   "by_day": {
+    "2026-11-21": 1,
+    "2026-11-27": 1
+   },
+   "graded_before_drop": 0,
+   "rules": {
+    "cfb_q1_under_curve": 1,
+    "cbb_1h_total_curve": 1
+   }
+  },
+  "data/state/props_paper.jsonl": {
+   "rows": 1,
+   "by_day": {
+    "2026-11-22": 1
+   },
+   "graded_before_drop": 0,
+   "rules": {}
+  },
+  "data/state/sharp_c_paper.jsonl": {
+   "rows": 0,
+   "by_day": {},
+   "graded_before_drop": 0
+  }
+ }
+}

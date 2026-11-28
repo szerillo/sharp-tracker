@@ -52,10 +52,19 @@ def audit(f, since, until):
         added_by.append((h[:10], when, subj.split()[0], add))
     end = rows('origin/main', f)     # 11/28: judged against main now (a job can re-log a dropped row later; that row is not lost)
     endk = collections.Counter(k(l) for l in end) if keyed else collections.Counter(end)
-    missing = collections.Counter()
-    for h, when, w, add in added_by:
-        if keyed: missing[w] += sum(1 for x in add if x not in endk)
-        else: missing[w] += sum(max(0, n - endk[l]) for l, n in add.items())
+    missing = collections.Counter()      # 11/28 fix: each row counted once (it was counted once per push that re-logged it), charged to its first writer
+    if keyed:
+        first = {}
+        for h, when, w, add in added_by:
+            for x in add: first.setdefault(x, w)
+        for x, w in first.items():
+            if x not in endk: missing[w] += 1
+    else:
+        most, who = collections.Counter(), {}
+        for h, when, w, add in added_by:
+            for l, n in add.items(): most[l] = max(most[l], n); who.setdefault(l, w)
+        for l, n in most.items():
+            if n > endk[l]: missing[who[l]] += n - endk[l]
     return dict(file=f, commits=len(C), rows_start=len(rows(C[0][0] + '^', f)) if C else None, rows_end=len(end),
                 pushes_that_dropped_rows=losses, rows_lost=sum(x['lost'] for x in losses),
                 writers=dict(collections.Counter(w for _, _, w, _ in added_by)), added_rows_missing_on_main_now=dict(missing))
