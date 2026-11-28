@@ -1,5 +1,5 @@
 {
- "built": "2026-11-28T22:24:24Z",
+ "built": "2026-11-28T22:40:25Z",
  "record": {
   "cbb_1h_total_curve": {
    "n": 11,
@@ -70,10 +70,10 @@
    }
   },
   "cfb_tt_under_curve": {
-   "n": 43,
-   "won": 20,
+   "n": 44,
+   "won": 21,
    "lost": 23,
-   "units": -1.38,
+   "units": -1.17,
    "clv": {
     "n": 20,
     "avg": -3.05,
@@ -88,41 +88,6 @@
   }
  },
  "rows": [
-  {
-   "key": "cfb_tt_under_curve|559227d3ba70769111dd09490258af44|home|under",
-   "rule": "cfb_tt_under_curve",
-   "tier": "C",
-   "stake": 0.25,
-   "sport": "cfb",
-   "odds_id": "559227d3ba70769111dd09490258af44",
-   "espn": "401862841",
-   "game": "Army Black Knights @ Rice Owls",
-   "start": "2026-11-28T19:00:00Z",
-   "market": "team_totals",
-   "team": "home",
-   "team_name": "Rice Owls",
-   "side": "under",
-   "line": 20.5,
-   "curve": 0.558,
-   "pin_fair": 0.5,
-   "gap": 5.8,
-   "full_total": 45.0,
-   "full_spread": 5.0,
-   "pin_price": 1.93,
-   "book": "Caesars",
-   "price": 1.87,
-   "pin_fair_power": 0.5,
-   "book_fair": 0.5,
-   "fair_gap": 0.0,
-   "ev_curve": 4.4,
-   "flagged": "2026-11-28T16:16:14Z",
-   "close_ts": "2026-11-28T18:58:36Z",
-   "close_line": 20.5,
-   "line_value": 0.0,
-   "close_fair": 0.4935,
-   "clv": -4.13,
-   "beat_fair": -0.65
-  },
   {
    "key": "cfb_q1_under_curve|c424e58ad3ce3e391a33c0495aa52690||under",
    "rule": "cfb_q1_under_curve",

@@ -1,11 +1,11 @@
 {
- "built": "2026-11-28T22:17:40Z",
+ "built": "2026-11-28T22:35:03Z",
  "record": {
-  "n": 334,
+  "n": 335,
   "won": 146,
-  "lost": 188,
-  "units": -3.03,
-  "roi": -3.6
+  "lost": 189,
+  "units": -3.28,
+  "roi": -3.9
  },
  "record_sb4": {
   "n": 11,
@@ -17,13 +17,13 @@
  "sb4_killed": true,
  "checkable_test": {
   "rule": "kill if the first 100 graded checkable rows are not positive in both halves",
-  "n": 60,
+  "n": 61,
   "all_checkable": {
-   "n": 60,
+   "n": 61,
    "won": 23,
-   "lost": 37,
-   "units": -2.36,
-   "roi": -15.7
+   "lost": 38,
+   "units": -2.61,
+   "roi": -17.1
   },
   "half1": {
    "n": 50,
@@ -33,13 +33,13 @@
    "roi": -21.1
   },
   "half2": {
-   "n": 10,
+   "n": 11,
    "won": 5,
-   "lost": 5,
-   "units": 0.27,
-   "roi": 10.9
+   "lost": 6,
+   "units": 0.02,
+   "roi": 0.8
   },
-  "verdict": "pending: 60 of 100"
+  "verdict": "pending: 61 of 100"
  },
  "rows": [
   {
@@ -115,31 +115,6 @@
    "qty_best": 4280,
    "wide": false,
    "team": "USD",
-   "checkable": true
-  },
-  {
-   "key": "401928848|ml|away",
-   "sport": "cbb",
-   "event_id": "401928848",
-   "game": "TOL @ VAL",
-   "start": "2026-11-28T20:00Z",
-   "market": "ml",
-   "side": "away",
-   "line": null,
-   "venue": "Novig",
-   "price": 0.37,
-   "fair": 0.3803,
-   "fair_power": 0.3732,
-   "venue_fair": 0.3682,
-   "fair_gap": 1.2,
-   "ev": 2.8,
-   "move": 1.9,
-   "flagged": "2026-11-28T15:52:20Z",
-   "venue_ts": "2026-11-28T15:25:09Z",
-   "pin_ts": "2026-11-28T15:25:09Z",
-   "qty_best": 1440697,
-   "wide": false,
-   "team": "TOL",
    "checkable": true
   },
   {
