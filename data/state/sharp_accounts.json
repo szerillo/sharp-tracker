@@ -1,5 +1,5 @@
 {
- "built": "2026-11-28T16:58:09Z",
+ "built": "2026-11-28T17:06:22Z",
  "rows": [
   {
    "cond": "0x1cf899c2e1facf88079301875eb3bd94b8bd647c4967d650a9cc28de6b703aa0",
@@ -131,7 +131,7 @@
    "best_rank": 115,
    "usd": 5033,
    "paid": 0.48,
-   "ask": 0.52,
+   "ask": null,
    "status": "live",
    "link": "https://polymarket.us/event/cfb-cmich-ballst-2026-11-28",
    "other": null,
@@ -150,7 +150,7 @@
    "money_with": false,
    "grade": "A",
    "fair_board": 0.4993,
-   "inside_fair": false,
+   "inside_fair": null,
    "books": {
     "at": "2026-11-28T16:07:12Z",
     "fair": 0.4993,
@@ -178,7 +178,7 @@
    "best_rank": 115,
    "usd": 778,
    "paid": 0.48,
-   "ask": 0.52,
+   "ask": null,
    "status": "live",
    "link": "https://polymarket.us/event/cfb-mich-ohiost-2026-11-28",
    "other": null,
@@ -216,7 +216,7 @@
    "best_rank": 58,
    "usd": 1893,
    "paid": 0.517,
-   "ask": 0.58,
+   "ask": null,
    "status": "live",
    "link": "https://polymarket.us/event/cfb-navy-charlt-2026-11-28",
    "other": null,
@@ -235,7 +235,7 @@
    "money_with": false,
    "grade": "A",
    "fair_board": 0.4997,
-   "inside_fair": false,
+   "inside_fair": null,
    "books": {
     "at": "2026-11-28T16:07:12Z",
     "fair": 0.4997,
@@ -263,7 +263,7 @@
    "best_rank": 115,
    "usd": 5150,
    "paid": 0.48,
-   "ask": 0.5,
+   "ask": null,
    "status": "live",
    "link": "https://polymarket.us/event/cfb-loutch-gas-2026-11-28",
    "other": null,
@@ -310,7 +310,7 @@
    "best_rank": 115,
    "usd": 916,
    "paid": 0.48,
-   "ask": 0.51,
+   "ask": null,
    "status": "live",
    "link": "https://polymarket.us/event/cfb-mich-ohiost-2026-11-28",
    "other": null,
@@ -356,7 +356,7 @@
    "best_rank": 115,
    "usd": 5164,
    "paid": 0.51,
-   "ask": 0.53,
+   "ask": null,
    "status": "live",
    "link": "https://polymarket.us/event/cfb-navy-charlt-2026-11-28",
    "other": null,
@@ -406,7 +406,7 @@
    "best_rank": 58,
    "usd": 440,
    "paid": 0.56,
-   "ask": 0.58,
+   "ask": null,
    "status": "live",
    "link": "https://polymarket.us/event/cfb-mich-ohiost-2026-11-28",
    "other": null,
@@ -445,7 +445,7 @@
    "best_rank": 12,
    "usd": 285,
    "paid": 0.52,
-   "ask": 0.53,
+   "ask": null,
    "status": "live",
    "link": "https://polymarket.us/event/cfb-navy-charlt-2026-11-28",
    "other": null,
@@ -1421,7 +1421,7 @@
    "best_rank": 61,
    "usd": 245,
    "paid": 0.49,
-   "ask": 0.48,
+   "ask": null,
    "status": "other side",
    "link": "https://polymarket.us/event/cfb-cmich-ballst-2026-11-28",
    "other": {
@@ -1430,7 +1430,7 @@
     "usd": 240,
     "first": "2026-11-28T15:09:51Z"
    },
-   "exit_bid": 0.47,
+   "exit_bid": null,
    "kalshi_against": null,
    "logged": false,
    "event_id": "401866474",
@@ -1452,7 +1452,7 @@
    "money_with": false,
    "grade": "A",
    "fair_board": 0.4849,
-   "inside_fair": true,
+   "inside_fair": null,
    "books": null
   },
   {
@@ -1546,22 +1546,6 @@
   "clv_poly_same": -0.57
  },
  "sys_tags": {
-  "401858540:cfb_road_dog_low_total": {
-   "with": null,
-   "against": {
-    "n": 1,
-    "best_rank": 115,
-    "usd": 916
-   }
-  },
-  "401858540:cfb_homefav_7510_under": {
-   "with": null,
-   "against": {
-    "n": 2,
-    "best_rank": 58,
-    "usd": 1218
-   }
-  },
   "401858317:cfb_day_over": {
    "with": null,
    "against": {
@@ -1713,13 +1697,6 @@
     "usd": 8284
    }
   },
-  "401856761|ml": {
-   "away": {
-    "n": 1,
-    "best_rank": 143,
-    "usd": 396
-   }
-  },
   "401858316|total": {
    "under": {
     "n": 2,
@@ -1732,67 +1709,6 @@
     "n": 1,
     "best_rank": 115,
     "usd": 5252
-   }
-  },
-  "401858311|total": {
-   "under": {
-    "n": 1,
-    "best_rank": 170,
-    "usd": 784
-   }
-  },
-  "401858540|total": {
-   "over": {
-    "n": 2,
-    "best_rank": 58,
-    "usd": 1218
-   }
-  },
-  "401858540|spread": {
-   "home": {
-    "n": 1,
-    "best_rank": 115,
-    "usd": 916
-   }
-  },
-  "401862842|total": {
-   "under": {
-    "n": 3,
-    "best_rank": 12,
-    "usd": 2178
-   }
-  },
-  "401862842|spread": {
-   "away": {
-    "n": 2,
-    "best_rank": 115,
-    "usd": 5840
-   }
-  },
-  "401866474|total": {
-   "under": {
-    "n": 1,
-    "best_rank": 115,
-    "usd": 5033
-   }
-  },
-  "401866474|spread": {
-   "away": {
-    "n": 1,
-    "best_rank": 61,
-    "usd": 245
-   },
-   "home": {
-    "n": 1,
-    "best_rank": 61,
-    "usd": 240
-   }
-  },
-  "401869954|ml": {
-   "away": {
-    "n": 1,
-    "best_rank": 115,
-    "usd": 5150
    }
   },
   "401858537|ml": {
