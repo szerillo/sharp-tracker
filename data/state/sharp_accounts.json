@@ -1,5 +1,5 @@
 {
- "built": "2026-11-28T00:50:57Z",
+ "built": "2026-11-28T00:59:07Z",
  "rows": [
   {
    "cond": "0xd15ec284ec5be3ac18be30345b633bb262232c91d6e69bff1412c04438d71ccc",
@@ -187,11 +187,11 @@
    "cancel": null,
    "money_with": false,
    "grade": "A",
-   "fair_board": 0.4967,
+   "fair_board": 0.5032,
    "inside_fair": null,
    "books": {
-    "at": "2026-11-28T00:06:36Z",
-    "fair": 0.4967,
+    "at": "2026-11-27T23:42:52Z",
+    "fair": 0.5032,
     "q": {
      "Novig": 0.51,
      "Caesars": 0.5122,
@@ -231,19 +231,16 @@
    "home_name": "New York Islanders",
    "game_start": "2026-11-28T00:30Z",
    "side_std": "away",
-   "conflict": [
-    "big money"
-   ],
    "cancel": null,
    "money_with": false,
    "grade": "A",
    "inside_fair": false,
    "fair_board": 0.461,
    "books": {
-    "at": "2026-11-28T00:06:36Z",
-    "fair": 0.4827,
+    "at": "2026-11-27T23:42:55Z",
+    "fair": 0.4812,
     "q": {
-     "Novig": 0.49,
+     "Novig": 0.485,
      "DK": 0.495,
      "Caesars": 0.5,
      "FD": 0.5
@@ -287,7 +284,7 @@
    "inside_fair": false,
    "fair_board": 0.497,
    "books": {
-    "at": "2026-11-28T00:06:36Z",
+    "at": "2026-11-27T23:27:45Z",
     "fair": 0.5212,
     "q": {
      "Novig": 0.52,
@@ -334,7 +331,7 @@
    "inside_fair": true,
    "fair_board": 0.4063,
    "books": {
-    "at": "2026-11-28T00:06:36Z",
+    "at": "2026-11-27T23:27:45Z",
     "fair": 0.3647,
     "q": {
      "Novig": 0.365,
@@ -384,7 +381,7 @@
    "inside_fair": false,
    "fair_board": 0.7669,
    "books": {
-    "at": "2026-11-28T00:06:36Z",
+    "at": "2026-11-27T23:27:49Z",
     "fair": 0.7669,
     "q": {
      "Novig": 0.77,
@@ -431,7 +428,7 @@
    "inside_fair": false,
    "fair_board": 0.5158,
    "books": {
-    "at": "2026-11-28T00:06:36Z",
+    "at": "2026-11-27T23:27:49Z",
     "fair": null,
     "q": {
      "Novig": 0.555,
@@ -476,7 +473,7 @@
    "fair_board": 0.5026,
    "inside_fair": true,
    "books": {
-    "at": "2026-11-28T00:06:36Z",
+    "at": "2026-11-27T23:27:49Z",
     "fair": 0.5026,
     "q": {
      "Novig": 0.51,
@@ -526,11 +523,12 @@
    "inside_fair": true,
    "fair_board": 0.4766,
    "books": {
-    "at": "2026-11-28T00:06:36Z",
+    "at": "2026-11-27T23:27:49Z",
     "fair": 0.4746,
     "q": {
      "Novig": 0.475,
-     "Kalshi": 0.5
+     "Kalshi": 0.5,
+     "DK": 0.505
     }
    }
   },
@@ -571,7 +569,7 @@
    "inside_fair": false,
    "fair_board": 0.6581,
    "books": {
-    "at": "2026-11-28T00:06:36Z",
+    "at": "2026-11-27T23:27:45Z",
     "fair": 0.6459,
     "q": {
      "Novig": 0.65,
@@ -618,13 +616,40 @@
    "inside_fair": false,
    "fair_board": 0.4539,
    "books": {
-    "at": "2026-11-28T00:06:36Z",
+    "at": "2026-11-27T23:27:45Z",
     "fair": 0.433,
     "q": {
      "Novig": 0.44,
      "Kalshi": 0.46
     }
    }
+  },
+  {
+   "cond": "0x64fc28a52de28cba0a477b379b400b1680fa3a68c3640213aa1aaf533779ec0f",
+   "slug": "cfb-illst-ausp-2026-11-28",
+   "title": "Illinois State vs. Austin Peay",
+   "mtype": "ml",
+   "start": "2026-11-28T21:00:00Z",
+   "bet": "Austin Peay ML",
+   "side": "Austin Peay",
+   "flagged": "2026-11-28T00:56:08Z",
+   "why": "a top-50 account",
+   "proven": true,
+   "trigger": "proven",
+   "n_accounts": 1,
+   "best_rank": 49,
+   "usd": 128,
+   "paid": 0.58,
+   "ask": 0.59,
+   "status": "live",
+   "link": "https://polymarket.us/event/cfb-illst-ausp-2026-11-28",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "grade": "A",
+   "fair_board": null,
+   "inside_fair": null,
+   "books": null
   },
   {
    "cond": "0x45c414095f5876a025068511b200405477e486fd4ae24b880a42c1f1154216f0",
@@ -663,11 +688,11 @@
    "cancel": null,
    "money_with": false,
    "grade": "B",
-   "fair_board": 0.5064,
+   "fair_board": 0.513,
    "inside_fair": false,
    "books": {
-    "at": "2026-11-28T00:06:36Z",
-    "fair": 0.5064,
+    "at": "2026-11-27T23:42:52Z",
+    "fair": 0.513,
     "q": {
      "Caesars": 0.5169,
      "Novig": 0.525,
@@ -716,7 +741,7 @@
    "fair_board": null,
    "inside_fair": null,
    "books": {
-    "at": "2026-11-28T00:06:36Z",
+    "at": "2026-11-27T23:27:49Z",
     "fair": null,
     "q": {
      "Novig": 0.77,
@@ -761,7 +786,7 @@
    "fair_board": 0.5473,
    "inside_fair": false,
    "books": {
-    "at": "2026-11-28T00:06:36Z",
+    "at": "2026-11-27T23:27:45Z",
     "fair": 0.5473,
     "q": {
      "Novig": 0.555,
@@ -808,7 +833,7 @@
    "inside_fair": false,
    "fair_board": 0.6208,
    "books": {
-    "at": "2026-11-28T00:06:36Z",
+    "at": "2026-11-27T23:27:45Z",
     "fair": 0.619,
     "q": {
      "Novig": 0.625,
@@ -855,7 +880,7 @@
    "inside_fair": false,
    "fair_board": 0.3834,
    "books": {
-    "at": "2026-11-28T00:06:36Z",
+    "at": "2026-11-27T23:27:45Z",
     "fair": 0.3941,
     "q": {
      "DK": 0.4,
@@ -902,7 +927,7 @@
    "inside_fair": false,
    "fair_board": 0.5313,
    "books": {
-    "at": "2026-11-28T00:06:36Z",
+    "at": "2026-11-27T23:27:35Z",
     "fair": 0.5313,
     "q": {
      "Novig": 0.535,
@@ -986,7 +1011,7 @@
    "inside_fair": false,
    "fair_board": 0.4397,
    "books": {
-    "at": "2026-11-28T00:06:36Z",
+    "at": "2026-11-27T23:27:35Z",
     "fair": 0.5189,
     "q": {
      "Novig": 0.525,
@@ -1121,9 +1146,6 @@
    "home_name": "Indiana Pacers",
    "game_start": "2026-11-28T00:30Z",
    "side_std": "away",
-   "conflict": [
-    "Kalshi bet back"
-   ],
    "cancel": null,
    "money_with": false,
    "grade": "A",
@@ -1168,9 +1190,6 @@
    "home_name": "Toronto Raptors",
    "game_start": "2026-11-28T00:30Z",
    "side_std": "home",
-   "conflict": [
-    "Kalshi bet back"
-   ],
    "cancel": null,
    "money_with": false,
    "grade": "A",
@@ -1215,12 +1234,7 @@
    "home_name": "Detroit Pistons",
    "game_start": "2026-11-28T00:30Z",
    "side_std": "away",
-   "conflict": [
-    "Kalshi move"
-   ],
-   "cancel": [
-    "Kalshi move"
-   ],
+   "cancel": null,
    "money_with": false,
    "grade": "watch",
    "inside_fair": false,
@@ -1375,7 +1389,7 @@
    "best_rank": 49,
    "usd": 16174,
    "paid": 0.507,
-   "ask": 0.52,
+   "ask": 0.53,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-mem-min-2026-11-27",
    "other": {
@@ -1384,7 +1398,7 @@
     "usd": 4095,
     "first": "2026-11-27T19:35:38Z"
    },
-   "exit_bid": 0.51,
+   "exit_bid": 0.52,
    "kalshi_against": null,
    "logged": true,
    "event_id": "401909331",
@@ -1429,11 +1443,7 @@
     "first": "2026-11-28T00:21:02Z"
    },
    "exit_bid": 0.6,
-   "kalshi_against": {
-    "move": 6.0,
-    "now": 42.5,
-    "state": "held"
-   },
+   "kalshi_against": null,
    "logged": true,
    "event_id": "401909332",
    "sport": "nba",
@@ -1444,12 +1454,7 @@
    "home_name": "Phoenix Suns",
    "game_start": "2026-11-28T02:00Z",
    "side_std": "home",
-   "conflict": [
-    "Kalshi move"
-   ],
-   "cancel": [
-    "Kalshi move"
-   ],
+   "cancel": null,
    "money_with": true,
    "grade": "A",
    "inside_fair": false,
@@ -1733,7 +1738,7 @@
    "fair_board": null,
    "inside_fair": null,
    "books": {
-    "at": "2026-11-28T00:06:36Z",
+    "at": "2026-11-27T23:27:49Z",
     "fair": null,
     "q": {
      "Novig": 0.185,
@@ -1833,6 +1838,11 @@
     "n": 2,
     "best_rank": 58,
     "usd": 5225
+   },
+   "under": {
+    "n": 1,
+    "best_rank": 119,
+    "usd": 5280
    }
   },
   "401909330|ml": {
