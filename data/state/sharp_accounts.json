@@ -1,5 +1,5 @@
 {
- "built": "2026-11-28T20:32:41Z",
+ "built": "2026-11-28T20:41:27Z",
  "rows": [
   {
    "cond": "0x4eeca3cab406705e53635dabdd896c1cbca380e79b647112379bcbf74286d44b",
@@ -643,7 +643,7 @@
    "game_start": "2026-11-28T20:10Z",
    "side_std": "over",
    "cancel": null,
-   "money_with": true,
+   "money_with": false,
    "grade": "A",
    "fair_board": null,
    "inside_fair": null,
@@ -774,7 +774,7 @@
    "game_start": "2026-11-28T20:30Z",
    "side_std": "away",
    "cancel": null,
-   "money_with": false,
+   "money_with": true,
    "grade": "A",
    "inside_fair": false,
    "fair_board": 0.5039,
@@ -914,14 +914,14 @@
    "bet": "Magic ML",
    "side": "Magic",
    "flagged": "2026-11-28T20:15:12Z",
-   "why": "2 top-200 accounts",
+   "why": "3 top-200 accounts",
    "proven": false,
    "trigger": "two",
-   "n_accounts": 2,
+   "n_accounts": 3,
    "best_rank": 42,
-   "usd": 7043,
+   "usd": 7324,
    "paid": 0.622,
-   "ask": 0.63,
+   "ask": 0.64,
    "status": "live",
    "link": "https://polymarket.us/event/nba-orl-was-2026-11-28",
    "other": null,
@@ -939,8 +939,8 @@
    "cancel": null,
    "money_with": false,
    "grade": "B",
-   "fair_board": 0.5966,
    "inside_fair": false,
+   "fair_board": 0.5966,
    "books": {
     "at": "2026-11-28T20:03:20Z",
     "fair": 0.5966,
@@ -1722,6 +1722,33 @@
    }
   },
   {
+   "cond": "0xec3b02fe35bb08085008e73d1fe8cd380b2f1a55a720d6ec286629b06f113921",
+   "slug": "cbb-oral-creigh-2026-12-01",
+   "title": "Oral Roberts Golden Eagles vs. Creighton Bluejays",
+   "mtype": "ml",
+   "start": "2026-12-02T01:00:00Z",
+   "bet": "Oral Roberts Golden Eagles ML",
+   "side": "Oral Roberts Golden Eagles",
+   "flagged": "2026-11-28T20:38:50Z",
+   "why": "a top-200 account also in this sport's top 50",
+   "proven": true,
+   "trigger": "proven",
+   "n_accounts": 1,
+   "best_rank": 116,
+   "usd": 358,
+   "paid": 0.464,
+   "ask": 0.498,
+   "status": "live",
+   "link": "https://polymarket.us/event/cbb-oral-creigh-2026-12-01",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "grade": "A",
+   "fair_board": null,
+   "inside_fair": null,
+   "books": null
+  },
+  {
    "cond": "0xbb82ace897a607a661c3920e65c98a792dc5ddfacb992abfab8283606955e05b",
    "slug": "cfb-cmich-ballst-2026-11-28",
    "title": "Central Michigan vs. Ball State",
@@ -1965,19 +1992,19 @@
     "clv": -0.41
    },
    "outside": {
-    "n": 145,
+    "n": 146,
     "won": 75,
     "units": 0.86,
     "clv": -0.13
    }
   },
-  "n": 509,
-  "won": 251,
+  "n": 511,
+  "won": 252,
   "units": -11.59,
   "by_grade": {
    "A": {
-    "n": 346,
-    "won": 166,
+    "n": 348,
+    "won": 167,
     "units": -11.67,
     "clv": -0.04
    },
@@ -1996,10 +2023,10 @@
   },
   "units_1u": -8.78,
   "clv": -0.28,
-  "n_venue": 273,
+  "n_venue": 274,
   "units_venue": -3.67,
   "clv_venue": 0.96,
-  "clv_poly_same": -0.54
+  "clv_poly_same": -0.53
  },
  "sys_tags": {},
  "by_event": {
@@ -2026,9 +2053,9 @@
   },
   "401910046|ml": {
    "away": {
-    "n": 2,
+    "n": 3,
     "best_rank": 42,
-    "usd": 7043
+    "usd": 7324
    }
   },
   "401910047|total": {
