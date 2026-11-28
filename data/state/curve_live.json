@@ -1,5 +1,5 @@
 {
- "built": "2026-11-28T22:06:13Z",
+ "built": "2026-11-28T22:24:24Z",
  "record": {
   "cbb_1h_total_curve": {
    "n": 11,
@@ -532,6 +532,31 @@
    "fair_gap": 0.5,
    "ev_curve": 11.9,
    "flagged": "2026-11-28T21:11:21Z"
+  },
+  {
+   "key": "nhl_p3_under_curve|caa1c061c2ace9568a038a36abf48a25||under",
+   "rule": "nhl_p3_under_curve",
+   "tier": "P",
+   "stake": 0.0,
+   "sport": "nhl",
+   "odds_id": "caa1c061c2ace9568a038a36abf48a25",
+   "espn": "401892811",
+   "game": "Tampa Bay Lightning @ Florida Panthers",
+   "start": "2026-11-28T23:10:00Z",
+   "market": "totals_p3",
+   "team": null,
+   "team_name": null,
+   "side": "under",
+   "line": 2.0,
+   "curve": 0.537,
+   "pin_fair": 0.465,
+   "gap": 7.2,
+   "full_total": 5.5,
+   "full_spread": -1.5,
+   "pin_price": 2.07,
+   "book": null,
+   "price": null,
+   "flagged": "2026-11-28T22:24:24Z"
   }
  ]
 }
