@@ -9,7 +9,7 @@ Asked by Kirk for Sean (td_props_earlier). Research only: no live props logic ch
   `if not 0.15 < h <= float(os.environ.get('PROPS_H', 1)): continue`. The comment: "11/7 (Sean): the backtest priced every prop 10-14
   min before tip; flag only inside the last hour (was 3 h)". No workflow sets `PROPS_H`, so it is 1 hour. It is not the odds pull
   schedule and not a lineup or goalie wait.
-- **The job.** The props step runs inside `signals.yml` ("props price-gap leans"), which `pulse.yml` dispatches every 10 minutes. Runs
+- **The job.** The props step runs inside `signals.yml` (step "prop price-gap paper leans", skipped on the on-demand fast run), which `pulse.yml` dispatches every 10 minutes. Runs
   take 21 minutes (median of the last 32 successful runs, max 29), and a run that is still going queues the next, so the props check
   actually runs about every 16 minutes (median gap between finishes; max 42). The first check inside the hour lands anywhere from 60 to
   about 44 minutes out.
