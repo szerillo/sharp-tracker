@@ -1,5 +1,5 @@
 {
- "built": "2026-11-28T14:16:52Z",
+ "built": "2026-11-28T14:36:19Z",
  "record": {
   "cbb_1h_total_curve": {
    "n": 11,
@@ -112,6 +112,31 @@
    "book": null,
    "price": null,
    "flagged": "2026-11-28T14:16:52Z"
+  },
+  {
+   "key": "cfb_tt_under_curve|591a88cc16d9c5830bef16d7f522bc8a|away|under",
+   "rule": "cfb_tt_under_curve",
+   "tier": "P",
+   "stake": 0.0,
+   "sport": "cfb",
+   "odds_id": "591a88cc16d9c5830bef16d7f522bc8a",
+   "espn": "401858537",
+   "game": "Illinois Fighting Illini @ Northwestern Wildcats",
+   "start": "2026-11-28T17:30:00Z",
+   "market": "team_totals",
+   "team": "away",
+   "team_name": "Illinois Fighting Illini",
+   "side": "under",
+   "line": 23.5,
+   "curve": 0.595,
+   "pin_fair": 0.541,
+   "gap": 5.4,
+   "full_total": 49.0,
+   "full_spread": -4.5,
+   "pin_price": 1.78,
+   "book": null,
+   "price": null,
+   "flagged": "2026-11-28T14:36:19Z"
   }
  ]
 }
