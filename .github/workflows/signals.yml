@@ -104,7 +104,7 @@ jobs:
         run: python3 sharp/audit.py || true
       - name: commit
         run: |
-          git config user.name "tracker-bot"; git config user.email "actions@users.noreply.github.com"
+          git config user.name "tracker-bot"; git config user.email "actions@users.noreply.github.com"; git config merge.rowlog.driver "python3 sharp/append_merge.py %O %A %B %P"
           # 11/6: the tracker job owns system_fires.json / system_fired.json. If it committed a newer build while this job ran, take its
           # files instead of this job's (older) copies; the late pass redoes its small edits on the next run 20 minutes later.
           git fetch -q origin main && python3 - <<'PY' || true

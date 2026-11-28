@@ -1,0 +1,417 @@
+{
+ "since": "2026-11-27T05:00Z",
+ "until": "2026-11-28T05:00Z",
+ "files": [
+  {
+   "file": "data/state/sharp_paper.jsonl",
+   "commits": 80,
+   "rows_start": 484,
+   "rows_end": 520,
+   "pushes_that_dropped_rows": [
+    {
+     "commit": "791c568858",
+     "at": "11-27T13:36Z",
+     "writer": "signals",
+     "lost": 1,
+     "added": 0,
+     "before": 496,
+     "after": 495
+    },
+    {
+     "commit": "c0f8f814bd",
+     "at": "11-27T15:56Z",
+     "writer": "signals",
+     "lost": 2,
+     "added": 0,
+     "before": 499,
+     "after": 497
+    },
+    {
+     "commit": "1cb1a016c3",
+     "at": "11-27T17:26Z",
+     "writer": "signals",
+     "lost": 2,
+     "added": 0,
+     "before": 504,
+     "after": 502
+    },
+    {
+     "commit": "a77f531ad4",
+     "at": "11-27T17:46Z",
+     "writer": "signals",
+     "lost": 2,
+     "added": 0,
+     "before": 504,
+     "after": 502
+    },
+    {
+     "commit": "6024fed62a",
+     "at": "11-27T18:03Z",
+     "writer": "signals",
+     "lost": 3,
+     "added": 0,
+     "before": 505,
+     "after": 502
+    },
+    {
+     "commit": "39f9706cb6",
+     "at": "11-27T18:23Z",
+     "writer": "signals",
+     "lost": 3,
+     "added": 0,
+     "before": 505,
+     "after": 502
+    },
+    {
+     "commit": "7e4fb6f13a",
+     "at": "11-27T18:56Z",
+     "writer": "signals",
+     "lost": 1,
+     "added": 0,
+     "before": 509,
+     "after": 508
+    },
+    {
+     "commit": "8360edcf57",
+     "at": "11-27T19:14Z",
+     "writer": "signals",
+     "lost": 2,
+     "added": 0,
+     "before": 511,
+     "after": 509
+    },
+    {
+     "commit": "9f4818f951",
+     "at": "11-27T22:31Z",
+     "writer": "signals",
+     "lost": 2,
+     "added": 0,
+     "before": 515,
+     "after": 513
+    },
+    {
+     "commit": "9b829e5cb5",
+     "at": "11-27T22:50Z",
+     "writer": "signals",
+     "lost": 2,
+     "added": 0,
+     "before": 515,
+     "after": 513
+    },
+    {
+     "commit": "8571234ed9",
+     "at": "11-27T23:09Z",
+     "writer": "signals",
+     "lost": 2,
+     "added": 0,
+     "before": 515,
+     "after": 513
+    },
+    {
+     "commit": "7cff649e82",
+     "at": "11-28T00:08Z",
+     "writer": "signals",
+     "lost": 1,
+     "added": 0,
+     "before": 517,
+     "after": 516
+    },
+    {
+     "commit": "456d2b1988",
+     "at": "11-28T00:22Z",
+     "writer": "signals",
+     "lost": 1,
+     "added": 0,
+     "before": 517,
+     "after": 516
+    },
+    {
+     "commit": "5f39681a75",
+     "at": "11-28T00:37Z",
+     "writer": "signals",
+     "lost": 2,
+     "added": 0,
+     "before": 518,
+     "after": 516
+    }
+   ],
+   "rows_lost": 26,
+   "writers": {
+    "fast": 60,
+    "signals": 20
+   },
+   "added_rows_missing_at_end": {
+    "fast": 4,
+    "signals": 0
+   }
+  },
+  {
+   "file": "data/kalshi/flow_paper.jsonl",
+   "commits": 27,
+   "rows_start": 379,
+   "rows_end": 415,
+   "pushes_that_dropped_rows": [
+    {
+     "commit": "1becb34001",
+     "at": "11-27T17:40Z",
+     "writer": "fast",
+     "lost": 1,
+     "added": 0,
+     "before": 388,
+     "after": 387
+    },
+    {
+     "commit": "abd0ee018a",
+     "at": "11-27T18:03Z",
+     "writer": "fast",
+     "lost": 2,
+     "added": 1,
+     "before": 389,
+     "after": 388
+    },
+    {
+     "commit": "4882e86137",
+     "at": "11-27T18:35Z",
+     "writer": "fast",
+     "lost": 1,
+     "added": 4,
+     "before": 389,
+     "after": 392
+    },
+    {
+     "commit": "0ffb6a74ff",
+     "at": "11-27T18:43Z",
+     "writer": "fast",
+     "lost": 1,
+     "added": 2,
+     "before": 392,
+     "after": 393
+    },
+    {
+     "commit": "36b45f590f",
+     "at": "11-27T18:49Z",
+     "writer": "fast",
+     "lost": 1,
+     "added": 1,
+     "before": 393,
+     "after": 393
+    },
+    {
+     "commit": "d296673929",
+     "at": "11-27T19:18Z",
+     "writer": "fast",
+     "lost": 2,
+     "added": 2,
+     "before": 395,
+     "after": 395
+    },
+    {
+     "commit": "bed4e932a1",
+     "at": "11-27T19:43Z",
+     "writer": "fast",
+     "lost": 4,
+     "added": 2,
+     "before": 402,
+     "after": 400
+    },
+    {
+     "commit": "4e0a7032ce",
+     "at": "11-27T19:51Z",
+     "writer": "fast",
+     "lost": 1,
+     "added": 5,
+     "before": 400,
+     "after": 404
+    },
+    {
+     "commit": "3b95af4890",
+     "at": "11-27T20:52Z",
+     "writer": "fast",
+     "lost": 1,
+     "added": 1,
+     "before": 405,
+     "after": 405
+    },
+    {
+     "commit": "a8cb0c7560",
+     "at": "11-27T21:00Z",
+     "writer": "fast",
+     "lost": 1,
+     "added": 3,
+     "before": 405,
+     "after": 407
+    },
+    {
+     "commit": "c8f06687b2",
+     "at": "11-27T21:08Z",
+     "writer": "fast",
+     "lost": 3,
+     "added": 2,
+     "before": 407,
+     "after": 406
+    },
+    {
+     "commit": "d2a1414ff4",
+     "at": "11-27T23:43Z",
+     "writer": "fast",
+     "lost": 1,
+     "added": 1,
+     "before": 414,
+     "after": 414
+    },
+    {
+     "commit": "1a04c45e42",
+     "at": "11-28T00:16Z",
+     "writer": "fast",
+     "lost": 2,
+     "added": 0,
+     "before": 417,
+     "after": 415
+    }
+   ],
+   "rows_lost": 21,
+   "writers": {
+    "fast": 27
+   },
+   "added_rows_missing_at_end": {
+    "fast": 6
+   }
+  },
+  {
+   "file": "data/state/sys_sharp_tags.jsonl",
+   "commits": 11,
+   "rows_start": 195,
+   "rows_end": 202,
+   "pushes_that_dropped_rows": [
+    {
+     "commit": "2e95786042",
+     "at": "11-27T15:50Z",
+     "writer": "fast",
+     "lost": 1,
+     "added": 1,
+     "before": 197,
+     "after": 197
+    },
+    {
+     "commit": "234bafe5dc",
+     "at": "11-27T17:24Z",
+     "writer": "fast",
+     "lost": 1,
+     "added": 1,
+     "before": 198,
+     "after": 198
+    },
+    {
+     "commit": "0ffb6a74ff",
+     "at": "11-27T18:43Z",
+     "writer": "fast",
+     "lost": 1,
+     "added": 1,
+     "before": 199,
+     "after": 199
+    },
+    {
+     "commit": "36b45f590f",
+     "at": "11-27T18:49Z",
+     "writer": "fast",
+     "lost": 1,
+     "added": 2,
+     "before": 199,
+     "after": 200
+    },
+    {
+     "commit": "0582ab089d",
+     "at": "11-27T18:58Z",
+     "writer": "fast",
+     "lost": 2,
+     "added": 3,
+     "before": 200,
+     "after": 201
+    },
+    {
+     "commit": "3d9492833d",
+     "at": "11-27T19:09Z",
+     "writer": "fast",
+     "lost": 3,
+     "added": 3,
+     "before": 201,
+     "after": 201
+    }
+   ],
+   "rows_lost": 9,
+   "writers": {
+    "fast": 11
+   },
+   "added_rows_missing_at_end": {
+    "fast": 6
+   }
+  },
+  {
+   "file": "data/state/fills.jsonl",
+   "commits": 30,
+   "rows_start": 850,
+   "rows_end": 888,
+   "pushes_that_dropped_rows": [],
+   "rows_lost": 0,
+   "writers": {
+    "signals": 17,
+    "tracker": 13
+   },
+   "added_rows_missing_at_end": {
+    "signals": 0,
+    "tracker": 0
+   }
+  },
+  {
+   "file": "data/state/stale_paper.jsonl",
+   "commits": 33,
+   "rows_start": 323,
+   "rows_end": 340,
+   "pushes_that_dropped_rows": [
+    {
+     "commit": "064b1430dd",
+     "at": "11-27T16:45Z",
+     "writer": "signals",
+     "lost": 1,
+     "added": 1,
+     "before": 330,
+     "after": 330
+    },
+    {
+     "commit": "7a4da1ab24",
+     "at": "11-27T20:23Z",
+     "writer": "signals",
+     "lost": 1,
+     "added": 1,
+     "before": 337,
+     "after": 337
+    },
+    {
+     "commit": "2a2d793211",
+     "at": "11-27T20:59Z",
+     "writer": "signals",
+     "lost": 1,
+     "added": 1,
+     "before": 338,
+     "after": 338
+    },
+    {
+     "commit": "a4e3f10a4c",
+     "at": "11-27T21:34Z",
+     "writer": "signals",
+     "lost": 1,
+     "added": 1,
+     "before": 339,
+     "after": 339
+    }
+   ],
+   "rows_lost": 4,
+   "writers": {
+    "signals": 33
+   },
+   "added_rows_missing_at_end": {
+    "signals": 4
+   }
+  }
+ ]
+}

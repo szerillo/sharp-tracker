@@ -17,7 +17,7 @@ jobs:
       - name: commit
         if: always()
         run: |
-          git config user.name "tracker-bot"; git config user.email "actions@users.noreply.github.com"
+          git config user.name "tracker-bot"; git config user.email "actions@users.noreply.github.com"; git config merge.rowlog.driver "python3 sharp/append_merge.py %O %A %B %P"
           git add data/boxing/results.json data/boxing/wiki_cache.json.gz
           git commit -q -m "boxing results from Wikipedia" || exit 0
           for i in 1 2 3 4 5 6; do git pull -q --rebase -X theirs --no-tags origin main && git push -q && exit 0; sleep $((RANDOM % 20 + 5)); done

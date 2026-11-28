@@ -19,7 +19,7 @@ jobs:
         run: python3 sharp/poly_agg.py --update
       - name: commit
         run: |
-          git config user.name "tracker-bot"; git config user.email "actions@users.noreply.github.com"
+          git config user.name "tracker-bot"; git config user.email "actions@users.noreply.github.com"; git config merge.rowlog.driver "python3 sharp/append_merge.py %O %A %B %P"
           git add data/research/poly_agg.json.gz data/state/poly_sharps_list.json && git commit -m "poly sharp list $(date -u +%Y-%m-%d)" || exit 0
           for i in 1 2 3 4 5; do
             if git pull --rebase -X theirs --no-tags origin main && git push; then exit 0; fi

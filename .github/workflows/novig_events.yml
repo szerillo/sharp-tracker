@@ -24,7 +24,7 @@ jobs:
           python3 loggers/novig_history.py --max-pages ${{ inputs.pages || '60' }} || true      # 11/12: catch-up walk of settled markets (results onto catalog markets that lack them)
           python3 loggers/novig_events_fix.py
       - run: |
-          git config user.name "tracker-bot"; git config user.email "actions@users.noreply.github.com"
+          git config user.name "tracker-bot"; git config user.email "actions@users.noreply.github.com"; git config merge.rowlog.driver "python3 sharp/append_merge.py %O %A %B %P"
           git add -A data/novig/catalog data/novig/events_history.jsonl.gz data/novig/_history_state.json && git commit -m "novig events fix $(date -u +%Y-%m-%dT%H:%M)" || exit 0
           for i in 1 2 3 4 5 6; do
             if git pull --rebase -X theirs --no-tags origin main && git push; then exit 0; fi

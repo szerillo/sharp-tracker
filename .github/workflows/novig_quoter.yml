@@ -35,7 +35,7 @@ jobs:
         run: python3 sharp/offers_grade_public.py || echo "::warning::offers public grade failed"
       - name: commit
         run: |
-          git config user.name "tracker-bot"; git config user.email "actions@users.noreply.github.com"
+          git config user.name "tracker-bot"; git config user.email "actions@users.noreply.github.com"; git config merge.rowlog.driver "python3 sharp/append_merge.py %O %A %B %P"
           for p in data/research/novig_paper_quoter_*.json data/state/novig_quoter_fills.jsonl data/state/novig_quoter_record.json data/novig/quoter data/state/offers_public_grades.json data/state/offers_record_public.json; do
             [ -e "$p" ] && git add -f $p; done
           git commit -m "novig paper quoter ${{ inputs.mode || 'daily' }} $(date -u +%Y-%m-%dT%H:%M)" || exit 0

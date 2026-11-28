@@ -20,6 +20,7 @@ jobs:
         group: ['nfl,nba,nhl', 'cfb,soccer,mma', 'cbb', 'trades', 'tennis']
     steps:
       - uses: actions/checkout@v4
+        with: {ref: main}    # 11/27 td_append_guard: a run queued behind the last one checked out the commit it was triggered on, so its jobs rewrote stale copies of the paper logs
       - uses: actions/setup-python@v5
         with: {python-version: '3.12'}
       - name: fast tape (${{ matrix.group }})
@@ -36,7 +37,7 @@ jobs:
           else python3 loggers/fast.py --sports ${{ matrix.group }} || true; fi
       - name: commit
         run: |
-          git config user.name "prices-bot"; git config user.email "actions@users.noreply.github.com"
+          git config user.name "prices-bot"; git config user.email "actions@users.noreply.github.com"; git config merge.rowlog.driver "python3 sharp/append_merge.py %O %A %B %P"
           for d in data/*/ticks5 data/kalshi/trades5 data/novig/trades5 data/kalshi/trades5_soft data/novig/trades5_soft data/kalshi/*.json data/tennis/events.json data/polymarket/sharp_fills.jsonl data/polymarket/sharp_prop_fills.jsonl data/polymarket/_sharp_meta.json data/polymarket/_sharp_state.json data/state/sharp_accounts.json data/state/sharp_paper.jsonl data/state/sharp_alerts.json data/state/sys_sharp_tags.jsonl data/state/kalshi_flow.json data/kalshi/flow_paper.jsonl; do [ -e "$d" ] && git add "$d"; done; git commit -m "fast $(date -u +%Y-%m-%dT%H:%M)" || exit 0
           for i in 1 2 3 4 5 6; do
             if git pull --rebase -X theirs --no-tags origin main && git push; then exit 0; fi

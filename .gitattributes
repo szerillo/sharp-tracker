@@ -1,0 +1,4 @@
+# td_append_guard (Sean OK 11/27): row logs merge row by row on a rebase, so no job's rows are ever dropped (sharp/append_merge.py).
+# The driver itself is set in each workflow's commit step: git config merge.rowlog.driver "python3 sharp/append_merge.py %O %A %B %P"
+data/**/*.jsonl merge=rowlog
+data/**/*.jsonl.gz merge=rowlog

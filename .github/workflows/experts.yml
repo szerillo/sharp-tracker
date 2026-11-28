@@ -21,7 +21,7 @@ jobs:
       - run: python3 loggers/expert_picks.py
       - name: commit
         run: |
-          git config user.name "tracker-bot"; git config user.email "actions@users.noreply.github.com"
+          git config user.name "tracker-bot"; git config user.email "actions@users.noreply.github.com"; git config merge.rowlog.driver "python3 sharp/append_merge.py %O %A %B %P"
           git add data/experts; git commit -q -m "expert picks $(date -u +%Y-%m-%dT%H:%M)" || exit 0
           for i in 1 2 3 4 5; do git pull -q --rebase -X theirs --no-tags origin main && git push -q && exit 0; git rebase --abort 2>/dev/null || true; sleep $((RANDOM % 10 + 3)); done
           exit 1

@@ -28,7 +28,7 @@ jobs:
         run: python3 sharp/signal_grade.py || true
       - name: commit
         run: |
-          git config user.name "review-bot"; git config user.email "actions@users.noreply.github.com"
+          git config user.name "review-bot"; git config user.email "actions@users.noreply.github.com"; git config merge.rowlog.driver "python3 sharp/append_merge.py %O %A %B %P"
           git add data/research/day_review_* data/research/signal_grade.json 2>/dev/null; git add data/research/day_review_* && git commit -m "daily review $(date -u +%Y-%m-%d)" || exit 0
           for i in 1 2 3 4 5; do
             if git pull --rebase -X theirs --no-tags origin main && git push; then exit 0; fi

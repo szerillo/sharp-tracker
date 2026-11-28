@@ -22,7 +22,7 @@ jobs:
         run: python3 sharp/wx_accuracy.py || echo "::warning::wind forecast check failed"
       - name: commit
         run: |
-          git config user.name "tracker-bot"; git config user.email "actions@users.noreply.github.com"
+          git config user.name "tracker-bot"; git config user.email "actions@users.noreply.github.com"; git config merge.rowlog.driver "python3 sharp/append_merge.py %O %A %B %P"
           git add data/state/weekly.json docs/weekly data/research/wx_accuracy.json data/research/wx_cache && git commit -m "weekly $(date -u +%Y-%m-%d)" || exit 0
           for i in 1 2 3 4 5; do
             if git pull --rebase -X theirs --no-tags origin main && git push; then exit 0; fi

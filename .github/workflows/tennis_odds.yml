@@ -54,7 +54,7 @@ jobs:
           ls -la data/tennis/odds
       - name: commit
         run: |
-          git config user.name "tracker-bot"; git config user.email "actions@users.noreply.github.com"
+          git config user.name "tracker-bot"; git config user.email "actions@users.noreply.github.com"; git config merge.rowlog.driver "python3 sharp/append_merge.py %O %A %B %P"
           git add -A data/tennis/odds
           git commit -q -m "tennis odds history (tennis-data.co.uk) $(date -u +%Y-%m-%d)" || exit 0
           for i in 1 2 3 4 5; do

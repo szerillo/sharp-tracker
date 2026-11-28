@@ -29,7 +29,7 @@ jobs:
           python3 sharp/tennis_watch.py || true     # first-set rule: flag + paper-log overnight starts too
       - name: commit
         run: |
-          git config user.name "prices-bot"; git config user.email "actions@users.noreply.github.com"
+          git config user.name "prices-bot"; git config user.email "actions@users.noreply.github.com"; git config merge.rowlog.driver "python3 sharp/append_merge.py %O %A %B %P"
           git add data/tennis data/kalshi/fast_meta_tennis.json data/state/tennis_watch.json && git commit -m "tennis overnight $(date -u +%Y-%m-%dT%H:%M)" || exit 0
           for i in 1 2 3 4 5; do
             if git pull --rebase -X theirs --no-tags origin main && git push; then exit 0; fi
