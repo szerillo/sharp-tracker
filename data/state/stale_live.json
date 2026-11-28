@@ -1,5 +1,5 @@
 {
- "built": "2026-11-28T20:08:24Z",
+ "built": "2026-11-28T20:27:01Z",
  "record": {
   "n": 329,
   "won": 144,
@@ -465,6 +465,31 @@
    "qty_best": null,
    "wide": false,
    "team": "RUTG",
+   "checkable": true
+  },
+  {
+   "key": "401892822|spread|away",
+   "sport": "nhl",
+   "event_id": "401892822",
+   "game": "EDM @ SEA",
+   "start": "2026-11-29T03:00Z",
+   "market": "spread",
+   "side": "away",
+   "line": -1.5,
+   "venue": "Novig",
+   "price": 0.385,
+   "fair": 0.3944,
+   "fair_power": 0.3896,
+   "venue_fair": 0.3831,
+   "fair_gap": 1.1,
+   "ev": 2.5,
+   "move": 1.4,
+   "flagged": "2026-11-28T20:27:01Z",
+   "venue_ts": "2026-11-28T20:05:31Z",
+   "pin_ts": "2026-11-28T20:05:31Z",
+   "qty_best": 39473,
+   "wide": false,
+   "team": "EDM",
    "checkable": true
   }
  ]
