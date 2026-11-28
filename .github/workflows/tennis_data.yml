@@ -19,6 +19,7 @@ jobs:
     timeout-minutes: 30
     steps:
       - uses: actions/checkout@v4
+        with: {ref: main}   # 11/28: queued runs start from main as it is now, not the commit they were triggered on (td_append_guard)
       - name: shallow-clone Tennis Abstract and copy the files we use
         run: |
           set -e

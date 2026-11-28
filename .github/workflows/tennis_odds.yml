@@ -18,6 +18,7 @@ jobs:
     timeout-minutes: 20
     steps:
       - uses: actions/checkout@v4
+        with: {ref: main}   # 11/28: queued runs start from main as it is now, not the commit they were triggered on (td_append_guard)
       - name: download each year's workbook (xlsx, else xls)
         run: |
           mkdir -p data/tennis/odds

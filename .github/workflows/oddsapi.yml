@@ -25,6 +25,7 @@ jobs:
     timeout-minutes: 60
     steps:
       - uses: actions/checkout@v4
+        with: {ref: main}   # 11/28: queued runs start from main as it is now, not the commit they were triggered on (td_append_guard)
       - name: daily closes (yesterday ET, every active sport)
         if: github.event_name == 'schedule'
         env: {ODDS_API_KEY: '${{ secrets.ODDS_API_KEY }}'}

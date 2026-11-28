@@ -16,6 +16,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
+          ref: main   # 11/28: queued runs start from main as it is now, not the commit they were triggered on (td_append_guard)
           sparse-checkout: |
             /*
             !/data/oddsapi/

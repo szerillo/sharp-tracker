@@ -44,5 +44,28 @@ tests, and a check that every pushing workflow configures the driver.
 
 ## Not done (Sean's call)
 
-Rows already dropped are still in git history. Restoring the ledger rows (sharp_paper 4, flow_paper 6, sys_sharp_tags 6,
-stale_paper 4) would change paper records, including the stale_book kill test count, so it waits for Sean.
+Rows already dropped are still in git history. Corrected 11/28: judged against main now, by row id, 9 dropped paper rows are still
+missing (sharp_paper 2, flow_paper 5, stale_paper 2, sys_sharp_tags 0), not the 20 first reported. The first count was the window's last
+commit compared line by line for sys_sharp_tags, and it missed rows the jobs re-logged on later runs. All 9 are for games that have
+started, so no job will re-log them. Restoring them would change paper records (stale_paper feeds the stale_book kill test), so it
+waits for Sean.
+
+| Ledger | Game | Row | Logged |
+|---|---|---|---|
+| sharp_paper | PHI @ IND (NBA) | 76ers | 11/28 00:11Z |
+| sharp_paper | DAL @ PHX (NBA) | Suns | 11/27 19:05Z |
+| flow_paper | WPG @ NYI | away ML | 11/28 00:07Z |
+| flow_paper | WPG @ NYI | under 6.5 | 11/28 00:07Z |
+| flow_paper | LA @ ANA | over 6.5 | 11/27 20:46Z |
+| flow_paper | VAN @ PHI | away -1.5 | 11/27 19:43Z |
+| flow_paper | TOR @ BOS | over 6.5 | 11/27 17:55Z |
+| stale_paper | TEX @ TA&M (CFB) | home +10.5 | (start 11/28 00:30Z) |
+| stale_paper | SJU @ ISU (CBB) | home ML | (start 11/27 18:00Z) |
+
+## Follow-ups (11/28, no rule effect)
+
+- `sharp/ledger_watch.py`: every board audit compares each paper ledger's row ids on main with the main commit the previous audit saw;
+  any id that vanished shows as a warning on the banner and sends one phone alert. fs_paper is not watched (its dedupe removes rows on
+  purpose). Test: tests/test_ledger_watch.py.
+- Every queued workflow that pushes (18) now checks out `main` instead of its trigger commit, like prices_fast.
+- `sharp/research/row_audit.py` now judges "still missing" against main now, matched by id for the ledgers.

@@ -20,6 +20,7 @@ jobs:
     timeout-minutes: 45   # build_db alone takes about 12 min now; the 20-min limit killed every run from 11/3 midday
     steps:
       - uses: actions/checkout@v4
+        with: {ref: main}   # 11/28: queued runs start from main as it is now, not the commit they were triggered on (td_append_guard)
       - uses: actions/setup-python@v5
         with: {python-version: '3.12'}
       - run: pip install -q cryptography numpy pandas

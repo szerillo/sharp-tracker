@@ -97,6 +97,12 @@ def main():
             miss = LM.unmatched(bp.get('picks'), view.get('games'))
             check('Bet Labs list games on the board', not miss, f"{len(miss)} of today's list-bet listings not on the board" + (': ' + '; '.join(f"{r} {g} ({w})" for r, g, w in miss[:4]) if miss else ''), level='warn')
     except Exception as e: print(f"[audit] labs match failed: {e}")
+    try:                                              # 11/27 td_append_guard: a push that drops paper-ledger rows (sharp/ledger_watch.py)
+        import ledger_watch as LW
+        drop = LW.check()
+        check('paper ledgers kept every row', not drop, 'no ids lost since the last audit' if not drop else
+              'rows dropped by a push: ' + ', '.join(f"{os.path.basename(f)} {n}" for f, n in drop.items()), level='warn')
+    except Exception as e: print(f"[audit] ledger watch failed: {e}")
     ok = all(c['ok'] or c['level'] == 'warn' for c in C)
     prev = load('data/state/audit.json') or {}
     prev_bad = {c['name'] for c in prev.get('checks') or [] if not c['ok']}
