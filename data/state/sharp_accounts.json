@@ -1,5 +1,5 @@
 {
- "built": "2026-11-28T17:53:11Z",
+ "built": "2026-11-28T18:00:51Z",
  "rows": [
   {
    "cond": "0x1cf899c2e1facf88079301875eb3bd94b8bd647c4967d650a9cc28de6b703aa0",
@@ -510,7 +510,7 @@
    "best_rank": 115,
    "usd": 318,
    "paid": 0.43,
-   "ask": 0.44,
+   "ask": null,
    "status": "live",
    "link": "https://polymarket.us/event/cfb-flatl-ecar-2026-11-28",
    "other": null,
@@ -563,7 +563,7 @@
    "best_rank": 12,
    "usd": 231,
    "paid": 0.48,
-   "ask": 0.48,
+   "ask": null,
    "status": "live",
    "link": "https://polymarket.us/event/cfb-marsh-lamon-2026-11-28",
    "other": null,
@@ -584,8 +584,8 @@
    "cancel": [
     "Kalshi move"
    ],
-   "money_with": false,
-   "grade": "B",
+   "money_with": true,
+   "grade": "A",
    "inside_fair": false,
    "fair_board": 0.4717,
    "books": {
@@ -631,7 +631,7 @@
    "game_start": "2026-11-28T19:00Z",
    "side_std": "under",
    "cancel": null,
-   "money_with": true,
+   "money_with": false,
    "grade": "A",
    "fair_board": null,
    "inside_fair": null,
@@ -1243,53 +1243,6 @@
    }
   },
   {
-   "cond": "0xea996f1845d658d00eb1fcd0840d31dd0f12c6b1d268aef852dc3fa085bdb40f",
-   "slug": "nba-okc-mil-2026-11-28",
-   "title": "Thunder vs. Bucks",
-   "mtype": "ml",
-   "start": "2026-11-29T01:00:00Z",
-   "bet": "Bucks ML",
-   "side": "Bucks",
-   "flagged": "2026-11-27T23:39:50Z",
-   "why": "a top-50 account",
-   "proven": true,
-   "trigger": "proven",
-   "n_accounts": 1,
-   "best_rank": 31,
-   "usd": 347,
-   "paid": 0.18,
-   "ask": 0.18,
-   "status": "live",
-   "link": "https://polymarket.us/event/nba-okc-mil-2026-11-28",
-   "other": null,
-   "kalshi_against": null,
-   "logged": true,
-   "event_id": "401910049",
-   "sport": "nba",
-   "league": null,
-   "away": "OKC",
-   "home": "MIL",
-   "away_name": "Oklahoma City Thunder",
-   "home_name": "Milwaukee Bucks",
-   "game_start": "2026-11-29T01:00Z",
-   "side_std": "home",
-   "cancel": null,
-   "money_with": false,
-   "grade": "watch",
-   "fair_board": 0.1715,
-   "inside_fair": false,
-   "books": {
-    "at": "2026-11-28T16:59:53Z",
-    "fair": 0.1715,
-    "q": {
-     "Novig": 0.175,
-     "DK": 0.1923,
-     "FD": 0.1961,
-     "Kalshi": 0.2
-    }
-   }
-  },
-  {
    "cond": "0xb67b08a811269d81463262636592c1da447ab05e94db2aa3c21199f7a783122f",
    "slug": "nhl-utah-dal-2026-11-28",
    "title": "Utah vs. Stars",
@@ -1755,6 +1708,62 @@
    "books": null
   },
   {
+   "cond": "0xea996f1845d658d00eb1fcd0840d31dd0f12c6b1d268aef852dc3fa085bdb40f",
+   "slug": "nba-okc-mil-2026-11-28",
+   "title": "Thunder vs. Bucks",
+   "mtype": "ml",
+   "start": "2026-11-29T01:00:00Z",
+   "bet": "Bucks ML",
+   "side": "Bucks",
+   "flagged": "2026-11-27T23:39:50Z",
+   "why": "a top-50 account",
+   "proven": true,
+   "trigger": "proven",
+   "n_accounts": 1,
+   "best_rank": 31,
+   "usd": 347,
+   "paid": 0.18,
+   "ask": 0.18,
+   "status": "live",
+   "link": "https://polymarket.us/event/nba-okc-mil-2026-11-28",
+   "other": null,
+   "kalshi_against": {
+    "move": 4.0,
+    "now": 82.5,
+    "state": "drift"
+   },
+   "logged": true,
+   "event_id": "401910049",
+   "sport": "nba",
+   "league": null,
+   "away": "OKC",
+   "home": "MIL",
+   "away_name": "Oklahoma City Thunder",
+   "home_name": "Milwaukee Bucks",
+   "game_start": "2026-11-29T01:00Z",
+   "side_std": "home",
+   "conflict": [
+    "Kalshi move"
+   ],
+   "cancel": [
+    "Kalshi move"
+   ],
+   "money_with": false,
+   "grade": "watch",
+   "fair_board": 0.1715,
+   "inside_fair": false,
+   "books": {
+    "at": "2026-11-28T16:59:53Z",
+    "fair": 0.1715,
+    "q": {
+     "Novig": 0.175,
+     "DK": 0.1923,
+     "FD": 0.1961,
+     "Kalshi": 0.2
+    }
+   }
+  },
+  {
    "cond": "0x3ae8f96806ecaf70143266702c86cf1e7d4285a82c51ee545c3f7b77b684c3a2",
    "slug": "epl-eve-liv-2026-11-29",
    "title": "Everton FC vs. Liverpool FC",
@@ -1852,21 +1861,21 @@
     "clv": -0.6
    },
    "outside": {
-    "n": 141,
-    "won": 73,
-    "units": 0.5,
+    "n": 144,
+    "won": 75,
+    "units": 0.86,
     "clv": -0.14
    }
   },
-  "n": 502,
-  "won": 247,
-  "units": -11.95,
+  "n": 505,
+  "won": 249,
+  "units": -11.59,
   "by_grade": {
    "A": {
-    "n": 339,
-    "won": 162,
-    "units": -12.03,
-    "clv": -0.09
+    "n": 342,
+    "won": 164,
+    "units": -11.67,
+    "clv": -0.08
    },
    "B": {
     "n": 110,
@@ -1881,12 +1890,12 @@
     "clv": -0.39
    }
   },
-  "units_1u": -9.79,
-  "clv": -0.32,
-  "n_venue": 268,
-  "units_venue": -4.04,
-  "clv_venue": 0.95,
-  "clv_poly_same": -0.57
+  "units_1u": -8.86,
+  "clv": -0.31,
+  "n_venue": 271,
+  "units_venue": -3.67,
+  "clv_venue": 0.94,
+  "clv_poly_same": -0.56
  },
  "sys_tags": {
   "401864550:cfb_day_over": {
@@ -2081,20 +2090,6 @@
     "usd": 5252
    }
   },
-  "401862837|ml": {
-   "away": {
-    "n": 1,
-    "best_rank": 115,
-    "usd": 318
-   }
-  },
-  "401871102|spread": {
-   "home": {
-    "n": 1,
-    "best_rank": 12,
-    "usd": 231
-   }
-  },
   "401869947|total": {
    "over": {
     "n": 1,
@@ -2161,27 +2156,6 @@
     "n": 1,
     "best_rank": 170,
     "usd": 212
-   }
-  },
-  "401921414|total": {
-   "under": {
-    "n": 1,
-    "best_rank": 65,
-    "usd": 528
-   }
-  },
-  "401921414|spread": {
-   "home": {
-    "n": 1,
-    "best_rank": 65,
-    "usd": 432
-   }
-  },
-  "401911395|total": {
-   "over": {
-    "n": 1,
-    "best_rank": 65,
-    "usd": 384
    }
   },
   "401926757|total": {
