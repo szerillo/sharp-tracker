@@ -1,5 +1,5 @@
 {
- "built": "2026-11-28T23:12:05Z",
+ "built": "2026-11-28T23:31:51Z",
  "record": {
   "cbb_1h_total_curve": {
    "n": 11,
@@ -499,6 +499,35 @@
    "book": null,
    "price": null,
    "flagged": "2026-11-28T23:12:05Z"
+  },
+  {
+   "key": "cfb_q1_under_curve|8e7c8bc1e0c6b7514f811010faaec76d||under",
+   "rule": "cfb_q1_under_curve",
+   "tier": "A",
+   "stake": 0.25,
+   "sport": "cfb",
+   "odds_id": "8e7c8bc1e0c6b7514f811010faaec76d",
+   "espn": "401860928",
+   "game": "Texas State Bobcats @ Utah State Aggies",
+   "start": "2026-11-29T02:30:00Z",
+   "market": "totals_q1",
+   "team": null,
+   "team_name": null,
+   "side": "under",
+   "line": 10.5,
+   "curve": 0.573,
+   "pin_fair": 0.52,
+   "gap": 5.3,
+   "full_total": 53.0,
+   "full_spread": 7.0,
+   "pin_price": 1.84,
+   "book": "FD",
+   "price": 1.86,
+   "pin_fair_power": 0.5209,
+   "book_fair": 0.5105,
+   "fair_gap": 0.9,
+   "ev_curve": 6.5,
+   "flagged": "2026-11-28T23:31:51Z"
   }
  ]
 }
