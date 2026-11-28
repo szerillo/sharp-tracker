@@ -39,3 +39,7 @@ A dated record of what changed on the board and in the tools in these three days
 - CFB road-streak rule: match Bet Labs listings with home and visitor swapped at neutral sites (veto only)?
 - 12/8: re-read the Kalshi cancel rule. About 15 new rows are expected by then, too few to decide on.
 - stale_book kill test: 35 of 100 checkable rows graded (10-25, -38%).
+- Props window (draft, not applied): check NBA threes unders from 3 hours before tip and re-check open rows each run (`live` flag for the
+  auto-placer). About 14 more Odds API credits per NBA game. docs/validation/props_latency_2026-11-28.md, docs/drafts/props_window_2026-11-28.patch.
+- Restore dropped paper rows (draft, not applied): 11,102 parlays plus 73 rows across steam_rev, flow, stale (4 checkable), sharp, curve
+  and props paper. data/research/restore_candidates/, docs/validation/append_guard_2026-11-27.md.

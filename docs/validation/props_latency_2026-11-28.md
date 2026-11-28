@@ -1,7 +1,7 @@
 # Why props rows reach the board 10 to 50 minutes before the start (11/28/2026)
 
 Asked by Kirk for Sean (td_props_earlier). Research only: no live props logic changed. A draft change is in
-`docs/drafts/props_window_2026-11-28.patch` (applies cleanly, not applied).
+`docs/drafts/props_window_2026-11-28.patch` (applies cleanly, not applied; Kirk 11/28: leave it as a draft, Sean decides).
 
 ## 1. Why rows are late: a deliberate 1-hour gate, then a slow job and late edges
 
@@ -59,13 +59,14 @@ Every row already has `flagged` (when the props job found it), plus `pin_ts` and
 start minus flagged; board latency is 2-3 minutes after that. The re-logged rows above lost their first flag time; that cannot happen
 again since the 11/27 merge fix. The draft adds `last_check`, `last_ev`, `last_price` and `live` (see 5).
 
-## 4. Thompson and Jaylen Brown after their start: not reproduced
+## 4. Thompson and Jaylen Brown after their start: not reproduced (resolved 11/28)
 
 On main, from every props_live.json commit 11/25-11/28: Jaylen Brown threes (Heat @ 76ers) first on main 21:16Z, start 22:10Z on the
 Odds API and 22:00Z on ESPN (44 minutes before tip); Logan Thompson saves (Flyers @ Capitals) first on main 23:17Z, start 00:00Z on both
 (43 minutes before). Both were gone from props_live.json later the same night (after their games started, as designed). The Odds API
-lists NBA starts 10 minutes after ESPN's time; NHL and NFL match. Kirk: which file, timestamp and start time did your measure use? If it
-read a later copy of either row (for instance the bet log's), the difference is there.
+lists NBA starts 10 minutes after ESPN's time; NHL and NFL match. Resolved (Kirk, 11/28): his 10-50 minute figure was the
+job-side view (first time his job saw the row, up to a poll interval after the flag) against the Novig market's start time, which can
+differ from ESPN and the Odds API by about 10 minutes for NBA. The first-on-main numbers above stand; his figure for these two is dropped.
 
 ## 5. Recommendation (needs Sean's OK)
 
@@ -76,8 +77,8 @@ read a later copy of either row (for instance the bet log's), the difference is 
    again if it returns. The auto-placer places only `live: true` rows. The paper record keeps grading the first flag, so it stays
    comparable with the backtest; a `live` split shows what the auto-placer would have done.
 3. **NHL and NFL stay at 1 hour.** The Barkov/Hutson miss was a late Pinnacle move (an edge that appeared 13 minutes out), not the
-   schedule. For those, the auto-placer cutoff decides: rows can appear as late as 9 minutes before the start. Kirk, what is the
-   placer's cutoff? If it is 15 minutes, either the placer takes rows down to 9 minutes, or props_live stops flagging under the placer's
-   cutoff (rows it cannot place would still be logged as paper).
+   schedule. Since 11/28 00:xx ET (Kirk) the placer takes a props row while the start is more than 3 minutes away (was 10 until
+   11/27) and polls every 2 minutes (was 10), so a row flagged at props_live's 9-minute floor can now be placed; Barkov and Hutson
+   would have been, if still priced. No props_live change is needed for this.
 4. Optional, independent: move the props step to its own 5-minute workflow (the board's signals run takes 21 minutes). That shortens
    latency for every sport but costs about 3x the credits of the current cadence inside the window.
