@@ -1,5 +1,5 @@
 {
- "built": "2026-11-28T22:40:25Z",
+ "built": "2026-11-28T22:56:33Z",
  "record": {
   "cbb_1h_total_curve": {
    "n": 11,
@@ -19,17 +19,17 @@
    }
   },
   "cfb_q1_under_curve": {
-   "n": 45,
+   "n": 47,
    "won": 19,
-   "lost": 26,
-   "units": -3.48,
+   "lost": 28,
+   "units": -3.98,
    "clv": {
-    "n": 27,
-    "avg": -2.18,
+    "n": 28,
+    "avg": -2.26,
     "beat": 3
    },
    "line_value": {
-    "n": 27,
+    "n": 28,
     "avg": 0.0,
     "better": 0,
     "worse": 0
@@ -88,72 +88,6 @@
   }
  },
  "rows": [
-  {
-   "key": "cfb_q1_under_curve|c424e58ad3ce3e391a33c0495aa52690||under",
-   "rule": "cfb_q1_under_curve",
-   "tier": "A",
-   "stake": 0.25,
-   "sport": "cfb",
-   "odds_id": "c424e58ad3ce3e391a33c0495aa52690",
-   "espn": "401869959",
-   "game": "Louisiana Ragin Cajuns @ Georgia State Panthers",
-   "start": "2026-11-28T19:00:00Z",
-   "market": "totals_q1",
-   "team": null,
-   "team_name": null,
-   "side": "under",
-   "line": 12.5,
-   "curve": 0.578,
-   "pin_fair": 0.493,
-   "gap": 8.4,
-   "full_total": 55.5,
-   "full_spread": 5.5,
-   "pin_price": 1.93,
-   "book": "FD",
-   "price": 1.91,
-   "pin_fair_power": 0.4929,
-   "book_fair": 0.5,
-   "fair_gap": -0.7,
-   "ev_curve": 10.4,
-   "flagged": "2026-11-28T16:16:14Z",
-   "close_ts": "2026-11-28T18:58:36Z",
-   "close_line": 12.5,
-   "line_value": 0.0,
-   "close_fair": 0.5,
-   "clv": -2.36,
-   "beat_fair": 0.7
-  },
-  {
-   "key": "cfb_q1_under_curve|a0fe49c990d1497e1cb34eb9c2b73ef1||under",
-   "rule": "cfb_q1_under_curve",
-   "tier": "P",
-   "stake": 0.0,
-   "sport": "cfb",
-   "odds_id": "a0fe49c990d1497e1cb34eb9c2b73ef1",
-   "espn": "401871063",
-   "game": "Liberty Flames @ Missouri State Bears",
-   "start": "2026-11-28T19:00:00Z",
-   "market": "totals_q1",
-   "team": null,
-   "team_name": null,
-   "side": "under",
-   "line": 13.5,
-   "curve": 0.58,
-   "pin_fair": 0.516,
-   "gap": 6.5,
-   "full_total": 53.0,
-   "full_spread": 18.5,
-   "pin_price": 1.85,
-   "book": null,
-   "price": null,
-   "flagged": "2026-11-28T16:16:14Z",
-   "close_ts": "2026-11-28T18:58:36Z",
-   "close_line": 13.5,
-   "line_value": 0.0,
-   "close_fair": 0.5144,
-   "clv": -2.61,
-   "beat_fair": -0.16
-  },
   {
    "key": "cfb_q1_under_curve|be399d75e553dc20697cf8f734b0f233||under",
    "rule": "cfb_q1_under_curve",
@@ -297,7 +231,13 @@
    "book_fair": 0.5144,
    "fair_gap": -2.2,
    "ev_curve": 11.5,
-   "flagged": "2026-11-28T20:15:15Z"
+   "flagged": "2026-11-28T20:15:15Z",
+   "close_ts": "2026-11-28T22:56:33Z",
+   "close_line": 17.5,
+   "line_value": 0.0,
+   "close_fair": 0.4948,
+   "clv": -4.57,
+   "beat_fair": 0.28
   },
   {
    "key": "cfb_q1_under_curve|2e180a350fe1c67db1b12cf36a1c1324||under",
