@@ -1,5 +1,5 @@
 {
- "built": "2026-11-28T22:56:33Z",
+ "built": "2026-11-28T23:12:05Z",
  "record": {
   "cbb_1h_total_curve": {
    "n": 11,
@@ -24,12 +24,12 @@
    "lost": 28,
    "units": -3.98,
    "clv": {
-    "n": 28,
-    "avg": -2.26,
+    "n": 29,
+    "avg": -2.32,
     "beat": 3
    },
    "line_value": {
-    "n": 28,
+    "n": 29,
     "avg": 0.0,
     "better": 0,
     "worse": 0
@@ -75,12 +75,12 @@
    "lost": 23,
    "units": -1.17,
    "clv": {
-    "n": 20,
-    "avg": -3.05,
+    "n": 21,
+    "avg": -2.99,
     "beat": 1
    },
    "line_value": {
-    "n": 20,
+    "n": 21,
     "avg": 0.0,
     "better": 0,
     "worse": 0
@@ -266,7 +266,13 @@
    "book_fair": 0.4286,
    "fair_gap": -0.9,
    "ev_curve": 3.8,
-   "flagged": "2026-11-28T20:15:15Z"
+   "flagged": "2026-11-28T20:15:15Z",
+   "close_ts": "2026-11-28T23:12:05Z",
+   "close_line": 13.5,
+   "line_value": 0.0,
+   "close_fair": 0.4158,
+   "clv": -3.87,
+   "beat_fair": -0.32
   },
   {
    "key": "cfb_tt_under_curve|2e180a350fe1c67db1b12cf36a1c1324|away|under",
@@ -295,7 +301,13 @@
    "book_fair": 0.4854,
    "fair_gap": 0.2,
    "ev_curve": 8.3,
-   "flagged": "2026-11-28T20:15:15Z"
+   "flagged": "2026-11-28T20:15:15Z",
+   "close_ts": "2026-11-28T23:12:05Z",
+   "close_line": 29.5,
+   "line_value": 0.0,
+   "close_fair": 0.4961,
+   "clv": -1.94,
+   "beat_fair": 0.91
   },
   {
    "key": "cfb_tt_under_curve|7f3768e75aa0ea31e6a30cff6cf631be|home|under",
@@ -462,6 +474,31 @@
    "book": null,
    "price": null,
    "flagged": "2026-11-28T22:24:24Z"
+  },
+  {
+   "key": "cfb_tt_under_curve|a2ecd43208cb856c8d882906463fdbec|away|under",
+   "rule": "cfb_tt_under_curve",
+   "tier": "P",
+   "stake": 0.0,
+   "sport": "cfb",
+   "odds_id": "a2ecd43208cb856c8d882906463fdbec",
+   "espn": "401864548",
+   "game": "Nevada Wolf Pack @ UNLV Rebels",
+   "start": "2026-11-29T02:00:00Z",
+   "market": "team_totals",
+   "team": "away",
+   "team_name": "Nevada Wolf Pack",
+   "side": "under",
+   "line": 19.5,
+   "curve": 0.516,
+   "pin_fair": 0.459,
+   "gap": 5.7,
+   "full_total": 44.5,
+   "full_spread": -4.5,
+   "pin_price": 2.1,
+   "book": null,
+   "price": null,
+   "flagged": "2026-11-28T23:12:05Z"
   }
  ]
 }
