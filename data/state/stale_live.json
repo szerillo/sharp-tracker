@@ -1,11 +1,11 @@
 {
- "built": "2026-11-28T04:38:05Z",
+ "built": "2026-11-28T04:55:48Z",
  "record": {
-  "n": 325,
+  "n": 326,
   "won": 142,
-  "lost": 183,
-  "units": -2.81,
-  "roi": -3.5
+  "lost": 184,
+  "units": -3.06,
+  "roi": -3.8
  },
  "record_sb4": {
   "n": 11,
@@ -17,13 +17,13 @@
  "sb4_killed": true,
  "checkable_test": {
   "rule": "kill if the first 100 graded checkable rows are not positive in both halves",
-  "n": 51,
+  "n": 52,
   "all_checkable": {
-   "n": 51,
+   "n": 52,
    "won": 19,
-   "lost": 32,
-   "units": -2.14,
-   "roi": -16.8
+   "lost": 33,
+   "units": -2.39,
+   "roi": -18.4
   },
   "half1": {
    "n": 50,
@@ -33,13 +33,13 @@
    "roi": -20.9
   },
   "half2": {
-   "n": 1,
+   "n": 2,
    "won": 1,
-   "lost": 0,
-   "units": 0.47,
-   "roi": 190.0
+   "lost": 1,
+   "units": 0.22,
+   "roi": 45.0
   },
-  "verdict": "pending: 51 of 100"
+  "verdict": "pending: 52 of 100"
  },
  "rows": [
   {
@@ -90,31 +90,6 @@
    "qty_best": 3490,
    "wide": false,
    "team": null,
-   "checkable": true
-  },
-  {
-   "key": "401920534|ml|away",
-   "sport": "cbb",
-   "event_id": "401920534",
-   "game": "TENN @ LOU",
-   "start": "2026-11-28T02:00Z",
-   "market": "ml",
-   "side": "away",
-   "line": null,
-   "venue": "Novig",
-   "price": 0.41,
-   "fair": 0.4223,
-   "fair_power": 0.4178,
-   "venue_fair": 0.408,
-   "fair_gap": 1.4,
-   "ev": 3.0,
-   "move": 2.1,
-   "flagged": "2026-11-27T18:33:01Z",
-   "venue_ts": "2026-11-27T18:03:06Z",
-   "pin_ts": "2026-11-27T18:03:06Z",
-   "qty_best": 31437,
-   "wide": false,
-   "team": "TENN",
    "checkable": true
   },
   {
