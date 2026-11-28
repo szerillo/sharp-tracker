@@ -179,6 +179,18 @@ class LabsMatch(unittest.TestCase):
         self.assertEqual([(r, g) for r, g, _ in miss], [('cbb_under_good_over_drop', 'Liberty @ St. Thomas'), ('cbb_under_good_over_drop', 'Old Dominion @ Virginia Tech')])
         self.assertIn('did not trigger', miss[0][2]); self.assertIn('not on the board', miss[1][2])
 
+    def test_logged_or_started_is_not_a_miss(self):          # 11/28: UCF @ Colorado false warning
+        import datetime as dt
+        from sharp import labs_match as LM
+        picks = [dict(sid=1783043, date='2026-11-28', away='UCF', home='Colorado'), dict(sid=1783043, date='2026-11-28', away='UAB', home='North Texas'),
+                 dict(sid=1783043, date='2026-11-28', away='Army', home='Navy')]
+        games = [dict(sport='cfb', away_name='UCF Knights', home_name='Colorado Buffaloes', start_utc='2026-11-28T19:00:00Z', triggers={},
+                      untracked=[dict(tag='cfb_wind14', untracked='cfb_wind14 vs cfb_day_over')]),
+                 dict(sport='cfb', away_name='UAB Blazers', home_name='North Texas Mean Green', start_utc='2026-11-28T18:00:00Z', triggers={}),
+                 dict(sport='cfb', away_name='Army Black Knights', home_name='Navy Midshipmen', start_utc='2026-11-28T23:00:00Z', triggers={})]
+        now = dt.datetime(2026, 11, 28, 19, 57, tzinfo=dt.timezone.utc)
+        self.assertEqual([g for _, g, _ in LM.unmatched(picks, games, today='2026-11-28', now=now)], ['Army @ Navy'])
+
 
 if __name__ == '__main__':
     unittest.main()

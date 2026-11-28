@@ -30,15 +30,28 @@ def game_matches(p, g):
     return m(a, h) or m(h, a)
 
 
-def unmatched(picks, games, today=None):
-    """Listings for today (ET) on the list-betting screens that no tool game carries a trigger for. Returns [(rule, 'away @ home', why)]."""
-    today = today or dt.datetime.now(dt.timezone.utc).astimezone(ET).date().isoformat()
+def logged(g, rule):
+    """11/28: the rule already logged a row for this game (a fill, or a row left untracked because two rules conflict, Sean's 11/18 rule)."""
+    return any((r or {}).get('tag') == rule for r in (g.get('fills') or []) + (g.get('untracked') or []))
+
+
+def started(g, now):
+    try: return dt.datetime.fromisoformat(str(g.get('start_utc') or g.get('start')).replace('Z', '+00:00')) <= now
+    except ValueError: return False
+
+
+def unmatched(picks, games, today=None, now=None):
+    """Listings for today (ET) on the list-betting screens that no tool game carries a trigger for. Returns [(rule, 'away @ home', why)].
+    11/28: a listing whose rule already logged a row for the game, or whose game has started (triggers clear at kickoff), is not a miss
+    (UCF @ Colorado 11/28: logged 11/27, untracked by the conflict with cfb_day_over, flagged after kickoff)."""
+    now = now or dt.datetime.now(dt.timezone.utc)
+    today = today or now.astimezone(ET).date().isoformat()
     out = []
     for p in picks or []:
         if p.get('sid') not in LIST_RULES or p.get('date') != today: continue
         sport, rule = LIST_RULES[p['sid']]
         G = [g for g in games or [] if g.get('sport', sport) == sport and game_matches(p, g)]
         if not G: out.append((rule, f"{p['away']} @ {p['home']}", 'not on the board: no tool game matched (names, or the game is missing from the schedule)')); continue
-        if not any(rule in (g.get('triggers') or {}) for g in G):
+        if not any(rule in (g.get('triggers') or {}) or logged(g, rule) or started(g, now) for g in G):
             out.append((rule, f"{p['away']} @ {p['home']}", 'matched a tool game, but the rule did not trigger'))
     return out
