@@ -1,5 +1,5 @@
 {
- "built": "2026-11-28T01:06:41Z",
+ "built": "2026-11-28T01:14:32Z",
  "rows": [
   {
    "cond": "0x8376c316c262d5c56a46ce9bc6679f01e717ec27bdd0bfcacef7cba8190eb519",
@@ -546,7 +546,7 @@
    "best_rank": 12,
    "usd": 125,
    "paid": 0.5,
-   "ask": 0.52,
+   "ask": 0.51,
    "status": "live",
    "link": "https://polymarket.us/event/cfb-aubrn-ala-2026-11-28",
    "other": null,
@@ -568,7 +568,7 @@
    "money_with": false,
    "grade": "B",
    "fair_board": 0.513,
-   "inside_fair": false,
+   "inside_fair": true,
    "books": {
     "at": "2026-11-27T23:42:52Z",
     "fair": 0.513,
@@ -1445,7 +1445,7 @@
    "best_rank": 31,
    "usd": 9426,
    "paid": 0.649,
-   "ask": 0.66,
+   "ask": 0.65,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-lal-sas-2026-11-27",
    "other": {
@@ -1454,7 +1454,7 @@
     "usd": 35097,
     "first": "2026-11-27T17:32:19Z"
    },
-   "exit_bid": 0.65,
+   "exit_bid": 0.64,
    "kalshi_against": null,
    "logged": true,
    "event_id": "401909333",
@@ -1473,7 +1473,7 @@
    "money_with": false,
    "grade": "A",
    "fair_board": 0.6545,
-   "inside_fair": false,
+   "inside_fair": true,
    "books": null
   },
   {
@@ -1685,13 +1685,13 @@
     "clv": -0.11
    }
   },
-  "n": 479,
-  "won": 233,
+  "n": 480,
+  "won": 234,
   "units": -13.11,
   "by_grade": {
    "A": {
-    "n": 325,
-    "won": 152,
+    "n": 326,
+    "won": 153,
     "units": -12.92,
     "clv": -0.1
    },
@@ -1708,12 +1708,12 @@
     "clv": 0.11
    }
   },
-  "units_1u": -13.25,
+  "units_1u": -12.44,
   "clv": -0.31,
-  "n_venue": 250,
+  "n_venue": 251,
   "units_venue": -5.02,
   "clv_venue": 0.87,
-  "clv_poly_same": -0.58
+  "clv_poly_same": -0.57
  },
  "sys_tags": {
   "401909331:nba_ats_hot_home": {
