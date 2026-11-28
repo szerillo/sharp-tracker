@@ -1,5 +1,5 @@
 {
- "built": "2026-11-28T18:16:28Z",
+ "built": "2026-11-28T18:40:02Z",
  "rows": [
   {
    "cond": "0x1cf899c2e1facf88079301875eb3bd94b8bd647c4967d650a9cc28de6b703aa0",
@@ -577,7 +577,7 @@
    "best_rank": 58,
    "usd": 470,
    "paid": 0.53,
-   "ask": 0.54,
+   "ask": 0.55,
    "status": "live",
    "link": "https://polymarket.us/event/cfb-loulaf-gast-2026-11-28",
    "other": null,
@@ -644,6 +644,56 @@
    "fair_board": null,
    "inside_fair": null,
    "books": null
+  },
+  {
+   "cond": "0xcef362e25b382891835daa81c05ac010f882ac48512f51a3fec029d357611e60",
+   "slug": "cfb-ucf-col-2026-11-28",
+   "title": "UCF vs. Colorado",
+   "mtype": "ml",
+   "start": "2026-11-28T19:00:00Z",
+   "bet": "UCF ML",
+   "side": "UCF",
+   "flagged": "2026-11-28T18:33:26Z",
+   "why": "a top-200 account also in this sport's top 50",
+   "proven": true,
+   "trigger": "proven",
+   "n_accounts": 1,
+   "best_rank": 115,
+   "usd": 4554,
+   "paid": 0.46,
+   "ask": 0.47,
+   "status": "live",
+   "link": "https://polymarket.us/event/cfb-ucf-col-2026-11-28",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401856875",
+   "sport": "cfb",
+   "league": null,
+   "away": "UCF",
+   "home": "COLO",
+   "away_name": "UCF Knights",
+   "home_name": "Colorado Buffaloes",
+   "game_start": "2026-11-28T19:00Z",
+   "side_std": "away",
+   "conflict": [
+    "big money"
+   ],
+   "cancel": null,
+   "money_with": false,
+   "grade": "A",
+   "fair_board": 0.4588,
+   "inside_fair": false,
+   "books": {
+    "at": "2026-11-28T17:23:30Z",
+    "fair": 0.4588,
+    "q": {
+     "Novig": 0.46,
+     "DK": 0.4762,
+     "FD": 0.4808,
+     "Kalshi": 0.49
+    }
+   }
   },
   {
    "cond": "0x160fa75437fd81457f55dabda2a32425e1be8b45dcbcb692b10607e3f68fc86d",
@@ -2063,6 +2113,13 @@
     "n": 1,
     "best_rank": 115,
     "usd": 5252
+   }
+  },
+  "401856875|ml": {
+   "away": {
+    "n": 1,
+    "best_rank": 115,
+    "usd": 4554
    }
   },
   "401869947|total": {
