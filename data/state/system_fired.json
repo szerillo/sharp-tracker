@@ -9349,7 +9349,11 @@
 "price": -110,
 "fair": 0.49761,
 "edge_pts": -2.62,
-"why": "2:00 PM ET kickoff, total 51.5: over (mined angle)"
+"why": "2:00 PM ET kickoff, total 51.5: over (mined angle)",
+"void": true,
+"void_why": "Untracked: systems conflict (cfb_day_over vs cfb_wind14)",
+"void_at": "2026-11-27T23:57:23Z",
+"untracked": "cfb_day_over vs cfb_wind14"
 },
 "401858539:cfb_day_over": {
 "tag": "cfb_day_over",
@@ -10856,7 +10860,11 @@
 "price": -109,
 "fair": 0.50939,
 "edge_pts": -1.21,
-"why": "Bet Labs wind 17 mph (pull Fri 5:28 PM ET); cross-check MySportsWeather 22 mph, gusts 36 (Open-Meteo 24.4 at T-20h), gust 44.3, 52.6F"
+"why": "Bet Labs wind 17 mph (pull Fri 5:28 PM ET); cross-check MySportsWeather 22 mph, gusts 36 (Open-Meteo 24.4 at T-20h), gust 44.3, 52.6F",
+"void": true,
+"void_why": "Untracked: systems conflict (cfb_wind14 vs cfb_day_over)",
+"void_at": "2026-11-27T23:57:23Z",
+"untracked": "cfb_wind14 vs cfb_day_over"
 },
 "401892814:nhl_bounce_home_ml": {
 "tag": "nhl_bounce_home_ml",

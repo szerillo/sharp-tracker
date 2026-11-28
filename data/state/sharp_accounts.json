@@ -1,5 +1,5 @@
 {
- "built": "2026-11-28T00:03:16Z",
+ "built": "2026-11-27T23:46:27Z",
  "rows": [
   {
    "cond": "0xd57aff4e5f26436aba9963dd5ca0c28d1ce907b687534ef6cf8c784ab2f11c0a",
@@ -207,7 +207,7 @@
    "best_rank": 104,
    "usd": 302,
    "paid": 0.437,
-   "ask": null,
+   "ask": 0.39,
    "status": "live",
    "link": "https://polymarket.us/event/nba-mia-nyk-2026-11-27",
    "other": null,
@@ -414,53 +414,6 @@
      "DK": 0.495,
      "FD": 0.5,
      "Caesars": 0.505
-    }
-   }
-  },
-  {
-   "cond": "0x94cc5b7f6cefeaa236d2ef4394fd0c6f71d94f233c3f44da731e31d599d634ef",
-   "slug": "nba-phi-ind-2026-11-27",
-   "title": "76ers vs. Pacers",
-   "mtype": "spread",
-   "start": "2026-11-28T00:30:00Z",
-   "bet": "76ers -3.5",
-   "side": "76ers",
-   "flagged": "2026-11-28T00:01:22Z",
-   "why": "2 top-200 accounts",
-   "proven": false,
-   "trigger": "two",
-   "n_accounts": 2,
-   "best_rank": 49,
-   "usd": 18427,
-   "paid": 0.5,
-   "ask": 0.51,
-   "status": "live",
-   "link": "https://polymarket.us/event/nba-phi-ind-2026-11-27",
-   "other": null,
-   "kalshi_against": null,
-   "logged": true,
-   "event_id": "401909328",
-   "sport": "nba",
-   "league": null,
-   "away": "PHI",
-   "home": "IND",
-   "away_name": "Philadelphia 76ers",
-   "home_name": "Indiana Pacers",
-   "game_start": "2026-11-28T00:30Z",
-   "side_std": "away",
-   "cancel": null,
-   "money_with": false,
-   "grade": "B",
-   "fair_board": 0.4903,
-   "inside_fair": false,
-   "books": {
-    "at": "2026-11-27T22:26:48Z",
-    "fair": 0.4903,
-    "q": {
-     "Novig": 0.49,
-     "DK": 0.5192,
-     "Kalshi": 0.52,
-     "Caesars": 0.5238
     }
    }
   },
@@ -1215,7 +1168,7 @@
    "best_rank": 43,
    "usd": 24508,
    "paid": 0.415,
-   "ask": null,
+   "ask": 0.43,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-mia-nyk-2026-11-27",
    "other": {
@@ -1224,7 +1177,7 @@
     "usd": 52369,
     "first": "2026-11-27T16:52:29Z"
    },
-   "exit_bid": null,
+   "exit_bid": 0.42,
    "kalshi_against": null,
    "logged": true,
    "event_id": "401909326",
@@ -1262,7 +1215,7 @@
    "best_rank": 112,
    "usd": 14494,
    "paid": 0.455,
-   "ask": null,
+   "ask": 0.51,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-mia-nyk-2026-11-27",
    "other": {
@@ -1271,7 +1224,7 @@
     "usd": 41788,
     "first": "2026-11-27T23:22:26Z"
    },
-   "exit_bid": null,
+   "exit_bid": 0.5,
    "kalshi_against": null,
    "logged": true,
    "event_id": "401909326",
@@ -1335,7 +1288,7 @@
    "money_with": false,
    "grade": "A",
    "fair_board": 0.6071,
-   "inside_fair": true,
+   "inside_fair": false,
    "books": null
   },
   {
@@ -1809,6 +1762,37 @@
     "n": 2,
     "best_rank": 12,
     "usd": 553
+   }
+  },
+  "401909326|spread": {
+   "home": {
+    "n": 4,
+    "best_rank": 58,
+    "usd": 6872
+   },
+   "away": {
+    "n": 2,
+    "best_rank": 112,
+    "usd": 1793
+   }
+  },
+  "401909326|ml": {
+   "away": {
+    "n": 4,
+    "best_rank": 43,
+    "usd": 24508
+   },
+   "home": {
+    "n": 5,
+    "best_rank": 43,
+    "usd": 29552
+   }
+  },
+  "401909326|total": {
+   "under": {
+    "n": 1,
+    "best_rank": 132,
+    "usd": 234
    }
   },
   "401909327|spread": {
