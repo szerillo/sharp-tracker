@@ -1,5 +1,5 @@
 {
- "built": "2026-11-28T05:34:48Z",
+ "built": "2026-11-28T05:44:07Z",
  "rows": [
   {
    "cond": "0x2bceacd2a10a061e919c9555adbc82d6b148718b10edc4b3808f4a5b6aeb30ce",
@@ -256,6 +256,53 @@
      "DK": 0.5283,
      "FD": 0.5327,
      "Novig": 0.54
+    }
+   }
+  },
+  {
+   "cond": "0xea996f1845d658d00eb1fcd0840d31dd0f12c6b1d268aef852dc3fa085bdb40f",
+   "slug": "nba-okc-mil-2026-11-28",
+   "title": "Thunder vs. Bucks",
+   "mtype": "ml",
+   "start": "2026-11-29T01:00:00Z",
+   "bet": "Bucks ML",
+   "side": "Bucks",
+   "flagged": "2026-11-27T23:39:50Z",
+   "why": "a top-50 account",
+   "proven": true,
+   "trigger": "proven",
+   "n_accounts": 1,
+   "best_rank": 31,
+   "usd": 347,
+   "paid": 0.18,
+   "ask": 0.18,
+   "status": "live",
+   "link": "https://polymarket.us/event/nba-okc-mil-2026-11-28",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401910049",
+   "sport": "nba",
+   "league": null,
+   "away": "OKC",
+   "home": "MIL",
+   "away_name": "Oklahoma City Thunder",
+   "home_name": "Milwaukee Bucks",
+   "game_start": "2026-11-29T01:00Z",
+   "side_std": "home",
+   "cancel": null,
+   "money_with": false,
+   "grade": "watch",
+   "fair_board": 0.1769,
+   "inside_fair": false,
+   "books": {
+    "at": "2026-11-28T02:08:05Z",
+    "fair": 0.1769,
+    "q": {
+     "Novig": 0.185,
+     "DK": 0.1923,
+     "FD": 0.1961,
+     "Caesars": 0.2
     }
    }
   },
@@ -932,71 +979,15 @@
    "fair_board": null,
    "inside_fair": null,
    "books": null
-  },
-  {
-   "cond": "0xea996f1845d658d00eb1fcd0840d31dd0f12c6b1d268aef852dc3fa085bdb40f",
-   "slug": "nba-okc-mil-2026-11-28",
-   "title": "Thunder vs. Bucks",
-   "mtype": "ml",
-   "start": "2026-11-29T01:00:00Z",
-   "bet": "Bucks ML",
-   "side": "Bucks",
-   "flagged": "2026-11-27T23:39:50Z",
-   "why": "a top-50 account",
-   "proven": true,
-   "trigger": "proven",
-   "n_accounts": 1,
-   "best_rank": 31,
-   "usd": 347,
-   "paid": 0.18,
-   "ask": 0.19,
-   "status": "live",
-   "link": "https://polymarket.us/event/nba-okc-mil-2026-11-28",
-   "other": null,
-   "kalshi_against": {
-    "move": 4.0,
-    "now": 82.5,
-    "state": "drift"
-   },
-   "logged": true,
-   "event_id": "401910049",
-   "sport": "nba",
-   "league": null,
-   "away": "OKC",
-   "home": "MIL",
-   "away_name": "Oklahoma City Thunder",
-   "home_name": "Milwaukee Bucks",
-   "game_start": "2026-11-29T01:00Z",
-   "side_std": "home",
-   "conflict": [
-    "Kalshi move"
-   ],
-   "cancel": [
-    "Kalshi move"
-   ],
-   "money_with": false,
-   "grade": "watch",
-   "fair_board": 0.1769,
-   "inside_fair": false,
-   "books": {
-    "at": "2026-11-28T02:08:05Z",
-    "fair": 0.1769,
-    "q": {
-     "Novig": 0.185,
-     "DK": 0.1923,
-     "FD": 0.1961,
-     "Caesars": 0.2
-    }
-   }
   }
  ],
  "record": {
   "by_fair": {
    "inside": {
-    "n": 20,
-    "won": 10,
+    "n": 21,
+    "won": 11,
     "units": -1.22,
-    "clv": -0.54
+    "clv": -0.6
    },
    "outside": {
     "n": 141,
@@ -1005,15 +996,15 @@
     "clv": -0.14
    }
   },
-  "n": 501,
-  "won": 246,
+  "n": 502,
+  "won": 247,
   "units": -11.95,
   "by_grade": {
    "A": {
-    "n": 338,
-    "won": 161,
+    "n": 339,
+    "won": 162,
     "units": -12.03,
-    "clv": -0.08
+    "clv": -0.09
    },
    "B": {
     "n": 110,
@@ -1028,12 +1019,12 @@
     "clv": -0.39
    }
   },
-  "units_1u": -10.92,
-  "clv": -0.31,
-  "n_venue": 267,
+  "units_1u": -9.79,
+  "clv": -0.32,
+  "n_venue": 268,
   "units_venue": -4.04,
-  "clv_venue": 0.96,
-  "clv_poly_same": -0.56
+  "clv_venue": 0.95,
+  "clv_poly_same": -0.57
  },
  "sys_tags": {},
  "by_event": {
