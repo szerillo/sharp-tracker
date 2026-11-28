@@ -16,7 +16,9 @@ import sys
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..')); sys.path.insert(0, ROOT)
 from sharp import append_merge as M
 
-KEYS = dict(M.KEYS, **{'data/state/sys_sharp_tags.jsonl': ('key',), 'data/kalshi/steam_rev_paper.jsonl': ('ticker', 'steam_ts')})   # rows matched by id
+KEYS = dict(M.KEYS, **{'data/state/sys_sharp_tags.jsonl': ('key',), 'data/kalshi/steam_rev_paper.jsonl': ('ticker', 'steam_ts'),   # rows matched by id
+                       'data/tennis/serve_paper.jsonl': ('event_id',), 'data/tennis/hotdog_paper.jsonl': ('event_id',),   # 11/28: append-only paper logs,
+                       'data/mma/steam_paper.jsonl': ('key',), 'data/state/parlays_paper.jsonl': ('ticker',)})           # by the id their writer dedupes on
 
 DEFAULT = ['data/state/sharp_paper.jsonl', 'data/kalshi/flow_paper.jsonl', 'data/state/sys_sharp_tags.jsonl',
            'data/polymarket/sharp_fills.jsonl', 'data/state/fills.jsonl']

@@ -16,7 +16,9 @@ ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..')); sys.path.
 from sharp import append_merge as M
 
 WATCH = {f: k for f, k in M.KEYS.items() if f != 'data/tennis/fs_paper.jsonl'}
-WATCH.update({'data/state/sys_sharp_tags.jsonl': ('key',), 'data/kalshi/steam_rev_paper.jsonl': ('ticker', 'steam_ts')})
+WATCH.update({'data/state/sys_sharp_tags.jsonl': ('key',), 'data/kalshi/steam_rev_paper.jsonl': ('ticker', 'steam_ts'),
+              'data/tennis/serve_paper.jsonl': ('event_id',), 'data/tennis/hotdog_paper.jsonl': ('event_id',), 'data/mma/steam_paper.jsonl': ('key',),
+              'data/state/parlays_paper.jsonl': ('ticker',)})   # 11/28: append-only paper logs too (parlays lost ~304k ids 11/21-11/27)
 SNAP = os.path.join(ROOT, 'data', 'state', 'ledger_watch.json')
 
 

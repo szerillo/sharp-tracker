@@ -1,0 +1,72 @@
+{
+ "since": "2026-11-28T04:09Z",
+ "until": "now",
+ "files": [
+  {
+   "file": "data/state/parlays_paper.jsonl",
+   "commits": 6,
+   "rows_start": 33174,
+   "rows_end": 33345,
+   "pushes_that_dropped_rows": [
+    {
+     "commit": "c0f0277daf",
+     "at": "11-28T04:15Z",
+     "writer": "signals",
+     "lost": 373,
+     "added": 385,
+     "before": 33174,
+     "after": 33186
+    }
+   ],
+   "rows_lost": 373,
+   "writers": {
+    "signals": 6
+   },
+   "added_rows_missing_on_main_now": {
+    "signals": 0
+   }
+  },
+  {
+   "file": "data/kalshi/steam_rev_paper.jsonl",
+   "commits": 2,
+   "rows_start": 871,
+   "rows_end": 875,
+   "pushes_that_dropped_rows": [],
+   "rows_lost": 0,
+   "writers": {
+    "signals": 2
+   },
+   "added_rows_missing_on_main_now": {
+    "signals": 0
+   }
+  },
+  {
+   "file": "data/state/sharp_paper.jsonl",
+   "commits": 4,
+   "rows_start": 520,
+   "rows_end": 520,
+   "pushes_that_dropped_rows": [],
+   "rows_lost": 0,
+   "writers": {
+    "fast": 4
+   },
+   "added_rows_missing_on_main_now": {
+    "fast": 0
+   }
+  },
+  {
+   "file": "data/state/stale_paper.jsonl",
+   "commits": 3,
+   "rows_start": 340,
+   "rows_end": 340,
+   "pushes_that_dropped_rows": [],
+   "rows_lost": 0,
+   "writers": {
+    "signals": 3
+   },
+   "added_rows_missing_on_main_now": {
+    "signals": 0
+   }
+  }
+ ]
+}

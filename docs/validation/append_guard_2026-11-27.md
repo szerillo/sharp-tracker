@@ -62,10 +62,36 @@ waits for Sean.
 | stale_paper | TEX @ TA&M (CFB) | home +10.5 | (start 11/28 00:30Z) |
 | stale_paper | SJU @ ISU (CBB) | home ML | (start 11/27 18:00Z) |
 
+## Seven days, 11/21 05:00Z to 11/28 04:09Z (before the fix), by row id, judged against main now
+
+From `sharp/research/row_audit.py`. "Ids missing now" = rows a push logged that are not on main now (a dropped row the job later
+re-logged, usually at a newer price, is not counted).
+
+| Paper log | Pushes | Pushes that dropped rows | Ids missing now |
+|---|---|---|---|
+| parlays_paper (parlay maker test) | 638 | 629 | 304,103 (33,313 on file) |
+| steam_rev_paper | 216 | 71 | 66 |
+| flow_paper (kalshi_nhl_flow) | 111 | 41 | 26 |
+| stale_paper (stale_book) | 231 | 24 | 12 |
+| sharp_paper | 379 | 33 | 6 |
+| curve_paper | 103 | 5 | 3 |
+| props_paper | 55 | 5 | 2 |
+| sharp_c_paper | 396 | 11 | 0 |
+| fills, sys_sharp_tags, wncaab, novig_quoter_fills, placed, expert picks, tennis (hot, hotdog, serve, fs), mma steam, Bet Labs history | | 0 | 0 |
+
+parlays_paper is written by both signals jobs (the 10-minute run and the on-demand fast run), each from a stale checkout, so nearly every
+push clobbered the other's new rows: the parlay maker test has kept roughly one logged parlay in ten. All of these are paper. Every
+missing row is still in git history, so all of it can be restored; that is Sean's call, together with the 9 rows above (which the
+11/27 table counts inside the 7-day numbers).
+
+After the fix (04:09Z to 05:34Z 11/28): parlays_paper 6 pushes, one drop of 373 rows at 04:15Z by a signals run triggered before the
+deploy (old workflow), since re-logged; 0 ids missing. steam_rev, sharp_paper, stale_paper: 0 drops.
+
 ## Follow-ups (11/28, no rule effect)
 
 - `sharp/ledger_watch.py`: every board audit compares each paper ledger's row ids on main with the main commit the previous audit saw;
   any id that vanished shows as a warning on the banner and sends one phone alert. fs_paper is not watched (its dedupe removes rows on
   purpose). Test: tests/test_ledger_watch.py.
 - Every queued workflow that pushes (18) now checks out `main` instead of its trigger commit, like prices_fast.
+- The ledger watch also covers the append-only paper logs (parlays, steam_rev, tennis serve and hotdog, mma steam).
 - `sharp/research/row_audit.py` now judges "still missing" against main now, matched by id for the ledgers.

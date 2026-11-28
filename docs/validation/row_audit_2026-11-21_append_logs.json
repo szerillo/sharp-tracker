@@ -1,0 +1,6388 @@
+{
+ "since": "2026-11-21T05:00Z",
+ "until": "2026-11-28T04:09Z",
+ "files": [
+  {
+   "file": "data/tennis/serve_paper.jsonl",
+   "commits": 78,
+   "rows_start": 0,
+   "rows_end": 201,
+   "pushes_that_dropped_rows": [],
+   "rows_lost": 0,
+   "writers": {
+    "fast": 1,
+    "signals": 77
+   },
+   "added_rows_missing_on_main_now": {
+    "fast": 0,
+    "signals": 0
+   }
+  },
+  {
+   "file": "data/tennis/hotdog_paper.jsonl",
+   "commits": 6,
+   "rows_start": 0,
+   "rows_end": 46,
+   "pushes_that_dropped_rows": [],
+   "rows_lost": 0,
+   "writers": {
+    "fast": 1,
+    "signals": 5
+   },
+   "added_rows_missing_on_main_now": {
+    "fast": 0,
+    "signals": 0
+   }
+  },
+  {
+   "file": "data/mma/steam_paper.jsonl",
+   "commits": 3,
+   "rows_start": 0,
+   "rows_end": 7,
+   "pushes_that_dropped_rows": [],
+   "rows_lost": 0,
+   "writers": {
+    "fast": 1,
+    "signals": 2
+   },
+   "added_rows_missing_on_main_now": {
+    "fast": 0,
+    "signals": 0
+   }
+  },
+  {
+   "file": "data/state/parlays_paper.jsonl",
+   "commits": 638,
+   "rows_start": 0,
+   "rows_end": 33313,
+   "pushes_that_dropped_rows": [
+    {
+     "commit": "5ada54f87a",
+     "at": "11-21T11:45Z",
+     "writer": "signals",
+     "lost": 156,
+     "added": 207,
+     "before": 20933,
+     "after": 20984
+    },
+    {
+     "commit": "5f2cf504b6",
+     "at": "11-21T11:58Z",
+     "writer": "signals",
+     "lost": 205,
+     "added": 171,
+     "before": 20984,
+     "after": 20950
+    },
+    {
+     "commit": "e623e88e05",
+     "at": "11-21T12:12Z",
+     "writer": "signals",
+     "lost": 170,
+     "added": 246,
+     "before": 20950,
+     "after": 21026
+    },
+    {
+     "commit": "5289c00958",
+     "at": "11-21T12:28Z",
+     "writer": "signals",
+     "lost": 246,
+     "added": 214,
+     "before": 21026,
+     "after": 20994
+    },
+    {
+     "commit": "c6bb7d3c62",
+     "at": "11-21T12:45Z",
+     "writer": "signals",
+     "lost": 213,
+     "added": 283,
+     "before": 20994,
+     "after": 21064
+    },
+    {
+     "commit": "813dcac6e1",
+     "at": "11-21T13:00Z",
+     "writer": "signals",
+     "lost": 283,
+     "added": 234,
+     "before": 21064,
+     "after": 21015
+    },
+    {
+     "commit": "9f29c196a2",
+     "at": "11-21T13:13Z",
+     "writer": "signals",
+     "lost": 230,
+     "added": 311,
+     "before": 21015,
+     "after": 21096
+    },
+    {
+     "commit": "aa371d5179",
+     "at": "11-21T13:26Z",
+     "writer": "signals",
+     "lost": 311,
+     "added": 244,
+     "before": 21096,
+     "after": 21029
+    },
+    {
+     "commit": "37fba574bf",
+     "at": "11-21T13:42Z",
+     "writer": "signals",
+     "lost": 244,
+     "added": 343,
+     "before": 21029,
+     "after": 21128
+    },
+    {
+     "commit": "d538ae08ba",
+     "at": "11-21T13:58Z",
+     "writer": "signals",
+     "lost": 339,
+     "added": 277,
+     "before": 21128,
+     "after": 21066
+    },
+    {
+     "commit": "bd2f08976f",
+     "at": "11-21T14:15Z",
+     "writer": "signals",
+     "lost": 276,
+     "added": 358,
+     "before": 21066,
+     "after": 21148
+    },
+    {
+     "commit": "a6277ee950",
+     "at": "11-21T14:30Z",
+     "writer": "signals",
+     "lost": 358,
+     "added": 306,
+     "before": 21148,
+     "after": 21096
+    },
+    {
+     "commit": "c5b4a4fa4d",
+     "at": "11-21T14:47Z",
+     "writer": "signals",
+     "lost": 306,
+     "added": 410,
+     "before": 21096,
+     "after": 21200
+    },
+    {
+     "commit": "dcfcdd5c50",
+     "at": "11-21T15:02Z",
+     "writer": "signals",
+     "lost": 409,
+     "added": 338,
+     "before": 21200,
+     "after": 21129
+    },
+    {
+     "commit": "745bc39d58",
+     "at": "11-21T15:15Z",
+     "writer": "signals",
+     "lost": 334,
+     "added": 458,
+     "before": 21129,
+     "after": 21253
+    },
+    {
+     "commit": "a13bc50eda",
+     "at": "11-21T15:27Z",
+     "writer": "signals",
+     "lost": 456,
+     "added": 392,
+     "before": 21253,
+     "after": 21189
+    },
+    {
+     "commit": "98f5089160",
+     "at": "11-21T15:43Z",
+     "writer": "signals",
+     "lost": 386,
+     "added": 510,
+     "before": 21189,
+     "after": 21313
+    },
+    {
+     "commit": "2dd75c14a9",
+     "at": "11-21T15:57Z",
+     "writer": "signals",
+     "lost": 506,
+     "added": 436,
+     "before": 21313,
+     "after": 21243
+    },
+    {
+     "commit": "5003754167",
+     "at": "11-21T16:13Z",
+     "writer": "signals",
+     "lost": 435,
+     "added": 564,
+     "before": 21243,
+     "after": 21372
+    },
+    {
+     "commit": "82b01caf97",
+     "at": "11-21T16:27Z",
+     "writer": "signals",
+     "lost": 562,
+     "added": 482,
+     "before": 21372,
+     "after": 21292
+    },
+    {
+     "commit": "7490e37119",
+     "at": "11-21T16:43Z",
+     "writer": "signals",
+     "lost": 480,
+     "added": 620,
+     "before": 21292,
+     "after": 21432
+    },
+    {
+     "commit": "11dbd9cdf3",
+     "at": "11-21T16:56Z",
+     "writer": "signals",
+     "lost": 614,
+     "added": 534,
+     "before": 21432,
+     "after": 21352
+    },
+    {
+     "commit": "6af8bd2102",
+     "at": "11-21T17:11Z",
+     "writer": "signals",
+     "lost": 531,
+     "added": 671,
+     "before": 21352,
+     "after": 21492
+    },
+    {
+     "commit": "f41e52fc42",
+     "at": "11-21T17:26Z",
+     "writer": "signals",
+     "lost": 664,
+     "added": 584,
+     "before": 21492,
+     "after": 21412
+    },
+    {
+     "commit": "5268bb5305",
+     "at": "11-21T17:39Z",
+     "writer": "signals",
+     "lost": 578,
+     "added": 718,
+     "before": 21412,
+     "after": 21552
+    },
+    {
+     "commit": "1e90ab9a52",
+     "at": "11-21T17:54Z",
+     "writer": "signals",
+     "lost": 710,
+     "added": 625,
+     "before": 21552,
+     "after": 21467
+    },
+    {
+     "commit": "4b131bcff1",
+     "at": "11-21T18:09Z",
+     "writer": "signals",
+     "lost": 620,
+     "added": 765,
+     "before": 21467,
+     "after": 21612
+    },
+    {
+     "commit": "92f634e826",
+     "at": "11-21T18:26Z",
+     "writer": "signals",
+     "lost": 764,
+     "added": 679,
+     "before": 21612,
+     "after": 21527
+    },
+    {
+     "commit": "6ea0c15085",
+     "at": "11-21T18:39Z",
+     "writer": "signals",
+     "lost": 678,
+     "added": 823,
+     "before": 21527,
+     "after": 21672
+    },
+    {
+     "commit": "a410b79d1f",
+     "at": "11-21T18:53Z",
+     "writer": "signals",
+     "lost": 819,
+     "added": 718,
+     "before": 21672,
+     "after": 21571
+    },
+    {
+     "commit": "869dcbdd18",
+     "at": "11-21T19:06Z",
+     "writer": "signals",
+     "lost": 718,
+     "added": 840,
+     "before": 21571,
+     "after": 21693
+    },
+    {
+     "commit": "2d03caa84b",
+     "at": "11-21T19:22Z",
+     "writer": "signals",
+     "lost": 836,
+     "added": 774,
+     "before": 21693,
+     "after": 21631
+    },
+    {
+     "commit": "5321e45f11",
+     "at": "11-21T19:34Z",
+     "writer": "signals",
+     "lost": 773,
+     "added": 894,
+     "before": 21631,
+     "after": 21752
+    },
+    {
+     "commit": "b53720c7a6",
+     "at": "11-21T19:51Z",
+     "writer": "signals",
+     "lost": 891,
+     "added": 830,
+     "before": 21752,
+     "after": 21691
+    },
+    {
+     "commit": "7fdf1ec45c",
+     "at": "11-21T20:08Z",
+     "writer": "signals",
+     "lost": 825,
+     "added": 946,
+     "before": 21691,
+     "after": 21812
+    },
+    {
+     "commit": "a8bf06d07c",
+     "at": "11-21T20:24Z",
+     "writer": "signals",
+     "lost": 942,
+     "added": 881,
+     "before": 21812,
+     "after": 21751
+    },
+    {
+     "commit": "5262a5c06c",
+     "at": "11-21T20:37Z",
+     "writer": "signals",
+     "lost": 878,
+     "added": 999,
+     "before": 21751,
+     "after": 21872
+    },
+    {
+     "commit": "6b9f93ff24",
+     "at": "11-21T20:54Z",
+     "writer": "signals",
+     "lost": 995,
+     "added": 934,
+     "before": 21872,
+     "after": 21811
+    },
+    {
+     "commit": "bd1447e640",
+     "at": "11-21T21:08Z",
+     "writer": "signals",
+     "lost": 933,
+     "added": 1054,
+     "before": 21811,
+     "after": 21932
+    },
+    {
+     "commit": "1d2653b86c",
+     "at": "11-21T21:25Z",
+     "writer": "signals",
+     "lost": 1051,
+     "added": 967,
+     "before": 21932,
+     "after": 21848
+    },
+    {
+     "commit": "1f51a239aa",
+     "at": "11-21T21:39Z",
+     "writer": "signals",
+     "lost": 965,
+     "added": 1096,
+     "before": 21848,
+     "after": 21979
+    },
+    {
+     "commit": "4fe28ed64f",
+     "at": "11-21T21:52Z",
+     "writer": "signals",
+     "lost": 1095,
+     "added": 1000,
+     "before": 21979,
+     "after": 21884
+    },
+    {
+     "commit": "241c9d9fba",
+     "at": "11-21T22:10Z",
+     "writer": "signals",
+     "lost": 997,
+     "added": 1129,
+     "before": 21884,
+     "after": 22016
+    },
+    {
+     "commit": "381f8b01ed",
+     "at": "11-21T22:23Z",
+     "writer": "signals",
+     "lost": 1128,
+     "added": 1056,
+     "before": 22016,
+     "after": 21944
+    },
+    {
+     "commit": "70462ad191",
+     "at": "11-21T22:40Z",
+     "writer": "signals",
+     "lost": 1050,
+     "added": 1182,
+     "before": 21944,
+     "after": 22076
+    },
+    {
+     "commit": "e47ff1509e",
+     "at": "11-21T22:54Z",
+     "writer": "signals",
+     "lost": 1181,
+     "added": 1106,
+     "before": 22076,
+     "after": 22001
+    },
+    {
+     "commit": "101412d020",
+     "at": "11-21T23:08Z",
+     "writer": "signals",
+     "lost": 1105,
+     "added": 1237,
+     "before": 22001,
+     "after": 22133
+    },
+    {
+     "commit": "4dd256985f",
+     "at": "11-21T23:26Z",
+     "writer": "signals",
+     "lost": 1235,
+     "added": 1159,
+     "before": 22133,
+     "after": 22057
+    },
+    {
+     "commit": "5e0834af80",
+     "at": "11-21T23:45Z",
+     "writer": "signals",
+     "lost": 1156,
+     "added": 1276,
+     "before": 22057,
+     "after": 22177
+    },
+    {
+     "commit": "a6dc5ec920",
+     "at": "11-21T23:59Z",
+     "writer": "signals",
+     "lost": 1274,
+     "added": 1213,
+     "before": 22177,
+     "after": 22116
+    },
+    {
+     "commit": "4e3582df29",
+     "at": "11-22T00:16Z",
+     "writer": "signals",
+     "lost": 1209,
+     "added": 1306,
+     "before": 22116,
+     "after": 22213
+    },
+    {
+     "commit": "0439900957",
+     "at": "11-22T00:33Z",
+     "writer": "signals",
+     "lost": 1306,
+     "added": 1269,
+     "before": 22213,
+     "after": 22176
+    },
+    {
+     "commit": "2b403c11f5",
+     "at": "11-22T00:46Z",
+     "writer": "signals",
+     "lost": 1269,
+     "added": 1346,
+     "before": 22176,
+     "after": 22253
+    },
+    {
+     "commit": "68d2ced22a",
+     "at": "11-22T01:00Z",
+     "writer": "signals",
+     "lost": 1345,
+     "added": 1328,
+     "before": 22253,
+     "after": 22236
+    },
+    {
+     "commit": "f462097a9f",
+     "at": "11-22T01:16Z",
+     "writer": "signals",
+     "lost": 1322,
+     "added": 1394,
+     "before": 22236,
+     "after": 22308
+    },
+    {
+     "commit": "6909f84939",
+     "at": "11-22T01:30Z",
+     "writer": "signals",
+     "lost": 1393,
+     "added": 1344,
+     "before": 22308,
+     "after": 22259
+    },
+    {
+     "commit": "3fc6e84c9b",
+     "at": "11-22T01:44Z",
+     "writer": "signals",
+     "lost": 1341,
+     "added": 1450,
+     "before": 22259,
+     "after": 22368
+    },
+    {
+     "commit": "8f9f64a020",
+     "at": "11-22T01:59Z",
+     "writer": "signals",
+     "lost": 1448,
+     "added": 1376,
+     "before": 22368,
+     "after": 22296
+    },
+    {
+     "commit": "61add98a1d",
+     "at": "11-22T02:13Z",
+     "writer": "signals",
+     "lost": 1373,
+     "added": 1505,
+     "before": 22296,
+     "after": 22428
+    },
+    {
+     "commit": "886270d9cd",
+     "at": "11-22T02:29Z",
+     "writer": "signals",
+     "lost": 1502,
+     "added": 1410,
+     "before": 22428,
+     "after": 22336
+    },
+    {
+     "commit": "c2e163beae",
+     "at": "11-22T02:43Z",
+     "writer": "signals",
+     "lost": 1408,
+     "added": 1544,
+     "before": 22336,
+     "after": 22472
+    },
+    {
+     "commit": "140dc28c6e",
+     "at": "11-22T02:56Z",
+     "writer": "signals",
+     "lost": 1542,
+     "added": 1448,
+     "before": 22472,
+     "after": 22378
+    },
+    {
+     "commit": "c042e4d670",
+     "at": "11-22T03:11Z",
+     "writer": "signals",
+     "lost": 1447,
+     "added": 1601,
+     "before": 22378,
+     "after": 22532
+    },
+    {
+     "commit": "c62a6c3dea",
+     "at": "11-22T03:27Z",
+     "writer": "signals",
+     "lost": 1598,
+     "added": 1484,
+     "before": 22532,
+     "after": 22418
+    },
+    {
+     "commit": "0a237a4a58",
+     "at": "11-22T03:42Z",
+     "writer": "signals",
+     "lost": 1483,
+     "added": 1649,
+     "before": 22418,
+     "after": 22584
+    },
+    {
+     "commit": "ef545b0a39",
+     "at": "11-22T03:57Z",
+     "writer": "signals",
+     "lost": 1644,
+     "added": 1522,
+     "before": 22584,
+     "after": 22462
+    },
+    {
+     "commit": "3b08ca40c7",
+     "at": "11-22T04:09Z",
+     "writer": "signals",
+     "lost": 1520,
+     "added": 1691,
+     "before": 22462,
+     "after": 22633
+    },
+    {
+     "commit": "c79eb1264e",
+     "at": "11-22T04:24Z",
+     "writer": "signals",
+     "lost": 1689,
+     "added": 1578,
+     "before": 22633,
+     "after": 22522
+    },
+    {
+     "commit": "290a029002",
+     "at": "11-22T04:39Z",
+     "writer": "signals",
+     "lost": 1578,
+     "added": 1729,
+     "before": 22522,
+     "after": 22673
+    },
+    {
+     "commit": "ffae92dad5",
+     "at": "11-22T04:54Z",
+     "writer": "signals",
+     "lost": 1725,
+     "added": 1632,
+     "before": 22673,
+     "after": 22580
+    },
+    {
+     "commit": "28f6d04453",
+     "at": "11-22T05:09Z",
+     "writer": "signals",
+     "lost": 1628,
+     "added": 1767,
+     "before": 22580,
+     "after": 22719
+    },
+    {
+     "commit": "c1d6846742",
+     "at": "11-22T05:25Z",
+     "writer": "signals",
+     "lost": 1763,
+     "added": 1671,
+     "before": 22719,
+     "after": 22627
+    },
+    {
+     "commit": "ac73ef86af",
+     "at": "11-22T05:40Z",
+     "writer": "signals",
+     "lost": 1669,
+     "added": 1794,
+     "before": 22627,
+     "after": 22752
+    },
+    {
+     "commit": "55691c0dc4",
+     "at": "11-22T05:54Z",
+     "writer": "signals",
+     "lost": 1792,
+     "added": 1693,
+     "before": 22752,
+     "after": 22653
+    },
+    {
+     "commit": "ac4cd0ab5d",
+     "at": "11-22T06:07Z",
+     "writer": "signals",
+     "lost": 1689,
+     "added": 1836,
+     "before": 22653,
+     "after": 22800
+    },
+    {
+     "commit": "9297475ba8",
+     "at": "11-22T06:20Z",
+     "writer": "signals",
+     "lost": 1835,
+     "added": 1739,
+     "before": 22800,
+     "after": 22704
+    },
+    {
+     "commit": "26a3abad5a",
+     "at": "11-22T06:31Z",
+     "writer": "signals",
+     "lost": 1738,
+     "added": 1860,
+     "before": 22704,
+     "after": 22826
+    },
+    {
+     "commit": "2a2f330910",
+     "at": "11-22T06:47Z",
+     "writer": "signals",
+     "lost": 1859,
+     "added": 1768,
+     "before": 22826,
+     "after": 22735
+    },
+    {
+     "commit": "e8d8dd00c6",
+     "at": "11-22T06:59Z",
+     "writer": "signals",
+     "lost": 1765,
+     "added": 1886,
+     "before": 22735,
+     "after": 22856
+    },
+    {
+     "commit": "2f5baf8afa",
+     "at": "11-22T07:12Z",
+     "writer": "signals",
+     "lost": 1885,
+     "added": 1775,
+     "before": 22856,
+     "after": 22746
+    },
+    {
+     "commit": "dd1a22bef0",
+     "at": "11-22T07:27Z",
+     "writer": "signals",
+     "lost": 1775,
+     "added": 1927,
+     "before": 22746,
+     "after": 22898
+    },
+    {
+     "commit": "1bbdb2e07a",
+     "at": "11-22T07:42Z",
+     "writer": "signals",
+     "lost": 1926,
+     "added": 1817,
+     "before": 22898,
+     "after": 22789
+    },
+    {
+     "commit": "50678aae7d",
+     "at": "11-22T07:56Z",
+     "writer": "signals",
+     "lost": 1815,
+     "added": 1960,
+     "before": 22789,
+     "after": 22934
+    },
+    {
+     "commit": "ab9ea9a603",
+     "at": "11-22T08:11Z",
+     "writer": "signals",
+     "lost": 1959,
+     "added": 1836,
+     "before": 22934,
+     "after": 22811
+    },
+    {
+     "commit": "506d7bde5f",
+     "at": "11-22T08:26Z",
+     "writer": "signals",
+     "lost": 1835,
+     "added": 1975,
+     "before": 22811,
+     "after": 22951
+    },
+    {
+     "commit": "97da8ea8d7",
+     "at": "11-22T08:41Z",
+     "writer": "signals",
+     "lost": 1974,
+     "added": 1844,
+     "before": 22951,
+     "after": 22821
+    },
+    {
+     "commit": "511a2c3a29",
+     "at": "11-22T08:55Z",
+     "writer": "signals",
+     "lost": 1844,
+     "added": 1989,
+     "before": 22821,
+     "after": 22966
+    },
+    {
+     "commit": "19ce55bc48",
+     "at": "11-22T09:12Z",
+     "writer": "signals",
+     "lost": 1988,
+     "added": 1868,
+     "before": 22966,
+     "after": 22846
+    },
+    {
+     "commit": "07066d3d45",
+     "at": "11-22T09:24Z",
+     "writer": "signals",
+     "lost": 1868,
+     "added": 2000,
+     "before": 22846,
+     "after": 22978
+    },
+    {
+     "commit": "43778d6294",
+     "at": "11-22T09:39Z",
+     "writer": "signals",
+     "lost": 1999,
+     "added": 1897,
+     "before": 22978,
+     "after": 22876
+    },
+    {
+     "commit": "4cebe04159",
+     "at": "11-22T09:53Z",
+     "writer": "signals",
+     "lost": 1897,
+     "added": 2008,
+     "before": 22876,
+     "after": 22987
+    },
+    {
+     "commit": "d62d68697c",
+     "at": "11-22T10:09Z",
+     "writer": "signals",
+     "lost": 2006,
+     "added": 1916,
+     "before": 22987,
+     "after": 22897
+    },
+    {
+     "commit": "c12f96cbc3",
+     "at": "11-22T10:22Z",
+     "writer": "signals",
+     "lost": 1916,
+     "added": 2020,
+     "before": 22897,
+     "after": 23001
+    },
+    {
+     "commit": "75a0af703d",
+     "at": "11-22T10:39Z",
+     "writer": "signals",
+     "lost": 2019,
+     "added": 1942,
+     "before": 23001,
+     "after": 22924
+    },
+    {
+     "commit": "88675f723f",
+     "at": "11-22T10:49Z",
+     "writer": "signals",
+     "lost": 1942,
+     "added": 2043,
+     "before": 22924,
+     "after": 23025
+    },
+    {
+     "commit": "70e8536292",
+     "at": "11-22T11:05Z",
+     "writer": "signals",
+     "lost": 2043,
+     "added": 1964,
+     "before": 23025,
+     "after": 22946
+    },
+    {
+     "commit": "42dba11f56",
+     "at": "11-22T11:19Z",
+     "writer": "signals",
+     "lost": 1962,
+     "added": 2075,
+     "before": 22946,
+     "after": 23059
+    },
+    {
+     "commit": "b9018fbd78",
+     "at": "11-22T11:32Z",
+     "writer": "signals",
+     "lost": 2075,
+     "added": 1974,
+     "before": 23059,
+     "after": 22958
+    },
+    {
+     "commit": "ebd96a3969",
+     "at": "11-22T11:43Z",
+     "writer": "signals",
+     "lost": 1974,
+     "added": 2095,
+     "before": 22958,
+     "after": 23079
+    },
+    {
+     "commit": "1675982d1c",
+     "at": "11-22T11:58Z",
+     "writer": "signals",
+     "lost": 2094,
+     "added": 2000,
+     "before": 23079,
+     "after": 22985
+    },
+    {
+     "commit": "83ac96bf64",
+     "at": "11-22T12:10Z",
+     "writer": "signals",
+     "lost": 2000,
+     "added": 2117,
+     "before": 22985,
+     "after": 23102
+    },
+    {
+     "commit": "f3b8b42602",
+     "at": "11-22T12:24Z",
+     "writer": "signals",
+     "lost": 2117,
+     "added": 2025,
+     "before": 23102,
+     "after": 23010
+    },
+    {
+     "commit": "aed000fdf8",
+     "at": "11-22T12:38Z",
+     "writer": "signals",
+     "lost": 2025,
+     "added": 2175,
+     "before": 23010,
+     "after": 23160
+    },
+    {
+     "commit": "5ffd762762",
+     "at": "11-22T12:57Z",
+     "writer": "signals",
+     "lost": 2174,
+     "added": 2062,
+     "before": 23160,
+     "after": 23048
+    },
+    {
+     "commit": "21a02c6adb",
+     "at": "11-22T13:11Z",
+     "writer": "signals",
+     "lost": 2059,
+     "added": 2198,
+     "before": 23048,
+     "after": 23187
+    },
+    {
+     "commit": "28c891aabf",
+     "at": "11-22T13:25Z",
+     "writer": "signals",
+     "lost": 2192,
+     "added": 2095,
+     "before": 23187,
+     "after": 23090
+    },
+    {
+     "commit": "f4255c412e",
+     "at": "11-22T13:41Z",
+     "writer": "signals",
+     "lost": 2092,
+     "added": 2249,
+     "before": 23090,
+     "after": 23247
+    },
+    {
+     "commit": "ab59f3e4a9",
+     "at": "11-22T13:53Z",
+     "writer": "signals",
+     "lost": 2248,
+     "added": 2137,
+     "before": 23247,
+     "after": 23136
+    },
+    {
+     "commit": "77e94cbb69",
+     "at": "11-22T14:08Z",
+     "writer": "signals",
+     "lost": 2129,
+     "added": 2300,
+     "before": 23136,
+     "after": 23307
+    },
+    {
+     "commit": "78b4b9485d",
+     "at": "11-22T14:24Z",
+     "writer": "signals",
+     "lost": 2296,
+     "added": 2171,
+     "before": 23307,
+     "after": 23182
+    },
+    {
+     "commit": "dd85bf575c",
+     "at": "11-22T14:37Z",
+     "writer": "signals",
+     "lost": 2171,
+     "added": 2338,
+     "before": 23182,
+     "after": 23349
+    },
+    {
+     "commit": "566985112c",
+     "at": "11-22T14:52Z",
+     "writer": "signals",
+     "lost": 2335,
+     "added": 2213,
+     "before": 23349,
+     "after": 23227
+    },
+    {
+     "commit": "f0a1c83bee",
+     "at": "11-22T15:07Z",
+     "writer": "signals",
+     "lost": 2207,
+     "added": 2387,
+     "before": 23227,
+     "after": 23407
+    },
+    {
+     "commit": "0ed2bd85c7",
+     "at": "11-22T15:20Z",
+     "writer": "signals",
+     "lost": 2384,
+     "added": 2264,
+     "before": 23407,
+     "after": 23287
+    },
+    {
+     "commit": "e25f90ddd6",
+     "at": "11-22T15:34Z",
+     "writer": "signals",
+     "lost": 2261,
+     "added": 2430,
+     "before": 23287,
+     "after": 23456
+    },
+    {
+     "commit": "812bce196c",
+     "at": "11-22T15:48Z",
+     "writer": "signals",
+     "lost": 2429,
+     "added": 2313,
+     "before": 23456,
+     "after": 23340
+    },
+    {
+     "commit": "3f97c74b3f",
+     "at": "11-22T16:01Z",
+     "writer": "signals",
+     "lost": 2310,
+     "added": 2478,
+     "before": 23340,
+     "after": 23508
+    },
+    {
+     "commit": "4b5e917710",
+     "at": "11-22T16:16Z",
+     "writer": "signals",
+     "lost": 2472,
+     "added": 2357,
+     "before": 23508,
+     "after": 23393
+    },
+    {
+     "commit": "c5f6754653",
+     "at": "11-22T16:29Z",
+     "writer": "signals",
+     "lost": 2354,
+     "added": 2529,
+     "before": 23393,
+     "after": 23568
+    },
+    {
+     "commit": "68e6f651dd",
+     "at": "11-22T16:42Z",
+     "writer": "signals",
+     "lost": 2524,
+     "added": 2409,
+     "before": 23568,
+     "after": 23453
+    },
+    {
+     "commit": "13d9e42124",
+     "at": "11-22T16:58Z",
+     "writer": "signals",
+     "lost": 2406,
+     "added": 2579,
+     "before": 23453,
+     "after": 23626
+    },
+    {
+     "commit": "053fbd80f3",
+     "at": "11-22T17:13Z",
+     "writer": "signals",
+     "lost": 2574,
+     "added": 2461,
+     "before": 23626,
+     "after": 23513
+    },
+    {
+     "commit": "dd27f01894",
+     "at": "11-22T17:28Z",
+     "writer": "signals",
+     "lost": 2459,
+     "added": 2632,
+     "before": 23513,
+     "after": 23686
+    },
+    {
+     "commit": "0982dbb90f",
+     "at": "11-22T17:42Z",
+     "writer": "signals",
+     "lost": 2622,
+     "added": 2509,
+     "before": 23686,
+     "after": 23573
+    },
+    {
+     "commit": "9854fc48cc",
+     "at": "11-22T17:54Z",
+     "writer": "signals",
+     "lost": 2508,
+     "added": 2681,
+     "before": 23573,
+     "after": 23746
+    },
+    {
+     "commit": "a9d5c248f2",
+     "at": "11-22T18:06Z",
+     "writer": "signals",
+     "lost": 2679,
+     "added": 2565,
+     "before": 23746,
+     "after": 23632
+    },
+    {
+     "commit": "24b83df07f",
+     "at": "11-22T18:21Z",
+     "writer": "signals",
+     "lost": 2560,
+     "added": 2734,
+     "before": 23632,
+     "after": 23806
+    },
+    {
+     "commit": "48bb8624a3",
+     "at": "11-22T18:35Z",
+     "writer": "signals",
+     "lost": 2730,
+     "added": 2608,
+     "before": 23806,
+     "after": 23684
+    },
+    {
+     "commit": "edf9ca6b1a",
+     "at": "11-22T18:50Z",
+     "writer": "signals",
+     "lost": 2605,
+     "added": 2774,
+     "before": 23684,
+     "after": 23853
+    },
+    {
+     "commit": "ece6af3b02",
+     "at": "11-22T19:06Z",
+     "writer": "signals",
+     "lost": 2771,
+     "added": 2662,
+     "before": 23853,
+     "after": 23744
+    },
+    {
+     "commit": "9bed574601",
+     "at": "11-22T19:18Z",
+     "writer": "signals",
+     "lost": 2660,
+     "added": 2798,
+     "before": 23744,
+     "after": 23882
+    },
+    {
+     "commit": "1428532ae2",
+     "at": "11-22T19:30Z",
+     "writer": "signals",
+     "lost": 2795,
+     "added": 2707,
+     "before": 23882,
+     "after": 23794
+    },
+    {
+     "commit": "811794d053",
+     "at": "11-22T19:43Z",
+     "writer": "signals",
+     "lost": 2699,
+     "added": 2847,
+     "before": 23794,
+     "after": 23942
+    },
+    {
+     "commit": "a30dc23622",
+     "at": "11-22T19:54Z",
+     "writer": "signals",
+     "lost": 2845,
+     "added": 2741,
+     "before": 23942,
+     "after": 23838
+    },
+    {
+     "commit": "d9d4cdf00d",
+     "at": "11-22T20:07Z",
+     "writer": "signals",
+     "lost": 2739,
+     "added": 2903,
+     "before": 23838,
+     "after": 24002
+    },
+    {
+     "commit": "fa852ba462",
+     "at": "11-22T20:24Z",
+     "writer": "signals",
+     "lost": 2898,
+     "added": 2794,
+     "before": 24002,
+     "after": 23898
+    },
+    {
+     "commit": "d0da7fa8a0",
+     "at": "11-22T20:36Z",
+     "writer": "signals",
+     "lost": 2791,
+     "added": 2946,
+     "before": 23898,
+     "after": 24053
+    },
+    {
+     "commit": "a28aacd4cf",
+     "at": "11-22T20:50Z",
+     "writer": "signals",
+     "lost": 2942,
+     "added": 2845,
+     "before": 24053,
+     "after": 23956
+    },
+    {
+     "commit": "bcb7c4c992",
+     "at": "11-22T21:02Z",
+     "writer": "signals",
+     "lost": 2844,
+     "added": 3001,
+     "before": 23956,
+     "after": 24113
+    },
+    {
+     "commit": "b1cf18f812",
+     "at": "11-22T21:18Z",
+     "writer": "signals",
+     "lost": 2999,
+     "added": 2902,
+     "before": 24113,
+     "after": 24016
+    },
+    {
+     "commit": "76a75472e3",
+     "at": "11-22T21:31Z",
+     "writer": "signals",
+     "lost": 2900,
+     "added": 3057,
+     "before": 24016,
+     "after": 24173
+    },
+    {
+     "commit": "c2908c5099",
+     "at": "11-22T21:45Z",
+     "writer": "signals",
+     "lost": 3054,
+     "added": 2957,
+     "before": 24173,
+     "after": 24076
+    },
+    {
+     "commit": "0ecc115f35",
+     "at": "11-22T21:57Z",
+     "writer": "signals",
+     "lost": 2951,
+     "added": 3108,
+     "before": 24076,
+     "after": 24233
+    },
+    {
+     "commit": "b65e98b9e6",
+     "at": "11-22T22:09Z",
+     "writer": "signals",
+     "lost": 3105,
+     "added": 3008,
+     "before": 24233,
+     "after": 24136
+    },
+    {
+     "commit": "6bfdc09cc5",
+     "at": "11-22T22:23Z",
+     "writer": "signals",
+     "lost": 3004,
+     "added": 3147,
+     "before": 24136,
+     "after": 24279
+    },
+    {
+     "commit": "3d14e5fb68",
+     "at": "11-22T22:37Z",
+     "writer": "signals",
+     "lost": 3139,
+     "added": 3056,
+     "before": 24279,
+     "after": 24196
+    },
+    {
+     "commit": "f6acb830f6",
+     "at": "11-22T22:52Z",
+     "writer": "signals",
+     "lost": 3052,
+     "added": 3195,
+     "before": 24196,
+     "after": 24339
+    },
+    {
+     "commit": "4d0b02457d",
+     "at": "11-22T23:08Z",
+     "writer": "signals",
+     "lost": 3193,
+     "added": 3110,
+     "before": 24339,
+     "after": 24256
+    },
+    {
+     "commit": "9098d6f1c5",
+     "at": "11-22T23:23Z",
+     "writer": "signals",
+     "lost": 3108,
+     "added": 3242,
+     "before": 24256,
+     "after": 24390
+    },
+    {
+     "commit": "d09286e53c",
+     "at": "11-22T23:35Z",
+     "writer": "signals",
+     "lost": 3240,
+     "added": 3161,
+     "before": 24390,
+     "after": 24311
+    },
+    {
+     "commit": "4e937f46dc",
+     "at": "11-22T23:51Z",
+     "writer": "signals",
+     "lost": 3156,
+     "added": 3295,
+     "before": 24311,
+     "after": 24450
+    },
+    {
+     "commit": "8af6bf64a3",
+     "at": "11-23T00:06Z",
+     "writer": "signals",
+     "lost": 3294,
+     "added": 3204,
+     "before": 24450,
+     "after": 24360
+    },
+    {
+     "commit": "c7b2b0320b",
+     "at": "11-23T00:22Z",
+     "writer": "signals",
+     "lost": 3199,
+     "added": 3349,
+     "before": 24360,
+     "after": 24510
+    },
+    {
+     "commit": "d9f58f94cc",
+     "at": "11-23T00:35Z",
+     "writer": "signals",
+     "lost": 3348,
+     "added": 3258,
+     "before": 24510,
+     "after": 24420
+    },
+    {
+     "commit": "bb389dbbad",
+     "at": "11-23T00:46Z",
+     "writer": "signals",
+     "lost": 3256,
+     "added": 3370,
+     "before": 24420,
+     "after": 24534
+    },
+    {
+     "commit": "c2dbc83679",
+     "at": "11-23T01:02Z",
+     "writer": "signals",
+     "lost": 3368,
+     "added": 3314,
+     "before": 24534,
+     "after": 24480
+    },
+    {
+     "commit": "aeff76476a",
+     "at": "11-23T01:03Z",
+     "writer": "signals",
+     "lost": 3309,
+     "added": 3423,
+     "before": 24480,
+     "after": 24594
+    },
+    {
+     "commit": "0f13cb789a",
+     "at": "11-23T01:17Z",
+     "writer": "signals",
+     "lost": 58,
+     "added": 58,
+     "before": 24594,
+     "after": 24594
+    },
+    {
+     "commit": "0674650cc5",
+     "at": "11-23T01:32Z",
+     "writer": "signals",
+     "lost": 56,
+     "added": 116,
+     "before": 24594,
+     "after": 24654
+    },
+    {
+     "commit": "5cb6214c7b",
+     "at": "11-23T01:46Z",
+     "writer": "signals",
+     "lost": 115,
+     "added": 89,
+     "before": 24654,
+     "after": 24628
+    },
+    {
+     "commit": "e589408ff2",
+     "at": "11-23T02:00Z",
+     "writer": "signals",
+     "lost": 87,
+     "added": 154,
+     "before": 24628,
+     "after": 24695
+    },
+    {
+     "commit": "47407a91a0",
+     "at": "11-23T02:14Z",
+     "writer": "signals",
+     "lost": 152,
+     "added": 117,
+     "before": 24695,
+     "after": 24660
+    },
+    {
+     "commit": "cb556a1e57",
+     "at": "11-23T02:29Z",
+     "writer": "signals",
+     "lost": 117,
+     "added": 174,
+     "before": 24660,
+     "after": 24717
+    },
+    {
+     "commit": "b6faca788f",
+     "at": "11-23T02:44Z",
+     "writer": "signals",
+     "lost": 172,
+     "added": 162,
+     "before": 24717,
+     "after": 24707
+    },
+    {
+     "commit": "48e2b3234e",
+     "at": "11-23T02:56Z",
+     "writer": "signals",
+     "lost": 159,
+     "added": 216,
+     "before": 24707,
+     "after": 24764
+    },
+    {
+     "commit": "4d20be02f6",
+     "at": "11-23T03:09Z",
+     "writer": "signals",
+     "lost": 214,
+     "added": 202,
+     "before": 24764,
+     "after": 24752
+    },
+    {
+     "commit": "9b1f6f4223",
+     "at": "11-23T03:24Z",
+     "writer": "signals",
+     "lost": 202,
+     "added": 242,
+     "before": 24752,
+     "after": 24792
+    },
+    {
+     "commit": "aed324222b",
+     "at": "11-23T03:37Z",
+     "writer": "signals",
+     "lost": 242,
+     "added": 237,
+     "before": 24792,
+     "after": 24787
+    },
+    {
+     "commit": "546f688774",
+     "at": "11-23T03:50Z",
+     "writer": "signals",
+     "lost": 237,
+     "added": 264,
+     "before": 24787,
+     "after": 24814
+    },
+    {
+     "commit": "3825a1532d",
+     "at": "11-23T04:05Z",
+     "writer": "signals",
+     "lost": 264,
+     "added": 278,
+     "before": 24814,
+     "after": 24828
+    },
+    {
+     "commit": "f2ddc782bf",
+     "at": "11-23T04:20Z",
+     "writer": "signals",
+     "lost": 278,
+     "added": 311,
+     "before": 24828,
+     "after": 24861
+    },
+    {
+     "commit": "4698bf98e1",
+     "at": "11-23T04:31Z",
+     "writer": "signals",
+     "lost": 310,
+     "added": 290,
+     "before": 24861,
+     "after": 24841
+    },
+    {
+     "commit": "92ce797729",
+     "at": "11-23T04:46Z",
+     "writer": "signals",
+     "lost": 289,
+     "added": 330,
+     "before": 24841,
+     "after": 24882
+    },
+    {
+     "commit": "178b54a588",
+     "at": "11-23T04:58Z",
+     "writer": "signals",
+     "lost": 329,
+     "added": 308,
+     "before": 24882,
+     "after": 24861
+    },
+    {
+     "commit": "e34e738b6c",
+     "at": "11-23T05:11Z",
+     "writer": "signals",
+     "lost": 307,
+     "added": 362,
+     "before": 24861,
+     "after": 24916
+    },
+    {
+     "commit": "68cd069518",
+     "at": "11-23T05:23Z",
+     "writer": "signals",
+     "lost": 360,
+     "added": 330,
+     "before": 24916,
+     "after": 24886
+    },
+    {
+     "commit": "8e0b26f0bc",
+     "at": "11-23T05:37Z",
+     "writer": "signals",
+     "lost": 329,
+     "added": 382,
+     "before": 24886,
+     "after": 24939
+    },
+    {
+     "commit": "2ed6b0e626",
+     "at": "11-23T05:52Z",
+     "writer": "signals",
+     "lost": 381,
+     "added": 346,
+     "before": 24939,
+     "after": 24904
+    },
+    {
+     "commit": "7f2c51c6cd",
+     "at": "11-23T06:04Z",
+     "writer": "signals",
+     "lost": 346,
+     "added": 403,
+     "before": 24904,
+     "after": 24961
+    },
+    {
+     "commit": "9d80318258",
+     "at": "11-23T06:18Z",
+     "writer": "signals",
+     "lost": 403,
+     "added": 360,
+     "before": 24961,
+     "after": 24918
+    },
+    {
+     "commit": "41e18b50dc",
+     "at": "11-23T06:33Z",
+     "writer": "signals",
+     "lost": 360,
+     "added": 422,
+     "before": 24918,
+     "after": 24980
+    },
+    {
+     "commit": "987608b7ed",
+     "at": "11-23T06:46Z",
+     "writer": "signals",
+     "lost": 421,
+     "added": 369,
+     "before": 24980,
+     "after": 24928
+    },
+    {
+     "commit": "97e36317bc",
+     "at": "11-23T06:59Z",
+     "writer": "signals",
+     "lost": 368,
+     "added": 430,
+     "before": 24928,
+     "after": 24990
+    },
+    {
+     "commit": "e6b774e528",
+     "at": "11-23T07:13Z",
+     "writer": "signals",
+     "lost": 430,
+     "added": 382,
+     "before": 24990,
+     "after": 24942
+    },
+    {
+     "commit": "5850c20022",
+     "at": "11-23T07:27Z",
+     "writer": "signals",
+     "lost": 382,
+     "added": 444,
+     "before": 24942,
+     "after": 25004
+    },
+    {
+     "commit": "5d1b6afd84",
+     "at": "11-23T07:41Z",
+     "writer": "signals",
+     "lost": 444,
+     "added": 397,
+     "before": 25004,
+     "after": 24957
+    },
+    {
+     "commit": "8add015c58",
+     "at": "11-23T07:55Z",
+     "writer": "signals",
+     "lost": 395,
+     "added": 452,
+     "before": 24957,
+     "after": 25014
+    },
+    {
+     "commit": "071a2950e4",
+     "at": "11-23T08:08Z",
+     "writer": "signals",
+     "lost": 451,
+     "added": 402,
+     "before": 25014,
+     "after": 24965
+    },
+    {
+     "commit": "c540e73faf",
+     "at": "11-23T08:23Z",
+     "writer": "signals",
+     "lost": 402,
+     "added": 464,
+     "before": 24965,
+     "after": 25027
+    },
+    {
+     "commit": "dd514c8301",
+     "at": "11-23T08:37Z",
+     "writer": "signals",
+     "lost": 464,
+     "added": 415,
+     "before": 25027,
+     "after": 24978
+    },
+    {
+     "commit": "60becd6d58",
+     "at": "11-23T08:48Z",
+     "writer": "signals",
+     "lost": 415,
+     "added": 485,
+     "before": 24978,
+     "after": 25048
+    },
+    {
+     "commit": "c7b1841cdf",
+     "at": "11-23T08:59Z",
+     "writer": "signals",
+     "lost": 485,
+     "added": 419,
+     "before": 25048,
+     "after": 24982
+    },
+    {
+     "commit": "07dc67ca38",
+     "at": "11-23T09:13Z",
+     "writer": "signals",
+     "lost": 419,
+     "added": 500,
+     "before": 24982,
+     "after": 25063
+    },
+    {
+     "commit": "d03a2324d7",
+     "at": "11-23T09:28Z",
+     "writer": "signals",
+     "lost": 500,
+     "added": 424,
+     "before": 25063,
+     "after": 24987
+    },
+    {
+     "commit": "06f4861abe",
+     "at": "11-23T09:38Z",
+     "writer": "signals",
+     "lost": 424,
+     "added": 515,
+     "before": 24987,
+     "after": 25078
+    },
+    {
+     "commit": "c77003b0da",
+     "at": "11-23T09:54Z",
+     "writer": "signals",
+     "lost": 514,
+     "added": 439,
+     "before": 25078,
+     "after": 25003
+    },
+    {
+     "commit": "e65a05ad6e",
+     "at": "11-23T10:07Z",
+     "writer": "signals",
+     "lost": 439,
+     "added": 523,
+     "before": 25003,
+     "after": 25087
+    },
+    {
+     "commit": "958b319f0a",
+     "at": "11-23T10:21Z",
+     "writer": "signals",
+     "lost": 523,
+     "added": 450,
+     "before": 25087,
+     "after": 25014
+    },
+    {
+     "commit": "6a21ecc007",
+     "at": "11-23T10:31Z",
+     "writer": "signals",
+     "lost": 450,
+     "added": 531,
+     "before": 25014,
+     "after": 25095
+    },
+    {
+     "commit": "71b713dcda",
+     "at": "11-23T10:56Z",
+     "writer": "signals",
+     "lost": 6,
+     "added": 10,
+     "before": 25101,
+     "after": 25105
+    },
+    {
+     "commit": "fe2a129487",
+     "at": "11-23T11:07Z",
+     "writer": "signals",
+     "lost": 10,
+     "added": 19,
+     "before": 25105,
+     "after": 25114
+    },
+    {
+     "commit": "1596a619f1",
+     "at": "11-23T11:20Z",
+     "writer": "signals",
+     "lost": 19,
+     "added": 25,
+     "before": 25114,
+     "after": 25120
+    },
+    {
+     "commit": "56effcfe99",
+     "at": "11-23T11:33Z",
+     "writer": "signals",
+     "lost": 23,
+     "added": 31,
+     "before": 25120,
+     "after": 25128
+    },
+    {
+     "commit": "ecaf6acc3e",
+     "at": "11-23T11:43Z",
+     "writer": "signals",
+     "lost": 31,
+     "added": 33,
+     "before": 25128,
+     "after": 25130
+    },
+    {
+     "commit": "de0d2bce09",
+     "at": "11-23T11:54Z",
+     "writer": "signals",
+     "lost": 33,
+     "added": 51,
+     "before": 25130,
+     "after": 25148
+    },
+    {
+     "commit": "a86ce55d66",
+     "at": "11-23T12:06Z",
+     "writer": "signals",
+     "lost": 51,
+     "added": 45,
+     "before": 25148,
+     "after": 25142
+    },
+    {
+     "commit": "4e92a2cc72",
+     "at": "11-23T12:20Z",
+     "writer": "signals",
+     "lost": 45,
+     "added": 68,
+     "before": 25142,
+     "after": 25165
+    },
+    {
+     "commit": "50853012ee",
+     "at": "11-23T12:30Z",
+     "writer": "signals",
+     "lost": 67,
+     "added": 51,
+     "before": 25165,
+     "after": 25149
+    },
+    {
+     "commit": "2e5ed04b7f",
+     "at": "11-23T12:44Z",
+     "writer": "signals",
+     "lost": 51,
+     "added": 76,
+     "before": 25149,
+     "after": 25174
+    },
+    {
+     "commit": "262d621f31",
+     "at": "11-23T12:57Z",
+     "writer": "signals",
+     "lost": 76,
+     "added": 63,
+     "before": 25174,
+     "after": 25161
+    },
+    {
+     "commit": "7e25b0f718",
+     "at": "11-23T13:11Z",
+     "writer": "signals",
+     "lost": 62,
+     "added": 91,
+     "before": 25161,
+     "after": 25190
+    },
+    {
+     "commit": "c4b03ebaad",
+     "at": "11-23T13:24Z",
+     "writer": "signals",
+     "lost": 91,
+     "added": 80,
+     "before": 25190,
+     "after": 25179
+    },
+    {
+     "commit": "314cfdaa34",
+     "at": "11-23T13:39Z",
+     "writer": "signals",
+     "lost": 80,
+     "added": 119,
+     "before": 25179,
+     "after": 25218
+    },
+    {
+     "commit": "221ebf9f3c",
+     "at": "11-23T13:50Z",
+     "writer": "signals",
+     "lost": 117,
+     "added": 102,
+     "before": 25218,
+     "after": 25203
+    },
+    {
+     "commit": "913e136f4d",
+     "at": "11-23T14:04Z",
+     "writer": "signals",
+     "lost": 101,
+     "added": 129,
+     "before": 25203,
+     "after": 25231
+    },
+    {
+     "commit": "12e048fc8e",
+     "at": "11-23T14:20Z",
+     "writer": "signals",
+     "lost": 128,
+     "added": 106,
+     "before": 25231,
+     "after": 25209
+    },
+    {
+     "commit": "f10da72db1",
+     "at": "11-23T14:35Z",
+     "writer": "signals",
+     "lost": 106,
+     "added": 159,
+     "before": 25209,
+     "after": 25262
+    },
+    {
+     "commit": "3a408e58a5",
+     "at": "11-23T14:48Z",
+     "writer": "signals",
+     "lost": 159,
+     "added": 135,
+     "before": 25262,
+     "after": 25238
+    },
+    {
+     "commit": "77f864cff8",
+     "at": "11-23T14:59Z",
+     "writer": "signals",
+     "lost": 135,
+     "added": 168,
+     "before": 25238,
+     "after": 25271
+    },
+    {
+     "commit": "b4d8aedc96",
+     "at": "11-23T15:14Z",
+     "writer": "signals",
+     "lost": 168,
+     "added": 153,
+     "before": 25271,
+     "after": 25256
+    },
+    {
+     "commit": "9d0b156565",
+     "at": "11-23T15:25Z",
+     "writer": "signals",
+     "lost": 153,
+     "added": 197,
+     "before": 25256,
+     "after": 25300
+    },
+    {
+     "commit": "0ebc11877b",
+     "at": "11-23T15:41Z",
+     "writer": "signals",
+     "lost": 196,
+     "added": 199,
+     "before": 25300,
+     "after": 25303
+    },
+    {
+     "commit": "b3008e8a4b",
+     "at": "11-23T15:56Z",
+     "writer": "signals",
+     "lost": 199,
+     "added": 219,
+     "before": 25303,
+     "after": 25323
+    },
+    {
+     "commit": "2f51b0c0c3",
+     "at": "11-23T16:09Z",
+     "writer": "signals",
+     "lost": 218,
+     "added": 238,
+     "before": 25323,
+     "after": 25343
+    },
+    {
+     "commit": "67a207e5d5",
+     "at": "11-23T16:25Z",
+     "writer": "signals",
+     "lost": 237,
+     "added": 260,
+     "before": 25343,
+     "after": 25366
+    },
+    {
+     "commit": "67d7c94fee",
+     "at": "11-23T16:37Z",
+     "writer": "signals",
+     "lost": 259,
+     "added": 274,
+     "before": 25366,
+     "after": 25381
+    },
+    {
+     "commit": "ff91164a7a",
+     "at": "11-23T16:52Z",
+     "writer": "signals",
+     "lost": 274,
+     "added": 302,
+     "before": 25381,
+     "after": 25409
+    },
+    {
+     "commit": "32294714aa",
+     "at": "11-23T17:07Z",
+     "writer": "signals",
+     "lost": 302,
+     "added": 298,
+     "before": 25409,
+     "after": 25405
+    },
+    {
+     "commit": "d10168cdbd",
+     "at": "11-23T17:19Z",
+     "writer": "signals",
+     "lost": 298,
+     "added": 345,
+     "before": 25405,
+     "after": 25452
+    },
+    {
+     "commit": "134f75012e",
+     "at": "11-23T17:35Z",
+     "writer": "signals",
+     "lost": 344,
+     "added": 342,
+     "before": 25452,
+     "after": 25450
+    },
+    {
+     "commit": "910bcfbfd2",
+     "at": "11-23T17:51Z",
+     "writer": "signals",
+     "lost": 341,
+     "added": 378,
+     "before": 25450,
+     "after": 25487
+    },
+    {
+     "commit": "b06ab72808",
+     "at": "11-23T18:06Z",
+     "writer": "signals",
+     "lost": 377,
+     "added": 385,
+     "before": 25487,
+     "after": 25495
+    },
+    {
+     "commit": "060f2e5389",
+     "at": "11-23T18:20Z",
+     "writer": "signals",
+     "lost": 384,
+     "added": 436,
+     "before": 25495,
+     "after": 25547
+    },
+    {
+     "commit": "a49075e7cb",
+     "at": "11-23T18:34Z",
+     "writer": "signals",
+     "lost": 433,
+     "added": 430,
+     "before": 25547,
+     "after": 25544
+    },
+    {
+     "commit": "139e0f0b16",
+     "at": "11-23T18:45Z",
+     "writer": "signals",
+     "lost": 428,
+     "added": 456,
+     "before": 25544,
+     "after": 25572
+    },
+    {
+     "commit": "8b1deb7169",
+     "at": "11-23T18:57Z",
+     "writer": "signals",
+     "lost": 454,
+     "added": 483,
+     "before": 25572,
+     "after": 25601
+    },
+    {
+     "commit": "b24ba46dda",
+     "at": "11-23T19:13Z",
+     "writer": "signals",
+     "lost": 479,
+     "added": 472,
+     "before": 25601,
+     "after": 25594
+    },
+    {
+     "commit": "e81ba969ef",
+     "at": "11-23T19:29Z",
+     "writer": "signals",
+     "lost": 470,
+     "added": 511,
+     "before": 25594,
+     "after": 25635
+    },
+    {
+     "commit": "6aed197888",
+     "at": "11-23T19:42Z",
+     "writer": "signals",
+     "lost": 508,
+     "added": 500,
+     "before": 25635,
+     "after": 25627
+    },
+    {
+     "commit": "5b910fa801",
+     "at": "11-23T19:55Z",
+     "writer": "signals",
+     "lost": 497,
+     "added": 535,
+     "before": 25627,
+     "after": 25665
+    },
+    {
+     "commit": "39a26b0d7d",
+     "at": "11-23T20:07Z",
+     "writer": "signals",
+     "lost": 532,
+     "added": 554,
+     "before": 25665,
+     "after": 25687
+    },
+    {
+     "commit": "3906025ae2",
+     "at": "11-23T20:21Z",
+     "writer": "signals",
+     "lost": 552,
+     "added": 574,
+     "before": 25687,
+     "after": 25709
+    },
+    {
+     "commit": "7afa529d01",
+     "at": "11-23T20:37Z",
+     "writer": "signals",
+     "lost": 571,
+     "added": 601,
+     "before": 25709,
+     "after": 25739
+    },
+    {
+     "commit": "d87821c663",
+     "at": "11-23T20:50Z",
+     "writer": "signals",
+     "lost": 599,
+     "added": 610,
+     "before": 25739,
+     "after": 25750
+    },
+    {
+     "commit": "af6b28616a",
+     "at": "11-23T21:06Z",
+     "writer": "signals",
+     "lost": 609,
+     "added": 631,
+     "before": 25750,
+     "after": 25772
+    },
+    {
+     "commit": "542e786ce9",
+     "at": "11-23T21:19Z",
+     "writer": "signals",
+     "lost": 630,
+     "added": 659,
+     "before": 25772,
+     "after": 25801
+    },
+    {
+     "commit": "9e28fa1346",
+     "at": "11-23T21:35Z",
+     "writer": "signals",
+     "lost": 658,
+     "added": 670,
+     "before": 25801,
+     "after": 25813
+    },
+    {
+     "commit": "b5ec90c22d",
+     "at": "11-23T21:51Z",
+     "writer": "signals",
+     "lost": 668,
+     "added": 703,
+     "before": 25813,
+     "after": 25848
+    },
+    {
+     "commit": "b73c240d90",
+     "at": "11-23T22:03Z",
+     "writer": "signals",
+     "lost": 700,
+     "added": 725,
+     "before": 25848,
+     "after": 25873
+    },
+    {
+     "commit": "03ccc0917d",
+     "at": "11-23T22:16Z",
+     "writer": "signals",
+     "lost": 725,
+     "added": 719,
+     "before": 25873,
+     "after": 25867
+    },
+    {
+     "commit": "9581b8cc16",
+     "at": "11-23T22:37Z",
+     "writer": "signals",
+     "lost": 719,
+     "added": 773,
+     "before": 25867,
+     "after": 25921
+    },
+    {
+     "commit": "b67869ff02",
+     "at": "11-23T22:51Z",
+     "writer": "signals",
+     "lost": 771,
+     "added": 775,
+     "before": 25921,
+     "after": 25925
+    },
+    {
+     "commit": "8161172e2c",
+     "at": "11-23T23:04Z",
+     "writer": "signals",
+     "lost": 773,
+     "added": 829,
+     "before": 25925,
+     "after": 25981
+    },
+    {
+     "commit": "46acdc367c",
+     "at": "11-23T23:19Z",
+     "writer": "signals",
+     "lost": 826,
+     "added": 825,
+     "before": 25981,
+     "after": 25980
+    },
+    {
+     "commit": "f7a6bf2970",
+     "at": "11-23T23:34Z",
+     "writer": "signals",
+     "lost": 824,
+     "added": 885,
+     "before": 25980,
+     "after": 26041
+    },
+    {
+     "commit": "e1b969c577",
+     "at": "11-23T23:47Z",
+     "writer": "signals",
+     "lost": 883,
+     "added": 879,
+     "before": 26041,
+     "after": 26037
+    },
+    {
+     "commit": "5753cb473b",
+     "at": "11-24T00:19Z",
+     "writer": "signals",
+     "lost": 60,
+     "added": 51,
+     "before": 26097,
+     "after": 26088
+    },
+    {
+     "commit": "b381b63782",
+     "at": "11-24T00:34Z",
+     "writer": "signals",
+     "lost": 51,
+     "added": 120,
+     "before": 26088,
+     "after": 26157
+    },
+    {
+     "commit": "988075ae99",
+     "at": "11-24T00:46Z",
+     "writer": "signals",
+     "lost": 119,
+     "added": 91,
+     "before": 26157,
+     "after": 26129
+    },
+    {
+     "commit": "2685d788e8",
+     "at": "11-24T01:01Z",
+     "writer": "signals",
+     "lost": 90,
+     "added": 168,
+     "before": 26129,
+     "after": 26207
+    },
+    {
+     "commit": "e1fa30f20b",
+     "at": "11-24T01:18Z",
+     "writer": "signals",
+     "lost": 167,
+     "added": 149,
+     "before": 26207,
+     "after": 26189
+    },
+    {
+     "commit": "7f3bb99cf9",
+     "at": "11-24T01:33Z",
+     "writer": "signals",
+     "lost": 147,
+     "added": 216,
+     "before": 26189,
+     "after": 26258
+    },
+    {
+     "commit": "3d9c6c1b7b",
+     "at": "11-24T01:47Z",
+     "writer": "signals",
+     "lost": 214,
+     "added": 178,
+     "before": 26258,
+     "after": 26222
+    },
+    {
+     "commit": "f104ed6a06",
+     "at": "11-24T02:03Z",
+     "writer": "signals",
+     "lost": 176,
+     "added": 259,
+     "before": 26222,
+     "after": 26305
+    },
+    {
+     "commit": "c28e38ece8",
+     "at": "11-24T02:18Z",
+     "writer": "signals",
+     "lost": 258,
+     "added": 235,
+     "before": 26305,
+     "after": 26282
+    },
+    {
+     "commit": "3277965c35",
+     "at": "11-24T02:34Z",
+     "writer": "signals",
+     "lost": 234,
+     "added": 298,
+     "before": 26282,
+     "after": 26346
+    },
+    {
+     "commit": "017fda7565",
+     "at": "11-24T02:50Z",
+     "writer": "signals",
+     "lost": 298,
+     "added": 271,
+     "before": 26346,
+     "after": 26319
+    },
+    {
+     "commit": "ed62c4ef62",
+     "at": "11-24T03:04Z",
+     "writer": "signals",
+     "lost": 268,
+     "added": 333,
+     "before": 26319,
+     "after": 26384
+    },
+    {
+     "commit": "2f30e80865",
+     "at": "11-24T03:17Z",
+     "writer": "signals",
+     "lost": 331,
+     "added": 308,
+     "before": 26384,
+     "after": 26361
+    },
+    {
+     "commit": "ccb6b7dce6",
+     "at": "11-24T03:29Z",
+     "writer": "signals",
+     "lost": 304,
+     "added": 369,
+     "before": 26361,
+     "after": 26426
+    },
+    {
+     "commit": "b58e66e79d",
+     "at": "11-24T03:43Z",
+     "writer": "signals",
+     "lost": 366,
+     "added": 337,
+     "before": 26426,
+     "after": 26397
+    },
+    {
+     "commit": "11198f5f33",
+     "at": "11-24T03:59Z",
+     "writer": "signals",
+     "lost": 335,
+     "added": 410,
+     "before": 26397,
+     "after": 26472
+    },
+    {
+     "commit": "058f4e5104",
+     "at": "11-24T04:10Z",
+     "writer": "signals",
+     "lost": 408,
+     "added": 357,
+     "before": 26472,
+     "after": 26421
+    },
+    {
+     "commit": "edeb64ac13",
+     "at": "11-24T04:25Z",
+     "writer": "signals",
+     "lost": 355,
+     "added": 461,
+     "before": 26421,
+     "after": 26527
+    },
+    {
+     "commit": "56cba3b2c7",
+     "at": "11-24T04:40Z",
+     "writer": "signals",
+     "lost": 458,
+     "added": 392,
+     "before": 26527,
+     "after": 26461
+    },
+    {
+     "commit": "2341ecbeef",
+     "at": "11-24T04:56Z",
+     "writer": "signals",
+     "lost": 391,
+     "added": 499,
+     "before": 26461,
+     "after": 26569
+    },
+    {
+     "commit": "2277eff2d1",
+     "at": "11-24T05:10Z",
+     "writer": "signals",
+     "lost": 498,
+     "added": 428,
+     "before": 26569,
+     "after": 26499
+    },
+    {
+     "commit": "c8b0b6ef70",
+     "at": "11-24T05:25Z",
+     "writer": "signals",
+     "lost": 428,
+     "added": 536,
+     "before": 26499,
+     "after": 26607
+    },
+    {
+     "commit": "9eb3d2b896",
+     "at": "11-24T05:38Z",
+     "writer": "signals",
+     "lost": 536,
+     "added": 439,
+     "before": 26607,
+     "after": 26510
+    },
+    {
+     "commit": "7135e97850",
+     "at": "11-24T05:51Z",
+     "writer": "signals",
+     "lost": 439,
+     "added": 570,
+     "before": 26510,
+     "after": 26641
+    },
+    {
+     "commit": "ca9d7988e1",
+     "at": "11-24T06:04Z",
+     "writer": "signals",
+     "lost": 569,
+     "added": 479,
+     "before": 26641,
+     "after": 26551
+    },
+    {
+     "commit": "b5747d6b76",
+     "at": "11-24T06:17Z",
+     "writer": "signals",
+     "lost": 477,
+     "added": 582,
+     "before": 26551,
+     "after": 26656
+    },
+    {
+     "commit": "407aece77f",
+     "at": "11-24T06:27Z",
+     "writer": "signals",
+     "lost": 582,
+     "added": 491,
+     "before": 26656,
+     "after": 26565
+    },
+    {
+     "commit": "52bfdae377",
+     "at": "11-24T06:42Z",
+     "writer": "signals",
+     "lost": 490,
+     "added": 603,
+     "before": 26565,
+     "after": 26678
+    },
+    {
+     "commit": "7027c1b922",
+     "at": "11-24T06:56Z",
+     "writer": "signals",
+     "lost": 603,
+     "added": 500,
+     "before": 26678,
+     "after": 26575
+    },
+    {
+     "commit": "c6be2d71d5",
+     "at": "11-24T07:10Z",
+     "writer": "signals",
+     "lost": 500,
+     "added": 622,
+     "before": 26575,
+     "after": 26697
+    },
+    {
+     "commit": "e8ff56b46b",
+     "at": "11-24T07:22Z",
+     "writer": "signals",
+     "lost": 621,
+     "added": 521,
+     "before": 26697,
+     "after": 26597
+    },
+    {
+     "commit": "c9c9aec74a",
+     "at": "11-24T07:36Z",
+     "writer": "signals",
+     "lost": 521,
+     "added": 638,
+     "before": 26597,
+     "after": 26714
+    },
+    {
+     "commit": "a892c7edc1",
+     "at": "11-24T07:50Z",
+     "writer": "signals",
+     "lost": 636,
+     "added": 540,
+     "before": 26714,
+     "after": 26618
+    },
+    {
+     "commit": "fd7440336a",
+     "at": "11-24T08:01Z",
+     "writer": "signals",
+     "lost": 540,
+     "added": 642,
+     "before": 26618,
+     "after": 26720
+    },
+    {
+     "commit": "d314044c0b",
+     "at": "11-24T08:14Z",
+     "writer": "signals",
+     "lost": 642,
+     "added": 546,
+     "before": 26720,
+     "after": 26624
+    },
+    {
+     "commit": "350a1aeb31",
+     "at": "11-24T08:28Z",
+     "writer": "signals",
+     "lost": 545,
+     "added": 663,
+     "before": 26624,
+     "after": 26742
+    },
+    {
+     "commit": "7be510363f",
+     "at": "11-24T08:44Z",
+     "writer": "signals",
+     "lost": 663,
+     "added": 555,
+     "before": 26742,
+     "after": 26634
+    },
+    {
+     "commit": "e646328d58",
+     "at": "11-24T08:57Z",
+     "writer": "signals",
+     "lost": 555,
+     "added": 677,
+     "before": 26634,
+     "after": 26756
+    },
+    {
+     "commit": "16016c6da2",
+     "at": "11-24T09:12Z",
+     "writer": "signals",
+     "lost": 677,
+     "added": 567,
+     "before": 26756,
+     "after": 26646
+    },
+    {
+     "commit": "b506c4d603",
+     "at": "11-24T09:27Z",
+     "writer": "signals",
+     "lost": 567,
+     "added": 686,
+     "before": 26646,
+     "after": 26765
+    },
+    {
+     "commit": "9ceb994aab",
+     "at": "11-24T09:38Z",
+     "writer": "signals",
+     "lost": 686,
+     "added": 578,
+     "before": 26765,
+     "after": 26657
+    },
+    {
+     "commit": "b3bac6f466",
+     "at": "11-24T09:52Z",
+     "writer": "signals",
+     "lost": 578,
+     "added": 699,
+     "before": 26657,
+     "after": 26778
+    },
+    {
+     "commit": "a71b8cdf0d",
+     "at": "11-24T10:05Z",
+     "writer": "signals",
+     "lost": 699,
+     "added": 592,
+     "before": 26778,
+     "after": 26671
+    },
+    {
+     "commit": "16e1e59ff3",
+     "at": "11-24T10:16Z",
+     "writer": "signals",
+     "lost": 591,
+     "added": 709,
+     "before": 26671,
+     "after": 26789
+    },
+    {
+     "commit": "08f9a8727f",
+     "at": "11-24T10:27Z",
+     "writer": "signals",
+     "lost": 709,
+     "added": 599,
+     "before": 26789,
+     "after": 26679
+    },
+    {
+     "commit": "f6171568b0",
+     "at": "11-24T10:41Z",
+     "writer": "signals",
+     "lost": 598,
+     "added": 722,
+     "before": 26679,
+     "after": 26803
+    },
+    {
+     "commit": "415dfee6b5",
+     "at": "11-24T10:58Z",
+     "writer": "signals",
+     "lost": 722,
+     "added": 607,
+     "before": 26803,
+     "after": 26688
+    },
+    {
+     "commit": "541c36d3c2",
+     "at": "11-24T11:10Z",
+     "writer": "signals",
+     "lost": 606,
+     "added": 729,
+     "before": 26688,
+     "after": 26811
+    },
+    {
+     "commit": "f80ffe6c6c",
+     "at": "11-24T11:25Z",
+     "writer": "signals",
+     "lost": 729,
+     "added": 619,
+     "before": 26811,
+     "after": 26701
+    },
+    {
+     "commit": "21280d9d3d",
+     "at": "11-24T11:39Z",
+     "writer": "signals",
+     "lost": 619,
+     "added": 741,
+     "before": 26701,
+     "after": 26823
+    },
+    {
+     "commit": "0904039242",
+     "at": "11-24T11:51Z",
+     "writer": "signals",
+     "lost": 741,
+     "added": 626,
+     "before": 26823,
+     "after": 26708
+    },
+    {
+     "commit": "1893a5509e",
+     "at": "11-24T12:03Z",
+     "writer": "signals",
+     "lost": 624,
+     "added": 761,
+     "before": 26708,
+     "after": 26845
+    },
+    {
+     "commit": "4c01cfb403",
+     "at": "11-24T12:16Z",
+     "writer": "signals",
+     "lost": 759,
+     "added": 646,
+     "before": 26845,
+     "after": 26732
+    },
+    {
+     "commit": "cfbf07340f",
+     "at": "11-24T12:31Z",
+     "writer": "signals",
+     "lost": 646,
+     "added": 770,
+     "before": 26732,
+     "after": 26856
+    },
+    {
+     "commit": "e3a6d91178",
+     "at": "11-24T12:46Z",
+     "writer": "signals",
+     "lost": 769,
+     "added": 655,
+     "before": 26856,
+     "after": 26742
+    },
+    {
+     "commit": "e274da95c7",
+     "at": "11-24T12:59Z",
+     "writer": "signals",
+     "lost": 655,
+     "added": 776,
+     "before": 26742,
+     "after": 26863
+    },
+    {
+     "commit": "7d78e3e96c",
+     "at": "11-24T13:14Z",
+     "writer": "signals",
+     "lost": 775,
+     "added": 667,
+     "before": 26863,
+     "after": 26755
+    },
+    {
+     "commit": "b456feec58",
+     "at": "11-24T13:29Z",
+     "writer": "signals",
+     "lost": 664,
+     "added": 788,
+     "before": 26755,
+     "after": 26879
+    },
+    {
+     "commit": "8dfc96a7df",
+     "at": "11-24T13:45Z",
+     "writer": "signals",
+     "lost": 787,
+     "added": 685,
+     "before": 26879,
+     "after": 26777
+    },
+    {
+     "commit": "dc08a58c6b",
+     "at": "11-24T14:00Z",
+     "writer": "signals",
+     "lost": 685,
+     "added": 793,
+     "before": 26777,
+     "after": 26885
+    },
+    {
+     "commit": "835a0506a0",
+     "at": "11-24T14:13Z",
+     "writer": "signals",
+     "lost": 792,
+     "added": 719,
+     "before": 26885,
+     "after": 26812
+    },
+    {
+     "commit": "9911b85b7a",
+     "at": "11-24T14:28Z",
+     "writer": "signals",
+     "lost": 719,
+     "added": 806,
+     "before": 26812,
+     "after": 26899
+    },
+    {
+     "commit": "818ea71da4",
+     "at": "11-24T14:41Z",
+     "writer": "signals",
+     "lost": 806,
+     "added": 738,
+     "before": 26899,
+     "after": 26831
+    },
+    {
+     "commit": "f76f96f381",
+     "at": "11-24T14:56Z",
+     "writer": "signals",
+     "lost": 733,
+     "added": 838,
+     "before": 26831,
+     "after": 26936
+    },
+    {
+     "commit": "b6b5348a3d",
+     "at": "11-24T15:10Z",
+     "writer": "signals",
+     "lost": 838,
+     "added": 757,
+     "before": 26936,
+     "after": 26855
+    },
+    {
+     "commit": "0fe80c6a88",
+     "at": "11-24T15:25Z",
+     "writer": "signals",
+     "lost": 757,
+     "added": 863,
+     "before": 26855,
+     "after": 26961
+    },
+    {
+     "commit": "5541017cda",
+     "at": "11-24T15:41Z",
+     "writer": "signals",
+     "lost": 863,
+     "added": 773,
+     "before": 26961,
+     "after": 26871
+    },
+    {
+     "commit": "da498a574c",
+     "at": "11-24T15:57Z",
+     "writer": "signals",
+     "lost": 769,
+     "added": 896,
+     "before": 26871,
+     "after": 26998
+    },
+    {
+     "commit": "4db58345d0",
+     "at": "11-24T16:10Z",
+     "writer": "signals",
+     "lost": 893,
+     "added": 786,
+     "before": 26998,
+     "after": 26891
+    },
+    {
+     "commit": "f0c1762c49",
+     "at": "11-24T16:24Z",
+     "writer": "signals",
+     "lost": 785,
+     "added": 925,
+     "before": 26891,
+     "after": 27031
+    },
+    {
+     "commit": "2ebb6ba9f3",
+     "at": "11-24T16:40Z",
+     "writer": "signals",
+     "lost": 924,
+     "added": 811,
+     "before": 27031,
+     "after": 26918
+    },
+    {
+     "commit": "eab8c0b650",
+     "at": "11-24T16:56Z",
+     "writer": "signals",
+     "lost": 809,
+     "added": 957,
+     "before": 26918,
+     "after": 27066
+    },
+    {
+     "commit": "7e4e1e3901",
+     "at": "11-24T17:09Z",
+     "writer": "signals",
+     "lost": 954,
+     "added": 839,
+     "before": 27066,
+     "after": 26951
+    },
+    {
+     "commit": "6237274fa7",
+     "at": "11-24T17:25Z",
+     "writer": "signals",
+     "lost": 836,
+     "added": 1011,
+     "before": 26951,
+     "after": 27126
+    },
+    {
+     "commit": "d9e3364f55",
+     "at": "11-24T17:42Z",
+     "writer": "signals",
+     "lost": 1007,
+     "added": 879,
+     "before": 27126,
+     "after": 26998
+    },
+    {
+     "commit": "d9232da1e7",
+     "at": "11-24T17:59Z",
+     "writer": "signals",
+     "lost": 877,
+     "added": 1049,
+     "before": 26998,
+     "after": 27170
+    },
+    {
+     "commit": "b75358a181",
+     "at": "11-24T18:10Z",
+     "writer": "signals",
+     "lost": 1046,
+     "added": 913,
+     "before": 27170,
+     "after": 27037
+    },
+    {
+     "commit": "4f9deed7b3",
+     "at": "11-24T18:27Z",
+     "writer": "signals",
+     "lost": 911,
+     "added": 1085,
+     "before": 27037,
+     "after": 27211
+    },
+    {
+     "commit": "3731dfada5",
+     "at": "11-24T18:43Z",
+     "writer": "signals",
+     "lost": 1082,
+     "added": 944,
+     "before": 27211,
+     "after": 27073
+    },
+    {
+     "commit": "bb28f8797b",
+     "at": "11-24T18:57Z",
+     "writer": "signals",
+     "lost": 940,
+     "added": 1125,
+     "before": 27073,
+     "after": 27258
+    },
+    {
+     "commit": "1424733227",
+     "at": "11-24T19:13Z",
+     "writer": "signals",
+     "lost": 1122,
+     "added": 976,
+     "before": 27258,
+     "after": 27112
+    },
+    {
+     "commit": "db1d208b75",
+     "at": "11-24T19:28Z",
+     "writer": "signals",
+     "lost": 973,
+     "added": 1169,
+     "before": 27112,
+     "after": 27308
+    },
+    {
+     "commit": "5f36534769",
+     "at": "11-24T19:43Z",
+     "writer": "signals",
+     "lost": 1166,
+     "added": 1015,
+     "before": 27308,
+     "after": 27157
+    },
+    {
+     "commit": "9cc4ca9fef",
+     "at": "11-24T20:01Z",
+     "writer": "signals",
+     "lost": 1012,
+     "added": 1213,
+     "before": 27157,
+     "after": 27358
+    },
+    {
+     "commit": "b17c446145",
+     "at": "11-24T20:18Z",
+     "writer": "signals",
+     "lost": 1212,
+     "added": 1061,
+     "before": 27358,
+     "after": 27207
+    },
+    {
+     "commit": "5ec6e47674",
+     "at": "11-24T20:35Z",
+     "writer": "signals",
+     "lost": 1058,
+     "added": 1257,
+     "before": 27207,
+     "after": 27406
+    },
+    {
+     "commit": "0de6c2292c",
+     "at": "11-24T20:48Z",
+     "writer": "signals",
+     "lost": 1256,
+     "added": 1097,
+     "before": 27406,
+     "after": 27247
+    },
+    {
+     "commit": "44b21dfbf7",
+     "at": "11-24T21:00Z",
+     "writer": "signals",
+     "lost": 1094,
+     "added": 1304,
+     "before": 27247,
+     "after": 27457
+    },
+    {
+     "commit": "eb75f51f03",
+     "at": "11-24T21:16Z",
+     "writer": "signals",
+     "lost": 1303,
+     "added": 1110,
+     "before": 27457,
+     "after": 27264
+    },
+    {
+     "commit": "6120c178f8",
+     "at": "11-24T21:31Z",
+     "writer": "signals",
+     "lost": 1109,
+     "added": 1342,
+     "before": 27264,
+     "after": 27497
+    },
+    {
+     "commit": "861aea95ac",
+     "at": "11-24T21:48Z",
+     "writer": "signals",
+     "lost": 1339,
+     "added": 1143,
+     "before": 27497,
+     "after": 27301
+    },
+    {
+     "commit": "16898419e9",
+     "at": "11-24T22:04Z",
+     "writer": "signals",
+     "lost": 1143,
+     "added": 1399,
+     "before": 27301,
+     "after": 27557
+    },
+    {
+     "commit": "121d8ad70b",
+     "at": "11-24T22:20Z",
+     "writer": "signals",
+     "lost": 1394,
+     "added": 1198,
+     "before": 27557,
+     "after": 27361
+    },
+    {
+     "commit": "8cf7e08031",
+     "at": "11-24T22:37Z",
+     "writer": "signals",
+     "lost": 1198,
+     "added": 1454,
+     "before": 27361,
+     "after": 27617
+    },
+    {
+     "commit": "17eb55eef5",
+     "at": "11-24T22:54Z",
+     "writer": "signals",
+     "lost": 1450,
+     "added": 1236,
+     "before": 27617,
+     "after": 27403
+    },
+    {
+     "commit": "b7c8159432",
+     "at": "11-24T23:11Z",
+     "writer": "signals",
+     "lost": 1236,
+     "added": 1495,
+     "before": 27403,
+     "after": 27662
+    },
+    {
+     "commit": "77d2289693",
+     "at": "11-24T23:28Z",
+     "writer": "signals",
+     "lost": 1493,
+     "added": 1282,
+     "before": 27662,
+     "after": 27451
+    },
+    {
+     "commit": "845f8565ba",
+     "at": "11-24T23:46Z",
+     "writer": "signals",
+     "lost": 1277,
+     "added": 1537,
+     "before": 27451,
+     "after": 27711
+    },
+    {
+     "commit": "658c709ad5",
+     "at": "11-25T00:03Z",
+     "writer": "signals",
+     "lost": 1537,
+     "added": 1313,
+     "before": 27711,
+     "after": 27487
+    },
+    {
+     "commit": "adae298a7e",
+     "at": "11-25T00:17Z",
+     "writer": "signals",
+     "lost": 1310,
+     "added": 1573,
+     "before": 27487,
+     "after": 27750
+    },
+    {
+     "commit": "57076703cd",
+     "at": "11-25T00:33Z",
+     "writer": "signals",
+     "lost": 1572,
+     "added": 1351,
+     "before": 27750,
+     "after": 27529
+    },
+    {
+     "commit": "e422a52a70",
+     "at": "11-25T00:50Z",
+     "writer": "signals",
+     "lost": 1346,
+     "added": 1618,
+     "before": 27529,
+     "after": 27801
+    },
+    {
+     "commit": "564001d468",
+     "at": "11-25T01:03Z",
+     "writer": "signals",
+     "lost": 1616,
+     "added": 1404,
+     "before": 27801,
+     "after": 27589
+    },
+    {
+     "commit": "3cd11cbebd",
+     "at": "11-25T01:19Z",
+     "writer": "signals",
+     "lost": 1404,
+     "added": 1644,
+     "before": 27589,
+     "after": 27829
+    },
+    {
+     "commit": "9222239400",
+     "at": "11-25T01:32Z",
+     "writer": "signals",
+     "lost": 1643,
+     "added": 1436,
+     "before": 27829,
+     "after": 27622
+    },
+    {
+     "commit": "c6a2077804",
+     "at": "11-25T01:43Z",
+     "writer": "signals",
+     "lost": 1435,
+     "added": 1665,
+     "before": 27622,
+     "after": 27852
+    },
+    {
+     "commit": "2dde7756ef",
+     "at": "11-25T01:56Z",
+     "writer": "signals",
+     "lost": 1665,
+     "added": 1475,
+     "before": 27852,
+     "after": 27662
+    },
+    {
+     "commit": "5cbee1b65f",
+     "at": "11-25T02:11Z",
+     "writer": "signals",
+     "lost": 1475,
+     "added": 1701,
+     "before": 27662,
+     "after": 27888
+    },
+    {
+     "commit": "1e711959c6",
+     "at": "11-25T02:26Z",
+     "writer": "signals",
+     "lost": 1698,
+     "added": 1511,
+     "before": 27888,
+     "after": 27701
+    },
+    {
+     "commit": "6b16041629",
+     "at": "11-25T02:41Z",
+     "writer": "signals",
+     "lost": 1510,
+     "added": 1749,
+     "before": 27701,
+     "after": 27940
+    },
+    {
+     "commit": "67ba61bc7a",
+     "at": "11-25T02:55Z",
+     "writer": "signals",
+     "lost": 1747,
+     "added": 1545,
+     "before": 27940,
+     "after": 27738
+    },
+    {
+     "commit": "90557d337d",
+     "at": "11-25T03:09Z",
+     "writer": "signals",
+     "lost": 1543,
+     "added": 1778,
+     "before": 27738,
+     "after": 27973
+    },
+    {
+     "commit": "65c4e8a338",
+     "at": "11-25T03:24Z",
+     "writer": "signals",
+     "lost": 1778,
+     "added": 1580,
+     "before": 27973,
+     "after": 27775
+    },
+    {
+     "commit": "329d91e183",
+     "at": "11-25T03:39Z",
+     "writer": "signals",
+     "lost": 1578,
+     "added": 1824,
+     "before": 27775,
+     "after": 28021
+    },
+    {
+     "commit": "4b28db84a2",
+     "at": "11-25T03:55Z",
+     "writer": "signals",
+     "lost": 1823,
+     "added": 1620,
+     "before": 28021,
+     "after": 27818
+    },
+    {
+     "commit": "9befa7be58",
+     "at": "11-25T04:12Z",
+     "writer": "signals",
+     "lost": 1619,
+     "added": 1875,
+     "before": 27818,
+     "after": 28074
+    },
+    {
+     "commit": "464b57f290",
+     "at": "11-25T04:27Z",
+     "writer": "signals",
+     "lost": 1874,
+     "added": 1659,
+     "before": 28074,
+     "after": 27859
+    },
+    {
+     "commit": "7053358b3f",
+     "at": "11-25T04:43Z",
+     "writer": "signals",
+     "lost": 1657,
+     "added": 1915,
+     "before": 27859,
+     "after": 28117
+    },
+    {
+     "commit": "23fdc1174b",
+     "at": "11-25T04:59Z",
+     "writer": "signals",
+     "lost": 1914,
+     "added": 1688,
+     "before": 28117,
+     "after": 27891
+    },
+    {
+     "commit": "6c66077743",
+     "at": "11-25T05:13Z",
+     "writer": "signals",
+     "lost": 1686,
+     "added": 1929,
+     "before": 27891,
+     "after": 28134
+    },
+    {
+     "commit": "5c3a44a9c3",
+     "at": "11-25T05:27Z",
+     "writer": "signals",
+     "lost": 1929,
+     "added": 1713,
+     "before": 28134,
+     "after": 27918
+    },
+    {
+     "commit": "90f764eb84",
+     "at": "11-25T05:42Z",
+     "writer": "signals",
+     "lost": 1710,
+     "added": 1962,
+     "before": 27918,
+     "after": 28170
+    },
+    {
+     "commit": "3eededd7d5",
+     "at": "11-25T05:54Z",
+     "writer": "signals",
+     "lost": 1961,
+     "added": 1738,
+     "before": 28170,
+     "after": 27947
+    },
+    {
+     "commit": "d6b8fb8017",
+     "at": "11-25T06:10Z",
+     "writer": "signals",
+     "lost": 1735,
+     "added": 2000,
+     "before": 27947,
+     "after": 28212
+    },
+    {
+     "commit": "84fd7aa3fc",
+     "at": "11-25T06:23Z",
+     "writer": "signals",
+     "lost": 1999,
+     "added": 1763,
+     "before": 28212,
+     "after": 27976
+    },
+    {
+     "commit": "e5d7b79309",
+     "at": "11-25T06:35Z",
+     "writer": "signals",
+     "lost": 1761,
+     "added": 2026,
+     "before": 27976,
+     "after": 28241
+    },
+    {
+     "commit": "8140fc4419",
+     "at": "11-25T06:50Z",
+     "writer": "signals",
+     "lost": 2026,
+     "added": 1810,
+     "before": 28241,
+     "after": 28025
+    },
+    {
+     "commit": "49679b02ee",
+     "at": "11-25T07:06Z",
+     "writer": "signals",
+     "lost": 1809,
+     "added": 2063,
+     "before": 28025,
+     "after": 28279
+    },
+    {
+     "commit": "56b11160d1",
+     "at": "11-25T07:19Z",
+     "writer": "signals",
+     "lost": 2061,
+     "added": 1833,
+     "before": 28279,
+     "after": 28051
+    },
+    {
+     "commit": "bd44283b02",
+     "at": "11-25T07:37Z",
+     "writer": "signals",
+     "lost": 1833,
+     "added": 2078,
+     "before": 28051,
+     "after": 28296
+    },
+    {
+     "commit": "8972c2e302",
+     "at": "11-25T07:52Z",
+     "writer": "signals",
+     "lost": 2076,
+     "added": 1852,
+     "before": 28296,
+     "after": 28072
+    },
+    {
+     "commit": "2fbd4ee774",
+     "at": "11-25T08:08Z",
+     "writer": "signals",
+     "lost": 1852,
+     "added": 2103,
+     "before": 28072,
+     "after": 28323
+    },
+    {
+     "commit": "fcf394d8fc",
+     "at": "11-25T08:22Z",
+     "writer": "signals",
+     "lost": 2102,
+     "added": 1882,
+     "before": 28323,
+     "after": 28103
+    },
+    {
+     "commit": "5a463a3bb3",
+     "at": "11-25T08:35Z",
+     "writer": "signals",
+     "lost": 1880,
+     "added": 2118,
+     "before": 28103,
+     "after": 28341
+    },
+    {
+     "commit": "eeacaf99c4",
+     "at": "11-25T08:49Z",
+     "writer": "signals",
+     "lost": 2117,
+     "added": 1895,
+     "before": 28341,
+     "after": 28119
+    },
+    {
+     "commit": "4492103506",
+     "at": "11-25T09:01Z",
+     "writer": "signals",
+     "lost": 1895,
+     "added": 2129,
+     "before": 28119,
+     "after": 28353
+    },
+    {
+     "commit": "73ed9c7291",
+     "at": "11-25T09:13Z",
+     "writer": "signals",
+     "lost": 2127,
+     "added": 1912,
+     "before": 28353,
+     "after": 28138
+    },
+    {
+     "commit": "00cfa1d049",
+     "at": "11-25T09:29Z",
+     "writer": "signals",
+     "lost": 1911,
+     "added": 2142,
+     "before": 28138,
+     "after": 28369
+    },
+    {
+     "commit": "60470c7205",
+     "at": "11-25T09:44Z",
+     "writer": "signals",
+     "lost": 2140,
+     "added": 1918,
+     "before": 28369,
+     "after": 28147
+    },
+    {
+     "commit": "f84b9dc396",
+     "at": "11-25T09:56Z",
+     "writer": "signals",
+     "lost": 1917,
+     "added": 2156,
+     "before": 28147,
+     "after": 28386
+    },
+    {
+     "commit": "7aa0d2d937",
+     "at": "11-25T10:09Z",
+     "writer": "signals",
+     "lost": 2155,
+     "added": 1931,
+     "before": 28386,
+     "after": 28162
+    },
+    {
+     "commit": "932adb4d5f",
+     "at": "11-25T10:26Z",
+     "writer": "signals",
+     "lost": 1930,
+     "added": 2169,
+     "before": 28162,
+     "after": 28401
+    },
+    {
+     "commit": "3fd0e5385d",
+     "at": "11-25T10:39Z",
+     "writer": "signals",
+     "lost": 2168,
+     "added": 1946,
+     "before": 28401,
+     "after": 28179
+    },
+    {
+     "commit": "97fcd09d1a",
+     "at": "11-25T10:53Z",
+     "writer": "signals",
+     "lost": 1945,
+     "added": 2184,
+     "before": 28179,
+     "after": 28418
+    },
+    {
+     "commit": "bfb9a46d79",
+     "at": "11-25T11:11Z",
+     "writer": "signals",
+     "lost": 2182,
+     "added": 1961,
+     "before": 28418,
+     "after": 28197
+    },
+    {
+     "commit": "a26220b10e",
+     "at": "11-25T11:26Z",
+     "writer": "signals",
+     "lost": 1961,
+     "added": 2192,
+     "before": 28197,
+     "after": 28428
+    },
+    {
+     "commit": "bfdd71d294",
+     "at": "11-25T11:41Z",
+     "writer": "signals",
+     "lost": 2192,
+     "added": 1976,
+     "before": 28428,
+     "after": 28212
+    },
+    {
+     "commit": "da2ea6330d",
+     "at": "11-25T11:59Z",
+     "writer": "signals",
+     "lost": 1976,
+     "added": 2203,
+     "before": 28212,
+     "after": 28439
+    },
+    {
+     "commit": "3613dc1025",
+     "at": "11-25T12:15Z",
+     "writer": "signals",
+     "lost": 2203,
+     "added": 1983,
+     "before": 28439,
+     "after": 28219
+    },
+    {
+     "commit": "9c90efa193",
+     "at": "11-25T12:29Z",
+     "writer": "signals",
+     "lost": 1982,
+     "added": 2215,
+     "before": 28219,
+     "after": 28452
+    },
+    {
+     "commit": "667b0f600e",
+     "at": "11-25T12:44Z",
+     "writer": "signals",
+     "lost": 2215,
+     "added": 1999,
+     "before": 28452,
+     "after": 28236
+    },
+    {
+     "commit": "f269a6d4b3",
+     "at": "11-25T12:58Z",
+     "writer": "signals",
+     "lost": 1996,
+     "added": 2226,
+     "before": 28236,
+     "after": 28466
+    },
+    {
+     "commit": "be9bd8ee82",
+     "at": "11-25T13:10Z",
+     "writer": "signals",
+     "lost": 2225,
+     "added": 2029,
+     "before": 28466,
+     "after": 28270
+    },
+    {
+     "commit": "baca65bf81",
+     "at": "11-25T13:41Z",
+     "writer": "signals",
+     "lost": 19,
+     "added": 26,
+     "before": 28289,
+     "after": 28296
+    },
+    {
+     "commit": "bc124dd2d8",
+     "at": "11-25T13:57Z",
+     "writer": "signals",
+     "lost": 26,
+     "added": 34,
+     "before": 28296,
+     "after": 28304
+    },
+    {
+     "commit": "78d12e5a82",
+     "at": "11-25T14:09Z",
+     "writer": "signals",
+     "lost": 34,
+     "added": 44,
+     "before": 28304,
+     "after": 28314
+    },
+    {
+     "commit": "298f716ba5",
+     "at": "11-25T14:22Z",
+     "writer": "signals",
+     "lost": 44,
+     "added": 73,
+     "before": 28314,
+     "after": 28343
+    },
+    {
+     "commit": "b91e323ec1",
+     "at": "11-25T14:34Z",
+     "writer": "signals",
+     "lost": 71,
+     "added": 58,
+     "before": 28343,
+     "after": 28330
+    },
+    {
+     "commit": "d2de7d7727",
+     "at": "11-25T14:46Z",
+     "writer": "signals",
+     "lost": 58,
+     "added": 92,
+     "before": 28330,
+     "after": 28364
+    },
+    {
+     "commit": "4a4b1b1697",
+     "at": "11-25T15:04Z",
+     "writer": "signals",
+     "lost": 91,
+     "added": 85,
+     "before": 28364,
+     "after": 28358
+    },
+    {
+     "commit": "ad27e21220",
+     "at": "11-25T15:20Z",
+     "writer": "signals",
+     "lost": 85,
+     "added": 120,
+     "before": 28358,
+     "after": 28393
+    },
+    {
+     "commit": "60e32219c2",
+     "at": "11-25T15:37Z",
+     "writer": "signals",
+     "lost": 120,
+     "added": 135,
+     "before": 28393,
+     "after": 28408
+    },
+    {
+     "commit": "ec271aa3be",
+     "at": "11-25T15:53Z",
+     "writer": "signals",
+     "lost": 133,
+     "added": 168,
+     "before": 28408,
+     "after": 28443
+    },
+    {
+     "commit": "c443b89d2c",
+     "at": "11-25T16:06Z",
+     "writer": "signals",
+     "lost": 168,
+     "added": 185,
+     "before": 28443,
+     "after": 28460
+    },
+    {
+     "commit": "6e6c1c26bb",
+     "at": "11-25T16:50Z",
+     "writer": "signals",
+     "lost": 55,
+     "added": 34,
+     "before": 28515,
+     "after": 28494
+    },
+    {
+     "commit": "04d4d41f26",
+     "at": "11-25T17:06Z",
+     "writer": "signals",
+     "lost": 33,
+     "added": 114,
+     "before": 28494,
+     "after": 28575
+    },
+    {
+     "commit": "74d2a092ff",
+     "at": "11-25T17:20Z",
+     "writer": "signals",
+     "lost": 114,
+     "added": 58,
+     "before": 28575,
+     "after": 28519
+    },
+    {
+     "commit": "4211870c73",
+     "at": "11-25T17:37Z",
+     "writer": "signals",
+     "lost": 56,
+     "added": 172,
+     "before": 28519,
+     "after": 28635
+    },
+    {
+     "commit": "f5a129954e",
+     "at": "11-25T17:51Z",
+     "writer": "signals",
+     "lost": 170,
+     "added": 114,
+     "before": 28635,
+     "after": 28579
+    },
+    {
+     "commit": "68a99e7788",
+     "at": "11-25T18:06Z",
+     "writer": "signals",
+     "lost": 111,
+     "added": 207,
+     "before": 28579,
+     "after": 28675
+    },
+    {
+     "commit": "9982766368",
+     "at": "11-25T18:23Z",
+     "writer": "signals",
+     "lost": 203,
+     "added": 167,
+     "before": 28675,
+     "after": 28639
+    },
+    {
+     "commit": "2315679fa9",
+     "at": "11-25T18:38Z",
+     "writer": "signals",
+     "lost": 166,
+     "added": 260,
+     "before": 28639,
+     "after": 28733
+    },
+    {
+     "commit": "3f6257484a",
+     "at": "11-25T18:52Z",
+     "writer": "signals",
+     "lost": 255,
+     "added": 221,
+     "before": 28733,
+     "after": 28699
+    },
+    {
+     "commit": "62d0811b90",
+     "at": "11-25T19:07Z",
+     "writer": "signals",
+     "lost": 219,
+     "added": 308,
+     "before": 28699,
+     "after": 28788
+    },
+    {
+     "commit": "49ce926f90",
+     "at": "11-25T19:21Z",
+     "writer": "signals",
+     "lost": 307,
+     "added": 246,
+     "before": 28788,
+     "after": 28727
+    },
+    {
+     "commit": "9d23ed9244",
+     "at": "11-25T19:37Z",
+     "writer": "signals",
+     "lost": 246,
+     "added": 367,
+     "before": 28727,
+     "after": 28848
+    },
+    {
+     "commit": "49a9305292",
+     "at": "11-25T19:54Z",
+     "writer": "signals",
+     "lost": 366,
+     "added": 305,
+     "before": 28848,
+     "after": 28787
+    },
+    {
+     "commit": "1b5f4f8fce",
+     "at": "11-25T20:11Z",
+     "writer": "signals",
+     "lost": 302,
+     "added": 418,
+     "before": 28787,
+     "after": 28903
+    },
+    {
+     "commit": "bc56ac1b8c",
+     "at": "11-25T20:27Z",
+     "writer": "signals",
+     "lost": 414,
+     "added": 338,
+     "before": 28903,
+     "after": 28827
+    },
+    {
+     "commit": "9588d38d33",
+     "at": "11-25T20:45Z",
+     "writer": "signals",
+     "lost": 336,
+     "added": 440,
+     "before": 28827,
+     "after": 28931
+    },
+    {
+     "commit": "6a1e5f91a6",
+     "at": "11-25T20:58Z",
+     "writer": "signals",
+     "lost": 435,
+     "added": 378,
+     "before": 28931,
+     "after": 28874
+    },
+    {
+     "commit": "2809c48a50",
+     "at": "11-25T21:16Z",
+     "writer": "signals",
+     "lost": 375,
+     "added": 466,
+     "before": 28874,
+     "after": 28965
+    },
+    {
+     "commit": "e076f4b973",
+     "at": "11-25T21:33Z",
+     "writer": "signals",
+     "lost": 464,
+     "added": 410,
+     "before": 28965,
+     "after": 28911
+    },
+    {
+     "commit": "d8731355e7",
+     "at": "11-25T21:51Z",
+     "writer": "signals",
+     "lost": 409,
+     "added": 523,
+     "before": 28911,
+     "after": 29025
+    },
+    {
+     "commit": "3cf342c37a",
+     "at": "11-25T22:05Z",
+     "writer": "signals",
+     "lost": 521,
+     "added": 467,
+     "before": 29025,
+     "after": 28971
+    },
+    {
+     "commit": "683b20a12c",
+     "at": "11-25T22:19Z",
+     "writer": "signals",
+     "lost": 463,
+     "added": 577,
+     "before": 28971,
+     "after": 29085
+    },
+    {
+     "commit": "9fd79edd47",
+     "at": "11-25T22:38Z",
+     "writer": "signals",
+     "lost": 574,
+     "added": 520,
+     "before": 29085,
+     "after": 29031
+    },
+    {
+     "commit": "558acb05af",
+     "at": "11-25T22:57Z",
+     "writer": "signals",
+     "lost": 516,
+     "added": 630,
+     "before": 29031,
+     "after": 29145
+    },
+    {
+     "commit": "7eddb7dc67",
+     "at": "11-25T23:16Z",
+     "writer": "signals",
+     "lost": 629,
+     "added": 561,
+     "before": 29145,
+     "after": 29077
+    },
+    {
+     "commit": "de12e4ddcc",
+     "at": "11-25T23:34Z",
+     "writer": "signals",
+     "lost": 561,
+     "added": 689,
+     "before": 29077,
+     "after": 29205
+    },
+    {
+     "commit": "07fc282ec6",
+     "at": "11-25T23:50Z",
+     "writer": "signals",
+     "lost": 685,
+     "added": 617,
+     "before": 29205,
+     "after": 29137
+    },
+    {
+     "commit": "30b17b2e4c",
+     "at": "11-26T00:07Z",
+     "writer": "signals",
+     "lost": 613,
+     "added": 741,
+     "before": 29137,
+     "after": 29265
+    },
+    {
+     "commit": "9cc182604e",
+     "at": "11-26T00:22Z",
+     "writer": "signals",
+     "lost": 740,
+     "added": 672,
+     "before": 29265,
+     "after": 29197
+    },
+    {
+     "commit": "5669526bf0",
+     "at": "11-26T00:37Z",
+     "writer": "signals",
+     "lost": 669,
+     "added": 797,
+     "before": 29197,
+     "after": 29325
+    },
+    {
+     "commit": "cd5ad3465b",
+     "at": "11-26T00:53Z",
+     "writer": "signals",
+     "lost": 795,
+     "added": 727,
+     "before": 29325,
+     "after": 29257
+    },
+    {
+     "commit": "67aad91a3e",
+     "at": "11-26T01:11Z",
+     "writer": "signals",
+     "lost": 726,
+     "added": 854,
+     "before": 29257,
+     "after": 29385
+    },
+    {
+     "commit": "381e012b11",
+     "at": "11-26T01:27Z",
+     "writer": "signals",
+     "lost": 851,
+     "added": 778,
+     "before": 29385,
+     "after": 29312
+    },
+    {
+     "commit": "21722a313f",
+     "at": "11-26T01:46Z",
+     "writer": "signals",
+     "lost": 776,
+     "added": 900,
+     "before": 29312,
+     "after": 29436
+    },
+    {
+     "commit": "a7228ca7a6",
+     "at": "11-26T02:03Z",
+     "writer": "signals",
+     "lost": 896,
+     "added": 810,
+     "before": 29436,
+     "after": 29350
+    },
+    {
+     "commit": "793b666ed4",
+     "at": "11-26T02:20Z",
+     "writer": "signals",
+     "lost": 810,
+     "added": 939,
+     "before": 29350,
+     "after": 29479
+    },
+    {
+     "commit": "3cedc2d633",
+     "at": "11-26T02:34Z",
+     "writer": "signals",
+     "lost": 936,
+     "added": 864,
+     "before": 29479,
+     "after": 29407
+    },
+    {
+     "commit": "6fa296e924",
+     "at": "11-26T02:50Z",
+     "writer": "signals",
+     "lost": 859,
+     "added": 986,
+     "before": 29407,
+     "after": 29534
+    },
+    {
+     "commit": "4bf68e04e7",
+     "at": "11-26T03:04Z",
+     "writer": "signals",
+     "lost": 981,
+     "added": 914,
+     "before": 29534,
+     "after": 29467
+    },
+    {
+     "commit": "1347850082",
+     "at": "11-26T03:18Z",
+     "writer": "signals",
+     "lost": 908,
+     "added": 1029,
+     "before": 29467,
+     "after": 29588
+    },
+    {
+     "commit": "18d253aed8",
+     "at": "11-26T03:34Z",
+     "writer": "signals",
+     "lost": 1027,
+     "added": 948,
+     "before": 29588,
+     "after": 29509
+    },
+    {
+     "commit": "2700b819f3",
+     "at": "11-26T03:48Z",
+     "writer": "signals",
+     "lost": 944,
+     "added": 1074,
+     "before": 29509,
+     "after": 29639
+    },
+    {
+     "commit": "873efe465b",
+     "at": "11-26T04:02Z",
+     "writer": "signals",
+     "lost": 1072,
+     "added": 972,
+     "before": 29639,
+     "after": 29539
+    },
+    {
+     "commit": "7ff02014d0",
+     "at": "11-26T04:17Z",
+     "writer": "signals",
+     "lost": 971,
+     "added": 1106,
+     "before": 29539,
+     "after": 29674
+    },
+    {
+     "commit": "dacc01ffc4",
+     "at": "11-26T04:30Z",
+     "writer": "signals",
+     "lost": 1102,
+     "added": 1011,
+     "before": 29674,
+     "after": 29583
+    },
+    {
+     "commit": "86a39b8745",
+     "at": "11-26T05:02Z",
+     "writer": "signals",
+     "lost": 48,
+     "added": 44,
+     "before": 29634,
+     "after": 29630
+    },
+    {
+     "commit": "baa138e51d",
+     "at": "11-26T05:16Z",
+     "writer": "signals",
+     "lost": 43,
+     "added": 79,
+     "before": 29630,
+     "after": 29666
+    },
+    {
+     "commit": "d6193823c7",
+     "at": "11-26T05:30Z",
+     "writer": "signals",
+     "lost": 74,
+     "added": 75,
+     "before": 29666,
+     "after": 29667
+    },
+    {
+     "commit": "bef30e440a",
+     "at": "11-26T05:49Z",
+     "writer": "signals",
+     "lost": 75,
+     "added": 125,
+     "before": 29667,
+     "after": 29717
+    },
+    {
+     "commit": "6d79cdcf10",
+     "at": "11-26T06:03Z",
+     "writer": "signals",
+     "lost": 117,
+     "added": 127,
+     "before": 29717,
+     "after": 29727
+    },
+    {
+     "commit": "31cfb5e101",
+     "at": "11-26T06:15Z",
+     "writer": "signals",
+     "lost": 124,
+     "added": 150,
+     "before": 29727,
+     "after": 29753
+    },
+    {
+     "commit": "7665381f32",
+     "at": "11-26T06:29Z",
+     "writer": "signals",
+     "lost": 149,
+     "added": 160,
+     "before": 29753,
+     "after": 29764
+    },
+    {
+     "commit": "8009b36527",
+     "at": "11-26T06:42Z",
+     "writer": "signals",
+     "lost": 159,
+     "added": 177,
+     "before": 29764,
+     "after": 29782
+    },
+    {
+     "commit": "6e04ef0354",
+     "at": "11-26T06:56Z",
+     "writer": "signals",
+     "lost": 176,
+     "added": 190,
+     "before": 29782,
+     "after": 29796
+    },
+    {
+     "commit": "e741934dd6",
+     "at": "11-26T07:12Z",
+     "writer": "signals",
+     "lost": 189,
+     "added": 200,
+     "before": 29796,
+     "after": 29807
+    },
+    {
+     "commit": "5c5c7a8517",
+     "at": "11-26T07:31Z",
+     "writer": "signals",
+     "lost": 198,
+     "added": 205,
+     "before": 29807,
+     "after": 29814
+    },
+    {
+     "commit": "a2ebb09aad",
+     "at": "11-26T07:43Z",
+     "writer": "signals",
+     "lost": 205,
+     "added": 219,
+     "before": 29814,
+     "after": 29828
+    },
+    {
+     "commit": "cdf939b1a2",
+     "at": "11-26T07:56Z",
+     "writer": "signals",
+     "lost": 217,
+     "added": 230,
+     "before": 29828,
+     "after": 29841
+    },
+    {
+     "commit": "cce947d77b",
+     "at": "11-26T08:13Z",
+     "writer": "signals",
+     "lost": 228,
+     "added": 237,
+     "before": 29841,
+     "after": 29850
+    },
+    {
+     "commit": "c99a9a500e",
+     "at": "11-26T08:28Z",
+     "writer": "signals",
+     "lost": 213,
+     "added": 228,
+     "before": 29850,
+     "after": 29865
+    },
+    {
+     "commit": "a69ca4ca28",
+     "at": "11-26T10:22Z",
+     "writer": "signals",
+     "lost": 25,
+     "added": 51,
+     "before": 29892,
+     "after": 29918
+    },
+    {
+     "commit": "18f7724434",
+     "at": "11-26T10:39Z",
+     "writer": "signals",
+     "lost": 50,
+     "added": 54,
+     "before": 29918,
+     "after": 29922
+    },
+    {
+     "commit": "1a632d23d4",
+     "at": "11-26T10:55Z",
+     "writer": "signals",
+     "lost": 54,
+     "added": 65,
+     "before": 29922,
+     "after": 29933
+    },
+    {
+     "commit": "b572fc0be9",
+     "at": "11-26T11:11Z",
+     "writer": "signals",
+     "lost": 64,
+     "added": 79,
+     "before": 29933,
+     "after": 29948
+    },
+    {
+     "commit": "9e4a8f6119",
+     "at": "11-26T11:29Z",
+     "writer": "signals",
+     "lost": 78,
+     "added": 73,
+     "before": 29948,
+     "after": 29943
+    },
+    {
+     "commit": "04de620420",
+     "at": "11-26T11:47Z",
+     "writer": "signals",
+     "lost": 73,
+     "added": 95,
+     "before": 29943,
+     "after": 29965
+    },
+    {
+     "commit": "d7d52b141a",
+     "at": "11-26T12:03Z",
+     "writer": "signals",
+     "lost": 95,
+     "added": 82,
+     "before": 29965,
+     "after": 29952
+    },
+    {
+     "commit": "21b7d3016e",
+     "at": "11-26T12:20Z",
+     "writer": "signals",
+     "lost": 82,
+     "added": 120,
+     "before": 29952,
+     "after": 29990
+    },
+    {
+     "commit": "575b764ae2",
+     "at": "11-26T12:33Z",
+     "writer": "signals",
+     "lost": 119,
+     "added": 105,
+     "before": 29990,
+     "after": 29976
+    },
+    {
+     "commit": "db1c3c95ae",
+     "at": "11-26T12:49Z",
+     "writer": "signals",
+     "lost": 105,
+     "added": 140,
+     "before": 29976,
+     "after": 30011
+    },
+    {
+     "commit": "c2118dd629",
+     "at": "11-26T13:04Z",
+     "writer": "signals",
+     "lost": 140,
+     "added": 126,
+     "before": 30011,
+     "after": 29997
+    },
+    {
+     "commit": "5ccc04b1a7",
+     "at": "11-26T13:22Z",
+     "writer": "signals",
+     "lost": 125,
+     "added": 180,
+     "before": 29997,
+     "after": 30052
+    },
+    {
+     "commit": "629e5dc47d",
+     "at": "11-26T13:38Z",
+     "writer": "signals",
+     "lost": 178,
+     "added": 165,
+     "before": 30052,
+     "after": 30039
+    },
+    {
+     "commit": "b06fe1bbc2",
+     "at": "11-26T13:55Z",
+     "writer": "signals",
+     "lost": 164,
+     "added": 217,
+     "before": 30039,
+     "after": 30092
+    },
+    {
+     "commit": "6428be9d6d",
+     "at": "11-26T14:12Z",
+     "writer": "signals",
+     "lost": 216,
+     "added": 206,
+     "before": 30092,
+     "after": 30082
+    },
+    {
+     "commit": "ca5a5bace9",
+     "at": "11-26T14:26Z",
+     "writer": "signals",
+     "lost": 205,
+     "added": 266,
+     "before": 30082,
+     "after": 30143
+    },
+    {
+     "commit": "e7395bb35f",
+     "at": "11-26T14:44Z",
+     "writer": "signals",
+     "lost": 266,
+     "added": 233,
+     "before": 30143,
+     "after": 30110
+    },
+    {
+     "commit": "9157828e1e",
+     "at": "11-26T15:06Z",
+     "writer": "signals",
+     "lost": 232,
+     "added": 308,
+     "before": 30110,
+     "after": 30186
+    },
+    {
+     "commit": "146ac2c42f",
+     "at": "11-26T15:19Z",
+     "writer": "signals",
+     "lost": 305,
+     "added": 286,
+     "before": 30186,
+     "after": 30167
+    },
+    {
+     "commit": "9ab63f2885",
+     "at": "11-26T15:38Z",
+     "writer": "signals",
+     "lost": 285,
+     "added": 364,
+     "before": 30167,
+     "after": 30246
+    },
+    {
+     "commit": "0b669fd6f1",
+     "at": "11-26T15:56Z",
+     "writer": "signals",
+     "lost": 364,
+     "added": 345,
+     "before": 30246,
+     "after": 30227
+    },
+    {
+     "commit": "6fe544568d",
+     "at": "11-26T16:12Z",
+     "writer": "signals",
+     "lost": 344,
+     "added": 413,
+     "before": 30227,
+     "after": 30296
+    },
+    {
+     "commit": "79a9059d48",
+     "at": "11-26T16:28Z",
+     "writer": "signals",
+     "lost": 413,
+     "added": 404,
+     "before": 30296,
+     "after": 30287
+    },
+    {
+     "commit": "4d387c942d",
+     "at": "11-26T16:44Z",
+     "writer": "signals",
+     "lost": 403,
+     "added": 468,
+     "before": 30287,
+     "after": 30352
+    },
+    {
+     "commit": "177e520397",
+     "at": "11-26T17:00Z",
+     "writer": "signals",
+     "lost": 466,
+     "added": 461,
+     "before": 30352,
+     "after": 30347
+    },
+    {
+     "commit": "88aafeb877",
+     "at": "11-26T17:13Z",
+     "writer": "signals",
+     "lost": 458,
+     "added": 523,
+     "before": 30347,
+     "after": 30412
+    },
+    {
+     "commit": "ddd34adae8",
+     "at": "11-26T17:31Z",
+     "writer": "signals",
+     "lost": 517,
+     "added": 512,
+     "before": 30412,
+     "after": 30407
+    },
+    {
+     "commit": "86d7816bbb",
+     "at": "11-26T17:48Z",
+     "writer": "signals",
+     "lost": 511,
+     "added": 576,
+     "before": 30407,
+     "after": 30472
+    },
+    {
+     "commit": "4123ce6d47",
+     "at": "11-26T18:03Z",
+     "writer": "signals",
+     "lost": 571,
+     "added": 566,
+     "before": 30472,
+     "after": 30467
+    },
+    {
+     "commit": "78892fba85",
+     "at": "11-26T18:16Z",
+     "writer": "signals",
+     "lost": 565,
+     "added": 593,
+     "before": 30467,
+     "after": 30495
+    },
+    {
+     "commit": "9d9b4839f9",
+     "at": "11-26T18:30Z",
+     "writer": "signals",
+     "lost": 593,
+     "added": 610,
+     "before": 30495,
+     "after": 30512
+    },
+    {
+     "commit": "91741aa16a",
+     "at": "11-26T18:48Z",
+     "writer": "signals",
+     "lost": 608,
+     "added": 647,
+     "before": 30512,
+     "after": 30551
+    },
+    {
+     "commit": "416a28014f",
+     "at": "11-26T19:03Z",
+     "writer": "signals",
+     "lost": 645,
+     "added": 659,
+     "before": 30551,
+     "after": 30565
+    },
+    {
+     "commit": "a526c3e32f",
+     "at": "11-26T19:19Z",
+     "writer": "signals",
+     "lost": 655,
+     "added": 683,
+     "before": 30565,
+     "after": 30593
+    },
+    {
+     "commit": "fc2d7c03e9",
+     "at": "11-26T19:35Z",
+     "writer": "signals",
+     "lost": 680,
+     "added": 700,
+     "before": 30593,
+     "after": 30613
+    },
+    {
+     "commit": "2f70b2e237",
+     "at": "11-26T19:48Z",
+     "writer": "signals",
+     "lost": 700,
+     "added": 740,
+     "before": 30613,
+     "after": 30653
+    },
+    {
+     "commit": "bc87f23b21",
+     "at": "11-26T20:02Z",
+     "writer": "signals",
+     "lost": 740,
+     "added": 748,
+     "before": 30653,
+     "after": 30661
+    },
+    {
+     "commit": "0d5dc9df11",
+     "at": "11-26T20:21Z",
+     "writer": "signals",
+     "lost": 748,
+     "added": 794,
+     "before": 30661,
+     "after": 30707
+    },
+    {
+     "commit": "fa703681f4",
+     "at": "11-26T20:37Z",
+     "writer": "signals",
+     "lost": 793,
+     "added": 787,
+     "before": 30707,
+     "after": 30701
+    },
+    {
+     "commit": "6ca2926d32",
+     "at": "11-26T21:09Z",
+     "writer": "signals",
+     "lost": 53,
+     "added": 60,
+     "before": 30754,
+     "after": 30761
+    },
+    {
+     "commit": "3fc5550298",
+     "at": "11-26T21:22Z",
+     "writer": "signals",
+     "lost": 60,
+     "added": 113,
+     "before": 30761,
+     "after": 30814
+    },
+    {
+     "commit": "ef540a1ff1",
+     "at": "11-26T21:40Z",
+     "writer": "signals",
+     "lost": 110,
+     "added": 117,
+     "before": 30814,
+     "after": 30821
+    },
+    {
+     "commit": "ff2155402b",
+     "at": "11-26T21:59Z",
+     "writer": "signals",
+     "lost": 117,
+     "added": 170,
+     "before": 30821,
+     "after": 30874
+    },
+    {
+     "commit": "3fe6845a96",
+     "at": "11-26T22:16Z",
+     "writer": "signals",
+     "lost": 164,
+     "added": 171,
+     "before": 30874,
+     "after": 30881
+    },
+    {
+     "commit": "7149e34053",
+     "at": "11-26T22:31Z",
+     "writer": "signals",
+     "lost": 169,
+     "added": 218,
+     "before": 30881,
+     "after": 30930
+    },
+    {
+     "commit": "13f09eb52f",
+     "at": "11-26T22:51Z",
+     "writer": "signals",
+     "lost": 215,
+     "added": 226,
+     "before": 30930,
+     "after": 30941
+    },
+    {
+     "commit": "c16e139170",
+     "at": "11-26T23:05Z",
+     "writer": "signals",
+     "lost": 225,
+     "added": 267,
+     "before": 30941,
+     "after": 30983
+    },
+    {
+     "commit": "6180fa4963",
+     "at": "11-26T23:19Z",
+     "writer": "signals",
+     "lost": 264,
+     "added": 279,
+     "before": 30983,
+     "after": 30998
+    },
+    {
+     "commit": "e747934762",
+     "at": "11-26T23:34Z",
+     "writer": "signals",
+     "lost": 275,
+     "added": 320,
+     "before": 30998,
+     "after": 31043
+    },
+    {
+     "commit": "93d50ce25d",
+     "at": "11-26T23:50Z",
+     "writer": "signals",
+     "lost": 316,
+     "added": 331,
+     "before": 31043,
+     "after": 31058
+    },
+    {
+     "commit": "2f0a407346",
+     "at": "11-27T00:09Z",
+     "writer": "signals",
+     "lost": 329,
+     "added": 374,
+     "before": 31058,
+     "after": 31103
+    },
+    {
+     "commit": "73305175d1",
+     "at": "11-27T00:28Z",
+     "writer": "signals",
+     "lost": 372,
+     "added": 387,
+     "before": 31103,
+     "after": 31118
+    },
+    {
+     "commit": "0469646693",
+     "at": "11-27T00:44Z",
+     "writer": "signals",
+     "lost": 386,
+     "added": 431,
+     "before": 31118,
+     "after": 31163
+    },
+    {
+     "commit": "1bfca583a7",
+     "at": "11-27T01:01Z",
+     "writer": "signals",
+     "lost": 428,
+     "added": 437,
+     "before": 31163,
+     "after": 31172
+    },
+    {
+     "commit": "896c10fdc0",
+     "at": "11-27T01:17Z",
+     "writer": "signals",
+     "lost": 434,
+     "added": 473,
+     "before": 31172,
+     "after": 31211
+    },
+    {
+     "commit": "ccd296b9d4",
+     "at": "11-27T01:35Z",
+     "writer": "signals",
+     "lost": 470,
+     "added": 459,
+     "before": 31211,
+     "after": 31200
+    },
+    {
+     "commit": "2c485b56b3",
+     "at": "11-27T01:49Z",
+     "writer": "signals",
+     "lost": 455,
+     "added": 526,
+     "before": 31200,
+     "after": 31271
+    },
+    {
+     "commit": "444d355f23",
+     "at": "11-27T02:08Z",
+     "writer": "signals",
+     "lost": 522,
+     "added": 486,
+     "before": 31271,
+     "after": 31235
+    },
+    {
+     "commit": "3e6522c719",
+     "at": "11-27T02:27Z",
+     "writer": "signals",
+     "lost": 484,
+     "added": 567,
+     "before": 31235,
+     "after": 31318
+    },
+    {
+     "commit": "d53f26e7c8",
+     "at": "11-27T02:43Z",
+     "writer": "signals",
+     "lost": 565,
+     "added": 542,
+     "before": 31318,
+     "after": 31295
+    },
+    {
+     "commit": "33f7f35341",
+     "at": "11-27T02:59Z",
+     "writer": "signals",
+     "lost": 536,
+     "added": 611,
+     "before": 31295,
+     "after": 31370
+    },
+    {
+     "commit": "7cfa23aeb7",
+     "at": "11-27T03:16Z",
+     "writer": "signals",
+     "lost": 604,
+     "added": 589,
+     "before": 31370,
+     "after": 31355
+    },
+    {
+     "commit": "e3a963e010",
+     "at": "11-27T03:35Z",
+     "writer": "signals",
+     "lost": 586,
+     "added": 653,
+     "before": 31355,
+     "after": 31422
+    },
+    {
+     "commit": "faf9708a60",
+     "at": "11-27T03:50Z",
+     "writer": "signals",
+     "lost": 650,
+     "added": 643,
+     "before": 31422,
+     "after": 31415
+    },
+    {
+     "commit": "e2b6d31d3d",
+     "at": "11-27T04:04Z",
+     "writer": "signals",
+     "lost": 641,
+     "added": 689,
+     "before": 31415,
+     "after": 31463
+    },
+    {
+     "commit": "06d989bc92",
+     "at": "11-27T04:18Z",
+     "writer": "signals",
+     "lost": 685,
+     "added": 667,
+     "before": 31463,
+     "after": 31445
+    },
+    {
+     "commit": "ea9e7bdc10",
+     "at": "11-27T04:33Z",
+     "writer": "signals",
+     "lost": 667,
+     "added": 744,
+     "before": 31445,
+     "after": 31522
+    },
+    {
+     "commit": "9621cc7465",
+     "at": "11-27T04:52Z",
+     "writer": "signals",
+     "lost": 741,
+     "added": 724,
+     "before": 31522,
+     "after": 31505
+    },
+    {
+     "commit": "5d2c457f53",
+     "at": "11-27T05:09Z",
+     "writer": "signals",
+     "lost": 723,
+     "added": 784,
+     "before": 31505,
+     "after": 31566
+    },
+    {
+     "commit": "9de06b218c",
+     "at": "11-27T05:25Z",
+     "writer": "signals",
+     "lost": 782,
+     "added": 766,
+     "before": 31566,
+     "after": 31550
+    },
+    {
+     "commit": "e7b9d6abf0",
+     "at": "11-27T05:42Z",
+     "writer": "signals",
+     "lost": 761,
+     "added": 815,
+     "before": 31550,
+     "after": 31604
+    },
+    {
+     "commit": "500cb67d0c",
+     "at": "11-27T05:59Z",
+     "writer": "signals",
+     "lost": 812,
+     "added": 802,
+     "before": 31604,
+     "after": 31594
+    },
+    {
+     "commit": "1a74937114",
+     "at": "11-27T06:16Z",
+     "writer": "signals",
+     "lost": 801,
+     "added": 835,
+     "before": 31594,
+     "after": 31628
+    },
+    {
+     "commit": "b6ecf63405",
+     "at": "11-27T06:30Z",
+     "writer": "signals",
+     "lost": 835,
+     "added": 826,
+     "before": 31628,
+     "after": 31619
+    },
+    {
+     "commit": "929a26dea7",
+     "at": "11-27T06:47Z",
+     "writer": "signals",
+     "lost": 826,
+     "added": 860,
+     "before": 31619,
+     "after": 31653
+    },
+    {
+     "commit": "d3a23f22c9",
+     "at": "11-27T07:01Z",
+     "writer": "signals",
+     "lost": 860,
+     "added": 847,
+     "before": 31653,
+     "after": 31640
+    },
+    {
+     "commit": "049ce4a4e3",
+     "at": "11-27T07:14Z",
+     "writer": "signals",
+     "lost": 844,
+     "added": 884,
+     "before": 31640,
+     "after": 31680
+    },
+    {
+     "commit": "d033d767fb",
+     "at": "11-27T07:33Z",
+     "writer": "signals",
+     "lost": 882,
+     "added": 858,
+     "before": 31680,
+     "after": 31656
+    },
+    {
+     "commit": "c4d844c212",
+     "at": "11-27T07:46Z",
+     "writer": "signals",
+     "lost": 856,
+     "added": 894,
+     "before": 31656,
+     "after": 31694
+    },
+    {
+     "commit": "07ec823fd7",
+     "at": "11-27T08:03Z",
+     "writer": "signals",
+     "lost": 893,
+     "added": 874,
+     "before": 31694,
+     "after": 31675
+    },
+    {
+     "commit": "cc066b7eb4",
+     "at": "11-27T08:19Z",
+     "writer": "signals",
+     "lost": 874,
+     "added": 915,
+     "before": 31675,
+     "after": 31716
+    },
+    {
+     "commit": "c61da0be14",
+     "at": "11-27T08:36Z",
+     "writer": "signals",
+     "lost": 915,
+     "added": 898,
+     "before": 31716,
+     "after": 31699
+    },
+    {
+     "commit": "e987bdaa9f",
+     "at": "11-27T08:49Z",
+     "writer": "signals",
+     "lost": 898,
+     "added": 931,
+     "before": 31699,
+     "after": 31732
+    },
+    {
+     "commit": "2da56a8de0",
+     "at": "11-27T09:07Z",
+     "writer": "signals",
+     "lost": 930,
+     "added": 917,
+     "before": 31732,
+     "after": 31719
+    },
+    {
+     "commit": "3d452f1ab0",
+     "at": "11-27T09:19Z",
+     "writer": "signals",
+     "lost": 916,
+     "added": 952,
+     "before": 31719,
+     "after": 31755
+    },
+    {
+     "commit": "444ec2c225",
+     "at": "11-27T09:35Z",
+     "writer": "signals",
+     "lost": 952,
+     "added": 930,
+     "before": 31755,
+     "after": 31733
+    },
+    {
+     "commit": "160a55207f",
+     "at": "11-27T09:50Z",
+     "writer": "signals",
+     "lost": 930,
+     "added": 964,
+     "before": 31733,
+     "after": 31767
+    },
+    {
+     "commit": "b9faf4e82e",
+     "at": "11-27T10:03Z",
+     "writer": "signals",
+     "lost": 964,
+     "added": 953,
+     "before": 31767,
+     "after": 31756
+    },
+    {
+     "commit": "123521403d",
+     "at": "11-27T10:19Z",
+     "writer": "signals",
+     "lost": 951,
+     "added": 981,
+     "before": 31756,
+     "after": 31786
+    },
+    {
+     "commit": "5b107a34ee",
+     "at": "11-27T10:32Z",
+     "writer": "signals",
+     "lost": 980,
+     "added": 959,
+     "before": 31786,
+     "after": 31765
+    },
+    {
+     "commit": "1dd5085035",
+     "at": "11-27T10:46Z",
+     "writer": "signals",
+     "lost": 959,
+     "added": 983,
+     "before": 31765,
+     "after": 31789
+    },
+    {
+     "commit": "0b97521957",
+     "at": "11-27T10:59Z",
+     "writer": "signals",
+     "lost": 982,
+     "added": 966,
+     "before": 31789,
+     "after": 31773
+    },
+    {
+     "commit": "aeb32bd557",
+     "at": "11-27T11:12Z",
+     "writer": "signals",
+     "lost": 965,
+     "added": 995,
+     "before": 31773,
+     "after": 31803
+    },
+    {
+     "commit": "7d5aa5aa19",
+     "at": "11-27T11:29Z",
+     "writer": "signals",
+     "lost": 995,
+     "added": 979,
+     "before": 31803,
+     "after": 31787
+    },
+    {
+     "commit": "30141f1a36",
+     "at": "11-27T11:44Z",
+     "writer": "signals",
+     "lost": 978,
+     "added": 1014,
+     "before": 31787,
+     "after": 31823
+    },
+    {
+     "commit": "d8a26b27d1",
+     "at": "11-27T11:59Z",
+     "writer": "signals",
+     "lost": 1013,
+     "added": 989,
+     "before": 31823,
+     "after": 31799
+    },
+    {
+     "commit": "899e5975db",
+     "at": "11-27T12:13Z",
+     "writer": "signals",
+     "lost": 989,
+     "added": 1032,
+     "before": 31799,
+     "after": 31842
+    },
+    {
+     "commit": "f1cc2414b5",
+     "at": "11-27T12:27Z",
+     "writer": "signals",
+     "lost": 1032,
+     "added": 1002,
+     "before": 31842,
+     "after": 31812
+    },
+    {
+     "commit": "affc9099f4",
+     "at": "11-27T12:45Z",
+     "writer": "signals",
+     "lost": 1002,
+     "added": 1044,
+     "before": 31812,
+     "after": 31854
+    },
+    {
+     "commit": "99ec52347b",
+     "at": "11-27T13:03Z",
+     "writer": "signals",
+     "lost": 1044,
+     "added": 1014,
+     "before": 31854,
+     "after": 31824
+    },
+    {
+     "commit": "e48eeffb15",
+     "at": "11-27T13:22Z",
+     "writer": "signals",
+     "lost": 1014,
+     "added": 1059,
+     "before": 31824,
+     "after": 31869
+    },
+    {
+     "commit": "791c568858",
+     "at": "11-27T13:36Z",
+     "writer": "signals",
+     "lost": 1057,
+     "added": 1041,
+     "before": 31869,
+     "after": 31853
+    },
+    {
+     "commit": "bcb5304859",
+     "at": "11-27T13:53Z",
+     "writer": "signals",
+     "lost": 1039,
+     "added": 1078,
+     "before": 31853,
+     "after": 31892
+    },
+    {
+     "commit": "6e20121a44",
+     "at": "11-27T14:13Z",
+     "writer": "signals",
+     "lost": 1077,
+     "added": 1063,
+     "before": 31892,
+     "after": 31878
+    },
+    {
+     "commit": "dc4c169b9f",
+     "at": "11-27T14:29Z",
+     "writer": "signals",
+     "lost": 1063,
+     "added": 1102,
+     "before": 31878,
+     "after": 31917
+    },
+    {
+     "commit": "9197dc31ba",
+     "at": "11-27T14:43Z",
+     "writer": "signals",
+     "lost": 1098,
+     "added": 1104,
+     "before": 31917,
+     "after": 31923
+    },
+    {
+     "commit": "b8d5a1c4b5",
+     "at": "11-27T15:02Z",
+     "writer": "signals",
+     "lost": 1102,
+     "added": 1136,
+     "before": 31923,
+     "after": 31957
+    },
+    {
+     "commit": "e32f066357",
+     "at": "11-27T15:19Z",
+     "writer": "signals",
+     "lost": 1134,
+     "added": 1143,
+     "before": 31957,
+     "after": 31966
+    },
+    {
+     "commit": "3b00671511",
+     "at": "11-27T15:37Z",
+     "writer": "signals",
+     "lost": 1142,
+     "added": 1187,
+     "before": 31966,
+     "after": 32011
+    },
+    {
+     "commit": "c0f8f814bd",
+     "at": "11-27T15:56Z",
+     "writer": "signals",
+     "lost": 1185,
+     "added": 1200,
+     "before": 32011,
+     "after": 32026
+    },
+    {
+     "commit": "708e80e267",
+     "at": "11-27T16:10Z",
+     "writer": "signals",
+     "lost": 1193,
+     "added": 1238,
+     "before": 32026,
+     "after": 32071
+    },
+    {
+     "commit": "2fe3edd93b",
+     "at": "11-27T16:30Z",
+     "writer": "signals",
+     "lost": 1235,
+     "added": 1240,
+     "before": 32071,
+     "after": 32076
+    },
+    {
+     "commit": "064b1430dd",
+     "at": "11-27T16:45Z",
+     "writer": "signals",
+     "lost": 1235,
+     "added": 1290,
+     "before": 32076,
+     "after": 32131
+    },
+    {
+     "commit": "d271a63129",
+     "at": "11-27T17:05Z",
+     "writer": "signals",
+     "lost": 1285,
+     "added": 1290,
+     "before": 32131,
+     "after": 32136
+    },
+    {
+     "commit": "1cb1a016c3",
+     "at": "11-27T17:26Z",
+     "writer": "signals",
+     "lost": 1286,
+     "added": 1341,
+     "before": 32136,
+     "after": 32191
+    },
+    {
+     "commit": "a77f531ad4",
+     "at": "11-27T17:46Z",
+     "writer": "signals",
+     "lost": 1338,
+     "added": 1343,
+     "before": 32191,
+     "after": 32196
+    },
+    {
+     "commit": "6024fed62a",
+     "at": "11-27T18:03Z",
+     "writer": "signals",
+     "lost": 1342,
+     "added": 1397,
+     "before": 32196,
+     "after": 32251
+    },
+    {
+     "commit": "39f9706cb6",
+     "at": "11-27T18:23Z",
+     "writer": "signals",
+     "lost": 1393,
+     "added": 1398,
+     "before": 32251,
+     "after": 32256
+    },
+    {
+     "commit": "19b317c085",
+     "at": "11-27T18:41Z",
+     "writer": "signals",
+     "lost": 1394,
+     "added": 1449,
+     "before": 32256,
+     "after": 32311
+    },
+    {
+     "commit": "7e4fb6f13a",
+     "at": "11-27T18:56Z",
+     "writer": "signals",
+     "lost": 1446,
+     "added": 1451,
+     "before": 32311,
+     "after": 32316
+    },
+    {
+     "commit": "8360edcf57",
+     "at": "11-27T19:14Z",
+     "writer": "signals",
+     "lost": 1444,
+     "added": 1499,
+     "before": 32316,
+     "after": 32371
+    },
+    {
+     "commit": "33d2197d2f",
+     "at": "11-27T19:30Z",
+     "writer": "signals",
+     "lost": 1495,
+     "added": 1500,
+     "before": 32371,
+     "after": 32376
+    },
+    {
+     "commit": "ad5df51aa1",
+     "at": "11-27T19:48Z",
+     "writer": "signals",
+     "lost": 1497,
+     "added": 1552,
+     "before": 32376,
+     "after": 32431
+    },
+    {
+     "commit": "8965ecd8d9",
+     "at": "11-27T20:05Z",
+     "writer": "signals",
+     "lost": 1551,
+     "added": 1556,
+     "before": 32431,
+     "after": 32436
+    },
+    {
+     "commit": "7a4da1ab24",
+     "at": "11-27T20:23Z",
+     "writer": "signals",
+     "lost": 1552,
+     "added": 1607,
+     "before": 32436,
+     "after": 32491
+    },
+    {
+     "commit": "5d3a753886",
+     "at": "11-27T20:40Z",
+     "writer": "signals",
+     "lost": 1604,
+     "added": 1609,
+     "before": 32491,
+     "after": 32496
+    },
+    {
+     "commit": "2a2d793211",
+     "at": "11-27T20:59Z",
+     "writer": "signals",
+     "lost": 1605,
+     "added": 1660,
+     "before": 32496,
+     "after": 32551
+    },
+    {
+     "commit": "4bf5bac3cf",
+     "at": "11-27T21:19Z",
+     "writer": "signals",
+     "lost": 1659,
+     "added": 1642,
+     "before": 32551,
+     "after": 32534
+    },
+    {
+     "commit": "a4e3f10a4c",
+     "at": "11-27T21:34Z",
+     "writer": "signals",
+     "lost": 1641,
+     "added": 1716,
+     "before": 32534,
+     "after": 32609
+    },
+    {
+     "commit": "00ede63b9d",
+     "at": "11-27T21:53Z",
+     "writer": "signals",
+     "lost": 1714,
+     "added": 1689,
+     "before": 32609,
+     "after": 32584
+    },
+    {
+     "commit": "06ca37a75c",
+     "at": "11-27T22:13Z",
+     "writer": "signals",
+     "lost": 1688,
+     "added": 1773,
+     "before": 32584,
+     "after": 32669
+    },
+    {
+     "commit": "9f4818f951",
+     "at": "11-27T22:31Z",
+     "writer": "signals",
+     "lost": 1771,
+     "added": 1734,
+     "before": 32669,
+     "after": 32632
+    },
+    {
+     "commit": "9b829e5cb5",
+     "at": "11-27T22:50Z",
+     "writer": "signals",
+     "lost": 1732,
+     "added": 1812,
+     "before": 32632,
+     "after": 32712
+    },
+    {
+     "commit": "8571234ed9",
+     "at": "11-27T23:09Z",
+     "writer": "signals",
+     "lost": 1809,
+     "added": 1788,
+     "before": 32712,
+     "after": 32691
+    },
+    {
+     "commit": "0996b9dc85",
+     "at": "11-27T23:26Z",
+     "writer": "signals",
+     "lost": 1787,
+     "added": 1863,
+     "before": 32691,
+     "after": 32767
+    },
+    {
+     "commit": "456d2b1988",
+     "at": "11-28T00:22Z",
+     "writer": "signals",
+     "lost": 58,
+     "added": 58,
+     "before": 32827,
+     "after": 32827
+    },
+    {
+     "commit": "5f39681a75",
+     "at": "11-28T00:37Z",
+     "writer": "signals",
+     "lost": 57,
+     "added": 117,
+     "before": 32827,
+     "after": 32887
+    },
+    {
+     "commit": "10a1fb2388",
+     "at": "11-28T00:50Z",
+     "writer": "signals",
+     "lost": 115,
+     "added": 115,
+     "before": 32887,
+     "after": 32887
+    },
+    {
+     "commit": "022b17c68d",
+     "at": "11-28T01:09Z",
+     "writer": "signals",
+     "lost": 112,
+     "added": 172,
+     "before": 32887,
+     "after": 32947
+    },
+    {
+     "commit": "2da280db25",
+     "at": "11-28T01:24Z",
+     "writer": "signals",
+     "lost": 171,
+     "added": 171,
+     "before": 32947,
+     "after": 32947
+    },
+    {
+     "commit": "b3dfe27d06",
+     "at": "11-28T01:42Z",
+     "writer": "signals",
+     "lost": 168,
+     "added": 221,
+     "before": 32947,
+     "after": 33000
+    },
+    {
+     "commit": "2cafa377ce",
+     "at": "11-28T02:02Z",
+     "writer": "signals",
+     "lost": 220,
+     "added": 209,
+     "before": 33000,
+     "after": 32989
+    },
+    {
+     "commit": "ce6d10bac5",
+     "at": "11-28T02:19Z",
+     "writer": "signals",
+     "lost": 207,
+     "added": 278,
+     "before": 32989,
+     "after": 33060
+    },
+    {
+     "commit": "25d56c8d5d",
+     "at": "11-28T02:34Z",
+     "writer": "signals",
+     "lost": 274,
+     "added": 251,
+     "before": 33060,
+     "after": 33037
+    },
+    {
+     "commit": "9ae5069e88",
+     "at": "11-28T02:50Z",
+     "writer": "signals",
+     "lost": 251,
+     "added": 299,
+     "before": 33037,
+     "after": 33085
+    },
+    {
+     "commit": "b193471c9c",
+     "at": "11-28T03:07Z",
+     "writer": "signals",
+     "lost": 299,
+     "added": 311,
+     "before": 33085,
+     "after": 33097
+    },
+    {
+     "commit": "aa81cfafe3",
+     "at": "11-28T03:24Z",
+     "writer": "signals",
+     "lost": 309,
+     "added": 332,
+     "before": 33097,
+     "after": 33120
+    },
+    {
+     "commit": "4d34315c8c",
+     "at": "11-28T03:39Z",
+     "writer": "signals",
+     "lost": 327,
+     "added": 355,
+     "before": 33120,
+     "after": 33148
+    },
+    {
+     "commit": "93233a3aa5",
+     "at": "11-28T03:59Z",
+     "writer": "signals",
+     "lost": 352,
+     "added": 378,
+     "before": 33148,
+     "after": 33174
+    }
+   ],
+   "rows_lost": 608203,
+   "writers": {
+    "fast": 1,
+    "signals": 637
+   },
+   "added_rows_missing_on_main_now": {
+    "fast": 144,
+    "signals": 303959
+   }
+  },
+  {
+   "file": "data/kalshi/steam_rev_paper.jsonl",
+   "commits": 216,
+   "rows_start": 0,
+   "rows_end": 875,
+   "pushes_that_dropped_rows": [
+    {
+     "commit": "37fba574bf",
+     "at": "11-21T13:42Z",
+     "writer": "signals",
+     "lost": 1,
+     "added": 0,
+     "before": 687,
+     "after": 686
+    },
+    {
+     "commit": "dcfcdd5c50",
+     "at": "11-21T15:02Z",
+     "writer": "signals",
+     "lost": 1,
+     "added": 3,
+     "before": 687,
+     "after": 689
+    },
+    {
+     "commit": "745bc39d58",
+     "at": "11-21T15:15Z",
+     "writer": "signals",
+     "lost": 3,
+     "added": 2,
+     "before": 689,
+     "after": 688
+    },
+    {
+     "commit": "a13bc50eda",
+     "at": "11-21T15:27Z",
+     "writer": "signals",
+     "lost": 2,
+     "added": 7,
+     "before": 688,
+     "after": 693
+    },
+    {
+     "commit": "98f5089160",
+     "at": "11-21T15:43Z",
+     "writer": "signals",
+     "lost": 4,
+     "added": 2,
+     "before": 693,
+     "after": 691
+    },
+    {
+     "commit": "82b01caf97",
+     "at": "11-21T16:27Z",
+     "writer": "signals",
+     "lost": 1,
+     "added": 1,
+     "before": 692,
+     "after": 692
+    },
+    {
+     "commit": "a410b79d1f",
+     "at": "11-21T18:53Z",
+     "writer": "signals",
+     "lost": 1,
+     "added": 0,
+     "before": 698,
+     "after": 697
+    },
+    {
+     "commit": "6b9f93ff24",
+     "at": "11-21T20:54Z",
+     "writer": "signals",
+     "lost": 1,
+     "added": 0,
+     "before": 700,
+     "after": 699
+    },
+    {
+     "commit": "2b403c11f5",
+     "at": "11-22T00:46Z",
+     "writer": "signals",
+     "lost": 2,
+     "added": 2,
+     "before": 705,
+     "after": 705
+    },
+    {
+     "commit": "61add98a1d",
+     "at": "11-22T02:13Z",
+     "writer": "signals",
+     "lost": 1,
+     "added": 0,
+     "before": 710,
+     "after": 709
+    },
+    {
+     "commit": "ef545b0a39",
+     "at": "11-22T03:57Z",
+     "writer": "signals",
+     "lost": 2,
+     "added": 2,
+     "before": 714,
+     "after": 714
+    },
+    {
+     "commit": "3b08ca40c7",
+     "at": "11-22T04:09Z",
+     "writer": "signals",
+     "lost": 1,
+     "added": 2,
+     "before": 714,
+     "after": 715
+    },
+    {
+     "commit": "c79eb1264e",
+     "at": "11-22T04:24Z",
+     "writer": "signals",
+     "lost": 2,
+     "added": 2,
+     "before": 715,
+     "after": 715
+    },
+    {
+     "commit": "ac73ef86af",
+     "at": "11-22T05:40Z",
+     "writer": "signals",
+     "lost": 1,
+     "added": 1,
+     "before": 716,
+     "after": 716
+    },
+    {
+     "commit": "55691c0dc4",
+     "at": "11-22T05:54Z",
+     "writer": "signals",
+     "lost": 1,
+     "added": 3,
+     "before": 716,
+     "after": 718
+    },
+    {
+     "commit": "e25f90ddd6",
+     "at": "11-22T15:34Z",
+     "writer": "signals",
+     "lost": 1,
+     "added": 1,
+     "before": 727,
+     "after": 727
+    },
+    {
+     "commit": "9854fc48cc",
+     "at": "11-22T17:54Z",
+     "writer": "signals",
+     "lost": 1,
+     "added": 0,
+     "before": 730,
+     "after": 729
+    },
+    {
+     "commit": "24b83df07f",
+     "at": "11-22T18:21Z",
+     "writer": "signals",
+     "lost": 2,
+     "added": 1,
+     "before": 731,
+     "after": 730
+    },
+    {
+     "commit": "48bb8624a3",
+     "at": "11-22T18:35Z",
+     "writer": "signals",
+     "lost": 1,
+     "added": 5,
+     "before": 730,
+     "after": 734
+    },
+    {
+     "commit": "edf9ca6b1a",
+     "at": "11-22T18:50Z",
+     "writer": "signals",
+     "lost": 4,
+     "added": 1,
+     "before": 734,
+     "after": 731
+    },
+    {
+     "commit": "a28aacd4cf",
+     "at": "11-22T20:50Z",
+     "writer": "signals",
+     "lost": 1,
+     "added": 0,
+     "before": 737,
+     "after": 736
+    },
+    {
+     "commit": "b1cf18f812",
+     "at": "11-22T21:18Z",
+     "writer": "signals",
+     "lost": 2,
+     "added": 1,
+     "before": 739,
+     "after": 738
+    },
+    {
+     "commit": "c2908c5099",
+     "at": "11-22T21:45Z",
+     "writer": "signals",
+     "lost": 3,
+     "added": 1,
+     "before": 742,
+     "after": 740
+    },
+    {
+     "commit": "0ecc115f35",
+     "at": "11-22T21:57Z",
+     "writer": "signals",
+     "lost": 1,
+     "added": 4,
+     "before": 740,
+     "after": 743
+    },
+    {
+     "commit": "b65e98b9e6",
+     "at": "11-22T22:09Z",
+     "writer": "signals",
+     "lost": 3,
+     "added": 2,
+     "before": 743,
+     "after": 742
+    },
+    {
+     "commit": "6bfdc09cc5",
+     "at": "11-22T22:23Z",
+     "writer": "signals",
+     "lost": 1,
+     "added": 3,
+     "before": 742,
+     "after": 744
+    },
+    {
+     "commit": "c2dbc83679",
+     "at": "11-23T01:02Z",
+     "writer": "signals",
+     "lost": 1,
+     "added": 1,
+     "before": 749,
+     "after": 749
+    },
+    {
+     "commit": "0f13cb789a",
+     "at": "11-23T01:17Z",
+     "writer": "signals",
+     "lost": 1,
+     "added": 0,
+     "before": 751,
+     "after": 750
+    },
+    {
+     "commit": "4d20be02f6",
+     "at": "11-23T03:09Z",
+     "writer": "signals",
+     "lost": 1,
+     "added": 2,
+     "before": 752,
+     "after": 753
+    },
+    {
+     "commit": "9b1f6f4223",
+     "at": "11-23T03:24Z",
+     "writer": "signals",
+     "lost": 1,
+     "added": 1,
+     "before": 753,
+     "after": 753
+    },
+    {
+     "commit": "aed324222b",
+     "at": "11-23T03:37Z",
+     "writer": "signals",
+     "lost": 1,
+     "added": 4,
+     "before": 753,
+     "after": 756
+    },
+    {
+     "commit": "546f688774",
+     "at": "11-23T03:50Z",
+     "writer": "signals",
+     "lost": 2,
+     "added": 1,
+     "before": 756,
+     "after": 755
+    },
+    {
+     "commit": "2ed6b0e626",
+     "at": "11-23T05:52Z",
+     "writer": "signals",
+     "lost": 1,
+     "added": 0,
+     "before": 760,
+     "after": 759
+    },
+    {
+     "commit": "41e18b50dc",
+     "at": "11-23T06:33Z",
+     "writer": "signals",
+     "lost": 1,
+     "added": 1,
+     "before": 760,
+     "after": 760
+    },
+    {
+     "commit": "77f864cff8",
+     "at": "11-23T14:59Z",
+     "writer": "signals",
+     "lost": 2,
+     "added": 0,
+     "before": 770,
+     "after": 768
+    },
+    {
+     "commit": "0ebc11877b",
+     "at": "11-23T15:41Z",
+     "writer": "signals",
+     "lost": 1,
+     "added": 1,
+     "before": 771,
+     "after": 771
+    },
+    {
+     "commit": "845f8565ba",
+     "at": "11-24T23:46Z",
+     "writer": "signals",
+     "lost": 1,
+     "added": 4,
+     "before": 780,
+     "after": 783
+    },
+    {
+     "commit": "658c709ad5",
+     "at": "11-25T00:03Z",
+     "writer": "signals",
+     "lost": 3,
+     "added": 1,
+     "before": 783,
+     "after": 781
+    },
+    {
+     "commit": "adae298a7e",
+     "at": "11-25T00:17Z",
+     "writer": "signals",
+     "lost": 1,
+     "added": 4,
+     "before": 781,
+     "after": 784
+    },
+    {
+     "commit": "57076703cd",
+     "at": "11-25T00:33Z",
+     "writer": "signals",
+     "lost": 4,
+     "added": 2,
+     "before": 784,
+     "after": 782
+    },
+    {
+     "commit": "e422a52a70",
+     "at": "11-25T00:50Z",
+     "writer": "signals",
+     "lost": 3,
+     "added": 4,
+     "before": 784,
+     "after": 785
+    },
+    {
+     "commit": "9befa7be58",
+     "at": "11-25T04:12Z",
+     "writer": "signals",
+     "lost": 1,
+     "added": 1,
+     "before": 788,
+     "after": 788
+    },
+    {
+     "commit": "464b57f290",
+     "at": "11-25T04:27Z",
+     "writer": "signals",
+     "lost": 1,
+     "added": 2,
+     "before": 788,
+     "after": 789
+    },
+    {
+     "commit": "7053358b3f",
+     "at": "11-25T04:43Z",
+     "writer": "signals",
+     "lost": 1,
+     "added": 3,
+     "before": 789,
+     "after": 791
+    },
+    {
+     "commit": "23fdc1174b",
+     "at": "11-25T04:59Z",
+     "writer": "signals",
+     "lost": 1,
+     "added": 1,
+     "before": 791,
+     "after": 791
+    },
+    {
+     "commit": "6c66077743",
+     "at": "11-25T05:13Z",
+     "writer": "signals",
+     "lost": 1,
+     "added": 3,
+     "before": 791,
+     "after": 793
+    },
+    {
+     "commit": "5c3a44a9c3",
+     "at": "11-25T05:27Z",
+     "writer": "signals",
+     "lost": 3,
+     "added": 3,
+     "before": 793,
+     "after": 793
+    },
+    {
+     "commit": "60e32219c2",
+     "at": "11-25T15:37Z",
+     "writer": "signals",
+     "lost": 3,
+     "added": 1,
+     "before": 806,
+     "after": 804
+    },
+    {
+     "commit": "ec271aa3be",
+     "at": "11-25T15:53Z",
+     "writer": "signals",
+     "lost": 1,
+     "added": 5,
+     "before": 804,
+     "after": 808
+    },
+    {
+     "commit": "1b5f4f8fce",
+     "at": "11-25T20:11Z",
+     "writer": "signals",
+     "lost": 1,
+     "added": 1,
+     "before": 814,
+     "after": 814
+    },
+    {
+     "commit": "30b17b2e4c",
+     "at": "11-26T00:07Z",
+     "writer": "signals",
+     "lost": 1,
+     "added": 1,
+     "before": 816,
+     "after": 816
+    },
+    {
+     "commit": "9cc182604e",
+     "at": "11-26T00:22Z",
+     "writer": "signals",
+     "lost": 1,
+     "added": 2,
+     "before": 816,
+     "after": 817
+    },
+    {
+     "commit": "5669526bf0",
+     "at": "11-26T00:37Z",
+     "writer": "signals",
+     "lost": 2,
+     "added": 1,
+     "before": 818,
+     "after": 817
+    },
+    {
+     "commit": "a7228ca7a6",
+     "at": "11-26T02:03Z",
+     "writer": "signals",
+     "lost": 1,
+     "added": 2,
+     "before": 818,
+     "after": 819
+    },
+    {
+     "commit": "793b666ed4",
+     "at": "11-26T02:20Z",
+     "writer": "signals",
+     "lost": 2,
+     "added": 2,
+     "before": 819,
+     "after": 819
+    },
+    {
+     "commit": "3cedc2d633",
+     "at": "11-26T02:34Z",
+     "writer": "signals",
+     "lost": 2,
+     "added": 3,
+     "before": 819,
+     "after": 820
+    },
+    {
+     "commit": "6fa296e924",
+     "at": "11-26T02:50Z",
+     "writer": "signals",
+     "lost": 2,
+     "added": 5,
+     "before": 820,
+     "after": 823
+    },
+    {
+     "commit": "4bf68e04e7",
+     "at": "11-26T03:04Z",
+     "writer": "signals",
+     "lost": 3,
+     "added": 2,
+     "before": 823,
+     "after": 822
+    },
+    {
+     "commit": "04de620420",
+     "at": "11-26T11:47Z",
+     "writer": "signals",
+     "lost": 1,
+     "added": 1,
+     "before": 825,
+     "after": 825
+    },
+    {
+     "commit": "7149e34053",
+     "at": "11-26T22:31Z",
+     "writer": "signals",
+     "lost": 1,
+     "added": 1,
+     "before": 832,
+     "after": 832
+    },
+    {
+     "commit": "13f09eb52f",
+     "at": "11-26T22:51Z",
+     "writer": "signals",
+     "lost": 1,
+     "added": 2,
+     "before": 832,
+     "after": 833
+    },
+    {
+     "commit": "e747934762",
+     "at": "11-26T23:34Z",
+     "writer": "signals",
+     "lost": 1,
+     "added": 1,
+     "before": 834,
+     "after": 834
+    },
+    {
+     "commit": "e3a963e010",
+     "at": "11-27T03:35Z",
+     "writer": "signals",
+     "lost": 1,
+     "added": 1,
+     "before": 836,
+     "after": 836
+    },
+    {
+     "commit": "f1cc2414b5",
+     "at": "11-27T12:27Z",
+     "writer": "signals",
+     "lost": 1,
+     "added": 1,
+     "before": 842,
+     "after": 842
+    },
+    {
+     "commit": "e32f066357",
+     "at": "11-27T15:19Z",
+     "writer": "signals",
+     "lost": 2,
+     "added": 3,
+     "before": 852,
+     "after": 853
+    },
+    {
+     "commit": "708e80e267",
+     "at": "11-27T16:10Z",
+     "writer": "signals",
+     "lost": 2,
+     "added": 1,
+     "before": 855,
+     "after": 854
+    },
+    {
+     "commit": "2fe3edd93b",
+     "at": "11-27T16:30Z",
+     "writer": "signals",
+     "lost": 1,
+     "added": 3,
+     "before": 854,
+     "after": 856
+    },
+    {
+     "commit": "6024fed62a",
+     "at": "11-27T18:03Z",
+     "writer": "signals",
+     "lost": 1,
+     "added": 3,
+     "before": 857,
+     "after": 859
+    },
+    {
+     "commit": "39f9706cb6",
+     "at": "11-27T18:23Z",
+     "writer": "signals",
+     "lost": 3,
+     "added": 2,
+     "before": 859,
+     "after": 858
+    },
+    {
+     "commit": "19b317c085",
+     "at": "11-27T18:41Z",
+     "writer": "signals",
+     "lost": 1,
+     "added": 3,
+     "before": 858,
+     "after": 860
+    },
+    {
+     "commit": "5f39681a75",
+     "at": "11-28T00:37Z",
+     "writer": "signals",
+     "lost": 2,
+     "added": 0,
+     "before": 867,
+     "after": 865
+    }
+   ],
+   "rows_lost": 113,
+   "writers": {
+    "fast": 1,
+    "signals": 215
+   },
+   "added_rows_missing_on_main_now": {
+    "fast": 0,
+    "signals": 66
+   }
+  }
+ ]
+}
