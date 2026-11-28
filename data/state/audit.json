@@ -1,24 +1,24 @@
 {
- "built": "2026-11-28T15:16:30Z",
+ "built": "2026-11-28T15:40:07Z",
  "ok": false,
  "checks": [
   {
    "name": "fresh: sharp signals (5-minute job)",
    "ok": false,
    "level": "error",
-   "detail": "last built 21 min ago (allowed 20)"
+   "detail": "last built 28 min ago (allowed 20)"
   },
   {
    "name": "fresh: big money / Kalshi moves (20-minute job)",
    "ok": true,
    "level": "error",
-   "detail": "last built 14 min ago (allowed 60)"
+   "detail": "last built 19 min ago (allowed 60)"
   },
   {
    "name": "fresh: tennis watch (20-minute job)",
    "ok": true,
    "level": "error",
-   "detail": "last built 14 min ago (allowed 60)"
+   "detail": "last built 19 min ago (allowed 60)"
   },
   {
    "name": "fresh: bet tracker (20-minute job)",
@@ -28,9 +28,9 @@
   },
   {
    "name": "fresh: system bets (3 runs a day)",
-   "ok": false,
+   "ok": true,
    "level": "error",
-   "detail": "last built 742 min ago (allowed 300)"
+   "detail": "last built 45 min ago (allowed 300)"
   },
   {
    "name": "sharp feed: Polymarket fills arriving",
@@ -40,9 +40,9 @@
   },
   {
    "name": "open system bets all on the board",
-   "ok": true,
+   "ok": false,
    "level": "error",
-   "detail": "33 open, 0 missing"
+   "detail": "33 open, 1 missing: cfb_homefav_7510_under 401858540"
   },
   {
    "name": "no duplicate bets in the records",
@@ -60,7 +60,7 @@
    "name": "bet tracker has every flagged bet",
    "ok": true,
    "level": "warn",
-   "detail": "1080 in the records, 0 missing from the tracker"
+   "detail": "1082 in the records, 0 missing from the tracker"
   },
   {
    "name": "Bet Labs list games on the board",
