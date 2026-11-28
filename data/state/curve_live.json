@@ -1,5 +1,5 @@
 {
- "built": "2026-11-28T14:55:42Z",
+ "built": "2026-11-28T15:14:43Z",
  "record": {
   "cbb_1h_total_curve": {
    "n": 11,
@@ -137,6 +137,60 @@
    "book": null,
    "price": null,
    "flagged": "2026-11-28T14:36:19Z"
+  },
+  {
+   "key": "cfb_tt_under_curve|2981442fcc9375220d0f7959bcd9c084|away|under",
+   "rule": "cfb_tt_under_curve",
+   "tier": "C",
+   "stake": 0.25,
+   "sport": "cfb",
+   "odds_id": "2981442fcc9375220d0f7959bcd9c084",
+   "espn": "401862837",
+   "game": "Florida Atlantic Owls @ East Carolina Pirates",
+   "start": "2026-11-28T18:00:00Z",
+   "market": "team_totals",
+   "team": "away",
+   "team_name": "Florida Atlantic Owls",
+   "side": "under",
+   "line": 27.5,
+   "curve": 0.514,
+   "pin_fair": 0.461,
+   "gap": 5.2,
+   "full_total": 58.5,
+   "full_spread": -2.0,
+   "pin_price": 2.09,
+   "book": "FD",
+   "price": 1.96,
+   "pin_fair_power": 0.4592,
+   "book_fair": 0.4815,
+   "fair_gap": -2.0,
+   "ev_curve": 0.7,
+   "flagged": "2026-11-28T15:14:43Z"
+  },
+  {
+   "key": "cfb_tt_under_curve|a89bafbbfbc300c0005e20bfb7acfb90|away|under",
+   "rule": "cfb_tt_under_curve",
+   "tier": "P",
+   "stake": 0.0,
+   "sport": "cfb",
+   "odds_id": "a89bafbbfbc300c0005e20bfb7acfb90",
+   "espn": null,
+   "game": "Southern Mississippi Golden Eagles @ Old Dominion Monarchs",
+   "start": "2026-11-28T18:00:00Z",
+   "market": "team_totals",
+   "team": "away",
+   "team_name": "Southern Mississippi Golden Eagles",
+   "side": "under",
+   "line": 23.5,
+   "curve": 0.607,
+   "pin_fair": 0.554,
+   "gap": 5.4,
+   "full_total": 49.5,
+   "full_spread": -6.0,
+   "pin_price": 1.74,
+   "book": null,
+   "price": null,
+   "flagged": "2026-11-28T15:14:43Z"
   }
  ]
 }
