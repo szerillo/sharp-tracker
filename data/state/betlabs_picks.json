@@ -1,5 +1,5 @@
 {
- "pulled": "2026-11-27T22:28:45Z",
+ "pulled": "2026-11-28T03:37:20Z",
  "source": "Bet Labs current system picks (your saved Tested: and Tracked: screens)",
  "screens": [
   {
@@ -266,7 +266,7 @@
    "play": "Under",
    "away": "Indiana Pacers",
    "home": "Chicago Bulls",
-   "info": "Home Team Game Number 19, Home Team Win % 33, Visitor Team Win % 33"
+   "info": "Home Team Game Number 19, Home Team Win % 33, Visitor Team Win % 31"
   },
   {
    "sid": 1799442,
@@ -290,7 +290,7 @@
    "play": "Under",
    "away": "Minnesota",
    "home": "Wisconsin",
-   "info": "Home Spread Range -9.5"
+   "info": "Home Spread Range -8.5"
   },
   {
    "sid": 1799440,
@@ -298,7 +298,7 @@
    "play": "Under",
    "away": "Arizona State",
    "home": "Arizona",
-   "info": "Home Spread Range -8.5"
+   "info": "Home Spread Range -9"
   },
   {
    "sid": 1799439,
@@ -322,7 +322,7 @@
    "play": "Over",
    "away": "UCF",
    "home": "Colorado",
-   "info": "Time of Day 14, Closing Total Range 48.5"
+   "info": "Time of Day 14, Closing Total Range 47.5"
   },
   {
    "sid": 1799439,
@@ -378,7 +378,7 @@
    "play": "Over",
    "away": "Army",
    "home": "Rice",
-   "info": "Time of Day 14, Closing Total Range 47.5"
+   "info": "Time of Day 14, Closing Total Range 46.5"
   },
   {
    "sid": 1799439,
@@ -395,14 +395,6 @@
    "away": "Los Angeles Lakers",
    "home": "San Antonio Spurs",
    "info": "Visitor Prev Game Home/AwayStreak 4"
-  },
-  {
-   "sid": 1799438,
-   "date": "2026-11-27",
-   "play": "Over",
-   "away": "Philadelphia 76ers",
-   "home": "Indiana Pacers",
-   "info": "Visitor Prev Game Home/AwayStreak 3"
   },
   {
    "sid": 1799438,
@@ -451,6 +443,14 @@
    "away": "Baltimore Ravens",
    "home": "Houston Texans",
    "info": "Opp Days Between games 10"
+  },
+  {
+   "sid": 1799435,
+   "date": "2026-11-29",
+   "play": "San Francisco 49ers",
+   "away": "Seattle Seahawks",
+   "home": "San Francisco 49ers",
+   "info": "Opp Days Between games 14"
   },
   {
    "sid": 1799435,
@@ -530,15 +530,7 @@
    "play": "New Orleans Saints",
    "away": "New Orleans Saints",
    "home": "Cincinnati Bengals",
-   "info": "Spread Range 10"
-  },
-  {
-   "sid": 1799432,
-   "date": "2026-11-27",
-   "play": "Minnesota Timberwolves",
-   "away": "Memphis Grizzlies",
-   "home": "Minnesota Timberwolves",
-   "info": "Game Number 20, Days Between games 2, Team ATS % 78"
+   "info": "Spread Range 9.5"
   },
   {
    "sid": 1799432,
@@ -550,11 +542,11 @@
   },
   {
    "sid": 1799432,
-   "date": "2026-11-29",
-   "play": "Portland Trail Blazers",
-   "away": "New Orleans Pelicans",
-   "home": "Portland Trail Blazers",
-   "info": "Game Number 20, Days Between games 2, Team ATS % 66"
+   "date": "2026-11-27",
+   "play": "Minnesota Timberwolves",
+   "away": "Memphis Grizzlies",
+   "home": "Minnesota Timberwolves",
+   "info": "Game Number 20, Days Between games 2, Team ATS % 78"
   },
   {
    "sid": 1799432,
@@ -563,6 +555,22 @@
    "away": "Los Angeles Lakers",
    "home": "Memphis Grizzlies",
    "info": "Game Number 21, Days Between games 2, Team ATS % 73"
+  },
+  {
+   "sid": 1799432,
+   "date": "2026-11-29",
+   "play": "Detroit Pistons",
+   "away": "Orlando Magic",
+   "home": "Detroit Pistons",
+   "info": "Game Number 19, Days Between games 2, Team ATS % 61"
+  },
+  {
+   "sid": 1799432,
+   "date": "2026-11-29",
+   "play": "Portland Trail Blazers",
+   "away": "New Orleans Pelicans",
+   "home": "Portland Trail Blazers",
+   "info": "Game Number 20, Days Between games 2, Team ATS % 66"
   },
   {
    "sid": 1799432,
@@ -582,11 +590,11 @@
   },
   {
    "sid": 1799432,
-   "date": "2026-12-03",
-   "play": "Portland Trail Blazers",
-   "away": "Utah Jazz",
-   "home": "Portland Trail Blazers",
-   "info": "Game Number 22, Days Between games 2, Team ATS % 66"
+   "date": "2026-12-02",
+   "play": "Detroit Pistons",
+   "away": "Memphis Grizzlies",
+   "home": "Detroit Pistons",
+   "info": "Game Number 21, Days Between games 2, Team ATS % 61"
   },
   {
    "sid": 1799432,
@@ -597,12 +605,36 @@
    "info": "Game Number 21, Days Between games 2, Team ATS % 61"
   },
   {
+   "sid": 1799432,
+   "date": "2026-12-03",
+   "play": "Portland Trail Blazers",
+   "away": "Utah Jazz",
+   "home": "Portland Trail Blazers",
+   "info": "Game Number 22, Days Between games 2, Team ATS % 66"
+  },
+  {
+   "sid": 1799430,
+   "date": "2026-11-28",
+   "play": "Vegas Golden Knights",
+   "away": "Montreal Canadiens",
+   "home": "Vegas Golden Knights",
+   "info": "Team Win % 51, Previous Game Margin -3"
+  },
+  {
+   "sid": 1799428,
+   "date": "2026-11-28",
+   "play": "Over",
+   "away": "Calgary Flames",
+   "home": "New York Rangers",
+   "info": "Home Over Win % 45, Home Recent Win % 0"
+  },
+  {
    "sid": 1792198,
    "date": "2026-11-28",
    "play": "Auburn",
    "away": "Auburn",
    "home": "Alabama",
-   "info": "Closing Total Range 49.5, Home/Away Streak -2, Number of Bets Compared To Daily Avg 2.42, Conference/Non-Conference Conference"
+   "info": "Closing Total Range 50.5, Home/Away Streak -2, Number of Bets Compared To Daily Avg 2.41, Conference/Non-Conference Conference"
   },
   {
    "sid": 1772963,
@@ -670,14 +702,6 @@
   },
   {
    "sid": 1772775,
-   "date": "2026-11-27",
-   "play": "Under",
-   "away": "Denver Broncos",
-   "home": "Pittsburgh Steelers",
-   "info": "Avg Wind Speed 12"
-  },
-  {
-   "sid": 1772775,
    "date": "2026-11-29",
    "play": "Under",
    "away": "Las Vegas Raiders",
@@ -693,20 +717,36 @@
    "info": "Avg Wind Speed 11"
   },
   {
-   "sid": 1792184,
-   "date": "2026-11-27",
+   "sid": 1772775,
+   "date": "2026-12-06",
    "play": "Under",
-   "away": "Bowling Green",
-   "home": "Indiana",
-   "info": "O/U Change Open to Close -3, Day Of Week Friday, Home Over Win % 80, Visitor Over Win % 60, Home OU Streak 2"
+   "away": "San Francisco 49ers",
+   "home": "New York Giants",
+   "info": "Avg Wind Speed 12"
+  },
+  {
+   "sid": 1772775,
+   "date": "2026-12-06",
+   "play": "Under",
+   "away": "Cincinnati Bengals",
+   "home": "Cleveland Browns",
+   "info": "Avg Wind Speed 11"
+  },
+  {
+   "sid": 1772775,
+   "date": "2026-12-06",
+   "play": "Under",
+   "away": "Buffalo Bills",
+   "home": "New England Patriots",
+   "info": "Avg Wind Speed 12"
   },
   {
    "sid": 1792184,
    "date": "2026-11-27",
    "play": "Under",
-   "away": "Old Dominion",
-   "home": "Virginia Tech",
-   "info": "O/U Change Open to Close -7, Day Of Week Friday, Home Over Win % 83, Visitor Over Win % 66, Home OU Streak 3"
+   "away": "Miami Florida",
+   "home": "Alabama",
+   "info": "O/U Change Open to Close -1, Day Of Week Friday, Home Over Win % 50, Visitor Over Win % 71, Home OU Streak 1"
   },
   {
    "sid": 1789286,
@@ -714,15 +754,7 @@
    "play": "Minnesota",
    "away": "Minnesota",
    "home": "Wisconsin",
-   "info": "Conference/Non-Conference Conference, Spread Range 9.5, Closing Total Range 37.5"
-  },
-  {
-   "sid": 1789286,
-   "date": "2026-11-27",
-   "play": "Air Force",
-   "away": "Air Force",
-   "home": "New Mexico",
-   "info": "Conference/Non-Conference Conference, Spread Range 7, Closing Total Range 42.5"
+   "info": "Conference/Non-Conference Conference, Spread Range 8.5, Closing Total Range 36.5"
   },
   {
    "sid": 1789286,
@@ -746,7 +778,7 @@
    "play": "Under",
    "away": "UConn Huskies",
    "home": "Wyoming",
-   "info": "Avg Wind Speed 19"
+   "info": "Avg Wind Speed 20"
   },
   {
    "sid": 1783043,
@@ -754,15 +786,7 @@
    "play": "Under",
    "away": "UCF",
    "home": "Colorado",
-   "info": "Avg Wind Speed 17"
-  },
-  {
-   "sid": 1783043,
-   "date": "2026-11-28",
-   "play": "Under",
-   "away": "Jacksonville State",
-   "home": "Delaware",
-   "info": "Avg Wind Speed 14"
+   "info": "Avg Wind Speed 19"
   },
   {
    "sid": 1783043,
@@ -771,14 +795,6 @@
    "away": "UAB",
    "home": "North Texas",
    "info": "Avg Wind Speed 16"
-  },
-  {
-   "sid": 769171,
-   "date": "2026-11-27",
-   "play": "Under",
-   "away": "Denver Broncos",
-   "home": "Pittsburgh Steelers",
-   "info": "Avg Wind Speed 12, Dome Closed N"
   },
   {
    "sid": 769171,
@@ -795,6 +811,30 @@
    "away": "New Orleans Saints",
    "home": "Cincinnati Bengals",
    "info": "Avg Wind Speed 11, Dome Closed N"
+  },
+  {
+   "sid": 769171,
+   "date": "2026-12-06",
+   "play": "Under",
+   "away": "Buffalo Bills",
+   "home": "New England Patriots",
+   "info": "Avg Wind Speed 12, Dome Closed N"
+  },
+  {
+   "sid": 769171,
+   "date": "2026-12-06",
+   "play": "Under",
+   "away": "Cincinnati Bengals",
+   "home": "Cleveland Browns",
+   "info": "Avg Wind Speed 11, Dome Closed N"
+  },
+  {
+   "sid": 769171,
+   "date": "2026-12-06",
+   "play": "Under",
+   "away": "San Francisco 49ers",
+   "home": "New York Giants",
+   "info": "Avg Wind Speed 12, Dome Closed N"
   }
  ]
 }
