@@ -1,82 +1,6 @@
 {
- "built": "2026-11-28T21:54:35Z",
+ "built": "2026-11-28T22:02:35Z",
  "rows": [
-  {
-   "cond": "0x41e55210fde31e6ba3b6b323735df0ee4f75c874498ce003b8d1f76a4b4a7d36",
-   "slug": "cfb-flatl-ecar-2026-11-28",
-   "title": "Florida Atlantic vs. East Carolina",
-   "mtype": "ml",
-   "start": "2026-11-28T18:00:00Z",
-   "bet": "Florida Atlantic ML",
-   "side": "Florida Atlantic",
-   "flagged": "2026-11-28T17:15:35Z",
-   "why": "a top-200 account also in this sport's top 50",
-   "proven": true,
-   "trigger": "proven",
-   "n_accounts": 1,
-   "best_rank": 115,
-   "usd": 318,
-   "paid": 0.43,
-   "ask": null,
-   "status": "live",
-   "link": "https://polymarket.us/event/cfb-flatl-ecar-2026-11-28",
-   "other": null,
-   "kalshi_against": null,
-   "logged": true,
-   "event_id": "401862837",
-   "sport": "cfb",
-   "league": null,
-   "away": "FAU",
-   "home": "ECU",
-   "away_name": "Florida Atlantic Owls",
-   "home_name": "East Carolina Pirates",
-   "game_start": "2026-11-28T18:00Z",
-   "side_std": "away",
-   "cancel": null,
-   "money_with": false,
-   "grade": "A",
-   "inside_fair": false,
-   "fair_board": 0.4345,
-   "books": null
-  },
-  {
-   "cond": "0x3e17cb920f66b9c54e91ce8fa29dfc971bb6e24cf8ab3c633c076b6af2d8cab5",
-   "slug": "cfb-marsh-lamon-2026-11-28",
-   "title": "Marshall vs. Louisiana-Monroe",
-   "mtype": "spread",
-   "start": "2026-11-28T18:00:00Z",
-   "bet": "Louisiana-Monroe +6.5",
-   "side": "Louisiana-Monroe",
-   "flagged": "2026-11-28T17:25:36Z",
-   "why": "a top-50 account",
-   "proven": false,
-   "trigger": "top50",
-   "n_accounts": 1,
-   "best_rank": 12,
-   "usd": 231,
-   "paid": 0.48,
-   "ask": null,
-   "status": "live",
-   "link": "https://polymarket.us/event/cfb-marsh-lamon-2026-11-28",
-   "other": null,
-   "kalshi_against": null,
-   "logged": true,
-   "event_id": "401871102",
-   "sport": "cfb",
-   "league": null,
-   "away": "MRSH",
-   "home": "ULM",
-   "away_name": "Marshall Thundering Herd",
-   "home_name": "UL Monroe Warhawks",
-   "game_start": "2026-11-28T18:00Z",
-   "side_std": "home",
-   "cancel": null,
-   "money_with": false,
-   "grade": "B",
-   "inside_fair": false,
-   "fair_board": 0.4717,
-   "books": null
-  },
   {
    "cond": "0x1d0a4e6004633dda0ece2ab411c89b3168ce9704274c881c939f8c2ae8c44b29",
    "slug": "cfb-loulaf-gast-2026-11-28",
@@ -556,7 +480,7 @@
    "best_rank": 49,
    "usd": 8437,
    "paid": 0.545,
-   "ask": 0.56,
+   "ask": null,
    "status": "live",
    "link": "https://polymarket.us/event/nba-orl-was-2026-11-28",
    "other": null,
@@ -594,7 +518,7 @@
    "best_rank": 42,
    "usd": 7324,
    "paid": 0.622,
-   "ask": 0.67,
+   "ask": null,
    "status": "live",
    "link": "https://polymarket.us/event/nba-orl-was-2026-11-28",
    "other": null,
@@ -687,7 +611,7 @@
    "best_rank": 110,
    "usd": 4790,
    "paid": 0.378,
-   "ask": 0.41,
+   "ask": 0.42,
    "status": "live",
    "link": "https://polymarket.us/event/nhl-cal-nyr-2026-11-28",
    "other": null,
@@ -804,6 +728,51 @@
    }
   },
   {
+   "cond": "0x1165a10e7f4e8badd613e02dbed1ad0873118e5aaa63103346b7934105bdbbfa",
+   "slug": "nhl-cal-nyr-2026-11-28",
+   "title": "Flames vs. Rangers",
+   "mtype": "spread",
+   "start": "2026-11-29T00:00:00Z",
+   "bet": "Flames -1.5",
+   "side": "Flames",
+   "flagged": "2026-11-28T22:01:23Z",
+   "why": "a top-50 account",
+   "proven": false,
+   "trigger": "top50",
+   "n_accounts": 1,
+   "best_rank": 3,
+   "usd": 168,
+   "paid": 0.21,
+   "ask": 0.23,
+   "status": "live",
+   "link": "https://polymarket.us/event/nhl-cal-nyr-2026-11-28",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401892814",
+   "sport": "nhl",
+   "league": null,
+   "away": "CGY",
+   "home": "NYR",
+   "away_name": "Calgary Flames",
+   "home_name": "New York Rangers",
+   "game_start": "2026-11-29T00:00Z",
+   "side_std": "away",
+   "cancel": null,
+   "money_with": false,
+   "grade": "B",
+   "fair_board": null,
+   "inside_fair": null,
+   "books": {
+    "at": "2026-11-28T21:08:15Z",
+    "fair": null,
+    "q": {
+     "Novig": 0.205,
+     "Kalshi": 0.23
+    }
+   }
+  },
+  {
    "cond": "0x45c414095f5876a025068511b200405477e486fd4ae24b880a42c1f1154216f0",
    "slug": "cfb-aubrn-ala-2026-11-28",
    "title": "Auburn vs. Alabama",
@@ -819,7 +788,7 @@
    "best_rank": 12,
    "usd": 125,
    "paid": 0.5,
-   "ask": 0.59,
+   "ask": 0.6,
    "status": "live",
    "link": "https://polymarket.us/event/cfb-aubrn-ala-2026-11-28",
    "other": null,
@@ -1036,7 +1005,7 @@
    "best_rank": 104,
    "usd": 279,
    "paid": 0.772,
-   "ask": 0.84,
+   "ask": 0.83,
    "status": "live",
    "link": "https://polymarket.us/event/nba-phi-hou-2026-11-28",
    "other": null,
@@ -1058,7 +1027,7 @@
    "money_with": false,
    "grade": "watch",
    "fair_board": 0.837,
-   "inside_fair": false,
+   "inside_fair": true,
    "books": {
     "at": "2026-11-28T21:08:15Z",
     "fair": 0.837,
@@ -1582,8 +1551,8 @@
    },
    "exit_bid": 0.16,
    "kalshi_against": {
-    "move": 7.0,
-    "now": 85.5,
+    "move": 6.0,
+    "now": 84.5,
     "state": "drift"
    },
    "logged": true,
@@ -1706,19 +1675,19 @@
     "clv": -0.29
    },
    "outside": {
-    "n": 147,
-    "won": 75,
+    "n": 148,
+    "won": 76,
     "units": 0.86,
     "clv": -0.13
    }
   },
-  "n": 513,
-  "won": 253,
+  "n": 515,
+  "won": 255,
   "units": -11.59,
   "by_grade": {
    "A": {
-    "n": 349,
-    "won": 168,
+    "n": 351,
+    "won": 170,
     "units": -11.67,
     "clv": -0.04
    },
@@ -1735,23 +1704,14 @@
     "clv": -0.39
    }
   },
-  "units_1u": -8.74,
+  "units_1u": -6.58,
   "clv": -0.28,
-  "n_venue": 276,
+  "n_venue": 277,
   "units_venue": -3.67,
   "clv_venue": 0.96,
   "clv_poly_same": -0.52
  },
- "sys_tags": {
-  "401910046:xch_homedog_fade:ml": {
-   "with": {
-    "n": 3,
-    "best_rank": 42,
-    "usd": 7324
-   },
-   "against": null
-  }
- },
+ "sys_tags": {},
  "by_event": {
   "401873090|spread": {
    "away": {
@@ -1765,25 +1725,6 @@
     "n": 2,
     "best_rank": 12,
     "usd": 553
-   }
-  },
-  "401910046|spread": {
-   "away": {
-    "n": 2,
-    "best_rank": 49,
-    "usd": 8437
-   },
-   "home": {
-    "n": 1,
-    "best_rank": 112,
-    "usd": 1039
-   }
-  },
-  "401910046|ml": {
-   "away": {
-    "n": 3,
-    "best_rank": 42,
-    "usd": 7324
    }
   },
   "401910047|total": {
@@ -1913,6 +1854,13 @@
     "usd": 4790
    }
   },
+  "401892814|spread": {
+   "away": {
+    "n": 1,
+    "best_rank": 3,
+    "usd": 168
+   }
+  },
   "401892819|ml": {
    "away": {
     "n": 1,
@@ -1960,27 +1908,6 @@
     "n": 1,
     "best_rank": 170,
     "usd": 212
-   }
-  },
-  "401920160|total": {
-   "over": {
-    "n": 1,
-    "best_rank": 65,
-    "usd": 864
-   }
-  },
-  "401920139|total": {
-   "under": {
-    "n": 1,
-    "best_rank": 65,
-    "usd": 612
-   }
-  },
-  "401917548|total": {
-   "under": {
-    "n": 1,
-    "best_rank": 104,
-    "usd": 220
    }
   },
   "401929413|total": {
