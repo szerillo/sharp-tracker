@@ -1,5 +1,5 @@
 {
- "built": "2026-11-28T19:59:41Z",
+ "built": "2026-11-28T20:07:29Z",
  "rows": [
   {
    "cond": "0x4eeca3cab406705e53635dabdd896c1cbca380e79b647112379bcbf74286d44b",
@@ -606,7 +606,7 @@
    "best_rank": 115,
    "usd": 4930,
    "paid": 0.48,
-   "ask": 0.51,
+   "ask": null,
    "status": "live",
    "link": "https://polymarket.us/event/cfb-vir-vtech-2026-11-28",
    "other": null,
@@ -622,7 +622,7 @@
    "game_start": "2026-11-28T20:00Z",
    "side_std": "under",
    "cancel": null,
-   "money_with": false,
+   "money_with": true,
    "grade": "A",
    "fair_board": null,
    "inside_fair": null,
@@ -644,7 +644,7 @@
    "best_rank": 58,
    "usd": 453,
    "paid": 0.547,
-   "ask": 0.56,
+   "ask": null,
    "status": "live",
    "link": "https://polymarket.us/event/cfb-sc-clmsn-2026-11-28",
    "other": null,
@@ -775,7 +775,7 @@
    "best_rank": 115,
    "usd": 8284,
    "paid": 0.51,
-   "ask": 0.51,
+   "ask": 0.52,
    "status": "live",
    "link": "https://polymarket.us/event/cfb-duke-wake-2026-11-28",
    "other": null,
@@ -1245,7 +1245,7 @@
    "best_rank": 104,
    "usd": 162,
    "paid": 0.35,
-   "ask": 0.42,
+   "ask": 0.45,
    "status": "live",
    "link": "https://polymarket.us/event/nba-okc-mil-2026-11-28",
    "other": null,
@@ -1761,8 +1761,8 @@
    },
    "exit_bid": 0.16,
    "kalshi_against": {
-    "move": 4.0,
-    "now": 82.5,
+    "move": 7.0,
+    "now": 85.5,
     "state": "drift"
    },
    "logged": true,
@@ -1932,14 +1932,6 @@
     "n": 1,
     "best_rank": 115,
     "usd": 153
-   }
-  },
-  "401858317:cfb_day_over": {
-   "with": null,
-   "against": {
-    "n": 1,
-    "best_rank": 115,
-    "usd": 4930
    }
   },
   "401871062:cfb_wind14": {
@@ -2142,13 +2134,6 @@
     "usd": 5252
    }
   },
-  "401858317|total": {
-   "under": {
-    "n": 1,
-    "best_rank": 115,
-    "usd": 4930
-   }
-  },
   "401858543|spread": {
    "home": {
     "n": 1,
@@ -2199,34 +2184,6 @@
     "n": 1,
     "best_rank": 170,
     "usd": 212
-   }
-  },
-  "401926796|total": {
-   "over": {
-    "n": 1,
-    "best_rank": 104,
-    "usd": 212
-   }
-  },
-  "401926229|total": {
-   "under": {
-    "n": 1,
-    "best_rank": 65,
-    "usd": 960
-   }
-  },
-  "401924913|total": {
-   "under": {
-    "n": 1,
-    "best_rank": 65,
-    "usd": 550
-   }
-  },
-  "401911312|total": {
-   "over": {
-    "n": 1,
-    "best_rank": 65,
-    "usd": 460
    }
   },
   "401925033|total": {
