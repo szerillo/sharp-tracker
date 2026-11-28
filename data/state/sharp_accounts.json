@@ -1,5 +1,5 @@
 {
- "built": "2026-11-28T17:36:59Z",
+ "built": "2026-11-28T17:44:56Z",
  "rows": [
   {
    "cond": "0x1cf899c2e1facf88079301875eb3bd94b8bd647c4967d650a9cc28de6b703aa0",
@@ -194,7 +194,7 @@
    "game_start": "2026-11-28T17:00Z",
    "side_std": "over",
    "cancel": null,
-   "money_with": true,
+   "money_with": false,
    "grade": "A",
    "inside_fair": true,
    "fair_board": 0.4934,
@@ -317,7 +317,7 @@
    "game_start": "2026-11-28T17:00Z",
    "side_std": "home",
    "cancel": null,
-   "money_with": true,
+   "money_with": false,
    "grade": "A",
    "inside_fair": true,
    "fair_board": 0.493,
@@ -362,9 +362,6 @@
    "home_name": "Charlotte 49ers",
    "game_start": "2026-11-28T17:00Z",
    "side_std": "away",
-   "conflict": [
-    "big money"
-   ],
    "cancel": null,
    "money_with": false,
    "grade": "A",
@@ -414,7 +411,7 @@
    "game_start": "2026-11-28T17:00Z",
    "side_std": "over",
    "cancel": null,
-   "money_with": true,
+   "money_with": false,
    "grade": "A",
    "fair_board": null,
    "inside_fair": null,
@@ -647,6 +644,44 @@
      "DK": 0.5413
     }
    }
+  },
+  {
+   "cond": "0xb6ddb127b83d1e279ea9cffd31a0a2681e17625437d4a795b795d31beeae5315",
+   "slug": "cfb-coast-jmad-2026-11-28",
+   "title": "Coastal Carolina vs. James Madison",
+   "mtype": "total",
+   "start": "2026-11-28T19:00:00Z",
+   "bet": "Over 53.5",
+   "side": "Over",
+   "flagged": "2026-11-28T17:37:24Z",
+   "why": "a top-200 account also in this sport's top 50",
+   "proven": true,
+   "trigger": "proven",
+   "n_accounts": 1,
+   "best_rank": 58,
+   "usd": 368,
+   "paid": 0.54,
+   "ask": 0.53,
+   "status": "live",
+   "link": "https://polymarket.us/event/cfb-coast-jmad-2026-11-28",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401869947",
+   "sport": "cfb",
+   "league": null,
+   "away": "CCU",
+   "home": "JMU",
+   "away_name": "Coastal Carolina Chanticleers",
+   "home_name": "James Madison Dukes",
+   "game_start": "2026-11-28T19:00Z",
+   "side_std": "over",
+   "cancel": null,
+   "money_with": false,
+   "grade": "A",
+   "fair_board": null,
+   "inside_fair": null,
+   "books": null
   },
   {
    "cond": "0x160fa75437fd81457f55dabda2a32425e1be8b45dcbcb692b10607e3f68fc86d",
@@ -1053,7 +1088,7 @@
    "best_rank": 115,
    "usd": 6528,
    "paid": 0.49,
-   "ask": 0.5,
+   "ask": 0.49,
    "status": "live",
    "link": "https://polymarket.us/event/cfb-tenn-vand-2026-11-28",
    "other": null,
@@ -1539,51 +1574,6 @@
    }
   },
   {
-   "cond": "0x7a58bf7255ef1eab1b450b3dbc90d6549f0142be338d11625715133325a4eef3",
-   "slug": "nba-lal-mem-2026-11-29",
-   "title": "Lakers vs. Grizzlies",
-   "mtype": "ml",
-   "start": "2026-11-29T21:00:00Z",
-   "bet": "Lakers ML",
-   "side": "Lakers",
-   "flagged": "2026-11-26T23:24:00Z",
-   "why": "a top-200 account also in this sport's top 50",
-   "proven": true,
-   "trigger": "proven",
-   "n_accounts": 1,
-   "best_rank": 104,
-   "usd": 214,
-   "paid": 0.53,
-   "ask": 0.61,
-   "status": "live",
-   "link": "https://polymarket.us/event/nba-lal-mem-2026-11-29",
-   "other": null,
-   "kalshi_against": null,
-   "logged": true,
-   "event_id": "401910051",
-   "sport": "nba",
-   "league": null,
-   "away": "LAL",
-   "home": "MEM",
-   "away_name": "Los Angeles Lakers",
-   "home_name": "Memphis Grizzlies",
-   "game_start": "2026-11-29T21:00Z",
-   "side_std": "away",
-   "cancel": null,
-   "money_with": false,
-   "grade": "watch",
-   "fair_board": null,
-   "inside_fair": null,
-   "books": {
-    "at": "2026-11-28T16:59:53Z",
-    "fair": null,
-    "q": {
-     "Novig": 0.62,
-     "Kalshi": 0.63
-    }
-   }
-  },
-  {
    "cond": "0xec6c71ce4962016f75c7c6fd05b087ec61305623a4f359336fb9e8d43134f29a",
    "slug": "nfl-sea-sf-2026-11-29",
    "title": "Seahawks vs. 49ers",
@@ -1676,6 +1666,51 @@
    }
   },
   {
+   "cond": "0x5a671d1d5b8d1f1373241483a07dfa59fea96f7f78ff4d7940363bd0a93f481c",
+   "slug": "nba-min-sac-2026-11-29",
+   "title": "Timberwolves vs. Kings",
+   "mtype": "ml",
+   "start": "2026-11-30T02:00:00Z",
+   "bet": "Kings ML",
+   "side": "Kings",
+   "flagged": "2026-11-28T17:43:56Z",
+   "why": "a top-50 account",
+   "proven": false,
+   "trigger": "top50",
+   "n_accounts": 1,
+   "best_rank": 43,
+   "usd": 117,
+   "paid": 0.2,
+   "ask": 0.21,
+   "status": "live",
+   "link": "https://polymarket.us/event/nba-min-sac-2026-11-29",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401910060",
+   "sport": "nba",
+   "league": null,
+   "away": "MIN",
+   "home": "SAC",
+   "away_name": "Minnesota Timberwolves",
+   "home_name": "Sacramento Kings",
+   "game_start": "2026-11-30T02:00Z",
+   "side_std": "home",
+   "cancel": null,
+   "money_with": false,
+   "grade": "watch",
+   "fair_board": null,
+   "inside_fair": null,
+   "books": {
+    "at": "2026-11-28T16:59:53Z",
+    "fair": null,
+    "q": {
+     "Novig": 0.215,
+     "Kalshi": 0.23
+    }
+   }
+  },
+  {
    "cond": "0xbb82ace897a607a661c3920e65c98a792dc5ddfacb992abfab8283606955e05b",
    "slug": "cfb-cmich-ballst-2026-11-28",
    "title": "Central Michigan vs. Ball State",
@@ -1712,13 +1747,7 @@
    "home_name": "Ball State Cardinals",
    "game_start": "2026-11-28T17:00Z",
    "side_std": "away",
-   "conflict": [
-    "Kalshi move",
-    "big money"
-   ],
-   "cancel": [
-    "Kalshi move"
-   ],
+   "cancel": null,
    "money_with": false,
    "grade": "A",
    "fair_board": 0.4861,
@@ -1968,6 +1997,13 @@
     "usd": 349
    }
   },
+  "401910060|ml": {
+   "home": {
+    "n": 1,
+    "best_rank": 43,
+    "usd": 117
+   }
+  },
   "401892811|ml": {
    "home": {
     "n": 1,
@@ -2057,6 +2093,13 @@
     "n": 1,
     "best_rank": 12,
     "usd": 231
+   }
+  },
+  "401869947|total": {
+   "over": {
+    "n": 1,
+    "best_rank": 58,
+    "usd": 368
    }
   },
   "401869959|total": {
