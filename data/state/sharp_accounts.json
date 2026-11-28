@@ -1,5 +1,5 @@
 {
- "built": "2026-11-28T17:21:53Z",
+ "built": "2026-11-28T17:29:21Z",
  "rows": [
   {
    "cond": "0x1cf899c2e1facf88079301875eb3bd94b8bd647c4967d650a9cc28de6b703aa0",
@@ -537,8 +537,8 @@
    ],
    "money_with": false,
    "grade": "A",
-   "fair_board": 0.4345,
    "inside_fair": false,
+   "fair_board": 0.4345,
    "books": {
     "at": "2026-11-28T16:59:53Z",
     "fair": 0.4345,
@@ -547,6 +547,104 @@
      "DK": 0.4464,
      "Caesars": 0.4484,
      "FD": 0.4673
+    }
+   }
+  },
+  {
+   "cond": "0x3e17cb920f66b9c54e91ce8fa29dfc971bb6e24cf8ab3c633c076b6af2d8cab5",
+   "slug": "cfb-marsh-lamon-2026-11-28",
+   "title": "Marshall vs. Louisiana-Monroe",
+   "mtype": "spread",
+   "start": "2026-11-28T18:00:00Z",
+   "bet": "Louisiana-Monroe +6.5",
+   "side": "Louisiana-Monroe",
+   "flagged": "2026-11-28T17:25:36Z",
+   "why": "a top-50 account",
+   "proven": false,
+   "trigger": "top50",
+   "n_accounts": 1,
+   "best_rank": 12,
+   "usd": 231,
+   "paid": 0.48,
+   "ask": 0.48,
+   "status": "live",
+   "link": "https://polymarket.us/event/cfb-marsh-lamon-2026-11-28",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401871102",
+   "sport": "cfb",
+   "league": null,
+   "away": "MRSH",
+   "home": "ULM",
+   "away_name": "Marshall Thundering Herd",
+   "home_name": "UL Monroe Warhawks",
+   "game_start": "2026-11-28T18:00Z",
+   "side_std": "home",
+   "conflict": [
+    "Kalshi move"
+   ],
+   "cancel": [
+    "Kalshi move"
+   ],
+   "money_with": false,
+   "grade": "B",
+   "fair_board": 0.4717,
+   "inside_fair": false,
+   "books": {
+    "at": "2026-11-28T16:59:53Z",
+    "fair": 0.4717,
+    "q": {
+     "Novig": 0.47,
+     "Kalshi": 0.5,
+     "DK": 0.5238,
+     "Caesars": 0.5305
+    }
+   }
+  },
+  {
+   "cond": "0x1d0a4e6004633dda0ece2ab411c89b3168ce9704274c881c939f8c2ae8c44b29",
+   "slug": "cfb-loulaf-gast-2026-11-28",
+   "title": "Louisiana vs. Georgia State",
+   "mtype": "total",
+   "start": "2026-11-28T19:00:00Z",
+   "bet": "Under 55.5",
+   "side": "Under",
+   "flagged": "2026-11-28T17:28:08Z",
+   "why": "a top-200 account also in this sport's top 50",
+   "proven": true,
+   "trigger": "proven",
+   "n_accounts": 1,
+   "best_rank": 58,
+   "usd": 470,
+   "paid": 0.53,
+   "ask": 0.53,
+   "status": "live",
+   "link": "https://polymarket.us/event/cfb-loulaf-gast-2026-11-28",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401869959",
+   "sport": "cfb",
+   "league": null,
+   "away": "UL",
+   "home": "GAST",
+   "away_name": "Louisiana Ragin' Cajuns",
+   "home_name": "Georgia State Panthers",
+   "game_start": "2026-11-28T19:00Z",
+   "side_std": "under",
+   "cancel": null,
+   "money_with": true,
+   "grade": "A",
+   "fair_board": null,
+   "inside_fair": null,
+   "books": {
+    "at": "2026-11-28T16:59:53Z",
+    "fair": null,
+    "q": {
+     "Novig": 0.52,
+     "FD": 0.537,
+     "DK": 0.5413
     }
    }
   },
@@ -765,6 +863,58 @@
    "fair_board": null,
    "inside_fair": null,
    "books": null
+  },
+  {
+   "cond": "0xbff3b85fe134ef966dd313266d69efd250f5940034331544f4e16c7ca0164aaf",
+   "slug": "cfb-utep-nill-2026-11-28",
+   "title": "UTEP vs. Northern Illinois",
+   "mtype": "total",
+   "start": "2026-11-28T20:30:00Z",
+   "bet": "Under 51.5",
+   "side": "Under",
+   "flagged": "2026-11-28T17:22:23Z",
+   "why": "a top-200 account also in this sport's top 50",
+   "proven": true,
+   "trigger": "proven",
+   "n_accounts": 1,
+   "best_rank": 115,
+   "usd": 153,
+   "paid": 0.51,
+   "ask": 0.52,
+   "status": "live",
+   "link": "https://polymarket.us/event/cfb-utep-nill-2026-11-28",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401864550",
+   "sport": "cfb",
+   "league": null,
+   "away": "UTEP",
+   "home": "NIU",
+   "away_name": "UTEP Miners",
+   "home_name": "Northern Illinois Huskies",
+   "game_start": "2026-11-28T20:30Z",
+   "side_std": "under",
+   "conflict": [
+    "Kalshi move"
+   ],
+   "cancel": [
+    "Kalshi move"
+   ],
+   "money_with": false,
+   "grade": "A",
+   "fair_board": 0.512,
+   "inside_fair": false,
+   "books": {
+    "at": "2026-11-28T16:59:53Z",
+    "fair": 0.512,
+    "q": {
+     "Novig": 0.515,
+     "DK": 0.5238,
+     "Caesars": 0.5349,
+     "Kalshi": 0.55
+    }
+   }
   },
   {
    "cond": "0x64fc28a52de28cba0a477b379b400b1680fa3a68c3640213aa1aaf533779ec0f",
@@ -1235,8 +1385,8 @@
    "cancel": null,
    "money_with": false,
    "grade": "A",
-   "fair_board": 0.3102,
    "inside_fair": false,
+   "fair_board": 0.3102,
    "books": {
     "at": "2026-11-28T16:59:53Z",
     "fair": 0.3102,
@@ -1385,51 +1535,6 @@
      "Novig": 0.535,
      "FD": 0.5455,
      "Kalshi": 0.56
-    }
-   }
-  },
-  {
-   "cond": "0x7a58bf7255ef1eab1b450b3dbc90d6549f0142be338d11625715133325a4eef3",
-   "slug": "nba-lal-mem-2026-11-29",
-   "title": "Lakers vs. Grizzlies",
-   "mtype": "ml",
-   "start": "2026-11-29T21:00:00Z",
-   "bet": "Lakers ML",
-   "side": "Lakers",
-   "flagged": "2026-11-26T23:24:00Z",
-   "why": "a top-200 account also in this sport's top 50",
-   "proven": true,
-   "trigger": "proven",
-   "n_accounts": 1,
-   "best_rank": 104,
-   "usd": 214,
-   "paid": 0.53,
-   "ask": 0.61,
-   "status": "live",
-   "link": "https://polymarket.us/event/nba-lal-mem-2026-11-29",
-   "other": null,
-   "kalshi_against": null,
-   "logged": true,
-   "event_id": "401910051",
-   "sport": "nba",
-   "league": null,
-   "away": "LAL",
-   "home": "MEM",
-   "away_name": "Los Angeles Lakers",
-   "home_name": "Memphis Grizzlies",
-   "game_start": "2026-11-29T21:00Z",
-   "side_std": "away",
-   "cancel": null,
-   "money_with": false,
-   "grade": "watch",
-   "fair_board": null,
-   "inside_fair": null,
-   "books": {
-    "at": "2026-11-28T16:59:53Z",
-    "fair": null,
-    "q": {
-     "Novig": 0.62,
-     "Kalshi": 0.63
     }
    }
   },
@@ -1618,6 +1723,50 @@
    "fair_board": 0.5487,
    "inside_fair": false,
    "books": null
+  },
+  {
+   "cond": "0x7a58bf7255ef1eab1b450b3dbc90d6549f0142be338d11625715133325a4eef3",
+   "slug": "nba-lal-mem-2026-11-29",
+   "title": "Lakers vs. Grizzlies",
+   "mtype": "ml",
+   "start": "2026-11-29T21:00:00Z",
+   "bet": "Lakers ML",
+   "side": "Lakers",
+   "flagged": "2026-11-26T23:24:00Z",
+   "why": "a top-200 account also in this sport's top 50",
+   "proven": true,
+   "trigger": "proven",
+   "n_accounts": 1,
+   "best_rank": 104,
+   "usd": 214,
+   "paid": 0.53,
+   "ask": 0.6,
+   "status": "other side",
+   "link": "https://polymarket.us/event/nba-lal-mem-2026-11-29",
+   "other": {
+    "n_accounts": 1,
+    "best_rank": 43,
+    "usd": 294,
+    "first": "2026-11-28T17:27:38Z"
+   },
+   "exit_bid": 0.59,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401910051",
+   "sport": "nba",
+   "league": null,
+   "away": "LAL",
+   "home": "MEM",
+   "away_name": "Los Angeles Lakers",
+   "home_name": "Memphis Grizzlies",
+   "game_start": "2026-11-29T21:00Z",
+   "side_std": "away",
+   "cancel": null,
+   "money_with": false,
+   "grade": "watch",
+   "fair_board": null,
+   "inside_fair": null,
+   "books": null
   }
  ],
  "record": {
@@ -1666,6 +1815,14 @@
   "clv_poly_same": -0.57
  },
  "sys_tags": {
+  "401864550:cfb_day_over": {
+   "with": null,
+   "against": {
+    "n": 1,
+    "best_rank": 115,
+    "usd": 153
+   }
+  },
   "401858317:cfb_day_over": {
    "with": null,
    "against": {
@@ -1738,6 +1895,11 @@
     "n": 1,
     "best_rank": 104,
     "usd": 214
+   },
+   "home": {
+    "n": 1,
+    "best_rank": 43,
+    "usd": 294
    }
   },
   "401910053|ml": {
@@ -1859,6 +2021,20 @@
     "usd": 318
    }
   },
+  "401871102|spread": {
+   "home": {
+    "n": 1,
+    "best_rank": 12,
+    "usd": 231
+   }
+  },
+  "401869959|total": {
+   "under": {
+    "n": 1,
+    "best_rank": 58,
+    "usd": 470
+   }
+  },
   "401858317|total": {
    "under": {
     "n": 1,
@@ -1883,6 +2059,13 @@
     "n": 1,
     "best_rank": 132,
     "usd": 159
+   }
+  },
+  "401864550|total": {
+   "under": {
+    "n": 1,
+    "best_rank": 115,
+    "usd": 153
    }
   },
   "401871062|total": {
