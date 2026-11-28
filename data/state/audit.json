@@ -1,5 +1,5 @@
 {
- "built": "2026-11-28T09:50:57Z",
+ "built": "2026-11-28T10:05:06Z",
  "ok": true,
  "checks": [
   {
@@ -18,13 +18,13 @@
    "name": "open tennis picks on the tennis watch",
    "ok": true,
    "level": "warn",
-   "detail": "1 open, 0 not on the watch"
+   "detail": "0 open, 0 not on the watch"
   },
   {
    "name": "bet tracker has every flagged bet",
    "ok": true,
    "level": "warn",
-   "detail": "1064 in the records, 0 missing from the tracker"
+   "detail": "1065 in the records, 0 missing from the tracker"
   },
   {
    "name": "Bet Labs list games on the board",
