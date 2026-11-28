@@ -1,9 +1,9 @@
 {
- "built": "2026-11-28T21:05:26Z",
+ "built": "2026-11-28T21:22:42Z",
  "record": {
-  "n": 329,
-  "won": 144,
-  "lost": 185,
+  "n": 331,
+  "won": 145,
+  "lost": 186,
   "units": -2.8,
   "roi": -3.4
  },
@@ -17,13 +17,13 @@
  "sb4_killed": true,
  "checkable_test": {
   "rule": "kill if the first 100 graded checkable rows are not positive in both halves",
-  "n": 55,
+  "n": 57,
   "all_checkable": {
-   "n": 55,
-   "won": 21,
-   "lost": 34,
+   "n": 57,
+   "won": 22,
+   "lost": 35,
    "units": -2.13,
-   "roi": -15.5
+   "roi": -15.0
   },
   "half1": {
    "n": 50,
@@ -33,13 +33,13 @@
    "roi": -21.1
   },
   "half2": {
-   "n": 5,
-   "won": 3,
-   "lost": 2,
+   "n": 7,
+   "won": 4,
+   "lost": 3,
    "units": 0.5,
-   "roi": 40.2
+   "roi": 28.7
   },
-  "verdict": "pending: 55 of 100"
+  "verdict": "pending: 57 of 100"
  },
  "rows": [
   {
@@ -265,56 +265,6 @@
    "qty_best": 78295,
    "wide": false,
    "team": "LIB",
-   "checkable": true
-  },
-  {
-   "key": "401921245|ml|home",
-   "sport": "cbb",
-   "event_id": "401921245",
-   "game": "CCSU @ NAVY",
-   "start": "2026-11-28T19:00Z",
-   "market": "ml",
-   "side": "home",
-   "line": null,
-   "venue": "Novig",
-   "price": 0.5,
-   "fair": 0.5111,
-   "fair_power": 0.5118,
-   "venue_fair": 0.4975,
-   "fair_gap": 1.4,
-   "ev": 2.2,
-   "move": 1.8,
-   "flagged": "2026-11-28T16:11:07Z",
-   "venue_ts": "2026-11-28T15:46:09Z",
-   "pin_ts": "2026-11-28T15:46:09Z",
-   "qty_best": 1983,
-   "wide": false,
-   "team": "NAVY",
-   "checkable": true
-  },
-  {
-   "key": "401920350|ml|away",
-   "sport": "cbb",
-   "event_id": "401920350",
-   "game": "SAC @ PRES",
-   "start": "2026-11-28T19:00Z",
-   "market": "ml",
-   "side": "away",
-   "line": null,
-   "venue": "Novig",
-   "price": 0.425,
-   "fair": 0.4336,
-   "fair_power": 0.4297,
-   "venue_fair": 0.4229,
-   "fair_gap": 1.1,
-   "ev": 2.0,
-   "move": 1.1,
-   "flagged": "2026-11-28T16:11:07Z",
-   "venue_ts": "2026-11-28T15:46:09Z",
-   "pin_ts": "2026-11-28T15:46:09Z",
-   "qty_best": 130377,
-   "wide": false,
-   "team": "SAC",
    "checkable": true
   },
   {
