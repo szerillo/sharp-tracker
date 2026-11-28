@@ -1,21 +1,21 @@
 {
-"updated": "2026-11-27T19:39:04Z",
-"logged": 50407,
+"updated": "2026-11-28T10:30:25Z",
+"logged": 52273,
 "status": {
 "Novig: logged without market/outcome ids": 220,
-"Kalshi: not graded (no ticker on most; resting on Kalshi tested negative)": 4039,
-"Novig: graded": 19889,
-"ProphetX: no public trade feed": 22064,
-"Novig: waiting for the trade file": 739,
-"not started": 3456
+"Kalshi: not graded (no ticker on most; resting on Kalshi tested negative)": 4349,
+"Novig: graded": 20154,
+"ProphetX: no public trade feed": 23765,
+"Novig: waiting for the trade file": 2082,
+"not started": 1703
 },
 "all": {
-"graded": 19889,
-"filled": 3781,
+"graded": 20154,
+"filled": 3833,
 "fill_rate": 0.19,
-"usd_filled": 200630,
-"avg_fill_usd": 53.06,
-"close_edge_filled": 0.78,
+"usd_filled": 204289,
+"avg_fill_usd": 53.3,
+"close_edge_filled": 0.79,
 "close_edge_unfilled": 1.62
 },
 "groups": {
@@ -29,49 +29,49 @@
 "close_edge_unfilled": 1.75
 },
 "game spread": {
-"graded": 816,
-"filled": 468,
+"graded": 828,
+"filled": 475,
 "fill_rate": 0.574,
-"usd_filled": 33454,
-"avg_fill_usd": 71.48,
-"close_edge_filled": 0.77,
+"usd_filled": 34154,
+"avg_fill_usd": 71.9,
+"close_edge_filled": 0.76,
 "close_edge_unfilled": 1.07
 },
 "game total": {
-"graded": 1009,
-"filled": 449,
+"graded": 1026,
+"filled": 457,
 "fill_rate": 0.445,
-"usd_filled": 29339,
-"avg_fill_usd": 65.34,
+"usd_filled": 29868,
+"avg_fill_usd": 65.36,
 "close_edge_filled": 0.77,
 "close_edge_unfilled": 1.13
 },
 "period lines": {
-"graded": 1911,
-"filled": 164,
+"graded": 1941,
+"filled": 166,
 "fill_rate": 0.086,
-"usd_filled": 10889,
-"avg_fill_usd": 66.4,
+"usd_filled": 11036,
+"avg_fill_usd": 66.48,
 "close_edge_filled": 0.98,
 "close_edge_unfilled": 1.19
 },
 "player props": {
-"graded": 11081,
-"filled": 2552,
-"fill_rate": 0.23,
-"usd_filled": 120118,
-"avg_fill_usd": 47.07,
-"close_edge_filled": 0.78,
+"graded": 11187,
+"filled": 2587,
+"fill_rate": 0.231,
+"usd_filled": 122401,
+"avg_fill_usd": 47.31,
+"close_edge_filled": 0.79,
 "close_edge_unfilled": 1.87
 },
 "team totals": {
-"graded": 5028,
+"graded": 5128,
 "filled": 108,
 "fill_rate": 0.021,
 "usd_filled": 3422,
 "avg_fill_usd": 31.69,
 "close_edge_filled": 0.49,
-"close_edge_unfilled": 1.25
+"close_edge_unfilled": 1.24
 }
 }
 }
