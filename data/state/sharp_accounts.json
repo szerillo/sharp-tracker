@@ -1,5 +1,5 @@
 {
- "built": "2026-11-28T02:17:06Z",
+ "built": "2026-11-28T02:24:45Z",
  "rows": [
   {
    "cond": "0x841dca267e34794410689cfbc77ba290f9dbf64330821bfa50e3669612035e18",
@@ -73,18 +73,9 @@
    "cancel": null,
    "money_with": false,
    "grade": "A",
-   "fair_board": 0.5168,
+   "fair_board": null,
    "inside_fair": null,
-   "books": {
-    "at": "2026-11-28T00:26:05Z",
-    "fair": 0.5168,
-    "q": {
-     "DK": 0.5238,
-     "Caesars": 0.5283,
-     "FD": 0.5283,
-     "Novig": 0.53
-    }
-   }
+   "books": null
   },
   {
    "cond": "0x77f31ad4afa28fc2c2d9461e47a99cd0f52c0ce9e23225d47d4dcdaaa1753682",
@@ -122,16 +113,7 @@
    "grade": "A",
    "inside_fair": false,
    "fair_board": 0.461,
-   "books": {
-    "at": "2026-11-28T00:27:32Z",
-    "fair": 0.485,
-    "q": {
-     "Novig": 0.49,
-     "Caesars": 0.5,
-     "FD": 0.5,
-     "DK": 0.505
-    }
-   }
+   "books": null
   },
   {
    "cond": "0xee5cf0c6bca1d41a149da597d7b3927db8b0b8132f7dcd1b4e4dad3f3f744da8",
@@ -169,16 +151,7 @@
    "grade": "A",
    "inside_fair": false,
    "fair_board": 0.497,
-   "books": {
-    "at": "2026-11-28T00:25:58Z",
-    "fair": 0.524,
-    "q": {
-     "Novig": 0.53,
-     "FD": 0.5455,
-     "Kalshi": 0.55,
-     "DK": 0.5556
-    }
-   }
+   "books": null
   },
   {
    "cond": "0x097a14c71fe29279b4d410ac5d05defd53869afffcd2bcc43c7b49c08203f498",
@@ -216,16 +189,7 @@
    "grade": "A",
    "inside_fair": true,
    "fair_board": 0.4063,
-   "books": {
-    "at": "2026-11-28T00:25:58Z",
-    "fair": 0.4076,
-    "q": {
-     "DK": 0.3922,
-     "Novig": 0.415,
-     "FD": 0.4348,
-     "Kalshi": 0.44
-    }
-   }
+   "books": null
   },
   {
    "cond": "0x55f52a4222151c5d4691dc47cdf52df92a925e22f802626558b14cce6d4455e9",
@@ -263,63 +227,7 @@
    "grade": "watch",
    "inside_fair": false,
    "fair_board": 0.7669,
-   "books": {
-    "at": "2026-11-28T00:26:07Z",
-    "fair": 0.7672,
-    "q": {
-     "Novig": 0.77,
-     "Caesars": 0.7802,
-     "FD": 0.7872,
-     "Kalshi": 0.79
-    }
-   }
-  },
-  {
-   "cond": "0x446e48a929363ac2ff59f910a1a264695a0755a7a10723e44fece7730e433b8e",
-   "slug": "nba-den-uta-2026-11-27",
-   "title": "Nuggets vs. Jazz",
-   "mtype": "spread",
-   "start": "2026-11-28T02:30:00Z",
-   "bet": "Nuggets -9.5",
-   "side": "Nuggets",
-   "flagged": "2026-11-27T08:13:17Z",
-   "why": "a top-50 account",
-   "proven": false,
-   "trigger": "top50",
-   "n_accounts": 1,
-   "best_rank": 43,
-   "usd": 1825,
-   "paid": 0.53,
-   "ask": 0.5,
-   "status": "live",
-   "link": "https://polymarket.us/event/nba-den-uta-2026-11-27",
-   "other": null,
-   "kalshi_against": null,
-   "logged": true,
-   "event_id": "401909334",
-   "sport": "nba",
-   "league": null,
-   "away": "DEN",
-   "home": "UTAH",
-   "away_name": "Denver Nuggets",
-   "home_name": "Utah Jazz",
-   "game_start": "2026-11-28T02:30Z",
-   "side_std": "away",
-   "cancel": null,
-   "money_with": false,
-   "grade": "watch",
-   "fair_board": 0.4996,
-   "inside_fair": false,
-   "books": {
-    "at": "2026-11-28T00:26:07Z",
-    "fair": 0.4996,
-    "q": {
-     "Novig": 0.5,
-     "DK": 0.5192,
-     "Caesars": 0.5238,
-     "FD": 0.5283
-    }
-   }
+   "books": null
   },
   {
    "cond": "0x2bceacd2a10a061e919c9555adbc82d6b148718b10edc4b3808f4a5b6aeb30ce",
@@ -353,7 +261,8 @@
    "game_start": "2026-11-28T02:30Z",
    "side_std": "away",
    "conflict": [
-    "Kalshi bet back"
+    "Kalshi bet back",
+    "big money"
    ],
    "cancel": null,
    "money_with": false,
@@ -361,11 +270,58 @@
    "inside_fair": true,
    "fair_board": 0.4766,
    "books": {
-    "at": "2026-11-28T00:26:07Z",
-    "fair": 0.4693,
+    "at": "2026-11-28T02:07:44Z",
+    "fair": null,
     "q": {
-     "Novig": 0.47,
-     "Kalshi": 0.49
+     "Novig": 0.475,
+     "Kalshi": 0.5
+    }
+   }
+  },
+  {
+   "cond": "0x2a7e640c3a914882f1a41a07250dd7902a920cf3937730c2f6cd04570f7eab4c",
+   "slug": "nba-den-uta-2026-11-27",
+   "title": "Nuggets vs. Jazz",
+   "mtype": "ml",
+   "start": "2026-11-28T02:30:00Z",
+   "bet": "Jazz ML",
+   "side": "Jazz",
+   "flagged": "2026-11-28T02:22:08Z",
+   "why": "a top-50 account",
+   "proven": false,
+   "trigger": "top50",
+   "n_accounts": 1,
+   "best_rank": 43,
+   "usd": 283,
+   "paid": 0.23,
+   "ask": 0.23,
+   "status": "live",
+   "link": "https://polymarket.us/event/nba-den-uta-2026-11-27",
+   "other": null,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401909334",
+   "sport": "nba",
+   "league": null,
+   "away": "DEN",
+   "home": "UTAH",
+   "away_name": "Denver Nuggets",
+   "home_name": "Utah Jazz",
+   "game_start": "2026-11-28T02:30Z",
+   "side_std": "home",
+   "cancel": null,
+   "money_with": true,
+   "grade": "watch",
+   "fair_board": 0.2109,
+   "inside_fair": false,
+   "books": {
+    "at": "2026-11-28T02:07:44Z",
+    "fair": 0.2109,
+    "q": {
+     "Novig": 0.22,
+     "FD": 0.2326,
+     "DK": 0.237,
+     "Caesars": 0.2381
     }
    }
   },
@@ -406,8 +362,8 @@
    "inside_fair": false,
    "fair_board": 0.6581,
    "books": {
-    "at": "2026-11-28T00:25:58Z",
-    "fair": 0.6464,
+    "at": "2026-11-28T02:07:44Z",
+    "fair": 0.6462,
     "q": {
      "Novig": 0.65,
      "FD": 0.6667,
@@ -453,8 +409,8 @@
    "inside_fair": false,
    "fair_board": 0.4539,
    "books": {
-    "at": "2026-11-28T00:25:58Z",
-    "fair": 0.4295,
+    "at": "2026-11-28T02:07:44Z",
+    "fair": 0.429,
     "q": {
      "Novig": 0.435,
      "Kalshi": 0.46
@@ -525,15 +481,15 @@
    "cancel": null,
    "money_with": false,
    "grade": "B",
-   "fair_board": 0.513,
+   "fair_board": 0.5169,
    "inside_fair": false,
    "books": {
-    "at": "2026-11-28T00:26:05Z",
-    "fair": 0.513,
+    "at": "2026-11-28T02:07:44Z",
+    "fair": 0.5169,
     "q": {
      "Caesars": 0.5169,
-     "Novig": 0.525,
      "DK": 0.5283,
+     "Novig": 0.53,
      "FD": 0.5327
     }
    }
@@ -572,15 +528,16 @@
    "cancel": null,
    "money_with": false,
    "grade": "watch",
-   "fair_board": 0.1795,
+   "fair_board": 0.1766,
    "inside_fair": false,
    "books": {
-    "at": "2026-11-28T00:26:07Z",
-    "fair": 0.1795,
+    "at": "2026-11-28T02:07:44Z",
+    "fair": 0.1766,
     "q": {
      "Novig": 0.19,
      "FD": 0.1961,
-     "Kalshi": 0.2
+     "DK": 0.2016,
+     "Kalshi": 0.21
     }
    }
   },
@@ -624,10 +581,10 @@
    "fair_board": null,
    "inside_fair": null,
    "books": {
-    "at": "2026-11-28T00:26:07Z",
+    "at": "2026-11-28T02:07:44Z",
     "fair": null,
     "q": {
-     "Novig": 0.8,
+     "Novig": 0.795,
      "Kalshi": 0.81
     }
    }
@@ -669,7 +626,7 @@
    "fair_board": 0.5481,
    "inside_fair": false,
    "books": {
-    "at": "2026-11-28T00:25:58Z",
+    "at": "2026-11-28T02:07:44Z",
     "fair": 0.5481,
     "q": {
      "Novig": 0.555,
@@ -716,7 +673,7 @@
    "inside_fair": false,
    "fair_board": 0.6208,
    "books": {
-    "at": "2026-11-28T00:25:58Z",
+    "at": "2026-11-28T02:07:44Z",
     "fair": 0.619,
     "q": {
      "Novig": 0.625,
@@ -763,7 +720,7 @@
    "inside_fair": false,
    "fair_board": 0.3834,
    "books": {
-    "at": "2026-11-28T00:25:58Z",
+    "at": "2026-11-28T02:07:44Z",
     "fair": 0.3938,
     "q": {
      "DK": 0.4,
@@ -810,7 +767,7 @@
    "inside_fair": false,
    "fair_board": 0.5313,
    "books": {
-    "at": "2026-11-28T00:26:06Z",
+    "at": "2026-11-28T02:07:44Z",
     "fair": 0.5313,
     "q": {
      "Novig": 0.535,
@@ -894,10 +851,10 @@
    "inside_fair": false,
    "fair_board": 0.4397,
    "books": {
-    "at": "2026-11-28T00:26:06Z",
-    "fair": 0.5214,
+    "at": "2026-11-28T02:07:44Z",
+    "fair": 0.5244,
     "q": {
-     "Novig": 0.525,
+     "Novig": 0.53,
      "Caesars": 0.5349,
      "FD": 0.5413,
      "DK": 0.5434
@@ -1032,7 +989,7 @@
    "cancel": null,
    "money_with": false,
    "grade": "A",
-   "fair_board": 0.6252,
+   "fair_board": null,
    "inside_fair": null,
    "books": null
   },
@@ -1076,7 +1033,7 @@
    "cancel": null,
    "money_with": false,
    "grade": "A",
-   "fair_board": 0.7587,
+   "fair_board": null,
    "inside_fair": null,
    "books": null
   },
@@ -1208,7 +1165,7 @@
    "cancel": null,
    "money_with": false,
    "grade": "B",
-   "fair_board": 0.5034,
+   "fair_board": null,
    "inside_fair": null,
    "books": null
   },
@@ -1316,7 +1273,7 @@
    "best_rank": 110,
    "usd": 7328,
    "paid": 0.54,
-   "ask": 0.6,
+   "ask": null,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-dal-phx-2026-11-27",
    "other": {
@@ -1325,7 +1282,7 @@
     "usd": 4720,
     "first": "2026-11-28T01:03:22Z"
    },
-   "exit_bid": 0.59,
+   "exit_bid": null,
    "kalshi_against": null,
    "logged": true,
    "event_id": "401909332",
@@ -1382,8 +1339,8 @@
    "game_start": "2026-11-28T02:00Z",
    "side_std": "home",
    "cancel": null,
-   "money_with": true,
-   "grade": "A",
+   "money_with": false,
+   "grade": "B",
    "inside_fair": false,
    "fair_board": 0.5758,
    "books": null
@@ -1404,7 +1361,7 @@
    "best_rank": 31,
    "usd": 1488,
    "paid": 0.518,
-   "ask": 0.56,
+   "ask": null,
    "status": "other side",
    "link": "https://polymarket.us/event/nba-dal-phx-2026-11-27",
    "other": {
@@ -1413,7 +1370,7 @@
     "usd": 1445,
     "first": "2026-11-28T00:26:13Z"
    },
-   "exit_bid": 0.55,
+   "exit_bid": null,
    "kalshi_against": null,
    "logged": false,
    "ladder": true,
@@ -1474,10 +1431,54 @@
     "Kalshi bet back"
    ],
    "cancel": null,
-   "money_with": false,
+   "money_with": true,
    "grade": "A",
-   "fair_board": 0.6562,
+   "fair_board": 0.6656,
    "inside_fair": false,
+   "books": null
+  },
+  {
+   "cond": "0x446e48a929363ac2ff59f910a1a264695a0755a7a10723e44fece7730e433b8e",
+   "slug": "nba-den-uta-2026-11-27",
+   "title": "Nuggets vs. Jazz",
+   "mtype": "spread",
+   "start": "2026-11-28T02:30:00Z",
+   "bet": "Nuggets -9.5",
+   "side": "Nuggets",
+   "flagged": "2026-11-27T08:13:17Z",
+   "why": "a top-50 account",
+   "proven": false,
+   "trigger": "top50",
+   "n_accounts": 1,
+   "best_rank": 43,
+   "usd": 1825,
+   "paid": 0.53,
+   "ask": 0.5,
+   "status": "other side",
+   "link": "https://polymarket.us/event/nba-den-uta-2026-11-27",
+   "other": {
+    "n_accounts": 1,
+    "best_rank": 43,
+    "usd": 6263,
+    "first": "2026-11-28T02:21:58Z"
+   },
+   "exit_bid": 0.49,
+   "kalshi_against": null,
+   "logged": true,
+   "event_id": "401909334",
+   "sport": "nba",
+   "league": null,
+   "away": "DEN",
+   "home": "UTAH",
+   "away_name": "Denver Nuggets",
+   "home_name": "Utah Jazz",
+   "game_start": "2026-11-28T02:30Z",
+   "side_std": "away",
+   "cancel": null,
+   "money_with": false,
+   "grade": "watch",
+   "fair_board": 0.5017,
+   "inside_fair": true,
    "books": null
   },
   {
@@ -1567,7 +1568,7 @@
    "cancel": null,
    "money_with": true,
    "grade": "A",
-   "fair_board": 0.5099,
+   "fair_board": 0.507,
    "inside_fair": false,
    "books": null
   },
@@ -1677,6 +1678,14 @@
     "best_rank": 49,
     "usd": 28296
    }
+  },
+  "401909334:xch_homedog_fade:ml": {
+   "with": null,
+   "against": {
+    "n": 1,
+    "best_rank": 43,
+    "usd": 283
+   }
   }
  },
  "by_event": {
@@ -1723,6 +1732,11 @@
     "n": 1,
     "best_rank": 43,
     "usd": 1825
+   },
+   "home": {
+    "n": 1,
+    "best_rank": 43,
+    "usd": 6263
    }
   },
   "401909334|total": {
@@ -1730,6 +1744,13 @@
     "n": 1,
     "best_rank": 115,
     "usd": 2458
+   }
+  },
+  "401909334|ml": {
+   "home": {
+    "n": 1,
+    "best_rank": 43,
+    "usd": 283
    }
   },
   "401909336|ml": {
