@@ -11148,5 +11148,31 @@
 "edge_pts": -0.06,
 "why": "Novig home side mid 0.283 inside T-1.4h; audit band 20-35c",
 "restored": true
+},
+"401873086:wind1014": {
+"tag": "wind1014",
+"fill_id": "66f84d591535",
+"ts": "2026-11-28T19:56:10Z",
+"market": "total",
+"side": "under",
+"line": 39.5,
+"venue": "Novig",
+"price": -111,
+"fair": 0.52221,
+"edge_pts": -0.28,
+"why": "Bet Labs wind 13 mph (pull Sat 11:19 AM ET); cross-check MySportsWeather 9 mph, gusts 18 (Open-Meteo 17.4 at T-30h), 48.5F"
+},
+"401873086:wind1014_1h": {
+"tag": "wind1014_1h",
+"fill_id": "150d4c6a7340",
+"ts": "2026-11-28T19:56:10Z",
+"market": "1h_total",
+"side": "under",
+"line": 19.5,
+"venue": "Novig",
+"price": -106,
+"fair": 0.49796,
+"edge_pts": -1.7,
+"why": "Bet Labs wind 13 mph (pull Sat 11:19 AM ET); cross-check MySportsWeather 9 mph, gusts 18 (Open-Meteo 17.4 at T-30h)"
 }
 }
