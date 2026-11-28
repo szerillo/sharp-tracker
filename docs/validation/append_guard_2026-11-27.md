@@ -95,6 +95,20 @@ the 4 checkable stale_paper rows would enter the stale_book kill test count.
 After the fix (04:09Z to 05:34Z 11/28): parlays_paper 6 pushes, one drop of 373 rows at 04:15Z by a signals run triggered before the
 deploy (old workflow), since re-logged; 0 ids missing. steam_rev, sharp_paper, stale_paper: 0 drops.
 
+## Price tapes, 11/27 (05:00Z to 05:00Z, before the fix)
+
+Rows that were on main at some push that day and are not on main now (net, each row once):
+
+| Tape | Rows ever on main | Net lost |
+|---|---|---|
+| nba ticks5 | 143,450 | 10,444 (7.3%) |
+| nhl ticks5 | 170,745 | 13,253 (7.8%) |
+| cbb ticks5 | about 250,000 | 14,634 dropped across 8 pushes (gross; net not computed) |
+
+The losses come in 5-minute blocks (one job's batch per drop), so a move or close read inside a dropped block used fewer snapshots,
+not wrong ones. Not checked yet: nfl, cfb, soccer and tennis ticks and the Kalshi and Novig trade tapes (the Kalshi trades tape is
+855k rows; a full pass needs more disk than one session has). The 11/28 row audit covers the CBB tape after the fix.
+
 ## Follow-ups (11/28, no rule effect)
 
 - `sharp/ledger_watch.py`: every board audit compares each paper ledger's row ids on main with the main commit the previous audit saw;
