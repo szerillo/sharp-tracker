@@ -1,5 +1,5 @@
 {
- "built": "2026-11-28T02:32:19Z",
+ "built": "2026-11-28T03:08:51Z",
  "rows": [
   {
    "cond": "0x841dca267e34794410689cfbc77ba290f9dbf64330821bfa50e3669612035e18",
@@ -308,8 +308,8 @@
    "cancel": null,
    "money_with": false,
    "grade": "watch",
+   "inside_fair": false,
    "fair_board": 0.2109,
-   "inside_fair": null,
    "books": {
     "at": "2026-11-28T02:07:44Z",
     "fair": 0.2109,
@@ -1475,50 +1475,6 @@
    "books": null
   },
   {
-   "cond": "0x446e48a929363ac2ff59f910a1a264695a0755a7a10723e44fece7730e433b8e",
-   "slug": "nba-den-uta-2026-11-27",
-   "title": "Nuggets vs. Jazz",
-   "mtype": "spread",
-   "start": "2026-11-28T02:30:00Z",
-   "bet": "Nuggets -9.5",
-   "side": "Nuggets",
-   "flagged": "2026-11-27T08:13:17Z",
-   "why": "a top-50 account",
-   "proven": false,
-   "trigger": "top50",
-   "n_accounts": 1,
-   "best_rank": 43,
-   "usd": 1825,
-   "paid": 0.53,
-   "ask": null,
-   "status": "other side",
-   "link": "https://polymarket.us/event/nba-den-uta-2026-11-27",
-   "other": {
-    "n_accounts": 1,
-    "best_rank": 43,
-    "usd": 6263,
-    "first": "2026-11-28T02:21:58Z"
-   },
-   "exit_bid": null,
-   "kalshi_against": null,
-   "logged": true,
-   "event_id": "401909334",
-   "sport": "nba",
-   "league": null,
-   "away": "DEN",
-   "home": "UTAH",
-   "away_name": "Denver Nuggets",
-   "home_name": "Utah Jazz",
-   "game_start": "2026-11-28T02:30Z",
-   "side_std": "away",
-   "cancel": null,
-   "money_with": false,
-   "grade": "watch",
-   "fair_board": 0.5017,
-   "inside_fair": null,
-   "books": null
-  },
-  {
    "cond": "0x937c743974f9a4667d0e079f4bab20681448c79f306feffddc6998fa7bd6ca3c",
    "slug": "nba-gsw-por-2026-11-27",
    "title": "Warriors vs. Trail Blazers",
@@ -1661,39 +1617,39 @@
     "clv": -0.77
    },
    "outside": {
-    "n": 131,
-    "won": 69,
-    "units": -0.03,
+    "n": 132,
+    "won": 70,
+    "units": 0.3,
     "clv": -0.11
    }
   },
-  "n": 480,
-  "won": 234,
-  "units": -13.11,
+  "n": 483,
+  "won": 236,
+  "units": -12.78,
   "by_grade": {
    "A": {
-    "n": 326,
-    "won": 153,
+    "n": 327,
+    "won": 154,
     "units": -12.92,
     "clv": -0.1
    },
    "B": {
-    "n": 107,
-    "won": 63,
-    "units": 1.89,
+    "n": 108,
+    "won": 64,
+    "units": 2.22,
     "clv": -1.1
    },
    "watch": {
-    "n": 47,
+    "n": 48,
     "won": 18,
     "units": -2.09,
-    "clv": 0.11
+    "clv": -0.21
    }
   },
-  "units_1u": -12.44,
-  "clv": -0.31,
-  "n_venue": 251,
-  "units_venue": -5.02,
+  "units_1u": -11.11,
+  "clv": -0.33,
+  "n_venue": 252,
+  "units_venue": -4.63,
   "clv_venue": 0.87,
   "clv_poly_same": -0.57
  },
