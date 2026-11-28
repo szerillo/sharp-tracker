@@ -1,12 +1,12 @@
 {
- "built": "2026-11-28T13:27:59Z",
+ "built": "2026-11-28T13:44:16Z",
  "ok": true,
  "checks": [
   {
    "name": "open system bets all on the board",
    "ok": true,
    "level": "error",
-   "detail": "31 open, 0 missing"
+   "detail": "32 open, 0 missing"
   },
   {
    "name": "no duplicate bets in the records",
@@ -24,7 +24,7 @@
    "name": "bet tracker has every flagged bet",
    "ok": true,
    "level": "warn",
-   "detail": "1065 in the records, 0 missing from the tracker"
+   "detail": "1066 in the records, 0 missing from the tracker"
   },
   {
    "name": "Bet Labs list games on the board",
