@@ -11051,5 +11051,31 @@
 "fair": 0.49991,
 "edge_pts": -1.93,
 "why": "Bet Labs wind 10 mph (pull Sat 6:59 AM ET); cross-check MySportsWeather 17 mph, gusts 32 (Open-Meteo 13.0 at T-30h), 57.7F"
+},
+"401856878:cfb_day_over": {
+"tag": "cfb_day_over",
+"fill_id": "2b4093e1472d",
+"ts": "2026-11-28T16:42:53Z",
+"market": "total",
+"side": "over",
+"line": 51.5,
+"venue": "Novig",
+"price": -104,
+"fair": 0.50239,
+"edge_pts": -0.76,
+"why": "2:00 PM ET kickoff, total 51.5: over (mined angle)"
+},
+"401871102:xch_homedog_fade:ml": {
+"tag": "xch_homedog_fade",
+"fill_id": "f025de868e5f",
+"ts": "2026-11-28T16:42:53Z",
+"market": "ml",
+"side": "away",
+"line": null,
+"venue": "Novig",
+"price": -239,
+"fair": 0.70494,
+"edge_pts": -0.01,
+"why": "Novig home side mid 0.297 inside T-1.3h; audit band 20-35c"
 }
 }
