@@ -1,82 +1,6 @@
 {
- "built": "2026-11-28T23:55:13Z",
+ "built": "2026-11-29T00:03:31Z",
  "rows": [
-  {
-   "cond": "0x160fa75437fd81457f55dabda2a32425e1be8b45dcbcb692b10607e3f68fc86d",
-   "slug": "cfb-vir-vtech-2026-11-28",
-   "title": "Virginia vs. Virginia Tech",
-   "mtype": "total",
-   "start": "2026-11-28T20:00:00Z",
-   "bet": "Under 49.5",
-   "side": "Under",
-   "flagged": "2026-11-28T14:27:16Z",
-   "why": "a top-200 account also in this sport's top 50",
-   "proven": true,
-   "trigger": "proven",
-   "n_accounts": 1,
-   "best_rank": 115,
-   "usd": 4930,
-   "paid": 0.48,
-   "ask": null,
-   "status": "live",
-   "link": "https://polymarket.us/event/cfb-vir-vtech-2026-11-28",
-   "other": null,
-   "kalshi_against": null,
-   "logged": true,
-   "event_id": "401858317",
-   "sport": "cfb",
-   "league": null,
-   "away": "UVA",
-   "home": "VT",
-   "away_name": "Virginia Cavaliers",
-   "home_name": "Virginia Tech Hokies",
-   "game_start": "2026-11-28T20:00Z",
-   "side_std": "under",
-   "cancel": null,
-   "money_with": false,
-   "grade": "A",
-   "fair_board": null,
-   "inside_fair": null,
-   "books": null
-  },
-  {
-   "cond": "0x4024a5d5bb2ced736965bf01d524a3cfbadca943585935327617915482db14f7",
-   "slug": "cfb-sc-clmsn-2026-11-28",
-   "title": "South Carolina vs. Clemson",
-   "mtype": "total",
-   "start": "2026-11-28T20:00:00Z",
-   "bet": "Over 41.5",
-   "side": "Over",
-   "flagged": "2026-11-28T18:57:35Z",
-   "why": "a top-200 account also in this sport's top 50",
-   "proven": true,
-   "trigger": "proven",
-   "n_accounts": 1,
-   "best_rank": 58,
-   "usd": 453,
-   "paid": 0.547,
-   "ask": null,
-   "status": "live",
-   "link": "https://polymarket.us/event/cfb-sc-clmsn-2026-11-28",
-   "other": null,
-   "kalshi_against": null,
-   "logged": true,
-   "event_id": "401856764",
-   "sport": "cfb",
-   "league": null,
-   "away": "SC",
-   "home": "CLEM",
-   "away_name": "South Carolina Gamecocks",
-   "home_name": "Clemson Tigers",
-   "game_start": "2026-11-28T20:10Z",
-   "side_std": "over",
-   "cancel": null,
-   "money_with": false,
-   "grade": "A",
-   "fair_board": null,
-   "inside_fair": null,
-   "books": null
-  },
   {
    "cond": "0xa1bd922542b4000a260f2dcad40fdcdfa7385b5ecb97673d1c44e6b1f08b861c",
    "slug": "cfb-duke-wake-2026-11-28",
@@ -456,53 +380,6 @@
    }
   },
   {
-   "cond": "0x2c8967d77c0c1a2866d88d441a41d215ea4fe8895e9c070d590b4e944f6ab052",
-   "slug": "nhl-cal-nyr-2026-11-28",
-   "title": "Flames vs. Rangers",
-   "mtype": "ml",
-   "start": "2026-11-29T00:00:00Z",
-   "bet": "Flames ML",
-   "side": "Flames",
-   "flagged": "2026-11-28T09:09:10Z",
-   "why": "2 top-200 accounts",
-   "proven": true,
-   "trigger": "proven",
-   "n_accounts": 2,
-   "best_rank": 157,
-   "usd": 800,
-   "paid": 0.6,
-   "ask": null,
-   "status": "live",
-   "link": "https://polymarket.us/event/mls-fcc-nas-2026-11-28-more-markets",
-   "other": null,
-   "kalshi_against": null,
-   "logged": false,
-   "event_id": "401933722",
-   "sport": "soccer",
-   "league": "mls",
-   "away": "NSH",
-   "home": "CIN",
-   "away_name": "Nashville SC",
-   "home_name": "FC Cincinnati",
-   "game_start": "2026-11-28T23:30Z",
-   "side_std": "under",
-   "cancel": null,
-   "money_with": false,
-   "grade": "A",
-   "fair_board": 0.6082,
-   "inside_fair": null,
-   "books": {
-    "at": "2026-11-28T23:16:58Z",
-    "fair": 0.4059,
-    "q": {
-     "Novig": 0.61,
-     "Kalshi": 0.63,
-     "FD": 0.6324,
-     "DK": 0.6364
-    }
-   }
-  },
-  {
    "cond": "0x128c247cf2d0d04a8d4ffbbce7748fc40be6dd975dd013ebe3034a8a7d5bbefb",
    "slug": "cfb-tenn-vand-2026-11-28",
    "title": "Tennessee vs. Vanderbilt",
@@ -518,7 +395,7 @@
    "best_rank": 115,
    "usd": 6528,
    "paid": 0.49,
-   "ask": 0.48,
+   "ask": null,
    "status": "live",
    "link": "https://polymarket.us/event/cfb-tenn-vand-2026-11-28",
    "other": null,
@@ -556,7 +433,7 @@
    "best_rank": 61,
    "usd": 2028,
    "paid": 0.36,
-   "ask": 0.38,
+   "ask": null,
    "status": "live",
    "link": "https://polymarket.us/event/nhl-wpg-nj-2026-11-28",
    "other": null,
@@ -603,7 +480,7 @@
    "best_rank": 3,
    "usd": 168,
    "paid": 0.21,
-   "ask": 0.23,
+   "ask": null,
    "status": "live",
    "link": "https://polymarket.us/event/nhl-cal-nyr-2026-11-28",
    "other": null,
@@ -648,7 +525,7 @@
    "best_rank": 12,
    "usd": 125,
    "paid": 0.5,
-   "ask": 0.61,
+   "ask": 0.59,
    "status": "live",
    "link": "https://polymarket.us/event/cfb-aubrn-ala-2026-11-28",
    "other": null,
@@ -1455,7 +1332,7 @@
    "best_rank": 110,
    "usd": 4790,
    "paid": 0.378,
-   "ask": 0.41,
+   "ask": null,
    "status": "other side",
    "link": "https://polymarket.us/event/nhl-cal-nyr-2026-11-28",
    "other": {
@@ -1464,7 +1341,7 @@
     "usd": 235,
     "first": "2026-11-28T23:39:18Z"
    },
-   "exit_bid": 0.4,
+   "exit_bid": null,
    "kalshi_against": null,
    "logged": true,
    "event_id": "401892814",
@@ -1640,12 +1517,12 @@
     "clv": -0.14
    }
   },
-  "n": 521,
+  "n": 522,
   "won": 256,
   "units": -11.59,
   "by_grade": {
    "A": {
-    "n": 357,
+    "n": 358,
     "won": 171,
     "units": -11.67,
     "clv": -0.04
@@ -1663,7 +1540,7 @@
     "clv": -0.39
    }
   },
-  "units_1u": -10.66,
+  "units_1u": -11.66,
   "clv": -0.27,
   "n_venue": 281,
   "units_venue": -3.67,
@@ -1792,32 +1669,6 @@
     "usd": 117
    }
   },
-  "401892813|ml": {
-   "away": {
-    "n": 2,
-    "best_rank": 61,
-    "usd": 2028
-   }
-  },
-  "401892814|ml": {
-   "away": {
-    "n": 2,
-    "best_rank": 110,
-    "usd": 4790
-   },
-   "home": {
-    "n": 1,
-    "best_rank": 197,
-    "usd": 235
-   }
-  },
-  "401892814|spread": {
-   "away": {
-    "n": 1,
-    "best_rank": 3,
-    "usd": 168
-   }
-  },
   "401892819|ml": {
    "away": {
     "n": 1,
@@ -1839,20 +1690,6 @@
     "usd": 125
    }
   },
-  "401858538|total": {
-   "over": {
-    "n": 1,
-    "best_rank": 170,
-    "usd": 1147
-   }
-  },
-  "401856765|total": {
-   "over": {
-    "n": 1,
-    "best_rank": 115,
-    "usd": 6528
-   }
-  },
   "401858315|total": {
    "over": {
     "n": 1,
@@ -1865,13 +1702,6 @@
     "n": 1,
     "best_rank": 170,
     "usd": 212
-   }
-  },
-  "401921065|spread": {
-   "away": {
-    "n": 1,
-    "best_rank": 65,
-    "usd": 180
    }
   },
   "401925783|spread": {
